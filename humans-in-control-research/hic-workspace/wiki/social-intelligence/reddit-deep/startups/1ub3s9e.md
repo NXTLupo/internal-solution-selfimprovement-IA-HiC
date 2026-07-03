@@ -1,0 +1,85 @@
+---
+id: social-intelligence/reddit-deep/startups/1ub3s9e.md
+url: "https://www.reddit.com/r/startups/comments/1ub3s9e/been_working_on_this_idea_and_kinda_stuck_on_a/"
+kind: "social-post"
+source: "reddit-deep: r/startups"
+subreddit: "startups"
+title: "Been working on this idea and kinda stuck on a dead end - I will not promote"
+author: "Col-ASY"
+date: "2026-06-20T18:29:17.000Z"
+score: 0
+upvote_ratio: 0.5
+num_comments: 7
+flair: "I will not promote"
+extracted_at: "2026-07-03T00:07:52.259Z"
+extraction_method: "praw-deep"
+research_goal: ""
+engagement: "misc"
+chunks:
+  - id: "social-intelligence/reddit-deep/startups/1ub3s9e.md#c0"
+    char_span: [0, 2036]
+    sentence_count: 5
+    key_terms: [x200b, retention, comments, customer, insights, startups, current, founder]
+    concepts: [x200b, retention, comments, customer, insights]
+    token_count: 469
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1ub3s9e/been_working_on_this_idea_and_kinda_stuck_on_a/"}]
+  - id: "social-intelligence/reddit-deep/startups/1ub3s9e.md#c1"
+    char_span: [2038, 2798]
+    sentence_count: 2
+    key_terms: [understand, better, people, gonna, drop, interactions, considered, dependent]
+    concepts: [understand, better, people, gonna]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/startups/1ub3s9e.md#c2"
+    char_span: [2813, 4228]
+    sentence_count: 10
+    key_terms: [development, software, cmd2wyv0qri-hr5pvd2knf, hiring, please, "don't", spent, richalbatross9221]
+    concepts: [development, software, hiring, please, "don't"]
+    section: Comments
+    token_count: 342
+---
+# Been working on this idea and kinda stuck on a dead end - I will not promote
+
+Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1ub3s9e/been_working_on_this_idea_and_kinda_stuck_on_a/)
+Posted by **Col-ASY** · **0↑** · **7 comments**
+
+To begin with a lil bg story- me n my co founder used to share and save a lot of stuff for research n revisiting purpose when needed but couldn't really reuse them when needed which lead us to working on our current idea which helps us in bridging the gap between saving stuff and reusing them
+
+&#x200B;
+
+So we did what every first time founder does we rolled out mvp first, launched it in our circles got 200+ signups (non paying ones) in first day and by the end of the first month we had easy 300+ signups... but the problem was retention which we weren't much obsessed around at that moment becoz we were participating in a fund raising competition and we shifted all our focus into that. We secured some funds there(7.5L by current standards is not even $8k for 5% equity... which we still haven't got lol but meant a lot for us at that moment as some random cllg students starting on things). Now afterwards all that we started realizing the actual need of the user for better retention (it was again via these non paying users only our dumbest mistake tbh) we realized our approach was wrong. Then filtered out the insights from people who could actually pay for this n use it on daily basis and developed it what it is now (which is again getting quite some applause by the people but no traction).
+
+&#x200B;
+
+Now the actual problem- its going to be around 5months since the mvp day but we still haven't actually secured our very own first customer who uses our tool on daily basis and actually pays to use it providing all the necessary insights and feedbacks that helps us to shape this tool for the better adoption of the customer. This keeps on pushing me into the dilemma if what I am building is good enough or was it just a hype built by my peers??
+
+&#x200B;
+
+Just some basic things to better understand this scenario, the genuine feedbacks we started taking which we deemed valuable were getting directly via my X posting n interactions happening there which is what shaped all the initial product marketing and launch around. And am not sure if its ok to drop the link or not so am just gonna drop the name- Tagzzs (genuinely no idea if this will be considered under not self promotion or not but am just dropping this so could help to understand my situation better)
+
+&#x200B;
+
+Atp we've realized us running this just to gather users isn't gonna work... what we will need is people whose life is dependent upon this tool's existence but for some reasons we are just not able to find who are these people to begin with
+
+## Comments
+
+- **I_Lost_My_Socks** (1↑): If they aren't paying they should be saying. Get that info
+  - **Col-ASY** (1↑): Am planning on personally mailing them but I don't really feel that would get any useful info as I've tried the newsletter stuff and not even 95% of them opened it
+
+But will do it anyways
+- **RichAlbatross9221** (-2↑): Hi everyone sorry for crying on this comment op,
+
+Please don't scroll past this.
+
+Three days ago, the PPO I had worked extremely hard for was revoked due to a hiring freeze. One moment I thought my career was finally starting, and the next I was back to searching from scratch.
+
+Since then, I've spent every day applying, reaching out, and trying every possible avenue, but opportunities have been hard to find.
+
+I come from a tier-3 college and have spent years building my skills in software development and competitive programming, hoping that one opportunity would be enough to change things for me and my family. Losing that offer was devastating, but giving up is not an option.
+
+I'm currently looking for Software Development, Backend, Full Stack, or related roles. If you think my profile is worth considering, or if you know someone who is hiring, please send me a message or consider referring me.
+
+Resume:
+[https://drive.google.com/file/d/1OZml42KTl-CmD2wYv0qrI-hr5pVd2kNf/view?usp=drivesdk]
+
+I will forever be grateful for any help
+Thank you for taking the time to read this.

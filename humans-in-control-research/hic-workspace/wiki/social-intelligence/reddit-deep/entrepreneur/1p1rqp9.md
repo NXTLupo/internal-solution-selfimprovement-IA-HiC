@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "Square withholding $20K. Many customers, ZERO Chargebacks. What can I do?"
 author: "bicentennial_man_"
 date: "2025-11-20T02:41:26.000Z"
-score: 35
-upvote_ratio: 0.88
+score: 36
+upvote_ratio: 0.87
 num_comments: 42
 flair: "How Do I?"
-extracted_at: "2026-06-18T13:36:02.625Z"
+extracted_at: "2026-07-03T00:07:52.280Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c0"
     char_span: [0, 1443]
@@ -24,28 +24,28 @@ chunks:
     token_count: 309
     sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c1"
-    char_span: [1457, 3207]
+    char_span: [1458, 3208]
     sentence_count: 11
     key_terms: [entrepreneur, please, permanent, promotion, stickied, account, comment, history]
     concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c2"
-    char_span: [3209, 5341]
+    char_span: [3210, 5342]
     sentence_count: 14
     key_terms: [processors, business, another, payment, square, frustrating, processor, switching]
     concepts: [processors, business, another, payment, square]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c3"
-    char_span: [5079, 5561]
+    char_span: [5080, 5562]
     sentence_count: 3
     key_terms: [processor, business, radicalcoach, coldheat90, definitely, ridiculous, important, merchant]
     concepts: [processor, business]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/entrepreneur/1p1rqp9.md#c4"
-    char_span: [5563, 6100]
+    char_span: [5564, 6101]
     sentence_count: 6
     key_terms: [history, get, chargeback, defending, elsewhere, processor, finished, specific]
     concepts: [history]
@@ -55,7 +55,7 @@ chunks:
 # Square withholding $20K. Many customers, ZERO Chargebacks. What can I do?
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/)
-Posted by **bicentennial_man_** · **35↑** · **42 comments**
+Posted by **bicentennial_man_** · **36↑** · **42 comments**
 
 I need urgent advice. My business is being crippled by a massive reserve hold from u/Square, and their support team has essentially confirmed they will do nothing.
 
@@ -80,14 +80,14 @@ To me this is Square is essentially just telling us to deal with it. Extremely f
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
 - **No_Artichoke7180** (36↑): So this is part of credit card processing... There is absolutely nothing you can do. And I would say zero chance of getting it reviewed early. If you had applied for a real merchant account, it would have been disclosed up front, and you could have shopped around a bit, but with Square usually you kinda just activate and go... So they determined you were a risk after the fact.
   - **bicentennial_man_** (7↑): Damn... I'm really hoping there's some way. I can totally understand some businesses are high risk and the reserve is necessary, but I would think with our perfect history they would do something!
-    - **South-Play-2866** (12↑): It’s not the history, it’s whatever industry and transactions you’re doing.
+    - **South-Play-2866** (11↑): It’s not the history, it’s whatever industry and transactions you’re doing.
 
 They lean more forward looking (rules, regulations, risks) looking than backwards.
-    - **No_Artichoke7180** (-2↑): There was a time, years ago, Id have taken care of this for you. And made a nice profit doing it. But alas, all my industry contacts are like 14 years out of date. And High risk placement was a frustrating business to be in.
+    - **No_Artichoke7180** (-3↑): There was a time, years ago, Id have taken care of this for you. And made a nice profit doing it. But alas, all my industry contacts are like 14 years out of date. And High risk placement was a frustrating business to be in.
 - **PuzzleheadedDrawer** (26↑): If you expect it to balloon to $50,000, why would you give them the opportunity.  Start reaching out to other processors.  You may still get hit with a reserve, but if I was expecting it to balloon like that, I wouldn't run another charge through Square.
   - **bicentennial_man_** (2↑): Very much considering switching providers! Our systems are setup for Square, I'd need to spend a few hours switching things over, so I'd prefer not to, but will if we need to.
-    - **ryan9751** (24↑): Humm spending a few hours to potentially avoid having a company that has been known to do this hold on to 30k of your money with no recourse?
-- **CrypticCoyote1647** (15↑): This kind of hold would freak me out too. When payment processors start freezing large amounts with vague explanations, it usually means some internal flag tripped. Keep pushing for documentation and escalate every channel you can. Don’t just wait around hoping they fix it themselves.
+    - **ryan9751** (25↑): Humm spending a few hours to potentially avoid having a company that has been known to do this hold on to 30k of your money with no recourse?
+- **CrypticCoyote1647** (13↑): This kind of hold would freak me out too. When payment processors start freezing large amounts with vague explanations, it usually means some internal flag tripped. Keep pushing for documentation and escalate every channel you can. Don’t just wait around hoping they fix it themselves.
 - **moraschjungquist824** (3↑): Square’s probably flagging your business as high-risk, so your best move is to switch processors and stop relying on them.
 - **Adulations** (1↑): Nothing you can do aside from finding another processor. All the easy to apply for processors do this, it's really frustrating.
 - **Beneficial_Past_5683** (1↑): Other card processors are available

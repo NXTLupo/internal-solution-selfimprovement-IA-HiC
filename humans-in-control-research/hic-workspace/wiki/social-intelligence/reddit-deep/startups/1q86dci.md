@@ -8,13 +8,13 @@ title: "I built a B2B SaaS, got paying customers, and still feel stuck. Should I
 author: "Fun-Representative40"
 date: "2026-01-09T11:56:28.000Z"
 score: 8
-upvote_ratio: 0.9
+upvote_ratio: 0.8
 num_comments: 37
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.312Z"
+extracted_at: "2026-07-03T00:07:52.259Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c0"
     char_span: [0, 2026]
@@ -24,7 +24,7 @@ chunks:
     token_count: 485
     sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1q86dci/i_built_a_b2b_saas_got_paying_customers_and_still/"}]
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c1"
-    char_span: [2028, 2992]
+    char_span: [2028, 2993]
     sentence_count: 7
     key_terms: [product, conversion, whether, scream, fun-representative40, churn, early, pivot]
     concepts: [product, conversion, whether, scream, churn]
@@ -32,21 +32,21 @@ chunks:
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c2"
-    char_span: [2994, 5081]
+    char_span: [2995, 5082]
     sentence_count: 16
     key_terms: [conversion, user, fun-representative40, clients, website, conversions, flow, real]
     concepts: [conversion, fun-representative40, clients, website, conversions]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c3"
-    char_span: [5083, 7032]
+    char_span: [5084, 7033]
     sentence_count: 17
     key_terms: [hangfromthisone, prompt, conversation, verification, like, conversion, evaluation, valuation]
     concepts: [hangfromthisone, conversation, verification, prompt, conversion]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c4"
-    char_span: [7034, 9320]
+    char_span: [7035, 9321]
     sentence_count: 10
     key_terms: [customers, conversion, whether, "isn't", placement, suddenly, visitors, clients]
     concepts: [customers, conversion, whether, "isn't", placement]
@@ -54,7 +54,7 @@ chunks:
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/startups/1q86dci.md#c5"
-    char_span: [9322, 10083]
+    char_span: [9323, 10084]
     sentence_count: 8
     key_terms: [exhaustion, believe, good, simonexplorer, productivity, compromised, early-stage, improvement]
     concepts: [exhaustion, believe]

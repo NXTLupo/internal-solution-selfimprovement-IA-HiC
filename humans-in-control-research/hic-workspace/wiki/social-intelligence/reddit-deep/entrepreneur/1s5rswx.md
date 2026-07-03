@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "Buying a roofing company in 2026: $100B market, 2x entry multiples, and one PE roll-up that went bankrupt. Full breakdown inside."
 author: "canhelp"
 date: "2026-03-28T05:26:51.000Z"
-score: 49
-upvote_ratio: 0.92
+score: 53
+upvote_ratio: 0.93
 num_comments: 29
 flair: "Best Practices"
-extracted_at: "2026-06-18T13:36:02.621Z"
+extracted_at: "2026-07-03T00:07:52.280Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c0"
     char_span: [0, 1997]
@@ -57,14 +57,14 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c1"]
     token_count: 178
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c6"
-    char_span: [10341, 11488]
+    char_span: [10342, 11489]
     sentence_count: 8
     key_terms: [entrepreneur, please, permanent, promotion, stickied, comment, thread, weekly]
     concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c7"
-    char_span: [11490, 13914]
+    char_span: [11491, 13915]
     sentence_count: 18
     key_terms: [companies, roofing, insurance, people, pretty, good, marketing, company]
     concepts: [companies, roofing, insurance, people, pretty]
@@ -72,14 +72,14 @@ chunks:
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c8"
-    char_span: [13636, 14631]
+    char_span: [13637, 14632]
     sentence_count: 6
     key_terms: [revenue, maintenance, contracts, project, service, thesis, rude-substance-3686, model]
     concepts: [revenue, maintenance, contracts, project, service]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/entrepreneur/1s5rswx.md#c9"
-    char_span: [14633, 15909]
+    char_span: [14634, 15910]
     sentence_count: 8
     key_terms: [companies, something, business, referral, roofing, execution-dependent, relationship-driven, looks]
     concepts: [companies, something, business, referral, roofing]
@@ -90,7 +90,7 @@ chunks:
 # Buying a roofing company in 2026: $100B market, 2x entry multiples, and one PE roll-up that went bankrupt. Full breakdown inside.
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1s5rswx/buying_a_roofing_company_in_2026_100b_market_2x/)
-Posted by **canhelp** · **49↑** · **29 comments**
+Posted by **canhelp** · **53↑** · **29 comments**
 
 Sixth industry deep dive Ive posted here. This was one of the most requested industry. Already covered pest control, HVAC, restoration, home care, and landscaping. Roofing is the one that has the most dramatic PE activity of anything Ive researched. The amount of capital pouring into this space right now is staggering. But its also the industry where a PE roll-up literally went bankrupt last year, so the risks are just as real as the opportunity.
 
@@ -205,13 +205,13 @@ For PE buyers, the math is bigger. $8M revenue at 4.0x EBITDA ($800K EBI
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
-- **Jim_Estill** (5↑): Wow - excellent analysis.  All technical though.  I think half the key in a good business is the people.   How do you assess those?
+- **Jim_Estill** (3↑): Wow - excellent analysis.  All technical though.  I think half the key in a good business is the people.   How do you assess those?
 
 And I did do some roofing but would have been a garage shop compared to what you are looking at.
+- **davidgoldstein2023** (7↑): Are people truly incapable of writing something without having Ai do all the heavy lifting? Jesus Christ
+  - **norcalsocial** (3↑): Why would they. Replace roofing with any trade and ai would make such report in seconds. A consultant would take weeks. Who cares that ai write ups can be part fictional
 - **NotATurntable** (3↑): Having helped run one and built custom CRMs for trades, roofing is wild. Weather dependent, volatile people, and complicated cash flow between signing the contract, buying the materials, getting the labor (almost all sub-contractors), then collecting from owners or insurance companies on longer terms than your suppliers or laborers give you. The company I worked for was acquired in a PE roll up and they ruined it immediately. 
 Building a new CRM/operating system for trades now though, so there’s plenty of upside if you can put in the work.
-- **davidgoldstein2023** (6↑): Are people truly incapable of writing something without having Ai do all the heavy lifting? Jesus Christ
-  - **norcalsocial** (3↑): Why would they. Replace roofing with any trade and ai would make such report in seconds. A consultant would take weeks. Who cares that ai write ups can be part fictional
 - **Several_Garage** (2↑): I mean I think your analysis on Renovo is a bit wrong, there were plenty of problems with those companies and the org as a whole. For instance after the takeover of the company in my region they completely pulled nearly all of their marketing and there best reps left. They then shifted to a model that further pushed good sales reps away and jacked prices while installing cheaper products. Initially they were pretty reasonable prices to then becoming the most expensive. If you look at the companies they bought many had little over lap by product or region. Also a big part your missing is alot of these companies are more so exterior companies. So they sell windows, siding roofing etc. Also the big one is the fact that the insurance claims have pretty dramatically fell which has hurt alot of these companies. Lastly the labor shortages and hiring good workers seems very overblown, with there being so many PE companies paying poor wages and making them work horrible hours, I’m getting a lot more people applying for foreman, measure tech, installer jobs then before. Also if you have good marketing and know how to generate leads it’s pretty constant revenue, we target residential and do virtually 0 insurance claims so no need to have storms or anything.
 - **Ford_Perfect_lx** (1↑): Have you taken a look at the pool service industry? I’m guessing it’s similar to landscaping?
   - **canhelp** (1↑): I haven't but many folks have asked for it . Will do it next

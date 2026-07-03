@@ -393,9 +393,52 @@ export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promi
     if (!Array.isArray(clusterIds) || clusterIds.length === 0) {
         return { text: '', clusterCount: 0, filesScanned: 0 };
     }
+    // 2026-07-02 - ENGAGEMENT-THEME selections (id form "eng:<slug>#<index>", from the library's
+    // engagement-theme harvest). Resolve them from engagements/<slug>/themes.json and render the
+    // same corpus-ready block shape as topic clusters (name + description + subthemes + quote).
+    const engSelections = clusterIds.filter(id => id.startsWith('eng:'));
+    const engBlocks: string[] = [];
+    let engCount = 0;
+    if (engSelections.length > 0) {
+        const bySlug = new Map<string, Set<number>>();
+        engSelections.forEach(id => {
+            const m = id.match(/^eng:(.+)#(\d+)$/);
+            if (!m) return;
+            if (!bySlug.has(m[1])) bySlug.set(m[1], new Set());
+            bySlug.get(m[1])!.add(Number(m[2]));
+        });
+        for (const [slug, indices] of bySlug) {
+            try {
+                const resp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${slug}/themes.json`);
+                if (!resp.ok) continue;
+                const data = await resp.json();
+                const raw = typeof data === 'string' ? data : (data?.content || '');
+                const doc = JSON.parse(raw);
+                const themes = Array.isArray(doc?.data?.themes) ? doc.data.themes
+                    : Array.isArray(doc?.themes) ? doc.themes : [];
+                for (const idx of indices) {
+                    const t = themes[idx];
+                    if (!t) continue;
+                    engCount++;
+                    const subs = Array.isArray(t.subThemes)
+                        ? t.subThemes.map((s: any) => (typeof s === 'string' ? s : s?.name)).filter(Boolean).slice(0, 6).join('; ')
+                        : '';
+                    engBlocks.push([
+                        `=== CACHED ENGAGEMENT THEME (${slug}) ===`,
+                        `Theme: ${t.name || ''}`,
+                        t.description ? `Description: ${t.description}` : '',
+                        subs ? `Subthemes: ${subs}` : '',
+                        t.quote ? `Evidence quote: "${t.quote}"` : '',
+                    ].filter(Boolean).join('\n'));
+                }
+            } catch (e) {
+                console.warn(`[CacheLoader] engagement-theme load failed for ${slug}:`, e);
+            }
+        }
+    }
     // Cluster IDs look like "topics-tm_<job>_<hash>.json#<index>" - group by file
     const byFile = new Map<string, Set<number>>();
-    clusterIds.forEach(id => {
+    clusterIds.filter(id => !id.startsWith('eng:')).forEach(id => {
         const [file, indexStr] = id.split('#');
         const idx = Number(indexStr);
         if (!file || !isFinite(idx)) return;
@@ -452,10 +495,13 @@ export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promi
         }
     }
 
-    if (clusterCount > 0) {
-        console.log(`[CacheLoader] theme-cluster corpus assembled - ${clusterCount} clusters from ${filesScanned} synthesis files.`);
+    // 2026-07-02: fold in the engagement-theme selections resolved above.
+    const allBlocks = [...engBlocks, ...blocks];
+    const totalClusters = clusterCount + engCount;
+    if (totalClusters > 0) {
+        console.log(`[CacheLoader] theme-cluster corpus assembled - ${totalClusters} clusters (${engCount} engagement themes, ${clusterCount} topic clusters from ${filesScanned} synthesis files).`);
     }
-    return { text: blocks.join('\n\n'), clusterCount, filesScanned };
+    return { text: allBlocks.join('\n\n'), clusterCount: totalClusters, filesScanned };
 }
 
 export interface AssembledCachedCorpus {

@@ -11,10 +11,10 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 11
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.317Z"
+extracted_at: "2026-07-03T00:07:52.260Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c0"
     char_span: [0, 2140]
@@ -57,7 +57,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/startups/1svegbb.md#c0", "social-intelligence/reddit-deep/startups/1svegbb.md#c4"]
     token_count: 371
   - id: "social-intelligence/reddit-deep/startups/1svegbb.md#c6"
-    char_span: [10234, 12213]
+    char_span: [10235, 12214]
     sentence_count: 20
     key_terms: [customers, get, client, experience, already, process, start, theredhype]
     concepts: [customers, client, experience, already, process]

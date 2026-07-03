@@ -18923,6 +18923,21 @@ def _diagram_id(spec: dict, brand: str, canvas: str) -> str:
     return "diag-" + _hl.sha1(key.encode("utf-8")).hexdigest()[:16]
 
 
+def _diagram_spec_has_content(spec: dict) -> bool:
+    """ONE content predicate for BOTH the endpoint guard and _brand_diagram (2026-07-02 live
+    fix: the two guards drifted - the endpoint accepted the E4 infographic families while the
+    inner guard silently returned empty for them). Diagram shapes carry labels/nodes/phases/
+    lanes/layers; infographic families carry steps/stats/segments/bars/items/left+right."""
+    if not isinstance(spec, dict):
+        return False
+    if spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers"):
+        return True
+    if str(spec.get("kind") or "") in ("stat-row", "process-flow", "comparison", "ranked-bars", "composition"):
+        return bool(spec.get("steps") or spec.get("stats") or spec.get("segments") or spec.get("bars")
+                    or spec.get("items") or (spec.get("left") and spec.get("right")))
+    return False
+
+
 async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
     """Generate (or REUSE) one brand-locked, labeled structural diagram image. Returns
     {url, dataUri, id, reused}. No knockout (a diagram keeps its ground). Fail-open."""
@@ -18940,7 +18955,7 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
             return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(), "id": iid, "reused": True}
         except Exception:
             pass
-    if not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers")):
+    if not _diagram_spec_has_content(spec):
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     # D17 (2026-07-01, owner-chosen): NATIVE-RENDER to a full-bleed 16:9 GOLD exhibit image (real
     # HTML/CSS from brand tokens -> headless Chromium). Locked, consistent typography + 100% accurate
@@ -18977,8 +18992,12 @@ async def ai_diagram(payload: dict):
     legible text labels. Body: { spec:{kind, labels[], hub?, title?}, brand, canvas } (or kind/labels/hub
     at top level). Returns { url, dataUri, id, reused, brand, canvas }. Fail-open."""
     spec = payload.get("spec") or {k: payload.get(k) for k in ("kind", "labels", "nodes", "connections", "hub", "title")}
-    if not isinstance(spec, dict) or not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers")):
-        return JSONResponse({"error": "spec.labels or spec.nodes required"}, status_code=400)
+    if not isinstance(spec, dict):
+        return JSONResponse({"error": "spec object required"}, status_code=400)
+    # 2026-07-02 (live 400 fix): ONE shared content predicate (_diagram_spec_has_content) accepts
+    # both diagram shapes (labels/nodes/...) and the E4 infographic families (steps/stats/...).
+    if not _diagram_spec_has_content(spec):
+        return JSONResponse({"error": "spec content required: labels/nodes (diagram) or steps/stats/segments/left+right (infographic)"}, status_code=400)
     res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res

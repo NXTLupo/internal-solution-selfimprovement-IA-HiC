@@ -9,10 +9,10 @@ author: ""
 date: "2025-09-14T16:19:08Z"
 tier: 1
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:51:17.612378+00:00"
+extracted_at: "2026-07-02T16:06:27.522564+00:00"
 chars: 500
 engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:51:15+00:00"
+collected_at: "2026-07-02T16:06:25+00:00"
 content_hash: "d8c1a02753a4561a"
 chunks:
   - id: "articles/arxiv-cs-ai/1e3fb9af9b.md#c0"

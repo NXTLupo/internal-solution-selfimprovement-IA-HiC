@@ -4469,6 +4469,24 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     if (img) s.diagramImage = img;
                 }
             }
+            // E4 (2026-07-02): infographic-exhibit slides whose panel fill failed (or that were
+            // generated before the native lane landed) get their exhibitImage composed AT EXPORT
+            // from the payload's own structured fields - same resolver as the generation seam,
+            // so a re-export of an old deck ships the infographic instead of an empty band.
+            {
+                const { resolveRoutedSlotImages } = await import('../services/visualRouter');
+                for (const s of slides as any[]) {
+                    if (String(s.template) !== 'slides:infographic-exhibit') continue;
+                    const sub = s.composerPayload;
+                    if (!sub || typeof sub !== 'object' || (typeof sub.exhibitImage === 'string' && sub.exhibitImage)) continue;
+                    try {
+                        await resolveRoutedSlotImages('slides:infographic-exhibit', sub, s.brand || 'nxt', s.theme || 'dark',
+                            { onLog: (msg: string) => console.log('[deck-export:infographic]', msg) });
+                    } catch (e: any) {
+                        console.warn('[deck-export] infographic backfill skipped:', e?.message || e);
+                    }
+                }
+            }
             const stageHtmlList: string[] = [];
             for (const s of slides) {
                 try {

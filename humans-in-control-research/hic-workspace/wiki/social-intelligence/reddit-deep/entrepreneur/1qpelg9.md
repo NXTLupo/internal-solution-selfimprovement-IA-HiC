@@ -11,10 +11,10 @@ score: 2
 upvote_ratio: 1
 num_comments: 22
 flair: "Growth and Expansion"
-extracted_at: "2026-06-18T13:36:02.629Z"
+extracted_at: "2026-07-03T00:07:52.281Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c0"
     char_span: [0, 2058]
@@ -32,14 +32,14 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c0", "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c3"]
     token_count: 245
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c2"
-    char_span: [3171, 4894]
+    char_span: [3172, 4895]
     sentence_count: 10
     key_terms: [entrepreneur, please, permanent, promotion, business, cleaners, stickied, comment]
     concepts: [entrepreneur, please, permanent, promotion, business]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c3"
-    char_span: [4896, 6393]
+    char_span: [4897, 6394]
     sentence_count: 10
     key_terms: [businesses, optimisticbychoice, audit, advantage, business, daycare, service, working]
     concepts: [optimisticbychoice, businesses, audit, advantage, business]
@@ -47,7 +47,7 @@ chunks:
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/entrepreneur/1qpelg9.md#c4"
-    char_span: [6395, 7196]
+    char_span: [6396, 7197]
     sentence_count: 10
     key_terms: [thinking, owners, expectations, verification, interesting, in-person, insurance, liability]
     concepts: [thinking, owners]

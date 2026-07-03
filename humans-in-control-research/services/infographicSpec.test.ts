@@ -30,6 +30,21 @@ describe('infographicSpecFrom - content-true derivation (E4)', () => {
         expect(spec?.kind).toBe('process-flow');
     });
 
+    it('step DESCRIPTIONS survive into the spec (2026-07-02: were flattened away, cards rendered title-only)', () => {
+        const spec = infographicSpecFrom({
+            steps: [
+                { title: 'Profile the operation', description: 'Acreage, crops, and exposure baseline' },
+                { title: 'Score the hazards', description: 'Weather, market, and input volatility' },
+                { title: 'Match the instruments', description: 'Coverage mapped to scored hazards' },
+            ],
+        }, '');
+        expect(spec?.kind).toBe('process-flow');
+        const steps = spec!.steps as Array<{ name: string; description?: string }>;
+        expect(steps[0].name).toBe('Profile the operation');
+        expect(steps[0].description).toBe('Acreage, crops, and exposure baseline');
+        expect(steps.every(s => !!s.description)).toBe(true);
+    });
+
     it('beforeAfter with 2+ points per side derives a comparison', () => {
         const spec = infographicSpecFrom({
             beforeAfter: {

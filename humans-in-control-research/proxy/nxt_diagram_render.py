@@ -408,42 +408,42 @@ _KICK_FALLBACK = {
 
 _INFO_CSS = """
 /* --- infographic families (E4) --- */
-.statrow{display:flex;gap:14px;width:100%;align-items:stretch;justify-content:center}
+.statrow{display:flex;gap:16px;width:100%;align-items:stretch;justify-content:center}
 .stat{flex:1;min-width:0;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
-  padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.stat .shead{display:flex;align-items:center;gap:8px}
-.stat .sv{font-family:'Saira Condensed';font-weight:600;font-size:34px;line-height:1;color:__INK__}
-.stat .sl{font-family:'NXT Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:__GREY__}
-.stat .sq{font-family:'Archivo';font-size:10.5px;font-style:italic;line-height:1.3;color:__INK__;
-  border-left:3px solid __KICK__;padding-left:8px;margin-top:2px}
-.stat .ss{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:__GREY__;text-transform:uppercase}
+  padding:20px 22px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.stat .shead{display:flex;align-items:center;gap:10px}
+.stat .sv{font-family:'Saira Condensed';font-weight:600;font-size:46px;line-height:1;color:__INK__}
+.stat .sl{font-family:'NXT Mono',monospace;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:__GREY__}
+.stat .sq{font-family:'Archivo';font-size:13px;font-style:italic;line-height:1.35;color:__INK__;
+  border-left:3px solid __KICK__;padding-left:10px;margin-top:3px}
+.stat .ss{font-family:'NXT Mono';font-size:10px;letter-spacing:.6px;color:__GREY__;text-transform:uppercase}
 .pflow{display:flex;gap:0;width:100%;align-items:stretch;justify-content:center}
-.pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;padding:12px 14px;
-  border:1px solid __HAIR__;border-radius:4px;background:__PAPER__}
-.pstep .pshead{display:flex;align-items:center;gap:8px}
-.pstep .psnum{font-family:'NXT Mono';font-size:8.5px;letter-spacing:1px;color:__GREY__}
-.pstep .pst{font-family:'Archivo';font-weight:700;font-size:14px;line-height:1.12;color:__INK__}
-.pstep .psd{font-family:'Archivo';font-size:10.5px;line-height:1.3;color:__GREY__}
-.pconn{flex:0 0 26px;display:flex;align-items:center;justify-content:center;color:__GREY__}
-.cmpwrap{display:flex;gap:14px;width:100%;align-items:stretch}
-.cmp{flex:1;min-width:0;border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;padding:20px 22px;
+  justify-content:center;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__}
+.pstep .pshead{display:flex;align-items:center;gap:10px}
+.pstep .psnum{font-family:'NXT Mono';font-size:11px;letter-spacing:1.5px;color:__GREY__}
+.pstep .pst{font-family:'Archivo';font-weight:700;font-size:19px;line-height:1.22;color:__INK__}
+.pstep .psd{font-family:'Archivo';font-size:13px;line-height:1.35;color:__GREY__}
+.pconn{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:__GREY__}
+.cmpwrap{display:flex;gap:16px;width:100%;align-items:stretch}
+.cmp{flex:1;min-width:0;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:center}
 .cmp.a{background:__WASHCOOL__}
 .cmp.b{background:__PAPER__;border:1px solid __HAIR__}
-.cmp .ct{font-family:'Archivo';font-weight:700;font-size:15px;line-height:1.12;color:__INK__}
-.cmp li{font-family:'Archivo';font-size:11px;line-height:1.3;color:__INK__;padding-left:10px;position:relative;list-style:none;margin-top:4px}
-.cmp li:before{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;background:__KICK__}
-.rbars{display:flex;flex-direction:column;gap:9px;width:100%;justify-content:center}
-.rbar{display:grid;grid-template-columns:minmax(120px,32%) 1fr;gap:10px;align-items:center}
-.rbar .rl{font-family:'Archivo';font-weight:600;font-size:11.5px;line-height:1.2;color:__INK__;text-align:right}
-.rbar .rtrack{background:__HAIR__;border-radius:2px;height:16px;position:relative}
-.rbar .rfill{background:__ACCENT__;height:16px;border-radius:2px}
-.rbar .rn{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:__GREY__;margin-top:2px;grid-column:2}
-.compo{display:flex;flex-direction:column;gap:12px;width:100%;justify-content:center}
-.cbar{display:flex;height:34px;border-radius:3px;overflow:hidden}
+.cmp .ct{font-family:'Archivo';font-weight:700;font-size:19px;line-height:1.2;color:__INK__}
+.cmp li{font-family:'Archivo';font-size:14px;line-height:1.4;color:__INK__;padding-left:12px;position:relative;list-style:none;margin-top:6px}
+.cmp li:before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;background:__KICK__}
+.rbars{display:flex;flex-direction:column;gap:12px;width:100%;justify-content:center}
+.rbar{display:grid;grid-template-columns:minmax(150px,32%) 1fr;gap:12px;align-items:center}
+.rbar .rl{font-family:'Archivo';font-weight:600;font-size:14px;line-height:1.25;color:__INK__;text-align:right}
+.rbar .rtrack{background:__HAIR__;border-radius:2px;height:20px;position:relative}
+.rbar .rfill{background:__ACCENT__;height:20px;border-radius:2px}
+.rbar .rn{font-family:'NXT Mono';font-size:10px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
+.compo{display:flex;flex-direction:column;gap:14px;width:100%;justify-content:center}
+.cbar{display:flex;height:42px;border-radius:3px;overflow:hidden}
 .cseg{height:100%}
-.clegend{display:flex;gap:16px;flex-wrap:wrap}
-.cleg{display:flex;align-items:center;gap:6px;font-family:'Archivo';font-size:10.5px;color:__INK__}
-.cleg i{width:10px;height:10px;display:block}
+.clegend{display:flex;gap:18px;flex-wrap:wrap}
+.cleg{display:flex;align-items:center;gap:8px;font-family:'Archivo';font-size:13px;color:__INK__}
+.cleg i{width:12px;height:12px;display:block}
 """
 
 
@@ -539,13 +539,20 @@ _INFO_BODIES = {
 
 def _chromeless_shell(pal: dict, body_html: str, w: int, h: int) -> str:
     """Slot variant: just the family body on paper, no rail/kicker/title/band (the graphic lives
-    INSIDE a GOLD slide that already carries the chrome). Sized to the slot's aspect."""
+    INSIDE a GOLD slide that already carries the chrome). Sized to the slot's aspect.
+    2026-07-02 (live legibility fix): the family CSS is authored in a 1600px-wide DESIGN SPACE;
+    the shell ZOOMS that space to the requested frame so type/cards scale with the slot instead
+    of rendering fixed-px-tiny in a 2x-export frame (first live exhibit shipped a thin card band
+    adrift in ~70% whitespace). Families stretch to the design height - no dead bands."""
+    k = max(1.0, w / 1600.0)
+    dw = int(round(w / k))
+    dh = int(round(h / k))
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 {_font_face_css()}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:{w}px;height:{h}px;background:{pal['paper']};overflow:hidden}}
-.exhibit{{width:{w}px;height:{h}px;background:{pal['paper']};display:flex;align-items:center;
-  padding:10px 12px;font-family:'Archivo',system-ui,sans-serif;color:{pal['ink']};
+.exhibit{{width:{dw}px;height:{dh}px;zoom:{k};background:{pal['paper']};display:flex;align-items:stretch;
+  padding:16px 18px;font-family:'Archivo',system-ui,sans-serif;color:{pal['ink']};
   -webkit-font-smoothing:antialiased}}
 {_info_css(pal)}
 </style></head><body><div class="exhibit">{body_html}</div></body></html>"""

@@ -1289,5 +1289,71 @@
     "url": "/hic-workspace/wiki/design-system/illustrations/diag-cf89c45f1d317370.png",
     "model": "native-html-chromium",
     "diagram": true
+  },
+  {
+    "id": "diag-08c28965508a6b34",
+    "idea": "A structured risk assessment helps farmers identify hidden operational and technology threats before they disrupt the season",
+    "kind": "journey",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-08c28965508a6b34.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-08c28965508a6b34.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-753efda71679581a",
+    "idea": "",
+    "kind": "process-flow",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-753efda71679581a.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-753efda71679581a.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-aca5820d37bf9c38",
+    "idea": "",
+    "kind": "process-flow",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-aca5820d37bf9c38.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-aca5820d37bf9c38.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-c1c7d8dce2e527c0",
+    "idea": "",
+    "kind": "process-flow",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-c1c7d8dce2e527c0.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-c1c7d8dce2e527c0.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-e651527e85211067",
+    "idea": "",
+    "kind": "process-flow",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-e651527e85211067.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-e651527e85211067.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-a216ab347d25fa26",
+    "idea": "",
+    "kind": "process-flow",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-a216ab347d25fa26.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-a216ab347d25fa26.png",
+    "model": "native-html-chromium",
+    "diagram": true
   }
 ]

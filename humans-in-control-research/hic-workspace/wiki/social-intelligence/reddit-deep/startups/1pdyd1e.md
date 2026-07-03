@@ -7,14 +7,14 @@ subreddit: "startups"
 title: "Is it still realistic to launch a new social network today (I will not promote)"
 author: "AleksandrMovchan"
 date: "2025-12-04T12:07:44.000Z"
-score: 5
-upvote_ratio: 0.62
+score: 6
+upvote_ratio: 0.64
 num_comments: 73
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.292Z"
+extracted_at: "2026-07-03T00:07:52.256Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c0"
     char_span: [0, 2353]
@@ -24,7 +24,7 @@ chunks:
     token_count: 496
     sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1pdyd1e/is_it_still_realistic_to_launch_a_new_social/"}]
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c1"
-    char_span: [2367, 4321]
+    char_span: [2368, 4322]
     sentence_count: 23
     key_terms: [experience, aleksandrmovchan, like, social, new, fundamentally, user-centric, algorithm]
     concepts: [aleksandrmovchan, experience, social, fundamentally, user-centric]
@@ -32,7 +32,7 @@ chunks:
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c2"
-    char_span: [4323, 6540]
+    char_span: [4324, 6541]
     sentence_count: 11
     key_terms: [people, social, reputation, like, facebook, aleksandrmovchan, network, through]
     concepts: [reputation, people, social, aleksandrmovchan, facebook]
@@ -40,7 +40,7 @@ chunks:
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c3"
-    char_span: [6542, 8602]
+    char_span: [6543, 8603]
     sentence_count: 14
     key_terms: [aleksandrmovchan, people, work, users, value, communities, something, platform]
     concepts: [aleksandrmovchan, people, users, communities, value]
@@ -48,13 +48,13 @@ chunks:
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c4"
-    char_span: [8339, 8684]
+    char_span: [8340, 8685]
     sentence_count: 2
     key_terms: [new, humbletalk1489, meaningfully, overwhelming, co-opting, introduce, something, building]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/startups/1pdyd1e.md#c5"
-    char_span: [8686, 9979]
+    char_span: [8687, 9980]
     sentence_count: 11
     key_terms: [network, enough, matter, people, unusual-ability-2208, value, don, new]
     concepts: [network, enough, matter, people, value]
@@ -65,7 +65,7 @@ chunks:
 # Is it still realistic to launch a new social network today (I will not promote)
 
 Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1pdyd1e/is_it_still_realistic_to_launch_a_new_social/)
-Posted by **AleksandrMovchan** · **5↑** · **73 comments**
+Posted by **AleksandrMovchan** · **6↑** · **73 comments**
 
 I am exploring a concept for a new type of social platform and want to sanity check one core question:
 
@@ -103,9 +103,9 @@ Not trying to promote anything here, I am mostly trying to understand if this di
 
 ## Comments
 
-- **Longjumping-Ad8775** (15↑): Social networks are driven by their size.  Do you have the money, time, etc to drive people to a network and to keep them coming back?  I tend to doubt it.  I’d put my time, effort, and energy into something else.
-  - **AleksandrMovchan** (-11↑): Yes, unfortunately, the value is in the user's opinion.
-- **GrandOpener** (13↑): It is demonstrably possible. TikTok appeared in a market already busy with social media companies. The key is that it needs to offer a fundamentally different experience for people to adopt it.  Twitter is not “like Facebook but with a more user-centric algorithm.”  It’s a fundamentally different experience. 
+- **Longjumping-Ad8775** (14↑): Social networks are driven by their size.  Do you have the money, time, etc to drive people to a network and to keep them coming back?  I tend to doubt it.  I’d put my time, effort, and energy into something else.
+  - **AleksandrMovchan** (-13↑): Yes, unfortunately, the value is in the user's opinion.
+- **GrandOpener** (12↑): It is demonstrably possible. TikTok appeared in a market already busy with social media companies. The key is that it needs to offer a fundamentally different experience for people to adopt it.  Twitter is not “like Facebook but with a more user-centric algorithm.”  It’s a fundamentally different experience. 
 
 To me it sounds like you’re trying to make “like Facebook but with a more user-centric algorithm.”  That will not work. You can’t take on existing big players head on like that. 
 
@@ -115,7 +115,7 @@ Based purely on your pitch, I am a thumbs down. This idea did not convince me. N
   - **AleksandrMovchan** (1↑): Thank you for the detailed and thoughtful response. There’s definitely a lot to think about. I’m sure I’ll come back with an answer. 🤝
   - **Classic_Chemical_237** (1↑): TikTok was not new. It was Musically bought by Bytedance which applied their Douyin model.
 - **axSupreme** (3↑): Current social media works the way it does not out of spite or malice. Any new network will have to be heavily monetized to support itself, in which way would your monetization plan differ?
-  - **AleksandrMovchan** (4↑): 1. Ad-free subscription (similar to Telegram)
+  - **AleksandrMovchan** (6↑): 1. Ad-free subscription (similar to Telegram)
 2. Targeted ads like on FB or Instagram (nothing new here)
 
 In my view, the primary goal is to help people see that a social network shouldn’t be a black hole for lost time or a place where you forget about yourself. It should feel more like a personal development compass that you tune yourself, where you watch how others move forward - with a bit of healthy envy, not through endless viral, mind-numbing clips.
@@ -133,10 +133,10 @@ I am probably way off on my assumptions here, just my quick thought.
 
 1. For people to work on their own rating. Activity, honesty, helping others similar to how clothing, manners, and integrity shape a first impression. I wanted it to function in that way.
 2. And for people to work on their trust indicators keeping their word, being reliable, showing they have their life in order and are willing to share that openly.
-- **Lupexlol** (4↑): no
+- **Lupexlol** (5↑): no
   - **AleksandrMovchan** (1↑): )))
 - **Bayleef** (5↑): There is only one way to find out.
-  - **AleksandrMovchan** (4↑): make and try?
+  - **AleksandrMovchan** (2↑): make and try?
     - **Bayleef** (6↑): You know it. People here will tell you their theories, but the truth is nobody knows. This will work or not will depending on how you execute.
 - **[deleted]** (2↑): Pivot.  You will, in all likelihood, be unable to gain the critical mass it takes to grow such a product.  Any product that relies on the users to provide the value has an incredible and insurmountable problem of attracting users when it has NO value (no users == no value).  Modern successes in this genre have been due to external/societal drivers and established names/companies (think bluesky and the shift off X driven largely by American politics imo .. and even for bluesky it was/is precarious)
   - **AleksandrMovchan** (-1↑): Yes, resources matter here. But I think if you take local communities and try to integrate them into a social network where, out of, say, 1,000 registrations, around 200–300 stay active and continue posting and growing - and if you offer them something they can’t get on other platforms, something that motivates them to build and attract more people - then it could work.

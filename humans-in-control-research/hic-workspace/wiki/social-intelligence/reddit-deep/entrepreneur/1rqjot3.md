@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "PE is dumping billions into home care despite 79% caregiver turnover. Heres why."
 author: "canhelp"
 date: "2026-03-11T04:10:36.000Z"
-score: 308
+score: 312
 upvote_ratio: 0.96
 num_comments: 122
 flair: "Best Practices"
-extracted_at: "2026-06-18T13:36:02.593Z"
+extracted_at: "2026-07-03T00:07:52.277Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c0"
     char_span: [0, 2285]
@@ -54,14 +54,14 @@ chunks:
     concepts: [competition, population, business-friendly, medicaid, regulatory]
     token_count: 348
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c6"
-    char_span: [10295, 11099]
+    char_span: [10296, 11100]
     sentence_count: 4
     key_terms: [please, entrepreneur, permanent, promotion, stickied, comment, thread, weekly]
     concepts: [entrepreneur, please, permanent, promotion, stickied]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/entrepreneur/1rqjot3.md#c7"
-    char_span: [11102, 13066]
+    char_span: [11103, 13066]
     sentence_count: 13
     key_terms: [turnover, content, employees, agencies, industry, pipeline, referral, similar]
     concepts: [turnover, content, employees, agencies, industry]
@@ -85,7 +85,7 @@ chunks:
 # PE is dumping billions into home care despite 79% caregiver turnover. Heres why.
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/)
-Posted by **canhelp** · **308↑** · **122 comments**
+Posted by **canhelp** · **312↑** · **122 comments**
 
 Fourth industry deep dive Ive posted here. Already covered pest control, HVAC, and restoration. Several people asked me to look at home care next and Im glad I did because the thesis is completely different from the other industries Ive covered. This isnt a fragmented blue-collar trade with recurring revenue and route density economics. This is a labor business where your entire competitive advantage comes down to one thing: can you keep caregivers from quitting.
 
@@ -190,15 +190,15 @@ $3M revenue personal care agency, $450K SDE, buy at 3.0x for $1.35M. SBA 7(a) at
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
-- **wuboo** (83↑): Better than most content that gets posted here
-  - **ThereFarAway** (46↑): He prompts llms better?
+- **wuboo** (85↑): Better than most content that gets posted here
+  - **ThereFarAway** (47↑): He prompts llms better?
     - **Anonymous8675** (8↑): Who cares how the content is produced if the content is high quality?
-  - **canhelp** (11↑): Thank you 🙏
+  - **canhelp** (9↑): Thank you 🙏
     - **Hazy_Fantayzee** (2↑): Thank ChatGPT more like
-- **CaliforniaChickenjoy** (18↑): Can't stress the 79% turnover more.  I run a similar business and it takes more time and mind space than you can imagine especially if you want to grow.
+- **CaliforniaChickenjoy** (19↑): Can't stress the 79% turnover more.  I run a similar business and it takes more time and mind space than you can imagine especially if you want to grow.
   - **SatisfactionOk350** (1↑): Are you owner / operator? Or do you just handle sales and manage a team? Thinking about something in a similar industry and am wondering how to best start
   - **csmikkels** (1↑): How do you find new employees?
-- **xtsim** (15↑): As someone who is currently working HR for this industry... The turnover rate is real. Even the skilled professionals (nurses, PTs) are turning over fast as they move between multiple agencies. The large turnover means that you pretty much have to have a streamlined recruiting and HR pipeline. Even employees have become the recruiters themselves as one caretaker or professional joins, their friends and family will also apply since we hire as soon as the ink dries to fill spots. 
+- **xtsim** (14↑): As someone who is currently working HR for this industry... The turnover rate is real. Even the skilled professionals (nurses, PTs) are turning over fast as they move between multiple agencies. The large turnover means that you pretty much have to have a streamlined recruiting and HR pipeline. Even employees have become the recruiters themselves as one caretaker or professional joins, their friends and family will also apply since we hire as soon as the ink dries to fill spots. 
 
 Biggest issue that does not seem covered is the role immigration plays as many caretakers (in my case) are immigrants. I am pretty busy verifying that documentation is up to date if the situation arises.
   - **Fantastic-Hamster333** (5↑): The referral pipeline you're describing is honestly the strongest retention lever in this space. When someone's friend or family member also works at the agency, both stick around longer. I've seen agencies where referral hires retained at roughly double the rate of job board hires over 12 months.
@@ -206,7 +206,7 @@ Biggest issue that does not seem covered is the role immigration plays as many c
 You're right that immigration is a blind spot in the OP. In a lot of metros the caregiver workforce is 40-60% immigrants, and the current work authorization climate makes continuous compliance a real operational burden. A $3M agency probably needs a dedicated HR person, not a scheduler who also handles I-9s on the side.
 
 One thing I'd push back on slightly though: the "hire as soon as the ink dries" approach is understandable given the volume pressure, but it feeds the cycle. Every warm-body hire who flames out in 30 days costs you the replacement AND burns out the caregivers who had to cover their shifts. The operators I've worked with who broke below 40% turnover all slowed down just enough to run a basic structured screen instead of hiring everyone who applied.
-    - **xtsim** (5↑): To add to the immigration point, having translators (or staff) that are proficient in both English and their native languages becomes necessary.This also contributes to being able to have higher referral hires as they are aware of the paperwork they need to bring and do not have to overcome language barriers to employment.
+    - **xtsim** (4↑): To add to the immigration point, having translators (or staff) that are proficient in both English and their native languages becomes necessary.This also contributes to being able to have higher referral hires as they are aware of the paperwork they need to bring and do not have to overcome language barriers to employment.
     - **cdkodi** (0↑): When we refer to immigrants in this post - are we referring to immigrants here on a valid work visa?
   - **Secret-Avocado-Lover** (3↑): Curious to know what your thoughts are on companies like Clipboard Health, ShiftMed, etc? Seems like on demand staffing is there although the rates are high.
     - **xtsim** (3↑): We do have a good number of contractors for skilled professionals like nurses (usually for tax purposes). But for staffing companies, it seems that we have to limit them to Physical and Occupational Therapists as it is easier to schedule and drop them with patients. While CNAs, Nurses, and caretakers have to almost always go through the HR/recruiting pipeline even if they are contractors. It is better for us to fill in with those positions with our own staff and contractors than to use a staffing firm.
@@ -214,12 +214,12 @@ One thing I'd push back on slightly though: the "hire as soon as the ink dries" 
 - **abdraaz96** (9↑): Incredible breakdown. The 79% turnover rate is the ultimate Operational Short-Cycle.
 
 Most buyers look at that and think 'I'll just pay $2 more an hour,' but at the B2B and enterprise level, that’s just a band-aid. The real leak is usually in the Onboarding Infrastructure. If the first 100 days feel like chaos, no amount of 'top quartile wages' keeps a caregiver from jumping to a more stable environment like Costco.
-- **Hecker8778** (7↑): damn the 79% turnover number killed me. this is the real codebase problem in home care. you can have all the tech stacks you want but if caregivers are burning out the whole operation collapses. someone should build runable specifically for caregiver shift management and onboarding automation. that's the painkiller
-- **Grouchy_Document_158** (5↑): damn
-  - **shaunsv** (3↑): damn
+- **Hecker8778** (6↑): damn the 79% turnover number killed me. this is the real codebase problem in home care. you can have all the tech stacks you want but if caregivers are burning out the whole operation collapses. someone should build runable specifically for caregiver shift management and onboarding automation. that's the painkiller
+- **Grouchy_Document_158** (4↑): damn
+  - **shaunsv** (4↑): damn
     - **csmikkels** (3↑): damn
 - **RespectableThug** (4↑): As a budding entrepreneur with aging parents, thank you for writing this up. Great stuff!
 - **Trollslayer0104** (4↑): Nice to see some ETA content on this sub, and with some supporting stats. Thanks OP.
-- **NotObviouslyARobot** (7↑): I'm...adjacent to it, operations wise in the primary-care space (as well as laboratory, and pharmacy), and have been trying to solve the geography problem for some time.  You're not wrong that the killer app in that space is logistics.  
+- **NotObviouslyARobot** (6↑): I'm...adjacent to it, operations wise in the primary-care space (as well as laboratory, and pharmacy), and have been trying to solve the geography problem for some time.  You're not wrong that the killer app in that space is logistics.  
 
 Generally, people don't like to drive more than about 15 minutes for daily tasks.  30 minutes gets difficult.  1 hour is extremely difficult.  If it's personal vehicles, and you're not paying them for driving time, your management choices are going to drive your turnover--even with mileage or "gas money."  On top of that, driving is tiring, so you're putting more stress and exhaustion on your workforce.

@@ -115,18 +115,34 @@ GEO = r"""
     // 2026-06-25 - IMG capture: emit each <img> (illustrator slot art: journey phase
     // thumbnails, cover/section/thesis panels) as a REAL, swappable PowerPoint picture
     // at its slot bounds. Capture pixels via canvas->data-URI so it works for data-URIs
-    // AND same-origin URLs regardless of how the renderer carried the src; a tainted
-    // (cross-origin) canvas falls back to the raw src for the python side to fetch.
+    // AND same-origin URLs regardless of how the renderer carried the src.
+    // 2026-07-02 - BROKEN images are SKIPPED outright (a broken glyph or an empty frame
+    // must never reach the deck), and SVG payloads the canvas cannot rasterize fall back
+    // to the clip-screenshot tier (data-pptx-shot marks them so the img-hide rule spares
+    // them and the region shot captures the icon exactly as the browser painted it).
+    // The raw-src passthrough is limited to http(s): python-pptx cannot embed SVG bytes,
+    // and passing them through was the root of the empty-placeholder epidemic.
     if(el.tagName==='IMG'){
       const b=el.getBoundingClientRect();
       if(b.width>=2&&b.height>=2){
+        const src0=el.currentSrc||el.src||el.getAttribute('src')||'';
+        const svgSrc=/^data:image\/svg/i.test(src0);
+        if(!el.complete||(el.naturalWidth===0&&!svgSrc)) return;
         let data='';
         try{
           const cv=document.createElement('canvas');
-          cv.width=(el.naturalWidth||b.width); cv.height=(el.naturalHeight||b.height);
+          cv.width=Math.max(1,Math.round(el.naturalWidth||b.width));
+          cv.height=Math.max(1,Math.round(el.naturalHeight||b.height));
           cv.getContext('2d').drawImage(el,0,0,cv.width,cv.height);
-          data=cv.toDataURL('image/png');
-        }catch(e){ data=el.getAttribute('src')||el.src||''; }
+          const d=cv.toDataURL('image/png');
+          if(d&&d.length>100) data=d;
+        }catch(e){}
+        if(!data&&svgSrc){
+          el.setAttribute('data-pptx-shot','1');
+          svgRegions.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,chrome:!!chrome});
+          return;
+        }
+        if(!data&&/^https?:/i.test(src0)) data=src0;
         if(data) images.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,src:data,chrome:!!chrome});
       }
       return;
@@ -155,86 +171,73 @@ GEO = r"""
 """
 
 
-def _insert_native_picture(slide, stream, x_emu, y_emu, w_emu, h_emu, idx, cid):
-    """Insert an image as a NATIVE, LAYOUT-BACKED PowerPoint PICTURE placeholder (user can 'Change
-    Picture' natively) at the given slot bounds. A slide placeholder only RENDERS if a matching
-    placeholder exists on its slideLayout, so we add a `<p:ph type="pic" idx>` to BOTH the layout
-    (the backing) and the slide, then fill the slide one via insert_picture. Returns the inserted
-    picture, or None on failure (caller falls back to add_picture)."""
-    from pptx.oxml import parse_xml
-    P = 'http://schemas.openxmlformats.org/presentationml/2006/main'
-    A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
-    ox, oy, cx, cy = int(x_emu), int(y_emu), int(max(w_emu, 1)), int(max(h_emu, 1))
-
-    def ph_sp(name, cid_):
-        return parse_xml((
-            '<p:sp xmlns:p="%s" xmlns:a="%s">'
-            '<p:nvSpPr><p:cNvPr id="%d" name="%s %d"/>'
-            '<p:cNvSpPr><a:spLocks noGrp="1"/></p:cNvSpPr>'
-            '<p:nvPr><p:ph type="pic" idx="%d"/></p:nvPr></p:nvSpPr>'
-            '<p:spPr><a:xfrm><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></a:xfrm>'
-            '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr>'
-            '</p:sp>'
-        ) % (P, A, cid_, name, idx, idx, ox, oy, cx, cy))
-
-    # 1) ensure the LAYOUT has a matching picture placeholder (the backing that makes it render)
-    layout = slide.slide_layout
-    if not any(pl.placeholder_format is not None and pl.placeholder_format.idx == idx for pl in layout.placeholders):
-        layout.shapes._spTree.append(ph_sp('Picture Placeholder', 90000 + idx))
-    # 2) add the SLIDE picture placeholder (same idx) + fill it
-    slide.shapes._spTree.append(ph_sp('Picture Placeholder', cid))
-    ph = None
-    for p in slide.placeholders:
-        if p.placeholder_format is not None and p.placeholder_format.idx == idx:
-            ph = p
-            break
-    if ph is None:
-        return None
-    pic = ph.insert_picture(stream)
+def _raster_bytes(src: str):
+    """Decode an <img> src (data URI or http URL) to raster bytes, or None when the payload is
+    not an image format PowerPoint can embed (SVG markup, HTML error pages, truncated data).
+    python-pptx raises on non-raster bytes; validating the magic number UP FRONT means a bad
+    payload is skipped cleanly instead of half-inserting anything."""
+    import base64 as _b64
+    raw = None
     try:
-        pic.crop_left = pic.crop_right = pic.crop_top = pic.crop_bottom = 0
+        if src.startswith("data:"):
+            raw = _b64.b64decode(src.split(",", 1)[1])
+        elif src.startswith("http"):
+            import urllib.request as _u
+            raw = _u.urlopen(src, timeout=10).read()
     except Exception:
-        pass
-    return pic
+        return None
+    if not raw or len(raw) < 24:
+        return None
+    if (raw.startswith(b"\x89PNG") or raw.startswith(b"\xff\xd8\xff")
+            or raw[:6] in (b"GIF87a", b"GIF89a") or raw[:2] == b"BM"
+            or (raw[:4] == b"RIFF" and raw[8:12] == b"WEBP")):
+        return raw
+    return None
 
 
 def _place_geo_images(slide, images, ex, ey, W, H):
-    """Place each GEO-walked <img> as a REAL native PowerPoint picture at its slot bounds: a
-    layout-backed Picture Placeholder ('Change Picture') first, plain add_picture on fallback.
-    Used by BOTH tiers - the native geometry tier and the raster (SVG) tier - so slot art
-    (journey phase thumbs, cover/section panels, the mind-map hub glyph, per-pattern marks) is a
-    swappable native picture in every export, never baked into a flat raster."""
-    import base64 as _b64, io as _io
-    for _ii, im in enumerate(images or []):
+    """Place each GEO-walked <img> as a plain NATIVE PowerPoint picture at its slot bounds
+    (movable, resizable, right-click 'Change Picture' swappable).
+
+    2026-07-02 - the layout-backed Picture-Placeholder tier is DELETED. python-pptx's add_slide
+    CLONES every layout placeholder onto each subsequently created slide, so one slide's slot
+    placeholder leaked onto every later same-variant slide as an empty 'insert picture' prompt
+    box (285 empties across a 112-slide deck), and the fixed idx=100+i scheme collided across
+    slides so pictures filled the WRONG frame (the mangled logo). A plain picture is every bit
+    as native and swappable; the placeholder machinery bought nothing and poisoned the deck.
+    Non-raster payloads (SVG bytes PowerPoint cannot embed) are skipped outright - the browser
+    tier already rasterizes loadable SVGs, so whatever reaches here unrasterized is unrenderable
+    and NO picture beats a broken frame."""
+    import io as _io
+    for im in (images or []):
         if im["x"] >= W or im["y"] >= H:
             continue
-        src = im.get("src") or ""
-        stream = None
-        try:
-            if src.startswith("data:"):
-                stream = _io.BytesIO(_b64.b64decode(src.split(",", 1)[1]))
-            elif src.startswith("http"):
-                import urllib.request as _u
-                stream = _io.BytesIO(_u.urlopen(src, timeout=10).read())
-        except Exception:
-            stream = None
-        if stream is None:
+        raw = _raster_bytes(im.get("src") or "")
+        if raw is None:
             continue
-        _pidx, _pcid = 100 + _ii, 9000 + _ii
         try:
-            _r = _insert_native_picture(slide, stream, ex(im["x"]), ey(im["y"]),
-                                        ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)), _pidx, _pcid)
-            if _r is None:
-                stream.seek(0)
-                slide.shapes.add_picture(stream, ex(im["x"]), ey(im["y"]),
-                                         ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+            slide.shapes.add_picture(_io.BytesIO(raw), ex(im["x"]), ey(im["y"]),
+                                     ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
         except Exception:
-            try:
-                stream.seek(0)
-                slide.shapes.add_picture(stream, ex(im["x"]), ey(im["y"]),
-                                         ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
-            except Exception:
-                pass
+            pass
+
+
+def _strip_empty_picture_placeholders(prs) -> int:
+    """Remove every UNFILLED picture placeholder from every slide. A filled slot is a <p:pic>;
+    a <p:sp> whose nvPr carries `ph type="pic"` has no image and renders in PowerPoint as an
+    empty 'insert picture' prompt box. None are created on the current path, but placeholders
+    cloned by add_slide from any layout (or left by older exports feeding through this module)
+    must never survive to the saved deck. Returns the number removed."""
+    from pptx.oxml.ns import qn
+    removed = 0
+    for slide in prs.slides:
+        sp_tree = slide.shapes._spTree
+        for sp in list(sp_tree.findall(qn("p:sp"))):
+            ph = sp.find(f'{qn("p:nvSpPr")}/{qn("p:nvPr")}/{qn("p:ph")}')
+            if ph is not None and ph.get("type") == "pic":
+                sp_tree.remove(sp)
+                removed += 1
+    return removed
 
 
 # ---------------------------------------------------------------------------
@@ -528,7 +531,10 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     # visible, so each region screenshot captures the tokenized vector as-is.
                     pg.add_style_tag(content=HIDE_TEXT)
                     if all_imgs:
-                        pg.add_style_tag(content="#stage img{visibility:hidden !important}")
+                        # data-pptx-shot marks <img> elements the walker routed to the
+                        # clip-screenshot tier (SVG data-URIs the canvas could not rasterize);
+                        # they must stay visible so their region shot captures the glyph.
+                        pg.add_style_tag(content="#stage img:not([data-pptx-shot]){visibility:hidden !important}")
                     pg.wait_for_timeout(80)
                     import base64 as _b64svg
                     for _r in all_svgs:
@@ -559,20 +565,15 @@ def _render_into_presentation(prs, html_list: list) -> list:
                             layout.shapes._spTree.append(_rect_sp(
                                 8000 + _ci, "GOLD chrome", ex(rc["x"]), ey(rc["y"]),
                                 ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)), rc["fill"]))
-                        import base64 as _b64ch, io as _ioch
+                        import io as _ioch
                         for _ci, im in enumerate(list(chrome_imgs) + chrome_svg_pics):
                             if im["x"] >= W or im["y"] >= H:
                                 continue
-                            _src = im.get("src") or ""
+                            _raw = _raster_bytes(im.get("src") or "")
+                            if _raw is None:
+                                continue
                             try:
-                                if _src.startswith("data:"):
-                                    _st = _ioch.BytesIO(_b64ch.b64decode(_src.split(",", 1)[1]))
-                                elif _src.startswith("http"):
-                                    import urllib.request as _uch
-                                    _st = _ioch.BytesIO(_uch.urlopen(_src, timeout=10).read())
-                                else:
-                                    continue
-                                _layout_add_picture(layout, _st, ex(im["x"]), ey(im["y"]),
+                                _layout_add_picture(layout, _ioch.BytesIO(_raw), ex(im["x"]), ey(im["y"]),
                                                     ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
                                                     8500 + _ci, "GOLD chrome logo")
                             except Exception:
@@ -725,6 +726,14 @@ def _render_into_presentation(prs, html_list: list) -> list:
         for pth in tmp_paths + bg_paths:
             try: pathlib.Path(pth).unlink(missing_ok=True)
             except Exception: pass
+
+    # 2026-07-02 - final gate: no empty 'insert picture' prompt box ever ships.
+    try:
+        _stripped = _strip_empty_picture_placeholders(prs)
+        if _stripped:
+            logger.warning(f"[gold-pptx] stripped {_stripped} empty picture placeholder(s) before save")
+    except Exception:
+        pass
 
     return per_slide_runs
 

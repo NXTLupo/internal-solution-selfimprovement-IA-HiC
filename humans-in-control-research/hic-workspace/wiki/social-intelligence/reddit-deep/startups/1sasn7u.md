@@ -8,13 +8,13 @@ title: "I will not promote: Good Idea?"
 author: "Suspicious_Reward608"
 date: "2026-04-02T20:24:04.000Z"
 score: 4
-upvote_ratio: 0.75
+upvote_ratio: 0.7
 num_comments: 40
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.297Z"
+extracted_at: "2026-07-03T00:07:52.257Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c0"
     char_span: [0, 2104]
@@ -53,42 +53,42 @@ chunks:
     key_terms: [overcomplicating, realistic, schoolers, structure, designer, logical, model, high]
     token_count: 27
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c6"
-    char_span: [10227, 12579]
+    char_span: [10228, 12580]
     sentence_count: 14
     key_terms: [business, churn, presence, reviews, website, google, "you're", immediate]
     concepts: [business, churn, presence, reviews, website]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c7"
-    char_span: [12581, 14307]
+    char_span: [12582, 14308]
     sentence_count: 15
     key_terms: ["you're", whole, name, business, change, enough, google, someoneinsignificant]
     concepts: ["you're", whole, business, change, enough]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c8"
-    char_span: [14309, 16473]
+    char_span: [14310, 16474]
     sentence_count: 11
     key_terms: [business, services, customers, websites, already, "don't", like, need]
     concepts: [business, services, customers, websites, already]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c9"
-    char_span: [16475, 18526]
+    char_span: [16476, 18527]
     sentence_count: 12
     key_terms: [businesses, small, business, offering, problems, like, customers, developer]
     concepts: [businesses, business, small, offering, problems]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c10"
-    char_span: [18528, 20360]
+    char_span: [18529, 20361]
     sentence_count: 21
     key_terms: [because, roofers, "don't", local, businesses, "brother's", impulsive, ranking]
     concepts: [because, roofers, businesses, "don't", local]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/startups/1sasn7u.md#c11"
-    char_span: [20364, 21772]
+    char_span: [20365, 21773]
     sentence_count: 9
     key_terms: [get, high, business, cyclical, talent, cheap, friendofevergreens, hire]
     concepts: [business, cyclical, talent, cheap]

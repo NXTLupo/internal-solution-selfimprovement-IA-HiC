@@ -9,10 +9,10 @@ author: ""
 date: "Fri, 26 Jun 2026 14:09:35 +0200"
 tier: 2
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:49:12.150923+00:00"
+extracted_at: "2026-07-02T16:04:14.741899+00:00"
 chars: 7340
 engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:49:10+00:00"
+collected_at: "2026-07-02T16:04:12+00:00"
 content_hash: "657ee24e64a65b80"
 chunks:
   - id: "articles/the-register-ml/c44dcce98e.md#c0"

@@ -380,3 +380,101 @@ User-cited praise: "(positive vote/star-only signal)"
 This chat-reply succeeds by delivering a direct, highly accurate, and complete response that immediately satisfies the user'
 
 User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This chat-reply works exceptionally well because it delivers a direct, highly accurate, and friction-free response that immediately
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This chat-reply succeeds by delivering immediate, highly accurate value that directly satisfies the user's intent without unnecessary
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This exemplary chat-reply works well because it delivers an immediate, highly accurate, and contextually relevant answer that directly satisfies the user's intent. By resolving the query comprehensively and without friction, it prompts quick, positive non-verbal feedback from users
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This exemplary chat reply works well because it delivers direct, contextually accurate, and highly actionable information that immediately satisfies the user's intent. By minimizing cognitive load and resolving the query in a single turn, the output earns swift positive ratings without requiring further clarification or follow-up.
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+Exemplary chat replies succeed because they deliver direct, highly accurate answers that immediately resolve the user's query
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This exemplary chat-reply works well because it delivers a highly accurate, concise, and directly actionable response that
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This chat-reply works exceptionally well because it delivers direct, highly accurate, and contextually relevant information that immediately satisfies the user's intent. The silent, positive ratings indicate that the response was so complete and friction-free that users felt their needs were fully met without requiring
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+An exemplary chat-reply works well because it delivers immediate, highly relevant information that directly addresses the user'
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+An exemplary chat-reply works well because it delivers a direct, well-structured, and highly accurate response that
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This exemplary chat-reply works well because it delivers immediate, highly relevant information that directly addresses the user's intent without unnecessary filler. The strong positive ratings indicate the response was so precise and complete that it resolved the query instantly, leaving the user fully
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+This chat-reply works well because it delivers a direct, highly accurate, and contextually precise answer that immediately satisfies the
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+An exemplary chat-reply succeeds by delivering direct, highly accurate, and contextually relevant answers that immediately satisfy the user's intent. The high volume of positive, star-only ratings indicates that the response was so seamlessly helpful and complete that it resolved
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+Exemplary chat replies succeed by delivering immediate, highly accurate, and context-aware answers that resolve the user
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-02) - from 7 positive signals
+An exemplary chat-reply succeeds by directly addressing the user's query with clear, concise, and highly
+
+User-cited praise: "(positive vote/star-only signal)"

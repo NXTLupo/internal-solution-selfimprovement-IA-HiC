@@ -7,14 +7,14 @@ subreddit: "startups"
 title: "I will not promote - Startups/founders guide. My experience"
 author: "Beneficial-Cow-7408"
 date: "2026-04-20T18:14:44.000Z"
-score: 30
-upvote_ratio: 0.8
+score: 26
+upvote_ratio: 0.78
 num_comments: 33
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.295Z"
+extracted_at: "2026-07-03T00:07:52.257Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c0"
     char_span: [0, 2162]
@@ -39,14 +39,14 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/startups/1sqxkut.md#c0", "social-intelligence/reddit-deep/startups/1sqxkut.md#c1"]
     token_count: 243
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c3"
-    char_span: [5606, 7535]
+    char_span: [5607, 7536]
     sentence_count: 16
     key_terms: [building, promote, genuinely, something, noticed, problem, spammer, through]
     concepts: [building, promote, genuinely, something, noticed]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/startups/1sqxkut.md#c4"
-    char_span: [7537, 9650]
+    char_span: [7538, 9651]
     sentence_count: 17
     key_terms: [threads, environment, like, commenting, everything, scrolling, targeting, traction]
     concepts: [threads, environment, commenting, everything, scrolling]
@@ -56,7 +56,7 @@ chunks:
 # I will not promote - Startups/founders guide. My experience
 
 Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1sqxkut/i_will_not_promote_startupsfounders_guide_my/)
-Posted by **Beneficial-Cow-7408** · **30↑** · **33 comments**
+Posted by **Beneficial-Cow-7408** · **26↑** · **33 comments**
 
 I get asked this constantly. How did you get traction from Reddit? How did you get your first paying customer? How do you scale?
 
@@ -126,7 +126,7 @@ You will get dramatically better traction. I've seen it firsthand.
 
 ## Comments
 
-- **tonytidbit** (7↑): It's just a spammer with shitty karma here to through their profile promote their shit.
+- **tonytidbit** (6↑): It's just a spammer with shitty karma here to through their profile promote their shit.
 
 Downvote, report, block. Rinse and repeat.
   - **arushbartaria** (3↑): He didn't promote and actually shared something which helped

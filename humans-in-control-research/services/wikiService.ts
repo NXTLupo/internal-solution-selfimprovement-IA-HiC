@@ -1901,6 +1901,11 @@ export async function loadGenerationContext(
             const ids = cachedSelection.theme_cluster_ids;
             if (ids.length > 0) {
                 const byFile = new Map<string, Array<{ id: string; index: number }>>();
+                // 2026-07-02 - ENGAGEMENT-THEME ids ("eng:<slug>#<index>", from the library's
+                // engagement-theme harvest). They resolve from engagements/<slug>/themes.json,
+                // not the topic-cache - route them separately so they stop 404ing against
+                // /api/topic-cache/read (live console: "resolved 0/11 cached theme IDs").
+                const bySlug = new Map<string, Array<{ id: string; index: number }>>();
                 for (const id of ids) {
                     const hash = id.indexOf('#');
                     if (hash < 0) continue;
@@ -1908,11 +1913,43 @@ export async function loadGenerationContext(
                     const idxRaw = id.slice(hash + 1);
                     const idx = /^\d+$/.test(idxRaw) ? parseInt(idxRaw, 10) : -1;
                     if (!file) continue;
+                    if (file.startsWith('eng:')) {
+                        const slug = file.slice(4);
+                        if (!bySlug.has(slug)) bySlug.set(slug, []);
+                        bySlug.get(slug)!.push({ id, index: idx });
+                        continue;
+                    }
                     if (!byFile.has(file)) byFile.set(file, []);
                     byFile.get(file)!.push({ id, index: idx });
                 }
                 const resolved: NonNullable<GenerationContext['cachedSelection']>['resolved_theme_bodies'] = [];
                 let resolvedCount = 0;
+                for (const [slug, slots] of bySlug.entries()) {
+                    try {
+                        const page = await readWikiPage(`engagements/${slug}/themes.json`);
+                        if (!page?.content) continue;
+                        const doc = JSON.parse(page.content);
+                        const themes = Array.isArray(doc?.data?.themes) ? doc.data.themes
+                            : Array.isArray(doc?.themes) ? doc.themes : [];
+                        for (const slot of slots) {
+                            const t = themes[slot.index];
+                            if (!t) continue;
+                            resolved.push({
+                                id: slot.id,
+                                name: String(t.name || '').trim(),
+                                summary: String(t.description || t.insight || '').trim(),
+                                sentiment: String(t.sentiment || 'unknown'),
+                                post_count: Array.isArray(t.citations) ? t.citations.length : 0,
+                                top_terms: Array.isArray(t.subThemes)
+                                    ? t.subThemes.slice(0, 8).map((s: any) => (typeof s === 'string' ? s : (s?.name || ''))).filter(Boolean)
+                                    : [],
+                                source_synthesis_path: `engagements/${slug}/themes.json`,
+                                source_engagement_goal: slug.replace(/-/g, ' '),
+                            });
+                            resolvedCount++;
+                        }
+                    } catch { /* miss is non-fatal */ }
+                }
                 for (const [file, slots] of byFile.entries()) {
                     let payload: any = null;
                     // 2026-06-07 - Topic-model files moved from

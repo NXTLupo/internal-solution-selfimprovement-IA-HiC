@@ -289,6 +289,43 @@ async function collectThemes(): Promise<LibraryThemeCluster[]> {
             });
         });
     }
+    // 2026-07-02 (live gap: "my agriculture themes are not in the library") - the THEMES tab
+    // previously listed ONLY topic-model cache clusters, so any engagement whose run never
+    // produced a topic-model file (the agriculture + insurance pack runs, and any run without
+    // the social topic stage) contributed ZERO themes even though its curated
+    // engagements/<slug>/themes.json holds the Research Assembly Board themes - the most
+    // valuable reusable product of a run. Harvest those too, as first-class library clusters.
+    try {
+        const slugs = await listWikiSubdirs('engagements');
+        for (const slug of slugs) {
+            const doc = await readWikiJson<any>(`engagements/${slug}/themes.json`);
+            const themes = Array.isArray(doc?.data?.themes) ? doc.data.themes
+                : Array.isArray(doc?.themes) ? doc.themes : [];
+            themes.forEach((t: any, i: number) => {
+                const name = String(t.name || t.title || '').trim();
+                if (!name) return;
+                const sentiment = ['positive', 'neutral', 'negative', 'mixed'].includes(t.sentiment) ? t.sentiment : 'unknown';
+                const cites = Array.isArray(t.citations) ? t.citations.length : 0;
+                const signature = `${name.toLowerCase()}|${sentiment}|${Math.round(cites / 5) * 5}`;
+                all.push({
+                    id: `eng:${slug}#${i}`,
+                    signature,
+                    name,
+                    summary: String(t.description || t.insight || '').trim(),
+                    sentiment: sentiment as LibraryThemeCluster['sentiment'],
+                    post_count: cites,
+                    top_terms: Array.isArray(t.subThemes)
+                        ? t.subThemes.slice(0, 8).map((s: any) => parseThemeTerm(typeof s === 'string' ? s : (s?.name || '')))
+                        : [],
+                    source_synthesis_path: `engagements/${slug}/themes.json`,
+                    source_engagement_goal: slug.replace(/-/g, ' '),
+                    completed_at: String(doc?.saved_at || doc?.data?.stamped_at || ''),
+                });
+            });
+        }
+    } catch (e) {
+        console.warn('[WikiLibrary] engagement-theme harvest failed (non-fatal):', e);
+    }
     // De-duplicate by signature. Keep the FIRST occurrence (already in synthesis-
     // file order); track how many other duplicates exist so the UI can show
     // "appears in N other engagements". Preserves the source_engagement_goal

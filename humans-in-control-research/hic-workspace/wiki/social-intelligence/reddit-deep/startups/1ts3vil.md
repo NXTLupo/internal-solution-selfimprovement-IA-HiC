@@ -8,13 +8,13 @@ title: "I will not promote: Looking for a GTM co-founder for a product intellige
 author: "No_Wealth_1630"
 date: "2026-05-30T16:04:40.000Z"
 score: 0
-upvote_ratio: 0.44
+upvote_ratio: 0.41
 num_comments: 17
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.308Z"
+extracted_at: "2026-07-03T00:07:52.258Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c0"
     char_span: [0, 2047]
@@ -30,7 +30,7 @@ chunks:
     concepts: [product, designed, looking, problem, someone]
     token_count: 186
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c2"
-    char_span: [2942, 4727]
+    char_span: [2943, 4728]
     sentence_count: 19
     key_terms: [reviews, mean, customers, validated, whatever, missing, through, usually]
     concepts: [reviews, customers, validated, whatever, missing]
@@ -38,7 +38,7 @@ chunks:
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c3"
-    char_span: [4729, 6683]
+    char_span: [4730, 6684]
     sentence_count: 20
     key_terms: [product, customers, paulsonfanboy134, reviews, engineering, did, challenges, co-founder]
     concepts: [product, paulsonfanboy134, customers, reviews, engineering]
@@ -46,7 +46,7 @@ chunks:
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/startups/1ts3vil.md#c4"
-    char_span: [6685, 7727]
+    char_span: [6686, 7728]
     sentence_count: 10
     key_terms: [good, gtm, dontbelieveawordof1t, churn, find, loop, brianchase2882, super-ride4501]
     concepts: [churn]

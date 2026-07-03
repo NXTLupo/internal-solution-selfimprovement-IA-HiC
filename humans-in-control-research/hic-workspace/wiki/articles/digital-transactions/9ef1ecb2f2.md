@@ -6,13 +6,13 @@ kind: "article"
 source: "digital_transactions"
 title: "The healthcare payments industry has a perception problem"
 author: ""
-date: "Wed, 24 Jun 2026 15:24:11 +0000"
+date: "Mon, 29 Jun 2026 15:11:11 +0000"
 tier: 3
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:47:45.126677+00:00"
+extracted_at: "2026-07-02T18:04:04.887062+00:00"
 chars: 4877
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:47:43+00:00"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+collected_at: "2026-07-02T18:04:02+00:00"
 content_hash: "0e22035837656205"
 chunks:
   - id: "articles/digital-transactions/9ef1ecb2f2.md#c0"

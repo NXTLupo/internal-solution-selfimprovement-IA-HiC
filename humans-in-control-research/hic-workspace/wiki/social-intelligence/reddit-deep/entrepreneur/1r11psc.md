@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "Side project born from a rickroll prank is making money. No clue how to scale it"
 author: "TeslaCoilzz"
 date: "2026-02-10T14:08:42.000Z"
-score: 45
-upvote_ratio: 0.94
+score: 51
+upvote_ratio: 0.97
 num_comments: 48
 flair: "How Do I?"
-extracted_at: "2026-06-18T13:36:02.617Z"
+extracted_at: "2026-07-03T00:07:52.279Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c0"
     char_span: [0, 1552]
@@ -36,14 +36,14 @@ chunks:
     concepts: [network, service, anyone, making]
     token_count: 124
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c3"
-    char_span: [4625, 6735]
+    char_span: [4626, 6737]
     sentence_count: 15
     key_terms: [museum, entrepreneur, please, teslacoilzz, permanent, promotion, stickied, already]
     concepts: [museum, entrepreneur, please, teslacoilzz, permanent]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c4"
-    char_span: [6740, 8577]
+    char_span: [6742, 8579]
     sentence_count: 23
     key_terms: [referral, code, send, customers, generator, business, hosting, privacy]
     concepts: [referral, customers, generator, business, hosting]
@@ -51,14 +51,14 @@ chunks:
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c5"
-    char_span: [8579, 10568]
+    char_span: [8581, 10570]
     sentence_count: 5
     key_terms: [want, probably, museums, sweatyengineer, interesting, tool, companies, honestly]
     concepts: [probably, sweatyengineer, museums, interesting, companies]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/entrepreneur/1r11psc.md#c6"
-    char_span: [10570, 12223]
+    char_span: [10572, 12225]
     sentence_count: 8
     key_terms: [teslacoilzz, got, like, beginning, customers, generator, services, review]
     concepts: [teslacoilzz, beginning, customers, generator, services]
@@ -69,7 +69,7 @@ chunks:
 # Side project born from a rickroll prank is making money. No clue how to scale it
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1r11psc/side_project_born_from_a_rickroll_prank_is_making/)
-Posted by **TeslaCoilzz** · **45↑** · **48 comments**
+Posted by **TeslaCoilzz** · **51↑** · **48 comments**
 
 Close friend runs a restaurant, and our friend group has this tradition of showing care through the dumbest pranks possible. So year ago, for his birthday dinner I made a set of QR codes for his tables. Custom graphic frame around each one, restaurant name, looked almost professional from a distance. The actual QR part was ugly basic white squares though. And every single one linked to Never Gonna Give You Up. We put them on every table. Guests scanning for the menu, getting rickrolled instead. Small group of friends, everyone cracking up. Job done. After the party the codes came down obviously, but the idea of having proper QR codes in that restaurant stuck with me. Started looking for generators that could actually produce something decent. Turns out most of them are ugly anyway, the better ones want monthly subscriptions, and almost all of them route scans through their own servers first. Since I wanted to learn Python for years already, this became my excuse. Wrote a basic generator for myself. Then every week I was modding or adding something new. Logo embedding, vCard support, batch CSV processing, looked for ways for NFC integration, SVG export. Classic case of a side project spiraling out of control, except this one turned out to be useful.
 
@@ -95,8 +95,8 @@ Would appreciate any honest thoughts. Not dropping business name or site because
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
 - **WorkLoopie** (12↑): I’d just reach out to the museum. But it’s kind of already a thing in larger museums world wide. So idk how much you travel, but I don’t think any big ones will bite. Maybe smaller ones.
-  - **TeslaCoilzz** (3↑): Working right now on brining to the team girls that work in museum office - they are willing to cooperate trough their network of connections with other museums, and im more than happy to share earning with them. Hope it works since it kills the need of actual cold outreach to those places.
-- **rjyo** (9↑): The museum case is really interesting because that is a repeatable playbook, not just a one-off win. Every museum, gallery, historical site, and tourist attraction in Poland (and Europe) has the same problem: foreign visitors who cant read the local language. You already solved it end-to-end for one museum. Now you have a case study.
+  - **TeslaCoilzz** (5↑): Working right now on brining to the team girls that work in museum office - they are willing to cooperate trough their network of connections with other museums, and im more than happy to share earning with them. Hope it works since it kills the need of actual cold outreach to those places.
+- **rjyo** (10↑): The museum case is really interesting because that is a repeatable playbook, not just a one-off win. Every museum, gallery, historical site, and tourist attraction in Poland (and Europe) has the same problem: foreign visitors who cant read the local language. You already solved it end-to-end for one museum. Now you have a case study.
 
   
 For scaling beyond your network, I would skip Instagram and TikTok for now. Your buyers are operations managers and marketing directors at institutions, they are not scrolling reels. What actually works for niche B2B like this:
@@ -115,7 +115,7 @@ For scaling beyond your network, I would skip Instagram and TikTok for now. Your
 
   
 The rickroll origin story is genuinely great marketing material though. If you ever do content, lead with that. People remember stories like that way more than feature lists.
-- **COKeefe88** (4↑): Come up with some referral offers and send that out to a batch of your current/past customers as a test. Iterate if necessary, then send referral offers to all your past customers.
+- **COKeefe88** (5↑): Come up with some referral offers and send that out to a batch of your current/past customers as a test. Iterate if necessary, then send referral offers to all your past customers.
 
 The museum route sounds promising, it got me wondering about secondary schools/universities putting QR codes in various places for students.
 - **Snoo23533** (3↑): Air bnb hosts for wifi pw. Maybe do business postal mail with an example of how good it looks when you print the card. Also point out the privacy of your links to. Or you could start hosting your own qr code generator online.
@@ -135,7 +135,7 @@ the museum example was interesting too. you basically showed up with the problem
 
 also curious if most of your revenue is coming from just the codes themselves, or from the bundles like nfc cards, review stands, printed stuff, etc. sometimes the physical package is actually what makes something like this easier to sell than just software alone.
   - **TeslaCoilzz** (1↑): You’ve got it right from the beginning, it took me some time to realize the same - that the outcome is a language I’ve got to speak to the customers, not mere functions or parameters. I was geeking out about my own generator in the beginning, and nobody cared about that stuff - but leave them wooden nfc review collector card - they’ll go bonkers for everything else you’ve got. Pardon for late reply, you’ e wrote really smart comment mate 👍
-- **AlfredoOf98** (2↑): I don't mean to demoralize you, but why this sounds like should have happened 6 years ago? Or didn't the QRCode revolution reach your geography yet?
+- **AlfredoOf98** (4↑): I don't mean to demoralize you, but why this sounds like should have happened 6 years ago? Or didn't the QRCode revolution reach your geography yet?
   - **TeslaCoilzz** (2↑): Don’t worry, criticism is always welcome. It kinda did, but not on a satisfying level in terms of quality of such services - at least in my opinion. If I get clients trough social media marketing/cold outreach, then I guess I’ll validate the need for it, outside of my network and comfort zone
     - **Commercial_Set581** (0↑): Yeah - I think your 'problem with scale' is that the rest of the world doesn't need QR generators. They already exist as either free services, built-in to their browser, AI generated, or simply open source.
 

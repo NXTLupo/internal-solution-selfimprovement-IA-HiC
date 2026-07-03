@@ -96,11 +96,30 @@ function _sourceTypeOf(name: string): string {
  *  no structurable substance (-> no image; never decorate). */
 export function infographicSpecFrom(el: unknown, concept: string): Record<string, unknown> | null {
     const o = (el && typeof el === 'object') ? el as Record<string, unknown> : {};
-    // 1) process-flow from actions/steps/phases (the mechanism the element proposes)
+    // 1) process-flow from actions/steps/phases (the mechanism the element proposes).
+    //    2026-07-02 - preserve per-step DESCRIPTIONS: authored {title, description} objects were
+    //    being flattened to bare name strings, so the rendered cards carried a title floating in
+    //    empty space (the panel read as unfinished). The native renderer already supports
+    //    step.description (the .psd line); carry it through.
     for (const key of ['actions', 'steps', 'phases', 'coherentActions']) {
-        const steps = _strList(o[key]);
+        const raw = o[key];
+        if (!Array.isArray(raw)) continue;
+        const steps = raw.map((x) => {
+            if (typeof x === 'string' && x.trim()) return { name: x.trim() };
+            if (x && typeof x === 'object') {
+                const r = x as Record<string, unknown>;
+                const name = String(r.title ?? r.name ?? r.step ?? r.label ?? r.action ?? '').trim();
+                const desc = String(r.description ?? r.detail ?? r.descriptor ?? r.body ?? '').trim();
+                if (name) {
+                    const step: { name: string; description?: string } = { name };
+                    if (desc) step.description = desc;
+                    return step;
+                }
+            }
+            return null;
+        }).filter((s): s is { name: string; description?: string } => !!s).slice(0, 6);
         if (steps.length >= 3) {
-            return { kind: 'process-flow', steps: steps.map(s => ({ name: s })) };
+            return { kind: 'process-flow', steps };
         }
     }
     // 2) comparison from before/after shapes

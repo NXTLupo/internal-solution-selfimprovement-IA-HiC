@@ -1,0 +1,221 @@
+---
+id: social-intelligence/reddit-deep/entrepreneur/1rwquoo.md
+url: "https://www.reddit.com/r/Entrepreneur/comments/1rwquoo/landscaping_might_be_the_most_obvious_rollup_in/"
+kind: "social-post"
+source: "reddit-deep: r/entrepreneur"
+subreddit: "entrepreneur"
+title: "Landscaping might be the most obvious roll-up in home services right now. $189B market, 726K businesses, and PE is buying everything. Heres every number I could find."
+author: "canhelp"
+date: "2026-03-18T01:58:31.000Z"
+score: 91
+upvote_ratio: 0.91
+num_comments: 42
+flair: "Best Practices"
+extracted_at: "2026-07-03T00:07:52.279Z"
+extraction_method: "praw-deep"
+research_goal: ""
+engagement: "misc"
+chunks:
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c0"
+    char_span: [0, 2345]
+    sentence_count: 21
+    key_terms: [landscaping, commercial, recurring, services, because, revenue, maintenance, market]
+    concepts: [landscaping, commercial, recurring, services, maintenance]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c3", "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c6"]
+    token_count: 512
+    sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rwquoo/landscaping_might_be_the_most_obvious_rollup_in/"}]
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c1"
+    char_span: [2347, 4110]
+    sentence_count: 8
+    key_terms: [acquisitions, revenue, sde, experigreen, done, customers, platforms, recurring]
+    concepts: [acquisitions, revenue, experigreen, customers, platforms]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c2"
+    char_span: [4112, 6112]
+    sentence_count: 12
+    key_terms: [margin, gross, revenue, maintenance, irrigation, recurring, service, above]
+    concepts: [margin, gross, maintenance, revenue, irrigation]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c3"
+    char_span: [6114, 8222]
+    sentence_count: 16
+    key_terms: [recurring, commercial, maintenance, contracts, equipment, premium, revenue, certifications]
+    concepts: [recurring, commercial, maintenance, contracts, equipment]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c0", "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c6"]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c4"
+    char_span: [8224, 10239]
+    sentence_count: 18
+    key_terms: [year-round, revenue, ebitda, labor, year, platform, demand, costs]
+    concepts: [year-round, revenue, ebitda, labor, platform]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c5"
+    char_span: [10241, 12427]
+    sentence_count: 17
+    key_terms: [entrepreneur, please, someone, friend, landscaping, guys, customers, equipment]
+    concepts: [entrepreneur, please, someone, friend, landscaping]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c6"
+    char_span: [12429, 14364]
+    sentence_count: 8
+    key_terms: [crews, residential, guys, commercial, recurring, business, revenue, always]
+    concepts: [residential, commercial, crews, recurring, business]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c0", "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c3"]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/entrepreneur/1rwquoo.md#c7"
+    char_span: [14366, 15558]
+    sentence_count: 9
+    key_terms: [ebitda, company, brand, local, crew, roll, ghostlyman789, operationally]
+    concepts: [ebitda, company, brand, local]
+    section: Comments
+    token_count: 290
+---
+# Landscaping might be the most obvious roll-up in home services right now. $189B market, 726K businesses, and PE is buying everything. Heres every number I could find.
+
+Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1rwquoo/landscaping_might_be_the_most_obvious_rollup_in/)
+Posted by **canhelp** · **91↑** · **42 comments**
+
+Fifth industry deep dive Ive posted here. Already covered pest control, HVAC, restoration, and home care. Landscaping is the one Ive been most excited to research because the consolidation thesis is so clean. Massive TAM, incredibly fragmented, proven PE playbook, and the entry multiples are still low enough for SBA buyers to get in. But like everything else in home services, the labor picture is what separates winners from losers.
+
+Heres everything I found.
+
+**Why landscaping is a PE magnet right now**
+
+$188.8 billion market in 2025 according to IBISWorld and NALP. Thats not a typo. Landscaping is bigger then most people realize because it includes maintenance, design-build, hardscaping, irrigation, tree care, pest control for lawns, and commercial grounds management. Growing at roughly 5.7% CAGR per Mordor Intelligence.
+
+But heres the real story: 726,565 businesses in the US with the top 50 controlling only about 20% of the market. Thats one of the most fragmented industries in all of home services. For PE, fragmentation plus recurring revenue is the holy grail because it means you can buy individual operators at 3-4x EBITDA and build platforms that exit at 11-14x.
+
+**The recurring revenue angle most people miss**
+
+Landscaping used to be a project-based business. Not anymore. Leading providers now report 75%+ of new bookings come thru subscription and recurring maintenance contracts. Weekly mowing, fertilization programs, seasonal treatments, commercial grounds contracts. This is the same recurring revenue story that made pest control attractive, just in a much bigger market.
+
+Maintenance services account for about 91.5% of industry revenue. Residential is 61%, commercial and institutional is 39%. The commercial side is where things get interesting because ESG mandates are driving corporations to sign multi-year landscaping contracts with 15-20% premium pricing for native plants, drought-resistant designs, and water-efficient irrigation systems.
+
+**What buyers are actually paying**
+
+* $250K-$500K revenue: 1.7x-2.2x SDE (owner-operator, minimal transferability)
+* $500K-$1.5M revenue: 2.5x-3.0x SDE (SBA sweet spot, established customer base)
+* $1.5M-$5M revenue: 2.8x-3.5x SDE (PE add-on targets, recurring maintenance >60%)
+* $5M-$10M+ revenue: 3.2x-4.0x SDE (platform-scale, recurring >75%, regional density)
+
+Median SDE is about $215K and median sale price is $645K. The multiple arbitrage is the play. Buy at 3x SDE, build to $8M revenue thru organic growth and tuck-ins, exit at 6-8x EBITDA. The gap between where you buy single-asset companies and where platforms trade is 200-300%.
+
+**PE is all over this space**
+
+78 of 108 deals in 2025 were PE-backed thats 72% of all M&A activity per KPMG. Some of the platforms actively rolling up:
+
+* Perennial Services Group (Brentwood Associates & Tenex Capital) has done 25+ add-ons, integrating lawn care + pest + irrigation + tree services for cross-sell
+* ExperiGreen started under Huron Capital, did 19 acquisitions, grew from 40,000 to 140,000+ customers and achieved a 10x EBITDA increase. Sold to Wind Point Partners in Jan 2025. Then merged with Turf Masters Brands in Dec 2025 to create a nearly 400,000 customer platform across 16 states
+* Landscape Workshop (Ares Management) has done 12+ add-ons focused on commercial grounds in the Southeast
+* American Landscaping Partners (Shoreline Equity) did 7 acquisitions since Aug 2023 across Midwest and Southeast
+* SavATree has done 33+ acquisitions in tree care
+
+The ExperiGreen story is the one I keep coming back to. 40K customers to 400K in three years thru disciplined tuck-in acquisitions, tech integration, and route optimization. Thats the playbook.
+
+**What drives premium vs discount multiples**
+
+Recurring maintenance contracts above 75% of revenue is the single biggest premium driver. After that: commercial client mix with multi-year ESG contracts, geographic density enabling route optimization, tech stack (CRM, field service management, GPS fleet tracking), and certified crews with irrigation and pesticide credentials.
+
+On the discount side: construction-heavy revenue (low recurring), owner-dependent sales, seasonal layoffs above 40% of workforce, single customer concentration above 20% of revenue, and aging equipment requiring a capex cycle.
+
+**The labor problem is real and getting worse**
+
+51-80% of operators report critical staffing shortages according to Aspire. The H-2B visa situation is brutal right now. Contractors requested 97,000 seasonal visas for 2025 but fewer then 65,000 were approved. That gap means companies are cutting spring workloads, paying overtime, and compressing margins.
+
+Labor costs are projected to rise roughly 20% between now and the end of 2029 per NALP. Average landscape worker makes $30-40K, crew leads $45-65K. The turnover rate runs about 31% which is actually better then home care (75-79%) but still painful.
+
+The operators who figure out retention win. Companies paying $20-25/hr vs the $15-18 baseline, offering PTO after 90 days instead of a year, funding certifications with $1/hr raises, and investing in supervisor development are seeing 20-30% lower turnover. Certified crews also unlock premium service lines (irrigation, pest, hardscape) that justify higher client pricing.
+
+**The margin breakdown by service type**
+
+Not all landscaping revenue is equal:
+
+* Lawn mowing (recurring): $40-$60/visit, 35-45% gross margin
+* Fertilization and weed control: $65-$120/application, 40-50% gross margin
+* Commercial grounds maintenance: $500-$2K/visit, 25-35% gross margin
+* Irrigation maintenance: $100-$250, 30-40% gross margin
+* Hardscape installation: $5K-$25K, 15-25% gross margin
+* Landscape design-build: $10K-$50K, 20-30% gross margin
+
+Recurring maintenance is where the margin lives. Hardscape and design-build have the biggest tickets but lowest margins and no recurring component. When evaluating an acquisition, the recurring maintenance percentage is your single most important metric. Above 60% is the minimum. Above 75% is what PE pays a premium for.
+
+**5 things I'd verify before writing an LOI**
+
+1. **Recurring revenue percentage.** Get the breakdown between maintenance contracts, one-time projects, and seasonal work. Subscription models with auto-renewing clients command a 0.5x-1.0x multiple premium over construction-heavy businesses. Avoid anything below 60% recurring unless your buying specifically to convert it.
+2. **Route density.** Ask for a map of active customer locations. Top quartile operators get 15+ stops per day within a tight radius. If the business is doing 8-10 stops spread across a wide territory your bleeding margin on drive time and fuel. Tuck-ins within 30 miles of existing routes cut fuel costs 15-25%.
+3. **Crew certifications.** Irrigation, pesticide application, and hardscape certifications unlock premium service lines that can add 15-20% to client pricing on commercial jobs. Ask which certs the crew holds and which are tied to specific individuals vs the company. If the one certified guy leaves you lose access to those revenue streams.
+4. **Equipment age and capex cycle.** Budget $50K-$150K if the fleet is aging. Mowers, trucks, trailers, and irrigation equipment all depreciate fast in this industry. Also check whether the business has started transitioning to battery-powered equipment since thats where commercial clients are headed due to noise ordinances and ESG preferences.
+5. **Client concentration and contract terms.** If one HOA or commercial property manager accounts for more then 20% of revenue thats a red flag. Also verify whether commercial contracts have auto-renewal clauses and what the typical term length is. Multi-year contracts with built-in escalators are gold.
+
+**Where to buy**
+
+Best markets based on year-round demand, population growth, and competition levels:
+
+1. Miami-Fort Lauderdale (year-round demand, ESG commercial, high net worth residential)
+2. Phoenix-Scottsdale (year-round, drought-resistant landscaping commands premium pricing)
+3. Austin (tech wealth driving outdoor living investment, commercial growth)
+4. Charlotte (extended season, corporate HQs relocating, lower labor costs)
+5. Tampa-St. Pete (year-round demand, population growth, less competition then Miami)
+
+Markets to approach with caution: San Francisco (extreme labor costs $25-35/hr, water restrictions, zoning complexity), NYC (union labor, parking logistics nightmares, licensing complexity), Seattle (high labor costs, rain limiting work windows, aggressive environmental regulations).
+
+**The Sun Belt advantage**
+
+This is the geographic thesis in one sentence: year-round demand crushes seasonality risk. Northern operators see 50%+ revenue concentration in spring/summer and 49% lay off staff seasonally. Sun Belt operators in Florida, Texas, and Arizona run year-round with minimal seasonal dips. That flattened revenue curve makes the business way more underwriteable for SBA loans and way more attractive to PE buyers.
+
+**The SBA math**
+
+$500K-$1.5M revenue business with 60%+ recurring maintenance, buy at 3.0x SDE for roughly $750K. SBA 7(a) at 90% LTV means $75K out of pocket. $250K SDE baseline minus $85K annual debt service gives you roughly $95K year 1 cash flow plus your owner salary. Grow recurring 15% per year thru subscription conversions, add irrigation and pest services for cross-sell. By year 3 your at $240K cash flow. Exit at 4.0x SDE to a PE platform in year 5 for $1.2M. Thats a 28-35% IRR.
+
+The tuck-in math is even better if you have a platform. Buy a $2M revenue operator at 3.6x EBITDA, integrate into existing CRM and routes within 12 months, achieve 15% EBITDA margin improvement thru route density and cross-sell. Your platform is valued at 6x+ EBITDA so every dollar of EBITDA you add thru a 3.6x tuck-in creates immediate value.
+
+**The honest risk assessment**
+
+* Labor costs rising 20% through 2029 with no relief in sight from immigration policy
+* H-2B visa caps strangling seasonal
+
+## Comments
+
+- **AutoModerator** (1↑): Welcome to /r/Entrepreneur and thank you for the post, /u/canhelp! Please make sure you read our [community rules](https://www.reddit.com/r/Entrepreneur/about/rules/) before participating here. As a quick refresher:  
+
+* Promotion of products and services is not allowed here. This includes dropping URLs, asking users to DM you, check your profile, job-seeking, and investor-seeking. *Unsanctioned promotion of any kind will lead to a permanent ban for all of your accounts.* 
+* AI and GPT-generated posts and comments are unprofessional, and will be treated as spam, including a permanent ban for that account.   
+* If you have free offerings, please comment in our weekly Thursday stickied thread.
+* If you need feedback, please comment in our weekly Friday stickied thread. 
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
+- **singinggary** (42↑): Interesting post. My best friend owns his own landscaping company. Does about $1.5M a year revenue with about $2-300k ebidta. The workload is insane, long hours, 6 days a week, overseeing 50 guys that barely speak English. Customers always complaining ,  guys screw up, someone forgets to hitch the trailer properly on the highway and suddenly best case there’s some equipment loss, worse case someone gets seriously hurt.  He’s had guys fall out of trees , had equipment stolen , and customers not pay bills. During summer someone inevitably passes out from heat. All of which to say is landscaping is freaking hard work.  Looks good on a spreadsheet but massive headaches in a real down and dirty 6-day a week grind. My friend is burned out and ready to sell. South Florida market.
+  - **canhelp** (9↑): No free lunch I guess.
+  - **IggyArt** (4↑): I am that friend, but only in California with 5 trucks. I don't do one time jobs, just recurring jobs.  Lawn fertilization,, seeding, Aeration, mowing, etc.   90% recurring revenue
+
+All my guys speak english  
+I pay them base pay + Commission, not flat hourly rate  
+My guys start at 6:30 am ....I wake up a 7:30 - 8 am.  
+My life is chill  
+Hire slow, fire quick is the best thing I have done
+  - **somermike** (6↑): Sounds like your friend has enough headroom there to hire a crew of supervisors at a living wage with profit share, benefits, etc to manage the crews and he could really focus on operations and client acquisitions.   If he's still running outdoor 6 day weeks at 60 hours plus, he's likely scared of paying actual wages for labor management work and stepping over dollars to get to dimes.
+  - **rice_n_gravy** (1↑): 1.5M revenue with 50 guys? So 30k gross per head?
+- **limitown** (15↑): This is the kind of post that makes people accidentally open BizBuySell at 11:47pm. Only pushback is that roll ups always look clean in a spreadsheet until you realize you are actually acquiring crews, trucks, route chaos, and three different definitions of “recurring revenue.” Still, landscaping does feel like one of the more real home service plays because mowing and maintenance are boring in the best possible way.
+  - **BudBroadway22** (1↑): The weeds always grow back! 
+
+Job security, I say
+- **CopyBurrito** (16↑): ngl, northern markets can work. we layered in snow removal and holiday lighting to smooth out seasonality. helps retain crews and keeps cash flow steady.
+- **Evening_Hawk_7470** (15↑): The margin is in the recurring contracts, but the business is won or lost in the H-2B visa lottery.
+  - **JBLL100s** (6↑): You really think those workers are here on a visa?
+- **Impossible_Age_6632** (3↑): Amazing. Further recommendations - Cleaning (commercial & residential) and Roofing (commercial & residential).
+  - **Glad_Travel_1663** (1↑): I second both of these
+- **NicoReflects** (3↑): What you laid out is the financial model. The harder truth is this is really an execution density business.
+
+I belief that the roll-up works only if three things compound together: route density, crew retention and service mix (recurring >70%).
+
+Miss one and the multiple arbitrage collapses fast. A lot of buyers see “3x → 8x” and underestimate how operationally tight you have to run to actually earn that gap.
+- **3_pigs** (3↑): You say buy at 3.6 EBITDA and your platform is worth 6+ EBITDA. I am in this industry. All of us have received offers of 8-10x EBITDA. 
+
+Those of us who have chosen not to sell is because we know 10x EBITDA is still undervalued. 
+
+The private equity firms can roll into a publicly traded company where the value is 16x earnings.
+- **ghostlyman789** (3↑): I’m enjoying your posts. Can you do one about car washes? Self serve or auto, maybe both?
+- **Shakerrry** (3↑): the thesis makes sense on paper but the execution risk is brutal. every landscaping company you acquire runs on the owner's relationships and local reputation. the second you roll them up under a corporate brand, half the customers feel like something changed even if the crew is exactly the same. the ones doing it well keep the local brand alive and just centralize the back office stuff nobody sees.

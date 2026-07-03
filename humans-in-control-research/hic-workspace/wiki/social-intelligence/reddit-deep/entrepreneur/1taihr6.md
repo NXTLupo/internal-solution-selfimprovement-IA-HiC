@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "How to Build a Pitch Deck That Actually Gets Investor Attention: What 590 Reddit Comments Reveal About What Works"
 author: "Melvinak"
 date: "2026-05-11T22:20:58.000Z"
-score: 35
-upvote_ratio: 0.87
-num_comments: 52
+score: 31
+upvote_ratio: 0.84
+num_comments: 55
 flair: "Best Practices"
-extracted_at: "2026-06-18T13:36:02.605Z"
+extracted_at: "2026-07-03T00:07:52.278Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c0"
     char_span: [0, 2482]
@@ -45,14 +45,14 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c0", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c1", "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c5"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c4"
-    char_span: [9691, 11540]
+    char_span: [9691, 11541]
     sentence_count: 13
     key_terms: [entrepreneur, please, permanent, promotion, founders, stickied, comment, explain]
     concepts: [entrepreneur, please, permanent, promotion, founders]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c5"
-    char_span: [11542, 13393]
+    char_span: [11543, 13394]
     sentence_count: 3
     key_terms: [investors, decks, "don't", design, slide, founders, because, usually]
     concepts: [investors, decks, "don't", design, slide]
@@ -60,7 +60,7 @@ chunks:
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/entrepreneur/1taihr6.md#c6"
-    char_span: [13395, 14406]
+    char_span: [13396, 14407]
     sentence_count: 8
     key_terms: [long, melvinak, "don't", thank, write, businessstrategist, read, adefficient8374]
     concepts: [melvinak, "don't", thank, write]
@@ -70,7 +70,7 @@ chunks:
 # How to Build a Pitch Deck That Actually Gets Investor Attention: What 590 Reddit Comments Reveal About What Works
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1taihr6/how_to_build_a_pitch_deck_that_actually_gets/)
-Posted by **Melvinak** · **35↑** · **52 comments**
+Posted by **Melvinak** · **31↑** · **55 comments**
 
 I analysed 590 comments across 15 Reddit threads where real investors and venture capitalists were giving founders detailed feedback on their pitch decks. I wanted to understand what investors actually care about, what needs to go on each slide and why.
 
@@ -183,7 +183,7 @@ I hope this helps someone. Happy pitching!
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
-- **armandionorene** (5↑): The “why now” point is the one founders probably underthink the most. 
+- **armandionorene** (4↑): The “why now” point is the one founders probably underthink the most. 
 
 Many decks explain the product, but not why the market is ready for this exact solution now. I think the same applies outside fundraising too. Content, landing pages, and sales conversations all get stronger when they explain the shift behind the problem.
 

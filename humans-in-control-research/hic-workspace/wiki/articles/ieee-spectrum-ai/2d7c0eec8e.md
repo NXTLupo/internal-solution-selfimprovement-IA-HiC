@@ -9,10 +9,10 @@ author: ""
 date: "Wed, 17 Jun 2026 12:19:27 +0000"
 tier: 2
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:48:41.994216+00:00"
+extracted_at: "2026-07-02T18:07:42.808117+00:00"
 chars: 7659
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:48:39+00:00"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+collected_at: "2026-07-02T18:07:40+00:00"
 content_hash: "18aa85fc6b811347"
 chunks:
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c0"

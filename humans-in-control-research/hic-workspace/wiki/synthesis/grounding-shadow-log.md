@@ -60,6 +60,7 @@ The validation framework utilizes confidence levels—including HYPOTHESIS, PART
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-To transition benchmarks from HYPOTHESIS to EVIDENCED, primary source evidence must be ingested across several pending categories:
+To transition benchmarks from HYPOTHESIS to EVIDENCED, primary source evidence must be ingested across the following pending categories:
 
-*   **CX Maturity and Organizational Alignment**: Ingestion of
+*   **CX Maturity**: Evidence regarding organizational structures, employee correlation, and maturity-to-revenue correlation [evidence/cx-maturity.md].
+*   **Digital Transformation**: Evidence regarding technology adoption, change management, culture, and transformation failure [evidence/digital-transformation.md].

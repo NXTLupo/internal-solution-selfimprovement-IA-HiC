@@ -7,58 +7,58 @@ subreddit: "entrepreneur"
 title: "Trustpilot isn’t publishing any of the reviews from my real customers. Has anyone experienced this?"
 author: "Beginning_Key2572"
 date: "2025-12-04T20:10:02.000Z"
-score: 4
-upvote_ratio: 1
+score: 3
+upvote_ratio: 0.81
 num_comments: 22
 flair: "How Do I?"
-extracted_at: "2026-06-18T13:36:02.641Z"
+extracted_at: "2026-07-03T00:07:52.281Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0"
     char_span: [0, 1683]
     sentence_count: 13
     key_terms: [reviews, trustpilot, customers, real, review, automatically, entrepreneur, experienced]
     concepts: [trustpilot, reviews, customers, automatically, entrepreneur]
-    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c3"]
     token_count: 349
     sources: [{"n":"reddit-deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/"}]
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c1"
-    char_span: [1697, 3690]
+    char_span: [1698, 3691]
     sentence_count: 10
     key_terms: [entrepreneur, please, permanent, promotion, accounts, flagging, stickied, backend]
     concepts: [entrepreneur, please, permanent, promotion, accounts]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2"
-    char_span: [3692, 5911]
+    char_span: [3693, 5912]
     sentence_count: 16
     key_terms: [trustpilot, google, platform, listing, reviews, de-tethering, page, business]
     concepts: [trustpilot, google, platform, listing, reviews]
-    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"]
+    related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c3"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c3"
-    char_span: [5913, 7989]
-    sentence_count: 9
-    key_terms: [reviews, support, review, "don't", get, published, responses, directly]
-    concepts: [reviews, support, review, "don't", published]
-    section: Comments
-    token_count: 485
-  - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"
-    char_span: [7991, 9162]
-    sentence_count: 10
-    key_terms: [anmeldelser, trustpilot, det, reviews, der, skummelt, stjernet, fjernet]
-    concepts: [anmeldelser, trustpilot, reviews, skummelt, stjernet]
+    char_span: [5914, 8083]
+    sentence_count: 12
+    key_terms: [reviews, system, support, trustpilot, published, responses, directly, against]
+    concepts: [reviews, system, support, trustpilot, published]
     related_chunks: ["social-intelligence/reddit-deep/entrepreneur/1peads3.md#c0", "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c2"]
     section: Comments
-    token_count: 330
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/entrepreneur/1peads3.md#c4"
+    char_span: [8085, 8681]
+    sentence_count: 4
+    key_terms: [anmeldelser, der, det, trustpilot, stjernet, fjernet, bliver, notifikation]
+    concepts: [anmeldelser, trustpilot, stjernet, fjernet, bliver]
+    section: Comments
+    token_count: 203
 ---
 # Trustpilot isn’t publishing any of the reviews from my real customers. Has anyone experienced this?
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/)
-Posted by **Beginning_Key2572** · **4↑** · **22 comments**
+Posted by **Beginning_Key2572** · **3↑** · **22 comments**
 
 Hi everyone
 
@@ -120,8 +120,6 @@ The only semi-reliable solution we’ve found that actually works is a complete 
 It’s definitely not cheap and we don’t recommend it lightly but it seems to be the only reliable way of dealing with TrustPilot these days. And with the moves TrustPilot has been making as of late, I wouldn’t be surprised if more and more clients start opting for the nuclear route.
 
 Nikolas Lemmel @ Maximatic Media
-  - **biglingenergy** (1↑): Is de-tethering a permanent solution? Really curious to know how it works?
-    - **Far-Wash-5799** (1↑): I have been reporting a company for months though because everytime they get a verified genuine one star review there's a flurry of 5 stars from unverified purchases and from accounts all reviewing the same gambling and betting sites. It's so messed up that they dont take those ones down but leaving up legitimate ones. I really don't understand 😕
 - **grigorash1** (2↑): yeah trustpilot’s system is super touchy with invite spikes, they’ll quietly block stuff if too many new reviews hit at once, even when real, try spacing invites, mix in a few organic reviews, and hit up your account rep directly instead of normal support, that’s the only way to get a human check
 - **FutureDraft4939** (2↑): That's brutal man, Trustpilot's algorithm can be super aggressive especially for newer businesses or if there's any pattern it doesn't like
 

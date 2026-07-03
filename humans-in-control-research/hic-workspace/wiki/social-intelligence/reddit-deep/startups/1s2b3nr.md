@@ -1,0 +1,81 @@
+---
+id: social-intelligence/reddit-deep/startups/1s2b3nr.md
+url: "https://www.reddit.com/r/startups/comments/1s2b3nr/i_get_signups_from_creator_promos_but_no/"
+kind: "social-post"
+source: "reddit-deep: r/startups"
+subreddit: "startups"
+title: "I get signups from creator promos… but no retention. What am I doing wrong? I will not promote"
+author: "NamelessOneder"
+date: "2026-03-24T11:27:02.000Z"
+score: 2
+upvote_ratio: 0.67
+num_comments: 18
+flair: "I will not promote"
+extracted_at: "2026-07-03T00:07:52.259Z"
+extraction_method: "praw-deep"
+research_goal: ""
+engagement: "misc"
+chunks:
+  - id: "social-intelligence/reddit-deep/startups/1s2b3nr.md#c0"
+    char_span: [0, 1686]
+    sentence_count: 16
+    key_terms: [product, creators, instead, like, creator, been, long-term, retention]
+    concepts: [product, creators, instead, creator, long-term]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s2b3nr.md#c1"]
+    token_count: 370
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1s2b3nr/i_get_signups_from_creator_promos_but_no/"}]
+  - id: "social-intelligence/reddit-deep/startups/1s2b3nr.md#c1"
+    char_span: [1701, 3779]
+    sentence_count: 11
+    key_terms: [creator, retention, acquisition, promos, product, equity, issue, users]
+    concepts: [creator, retention, acquisition, promos, product]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1s2b3nr.md#c0"]
+    section: Comments
+    token_count: 460
+---
+# I get signups from creator promos… but no retention. What am I doing wrong? I will not promote
+
+Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1s2b3nr/i_get_signups_from_creator_promos_but_no/)
+Posted by **NamelessOneder** · **2↑** · **18 comments**
+
+I have been trying to grow a bootstrapped SaaS and experimented with creator sponsorships but honestly the ROI has been pretty disappointing so far.
+
+I have seen same pattern so far… a creator promotes the product once, I see a small spike in signups, and then everything drops off. It never turns into sustained growth.
+
+The frustrating part is that the product itself seems to work. Retention is strong (\~0.5% churn) and users who actually try it tend to stick around. So it doesn’t feel like a product problem more like a distribution problem.
+
+What I haven’t figured out is, how to make creators drive consistent usage instead of one-off spikes?
+
+Lately, I have been thinking the issue might be the incentive structure. Instead of paying upfront for a single post, I’m considering offering equity or some kind of long-term upside so creators are actually invested in the product.
+
+In theory, that should make them care more and talk about it over time instead of treating it like a one-time deal… but I’m not sure if that’s just wishful thinking.
+
+Would creators even care about equity from a small SaaS or is that basically worthless unless the company is already big?
+
+Has anyone here tried something like this and seen it work?
+
+Also curious from creators:
+
+What actually makes you stick with a product long-term instead of just doing one post and moving on?
+
+I am very open to being wrong here.
+
+## Comments
+
+- **The_Foxx95** (3↑): Please, do not offer equity at your stage. Work on the payment structure. 
+
+Do not give away parts of your business, just for some views and customers.
+- **elraymonds** (3↑): This pattern is pretty common with creator promos, and it’s usually less about incentives and more about intent mismatch. Most creator audiences aren’t actively looking for a new SaaS, so you get curiosity signups but very few “I need this now” users. Equity won’t really change that. Creators will still optimize for content that performs, not for your long-term retention. What tends to work better is either recurring integrations where the product is part of their workflow over time, or shifting spend toward channels where users already have the problem and are searching for a solution. Creator promos are great for awareness, but they’re rarely a core growth loop on their own.
+- **No_Boysenberry_6827** (1↑): 0.5% churn is insane - that's genuinely world class retention. your product clearly works. the issue is 100% acquisition.
+
+creator promos are basically rented attention. you pay, you get a spike, it dies. it's the same problem with paid ads. the moment you stop paying, traffic stops.
+
+what actually works for bootstrapped saas with strong retention is building your own distribution channel. outbound to the exact ICP who would love your product, or content that compounds over time.
+
+with retention like yours, if you crack the acquisition side even a little bit, your growth compounds fast because nobody leaves. that's a really strong position to be in honestly.
+
+what does your current acquisition look like outside of creator promos? any outbound or organic?
+- **Scary_Web** (1↑): Tbh this sounds more like a funnel / fit issue than an incentive issue. Creator audience might not match your ideal user, or the promo angle is off, so you get “tourists” not serious users. Fix that before handing out equity, most creators won’t value tiny slices anyway.
+- **jmking** (1↑): The creator's audience aren't where your potential customers are.
+
+It's that simple.

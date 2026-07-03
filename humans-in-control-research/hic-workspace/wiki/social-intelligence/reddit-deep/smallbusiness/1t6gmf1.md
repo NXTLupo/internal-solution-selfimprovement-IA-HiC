@@ -1,0 +1,148 @@
+---
+id: social-intelligence/reddit-deep/smallbusiness/1t6gmf1.md
+url: "https://www.reddit.com/r/smallbusiness/comments/1t6gmf1/i_analyzed_the_top_ways_home_service_businesses/"
+kind: "social-post"
+source: "reddit-deep: r/smallbusiness"
+subreddit: "smallbusiness"
+title: "I analyzed the top ways home service businesses get customers and the results surprised me"
+author: "NeedleworkerSure4494"
+date: "2026-05-07T17:04:02.000Z"
+score: 1
+upvote_ratio: 0.6
+num_comments: 3
+flair: ""
+extracted_at: "2026-07-03T00:07:52.503Z"
+extraction_method: "praw-deep"
+research_goal: ""
+engagement: "misc"
+chunks:
+  - id: "social-intelligence/reddit-deep/smallbusiness/1t6gmf1.md#c0"
+    char_span: [0, 2180]
+    sentence_count: 20
+    key_terms: [businesses, lead, service, customers, referrals, ads, home, like]
+    concepts: [businesses, service, customers, referrals, smallbusiness]
+    token_count: 476
+    sources: [{"n":"reddit-deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1t6gmf1/i_analyzed_the_top_ways_home_service_businesses/"}]
+  - id: "social-intelligence/reddit-deep/smallbusiness/1t6gmf1.md#c1"
+    char_span: [2195, 4041]
+    sentence_count: 13
+    key_terms: [question, posts, community, post, business, please, automatically, smallbusiness]
+    concepts: [question, community, posts, business, automatically]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/smallbusiness/1t6gmf1.md#c2"
+    char_span: [4043, 4747]
+    sentence_count: 2
+    key_terms: [reviews, service, scaped, home, high-quality, specifically, personalize, businesses]
+    concepts: [reviews, service, scaped]
+    section: Comments
+    token_count: 149
+---
+# I analyzed the top ways home service businesses get customers and the results surprised me
+
+Source: [reddit-deep: r/smallbusiness](https://www.reddit.com/r/smallbusiness/comments/1t6gmf1/i_analyzed_the_top_ways_home_service_businesses/)
+Posted by **NeedleworkerSure4494** · **1↑** · **3 comments**
+
+I recently spent a few hours breaking down the main ways home service businesses get leads/customers, and honestly, a few things surprised me.
+
+I looked at things like:
+
+* Google Ads
+* SEO
+* referrals
+* Facebook/Instagram ads
+* social media
+* Yelp/Angi/HomeAdvisor
+* door knocking
+* traditional advertising
+
+And I tried ranking them based on:
+
+* lead quality
+* cost per lead
+* scalability
+* consistency
+
+The biggest thing I noticed:
+
+A lot of small businesses rely heavily on referrals because they’re “free”…
+
+…but referrals are probably one of the hardest things to actually scale.
+
+You can’t really predict them.  
+You can’t increase them on demand.  
+And you can’t reliably grow a business around them alone.
+
+On the other hand, Google Ads seemed insanely strong for scaling.
+
+Expensive? Yes.
+
+But the intent is crazy high.
+
+Someone searching:  
+“bathroom remodeler near me”  
+or  
+“emergency plumber”
+
+…is already looking to hire someone.
+
+Compared to something like Facebook ads where you’re interrupting people while they scroll.
+
+Another interesting one was SEO.
+
+Probably one of the best long-term channels overall, but also one of the slowest.
+
+Feels like:
+
+* amazing after 6–12 months
+* painful in the beginning
+
+Social media was interesting too.
+
+I think a lot of home service businesses underestimate how powerful simple content can be:
+
+* before/after videos
+* job site walkthroughs
+* explaining mistakes
+* showing real projects
+
+Especially now with short-form video.
+
+One thing I completely changed my mind on though:
+
+Lead platforms like Yelp/HomeAdvisor/Angi.
+
+They seem okay for getting started…  
+but the lead quality issue sounds brutal.
+
+Competing against 3–5 other companies for the same lead feels exhausting.
+
+Curious what’s worked best for everyone else here.
+
+If you run a local/home service business:  
+What channel actually brings your BEST customers?
+
+## Comments
+
+- **AutoModerator** (1↑): **Friendly Reminder**
+
+r/smallbusiness is a question and answer subreddit. Ask a question about starting, owning, and growing a small business and the community answers. Posts that violate the rules listed in the sidebar will be removed. 
+
+**Please do not conduct market research on our community.**
+
+We are not your focus group and asking us about our pain points, needs, what is hardest about X, etc. is not asking about how small business works or for real help with running your small business. 
+
+These posts are subject to removal and given the community's disgust with the constant spamming of these posts you might just destroy your brand and contaminate your company search results. 
+
+Seeing this message does not mean your post was automatically removed. If you asked about pain points or are directly or indirectly promoting a product please remove your post. Come back to post an honest question or give a knowledgeable response to someone else's question and leave your company name in your own profile. We can tell if you know what you're doing and the community can reach out if they need to.
+
+**We welcome honest question posts, especially from newcomers.** 
+Thank you for your post.
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/smallbusiness) if you have any questions or concerns.*
+- **ahmetzulkiflihasan** (1↑): I think your breakdown is pretty fair. For home services, Google Ads can be very strong because the person already has intent. 
+
+If someone searches `emergency plumber` or `bathroom remodeler near me`, they are probably close to buying. But I would still build local SEO at the same time. Ads can bring leads now, but GBP, reviews, photos, and clear service pages help make the leads more stable later.
+
+Home service businesses only focus on more reviews, but reviews aren't the full picture. I’d compare with the local pack winners: main category, distance, review freshness, photos, and whether their website explains each service clearly.
+- **rsandler** (1↑): this is spot on about the lead quality from platforms like angie's list and the difficulty scaling referrals. we've seen similar patterns. i'm actually runnin' something called [scaped.ai](http://scaped.ai/) and we're seeing direct mail response rates that are 6-8x higher than generic mailers, specifically because we personalize the visuals for each home. it's a different approach to getting those high-quality, exclusive leads you mentioned.

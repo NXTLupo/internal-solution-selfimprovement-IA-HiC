@@ -1,0 +1,106 @@
+---
+id: social-intelligence/reddit-deep/startups/1t5kpro.md
+url: "https://www.reddit.com/r/startups/comments/1t5kpro/i_spent_4_months_fighting_churn_before_realizing/"
+kind: "social-post"
+source: "reddit-deep: r/startups"
+subreddit: "startups"
+title: "I spent 4 months fighting churn before realizing I was the problem, not the product (I will not promote I sweaar!)"
+author: "AdvisorPlus8451"
+date: "2026-05-06T18:02:25.000Z"
+score: 9
+upvote_ratio: 0.91
+num_comments: 12
+flair: "I will not promote"
+extracted_at: "2026-07-03T00:07:52.259Z"
+extraction_method: "praw-deep"
+research_goal: ""
+engagement: "misc"
+chunks:
+  - id: "social-intelligence/reddit-deep/startups/1t5kpro.md#c0"
+    char_span: [0, 2189]
+    sentence_count: 27
+    key_terms: [product, customers, people, churn, almost, around, months, comments]
+    concepts: [product, customers, people, churn, almost]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t5kpro.md#c1", "social-intelligence/reddit-deep/startups/1t5kpro.md#c2"]
+    token_count: 504
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t5kpro/i_spent_4_months_fighting_churn_before_realizing/"}]
+  - id: "social-intelligence/reddit-deep/startups/1t5kpro.md#c1"
+    char_span: [2191, 2668]
+    sentence_count: 6
+    key_terms: [people, churn, acquisition, customers, business, changed, curious, dropped]
+    concepts: [people, churn]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t5kpro.md#c0"]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/startups/1t5kpro.md#c2"
+    char_span: [2683, 4740]
+    sentence_count: 18
+    key_terms: [onboarding, churn, customers, get, activation, tightening, marketing, audience]
+    concepts: [onboarding, customers, churn, activation, tightening]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t5kpro.md#c0"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/startups/1t5kpro.md#c3"
+    char_span: [4742, 5496]
+    sentence_count: 7
+    key_terms: [different, usually, place, wrong, acquisition, exit-survey, interesting, activation]
+    concepts: [different, usually, place, wrong]
+    section: Comments
+    token_count: 159
+---
+# I spent 4 months fighting churn before realizing I was the problem, not the product (I will not promote I sweaar!)
+
+Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1t5kpro/i_spent_4_months_fighting_churn_before_realizing/)
+Posted by **AdvisorPlus8451** · **9↑** · **12 comments**
+
+What you will read here is my real story ahah. I had 14% monthly churn. If you want a better picture, that meant I was losing almost half my customer base every 3 months. I knew it was bad, but I just kept telling myself it was fixable with the right tactics.
+
+So I tried the tactics.
+
+👉🏼 What I tried first.
+
+I rebuilt the onboarding. Shorter and cleaner, with a proper activation checklist. Churn dropped slightly in the first cohort. Then crept back up to where it was.
+
+I launched a re-engagement sequence for inactive users. Decent open rates. Almost no impact on retention. People would open the email and still cancel two weeks later.
+
+I added an exit survey. Started getting responses. The answers were all over the place: "too expensive," "missing features," "found something simpler," "not the right time." No clear pattern I thought (but there might be..)
+
+👉🏼 The moment I stopped blaming the product.
+
+Four months in, I sat down and looked at the customers who hadn't churned. The ones still around after 90 days, actually using the product, never complaining about price.
+
+They had almost nothing in common with the customers I was acquiring.
+
+The people sticking around were ops-heavy teams who needed to track a lot of moving parts. The people churning were solo founders who signed up, poked around for a week, and left when they realized the product wasn't built for how they worked.
+
+I had been marketing to anyone who would listen. I wanted sooo bad users… The product was solving a very specific problem for a very specific type of team, and I was spending all my energy trying to retain people it was never going to work for.
+
+👉🏼 What actually changed.
+
+I stopped trying to fix the churn of customers who shouldn't have been customers in the first place. Tightened the ICP. Rewrote the positioning. Started turning away signups that didn't fit the profile.
+
+Acquisition slowed down (always a pain when you run a business ahah). Churn dropped from 14% to 5% in two months. I didn't changed the product, just the people using it finally matched what it was built for.
+
+If your churn is high and nothing seems to fix it, it might be worth asking who's actually staying, and whether the people leaving were ever going to be good customers to begin with.
+
+Curious if anyone else has been through this. What made you realize your ICP was off
+
+## Comments
+
+- **suck_my_roooster** (2↑): Yeah, I ran into something similar. I thought a slick onboarding would fix everything, but the people who actually used the tool were a niche ops crew, while most sign‑ups were solo founders. Once I started filtering early on, churn fell. It’s funny how the right fit matters more than any tweak.
+  - **AdvisorPlus8451** (1↑): Oh yes very similar ! But at the begining when you start marketing and outbound you want to reach a large audience and get a maximum of users (which is not bad for feedbacks, depending on who are doing it..), and focus only on a niche looks like a restriction (even if it's the community among which you'll get the best conversion rate)
+- **Klutzy-Sea-4857** (2↑): Reducing churn from 14% to 5% by tightening your Ideal Customer Profile (ICP) is the most underrated lever in SaaS. Most founders chase retention tactics when the real fix is strengthening acquisition filters.
+- **Late-Development-543** (1↑): Same lesson, different version. We hit ours about 18 months in with a B2B services product. Churn was sitting around 11% monthly and we kept tightening the funnel, the onboarding, the activation hooks. Nothing held.
+
+What worked was the same exercise you ran. Listed the customers who'd been around 12+ months, looked at what they had in common, and the answer was uncomfortable. They were 15-50 person teams with at least three departments touching the same workflow. The people churning were solo operators or 2-3 person teams who'd signed up because we were the cheapest option that did the thing.
+
+Our marketing was screaming "easy and affordable" at exactly the audience that wouldn't get value from us. Tightened the ICP, raised pricing, added a "minimum team size" qualifier in onboarding, and the next 6-month cohort had churn at 4%.
+
+The piece that took longest to internalize: the ones who churned weren't bad customers. They were customers we shouldn't have been targeting. There's no version of "better activation" that fixes a customer whose problem is too small for the solution.
+
+The exit-survey pattern you flagged is interesting. "All over the place" answers usually mean the segment is mixed, different reasons because different ICPs. Once we filtered, the survey responses started clustering, which is its own data point.
+- **Linkyards** (1↑): A lot of churn problems come from attracting users who were never the right fit in the first place.
+
+Improving onboarding can help activation, but it won’t magically fix retention if the wrong audience is signing up.
+
+The more useful question is usually why the people who stayed decided to stay. Once you understand that clearly, your acquisition strategy gets way easier.
+- **And_Mountain** (0↑): So the initial problem was wrong avatars, nothing else. That's a great insight, thanks.

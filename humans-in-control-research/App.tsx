@@ -3545,6 +3545,23 @@ const App = () => {
         // fresh sources with cached subreddit posts. Every analysis run now
         // always does fresh data collection - no skip path on librarySelection.
 
+        // OBJECTIVE GATE (2026-07-02, unified-vision phase 1: relevance IS the objective).
+        // A run kicked off with an empty/trivial goal degrades EVERY downstream stage at once:
+        // the engagement slug collapses to "untitled-engagement", /api/corpus/retrieve 400s
+        // ("payload must include non-empty 'goal'"), the retrieval catalog shrinks to the
+        // default slug's handful of pointers, embedding-alignment scoring skips ("researchGoal
+        // too short"), and the topic-model substrate scope loses its engagement filter and
+        // pulls the ENTIRE wiki (13,360 docs on 2026-07-02 -> 420s timeout -> the Research
+        // Assembly Board renders zero themes). Money spent, nothing usable. Block it here,
+        // the single kickoff chokepoint, instead of letting five stages fail downstream.
+        const _goal = (researchGoal || '').trim();
+        if (_goal.length < 12) {
+            setNotification('State the research objective before starting: every stage (collection scope, retrieval, themes, topic clusters) anchors on it. A Knowledge Library selection supplements the objective; it cannot replace it.');
+            setTimeout(() => setNotification(null), 9000);
+            console.warn(`[startAnalysis] BLOCKED: research goal is empty/too short (${_goal.length} chars). Unified-vision phase 1: no objective, no run.`);
+            return;
+        }
+
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
         // 2026-05-14 - Reset the per-run cost accumulator so the floating

@@ -7,14 +7,14 @@ subreddit: "entrepreneur"
 title: "After deploying AI agents for 100+ companies, here's why 90% of voice AI implementations fail (and it's not the technology)"
 author: "damaan2981"
 date: "2025-07-14T17:22:49.000Z"
-score: 80
+score: 76
 upvote_ratio: 0.86
 num_comments: 66
 flair: "Best Practices"
-extracted_at: "2026-06-18T13:36:02.622Z"
+extracted_at: "2026-07-03T00:07:52.280Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: ""
+engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c0"
     char_span: [0, 2119]
@@ -30,14 +30,14 @@ chunks:
     concepts: [handle, agents, because, sometimes, cases]
     token_count: 375
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c2"
-    char_span: [4058, 6181]
+    char_span: [4059, 6182]
     sentence_count: 14
     key_terms: [entrepreneur, please, check, human, case, read, use, damaan2981]
     concepts: [entrepreneur, please, check, damaan2981, human]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c3"
-    char_span: [6183, 8501]
+    char_span: [6184, 8502]
     sentence_count: 20
     key_terms: [handle, collection, calls, customers, numbers, usually, agents, number]
     concepts: [collection, handle, customers, calls, numbers]
@@ -45,14 +45,14 @@ chunks:
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c4"
-    char_span: [8503, 10300]
+    char_span: [8504, 10301]
     sentence_count: 11
     key_terms: [models, architecture, voice, llm, something, response, someone, sunchax]
     concepts: [architecture, models, voice, something, response]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c5"
-    char_span: [10302, 12444]
+    char_span: [10303, 12445]
     sentence_count: 14
     key_terms: [implementations, handle, calls, cheap, appointment, background, damaan2981, repetitive]
     concepts: [implementations, handle, appointment, background, calls]
@@ -60,7 +60,7 @@ chunks:
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/entrepreneur/1lzsj7o.md#c6"
-    char_span: [12446, 12826]
+    char_span: [12447, 12827]
     sentence_count: 3
     key_terms: [enough, gets, experience, repetitive, attention, automated, important, something]
     concepts: [enough]
@@ -70,7 +70,7 @@ chunks:
 # After deploying AI agents for 100+ companies, here's why 90% of voice AI implementations fail (and it's not the technology)
 
 Source: [reddit-deep: r/entrepreneur](https://www.reddit.com/r/Entrepreneur/comments/1lzsj7o/after_deploying_ai_agents_for_100_companies_heres/)
-Posted by **damaan2981** · **80↑** · **66 comments**
+Posted by **damaan2981** · **76↑** · **66 comments**
 
 So I've been building voice AI systems for the last few years at the voice AI agent company Leaping AI and I keep seeing the same patterns repeat themselves. Companies come to us after spending months trying to implement voice AI and failing. Not because the technology doesn't work, but because they're approaching it completely wrong.
 
@@ -107,9 +107,9 @@ The future isn't AI replacing call centers. It's AI and humans working together 
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Entrepreneur) if you have any questions or concerns.*
-- **Alien-am-Esstisch** (12↑): I will definitely make some folks read your text. You describe what I also see a lot. I think it's because of the narrative they are bombarded with everyday and hearing that sensational stuff like "AI will replace everything". But they don't hear from folks who implement AI in real life and how they go about it, what realistically can be solved and why. They think it's about replacing all human work and automation instead of empowering human workers and freeing up time slots to work on more meaningful stuff. A misunderstanding that is very common.
-- **rdem341** (5↑): Thanks for sharing and well said.
-- **ParijatSoftwareInc** (4↑): \> The companies that succeed with voice AI aren't trying to build Jarvis. They're trying to solve specific problems.
+- **Alien-am-Esstisch** (13↑): I will definitely make some folks read your text. You describe what I also see a lot. I think it's because of the narrative they are bombarded with everyday and hearing that sensational stuff like "AI will replace everything". But they don't hear from folks who implement AI in real life and how they go about it, what realistically can be solved and why. They think it's about replacing all human work and automation instead of empowering human workers and freeing up time slots to work on more meaningful stuff. A misunderstanding that is very common.
+- **rdem341** (4↑): Thanks for sharing and well said.
+- **ParijatSoftwareInc** (5↑): \> The companies that succeed with voice AI aren't trying to build Jarvis. They're trying to solve specific problems.
 
 very true. one of our customers use case is to just gather the check information for payment, read back payment summary and save it.. Thats all anything before or after that handles by human.
 

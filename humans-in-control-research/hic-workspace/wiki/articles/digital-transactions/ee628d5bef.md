@@ -9,10 +9,10 @@ author: ""
 date: "Thu, 25 Jun 2026 14:56:07 +0000"
 tier: 3
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:47:37.085564+00:00"
+extracted_at: "2026-07-02T16:02:57.155531+00:00"
 chars: 1882
 engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:47:34+00:00"
+collected_at: "2026-07-02T16:02:55+00:00"
 content_hash: "cdb0b61ace162d55"
 chunks:
   - id: "articles/digital-transactions/ee628d5bef.md#c0"

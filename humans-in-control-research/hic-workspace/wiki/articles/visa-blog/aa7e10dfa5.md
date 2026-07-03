@@ -9,10 +9,10 @@ author: ""
 date: ""
 tier: 3
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:47:54.146600+00:00"
+extracted_at: "2026-07-02T18:04:08.370398+00:00"
 chars: 1381
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:47:52+00:00"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+collected_at: "2026-07-02T18:04:06+00:00"
 content_hash: "38385587c1732915"
 chunks:
   - id: "articles/visa-blog/aa7e10dfa5.md#c0"

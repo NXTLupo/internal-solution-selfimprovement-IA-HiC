@@ -7641,3 +7641,536 @@
 {"source_id": "europe_pmc", "ts": "2026-07-02T00:34:30.628905+00:00", "items_returned": 0, "status": 200, "latency_ms": 9657, "error": ""}
 {"source_id": "semantic_scholar", "ts": "2026-07-02T00:35:53.503613+00:00", "items_returned": 0, "status": 0, "latency_ms": 138276, "error": "HTTP 429"}
 {"source_id": "openalex", "ts": "2026-07-02T00:37:54.708004+00:00", "items_returned": 0, "status": 0, "latency_ms": 259418, "error": "HTTP 503"}
+{"source_id": "agr_ag_data_news_note", "ts": "2026-07-03T00:01:47.838379+00:00", "items_returned": 0, "status": 0, "latency_ms": 555, "error": "page fetch failed"}
+{"source_id": "agr_agcanada", "ts": "2026-07-03T00:01:48.104475+00:00", "items_returned": 1, "status": 200, "latency_ms": 821, "error": ""}
+{"source_id": "agr_aem", "ts": "2026-07-03T00:01:48.365203+00:00", "items_returned": 1, "status": 200, "latency_ms": 1064, "error": ""}
+{"source_id": "agr_aafc_canada", "ts": "2026-07-03T00:01:48.385601+00:00", "items_returned": 0, "status": 200, "latency_ms": 1087, "error": ""}
+{"source_id": "agr_aaea", "ts": "2026-07-03T00:01:50.047995+00:00", "items_returned": 1, "status": 200, "latency_ms": 2759, "error": ""}
+{"source_id": "agr_abares_au", "ts": "2026-07-03T00:01:59.743103+00:00", "items_returned": 0, "status": 0, "latency_ms": 12461, "error": "page fetch failed"}
+{"source_id": "agr_agdaily_tech", "ts": "2026-07-03T00:02:01.003211+00:00", "items_returned": 1, "status": 200, "latency_ms": 442, "error": ""}
+{"source_id": "agr_agfundernews", "ts": "2026-07-03T00:02:01.050763+00:00", "items_returned": 0, "status": 200, "latency_ms": 474, "error": ""}
+{"source_id": "agr_agfunder_news", "ts": "2026-07-03T00:02:01.080363+00:00", "items_returned": 0, "status": 200, "latency_ms": 490, "error": ""}
+{"source_id": "agr_agdata_labs_note", "ts": "2026-07-03T00:02:01.208605+00:00", "items_returned": 0, "status": 0, "latency_ms": 641, "error": "page fetch failed"}
+{"source_id": "agr_agri_investor", "ts": "2026-07-03T00:02:01.396809+00:00", "items_returned": 1, "status": 200, "latency_ms": 830, "error": ""}
+{"source_id": "agr_agfax", "ts": "2026-07-03T00:02:01.610734+00:00", "items_returned": 0, "status": 0, "latency_ms": 1017, "error": "page fetch failed"}
+{"source_id": "agr_agriculturedive", "ts": "2026-07-03T00:02:02.677677+00:00", "items_returned": 0, "status": 200, "latency_ms": 258, "error": ""}
+{"source_id": "agr_agriculture_dive", "ts": "2026-07-03T00:02:02.678303+00:00", "items_returned": 0, "status": 200, "latency_ms": 250, "error": ""}
+{"source_id": "agr_agribusiness_global", "ts": "2026-07-03T00:02:02.744824+00:00", "items_returned": 0, "status": 200, "latency_ms": 312, "error": ""}
+{"source_id": "agr_agri_pulse", "ts": "2026-07-03T00:02:03.181198+00:00", "items_returned": 1, "status": 200, "latency_ms": 762, "error": ""}
+{"source_id": "agr_agri_marketing", "ts": "2026-07-03T00:02:03.479998+00:00", "items_returned": 1, "status": 200, "latency_ms": 1061, "error": ""}
+{"source_id": "agr_agri_news", "ts": "2026-07-03T00:02:03.495056+00:00", "items_returned": 0, "status": 200, "latency_ms": 1067, "error": ""}
+{"source_id": "agr_agro_ai_note", "ts": "2026-07-03T00:02:04.613074+00:00", "items_returned": 1, "status": 200, "latency_ms": 300, "error": ""}
+{"source_id": "agr_agritech_future_iot", "ts": "2026-07-03T00:02:05.350087+00:00", "items_returned": 1, "status": 200, "latency_ms": 1025, "error": ""}
+{"source_id": "agr_agritecture", "ts": "2026-07-03T00:02:05.450601+00:00", "items_returned": 1, "status": 200, "latency_ms": 1139, "error": ""}
+{"source_id": "agr_agriland_ie", "ts": "2026-07-03T00:02:07.977672+00:00", "items_returned": 0, "status": 200, "latency_ms": 3660, "error": ""}
+{"source_id": "agr_agritechtomorrow", "ts": "2026-07-03T00:02:12.362000+00:00", "items_returned": 0, "status": 0, "latency_ms": 8050, "error": "Feed unavailable: [Errno -2] Name or service not known"}
+{"source_id": "agr_agrimoney", "ts": "2026-07-03T00:02:12.998832+00:00", "items_returned": 0, "status": 0, "latency_ms": 8667, "error": "page fetch failed"}
+{"source_id": "agr_agweb", "ts": "2026-07-03T00:02:14.136791+00:00", "items_returned": 0, "status": 200, "latency_ms": 329, "error": ""}
+{"source_id": "agr_agweb_crops", "ts": "2026-07-03T00:02:14.350698+00:00", "items_returned": 0, "status": 0, "latency_ms": 547, "error": "page fetch failed"}
+{"source_id": "agr_agupdate", "ts": "2026-07-03T00:02:15.018159+00:00", "items_returned": 0, "status": 200, "latency_ms": 1215, "error": ""}
+{"source_id": "agr_agropages", "ts": "2026-07-03T00:02:15.538617+00:00", "items_returned": 1, "status": 200, "latency_ms": 1729, "error": ""}
+{"source_id": "agr_agtalk_markets_note", "ts": "2026-07-03T00:02:16.109789+00:00", "items_returned": 1, "status": 200, "latency_ms": 2308, "error": ""}
+{"source_id": "agr_agtechnavigator", "ts": "2026-07-03T00:02:16.339638+00:00", "items_returned": 1, "status": 200, "latency_ms": 2476, "error": ""}
+{"source_id": "agr_agweb_policy", "ts": "2026-07-03T00:02:17.712156+00:00", "items_returned": 0, "status": 0, "latency_ms": 354, "error": "page fetch failed"}
+{"source_id": "agr_agweb_livestock", "ts": "2026-07-03T00:02:17.737389+00:00", "items_returned": 0, "status": 0, "latency_ms": 380, "error": "page fetch failed"}
+{"source_id": "agr_agweb_markets", "ts": "2026-07-03T00:02:17.761486+00:00", "items_returned": 0, "status": 0, "latency_ms": 391, "error": "page fetch failed"}
+{"source_id": "agr_allendale", "ts": "2026-07-03T00:02:18.088698+00:00", "items_returned": 1, "status": 200, "latency_ms": 731, "error": ""}
+{"source_id": "agr_agweb_markets_news", "ts": "2026-07-03T00:02:18.151076+00:00", "items_returned": 0, "status": 0, "latency_ms": 764, "error": "page fetch failed"}
+{"source_id": "agr_amber_waves", "ts": "2026-07-03T00:02:18.465943+00:00", "items_returned": 1, "status": 200, "latency_ms": 1093, "error": ""}
+{"source_id": "agr_beef_producer", "ts": "2026-07-03T00:02:19.691946+00:00", "items_returned": 0, "status": 0, "latency_ms": 385, "error": "page fetch failed"}
+{"source_id": "agr_barchart_ag", "ts": "2026-07-03T00:02:19.801137+00:00", "items_returned": 1, "status": 200, "latency_ms": 497, "error": ""}
+{"source_id": "agr_ambrook", "ts": "2026-07-03T00:02:19.971228+00:00", "items_returned": 1, "status": 200, "latency_ms": 673, "error": ""}
+{"source_id": "agr_asta", "ts": "2026-07-03T00:02:20.029086+00:00", "items_returned": 0, "status": 0, "latency_ms": 731, "error": "page fetch failed"}
+{"source_id": "agr_american_soybean", "ts": "2026-07-03T00:02:20.610726+00:00", "items_returned": 1, "status": 200, "latency_ms": 1298, "error": ""}
+{"source_id": "agr_beef_magazine", "ts": "2026-07-03T00:02:21.156586+00:00", "items_returned": 0, "status": 200, "latency_ms": 1858, "error": ""}
+{"source_id": "agr_brownfield", "ts": "2026-07-03T00:02:22.545085+00:00", "items_returned": 0, "status": 200, "latency_ms": 557, "error": ""}
+{"source_id": "agr_bovine_vet", "ts": "2026-07-03T00:02:22.609714+00:00", "items_returned": 0, "status": 0, "latency_ms": 616, "error": "page fetch failed"}
+{"source_id": "agr_biodiesel_mag", "ts": "2026-07-03T00:02:23.079531+00:00", "items_returned": 1, "status": 200, "latency_ms": 1083, "error": ""}
+{"source_id": "agr_beefcentral_markets", "ts": "2026-07-03T00:02:23.089119+00:00", "items_returned": 0, "status": 200, "latency_ms": 1096, "error": ""}
+{"source_id": "agr_biopesticide_note", "ts": "2026-07-03T00:02:23.104571+00:00", "items_returned": 1, "status": 200, "latency_ms": 1116, "error": ""}
+{"source_id": "agr_capital_press", "ts": "2026-07-03T00:02:23.602229+00:00", "items_returned": 0, "status": 200, "latency_ms": 1614, "error": ""}
+{"source_id": "agr_cftc_cot", "ts": "2026-07-03T00:02:24.628516+00:00", "items_returned": 0, "status": 200, "latency_ms": 201, "error": ""}
+{"source_id": "agr_corn_soybean_digest", "ts": "2026-07-03T00:02:24.785536+00:00", "items_returned": 0, "status": 0, "latency_ms": 364, "error": "page fetch failed"}
+{"source_id": "agr_cme_ag", "ts": "2026-07-03T00:02:24.921714+00:00", "items_returned": 0, "status": 0, "latency_ms": 493, "error": "page fetch failed"}
+{"source_id": "agr_cea_note", "ts": "2026-07-03T00:02:24.938480+00:00", "items_returned": 0, "status": 0, "latency_ms": 518, "error": "page fetch failed"}
+{"source_id": "agr_cattlefax", "ts": "2026-07-03T00:02:25.024013+00:00", "items_returned": 0, "status": 0, "latency_ms": 603, "error": "page fetch failed"}
+{"source_id": "agr_civil_eats", "ts": "2026-07-03T00:02:25.330447+00:00", "items_returned": 0, "status": 200, "latency_ms": 900, "error": ""}
+{"source_id": "agr_country_guide_ca", "ts": "2026-07-03T00:02:26.576244+00:00", "items_returned": 0, "status": 0, "latency_ms": 424, "error": "page fetch failed"}
+{"source_id": "agr_cover_crop_strategies", "ts": "2026-07-03T00:02:26.700906+00:00", "items_returned": 1, "status": 200, "latency_ms": 548, "error": ""}
+{"source_id": "agr_cornell_cals", "ts": "2026-07-03T00:02:26.778693+00:00", "items_returned": 1, "status": 200, "latency_ms": 626, "error": ""}
+{"source_id": "agr_croplife", "ts": "2026-07-03T00:02:26.789793+00:00", "items_returned": 0, "status": 200, "latency_ms": 630, "error": ""}
+{"source_id": "agr_croplife_america", "ts": "2026-07-03T00:02:27.387695+00:00", "items_returned": 1, "status": 200, "latency_ms": 1220, "error": ""}
+{"source_id": "agr_cotton_council", "ts": "2026-07-03T00:02:27.656474+00:00", "items_returned": 1, "status": 200, "latency_ms": 1496, "error": ""}
+{"source_id": "agr_delta_farm_press", "ts": "2026-07-03T00:02:28.782828+00:00", "items_returned": 0, "status": 0, "latency_ms": 302, "error": "page fetch failed"}
+{"source_id": "agr_defra_uk", "ts": "2026-07-03T00:02:28.848392+00:00", "items_returned": 0, "status": 200, "latency_ms": 372, "error": ""}
+{"source_id": "agr_dairy_market_news", "ts": "2026-07-03T00:02:28.936672+00:00", "items_returned": 1, "status": 200, "latency_ms": 467, "error": ""}
+{"source_id": "agr_dairy_herd", "ts": "2026-07-03T00:02:29.026620+00:00", "items_returned": 0, "status": 0, "latency_ms": 549, "error": "page fetch failed"}
+{"source_id": "agr_drovers", "ts": "2026-07-03T00:02:29.688882+00:00", "items_returned": 1, "status": 200, "latency_ms": 1219, "error": ""}
+{"source_id": "agr_dtn_markets", "ts": "2026-07-03T00:02:31.963709+00:00", "items_returned": 1, "status": 200, "latency_ms": 3493, "error": ""}
+{"source_id": "agr_epa_pesticides", "ts": "2026-07-03T00:02:33.023553+00:00", "items_returned": 0, "status": 200, "latency_ms": 244, "error": ""}
+{"source_id": "agr_extension_org", "ts": "2026-07-03T00:02:33.035188+00:00", "items_returned": 1, "status": 200, "latency_ms": 253, "error": ""}
+{"source_id": "agr_ethanol_producer", "ts": "2026-07-03T00:02:33.312255+00:00", "items_returned": 0, "status": 200, "latency_ms": 522, "error": ""}
+{"source_id": "agr_dtnpf", "ts": "2026-07-03T00:02:33.415653+00:00", "items_returned": 0, "status": 200, "latency_ms": 640, "error": ""}
+{"source_id": "agr_ec_agri_eu", "ts": "2026-07-03T00:02:34.203891+00:00", "items_returned": 0, "status": 200, "latency_ms": 1429, "error": ""}
+{"source_id": "agr_european_seed", "ts": "2026-07-03T00:02:34.375862+00:00", "items_returned": 0, "status": 0, "latency_ms": 1600, "error": "page fetch failed"}
+{"source_id": "agr_faostat", "ts": "2026-07-03T00:02:35.361628+00:00", "items_returned": 0, "status": 200, "latency_ms": 166, "error": ""}
+{"source_id": "agr_farm_chemicals_intl", "ts": "2026-07-03T00:02:35.389598+00:00", "items_returned": 1, "status": 200, "latency_ms": 178, "error": ""}
+{"source_id": "agr_fao_food_price_index", "ts": "2026-07-03T00:02:35.410136+00:00", "items_returned": 1, "status": 200, "latency_ms": 217, "error": ""}
+{"source_id": "agr_fao_newsroom", "ts": "2026-07-03T00:02:35.687500+00:00", "items_returned": 0, "status": 200, "latency_ms": 492, "error": ""}
+{"source_id": "agr_farm_equipment", "ts": "2026-07-03T00:02:35.825178+00:00", "items_returned": 1, "status": 200, "latency_ms": 624, "error": ""}
+{"source_id": "agr_farm_bureau", "ts": "2026-07-03T00:02:36.017237+00:00", "items_returned": 1, "status": 200, "latency_ms": 797, "error": ""}
+{"source_id": "agr_farm_journal", "ts": "2026-07-03T00:02:37.084655+00:00", "items_returned": 1, "status": 200, "latency_ms": 264, "error": ""}
+{"source_id": "agr_farm_industry_news", "ts": "2026-07-03T00:02:37.130877+00:00", "items_returned": 0, "status": 0, "latency_ms": 310, "error": "page fetch failed"}
+{"source_id": "agr_farmdoc", "ts": "2026-07-03T00:02:37.654289+00:00", "items_returned": 0, "status": 200, "latency_ms": 826, "error": ""}
+{"source_id": "agr_farmers_weekly_uk", "ts": "2026-07-03T00:02:38.018135+00:00", "items_returned": 0, "status": 200, "latency_ms": 1197, "error": ""}
+{"source_id": "agr_farmers_guardian_uk", "ts": "2026-07-03T00:02:38.028502+00:00", "items_returned": 1, "status": 200, "latency_ms": 1196, "error": ""}
+{"source_id": "agr_farm_progress", "ts": "2026-07-03T00:02:38.446017+00:00", "items_returned": 0, "status": 200, "latency_ms": 1618, "error": ""}
+{"source_id": "agr_federal_register_ag", "ts": "2026-07-03T00:02:39.418842+00:00", "items_returned": 0, "status": 200, "latency_ms": 157, "error": ""}
+{"source_id": "agr_farmtario", "ts": "2026-07-03T00:02:39.523364+00:00", "items_returned": 1, "status": 200, "latency_ms": 277, "error": ""}
+{"source_id": "agr_food_dive_ag", "ts": "2026-07-03T00:02:39.532748+00:00", "items_returned": 0, "status": 200, "latency_ms": 277, "error": ""}
+{"source_id": "agr_feedstuffs", "ts": "2026-07-03T00:02:39.690925+00:00", "items_returned": 0, "status": 0, "latency_ms": 444, "error": "page fetch failed"}
+{"source_id": "agr_fertilizer_dtn", "ts": "2026-07-03T00:02:40.414556+00:00", "items_returned": 0, "status": 0, "latency_ms": 1161, "error": "page fetch failed"}
+{"source_id": "agr_feed_navigator", "ts": "2026-07-03T00:02:42.253705+00:00", "items_returned": 0, "status": 200, "latency_ms": 3004, "error": ""}
+{"source_id": "agr_fruit_growers_news", "ts": "2026-07-03T00:02:43.352884+00:00", "items_returned": 1, "status": 200, "latency_ms": 295, "error": ""}
+{"source_id": "agr_grainews_tech", "ts": "2026-07-03T00:02:43.528444+00:00", "items_returned": 0, "status": 0, "latency_ms": 455, "error": "page fetch failed"}
+{"source_id": "agr_grainstats", "ts": "2026-07-03T00:02:43.660349+00:00", "items_returned": 0, "status": 0, "latency_ms": 597, "error": "page fetch failed"}
+{"source_id": "agr_grainscentral", "ts": "2026-07-03T00:02:43.991419+00:00", "items_returned": 0, "status": 200, "latency_ms": 933, "error": ""}
+{"source_id": "agr_future_farming", "ts": "2026-07-03T00:02:44.260135+00:00", "items_returned": 0, "status": 200, "latency_ms": 1202, "error": ""}
+{"source_id": "agr_green_markets", "ts": "2026-07-03T00:02:44.513799+00:00", "items_returned": 1, "status": 200, "latency_ms": 1450, "error": ""}
+{"source_id": "agr_growing_produce", "ts": "2026-07-03T00:02:45.750906+00:00", "items_returned": 1, "status": 200, "latency_ms": 421, "error": ""}
+{"source_id": "agr_hoards_dairyman", "ts": "2026-07-03T00:02:45.826943+00:00", "items_returned": 1, "status": 200, "latency_ms": 510, "error": ""}
+{"source_id": "agr_hightower_report", "ts": "2026-07-03T00:02:46.022079+00:00", "items_returned": 1, "status": 200, "latency_ms": 698, "error": ""}
+{"source_id": "agr_iastate_extension", "ts": "2026-07-03T00:02:46.149601+00:00", "items_returned": 1, "status": 200, "latency_ms": 833, "error": ""}
+{"source_id": "agr_hortidaily", "ts": "2026-07-03T00:02:46.372829+00:00", "items_returned": 1, "status": 200, "latency_ms": 1056, "error": ""}
+{"source_id": "agr_high_plains_journal", "ts": "2026-07-03T00:02:48.026710+00:00", "items_returned": 0, "status": 200, "latency_ms": 2549, "error": ""}
+{"source_id": "agr_karen_braun_note", "ts": "2026-07-03T00:02:49.203947+00:00", "items_returned": 0, "status": 0, "latency_ms": 361, "error": "page fetch failed"}
+{"source_id": "agr_lancaster_farming", "ts": "2026-07-03T00:02:49.331675+00:00", "items_returned": 0, "status": 200, "latency_ms": 488, "error": ""}
+{"source_id": "agr_modern_farmer", "ts": "2026-07-03T00:02:49.343281+00:00", "items_returned": 0, "status": 200, "latency_ms": 489, "error": ""}
+{"source_id": "agr_livestock_market_news", "ts": "2026-07-03T00:02:49.531517+00:00", "items_returned": 0, "status": 0, "latency_ms": 695, "error": "page fetch failed"}
+{"source_id": "agr_ksu_agmanager", "ts": "2026-07-03T00:02:49.776821+00:00", "items_returned": 1, "status": 200, "latency_ms": 941, "error": ""}
+{"source_id": "agr_jacobsen", "ts": "2026-07-03T00:02:50.029618+00:00", "items_returned": 0, "status": 0, "latency_ms": 1193, "error": "page fetch failed"}
+{"source_id": "agr_nasdaq_ag_note", "ts": "2026-07-03T00:02:51.312242+00:00", "items_returned": 0, "status": 0, "latency_ms": 444, "error": "page fetch failed"}
+{"source_id": "agr_national_hog_farmer", "ts": "2026-07-03T00:02:51.345624+00:00", "items_returned": 0, "status": 0, "latency_ms": 483, "error": "page fetch failed"}
+{"source_id": "agr_morning_ag_clips", "ts": "2026-07-03T00:02:51.400745+00:00", "items_returned": 0, "status": 200, "latency_ms": 530, "error": ""}
+{"source_id": "agr_national_corn", "ts": "2026-07-03T00:02:51.522617+00:00", "items_returned": 1, "status": 200, "latency_ms": 641, "error": ""}
+{"source_id": "agr_national_pork", "ts": "2026-07-03T00:02:51.850610+00:00", "items_returned": 1, "status": 200, "latency_ms": 988, "error": ""}
+{"source_id": "agr_nass_cattle_hogs", "ts": "2026-07-03T00:02:52.209863+00:00", "items_returned": 1, "status": 200, "latency_ms": 1339, "error": ""}
+{"source_id": "agr_newagtalk", "ts": "2026-07-03T00:02:53.369659+00:00", "items_returned": 1, "status": 200, "latency_ms": 325, "error": ""}
+{"source_id": "agr_ncfc", "ts": "2026-07-03T00:02:53.444984+00:00", "items_returned": 1, "status": 200, "latency_ms": 392, "error": ""}
+{"source_id": "agr_ncba", "ts": "2026-07-03T00:02:53.631431+00:00", "items_returned": 0, "status": 0, "latency_ms": 594, "error": "page fetch failed"}
+{"source_id": "agr_nawg", "ts": "2026-07-03T00:02:53.864817+00:00", "items_returned": 1, "status": 200, "latency_ms": 834, "error": ""}
+{"source_id": "agr_nfu", "ts": "2026-07-03T00:02:53.922763+00:00", "items_returned": 1, "status": 200, "latency_ms": 883, "error": ""}
+{"source_id": "agr_nmpf", "ts": "2026-07-03T00:02:54.199086+00:00", "items_returned": 1, "status": 200, "latency_ms": 1168, "error": ""}
+{"source_id": "agr_noaa_nass_cropscape", "ts": "2026-07-03T00:02:55.201822+00:00", "items_returned": 0, "status": 200, "latency_ms": 169, "error": ""}
+{"source_id": "agr_olds_precision_note", "ts": "2026-07-03T00:02:55.230995+00:00", "items_returned": 0, "status": 200, "latency_ms": 182, "error": ""}
+{"source_id": "agr_oecd_agriculture", "ts": "2026-07-03T00:02:55.400509+00:00", "items_returned": 0, "status": 0, "latency_ms": 359, "error": "page fetch failed"}
+{"source_id": "agr_permies", "ts": "2026-07-03T00:02:55.587157+00:00", "items_returned": 1, "status": 200, "latency_ms": 554, "error": ""}
+{"source_id": "agr_no_till_farmer", "ts": "2026-07-03T00:02:55.588113+00:00", "items_returned": 1, "status": 200, "latency_ms": 559, "error": ""}
+{"source_id": "agr_noaa_cpc", "ts": "2026-07-03T00:02:55.691786+00:00", "items_returned": 1, "status": 200, "latency_ms": 654, "error": ""}
+{"source_id": "agr_precision_farming_dealer", "ts": "2026-07-03T00:02:57.012430+00:00", "items_returned": 0, "status": 200, "latency_ms": 494, "error": ""}
+{"source_id": "agr_poultry_world", "ts": "2026-07-03T00:02:57.425532+00:00", "items_returned": 1, "status": 200, "latency_ms": 910, "error": ""}
+{"source_id": "agr_pro_farmer", "ts": "2026-07-03T00:02:57.497936+00:00", "items_returned": 1, "status": 200, "latency_ms": 979, "error": ""}
+{"source_id": "agr_precisionag", "ts": "2026-07-03T00:02:57.588288+00:00", "items_returned": 0, "status": 200, "latency_ms": 1062, "error": ""}
+{"source_id": "agr_progressive_cattle", "ts": "2026-07-03T00:02:57.674228+00:00", "items_returned": 0, "status": 0, "latency_ms": 1144, "error": "page fetch failed"}
+{"source_id": "agr_progressive_dairy", "ts": "2026-07-03T00:02:57.707477+00:00", "items_returned": 0, "status": 0, "latency_ms": 1183, "error": "page fetch failed"}
+{"source_id": "agr_reddit_agronomy", "ts": "2026-07-03T00:02:59.622546+00:00", "items_returned": 0, "status": 200, "latency_ms": 1094, "error": ""}
+{"source_id": "agr_reddit_beekeeping", "ts": "2026-07-03T00:03:00.065208+00:00", "items_returned": 0, "status": 200, "latency_ms": 1546, "error": ""}
+{"source_id": "agr_realagriculture", "ts": "2026-07-03T00:03:00.489630+00:00", "items_returned": 0, "status": 200, "latency_ms": 1971, "error": ""}
+{"source_id": "agr_real_agriculture_ca", "ts": "2026-07-03T00:03:00.495373+00:00", "items_returned": 0, "status": 200, "latency_ms": 1967, "error": ""}
+{"source_id": "agr_purdue_agecon", "ts": "2026-07-03T00:03:00.817941+00:00", "items_returned": 1, "status": 200, "latency_ms": 2299, "error": ""}
+{"source_id": "agr_reddit_agriculture", "ts": "2026-07-03T00:03:16.282562+00:00", "items_returned": 0, "status": 200, "latency_ms": 17758, "error": ""}
+{"source_id": "agr_reddit_gardening_note", "ts": "2026-07-03T00:03:43.070863+00:00", "items_returned": 0, "status": 200, "latency_ms": 25823, "error": ""}
+{"source_id": "agr_reddit_homestead", "ts": "2026-07-03T00:03:43.084584+00:00", "items_returned": 0, "status": 200, "latency_ms": 25834, "error": ""}
+{"source_id": "agr_reddit_hydro", "ts": "2026-07-03T00:03:43.929188+00:00", "items_returned": 0, "status": 200, "latency_ms": 26678, "error": ""}
+{"source_id": "agr_reddit_permaculture", "ts": "2026-07-03T00:03:51.529901+00:00", "items_returned": 0, "status": 200, "latency_ms": 34122, "error": ""}
+{"source_id": "agr_reddit_farming", "ts": "2026-07-03T00:03:52.197806+00:00", "items_returned": 0, "status": 200, "latency_ms": 34793, "error": ""}
+{"source_id": "agr_reddit_cattle", "ts": "2026-07-03T00:03:52.627429+00:00", "items_returned": 0, "status": 200, "latency_ms": 35230, "error": ""}
+{"source_id": "agr_sheepcentral", "ts": "2026-07-03T00:03:54.671298+00:00", "items_returned": 0, "status": 200, "latency_ms": 1201, "error": ""}
+{"source_id": "agr_seed_today", "ts": "2026-07-03T00:04:02.633479+00:00", "items_returned": 1, "status": 200, "latency_ms": 9163, "error": ""}
+{"source_id": "agr_reddit_ranching", "ts": "2026-07-03T00:04:06.070640+00:00", "items_returned": 0, "status": 200, "latency_ms": 12600, "error": ""}
+{"source_id": "agr_reddit_tractors", "ts": "2026-07-03T00:04:10.785850+00:00", "items_returned": 0, "status": 200, "latency_ms": 17320, "error": ""}
+{"source_id": "agr_reddit_precisionag", "ts": "2026-07-03T00:04:14.428004+00:00", "items_returned": 0, "status": 200, "latency_ms": 20963, "error": ""}
+{"source_id": "agr_seedworld", "ts": "2026-07-03T00:04:35.806000+00:00", "items_returned": 0, "status": 200, "latency_ms": 42189, "error": ""}
+{"source_id": "agr_southeast_farm_press", "ts": "2026-07-03T00:04:36.902690+00:00", "items_returned": 0, "status": 0, "latency_ms": 292, "error": "page fetch failed"}
+{"source_id": "agr_stoneX_note", "ts": "2026-07-03T00:04:36.993776+00:00", "items_returned": 0, "status": 0, "latency_ms": 381, "error": "page fetch failed"}
+{"source_id": "agr_successful_farming", "ts": "2026-07-03T00:04:37.005402+00:00", "items_returned": 0, "status": 200, "latency_ms": 383, "error": ""}
+{"source_id": "agr_successful_farming_markets", "ts": "2026-07-03T00:04:37.151973+00:00", "items_returned": 0, "status": 0, "latency_ms": 533, "error": "page fetch failed"}
+{"source_id": "agr_terrain_farmcredit", "ts": "2026-07-03T00:04:37.439086+00:00", "items_returned": 0, "status": 0, "latency_ms": 826, "error": "page fetch failed"}
+{"source_id": "agr_stuff_nz_farming", "ts": "2026-07-03T00:04:41.045558+00:00", "items_returned": 1, "status": 200, "latency_ms": 4434, "error": ""}
+{"source_id": "agr_thecombineforum", "ts": "2026-07-03T00:04:42.408537+00:00", "items_returned": 0, "status": 0, "latency_ms": 538, "error": "page fetch failed"}
+{"source_id": "agr_the_furrow", "ts": "2026-07-03T00:04:42.802845+00:00", "items_returned": 0, "status": 0, "latency_ms": 936, "error": "page fetch failed"}
+{"source_id": "agr_the_land_au", "ts": "2026-07-03T00:04:42.942075+00:00", "items_returned": 1, "status": 200, "latency_ms": 1075, "error": ""}
+{"source_id": "agr_tfi", "ts": "2026-07-03T00:04:43.600857+00:00", "items_returned": 1, "status": 200, "latency_ms": 1734, "error": ""}
+{"source_id": "agr_the_fern", "ts": "2026-07-03T00:04:43.890056+00:00", "items_returned": 0, "status": 200, "latency_ms": 2015, "error": ""}
+{"source_id": "agr_thecattlesite_forum_note", "ts": "2026-07-03T00:04:44.096282+00:00", "items_returned": 0, "status": 0, "latency_ms": 2221, "error": "page fetch failed"}
+{"source_id": "agr_tradingeconomics_ag", "ts": "2026-07-03T00:04:45.186798+00:00", "items_returned": 1, "status": 200, "latency_ms": 277, "error": ""}
+{"source_id": "agr_tractor_supply_note", "ts": "2026-07-03T00:04:45.323735+00:00", "items_returned": 0, "status": 200, "latency_ms": 404, "error": ""}
+{"source_id": "agr_thespoon_ag", "ts": "2026-07-03T00:04:46.653267+00:00", "items_returned": 0, "status": 200, "latency_ms": 1743, "error": ""}
+{"source_id": "agr_thedairysite_note", "ts": "2026-07-03T00:04:47.285618+00:00", "items_returned": 0, "status": 0, "latency_ms": 2375, "error": "page fetch failed"}
+{"source_id": "agr_thepoultrysite", "ts": "2026-07-03T00:04:47.474521+00:00", "items_returned": 0, "status": 0, "latency_ms": 2564, "error": "page fetch failed"}
+{"source_id": "agr_thepigsite", "ts": "2026-07-03T00:04:47.507136+00:00", "items_returned": 0, "status": 0, "latency_ms": 2592, "error": "page fetch failed"}
+{"source_id": "agr_usda_ams", "ts": "2026-07-03T00:04:48.626823+00:00", "items_returned": 0, "status": 200, "latency_ms": 152, "error": ""}
+{"source_id": "agr_us_drought_monitor", "ts": "2026-07-03T00:04:48.637011+00:00", "items_returned": 0, "status": 200, "latency_ms": 155, "error": ""}
+{"source_id": "agr_ucanr", "ts": "2026-07-03T00:04:48.777573+00:00", "items_returned": 1, "status": 200, "latency_ms": 303, "error": ""}
+{"source_id": "agr_united_produce", "ts": "2026-07-03T00:04:49.351893+00:00", "items_returned": 1, "status": 200, "latency_ms": 876, "error": ""}
+{"source_id": "agr_umissouri_farmdoc_note", "ts": "2026-07-03T00:04:51.127080+00:00", "items_returned": 1, "status": 200, "latency_ms": 2652, "error": ""}
+{"source_id": "agr_usa_rice", "ts": "2026-07-03T00:04:51.280839+00:00", "items_returned": 1, "status": 200, "latency_ms": 2799, "error": ""}
+{"source_id": "agr_usda_ers_dataapi", "ts": "2026-07-03T00:04:52.327633+00:00", "items_returned": 0, "status": 200, "latency_ms": 182, "error": ""}
+{"source_id": "agr_usda_fas_psd", "ts": "2026-07-03T00:04:52.435259+00:00", "items_returned": 0, "status": 200, "latency_ms": 291, "error": ""}
+{"source_id": "agr_usda_fas", "ts": "2026-07-03T00:04:52.706357+00:00", "items_returned": 0, "status": 0, "latency_ms": 554, "error": "page fetch failed"}
+{"source_id": "agr_usda_ers", "ts": "2026-07-03T00:04:52.892752+00:00", "items_returned": 0, "status": 200, "latency_ms": 746, "error": ""}
+{"source_id": "agr_usda_climate_hubs", "ts": "2026-07-03T00:04:53.854936+00:00", "items_returned": 1, "status": 200, "latency_ms": 1721, "error": ""}
+{"source_id": "agr_usda_aphis", "ts": "2026-07-03T00:05:33.283166+00:00", "items_returned": 0, "status": 200, "latency_ms": 40992, "error": ""}
+{"source_id": "agr_usda_nass", "ts": "2026-07-03T00:05:34.298406+00:00", "items_returned": 0, "status": 200, "latency_ms": 179, "error": ""}
+{"source_id": "agr_usda_fsa", "ts": "2026-07-03T00:05:34.623652+00:00", "items_returned": 1, "status": 200, "latency_ms": 520, "error": ""}
+{"source_id": "agr_usda_grain_transport", "ts": "2026-07-03T00:05:34.792840+00:00", "items_returned": 0, "status": 0, "latency_ms": 662, "error": "page fetch failed"}
+{"source_id": "agr_usda_nass_reports", "ts": "2026-07-03T00:05:35.117541+00:00", "items_returned": 1, "status": 200, "latency_ms": 994, "error": ""}
+{"source_id": "agr_usda_gain", "ts": "2026-07-03T00:05:41.279606+00:00", "items_returned": 0, "status": 0, "latency_ms": 7172, "error": "page fetch failed"}
+{"source_id": "agr_usda_nifa", "ts": "2026-07-03T00:05:46.533731+00:00", "items_returned": 0, "status": 0, "latency_ms": 12422, "error": "page fetch failed"}
+{"source_id": "agr_vegetable_growers_news", "ts": "2026-07-03T00:05:48.204795+00:00", "items_returned": 0, "status": 0, "latency_ms": 837, "error": "page fetch failed"}
+{"source_id": "agr_usda_reports_calendar", "ts": "2026-07-03T00:05:49.072182+00:00", "items_returned": 0, "status": 0, "latency_ms": 1575, "error": "page fetch failed"}
+{"source_id": "agr_usda_rma", "ts": "2026-07-03T00:05:49.396055+00:00", "items_returned": 1, "status": 200, "latency_ms": 1897, "error": ""}
+{"source_id": "agr_usda_wasde", "ts": "2026-07-03T00:05:59.832629+00:00", "items_returned": 0, "status": 0, "latency_ms": 12325, "error": "page fetch failed"}
+{"source_id": "agr_usda_nrcs", "ts": "2026-07-03T00:06:00.114279+00:00", "items_returned": 0, "status": 0, "latency_ms": 12616, "error": "page fetch failed"}
+{"source_id": "agr_world_bank_ag", "ts": "2026-07-03T00:06:33.511413+00:00", "items_returned": 0, "status": 200, "latency_ms": 174, "error": ""}
+{"source_id": "agr_western_producer_ca", "ts": "2026-07-03T00:06:33.614079+00:00", "items_returned": 0, "status": 200, "latency_ms": 262, "error": ""}
+{"source_id": "agr_western_producer", "ts": "2026-07-03T00:06:33.635419+00:00", "items_returned": 0, "status": 200, "latency_ms": 298, "error": ""}
+{"source_id": "agr_western_farm_press", "ts": "2026-07-03T00:06:33.649384+00:00", "items_returned": 0, "status": 0, "latency_ms": 313, "error": "page fetch failed"}
+{"source_id": "agr_wattagnet", "ts": "2026-07-03T00:06:33.937027+00:00", "items_returned": 0, "status": 0, "latency_ms": 582, "error": "page fetch failed"}
+{"source_id": "agr_vertical_farm_daily", "ts": "2026-07-03T00:06:34.413240+00:00", "items_returned": 1, "status": 200, "latency_ms": 1077, "error": ""}
+{"source_id": "agr_world_grain", "ts": "2026-07-03T00:06:35.578303+00:00", "items_returned": 1, "status": 200, "latency_ms": 337, "error": ""}
+{"source_id": "agr_world_grain_markets", "ts": "2026-07-03T00:06:36.002003+00:00", "items_returned": 0, "status": 0, "latency_ms": 770, "error": "page fetch failed"}
+{"source_id": "openalex", "ts": "2026-07-03T00:06:36.844291+00:00", "items_returned": 0, "status": 0, "latency_ms": 1613, "error": "HTTP 400"}
+{"source_id": "crossref", "ts": "2026-07-03T00:06:37.939143+00:00", "items_returned": 1, "status": 200, "latency_ms": 2708, "error": ""}
+{"source_id": "semantic_scholar", "ts": "2026-07-03T00:06:39.128174+00:00", "items_returned": 0, "status": 0, "latency_ms": 3893, "error": "HTTP 400"}
+{"source_id": "zenodo", "ts": "2026-07-03T00:07:21.190295+00:00", "items_returned": 0, "status": 200, "latency_ms": 160, "error": ""}
+{"source_id": "core_ac", "ts": "2026-07-03T00:07:21.190297+00:00", "items_returned": 0, "status": 200, "latency_ms": 165, "error": ""}
+{"source_id": "doaj", "ts": "2026-07-03T00:07:21.354003+00:00", "items_returned": 0, "status": 0, "latency_ms": 329, "error": "HTTP 404"}
+{"source_id": "europe_pmc", "ts": "2026-07-03T00:07:22.707693+00:00", "items_returned": 0, "status": 200, "latency_ms": 1682, "error": ""}
+{"source_id": "datacite", "ts": "2026-07-03T00:07:26.349452+00:00", "items_returned": 0, "status": 200, "latency_ms": 5324, "error": ""}
+{"source_id": "gdelt", "ts": "2026-07-03T00:07:36.230908+00:00", "items_returned": 0, "status": 200, "latency_ms": 60687, "error": ""}
+{"source_id": "agr_usda_press", "ts": "2026-07-03T00:08:07.172365+00:00", "items_returned": 0, "status": 0, "latency_ms": 139052, "error": "Feed unavailable: "}
+{"source_id": "agr_aafc_canada", "ts": "2026-07-03T00:59:39.686657+00:00", "items_returned": 0, "status": 200, "latency_ms": 581, "error": ""}
+{"source_id": "agr_agcanada", "ts": "2026-07-03T00:59:40.091673+00:00", "items_returned": 1, "status": 200, "latency_ms": 979, "error": ""}
+{"source_id": "agr_aem", "ts": "2026-07-03T00:59:40.289391+00:00", "items_returned": 1, "status": 200, "latency_ms": 1180, "error": ""}
+{"source_id": "agr_ag_data_news_note", "ts": "2026-07-03T00:59:40.332262+00:00", "items_returned": 0, "status": 0, "latency_ms": 1227, "error": "page fetch failed"}
+{"source_id": "agr_aaea", "ts": "2026-07-03T00:59:41.635529+00:00", "items_returned": 1, "status": 200, "latency_ms": 2531, "error": ""}
+{"source_id": "agr_abares_au", "ts": "2026-07-03T00:59:51.631651+00:00", "items_returned": 0, "status": 0, "latency_ms": 12527, "error": "page fetch failed"}
+{"source_id": "agr_agdata_labs_note", "ts": "2026-07-03T00:59:52.971898+00:00", "items_returned": 0, "status": 0, "latency_ms": 529, "error": "page fetch failed"}
+{"source_id": "agr_agri_investor", "ts": "2026-07-03T00:59:53.044747+00:00", "items_returned": 1, "status": 200, "latency_ms": 595, "error": ""}
+{"source_id": "agr_agdaily_tech", "ts": "2026-07-03T00:59:53.070373+00:00", "items_returned": 1, "status": 200, "latency_ms": 628, "error": ""}
+{"source_id": "agr_agfax", "ts": "2026-07-03T00:59:53.151837+00:00", "items_returned": 0, "status": 0, "latency_ms": 700, "error": "page fetch failed"}
+{"source_id": "agr_agfundernews", "ts": "2026-07-03T00:59:53.217819+00:00", "items_returned": 15, "status": 200, "latency_ms": 774, "error": ""}
+{"source_id": "agr_agfunder_news", "ts": "2026-07-03T00:59:53.238575+00:00", "items_returned": 15, "status": 200, "latency_ms": 794, "error": ""}
+{"source_id": "agr_agri_pulse", "ts": "2026-07-03T00:59:54.571900+00:00", "items_returned": 1, "status": 200, "latency_ms": 520, "error": ""}
+{"source_id": "agr_agribusiness_global", "ts": "2026-07-03T00:59:54.814598+00:00", "items_returned": 8, "status": 200, "latency_ms": 762, "error": ""}
+{"source_id": "agr_agri_news", "ts": "2026-07-03T00:59:54.953950+00:00", "items_returned": 0, "status": 200, "latency_ms": 902, "error": ""}
+{"source_id": "agr_agriculture_dive", "ts": "2026-07-03T00:59:55.028714+00:00", "items_returned": 5, "status": 200, "latency_ms": 969, "error": ""}
+{"source_id": "agr_agri_marketing", "ts": "2026-07-03T00:59:55.092180+00:00", "items_returned": 1, "status": 200, "latency_ms": 1040, "error": ""}
+{"source_id": "agr_agriculturedive", "ts": "2026-07-03T00:59:57.842668+00:00", "items_returned": 5, "status": 200, "latency_ms": 3773, "error": ""}
+{"source_id": "agr_agro_ai_note", "ts": "2026-07-03T00:59:59.010832+00:00", "items_returned": 1, "status": 200, "latency_ms": 352, "error": ""}
+{"source_id": "agr_agritecture", "ts": "2026-07-03T00:59:59.490621+00:00", "items_returned": 1, "status": 200, "latency_ms": 841, "error": ""}
+{"source_id": "agr_agrimoney", "ts": "2026-07-03T01:00:00.087628+00:00", "items_returned": 0, "status": 0, "latency_ms": 1438, "error": "page fetch failed"}
+{"source_id": "agr_agritech_future_iot", "ts": "2026-07-03T01:00:06.340687+00:00", "items_returned": 1, "status": 200, "latency_ms": 7528, "error": ""}
+{"source_id": "agr_agritechtomorrow", "ts": "2026-07-03T01:00:06.430524+00:00", "items_returned": 0, "status": 0, "latency_ms": 7601, "error": "Feed unavailable: [Errno -2] Name or service not known"}
+{"source_id": "agr_agriland_ie", "ts": "2026-07-03T01:00:07.941897+00:00", "items_returned": 15, "status": 200, "latency_ms": 9129, "error": ""}
+{"source_id": "agr_agweb", "ts": "2026-07-03T01:00:08.977668+00:00", "items_returned": 0, "status": 200, "latency_ms": 202, "error": ""}
+{"source_id": "agr_agtalk_markets_note", "ts": "2026-07-03T01:00:09.205369+00:00", "items_returned": 1, "status": 200, "latency_ms": 431, "error": ""}
+{"source_id": "agr_agweb_crops", "ts": "2026-07-03T01:00:09.219401+00:00", "items_returned": 0, "status": 0, "latency_ms": 439, "error": "page fetch failed"}
+{"source_id": "agr_agropages", "ts": "2026-07-03T01:00:10.325061+00:00", "items_returned": 1, "status": 200, "latency_ms": 1551, "error": ""}
+{"source_id": "agr_agupdate", "ts": "2026-07-03T01:00:10.473474+00:00", "items_returned": 3, "status": 200, "latency_ms": 1699, "error": ""}
+{"source_id": "agr_agtechnavigator", "ts": "2026-07-03T01:00:12.214106+00:00", "items_returned": 1, "status": 200, "latency_ms": 3431, "error": ""}
+{"source_id": "agr_agweb_policy", "ts": "2026-07-03T01:00:13.389039+00:00", "items_returned": 0, "status": 0, "latency_ms": 341, "error": "page fetch failed"}
+{"source_id": "agr_agweb_markets", "ts": "2026-07-03T01:00:13.400150+00:00", "items_returned": 0, "status": 0, "latency_ms": 359, "error": "page fetch failed"}
+{"source_id": "agr_agweb_livestock", "ts": "2026-07-03T01:00:13.414467+00:00", "items_returned": 0, "status": 0, "latency_ms": 374, "error": "page fetch failed"}
+{"source_id": "agr_agweb_markets_news", "ts": "2026-07-03T01:00:13.461071+00:00", "items_returned": 0, "status": 0, "latency_ms": 418, "error": "page fetch failed"}
+{"source_id": "agr_allendale", "ts": "2026-07-03T01:00:13.869436+00:00", "items_returned": 1, "status": 200, "latency_ms": 821, "error": ""}
+{"source_id": "agr_amber_waves", "ts": "2026-07-03T01:00:14.176161+00:00", "items_returned": 1, "status": 200, "latency_ms": 1135, "error": ""}
+{"source_id": "agr_barchart_ag", "ts": "2026-07-03T01:00:15.449293+00:00", "items_returned": 1, "status": 200, "latency_ms": 450, "error": ""}
+{"source_id": "agr_beef_producer", "ts": "2026-07-03T01:00:15.459773+00:00", "items_returned": 0, "status": 0, "latency_ms": 460, "error": "page fetch failed"}
+{"source_id": "agr_asta", "ts": "2026-07-03T01:00:15.550041+00:00", "items_returned": 0, "status": 0, "latency_ms": 558, "error": "page fetch failed"}
+{"source_id": "agr_ambrook", "ts": "2026-07-03T01:00:15.676551+00:00", "items_returned": 1, "status": 200, "latency_ms": 684, "error": ""}
+{"source_id": "agr_american_soybean", "ts": "2026-07-03T01:00:15.977207+00:00", "items_returned": 1, "status": 200, "latency_ms": 985, "error": ""}
+{"source_id": "agr_beef_magazine", "ts": "2026-07-03T01:00:16.529334+00:00", "items_returned": 15, "status": 200, "latency_ms": 1537, "error": ""}
+{"source_id": "agr_capital_press", "ts": "2026-07-03T01:00:17.880467+00:00", "items_returned": 0, "status": 200, "latency_ms": 539, "error": ""}
+{"source_id": "agr_bovine_vet", "ts": "2026-07-03T01:00:17.906211+00:00", "items_returned": 0, "status": 0, "latency_ms": 564, "error": "page fetch failed"}
+{"source_id": "agr_brownfield", "ts": "2026-07-03T01:00:18.179816+00:00", "items_returned": 15, "status": 200, "latency_ms": 838, "error": ""}
+{"source_id": "agr_biodiesel_mag", "ts": "2026-07-03T01:00:18.194846+00:00", "items_returned": 1, "status": 200, "latency_ms": 849, "error": ""}
+{"source_id": "agr_biopesticide_note", "ts": "2026-07-03T01:00:18.684841+00:00", "items_returned": 1, "status": 200, "latency_ms": 1339, "error": ""}
+{"source_id": "agr_beefcentral_markets", "ts": "2026-07-03T01:00:18.747501+00:00", "items_returned": 6, "status": 200, "latency_ms": 1406, "error": ""}
+{"source_id": "agr_cftc_cot", "ts": "2026-07-03T01:00:19.754554+00:00", "items_returned": 0, "status": 200, "latency_ms": 190, "error": ""}
+{"source_id": "agr_corn_soybean_digest", "ts": "2026-07-03T01:00:19.892718+00:00", "items_returned": 0, "status": 0, "latency_ms": 335, "error": "page fetch failed"}
+{"source_id": "agr_cme_ag", "ts": "2026-07-03T01:00:19.930940+00:00", "items_returned": 0, "status": 0, "latency_ms": 373, "error": "page fetch failed"}
+{"source_id": "agr_cattlefax", "ts": "2026-07-03T01:00:20.033150+00:00", "items_returned": 0, "status": 0, "latency_ms": 476, "error": "page fetch failed"}
+{"source_id": "agr_cea_note", "ts": "2026-07-03T01:00:20.088785+00:00", "items_returned": 0, "status": 0, "latency_ms": 531, "error": "page fetch failed"}
+{"source_id": "agr_civil_eats", "ts": "2026-07-03T01:00:21.588055+00:00", "items_returned": 15, "status": 200, "latency_ms": 2022, "error": ""}
+{"source_id": "agr_country_guide_ca", "ts": "2026-07-03T01:00:22.783170+00:00", "items_returned": 0, "status": 0, "latency_ms": 382, "error": "page fetch failed"}
+{"source_id": "agr_cover_crop_strategies", "ts": "2026-07-03T01:00:22.932403+00:00", "items_returned": 1, "status": 200, "latency_ms": 532, "error": ""}
+{"source_id": "agr_croplife", "ts": "2026-07-03T01:00:23.023077+00:00", "items_returned": 8, "status": 200, "latency_ms": 611, "error": ""}
+{"source_id": "agr_croplife_america", "ts": "2026-07-03T01:00:23.277603+00:00", "items_returned": 1, "status": 200, "latency_ms": 877, "error": ""}
+{"source_id": "agr_cotton_council", "ts": "2026-07-03T01:00:23.436094+00:00", "items_returned": 1, "status": 200, "latency_ms": 1036, "error": ""}
+{"source_id": "agr_cornell_cals", "ts": "2026-07-03T01:00:24.304096+00:00", "items_returned": 1, "status": 200, "latency_ms": 1891, "error": ""}
+{"source_id": "agr_dairy_market_news", "ts": "2026-07-03T01:00:25.334765+00:00", "items_returned": 1, "status": 200, "latency_ms": 216, "error": ""}
+{"source_id": "agr_delta_farm_press", "ts": "2026-07-03T01:00:25.389217+00:00", "items_returned": 0, "status": 0, "latency_ms": 279, "error": "page fetch failed"}
+{"source_id": "agr_dairy_herd", "ts": "2026-07-03T01:00:25.767600+00:00", "items_returned": 0, "status": 0, "latency_ms": 658, "error": "page fetch failed"}
+{"source_id": "agr_drovers", "ts": "2026-07-03T01:00:26.229876+00:00", "items_returned": 1, "status": 200, "latency_ms": 1120, "error": ""}
+{"source_id": "agr_defra_uk", "ts": "2026-07-03T01:00:26.449410+00:00", "items_returned": 7, "status": 200, "latency_ms": 1332, "error": ""}
+{"source_id": "agr_dtn_markets", "ts": "2026-07-03T01:00:26.547831+00:00", "items_returned": 1, "status": 200, "latency_ms": 1438, "error": ""}
+{"source_id": "agr_epa_pesticides", "ts": "2026-07-03T01:00:27.529863+00:00", "items_returned": 0, "status": 200, "latency_ms": 171, "error": ""}
+{"source_id": "agr_extension_org", "ts": "2026-07-03T01:00:27.706527+00:00", "items_returned": 1, "status": 200, "latency_ms": 348, "error": ""}
+{"source_id": "agr_ethanol_producer", "ts": "2026-07-03T01:00:27.895424+00:00", "items_returned": 0, "status": 200, "latency_ms": 529, "error": ""}
+{"source_id": "agr_dtnpf", "ts": "2026-07-03T01:00:28.050076+00:00", "items_returned": 0, "status": 200, "latency_ms": 692, "error": ""}
+{"source_id": "agr_european_seed", "ts": "2026-07-03T01:00:28.695413+00:00", "items_returned": 0, "status": 0, "latency_ms": 1337, "error": "page fetch failed"}
+{"source_id": "agr_faostat", "ts": "2026-07-03T01:01:13.457275+00:00", "items_returned": 0, "status": 200, "latency_ms": 166, "error": ""}
+{"source_id": "agr_farm_chemicals_intl", "ts": "2026-07-03T01:01:13.488201+00:00", "items_returned": 1, "status": 200, "latency_ms": 209, "error": ""}
+{"source_id": "agr_fao_newsroom", "ts": "2026-07-03T01:01:13.524415+00:00", "items_returned": 0, "status": 200, "latency_ms": 228, "error": ""}
+{"source_id": "agr_fao_food_price_index", "ts": "2026-07-03T01:01:13.540063+00:00", "items_returned": 1, "status": 200, "latency_ms": 261, "error": ""}
+{"source_id": "agr_farm_equipment", "ts": "2026-07-03T01:01:13.863646+00:00", "items_returned": 1, "status": 200, "latency_ms": 582, "error": ""}
+{"source_id": "agr_farm_bureau", "ts": "2026-07-03T01:01:14.197908+00:00", "items_returned": 1, "status": 200, "latency_ms": 919, "error": ""}
+{"source_id": "agr_farm_journal", "ts": "2026-07-03T01:01:15.275357+00:00", "items_returned": 1, "status": 200, "latency_ms": 260, "error": ""}
+{"source_id": "agr_farm_industry_news", "ts": "2026-07-03T01:01:15.405117+00:00", "items_returned": 0, "status": 0, "latency_ms": 389, "error": "page fetch failed"}
+{"source_id": "agr_farmers_weekly_uk", "ts": "2026-07-03T01:01:16.205266+00:00", "items_returned": 0, "status": 200, "latency_ms": 1189, "error": ""}
+{"source_id": "agr_farmers_guardian_uk", "ts": "2026-07-03T01:01:16.292517+00:00", "items_returned": 1, "status": 200, "latency_ms": 1277, "error": ""}
+{"source_id": "agr_farmdoc", "ts": "2026-07-03T01:01:16.871358+00:00", "items_returned": 8, "status": 200, "latency_ms": 1847, "error": ""}
+{"source_id": "agr_farm_progress", "ts": "2026-07-03T01:01:17.558016+00:00", "items_returned": 15, "status": 200, "latency_ms": 2537, "error": ""}
+{"source_id": "agr_federal_register_ag", "ts": "2026-07-03T01:01:18.540526+00:00", "items_returned": 0, "status": 200, "latency_ms": 158, "error": ""}
+{"source_id": "agr_feedstuffs", "ts": "2026-07-03T01:01:18.770651+00:00", "items_returned": 0, "status": 0, "latency_ms": 395, "error": "page fetch failed"}
+{"source_id": "agr_farmtario", "ts": "2026-07-03T01:01:19.015568+00:00", "items_returned": 1, "status": 200, "latency_ms": 648, "error": ""}
+{"source_id": "agr_food_dive_ag", "ts": "2026-07-03T01:01:19.120989+00:00", "items_returned": 4, "status": 200, "latency_ms": 753, "error": ""}
+{"source_id": "agr_fertilizer_dtn", "ts": "2026-07-03T01:01:19.714922+00:00", "items_returned": 0, "status": 0, "latency_ms": 1347, "error": "page fetch failed"}
+{"source_id": "agr_feed_navigator", "ts": "2026-07-03T01:01:21.101091+00:00", "items_returned": 0, "status": 200, "latency_ms": 2733, "error": ""}
+{"source_id": "agr_ec_agri_eu", "ts": "2026-07-03T01:01:21.786447+00:00", "items_returned": 0, "status": 200, "latency_ms": 54102, "error": ""}
+{"source_id": "agr_fruit_growers_news", "ts": "2026-07-03T01:01:22.180837+00:00", "items_returned": 1, "status": 200, "latency_ms": 272, "error": ""}
+{"source_id": "agr_grainews_tech", "ts": "2026-07-03T01:01:22.303470+00:00", "items_returned": 0, "status": 0, "latency_ms": 394, "error": "page fetch failed"}
+{"source_id": "agr_grainstats", "ts": "2026-07-03T01:01:22.542563+00:00", "items_returned": 0, "status": 0, "latency_ms": 633, "error": "page fetch failed"}
+{"source_id": "agr_grainscentral", "ts": "2026-07-03T01:01:23.450048+00:00", "items_returned": 6, "status": 200, "latency_ms": 1533, "error": ""}
+{"source_id": "agr_green_markets", "ts": "2026-07-03T01:01:23.489318+00:00", "items_returned": 1, "status": 200, "latency_ms": 1564, "error": ""}
+{"source_id": "agr_future_farming", "ts": "2026-07-03T01:01:24.658690+00:00", "items_returned": 15, "status": 200, "latency_ms": 2750, "error": ""}
+{"source_id": "agr_growing_produce", "ts": "2026-07-03T01:01:26.132181+00:00", "items_returned": 1, "status": 200, "latency_ms": 665, "error": ""}
+{"source_id": "agr_hoards_dairyman", "ts": "2026-07-03T01:01:26.275257+00:00", "items_returned": 1, "status": 200, "latency_ms": 781, "error": ""}
+{"source_id": "agr_iastate_extension", "ts": "2026-07-03T01:01:26.449162+00:00", "items_returned": 1, "status": 200, "latency_ms": 979, "error": ""}
+{"source_id": "agr_hightower_report", "ts": "2026-07-03T01:01:26.660164+00:00", "items_returned": 1, "status": 200, "latency_ms": 1184, "error": ""}
+{"source_id": "agr_high_plains_journal", "ts": "2026-07-03T01:01:26.740871+00:00", "items_returned": 0, "status": 200, "latency_ms": 1273, "error": ""}
+{"source_id": "agr_hortidaily", "ts": "2026-07-03T01:01:26.793872+00:00", "items_returned": 1, "status": 200, "latency_ms": 1326, "error": ""}
+{"source_id": "agr_karen_braun_note", "ts": "2026-07-03T01:01:27.946240+00:00", "items_returned": 0, "status": 0, "latency_ms": 335, "error": "page fetch failed"}
+{"source_id": "agr_livestock_market_news", "ts": "2026-07-03T01:01:28.198282+00:00", "items_returned": 0, "status": 0, "latency_ms": 579, "error": "page fetch failed"}
+{"source_id": "agr_modern_farmer", "ts": "2026-07-03T01:01:28.373430+00:00", "items_returned": 10, "status": 200, "latency_ms": 774, "error": ""}
+{"source_id": "agr_ksu_agmanager", "ts": "2026-07-03T01:01:28.529699+00:00", "items_returned": 1, "status": 200, "latency_ms": 930, "error": ""}
+{"source_id": "agr_jacobsen", "ts": "2026-07-03T01:01:28.929485+00:00", "items_returned": 0, "status": 0, "latency_ms": 1330, "error": "page fetch failed"}
+{"source_id": "agr_lancaster_farming", "ts": "2026-07-03T01:01:29.076066+00:00", "items_returned": 5, "status": 200, "latency_ms": 1477, "error": ""}
+{"source_id": "agr_national_hog_farmer", "ts": "2026-07-03T01:01:30.309344+00:00", "items_returned": 0, "status": 0, "latency_ms": 415, "error": "page fetch failed"}
+{"source_id": "agr_nasdaq_ag_note", "ts": "2026-07-03T01:01:30.380446+00:00", "items_returned": 0, "status": 0, "latency_ms": 497, "error": "page fetch failed"}
+{"source_id": "agr_national_corn", "ts": "2026-07-03T01:01:30.403824+00:00", "items_returned": 1, "status": 200, "latency_ms": 520, "error": ""}
+{"source_id": "agr_nass_cattle_hogs", "ts": "2026-07-03T01:01:30.854408+00:00", "items_returned": 1, "status": 200, "latency_ms": 948, "error": ""}
+{"source_id": "agr_national_pork", "ts": "2026-07-03T01:01:30.874836+00:00", "items_returned": 1, "status": 200, "latency_ms": 991, "error": ""}
+{"source_id": "agr_morning_ag_clips", "ts": "2026-07-03T01:01:32.370867+00:00", "items_returned": 7, "status": 200, "latency_ms": 2488, "error": ""}
+{"source_id": "agr_newagtalk", "ts": "2026-07-03T01:01:33.445683+00:00", "items_returned": 1, "status": 200, "latency_ms": 271, "error": ""}
+{"source_id": "agr_ncfc", "ts": "2026-07-03T01:01:33.573686+00:00", "items_returned": 1, "status": 200, "latency_ms": 391, "error": ""}
+{"source_id": "agr_ncba", "ts": "2026-07-03T01:01:33.796287+00:00", "items_returned": 0, "status": 0, "latency_ms": 604, "error": "page fetch failed"}
+{"source_id": "agr_nawg", "ts": "2026-07-03T01:01:34.036759+00:00", "items_returned": 1, "status": 200, "latency_ms": 863, "error": ""}
+{"source_id": "agr_nfu", "ts": "2026-07-03T01:01:34.085192+00:00", "items_returned": 1, "status": 200, "latency_ms": 911, "error": ""}
+{"source_id": "agr_nmpf", "ts": "2026-07-03T01:01:34.193911+00:00", "items_returned": 1, "status": 200, "latency_ms": 1019, "error": ""}
+{"source_id": "agr_noaa_nass_cropscape", "ts": "2026-07-03T01:01:35.160304+00:00", "items_returned": 0, "status": 200, "latency_ms": 164, "error": ""}
+{"source_id": "agr_oecd_agriculture", "ts": "2026-07-03T01:01:35.429931+00:00", "items_returned": 0, "status": 0, "latency_ms": 417, "error": "page fetch failed"}
+{"source_id": "agr_permies", "ts": "2026-07-03T01:01:35.467350+00:00", "items_returned": 1, "status": 200, "latency_ms": 470, "error": ""}
+{"source_id": "agr_noaa_cpc", "ts": "2026-07-03T01:01:35.518972+00:00", "items_returned": 1, "status": 200, "latency_ms": 523, "error": ""}
+{"source_id": "agr_no_till_farmer", "ts": "2026-07-03T01:01:35.602133+00:00", "items_returned": 1, "status": 200, "latency_ms": 606, "error": ""}
+{"source_id": "agr_olds_precision_note", "ts": "2026-07-03T01:01:35.788935+00:00", "items_returned": 15, "status": 200, "latency_ms": 760, "error": ""}
+{"source_id": "agr_poultry_world", "ts": "2026-07-03T01:01:37.699118+00:00", "items_returned": 1, "status": 200, "latency_ms": 935, "error": ""}
+{"source_id": "agr_pro_farmer", "ts": "2026-07-03T01:01:37.809117+00:00", "items_returned": 1, "status": 200, "latency_ms": 1051, "error": ""}
+{"source_id": "agr_progressive_dairy", "ts": "2026-07-03T01:01:37.858339+00:00", "items_returned": 0, "status": 0, "latency_ms": 1099, "error": "page fetch failed"}
+{"source_id": "agr_progressive_cattle", "ts": "2026-07-03T01:01:38.046423+00:00", "items_returned": 0, "status": 0, "latency_ms": 1273, "error": "page fetch failed"}
+{"source_id": "agr_precisionag", "ts": "2026-07-03T01:01:38.699167+00:00", "items_returned": 10, "status": 200, "latency_ms": 1941, "error": ""}
+{"source_id": "agr_precision_farming_dealer", "ts": "2026-07-03T01:01:39.132680+00:00", "items_returned": 15, "status": 200, "latency_ms": 2374, "error": ""}
+{"source_id": "agr_real_agriculture_ca", "ts": "2026-07-03T01:01:40.254390+00:00", "items_returned": 0, "status": 200, "latency_ms": 282, "error": ""}
+{"source_id": "agr_realagriculture", "ts": "2026-07-03T01:01:41.780485+00:00", "items_returned": 0, "status": 200, "latency_ms": 1799, "error": ""}
+{"source_id": "agr_reddit_agronomy", "ts": "2026-07-03T01:01:42.912852+00:00", "items_returned": 8, "status": 200, "latency_ms": 2941, "error": ""}
+{"source_id": "agr_purdue_agecon", "ts": "2026-07-03T01:01:44.147018+00:00", "items_returned": 1, "status": 200, "latency_ms": 4177, "error": ""}
+{"source_id": "agr_reddit_beekeeping", "ts": "2026-07-03T01:01:56.567078+00:00", "items_returned": 0, "status": 200, "latency_ms": 16577, "error": ""}
+{"source_id": "agr_reddit_agriculture", "ts": "2026-07-03T01:01:57.619605+00:00", "items_returned": 0, "status": 200, "latency_ms": 17647, "error": ""}
+{"source_id": "agr_reddit_farming", "ts": "2026-07-03T01:02:01.334271+00:00", "items_returned": 0, "status": 200, "latency_ms": 2906, "error": ""}
+{"source_id": "agr_reddit_hydro", "ts": "2026-07-03T01:02:17.187915+00:00", "items_returned": 0, "status": 200, "latency_ms": 18584, "error": ""}
+{"source_id": "agr_reddit_gardening_note", "ts": "2026-07-03T01:02:23.977741+00:00", "items_returned": 0, "status": 200, "latency_ms": 25384, "error": ""}
+{"source_id": "agr_reddit_cattle", "ts": "2026-07-03T01:02:24.715469+00:00", "items_returned": 0, "status": 200, "latency_ms": 26124, "error": ""}
+{"source_id": "agr_reddit_homestead", "ts": "2026-07-03T01:02:32.459904+00:00", "items_returned": 0, "status": 200, "latency_ms": 33862, "error": ""}
+{"source_id": "agr_reddit_permaculture", "ts": "2026-07-03T01:02:32.735717+00:00", "items_returned": 0, "status": 200, "latency_ms": 34127, "error": ""}
+{"source_id": "agr_sheepcentral", "ts": "2026-07-03T01:02:35.314502+00:00", "items_returned": 7, "status": 200, "latency_ms": 1759, "error": ""}
+{"source_id": "agr_seed_today", "ts": "2026-07-03T01:02:42.711840+00:00", "items_returned": 1, "status": 200, "latency_ms": 9003, "error": ""}
+{"source_id": "agr_reddit_tractors", "ts": "2026-07-03T01:02:50.913806+00:00", "items_returned": 0, "status": 200, "latency_ms": 17212, "error": ""}
+{"source_id": "agr_seedworld", "ts": "2026-07-03T01:02:53.710980+00:00", "items_returned": 15, "status": 200, "latency_ms": 19999, "error": ""}
+{"source_id": "agr_reddit_ranching", "ts": "2026-07-03T01:03:00.183454+00:00", "items_returned": 0, "status": 200, "latency_ms": 26476, "error": ""}
+{"source_id": "agr_reddit_precisionag", "ts": "2026-07-03T01:03:08.787428+00:00", "items_returned": 0, "status": 200, "latency_ms": 34927, "error": ""}
+{"source_id": "agr_southeast_farm_press", "ts": "2026-07-03T01:03:09.946842+00:00", "items_returned": 0, "status": 0, "latency_ms": 319, "error": "page fetch failed"}
+{"source_id": "agr_successful_farming", "ts": "2026-07-03T01:03:09.973556+00:00", "items_returned": 0, "status": 200, "latency_ms": 331, "error": ""}
+{"source_id": "agr_stoneX_note", "ts": "2026-07-03T01:03:10.083603+00:00", "items_returned": 0, "status": 0, "latency_ms": 447, "error": "page fetch failed"}
+{"source_id": "agr_successful_farming_markets", "ts": "2026-07-03T01:03:10.123795+00:00", "items_returned": 0, "status": 0, "latency_ms": 484, "error": "page fetch failed"}
+{"source_id": "agr_terrain_farmcredit", "ts": "2026-07-03T01:03:10.678685+00:00", "items_returned": 0, "status": 0, "latency_ms": 1039, "error": "page fetch failed"}
+{"source_id": "agr_stuff_nz_farming", "ts": "2026-07-03T01:03:14.972582+00:00", "items_returned": 1, "status": 200, "latency_ms": 5344, "error": ""}
+{"source_id": "agr_the_land_au", "ts": "2026-07-03T01:03:16.483467+00:00", "items_returned": 1, "status": 200, "latency_ms": 690, "error": ""}
+{"source_id": "agr_thecombineforum", "ts": "2026-07-03T01:03:16.491658+00:00", "items_returned": 0, "status": 0, "latency_ms": 692, "error": "page fetch failed"}
+{"source_id": "agr_the_furrow", "ts": "2026-07-03T01:03:16.558115+00:00", "items_returned": 0, "status": 0, "latency_ms": 764, "error": "page fetch failed"}
+{"source_id": "agr_tfi", "ts": "2026-07-03T01:03:17.409071+00:00", "items_returned": 1, "status": 200, "latency_ms": 1622, "error": ""}
+{"source_id": "agr_thecattlesite_forum_note", "ts": "2026-07-03T01:03:17.567615+00:00", "items_returned": 0, "status": 0, "latency_ms": 1774, "error": "page fetch failed"}
+{"source_id": "agr_the_fern", "ts": "2026-07-03T01:03:19.903772+00:00", "items_returned": 4, "status": 200, "latency_ms": 4117, "error": ""}
+{"source_id": "agr_tradingeconomics_ag", "ts": "2026-07-03T01:03:21.043253+00:00", "items_returned": 1, "status": 200, "latency_ms": 295, "error": ""}
+{"source_id": "agr_thedairysite_note", "ts": "2026-07-03T01:03:22.819728+00:00", "items_returned": 0, "status": 0, "latency_ms": 2094, "error": "page fetch failed"}
+{"source_id": "agr_tractor_supply_note", "ts": "2026-07-03T01:03:22.915971+00:00", "items_returned": 15, "status": 200, "latency_ms": 2176, "error": ""}
+{"source_id": "agr_thepigsite", "ts": "2026-07-03T01:03:23.014249+00:00", "items_returned": 0, "status": 0, "latency_ms": 2285, "error": "page fetch failed"}
+{"source_id": "agr_thepoultrysite", "ts": "2026-07-03T01:03:23.017209+00:00", "items_returned": 0, "status": 0, "latency_ms": 2287, "error": "page fetch failed"}
+{"source_id": "agr_thespoon_ag", "ts": "2026-07-03T01:03:23.798720+00:00", "items_returned": 15, "status": 200, "latency_ms": 3053, "error": ""}
+{"source_id": "agr_us_drought_monitor", "ts": "2026-07-03T01:03:24.772532+00:00", "items_returned": 0, "status": 200, "latency_ms": 159, "error": ""}
+{"source_id": "agr_usda_ams", "ts": "2026-07-03T01:03:24.779500+00:00", "items_returned": 0, "status": 200, "latency_ms": 154, "error": ""}
+{"source_id": "agr_usa_rice", "ts": "2026-07-03T01:03:25.332483+00:00", "items_returned": 1, "status": 200, "latency_ms": 711, "error": ""}
+{"source_id": "agr_united_produce", "ts": "2026-07-03T01:03:25.819261+00:00", "items_returned": 1, "status": 200, "latency_ms": 1206, "error": ""}
+{"source_id": "agr_ucanr", "ts": "2026-07-03T01:03:27.048846+00:00", "items_returned": 1, "status": 200, "latency_ms": 2428, "error": ""}
+{"source_id": "agr_umissouri_farmdoc_note", "ts": "2026-07-03T01:03:27.065159+00:00", "items_returned": 1, "status": 200, "latency_ms": 2452, "error": ""}
+{"source_id": "agr_usda_ers_dataapi", "ts": "2026-07-03T01:03:28.066786+00:00", "items_returned": 0, "status": 200, "latency_ms": 159, "error": ""}
+{"source_id": "agr_usda_fas_psd", "ts": "2026-07-03T01:03:28.070560+00:00", "items_returned": 0, "status": 200, "latency_ms": 141, "error": ""}
+{"source_id": "agr_usda_fas", "ts": "2026-07-03T01:03:28.361520+00:00", "items_returned": 0, "status": 0, "latency_ms": 439, "error": "page fetch failed"}
+{"source_id": "agr_usda_climate_hubs", "ts": "2026-07-03T01:03:28.625980+00:00", "items_returned": 1, "status": 200, "latency_ms": 728, "error": ""}
+{"source_id": "agr_usda_ers", "ts": "2026-07-03T01:03:28.659097+00:00", "items_returned": 0, "status": 200, "latency_ms": 756, "error": ""}
+{"source_id": "agr_usda_aphis", "ts": "2026-07-03T01:03:36.059176+00:00", "items_returned": 0, "status": 200, "latency_ms": 8166, "error": ""}
+{"source_id": "agr_usda_nass", "ts": "2026-07-03T01:03:37.032670+00:00", "items_returned": 0, "status": 200, "latency_ms": 171, "error": ""}
+{"source_id": "agr_usda_grain_transport", "ts": "2026-07-03T01:03:37.528994+00:00", "items_returned": 1, "status": 200, "latency_ms": 503, "error": ""}
+{"source_id": "agr_usda_gain", "ts": "2026-07-03T01:03:37.978292+00:00", "items_returned": 0, "status": 0, "latency_ms": 957, "error": "page fetch failed"}
+{"source_id": "agr_usda_nass_reports", "ts": "2026-07-03T01:03:38.203756+00:00", "items_returned": 1, "status": 200, "latency_ms": 1174, "error": ""}
+{"source_id": "agr_usda_fsa", "ts": "2026-07-03T01:03:38.640747+00:00", "items_returned": 1, "status": 200, "latency_ms": 1619, "error": ""}
+{"source_id": "agr_usda_nifa", "ts": "2026-07-03T01:03:49.495558+00:00", "items_returned": 0, "status": 0, "latency_ms": 12458, "error": "page fetch failed"}
+{"source_id": "agr_vegetable_growers_news", "ts": "2026-07-03T01:03:50.747181+00:00", "items_returned": 1, "status": 200, "latency_ms": 429, "error": ""}
+{"source_id": "agr_usda_reports_calendar", "ts": "2026-07-03T01:03:51.743400+00:00", "items_returned": 0, "status": 0, "latency_ms": 1432, "error": "page fetch failed"}
+{"source_id": "agr_usda_rma", "ts": "2026-07-03T01:03:53.119778+00:00", "items_returned": 1, "status": 200, "latency_ms": 2808, "error": ""}
+{"source_id": "agr_usda_wasde", "ts": "2026-07-03T01:04:02.704936+00:00", "items_returned": 0, "status": 0, "latency_ms": 12385, "error": "page fetch failed"}
+{"source_id": "agr_usda_nrcs", "ts": "2026-07-03T01:04:02.751580+00:00", "items_returned": 0, "status": 0, "latency_ms": 12447, "error": "page fetch failed"}
+{"source_id": "agr_world_bank_ag", "ts": "2026-07-03T01:04:36.068666+00:00", "items_returned": 0, "status": 200, "latency_ms": 154, "error": ""}
+{"source_id": "agr_western_farm_press", "ts": "2026-07-03T01:04:36.185213+00:00", "items_returned": 0, "status": 0, "latency_ms": 281, "error": "page fetch failed"}
+{"source_id": "agr_wattagnet", "ts": "2026-07-03T01:04:36.488651+00:00", "items_returned": 0, "status": 0, "latency_ms": 575, "error": "page fetch failed"}
+{"source_id": "agr_vertical_farm_daily", "ts": "2026-07-03T01:04:36.543437+00:00", "items_returned": 1, "status": 200, "latency_ms": 623, "error": ""}
+{"source_id": "agr_western_producer", "ts": "2026-07-03T01:04:36.701473+00:00", "items_returned": 7, "status": 200, "latency_ms": 797, "error": ""}
+{"source_id": "agr_western_producer_ca", "ts": "2026-07-03T01:04:36.774525+00:00", "items_returned": 7, "status": 200, "latency_ms": 859, "error": ""}
+{"source_id": "agr_world_grain", "ts": "2026-07-03T01:04:38.293460+00:00", "items_returned": 1, "status": 200, "latency_ms": 552, "error": ""}
+{"source_id": "agr_world_grain_markets", "ts": "2026-07-03T01:04:38.518479+00:00", "items_returned": 0, "status": 0, "latency_ms": 777, "error": "page fetch failed"}
+{"source_id": "openalex", "ts": "2026-07-03T01:04:39.850055+00:00", "items_returned": 0, "status": 200, "latency_ms": 2103, "error": ""}
+{"source_id": "crossref", "ts": "2026-07-03T01:04:42.500034+00:00", "items_returned": 0, "status": 200, "latency_ms": 4751, "error": ""}
+{"source_id": "semantic_scholar", "ts": "2026-07-03T01:04:54.976632+00:00", "items_returned": 0, "status": 0, "latency_ms": 17226, "error": "HTTP 429"}
+{"source_id": "gdelt", "ts": "2026-07-03T01:05:23.106947+00:00", "items_returned": 0, "status": 0, "latency_ms": 45193, "error": "Expecting value: line 1 column 1 (char 0)"}
+{"source_id": "core_ac", "ts": "2026-07-03T01:05:23.862664+00:00", "items_returned": 0, "status": 200, "latency_ms": 251, "error": ""}
+{"source_id": "zenodo", "ts": "2026-07-03T01:05:23.860331+00:00", "items_returned": 0, "status": 200, "latency_ms": 243, "error": ""}
+{"source_id": "doaj", "ts": "2026-07-03T01:05:24.074061+00:00", "items_returned": 0, "status": 200, "latency_ms": 477, "error": ""}
+{"source_id": "europe_pmc", "ts": "2026-07-03T01:05:24.758896+00:00", "items_returned": 0, "status": 200, "latency_ms": 1149, "error": ""}
+{"source_id": "datacite", "ts": "2026-07-03T01:05:25.927918+00:00", "items_returned": 0, "status": 200, "latency_ms": 2314, "error": ""}
+{"source_id": "worldbank", "ts": "2026-07-03T01:05:26.377262+00:00", "items_returned": 15, "status": 200, "latency_ms": 2754, "error": ""}
+{"source_id": "fred", "ts": "2026-07-03T01:05:27.522464+00:00", "items_returned": 0, "status": 200, "latency_ms": 336, "error": ""}
+{"source_id": "bls", "ts": "2026-07-03T01:05:27.519419+00:00", "items_returned": 0, "status": 200, "latency_ms": 333, "error": ""}
+{"source_id": "mit_tech_review_ai", "ts": "2026-07-03T01:05:27.770751+00:00", "items_returned": 4, "status": 200, "latency_ms": 575, "error": ""}
+{"source_id": "ieee_spectrum_ai", "ts": "2026-07-03T01:05:30.692804+00:00", "items_returned": 8, "status": 200, "latency_ms": 3493, "error": ""}
+{"source_id": "imf_data", "ts": "2026-07-03T01:05:31.447809+00:00", "items_returned": 0, "status": 200, "latency_ms": 4258, "error": ""}
+{"source_id": "oecd_data", "ts": "2026-07-03T01:05:31.459068+00:00", "items_returned": 0, "status": 200, "latency_ms": 4273, "error": ""}
+{"source_id": "the_verge_ai", "ts": "2026-07-03T01:05:32.555911+00:00", "items_returned": 0, "status": 200, "latency_ms": 260, "error": ""}
+{"source_id": "venturebeat_ai", "ts": "2026-07-03T01:05:32.791163+00:00", "items_returned": 4, "status": 200, "latency_ms": 509, "error": ""}
+{"source_id": "wired_ai", "ts": "2026-07-03T01:05:32.800316+00:00", "items_returned": 1, "status": 200, "latency_ms": 508, "error": ""}
+{"source_id": "synced_review", "ts": "2026-07-03T01:05:33.050999+00:00", "items_returned": 2, "status": 200, "latency_ms": 753, "error": ""}
+{"source_id": "techcrunch_ai", "ts": "2026-07-03T01:05:33.262947+00:00", "items_returned": 3, "status": 200, "latency_ms": 976, "error": ""}
+{"source_id": "ars_technica_ai", "ts": "2026-07-03T01:05:33.620624+00:00", "items_returned": 2, "status": 200, "latency_ms": 1339, "error": ""}
+{"source_id": "engadget_ai", "ts": "2026-07-03T01:05:34.803694+00:00", "items_returned": 8, "status": 200, "latency_ms": 365, "error": ""}
+{"source_id": "kdnuggets", "ts": "2026-07-03T01:05:34.958608+00:00", "items_returned": 3, "status": 200, "latency_ms": 532, "error": ""}
+{"source_id": "the_conversation_ai", "ts": "2026-07-03T01:05:35.466117+00:00", "items_returned": 10, "status": 200, "latency_ms": 1028, "error": ""}
+{"source_id": "the_gradient", "ts": "2026-07-03T01:05:36.539887+00:00", "items_returned": 6, "status": 200, "latency_ms": 2106, "error": ""}
+{"source_id": "marktechpost", "ts": "2026-07-03T01:05:36.636623+00:00", "items_returned": 9, "status": 200, "latency_ms": 2210, "error": ""}
+{"source_id": "analytics_vidhya", "ts": "2026-07-03T01:05:38.536382+00:00", "items_returned": 10, "status": 200, "latency_ms": 3939, "error": ""}
+{"source_id": "ml_mastery", "ts": "2026-07-03T01:05:39.837440+00:00", "items_returned": 2, "status": 200, "latency_ms": 468, "error": ""}
+{"source_id": "import_ai", "ts": "2026-07-03T01:05:40.050212+00:00", "items_returned": 4, "status": 200, "latency_ms": 684, "error": ""}
+{"source_id": "zdnet_ai", "ts": "2026-07-03T01:05:40.284388+00:00", "items_returned": 5, "status": 200, "latency_ms": 911, "error": ""}
+{"source_id": "the_guardian_ai", "ts": "2026-07-03T01:05:40.780622+00:00", "items_returned": 13, "status": 200, "latency_ms": 1403, "error": ""}
+{"source_id": "ai_alignment_forum", "ts": "2026-07-03T01:05:41.709176+00:00", "items_returned": 4, "status": 200, "latency_ms": 2346, "error": ""}
+{"source_id": "towards_ai", "ts": "2026-07-03T01:05:41.734457+00:00", "items_returned": 5, "status": 200, "latency_ms": 2382, "error": ""}
+{"source_id": "deeplearning_ai_batch", "ts": "2026-07-03T01:05:42.750107+00:00", "items_returned": 0, "status": 200, "latency_ms": 179, "error": ""}
+{"source_id": "oreilly_radar", "ts": "2026-07-03T01:05:42.750843+00:00", "items_returned": 0, "status": 200, "latency_ms": 180, "error": ""}
+{"source_id": "distill_pub", "ts": "2026-07-03T01:05:42.756723+00:00", "items_returned": 0, "status": 200, "latency_ms": 186, "error": ""}
+{"source_id": "arxiv_sanity", "ts": "2026-07-03T01:05:42.777155+00:00", "items_returned": 0, "status": 200, "latency_ms": 201, "error": ""}
+{"source_id": "openai_blog", "ts": "2026-07-03T01:05:44.149574+00:00", "items_returned": 15, "status": 200, "latency_ms": 1573, "error": ""}
+{"source_id": "the_register_ml", "ts": "2026-07-03T01:05:44.209913+00:00", "items_returned": 8, "status": 200, "latency_ms": 1639, "error": ""}
+{"source_id": "meta_ai_blog", "ts": "2026-07-03T01:05:45.597577+00:00", "items_returned": 6, "status": 200, "latency_ms": 547, "error": ""}
+{"source_id": "google_ai_blog", "ts": "2026-07-03T01:05:46.153581+00:00", "items_returned": 9, "status": 200, "latency_ms": 1108, "error": ""}
+{"source_id": "huggingface_blog", "ts": "2026-07-03T01:05:46.770774+00:00", "items_returned": 15, "status": 200, "latency_ms": 1720, "error": ""}
+{"source_id": "deepmind_blog", "ts": "2026-07-03T01:05:47.062506+00:00", "items_returned": 15, "status": 200, "latency_ms": 2017, "error": ""}
+{"source_id": "microsoft_research", "ts": "2026-07-03T01:05:47.627859+00:00", "items_returned": 5, "status": 200, "latency_ms": 2582, "error": ""}
+{"source_id": "nvidia_dev_blog", "ts": "2026-07-03T01:05:48.952257+00:00", "items_returned": 15, "status": 200, "latency_ms": 3907, "error": ""}
+{"source_id": "ibm_research", "ts": "2026-07-03T01:05:49.920725+00:00", "items_returned": 0, "status": 200, "latency_ms": 146, "error": ""}
+{"source_id": "anthropic_blog", "ts": "2026-07-03T01:05:49.926944+00:00", "items_returned": 0, "status": 200, "latency_ms": 157, "error": ""}
+{"source_id": "bair_blog", "ts": "2026-07-03T01:05:50.377142+00:00", "items_returned": 5, "status": 200, "latency_ms": 606, "error": ""}
+{"source_id": "amazon_science", "ts": "2026-07-03T01:05:50.447914+00:00", "items_returned": 5, "status": 200, "latency_ms": 677, "error": ""}
+{"source_id": "apple_ml", "ts": "2026-07-03T01:05:50.597312+00:00", "items_returned": 4, "status": 200, "latency_ms": 822, "error": ""}
+{"source_id": "aws_ml_blog", "ts": "2026-07-03T01:05:50.966608+00:00", "items_returned": 11, "status": 200, "latency_ms": 1196, "error": ""}
+{"source_id": "stanford_hai_blog", "ts": "2026-07-03T01:05:52.093200+00:00", "items_returned": 0, "status": 200, "latency_ms": 313, "error": ""}
+{"source_id": "allen_ai", "ts": "2026-07-03T01:05:52.097144+00:00", "items_returned": 0, "status": 200, "latency_ms": 314, "error": ""}
+{"source_id": "cohere_blog", "ts": "2026-07-03T01:05:52.099815+00:00", "items_returned": 0, "status": 200, "latency_ms": 321, "error": ""}
+{"source_id": "stability_ai", "ts": "2026-07-03T01:05:52.137630+00:00", "items_returned": 0, "status": 200, "latency_ms": 353, "error": ""}
+{"source_id": "salesforce_ai", "ts": "2026-07-03T01:05:52.449726+00:00", "items_returned": 0, "status": 200, "latency_ms": 671, "error": ""}
+{"source_id": "databricks_ai", "ts": "2026-07-03T01:05:52.494867+00:00", "items_returned": 5, "status": 200, "latency_ms": 714, "error": ""}
+{"source_id": "nvidia_research", "ts": "2026-07-03T01:05:53.476581+00:00", "items_returned": 0, "status": 200, "latency_ms": 173, "error": ""}
+{"source_id": "openai_research", "ts": "2026-07-03T01:05:53.479280+00:00", "items_returned": 0, "status": 200, "latency_ms": 180, "error": ""}
+{"source_id": "anthropic_research", "ts": "2026-07-03T01:05:53.477130+00:00", "items_returned": 0, "status": 200, "latency_ms": 178, "error": ""}
+{"source_id": "mistral_ai", "ts": "2026-07-03T01:05:53.484243+00:00", "items_returned": 0, "status": 200, "latency_ms": 185, "error": ""}
+{"source_id": "google_research", "ts": "2026-07-03T01:05:53.484479+00:00", "items_returned": 0, "status": 200, "latency_ms": 185, "error": ""}
+{"source_id": "adobe_research", "ts": "2026-07-03T01:05:53.482258+00:00", "items_returned": 0, "status": 200, "latency_ms": 175, "error": ""}
+{"source_id": "intel_ai", "ts": "2026-07-03T01:05:54.540885+00:00", "items_returned": 0, "status": 200, "latency_ms": 206, "error": ""}
+{"source_id": "qualcomm_ai", "ts": "2026-07-03T01:05:54.547969+00:00", "items_returned": 0, "status": 200, "latency_ms": 213, "error": ""}
+{"source_id": "agr_usda_press", "ts": "2026-07-03T01:06:01.645306+00:00", "items_returned": 0, "status": 0, "latency_ms": 130686, "error": "Feed unavailable: "}
+{"source_id": "openreview", "ts": "2026-07-03T01:06:40.322863+00:00", "items_returned": 0, "status": 200, "latency_ms": 194, "error": ""}
+{"source_id": "dblp", "ts": "2026-07-03T01:06:42.374727+00:00", "items_returned": 0, "status": 200, "latency_ms": 2246, "error": ""}
+{"source_id": "arxiv_cs_ai", "ts": "2026-07-03T01:06:50.878955+00:00", "items_returned": 15, "status": 200, "latency_ms": 56217, "error": ""}
+{"source_id": "arxiv_cs_cl", "ts": "2026-07-03T01:07:04.415696+00:00", "items_returned": 0, "status": 200, "latency_ms": 69747, "error": ""}
+{"source_id": "papers_with_code_sota", "ts": "2026-07-03T01:07:26.163771+00:00", "items_returned": 0, "status": 200, "latency_ms": 195, "error": ""}
+{"source_id": "hf_datasets", "ts": "2026-07-03T01:07:26.195316+00:00", "items_returned": 0, "status": 200, "latency_ms": 235, "error": ""}
+{"source_id": "hf_models", "ts": "2026-07-03T01:07:26.206760+00:00", "items_returned": 0, "status": 200, "latency_ms": 247, "error": ""}
+{"source_id": "kaggle_datasets", "ts": "2026-07-03T01:07:26.446071+00:00", "items_returned": 0, "status": 200, "latency_ms": 482, "error": ""}
+{"source_id": "paperswithcode", "ts": "2026-07-03T01:07:26.628411+00:00", "items_returned": 0, "status": 0, "latency_ms": 667, "error": "Expecting value: line 1 column 1 (char 0)"}
+{"source_id": "openml", "ts": "2026-07-03T01:07:36.475639+00:00", "items_returned": 15, "status": 200, "latency_ms": 10515, "error": ""}
+{"source_id": "helm_stanford", "ts": "2026-07-03T01:07:37.754413+00:00", "items_returned": 0, "status": 200, "latency_ms": 143, "error": ""}
+{"source_id": "lmarena", "ts": "2026-07-03T01:07:37.758468+00:00", "items_returned": 0, "status": 200, "latency_ms": 147, "error": ""}
+{"source_id": "hf_leaderboard", "ts": "2026-07-03T01:07:37.755934+00:00", "items_returned": 0, "status": 200, "latency_ms": 146, "error": ""}
+{"source_id": "mlperf", "ts": "2026-07-03T01:07:37.754189+00:00", "items_returned": 0, "status": 200, "latency_ms": 143, "error": ""}
+{"source_id": "pytorch_hub", "ts": "2026-07-03T01:07:37.774501+00:00", "items_returned": 0, "status": 200, "latency_ms": 151, "error": ""}
+{"source_id": "tf_datasets", "ts": "2026-07-03T01:07:37.763044+00:00", "items_returned": 0, "status": 200, "latency_ms": 144, "error": ""}
+{"source_id": "stanford_hai", "ts": "2026-07-03T01:07:38.929430+00:00", "items_returned": 0, "status": 200, "latency_ms": 163, "error": ""}
+{"source_id": "oecd_ai", "ts": "2026-07-03T01:07:38.944319+00:00", "items_returned": 0, "status": 200, "latency_ms": 177, "error": ""}
+{"source_id": "brookings_ai", "ts": "2026-07-03T01:07:38.932491+00:00", "items_returned": 0, "status": 200, "latency_ms": 169, "error": ""}
+{"source_id": "ollama_library", "ts": "2026-07-03T01:07:38.938291+00:00", "items_returned": 0, "status": 200, "latency_ms": 179, "error": ""}
+{"source_id": "ada_lovelace", "ts": "2026-07-03T01:07:39.427506+00:00", "items_returned": 0, "status": 200, "latency_ms": 655, "error": ""}
+{"source_id": "eff_ai", "ts": "2026-07-03T01:07:49.369357+00:00", "items_returned": 15, "status": 200, "latency_ms": 10600, "error": ""}
+{"source_id": "nist_ai_web", "ts": "2026-07-03T01:07:50.345296+00:00", "items_returned": 0, "status": 200, "latency_ms": 156, "error": ""}
+{"source_id": "unesco_ai", "ts": "2026-07-03T01:07:50.346628+00:00", "items_returned": 0, "status": 200, "latency_ms": 157, "error": ""}
+{"source_id": "cset_georgetown", "ts": "2026-07-03T01:07:50.350869+00:00", "items_returned": 0, "status": 200, "latency_ms": 166, "error": ""}
+{"source_id": "nist_ai", "ts": "2026-07-03T01:07:50.725131+00:00", "items_returned": 13, "status": 200, "latency_ms": 540, "error": ""}
+{"source_id": "partnership_on_ai", "ts": "2026-07-03T01:07:51.029508+00:00", "items_returned": 2, "status": 200, "latency_ms": 845, "error": ""}
+{"source_id": "ai_now_institute", "ts": "2026-07-03T01:07:51.321363+00:00", "items_returned": 5, "status": 200, "latency_ms": 1137, "error": ""}
+{"source_id": "pytorch_forums", "ts": "2026-07-03T01:07:52.291170+00:00", "items_returned": 0, "status": 200, "latency_ms": 153, "error": ""}
+{"source_id": "hf_forums", "ts": "2026-07-03T01:07:52.295385+00:00", "items_returned": 0, "status": 200, "latency_ms": 157, "error": ""}
+{"source_id": "reddit_ml", "ts": "2026-07-03T01:07:52.442313+00:00", "items_returned": 0, "status": 0, "latency_ms": 308, "error": "HTTP 403"}
+{"source_id": "reddit_llm", "ts": "2026-07-03T01:07:52.462598+00:00", "items_returned": 0, "status": 0, "latency_ms": 328, "error": "HTTP 403"}
+{"source_id": "reddit_ai", "ts": "2026-07-03T01:07:52.460086+00:00", "items_returned": 0, "status": 0, "latency_ms": 326, "error": "HTTP 403"}
+{"source_id": "stackoverflow_ai", "ts": "2026-07-03T01:07:52.510636+00:00", "items_returned": 0, "status": 200, "latency_ms": 377, "error": ""}
+{"source_id": "github_trending", "ts": "2026-07-03T01:07:53.486449+00:00", "items_returned": 0, "status": 200, "latency_ms": 163, "error": ""}
+{"source_id": "tf_forum", "ts": "2026-07-03T01:07:53.486315+00:00", "items_returned": 0, "status": 200, "latency_ms": 163, "error": ""}
+{"source_id": "github_trending_ai", "ts": "2026-07-03T01:07:53.516062+00:00", "items_returned": 0, "status": 200, "latency_ms": 193, "error": ""}
+{"source_id": "langchain_docs", "ts": "2026-07-03T01:07:53.516066+00:00", "items_returned": 0, "status": 200, "latency_ms": 187, "error": ""}
+{"source_id": "llamaindex_docs", "ts": "2026-07-03T01:07:53.508240+00:00", "items_returned": 0, "status": 200, "latency_ms": 179, "error": ""}
+{"source_id": "github_repos", "ts": "2026-07-03T01:07:53.669200+00:00", "items_returned": 0, "status": 0, "latency_ms": 346, "error": "HTTP 422"}
+{"source_id": "neurips_conf", "ts": "2026-07-03T01:07:54.630697+00:00", "items_returned": 0, "status": 200, "latency_ms": 152, "error": ""}
+{"source_id": "icml_conf", "ts": "2026-07-03T01:07:54.630698+00:00", "items_returned": 0, "status": 200, "latency_ms": 152, "error": ""}
+{"source_id": "iclr_conf", "ts": "2026-07-03T01:07:54.632799+00:00", "items_returned": 0, "status": 200, "latency_ms": 153, "error": ""}
+{"source_id": "aaai_conf", "ts": "2026-07-03T01:07:54.634551+00:00", "items_returned": 0, "status": 200, "latency_ms": 151, "error": ""}
+{"source_id": "acl_anthology", "ts": "2026-07-03T01:07:54.634393+00:00", "items_returned": 0, "status": 200, "latency_ms": 151, "error": ""}
+{"source_id": "neurips_proc", "ts": "2026-07-03T01:07:54.660988+00:00", "items_returned": 0, "status": 200, "latency_ms": 182, "error": ""}
+{"source_id": "emnlp_conf", "ts": "2026-07-03T01:07:55.632796+00:00", "items_returned": 0, "status": 200, "latency_ms": 146, "error": ""}
+{"source_id": "pmlr_proc", "ts": "2026-07-03T01:07:55.632723+00:00", "items_returned": 0, "status": 200, "latency_ms": 146, "error": ""}
+{"source_id": "kdd_conf", "ts": "2026-07-03T01:07:55.652855+00:00", "items_returned": 0, "status": 200, "latency_ms": 160, "error": ""}
+{"source_id": "cvpr_conf", "ts": "2026-07-03T01:07:55.641925+00:00", "items_returned": 0, "status": 200, "latency_ms": 150, "error": ""}
+{"source_id": "acl_conf", "ts": "2026-07-03T01:07:55.635631+00:00", "items_returned": 0, "status": 200, "latency_ms": 150, "error": ""}
+{"source_id": "ijcai_conf", "ts": "2026-07-03T01:07:55.666093+00:00", "items_returned": 0, "status": 200, "latency_ms": 180, "error": ""}
+{"source_id": "arxiv_cs_lg", "ts": "2026-07-03T01:08:03.001824+00:00", "items_returned": 0, "status": 200, "latency_ms": 128012, "error": ""}
+{"source_id": "arxiv_cs_cv", "ts": "2026-07-03T01:08:07.541875+00:00", "items_returned": 0, "status": 0, "latency_ms": 132535, "error": "HTTP 429"}
+{"source_id": "arxiv_cs_ro", "ts": "2026-07-03T01:08:19.512457+00:00", "items_returned": 0, "status": 200, "latency_ms": 98902, "error": ""}
+{"source_id": "arxiv_cs_ir", "ts": "2026-07-03T01:08:30.191307+00:00", "items_returned": 0, "status": 0, "latency_ms": 109579, "error": "HTTP 429"}
+{"source_id": "arxiv_stat_ml", "ts": "2026-07-03T01:08:40.368900+00:00", "items_returned": 0, "status": 0, "latency_ms": 119584, "error": "HTTP 429"}
+{"source_id": "arxiv_cs_hc", "ts": "2026-07-03T01:08:51.372820+00:00", "items_returned": 0, "status": 200, "latency_ms": 130578, "error": ""}

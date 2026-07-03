@@ -9,10 +9,10 @@ author: ""
 date: "Thu, 26 Jan 2023 00:00:00 GMT"
 tier: 2
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:50:54.609667+00:00"
+extracted_at: "2026-07-02T16:06:01.591709+00:00"
 chars: 8386
 engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:50:52+00:00"
+collected_at: "2026-07-02T16:05:59+00:00"
 content_hash: "11180f3ad49a42c5"
 chunks:
   - id: "articles/hugging-face-blog/bfad128ecc.md#c0"

@@ -9,10 +9,10 @@ author: ""
 date: "Thu, 25 Jun 2026 22:30:51 +0000"
 tier: 2
 method: "pack-search-backfill"
-extracted_at: "2026-07-02T15:50:16.347281+00:00"
+extracted_at: "2026-07-02T18:15:01.372469+00:00"
 chars: 10000
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T15:50:14+00:00"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+collected_at: "2026-07-02T18:14:59+00:00"
 content_hash: "1824d1ef0dcf80d5"
 chunks:
   - id: "articles/meta-ai-blog/aed965de1d.md#c0"
