@@ -8,5 +8,5 @@ source: "arxiv_cs_hc"
 title: "Explainability Needs in Agriculture: Exploring Dairy Farmers' User Personas"
 author: ""
 date: ""
-extracted_at: "2026-07-03T00:08:53.252679+00:00"
+extracted_at: "2026-07-03T01:14:41.973280+00:00"
 ---

@@ -2900,6 +2900,23 @@ def _parse_wiki_post_metadata_and_comments(raw: str) -> tuple[dict, list, str]:
     return fm, comments, op_body
 
 
+def _is_model_synthesis_record(wiki_path: str, rec: dict) -> bool:
+    """True when a manifest record is the MODEL'S OWN generated output (deep-research synthesis)
+    rather than collected primary material. These docs are legitimate custody carriers on the
+    citation-resolution path but are NEVER primary evidence: they must not seed topic clusters
+    or masquerade as articles in evidence substrates (2026-07-02 corpus-poisoning incident)."""
+    if "focused-research" in (wiki_path or "").lower():
+        return True
+    method = str(rec.get("method") or "").strip().lower()
+    if method == "deep-research":
+        return True
+    src = str(rec.get("source") or "").lower()
+    if "focused research" in src:
+        return True
+    title = str(rec.get("title") or "")
+    return title.startswith("AI Research (")
+
+
 def _assemble_scope_items(spec: dict) -> list:
     """Assemble topic-model documents from the persistent manifest SCOPE (budget-aware, no fixed
     per-source cap), mirroring /api/corpus/scope selection. This is how a consumer draws from the
@@ -2928,14 +2945,33 @@ def _assemble_scope_items(spec: dict) -> list:
     for wp, rec in records.items():
         if types and rec.get("type") not in types:
             continue
+        # 2026-07-02 SELF-CONTAMINATION GATE: model-GENERATED synthesis docs (Gemini deep-research
+        # briefs: method=deep-research / source 'gemini (focused research)' / articles/*focused-research*)
+        # must NEVER enter the topic-model substrate. Clustering the system's own output produces
+        # meta-themes about the research process itself ("Gemini Research Dumps Blur Ag Focus":
+        # 19 briefs spanning three unrelated engagements clustered as a POSITIVE agri theme) that
+        # then carry forward as cached themes and poison every later run. Deep-research docs keep
+        # their custody role on the citation path (resolved_sources); they are simply not primary
+        # evidence for theme discovery.
+        if _is_model_synthesis_record(wp, rec):
+            continue
         if min_rel and int(rec.get("relevance") or 0) < min_rel:
             continue
         if industries:
             ri = set(str(x).lower() for x in (rec.get("industries") or []))
             if not (ri & industries):
                 continue
-        if engagement and engagement not in wp.lower() and engagement not in str(rec.get("title", "")).lower():
-            continue
+        # 2026-07-02: engagement match includes the record's engagement FIELD, not just the
+        # path/title substring. Pack articles live at articles/<source-id>/ (no slug in the
+        # path) with their engagement recorded in frontmatter; without the field check the
+        # filter never bound and the scope pulled the ENTIRE wiki (13,343 docs, 1,965
+        # mega-clusters, one 420s topic-model timeout on 2026-07-02).
+        if engagement:
+            rec_eng = str(rec.get("engagement") or "").strip().lower()
+            if (engagement not in wp.lower()
+                    and engagement not in str(rec.get("title", "")).lower()
+                    and engagement not in rec_eng and (not rec_eng or rec_eng not in engagement)):
+                continue
         cand.append((wp, rec))
     cand.sort(key=lambda kv: (-(int(kv[1].get("relevance") or 0)), -(int(kv[1].get("chars") or 0)), kv[0]))
     if max_count:
@@ -15844,8 +15880,17 @@ async def corpus_scope(payload: dict):
             rec_inds = set(str(x).lower() for x in (rec.get("industries") or []))
             if not (rec_inds & industries):
                 continue
-        if engagement and engagement not in wp.lower() and engagement not in str(rec.get("title", "")).lower():
-            continue
+        # 2026-07-02: engagement match includes the record's engagement FIELD, not just the
+        # path/title substring. Pack articles live at articles/<source-id>/ (no slug in the
+        # path) with their engagement recorded in frontmatter; without the field check the
+        # filter never bound and the scope pulled the ENTIRE wiki (13,343 docs, 1,965
+        # mega-clusters, one 420s topic-model timeout on 2026-07-02).
+        if engagement:
+            rec_eng = str(rec.get("engagement") or "").strip().lower()
+            if (engagement not in wp.lower()
+                    and engagement not in str(rec.get("title", "")).lower()
+                    and engagement not in rec_eng and (not rec_eng or rec_eng not in engagement)):
+                continue
         cand.append((wp, rec))
     scope_size = len(cand)
     # Deterministic rank: relevance desc, then richer (more chars) first, then wikiPath asc.
@@ -18599,14 +18644,20 @@ def _illus_registry_append(entry: dict) -> None:
         logger.warning(f"[illustration] registry write failed: {e}")
 
 
-async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0) -> dict:
+async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
+                              literal: bool = False) -> dict:
     """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
     library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
 
     Pipeline: section IDEA -> VERBALIZED SAMPLING (diverse recognizable metaphors, layout-aware select)
     -> image gen -> knockout -> persist + catalog. `slot` (hero|side|backdrop) shapes both the VS
     selection and the dedup key. `variant`>0 forces a DISTINCT image for the same idea (breaks intra-deck
-    repeats)."""
+    repeats).
+
+    `literal=True` (2026-07-03, owner-directed) SKIPS verbalized sampling: the caller has already
+    derived a content-true scene brief FROM the slide's generated content, and it must be drawn
+    as-is. VS rewards non-obvious metaphors, which is exactly wrong for content-anchored step art
+    (it turned 'AI scores probability' into an eagle and 'climate scan' into a houseplant leaf)."""
     import base64
     brand = "nu" if str(brand).lower() == "nu" else "nxt"
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
@@ -18632,7 +18683,8 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     if not api_key or not concept:
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     # VERBALIZED SAMPLING: diversify the idea into a fresh, recognizable, layout-fit concept.
-    visual_concept = await _vs_select_concept(concept, brand, canvas, slot)
+    # (skipped for literal callers: the concept IS the content-derived scene brief.)
+    visual_concept = concept if literal else await _vs_select_concept(concept, brand, canvas, slot)
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
     body = {"contents": [{"parts": [{"text": _illustration_prompt(visual_concept, brand, canvas)}]}],
             "generationConfig": {"responseModalities": ["IMAGE"]}}
@@ -18748,7 +18800,7 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v17-infographic-families"
+_DIAGRAM_STYLE_VERSION = "v21-content-first-scenes"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)
@@ -18998,6 +19050,79 @@ async def ai_diagram(payload: dict):
     # both diagram shapes (labels/nodes/...) and the E4 infographic families (steps/stats/...).
     if not _diagram_spec_has_content(spec):
         return JSONResponse({"error": "spec content required: labels/nodes (diagram) or steps/stats/segments/left+right (infographic)"}, status_code=400)
+    # 2026-07-03 (owner-directed): NODESC CONCEPT ART. A process-flow whose steps carry no
+    # descriptions renders title-only cards, and a stroke glyph is not an adequate concept
+    # image. Each such step gets a Nano-Banana on-brand transparent illustration derived from
+    # its title (VS-diversified, disk-cached by concept: generated once, reused on every later
+    # render/export). Fail-open per step: no illustration -> the card falls back to its
+    # content-true glyph. Steps WITH descriptions keep the text-forward card (the evidence
+    # line is the substance; art there would crowd it).
+    try:
+        if str(spec.get("kind") or "") == "process-flow":
+            _steps = [s for s in (spec.get("steps") or []) if isinstance(s, dict)]
+            if _steps and not any(str(s.get("description") or "").strip() for s in _steps):
+                _title = str(spec.get("title") or spec.get("kicker") or "")
+                _takeaway = str((spec.get("takeaway") or {}).get("statement") or "") if isinstance(spec.get("takeaway"), dict) else ""
+                _brand_v = payload.get("brand", "nxt")
+                _canvas_v = payload.get("canvas", "light")
+                # CONTENT-FIRST SCENE BRIEFS (owner-directed 2026-07-03): the slide content is
+                # already generated; derive each step's image prompt FROM that content. One flash
+                # call writes a LITERAL scene per step (the step's actor/object/action, drawable
+                # as one continuous line), and _brand_illustration renders it with literal=True
+                # (VS skipped - VS rewards non-obvious metaphors, which produced content-unrelated
+                # art: an eagle for 'AI scores probability'). Fallback scene = the step title.
+                _names = [str(s.get("name") or s.get("title") or "") for s in _steps]
+                scenes: list = ["" for _ in _steps]
+                _api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+                if _api_key:
+                    try:
+                        _sp = (
+                            "A slide titled \"" + _title + "\" shows this process"
+                            + (f" (so-what: {_takeaway})" if _takeaway else "") + ":\n"
+                            + "\n".join(f"{i + 1}. {n}" for i, n in enumerate(_names))
+                            + "\n\nFor EACH step, describe ONE literal illustration subject that DEPICTS "
+                              "THAT STEP'S SPECIFIC ACTION - the concrete actor, object, or instrument "
+                              "doing the thing the step names (e.g. a hand filling a form on a clipboard; "
+                              "a gauge needle sweeping over stacked severity bars; a radar dish scanning "
+                              "over crop rows; a signpost with branching paths; a bell ringing above a "
+                              "circular calendar). Rules: the subject must be nameable at a glance AND "
+                              "unambiguously about the step's action (never a loosely related animal, "
+                              "plant, or object); ONE single fluid subject drawable as one continuous "
+                              "line (no collages, no text, no small detail); each step's subject must "
+                              "differ from the others.\n"
+                              "Return ONLY a JSON array of exactly "
+                            + str(len(_names)) + ' strings, one scene phrase per step, in order.'
+                        )
+                        _vurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_ILLUS_VS_MODEL}:generateContent"
+                        async with httpx.AsyncClient() as _cl:
+                            _vr = await _cl.post(_vurl, headers=_goog_key_headers(_api_key), timeout=60.0, json={
+                                "contents": [{"role": "user", "parts": [{"text": _sp}]}],
+                                "generationConfig": {"temperature": 0.4, "maxOutputTokens": 900,
+                                                     "thinkingConfig": {"thinkingBudget": 0}},
+                            })
+                        if _vr.status_code == 200:
+                            _raw = "".join(p.get("text", "") for p in
+                                           (((_vr.json().get("candidates") or [{}])[0]).get("content", {}).get("parts") or []))
+                            _arr = _parse_json_array(_raw)
+                            if isinstance(_arr, list):
+                                for i in range(min(len(_arr), len(scenes))):
+                                    if isinstance(_arr[i], str) and len(_arr[i].strip()) >= 10:
+                                        scenes[i] = _arr[i].strip()
+                    except Exception as _se:
+                        logger.warning(f"[diagram] step scene-brief call failed (fallback to titles): {_se}")
+
+                async def _step_art(i: int, s: dict):
+                    concept = scenes[i] or f"{_names[i]} - {_title}".strip(" -")
+                    if not concept:
+                        return
+                    r = await _brand_illustration(concept, _brand_v, _canvas_v, "side", 0, literal=bool(scenes[i]))
+                    if r.get("dataUri"):
+                        s["art"] = r["dataUri"]
+                await asyncio.gather(*[_step_art(i, s) for i, s in enumerate(_steps)])
+                logger.info(f"[diagram] step art: {sum(1 for s in _steps if s.get('art'))}/{len(_steps)} filled; "
+                            f"scene-briefs={sum(1 for x in scenes if x)}/{len(scenes)}")
+    except Exception as _e:
+        logger.warning(f"[diagram] nodesc concept-art injection skipped: {_e}")
     res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res

@@ -8,12 +8,15 @@ title: "Swatch brawls: why are people fighting over pocket watches?"
 author: ""
 date: "2026-05-20T14:25:00Z"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:19:14.001967+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:20:15.266575+00:00"
 chars: 4336
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:19:11+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:20:15.190Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "0d63c820da234663"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/the-conversation-ai/e5ae1d3f0c.md#c0"
     char_span: [0, 187]

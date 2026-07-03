@@ -8,12 +8,15 @@ title: "7 Real-World Python Projects You Can Build in 2026 (With Guides)"
 author: ""
 date: "Tue, 30 Jun 2026 12:00:54 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:11:56.709967+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:18:05.210456+00:00"
 chars: 9052
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:11:54+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:18:05.236Z"
+relevance: 10
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "6ec81b69134a74c7"
+relevance_by_goal: {"c5a2d58d1be7":10}
 chunks:
   - id: "articles/kdnuggets/c1ce5f5dbc.md#c0"
     char_span: [0, 2389]

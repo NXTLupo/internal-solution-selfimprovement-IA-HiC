@@ -4474,16 +4474,25 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // from the payload's own structured fields - same resolver as the generation seam,
             // so a re-export of an old deck ships the infographic instead of an empty band.
             {
+                // 2026-07-03: ALWAYS re-resolve (not only when missing). The native render is
+                // deterministic and content-hash cached server-side (keyed with the renderer
+                // style version), so a re-export of an old deck picks up renderer improvements
+                // instead of shipping the stale panel baked at generation time; an unchanged
+                // renderer costs one cache hit. Refresh failure keeps the previous panel.
                 const { resolveRoutedSlotImages } = await import('../services/visualRouter');
                 for (const s of slides as any[]) {
                     if (String(s.template) !== 'slides:infographic-exhibit') continue;
                     const sub = s.composerPayload;
-                    if (!sub || typeof sub !== 'object' || (typeof sub.exhibitImage === 'string' && sub.exhibitImage)) continue;
+                    if (!sub || typeof sub !== 'object') continue;
+                    const prev = sub.exhibitImage;
+                    sub.exhibitImage = '';
                     try {
-                        await resolveRoutedSlotImages('slides:infographic-exhibit', sub, s.brand || 'nxt', s.theme || 'dark',
+                        const r = await resolveRoutedSlotImages('slides:infographic-exhibit', sub, s.brand || 'nxt', s.theme || 'dark',
                             { onLog: (msg: string) => console.log('[deck-export:infographic]', msg) });
+                        if (!r.count && prev) sub.exhibitImage = prev;
                     } catch (e: any) {
-                        console.warn('[deck-export] infographic backfill skipped:', e?.message || e);
+                        if (prev) sub.exhibitImage = prev;
+                        console.warn('[deck-export] infographic refresh skipped:', e?.message || e);
                     }
                 }
             }

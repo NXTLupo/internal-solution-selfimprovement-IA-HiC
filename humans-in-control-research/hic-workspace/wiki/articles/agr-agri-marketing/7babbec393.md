@@ -8,12 +8,15 @@ title: "Agri Marketing"
 author: ""
 date: ""
 tier: 3
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:50:45.439452+00:00"
-chars: 3592
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T17:50:43+00:00"
-content_hash: "113b485873a2a038"
+method: "source-native"
+extracted_at: "2026-07-03T01:19:48.823567+00:00"
+chars: 3777
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:19:48.699Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
+content_hash: "193fb0ec31af5c88"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/agr-agri-marketing/7babbec393.md#c0"
     char_span: [0, 79]
@@ -22,25 +25,25 @@ chunks:
     token_count: 24
     sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/"}]
   - id: "articles/agr-agri-marketing/7babbec393.md#c1"
-    char_span: [81, 1733]
-    sentence_count: 3
-    key_terms: [glyphosate, guide, assn, company, "nat'l", rural, best, nama]
-    concepts: [glyphosate, guide, company, "nat'l", rural]
+    char_span: [81, 1717]
+    sentence_count: 5
+    key_terms: [guide, best, nama, show, marketing, business, feedback, services]
+    concepts: [guide, marketing, business, feedback, services]
     token_count: 512
   - id: "articles/agr-agri-marketing/7babbec393.md#c2"
-    char_span: [1520, 3216]
-    sentence_count: 5
-    key_terms: [impact, poll, announces, directors, producers, impacted, negative, acreage]
-    concepts: [impact, announces, directors, producers, impacted]
+    char_span: [1515, 3323]
+    sentence_count: 4
+    key_terms: [glyphosate, assn, impact, company, growers, "nat'l", impacted, negative]
+    concepts: [glyphosate, impact, company, growers, "nat'l"]
     related_chunks: ["articles/agr-agri-marketing/7babbec393.md#c3"]
     token_count: 512
   - id: "articles/agr-agri-marketing/7babbec393.md#c3"
-    char_span: [2987, 3674]
-    sentence_count: 4
-    key_terms: [announces, directors, phosphate, corteva, board, communications, countervailing, organizations]
-    concepts: [announces, directors, phosphate, corteva, board]
+    char_span: [3102, 3859]
+    sentence_count: 2
+    key_terms: [glyphosate, assn, agreement, petition, "nat'l", right-to-repair, communications, "agriculture's"]
+    concepts: [glyphosate, agreement, petition, "nat'l"]
     related_chunks: ["articles/agr-agri-marketing/7babbec393.md#c2"]
-    token_count: 195
+    token_count: 215
 ---
 # Agri Marketing
 
@@ -108,6 +111,83 @@ Chapters
 Agri-Marketing Conf
 Best of NAMA 2025
 News of the Day
+Ag Sec'y Rollins Announces $500 Million For Fertilizer Investment & Expansion Program
+7-2-2026
+more>>
+American Soybean Assn Welcomes EPA Approval Of New Crop Protection Tools
+7-2-2026
+more>>
+Bayer Consolidates Its U.S. Glyphosate Business Into Distinct Entity Operating As Ruveon
+7-2-2026
+Alfonso Alba Ordóñez named CEO, Steve Knodle is Head of Commercial Business
+more>>
+Yara Acquires Gulf Coast Ammonia Plant
+7-2-2026
+more>>
+Administration Won't Renew USMCA, Ag Coalition Doesn't Agree
+7-2-2026
+more>>
+Nat'l Corn Growers Assn Releases Demand Strategy For U.S. Corn's Next 250 Years
+7-2-2026
+more>>
+Syngenta Group Promotes Hengde Qin As Its CEO
+7-2-2026
+more>>
+Bayer's Convintro Receives EPA Registration, Controls Palmer Amaranth And Waterhemp
+7-2-2026
+more>>
+The Legacy Of The Case "Spirit of '76" Tractor
+7-2-2026
+more>>
+Take the Agri-Marketers' Poll!
+What best describes your employer?
+Poll conducted by
+magazine
+Company
+Agency
+Trade assn/checkoff
+Media
+Other
+View Previous Poll's Results
+How has AI impacted your work?
+Has had some positive impact
+57.9%
+Has impacted it very positively
+31.6%
+Has had no impact
+5.3%
+Has had a very negative impact
+5.3%
+Has had a somewhat negative impact
+0.0%
+NCGA Emphasizes USMCA Importance To Corn Growers, Calls For Renewal
+7-2-2026
+more>>
+Highlights Of EPA Leadership And State Agriculture Departments Meeting
+7-2-2026
+more>>
+Nat'l Pork Producers Council's Statement On USMCA Joint Review
+7-2-2026
+more>>
+Fifth Generation Takes Over Management Of Iowa's Cornelius Seed Company
+7-2-2026
+more>>
+Ag Retailers Assn Endorses Securing Agriculture's Workforce Act
+7-2-2026
+more>>
+AGCO Unveils "Legacies Of The Land" Campaign Honoring Farming Families For America's 250th
+7-2-2026
+more>>
+250 Years Of Feeding America: Farmers Are Still Fighting For Their Fair Share
+7-2-2026
+more>>
+Now Taking Applications For Next Iowa Cultivo Virtual Academy Cohort
+7-2-2026
+Online curriculum focused on U.S. market entry, regulatory and financing systems and customer perspectives
+more>>
+Syngenta Partners With McDonald's And McCain For A More Sustainable Potato Supply Chain In China
+7-2-2026
+more>>
 Tessenderlo Group Acquires 20% Of FMC, Will Remain A Separate Company
 7-1-2026
 more>>
@@ -134,82 +214,6 @@ USDA Sec'y Rollins Announces Program To Support Small- And Mid-Size Beef Process
 more>>
 Farmer Urges Federal Judge To Deny Deere's Right-To-Repair Lawsuit Agreement
 7-1-2026
-more>>
-Take the Agri-Marketers' Poll!
-What best describes your employer?
-Poll conducted by
-magazine
-Company
-Agency
-Trade assn/checkoff
-Media
-Other
-View Previous Poll's Results
-How has AI impacted your work?
-Has had some positive impact
-57.9%
-Has impacted it very positively
-31.6%
-Has had no impact
-5.3%
-Has had a very negative impact
-5.3%
-Has had a somewhat negative impact
-0.0%
-NPPC Pleased House Labor Bill Addresses Pork Producers' Workforce Shortage
-7-1-2026
-more>>
-Edge Applauds Ag Chair Thompson's Bill To Expand H-2A Access For Dairy Farms
-7-1-2026
-more>>
-Leading Beef Economists On How Screwworm Will Impact The Markets
-7-1-2026
-more>>
-Halter Launches Beef Pro To Help Ranchers Make Better Grazing Decisions
-7-1-2026
-more>>
-Renewable Fuels Assn's Poll: Americans Strongly Support RFS, Want Energy Independence
-7-1-2026
-more>>
-USDA: Irrigated Area Increased More Than 10-Fold From 1890 To 2022, Uses Less Water
-7-1-2026
-more>>
-Ohio's Centerra And Gerber Form Grain Partnership
-7-1-2026
-more>>
-The Passing Of Dr. Mary-Dell Chilton
-7-1-2026
-Syngenta's World Food Prize Laureate
-more>>
-The Passing Of Ag Journalist Dan Crummett
-7-1-2026
-more>>
-Corn Planted Acreage Down 3% From 2025, Soybean Acreage Up 5% From Last Year
-6-30-2026
-more>>
-Administration Suspends Duties On Moroccan Phosphate Fertilizer
-6-30-2026
-more>>
-Justice Dept Requires Egg Producers To End Coordinated Benchmark Manipulation
-6-30-2026
-more>>
-Corteva Announces Board Of Directors For Seed And Genetics Spin-Off Vylor
-6-30-2026
-more>>
-Corteva Announces Board Of Directors For Future Crop Protection Company
-6-30-2026
-more>>
-Corn Growers Thrilled By Suspension Of Phosphate CVDs
-6-30-2026
-more>>
-American Soybean Assn Applauds Executive Order Suspending Countervailing Duties On Phosphate Imports
-6-30-2026
-more>>
-330 Ag Organizations Send Letter To Sen. John Boozman To Resolve Prop 12
-6-30-2026
-more>>
-Thousands Of U.S. Farmers Call For USMCA Renewal
-6-30-2026
 more>>
 More News...
 Proudly associated with:

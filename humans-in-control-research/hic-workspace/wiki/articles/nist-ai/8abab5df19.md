@@ -8,12 +8,15 @@ title: "NIST Researchers Develop Photonic Chip Packaging That Can Withstand Extr
 author: ""
 date: "Mon, 30 Mar 2026 12:00:00 +0000"
 tier: 1
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T16:38:21.602496+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:18:15.771192+00:00"
 chars: 5194
 engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-02T16:38:19+00:00"
+collected_at: "2026-07-03T01:18:15.630Z"
+relevance: 10
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "cc683b899d3b159d"
+relevance_by_goal: {"c5a2d58d1be7":10}
 chunks:
   - id: "articles/nist-ai/8abab5df19.md#c0"
     char_span: [0, 228]

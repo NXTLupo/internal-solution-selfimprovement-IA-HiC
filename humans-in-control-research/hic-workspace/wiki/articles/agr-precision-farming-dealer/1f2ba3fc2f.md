@@ -8,12 +8,15 @@ title: "4 Ways to Drive Precision Technology Adoption in Tough Times"
 author: ""
 date: "Mon, 22 Jun 2026 10:08:51 -0400"
 tier: 3
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:58:40.277442+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:14:50.840293+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T17:58:38+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:14:50.720Z"
+relevance: 85
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "d3a5728f25262ba3"
+relevance_by_goal: {"c5a2d58d1be7":85}
 chunks:
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c0"
     char_span: [0, 248]

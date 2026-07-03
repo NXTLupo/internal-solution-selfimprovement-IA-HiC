@@ -8,5 +8,5 @@ source: "arxiv_cs_hc"
 title: "From Interaction to Attitude: Exploring the Impact of Human-AI Cooperation on Mental Illness Stigma"
 author: ""
 date: ""
-extracted_at: "2026-07-03T00:08:56.936857+00:00"
+extracted_at: "2026-07-03T01:17:24.328714+00:00"
 ---

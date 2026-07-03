@@ -8,12 +8,15 @@ title: "Apple is reportedly planning a visual refresh of the entry-level MacBook
 author: ""
 date: "Wed, 01 Jul 2026 22:52:09 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:18:40.043768+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:19:59.946489+00:00"
 chars: 1655
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:18:37+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:19:59.863Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "5d6dfc618f738681"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/engadget-ai/64a1fd7ccb.md#c0"
     char_span: [0, 1892]

@@ -8,5 +8,5 @@ source: "arxiv_cs_hc"
 title: "What People See (and Miss) About Generative AI Risks: Perceptions of Failures, Risks, and Who Should Address Them"
 author: ""
 date: ""
-extracted_at: "2026-07-03T00:08:58.610751+00:00"
+extracted_at: "2026-07-03T01:16:38.506757+00:00"
 ---

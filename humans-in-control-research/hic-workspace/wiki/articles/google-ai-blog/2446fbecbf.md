@@ -8,12 +8,15 @@ title: "5 ways Google Search can level up your thrift and vintage shopping"
 author: ""
 date: "Wed, 03 Jun 2026 13:00:00 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:09:46.651513+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:21:59.087386+00:00"
 chars: 2968
 engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-02T17:09:44+00:00"
+collected_at: "2026-07-03T01:21:59.021Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "bead6d907844c2fe"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/google-ai-blog/2446fbecbf.md#c0"
     char_span: [0, 171]

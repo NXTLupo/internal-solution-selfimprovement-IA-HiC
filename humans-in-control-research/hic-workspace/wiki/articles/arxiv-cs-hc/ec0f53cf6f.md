@@ -11,7 +11,7 @@ tier: 1
 method: "pack-search-backfill"
 extracted_at: "2026-07-02T16:13:31.793883+00:00"
 chars: 500
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
 collected_at: "2026-07-02T16:13:29+00:00"
 content_hash: "01f29b851a5fb200"
 chunks:

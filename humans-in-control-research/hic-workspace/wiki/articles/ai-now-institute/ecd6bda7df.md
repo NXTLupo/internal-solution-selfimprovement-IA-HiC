@@ -8,12 +8,15 @@ title: "Nurses Sound Alarm as ‘Uber for Nursing’ Apps Push to Deregulate Hea
 author: ""
 date: "Thu, 23 Apr 2026 14:09:30 +0000"
 tier: 1
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:26:30.672892+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:23:46.098150+00:00"
 chars: 971
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:26:28+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:23:46.046Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "be56cee753f631ac"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/ai-now-institute/ecd6bda7df.md#c0"
     char_span: [0, 1193]

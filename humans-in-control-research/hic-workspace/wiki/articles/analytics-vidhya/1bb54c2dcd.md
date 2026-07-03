@@ -8,12 +8,15 @@ title: "Sakana Fugu: Multi-Agent System as a Model"
 author: ""
 date: "Tue, 23 Jun 2026 12:30:56 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:20:57.933214+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:20:39.927664+00:00"
 chars: 9311
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:20:55+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:20:40.011Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "d7a87cfe0a73075c"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c0"
     char_span: [0, 162]

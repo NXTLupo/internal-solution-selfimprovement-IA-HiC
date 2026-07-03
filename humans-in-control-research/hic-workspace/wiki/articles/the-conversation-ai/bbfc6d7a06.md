@@ -8,12 +8,15 @@ title: "Clinical trials that are actually marketing ploys targeting doctors – 
 author: ""
 date: "2026-05-06T12:24:56Z"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:19:24.903927+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:20:08.072371+00:00"
 chars: 8758
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:19:22+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:20:08.114Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "bf8daa7799cdd743"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c0"
     char_span: [0, 295]

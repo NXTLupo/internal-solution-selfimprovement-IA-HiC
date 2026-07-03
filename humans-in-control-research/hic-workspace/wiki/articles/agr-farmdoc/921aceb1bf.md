@@ -8,12 +8,15 @@ title: "The Clean Fuel Production Tax Credit (45Z), Part 2: Carbon Intensity"
 author: ""
 date: "Thu, 18 Jun 2026 15:41:56 +0000"
 tier: 3
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:55:46.120053+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:16:47.671649+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T17:55:44+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:16:47.555Z"
+relevance: 15
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "d9c6bda183271b7e"
+relevance_by_goal: {"c5a2d58d1be7":15}
 chunks:
   - id: "articles/agr-farmdoc/921aceb1bf.md#c0"
     char_span: [0, 207]

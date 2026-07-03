@@ -8,5 +8,5 @@ source: "agr_civil_eats"
 title: "Judge Orders USDA to Restore Half of Cancelled Grants for Young Farmers"
 author: ""
 date: ""
-extracted_at: "2026-07-03T00:08:45.545669+00:00"
+extracted_at: "2026-07-03T01:15:28.322069+00:00"
 ---

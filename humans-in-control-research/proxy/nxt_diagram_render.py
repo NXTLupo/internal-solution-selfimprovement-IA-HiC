@@ -86,11 +86,15 @@ _ICONS = {
 }
 
 
-def _icon(text: str, fallback: str = "target") -> str:
-    """Concept-match `text` to the best NXT glyph by tag/word overlap. Returns inner SVG."""
+def _icon_best_name(text: str, exclude=frozenset()):
+    """Concept-match `text` to the best NXT glyph NAME by tag/word overlap, skipping `exclude`
+    (intra-artifact uniqueness: the same glyph repeated across sibling cards reads as filler).
+    Returns None when nothing matches: content-true or nothing."""
     words = set(re.findall(r"[a-z]{3,}", (text or "").lower()))
     best, score = None, 0
     for nm, g in _GLYPHS.items():
+        if nm in exclude:
+            continue
         s = 0
         tags = [str(t).lower() for t in g.get("tags", [])] + [nm.lower()]
         for tag in tags:
@@ -100,7 +104,19 @@ def _icon(text: str, fallback: str = "target") -> str:
                 s += 1
         if s > score:
             best, score = nm, s
-    return _glyph(best) if best else (_ICONS.get(fallback) or _glyph("insight"))
+    return best
+
+
+def _icon_scored(text: str):
+    """Best-match inner SVG, or None (content-true or nothing)."""
+    nm = _icon_best_name(text)
+    return _glyph(nm) if nm else None
+
+
+def _icon(text: str, fallback: str = "target") -> str:
+    """Concept-match with a small-scale fallback glyph (acceptable at head/label size)."""
+    hit = _icon_scored(text)
+    return hit if hit else (_ICONS.get(fallback) or _glyph("insight"))
 
 
 def _svg(paths: str, size: int, color: str, sw: float = 1.6) -> str:
@@ -418,12 +434,20 @@ _INFO_CSS = """
   border-left:3px solid __KICK__;padding-left:10px;margin-top:3px}
 .stat .ss{font-family:'NXT Mono';font-size:10px;letter-spacing:.6px;color:__GREY__;text-transform:uppercase}
 .pflow{display:flex;gap:0;width:100%;align-items:stretch;justify-content:center}
-.pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;padding:20px 22px;
-  justify-content:center;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__}
-.pstep .pshead{display:flex;align-items:center;gap:10px}
-.pstep .psnum{font-family:'NXT Mono';font-size:11px;letter-spacing:1.5px;color:__GREY__}
-.pstep .pst{font-family:'Archivo';font-weight:700;font-size:19px;line-height:1.22;color:__INK__}
-.pstep .psd{font-family:'Archivo';font-size:13px;line-height:1.35;color:__GREY__}
+.pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;padding:24px 24px 28px;
+  justify-content:flex-end;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
+  position:relative;overflow:hidden}
+/* 2026-07-03 card anatomy: giant ghost step numeral (GOLD section-divider signature) owns the
+   upper field; conceptual glyph + title (+ description) anchor low. */
+.pstep .psghost{position:absolute;top:6px;right:18px;font-family:'Saira Condensed';font-weight:600;
+  font-size:120px;line-height:1;color:__KICK__;opacity:.16;letter-spacing:-2px}
+.pstep .psico{line-height:0;margin-bottom:4px}
+.pstep .psart{width:100%;display:flex;justify-content:center;margin-bottom:6px}
+.pstep .psart img{max-width:88%;max-height:230px;object-fit:contain}
+.pstep .pst{font-family:'Archivo';font-weight:700;font-size:22px;line-height:1.2;color:__INK__}
+.pstep .psd{font-family:'Archivo';font-size:14.5px;line-height:1.4;color:__GREY__}
+.pflow.nodesc .pstep{gap:20px}
+.pflow.nodesc .pstep .pst{font-size:27px;line-height:1.18}
 .pconn{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:__GREY__}
 .cmpwrap{display:flex;gap:16px;width:100%;align-items:stretch}
 .cmp{flex:1;min-width:0;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:center}
@@ -474,19 +498,42 @@ def _stat_row_body(spec: dict, pal: dict) -> str:
 
 def _process_flow_body(spec: dict, pal: dict) -> str:
     steps = [s if isinstance(s, dict) else {"name": _s(s)} for s in _list(spec.get("steps"))][:6]
+    # 2026-07-03 content-adaptive scale: when NO step carries a description (older payloads /
+    # protocol violations), title-only cards otherwise float in a tall empty frame. Tag the
+    # flow `nodesc` so the CSS scales the icon+number head and title UP to fill the card
+    # deliberately instead of leaving dead space.
+    has_desc = any(_s(st.get("description")) for st in steps)
     chev = ('<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" '
             'stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>')
+    # 2026-07-03 card anatomy (owner-directed): a GIANT GHOST STEP NUMERAL (Saira Condensed
+    # accent, the GOLD section-divider signature) owns the card's upper field; the conceptual
+    # glyph + title (+ description) anchor low. The number IS content, so the space-filling
+    # device is content-true by construction. Glyphs dedup across sibling cards (a repeated
+    # glyph reads as filler); no concept match -> no glyph, type carries the card.
+    used_glyphs: set = set()
     cells = []
     for i, st in enumerate(steps):
-        icon = _icon(_s(st.get("name")) + " " + _s(st.get("icon")), "process")
+        name_txt = _s(st.get("name"))
         desc = _s(st.get("description"))
         d_html = (f'<div class="psd">{_e(desc)}</div>' if desc else "")
-        cells.append(f'<div class="pstep"><div class="pshead">{_svg(icon, 18, pal["kicker"])}'
-                     f'<span class="psnum">{i + 1:02d}</span></div>'
-                     f'<div class="pst">{_e(_s(st.get("name")))}</div>{d_html}</div>')
+        art = str(st.get("art") or "")
+        if art.startswith("data:image"):
+            # 2026-07-03 (owner-directed): Nano-Banana concept illustration is the card's
+            # visual (injected by ai_diagram for description-less flows). It owns the field
+            # between the ghost numeral and the title.
+            vis_html = f'<div class="psart"><img src="{art}" alt=""></div>'
+        else:
+            nm = _icon_best_name(name_txt + " " + _s(st.get("icon")), frozenset(used_glyphs))
+            if nm:
+                used_glyphs.add(nm)
+            ico_size = 72 if not has_desc else 32
+            vis_html = f'<div class="psico">{_svg(_glyph(nm), ico_size, pal["kicker"], 1.4)}</div>' if nm else ""
+        cells.append(f'<div class="pstep"><div class="psghost">{i + 1:02d}</div>'
+                     f'{vis_html}<div class="pst">{_e(name_txt)}</div>{d_html}</div>')
         if i < len(steps) - 1:
             cells.append(f'<div class="pconn">{chev}</div>')
-    return f'<div class="pflow">{"".join(cells)}</div>'
+    cls = "pflow nodesc" if not has_desc else "pflow"
+    return f'<div class="{cls}">{"".join(cells)}</div>'
 
 
 def _comparison_body(spec: dict, pal: dict) -> str:

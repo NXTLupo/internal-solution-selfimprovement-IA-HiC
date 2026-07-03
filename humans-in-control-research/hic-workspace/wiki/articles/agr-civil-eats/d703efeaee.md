@@ -11,7 +11,7 @@ tier: 3
 method: "pack-search-backfill"
 extracted_at: "2026-07-02T17:53:29.128338+00:00"
 chars: 500
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
 collected_at: "2026-07-02T17:53:26+00:00"
 content_hash: "b4500b6cdd28a7ff"
 chunks:

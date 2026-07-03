@@ -8,12 +8,15 @@ title: "Coles’ discounts misled shoppers, court rules. It could face hundreds 
 author: ""
 date: "2026-05-14T02:28:10Z"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:16:42.039439+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:20:15.280419+00:00"
 chars: 5638
 engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-02T17:16:39+00:00"
+collected_at: "2026-07-03T01:20:15.191Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "ec1ba13dfad8bcfc"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/the-conversation-ai/caea1c9abe.md#c0"
     char_span: [0, 248]

@@ -8,5 +8,5 @@ source: "arxiv_cs_hc"
 title: "Designing Beyond Language: Sociotechnical Barriers in AI Health Technologies for Limited English Proficiency"
 author: ""
 date: ""
-extracted_at: "2026-07-03T00:08:56.128577+00:00"
+extracted_at: "2026-07-03T01:17:23.943362+00:00"
 ---

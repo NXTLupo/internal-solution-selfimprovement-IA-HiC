@@ -8,12 +8,15 @@ title: "Deep innovation, limited capital define Argentina’s agrifoodtech oppor
 author: ""
 date: "Tue, 30 Jun 2026 18:25:01 +0000"
 tier: 3
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:49:17.825680+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:15:34.801777+00:00"
 chars: 8863
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T17:49:15+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:15:34.836Z"
+relevance: 50
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "eaf792f1c010dbd2"
+relevance_by_goal: {"c5a2d58d1be7":50}
 chunks:
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c0"
     char_span: [0, 209]

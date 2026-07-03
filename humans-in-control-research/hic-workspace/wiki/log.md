@@ -8779,3 +8779,71 @@ chunks:
   - patterns_compiled: 0
   - index_regenerated: true
   - duration_ms: 49995
+
+
+
+## [2026-07-03] compile | Wiki compile run compile_1783042042490
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 54522
+
+
+
+## [2026-07-03] compile | Wiki compile run compile_1783042825436
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 52614
+
+
+
+## [2026-07-03] compile | Wiki compile run compile_1783043482121
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 65068
+
+
+
+## [2026-07-03] compile | Wiki compile run compile_1783044234533
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 59792
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783045932303
+  - clusters: 10
+  - applied: 2
+  - queued: 4
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 35392
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783045933049
+  - clusters: 10
+  - applied: 2
+  - queued: 4
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 35476
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783046194246
+  - clusters: 10
+  - applied: 2
+  - queued: 4
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 36094

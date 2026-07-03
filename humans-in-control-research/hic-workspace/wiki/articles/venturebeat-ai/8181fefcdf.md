@@ -8,12 +8,15 @@ title: "Railway secures $100 million to challenge AWS with AI-native cloud infra
 author: ""
 date: "Thu, 22 Jan 2026 14:00:00 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:08:00.717546+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:18:46.081549+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:07:58+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:18:45.990Z"
+relevance: 5
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "d3e82894754a1af5"
+relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/venturebeat-ai/8181fefcdf.md#c0"
     char_span: [0, 219]

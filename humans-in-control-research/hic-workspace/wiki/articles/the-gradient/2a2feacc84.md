@@ -8,12 +8,15 @@ title: "The Artificiality of Alignment"
 author: ""
 date: "Sat, 07 Oct 2023 16:00:15 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:12:28.977849+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:19:06.366657+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:12:27+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:19:06.401Z"
+relevance: 5
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "30b51c7f19c0b5e4"
+relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/the-gradient/2a2feacc84.md#c0"
     char_span: [0, 114]

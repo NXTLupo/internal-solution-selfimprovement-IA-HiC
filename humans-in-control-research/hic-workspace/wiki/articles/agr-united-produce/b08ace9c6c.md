@@ -9,11 +9,14 @@ author: ""
 date: ""
 tier: 3
 method: "source-native"
-extracted_at: "2026-07-03T00:12:05.632466+00:00"
+extracted_at: "2026-07-03T01:19:54.532883+00:00"
 chars: 10000
-collected_at: "2026-07-03T00:12:05.516Z"
-relevance: 70
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:19:54.356Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "4b063efb5f3bd586"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/agr-united-produce/b08ace9c6c.md#c0"
     char_span: [0, 108]

@@ -8,12 +8,15 @@ title: "Build the Data Muscle Before Taking the Big Tech Leap"
 author: ""
 date: "Fri, 26 Jun 2026 00:00:00 -0400"
 tier: 3
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:58:25.227061+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:14:50.826937+00:00"
 chars: 8839
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T17:58:23+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:14:50.719Z"
+relevance: 85
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "822cd5be053bb746"
+relevance_by_goal: {"c5a2d58d1be7":85}
 chunks:
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c0"
     char_span: [0, 234]

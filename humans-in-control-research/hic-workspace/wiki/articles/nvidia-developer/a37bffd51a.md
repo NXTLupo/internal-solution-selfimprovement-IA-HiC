@@ -8,12 +8,15 @@ title: "Deploy Long-Context Reasoning and Agentic Workflows with MiniMax M3 on N
 author: ""
 date: "2026-06-12T14:43:17Z"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:16:05.571310+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:22:57.232820+00:00"
 chars: 5373
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:16:03+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:22:57.093Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "52a78a95243306b0"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/nvidia-developer/a37bffd51a.md#c0"
     char_span: [0, 276]

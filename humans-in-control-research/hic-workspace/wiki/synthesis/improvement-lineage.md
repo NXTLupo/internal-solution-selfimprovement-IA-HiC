@@ -1,9 +1,9 @@
 
-## 2026-07-03T00:22:39.227Z · themes · themes_1783038159227
+## 2026-07-03T02:03:30.912Z · themes · themes_1783044210912
 
-**Quality up 24 points (now 83/100) - improvement attributable to corpus or context shift.**
+**Quality down 26 points (now 57/100). No new rules this run; corpus or context regressed.**
 
-Overall: 83/100 (prior 59/100, delta +24)
+Overall: 57/100 (prior 83/100, delta -26)
 
-Improved: Banned phrases (+80), Density (+60), Citation diversity (+14).
+Regressed: Banned phrases (-95), Density (-62), Citation diversity (-12).
 Carried-over rules from prior runs: 25 active.

@@ -8,12 +8,15 @@ title: "Privacy-Aware Infrastructure in the AI-Native Era: An Asset Classificati
 author: ""
 date: "Thu, 25 Jun 2026 22:30:51 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:15:01.372469+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:22:23.367750+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:14:59+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:22:23.249Z"
+relevance: 0
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "1824d1ef0dcf80d5"
+relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/meta-ai-blog/aed965de1d.md#c0"
     char_span: [0, 246]

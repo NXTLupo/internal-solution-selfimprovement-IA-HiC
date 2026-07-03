@@ -8,12 +8,15 @@ title: "The Secret to Marathon-Winning Humanoid Robots"
 author: ""
 date: "Wed, 17 Jun 2026 12:19:27 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:07:42.808117+00:00"
+method: "source-native"
+extracted_at: "2026-07-03T01:18:46.081813+00:00"
 chars: 7659
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:07:40+00:00"
+engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+collected_at: "2026-07-03T01:18:45.988Z"
+relevance: 5
+engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
 content_hash: "18aa85fc6b811347"
+relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c0"
     char_span: [0, 134]
