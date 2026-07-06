@@ -39,13 +39,16 @@ interface RegionStyle {
     prose?: boolean;
 }
 interface StaticRegion extends RegionStyle {
-    kind?: 'text' | 'hairline' | 'band' | 'rect' | 'image';
+    kind?: 'text' | 'hairline' | 'band' | 'rect' | 'image' | 'scrim';
     x: number; y: number; w?: number; h?: number;
     payload?: string;   // dot-path into payload; if absent + kind!=text, it's a rule/band/rect/image
     literal?: string;
     rule?: number;      // rect/band only: top accent bar height (px)
     ruleColor?: TokenColor;  // rule bar color (default accent)
     fit?: 'contain' | 'cover';  // image only (default contain)
+    alpha?: number;     // rect/scrim only: 0..1 opacity applied to the token color
+    // scrim only: vertical gradient alphas (top -> bottom) over the token color; defaults .35/.72
+    alphaTop?: number; alphaBottom?: number;
 }
 type Cell = RegionStyle & {
     dy: number; dx?: number; key?: string; literal?: string; kind?: 'text' | 'hairline' | 'image'; w?: number; h?: number;
@@ -82,7 +85,15 @@ interface MatrixRegion {
     emphasizeLast?: boolean;  // final horizon column rail-colored top rule + header
 }
 type Region = StaticRegion | ColumnGroup | MatrixRegion;
-interface ArchetypeSpec { chrome: 'content-rail' | 'full-bleed-dark'; regions: Region[]; }
+interface ArchetypeSpec {
+    chrome: 'content-rail' | 'full-bleed-dark';
+    regions: Region[];
+    // IMAGE VARIANTS (2026-07-03 slides-imagery uplift): when payload[when] is non-empty (a
+    // string, or an array with at least one truthy entry), the variant's region list REPLACES
+    // the base regions entirely. Explicit alternate anatomy beats shifting-geometry math; base
+    // regions stay byte-identical for image-free slides (fail-open).
+    variants?: Array<{ when: string; regions: Region[] }>;
+}
 
 // ---- token resolution (from the hydrated Figma tokens; never hardcoded) ----
 // Colors + fonts resolve through brandTokens() - the SAME normalizer the slideToStageHtml renderers
@@ -132,6 +143,15 @@ function resolved(brand: Brand) {
     return { color, font, logoSvg, logoWm, scale };
 }
 
+/** Token hex -> rgba() at the given alpha (scrims + translucent panels; the color stays a token). */
+function hexToRgba(hex: string, alpha: number): string {
+    const h = (hex || '').replace('#', '');
+    const full = h.length === 3 ? h.split('').map((c) => c + c).join('') : h;
+    const n = parseInt(full.slice(0, 6) || '0d0d0d', 16);
+    const a = Math.max(0, Math.min(1, alpha));
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`;
+}
+
 function esc(s: any): string {
     return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -172,20 +192,39 @@ function renderStatic(r: StaticRegion, payload: any, tk: ReturnType<typeof resol
         return `<div style="${pos}height:${r.h || 76}px;background:${tk.color[r.color || 'accent']};display:flex;align-items:center;padding:0 28px"><span style="${styleStr(r, tk)}">${inner}</span></div>`;
     }
     if (r.kind === 'rect') {
-        // filled card/panel (optionally with a top or implicit accent rule bar)
+        // filled card/panel (optionally with a top or implicit accent rule bar). `alpha` renders
+        // the token color translucent (scrim panels over photographic backgrounds).
         const ruleBar = r.rule
             ? `<div style="position:absolute;left:0;top:0;width:100%;height:${r.rule}px;background:${tk.color[r.ruleColor || 'accent']}"></div>`
             : '';
-        return `<div style="${pos}height:${r.h || 100}px;background:${tk.color[r.color || 'paper']}">${ruleBar}</div>`;
+        const bg = typeof r.alpha === 'number'
+            ? hexToRgba(tk.color[r.color || 'paper'], r.alpha)
+            : tk.color[r.color || 'paper'];
+        return `<div style="${pos}height:${r.h || 100}px;background:${bg}">${ruleBar}</div>`;
+    }
+    if (r.kind === 'scrim') {
+        // vertical gradient wash over a photographic background (token color at two alphas) so
+        // white type stays legible without flattening the scene. Ideal-deck treatment.
+        // EXPORT PARITY: the PPTX GEO walker captures backgroundColor (with alpha), not
+        // gradients, so a flat rgba at the MID alpha rides along as background-color; the
+        // gradient refines it in the browser/preview, the flat wash carries it in the export.
+        const c = tk.color[r.color || 'rail'];
+        const aTop = r.alphaTop ?? 0.35, aBottom = r.alphaBottom ?? 0.72;
+        const top = hexToRgba(c, aTop);
+        const bottom = hexToRgba(c, aBottom);
+        const mid = hexToRgba(c, (aTop + aBottom) / 2);
+        return `<div style="${pos}height:${r.h || 1080}px;background-color:${mid};background-image:linear-gradient(180deg, ${top} 0%, ${bottom} 100%)"></div>`;
     }
     if (r.kind === 'image') {
-        // transparent illustration (data-uri / URL) from the Illustrator skill. Floats on the scene
-        // canvas (no box); centered + scaled within its zone. Empty src -> render nothing (fail-open:
-        // a scene with no generated illustration is fine).
+        // illustration / photograph (data-uri / URL). Empty src -> render nothing (fail-open).
+        // fit 'contain': centered + scaled inside the zone (transparent line-art, exhibits).
+        // fit 'cover': true crop-fill of the zone (photographic backgrounds + thumbnails).
         const src = r.payload ? dot(payload, r.payload) : r.literal;
         if (!src || typeof src !== 'string') return '';
-        const fit = r.fit || 'contain';
-        return `<div style="${pos}height:${r.h || 0}px;display:flex;align-items:center;justify-content:center"><img src="${esc(src)}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:${fit};display:block" alt=""></div>`;
+        if (r.fit === 'cover') {
+            return `<div style="${pos}height:${r.h || 0}px;overflow:hidden"><img src="${esc(src)}" style="width:100%;height:100%;object-fit:cover;display:block" alt=""></div>`;
+        }
+        return `<div style="${pos}height:${r.h || 0}px;display:flex;align-items:center;justify-content:center"><img src="${esc(src)}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block" alt=""></div>`;
     }
     const content = r.payload ? esc(dot(payload, r.payload)) : esc(r.literal || '');
     if (!content) return '';
@@ -226,8 +265,12 @@ function renderColumns(g: ColumnGroup, payload: any, tk: ReturnType<typeof resol
                 const isrc = (Array.isArray(carrierArr) ? carrierArr[i] : undefined)
                     || (c.key ? dot(item, c.key) : c.literal);
                 if (!isrc || typeof isrc !== 'string') continue;
-                const ifit = c.fit || 'contain';
-                html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${c.h || w}px;display:flex;align-items:center;justify-content:center"><img src="${esc(isrc)}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:${ifit};display:block" alt=""></div>`;
+                if (c.fit === 'cover') {
+                    // photographic thumbnail: true crop-fill of the cell (persona/theme scenes)
+                    html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${c.h || w}px;overflow:hidden"><img src="${esc(isrc)}" style="width:100%;height:100%;object-fit:cover;display:block" alt=""></div>`;
+                    continue;
+                }
+                html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${c.h || w}px;display:flex;align-items:center;justify-content:center"><img src="${esc(isrc)}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block" alt=""></div>`;
                 continue;
             }
             const raw = c.key ? dot(item, c.key) : (typeof item === 'string' ? item : c.literal);
@@ -279,8 +322,12 @@ function brandLogo(tk: ReturnType<typeof resolved>, onDark: boolean): string {
     // Resolve fill=currentColor to an EXPLICIT color in the SVG markup. The editable-PPTX export
     // hides text via `color:transparent`, which the currentColor logo would inherit and vanish;
     // an explicit fill survives that (and the preview is identical - same resolved color).
-    if (tk.logoSvg) return `<div style="${pos};color:${color}">${tk.logoSvg.replace(/currentColor/g, color)}</div>`;
-    if (tk.logoWm) return `<div style="${pos};font-family:${tk.font.display};font-weight:600;font-size:24px;letter-spacing:1px;color:${color};text-transform:uppercase">${esc(tk.logoWm)}</div>`;
+    // class="brandlogo" is the CHROME TAG the PPTX GEO walker keys on: it (a) hoists the mark onto the
+    // per-variant master layout (defined once, not per slide) and (b) lets the exporter embed the logo
+    // as a TRUE VECTOR SVG (svgBlip + PNG fallback) instead of a rasterized screenshot. Same contract
+    // as slideToStageHtml's classed chrome, so #slides decks match the GOLD path (owner directive 2026-07-03).
+    if (tk.logoSvg) return `<div class="brandlogo" style="${pos};color:${color}">${tk.logoSvg.replace(/currentColor/g, color)}</div>`;
+    if (tk.logoWm) return `<div class="brandlogo" style="${pos};font-family:${tk.font.display};font-weight:600;font-size:24px;letter-spacing:1px;color:${color};text-transform:uppercase">${esc(tk.logoWm)}</div>`;
     return '';
 }
 function chrome(mode: ArchetypeSpec['chrome'], tk: ReturnType<typeof resolved>): string {
@@ -289,14 +336,15 @@ function chrome(mode: ArchetypeSpec['chrome'], tk: ReturnType<typeof resolved>):
         return dotMark(tk, true) + brandLogo(tk, true);
     }
     // content-rail: 128px rail + dot-mark + real brand mark (ink) top-right
-    const rail = `<div style="position:absolute;left:0;top:0;width:128px;height:1080px;background:${tk.color.rail}"></div>`;
+    const rail = `<div class="rail" style="position:absolute;left:0;top:0;width:128px;height:1080px;background:${tk.color.rail}"></div>`;
     return rail + dotMark(tk, false) + brandLogo(tk, false);
 }
 function dotMark(tk: ReturnType<typeof resolved>, dark: boolean): string {
     const cols = [34.7, 59.2, 83.7], rows = [986.4, 1010.9, 1035.4];
-    let d = '';
+    // class="dotmark" tags the 9 accent squares as repeating chrome (hoisted to the per-variant layout).
+    let d = '<div class="dotmark">';
     for (const x of cols) for (const y of rows) d += `<div style="position:absolute;left:${x}px;top:${y}px;width:10.1px;height:10.1px;background:${tk.color.accent}"></div>`;
-    return d;
+    return d + '</div>';
 }
 
 /** Full-bleed RIGHT image-panel slot bounds [x,y,w,h] in 1920x1080 stage space, per archetype.
@@ -364,6 +412,32 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
     // image src rides the payload carrier; nothing hardcoded.
     const heroSrc = payload && typeof (payload as any).heroImage === 'string' ? (payload as any).heroImage : '';
     let regions: Region[] = spec.regions;
+    // IMAGE VARIANTS (2026-07-03): a variant's full region list replaces the base anatomy when
+    // its carrier is filled (string, or array with a truthy entry). First match wins; the
+    // background variant beats the legacy hero panel below (return short-circuits it).
+    if (spec.variants) {
+        for (const v of spec.variants) {
+            const val = payload ? (payload as any)[v.when] : undefined;
+            const on = (typeof val === 'string' && val.length > 0)
+                || (Array.isArray(val) && val.some(Boolean));
+            if (on) {
+                for (const r of v.regions) {
+                    const k = (r as any).kind;
+                    if (k === 'columns') body += renderColumns(r as ColumnGroup, payload, tk);
+                    else if (k === 'matrix') body += renderMatrix(r as MatrixRegion, payload, tk);
+                    else body += renderStatic(r as StaticRegion, payload, tk);
+                }
+                // A variant with a FULL-BLEED background image supplies its own canvas: the
+                // wrapper goes transparent so the exported photo is the true bottom layer
+                // (an opaque wrapper rect exported ABOVE the picture and buried it).
+                const fullBleedBg = v.regions.some((r) => {
+                    const sr = r as StaticRegion;
+                    return sr.kind === 'image' && sr.x === 0 && sr.y === 0 && sr.w === 1920 && sr.h === 1080;
+                });
+                return `<div style="position:relative;width:1920px;height:1080px;background:${fullBleedBg ? 'transparent' : bg};overflow:hidden">${body}</div>`;
+            }
+        }
+    }
     if (HERO_PANEL[archetype] && heroSrc) {
         const [ix, iy, iw, ih] = HERO_PANEL[archetype];
         // narrow any text/static region that would run under the panel into the left column
@@ -419,6 +493,30 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
+        // PER-ITEM ENVIRONMENTAL THUMBNAILS (2026-07-03, ideal-deck persona-segments parity):
+        // when the seam fills itemImages[] (index-aligned, content-derived photographic scenes
+        // of each item's OWN subject), each column carries its thumbnail between the heading
+        // and the body; the quote tightens to a caption-scale line. Fail-open: no images ->
+        // the base text anatomy above.
+        variants: [{
+            when: 'itemImages',
+            regions: [
+                { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+                { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
+                {
+                    kind: 'columns', array: 'items', count: 4, baseX: 196, pitchX: 418, w: 380,
+                    cells: [
+                        { dy: 252, color: 'accent', font: 'display', size: 'numeral', key: 'number' },
+                        { dy: 352, kind: 'hairline', h: 1 },
+                        { dy: 372, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, leading: 1.26, key: 'name' },
+                        { dy: 466, w: 380, h: 204, kind: 'image', fit: 'cover', imgCarrier: 'itemImages', key: 'image' },
+                        { dy: 692, color: 'body', font: 'body', size: SCALE.caption, prose: true, key: 'body' },
+                        { dy: 902, color: 'secondary', font: 'body', size: SCALE.caption, italic: true, key: 'quote' },
+                    ],
+                },
+                { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+            ],
+        }],
     },
     // stat-row (609:6) - 3 figures with MEANS + MATTERS.
     'stat-row': {
@@ -457,8 +555,8 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
             { kind: 'image', x: 196, y: 226, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
             { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
-            { x: 228, y: 878, w: 200, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
-            { x: 440, y: 876, w: 1340, color: 'rail', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
     },
@@ -473,6 +571,20 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 101, y: 320, w: 1718, color: 'paper', font: 'display', size: 'hero', leading: 1.0, payload: 'title' },
             { x: 101, y: 640, w: 1718, color: 'ruleMid', font: 'heading', size: SCALE.subhead, weight: 500, leading: 1.3, payload: 'subtitle' },
         ],
+        // FULL-BLEED PHOTOGRAPHIC COVER (2026-07-03 slides-imagery uplift, ideal-deck parity):
+        // a content-derived editorial scene fills the canvas under a rail-token scrim; the same
+        // white title/subtitle sit on top. Fail-open: no backgroundImage -> the dark canvas
+        // above, byte-identical. The chat seam fills backgroundImage from the slide's OWN
+        // title + subtitle (industry-agnostic; the corpus subject drives the scene).
+        variants: [{
+            when: 'backgroundImage',
+            regions: [
+                { kind: 'image', x: 0, y: 0, w: 1920, h: 1080, payload: 'backgroundImage', fit: 'cover' },
+                { kind: 'scrim', x: 0, y: 0, w: 1920, h: 1080, color: 'rail', alphaTop: 0.30, alphaBottom: 0.74 },
+                { x: 101, y: 320, w: 1718, color: 'paper', font: 'display', size: 'hero', leading: 1.0, payload: 'title' },
+                { x: 101, y: 640, w: 1718, color: 'paper', font: 'heading', size: SCALE.subhead, weight: 500, leading: 1.3, payload: 'subtitle' },
+            ],
+        }],
     },
     // scene - interactive #presentation content scene: text block (left) + a transparent on-brand
     // illustration (right half) from the Illustrator skill. full-bleed-dark; the illustration floats
@@ -499,6 +611,27 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 ],
             },
         ],
+        // AGENDA OVER THE COVER SCENE (2026-07-03, ideal-deck parity): the deck's cover
+        // background CONTINUES behind the agenda (the seam copies cover.backgroundImage here -
+        // one generation per deck), a soft scrim keeps it recessive, and each TOC group sits on
+        // a translucent rail panel with paper type. Fail-open: no image -> the paper layout above.
+        variants: [{
+            when: 'backgroundImage',
+            regions: [
+                { kind: 'image', x: 0, y: 0, w: 1920, h: 1080, payload: 'backgroundImage', fit: 'cover' },
+                { kind: 'scrim', x: 0, y: 0, w: 1920, h: 1080, color: 'rail', alphaTop: 0.24, alphaBottom: 0.48 },
+                { x: 196, y: 64, w: 1600, color: 'paper', font: 'display', size: 'display', payload: 'title' },
+                { kind: 'rect', x: 168, y: 300, w: 810, h: 700, color: 'rail', alpha: 0.84 },
+                { kind: 'rect', x: 1032, y: 300, w: 810, h: 700, color: 'rail', alpha: 0.84 },
+                {
+                    kind: 'columns', array: 'groups', count: 2, baseX: 208, pitchX: 864, w: 730,
+                    cells: [
+                        { dy: 344, color: 'accent', font: 'display', size: 'display', key: 'label' },
+                        { dy: 452, color: 'paper', font: 'heading', size: SCALE.subhead, weight: 700, leading: 2.0, key: 'items', lines: true },
+                    ],
+                },
+            ],
+        }],
     },
     // section-divider (609:4) - full-bleed dark, giant accent number.
     'section-divider': {
@@ -576,8 +709,8 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             },
             // PEER PATTERN takeaway band (h grown to 100 so a 2-line 28px statement clears)
             { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
-            { x: 228, y: 878, w: 200, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
-            { x: 440, y: 876, w: 1340, color: 'rail', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
     },
@@ -656,6 +789,40 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 ],
             },
         ],
+        // PERSONA ENVIRONMENTAL PORTRAIT (2026-07-03, ideal-deck parity): when the seam fills
+        // portraitImage (a content-derived photograph of THIS role in its real working
+        // context), the persona card grows and leads with the portrait. Fail-open: no image ->
+        // the base text card above.
+        variants: [{
+            when: 'portraitImage',
+            regions: [
+                { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
+                { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
+                { x: 196, y: 254, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'CURRENT CHALLENGES' },
+                { x: 196, y: 286, w: 1000, kind: 'hairline', h: 2, color: 'rail' },
+                {
+                    kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 190, w: 800,
+                    cells: [
+                        { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'numeral' },
+                        { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'heading' },
+                        { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
+                    ],
+                },
+                // persona card, portrait-led (taller than the base card)
+                { kind: 'rect', x: 1260, y: 216, w: 560, h: 764, color: 'paper', rule: 5, ruleColor: 'rail' },
+                { kind: 'image', x: 1260, y: 221, w: 560, h: 236, payload: 'portraitImage', fit: 'cover' },
+                { x: 1290, y: 484, w: 500, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, payload: 'persona.needsLabel' },
+                { x: 1290, y: 516, w: 500, color: 'rail', font: 'heading', size: SCALE.name, weight: 700, payload: 'persona.name' },
+                {
+                    kind: 'columns', array: 'persona.needs', count: 3, baseX: 1290, pitchX: 0, baseY: 600, pitchY: 124, w: 480,
+                    cells: [
+                        { dx: 0, dy: 0, w: 3, h: 92, kind: 'hairline', color: 'accent' },
+                        { dx: 20, dy: 0, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'kind' },
+                        { dx: 20, dy: 30, w: 460, color: 'body', font: 'body', size: SCALE.caption, prose: true, key: 'body' },
+                    ],
+                },
+            ],
+        }],
     },
     // role-recommendation (609:13, G2) - thesis + 3 actions + 3 projected-impact tiles.
     'role-recommendation': {

@@ -181,8 +181,24 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
 
 async function generateOne(concept: string, brand: string, canvas: 'dark' | 'light', kind: SlotKind,
                            variant: number, branch?: string, el?: unknown,
-                           bounds?: { w: number; h: number }): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
+                           bounds?: { w: number; h: number }, style?: string): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
     try {
+        // 2026-07-03 slides-imagery uplift: a PHOTO style routes to the illustration endpoint
+        // with the photographic prompt (opaque, VS skipped, concept = literal content-derived
+        // text) - it must NEVER fall into the native infographic lane, whose spec derivation
+        // returns null for narrative payloads (that null was why cover panels seldom filled).
+        if (style && style.startsWith('photo-')) {
+            const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, style, literal: true }),
+            });
+            if (!resp.ok) return null;
+            const r = await resp.json();
+            return (r && typeof r.url === 'string' && r.url)
+                ? { url: r.url, dataUri: typeof r.dataUri === 'string' ? r.dataUri : '', reused: !!r.reused }
+                : null;
+        }
         const native = branch === 'infographic' || branch === 'emotive';   // 'emotive' = legacy audit value, now native
         if (native) {
             const spec = infographicSpecFrom(el, concept);
@@ -246,7 +262,7 @@ export async function resolveArtifactImages(
     // ELEMENT rides along so the native infographic branch can build a content-true spec (E4).
     const uniqueImage = async (concept: string, el?: unknown): Promise<string> => {
         for (let v = 0; v <= 3; v++) {
-            const r = await generateOne(concept, brand, canvas, kind, v, spec.branch, el, spec.bounds);
+            const r = await generateOne(concept, brand, canvas, kind, v, spec.branch, el, spec.bounds, spec.style);
             if (!r) return '';
             // Dedup on the stable content-id (url); STORE the data-URI so the image embeds in exports
             // (falls back to the url only if the endpoint returned no dataUri).
@@ -255,8 +271,20 @@ export async function resolveArtifactImages(
         return '';
     };
 
+    // 2026-07-03 photo concepts are LITERAL slide content (title + supporting line), never a
+    // free-floating theme word - the scene depicts what THIS deck is about, whatever industry
+    // the corpus returned.
+    const photoConceptFromPayload = (): string => {
+        const head = conceptFromPayload(payload);
+        const sub = ['subtitle', 'thesis', 'supporting'].map((k) => payload[k])
+            .find((v) => typeof v === 'string' && (v as string).trim()) as string | undefined;
+        const persona = (payload as any).persona;
+        const personaName = persona && typeof persona === 'object' ? String(persona.name || '') : '';
+        return [personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 260);
+    };
+
     if (spec.mode === 'panel' || spec.mode === 'hero') {
-        const concept = conceptFromPayload(payload);
+        const concept = spec.style ? photoConceptFromPayload() : conceptFromPayload(payload);
         if (!concept) return 0;
         const url = await uniqueImage(concept, payload);
         if (url) { payload[spec.carrier] = url; attached++; onLog?.(`${artifact}: panel image attached`); }
@@ -277,7 +305,15 @@ export async function resolveArtifactImages(
     const cap = Math.min(arr.length, spec.max ?? arr.length);
     const images: string[] = Array.isArray(payload[spec.carrier]) ? (payload[spec.carrier] as string[]).slice() : [];
     for (let i = 0; i < cap; i++) {
-        const concept = conceptFromElement(arr[i]);
+        let concept = conceptFromElement(arr[i]);
+        if (spec.style && concept) {
+            // photo thumbnails: the item's own supporting line rides along so the scene depicts
+            // THIS item's subject specifically (content-derived, industry-agnostic).
+            const el = arr[i] as Record<string, unknown>;
+            const line = ['body', 'description', 'definition', 'summary'].map((k) => el && (el as any)[k])
+                .find((v) => typeof v === 'string' && (v as string).trim()) as string | undefined;
+            if (line) concept = `${concept}. ${line}`.slice(0, 260);
+        }
         if (!concept) { images[i] = images[i] || ''; continue; }
         const url = await uniqueImage(concept, arr[i]);
         images[i] = url;

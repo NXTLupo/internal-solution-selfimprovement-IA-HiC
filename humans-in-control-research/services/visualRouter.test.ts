@@ -79,8 +79,10 @@ describe('routeSlot - GOLD audit branch is authoritative on auto', () => {
         expect(routeSlot({ mode: 'panel', branch: 'infographic', slotWired: false }).branch).toBe('infographic');
         expect(routeSlot({ mode: 'panel', branch: 'infographic', slotWired: false, designerEnabled: false }).branch).toBe('infographic');
     });
-    it('decorative slides:* surfaces are registered image-free until the E3 CD pass (interim)', () => {
-        expect(routeSlot({ artifact: 'slides:cover' }).branch).toBe('none');
+    it('slides:cover routes to a fill branch (2026-07-03 owner-directed photographic cover; supersedes the interim image-free registration)', () => {
+        // The emotive audit value folds into the infographic route; the resolver then honors the
+        // registry spec.style (photo-background) and fills via the illustration photo lane.
+        expect(routeSlot({ artifact: 'slides:cover' }).branch).toBe('infographic');
     });
 });
 

@@ -58,6 +58,10 @@ export interface ArtifactImageSpec {
     optional?: boolean;
     /** Whether the renderer twin already emits this carrier (journey is the reference). */
     wired?: boolean;
+    /** 2026-07-03 slides-imagery uplift: photographic slot styles (opaque editorial photography,
+     *  VS skipped, concept = literal text from the slide's OWN generated content - generalizes to
+     *  any industry the corpus returns). Absent -> the transparent line-art house style. */
+    style?: 'photo-background' | 'photo-portrait' | 'photo-scene';
     /** Short why, for the no-image set + provenance. */
     note?: string;
 }
@@ -178,10 +182,28 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     // slots are branch:'none' (recorded image-free decision, phase 8) until the E3 creative-director
     // pass defines the cover visual language (type-led covers / brand geometry are the candidates).
     'slides:cover': {
-        artifact: 'slides:cover', mode: 'panel', branch: 'none', node: '659:502',
-        ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
-        carrier: 'heroImage', optional: true, wired: true,
-        note: 'cover 609:2 (659:502) 820x1080 portrait full-bleed - emotive signature visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports it as a native swappable picture placeholder. Nothing hardcoded (bounds=Figma canon, colors/fonts=tokens).',
+        artifact: 'slides:cover', mode: 'hero', branch: 'emotive', node: '609:2',
+        ground: 'dark', kind: 'hero', bounds: { w: 1920, h: 1080, aspect: 1.78 }, fit: 'cover',
+        carrier: 'backgroundImage', optional: true, wired: true, style: 'photo-background',
+        note: '2026-07-03 slides-imagery uplift (ideal-deck parity): the cover is a FULL-BLEED editorial photograph of the deck SUBJECT under a rail-token scrim, white title/subtitle on top (slideComposer cover variant when=backgroundImage). Concept = the slide OWN title+subtitle text (industry-agnostic, content-derived; NEVER a domain assumption). The legacy boxed heroImage panel (659:502) remains as fallback anatomy when only heroImage is filled. GEO walker exports the background as a native swappable picture.',
+    },
+    'slides:agenda': {
+        artifact: 'slides:agenda', mode: 'hero', branch: 'emotive', node: '609:3',
+        ground: 'dark', kind: 'hero', bounds: { w: 1920, h: 1080, aspect: 1.78 }, fit: 'cover',
+        carrier: 'backgroundImage', optional: true, wired: true, style: 'photo-background',
+        note: '2026-07-03 slides-imagery uplift: the agenda CONTINUES the cover scene (ideal-deck parity) - the chat seam COPIES cover.backgroundImage here (one generation per deck, zero extra cost); TOC groups sit on translucent rail panels with paper type (slideComposer agenda variant). The seam never generates a fresh scene for agenda.',
+    },
+    'slides:numbered-themes': {
+        artifact: 'slides:numbered-themes', mode: 'per-element', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'thumbnail', bounds: { w: 380, h: 204, aspect: 1.86 }, fit: 'cover',
+        elementField: 'items', carrier: 'itemImages', max: 4, optional: true, wired: true, style: 'photo-scene',
+        note: '2026-07-03 slides-imagery uplift (ideal-deck persona-segments parity): each numbered column carries an ENVIRONMENTAL PHOTOGRAPH of ITS OWN item subject between heading and body (slideComposer numbered-themes variant when=itemImages). Concept per item = the item name + first line of its body (content-derived, industry-agnostic). Intra-deck: 4 distinct scenes, one per item.',
+    },
+    'slides:role-needs': {
+        artifact: 'slides:role-needs', mode: 'panel', branch: 'emotive', node: '609:12',
+        ground: 'light', kind: 'thumbnail', bounds: { w: 560, h: 236, aspect: 2.37 }, fit: 'cover',
+        carrier: 'portraitImage', optional: true, wired: true, style: 'photo-portrait',
+        note: '2026-07-03 slides-imagery uplift: the persona card leads with an ENVIRONMENTAL PORTRAIT of this role in its real working context (slideComposer role-needs variant when=portraitImage; card grows 624->764). Concept = persona.name + the slide title (content-derived; the person depicted belongs to whatever domain the corpus returned).',
     },
     'slides:section-divider': {
         artifact: 'slides:section-divider', mode: 'panel', branch: 'none', node: '661:473',
@@ -195,14 +217,12 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         carrier: 'heroImage', optional: true, wired: true,
         note: 'thesis 609:5 (661:474) 920x1080 portrait full-bleed - emotive abstract of the thesis. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
-    'slides:agenda': {
-        artifact: 'slides:agenda', mode: 'hero', branch: 'none', node: '661:472',
-        ground: 'light', kind: 'hero', bounds: { w: 500, h: 420, aspect: 1.19 }, fit: 'cover',
-        carrier: 'panelImage', optional: true, wired: false,
-        note: 'agenda 609:3 (661:472) 500x420 lower-right accent - small emotive',
-    },
+    // (the legacy unwired 'slides:agenda' 500x420 panel idea was DELETED 2026-07-03 - superseded
+    // by the wired full-bleed backgroundImage entry above, owner-directed ideal-deck parity.)
 
-    // ---- #slides CONTENT archetypes: scenes-only-where-they-fit (USER OVERRIDE 2026-06-28) -----
+    // ---- #slides CONTENT archetypes: scenes-only-where-they-fit (USER OVERRIDE 2026-06-28;
+    // PARTIALLY SUPERSEDED 2026-07-03: numbered-themes + role-needs now carry photographic
+    // slots per the owner's ideal-deck directive - see their entries above) -----
     // These are the GOLD page 324:2 CONTENT archetypes (slides: namespace, rendered by slideComposer,
     // NOT the GOLD dispatch). LIVE-FIGMA ROOM AUDIT 2026-06-28 of all 10: only block-quote + org-model
     // had genuine empty container room without crowding text. The other 8 are full or tabular and stay
@@ -218,7 +238,7 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit. LIVE-FIGMA AUDIT: block-quote 609:7 has a clear empty LEFT band between the quote (ends ~local y500) and the attribution (local y778). Added token-bound brand-image-slot 901:477 (900x200 ecru/hairline/radius-base, x209 y540) tracing to the quote subject; NU twin 626:95 inherits via mode-flip (verified navy/red/Lato). 900x200 is a thin banner (4.5) -> cover crop. Renderer twin = slideComposer block-quote image region (payload.panelImage).',
     },
     'slides:infographic-exhibit': {
-        artifact: 'slides:infographic-exhibit', mode: 'panel', branch: 'infographic', node: '324:2',
+        artifact: 'slides:infographic-exhibit', mode: 'panel', branch: 'infographic', node: '974:491',
         ground: 'light', kind: 'panel', bounds: { w: 1622, h: 600, aspect: 2.7 }, fit: 'contain',
         carrier: 'exhibitImage', optional: false, wired: true,
         note: '2026-07-02 #slides infographic uplift: the deck-native DATA VISUAL archetype. Composer spec slides:infographic-exhibit (slideComposer ARCHETYPE_SPECS) renders composerPayload.exhibitImage full-width between the title hairline and the takeaway band. The panel is composed from the slide payload OWN fields by the native lane (infographicSpecFrom: steps/actions -> process-flow; beforeAfter -> comparison; stats/kpiTiles -> stat-row; citations -> composition) via /api/ai/diagram chrome:none at these bounds. NOT optional: an infographic-exhibit slide without derivable data is a protocol violation (the model must only emit this archetype when it has the structured fields). Figma canon rides page 324:2 (exemplar frame pending the next canon pass); bounds here are the code-side contract.',

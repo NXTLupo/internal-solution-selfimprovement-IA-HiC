@@ -23,15 +23,40 @@ target.) Emit ONE illustration per section that warrants it, AT MOST 4-5 across 
 section needs one (negative space is a feature). Decorative-only images are FORBIDDEN - the image
 must encode the section's idea.
 
-## GOLD artifacts + #slides: SUPERSEDED (E4, 2026-07-02) — do NOT generate here
-The former "registry coverage contract" for GOLD deliverables and #slides is RETIRED with the
-diffusion content-image lane. GOLD artifact + #slides image slots are now routed by
+## GOLD artifacts + #slides DATA slots: SUPERSEDED (E4, 2026-07-02) — do NOT generate here
+The former "registry coverage contract" for GOLD deliverables and #slides DATA/CONTENT slots is
+RETIRED with the diffusion content-image lane. Those slots are routed by
 `services/visualRouter.ts` per the `designer` skill: content slots (theme thumbnail, persona detail,
 case-study, recommendation) fill from the NATIVE infographic families (`/api/ai/diagram`, composed
 deterministically from the element's own data via `artifactIllustrator.ts::infographicSpecFrom`);
 icon slots fill from the tokenized glyph library; data panels fill from `vizEngine`. This skill
-generates NOTHING for those surfaces. Its scope is the interactive `#presentation` (:5014) lane
-below, where the composer seeds an `imageConcept` per narrative section.
+generates nothing for those data surfaces. Its scopes are the `#presentation` (:5014) lane below
+and the PHOTOGRAPHIC #slides lane that follows.
+
+## PHOTOGRAPHIC #slides slots (2026-07-03, owner-directed — the ideal-deck parity lane)
+Four `slides:` archetype slots fill with **editorial PHOTOGRAPHY** (opaque, NOT knocked out),
+generated through `/api/ai/illustration` with `style: photo-background | photo-portrait |
+photo-scene` and `literal: true`. Registry entries: `slides:cover` + `slides:agenda`
+(backgroundImage, full-bleed scene under a rail-token scrim; the agenda REUSES the cover's image,
+never generates its own), `slides:numbered-themes` (itemImages[], one environmental thumbnail per
+item), `slides:role-needs` (portraitImage, environmental portrait of the role).
+
+**CONTENT-FIRST, INDUSTRY-AGNOSTIC (HARD).** The scene concept is LITERAL TEXT lifted from the
+slide's OWN generated payload (title + subtitle; item name + body line; persona.name + title) —
+built AFTER content generation, by `artifactIllustrator.resolveArtifactImages`. Verbalized
+sampling is SKIPPED for photo styles (`literal: true`): VS rewards non-obvious metaphors, which is
+exactly wrong here — the photograph must depict what the retrieved corpus is about, whatever the
+domain (a hospital ward for a healthcare run, a trading floor for a finance run, a field for an
+agriculture run). NOTHING in the prompt chain names a domain; the payload text carries it.
+
+**Photo style contract** (`proxy/app.py::_photo_prompt`):
+- backgrounds: wide establishing shot, uncluttered headroom, darker lower third (a scrim + white
+  display type sit on top), horizon low
+- portraits: ONE person who authentically belongs to the content's context, in their real working
+  environment, candid, respectful, specific, non-stereotypical
+- all: natural light, muted cinematic grade, ABSOLUTELY no text/logos/UI/charts in the image
+- photos stay OPAQUE (the transparency knockout below applies ONLY to line-art)
+- cache: content-hash by concept+style (each scene generated once, reused across exports)
 
 ## The image library (persist + catalog + reuse)
 Every generated illustration is saved as a transparent PNG and cataloged so it is REUSABLE, not

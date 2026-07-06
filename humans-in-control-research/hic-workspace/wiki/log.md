@@ -8847,3 +8847,57 @@ chunks:
   - chunk_configs_promoted: none
   - constraints_retired: 0
   - duration_ms: 36094
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783085204116
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 34474
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783085205166
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 35655
+
+
+
+## [2026-07-03] learn | Learning pass learn_1783085297896
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 34155
+
+
+
+## [2026-07-03] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-03T20:00:55.638Z
+
+
+
+## [2026-07-03] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-03T21:35:06.535Z
+
+
+
+## [2026-07-03] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-03T21:35:14.394Z

@@ -7406,6 +7406,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         'slides:cover': 'composerPayload',
                         'slides:section-divider': 'composerPayload',
                         'slides:thesis-interstitial': 'composerPayload',
+                        // 2026-07-03 slides-imagery uplift (ideal-deck parity): photographic
+                        // backgrounds (cover -> copied to agenda), per-item environmental
+                        // thumbnails (numbered-themes), persona portrait (role-needs). All
+                        // content-derived from the slide's own payload text - industry-agnostic.
+                        'slides:agenda': 'composerPayload',
+                        'slides:numbered-themes': 'composerPayload',
+                        'slides:role-needs': 'composerPayload',
                     };
                     // C2 routing: parse the user's #img override once; the router decides DATA vs
                     // EMOTIVE per slot and enforces the section-8 default-off gate. The deterministic
@@ -7413,8 +7420,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     // resolve the EMOTIVE (Nano-Banana) branch when the router selects it.
                     const imgOverride = parseImgDirective(query);
                     const runIndustry = ((getContext ? getContext() : context) as any)?.industry as string | undefined;
+                    // 2026-07-03: the cover's photographic background CONTINUES behind the agenda
+                    // (ideal-deck parity, one generation per deck). Track it; agenda never
+                    // generates its own scene.
+                    let deckBackground = '';
                     for (const s of stampedSlides as any[]) {
                         const tmpl = String(s.template || '');
+                        if (tmpl === 'slides:agenda') continue;   // filled from deckBackground below
                         // 2026-06-27 FIX: #themes emits :::slide template=theme-overview|theme-detail|
                         // theme-arc|theme-mosaic (per the SLIDE OUTPUT PROTOCOL), but the image-slot
                         // registry + SUBFIELD key the themes spec under 'theme-cluster'. Without this
@@ -7433,8 +7445,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             if (r.count > 0 && field) {
                                 setSlides(prev => prev.map(x => x.id === s.id ? { ...x, [field]: { ...sub } } : x));
                             }
+                            if (tmpl === 'slides:cover' && typeof sub.backgroundImage === 'string' && sub.backgroundImage) {
+                                deckBackground = sub.backgroundImage;
+                            }
                         } catch (e: any) {
                             console.warn(`[slides] routed illustration skipped ${s.id} (${tmpl}):`, e?.message || e);
+                        }
+                    }
+                    if (deckBackground) {
+                        for (const s of stampedSlides as any[]) {
+                            if (String(s.template || '') !== 'slides:agenda') continue;
+                            const sub = s.composerPayload;
+                            if (!sub || typeof sub !== 'object' || sub.backgroundImage) continue;
+                            sub.backgroundImage = deckBackground;
+                            setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...sub } } : x));
+                            console.log('[slides:img] slides:agenda: cover background continued (no extra generation)');
                         }
                     }
                 })();

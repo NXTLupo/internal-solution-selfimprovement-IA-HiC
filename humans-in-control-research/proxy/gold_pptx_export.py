@@ -109,7 +109,14 @@ GEO = r"""
     // so the captured picture is brand-correct with no runtime Figma call. Do not recurse.
     if(el.tagName==='svg'){
       const b=el.getBoundingClientRect();
-      if(b.width>=2&&b.height>=2) svgRegions.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,chrome:!!chrome});
+      if(b.width>=2&&b.height>=2){
+        const _svgrec={x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,chrome:!!chrome};
+        // LOGO ONLY: carry the actual SVG markup so the exporter embeds a TRUE VECTOR picture
+        // (SVG blip + PNG fallback) instead of a rasterized screenshot. Diagram SVGs stay
+        // raster (their markup is huge and Chromium already pixel-rendered them faithfully).
+        try{ if(el.closest && el.closest('.brandlogo')) _svgrec.svg=new XMLSerializer().serializeToString(el); }catch(e){}
+        svgRegions.push(_svgrec);
+      }
       return;
     }
     // 2026-06-25 - IMG capture: emit each <img> (illustrator slot art: journey phase
@@ -196,19 +203,21 @@ def _raster_bytes(src: str):
 
 
 def _place_geo_images(slide, images, ex, ey, W, H):
-    """Place each GEO-walked <img> as a plain NATIVE PowerPoint picture at its slot bounds
-    (movable, resizable, right-click 'Change Picture' swappable).
+    """Place each GEO-walked <img> (title-slide background, persona thumbnails, infographic panels,
+    portraits) as a FILLED NATIVE PICTURE PLACEHOLDER at its slot bounds, so the consultant can swap
+    it via PowerPoint's native 'Change Picture' placeholder UI (owner directive 2026-07-03).
 
-    2026-07-02 - the layout-backed Picture-Placeholder tier is DELETED. python-pptx's add_slide
-    CLONES every layout placeholder onto each subsequently created slide, so one slide's slot
-    placeholder leaked onto every later same-variant slide as an empty 'insert picture' prompt
-    box (285 empties across a 112-slide deck), and the fixed idx=100+i scheme collided across
-    slides so pictures filled the WRONG frame (the mangled logo). A plain picture is every bit
-    as native and swappable; the placeholder machinery bought nothing and poisoned the deck.
-    Non-raster payloads (SVG bytes PowerPoint cannot embed) are skipped outright - the browser
-    tier already rasterizes loadable SVGs, so whatever reaches here unrasterized is unrenderable
-    and NO picture beats a broken frame."""
+    SAFE re: the empty-placeholder epidemic: the placeholder lives ON THE SLIDE (added after add_slide)
+    and is FILLED (a <p:pic>, never an empty <p:sp>). add_slide only clones LAYOUT placeholders, so a
+    slide-level filled pic is never duplicated onto other slides, and _strip_empty_picture_placeholders
+    (which targets empty <p:sp ph=pic>) never touches it. Each pic gets a UNIQUE idx within the slide.
+    Non-raster payloads (SVG bytes PowerPoint cannot embed) are skipped - a broken frame is worse than
+    none."""
     import io as _io
+    from pptx.oxml import parse_xml
+    from pptx.oxml.ns import nsdecls, qn
+    # start idx above any placeholder inherited from the layout so there is no collision
+    _idx = 20 + len(slide.shapes._spTree.findall(".//" + qn("p:ph")))
     for im in (images or []):
         if im["x"] >= W or im["y"] >= H:
             continue
@@ -216,8 +225,15 @@ def _place_geo_images(slide, images, ex, ey, W, H):
         if raw is None:
             continue
         try:
-            slide.shapes.add_picture(_io.BytesIO(raw), ex(im["x"]), ey(im["y"]),
-                                     ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+            pic = slide.shapes.add_picture(_io.BytesIO(raw), ex(im["x"]), ey(im["y"]),
+                                           ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+            # promote the filled picture to a swappable picture PLACEHOLDER (owner directive)
+            try:
+                nvPr = pic._element.find(qn("p:nvPicPr")).find(qn("p:nvPr"))
+                nvPr.insert(0, parse_xml(f'<p:ph {nsdecls("p")} type="pic" idx="{_idx}"/>'))
+                _idx += 1
+            except Exception:
+                pass
         except Exception:
             pass
 
@@ -302,6 +318,57 @@ def _layout_add_picture(lay, stream, x_emu, y_emu, cx_emu, cy_emu, sid, name):
         f'<p:spPr><a:xfrm><a:off x="{int(x_emu)}" y="{int(y_emu)}"/><a:ext cx="{max(1, int(cx_emu))}" cy="{max(1, int(cy_emu))}"/></a:xfrm>'
         f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr></p:pic>')
     lay.shapes._spTree.append(pic)
+
+
+def _layout_add_svg_picture(lay, png_stream, svg_bytes, x_emu, y_emu, cx_emu, cy_emu, sid, name):
+    """Append the brand LOGO to a LAYOUT as a TRUE VECTOR picture: an <a:blip> whose PNG fallback
+    (png_stream) carries an asvg:svgBlip extension pointing at the embedded SVG part. PowerPoint 2016+
+    renders the crisp SVG; older viewers fall back to the PNG. This is why the exported wordmark is the
+    token SVG (Figma 31:17), never a rasterized screenshot. The SVG part is created manually because
+    python-pptx's image machinery only sniffs raster formats."""
+    from pptx.oxml import parse_xml
+    from pptx.oxml.ns import nsdecls
+    from pptx.opc.constants import RELATIONSHIP_TYPE as RT
+    from pptx.opc.package import Part
+    png_part, rId_png = lay.part.get_or_add_image_part(png_stream)
+    pkg = lay.part.package
+    partname = pkg.next_partname("/ppt/media/image%d.svg")
+    svg_part = Part(partname, "image/svg+xml", pkg, svg_bytes)
+    rId_svg = lay.part.relate_to(svg_part, RT.IMAGE)
+    pic = parse_xml(
+        f'<p:pic {nsdecls("p", "a", "r")}>'
+        f'<p:nvPicPr><p:cNvPr id="{sid}" name="{name}"/><p:cNvPicPr/><p:nvPr/></p:nvPicPr>'
+        f'<p:blipFill><a:blip r:embed="{rId_png}">'
+        f'<a:extLst><a:ext uri="{{96DAC541-7B7A-43D3-8B79-37D633B846F1}}">'
+        f'<asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="{rId_svg}"/>'
+        f'</a:ext></a:extLst></a:blip><a:stretch><a:fillRect/></a:stretch></p:blipFill>'
+        f'<p:spPr><a:xfrm><a:off x="{int(x_emu)}" y="{int(y_emu)}"/><a:ext cx="{max(1, int(cx_emu))}" cy="{max(1, int(cy_emu))}"/></a:xfrm>'
+        f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr></p:pic>')
+    lay.shapes._spTree.append(pic)
+
+
+def _slide_add_svg_picture(slide, png_stream, svg_bytes, x_emu, y_emu, cx_emu, cy_emu, sid, name):
+    """Same TRUE-VECTOR logo embed as _layout_add_svg_picture, but ON A SLIDE (used above a full-bleed
+    background so the vector wordmark stays visible over the photo)."""
+    from pptx.oxml import parse_xml
+    from pptx.oxml.ns import nsdecls
+    from pptx.opc.constants import RELATIONSHIP_TYPE as RT
+    from pptx.opc.package import Part
+    png_part, rId_png = slide.part.get_or_add_image_part(png_stream)
+    pkg = slide.part.package
+    partname = pkg.next_partname("/ppt/media/image%d.svg")
+    svg_part = Part(partname, "image/svg+xml", pkg, svg_bytes)
+    rId_svg = slide.part.relate_to(svg_part, RT.IMAGE)
+    pic = parse_xml(
+        f'<p:pic {nsdecls("p", "a", "r")}>'
+        f'<p:nvPicPr><p:cNvPr id="{sid}" name="{name}"/><p:cNvPicPr/><p:nvPr/></p:nvPicPr>'
+        f'<p:blipFill><a:blip r:embed="{rId_png}">'
+        f'<a:extLst><a:ext uri="{{96DAC541-7B7A-43D3-8B79-37D633B846F1}}">'
+        f'<asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="{rId_svg}"/>'
+        f'</a:ext></a:extLst></a:blip><a:stretch><a:fillRect/></a:stretch></p:blipFill>'
+        f'<p:spPr><a:xfrm><a:off x="{int(x_emu)}" y="{int(y_emu)}"/><a:ext cx="{max(1, int(cx_emu))}" cy="{max(1, int(cy_emu))}"/></a:xfrm>'
+        f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr></p:pic>')
+    slide.shapes._spTree.append(pic)
 
 
 def _chrome_signature(chrome_rects, chrome_svgs, chrome_imgs):
@@ -516,6 +583,11 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     all_imgs = geo.get("images", [])
                     content_imgs = [i for i in all_imgs if not i.get("chrome")]
                     chrome_imgs = [i for i in all_imgs if i.get("chrome")]
+                    # A full-bleed background picture (cover / agenda) sits ON THE SLIDE and would COVER
+                    # the layout-inherited chrome; such slides re-draw their chrome on the slide above the
+                    # bg (below), so their chrome svg pics must be captured even on repeat variants.
+                    _has_bg = any(i["x"] <= 4 and i["y"] <= 4 and i["w"] >= W - 8 and i["h"] >= H - 8
+                                  for i in content_imgs)
                     all_svgs = geo.get("svgRegions", [])
                     # D15 (E3, 2026-07-02): the empty-geometry FULL-SLIDE RASTER fallback is REMOVED
                     # (phase 9: every PPTX native + editable from every path). A slide whose geometry
@@ -539,13 +611,15 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     import base64 as _b64svg
                     for _r in all_svgs:
                         _is_chrome = bool(_r.get("chrome"))
-                        if _is_chrome and not need_chrome:
-                            continue  # this variant's chrome layout already built
+                        if _is_chrome and not need_chrome and not _has_bg:
+                            continue  # variant chrome layout already built (and no bg to re-draw over)
                         try:
                             _shot = pg.screenshot(clip={"x": max(0, _r["x"]), "y": max(0, _r["y"]),
                                                         "width": max(1, _r["w"]), "height": max(1, _r["h"])})
                             _rec = {"x": _r["x"], "y": _r["y"], "w": _r["w"], "h": _r["h"],
                                     "src": "data:image/png;base64," + _b64svg.b64encode(_shot).decode()}
+                            if _r.get("svg"):
+                                _rec["svg"] = _r["svg"]   # logo -> embed as true vector (SVG blip)
                             (chrome_svg_pics if _is_chrome else content_svg_pics).append(_rec)
                         except Exception:
                             pass
@@ -573,9 +647,16 @@ def _render_into_presentation(prs, html_list: list) -> list:
                             if _raw is None:
                                 continue
                             try:
-                                _layout_add_picture(layout, _ioch.BytesIO(_raw), ex(im["x"]), ey(im["y"]),
-                                                    ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
-                                                    8500 + _ci, "GOLD chrome logo")
+                                if im.get("svg"):
+                                    # brand LOGO -> true vector (SVG blip + PNG fallback)
+                                    _layout_add_svg_picture(
+                                        layout, _ioch.BytesIO(_raw), im["svg"].encode("utf-8"),
+                                        ex(im["x"]), ey(im["y"]), ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
+                                        8500 + _ci, "GOLD chrome logo")
+                                else:
+                                    _layout_add_picture(layout, _ioch.BytesIO(_raw), ex(im["x"]), ey(im["y"]),
+                                                        ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
+                                                        8500 + _ci, "GOLD chrome logo")
                             except Exception:
                                 pass
                         sig_to_layout[sig] = layout
@@ -591,6 +672,18 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         except Exception:
                             _set_solid_fill_with_alpha = None
                             _suppress_effects = None
+                        # 2026-07-03 z-order (slides-imagery uplift): FULL-BLEED background
+                        # photographs sit UNDER the geometry. Images are normally added last
+                        # (slot art floats above panels), which buried the agenda's translucent
+                        # scrim panels beneath the cover scene. A content <img> covering the
+                        # whole stage is a BACKGROUND: place it first, then rects, then the
+                        # remaining slot art, then text.
+                        _bg_imgs = [im for im in content_imgs
+                                    if im["x"] <= 4 and im["y"] <= 4
+                                    and im["w"] >= W - 8 and im["h"] >= H - 8]
+                        if _bg_imgs:
+                            content_imgs = [im for im in content_imgs if im not in _bg_imgs]
+                            _place_geo_images(slide, _bg_imgs, ex, ey, W, H)
                         for rc in content_rects:
                             if rc["x"] >= W or rc["y"] >= H:
                                 continue
@@ -637,6 +730,50 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # OWN tokenized native picture at its bounds (no full-slide raster). Placed
                         # alongside the <img> slot art so every decorative vector is movable/swappable.
                         _place_geo_images(slide, list(content_imgs) + content_svg_pics, ex, ey, W, H)
+                        # 2026-07-03: a full-bleed background picture (cover / agenda) sits on the slide
+                        # and COVERS the layout-inherited chrome. Re-draw THIS slide's chrome (dot-mark +
+                        # vector logo) ON THE SLIDE, above the background, so it stays visible - matching
+                        # the ideal deck. Only fires for bg slides; content-rail slides keep layout chrome.
+                        if _bg_imgs:
+                            import io as _iobg
+                            for _rc in chrome_rects:
+                                if _rc["x"] >= W or _rc["y"] >= H:
+                                    continue
+                                _csh = slide.shapes.add_shape(
+                                    MSO_SHAPE.RECTANGLE, ex(_rc["x"]), ey(_rc["y"]),
+                                    ex(max(_rc["w"], 1.0)), ey(max(_rc["h"], 1.0)))
+                                _csh.shadow.inherit = False
+                                _csh.line.fill.background()
+                                _csh.fill.solid()
+                                _csh.fill.fore_color.rgb = RGBColor.from_string(_rc["fill"])
+                                if _suppress_effects is not None:
+                                    try:
+                                        _suppress_effects(_csh._element.spPr)
+                                    except Exception:
+                                        pass
+                                try:
+                                    _st = _csh._element.find('{http://schemas.openxmlformats.org/presentationml/2006/main}style')
+                                    if _st is not None:
+                                        _csh._element.remove(_st)
+                                except Exception:
+                                    pass
+                            for _ci, _im in enumerate(chrome_svg_pics):
+                                if _im["x"] >= W or _im["y"] >= H:
+                                    continue
+                                _raw = _raster_bytes(_im.get("src") or "")
+                                if _raw is None:
+                                    continue
+                                try:
+                                    if _im.get("svg"):
+                                        _slide_add_svg_picture(
+                                            slide, _iobg.BytesIO(_raw), _im["svg"].encode("utf-8"),
+                                            ex(_im["x"]), ey(_im["y"]), ex(max(_im["w"], 1.0)), ey(max(_im["h"], 1.0)),
+                                            9000 + _ci, "GOLD chrome logo")
+                                    else:
+                                        slide.shapes.add_picture(_iobg.BytesIO(_raw), ex(_im["x"]), ey(_im["y"]),
+                                                                 ex(max(_im["w"], 1.0)), ey(max(_im["h"], 1.0)))
+                                except Exception:
+                                    pass
                     # D15 (E3, 2026-07-02): the full-bleed raster tier (slide-sized screenshot picture)
                     # is DELETED. Every slide - including one whose geometry walk found no rects - now
                     # exports on the native path above (phase 9: native + editable from every path).

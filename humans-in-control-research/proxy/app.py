@@ -18422,6 +18422,34 @@ def _illus_palette(brand: str, canvas: str) -> dict:
     return {"line": f"deep navy ink ({rail})", "blobs": f"the brand accent ({accent}) and warm gold ({gold})"}
 
 
+def _photo_prompt(concept: str, slot: str) -> str:
+    """PHOTOGRAPHIC slot style (2026-07-03, owner-directed slides-imagery uplift): editorial
+    photography for cover/agenda BACKGROUNDS and persona/theme THUMBNAILS, mirroring the
+    approved reference deck (full-bleed subject scene under a dark scrim; environmental
+    portraits of the actual segment in its working context). The CONCEPT arrives as literal
+    text lifted from the slide's OWN generated content - this generalizes to ANY industry the
+    corpus returns; nothing here names a domain."""
+    if slot == "background":
+        comp = ("Wide cinematic establishing shot with GENEROUS UNCLUTTERED headroom and a calm, "
+                "darker lower third (a text scrim will sit over it). Horizon low in frame. ")
+    elif slot == "portrait":
+        comp = ("Environmental portrait: ONE person who authentically belongs to this context, "
+                "shown in their real working environment, natural candid posture, looking near "
+                "(not into) the camera. Respectful, specific, non-stereotypical. ")
+    else:
+        comp = ("Documentary detail scene of the subject in its real context, one clear focal "
+                "point, uncluttered composition. ")
+    return (
+        f"Professional editorial photograph depicting: {concept.strip()}. "
+        + comp +
+        "Natural golden-hour or soft overcast light, shallow-to-medium depth of field, muted "
+        "cinematic color grade, realistic textures. "
+        "ABSOLUTELY NO text, NO words, NO letters, NO numbers, NO logos, NO watermarks, NO UI, "
+        "NO charts anywhere in the image. No illustration, no 3D render, no collage - a single "
+        "coherent photograph."
+    )
+
+
 def _illustration_prompt(concept: str, brand: str, canvas: str) -> str:
     brand = "nu" if str(brand).lower() == "nu" else "nxt"
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
@@ -18604,14 +18632,19 @@ _ILLUS_STOP = {"a", "an", "the", "and", "or", "of", "to", "into", "on", "with", 
                "abstract", "flat", "vector", "illustration", "minimalist", "shapes", "one"}
 
 
-def _illus_id(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0) -> str:
+def _illus_id(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
+              style: str = "line") -> str:
     # Key on the ORIGINAL idea (+ brand/canvas/slot), NOT the VS-selected concept, so reuse stays
     # deterministic across the non-deterministic VS step: the same section idea always returns its
     # cached image. Slot is in the key because hero vs side warrant different compositions. `variant`
     # (>0) lets a caller force a DISTINCT image for the same idea (used to break intra-deck repeats);
-    # variant 0 keeps the cross-deck library key, so existing cached art is untouched.
+    # variant 0 keeps the cross-deck library key, so existing cached art is untouched. `style`
+    # ("line" | "photo-background" | "photo-portrait" | "photo-scene") joins the key ONLY when
+    # non-default so all existing line-art cache keys are unchanged.
     import hashlib
     suffix = f"|v{variant}" if variant else ""
+    if style and style != "line":
+        suffix += f"|s:{style}"
     return hashlib.sha1(f"{brand}|{canvas}|{slot}|{' '.join(concept.lower().split())}{suffix}".encode()).hexdigest()[:16]
 
 
@@ -18645,7 +18678,7 @@ def _illus_registry_append(entry: dict) -> None:
 
 
 async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
-                              literal: bool = False) -> dict:
+                              literal: bool = False, style: str = "line") -> dict:
     """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
     library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
 
@@ -18666,7 +18699,9 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         variant = max(0, int(variant))
     except Exception:
         variant = 0
-    iid = _illus_id(concept, brand, canvas, slot, variant)
+    style = style if style in ("line", "photo-background", "photo-portrait", "photo-scene") else "line"
+    is_photo = style.startswith("photo-")
+    iid = _illus_id(concept, brand, canvas, slot, variant, style)
     os.makedirs(_ILLUS_DIR, exist_ok=True)
     out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
     url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
@@ -18683,10 +18718,17 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     if not api_key or not concept:
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     # VERBALIZED SAMPLING: diversify the idea into a fresh, recognizable, layout-fit concept.
-    # (skipped for literal callers: the concept IS the content-derived scene brief.)
-    visual_concept = concept if literal else await _vs_select_concept(concept, brand, canvas, slot)
+    # (skipped for literal callers AND all photo styles: their concept IS content-derived text
+    # lifted from the slide's own generated fields - it must be depicted faithfully, never
+    # metaphor-diversified.)
+    if is_photo or literal:
+        visual_concept = concept
+    else:
+        visual_concept = await _vs_select_concept(concept, brand, canvas, slot)
+    prompt = (_photo_prompt(visual_concept, style.split("-", 1)[1]) if is_photo
+              else _illustration_prompt(visual_concept, brand, canvas))
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
-    body = {"contents": [{"parts": [{"text": _illustration_prompt(visual_concept, brand, canvas)}]}],
+    body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseModalities": ["IMAGE"]}}
     try:
         async with httpx.AsyncClient() as client:
@@ -18698,14 +18740,16 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         for part in parts:
             inline = part.get("inlineData") or part.get("inline_data")
             if inline and inline.get("data"):
-                png = _knockout_to_transparent(base64.b64decode(inline["data"]))
+                raw_png = base64.b64decode(inline["data"])
+                # photos stay OPAQUE (knockout would eat highlights); line-art knocks out to transparent
+                png = raw_png if is_photo else _knockout_to_transparent(raw_png)
                 with open(out_path, "wb") as f:
                     f.write(png)
                 _illus_registry_append({"id": iid, "idea": concept, "concept": visual_concept,
-                                        "brand": brand, "canvas": canvas, "slot": slot,
+                                        "brand": brand, "canvas": canvas, "slot": slot, "style": style,
                                         "tags": _illus_tags(concept + " " + visual_concept),
                                         "file": f"{iid}.png", "url": url,
-                                        "model": _GEMINI_IMAGE_MODEL, "transparent": True})
+                                        "model": _GEMINI_IMAGE_MODEL, "transparent": not is_photo})
                 return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
                         "id": iid, "reused": False}
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
@@ -18723,8 +18767,13 @@ async def ai_illustration(payload: dict):
     concept = (payload.get("concept") or "").strip()
     if not concept:
         return JSONResponse({"error": "concept required"}, status_code=400)
+    # style: "line" (default, transparent single-line art) | "photo-background" | "photo-portrait"
+    # | "photo-scene" (2026-07-03 slides-imagery uplift: opaque editorial photography, VS skipped,
+    # concept = literal text from the slide's own generated content).
     res = await _brand_illustration(concept, payload.get("brand", "nxt"), payload.get("canvas", "light"),
-                                    payload.get("slot", "side"), payload.get("variant", 0))
+                                    payload.get("slot", "side"), payload.get("variant", 0),
+                                    literal=bool(payload.get("literal")),
+                                    style=str(payload.get("style") or "line"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res
 
