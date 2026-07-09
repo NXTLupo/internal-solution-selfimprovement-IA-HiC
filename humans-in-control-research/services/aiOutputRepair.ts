@@ -79,6 +79,69 @@ function json5Normalize(text: string): { out: string; changed: boolean } {
 }
 
 
+// Rung 5 (2026-07-08, live NFP heuristic failure: "no rung succeeded") - escape
+// unescaped double quotes INSIDE string values. The #1 balanced-but-invalid shape:
+// a model quoting UI copy verbatim ("text": "the "SAMPLE DATA" banner confuses").
+// Scanner rule: while inside a string, a `"` whose next non-space char is not one of
+// , } ] : \n (or end-of-text, which truncation owns) is CONTENT, not a terminator -
+// escape it and stay in the string. Deterministic, no model call.
+function escapeInnerQuotes(text: string): { out: string; changed: boolean } {
+    let out = '';
+    let inString = false;
+    let escape = false;
+    let changed = false;
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (escape) { out += ch; escape = false; continue; }
+        if (inString && ch === '\\') { out += ch; escape = true; continue; }
+        if (ch !== '"') { out += ch; continue; }
+        if (!inString) { inString = true; out += ch; continue; }
+        // inside a string: terminator or content?
+        let j = i + 1;
+        while (j < text.length && (text[j] === ' ' || text[j] === '\t')) j++;
+        const next = j < text.length ? text[j] : '';
+        if (next === ',' || next === '}' || next === ']' || next === ':' || next === '\n' || next === '\r' || next === '') {
+            inString = false;
+            out += ch;
+        } else {
+            out += '\\"';
+            changed = true;
+        }
+    }
+    return { out, changed };
+}
+
+
+// Rung 6b (2026-07-08) - truncation SALVAGE: when closing brackets alone is not
+// enough (the tail is a dangling fragment: mid-key `"tit`, post-colon `"severity":`,
+// post-comma `},`), iteratively TRIM the incomplete tail back to the last complete
+// value boundary, then close + comma-clean + parse. Generalizes the proven
+// prototypeBuilder recover-truncated-JSON approach into the shared ladder.
+function truncationSalvage(text: string): { out: string; changed: boolean } | null {
+    let candidate = text;
+    for (let pass = 0; pass < 6; pass++) {
+        const before = candidate;
+        candidate = candidate
+            .replace(/([,{[])\s*"(?:[^"\\]|\\.)*$/s, (_m, open) => (open === ',' ? '' : open))  // mid-string KEY/element after , { [
+            .replace(/:\s*"(?:[^"\\]|\\.)*$/s, ': null')                                          // mid-string VALUE
+            .replace(/:\s*[-\d.eE+]*$/s, ': null')                                                // mid-number / bare colon
+            .replace(/,\s*$/s, '');                                                               // trailing comma
+        const closed = truncationClose(candidate);
+        const cleaned = trailingCommaCleanup(closed.out).out;
+        try {
+            JSON.parse(cleaned);
+            return { out: cleaned, changed: true };
+        } catch { /* trim further */ }
+        if (candidate === before) {
+            // nothing left to trim mechanically: drop the last raw character and retry
+            candidate = candidate.slice(0, -1);
+            if (candidate.length < 2) return null;
+        }
+    }
+    return null;
+}
+
+
 // Rung 6 - Truncation close. Walk the string tracking string state + bracket depth.
 function truncationClose(text: string): { out: string; changed: boolean; incompletePath: string | null } {
     if (text.length < 2) return { out: text, changed: false, incompletePath: null };
@@ -262,28 +325,51 @@ export function repairAIOutput(
             } catch { /* keep trying */ }
         }
 
+        // Rung 5 - unescaped inner quotes (balanced-but-invalid; the 2026-07-08 live class)
+        const r5 = escapeInnerQuotes(candidate);
+        if (r5.changed) {
+            rungs_attempted.push('escape_inner_quotes');
+            try {
+                const parsed = JSON.parse(r5.out);
+                return {
+                    ok: true, output: r5.out, parsed,
+                    repaired_via: 'escape_inner_quotes', degradation: true,
+                    incomplete_items: [], warnings: [...warnings, 'unescaped quotes inside string values were escaped'],
+                    original_length, repaired_length: r5.out.length, rungs_attempted,
+                };
+            } catch { /* keep the ORIGINAL candidate: the heuristic may have misfired */ }
+        }
+
         // Rung 6 - truncation close
         const r6 = truncationClose(candidate);
         if (r6.changed) {
             rungs_attempted.push('truncation_close');
-            candidate = r6.out;
             warnings.push('artifact was truncated; final item may be incomplete');
             try {
+                const parsed = JSON.parse(r6.out);
                 return {
-                    ok: true, output: candidate, parsed: JSON.parse(candidate),
+                    ok: true, output: r6.out, parsed,
                     repaired_via: 'truncation_close', degradation: true,
                     incomplete_items: r6.incompletePath ? [r6.incompletePath] : [],
                     warnings,
-                    original_length, repaired_length: candidate.length, rungs_attempted,
+                    original_length, repaired_length: r6.out.length, rungs_attempted,
                 };
-            } catch (e: unknown) {
+            } catch { /* fall through to salvage */ }
+        }
+
+        // Rung 6b - truncation salvage: trim the dangling tail to the last complete
+        // value, close, comma-clean, parse; iterative. Also retried on the
+        // inner-quote-escaped variant (truncation + inner quotes can co-occur).
+        for (const base of r5.changed ? [candidate, r5.out] : [candidate]) {
+            const r6b = truncationSalvage(base);
+            if (r6b) {
+                rungs_attempted.push('truncation_salvage');
                 return {
-                    ok: false, output: null, parsed: null,
-                    repaired_via: 'truncation_close', degradation: true,
-                    incomplete_items: r6.incompletePath ? [r6.incompletePath] : [],
-                    warnings: [...warnings, `truncation close insufficient: ${String(e).slice(0, 120)}`],
-                    unrepairable_reason: 'truncation close did not yield valid JSON',
-                    original_length, repaired_length: candidate.length, rungs_attempted,
+                    ok: true, output: r6b.out, parsed: JSON.parse(r6b.out),
+                    repaired_via: 'truncation_salvage', degradation: true,
+                    incomplete_items: ['trailing_incomplete_fragment_dropped'],
+                    warnings: [...warnings, 'artifact was truncated; the incomplete tail item was dropped'],
+                    original_length, repaired_length: r6b.out.length, rungs_attempted,
                 };
             }
         }

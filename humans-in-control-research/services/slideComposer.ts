@@ -49,6 +49,11 @@ interface StaticRegion extends RegionStyle {
     alpha?: number;     // rect/scrim only: 0..1 opacity applied to the token color
     // scrim only: vertical gradient alphas (top -> bottom) over the token color; defaults .35/.72
     alphaTop?: number; alphaBottom?: number;
+    // image only (2026-07-08 critique elevation): payload dot-paths enabling the ANNOTATED
+    // image treatment. `markers` -> [{n, x, y}] (percent coords, numbered callout discs);
+    // `aspect` -> the image's natural w/h ratio (lets the composer anchor the image top-left
+    // at its exact drawn size so percent coords map deterministically to pixels).
+    markers?: string; aspect?: string;
 }
 type Cell = RegionStyle & {
     dy: number; dx?: number; key?: string; literal?: string; kind?: 'text' | 'hairline' | 'image'; w?: number; h?: number;
@@ -221,6 +226,37 @@ function renderStatic(r: StaticRegion, payload: any, tk: ReturnType<typeof resol
         // fit 'cover': true crop-fill of the zone (photographic backgrounds + thumbnails).
         const src = r.payload ? dot(payload, r.payload) : r.literal;
         if (!src || typeof src !== 'string') return '';
+        // ANNOTATED image (2026-07-08 critique elevation): when the region declares marker +
+        // aspect payload paths and the payload fills them, the image anchors TOP-LEFT at its
+        // exact drawn size (computed from the known aspect, so marker percent coords map
+        // deterministically to pixels) and numbered accent callout discs overlay it, matching
+        // the numbered findings beside it. Discs clamp inside the image and de-collide by
+        // nudging down (graphic-collision ban: no two markers may overlap). In the PPTX
+        // export each disc lands as a small native accent shape + text run.
+        const markers = r.markers ? dot(payload, r.markers) : null;
+        const aspect = r.aspect ? Number(dot(payload, r.aspect)) : 0;
+        if (Array.isArray(markers) && markers.length && aspect > 0 && r.w && r.h) {
+            let dw = r.w, dh = Math.round(r.w / aspect);
+            if (dh > r.h) { dh = r.h; dw = Math.round(r.h * aspect); }
+            const D = 34;
+            const placed: { n: any; px: number; py: number }[] = [];
+            const sorted = markers.slice(0, 12).map((m: any) => ({
+                n: m.n,
+                px: Math.round(Math.max(2, Math.min(98, Number(m.x) || 50)) / 100 * dw),
+                py: Math.round(Math.max(2, Math.min(98, Number(m.y) || 50)) / 100 * dh),
+            })).sort((a, b) => a.py - b.py || a.px - b.px);
+            for (const m of sorted) {
+                let tries = 0;
+                while (placed.some(p => Math.abs(p.px - m.px) < D + 6 && Math.abs(p.py - m.py) < D + 6) && tries < 8) {
+                    m.py = Math.min(dh - D, m.py + D + 8); tries++;
+                }
+                placed.push(m);
+            }
+            const discs = placed.map(m =>
+                `<div style="position:absolute;left:${Math.min(dw - D, Math.max(0, m.px - D / 2))}px;top:${Math.min(dh - D, Math.max(0, m.py - D / 2))}px;width:${D}px;height:${D}px;border-radius:50%;background:${tk.color.accent};border:2px solid ${tk.color.paper};display:flex;align-items:center;justify-content:center"><span style="color:${tk.color.onAccent};font-family:${tk.font.heading};font-size:15px;font-weight:700">${esc(m.n)}</span></div>`
+            ).join('');
+            return `<div style="${pos}height:${r.h}px"><div style="position:relative;width:${dw}px;height:${dh}px;border:1px solid ${tk.color.hairline}"><img src="${esc(src)}" style="width:${dw}px;height:${dh}px;display:block" alt="">${discs}</div></div>`;
+        }
         if (r.fit === 'cover') {
             return `<div style="${pos}height:${r.h || 0}px;overflow:hidden"><img src="${esc(src)}" style="width:100%;height:100%;object-fit:cover;display:block" alt=""></div>`;
         }
@@ -560,6 +596,73 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
     },
+    // screen-critique (2026-07-07, heuristic-audit uplift Phase 1, owner directive): the audit
+    // critique deck's per-screen slide. LEFT = the audited screen's ACTUAL screenshot (data-URI
+    // from an upload or the /api/audit/capture-url viewport walk; contain, never cropped);
+    // RIGHT = up to 4 evidence-bound findings (severity+dimension label above a finding
+    // judgment, description, fix line). The deck is composed DETERMINISTICALLY from the
+    // HeuristicReport by services/auditCritiqueDeck.ts (no model call for formatting); more
+    // than 4 findings for a screen overflow to a continuation slide per the no-truncation
+    // contract. Figma canon frame write-back pending the next canon pass.
+    // v2 (2026-07-08 critique elevation, live-deck audit): 3 findings per slide at pitch 240
+    // (the v1 4-at-186 layout collided: 3-line descriptions overran the fix line at dy132),
+    // each finding NUMBERED with an accent numeral that matches the callout disc overlaid on
+    // the screenshot (markers + imageAspect payload paths on the image region). Title = the
+    // per-screen plain-English verdict from the vision pass, so it no longer duplicates
+    // finding 1 verbatim.
+    'screen-critique': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title' },
+            { x: 196, y: 206, w: 1620, kind: 'hairline', h: 1 },
+            // The screenshot arrives with the numbered discs BAKED into its pixels
+            // (auditCritiqueDeck.bakeScreenAnnotations) - the only representation that
+            // survives the PPTX export, where pictures layer above shape overlays.
+            { kind: 'image', x: 196, y: 236, w: 760, h: 720, payload: 'screenImage', fit: 'contain' },
+            // v3 spacing (2026-07-08 live-deck audit round 2): the body is a TIGHT TABULAR
+            // cell (caption, non-prose - the documented density/tabular exemption; the
+            // prose readable-floor clamp inflated 3-line descriptions past the fix line).
+            // Generation budgets guarantee the fit: title <=8 words, description ONE
+            // sentence 12-20 words (<=2 lines at caption/710px), fix <=12 words (1 line).
+            {
+                kind: 'columns', array: 'findings', count: 3, baseX: 1020, pitchX: 0, baseY: 236, pitchY: 248, w: 800,
+                cells: [
+                    { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'number' },
+                    { dx: 90, dy: 6, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, key: 'severityLabel' },
+                    { dx: 90, dy: 32, w: 710, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, leading: 1.2, key: 'heading' },
+                    { dx: 90, dy: 106, w: 710, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'body' },
+                    { dx: 90, dy: 182, w: 710, color: 'cyan', font: 'heading', size: SCALE.caption, weight: 600, key: 'fix' },
+                ],
+            },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
+    // screen-redesign (2026-07-08 critique elevation, owner directive): side-by-side CURRENT
+    // (annotated screenshot) vs PROPOSED (native tokenized render composed from the registered
+    // Figma proto/* pattern catalog by the proxy - unified vision: lego-brick composition,
+    // NEVER diffusion-generated UI). WHAT CHANGES takeaway band carries the rationale.
+    'screen-redesign': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title' },
+            { x: 196, y: 206, w: 1620, kind: 'hairline', h: 1 },
+            { x: 196, y: 230, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, literal: 'CURRENT' },
+            // currentImage arrives with the numbered discs baked in (see screen-critique note)
+            { kind: 'image', x: 196, y: 262, w: 760, h: 500, payload: 'currentImage', fit: 'contain' },
+            // NUMBERED LEGEND (2026-07-08, user-flagged): the discs on the current screenshot
+            // must be decodable ON THIS SLIDE - short finding titles in the same reading-order
+            // numbering, under the image.
+            { x: 196, y: 778, w: 760, color: 'secondary', font: 'body', size: SCALE.caption, leading: 1.3, payload: 'legend' },
+            { x: 1058, y: 230, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, literal: 'PROPOSED' },
+            { kind: 'image', x: 1058, y: 262, w: 760, h: 500, payload: 'proposedImage', fit: 'contain', aspect: 'proposedAspect' },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 230, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 470, y: 876, w: 1310, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
     // cover (609:2) - full-bleed dark opener. Content gutter left:101 (no rail). The brand mark is
     // the real registry logo (rendered by chrome, top-right), NOT a typeset wordmark line.
     'cover': {
@@ -583,6 +686,18 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 { kind: 'scrim', x: 0, y: 0, w: 1920, h: 1080, color: 'rail', alphaTop: 0.30, alphaBottom: 0.74 },
                 { x: 101, y: 320, w: 1718, color: 'paper', font: 'display', size: 'hero', leading: 1.0, payload: 'title' },
                 { x: 101, y: 640, w: 1718, color: 'paper', font: 'heading', size: SCALE.subhead, weight: 500, leading: 1.3, payload: 'subtitle' },
+            ],
+        }, {
+            // BOXED-COVER variant (2026-07-08 critique elevation): a BRIGHT UI screenshot
+            // cannot carry white display type even under the scrim (live-deck audit), so it
+            // rides a framed right panel on the dark canvas with title geometry TUNED for
+            // the narrowed column (the base spec's hero-size title collided with the
+            // subtitle when HERO_PANEL narrowing squeezed its width).
+            when: 'heroImage',
+            regions: [
+                { x: 101, y: 250, w: 900, color: 'paper', font: 'display', size: 'numeral', leading: 1.06, payload: 'title' },
+                { x: 101, y: 840, w: 900, color: 'ruleMid', font: 'heading', size: SCALE.bodyReadable, weight: 500, leading: 1.3, payload: 'subtitle' },
+                { kind: 'image', x: 1080, y: 120, w: 760, h: 840, payload: 'heroImage', fit: 'contain' },
             ],
         }],
     },

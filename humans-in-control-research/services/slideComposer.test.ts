@@ -47,12 +47,12 @@ describe('slideComposer (registry-driven, Method A)', () => {
         expect(composeSlide('does-not-exist', {}, 'nxt')).toBeNull();
     });
 
-    it('registers all 16 SLIDES archetypes (infographic-exhibit added 2026-07-02)', () => {
+    it('registers all 18 SLIDES archetypes (screen-critique + screen-redesign, heuristic-audit uplift)', () => {
         expect(archetypeKeys().sort()).toEqual([
             'agenda', 'aggregate-roadmap', 'block-quote', 'cover', 'evidence-table',
             'infographic-exhibit', 'numbered-themes',
             'org-model', 'problem-diptych', 'role-needs', 'role-recommendation', 'role-roadmap',
-            'scene', 'section-divider', 'stat-row', 'thesis-interstitial',
+            'scene', 'screen-critique', 'screen-redesign', 'section-divider', 'stat-row', 'thesis-interstitial',
         ]);
     });
 

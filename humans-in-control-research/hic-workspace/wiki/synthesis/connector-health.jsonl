@@ -8174,3 +8174,12 @@
 {"source_id": "arxiv_cs_ir", "ts": "2026-07-03T01:08:30.191307+00:00", "items_returned": 0, "status": 0, "latency_ms": 109579, "error": "HTTP 429"}
 {"source_id": "arxiv_stat_ml", "ts": "2026-07-03T01:08:40.368900+00:00", "items_returned": 0, "status": 0, "latency_ms": 119584, "error": "HTTP 429"}
 {"source_id": "arxiv_cs_hc", "ts": "2026-07-03T01:08:51.372820+00:00", "items_returned": 0, "status": 200, "latency_ms": 130578, "error": ""}
+{"source_id": "enr_utility_dive", "ts": "2026-07-09T00:09:14.940269+00:00", "items_returned": 0, "status": 200, "latency_ms": 568, "error": ""}
+{"source_id": "clb_boardroom_magazine", "ts": "2026-07-09T00:09:17.035045+00:00", "items_returned": 0, "status": 0, "latency_ms": 1971, "error": "page fetch failed"}
+{"source_id": "trv_skift", "ts": "2026-07-09T00:09:17.659479+00:00", "items_returned": 0, "status": 200, "latency_ms": 510, "error": ""}
+{"source_id": "ins_journal", "ts": "2026-07-09T00:09:36.336421+00:00", "items_returned": 0, "status": 200, "latency_ms": 1012, "error": ""}
+{"source_id": "enr_utility_dive", "ts": "2026-07-09T00:09:36.981930+00:00", "items_returned": 0, "status": 200, "latency_ms": 542, "error": ""}
+{"source_id": "enr_utility_dive", "ts": "2026-07-09T00:09:56.426409+00:00", "items_returned": 0, "status": 200, "latency_ms": 130, "error": ""}
+{"source_id": "clb_cmaa", "ts": "2026-07-09T00:09:58.298358+00:00", "items_returned": 1, "status": 200, "latency_ms": 1671, "error": ""}
+{"source_id": "clb_rotary_voices", "ts": "2026-07-09T00:09:59.759539+00:00", "items_returned": 0, "status": 200, "latency_ms": 1347, "error": ""}
+{"source_id": "trv_skift", "ts": "2026-07-09T00:10:00.179528+00:00", "items_returned": 0, "status": 200, "latency_ms": 321, "error": ""}

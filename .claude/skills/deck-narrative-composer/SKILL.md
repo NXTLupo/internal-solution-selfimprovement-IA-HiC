@@ -1,6 +1,6 @@
 ---
 name: deck-narrative-composer
-version: 1.19
+version: 1.20
 last_improved: 2026-05-23
 description: Content-block narrative generation for strategy decks using 12 block types, report-derived distillation, per-slide context injection, and layout auto-resolution. 2026-05-23 — per-slide narratives now use Verbalized Sampling (k=3 candidates with frame + probability) to escape templated McKinsey-prose phrasing.
 thinking: high
@@ -322,6 +322,11 @@ DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent;
 
 
 ## Learned behaviors
+
+
+<!-- learned behavior added 2026-07-08 from 63 feedback signals -->
+When generating presentations, strictly adhere to user-specified narrative structures, slide sequences, and precise UI/UX design elements.
+
 
 <!-- Section cleaned 2026-06-23: the ungated skill-patch loop (learningEngine.applySkillPatch,
      now gated by evaluateConstraint + isCompleteSkillPatch + patchAlreadyPresent) had accreted

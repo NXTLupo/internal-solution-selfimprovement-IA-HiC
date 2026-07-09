@@ -2882,5 +2882,27 @@
     "url": "/hic-workspace/wiki/design-system/illustrations/diag-39d8d990a2479668.png",
     "model": "native-html-chromium",
     "diagram": true
+  },
+  {
+    "id": "diag-3cb102d96c904f89",
+    "idea": "The AI-powered Farm Risk Ready℠ companion turns static planning into a proactive, season-long habit",
+    "kind": "journey",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-3cb102d96c904f89.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-3cb102d96c904f89.png",
+    "model": "native-html-chromium",
+    "diagram": true
+  },
+  {
+    "id": "diag-412230faa01e9c5f",
+    "idea": "Proactive threat re-scoring cuts planning friction and helps farmers protect thin operating margins",
+    "kind": "journey",
+    "brand": "nxt",
+    "canvas": "light",
+    "file": "diag-412230faa01e9c5f.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-412230faa01e9c5f.png",
+    "model": "native-html-chromium",
+    "diagram": true
   }
 ]

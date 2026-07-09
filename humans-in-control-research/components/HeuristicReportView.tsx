@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { HeuristicReport, HeuristicFinding, HeuristicDimensionId, HEURISTIC_DIMENSION_LABELS, SeverityScore } from '../types';
 import { exportHTML, exportJSON } from '../services/exportService';
+import { orderFindingsForScreen } from '../services/auditCritiqueDeck';
 
 interface Props {
     report: HeuristicReport;
@@ -36,7 +37,7 @@ const CONFIDENCE_COLORS: Record<string, string> = {
 };
 
 const HeuristicReportView: React.FC<Props> = ({ report, screenshots, onReset }) => {
-    const [activeTab, setActiveTab] = useState<'summary' | 'dimensions' | 'data'>('summary');
+    const [activeTab, setActiveTab] = useState<'summary' | 'screens' | 'dimensions' | 'data'>('summary');
     const [expandedDimension, setExpandedDimension] = useState<HeuristicDimensionId | null>(null);
     const [severityFilter, setSeverityFilter] = useState<SeverityScore | null>(null);
     const [lightboxImage, setLightboxImage] = useState<number | null>(null);
@@ -100,7 +101,7 @@ const HeuristicReportView: React.FC<Props> = ({ report, screenshots, onReset }) 
                 </div>
                 <div className="flex gap-2">
                     {/* Tab Switcher */}
-                    {(['summary', 'dimensions', 'data'] as const).map(tab => (
+                    {(['summary', 'screens', 'dimensions', 'data'] as const).map(tab => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
@@ -110,7 +111,7 @@ const HeuristicReportView: React.FC<Props> = ({ report, screenshots, onReset }) 
                                     : 'bg-[var(--bg-tertiary)] text-[var(--text-tertiary)] hover:text-[var(--text-primary)]'
                             }`}
                         >
-                            {tab === 'summary' ? 'Executive Summary' : tab === 'dimensions' ? 'Dimensions' : 'Raw Data'}
+                            {tab === 'summary' ? 'Executive Summary' : tab === 'screens' ? 'By Screen' : tab === 'dimensions' ? 'Dimensions' : 'Raw Data'}
                         </button>
                     ))}
                     <div className="w-px bg-[var(--border-primary)] mx-1"></div>
@@ -206,6 +207,55 @@ const HeuristicReportView: React.FC<Props> = ({ report, screenshots, onReset }) 
                                     ))}
                                 </div>
                             </div>
+                        </div>
+                    )}
+
+                    {/* === BY SCREEN TAB (2026-07-08 critique elevation) ===
+                        Findings grouped by their PRIMARY screen with per-screen numbering that
+                        matches the numbered callout discs on the critique deck slides, headed
+                        by the vision pass's plain-English per-screen verdict. */}
+                    {activeTab === 'screens' && (
+                        <div className="space-y-6 animate-fade-in">
+                            {screenshots.map((shot, idx) => {
+                                const ref = idx + 1;
+                                // Same reading-order numbering authority as the critique deck's
+                                // baked discs (auditCritiqueDeck.orderFindingsForScreen).
+                                const mine = orderFindingsForScreen(report, ref);
+                                const verdict = report.screenSummaries?.find(s => s.screenshot === ref)?.verdict;
+                                if (mine.length === 0) return null;
+                                return (
+                                    <div key={ref} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded overflow-hidden">
+                                        <div className="p-4 border-b border-[var(--border-primary)]">
+                                            <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Screen {String(ref).padStart(2, '0')}</div>
+                                            {verdict && <div className="font-bold mt-1">{verdict}</div>}
+                                        </div>
+                                        <div className="flex gap-4 p-4">
+                                            <button onClick={() => setLightboxImage(idx)} className="flex-shrink-0 w-56 border border-[var(--border-primary)] rounded overflow-hidden self-start hover:border-[var(--nxt-lime)] transition-colors">
+                                                <img src={shot} alt={`Screen ${ref}`} className="w-full h-auto block" />
+                                            </button>
+                                            <div className="flex-1 space-y-3 min-w-0">
+                                                {mine.map((f, i) => (
+                                                    <div key={f.id || i} className="flex items-start gap-3 p-3 bg-[var(--bg-secondary)] rounded">
+                                                        <div className="w-7 h-7 rounded-full bg-[var(--nxt-lime)] text-[var(--nxt-teal)] text-xs font-bold flex items-center justify-center flex-shrink-0">
+                                                            {String(i + 1).padStart(2, '0')}
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="flex items-center gap-2">
+                                                                <span className="font-bold text-sm">{f.title}</span>
+                                                                <span className="px-1.5 py-0.5 rounded-sm text-white text-[10px] font-bold" style={{ backgroundColor: SEVERITY_COLORS[f.severity as SeverityScore] }}>
+                                                                    {SEVERITY_LABELS[f.severity as SeverityScore]}
+                                                                </span>
+                                                            </div>
+                                                            <div className="text-xs text-[var(--text-secondary)] mt-1">{f.description}</div>
+                                                            <div className="text-xs text-[var(--nxt-teal)] mt-1">{f.recommendation}</div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     )}
 

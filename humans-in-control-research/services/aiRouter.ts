@@ -737,6 +737,14 @@ export async function routeTextAnalysis<T>(
 /**
  * Route a vision analysis task to the selected model.
  * Returns parsed JSON of type T.
+ *
+ * 2026-07-05 (heuristic-audit uplift Phase 0): anthropic + google branches added.
+ * The pre-fix switch implemented ONLY 'openai', while DEFAULT_MODELS.vision is a
+ * google model, so the default configuration always threw "Vision not supported
+ * for provider: google" (the Heuristic Analysis module was broken for every user
+ * who did not hand-pick an OpenAI vision model). Both new branches post through
+ * the proxy /api/ai/{anthropic,gemini} chokepoints (keys attach server-side; the
+ * proxy strips `temperature` for Opus 4.8, which rejects it with a 400).
  */
 export async function routeVisionAnalysis<T>(
     systemPrompt: string,
@@ -752,13 +760,126 @@ export async function routeVisionAnalysis<T>(
     if (!model) {
         throw new Error(`Unknown model: ${modelId}`);
     }
+    if (!model.vision) {
+        throw new Error(`Model ${modelId} is not vision-capable (registry vision:false)`);
+    }
 
     switch (model.provider) {
         case 'openai':
             return openaiService.analyzeVision<T>(systemPrompt, userPrompt, images, modelId, maxTokens, temperature);
+        case 'anthropic':
+            return anthropicVisionJSON<T>(systemPrompt, userPrompt, images, modelId, maxTokens);
+        case 'google':
+            return geminiVisionJSON<T>(systemPrompt, userPrompt, images, modelId, maxTokens, temperature);
         default:
             throw new Error(`Vision not supported for provider: ${model.provider}`);
     }
+}
+
+/** Anthropic vision via the proxy /api/ai/anthropic. Screenshots ride as base64 image
+ *  blocks interleaved with 1-indexed sequence labels (mirrors the OpenAI shape in
+ *  openaiService.analyzeVision so screenshotRefs stay consistent across providers).
+ *  No `temperature`: claude-opus-4-8 rejects it; the proxy strips it defensively. */
+async function anthropicVisionJSON<T>(
+    systemPrompt: string,
+    userPrompt: string,
+    images: { base64: string; mimeType: string }[],
+    modelId: string,
+    maxTokens: number,
+): Promise<T> {
+    const { callAnthropic } = await import('./aiRetryClient');
+    const { parseJSONWithRepair } = await import('./aiOutputRepair');
+
+    const content: any[] = [];
+    images.forEach((img, i) => {
+        content.push({ type: 'image', source: { type: 'base64', media_type: img.mimeType, data: img.base64 } });
+        content.push({ type: 'text', text: `[Screenshot ${i + 1} of ${images.length}]` });
+    });
+    content.push({ type: 'text', text: userPrompt });
+
+    const cap = MODEL_REGISTRY[modelId]?.maxOutput ?? 64_000;
+    const data: any = await callAnthropic({
+        model: modelId,
+        max_tokens: Math.min(maxTokens, cap),
+        system: systemPrompt,
+        messages: [{ role: 'user', content }],
+    }, {
+        label: `Vision (${modelId})`,
+        maxAttempts: 3,
+        requestTimeoutMs: 600_000,
+        retryOnTimeout: false,
+    });
+
+    const text = (Array.isArray(data?.content) ? data.content : [])
+        .map((b: any) => (typeof b?.text === 'string' ? b.text : ''))
+        .join('')
+        .trim();
+    if (!text) {
+        throw new Error(`Vision (${modelId}) returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
+    }
+    // 2026-07-08 (live NFP "no rung succeeded" failure): a max_tokens stop means the
+    // JSON is truncated - say so loudly so the repair telemetry carries the cause, and
+    // fold the stop reason into any parse error instead of a bare repair message.
+    if (data?.stop_reason === 'max_tokens') {
+        console.warn(`[aiRouter] Vision (${modelId}) hit its ${maxTokens}-token output cap; response truncated - the repair ladder salvages complete items`);
+    }
+    try {
+        return parseJSONWithRepair<T>(text, {
+            calling_context: `vision:${modelId}`,
+            onDegradation: (report) => console.warn(
+                `[aiRouter] Vision (${modelId}) JSON repaired via ${report.repaired_via} (stop_reason=${data?.stop_reason}); incomplete: ${report.incomplete_items.join(', ') || 'none'}`),
+        });
+    } catch (e: any) {
+        e.message = `${e.message} (stop_reason=${data?.stop_reason || 'unknown'}, response ${text.length} chars)`;
+        throw e;
+    }
+}
+
+/** Gemini vision via the proxy /api/ai/gemini (native shape). Screenshots ride as
+ *  inlineData parts interleaved with sequence labels; responseMimeType locks JSON. */
+async function geminiVisionJSON<T>(
+    systemPrompt: string,
+    userPrompt: string,
+    images: { base64: string; mimeType: string }[],
+    modelId: string,
+    maxTokens: number,
+    temperature: number,
+): Promise<T> {
+    const { callGemini } = await import('./aiRetryClient');
+    const { parseJSONWithRepair } = await import('./aiOutputRepair');
+
+    const parts: any[] = [];
+    images.forEach((img, i) => {
+        parts.push({ inlineData: { mimeType: img.mimeType, data: img.base64 } });
+        parts.push({ text: `[Screenshot ${i + 1} of ${images.length}]` });
+    });
+    parts.push({ text: userPrompt });
+
+    const cap = MODEL_REGISTRY[modelId]?.maxOutput ?? 65_536;
+    const data: any = await callGemini({
+        model: modelId,
+        systemInstruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: 'user', parts }],
+        config: {
+            temperature,
+            maxOutputTokens: Math.min(maxTokens, cap),
+            responseMimeType: 'application/json',
+        },
+    }, {
+        label: `Vision (${modelId})`,
+        maxAttempts: 3,
+        requestTimeoutMs: 600_000,
+        retryOnTimeout: false,
+    });
+
+    const text = (data?.candidates?.[0]?.content?.parts || [])
+        .map((p: any) => (typeof p?.text === 'string' ? p.text : ''))
+        .join('')
+        .trim();
+    if (!text) {
+        throw new Error(`Vision (${modelId}) returned empty content (finishReason=${data?.candidates?.[0]?.finishReason || 'unknown'})`);
+    }
+    return parseJSONWithRepair<T>(text, { calling_context: `vision:${modelId}` });
 }
 
 /**

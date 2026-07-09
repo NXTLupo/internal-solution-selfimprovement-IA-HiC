@@ -2934,6 +2934,20 @@ async function fetchComponentSpecBlock(userMessage: string): Promise<string> {
     } catch { return ''; }
 }
 
+/** 2026-07-08 (live NFP feedback failure: HTTP 400 "input token count exceeds 1048576"):
+ * chat messages that carry baked images (the heuristic critique deck embeds annotated
+ * screenshots + proposed renders as data: URIs inside slide fences) must NEVER replay
+ * their base64 into a model prompt - 13 screens of baked PNGs is ~20MB of text. ONE
+ * chokepoint: every history turn and the outgoing message are scrubbed before any
+ * provider payload (also covers the pre-compaction summarizer). The UI keeps the real
+ * message objects; only the model-facing copies are scrubbed. */
+const DATA_URI_RX = /data:[a-zA-Z0-9.+/-]+;base64,[A-Za-z0-9+/=]{256,}/g;
+// non-global twin for detection (a /g regex's .test() is stateful via lastIndex)
+const DATA_URI_TEST = /data:[a-zA-Z0-9.+/-]+;base64,[A-Za-z0-9+/=]{256,}/;
+export function stripDataUris(text: string): string {
+    return (text || '').replace(DATA_URI_RX, '[embedded image omitted]');
+}
+
 export async function sendChatMessage(
     model: ChatModel,
     userMessage: string,
@@ -2942,6 +2956,14 @@ export async function sendChatMessage(
     opts?: { signal?: AbortSignal; onProgress?: (status: string) => void },
 ): Promise<ChatMessage> {
     const startTime = Date.now();
+    if (DATA_URI_TEST.test(userMessage)) userMessage = stripDataUris(userMessage);
+    if (conversationHistory.some(m => DATA_URI_TEST.test(m.content))) {
+        const before = conversationHistory.reduce((n, m) => n + m.content.length, 0);
+        conversationHistory = conversationHistory.map(m =>
+            DATA_URI_TEST.test(m.content) ? { ...m, content: stripDataUris(m.content) } : m);
+        const after = conversationHistory.reduce((n, m) => n + m.content.length, 0);
+        console.log(`[chat] scrubbed embedded images from history for the model payload (${Math.round((before - after) / 1024)}KB removed)`);
+    }
     const abortSignal = opts?.signal;
     const onProgress = opts?.onProgress;
     // 2026-05-26 - Abort propagation. The chat tool loops can run for

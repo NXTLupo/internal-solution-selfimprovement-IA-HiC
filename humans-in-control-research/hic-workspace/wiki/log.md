@@ -8901,3 +8901,296 @@ chunks:
 ## [2026-07-03] session | AI Analyst session started
   - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
   - started_at: 2026-07-03T21:35:14.394Z
+
+
+
+## [2026-07-06] learn | Learning pass learn_1783344943869
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 39423
+
+
+
+## [2026-07-06] learn | Learning pass learn_1783344946185
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 49035
+
+
+
+## [2026-07-06] learn | Learning pass learn_1783344979373
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 39104
+
+
+
+## [2026-07-06] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-06T13:44:49.001Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T15:40:40.761Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T16:06:35.687Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T17:05:00.023Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T17:41:16.882Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T18:06:15.614Z
+
+
+
+## [2026-07-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-07T18:21:43.708Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T01:38:56.091Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T02:21:16.094Z
+
+
+
+## [2026-07-08] lint | Wiki health check (run lint_1783477279670)
+- pages_scanned: 287
+- total_findings: 505
+- errors: 0
+- warnings: 397
+- info: 108
+- duration_ms: 24602
+- next_due: 2026-07-15
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T02:43:45.742Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T03:09:21.124Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T03:21:00.530Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T04:49:27.832Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T04:57:25.259Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T05:02:50.027Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T05:28:01.348Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T12:52:00.306Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T13:14:47.263Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T13:22:13.344Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T15:51:38.011Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T17:11:41.264Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T19:00:32.773Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T19:07:42.510Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T19:39:36.454Z
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T19:39:54.249Z
+
+
+
+## [2026-07-08] learn | Learning pass learn_1783540399677
+  - clusters: 10
+  - applied: 4
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33911
+
+
+
+## [2026-07-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-08T20:02:33.352Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:10:16.885Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:25:38.532Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:25:44.088Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:40:02.874Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:42:10.770Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:43:58.738Z
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T00:44:18.917Z
+
+
+
+## [2026-07-09] learn | Learning pass learn_1783558106047
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 35952
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T01:55:13.802Z
+
+
+
+## [2026-07-09] learn | Learning pass learn_1783562333678
+  - clusters: 10
+  - applied: 3
+  - queued: 3
+  - rejected: 4
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 34726
+
+
+
+## [2026-07-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-09T02:28:19.112Z

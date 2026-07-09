@@ -882,10 +882,17 @@ export const HEURISTIC_DIMENSION_LABELS: Record<HeuristicDimensionId, string> = 
     geo_optimization: 'GEO Optimization',
 };
 
+/** 2026-07-08 critique-rigor: what grounds a finding. Deterministic sources (axe/dom/
+ *  measured) may carry any severity; vlm-only judgments are capped at severity 2 and
+ *  flagged needs_manual_review (failure-taxonomy R5/R6, gate checkAdvisoryDiscipline). */
+export type FindingEvidenceKind = 'axe' | 'dom' | 'measured' | 'vlm';
+
 export interface HeuristicFinding {
     id: string;
     dimension: HeuristicDimensionId;
-    screenshotRefs: number[];       // 1-indexed screenshot numbers
+    screenshotRefs: number[];       // 1-indexed; FIRST entry = the PRIMARY screenshot (the one
+                                    // that best evidences the issue; the critique deck renders
+                                    // the finding on that screen ONLY - 2026-07-08 elevation)
     severity: SeverityScore;
     confidence: ConfidenceLevel;
     title: string;                  // 5-10 words
@@ -893,7 +900,71 @@ export interface HeuristicFinding {
     recommendation: string;         // 1 sentence
     priority?: FindingPriority;     // set by user at checkpoint
     subcategory?: string;           // e.g. "Heuristic 3: User Control" or "Pattern 2: Guided Narrowing"
+    /** 2026-07-08 critique elevation: where the issue sits on the PRIMARY screenshot,
+     *  as percentages of the image (x right, y down, 0-100). Drives the numbered
+     *  callout disc the critique slide overlays on the screenshot. */
+    marker?: { x: number; y: number };
+    /** 2026-07-08 critique-rigor P0-b (severity-and-fidelity.md): one line of
+     *  frequency x impact x persistence rationale for the 0-4 integer. Required. */
+    severity_basis?: string;
+    /** Model HINT that this finding is a symptom of a parent finding (by id).
+     *  The collapse itself is deterministic in collapseAndScore. */
+    dependsOn?: string;
+    /** Populated by collapseAndScore on the surviving root: ids of findings folded
+     *  into this one (blank-page rule / dependency subsumption). */
+    subsumes?: string[];
+    /** Populated by collapseAndScore when identical fix+heuristic findings merge:
+     *  one line per absorbed instance ("also on screen 3: ..."). */
+    instances?: string[];
+    /** What grounds the finding (axe rule, DOM derivation, pixel measurement, or
+     *  model judgment). vlm-only implies advisory discipline. */
+    evidenceKind?: FindingEvidenceKind;
+    /** True when the claim could not be deterministically verified (vlm-only
+     *  contrast, axe 'incomplete' results). Advisory: severity<=2, never headlines. */
+    needsManualReview?: boolean;
 }
+
+/** 2026-07-08 critique-rigor P0-c1: one visible detail on a current screen that a
+ *  proposed redesign must carry (or justify omitting). DOM-derived for captured URLs
+ *  (audit_capture.py), vision-derived for uploads. */
+export interface ScreenInventoryItem {
+    kind: 'heading' | 'value' | 'text' | 'action';
+    text: string;
+}
+
+/** 2026-07-08 critique elevation: per-screenshot synthesis from the vision pass. */
+export interface HeuristicScreenSummary {
+    screenshot: number;             // 1-indexed
+    /** Plain-English one-line judgment about THIS screen (the critique slide's action title). */
+    verdict: string;
+    /** Proposed modernized layout for this screen, composed ONLY from the registered Figma
+     *  proto/* UI pattern catalog (unified vision: lego-brick composition from registered
+     *  bricks + tokens, never invented UI shapes). Rendered NATIVELY by the proxy
+     *  (tokens + HTML + Chromium), never by a diffusion model. */
+    proposedSections?: { pattern: string; label: string; items?: string[]; values?: string[]; subs?: string[]; cta?: string }[];
+    /** One sentence: what the proposed layout changes and why it resolves the findings. */
+    proposedRationale?: string;
+    /** 2026-07-08 critique-rigor P1-b: strong elements on this screen the redesign MUST
+     *  carry forward (>=1 wherever a strong element exists; taxonomy R14). */
+    preserve?: string[];
+    /** Deliberately-cleared checks: what was examined and found fine (>=1 per screen;
+     *  taxonomy R14/NO-POSITIVES). Rendered on the dashboard, never as findings. */
+    non_issues?: string[];
+    /** P0-c1 total-content-parity: inventory items deliberately DROPPED from the
+     *  proposal, each with a one-line justification (R13's "deliberate trade" clause -
+     *  the only legal way to omit a detail; silence is a gate violation). */
+    omitted?: { item: string; reason: string }[];
+    /** The screen's content inventory. Captured URLs: copied from the deterministic
+     *  DOM walk. Uploads: emitted by the vision pass reading the screen. */
+    contentInventory?: ScreenInventoryItem[];
+}
+
+/** 2026-07-08 critique-rigor P1-c (taxonomy R1): what each screenshot IS. Slides and
+ *  documents get the communication lens (hierarchy/evidence/legibility) and never emit
+ *  interface findings; live screens + mockups get the full heuristic set. The type is
+ *  AUTO-CLASSIFIED by a vision pre-pass (classifyScreenArtifacts); the intake chip is
+ *  a human override. */
+export type ScreenArtifactType = 'live' | 'mockup' | 'slide' | 'document';
 
 export interface DimensionScore {
     dimension: HeuristicDimensionId;
@@ -918,6 +989,13 @@ export interface UXBrief {
     competitiveContext?: string;
     experienceType: 'marketing_website' | 'ecommerce' | 'saas_dashboard' | 'mobile_app' | 'conversational_ai' | 'social_commerce';
     evaluationDimensions: HeuristicDimensionId[];
+    /** 2026-07-08 critique-rigor P1-c (taxonomy R2): the primary user task, stated by
+     *  the human ("a grower checks flood risk for their county and gets a quote").
+     *  Anchors severity impact; the model never has to infer what the human knows. */
+    primaryTask?: string;
+    /** Per-screenshot artifact type, parallel to the upload order. Captured URL
+     *  viewports auto-type as 'live'. Fail-open default when unset: 'mockup'. */
+    screenArtifactTypes?: ScreenArtifactType[];
 }
 
 export interface HeuristicReport {
@@ -928,6 +1006,16 @@ export interface HeuristicReport {
     screenshotCount: number;
     modelUsed: string;
     analyzedAt: string;
+    /** 2026-07-08 critique elevation: per-screen verdicts + proposed proto/* layouts. */
+    screenSummaries?: HeuristicScreenSummary[];
+    /** 2026-07-08 critique-rigor P0-d: per-screen nav presence, DOM-derived for
+     *  captures (audit_capture.py), vision-judged for uploads. Keyed 1-indexed. */
+    navPresent?: Record<number, boolean>;
+    /** P1-a Critic provenance: every kill-only action the Critic pass took. */
+    criticLog?: { finding_id: string; reason_code: string; action: string }[];
+    /** P0-a: the assembled gate result (auditGate.ts). Downstream ships on
+     *  gate.status === 'pass', never on the author's say-so. */
+    auditGate?: import('./services/auditGate').AuditGateResult;
 }
 
 // ============================================================

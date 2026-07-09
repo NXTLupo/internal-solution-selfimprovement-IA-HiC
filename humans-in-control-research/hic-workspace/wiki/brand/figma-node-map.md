@@ -9,7 +9,7 @@ chunks:
     sentence_count: 5
     key_terms: [design-system, registry, byte-faithful, componentized, figma, component, pre-componentization, below]
     concepts: [design-system, registry, byte-faithful, componentized, figma]
-    related_chunks: ["brand/figma-node-map.md#c17"]
+    related_chunks: ["brand/figma-node-map.md#c17", "brand/figma-node-map.md#c61"]
     token_count: 257
   - id: "brand/figma-node-map.md#c1"
     char_span: [1061, 2246]
@@ -449,6 +449,35 @@ chunks:
     concepts: [assertions, mode-flip, manifest, passing, present]
     section: "#slides CONTENT ARCHETYPES — SCENES-WHERE-THEY-FIT (USER OVERRIDE 2026-06-28, live-Figma room audit)"
     token_count: 215
+  - id: "brand/figma-node-map.md#c61"
+    char_span: [74703, 75674]
+    sentence_count: 5
+    key_terms: [var, figma-tokens, shortlist, registry, proposedrenderregistry, values, no-component-binding, figma]
+    concepts: [figma-tokens, shortlist, registry, values, figma]
+    related_chunks: ["brand/figma-node-map.md#c0"]
+    section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
+    token_count: 229
+  - id: "brand/figma-node-map.md#c62"
+    char_span: [75676, 77523]
+    sentence_count: 1
+    key_terms: [items, label, values, labels, primary, navigation, real, field]
+    concepts: [items, label, values, labels, primary]
+    section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
+    token_count: 512
+  - id: "brand/figma-node-map.md#c63"
+    char_span: [77275, 77559]
+    sentence_count: 1
+    key_terms: [label, comparison, native, prices, search, items, real, svg]
+    concepts: [comparison, label, native, prices, search]
+    section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
+    token_count: 75
+  - id: "brand/figma-node-map.md#c64"
+    char_span: [77561, 77964]
+    sentence_count: 2
+    key_terms: [inventory, severity-and-fidelity, value, checkcontentparity, visibly-marked, stated-state, checkfloor, components]
+    concepts: [inventory, value]
+    section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
+    token_count: 88
 ---
 # Figma Node Map
 
@@ -1221,3 +1250,46 @@ vizSlot.compose = 35 passing; +5 ad-hoc composer render assertions (carrier imag
 absent, both brands). LIVE #slides text generation NOT run (Anthropic key at usage limit until 2026-07-01) —
 empty-state + carrier-render verified by unit assertions instead.
 TODO (manifest hygiene): re-chunk THIS page via the manifest tooling; do not hand-edit chunk char_spans.
+
+## PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)
+
+The heuristic-analysis "proposed experience" renders compose EXCLUSIVELY from these mirrored proto/*
+components. Design-time harvest via Figma MCP (get_design_context per node, variable BINDINGS captured,
+not just resolved values); runtime mirrors: `proxy/proto_partials.py::REGISTRY` (token-bound partial
+renderers, zero literal hex/px/font — every style resolves through `var(--color/*)`, `var(--font/*)`,
+`var(--type-scale/*)`, `var(--radius/*)` hydrated from `figma-tokens.json`) and
+`services/proposedRenderRegistry.ts` (shape-based shortlist seam). Lifecycle identical to
+figma-tokens.json: re-harvest on library change; the SPA never calls Figma live. Component selection is
+MANIFEST-DRIVEN: the screen's contentInventory shape derives a deterministic shortlist (values -> kpi-row/
+cite; rows -> table; fields -> form; multi-screen -> nav-bar) and only matched entries reach the prompt.
+Any pattern outside this registry = `NO-COMPONENT-BINDING` in the audit gate.
+
+| pattern | node | use-when | content slots |
+|---|---|---|---|
+| nav-bar | 440:2 | top navigation: brand + links + primary action | label=brand, items=links, cta=action |
+| breadcrumb | 441:2 | location trail on deep pages | items=trail segments |
+| tabs | 441:8 | peer-view switching within a page | items=tab labels |
+| bottom-nav | 442:19 | mobile primary navigation | items=destinations |
+| footer | 444:2 | site footer: link columns + legal | label=legal, items=column headings |
+| mega-menu | 444:26 | large catalog navigation | items=category headings |
+| hero | 465:57 | page opener: headline + sub + CTAs | label=headline, items=[sub, CTA, CTA2] |
+| kpi-row | 454:39 | metric tiles; BINDS real stat values | items=captions, values=REAL NUMBERS, subs=context |
+| card-grid | 454:27 | browsable item cards | label=heading, items=card titles |
+| list | 454:2 | stacked records with meta | label=heading, items=rows |
+| table | 454:2 | columnar data; BINDS real cell values | label, items=row labels, values=row values |
+| form | 448:25 | signup/intake, labeled fields + submit | label, items=field labels, cta=submit |
+| field | 448:2 | standalone labeled inputs | items=field labels |
+| stepper | 441:36 | multi-step progress | items=step labels |
+| cta-row | 462:21 | primary + secondary actions | items=[primary, secondary] |
+| alert | 450:6 | inline status/notice band | label=notice text |
+| cite | 408:2 | claims with numbered verifiable sources | items=source names, values=work titles |
+| accordion | 455:2 | FAQ / disclosure list | items=questions |
+| chart-bar | 460:2 | categorical comparison (native SVG, token colors) | label, items=categories |
+| chart-line | 460:11 | trend over time (native SVG) | label |
+| search | 462:34 | search / command entry | label=placeholder |
+| pricing | 465:20 | plan comparison with real prices | items=plans, values=REAL PRICES |
+
+Binding rules (severity-and-fidelity.md floor): every proposal includes ONE nav pattern + a stated-state
+primary CTA; real inventory values populate the value slots (a visibly-marked sample bar is legal ONLY
+where the inventory has no value for that slot); fidelity.components = 1 only when every section renders
+from a mirrored partial. Gate: `services/auditGate.ts::checkFloor` / `checkContentParity`.

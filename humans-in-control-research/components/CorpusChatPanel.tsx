@@ -207,6 +207,11 @@ interface Props {
      *  conversation. `onMessagesChange` fires on every messages update so
      *  the App can serialize the latest history when saving. */
     initialMessages?: ChatMessage[];
+    /** 2026-07-08 (heuristic critique chat): when set, feedback applied to the seeded
+     *  audit deck message triggers a REAL revise -> re-render -> re-gate cycle in the
+     *  parent (new proposed-screen images), and the returned deck reply is appended
+     *  here - instead of a generic text re-ask. */
+    auditReviseHandler?: (feedback: string) => Promise<string>;
     onMessagesChange?: (messages: ChatMessage[]) => void;
     /** 2026-05-14 - T4 build-only iteration. When the IDLE-screen resume
      *  picker loads cached briefs from a prior engagement, App passes them
@@ -3844,7 +3849,7 @@ function isProcessingPlaceholder(content: string): boolean {
     );
 }
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive }) => {
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive, auditReviseHandler }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 - Mirror messages up to the App so a session-save can
     // serialize the conversation. Effect-based callback (not inline)
@@ -7487,7 +7492,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         let clean = text;
         if (hasCards) {
             clean = clean.replace(/:::deliverable:\S+\n[\s\S]*?:::/g, '');
-            clean = clean.replace(/:::slide\n[\s\S]*?:::/g, '');
+            // 2026-07-07 (heuristic-audit uplift): match ATTRIBUTE fences too
+            // (`:::slide template=slides:cover brand=nxt`). The old bare-`:::slide\n`
+            // pattern left attributed fences visible as raw text whenever a message
+            // relied on the lift safety-net instead of a handler content rewrite
+            // (first surfaced by the audit critique-deck seed message).
+            clean = clean.replace(/:::slide[^\n]*\n[\s\S]*?:::/g, '');
             clean = clean.replace(/```json\s*[\s\S]*?```/g, '');
         }
         // 2026-06-23 - DO NOT flatten markdown anymore. The chat path now renders
@@ -7961,6 +7971,32 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                             compact
                                             onApplyNow={async ({ feedbackId, text, sectionScope }) => {
                                                 try {
+                                                    // Heuristic critique deck: feedback drives a REAL revise of the
+                                                    // proposed designs (new renders through the Figma partials), not
+                                                    // a text re-ask (2026-07-08 owner requirement).
+                                                    if (auditReviseHandler && msg.id.startsWith('audit_deck_')) {
+                                                        const pendingId = `audit_revise_${Date.now()}`;
+                                                        // model MUST ride on the deck message: the artifact-lifting
+                                                        // effect stamps slides with msg.model, and the renderer's
+                                                        // association filter requires an EXACT model match - a deck
+                                                        // without model displays as raw fence text (live 2026-07-08).
+                                                        const deckModel = msg.model || 'claude-opus-4-8';
+                                                        setMessages(prev => [...prev,
+                                                            { id: `u_${Date.now()}`, role: 'user', content: `Revise the proposed designs: ${text}`, timestamp: Date.now() },
+                                                            { id: pendingId, role: 'assistant', model: deckModel, content: 'Revising the proposed designs and re-rendering every screen through the design system. About a minute.', timestamp: Date.now() },
+                                                        ]);
+                                                        try {
+                                                            const newDeck = await auditReviseHandler(text);
+                                                            setMessages(prev => prev.map(m => m.id === pendingId
+                                                                ? { ...m, id: `audit_deck_${Date.now()}`, model: deckModel, content: newDeck, timestamp: Date.now() }
+                                                                : m));
+                                                        } catch (revErr: any) {
+                                                            setMessages(prev => prev.map(m => m.id === pendingId
+                                                                ? { ...m, content: `The revise pass failed: ${revErr?.message || revErr}. The prior proposals stand.` }
+                                                                : m));
+                                                        }
+                                                        return;
+                                                    }
                                                     // 2026-05-23 - Apply-now must re-fire the ORIGINAL USER PROMPT
                                                     // through the normal chat-send path (handleSend), not call
                                                     // regenerateWithFeedback on the truncated assistant output.

@@ -67,15 +67,19 @@ import './styles/nu-artifacts/nu-stage.css';
 import { getChunkSourceMap } from './services/researchFabricOrchestrator';
 import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, addJourneyStagesToGraph, addPRDFeaturesToGraph, addRoadmapToGraph, addGapAnalysisToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
-import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
-import { DEFAULT_MODELS } from './services/aiRouter';
+import { runHeuristicAnalysis, repairWithheldProposals, reviseProposalsWithFeedback, classifyScreenArtifacts } from './services/heuristicAnalysisService';
+import { assembleAuditGate, gateToMarkdown, missingParityItems, type ScreenFidelity } from './services/auditGate';
+import { KNOWN_PATTERN_NAMES } from './services/proposedRenderRegistry';
+// STATIC import (2026-07-07): the deck composer must never ride a lazy chunk. A user's
+// open tab lazy-imported a hashed chunk that a container rebuild had replaced -> 404 ->
+// the whole (paid) analysis was discarded. Static = bundled into the entry, no staleness.
+import { buildCritiqueDeckReply, buildAuditChatCorpus, analyzeScreenImage, bakeScreenAnnotations, type AuditScreen } from './services/auditCritiqueDeck';
 import { narratePreGeneration, narrateKnowledgeCompounding, narrateSlopDetection, narratePostGeneration, narrateQualityAssessment, narrateLensDetection } from './services/wikiNarrator';
 import { loadGenerationContext, detectBannedPhrases, scoreOutput } from './services/wikiService';
 import { detectAnalyticalLens, recommendDataSources } from './services/analyticalLensService';
-import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, AnalyticalLens, ANALYTICAL_LENS_LABELS } from './types';
+import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, HeuristicScreenSummary, AnalyticalLens, ANALYTICAL_LENS_LABELS, ScreenArtifactType, ScreenInventoryItem } from './types';
 import { DEFAULT_STYLE_ID } from './services/visualizationStyles';
 // Research methods are auto-selected by the intelligence engine
-import type { ModelPreferences } from './services/aiRouter';
 import { LENS_CONFIGS, getLensPromptSegment } from './services/analyticalLensService';
 
 // Define interface locally to avoid global conflicts
@@ -2337,33 +2341,363 @@ const App = () => {
     const [heuristicReport, setHeuristicReport] = useState<HeuristicReport | null>(null);
     const [heuristicScreenshots, setHeuristicScreenshots] = useState<string[]>([]);
     const [isHeuristicAnalyzing, setIsHeuristicAnalyzing] = useState(false);
+    const [heuristicError, setHeuristicError] = useState<string | null>(null);
+    // 2026-07-07 (heuristic-audit uplift Phase 1, owner directive): the DEFAULT result
+    // surface after analysis is the designer chat seeded with the #slides critique deck
+    // (one screen-critique slide per reviewed screen); #proto in that chat compiles the
+    // modernized prototype through the standard machinery, grounded on the audit corpus.
+    const [heuristicChatSeed, setHeuristicChatSeed] = useState<ChatMessage[] | null>(null);
+    const [heuristicChatCorpus, setHeuristicChatCorpus] = useState<string>('');
+    const [heuristicChatOpen, setHeuristicChatOpen] = useState(false);
 
+    // 2026-07-05 (heuristic-audit uplift Phase 0): the run no longer transitions
+    // appState to ANALYZING. The intake form stays MOUNTED for the whole run
+    // (its isAnalyzing prop drives the in-place progress state), so a failure
+    // surfaces as an inline error with the user's brief + screenshots intact.
+    // The old ANALYZING -> IDLE catch path remounted a blank landing screen and
+    // destroyed all form state (the "reset to landing" bug). Model selection is
+    // resolved inside runHeuristicAnalysis via the aiRouter single authority
+    // (artifact-class 'heuristic-audit'), not hardcoded here.
     const handleHeuristicSubmit = async (brief: UXBrief, screenshots: { base64: string; mimeType: string; dataUri: string }[]) => {
         setIsHeuristicAnalyzing(true);
-        setAppState(AppState.ANALYZING);
-        setHeuristicScreenshots(screenshots.map(s => s.dataUri));
+        setHeuristicError(null);
         try {
+            // Phase 1: when the brief carries a live URL, the proxy walks it at three
+            // viewports and returns screenshots + axe-core ground truth. Captured
+            // viewports join the upload set (fail-open: a capture failure falls back
+            // to uploads-only rather than killing the run).
+            const analysisShots = screenshots.map(s => ({ base64: s.base64, mimeType: s.mimeType }));
+            const screens: AuditScreen[] =
+                screenshots.map((s, i) => ({ name: `Upload ${i + 1}`, dataUri: s.dataUri }));
+            // 2026-07-08 critique-rigor: per-screen frame (P1-c) + deterministic capture
+            // derivations (P0-c1 inventory, P0-d nav) keyed 1-indexed to the final order.
+            const artifactTypes: Record<number, ScreenArtifactType> = {};
+            screenshots.forEach((_, i) => {
+                artifactTypes[i + 1] = brief.screenArtifactTypes?.[i] || 'mockup';
+            });
+            // 2026-07-08 (owner: slide decks kept getting UI critique): AUTO-CLASSIFY the
+            // uploads with a fast vision pre-pass. The human chip is an OVERRIDE - only
+            // screens still on the default 'mockup' accept the classifier's verdict.
+            try {
+                const detected = await classifyScreenArtifacts(analysisShots);
+                for (const [k, t] of Object.entries(detected)) {
+                    const idx = Number(k);
+                    if ((brief.screenArtifactTypes?.[idx - 1] || 'mockup') === 'mockup') {
+                        artifactTypes[idx] = t;
+                    }
+                }
+                const nonUi = Object.values(artifactTypes).filter(t => t === 'slide' || t === 'document').length;
+                if (nonUi) console.log(`[heuristic] artifact classifier: ${nonUi}/${screenshots.length} screen(s) typed slide/document - communication lens applies`);
+            } catch (clsErr) {
+                console.warn('[heuristic] artifact classification failed (chips stand):', clsErr);
+            }
+            const contentInventories: Record<number, ScreenInventoryItem[]> = {};
+            const navPresentDet: Record<number, boolean> = {};
+            let axeEvidence = '';
+            if (brief.productUrl && brief.productUrl.trim()) {
+                try {
+                    const resp = await fetch('http://127.0.0.1:5012/api/audit/capture-url', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url: brief.productUrl.trim() }),
+                        signal: AbortSignal.timeout(180_000),
+                    });
+                    if (resp.ok) {
+                        const cap = await resp.json();
+                        const evidence: any = { axeVersion: cap.axeVersion, url: cap.url, viewports: {} };
+                        for (const [vpName, vp] of Object.entries<any>(cap.viewports || {})) {
+                            analysisShots.push({ base64: vp.screenshot_b64, mimeType: vp.screenshot_mime || 'image/jpeg' });
+                            screens.push({
+                                name: `${cap.url.replace(/^https?:\/\//, '')} · ${vpName}`,
+                                dataUri: `data:${vp.screenshot_mime || 'image/jpeg'};base64,${vp.screenshot_b64}`,
+                            });
+                            const ref = screens.length;   // 1-indexed position of this capture
+                            artifactTypes[ref] = 'live';  // captured viewports auto-type as live
+                            if (Array.isArray(vp.content_inventory) && vp.content_inventory.length) {
+                                contentInventories[ref] = vp.content_inventory;
+                            }
+                            if (typeof vp.nav_present === 'boolean') navPresentDet[ref] = vp.nav_present;
+                            evidence.viewports[vpName] = {
+                                violations: vp.violations, incomplete: vp.incomplete,
+                                passes_count: vp.passes_count, timing: vp.timing, truncated: vp.truncated,
+                            };
+                        }
+                        axeEvidence = JSON.stringify(evidence);
+                    } else {
+                        console.warn('[heuristic] URL capture failed, continuing with uploads only:', resp.status);
+                    }
+                } catch (capErr) {
+                    console.warn('[heuristic] URL capture unavailable, continuing with uploads only:', capErr);
+                }
+            }
+            setHeuristicScreenshots(screens.map(s => s.dataUri));
+
             const report = await runHeuristicAnalysis(
-                brief,
-                screenshots.map(s => ({ base64: s.base64, mimeType: s.mimeType })),
-                DEFAULT_MODELS as ModelPreferences
-            );
+                brief, analysisShots, undefined, axeEvidence || undefined,
+                screens.map(s => s.name),
+                { contentInventories, navPresent: navPresentDet, artifactTypes });
             setHeuristicReport(report);
+
+            // 2026-07-08 critique elevation (all fail-open, never blocks the report):
+            // (a) measure each screen's aspect + luminance (deterministic marker geometry
+            //     + luminance-aware cover variant), and
+            // (b) render each screen's PROPOSED experience natively from the proto/*
+            //     pattern sections the vision pass chose (proxy Chromium, tokens; never
+            //     diffusion UI per the unified vision).
+            try {
+                await Promise.all(screens.map(async (s) => {
+                    const m = await analyzeScreenImage(s.dataUri);
+                    s.aspect = m.aspect; s.luminance = m.luminance;
+                }));
+                // Bake the numbered finding discs INTO the screenshot pixels (export-proof:
+                // the PPTX GEO walker layers pictures above shape overlays, so baked pixels
+                // are the only representation that survives every surface identically).
+                await bakeScreenAnnotations(report, screens, 'nxt');
+                // EVERY screen with findings gets a proposed render (owner directive
+                // 2026-07-08). When the model omitted proposedSections for a screen, a
+                // deterministic CONTENT-TRUE fallback is composed from that screen's own
+                // findings (verdict as the hero judgment, the concrete fixes as the list) -
+                // never invented content, never a skipped screen.
+                const summaryByRef = new Map((report.screenSummaries || []).map(s => [s.screenshot, s]));
+                const fidelityByScreen: Record<number, ScreenFidelity | undefined> = {};
+                const renderProposed = async (ref: number, sections: NonNullable<HeuristicScreenSummary['proposedSections']>, sum?: HeuristicScreenSummary) => {
+                    try {
+                        const r = await fetch('http://127.0.0.1:5012/api/audit/render-proposed', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ sections, brand: 'NXT' }),
+                            signal: AbortSignal.timeout(90_000),
+                        });
+                        if (r.ok) {
+                            const j = await r.json();
+                            if (j?.fidelity) fidelityByScreen[ref] = j.fidelity as ScreenFidelity;
+                            if (j?.dataUri) {
+                                screens[ref - 1].proposedRender = j.dataUri;
+                                screens[ref - 1].proposedRationale = sum?.proposedRationale;
+                            } else {
+                                console.warn(`[heuristic] screen ${ref}: proposed render returned empty (fail-open, no redesign slide)`);
+                            }
+                        }
+                    } catch (e) { console.warn(`[heuristic] screen ${ref}: proposed render failed (fail-open):`, e); }
+                };
+                await Promise.all(screens.map(async (screen, idx) => {
+                    const ref = idx + 1;
+                    if (artifactTypes[ref] === 'slide' || artifactTypes[ref] === 'document') return;   // slides/documents get the communication lens, never a page redesign
+                    const sum = summaryByRef.get(ref);
+                    const screenFindings = report.findings.filter(f => (f.screenshotRefs || [])[0] === ref);
+                    let sections = (sum && Array.isArray(sum.proposedSections)) ? sum.proposedSections : [];
+                    if (sections.length === 0) {
+                        if (screenFindings.length === 0) return;   // nothing to propose against
+                        console.warn(`[heuristic] screen ${ref}: model omitted proposedSections - composing content-true fallback from its findings`);
+                        // The fallback goes through the SAME parity + floor gate as a model
+                        // proposal (critique-rigor c-3): nav + inventory binding included.
+                        const inv = sum?.contentInventory || [];
+                        sections = [
+                            { pattern: 'nav-bar', label: brief.productName, items: inv.filter(i => i.kind === 'action').slice(0, 3).map(i => i.text), cta: inv.find(i => i.kind === 'action')?.text || 'Get started' },
+                            { pattern: 'hero', label: sum?.verdict || `What the ${brief.productName} screen must do for its users`, items: [screenFindings[0]?.recommendation || ''] },
+                            { pattern: 'list', label: 'What users get here', items: screenFindings.slice(0, 4).map(f => f.recommendation) },
+                            { pattern: 'cta-row', label: 'Next step', items: [screenFindings.find(f => /button|cta|action|sign|start/i.test(f.recommendation))?.recommendation || 'Start now'] },
+                        ];
+                        if (sum) sum.proposedSections = sections;   // the gate scores what actually rendered
+                    }
+                    await renderProposed(ref, sections, sum);
+                }));
+
+                // 2026-07-08 critique-rigor P0-a: assemble the gate and let IT decide.
+                // Below-floor proposals get ONE anchored repair pass (plan P0-c3; the NFP
+                // live failure shipped seven silent withholds with no repair attempt),
+                // then re-render + re-gate; still-below-floor screens are WITHHELD and
+                // NAMED in the chat. gate.md is written manifest-chunked either way.
+                const assembleGate = () => assembleAuditGate({
+                    findings: report.findings,
+                    screenSummaries: report.screenSummaries || [],
+                    navPresent: report.navPresent || {},
+                    artifactTypes,
+                    fidelity: fidelityByScreen,
+                    knownPatterns: KNOWN_PATTERN_NAMES,
+                    headlineFindingIds: (report.executiveSummary.topIssues || []).map(f => f.id),
+                    hasTaskModel: !!(brief.primaryTask && brief.primaryTask.trim()),
+                    totalScreens: screens.length,
+                    criticLog: report.criticLog,
+                });
+                try {
+                    let gate = assembleGate();
+                    const withheld = Object.entries(gate.proposalDisposition)
+                        .filter(([, d]) => d === 'withheld').map(([k]) => Number(k));
+                    // PRESERVE-DROPPED screens repair too (2026-07-08 live gap: preserve is
+                    // not a floor axis, so those proposals ship while the gate fails - the
+                    // repair brief must name the dropped preserve items for its screens).
+                    const preserveViolations = gate.checks.find(c => c.name === 'preserve')?.violations || [];
+                    const preserveByScreen = new Map<number, string[]>();
+                    for (const v of preserveViolations) {
+                        if (v.code !== 'PRESERVE-DROPPED') continue;
+                        const m = /screen (\d+)/.exec(v.subject);
+                        if (!m) continue;
+                        const arr = preserveByScreen.get(Number(m[1])) || [];
+                        arr.push(v.detail.replace(/^preserve item not carried into the proposal:\s*/, ''));
+                        preserveByScreen.set(Number(m[1]), arr);
+                    }
+                    if (withheld.length || preserveByScreen.size) {
+                        const briefs: Record<number, string[]> = {};
+                        for (const s of report.screenSummaries || []) {
+                            const needsFloor = withheld.includes(s.screenshot);
+                            const preserveMissing = preserveByScreen.get(s.screenshot) || [];
+                            if (!needsFloor && !preserveMissing.length) continue;
+                            const items = needsFloor ? missingParityItems(s) : [];
+                            const fid = fidelityByScreen[s.screenshot];
+                            if (needsFloor && fid?.nav === 0) items.push('AXIS: the proposal has no navigation pattern - add one (nav-bar/tabs/breadcrumb/footer)');
+                            if (needsFloor && fid?.primary_action === 0) items.push('AXIS: the proposal has no primary action - add a labeled cta');
+                            if (needsFloor && fid?.components === 0) items.push(`AXIS: unknown patterns used (${(fid.unknown_patterns || []).join(', ')}) - stay within the catalog`);
+                            for (const p of preserveMissing) items.push(`PRESERVE: carry this strong element into the sections verbatim - ${p}`);
+                            if (items.length) briefs[s.screenshot] = items;
+                        }
+                        if (Object.keys(briefs).length) {
+                            console.log(`[heuristic] repair pass: ${Object.keys(briefs).length} screen(s) below floor, re-asking with the gaps named`);
+                            try {
+                                report.screenSummaries = await repairWithheldProposals(
+                                    report.screenSummaries || [], briefs, analysisShots, undefined);
+                                await Promise.all(Object.keys(briefs).map(async (k) => {
+                                    const ref = Number(k);
+                                    const sum2 = (report.screenSummaries || []).find(s => s.screenshot === ref);
+                                    if (sum2?.proposedSections?.length) await renderProposed(ref, sum2.proposedSections, sum2);
+                                }));
+                                gate = assembleGate();
+                            } catch (repairErr) {
+                                console.warn('[heuristic] repair pass failed (first-pass gate stands):', repairErr);
+                            }
+                        }
+                    }
+                    report.auditGate = gate;
+                    const stillWithheld: number[] = [];
+                    for (const [k, disposition] of Object.entries(gate.proposalDisposition)) {
+                        const idx = Number(k) - 1;
+                        if (disposition === 'withheld' && screens[idx]?.proposedRender) {
+                            console.warn(`[heuristic] screen ${k}: proposal WITHHELD by the gate (below floor after repair); critique-only screen ships`);
+                            delete screens[idx].proposedRender;
+                            stillWithheld.push(Number(k));
+                        }
+                    }
+                    (report as any).__withheldScreens = stillWithheld;
+                    const slug = brief.productName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'audit';
+                    fetch('http://127.0.0.1:5012/api/wiki/write', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            path: `evidence/audits/${slug}/gate.md`,
+                            content: gateToMarkdown(gate, slug),
+                            chunk: true,
+                        }),
+                    }).catch(e => console.warn('[heuristic] gate.md write failed (fail-open):', e));
+                    console.log(`[heuristic] gate: ${gate.status}${gate.reasonCodes.length ? ` (${gate.reasonCodes.join(', ')})` : ''}`);
+                } catch (gateErr) {
+                    console.warn('[heuristic] gate assembly failed (fail-open, no dispositions applied):', gateErr);
+                }
+            } catch (enrichErr) {
+                console.warn('[heuristic] screen enrichment failed (deck renders without annotations):', enrichErr);
+            }
+
+            // Owner-directed default surface: the designer chat, seeded with the
+            // deterministic #slides critique deck + the audit corpus for #proto.
+            // NON-FATAL by contract (live incident 2026-07-07): a stale-bundle chunk 404
+            // on a lazy import of the deck composer threw here and the catch DISCARDED a
+            // completed (paid) Opus analysis. The composer is now imported statically
+            // (no chunk to go stale) AND seed composition failures degrade to
+            // report-without-chat instead of failing the whole run.
+            auditRunCtx.current = { report, screens, artifactTypes, analysisShots, brief };
+            try {
+                let deckReply = buildCritiqueDeckReply(report, screens);
+                // Withheld proposals are NEVER silent (NFP live failure 2026-07-08: the
+                // user received a critique-only deck with no explanation). Name them.
+                const withheldScreens: number[] = (report as any).__withheldScreens || [];
+                if (withheldScreens.length) {
+                    deckReply += `\n\nProposed redesigns for screen${withheldScreens.length > 1 ? 's' : ''} ${withheldScreens.join(', ')} are held back: even after a repair pass, the composition could not carry every detail those dense screens show, and an incomplete redesign argues for less than the current screen delivers. The critique slides stand on their own. Type #proto to build the modernized experience interactively with the full content.`;
+                }
+                // The deck seeds WITH its originating user message (2026-07-08 live
+                // failure: the feedback widget's re-attempt walks back to the nearest
+                // user message for the directive to replay; a seed with only an
+                // assistant message fell back to a bare hashtag-less "Re-attempt",
+                // which routed to flash chat and lost the deliverable contract).
+                setHeuristicChatSeed([{
+                    id: `audit_directive_${Date.now()}`,
+                    role: 'user',
+                    content: `#presentations Critique deck for ${brief.productName}: per-screen verdicts with numbered findings in reading order, severity and concrete fixes, and proposed redesigns composed from the proto/* Figma pattern catalog. Primary user task: ${brief.primaryTask || 'not stated'}. Ground every claim in the audit corpus.`,
+                    timestamp: Date.now() - 1,
+                }, {
+                    id: `audit_deck_${Date.now()}`,
+                    role: 'assistant',
+                    content: deckReply,
+                    model: report.modelUsed,
+                    timestamp: Date.now(),
+                }]);
+                setHeuristicChatCorpus(buildAuditChatCorpus(report, screens));
+                setHeuristicChatOpen(true);
+            } catch (seedErr) {
+                console.warn('[heuristic] critique-deck seed failed (report still shown):', seedErr);
+                setNotification('The critique chat could not be seeded; the summary report is available. Reload the page to pick up the latest build.');
+            }
             setAppState(AppState.SUCCESS);
         } catch (e: any) {
             console.error('Heuristic analysis failed:', e);
-            setNotification(`Analysis failed: ${e.message || 'Unknown error'}`);
-            setAppState(AppState.IDLE);
+            setHeuristicError(e?.message || 'Unknown error');
         } finally {
             setIsHeuristicAnalyzing(false);
         }
     };
 
+    // 2026-07-08 (owner: "improve this" must produce NEW proposed designs). The last
+    // run's full context lives in a ref so the critique chat's feedback widget can
+    // trigger a real revise -> re-render -> re-gate cycle and post an updated deck.
+    const auditRunCtx = useRef<{
+        report: HeuristicReport; screens: AuditScreen[]; artifactTypes: Record<number, ScreenArtifactType>;
+        analysisShots: { base64: string; mimeType: string }[]; brief: UXBrief;
+    } | null>(null);
+
+    const reviseAuditProposals = useCallback(async (feedback: string): Promise<string> => {
+        const ctx = auditRunCtx.current;
+        if (!ctx) throw new Error('No audit run in memory to revise.');
+        const { report, screens, artifactTypes, analysisShots } = ctx;
+        report.screenSummaries = await reviseProposalsWithFeedback(
+            report.screenSummaries || [], feedback, analysisShots, artifactTypes, undefined);
+        const summaryByRef = new Map((report.screenSummaries || []).map(s => [s.screenshot, s]));
+        await Promise.all(screens.map(async (screen, idx) => {
+            const ref = idx + 1;
+            if (['slide', 'document'].includes(artifactTypes[ref] ?? 'mockup')) return;
+            const sum = summaryByRef.get(ref);
+            if (!sum?.proposedSections?.length) return;
+            try {
+                const r = await fetch('http://127.0.0.1:5012/api/audit/render-proposed', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sections: sum.proposedSections, brand: 'NXT' }),
+                    signal: AbortSignal.timeout(90_000),
+                });
+                if (r.ok) {
+                    const j = await r.json();
+                    if (j?.dataUri) { screen.proposedRender = j.dataUri; screen.proposedRationale = sum.proposedRationale; }
+                }
+            } catch (e) { console.warn(`[heuristic.revise] screen ${ref} render failed (prior render stands):`, e); }
+        }));
+        setHeuristicReport({ ...report });
+        return buildCritiqueDeckReply(report, screens);
+    }, []);
+
     const resetHeuristic = () => {
         setHeuristicReport(null);
         setHeuristicScreenshots([]);
+        setHeuristicError(null);
+        setHeuristicChatSeed(null);
+        setHeuristicChatCorpus('');
+        setHeuristicChatOpen(false);
         setAppState(AppState.IDLE);
     };
+
+    // Owner directive: the critique chat is the DEFAULT surface on arrival. Belt-and-
+    // suspenders re-open keyed to the seed itself (observed live 2026-07-07: the open
+    // flag set inside the submit handler was false again by first paint; root cause
+    // not yet isolated, this effect makes arrival-open unconditional either way).
+    useEffect(() => {
+        if (heuristicChatSeed) setHeuristicChatOpen(true);
+    }, [heuristicChatSeed]);
 
     useEffect(() => {
         const saved = localStorage.getItem('nxt_saved_projects');
@@ -6878,7 +7212,7 @@ ${synthesisParts.join('\n')}
 
                                 {/* HEURISTIC MODE */}
                                 {appMode === 'heuristic' && (
-                                    <HeuristicBriefIntake onSubmit={handleHeuristicSubmit} isAnalyzing={isHeuristicAnalyzing} />
+                                    <HeuristicBriefIntake onSubmit={handleHeuristicSubmit} isAnalyzing={isHeuristicAnalyzing} error={heuristicError} />
                                 )}
 
                                 {/* Saved Projects List */}
@@ -7039,11 +7373,43 @@ ${synthesisParts.join('\n')}
                       />
                   )}
                   {appState === AppState.SUCCESS && heuristicReport && appMode === 'heuristic' && (
-                      <HeuristicReportView
-                          report={heuristicReport}
-                          screenshots={heuristicScreenshots}
-                          onReset={resetHeuristic}
-                      />
+                      <>
+                          <HeuristicReportView
+                              report={heuristicReport}
+                              screenshots={heuristicScreenshots}
+                              onReset={resetHeuristic}
+                          />
+                          {/* 2026-07-07 (owner directive): the designer chat is the DEFAULT result
+                              surface. It opens seeded with the #slides critique deck (one slide per
+                              reviewed screen); typing #proto compiles the modernized prototype via
+                              the standard machinery, grounded on the audit corpus below. The summary
+                              report above remains available whenever the panel is closed. */}
+                          {heuristicChatSeed && (
+                              <CorpusChatPanel
+                                  isOpen={heuristicChatOpen}
+                                  onToggle={() => setHeuristicChatOpen(false)}
+                                  context={{} as any}
+                                  getContext={() => ({
+                                      corpusText: heuristicChatCorpus,
+                                      uploadedFileContents: '',
+                                      uploadedFiles: [],
+                                      researchGoal: `Modernize the ${heuristicReport.brief.productName} experience: resolve the heuristic-audit findings with an accessible, design-system-governed rebuild`,
+                                  } as any)}
+                                  initialMessages={heuristicChatSeed}
+                                  auditReviseHandler={reviseAuditProposals}
+                              />
+                          )}
+                          {heuristicChatSeed && !heuristicChatOpen && (
+                              // bottom-24: clears the fixed run-cost meter that occupies the
+                              // bottom-right corner (it intercepted pointer events at bottom-6).
+                              <button
+                                  onClick={() => setHeuristicChatOpen(true)}
+                                  className="fixed bottom-24 right-6 z-50 px-5 py-3 rounded bg-[var(--nxt-lime)] text-[var(--nxt-teal)] text-xs font-bold uppercase tracking-widest shadow-lg hover:brightness-110 transition-all"
+                              >
+                                  Open Critique Chat
+                              </button>
+                          )}
+                      </>
                   )}
 
                   {/* DESIGN DESK - standalone artifact canvas (feature-flagged) */}
