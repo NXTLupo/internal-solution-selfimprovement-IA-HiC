@@ -1983,6 +1983,28 @@ try:
 except Exception as _agr_err:
     logging.getLogger("app").warning(f"[sources] agriculture pack not loaded: {_agr_err}")
 
+# ----------------------------------------------------------------------------
+# Energy & Utilities / Social Clubs / Travel-Tourism-Museums data packs
+# (2026-07-08) — 250 free sources each, merged from energy_sources.py,
+# social_clubs_sources.py, travel_tourism_sources.py. Same wiring as the
+# healthcare pack (supported connectors only; search -> chunk -> wiki ->
+# manifest -> retrieval). Surfaced as SOURCE_PACKS["energy" | "social_clubs" |
+# "travel_tourism"]; every category name is pack-unique so category-OR-pack_match
+# membership cannot cross-pollute (the insurance/agriculture lesson).
+# ----------------------------------------------------------------------------
+for _pk_mod, _pk_attr, _pk_label in (
+    ("energy_sources", "ENERGY_SOURCES", "Energy & Utilities"),
+    ("social_clubs_sources", "SOCIAL_CLUBS_SOURCES", "Social Clubs"),
+    ("travel_tourism_sources", "TRAVEL_TOURISM_SOURCES", "Travel, Tourism & Museums"),
+):
+    try:
+        _pk_dict = getattr(__import__(_pk_mod), _pk_attr)
+        _pk_new = {k: v for k, v in _pk_dict.items() if k not in SOURCES}
+        SOURCES.update(_pk_new)
+        logger.info(f"[sources] merged {len(_pk_new)} {_pk_label} sources")
+    except Exception as _pk_err:
+        logging.getLogger("app").warning(f"[sources] {_pk_label} pack not loaded: {_pk_err}")
+
 # ================================================================
 # CONNECTOR ENGINE — Generic handlers for each connector type
 # ================================================================
@@ -7325,6 +7347,27 @@ SOURCE_PACKS = {
                         "Commodity Markets, Grain, Livestock & Prices",
                         "Ag-Tech, Precision Ag, Inputs & Research",
                         "Associations, Extension & Academic"]},
+    "energy": {"name": "Energy & Utilities", "kind": "industry",
+        "industries": ["energy", "utilities", "renewables", "oil_gas", "nuclear", "grid"],
+        "description": "250 free sources: utility & grid trade press (Utility Dive, POWER), EIA/FERC/NRC/DOE/IEA "
+                       "+ state and global regulators, renewables & energy transition, oil/gas & commodity markets, "
+                       "energy research & analytics, professional bodies, practitioner communities.",
+        "pack_match": "energy",
+        "categories": ["Energy Communities & Forums", "Energy Professional Bodies & Standards", "Energy Regulators, Government & Data", "Energy Research, Think Tanks & Analytics", "Oil, Gas & Commodity Markets", "Renewables & Energy Transition", "Utility & Grid Trade Press"]},
+    "social_clubs": {"name": "Social Clubs & Membership Organizations", "kind": "industry",
+        "industries": ["social_clubs", "private_clubs", "membership", "hospitality", "fraternal_orgs"],
+        "description": "250 free sources: club-management trade & profession (CMAA, BoardRoom), historic city and "
+                       "university clubs (Union League, Harvard Club...), fraternal & civic organizations, golf and "
+                       "athletic club operations, membership-economy research, club communities.",
+        "pack_match": "social_clubs",
+        "categories": ["Club Communities & Forums", "Club Hospitality & F&B", "Club Management Trade & Profession", "Fraternal, Civic & Service Organizations", "Golf, Racquet & Athletic Club Operations", "Historic City & University Clubs", "Membership Economy & Association Research"]},
+    "travel_tourism": {"name": "Travel, Tourism & Museums", "kind": "industry",
+        "industries": ["travel", "tourism", "museums", "hospitality", "aviation", "attractions"],
+        "description": "250 free sources: travel & hospitality trade press (Skift, PhocusWire), tourism boards and "
+                       "government data (UN Tourism, WTTC, DMOs), museums & cultural institutions (AAM, ICOM, major "
+                       "museum newsrooms), aviation/cruise, attractions & experiences, tourism research, communities.",
+        "pack_match": "travel_tourism",
+        "categories": ["Attractions, Tours & Experiences", "Aviation, Cruise & Transport", "Museums & Cultural Institutions", "Tourism Boards, Government & Data", "Tourism Research & Academia", "Travel & Hospitality Trade Press", "Traveler & Museum Communities"]},
     # ---- Cross-cutting theme packs ----
     "ai_trends": {"name": "AI Trends", "kind": "theme", "industries": ["ai_research"],
         "description": "AI lab blogs, AI news, models/datasets, conferences, policy & ethics.",
@@ -21288,6 +21331,134 @@ async def run_receipt_get(run_id: str):
         return rec
     except Exception as e:
         return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+
+# ============================================================================
+# 2026-07-05 - HEURISTIC-AUDIT UPLIFT Phase 0 (plans/heuristic-audit-live-prototype-uplift-2026-07-05.md)
+# Deterministic ground-truth capture for the UX/accessibility audit pipeline.
+# axe-core (vendored 4.10.3) + multi-viewport Playwright screenshots + ARIA snapshot.
+# The VLM analysis layer INTERPRETS these facts; it never invents conformance claims.
+# ============================================================================
+
+@app.post("/api/audit/capture-url")
+async def audit_capture_url(payload: dict):
+    """Capture deterministic audit evidence for a URL.
+    Body: { url: str, viewports?: ['mobile','tablet','desktop'] }.
+    Returns { url, capturedAt, axeVersion, axeTags, viewports: { name: { screenshot_b64,
+    screenshot_mime, page_height, truncated, violations[], incomplete[], passes_count,
+    aria_snapshot, timing } }, errors[] }. Per-viewport fail-open; 502 only when EVERY
+    viewport failed. Playwright runs in a worker thread (sync API, same pattern as the
+    gold PPTX exporter)."""
+    url = str(payload.get("url") or "").strip()
+    if not url:
+        return JSONResponse({"error": "url required"}, status_code=400)
+    if not url.startswith(("http://", "https://")):
+        url = "https://" + url
+    viewports = payload.get("viewports")
+    if viewports is not None and not isinstance(viewports, list):
+        return JSONResponse({"error": "viewports must be a list"}, status_code=400)
+    try:
+        import asyncio as _aio
+        import audit_capture as _ac
+        result = await _aio.to_thread(_ac.capture_url, url, viewports)
+        logger.info(f"[audit] capture {url} -> {json.dumps(_ac.capture_summary(result))}")
+        return result
+    except Exception as e:
+        logger.warning(f"[audit] capture failed for {url}: {type(e).__name__}: {e}")
+        return JSONResponse({"error": f"audit capture failed: {type(e).__name__}: {e}"}, status_code=502)
+
+
+@app.post("/api/audit/render-proposed")
+async def audit_render_proposed(payload: dict):
+    """2026-07-08 v2 (critique-rigor P0-c2): render the PROPOSED modernized experience as
+    a FULL-FIDELITY composition of the harvested Figma proto/* component mirrors
+    (proto_partials.REGISTRY), with the ACTUAL Figma token mirror hydrated as the CSS
+    token carrier - the #proto generation contract, never diffusion UI, never invented
+    styling. Content slots BIND real inventory values; sample bars are visibly marked.
+    Body: { sections: [{pattern,label,items[],values[],rows[]...}], brand?: 'NXT'|'NU' }.
+    Returns { dataUri, fidelity } - fidelity carries the floor axes (components/nav/
+    primary_action) + bound/sample slot telemetry for the audit gate. Fail-open dataUri ''."""
+    sections = payload.get("sections")
+    if not isinstance(sections, list) or not sections:
+        return JSONResponse({"error": "sections[] required"}, status_code=400)
+    brand = "NU" if str(payload.get("brand") or "NXT").upper() == "NU" else "NXT"
+    try:
+        import asyncio as _aio
+        import base64 as _b64p
+        import proposed_screen_render as _psr
+        tokens = (_load_figma_tokens() or {}).get(brand, {}) or {}
+        png, fidelity = await _aio.to_thread(_psr.render_proposed_png, sections, tokens)
+        if not png:
+            logger.warning("[audit] proposed render unavailable (no Chromium) - fail-open empty")
+            return {"dataUri": "", "fidelity": fidelity}
+        return {"dataUri": "data:image/png;base64," + _b64p.b64encode(png).decode("ascii"),
+                "fidelity": fidelity}
+    except Exception as e:
+        logger.warning(f"[audit] proposed render failed: {type(e).__name__}: {e}")
+        return {"dataUri": "", "fidelity": {}}
+
+
+@app.post("/api/audit/ingest-files")
+async def audit_ingest_files(payload: dict):
+    """Normalize uploaded design files into vision-ready images.
+    Body: { files: [{ name, mimeType, base64 }] }. Returns { images: [{ name, mimeType,
+    base64, note? }], skipped: [{name, reason}] }.
+    - GIF: split ALL frames via PIL (Claude reads only the first frame natively; frames
+      ship as separate images with sequence-numbered names).
+    - PNG/JPG/WebP: downscale so the long edge <= 1568px (standard vision tier).
+    - PDF: NOT rasterized in Phase 0 - PyPDF2 is text-only and the rasterizer choice
+      (PyMuPDF is AGPL; pdf2image needs the poppler apt package) is a recorded Phase-1
+      owner decision in plans/heuristic-audit-live-prototype-uplift-2026-07-05.md."""
+    files = payload.get("files")
+    if not isinstance(files, list) or not files:
+        return JSONResponse({"error": "files[] required"}, status_code=400)
+
+    import base64 as _b64
+    import io as _io
+    from PIL import Image as _PILImage
+
+    MAX_EDGE = 1568
+    MAX_GIF_FRAMES = 12
+    images, skipped = [], []
+
+    def _emit(img, name: str) -> None:
+        img = img.convert("RGB")
+        w, h = img.size
+        scale = MAX_EDGE / max(w, h)
+        if scale < 1:
+            img = img.resize((max(1, int(w * scale)), max(1, int(h * scale))), _PILImage.LANCZOS)
+        buf = _io.BytesIO()
+        img.save(buf, format="JPEG", quality=85)
+        images.append({"name": name, "mimeType": "image/jpeg",
+                       "base64": _b64.b64encode(buf.getvalue()).decode("ascii")})
+
+    for f in files:
+        name = str((f or {}).get("name") or "upload")
+        mime = str((f or {}).get("mimeType") or "").lower()
+        raw = (f or {}).get("base64") or ""
+        try:
+            data = _b64.b64decode(raw)
+        except Exception:
+            skipped.append({"name": name, "reason": "invalid base64"})
+            continue
+        if mime == "application/pdf" or name.lower().endswith(".pdf"):
+            skipped.append({"name": name, "reason": "pdf rasterization is a Phase-1 owner decision (no rasterizer in proxy image)"})
+            continue
+        try:
+            img = _PILImage.open(_io.BytesIO(data))
+            if (mime == "image/gif" or name.lower().endswith(".gif")) and getattr(img, "n_frames", 1) > 1:
+                total = min(img.n_frames, MAX_GIF_FRAMES)
+                for i in range(total):
+                    img.seek(i)
+                    _emit(img.copy(), f"{name} [frame {i + 1} of {total}]")
+                if img.n_frames > MAX_GIF_FRAMES:
+                    skipped.append({"name": name, "reason": f"gif frames beyond {MAX_GIF_FRAMES} dropped ({img.n_frames} total)"})
+            else:
+                _emit(img, name)
+        except Exception as e:
+            skipped.append({"name": name, "reason": f"{type(e).__name__}: {e}"})
+
+    return {"images": images, "skipped": skipped}
 
 
 if __name__ == "__main__":
