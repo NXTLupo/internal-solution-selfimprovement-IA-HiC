@@ -1,9 +1,21 @@
+---
+id: synthesis/improvement-lineage.md
+chunks:
+  - id: "synthesis/improvement-lineage.md#c0"
+    char_span: [61, 335]
+    sentence_count: 4
+    key_terms: [regressed, prior, rules, self-referential, carried-over, diversity, citation, improved]
+    concepts: [regressed, prior, rules]
+    section: "2026-07-09T15:52:25.950Z · themes · themes_1783612345950"
+    token_count: 78
+---
 
-## 2026-07-03T02:03:30.912Z · themes · themes_1783044210912
+## 2026-07-09T15:52:25.950Z · themes · themes_1783612345950
 
-**Quality down 26 points (now 57/100). No new rules this run; corpus or context regressed.**
+**Quality down 2 points (now 55/100). No new rules this run; corpus or context regressed.**
 
-Overall: 57/100 (prior 83/100, delta -26)
+Overall: 55/100 (prior 57/100, delta -2)
 
-Regressed: Banned phrases (-95), Density (-62), Citation diversity (-12).
+Improved: Self-referential (+12).
+Regressed: Citation diversity (-18), Content budgets (-8).
 Carried-over rules from prior runs: 25 active.

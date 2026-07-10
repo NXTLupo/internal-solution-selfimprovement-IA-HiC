@@ -3,6 +3,93 @@ id: brand/figma-node-map.md
 title: Figma Node Map (design-system files)
 type: brand
 updated: 2026-06-11
+    concepts: [design-system, registry, byte-faithful, componentized, figma]
+    related_chunks: ["brand/figma-node-map.md#c17", "brand/figma-node-map.md#c61"]
+    concepts: [family, brand, contract, takeaway, accent]
+    concepts: [components, family, figma, exemplars, industry]
+    concepts: [brand, collection, masthead, is-nxt, tokens]
+    related_chunks: ["brand/figma-node-map.md#c12", "brand/figma-node-map.md#c46"]
+    concepts: [slidetostagehtml, detail, matrix, theme-index, component]
+    concepts: [slidetostagehtml, dense, competitive]
+    concepts: [slidetostagehtml]
+    concepts: [frame, component, masthead, literal-hex, structural]
+    concepts: [literal-hex, borders, "won't"]
+    concepts: [manifest, re-chunks, reconcile, re-chunk, targeted]
+    concepts: [executive-brief, figma-tokens, tokens, slidetostagehtml, archivo]
+    related_chunks: ["brand/figma-node-map.md#c13"]
+    concepts: [slidetostagehtml, rendercasestudy, casestudyslide, four-block, case-study-nxt]
+    related_chunks: ["brand/figma-node-map.md#c14", "brand/figma-node-map.md#c36", "brand/figma-node-map.md#c37"]
+    concepts: [brand, collection, generation, component, history]
+    related_chunks: ["brand/figma-node-map.md#c3", "brand/figma-node-map.md#c46"]
+    concepts: [executive-brief, figma-tokens, slidetostagehtml, single-typeface, case-study-nu]
+    related_chunks: ["brand/figma-node-map.md#c10"]
+    concepts: [slidetostagehtml, rendercasestudy, four-block, casestudyslide, evidence-stack]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c36", "brand/figma-node-map.md#c37"]
+    concepts: [proto, archetypes, components, prototype, feedback]
+    concepts: [variablecollectionid]
+    concepts: [design-system, brand, services, figma, token]
+    related_chunks: ["brand/figma-node-map.md#c0", "brand/figma-node-map.md#c42"]
+    concepts: [case-study, pre-existing, frames, zappos, four-block]
+    related_chunks: ["brand/figma-node-map.md#c37"]
+    concepts: [auto-layout, journey, service-blueprint, takeaway, column]
+    concepts: [frame, themes, column, quote, verbatim]
+    related_chunks: ["brand/figma-node-map.md#c25"]
+    concepts: [phase, design-system, detail, case-study, milestones]
+    related_chunks: ["brand/figma-node-map.md#c45"]
+    concepts: [chartreuse, variable-bound, stages, blueprint, substrate]
+    concepts: [insight, recommendation, dense, frame, evidence]
+    concepts: [exemplars, dense, hairline, takeaway, anatomy]
+    concepts: [phase, bottom-pinned, accent, column, quote]
+    related_chunks: ["brand/figma-node-map.md#c20", "brand/figma-node-map.md#c40"]
+    concepts: [accent, number, source, themes, competitive]
+    concepts: [illustrator, brand, image, ground, region]
+    concepts: [panel, thesis-interstitial, right, section-divider, vertical]
+    concepts: [creative-director, matrix, content-complete, image, stat-row]
+    concepts: [thumbnail, phase, slidetostagehtml, journey, services]
+    related_chunks: ["brand/figma-node-map.md#c40"]
+    concepts: [figma, payload, journeymap, generated, "deliverable's"]
+    concepts: [persona, artifactimageslots, reverted, carrier, persona-card]
+    concepts: [image-slots, thumbs, no-image, deliverable, brand]
+    concepts: [deliverable, image, twins, explainer, manifest]
+    concepts: [scene, slots, portrait]
+    concepts: [slidetostagehtml, four-block, recommendationslide, brand-image-slot, non-dense]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c14", "brand/figma-node-map.md#c37"]
+    concepts: [recommendation, case-study, four-block, slidetostagehtml, image-free]
+    related_chunks: ["brand/figma-node-map.md#c11", "brand/figma-node-map.md#c14", "brand/figma-node-map.md#c18", "brand/figma-node-map.md#c36"]
+    concepts: [role-recommendation, aggregate-roadmap, numbered-themes, section-divider, evidence-table]
+    concepts: [variant, slide-system, render, slide]
+    concepts: [journey, accent, matrix, phase, in-table]
+    related_chunks: ["brand/figma-node-map.md#c25", "brand/figma-node-map.md#c30"]
+    concepts: [brand, never]
+    concepts: [runtime, brand, dense, figma, proxy]
+    related_chunks: ["brand/figma-node-map.md#c17"]
+    concepts: [figma-tokens, library, runtime, design, canon]
+    concepts: [brand, componentized, columns, content, gutter]
+    concepts: [color, detail, case-study, on-accent, wash-cool]
+    related_chunks: ["brand/figma-node-map.md#c21"]
+    concepts: [component, separate, themes, tokens, brand]
+    related_chunks: ["brand/figma-node-map.md#c3", "brand/figma-node-map.md#c12"]
+    concepts: [components, pages, brand, monogram, verified]
+    concepts: [architecture, color]
+    concepts: [section-divider, branch, services, diagram, visual]
+    concepts: [icons, design-system, components, manifest, content]
+    concepts: [vizfamilies, container, bounds, branch, image]
+    concepts: [component, meta-themes, per-pattern, added, glyph]
+    concepts: [portrait]
+    concepts: [theme, brand-image-slot, per-element, decorative, component]
+    concepts: [per-theme, themeimages, themethumb, services, painted]
+    concepts: [override, emotive, slides, owner]
+    concepts: [slidecomposer, columns, local, block-quote, columnicons]
+    concepts: [columns, packed, phase]
+    concepts: [block-quote, org-model, composer, slides, added]
+    concepts: [assertions, mode-flip, manifest, passing, present]
+    concepts: [figma-tokens, shortlist, registry, values, figma]
+    related_chunks: ["brand/figma-node-map.md#c0"]
+    concepts: [items, label, labels, primary, values]
+    related_chunks: ["brand/figma-node-map.md#c63"]
+    concepts: [items, label, titles, values, heading]
+    related_chunks: ["brand/figma-node-map.md#c62"]
+    concepts: [inventory, value]
 chunks:
   - id: "brand/figma-node-map.md#c0"
     char_span: [0, 979]
@@ -80,7 +167,7 @@ chunks:
     sentence_count: 4
     key_terms: [font, nxt, executive-brief, figma-tokens, tokens, gold, mono, slidetostagehtml]
     concepts: [executive-brief, figma-tokens, tokens, slidetostagehtml, archivo]
-    related_chunks: ["brand/figma-node-map.md#c13"]
+    related_chunks: ["brand/figma-node-map.md#c13", "brand/figma-node-map.md#c65"]
     section: "NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`) — HISTORICAL (pre-component IDs; see registry above)"
     token_count: 512
   - id: "brand/figma-node-map.md#c11"
@@ -458,26 +545,50 @@ chunks:
     section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
     token_count: 229
   - id: "brand/figma-node-map.md#c62"
-    char_span: [75676, 77523]
+    char_span: [75676, 77603]
     sentence_count: 1
-    key_terms: [items, label, values, labels, primary, navigation, real, field]
-    concepts: [items, label, values, labels, primary]
+    key_terms: [items, label, labels, primary, values, heading, navigation, secondary]
+    concepts: [items, label, labels, primary, values]
+    related_chunks: ["brand/figma-node-map.md#c63"]
     section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
     token_count: 512
   - id: "brand/figma-node-map.md#c63"
-    char_span: [77275, 77559]
+    char_span: [77350, 79324]
     sentence_count: 1
-    key_terms: [label, comparison, native, prices, search, items, real, svg]
-    concepts: [comparison, label, native, prices, search]
+    key_terms: [items, label, titles, values, real, heading, product, action]
+    concepts: [items, label, titles, values, heading]
+    related_chunks: ["brand/figma-node-map.md#c62"]
     section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
-    token_count: 75
+    token_count: 503
   - id: "brand/figma-node-map.md#c64"
-    char_span: [77561, 77964]
+    char_span: [79326, 79729]
     sentence_count: 2
     key_terms: [inventory, severity-and-fidelity, value, checkcontentparity, visibly-marked, stated-state, checkfloor, components]
     concepts: [inventory, value]
     section: "PROPOSED-RENDER REGISTRY (2026-07-08, critique-rigor P0-c2 — heuristic-audit proposed screens)"
     token_count: 88
+  - id: "brand/figma-node-map.md#c65"
+    char_span: [79819, 80889]
+    sentence_count: 6
+    key_terms: [font, archetypes, archivo, isqhavm7si4qhawb7y9c2z, tokens, figmaregistryparity, screenshot-verified, bound]
+    concepts: [archetypes, archivo, tokens, bound, frame]
+    related_chunks: ["brand/figma-node-map.md#c10"]
+    section: "SLIDES ARCHETYPE CANON WRITE-BACK (2026-07-09, WS-2 slides-strategic-visual-uplift)"
+    token_count: 292
+  - id: "brand/figma-node-map.md#c66"
+    char_span: [80891, 82562]
+    sentence_count: 1
+    key_terms: [slides, accent, numbered, label, milestone-timeline, hairlines, comparison-panels, rail]
+    concepts: [slides, accent, numbered, milestone-timeline, comparison-panels]
+    section: "SLIDES ARCHETYPE CANON WRITE-BACK (2026-07-09, WS-2 slides-strategic-visual-uplift)"
+    token_count: 448
+  - id: "brand/figma-node-map.md#c67"
+    char_span: [82564, 83064]
+    sentence_count: 2
+    key_terms: [manifest, bakescreenannotations, proto, auditcritiquedeck, disc, page, annotationbadge, screen-critique]
+    concepts: [manifest, proto]
+    section: "SLIDES ARCHETYPE CANON WRITE-BACK (2026-07-09, WS-2 slides-strategic-visual-uplift)"
+    token_count: 131
 ---
 # Figma Node Map
 
@@ -1266,30 +1377,76 @@ Any pattern outside this registry = `NO-COMPONENT-BINDING` in the audit gate.
 
 | pattern | node | use-when | content slots |
 |---|---|---|---|
-| nav-bar | 440:2 | top navigation: brand + links + primary action | label=brand, items=links, cta=action |
-| breadcrumb | 441:2 | location trail on deep pages | items=trail segments |
-| tabs | 441:8 | peer-view switching within a page | items=tab labels |
-| bottom-nav | 442:19 | mobile primary navigation | items=destinations |
-| footer | 444:2 | site footer: link columns + legal | label=legal, items=column headings |
+| nav-bar | 440:2 | top navigation: brand + links + primary action | label=brand, items=link labels, cta=primary action label |
+| breadcrumb | 441:2 | location trail on deep pages | items=trail segments (last = current page) |
+| tabs | 441:8 | peer-view switching within a page | items=tab labels (first active) |
+| bottom-nav | 442:19 | mobile primary navigation | items=destination labels |
+| footer | 444:2 | site footer: link columns + legal | label=legal line, items=column headings |
 | mega-menu | 444:26 | large catalog navigation | items=category headings |
-| hero | 465:57 | page opener: headline + sub + CTAs | label=headline, items=[sub, CTA, CTA2] |
-| kpi-row | 454:39 | metric tiles; BINDS real stat values | items=captions, values=REAL NUMBERS, subs=context |
-| card-grid | 454:27 | browsable item cards | label=heading, items=card titles |
-| list | 454:2 | stacked records with meta | label=heading, items=rows |
-| table | 454:2 | columnar data; BINDS real cell values | label, items=row labels, values=row values |
-| form | 448:25 | signup/intake, labeled fields + submit | label, items=field labels, cta=submit |
+| hero | 465:57 | page opener: headline + sub + CTAs | label=headline, items=[subline, primary CTA, secondary CTA] |
+| kpi-row | 454:39 | metric tiles; BINDS real stat values | items=metric captions, values=THE REAL NUMBERS, subs=context lines |
+| card-grid | 454:27 | browsable item cards | label=section heading, items=card titles |
+| list | 454:2 | stacked records with meta | label=section heading, items=row texts |
+| table | 454:2 | columnar data; BINDS real cell values | label=heading, items=row labels, values=row values |
+| form | 448:25 | signup/intake with labeled fields + submit | label=form heading, items=field labels, cta=submit label |
 | field | 448:2 | standalone labeled inputs | items=field labels |
 | stepper | 441:36 | multi-step progress | items=step labels |
-| cta-row | 462:21 | primary + secondary actions | items=[primary, secondary] |
+| cta-row | 462:21 | primary + secondary actions with real labels | items=[primary label, secondary label] |
 | alert | 450:6 | inline status/notice band | label=notice text |
-| cite | 408:2 | claims with numbered verifiable sources | items=source names, values=work titles |
-| accordion | 455:2 | FAQ / disclosure list | items=questions |
-| chart-bar | 460:2 | categorical comparison (native SVG, token colors) | label, items=categories |
-| chart-line | 460:11 | trend over time (native SVG) | label |
-| search | 462:34 | search / command entry | label=placeholder |
-| pricing | 465:20 | plan comparison with real prices | items=plans, values=REAL PRICES |
+| cite | 408:2 | claims with numbered verifiable sources; BINDS attributions | items=source names, values=work titles |
+| accordion | 455:2 | FAQ / disclosure list | items=question texts |
+| chart-bar | 460:2 | categorical comparison chart | label=chart title, items=category labels |
+| chart-line | 460:11 | trend over time chart | label=chart title |
+| search | 462:34 | search / command entry | label=placeholder text |
+| pricing | 465:20 | plan comparison with real prices | items=plan names, values=THE REAL PRICES |
+| sidebar | 442:2 | left vertical primary navigation rail (app/dashboard screens; counts as navigation) | label=product name, items=destination labels (first active) |
+| feature-grid | 465:65 | feature/benefit cells with accent glyphs | label=heading, items=feature names, subs=one-line descriptions |
+| testimonial | 467:16 | customer quote with attributed speaker | label=the verbatim quote, items=[speaker name, role] |
+| bento | 467:2 | mixed-size highlight tile grid | label=heading, items=tile titles (max 5), subs=tile support lines |
+| timeline | 455:34 | ordered events/milestones | label=heading, items=event titles, values=dates/times |
+| kanban | 456:2 | workflow board columns | items=column titles, subs=pipe-separated card titles per column |
+| logo-cloud | 467:24 | partner/customer wordmark band | label=caption, items=partner names |
+| tree | 455:17 | hierarchy/folder tree | items=node labels (prefix > per depth level) |
+| empty | 450:44 | empty state with guidance and action | label=title, items=[guidance line], cta=action label |
+| product | 465:2 | product card; BINDS real price | label=product name, items=[,category], values=[THE REAL PRICE], cta=action |
+| profile | 466:78 | member/profile header; BINDS real stats | label=name, items=[handle/role], values=stat numbers, subs=stat captions, cta=action |
+| toast | 450:2 | transient confirmation pill | label=confirmation message |
+| notif-list | 450:51 | notification rows with unread dots | label=heading, items=notification titles, values=relative times |
 
 Binding rules (severity-and-fidelity.md floor): every proposal includes ONE nav pattern + a stated-state
 primary CTA; real inventory values populate the value slots (a visibly-marked sample bar is legal ONLY
 where the inventory has no value for that slot); fidelity.components = 1 only when every section renders
 from a mirrored partial. Gate: `services/auditGate.ts::checkFloor` / `checkContentParity`.
+
+## SLIDES ARCHETYPE CANON WRITE-BACK (2026-07-09, WS-2 slides-strategic-visual-uplift)
+
+Eight slide archetypes that previously existed ONLY in code (`services/slideComposer.ts`
+ARCHETYPE_SPECS) now have Figma canon frames on the SLIDES page `324:2` (file
+`iSQhAVM7SI4QHAWB7y9C2z`), Method A discipline: each frame MIRRORS its composer spec (absolute
+geometry, SCALE type tiers, token roles), it does not redesign it. Every frame is a 1920x1080
+COMPONENT with all color fills bound to `NXT Brand Tokens` (collection 221:2) variables AND all
+text fontFamily bound to `font/display` (221:15, Saira Condensed) / `font/heading` (221:16,
+Archivo Bold tier) / `font/body` (221:17, Archivo Regular tier), so the NU flip is a pure
+mode-535:0 swap. Each has a materialized NU instance twin at x=2220 (explicit mode 535:0,
+verified navy rail / red accents / Lato). Exemplar copy is industry-agnostic, evidence-shaped,
+em-dash-free, and carries no naked statistics outside quote context. All eight screenshot-verified
+(no collisions, tokens resolved). Registered in `plans/figma-audit/registry.json`
+`_slideArchetypes.archetypes` (the figmaRegistryParity gate reads it).
+
+| archetype | template | NXT component | NU instance | anatomy mirrored from spec |
+|---|---|---|---|---|
+| screen-critique | slides:screen-critique | 1003:546 | 1003:583 | annotated screenshot LEFT (contain, baked numbered discs) + 3 numbered findings RIGHT (severity label, judgment, one-line body, cyan fix line) |
+| screen-redesign | slides:screen-redesign | 1003:6166 | 1003:6193 | CURRENT annotated capture vs PROPOSED tokenized render, numbered legend under CURRENT, WHAT CHANGES accent takeaway band |
+| quadrant | slides:quadrant | 1003:6220 | 1003:6254 | 2x2 plot: mono axis labels, rail divider hairlines, 4 titled cells with items, accent-bordered subject chips stacked per quadrant |
+| flow-arc | slides:flow-arc | 1004:641 | 1004:679 | numbered step cards (ecru, accent top rule, auto-numbered Saira numerals) + thin accent connector rects; OUTCOME band variant in composer |
+| milestone-timeline | slides:milestone-timeline | 1004:6263 | 1004:6304 | horizontal axis hairline, accent square nodes + stems, milestones alternating above/below (title, detail, mono date) |
+| means-matters | slides:means-matters | 1004:6345 | 1004:6381 | 3 stat columns: accent hero numeral, caption, cyan MEANS label + readable body, MATTERS dark rail card with accent text, one source line |
+| ranked-bars | slides:ranked-bars | 1008:753 | 1010:788 | 5 rows: bold label, 800px ecru track + proportional accent bar (value never rendered as text), secondary note, row hairlines |
+| comparison-panels | slides:comparison-panels | 1010:753 | 1010:828 | criteria label rail + full-width row hairlines at shared pitch; 2 option panels with rail header bands and row-aligned cells |
+
+Reusable brick (page `GOLD · #proto patterns (nxt)` 403:2): `proto/AnnotationBadge` **1010:6409**,
+auto-layout numbered disc (34px accent circle, 2px paper stroke, on-accent Archivo Bold numeral)
++ short label; the componentized twin of the callout discs `slideComposer.ts` bakes onto
+screen-critique/screen-redesign screenshots (marker disc D=34) and `auditCritiqueDeck.bakeScreenAnnotations`.
+
+TODO (manifest hygiene): re-chunk THIS page via the manifest tooling; do not hand-edit chunk char_spans.

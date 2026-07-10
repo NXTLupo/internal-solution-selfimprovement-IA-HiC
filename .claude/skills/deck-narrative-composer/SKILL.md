@@ -6,6 +6,16 @@ description: Content-block narrative generation for strategy decks using 12 bloc
 thinking: high
 ---
 
+> **SUPERSEDED FOR DECK MODE (2026-07-09, WS-3a of `plans/slides-strategic-visual-uplift-2026-07-09.md`):**
+> for `#slides` / `#strategy` / `#presentation` DECK MODE surfaces (the SLIDES archetype registry,
+> `:::slide template=slides:<archetype>` fences), this skill is superseded by
+> **`.claude/skills/deck-composer/SKILL.md`**, the single versioned deck-composition authority.
+> The 12-content-block architecture below applies ONLY to legacy GOLD Slide-object flows
+> (resolveLayout/mapToFields pipelines that emit standard Slide objects). Never inject both
+> contracts into one prompt: two output schemas in one prompt was the G3 conflict this split
+> resolves. The Verbalized Sampling narrative technique (k=3 candidates) and the storytelling
+> floors remain valid on the legacy surfaces this skill still governs.
+
 ## Verbalized Sampling — Per-Slide Narrative Generation
 
 When composing the narrative blocks for each slide, do NOT emit a single fixed narrative. Instead emit `narrativeCandidates[]` with k=3 candidates, each tagged with:

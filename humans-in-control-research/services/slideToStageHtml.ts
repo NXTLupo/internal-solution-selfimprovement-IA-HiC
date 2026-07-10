@@ -316,13 +316,37 @@ function trunc(s: string | undefined | null, max: number): string {
     const cut = t.slice(0, max);
     const sentEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
     if (sentEnd > max * 0.5) return cut.slice(0, sentEnd + 1).trim();
-    // 3. End at a clause boundary (comma / semicolon / dash) inside the budget.
-    const clause = Math.max(cut.lastIndexOf(', '), cut.lastIndexOf('; '), cut.lastIndexOf(' - '), cut.lastIndexOf(': '));
-    if (clause > max * 0.55) return cut.slice(0, clause).trim();
+    // 3. End at a clause boundary inside the budget - punctuation OR a
+    //    coordinating/subordinating conjunction (dropping the whole trailing
+    //    clause beats stranding it: "...onboarding and reviews the starting").
+    const clause = Math.max(
+        cut.lastIndexOf(', '), cut.lastIndexOf('; '), cut.lastIndexOf(' - '), cut.lastIndexOf(': '),
+        cut.lastIndexOf(' and '), cut.lastIndexOf(' but '), cut.lastIndexOf(' because '),
+        cut.lastIndexOf(' before '), cut.lastIndexOf(' after '), cut.lastIndexOf(' when '),
+        cut.lastIndexOf(' while '), cut.lastIndexOf(' unless '), cut.lastIndexOf(' until '),
+    );
+    if (clause > max * 0.55) return stripDanglingTail(cut.slice(0, clause));
     // 4. Word boundary; strip dangling punctuation/openers; NO ellipsis.
     const sp = cut.lastIndexOf(' ');
-    return (sp > max * 0.6 ? cut.slice(0, sp) : cut)
-        .replace(/[\s,;:.\-(“"‘']+$/, '').trim();
+    return stripDanglingTail(sp > max * 0.6 ? cut.slice(0, sp) : cut);
+}
+
+/** A cut string must never END on a conjunction / preposition / article /
+ *  auxiliary ("...pre-filled, and", "...auto-populate the") - the single
+ *  loudest mid-sentence-truncation tell (user: "mega AI slop", 2026-07-09).
+ *  Peel trailing function words + dangling punctuation until the tail is a
+ *  content word. */
+const DANGLING_TAIL = /\s(?:and|or|but|nor|so|yet|the|a|an|of|to|with|for|in|on|at|by|from|into|via|per|as|is|are|was|were|be|been|being|that|which|who|whose|their|its|his|her|our|your|own|then|than|while|when|where|both|each|any|all|also|not|only|even|such|very|more|most|about|over|under|between|through|during|before|after|against|toward|towards|without|within)$/i;
+function stripDanglingTail(s: string): string {
+    // An unclosed trailing parenthetical ("...basis risk (World") is a cut
+    // artifact - drop the fragment before peeling function words.
+    let t = s.replace(/\s*\([^)]*$/, '').replace(/[\s,;:.\-(“"‘']+$/, '').trim();
+    for (let i = 0; i < 6; i++) {
+        const peeled = t.replace(DANGLING_TAIL, '').replace(/[\s,;:.\-(“"‘']+$/, '').trim();
+        if (peeled === t) break;
+        t = peeled;
+    }
+    return t;
 }
 
 /** Strip a trailing source attribution that rode INTO a tight list item.
@@ -334,8 +358,13 @@ function trunc(s: string | undefined | null, max: number): string {
  *  known publisher); a legitimate content parenthetical is left intact. */
 function stripInlineSource(s: string): string {
     return String(s ?? '').trim().replace(/\s*\((?:source:\s*)?[^)]*\)\s*$/i, (m) => {
-        const inner = m.replace(/[()]/g, '');
-        return /source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner) ? '' : m;
+        const inner = m.replace(/[()]/g, '').trim();
+        if (/source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner)) return '';
+        // A short trailing Capitalized parenthetical in a tight list item is an
+        // org attribution riding inline ("(World Bank)", "(CGIAR)", "(One Acre
+        // Fund)") - attributions belong in slide-level sources[], strip them.
+        if (/^[A-Z][A-Za-z&.'\- ]{1,28}$/.test(inner) && inner.split(/\s+/).length <= 4) return '';
+        return m;
     }).trim();
 }
 
@@ -1935,33 +1964,65 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const dense = n >= 6;
     const cellFs = clampMin(dense ? SCALE.label : SCALE.caption);
     const labelFs = dense ? 13 : 15;
-    const gridCols = `${dense ? 172 : 200}px repeat(${n}, 1fr)`;
+    // 240px anchor column: mono role text at the 17px floor gets ~17 chars/line
+    // (200px gave 13 - "Provides proactive scoring" wrapped to 3 lines and
+    // clipped against the row boundary).
+    const laneColW = dense ? 200 : 240;
+    const gridCols = `${laneColW}px repeat(${n}, 1fr)`;
     const ghost = (txt: string) => /^not engaged$/i.test((txt || '').trim()) || !(txt || '').trim();
-    const cellBudget = dense ? 115 : 125;
 
-    // Per-phase pains -> the matrix PAIN POINTS row (one stack per phase column).
+    // 2026-07-09 REWRITE back to the matrix-is-the-body anatomy (twin of web.tsx
+    // JourneyMapSlide; learned constraint journey/matrix-is-the-body). The prior
+    // "summary band + KPI dashboard ABOVE the matrix" starved the lanes to ~2
+    // visible lines: overflow:hidden clipped every cell mid-sentence in the
+    // preview, and the PPTX GEO walk (which extracts FULL textContent) painted
+    // the hidden lines over the next row. Personas, overall pains, opportunities
+    // and KPI tiles all live INSIDE the table now - nothing sits on top of it.
+    const spread = (count: number): number[] => count <= 0 ? [] : count === 1 ? [0]
+        : Array.from({ length: count }, (_, i) => Math.min(n - 1, Math.round((i * (n - 1)) / (count - 1))));
+
+    // Per-phase pains + overall pains distributed by journey arc into the stacks.
     const painsRaw: any[] = Array.isArray(d.painPoints) ? d.painPoints : [];
     const painCols: string[][] = stages.map((_: any, si: number) => {
         const v = painsRaw[si];
         return Array.isArray(v) ? v.filter(Boolean).map((x: any) => stripInlineSource(String(x))) : (v ? [stripInlineSource(String(v))] : []);
     });
+    const overallPains: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
+    spread(overallPains.length).forEach((col, i) => painCols[col].push(overallPains[i]));
     const hasPains = painCols.some(c => c.length > 0);
 
-    // SUMMARY band (t3): personas / overall pains / opportunities as flat evidenced
-    // lists ABOVE the matrix - never sparse per-phase rows.
+    // Personas -> JTBD voice row; opportunities -> OPPORTUNITIES row (cool accent).
     const personas: string[] = (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String).slice(0, 4);
-    const overallPains: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, 4);
+    const voiceCols: string[][] = stages.map(() => []);
+    spread(personas.length).forEach((col, i) => voiceCols[col].push(personas[i]));
+    const hasVoice = personas.length > 0;
     const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, 4);
-    const summaryCols = [
-        personas.length ? { lbl: 'Personas · JTBD voice', items: personas, tone: 'cool', quote: true } : null,
-        overallPains.length ? { lbl: 'Overall pain points', items: overallPains, tone: 'warn', quote: false } : null,
-        opps.length ? { lbl: 'Strategic opportunities', items: opps, tone: 'cool', quote: false } : null,
-    ].filter(Boolean) as Array<{ lbl: string; items: string[]; tone: string; quote: boolean }>;
-    const hasSummary = summaryCols.length > 0;
+    const oppCols: string[][] = stages.map(() => []);
+    spread(opps.length).forEach((col, i) => oppCols[col].push(opps[i]));
+    const hasOpps = opps.length > 0;
 
-    // KPI DASHBOARD (t3): up to 3 tiles ABOVE the matrix; tile[0] = ink hero.
+    // KPI tiles EMBED inside their phase header cells (index-spread across phases).
     const tiles: any[] = (Array.isArray(d.kpiTiles) ? d.kpiTiles : []).slice(0, 3);
+    const tileByCol: any[] = stages.map(() => null);
+    spread(tiles.length).forEach((col, i) => { tileByCol[col] = tiles[i]; });
     const hasTiles = tiles.length > 0;
+
+    // FIT MODEL: the emitted string must BE the visible string (the GEO walk
+    // paints full textContent), so derive the per-cell budget from what the
+    // lane rows can actually hold instead of a fixed constant.
+    const colTextW = (1668 - laneColW) / n - 28;                       // canvas 1668px wide, 28px cell padding
+    const charsPerLine = Math.max(16, Math.floor(colTextW / (cellFs * 0.5)));
+    const hasThumbs = (Array.isArray((d as any).phaseImages) && (d as any).phaseImages.some(Boolean))
+        || stages.some((s: any) => s && s.image);
+    const bodyH = 640;                                                  // typical canvas body below title+meta
+    const laneH = Math.max(52, (bodyH
+        - (hasTiles ? 84 : 50)                                          // header row (+embedded KPI)
+        - (hasThumbs ? 96 : 0)
+        - (hasVoice ? 54 : 0)
+        - (hasPains ? 118 : 0)
+        - (hasOpps ? 54 : 0)) / lanes.length);
+    const laneLines = Math.max(2, Math.floor((laneH - 18) / (cellFs * 1.38)));
+    const fitBudget = Math.min(170, Math.max(60, laneLines * charsPerLine - 6));
 
     // content-true actor-type icon: person for human lanes, system glyph for systems.
     // Resolved through the gate so NOTHING generic ever paints.
@@ -1982,53 +2043,55 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     };
 
     const matrixRows = [
-        'minmax(46px,auto)',                          // phase header
-        ...lanes.map(() => 'minmax(58px,1fr)'),       // actor lanes fill remaining height
-        ...(hasPains ? ['minmax(54px,auto)'] : []),   // per-phase pain row
+        hasTiles ? 'minmax(72px,auto)' : 'minmax(46px,auto)',   // phase header (+embedded KPI)
+        ...(hasThumbs ? ['minmax(60px,96px)'] : []),            // per-phase illustration row
+        ...(hasVoice ? ['minmax(48px,auto)'] : []),             // personas JTBD voice row
+        ...lanes.map(() => 'minmax(72px,1fr)'),                 // actor lanes fill remaining height
+        ...(hasPains ? ['minmax(54px,auto)'] : []),             // per-phase pain stacks
+        ...(hasOpps ? ['minmax(48px,auto)'] : []),              // strategic opportunities row
     ].join(' ');
 
+    const painFs = clampMin(cellFs - 1);
+    const painBudget = Math.min(96, Math.max(48, 2 * Math.floor(colTextW / (painFs * 0.5)) - 16));
+    const voiceBudget = Math.min(120, Math.max(56, 2 * charsPerLine - 4));
+
     return `<style>
-.jmwrap{display:flex;flex-direction:column;flex:1;min-height:0;gap:16px}
+.jmwrap{display:flex;flex-direction:column;flex:1;min-height:0;gap:14px}
 .jmmeta{display:flex;gap:52px;flex-wrap:wrap}
 .jmmeta .mi .l{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
 .jmmeta .mi .v{font-family:${T.bodyFont};font-size:${SCALE.caption}px;color:${T.ink};margin-top:2px}
-.jmsum{display:grid;grid-template-columns:repeat(${summaryCols.length || 1},1fr);gap:32px}
-.jmsum .col .h{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.jmsum .col.cool .h{color:${T.accentCool}}
-.jmsum .col.warn .h{color:${T.accentWarn}}
-.jmsum .col .it{font-family:${T.bodyFont};font-size:${SCALE.caption}px;color:${T.ink};line-height:1.4;margin-bottom:5px}
-.jmsum .col .it.q{font-style:italic}
-.jmdash{display:grid;grid-template-columns:repeat(${Math.max(tiles.length, 1)},1fr);gap:16px}
-.jmtile{background:${T.callout};padding:13px 18px;display:flex;flex-direction:column;gap:3px}
-.jmtile.hero{background:${T.ink}}
-.jmtile .tl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
-.jmtile.hero .tl{color:${T.accent}}
-.jmtile .tv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;color:${T.ink};line-height:1.05}
-.jmtile.hero .tv{color:#FFFFFF}
-.jmtile .ts{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
 .jmgrid{flex:1;min-height:0;display:grid;grid-template-columns:${gridCols};grid-template-rows:${matrixRows};border:1px solid ${T.hair};overflow:hidden}
-.jmgrid>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair}}
-.jmh{background:${T.ink};color:${T.paper};font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;align-items:center;gap:11px;border-top:none!important}
+.jmgrid>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair};overflow:hidden}
+.jmh{background:${T.ink};color:${T.paper};font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;flex-direction:column;justify-content:center;gap:4px;border-top:none!important}
 .jmh.crit{background:${T.accentWarn}}
+.jmh .hrow{display:flex;align-items:center;gap:11px}
 .jmh .step{flex:0 0 auto;width:25px;height:25px;display:flex;align-items:center;justify-content:center;background:${T.accent};color:${T.ink};font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px}
 .jmh.crit .step{background:${T.ink};color:#FFFFFF}
 .jmh .nm{flex:1;min-width:0;line-height:1.15}
-.jmh.corner{color:${T.grey};font-weight:600;letter-spacing:2px}
+.jmh .ktl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accent};text-transform:uppercase}
+.jmh.crit .ktl{color:${T.paper}}
+.jmh .ktv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;letter-spacing:0;color:${T.paper};line-height:1.05;text-transform:none}
+.jmh.corner{color:${T.grey};font-weight:600;letter-spacing:2px;flex-direction:row;align-items:center}
 .jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:96px}
-.jmthumb.corner{background:${T.paper}}
 .jmthumb .jmti{width:100%;height:100%;max-height:96px;object-fit:cover;display:block}
-.jmanchor{padding:8px 14px;background:${T.paper};display:flex;align-items:center;gap:10px}
+.jmanchor{padding:8px 14px;background:${T.paper};display:flex;align-items:center;gap:10px;overflow:hidden}
 .jmanchor .ic{flex:0 0 auto;width:26px;height:26px;object-fit:contain}
-.jmanchor .txt{min-width:0;display:flex;flex-direction:column;gap:2px}
+.jmanchor .txt{min-width:0;display:flex;flex-direction:column;gap:2px;overflow:hidden}
 .jmanchor .actor{font-family:${T.bodyFont};font-weight:700;font-size:${labelFs + 1}px;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;line-height:1.2}
 .jmanchor .role{font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.grey};line-height:1.3}
 .jmanchor.pain{align-items:flex-start;border-top:3px solid ${T.accentWarn}!important}
 .jmanchor.pain .actor{color:${T.accentWarn}}
-.jmc{padding:${dense ? 7 : 9}px 14px;font-family:${T.bodyFont};font-size:${cellFs}px;line-height:1.38;color:${T.ink};background:${washHex(T.callout, 0.33)};overflow:hidden}
+.jmanchor.cool{align-items:flex-start;border-top:3px solid ${T.accentCool}!important}
+.jmanchor.cool .actor{color:${T.accentCool}}
+.jmv{padding:6px 14px;font-family:${T.bodyFont};font-size:${clampMin(cellFs - 1)}px;font-style:italic;line-height:1.32;color:${T.ink};background:${washHex(T.callout, 0.5)}}
+.jmc{padding:${dense ? 7 : 9}px 14px;font-family:${T.bodyFont};font-size:${cellFs}px;line-height:1.38;color:${T.ink};background:${washHex(T.callout, 0.33)}}
 .jmc.ghost{color:${T.grey};font-style:italic}
-.jmp{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentWarn}!important;background:${T.paper};overflow:hidden;display:flex;flex-direction:column;gap:4px}
-.jmp .pi{font-family:${T.bodyFont};font-size:${clampMin(cellFs - 1)}px;line-height:1.3;color:${T.accentWarn};padding-left:12px;position:relative}
+.jmp{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentWarn}!important;background:${T.paper};display:flex;flex-direction:column;gap:4px}
+.jmp .pi{font-family:${T.bodyFont};font-size:${painFs}px;line-height:1.3;color:${T.accentWarn};padding-left:12px;position:relative}
 .jmp .pi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentWarn}}
+.jmo{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentCool}!important;background:${washHex(T.callout, 0.33)};display:flex;flex-direction:column;gap:4px}
+.jmo .oi{font-family:${T.bodyFont};font-size:${painFs}px;line-height:1.3;color:${T.ink};padding-left:12px;position:relative}
+.jmo .oi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentCool}}
 </style>
 <div class="jmwrap">
   <div class="jmmeta">
@@ -2036,32 +2099,39 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     <div class="mi"><div class="l">Phases</div><div class="v">${esc(String(n))}</div></div>
     ${d.scope ? `<div class="mi"><div class="l">Scope</div><div class="v">${esc(trunc(String(d.scope), 40))}</div></div>` : ''}
   </div>
-  ${hasSummary ? `<div class="jmsum">${summaryCols.map(c => `<div class="col ${c.tone}"><div class="h">${esc(c.lbl)}</div>${c.items.map(it => `<div class="it${c.quote ? ' q' : ''}">${c.quote ? `&ldquo;${esc(trunc(it, 110))}&rdquo;` : esc(trunc(it, 110))}</div>`).join('')}</div>`).join('')}</div>` : ''}
-  ${hasTiles ? `<div class="jmdash">${tiles.map((t, i) => `<div class="jmtile${i === 0 ? ' hero' : ''}"><div class="tl">${esc(trunc(String(t.label || ''), 22))}</div><div class="tv">${esc(trunc(String(t.value || ''), 18))}</div>${t.sub || t.context ? `<div class="ts">${esc(trunc(String(t.sub || t.context), 34))}</div>` : ''}</div>`).join('')}</div>` : ''}
   <div class="jmgrid">
     <div class="jmh corner">JOURNEY &rarr;</div>
-    ${stages.map((st: any, si: number) => `<div class="jmh${st.critical ? ' crit' : ''}"><span class="step">${String(si + 1).padStart(2, '0')}</span><span class="nm">${esc(trunc(st.name, 24))}</span></div>`).join('')}
+    ${stages.map((st: any, si: number) => {
+        const t = tileByCol[si];
+        return `<div class="jmh${st.critical ? ' crit' : ''}"><div class="hrow"><span class="step">${String(si + 1).padStart(2, '0')}</span><span class="nm">${esc(trunc(st.name, 24))}</span></div>${t ? `<div class="ktl">${esc(trunc(String(t.label || ''), 24))}</div><div class="ktv">${esc(trunc(String(t.value || ''), 20))}</div>` : ''}</div>`;
+    }).join('')}
     ${(() => {
         // Per-phase content-true thumbnail row (illustrator carrier phaseImages[], index-aligned to
         // stages[]; per-stage .image is an alternative). Row renders ONLY when >=1 phase carries art,
         // so the common no-art journey is unchanged. NO PURE DECORATION: image traces to that phase.
         const phaseImgs: any[] = Array.isArray((d as any).phaseImages) ? (d as any).phaseImages : [];
         const phaseImg = (si: number): string => (typeof phaseImgs[si] === 'string' ? phaseImgs[si] : '') || (stages[si] && stages[si].image) || '';
-        if (!stages.some((_: any, si: number) => phaseImg(si))) return '';
-        return `<div class="jmthumb corner"></div>${stages.map((_: any, si: number) => { const u = phaseImg(si); return `<div class="jmthumb">${u ? `<img class="jmti" src="${esc(u)}" alt="">` : ''}</div>`; }).join('')}`;
+        if (!hasThumbs) return '';
+        return `<div class="jmthumb"></div>${stages.map((_: any, si: number) => { const u = phaseImg(si); return `<div class="jmthumb">${u ? `<img class="jmti" src="${esc(u)}" alt="">` : ''}</div>`; }).join('')}`;
     })()}
+    ${hasVoice ? `
+    <div class="jmanchor cool"><div class="txt"><div class="actor">Personas</div><div class="role">JTBD voice</div></div></div>
+    ${voiceCols.map(items => `<div class="jmv">${items.map(p => `&ldquo;${esc(trunc(p, voiceBudget))}&rdquo;`).join(' ')}</div>`).join('')}` : ''}
     ${lanes.map((lane: any) => {
         const ic = laneIcon(lane.actor || '');
         return `
-    <div class="jmanchor">${ic ? `<img class="ic" src="${ic}" alt=""/>` : ''}<div class="txt"><div class="actor">${esc(trunc(lane.actor, 24))}</div>${lane.role ? `<div class="role">${esc(trunc(lane.role, 30))}</div>` : ''}</div></div>
+    <div class="jmanchor">${ic ? `<img class="ic" src="${ic}" alt=""/>` : ''}<div class="txt"><div class="actor">${esc(trunc(lane.actor, 24))}</div>${lane.role ? `<div class="role">${esc(trunc(lane.role, 34))}</div>` : ''}</div></div>
     ${stages.map((_: any, si: number) => {
             const txt = (lane.cells || [])[si] || '';
-            return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', cellBudget))}</div>`;
+            return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', fitBudget))}</div>`;
         }).join('')}`;
     }).join('')}
     ${hasPains ? `
     <div class="jmanchor pain"><div class="txt"><div class="actor">Pain points</div></div></div>
-    ${painCols.map(items => `<div class="jmp">${items.slice(0, 3).map(p => `<div class="pi">${esc(trunc(p, 90))}</div>`).join('')}</div>`).join('')}` : ''}
+    ${painCols.map(items => `<div class="jmp">${items.slice(0, 3).map(p => `<div class="pi">${esc(trunc(p, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
+    ${hasOpps ? `
+    <div class="jmanchor cool"><div class="txt"><div class="actor">Opportunities</div></div></div>
+    ${oppCols.map(items => `<div class="jmo">${items.map(o => `<div class="oi">${esc(trunc(o, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
   </div>
 </div>`;
 }

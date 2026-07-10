@@ -562,3 +562,45 @@ User-cited praise: "(positive vote/star-only signal)"
 An exemplary chat-reply succeeds by delivering a direct, highly accurate, and contextually relevant response that immediately resolves
 
 User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+This type of chat-reply works well because it delivers a direct, accurate, and contextually relevant answer that
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+An exemplary chat-reply works well because it directly addresses the user's query with clear, concise, and
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+Exemplary chat replies succeed by providing direct, highly accurate, and contextually relevant answers that immediately resolve the user
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+An exemplary chat-reply succeeds by delivering a direct, highly accurate, and contextually precise response that immediately satisfies
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+An exemplary chat-reply works well because it delivers a direct, highly accurate, and contextually
+
+User-cited praise: "(positive vote/star-only signal)"
+
+
+
+## EXEMPLAR (2026-07-09) - from 7 positive signals
+An exemplary chat-reply succeeds by delivering a direct, highly relevant, and frictionless response that immediately satisfies the user's
+
+User-cited praise: "(positive vote/star-only signal)"

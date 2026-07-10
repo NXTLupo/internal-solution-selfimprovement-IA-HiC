@@ -182,6 +182,8 @@
   --color-band-rgb: 22 35 60;
   --color-band-text: #FFFFFF;
   --color-band-text-rgb: 255 255 255;
+  --color-rust: #C8102E;
+  --color-rust-rgb: 200 16 46;
   --font-display: 'Lato';
   --font-title: 'Lato';
   --font-title-weight: 700;

@@ -3,10 +3,11 @@
     "refreshed": "2026-06-28",
     "source": "Figma MCP on NXT file iSQhAVM7SI4QHAWB7y9C2z, collection 'NXT Brand Tokens' which now carries TWO MODES on one collection: NXT (modeId 221:0) and NU (modeId 535:0). NU is a mode flip, not a separate collection. The NXT/NU blocks below mirror those two modes. Fonts: NXT display=Saira Condensed, heading/body=Archivo, mono=IBM Plex Mono; NU=single-typeface Lato across all slots. on-accent token carries text-on-accent (NXT #0D0D0D black, NU #FFFFFF white) per the white-on-red accessibility rule.",
     "refresh_2026_06_28": "Re-pulled both modes via Figma MCP get_variable_defs (nodes 223:2 NXT-mode, 590:9 NXT instance, 625:385/625:314 NU mode-535:0 instances). ALL colors verified IDENTICAL to live Figma for both modes (rail/ink/accent/cyan/rust/teal/ecru/hairline/grey/on-accent/paper match; NU.teal stays the renderer-semantic #16233C navy override per nu_provenance while the mode's color/teal=#A4804A lives under the 'gold' key). Fonts verified unchanged (Saira Condensed/Archivo/IBM Plex Mono for NXT; single-typeface Lato for NU). ONE DRIFT FIXED: radius/base was 0 in this mirror but live Figma reports radius/base=3 for BOTH modes -> corrected to 3. Type scale + space tokens not pulled live (PAT lacks file_variables:read per refresh_protocol); left unchanged, no evidence of drift. Renderer twins hardcode per-element border-radius (2/3/4px) and do not read radius.base, so this correction is documentation-fidelity only and does not cascade.",
-    "componentized": "2026-06-15: all ~68 NXT GOLD deliverable components are token-bound + componentized; each has a materialized NU-mode sub-component instance (mode 535:0) beside it. Brand/Logo · masthead (619:2) flips NXT wordmark -> NU red-N monogram by the brand/is-nxt|is-nu booleans. 53 mastheads unified to that component (logo consistency).",
+    "componentized": "2026-06-15: all ~68 NXT GOLD deliverable components are token-bound + componentized; each has a materialized NU-mode sub-component instance (mode 535:0) beside it. Brand/Logo \u00b7 masthead (619:2) flips NXT wordmark -> NU red-N monogram by the brand/is-nxt|is-nu booleans. 53 mastheads unified to that component (logo consistency).",
     "nu_provenance": "2026-06-15: NU block reconciled against mode 535:0 (single-file, NU-as-a-mode). All values verified == mode 535:0 EXCEPT two intentional renderer-semantic keys: (1) 'teal' stays #16233C (navy header/premium slot for NU); the mode's color/teal var = #A4804A (gold) lives under the separate 'gold' key - do NOT overwrite 'teal' with the mode's color/teal. (2) renderer-only keys with no Figma var: kicker, band, band-text, source, gold, warn. Added missing 'success' #38A169 + 'error' #D8132D to reach NXT parity. This block is a RENDERER-FACING contract keyed by role, not a raw 1:1 mirror of Figma variable names.",
     "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP and rewrites it. NEVER hand-edit hex values; re-pull both modes from 'NXT Brand Tokens' (NXT 221:0 / NU 535:0). When re-pulling, preserve the renderer-semantic keys noted in nu_provenance - map by ROLE, not by raw Figma var name.",
-    "nu_type_scale_note": "NU display/deck tier reduced for Lato width (mode 535:0): hero 88, deckTitle 50, sectionNumeral 300, numeral 68, quoteMark 215, display 52 (2026-06-25). NXT mode 221:0 unchanged."
+    "nu_type_scale_note": "NU display/deck tier reduced for Lato width (mode 535:0): hero 88, deckTitle 50, sectionNumeral 300, numeral 68, quoteMark 215, display 52 (2026-06-25). NXT mode 221:0 unchanged.",
+    "rust_nu_2026_07_09": "NU 'rust' added as a RENDERER-SEMANTIC role key (= warn family, per nu_provenance role-mapping): proto_partials/_RUST previously fell to its NXT literal fallback on NU renders. No Figma var exists for NU rust; map by role, do not re-pull."
   },
   "NXT": {
     "color": {
@@ -168,7 +169,8 @@
       "slate": "#1D6E64",
       "rule-mid": "#B9BEC7",
       "band": "#16233C",
-      "band-text": "#FFFFFF"
+      "band-text": "#FFFFFF",
+      "rust": "#C8102E"
     },
     "font": {
       "display": "Lato",
@@ -252,7 +254,7 @@
       "monogram_viewbox": "0 0 64 53",
       "monogram_path": "M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z",
       "fill": "#C8102E",
-      "source": "Figma node 25:5 (panel/brand-logo) — official Northeastern N monogram + northeastern wordmark, true vector",
+      "source": "Figma node 25:5 (panel/brand-logo) \u2014 official Northeastern N monogram + northeastern wordmark, true vector",
       "usage": "Use this EXACT vector for the brand mark in mastheads/nav. NEVER draw a letter inside a colored box."
     }
   },
@@ -294,7 +296,7 @@
       "_extend": "Grow dimensions through auto-layout only: the matrix is a vertical stack of horizontal rows, cells set to FILL. Add a phase = add a column entry and let the row reflow; add a swimlane = add a row. Never absolute-position cells (collision-prone)."
     },
     "breakpoints": {
-      "_doc": "Mobile-first responsive breakpoint grid. min-width px / columns / margin px / gutter px. Styles cascade up. Max content width 1440, centered beyond 2xl. Figma layout-grids live on the 'GOLD · responsive grids' pages (NU 408:2 / NXT 511:2).",
+      "_doc": "Mobile-first responsive breakpoint grid. min-width px / columns / margin px / gutter px. Styles cascade up. Max content width 1440, centered beyond 2xl. Figma layout-grids live on the 'GOLD \u00b7 responsive grids' pages (NU 408:2 / NXT 511:2).",
       "xs": {
         "min": 360,
         "cols": 4,

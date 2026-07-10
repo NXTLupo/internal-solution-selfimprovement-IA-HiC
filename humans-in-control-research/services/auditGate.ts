@@ -284,6 +284,12 @@ export function checkFloor(
             if (fid.components !== 1) { violations.push({ code: 'PROPOSAL-BELOW-FLOOR', subject, detail: `components axis 0 (unknown: ${fid.unknown_patterns.join(', ') || 'literal-styled block'})` }); failed = true; }
             if (fid.nav !== 1) { violations.push({ code: 'PROPOSAL-BELOW-FLOOR', subject, detail: 'nav axis 0: no nav pattern in the proposal' }); failed = true; }
             if (fid.primary_action !== 1) { violations.push({ code: 'PROPOSAL-BELOW-FLOOR', subject, detail: 'primary_action axis 0: no stated-state CTA' }); failed = true; }
+        } else {
+            // WS-0c (2026-07-09 uplift): a missing fidelity report means the render
+            // failed or timed out - that is a floor FAILURE, never a silent pass of
+            // three axes (the render-timeout bypass found in the binding audit).
+            violations.push({ code: 'PROPOSAL-BELOW-FLOOR', subject, detail: 'no fidelity report: the proposed render failed or timed out; axes unverified' });
+            failed = true;
         }
         const parity = checkContentParity(s);
         if (parity.length) { violations.push(...parity); failed = true; }

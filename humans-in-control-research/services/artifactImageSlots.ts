@@ -232,10 +232,10 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     // composer reads the carrier off the slide's composerPayload; the chat seam routes the carrier
     // write through SUBFIELD['slides:*'] = 'composerPayload' (CorpusChatPanel).
     'slides:block-quote': {
-        artifact: 'slides:block-quote', mode: 'panel', branch: 'none', node: '901:477',
+        artifact: 'slides:block-quote', mode: 'panel', branch: 'emotive', node: '901:477',
         ground: 'light', kind: 'panel', bounds: { w: 900, h: 200, aspect: 4.5 }, fit: 'cover',
-        carrier: 'panelImage', optional: true, wired: true,
-        note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit. LIVE-FIGMA AUDIT: block-quote 609:7 has a clear empty LEFT band between the quote (ends ~local y500) and the attribution (local y778). Added token-bound brand-image-slot 901:477 (900x200 ecru/hairline/radius-base, x209 y540) tracing to the quote subject; NU twin 626:95 inherits via mode-flip (verified navy/red/Lato). 900x200 is a thin banner (4.5) -> cover crop. Renderer twin = slideComposer block-quote image region (payload.panelImage).',
+        carrier: 'panelImage', optional: true, wired: true, style: 'photo-scene',
+        note: 'USER OVERRIDE 2026-06-28 scenes-where-they-fit; GENERATION TURNED ON 2026-07-10 (owner: "give those archetypes optional image slots that the imagery pipeline fills"): the bakeoff deck left the case-study block-quote slides with an empty lower-left band because branch was none. Now an ENVIRONMENTAL PHOTO SCENE of the quote subject (concept = topicKicker + attribution role/name + first quote clause via photoConceptFromPayload) fills slot 901:477 (900x200 banner, cover crop, x209 y540); the GEO walker exports it as a swappable native picture placeholder. NU twin 626:95 inherits via mode-flip. Renderer twin = slideComposer block-quote image region (payload.panelImage), fail-open when generation returns nothing.',
     },
     'slides:infographic-exhibit': {
         artifact: 'slides:infographic-exhibit', mode: 'panel', branch: 'infographic', node: '974:491',

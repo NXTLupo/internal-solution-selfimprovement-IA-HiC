@@ -19,7 +19,6 @@ chunks:
 ## AI Ethics, Privacy, and Regulatory Scrutiny
 The integration of AI in educational and operational contexts has brought a heightened focus on ethical guidelines, privacy, and regulatory oversight, particularly concerning privacy-preserving research and data protection [evidence/research-findings.md].
 - **Institutional Transparency**: Universities are experiencing heightened pressure for transparency in funding and donor relationships, specifically to mitigate potential reputational risks [evidence/research-findings.md].
-- **Cybersecurity and Advancement**: Digital advancement opportunities are coupled with a priority focus on cybersecurity infrastructure [evidence/research-findings.md].
 
 ## AI-Enabled Personalized Student Support and Co-op Matching
 Higher education institutions are developing AI tools to personalize student experiences, improve career readiness, and support experiential learning [evidence/research-findings.md].
@@ -29,4 +28,4 @@ Higher education institutions are developing AI tools to personalize student exp
 ## Speculative and Pending Portfolio Patterns
 Several operational and transformation patterns remain speculative pending the ingestion of primary source documents and verified evidence:
 - **Customer Experience (CX) Maturity**: Potential correlations exist between organizational CX maturity, employee structures, and revenue or outcome benchmarks, though these maturity-to-outcome models require further validation and are currently marked as hypotheses pending primary sources such as Gartner reports, Forrester CX Index data, and client assessments [evidence/cx-maturity.md].
-- **Digital Transformation and Change Management**: Hypotheses regarding digital transformation frameworks, technology adoption, organizational culture, and change management failure rates remain speculative pending the ingestion of primary source benchmarks and evidence [evidence/digital-transformation.md].
+- **Digital Transformation and Change Management**: Hypotheses regarding digital transformation failure rates, technology adoption barriers, and the role of culture and change management frameworks remain speculative pending the ingestion of primary source benchmarks and verified evidence [evidence/digital-transformation.md].

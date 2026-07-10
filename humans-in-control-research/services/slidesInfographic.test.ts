@@ -53,7 +53,7 @@ describe('slides:infographic-exhibit archetype', () => {
     it('DECK MODE selection doctrine routes structural findings to the archetype (2026-07-02 live-miss fix: the catalog alone was not enough - the model follows the doctrine)', () => {
         const chat = src('services/corpusChatService.ts');
         expect(chat).toContain('-> slides:infographic-exhibit');
-        expect(chat).toContain('INFOGRAPHIC FLOOR');
+        expect(chat).toContain('VISUAL FLOOR');
         // the stale hardcoded archetype count that contradicted the catalog is gone
         expect(chat).not.toContain('ONLY the 14 SLIDES archetypes');
     });

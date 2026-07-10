@@ -17,6 +17,8 @@ import pathlib
 import logging
 
 logger = logging.getLogger("gold_pptx_export")
+from brand_fonts import export_fallbacks as _export_fallbacks
+_TOKEN_FALLBACKS = _export_fallbacks()
 
 W, H = 1920, 1080
 EMU = 914400
@@ -48,7 +50,7 @@ MEASURE = r"""
     const eb=el.getBoundingClientRect();
     runs.push({text:txt, x:rb.left-sr.left, y:rb.top-sr.top, w:rb.width, h:rb.height, tw:rb.width,
       eright:eb.right-sr.left, ebottom:eb.bottom-sr.top,
-      size:parseFloat(cs.fontSize)||16, weight:parseInt(cs.fontWeight)||400, color:toHex(cs.color)||'141414',
+      size:parseFloat(cs.fontSize)||16, weight:parseInt(cs.fontWeight)||400, color:toHex(cs.color)||null,
       align:cs.textAlign||'left', transform:cs.textTransform||'none',
       family:(cs.fontFamily||'').split(',')[0].replace(/['"]/g,'').trim(), spacing:cs.letterSpacing,
       italic:cs.fontStyle==='italic', lh:parseFloat(cs.lineHeight)||0});
@@ -93,9 +95,15 @@ GEO = r"""
   const rects=[];
   const images=[];
   const svgRegions=[];
-  const push=(x,y,w,h,col,chrome)=>{
+  const push=(x,y,w,h,col,chrome,ov)=>{
     if(!col||col.a===0||w<0.5||h<0.5) return;
-    rects.push({x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a,chrome:!!chrome});
+    const rec={x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a,chrome:!!chrome};
+    // WS-1e (2026-07-09) - OVERLAY tagging: elements carrying class 'pptx-overlay' or a
+    // data-pptx-overlay attribute are absolutely-positioned annotation shapes that must sit
+    // ABOVE pictures (numbered discs, badges). The assembly loop places them AFTER all
+    // pictures; data-pptx-overlay="oval" renders as a native OVAL instead of a rect.
+    if(ov){rec.overlay=true; rec.shape=(String(ov).toLowerCase()==='oval')?'oval':'rect';}
+    rects.push(rec);
   };
   // 2026-06-27 - CHROME tagging: rail / dot-mark / logo are REPEATING brand chrome that the
   // exporter hoists onto a per-variant slide LAYOUT (defined once, inherited). Tag every item
@@ -111,10 +119,15 @@ GEO = r"""
       const b=el.getBoundingClientRect();
       if(b.width>=2&&b.height>=2){
         const _svgrec={x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,chrome:!!chrome};
-        // LOGO ONLY: carry the actual SVG markup so the exporter embeds a TRUE VECTOR picture
-        // (SVG blip + PNG fallback) instead of a rasterized screenshot. Diagram SVGs stay
-        // raster (their markup is huge and Chromium already pixel-rendered them faithfully).
-        try{ if(el.closest && el.closest('.brandlogo')) _svgrec.svg=new XMLSerializer().serializeToString(el); }catch(e){}
+        // WS-1c (2026-07-09) - TRUE VECTOR for ALL structural SVGs (logo, dot-mark, charts),
+        // not just .brandlogo: carry the serialized markup so the exporter embeds a TRUE
+        // VECTOR picture (SVG blip + PNG fallback). Guard: serialized markup above 200KB
+        // (huge diagram SVGs) stays raster-only - the clip-screenshot remains the fallback
+        // blip either way, exactly like the original logo path.
+        try{
+          const _ser=new XMLSerializer().serializeToString(el);
+          if(_ser && _ser.length<=200000) _svgrec.svg=_ser;
+        }catch(e){}
         svgRegions.push(_svgrec);
       }
       return;
@@ -163,13 +176,16 @@ GEO = r"""
     // logo). Otherwise it renders as a full-page rect ON THE SLIDE that COVERS the inherited master
     // chrome (the bug: rail/logo hidden behind a white box on every content slide).
     const isStageRoot = (el===stage);
-    if(bg&&bg.a>0) push(b.left,b.top,b.width,b.height,bg, chrome || isStageRoot);
+    // WS-1e overlay marker: attribute value wins (e.g. "oval"); bare class means rect.
+    const ov=(el.getAttribute&&el.getAttribute('data-pptx-overlay'))
+      ||((el.classList&&el.classList.contains('pptx-overlay'))?'rect':null);
+    if(bg&&bg.a>0) push(b.left,b.top,b.width,b.height,bg, chrome || isStageRoot, ov);
     const lw=parseFloat(cs.borderLeftWidth)||0, rw=parseFloat(cs.borderRightWidth)||0,
           tw=parseFloat(cs.borderTopWidth)||0, bw=parseFloat(cs.borderBottomWidth)||0;
-    if(lw>=0.5&&cs.borderLeftStyle!=='none') push(b.left,b.top,lw,b.height,parse(cs.borderLeftColor),chrome);
-    if(rw>=0.5&&cs.borderRightStyle!=='none') push(b.right-rw,b.top,rw,b.height,parse(cs.borderRightColor),chrome);
-    if(tw>=0.5&&cs.borderTopStyle!=='none') push(b.left,b.top,b.width,tw,parse(cs.borderTopColor),chrome);
-    if(bw>=0.5&&cs.borderBottomStyle!=='none') push(b.left,b.bottom-bw,b.width,bw,parse(cs.borderBottomColor),chrome);
+    if(lw>=0.5&&cs.borderLeftStyle!=='none') push(b.left,b.top,lw,b.height,parse(cs.borderLeftColor),chrome,ov);
+    if(rw>=0.5&&cs.borderRightStyle!=='none') push(b.right-rw,b.top,rw,b.height,parse(cs.borderRightColor),chrome,ov);
+    if(tw>=0.5&&cs.borderTopStyle!=='none') push(b.left,b.top,b.width,tw,parse(cs.borderTopColor),chrome,ov);
+    if(bw>=0.5&&cs.borderBottomStyle!=='none') push(b.left,b.bottom-bw,b.width,bw,parse(cs.borderBottomColor),chrome,ov);
     for(const k of el.children) walk(k,chrome);
   };
   walk(stage,false);
@@ -461,9 +477,21 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
     per_slide_runs = _render_into_presentation(prs, html_list)
     _native = validate_pptx_native(prs)
     if not _native["native"]:
-        logger.warning(f"[gold-pptx] NON-NATIVE deck {out_path}: {'; '.join(_native['failures'])}")
+        # WS-0b (2026-07-09 uplift plan): the native guarantee is a HARD GATE, not a
+        # warning - a picture-only slide or zero-run deck must never ship silently.
+        raise RuntimeError(f"non-native deck refused: {'; '.join(_native['failures'])}")
+    # WS-0a: slide-count integrity is asserted against the request, and re-verified on
+    # the WRITTEN FILE after the font-embed rewrite (the zip is re-authored there).
+    if len(prs.slides) != len(html_list):
+        raise RuntimeError(f"slide-count mismatch before save: built {len(prs.slides)} of {len(html_list)} requested")
     prs.save(out_path)
     _embed_gold_fonts(out_path)
+    import zipfile as _zf
+    import re as _zre
+    with _zf.ZipFile(out_path) as _z:
+        _n = len([x for x in _z.namelist() if _zre.match(r"ppt/slides/slide\d+\.xml$", x)])
+    if _n != len(html_list):
+        raise RuntimeError(f"slide-count mismatch in written file: {_n} of {len(html_list)} requested survived the save")
     return {
         "path": out_path,
         "slides": [{"runs": r} for r in per_slide_runs],
@@ -580,6 +608,11 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     all_rects = geo.get("rects", [])
                     content_rects = [r for r in all_rects if not r.get("chrome")]
                     chrome_rects = [r for r in all_rects if r.get("chrome")]
+                    # WS-1e (2026-07-09) - overlay shapes (pptx-overlay / data-pptx-overlay) are
+                    # pulled OUT of the normal rect pass and placed AFTER all pictures so native
+                    # discs/badges sit above photos and screenshots (z-order = shape-tree order).
+                    overlay_rects = [r for r in content_rects if r.get("overlay")]
+                    content_rects = [r for r in content_rects if not r.get("overlay")]
                     all_imgs = geo.get("images", [])
                     content_imgs = [i for i in all_imgs if not i.get("chrome")]
                     chrome_imgs = [i for i in all_imgs if i.get("chrome")]
@@ -669,9 +702,11 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         from pptx.enum.shapes import MSO_SHAPE
                         try:
                             from pptx_export import _set_solid_fill_with_alpha, _suppress_effects
-                        except Exception:
-                            _set_solid_fill_with_alpha = None
-                            _suppress_effects = None
+                        except Exception as _helpers_err:
+                            # WS-0b (2026-07-09): these helpers are load-bearing - without
+                            # them every translucent wash renders opaque and shapes risk the
+                            # Office-blue theme fallback. Hard-require, never degrade silently.
+                            raise RuntimeError(f"pptx fill/effect helpers unavailable: {_helpers_err}")
                         # 2026-07-03 z-order (slides-imagery uplift): FULL-BLEED background
                         # photographs sit UNDER the geometry. Images are normally added last
                         # (slot art floats above panels), which buried the agenda's translucent
@@ -729,7 +764,31 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # 2026-06-27 - svg_pics = each <svg> region (logo / dot-mark / diagram) as its
                         # OWN tokenized native picture at its bounds (no full-slide raster). Placed
                         # alongside the <img> slot art so every decorative vector is movable/swappable.
-                        _place_geo_images(slide, list(content_imgs) + content_svg_pics, ex, ey, W, H)
+                        # WS-1c (2026-07-09) - content SVGs carrying serialized markup embed as TRUE
+                        # VECTOR pictures (SVG blip + the clip-screenshot PNG as the fallback blip),
+                        # the same path the chrome logo already uses. Only markup-less regions (the
+                        # >200KB guard, serialization failures, data-pptx-shot <img> fallbacks) go
+                        # through the plain raster placement.
+                        _vector_svg_pics = [s for s in content_svg_pics if s.get("svg")]
+                        _raster_svg_pics = [s for s in content_svg_pics if not s.get("svg")]
+                        _place_geo_images(slide, list(content_imgs) + _raster_svg_pics, ex, ey, W, H)
+                        import io as _iosv
+                        for _ci, _sv in enumerate(_vector_svg_pics):
+                            if _sv["x"] >= W or _sv["y"] >= H:
+                                continue
+                            _raw = _raster_bytes(_sv.get("src") or "")
+                            if _raw is None:
+                                continue
+                            try:
+                                _slide_add_svg_picture(
+                                    slide, _iosv.BytesIO(_raw), _sv["svg"].encode("utf-8"),
+                                    ex(_sv["x"]), ey(_sv["y"]), ex(max(_sv["w"], 1.0)), ey(max(_sv["h"], 1.0)),
+                                    9500 + _ci, "GOLD content vector")
+                            except Exception as _sverr:
+                                # vector embed failed for THIS svg only: keep the deck native by
+                                # placing the clip-screenshot PNG (the fallback blip) instead.
+                                logger.warning(f"[gold-pptx] svg vector embed failed, PNG fallback: {_sverr}")
+                                _place_geo_images(slide, [_sv], ex, ey, W, H)
                         # 2026-07-03: a full-bleed background picture (cover / agenda) sits on the slide
                         # and COVERS the layout-inherited chrome. Re-draw THIS slide's chrome (dot-mark +
                         # vector logo) ON THE SLIDE, above the background, so it stays visible - matching
@@ -774,6 +833,37 @@ def _render_into_presentation(prs, html_list: list) -> list:
                                                                  ex(max(_im["w"], 1.0)), ey(max(_im["h"], 1.0)))
                                 except Exception:
                                     pass
+                        # WS-1e (2026-07-09) - OVERLAY pass: place tagged annotation shapes AFTER
+                        # every picture so they sit on top (shape-tree order = z-order). Unlocks
+                        # native numbered discs (data-pptx-overlay="oval" -> MSO_SHAPE.OVAL) and
+                        # badges above photos/screenshots; their text lands via the run pass below,
+                        # which is already appended after all shapes.
+                        for _oi, rc in enumerate(overlay_rects):
+                            if rc["x"] >= W or rc["y"] >= H:
+                                continue
+                            _oshape = MSO_SHAPE.OVAL if rc.get("shape") == "oval" else MSO_SHAPE.RECTANGLE
+                            _osh = slide.shapes.add_shape(
+                                _oshape, ex(rc["x"]), ey(rc["y"]),
+                                ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)))
+                            _osh.shadow.inherit = False
+                            _osh.line.fill.background()
+                            if _set_solid_fill_with_alpha is not None and rc.get("alpha", 1) < 1:
+                                _set_solid_fill_with_alpha(_osh.fill._xPr, rc["fill"], rc["alpha"])
+                            else:
+                                _osh.fill.solid()
+                                _osh.fill.fore_color.rgb = RGBColor.from_string(rc["fill"])
+                            if _suppress_effects is not None:
+                                try:
+                                    _suppress_effects(_osh._element.spPr)
+                                except Exception:
+                                    pass
+                            try:
+                                _ost = _osh._element.find(
+                                    '{http://schemas.openxmlformats.org/presentationml/2006/main}style')
+                                if _ost is not None:
+                                    _osh._element.remove(_ost)
+                            except Exception:
+                                pass
                     # D15 (E3, 2026-07-02): the full-bleed raster tier (slide-sized screenshot picture)
                     # is DELETED. Every slide - including one whose geometry walk found no rects - now
                     # exports on the native path above (phase 9: native + editable from every path).
@@ -841,14 +931,14 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         pp.line_spacing = Pt(lh * PX2PT) if lh else 1.0
                         pp.space_before = Pt(0); pp.space_after = Pt(0)
                         run = pp.add_run(); run.text = txt
-                        run.font.name = r.get("family") or "Archivo"
+                        run.font.name = r.get("family") or _TOKEN_FALLBACKS["body_font"]
                         # 2026-06-14 - editable-overlay floor raised 5->8pt to match the
                         # redesign's 8.5pt legibility floor (the renderer now sizes all text
                         # at >=17 stage px); guarantees the PPTX text layer never undercuts it.
                         run.font.size = Pt(max(8, _size_px * PX2PT))
                         run.font.bold = (r.get("weight", 400) >= 600)
                         run.font.italic = bool(r.get("italic"))
-                        run.font.color.rgb = RGBColor.from_string(r.get("color") or "141414")
+                        run.font.color.rgb = RGBColor.from_string(r.get("color") or _TOKEN_FALLBACKS["ink"])
                         sp = r.get("spacing")
                         if sp and sp not in ("normal",):
                             try:
@@ -878,19 +968,12 @@ def _render_into_presentation(prs, html_list: list) -> list:
 def _embed_gold_fonts(pptx_path: str) -> None:
     """Embed Lora / IBM Plex Mono (plus the brand families already in pptx_export) so the
     editable text renders faithfully on machines without the gold fonts installed."""
-    try:
-        import pptx_export as pe
-        extra = [
-            {"typeface": "Lora", "pitchFamily": 18, "charset": 0, "regular": "Lora.ttf"},
-            {"typeface": "IBM Plex Mono", "pitchFamily": 49, "charset": 0,
-             "regular": "IBMPlexMono-Regular.ttf", "bold": "IBMPlexMono-SemiBold.ttf"},
-            # NXT display/title face. Was MISSING from FONT_FAMILIES, so PowerPoint substituted
-            # Calibri/Arial for every Saira-Condensed title in the editable export.
-            {"typeface": "Saira Condensed", "pitchFamily": 34, "charset": 0,
-             "regular": "SairaCondensed-Regular.ttf", "bold": "SairaCondensed-SemiBold.ttf"},
-        ]
-        have = {f.get("typeface") for f in pe.FONT_FAMILIES}
-        pe.FONT_FAMILIES = pe.FONT_FAMILIES + [f for f in extra if f["typeface"] not in have]
-        pe.embed_brand_fonts(pptx_path)
-    except Exception:
-        pass
+    # WS-0g (2026-07-09): ONE font manifest (brand_fonts.FONT_MANIFEST) - the
+    # runtime-monkeypatch era ended after Saira Condensed went silently missing and
+    # every title substituted Calibri. Embed failure is LOUD (fonts are part of the
+    # editable-export contract), never a silent pass.
+    import pptx_export as pe
+    from brand_fonts import FONT_MANIFEST
+    have = {f.get("typeface") for f in pe.FONT_FAMILIES}
+    pe.FONT_FAMILIES = pe.FONT_FAMILIES + [f for f in FONT_MANIFEST if f["typeface"] not in have]
+    pe.embed_brand_fonts(pptx_path)

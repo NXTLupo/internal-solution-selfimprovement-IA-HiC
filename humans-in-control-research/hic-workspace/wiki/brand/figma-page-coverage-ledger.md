@@ -1,4 +1,5 @@
 ---
+id: brand/figma-page-coverage-ledger.md
 type: brand
 topic: figma-page-coverage-ledger
 status: active
@@ -6,8 +7,207 @@ updated: 2026-07-02
 sources:
   - "Figma library iSQhAVM7SI4QHAWB7y9C2z (live MCP screenshot audit)"
   - "plans/artifact-total-elevation-2026-07-02.md (E3/E5)"
+chunks:
+  - id: "brand/figma-page-coverage-ledger.md#c0"
+    char_span: [0, 901]
+    sentence_count: 5
+    key_terms: [page, row, content, figma, creative-director, pass, omission-proof, page-coverage]
+    concepts: [content, figma]
+    token_count: 205
+  - id: "brand/figma-page-coverage-ledger.md#c1"
+    char_span: [914, 2954]
+    sentence_count: 6
+    key_terms: [quote, evidence, executive-brief, cards, empty, infographic, body, collapses]
+    concepts: [quote, executive-brief, evidence, infographic, cards]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c12"]
+    section: Ledger
+    token_count: 512
+  - id: "brand/figma-page-coverage-ledger.md#c2"
+    char_span: [2708, 3890]
+    sentence_count: 3
+    key_terms: [exhibit, componentized, frame, full-width, component, explainer, hairline, re-chunk]
+    concepts: [componentized, exhibit, frame, full-width, component]
+    section: Ledger
+    token_count: 309
+  - id: "brand/figma-page-coverage-ledger.md#c3"
+    char_span: [3892, 5398]
+    sentence_count: 5
+    key_terms: [table, header, severity, band, scale, bar, row, rows]
+    concepts: [table, header, severity, scale, evidence]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c11"]
+    section: Ledger
+    token_count: 414
+    sources: [{"n":"...) or a cited quote well on the CRITICAL row;","u":""}]
+  - id: "brand/figma-page-coverage-ledger.md#c4"
+    char_span: [5400, 7043]
+    sentence_count: 5
+    key_terms: [action, column, band, left, rows, evidence, illustration, cited]
+    concepts: [action, column, evidence, illustration, cited]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c17"]
+    section: Ledger
+    token_count: 427
+  - id: "brand/figma-page-coverage-ledger.md#c5"
+    char_span: [7045, 8869]
+    sentence_count: 5
+    key_terms: [card, done, token-bound, image, wash, brand-image-slot, content-true, below]
+    concepts: [token-bound, brand-image-slot, image, content-true, owner-gated]
+    section: Ledger
+    token_count: 490
+  - id: "brand/figma-page-coverage-ledger.md#c6"
+    char_span: [8871, 9987]
+    sentence_count: 6
+    key_terms: [matrix, phase, dead, rule, truncated, evidence, headers, header]
+    concepts: [matrix, phase, truncated, evidence, headers]
+    section: Ledger
+    token_count: 294
+  - id: "brand/figma-page-coverage-ledger.md#c7"
+    char_span: [9989, 11917]
+    sentence_count: 5
+    key_terms: [row, band, takeaway, opportunity, phase, personas, anatomy, header]
+    concepts: [takeaway, opportunity, personas, phase, anatomy]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c23"]
+    section: Ledger
+    token_count: 512
+  - id: "brand/figma-page-coverage-ledger.md#c8"
+    char_span: [11670, 13327]
+    sentence_count: 3
+    key_terms: [band, takeaway, rust, cards, wash-cool, wash-warn, hairline, markers]
+    concepts: [takeaway, wash-cool, wash-warn, cards, hairline]
+    section: Ledger
+    token_count: 451
+  - id: "brand/figma-page-coverage-ledger.md#c9"
+    char_span: [13329, 15032]
+    sentence_count: 9
+    key_terms: [rule, quote, microtags, card, pass, friction, anatomy, persona-detail]
+    concepts: [microtags, quote, friction, persona-detail, anatomy]
+    section: Ledger
+    token_count: 463
+  - id: "brand/figma-page-coverage-ledger.md#c10"
+    char_span: [15034, 16056]
+    sentence_count: 5
+    key_terms: [horizon, dead, rule, initiative, evidence, takeaway, columns, diagram]
+    concepts: [horizon, initiative, evidence, takeaway, columns]
+    section: Ledger
+    token_count: 258
+  - id: "brand/figma-page-coverage-ledger.md#c11"
+    char_span: [16058, 17260]
+    sentence_count: 5
+    key_terms: [header, legend, source, table, harvey-ball, done, rows, rule]
+    concepts: [header, legend, source, harvey-ball, table]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c3"]
+    section: Ledger
+    token_count: 339
+  - id: "brand/figma-page-coverage-ledger.md#c12"
+    char_span: [17262, 18829]
+    sentence_count: 5
+    key_terms: [diagnosis, actions, evidence, card, quote, coherent, policy, empty]
+    concepts: [diagnosis, actions, evidence, quote, coherent]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c1"]
+    section: Ledger
+    token_count: 397
+  - id: "brand/figma-page-coverage-ledger.md#c13"
+    char_span: [18831, 20695]
+    sentence_count: 9
+    key_terms: [diagram, rule, pre-relayout, table, owner-gated, add, fail, live]
+    concepts: [diagram, pre-relayout, owner-gated, descriptor, figma-side]
+    section: Ledger
+    token_count: 487
+  - id: "brand/figma-page-coverage-ledger.md#c14"
+    char_span: [20697, 21634]
+    sentence_count: 5
+    key_terms: [decision, five-column, typographic, grid, rule, registry, bottoms, column]
+    concepts: [decision, five-column, typographic, registry, bottoms]
+    section: Ledger
+    token_count: 257
+  - id: "brand/figma-page-coverage-ledger.md#c15"
+    char_span: [21636, 23553]
+    sentence_count: 9
+    key_terms: [rule, quotes, add, org, takeaway, source, visual, pre-relayout]
+    concepts: [quotes, takeaway, pre-relayout, source, visual]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c21"]
+    section: Ledger
+    token_count: 512
+  - id: "brand/figma-page-coverage-ledger.md#c16"
+    char_span: [23555, 25486]
+    sentence_count: 9
+    key_terms: [cover, agenda, rule, connectors, carry, branch, section-state, pre-relayout]
+    concepts: [cover, agenda, connectors, carry, section-state]
+    section: Ledger
+    token_count: 487
+  - id: "brand/figma-page-coverage-ledger.md#c17"
+    char_span: [25488, 27377]
+    sentence_count: 9
+    key_terms: [finding, rule, column, card, wash, takeaway, executive-brief, illustration]
+    concepts: [finding, column, executive-brief, takeaway, illustration]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c4"]
+    section: Ledger
+    token_count: 513
+  - id: "brand/figma-page-coverage-ledger.md#c18"
+    char_span: [27379, 29117]
+    sentence_count: 9
+    key_terms: [rule, band, image-free, cards, page, actions, record, pre-relayout]
+    concepts: [image-free, cards, actions, pre-relayout, record]
+    section: Ledger
+    token_count: 461
+  - id: "brand/figma-page-coverage-ledger.md#c19"
+    char_span: [29119, 30883]
+    sentence_count: 9
+    key_terms: [pass, rule, source, insight, black, dot-state, per-row, pre-relayout]
+    concepts: [source, insight, dot-state, black, per-row]
+    section: Ledger
+    token_count: 481
+  - id: "brand/figma-page-coverage-ledger.md#c20"
+    char_span: [30885, 32728]
+    sentence_count: 9
+    key_terms: [attribution, rule, quote, criteria, band, columns, dead, footer]
+    concepts: [attribution, criteria, quote, columns, pre-relayout]
+    section: Ledger
+    token_count: 485
+  - id: "brand/figma-page-coverage-ledger.md#c21"
+    char_span: [32730, 34629]
+    sentence_count: 9
+    key_terms: [rule, source, cells, phase, band, pre-relayout, voice, fingerprint]
+    concepts: [source, cells, phase, pre-relayout, fingerprint]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c15"]
+    section: Ledger
+    token_count: 510
+  - id: "brand/figma-page-coverage-ledger.md#c22"
+    char_span: [34631, 36506]
+    sentence_count: 8
+    key_terms: [cover, twin, illustration, load-bearing, source, frame, base, rule]
+    concepts: [illustration, load-bearing, cover, source, frame]
+    section: Ledger
+    token_count: 482
+  - id: "brand/figma-page-coverage-ledger.md#c23"
+    char_span: [36508, 37735]
+    sentence_count: 5
+    key_terms: [row, voice, anatomy, opportunity, pain, bullets, phase, chartreuse]
+    concepts: [voice, opportunity, anatomy, bullets, chartreuse]
+    related_chunks: ["brand/figma-page-coverage-ledger.md#c7"]
+    section: Ledger
+    token_count: 307
+  - id: "brand/figma-page-coverage-ledger.md#c24"
+    char_span: [37737, 38912]
+    sentence_count: 5
+    key_terms: [cards, source, card, dead, page, rule, stat, redesign]
+    concepts: [cards, source, redesign, frames]
+    section: Ledger
+    token_count: 331
+  - id: "brand/figma-page-coverage-ledger.md#c25"
+    char_span: [38980, 39926]
+    sentence_count: 1
+    key_terms: [proto, excluded, gold, nxt, patterns, pattern, volume, page]
+    concepts: [proto, excluded, patterns, pattern, volume]
+    section: Out of scope for this sweep (listed for E5 omission-proofing)
+    token_count: 302
+  - id: "brand/figma-page-coverage-ledger.md#c26"
+    char_span: [39959, 40919]
+    sentence_count: 1
+    key_terms: [competitive, service-blueprint, failure, journey, pages, pass, rule, case-study]
+    concepts: [competitive, service-blueprint, failure, journey, case-study]
+    section: Sweep summary (2026-07-02)
+    token_count: 259
 ---
-
 # Figma Page-Coverage Ledger (E3/E5 creative-director pass)
 
 Every page id in the design library appears here with {examined_on, verdict, actions}. A page with

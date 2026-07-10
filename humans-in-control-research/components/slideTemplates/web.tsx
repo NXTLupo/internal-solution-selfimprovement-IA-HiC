@@ -235,14 +235,37 @@ export function truncate(text: string | undefined, max: number): string {
     }
     if (best > max * 0.3) return slice.substring(0, best).trim();
 
-    // 3. Backward clause boundary, end with period (no ellipsis)
-    const lastClause = slice.lastIndexOf(', ');
-    if (lastClause > max * 0.5) return slice.substring(0, lastClause).trim() + '.';
+    // 3. Backward clause boundary, end with period (no ellipsis). Punctuation
+    //    OR a conjunction - dropping the trailing clause beats stranding it.
+    const lastClause = Math.max(
+        slice.lastIndexOf(', '), slice.lastIndexOf('; '),
+        slice.lastIndexOf(' and '), slice.lastIndexOf(' but '), slice.lastIndexOf(' because '),
+        slice.lastIndexOf(' before '), slice.lastIndexOf(' after '), slice.lastIndexOf(' when '),
+        slice.lastIndexOf(' while '), slice.lastIndexOf(' unless '), slice.lastIndexOf(' until '),
+    );
+    if (lastClause > max * 0.5) {
+        const kept = stripDanglingTail(slice.substring(0, lastClause));
+        if (kept) return kept + '.';
+    }
 
     // 4. Last resort: word boundary, NO ellipsis
     const lastSpace = slice.lastIndexOf(' ');
-    if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
+    if (lastSpace > 0) return stripDanglingTail(slice.substring(0, lastSpace)) || slice.trim();
     return slice.trim();
+}
+
+/** A cut must never END on a conjunction / preposition / article / auxiliary
+ *  ("...pre-filled, and", "...auto-populate the") - the loudest truncation
+ *  slop tell (user, 2026-07-09). Twin of slideToStageHtml.stripDanglingTail. */
+const DANGLING_TAIL = /\s(?:and|or|but|nor|so|yet|the|a|an|of|to|with|for|in|on|at|by|from|into|via|per|as|is|are|was|were|be|been|being|that|which|who|whose|their|its|his|her|our|your|own|then|than|while|when|where|both|each|any|all|also|not|only|even|such|very|more|most|about|over|under|between|through|during|before|after|against|toward|towards|without|within)$/i;
+function stripDanglingTail(s: string): string {
+    let t = s.replace(/\s*\([^)]*$/, '').replace(/[\s,;:.\-(“"‘']+$/, '').trim();
+    for (let i = 0; i < 6; i++) {
+        const peeled = t.replace(DANGLING_TAIL, '').replace(/[\s,;:.\-(“"‘']+$/, '').trim();
+        if (peeled === t) break;
+        t = peeled;
+    }
+    return t;
 }
 
 // === MICRO-PRIMITIVES ===
@@ -1924,8 +1947,12 @@ export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; so
     // complete thought; twin of slideToStageHtml.stripInlineSource.
     const stripInlineSource = (s: string): string =>
         String(s ?? '').trim().replace(/\s*\((?:source:\s*)?[^)]*\)\s*$/i, (m) => {
-            const inner = m.replace(/[()]/g, '');
-            return /source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner) ? '' : m;
+            const inner = m.replace(/[()]/g, '').trim();
+            if (/source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner)) return '';
+            // Short trailing Capitalized parenthetical = org attribution riding
+            // inline ("(World Bank)") - belongs in sources[], strip it.
+            if (/^[A-Z][A-Za-z&.'\- ]{1,28}$/.test(inner) && inner.split(/\s+/).length <= 4) return '';
+            return m;
         }).trim();
     const painsRaw: any[] = Array.isArray(data.painPoints) ? data.painPoints : [];
     const painCols: string[][] = stages.map((_, si) => {

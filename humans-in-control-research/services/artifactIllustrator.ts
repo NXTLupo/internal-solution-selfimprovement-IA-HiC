@@ -280,7 +280,14 @@ export async function resolveArtifactImages(
             .find((v) => typeof v === 'string' && (v as string).trim()) as string | undefined;
         const persona = (payload as any).persona;
         const personaName = persona && typeof persona === 'object' ? String(persona.name || '') : '';
-        return [personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 260);
+        if (personaName || head) return [personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 260);
+        // block-quote anatomy (2026-07-10): no title/name fields - the scene depicts the SPEAKER'S
+        // world: topic kicker + attribution + the quote's first clause (subject language, never text art).
+        const kicker = typeof payload['topicKicker'] === 'string' ? (payload['topicKicker'] as string) : '';
+        const who = ['attributionName', 'attributionRole'].map((k) => payload[k])
+            .filter((v) => typeof v === 'string' && (v as string).trim()).join(', ');
+        const quote = typeof payload['quote'] === 'string' ? (payload['quote'] as string).split(/[.;]/)[0] : '';
+        return [kicker, who, quote].filter(Boolean).join('. ').slice(0, 260);
     };
 
     if (spec.mode === 'panel' || spec.mode === 'hero') {

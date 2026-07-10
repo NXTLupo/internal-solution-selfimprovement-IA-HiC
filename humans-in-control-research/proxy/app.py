@@ -19142,79 +19142,11 @@ async def ai_diagram(payload: dict):
     # both diagram shapes (labels/nodes/...) and the E4 infographic families (steps/stats/...).
     if not _diagram_spec_has_content(spec):
         return JSONResponse({"error": "spec content required: labels/nodes (diagram) or steps/stats/segments/left+right (infographic)"}, status_code=400)
-    # 2026-07-03 (owner-directed): NODESC CONCEPT ART. A process-flow whose steps carry no
-    # descriptions renders title-only cards, and a stroke glyph is not an adequate concept
-    # image. Each such step gets a Nano-Banana on-brand transparent illustration derived from
-    # its title (VS-diversified, disk-cached by concept: generated once, reused on every later
-    # render/export). Fail-open per step: no illustration -> the card falls back to its
-    # content-true glyph. Steps WITH descriptions keep the text-forward card (the evidence
-    # line is the substance; art there would crowd it).
-    try:
-        if str(spec.get("kind") or "") == "process-flow":
-            _steps = [s for s in (spec.get("steps") or []) if isinstance(s, dict)]
-            if _steps and not any(str(s.get("description") or "").strip() for s in _steps):
-                _title = str(spec.get("title") or spec.get("kicker") or "")
-                _takeaway = str((spec.get("takeaway") or {}).get("statement") or "") if isinstance(spec.get("takeaway"), dict) else ""
-                _brand_v = payload.get("brand", "nxt")
-                _canvas_v = payload.get("canvas", "light")
-                # CONTENT-FIRST SCENE BRIEFS (owner-directed 2026-07-03): the slide content is
-                # already generated; derive each step's image prompt FROM that content. One flash
-                # call writes a LITERAL scene per step (the step's actor/object/action, drawable
-                # as one continuous line), and _brand_illustration renders it with literal=True
-                # (VS skipped - VS rewards non-obvious metaphors, which produced content-unrelated
-                # art: an eagle for 'AI scores probability'). Fallback scene = the step title.
-                _names = [str(s.get("name") or s.get("title") or "") for s in _steps]
-                scenes: list = ["" for _ in _steps]
-                _api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
-                if _api_key:
-                    try:
-                        _sp = (
-                            "A slide titled \"" + _title + "\" shows this process"
-                            + (f" (so-what: {_takeaway})" if _takeaway else "") + ":\n"
-                            + "\n".join(f"{i + 1}. {n}" for i, n in enumerate(_names))
-                            + "\n\nFor EACH step, describe ONE literal illustration subject that DEPICTS "
-                              "THAT STEP'S SPECIFIC ACTION - the concrete actor, object, or instrument "
-                              "doing the thing the step names (e.g. a hand filling a form on a clipboard; "
-                              "a gauge needle sweeping over stacked severity bars; a radar dish scanning "
-                              "over crop rows; a signpost with branching paths; a bell ringing above a "
-                              "circular calendar). Rules: the subject must be nameable at a glance AND "
-                              "unambiguously about the step's action (never a loosely related animal, "
-                              "plant, or object); ONE single fluid subject drawable as one continuous "
-                              "line (no collages, no text, no small detail); each step's subject must "
-                              "differ from the others.\n"
-                              "Return ONLY a JSON array of exactly "
-                            + str(len(_names)) + ' strings, one scene phrase per step, in order.'
-                        )
-                        _vurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_ILLUS_VS_MODEL}:generateContent"
-                        async with httpx.AsyncClient() as _cl:
-                            _vr = await _cl.post(_vurl, headers=_goog_key_headers(_api_key), timeout=60.0, json={
-                                "contents": [{"role": "user", "parts": [{"text": _sp}]}],
-                                "generationConfig": {"temperature": 0.4, "maxOutputTokens": 900,
-                                                     "thinkingConfig": {"thinkingBudget": 0}},
-                            })
-                        if _vr.status_code == 200:
-                            _raw = "".join(p.get("text", "") for p in
-                                           (((_vr.json().get("candidates") or [{}])[0]).get("content", {}).get("parts") or []))
-                            _arr = _parse_json_array(_raw)
-                            if isinstance(_arr, list):
-                                for i in range(min(len(_arr), len(scenes))):
-                                    if isinstance(_arr[i], str) and len(_arr[i].strip()) >= 10:
-                                        scenes[i] = _arr[i].strip()
-                    except Exception as _se:
-                        logger.warning(f"[diagram] step scene-brief call failed (fallback to titles): {_se}")
-
-                async def _step_art(i: int, s: dict):
-                    concept = scenes[i] or f"{_names[i]} - {_title}".strip(" -")
-                    if not concept:
-                        return
-                    r = await _brand_illustration(concept, _brand_v, _canvas_v, "side", 0, literal=bool(scenes[i]))
-                    if r.get("dataUri"):
-                        s["art"] = r["dataUri"]
-                await asyncio.gather(*[_step_art(i, s) for i, s in enumerate(_steps)])
-                logger.info(f"[diagram] step art: {sum(1 for s in _steps if s.get('art'))}/{len(_steps)} filled; "
-                            f"scene-briefs={sum(1 for x in scenes if x)}/{len(scenes)}")
-    except Exception as _e:
-        logger.warning(f"[diagram] nodesc concept-art injection skipped: {_e}")
+    # WS-1d 2026-07-09 - diffusion concept art removed from deliverable exhibits; the 2026-07-03
+    # Nano-Banana step-art block (scene-brief flash call + _brand_illustration per description-less
+    # process-flow step) is DELETED. A model-generated static image inside a deliverable exhibit
+    # violates the no-static rule; description-less steps render a content-true glyph or nothing
+    # per the isContentTrueIcon doctrine (nxt_diagram_render._process_flow_body).
     res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res

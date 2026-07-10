@@ -2,7 +2,7 @@
 id: design-system/slides-component-manifest.md
 title: SLIDES Component Manifest (deck archetypes the model composes from)
 type: design-system
-updated: 2026-06-17
+updated: 2026-07-09
 chunks:
   - id: "design-system/slides-component-manifest.md#c0"
     char_span: [0, 613]
@@ -20,58 +20,97 @@ chunks:
     section: How to emit a deck slide (MANDATORY contract)
     token_count: 134
   - id: "design-system/slides-component-manifest.md#c2"
-    char_span: [1294, 1730]
-    sentence_count: 2
-    key_terms: [slides, archetypes, archetype, thesis-interstitial, never, slide, body, deck]
-    concepts: [slides, archetypes, archetype, never, slide]
+    char_span: [1294, 2142]
+    sentence_count: 3
+    key_terms: [slides, never, archetypes, archetype, content, thesis-interstitial, slide, milestone-timeline]
+    concepts: [slides, archetypes, never, archetype, content]
     related_chunks: ["design-system/slides-component-manifest.md#c0", "design-system/slides-component-manifest.md#c1"]
     section: "Selection doctrine (this fixes \"no variety / repeats one template\")"
-    token_count: 107
+    token_count: 219
   - id: "design-system/slides-component-manifest.md#c3"
-    char_span: [1778, 3154]
+    char_span: [2190, 3566]
     sentence_count: 5
     key_terms: [body, evidence-table, chars, scale, org-model, readable, caption, matters]
     concepts: [evidence-table, chars, scale, org-model, readable]
     section: Type system (fully tokenized — 2026-06-18)
     token_count: 394
   - id: "design-system/slides-component-manifest.md#c4"
-    char_span: [3172, 3536]
+    char_span: [3584, 3948]
     sentence_count: 1
     key_terms: [bottom-left, top, dot-mark, thesis-interstitial, saira, bar, rail, full-bleed-dark]
     concepts: [bottom-left, dot-mark, saira]
     section: Chrome modes
     token_count: 110
   - id: "design-system/slides-component-manifest.md#c5"
-    char_span: [3605, 5332]
+    char_span: [4017, 5744]
     sentence_count: 11
     key_terms: [full-bleed-dark, payload, slides, title, illustration, imageconcept, presentation, kicker]
     concepts: [full-bleed-dark, payload, slides, title, illustration]
-    related_chunks: ["design-system/slides-component-manifest.md#c6"]
+    related_chunks: ["design-system/slides-component-manifest.md#c8", "design-system/slides-component-manifest.md#c9"]
     section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
     token_count: 473
   - id: "design-system/slides-component-manifest.md#c6"
-    char_span: [5334, 6931]
-    sentence_count: 10
-    key_terms: [quote, title, payload, content-rail, slides, sourceline, featured, corroborating]
-    concepts: [quote, content-rail, title, payload, sourceline]
-    related_chunks: ["design-system/slides-component-manifest.md#c5", "design-system/slides-component-manifest.md#c7"]
+    char_span: [5746, 6320]
+    sentence_count: 5
+    key_terms: [quote, corroborating, supporting, scenes-where-they-fit, url, attributionname, attributionrole, content-rail]
+    concepts: [quote, corroborating, supporting]
     section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
-    token_count: 443
+    token_count: 158
   - id: "design-system/slides-component-manifest.md#c7"
-    char_span: [6933, 8604]
-    sentence_count: 13
-    key_terms: [content-rail, label, columns, eyebrow, payload, "role's", slides, title]
-    concepts: [content-rail, columns, label, eyebrow, payload]
-    related_chunks: ["design-system/slides-component-manifest.md#c6"]
+    char_span: [6322, 8023]
+    sentence_count: 7
+    key_terms: [title, quote, kicker, points, content-rail, named, panel, slide]
+    concepts: [title, quote, content-rail, kicker, points]
     section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
-    token_count: 512
+    token_count: 439
   - id: "design-system/slides-component-manifest.md#c8"
-    char_span: [8606, 9150]
-    sentence_count: 3
-    key_terms: [slides, aggregate-roadmap, eyebrow, roadmap, matrix, role-recommendation, roles, per]
-    concepts: [slides, aggregate-roadmap, eyebrow, roadmap, matrix]
+    char_span: [8025, 9465]
+    sentence_count: 8
+    key_terms: [columns, title, column, featured, payload, slides, content-rail, content-true]
+    concepts: [columns, title, column, featured, payload]
+    related_chunks: ["design-system/slides-component-manifest.md#c5"]
     section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
-    token_count: 145
+    token_count: 411
+  - id: "design-system/slides-component-manifest.md#c9"
+    char_span: [9467, 10701]
+    sentence_count: 11
+    key_terms: [content-rail, eyebrow, payload, "role's", slides, label, title, body]
+    concepts: [content-rail, eyebrow, payload, "role's", slides]
+    related_chunks: ["design-system/slides-component-manifest.md#c5"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 381
+  - id: "design-system/slides-component-manifest.md#c10"
+    char_span: [10703, 12536]
+    sentence_count: 13
+    key_terms: [quadrant, title, density, outcome, order, composer-native, payload, content-rail]
+    concepts: [quadrant, title, density, outcome, composer-native]
+    related_chunks: ["design-system/slides-component-manifest.md#c11", "design-system/slides-component-manifest.md#c12"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 501
+  - id: "design-system/slides-component-manifest.md#c11"
+    char_span: [12538, 14268]
+    sentence_count: 11
+    key_terms: [title, chars, density, matters, figure, milestones, sourceline, composer-native]
+    concepts: [title, chars, density, matters, milestones]
+    related_chunks: ["design-system/slides-component-manifest.md#c10", "design-system/slides-component-manifest.md#c12"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 455
+    sources: [{"n":"\"One in three briefs stalls before synthesis.\" (Practice","u":""}]
+  - id: "design-system/slides-component-manifest.md#c12"
+    char_span: [14270, 15928]
+    sentence_count: 10
+    key_terms: [criterion, value, density, chars, label, title, note, criteria]
+    concepts: [criterion, value, density, chars, composer-native]
+    related_chunks: ["design-system/slides-component-manifest.md#c10", "design-system/slides-component-manifest.md#c11"]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 447
+  - id: "design-system/slides-component-manifest.md#c13"
+    char_span: [15930, 16197]
+    sentence_count: 1
+    key_terms: [slides, role-recommendation, aggregate-roadmap, role, role-roadmap, role-needs, narrative, matching]
+    concepts: [slides]
+    section: Archetypes (template id · NODE NXT/NU · WHEN TO USE · PAYLOAD)
+    token_count: 69
 ---
 # SLIDES Component Manifest
 
@@ -99,6 +138,11 @@ exact key. Pixel anatomy + token bindings per archetype:
   `slides:section-divider` / `slides:thesis-interstitial` between major sections.
 - VARY the archetype to the CONTENT SHAPE - never repeat one body archetype slide after slide. A
   varied deck uses 5+ distinct archetypes; never 3 identical body archetypes in a row.
+- DIAGRAM-SHAPED CONTENT LANDS ON A DIAGRAM BRICK (2026-07-09): 2x2 positioning ->
+  `slides:quadrant`; a process/sequence -> `slides:flow-arc`; dated milestones ->
+  `slides:milestone-timeline`; relative magnitudes -> `slides:ranked-bars`; option-vs-option ->
+  `slides:comparison-panels`; the hero-figure MEANS/MATTERS stat anatomy -> `slides:means-matters`.
+  Never render these shapes as plain text columns.
 - Titles are conclusions; numbers ride only inside cited quotes; >=50% external sources.
 
 ## Type system (fully tokenized — 2026-06-18)
@@ -165,7 +209,7 @@ pair -> a comparison; 2-5 labeled stats -> a stat row; a 2+ source-type citation
 evidence-mix composition. Use when a finding is STRUCTURAL (a sequence, a contrast, a distribution)
 and prose columns would bury it; at most 1-2 per deck.
 PAYLOAD: `{ kicker, title, takeaway: { label, statement }, sourceLine }` PLUS exactly ONE of:
-`steps: [ { name } ] (3-5 complete named moves)` OR `beforeAfter: { before: { points: [...] },
+`steps: [ { title, description } ] (3-5 moves: title = the named move, description = ONE sentence of substance - what happens and why it matters; a bare title renders an empty card)` OR `beforeAfter: { before: { points: [...] },
 after: { points: [...] } } (2-4 points each)` OR `stats: [ { label, value, quote?, source? } ] (2-5;
 values are QUALITATIVE words unless the number rides inside the cited quote)` OR `citations:
 [ "named source", ... ] (4+ real named sources across types)`. Do NOT author an image URL
@@ -203,6 +247,70 @@ PAYLOAD: `{ eyebrow, title, role, phases: [ { label, name, items: [ ".." ] } ] (
 ### slides:aggregate-roadmap — 609:15 / 626:425 · content-rail
 One roadmap across roles: role-rows x horizon-columns matrix. The cross-role closer.
 PAYLOAD: `{ eyebrow, title, horizons: [ 4 column labels, last emphasized ], roles: [ { name, cells: [ one per horizon ] } ] }`.
+
+### slides:quadrant — composer-native (Figma canon write-back pending, WS-2) · content-rail ← 2x2 positioning
+A 2x2 strategy quadrant: two axis labels, four titled quadrant cells (quadrant order TL, TR, BL,
+BR), and 3-8 plotted subject chips rendered inside their quadrant as accent-bordered chips. Use
+when the finding POSITIONS named things against two dimensions (value vs effort, urgency vs
+impact); never fake a quadrant with text columns.
+PAYLOAD: `{ kicker, title, xAxis, yAxis, quadrants: [ { title, items: [ ".." ] (<=3) } ] (exactly 4,
+order TL/TR/BL/BR), subjects: [ { label, quadrant } ] (3-8; quadrant = 1-4 -> TL/TR/BL/BR), sourceLine }`.
+BUDGETS: title <= 70 chars; xAxis/yAxis <= 60 (name BOTH poles, e.g. "DELIVERY EFFORT (LOW TO
+HIGH)"); quadrant title <= 24; each item <= 60; subject label <= 28. At most 3 subjects land per
+quadrant (extras drop in payload order) - spread them. DENSITY: fixed 4 quadrants; `density=dense`
+does not raise ceilings here.
+
+### slides:flow-arc — composer-native (Figma canon write-back pending, WS-2) · content-rail ← process / sequence
+3-6 numbered step cards in a horizontal band with native connector bars between them; steps
+spread to fill the zone at any count. Optional `outcome` closes the slide with an accent OUTCOME
+band. THE brick for process-shaped content (phases, pipelines, operating loops) - never render a
+sequence as prose columns. Step numbers are AUTOMATIC from order; do not author them.
+PAYLOAD: `{ kicker, title, steps: [ { title, description } ] (3-6), outcome?, sourceLine }`.
+BUDGETS: title <= 70 chars; step title <= 30 (2 lines); description = ONE complete sentence of
+substance, <= 170 chars (what happens and why it matters - a bare label renders a hollow card);
+outcome <= 140 (2 lines on the band). DENSITY: 4 steps base; `density=dense` warrants 5-6.
+
+### slides:milestone-timeline — composer-native (Figma canon write-back pending, WS-2) · content-rail ← dated milestones
+A horizontal time axis with 3-6 milestone nodes: accent dot on the axis, mono date label, title +
+one-line detail alternating above/below the axis (collision-free by construction). Use for dated
+commitments, rollout gates, history arcs - anything where WHEN carries the argument.
+PAYLOAD: `{ kicker, title, milestones: [ { date, title, detail } ] (3-6, chronological), sourceLine }`.
+BUDGETS: title <= 70 chars; date <= 14 chars (e.g. "MAR 2026", "Q3 2026"); milestone title <= 28
+(2 lines); detail = ONE line of substance, <= 60 chars. DENSITY: 4 milestones base;
+`density=dense` warrants 5-6.
+
+### slides:means-matters — composer-native (Figma canon write-back pending, WS-2) · content-rail ← hero-figure stat anatomy
+The two-layer stat anatomy (Farm-reference pattern): 2-3 columns, each an accent hero figure +
+plain caption + MEANS label (cyan mono) + readable interpretation + MATTERS as a DARK CARD (rail
+background, accent text); ONE source line closes the slide. Distinct from `slides:stat-row`: the
+figure defers to the action title (numeral tier, never hero) and the MATTERS layer is a card.
+Use when 2-3 evidence-carried figures each need an interpretation AND a consequence.
+PAYLOAD: `{ kicker, title, stats: [ { figure, caption, means, matters } ] (2-3), sourceLine }`.
+BUDGETS: title <= 70 chars; figure <= 8 chars (rides a cited quote in sourceLine per the
+quantitative-claim rule, e.g. `Source: "One in three briefs stalls before synthesis." (Practice
+operations review)`); caption <= 40; means <= 110; matters <= 110. DENSITY: fixed 2-3 columns;
+`density=dense` does not raise ceilings here.
+
+### slides:ranked-bars — composer-native (Figma canon write-back pending, WS-2) · content-rail ← relative magnitude
+Horizontal proportional bars: 3-6 rows, each label (left) + accent bar on an ecru track scaled by
+a 0-100 RELATIVE value + note (right). The value is NEVER rendered as text - it sets the bar
+length only; any figure the reader sees rides a cited quote in the note. Use when the finding is
+a RANKING or distribution (where the hours go, which drivers dominate).
+PAYLOAD: `{ kicker, title, bars: [ { label, value, note } ] (3-6, sorted descending by value;
+value = integer 0-100 relative magnitude, top row = 100), sourceLine }`.
+BUDGETS: title <= 70 chars; label <= 28 (2 lines); note <= 90 chars (2 lines; carries the cited
+quote when a figure matters). DENSITY: 4 bars base; `density=dense` warrants 5-6.
+
+### slides:comparison-panels — composer-native (Figma canon write-back pending, WS-2) · content-rail ← option-vs-option
+2-3 side-by-side option panels, each a dark header band + one cell per criterion, aligned across
+panels on shared hairline rows with the criterion labels in a left rail column. Distinct from
+`slides:evidence-table` (row cards profiling named subjects on ONE axis): this brick compares
+OPTIONS down a shared criteria list (build vs buy vs assemble, vendor A vs B).
+PAYLOAD: `{ kicker, title, criteria: [ ".." ] (3-5 labels), panels: [ { name, cells: [ one per
+criterion, same order ] } ] (2-3), sourceLine }`.
+BUDGETS: title <= 70 chars; criterion label <= 24 (uppercase rendered); panel name <= 20; each
+cell <= 110 chars (2-3 lines, a judgment not a paragraph). DENSITY: 4 criteria base;
+`density=dense` warrants 5.
 
 > The `slides:role-needs` / `slides:role-recommendation` / `slides:role-roadmap` trio is ONE narrative
 > set per role: emit all three with the same `role` value and matching eyebrow suffix.

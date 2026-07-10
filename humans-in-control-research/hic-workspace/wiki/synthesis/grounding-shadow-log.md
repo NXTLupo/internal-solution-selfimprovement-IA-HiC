@@ -47,20 +47,20 @@ chunks:
 
 ### Current Benchmark Status
 
-*   **Maturity Models Benchmark**: The benchmark data is currently marked as HYPOTHESIS. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to PARTIALLY EVIDENCED or EVIDENCED [evidence/cx-maturity.md].
-*   **Technology Adoption Benchmark**: The benchmark data is currently marked as HYPOTHESIS. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to PARTIALLY EVIDENCED or EVIDENCED [evidence/digital-transformation.md].
+*   **Maturity Models Benchmark**: The benchmark data is currently marked as a hypothesis. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/cx-maturity.md].
+*   **Technology Adoption Benchmark**: The benchmark data is currently marked as a hypothesis. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/digital-transformation.md].
 
 ---
 
 ### Validation Confidence Framework
 
-The validation framework utilizes confidence levels—including HYPOTHESIS, PARTIALLY EVIDENCED, and EVIDENCED—to categorize how well a finding is supported by source evidence [evidence/cx-maturity.md] [evidence/digital-transformation.md].
+The validation framework utilizes confidence levels—including hypothesis, partially evidenced, and evidenced—to categorize how well a finding is supported by source evidence [evidence/cx-maturity.md] [evidence/digital-transformation.md].
 
 ---
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-To transition benchmarks from HYPOTHESIS to EVIDENCED, primary source evidence must be ingested across the following categories:
+To transition benchmarks from hypothesis to evidenced, primary source evidence must be ingested across the following pending categories:
 
-*   **CX Maturity**: Ingestion is required for evidence regarding organizational structures, employee correlation, and maturity-to-revenue levels [evidence/cx-maturity.md].
-*   **Digital Transformation**: Ingestion is required for evidence regarding technology adoption, change management, culture, and primary transformation failure factors [evidence/digital-transformation.md].
+*   **CX Maturity**: Ingestion is required for evidence correlating organizational structures, employee metrics, and maturity-to-revenue levels [evidence/cx-maturity.md].
+*   **Digital Transformation**: Ingestion is required for evidence regarding transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md].

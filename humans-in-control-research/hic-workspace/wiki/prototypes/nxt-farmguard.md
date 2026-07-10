@@ -1,4 +1,5 @@
 ---
+id: prototypes/nxt-farmguard.md
 title: "NXT FarmGuard (prototype)"
 type: exemplar
 created: 2026-07-02
@@ -14,6 +15,192 @@ based_on: ""
 research_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farm"
 prototype_slug: nxt-farmguard
 code_format: react
+chunks:
+  - id: "prototypes/nxt-farmguard.md#c0"
+    char_span: [0, 155]
+    sentence_count: 2
+    key_terms: [nxt-farmguard, interactive, experience, prototypes, farmguard, generated, localhost, prototype]
+    token_count: 35
+  - id: "prototypes/nxt-farmguard.md#c1"
+    char_span: [167, 2527]
+    sentence_count: 8
+    key_terms: [risk, plan, prioritized, mitigation, farm, equipment, receives, recovery]
+    concepts: [prioritized, mitigation, equipment, receives, recovery]
+    section: Concept
+    token_count: 486
+  - id: "prototypes/nxt-farmguard.md#c2"
+    char_span: [2529, 2781]
+    sentence_count: 1
+    key_terms: [ai-suggested, demonstrated, prioritized, assessment, mitigation, completes, deadline, downtime]
+    section: Concept
+    token_count: 50
+  - id: "prototypes/nxt-farmguard.md#c3"
+    char_span: [2783, 5238]
+    sentence_count: 15
+    key_terms: [risk, dale, farmguard, trigger, mitigation, strategies, operation, flow]
+    concepts: [farmguard, trigger, mitigation, strategies, operation]
+    related_chunks: ["prototypes/nxt-farmguard.md#c4", "prototypes/nxt-farmguard.md#c12"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c4"
+    char_span: [4919, 7549]
+    sentence_count: 19
+    key_terms: [plan, dale, tasks, recovery, outcome, trigger, farmguard, weather]
+    concepts: [tasks, recovery, outcome, trigger, farmguard]
+    related_chunks: ["prototypes/nxt-farmguard.md#c3", "prototypes/nxt-farmguard.md#c5"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c5"
+    char_span: [7221, 9239]
+    sentence_count: 15
+    key_terms: [risk, dale, recovery, readiness, outcome, farmguard, role, against]
+    concepts: [recovery, readiness, outcome, farmguard, documentation]
+    related_chunks: ["prototypes/nxt-farmguard.md#c4", "prototypes/nxt-farmguard.md#c9"]
+    section: Concept
+    token_count: 394
+  - id: "prototypes/nxt-farmguard.md#c6"
+    char_span: [9241, 11737]
+    sentence_count: 21
+    key_terms: [element, primary, purpose, character, motion, risk, risks, readiness]
+    concepts: [element, primary, purpose, character, motion]
+    related_chunks: ["prototypes/nxt-farmguard.md#c7"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c7"
+    char_span: [11445, 12558]
+    sentence_count: 11
+    key_terms: [character, motion, element, primary, purpose, dale, plan, mitigation]
+    concepts: [character, motion, element, primary, purpose]
+    related_chunks: ["prototypes/nxt-farmguard.md#c6"]
+    section: Concept
+    token_count: 229
+  - id: "prototypes/nxt-farmguard.md#c8"
+    char_span: [12560, 14935]
+    sentence_count: 20
+    key_terms: [user, risk, dale, assessment, action, gemini, output, input]
+    concepts: [assessment, action, gemini, output, input]
+    related_chunks: ["prototypes/nxt-farmguard.md#c9"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c9"
+    char_span: [14634, 16362]
+    sentence_count: 17
+    key_terms: [user, recovery, benefit, action, output, input, model, readiness]
+    concepts: [recovery, benefit, action, output, readiness]
+    related_chunks: ["prototypes/nxt-farmguard.md#c5", "prototypes/nxt-farmguard.md#c8"]
+    section: Concept
+    token_count: 355
+  - id: "prototypes/nxt-farmguard.md#c10"
+    char_span: [16364, 18514]
+    sentence_count: 2
+    key_terms: [records, example, summary, shape, status, risks, title, completedat]
+    concepts: [records, example, summary, shape, status]
+    section: Concept
+    token_count: 484
+  - id: "prototypes/nxt-farmguard.md#c11"
+    char_span: [18516, 20545]
+    sentence_count: 13
+    key_terms: [illustration, editorial, image, data, hero, risk, agronomic, confident]
+    concepts: [illustration, editorial, image, agronomic, confident]
+    section: Concept
+    token_count: 437
+  - id: "prototypes/nxt-farmguard.md#c12"
+    char_span: [20547, 22333]
+    sentence_count: 4
+    key_terms: [mitigation, phase, success, plan, risk, assessment, strategies, readiness]
+    concepts: [mitigation, phase, success, assessment, strategies]
+    related_chunks: ["prototypes/nxt-farmguard.md#c3"]
+    section: Concept
+    token_count: 382
+  - id: "prototypes/nxt-farmguard.md#c13"
+    char_span: [22335, 24642]
+    sentence_count: 21
+    key_terms: [user, feeling, dale, risk, forward-contract, hail, plan, deadlines]
+    concepts: [feeling, forward-contract, deadlines, narrative, calendar]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c14"
+    char_span: [24364, 24835]
+    sentence_count: 5
+    key_terms: [playbook, documentation, auto-drafted, step-by-step, claim-ready, credential, generation, activates]
+    concepts: [playbook]
+    section: Concept
+    token_count: 104
+  - id: "prototypes/nxt-farmguard.md#c15"
+    char_span: [24837, 26953]
+    sentence_count: 24
+    key_terms: [feedback, motion, system, dale, dots, grid, rationale, dot]
+    concepts: [feedback, motion, system, rationale, interaction]
+    related_chunks: ["prototypes/nxt-farmguard.md#c16"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c16"
+    char_span: [26717, 27710]
+    sentence_count: 11
+    key_terms: [motion, feedback, system, dashboard, dale, plan, tasks, icon]
+    concepts: [motion, feedback, system, dashboard, mitigation]
+    related_chunks: ["prototypes/nxt-farmguard.md#c15"]
+    section: Concept
+    token_count: 233
+  - id: "prototypes/nxt-farmguard.md#c17"
+    char_span: [27712, 30042]
+    sentence_count: 1
+    key_terms: [sourceofsignal, description, prioritized, likelihood, rationale, category, severity, lastreviewed]
+    concepts: [sourceofsignal, description, prioritized, likelihood, rationale]
+    related_chunks: ["prototypes/nxt-farmguard.md#c18"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c18"
+    char_span: [29740, 31950]
+    sentence_count: 1
+    key_terms: [description, status, projectedimpact, sourceofsignal, tasksgenerated, title, severity, lastreviewed]
+    concepts: [description, status, projectedimpact, sourceofsignal, tasksgenerated]
+    related_chunks: ["prototypes/nxt-farmguard.md#c17", "prototypes/nxt-farmguard.md#c19"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c19"
+    char_span: [31631, 33774]
+    sentence_count: 1
+    key_terms: [projectedimpact, tasksgenerated, riskid, status, title, description, efforttier, costtier]
+    concepts: [projectedimpact, tasksgenerated, riskid, status, description]
+    related_chunks: ["prototypes/nxt-farmguard.md#c18"]
+    section: Concept
+    token_count: 512
+  - id: "prototypes/nxt-farmguard.md#c20"
+    char_span: [33550, 34965]
+    sentence_count: 1
+    key_terms: [completedat, "null", dependency, priority, remindat, strategyid, status, duedate]
+    concepts: [completedat, dependency, priority, remindat, strategyid]
+    section: Concept
+    token_count: 432
+  - id: "prototypes/nxt-farmguard.md#c21"
+    char_span: [34967, 37164]
+    sentence_count: 3
+    key_terms: [plans, risk, recovery, farmers, least, assessment, engagement, mitigation]
+    concepts: [plans, recovery, farmers, assessment, engagement]
+    section: Concept
+    token_count: 429
+  - id: "prototypes/nxt-farmguard.md#c22"
+    char_span: [37178, 38819]
+    sentence_count: 3
+    key_terms: [risk, involvement, farm, technological, plan, role, farmer, price]
+    concepts: [involvement, technological, farmer, price]
+    section: Based on / Research goal / Brief
+    token_count: 339
+  - id: "prototypes/nxt-farmguard.md#c23"
+    char_span: [38841, 40040]
+    sentence_count: 1
+    key_terms: [conversational, question, assessment, branching, purpose, likelihood-by-severity, answer, toggle]
+    concepts: [conversational, question, assessment, branching, purpose]
+    section: Interaction spec
+    token_count: 255
+  - id: "prototypes/nxt-farmguard.md#c24"
+    char_span: [40055, 41255]
+    sentence_count: 7
+    key_terms: [app, file, screen, component, missing, pattern, cannot, entire]
+    concepts: [screen, component, missing, pattern, cannot]
+    section: Critique
+    token_count: 260
 ---
 # NXT FarmGuard
 

@@ -522,6 +522,16 @@ const TITLE_CLICHE_SWAPS: Array<[RegExp, string]> = [
     [/\bwalk through first\b/gi, 'move first'],
     [/\bredrawing the map\b/gi, 'redrawing the market'],
     [/\beats? it\b/gi, 'absorbs it'],
+    // WS-0e (2026-07-09): the leverage VERB family - inflected/passive forms slipped
+    // the scorer-only lexicon and shipped on a live thesis slide ("AI should be
+    // leveraged to improve..."). Clean literal swaps; the financial NOUN ("leverage
+    // ratio") is untouched because every pattern requires the verb frame.
+    [/\bbe leveraged to\b/gi, 'be used to'],
+    [/\b(is|are|was|were|been|being) leveraged\b/gi, '$1 used'],
+    [/\bleveraged to\b/gi, 'used to'],
+    [/\bleverages (the|our|its|their|a|an|existing|your)\b/gi, 'uses $1'],
+    [/\bleveraging (the|our|its|their|a|an|existing|your)\b/gi, 'using $1'],
+    [/\bleverage (the|our|its|their|a|an|existing|your)\b/gi, 'use $1'],
 ];
 export function deClicheText(text: string | undefined | null): string {
     let t = (text || '');

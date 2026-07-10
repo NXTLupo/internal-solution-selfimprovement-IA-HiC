@@ -282,7 +282,7 @@
     }
   },
   "_slideArchetypes": {
-    "_comment": "The slides-system deck archetypes (Figma page 324:2, symbols 609:2..609:15). Rendered by services/slideComposer.ts composeSlide() (the slides: namespace), NOT the GOLD dispatch. 'present' == implemented in ARCHETYPE_SPECS (archetypeKeys()). All 14 verified present 2026-06-23 (migration complete); missing_renderers empty.",
+    "_comment": "The slides-system deck archetypes (Figma page 324:2, symbols 609:2..609:15). Rendered by services/slideComposer.ts composeSlide() (the slides: namespace), NOT the GOLD dispatch. 'present' == implemented in ARCHETYPE_SPECS (archetypeKeys()). All 14 verified present 2026-06-23 (migration complete); missing_renderers empty. 2026-07-09 (WS-2 slides-strategic-visual-uplift): +8 canon frames written back to 324:2 (screen-critique, screen-redesign, and the six native diagram archetypes quadrant/flow-arc/milestone-timeline/means-matters/ranked-bars/comparison-panels), each a variable-bound COMPONENT (collection 221:2; color + fontFamily bound) with an NU mode-535:0 instance twin at x=2220; screenshot-verified.",
     "_imageRoomAudit_2026_06_28": "USER OVERRIDE scenes-where-they-fit applied to the 10 CONTENT archetypes. Live-Figma room audit of every frame on 324:2: imagery ADDED only where a container has genuine empty room without crowding text -> block-quote (emotive panel slot 901:477) + org-model (per-column icon slots 901:5476-5478). The other 8 stay IMAGE-FREE (honest, not silent): numbered-themes = 4 columns packed number/name/6-line body/3-line quote to dy800; role-recommendation = both columns full (actions->y560, impact tiles->y890); problem-diptych = both graphite cards full (card-2 body overflows); role-needs = persona card full to local y844 (card bottom y880, only 36px free); evidence-table = dense 6-row tabular grid, no icon cell; aggregate-roadmap = role x horizon matrix IS the body; stat-row = figure/headline/MEANS/MATTERS content-complete (lower band would float, not traceable); role-roadmap = narrow 388px phase columns, a per-phase mark reads as decoration (phase name already labels). NO PURE DECORATION: every added slot traces to a specific element.",
     "page": "324:2",
     "archetypes": {
@@ -387,6 +387,62 @@
         "node": "609:15",
         "nu": "626:425",
         "renderer": "present"
+      },
+      "screen-critique": {
+        "template": "slides:screen-critique",
+        "node": "1003:546",
+        "nu": "1003:583",
+        "renderer": "present"
+      },
+      "screen-redesign": {
+        "template": "slides:screen-redesign",
+        "node": "1003:6166",
+        "nu": "1003:6193",
+        "renderer": "present"
+      },
+      "quadrant": {
+        "template": "slides:quadrant",
+        "node": "1003:6220",
+        "nu": "1003:6254",
+        "renderer": "present"
+      },
+      "flow-arc": {
+        "template": "slides:flow-arc",
+        "node": "1004:641",
+        "nu": "1004:679",
+        "renderer": "present"
+      },
+      "milestone-timeline": {
+        "template": "slides:milestone-timeline",
+        "node": "1004:6263",
+        "nu": "1004:6304",
+        "renderer": "present"
+      },
+      "means-matters": {
+        "template": "slides:means-matters",
+        "node": "1004:6345",
+        "nu": "1004:6381",
+        "renderer": "present"
+      },
+      "ranked-bars": {
+        "template": "slides:ranked-bars",
+        "node": "1008:753",
+        "nu": "1010:788",
+        "renderer": "present"
+      },
+      "comparison-panels": {
+        "template": "slides:comparison-panels",
+        "node": "1010:753",
+        "nu": "1010:828",
+        "renderer": "present"
+      }
+    },
+    "protoComponents": {
+      "_comment": "Small reusable canon bricks referenced by slides archetypes (not archetypes themselves; the parity gate reads only .archetypes).",
+      "proto/AnnotationBadge": {
+        "node": "1010:6409",
+        "page": "403:2",
+        "use": "numbered accent disc (34px, 2px paper stroke, on-accent numeral) + short label; mirrors the screen-critique/screen-redesign baked callout discs (slideComposer marker discs, D=34)"
       }
     },
     "missing_renderers": []

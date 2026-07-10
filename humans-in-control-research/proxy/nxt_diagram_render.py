@@ -21,12 +21,10 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 _FONT_DIR = os.path.join(_HERE, "fonts", "static")
 FRAME_W, FRAME_H = 1280, 720   # exact 16:9
 
-_FONT_FILES = {
-    "Archivo": "Archivo-Regular.ttf",
-    "Archivo-Bold": "Archivo-Bold.ttf",
-    "Saira Condensed": "SairaCondensed-SemiBold.ttf",
-    "NXT Mono": "JetBrainsMono-Regular.ttf",
-}
+# WS-0g (2026-07-09): the font manifest is SHARED (brand_fonts.py). The old local
+# dict mapped the NXT mono slot to JetBrains while _font_face_css used IBM Plex -
+# an inconsistent mono face. IBM Plex Mono is the token font/mono; one source now.
+from brand_fonts import DIAGRAM_FONT_FACES as _DIAGRAM_FONT_FACES
 
 
 def _e(s) -> str:
@@ -37,13 +35,7 @@ def _font_face_css() -> str:
     """@font-face the local brand TTFs by absolute file:// path (Chromium reads file URLs when
     the doc is loaded from a temp .html file)."""
     out = []
-    faces = [
-        ("Archivo", "Archivo-Regular.ttf", 400),
-        ("Archivo", "Archivo-Bold.ttf", 700),
-        ("Saira Condensed", "SairaCondensed-SemiBold.ttf", 600),
-        ("NXT Mono", "IBMPlexMono-Regular.ttf", 400),
-        ("NXT Mono", "IBMPlexMono-SemiBold.ttf", 600),
-    ]
+    faces = _DIAGRAM_FONT_FACES
     for fam, fn, wt in faces:
         p = os.path.join(_FONT_DIR, fn).replace("\\", "/")
         if os.path.exists(p):
@@ -442,8 +434,6 @@ _INFO_CSS = """
 .pstep .psghost{position:absolute;top:6px;right:18px;font-family:'Saira Condensed';font-weight:600;
   font-size:120px;line-height:1;color:__KICK__;opacity:.16;letter-spacing:-2px}
 .pstep .psico{line-height:0;margin-bottom:4px}
-.pstep .psart{width:100%;display:flex;justify-content:center;margin-bottom:6px}
-.pstep .psart img{max-width:88%;max-height:230px;object-fit:contain}
 .pstep .pst{font-family:'Archivo';font-weight:700;font-size:22px;line-height:1.2;color:__INK__}
 .pstep .psd{font-family:'Archivo';font-size:14.5px;line-height:1.4;color:__GREY__}
 .pflow.nodesc .pstep{gap:20px}
@@ -516,18 +506,15 @@ def _process_flow_body(spec: dict, pal: dict) -> str:
         name_txt = _s(st.get("name"))
         desc = _s(st.get("description"))
         d_html = (f'<div class="psd">{_e(desc)}</div>' if desc else "")
-        art = str(st.get("art") or "")
-        if art.startswith("data:image"):
-            # 2026-07-03 (owner-directed): Nano-Banana concept illustration is the card's
-            # visual (injected by ai_diagram for description-less flows). It owns the field
-            # between the ghost numeral and the title.
-            vis_html = f'<div class="psart"><img src="{art}" alt=""></div>'
-        else:
-            nm = _icon_best_name(name_txt + " " + _s(st.get("icon")), frozenset(used_glyphs))
-            if nm:
-                used_glyphs.add(nm)
-            ico_size = 72 if not has_desc else 32
-            vis_html = f'<div class="psico">{_svg(_glyph(nm), ico_size, pal["kicker"], 1.4)}</div>' if nm else ""
+        # WS-1d 2026-07-09 - diffusion concept art removed from deliverable exhibits; the
+        # .psart img consumption (Nano-Banana st["art"] data URIs) is DELETED. Every step
+        # card is title(+description) with a content-true glyph or nothing, per the
+        # isContentTrueIcon doctrine.
+        nm = _icon_best_name(name_txt + " " + _s(st.get("icon")), frozenset(used_glyphs))
+        if nm:
+            used_glyphs.add(nm)
+        ico_size = 72 if not has_desc else 32
+        vis_html = f'<div class="psico">{_svg(_glyph(nm), ico_size, pal["kicker"], 1.4)}</div>' if nm else ""
         cells.append(f'<div class="pstep"><div class="psghost">{i + 1:02d}</div>'
                      f'{vis_html}<div class="pst">{_e(name_txt)}</div>{d_html}</div>')
         if i < len(steps) - 1:

@@ -4446,8 +4446,18 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // routed via exportGoldPptx) AND themes / personas / recommendations /
     // gap / etc. (now routed via exportGoldDeckPptx here). No more parallel
     // renderers. slideTemplates/pptx.ts is now a legacy fallback only.
-    const handleExportDeckPPTX = useCallback(async () => {
+    const handleExportDeckPPTX = useCallback(async (opts?: { allGenerations?: boolean }) => {
         if (slides.length === 0) return;
+        // WS-0a (2026-07-09 slides uplift): a chat can hold MULTIPLE deck generations
+        // (re-attempts, revisions). Exporting them all produced a 61-slide file the
+        // owner spent hours hand-pruning to 15. Default = the LATEST generation only
+        // (slides are stamped with their source message's timestamp at lift time);
+        // alt-click the export button to include every generation.
+        const latestTs = Math.max(...slides.map(sl => sl.timestamp || 0));
+        const exportSlides = opts?.allGenerations ? slides : slides.filter(sl => (sl.timestamp || 0) === latestTs);
+        if (!opts?.allGenerations && exportSlides.length < slides.length) {
+            console.log(`[deck-export] scoping to the latest generation: ${exportSlides.length} of ${slides.length} lifted slides (alt-click to export all generations)`);
+        }
         try {
             // 2026-06-05 - Resolution fix. Was using captureSlideAsStageHtml on
             // the chat-preview DOM, but those tiles are 800-960px responsive
@@ -4461,6 +4471,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // to its own display target.
             const { exportGoldDeckPptx } = await import('../services/goldArtifact');
             const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
+            // WS-3c (2026-07-09 slides uplift): imagery degradation is NEVER silent.
+            // Every carrier that no-ops during export gets recorded and surfaced as a
+            // chat notice, so a visually flattened deck announces itself.
+            const imageryDegradations: string[] = [];
             // D17 (owner-chosen 2026-07-01): journey/architecture/mindmap/blueprint slides export as a
             // FULL-BLEED native GOLD exhibit IMAGE (composed HTML/CSS -> Chromium, all expert dimensions +
             // real NXT icons + locked typography). buildDiagramSpec maps the slide's full data to the proxy
@@ -4468,10 +4482,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // slideDataToStageHtml renders it wall-to-wall. Fail-open: on error the slide keeps its native matrix.
             {
                 const { fetchDiagramImage } = await import('../services/diagramSpec');
-                for (const s of slides as any[]) {
+                for (const s of exportSlides as any[]) {
                     if (s.diagramImage) continue;
                     const img = await fetchDiagramImage(s, (s.brand === 'nu' ? 'nu' : 'nxt'));
                     if (img) s.diagramImage = img;
+                    else if (['journey-map', 'architecture-map', 'mindmap', 'service-blueprint'].includes(String(s.template))) {
+                        imageryDegradations.push(`${s.template}: diagram exhibit unavailable; the slide ships with its native matrix`);
+                    }
                 }
             }
             // E4 (2026-07-02): infographic-exhibit slides whose panel fill failed (or that were
@@ -4485,7 +4502,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // instead of shipping the stale panel baked at generation time; an unchanged
                 // renderer costs one cache hit. Refresh failure keeps the previous panel.
                 const { resolveRoutedSlotImages } = await import('../services/visualRouter');
-                for (const s of slides as any[]) {
+                for (const s of exportSlides as any[]) {
                     if (String(s.template) !== 'slides:infographic-exhibit') continue;
                     const sub = s.composerPayload;
                     if (!sub || typeof sub !== 'object') continue;
@@ -4497,12 +4514,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         if (!r.count && prev) sub.exhibitImage = prev;
                     } catch (e: any) {
                         if (prev) sub.exhibitImage = prev;
+                        imageryDegradations.push(`infographic-exhibit: panel refresh failed (${String(e?.message || e).slice(0, 80)}); ${prev ? 'the previous panel shipped' : 'the band ships empty'}`);
                         console.warn('[deck-export] infographic refresh skipped:', e?.message || e);
                     }
                 }
             }
             const stageHtmlList: string[] = [];
-            for (const s of slides) {
+            for (const s of exportSlides) {
                 try {
                     const stageHtml = slideDataToStageHtml(s as any);
                     stageHtmlList.push(stageHtml);
@@ -4513,6 +4531,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             if (stageHtmlList.length === 0) {
                 console.error('[deck-export] no slides rendered - nothing to export');
                 return;
+            }
+            if (imageryDegradations.length) {
+                setMessages(prev => [...prev, {
+                    id: `imagery_notice_${Date.now()}`, role: 'assistant',
+                    content: `Imagery notice for this export: ${imageryDegradations.join('; ')}.`,
+                    timestamp: Date.now(),
+                }]);
             }
             const deckName = `deck_${new Date().toISOString().split('T')[0]}_${stageHtmlList.length}_slides.pptx`;
             await exportGoldDeckPptx(stageHtmlList, deckName);
@@ -7928,7 +7953,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                 <div style={{ display: 'flex', gap: 8, marginTop: 8, padding: '8px 12px', background: '#FAFAFA', borderLeft: '3px solid #caca20', alignItems: 'center' }}>
                                     <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#666' }}>{msgSlides.length}-slide deck</span>
                                     <div style={{ flex: 1 }} />
-                                    <button onClick={handleExportDeckPPTX} style={{ padding: '4px 12px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PPTX</button>
+                                    <button onClick={(e) => handleExportDeckPPTX({ allGenerations: e.altKey })} title="Exports the latest deck generation. Alt-click to export every generation in this chat." style={{ padding: '4px 12px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PPTX</button>
                                     <button onClick={handleExportDeckPDF} style={{ padding: '4px 12px', background: '#0D0D0D', color: '#FFF', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PDF</button>
                                 </div>
                             )}
