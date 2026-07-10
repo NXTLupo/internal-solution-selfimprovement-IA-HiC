@@ -218,7 +218,11 @@ that is a protocol violation (the slide would render an empty panel).
 
 ### slides:numbered-themes — 609:8 / 626:124 · content-rail ← profile N items/apps/themes
 4 numbered columns, each name + synthesis body + a verbatim quote. THE archetype for "profile each
-app/theme/play". PAYLOAD: `{ kicker, title, items: [ { number, name, body, quote } ] (4), sourceLine }`.
+app/theme/play". PAYLOAD: `{ kicker, title, items: [ { number, name, body, quote, depiction? } ] (4), sourceLine }`.
+When items profile PEOPLE/segments, each item may carry `depiction`: one literal sentence describing
+the representative person the item photograph shows, every attribute derived from the corpus signal
+about that segment (quoted individuals, regional/generational markers, workforce data); attributes the
+corpus does not support stay unstated. The runtime treats stated attributes as binding on the image.
 
 ### slides:evidence-table — 609:9 / 626:158 · content-rail ← named-subject comparison
 4-column comparison; first ~2 rows are featured; closes with a PEER PATTERN takeaway band.
@@ -234,7 +238,11 @@ OPTIONAL ICON (scenes-where-they-fit, USER OVERRIDE 2026-06-28): each column may
 
 ### slides:role-needs — 609:12 / 626:286 · content-rail
 One role's current challenges (left) + that role's persona-needs card (right). G1 of the role trio.
-PAYLOAD: `{ eyebrow, title, role, challenges: [ { numeral, heading, body } ] (3), persona: { needsLabel: "PERSONA NEEDS", name, needs: [ { kind, body } ] (3) } }` (kind = EXPERIENCE | FUNCTIONAL | PERSONAL).
+PAYLOAD: `{ eyebrow, title, role, challenges: [ { numeral, heading, body } ] (3), persona: { needsLabel: "PERSONA NEEDS", name, depiction?, needs: [ { kind, body } ] (3) } }` (kind = EXPERIENCE | FUNCTIONAL | PERSONAL).
+`persona.depiction` (optional, any industry/persona type): one literal sentence describing the
+representative person the environmental portrait shows (age band, gender, attire, working setting,
+regional cues), every attribute derived from the corpus signal about this segment; attributes the
+corpus does not support stay unstated. The runtime treats stated attributes as binding on the image.
 
 ### slides:role-recommendation — 609:13 / 626:324 · content-rail
 One role's recommendation: thesis + 3 supporting actions + 3 projected-impact tiles. G2 of the trio.

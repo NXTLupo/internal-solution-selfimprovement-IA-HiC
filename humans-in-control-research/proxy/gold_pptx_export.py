@@ -218,6 +218,29 @@ def _raster_bytes(src: str):
     return None
 
 
+def _png_or_jpeg_dims(raw: bytes):
+    """Native pixel dimensions of a PNG or JPEG payload, or (0, 0) when unreadable.
+    Used to translate the stage's object-fit:cover into a PPTX a:srcRect center-crop."""
+    import struct as _st
+    try:
+        if raw[:8] == b"\x89PNG\r\n\x1a\n":
+            w, h = _st.unpack(">II", raw[16:24])
+            return int(w), int(h)
+        if raw[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(raw) - 9:
+                if raw[i] != 0xFF:
+                    break
+                marker = raw[i + 1]
+                if marker in (0xC0, 0xC1, 0xC2, 0xC3):
+                    h, w = _st.unpack(">HH", raw[i + 5:i + 9])
+                    return int(w), int(h)
+                i += 2 + _st.unpack(">H", raw[i + 2:i + 4])[0]
+    except Exception:
+        pass
+    return 0, 0
+
+
 def _place_geo_images(slide, images, ex, ey, W, H):
     """Place each GEO-walked <img> (title-slide background, persona thumbnails, infographic panels,
     portraits) as a FILLED NATIVE PICTURE PLACEHOLDER at its slot bounds, so the consultant can swap
@@ -243,6 +266,27 @@ def _place_geo_images(slide, images, ex, ey, W, H):
         try:
             pic = slide.shapes.add_picture(_io.BytesIO(raw), ex(im["x"]), ey(im["y"]),
                                            ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+            # COVER-CROP PARITY (2026-07-10): the stage HTML renders slot images with
+            # object-fit:cover, but a bare add_picture STRETCHES the bitmap to the slot
+            # bounds (persona portraits: 1.83 image into a 2.37 slot = 30% horizontal
+            # squash). Translate the CSS crop into a native a:srcRect center-crop whenever
+            # the aspect ratios diverge, so the export matches the preview pixel-for-pixel.
+            try:
+                iw, ih = _png_or_jpeg_dims(raw)
+                bw, bh = max(im["w"], 1.0), max(im["h"], 1.0)
+                if iw and ih:
+                    img_ar, box_ar = iw / ih, bw / bh
+                    if abs(img_ar - box_ar) / img_ar > 0.02:
+                        blip_fill = pic._element.find(qn("p:blipFill"))
+                        if img_ar > box_ar:   # image wider than slot: crop left/right
+                            frac = (1.0 - box_ar / img_ar) / 2.0
+                            rect = f'<a:srcRect {nsdecls("a")} l="{int(frac * 100000)}" r="{int(frac * 100000)}"/>'
+                        else:                 # image taller than slot: crop top/bottom
+                            frac = (1.0 - img_ar / box_ar) / 2.0
+                            rect = f'<a:srcRect {nsdecls("a")} t="{int(frac * 100000)}" b="{int(frac * 100000)}"/>'
+                        blip_fill.insert(1, parse_xml(rect))
+            except Exception:
+                pass
             # promote the filled picture to a swappable picture PLACEHOLDER (owner directive)
             try:
                 nvPr = pic._element.find(qn("p:nvPicPr")).find(qn("p:nvPr"))

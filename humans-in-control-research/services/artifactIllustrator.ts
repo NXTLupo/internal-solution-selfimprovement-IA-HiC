@@ -280,7 +280,11 @@ export async function resolveArtifactImages(
             .find((v) => typeof v === 'string' && (v as string).trim()) as string | undefined;
         const persona = (payload as any).persona;
         const personaName = persona && typeof persona === 'object' ? String(persona.name || '') : '';
-        if (personaName || head) return [personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 260);
+        // EVIDENCE-GROUNDED DEPICTION (2026-07-10, all industries/persona types): when the
+        // Analyst authored persona.depiction (corpus-derived appearance attributes), it LEADS
+        // the concept - the proxy portrait prompt treats stated attributes as binding.
+        const depiction = persona && typeof persona === 'object' ? String((persona as any).depiction || '').trim() : '';
+        if (personaName || head) return [depiction, personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 340);
         // block-quote anatomy (2026-07-10): no title/name fields - the scene depicts the SPEAKER'S
         // world: topic kicker + attribution + the quote's first clause (subject language, never text art).
         const kicker = typeof payload['topicKicker'] === 'string' ? (payload['topicKicker'] as string) : '';
@@ -315,11 +319,14 @@ export async function resolveArtifactImages(
         let concept = conceptFromElement(arr[i]);
         if (spec.style && concept) {
             // photo thumbnails: the item's own supporting line rides along so the scene depicts
-            // THIS item's subject specifically (content-derived, industry-agnostic).
+            // THIS item's subject specifically (content-derived, industry-agnostic). An authored
+            // per-item depiction (corpus-derived person attributes, any industry/persona type)
+            // LEADS the concept and is binding on the image.
             const el = arr[i] as Record<string, unknown>;
+            const dep = typeof (el as any)?.depiction === 'string' ? String((el as any).depiction).trim() : '';
             const line = ['body', 'description', 'definition', 'summary'].map((k) => el && (el as any)[k])
                 .find((v) => typeof v === 'string' && (v as string).trim()) as string | undefined;
-            if (line) concept = `${concept}. ${line}`.slice(0, 260);
+            concept = [dep, concept, line].filter(Boolean).join('. ').slice(0, 340);
         }
         if (!concept) { images[i] = images[i] || ''; continue; }
         const url = await uniqueImage(concept, arr[i]);

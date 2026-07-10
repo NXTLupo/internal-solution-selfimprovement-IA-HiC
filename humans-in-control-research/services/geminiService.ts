@@ -3576,8 +3576,15 @@ REQUIRED JSON FIELDS (populate EVERY field - empty fields are a failure):
         const personasWithImages = [];
         for (const p of result.personas) {
              onStatus(`Photographing ${p.name}...`);
-             const ageHint = p.demographics?.match(/\d+/) ? p.demographics.match(/\d+/)?.[0] + ' year old' : 'professional';
-             const portraitPrompt = `Professional headshot portrait photograph of a ${ageHint} ${p.role || 'professional'}. Neutral expression, direct eye contact with camera. Studio lighting with soft key light and subtle fill. Shallow depth of field, clean neutral background. Editorial photography style. Shot on Phase One IQ4 150MP medium format camera, 80mm lens f/2.8. High resolution, photorealistic, NOT illustration, NOT cartoon, NOT clip art, NOT 3D render. Real human face with natural skin texture and lighting.`;
+             // EVIDENCE-GROUNDED DEPICTION (2026-07-10, owner directive, ALL industries/persona
+             // types): the portrait honors the persona's OWN corpus-derived fields - the full
+             // demographics sentence (age, gender, region, family/work context as evidenced) and
+             // an optional depiction field when the generation authored one - not just an age
+             // digit. Stated attributes are BINDING on the image; attributes the corpus did not
+             // evidence stay unstated and the prompt adds no demographic language of its own.
+             const personDesc = [(p as any).depiction, p.demographics, p.role]
+                 .filter((s: any) => typeof s === 'string' && s.trim()).join('; ');
+             const portraitPrompt = `Professional headshot portrait photograph of this person: ${personDesc || 'a professional'}. Match every age, gender, and appearance attribute stated in that description exactly; do not substitute or reinterpret them; attributes not stated are open. Neutral expression, direct eye contact with camera. Studio lighting with soft key light and subtle fill. Shallow depth of field, clean neutral background. Editorial photography style. Shot on Phase One IQ4 150MP medium format camera, 80mm lens f/2.8. High resolution, photorealistic, NOT illustration, NOT cartoon, NOT clip art, NOT 3D render. Real human face with natural skin texture and lighting.`;
              const url = await generatePortrait(portraitPrompt);
              personasWithImages.push({ ...p, imageUrl: url });
         }

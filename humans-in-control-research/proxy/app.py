@@ -18476,9 +18476,19 @@ def _photo_prompt(concept: str, slot: str) -> str:
         comp = ("Wide cinematic establishing shot with GENEROUS UNCLUTTERED headroom and a calm, "
                 "darker lower third (a text scrim will sit over it). Horizon low in frame. ")
     elif slot == "portrait":
+        # EVIDENCE-GROUNDED DEPICTION (2026-07-10, owner directive - supersedes the same-day
+        # face-free interim): the persona face IS shown. The concept may carry a `depiction`
+        # clause written by the Analyst model from CORPUS-EVIDENCED segment attributes (age
+        # band, gender, attire, setting, region); when present it is BINDING - the image
+        # matches it exactly. When the concept describes no appearance, this prompt stays
+        # NEUTRAL: no demographic language in any direction (the platform's no-fabrication
+        # rule applies to faces the same as to statistics - unevidenced attributes are
+        # omitted, never guessed from the occupation).
         comp = ("Environmental portrait: ONE person who authentically belongs to this context, "
                 "shown in their real working environment, natural candid posture, looking near "
-                "(not into) the camera. Respectful, specific, non-stereotypical. ")
+                "(not into) the camera. If the description above states the person's age, "
+                "gender, appearance, or attire, MATCH those stated attributes exactly; do not "
+                "substitute or reinterpret them. Respectful, specific, non-stereotypical. ")
     else:
         comp = ("Documentary detail scene of the subject in its real context, one clear focal "
                 "point, uncluttered composition. ")
