@@ -258,6 +258,28 @@ def main():
             print(f'SKIP {kind}: no rollouts to merge')
             continue
 
+        # ── R2 MINIMUM-GROUNDING RULE (2026-08-07, UNIFIED_VISION phase 7) ──
+        # Pure closed loops degrade (RSI survey / Mirror Loop): every training
+        # batch MUST carry at least one EXOGENOUS rollout - a real production
+        # artifact or a user-feedback trajectory - never only synthetic /
+        # model-scored cases. A batch that is 100% synthetic is REJECTED, not
+        # trained on. Grounding provenance is stamped into the batch so the
+        # validation gate (validate-candidate.py) can audit it downstream.
+        n_exogenous = len(real_rollouts) + len(feedback_by_kind.get(kind, []))
+        if n_exogenous == 0:
+            print(f'REJECT {kind}: batch has zero exogenous rollouts '
+                  f'({len(synthetic_rollouts)} synthetic only) - R2 minimum-grounding '
+                  f'rule; collect real artifacts or user feedback before training')
+            continue
+        grounding = {
+            'rule': 'R2-minimum-grounding',
+            'real_rollouts': len(real_rollouts),
+            'feedback_trajectories': len(feedback_by_kind.get(kind, [])),
+            'synthetic': len(synthetic_rollouts),
+        }
+        for r in merged:
+            r.setdefault('_grounding', grounding)
+
         out_path = os.path.join(args.out_dir, f'{kind}-training.json')
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(merged, f, indent=2)

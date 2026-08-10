@@ -9332,3 +9332,126 @@ chunks:
 ## [2026-07-10] session | AI Analyst session started
   - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
   - started_at: 2026-07-10T15:34:29.113Z
+
+
+
+## [2026-07-13] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-13T18:56:39.530Z
+
+
+
+## [2026-07-13] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-13T19:01:12.526Z
+
+
+
+## [2026-07-16] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-16T11:30:54.875Z
+
+
+
+## [2026-07-16] lint | Wiki health check (run lint_1784201455630)
+- pages_scanned: 295
+- total_findings: 520
+- errors: 0
+- warnings: 410
+- info: 110
+- duration_ms: 33768
+- next_due: 2026-07-23
+
+
+
+## [2026-07-16] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-16T20:39:20.536Z
+
+
+
+## [2026-07-20] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-20T18:08:37.115Z
+
+
+
+## [2026-07-23] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-07-23T16:23:33.396Z
+
+
+
+## [2026-07-23] lint | Wiki health check (run lint_1784823813882)
+- pages_scanned: 296
+- total_findings: 521
+- errors: 0
+- warnings: 411
+- info: 110
+- duration_ms: 99027
+- next_due: 2026-07-30
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T17:43:30.671Z
+
+
+
+## [2026-08-07] lint | Wiki health check (run lint_1786124611093)
+- pages_scanned: 300
+- total_findings: 525
+- errors: 0
+- warnings: 414
+- info: 111
+- duration_ms: 24218
+- next_due: 2026-08-14
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T18:21:52.411Z
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T18:50:44.252Z
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T19:11:32.847Z
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T22:01:51.065Z
+
+
+
+## [2026-08-07] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-07T23:53:13.080Z
+
+
+
+## [2026-08-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-08T00:01:56.299Z
+
+
+
+## [2026-08-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-08T00:27:50.462Z
+
+
+
+## [2026-08-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-08-10T00:40:24.045Z

@@ -3868,7 +3868,179 @@ async def session_trace_append(req: Request):
         # a 5xx the browser will try to retry.
         return {"ok": False, "error": f"write failed: {type(e).__name__}: {e}"}
 
+    # L1 (2026-08-07, sota-elevation plan): fold this turn into the session's
+    # loop-trace aggregate. Measurement only; never blocks or raises.
+    try:
+        _looptrace_ingest_turn(slug, body)
+        # Opportunistic stale sweep (~1 in 20 appends): flush quiet sessions to
+        # the ledger so runs that never call finalize still land there.
+        if (turn_index % 20) == 7:
+            _looptrace_sweep_stale()
+    except Exception:
+        pass
+
     return {"ok": True, "slug": slug, "filename": fname, "bytes": os.path.getsize(fpath)}
+
+
+# ============================================================================
+# L1 (2026-08-07, sota-elevation plan) — LOOP-TRACE LEDGER.
+# LoopsBench (arXiv 2608.00267): loop-level state discipline — regression
+# events, fallback churn, repair counts, rounds — is where long-horizon quality
+# is won or lost, and it must be MEASURED per run, not anecdotal. This layer
+# aggregates the existing M1 trace stream per session (sqlite ns='looptrace')
+# and flushes one append-only row per run to wiki/synthesis/loop-trace-ledger.md
+# (the yield-ledger pattern). The epoch-proposer reads the ledger as inspection
+# step 6; V4 books directive-adherence events into the same aggregate.
+# ============================================================================
+_LOOPTRACE_STALE_FLUSH_SEC = 30 * 60  # a session quiet this long is a finished run
+
+
+def _looptrace_bump(slug: str, **fields) -> None:
+    """Increment counters on a session's loop-trace aggregate (shared sqlite)."""
+    if not slug:
+        return
+    try:
+        row = _cache_db_get("looptrace", slug) or {"first_at": time.time()}
+        for k, v in fields.items():
+            if isinstance(v, (int, float)) and v:
+                row[k] = row.get(k, 0) + v
+            elif isinstance(v, str) and v:
+                # string fields: keep a bounded distinct-set (models, steps)
+                key = f"{k}_set"
+                vals = row.get(key) or []
+                if v not in vals and len(vals) < 64:
+                    vals.append(v)
+                row[key] = vals
+        row["last_at"] = time.time()
+        _cache_db_put("looptrace", slug, row, 14 * 24 * 3600)
+    except Exception:
+        pass
+
+
+def _looptrace_ingest_turn(slug: str, turn: dict) -> None:
+    """Fold one TraceTurn into the aggregate + detect regression/repair events."""
+    step = str(turn.get("step_label") or "")
+    failed = bool(turn.get("failed"))
+    row = _cache_db_get("looptrace", slug) or {}
+    step_state = row.get("step_state") or {}
+    prev = step_state.get(step)
+    regression = 1 if (failed and prev == "passed") else 0        # passed -> later fails
+    repair = 1 if ((not failed) and prev == "failed") else 0      # failed -> later passes
+    step_state[step] = "failed" if failed else "passed"
+    row["step_state"] = step_state
+    _cache_db_put("looptrace", slug, row, 14 * 24 * 3600)
+    _looptrace_bump(
+        slug,
+        rounds=1,
+        failures=1 if failed else 0,
+        fallback_events=1 if turn.get("fallback_fired") else 0,
+        retries=max(0, int(turn.get("attempts") or 1) - 1),
+        elapsed_ms=int(turn.get("elapsed_ms") or 0),
+        regression_events=regression,
+        repair_events=repair,
+        model=str(turn.get("model_id") or ""),
+        step=step,
+    )
+
+
+def _looptrace_flush(slug: str, reason: str = "finalize") -> "dict | None":
+    """Append the session's aggregate as one ledger row and clear it."""
+    row = _cache_db_get("looptrace", slug)
+    if not row or not row.get("rounds"):
+        return None
+    try:
+        ledger = os.path.join(WIKI_BASE, "synthesis", "loop-trace-ledger.md")
+        os.makedirs(os.path.dirname(ledger), exist_ok=True)
+        if not os.path.exists(ledger):
+            with open(ledger, "w", encoding="utf-8") as f:
+                f.write(
+                    "---\nid: synthesis/loop-trace-ledger.md\n"
+                    "title: Loop-trace ledger (per-run loop metrics, append-only)\n"
+                    "type: synthesis\nupdated: 2026-08-07\n---\n\n"
+                    "# Loop-trace ledger\n\n"
+                    "One row per research run (L1, sota-elevation plan 2026-08-07). Columns:\n"
+                    "rounds = provider-call turns; fallbacks; retries; failures; repairs =\n"
+                    "failed->later-passed steps; REGRESSIONS = passed->later-failed steps;\n"
+                    "directives = V4 constraint enforcement events; models/steps = distinct counts.\n\n"
+                    "| date (UTC) | session | rounds | fallbacks | retries | failures | repairs | regressions | directives | models | steps | wall-min | flush |\n"
+                    "|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+                )
+        wall_min = round((row.get("last_at", 0) - row.get("first_at", row.get("last_at", 0))) / 60.0, 1)
+        line = (
+            f"| {datetime.utcnow().strftime('%Y-%m-%d %H:%M')} | {slug[:48]} "
+            f"| {row.get('rounds', 0)} | {row.get('fallback_events', 0)} | {row.get('retries', 0)} "
+            f"| {row.get('failures', 0)} | {row.get('repair_events', 0)} | {row.get('regression_events', 0)} "
+            f"| {row.get('directive_enforcements', 0)} | {len(row.get('model_set') or [])} "
+            f"| {len(row.get('step_set') or [])} | {wall_min} | {reason} |\n"
+        )
+        with open(ledger, "a", encoding="utf-8") as f:
+            f.write(line)
+    except Exception as e:
+        logger.warning(f"[loop-trace] ledger flush failed for {slug}: {e}")
+        return None
+    try:
+        _cache_db().execute("DELETE FROM kv WHERE k=?", (f"looptrace:{slug}",))
+    except Exception:
+        pass
+    summary = {k: v for k, v in row.items() if k not in ("step_state",)}
+    logger.info(f"[loop-trace] flushed {slug}: {json.dumps(summary)[:300]}")
+    return summary
+
+
+def _looptrace_sweep_stale() -> "list[str]":
+    """Flush every session aggregate quiet past the stale window."""
+    swept: "list[str]" = []
+    try:
+        cur = _cache_db().execute("SELECT k, val FROM kv WHERE ns='looptrace'")
+        now = time.time()
+        for k, val in cur.fetchall():
+            s = k.split(":", 1)[1]
+            try:
+                r = json.loads(val)
+            except Exception:
+                continue
+            if now - (r.get("last_at") or now) > _LOOPTRACE_STALE_FLUSH_SEC:
+                if _looptrace_flush(s, reason="stale"):
+                    swept.append(s)
+    except Exception:
+        pass
+    return swept
+
+
+@app.post("/api/sessions/loop-trace/event")
+async def loop_trace_event(req: Request):
+    """Book a named loop event onto a session's aggregate (L1). Used by V4 to
+    record directive-adherence enforcements. Body: {session, field, n?}."""
+    try:
+        body = await req.json()
+    except Exception:
+        return {"ok": False, "error": "invalid JSON"}
+    slug = _safe_session_slug(str((body or {}).get("session") or "").strip() or "_unassigned")
+    field = re.sub(r"[^a-z0-9_]", "", str((body or {}).get("field") or "").lower())[:48]
+    if not field:
+        return {"ok": False, "error": "field required"}
+    try:
+        n = int((body or {}).get("n") or 1)
+    except (TypeError, ValueError):
+        n = 1
+    _looptrace_bump(slug, **{field: max(1, min(n, 10000))})
+    return {"ok": True, "session": slug, "field": field}
+
+
+@app.post("/api/sessions/loop-trace/finalize")
+async def loop_trace_finalize(req: Request):
+    """Flush a session's loop-trace aggregate to the ledger (call at run end).
+    Body: {"session": "<slug>"}. Also opportunistically flushes any OTHER
+    session whose aggregate has been quiet past the stale window, so runs that
+    never finalize still reach the ledger."""
+    try:
+        body = await req.json()
+    except Exception:
+        body = {}
+    slug = _safe_session_slug(str((body or {}).get("session") or "").strip()) if (body or {}).get("session") else ""
+    flushed = _looptrace_flush(slug) if slug else None
+    swept = _looptrace_sweep_stale()
+    return {"ok": True, "flushed": bool(flushed), "summary": flushed, "stale_swept": swept}
 
 
 # ---------------------------------------------------------------------------
@@ -9875,6 +10047,63 @@ def _anthropic_cc() -> dict:
         cc["ttl"] = "1h"
     return cc
 
+# ============================================================================
+# C2/C3 (2026-08-07, sota-elevation plan) — CACHE-TIER AWARENESS + TELEMETRY.
+# CAPC (arXiv 2607.15516) measured Anthropic's prefix cache as TWO-TIER: prefixes
+# under ~3,500 tokens plateau at rho~0.83 (hot tier, multi-server replication);
+# above, rho~1.0 (persistent tier). ANALYSIS NOTE (C2, corrected): even at
+# rho=0.83 a cached prefix costs ~0.30x vs 1.0x uncached, so the WRITE FLOOR
+# stays at the provider minimum (ANTHROPIC_CACHE_MIN_CHARS) — the tier threshold
+# is NOT a reason to stop caching small prefixes. The threshold governs SIZING
+# decisions instead: the C5 manifest digest targets the persistent tier, and
+# telemetry (below) buckets hit rates by tier so the C1 measurement and the
+# 30-day dashboards can prove economics rather than assert them. Refine the
+# default with scripts/cache-characterize.mjs (C1) once measured.
+try:
+    ANTHROPIC_CACHE_TIER_TOKENS = int(os.environ.get("ANTHROPIC_CACHE_TIER_TOKENS", "3500"))
+except ValueError:
+    ANTHROPIC_CACHE_TIER_TOKENS = 3500
+_CACHE_CHARS_PER_TOKEN = 4  # coarse char->token proxy used for tier bucketing only
+_CACHE_TIER_MIN_CHARS = ANTHROPIC_CACHE_TIER_TOKENS * _CACHE_CHARS_PER_TOKEN
+
+def _cache_telemetry_book(provider: str, **fields) -> None:
+    """Accumulate per-provider per-day cache counters in the shared sqlite kv
+    (ns='cachetelem', 90-day TTL). C3: the dashboard reads these instead of log
+    lines. Best-effort; never raises."""
+    try:
+        day = time.strftime("%Y%m%d")
+        key = f"{provider}:{day}"
+        row = _cache_db_get("cachetelem", key) or {}
+        for k, v in fields.items():
+            if isinstance(v, (int, float)) and v:
+                row[k] = row.get(k, 0) + v
+        row["calls"] = row.get("calls", 0) + 1
+        _cache_db_put("cachetelem", key, row, 90 * 24 * 3600)
+    except Exception:
+        pass
+
+def _prefix_mutation_fraction(session: str, segments: "list[str]") -> "float | None":
+    """C3 mutated-fraction metric (CAPC §7.2): what fraction of the CACHED prefix
+    segments changed vs this session's previous call. Positional md5 compare;
+    stored in sqlite ns='prefixseg' keyed by session. None on first sight."""
+    if not session or not segments:
+        return None
+    try:
+        import hashlib as _hl
+        hashes = [_hl.md5(s.encode("utf-8", "ignore")).hexdigest() for s in segments]
+        prev = _cache_db_get("prefixseg", session)
+        _cache_db_put("prefixseg", session, hashes, EXACT_CACHE_TTL_SEC)
+        if not isinstance(prev, list) or not prev:
+            return None
+        n = max(len(prev), len(hashes))
+        changed = sum(
+            1 for i in range(n)
+            if i >= len(prev) or i >= len(hashes) or prev[i] != hashes[i]
+        )
+        return round(changed / n, 3)
+    except Exception:
+        return None
+
 # E1 (2026-07-02, artifact-total-elevation): CACHE-BREAK MARKER. Clients that assemble large system
 # prompts order them [stable core][semi-stable engagement][dynamic] and separate the segments with this
 # marker. The Anthropic path converts each boundary into a cache_control breakpoint, so the stable core
@@ -9899,12 +10128,15 @@ def _strip_cache_markers(obj):
     return obj
 
 
-def _inject_anthropic_cache_control(body: dict) -> bool:
+def _inject_anthropic_cache_control(body: dict, telemetry: "dict | None" = None) -> bool:
     """Mark the stable prompt prefix with cache breakpoint(s) in place. Anthropic allows 4 breakpoints:
     one goes on the TOOLS array; the SYSTEM string gets up to THREE, at HIC_CACHE_BREAK marker
     boundaries when present (stable core | semi-stable engagement | dynamic tail), else one on the whole
     system block (legacy behavior). Markers are ALWAYS consumed here so they never reach the model.
-    Returns True if any breakpoint was added. Best-effort: never raises."""
+    Returns True if any breakpoint was added. Best-effort: never raises.
+    C2/C3: when `telemetry` (a plain dict) is passed, it is filled with
+    {segments: [cached segment texts in prefix order], prefix_chars, tier} so the
+    caller can book tier buckets + the mutated-fraction metric."""
     if not isinstance(body, dict):
         return False
     if not PROMPT_CACHE_ENABLED:
@@ -9913,6 +10145,8 @@ def _inject_anthropic_cache_control(body: dict) -> bool:
             body["system"] = _strip_cache_markers(body["system"])
         return False
     added = False
+    _segs: "list[str]" = []
+    _prefix_chars = 0
     try:
         # Breakpoint 1: TOOLS (the most stable prefix segment; comes before system
         # in Anthropic's tools->system->messages cache order). Mark the LAST tool
@@ -9923,6 +10157,9 @@ def _inject_anthropic_cache_control(body: dict) -> bool:
             if isinstance(last_tool, dict) and "cache_control" not in last_tool:
                 last_tool["cache_control"] = _anthropic_cc()
                 added = True
+                _tools_json = json.dumps(tools)
+                _segs.append(_tools_json)
+                _prefix_chars += len(_tools_json)
         # Breakpoints 2..4: SYSTEM. Split on the cache-break marker into ordered blocks; set a
         # breakpoint at the end of every block EXCEPT the final (dynamic) one, provided the cumulative
         # prefix up to that boundary clears the min-cacheable size. A single unsegmented system keeps
@@ -9945,12 +10182,16 @@ def _inject_anthropic_cache_control(body: dict) -> bool:
                         block["cache_control"] = _anthropic_cc()
                         boundaries_set += 1
                         added = True
+                        _segs.append(part)
+                        _prefix_chars += len(part)
                     blocks.append(block)
                 body["system"] = blocks
                 logger.info(f"[prompt-cache] system split into {len(parts)} blocks, {boundaries_set} cache breakpoint(s)")
             elif len(sys) >= ANTHROPIC_CACHE_MIN_CHARS:
                 body["system"] = [{"type": "text", "text": sys, "cache_control": _anthropic_cc()}]
                 added = True
+                _segs.append(sys)
+                _prefix_chars += len(sys)
         elif isinstance(sys, list) and sys:
             total = sum(len(b.get("text", "")) for b in sys if isinstance(b, dict))
             if total >= ANTHROPIC_CACHE_MIN_CHARS:
@@ -9958,6 +10199,12 @@ def _inject_anthropic_cache_control(body: dict) -> bool:
                 if isinstance(last, dict) and "cache_control" not in last:
                     last["cache_control"] = _anthropic_cc()
                     added = True
+                    _segs.append(json.dumps(sys))
+                    _prefix_chars += total
+        if telemetry is not None and added:
+            telemetry["segments"] = _segs
+            telemetry["prefix_chars"] = _prefix_chars
+            telemetry["tier"] = "persistent" if _prefix_chars >= _CACHE_TIER_MIN_CHARS else "hot"
         return added
     except Exception as e:
         logger.warning(f"[prompt-cache] anthropic cache_control injection skipped: {e}")
@@ -9990,6 +10237,9 @@ async def proxy_anthropic(request: Request):
             for _k in ("config", "generationConfig"):
                 if isinstance(body.get(_k), dict):
                     body[_k].pop("temperature", None)
+        # C0 guard: the Predicted-Outputs marker is OpenAI-chat-only; never forward it here.
+        if isinstance(body, dict):
+            body.pop("_hic_prediction", None)
         # App-level EXACT-MATCH cache (deterministic only). Compute the key on
         # the post-scrub / post-temp-strip body BEFORE cache_control injection so
         # it is stable across calls. On a hit, skip the Anthropic call entirely.
@@ -10012,9 +10262,16 @@ async def proxy_anthropic(request: Request):
         # client call sites + the legacy fallback path benefit with no per-site
         # edits. The latest user turn (in `messages`) is intentionally left
         # uncached as the dynamic suffix.
-        cached_prefix = _inject_anthropic_cache_control(body)
+        _cache_telem: dict = {}
+        cached_prefix = _inject_anthropic_cache_control(body, telemetry=_cache_telem)
+        # C3: mutated-fraction of the cached prefix vs this session's previous call
+        # (CAPC §7.2 - the cost driver query-aware assembly hides). Logged + booked.
+        _sess_slug = request.headers.get("x-hic-session", "").strip()
+        _mut_frac = _prefix_mutation_fraction(_sess_slug, _cache_telem.get("segments") or [])
         logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars, "
-                    f"cache_breakpoint={'yes' if cached_prefix else 'no'}")
+                    f"cache_breakpoint={'yes' if cached_prefix else 'no'}"
+                    + (f", tier={_cache_telem.get('tier')}, prefix={_cache_telem.get('prefix_chars', 0):,}ch" if cached_prefix else "")
+                    + (f", mutated_fraction={_mut_frac}" if _mut_frac is not None else ""))
 
         headers = {
             "x-api-key": api_key,
@@ -10068,10 +10325,19 @@ async def proxy_anthropic(request: Request):
                 if isinstance(usage, dict):
                     cr = usage.get("cache_read_input_tokens") or 0
                     cc = usage.get("cache_creation_input_tokens") or 0
+                    inp = usage.get("input_tokens") or 0
                     if cr or cc:
-                        inp = usage.get("input_tokens") or 0
                         logger.info(f"[prompt-cache] anthropic model={model} "
                                     f"cache_read={cr} cache_write={cc} fresh_input={inp}")
+                    # C3: persist daily counters (tier-bucketed) for the dashboard.
+                    _tier = _cache_telem.get("tier") or "none"
+                    _cache_telemetry_book(
+                        "anthropic",
+                        cache_read_toks=cr, cache_write_toks=cc, fresh_toks=inp,
+                        **{f"bp_{_tier}": 1 if cached_prefix else 0,
+                           "mutated_segments_pct_x1000": int((_mut_frac or 0) * 1000),
+                           "mutation_samples": 1 if _mut_frac is not None else 0},
+                    )
             except Exception:
                 pass
             # Store the successful deterministic response for exact-match replay.
@@ -10084,6 +10350,39 @@ async def proxy_anthropic(request: Request):
     except Exception as e:
         logger.error(f"Anthropic proxy error: {e}")
         return JSONResponse({"error": f"Anthropic proxy error: {str(e)[:200]}"}, status_code=502)
+
+
+@app.get("/api/cache/telemetry")
+async def cache_telemetry(days: int = 7):
+    """C3 dashboard read: per-provider per-day cache counters (reads/writes/fresh
+    tokens, breakpoint tier buckets, mutated-fraction samples, prediction token
+    accept/reject) + the in-process exact-cache stats. Feeds the cost-telemetry
+    wiki page and the 30-day rollout gates from the caching plans."""
+    days = max(1, min(int(days or 7), 90))
+    out: dict = {"exact_cache_worker_stats": dict(_AI_EXACT_CACHE_STATS), "days": {}}
+    try:
+        for d in range(days):
+            day = time.strftime("%Y%m%d", time.localtime(time.time() - d * 86400))
+            row = {}
+            for provider in ("anthropic", "gemini", "openai"):
+                r = _cache_db_get("cachetelem", f"{provider}:{day}")
+                if r:
+                    # derived: avg mutated fraction, hit share
+                    ms = r.get("mutation_samples") or 0
+                    if ms:
+                        r = dict(r)
+                        r["mutated_fraction_avg"] = round(
+                            (r.get("mutated_segments_pct_x1000", 0) / 1000.0) / ms, 3)
+                    reads = r.get("cache_read_toks", 0)
+                    writes = r.get("cache_write_toks", 0)
+                    if reads or writes:
+                        r["read_share"] = round(reads / max(1, reads + writes), 3)
+                    row[provider] = r
+            if row:
+                out["days"][day] = row
+    except Exception as e:
+        out["error"] = str(e)[:200]
+    return JSONResponse(out)
 
 
 @app.post("/api/ai/gemini")
@@ -10361,6 +10660,18 @@ async def proxy_gemini(request: Request):
                 if resp.status_code != 429:
                     if resp.status_code == 200:
                         _ai_exact_cache_put(_exact_key, result)
+                        # C3: book Gemini cache telemetry (implicit + explicit
+                        # cachedContent reads show up as cachedContentTokenCount).
+                        try:
+                            _um = result.get("usageMetadata") if isinstance(result, dict) else None
+                            if isinstance(_um, dict):
+                                _cache_telemetry_book(
+                                    "gemini",
+                                    cache_read_toks=_um.get("cachedContentTokenCount") or 0,
+                                    fresh_toks=_um.get("promptTokenCount") or 0,
+                                )
+                        except Exception:
+                            pass
                     return JSONResponse(result, status_code=resp.status_code)
                 pacer_exhausted = True
 
@@ -10545,6 +10856,69 @@ async def proxy_ai_generate(request: Request):
         return JSONResponse({"error": f"ai/generate failed: {type(e).__name__}", "flow": flow}, status_code=502)
 
 
+# ============================================================================
+# C0 (2026-08-07, executing the reviewed gpt-5-6-prompt-cache-adoption-2026-07-13
+# decision, items 1-9): GPT-5.6 EXPLICIT prompt-cache breakpoints + Predicted
+# Outputs, both at this ONE chokepoint. gpt-5.6 bills cache WRITES at 1.25x, so
+# implicit mode (auto-breakpoint on the latest message) would pay the premium on
+# never-recurring dynamic tails; explicit mode caches ONLY marked prefixes.
+# ============================================================================
+PROMPT_CACHE_OPENAI_EXPLICIT = os.environ.get("PROMPT_CACHE_OPENAI_EXPLICIT", "1") not in ("0", "false", "False")
+
+def _openai_apply_cache_controls(body: dict, endpoint: str) -> dict:
+    """For gpt-5.6* on the explicit flag: convert HIC_CACHE_BREAK markers into
+    `prompt_cache_breakpoint: {mode:'explicit'}` content blocks (same splitter
+    discipline as _inject_anthropic_cache_control; markers consumed, never reach
+    the model) and set `prompt_cache_options: {mode:'explicit', ttl:'30m'}` ONLY
+    when at least one breakpoint was placed and the prefix clears the same
+    min-cacheable floor. Every other model: markers stripped (legacy behavior;
+    gpt-5.5/5.4 reject the caching params). Returns the transformed body."""
+    model = str(body.get("model", ""))
+    is_56 = model.startswith("gpt-5.6")
+    if not (is_56 and PROMPT_CACHE_OPENAI_EXPLICIT and PROMPT_CACHE_ENABLED):
+        return _strip_cache_markers(body)
+    marker = HIC_CACHE_BREAK.strip()
+    placed = 0
+
+    def _split_to_blocks(text: str, block_type: str):
+        nonlocal placed
+        parts = [p.strip("\n") for p in text.split(marker) if p.strip()]
+        if len(parts) < 2:
+            return None
+        blocks, cumulative = [], 0
+        for i, part in enumerate(parts):
+            cumulative += len(part)
+            blk = {"type": block_type, "text": part}
+            if i < len(parts) - 1 and cumulative >= ANTHROPIC_CACHE_MIN_CHARS:
+                blk["prompt_cache_breakpoint"] = {"mode": "explicit"}
+                placed += 1
+            blocks.append(blk)
+        return blocks
+
+    try:
+        if endpoint == "chat" and isinstance(body.get("messages"), list):
+            for m in body["messages"]:
+                if isinstance(m, dict) and isinstance(m.get("content"), str) and marker in m["content"]:
+                    blocks = _split_to_blocks(m["content"], "text")
+                    if blocks:
+                        m["content"] = blocks
+        elif isinstance(body.get("input"), list):
+            for item in body["input"]:
+                if isinstance(item, dict) and isinstance(item.get("content"), str) and marker in item["content"]:
+                    blocks = _split_to_blocks(item["content"], "input_text")
+                    if blocks:
+                        item["content"] = blocks
+        # Anything left (instructions strings, unsplit shapes): consume markers.
+        body = _strip_cache_markers(body)
+        if placed:
+            body.setdefault("prompt_cache_options", {"mode": "explicit", "ttl": "30m"})
+            logger.info(f"[prompt-cache] openai model={model} explicit breakpoints={placed}")
+    except Exception as e:
+        logger.warning(f"[prompt-cache] openai explicit-cache transform skipped: {e}")
+        body = _strip_cache_markers(body)
+    return body
+
+
 @app.post("/api/ai/openai")
 async def proxy_openai(request: Request):
     """Proxy requests to OpenAI API. Adds API key server-side."""
@@ -10555,7 +10929,6 @@ async def proxy_openai(request: Request):
     try:
         body = await request.json()
         body = _scrub_outbound_payload(body)  # 2026-06-15 - broken-emoji-half guard (see proxy_anthropic)
-        body = _strip_cache_markers(body)     # E1 2026-07-02 - cache-break markers are Anthropic-only
         # Prompt caching (2026-06-22): OpenAI auto-caches prompts >=1024 tokens;
         # `prompt_cache_key` steers same-prefix requests to the same cache shard
         # for a higher hit rate. Key on the engagement slug (stable across a
@@ -10564,22 +10937,38 @@ async def proxy_openai(request: Request):
             _sess = request.headers.get("x-hic-session", "").strip()
             if _sess:
                 body["prompt_cache_key"] = f"hic:{_sess[:120]}"
-        # App-level EXACT-MATCH cache (deterministic only; OpenAI requires an
-        # explicit temperature==0). prompt_cache_key is engagement-stable so it
-        # does not perturb the key across a run; exclude it from the hash below
-        # by computing on a copy without it.
-        _oa_key_body = {k: v for k, v in body.items() if k != "prompt_cache_key"}
-        _exact_key = _ai_exact_cache_key("openai", _oa_key_body)
-        _cached = _ai_exact_cache_get(_exact_key)
-        if _cached is not None:
-            logger.info(f"[exact-cache] HIT openai model={body.get('model')} (skipped provider call)")
-            return JSONResponse(_cached, status_code=200)
         # Determine endpoint: responses API vs chat completions
         endpoint = request.headers.get("x-openai-endpoint", "responses")
         if endpoint == "chat":
             url = "https://api.openai.com/v1/chat/completions"
         else:
             url = "https://api.openai.com/v1/responses"
+        # C0 item 1-3: gpt-5.6 explicit cache breakpoints from HIC_CACHE_BREAK
+        # markers; all other models keep the legacy marker strip.
+        body = _openai_apply_cache_controls(body, endpoint)
+        # C0 items 7-8 (Predicted Outputs, repair/revise lane): the client marks
+        # a repair turn by sending `_hic_prediction` (the prior artifact). On
+        # chat-completions gpt-4o+/gpt-5.x, forward it as the API `prediction`
+        # param (server verifies the draft token-by-token, speculative-decoding
+        # style). Popped everywhere else — it must never reach a provider as-is.
+        # Cost caution (recorded in the 2026-07-13 decision): REJECTED prediction
+        # tokens bill at completion rate; telemetry below tracks the ratio.
+        _hic_pred = body.pop("_hic_prediction", None) if isinstance(body, dict) else None
+        if (_hic_pred and endpoint == "chat" and "prediction" not in body
+                and re.match(r"gpt-(4o|5\.\d)", str(body.get("model", "")))):
+            body["prediction"] = {"type": "content", "content": str(_hic_pred)[:200000]}
+            logger.info(f"[predicted-outputs] openai model={body.get('model')} prediction={len(str(_hic_pred)):,}ch")
+        # App-level EXACT-MATCH cache (deterministic only; OpenAI requires an
+        # explicit temperature==0). prompt_cache_key is engagement-stable so it
+        # does not perturb the key across a run; exclude it from the hash below
+        # by computing on a copy without it. Computed on the POST-transform body
+        # so the key is stable across identical calls.
+        _oa_key_body = {k: v for k, v in body.items() if k != "prompt_cache_key"}
+        _exact_key = _ai_exact_cache_key("openai", _oa_key_body)
+        _cached = _ai_exact_cache_get(_exact_key)
+        if _cached is not None:
+            logger.info(f"[exact-cache] HIT openai model={body.get('model')} (skipped provider call)")
+            return JSONResponse(_cached, status_code=200)
 
         headers = {
             "Content-Type": "application/json",
@@ -10613,6 +11002,25 @@ async def proxy_openai(request: Request):
                 _oa_result = resp.json()
                 if resp.status_code == 200:
                     _ai_exact_cache_put(_exact_key, _oa_result)
+                    # C0 items 4+8 telemetry: cached/write tokens (5.6 usage
+                    # fields; older models expose cached_tokens only) and
+                    # Predicted-Outputs accepted/rejected ratio.
+                    try:
+                        _u = _oa_result.get("usage") if isinstance(_oa_result, dict) else None
+                        if isinstance(_u, dict):
+                            _det = _u.get("prompt_tokens_details") or _u.get("input_tokens_details") or {}
+                            _cdet = _u.get("completion_tokens_details") or _u.get("output_tokens_details") or {}
+                            _cache_telemetry_book(
+                                "openai",
+                                cache_read_toks=(_det.get("cached_tokens") or 0),
+                                cache_write_toks=(_u.get("cache_write_tokens")
+                                                  or _det.get("cache_write_tokens") or 0),
+                                fresh_toks=(_u.get("prompt_tokens") or _u.get("input_tokens") or 0),
+                                pred_accepted_toks=(_cdet.get("accepted_prediction_tokens") or 0),
+                                pred_rejected_toks=(_cdet.get("rejected_prediction_tokens") or 0),
+                            )
+                    except Exception:
+                        pass
                 return JSONResponse(_oa_result, status_code=resp.status_code)
             pacer_exhausted = True
 
@@ -16381,6 +16789,43 @@ async def golden_set_failure_corpus(n: int = 10, kinds: str = ""):
         "kinds_filter": sorted(kind_filter) if kind_filter else None,
         "members": sample,
     }
+
+
+@app.post("/api/heuristic/capture-flow")
+async def heuristic_capture_flow(payload: dict):
+    """W1 of plans/browseros-live-capture-2026-07-13.md - PUBLIC-lane live-flow capture
+    for heuristic analysis. Walks a URL flow in the in-container headless Chromium and
+    returns per-step captures the intake appends as auto-typed 'live' screenshots.
+
+    Payload: { "startUrl": str, "steps": str (grammar in flow_capture.py, optional),
+               "maxShots": int<=12 (optional) }
+    Returns: { "captures": [{step, action, url, title, png(dataURI), visibleText}],
+               "stopped": str|null }
+    Deterministic (no LLM). Public hosts only (SSRF-guarded). Partial captures on a
+    failed step are returned, never discarded. The authenticated/agentic lane is W3
+    (BrowserOS on the consultant's machine) and never lands on this route."""
+    import asyncio
+    from fastapi import HTTPException
+
+    start_url = str(payload.get("startUrl") or "").strip()
+    if not start_url:
+        raise HTTPException(status_code=400, detail="startUrl required")
+    steps_text = str(payload.get("steps") or "")
+    try:
+        max_shots = int(payload.get("maxShots") or 12)
+    except (TypeError, ValueError):
+        max_shots = 12
+    try:
+        from flow_capture import capture_flow
+        result = await asyncio.to_thread(capture_flow, start_url, steps_text, max_shots)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.exception("[flow-capture] failed")
+        raise HTTPException(status_code=500, detail=f"capture failed: {e}")
+    logger.info("[flow-capture] %d capture(s) for %s%s", len(result.get("captures", [])),
+                start_url, f" (stopped: {result['stopped']})" if result.get("stopped") else "")
+    return result
 
 
 @app.post("/api/gold/export-pptx-multi")

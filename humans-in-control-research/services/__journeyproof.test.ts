@@ -4,7 +4,7 @@ import { slideDataToStageHtml } from './slideToStageHtml';
 
 // Throwaway: render the REAL journey matrix for the alumni-donor journey (the artifact the user
 // flagged) and write the full stage HTML so it can be screenshotted. Not a permanent test.
-it('emit journey matrix proof html', () => {
+it('emit journey matrix proof html', async () => {
     const data: any = {
         template: 'journey-map',
         brand: 'nxt',
@@ -47,6 +47,12 @@ it('emit journey matrix proof html', () => {
         sources: ['Alumni Interviews', 'Advancement CRM Audit', 'Reddit r/AlumniGiving'],
     };
     const html = slideDataToStageHtml(data);
-    const out = 'C:/Users/JonathanLupo/AppData/Local/Temp/claude/D--NXT-HUMANS-AI-CX-WORKBENCH/3fe97bdd-739c-419d-aa6b-d1b65eb1ba5b/scratchpad/journey-matrix-proof.html';
-    writeFileSync(out, html, 'utf8');
+    // 2026-08-07 (L2 hardening): portable temp dir instead of a deleted
+    // per-session scratchpad path that failed the suite on other machines.
+    const { mkdirSync } = await import('fs');
+    const { tmpdir } = await import('os');
+    const { join } = await import('path');
+    const dir = join(tmpdir(), 'hic-render-proofs');
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'journey-matrix-proof.html'), html, 'utf8');
 });

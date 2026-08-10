@@ -1108,7 +1108,18 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
         return { ok: false, error: err?.message ?? String(err) };
     }
 
-    const prompt = await buildPrompt(args, bundle);
+    let prompt = await buildPrompt(args, bundle);
+    // EXEMPLAR CONTRACT (2026-08-07): the Designer desk consults the hashtag exemplar
+    // manifest for this KIND before composing (same rule as the Analyst desk). Fail-open.
+    try {
+        const { fetchExemplarContractForKind, noteExemplarConsultation } = await import('../../services/exemplarContract');
+        const exemplarBlock = await fetchExemplarContractForKind(String(args.kind));
+        if (exemplarBlock) {
+            prompt += `\n${exemplarBlock}`;
+            console.log(`[designer] exemplar-contract consulted for kind=${args.kind}: ${exemplarBlock.length} chars`);
+            noteExemplarConsultation();
+        }
+    } catch { /* fail-open */ }
 
     let raw: string;
     try {

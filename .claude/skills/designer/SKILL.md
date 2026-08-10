@@ -1,5 +1,10 @@
 # Designer — runtime visual router for deliverable image slots
 
+> DESIGN CONSTITUTION (2026-08-07, D1): all visual output is bound by the ten HiC Design Laws
+> in `hic-workspace/wiki/brand/design-laws.md`. Tokens only (Law 1), content-true or nothing
+> (Law 6/ADR-0006), native render never image-gen for exhibits (ADR-0003), collision bans
+> (Law 10). Deviations: fix or log in `design-desk/deviation-register.md`, never silent.
+
 > Implements C2 (surface-routed hybrid) of
 > `humans-in-control-research/plans/nano-banana-designer-skill-runtime-images-2026-06-25.md`,
 > re-based by E4 of `humans-in-control-research/plans/artifact-total-elevation-2026-07-02.md`:
@@ -8,6 +13,18 @@
 > branch fills it, then resolves the chosen branch into a native, replaceable PowerPoint picture at
 > the Figma GOLD slot bounds. It does NOT invent a parallel image system — it routes to machinery
 > that already exists.
+
+## Scene/photo imagery (Law 12 - covers, persona portraits, lifestyle strips, phase strips)
+
+Slots OUTSIDE the data branches below (cover backgrounds, persona portraits, behavior scenes,
+journey/blueprint phase strips) ride the `/api/ai/illustration` lane (styles line |
+photo-background | photo-portrait | photo-scene, literal=true) under design-laws **Law 12**:
+every GENERATE instruction carries `DERIVED FROM: [the deliverable field this image depicts,
+quoted]` + `SOURCE ANALYSIS: [field name + cited source]`. The image depicts the FINDING (the
+theme insight, the phase's evidenced pain, the persona's behavior sentence), never the bare
+industry topic. REUSE FIRST (owner cost rule 2026-08-07): check the catalog
+(GET /api/ai/illustrations) for a content-matching image before generating; the lane reuses by
+concept id automatically. Empty slot in a shipped artifact = gate violation.
 
 ## The branches (a slot is exactly one)
 

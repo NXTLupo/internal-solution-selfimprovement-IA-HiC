@@ -307,3 +307,20 @@ injects a `PRIOR CACHED SELECTION` block into your system prompt.
 ## Element-Data Imagery Contract (E4, 2026-07-02 — supersedes the 2026-06-27 Brand-Imagery Prompting Contract)
 
 The diffusion brand-image lane (`POST /api/ai/brand-image`, memphis-iso scene concepts, `brandImage: { concept }`) is RETIRED. Do not author image scene concepts for this deliverable. Where a section carries structured data (coherent actions of 3+ named moves, a before/after pair, a labeled citation mix), the native infographic lane composes a panel from those fields automatically (`services/artifactIllustrator.ts::infographicSpecFrom` -> `/api/ai/diagram`) — for strategy this means the Rumelt coherent-actions list, authored as real sequenced moves, IS the visual substrate. Single-subject decorative surfaces are image-free INTERIM until the E3 creative-director pass. Do not emit `brandImage` / `imageConcept`; the native lane ignores them. Full routing contract: the `designer` skill + `nxt-visual-renderer` section 6.
+
+## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
+
+Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
+`.claude/CLAUDE.md`:
+
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds no
+   fact or step.

@@ -1450,3 +1450,51 @@ auto-layout numbered disc (34px accent circle, 2px paper stroke, on-accent Archi
 screen-critique/screen-redesign screenshots (marker disc D=34) and `auditCritiqueDeck.bakeScreenAnnotations`.
 
 TODO (manifest hygiene): re-chunk THIS page via the manifest tooling; do not hand-edit chunk char_spans.
+
+## HiC-DS FILE (NEW 2026-08-07) — `EOWX9FhPtdoP05udKTxN94` "NXT-HiC-Design-System"
+
+Owner-directed second file (supersedes the one-library recommendation, plan decision 9 note):
+the phase-gated HiC design system built per the Plan Pulse three-tier contract
+(sota-elevation plan WS-D; laws in `wiki/brand/design-laws.md`; ADRs in `design-desk/adr/`).
+The legacy `iSQhAVM7SI4QHAWB7y9C2z` library remains the historical GOLD canon until the owner
+migrates; token VALUES are identical between the two (verified against `figma-tokens.json`
+2026-06-28 canon at build time). Everything below is token-bound and mode-flippable.
+
+- Collection `HiC Brand Tokens` = `VariableCollectionId:1:2`, modes NXT=`1:0` NU=`1:1`;
+  76 variables (33 color roles, 20 space, 18 type sizes incl. NU deck-tier reductions,
+  radius/base, 4 font-family strings). All scoped; WEB code syntax `var(--color-*)` etc.
+- Text styles: HiC/Kicker · HiC/Deck Title · HiC/Subhead · HiC/Body · HiC/Label ·
+  HiC/Numeral · HiC/Source (fontFamily + fontSize variable-bound; mode flip re-brands type).
+- DS components (page DS/Core + DS/SlideFrame): DS/Kicker `3:108` · DS/SourceLine `3:111` ·
+  DS/TakeawayBand `3:113` · DS/StatTile `3:115` · DS/SlideFrame set `3:124`
+  (Chrome=Content-Rail `3:119`, Chrome=Full-Bleed-Dark `3:122`). APIs frozen on publish
+  (ADR-0009); text is per-instance data (Law 8).
+- EXEMPLARS (page "Exemplars — Diagram Archetypes"; 1920x1080; flat auto-layout shapes/text,
+  PowerPoint-editable; ONE node per archetype, NU = mode flip):
+  `slides:quadrant` `4:2` · `slides:ranked-bars` `4:29` · `slides:flow-arc` `5:9` ·
+  `slides:milestone-timeline` `5:42` · `slides:means-matters` `6:15` ·
+  `slides:comparison-panels` `6:32`. NU mode-flip proof: Sandbox `7:5`.
+- OWNER ACTIONS PENDING: publish the library from the Figma UI (plugin API cannot publish);
+  D6 gated token-sync repoint to this file when it becomes canon.
+
+## HASHTAG-DELIVERABLE PAGES (2026-08-07, HiC-DS file `EOWX9FhPtdoP05udKTxN94`)
+
+Per-hashtag exemplar pages + decomposed components (the AGENT-FACING contract lives in
+`design-system/exemplar-manifest.md`; both chat desks inject it before generating - the
+CONSULT-FIRST rule; consultations booked as L1 `exemplar_consultations`).
+
+- #slides page `15:3`: DS/LogoMark `16:2` · DS/ImageSlot `16:4` (rect named img-slot,
+  content-true runtime fill) · topic cover exemplar `16:7`.
+- #themes page `15:4`: DS/ThemeCard set `17:43` (Spotlight 17:2 / Half 17:13 / Third 17:24 /
+  Quarter 17:35) · exemplars 1-up `17:44`, 2-up `17:63`, 3-up `17:94`, 4-up `17:136`.
+- #personas page `15:5`: DS/PersonaIdentity `18:2` (portrait img-slot) · DS/TraitPanel set
+  `18:30` (Goals/Behaviors/PainPoints/WinConditions) · dense exemplar `18:31`.
+- #arch page `15:6`: DS/ArchNode set `19:17` (Web/Service/System/Database/API) · layered
+  exemplar `19:18`.
+- #journey page `15:7`: DS/StageHeader set `20:6` (Critical variants) · DS/JourneyCell set
+  `20:17` (Task/Pain/Opportunity/Persona/NotEngaged) · swimlane exemplar `20:18`.
+- #blueprint page `15:8`: bitner exemplar `21:2` (line-of-visibility; touchpoints lane, never
+  labeled Evidence). #competitive `15:9`: matrix exemplar `23:2`. #gap `15:10`: maturity
+  exemplar `22:2`. #recs `15:11`: recommendation exemplar `24:2`. #roadmap `15:12`: horizons
+  exemplar `25:2`.
+- Component variants HUG height (clipping fix 2026-08-07); all flat shapes = PPTX-editable.

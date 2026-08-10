@@ -118,6 +118,11 @@ interface ColumnGroup {
     connector?: { dy: number; h: number; color?: TokenColor };
     // optional per-item background card (drawn before cells); card.y is relative to item origin.
     card?: { y: number; w: number; h: number; bg?: TokenColor; rule?: number; ruleColor?: TokenColor; ruleSide?: 'top' | 'left' };
+    // cardOverrides (2026-08-07, comparison previous-vs-proposed): index-aligned partial card
+    // overrides merged over `card` per item, so the FIRST (incumbent) panel can recess (muted
+    // band) while the LAST (proposed) panel advances (accent rule). Sparse: null/undefined
+    // entries keep the base card.
+    cardOverrides?: Array<Partial<{ y: number; w: number; h: number; bg: TokenColor; rule: number; ruleColor: TokenColor; ruleSide: 'top' | 'left' }> | null>;
     cells: Cell[];
 }
 // role x horizon matrix (aggregate-roadmap): label col + N horizon cols, M role rows.
@@ -474,16 +479,18 @@ function renderColumns(g: ColumnGroup, payload: any, tk: ReturnType<typeof resol
                 html += `<div style="position:absolute;left:${cx + 4}px;top:${itemY + g.connector.dy}px;width:${cw - 8}px;height:${g.connector.h}px;background:${tk.color[g.connector.color || 'accent']}"></div>`;
             }
         }
-        // optional background card per item (drawn first so cells sit on top)
-        if (g.card) {
-            const cw = g.card.w + dW, ch = g.card.h + dH, cy = itemY + g.card.y;
-            const side = g.card.ruleSide || 'top';
-            const ruleBar = g.card.rule
+        // optional background card per item (drawn first so cells sit on top);
+        // cardOverrides[i] merges over the base card so panels can differ by index.
+        const cardSpec = g.card ? { ...g.card, ...(g.cardOverrides?.[i] || {}) } : undefined;
+        if (cardSpec) {
+            const cw = cardSpec.w + dW, ch = cardSpec.h + dH, cy = itemY + cardSpec.y;
+            const side = cardSpec.ruleSide || 'top';
+            const ruleBar = cardSpec.rule
                 ? (side === 'left'
-                    ? `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${g.card.rule}px;height:${ch}px;background:${tk.color[g.card.ruleColor || 'accent']}"></div>`
-                    : `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cw}px;height:${g.card.rule}px;background:${tk.color[g.card.ruleColor || 'accent']}"></div>`)
+                    ? `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cardSpec.rule}px;height:${ch}px;background:${tk.color[cardSpec.ruleColor || 'accent']}"></div>`
+                    : `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cw}px;height:${cardSpec.rule}px;background:${tk.color[cardSpec.ruleColor || 'accent']}"></div>`)
                 : '';
-            html += `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cw}px;height:${ch}px;background:${tk.color[g.card.bg || 'paper']}"></div>${ruleBar}`;
+            html += `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cw}px;height:${ch}px;background:${tk.color[cardSpec.bg || 'paper']}"></div>${ruleBar}`;
         }
         for (const c of g.cells) {
             // dyOdd: odd-index items take the alternate vertical position (milestone-timeline
@@ -988,11 +995,14 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         ],
     },
     // thesis-interstitial (609:5) - full-bleed dark, one contestable sentence.
+    // 2026-08-07 owner evidence: a long thesis at hero size overflowed the slide bottom and
+    // CLIPPED mid-sentence. fitH runs the measured clamp so the thesis always ends above the
+    // bottom margin; y raised so a fitted 5-6 line thesis sits visually centered.
     'thesis-interstitial': {
         chrome: 'full-bleed-dark',
         regions: [
             { x: 101, y: 96, w: 900, color: 'accent', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
-            { x: 101, y: 420, w: 1500, color: 'paper', font: 'display', size: 'hero', leading: 1.04, payload: 'thesis' },
+            { x: 101, y: 360, w: 1500, color: 'paper', font: 'display', size: 'hero', leading: 1.04, payload: 'thesis', fitH: 620 },
         ],
     },
     // block-quote (609:7) - hero verbatim quote + right ecru corroborating panel.
@@ -1114,15 +1124,17 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
+            // leading 1.06 + fitH (2026-08-07 owner evidence): the default loose leading floated
+            // a wrapped title's lines apart and ran the second line into CURRENT CHALLENGES.
+            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title', fitH: 150 },
             { x: 196, y: 254, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'CURRENT CHALLENGES' },
             { x: 196, y: 286, w: 1000, kind: 'hairline', h: 2, color: 'rail' },
             {
-                kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 190, w: 800,
+                kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 170, w: 800,
                 cells: [
                     { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'numeral' },
                     { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'heading' },
-                    { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body', fitH: 138 },
+                    { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body', fitH: 120 },
                 ],
             },
             // persona card
@@ -1146,15 +1158,15 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             when: 'portraitImage',
             regions: [
                 { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-                { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
+                { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title', fitH: 150 },
                 { x: 196, y: 254, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'CURRENT CHALLENGES' },
                 { x: 196, y: 286, w: 1000, kind: 'hairline', h: 2, color: 'rail' },
                 {
-                    kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 190, w: 800,
+                    kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 170, w: 800,
                     cells: [
                         { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'numeral' },
                         { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'heading' },
-                        { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
+                        { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body', fitH: 120 },
                     ],
                 },
                 // persona card, portrait-led (taller than the base card)
@@ -1162,12 +1174,14 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 { kind: 'image', x: 1260, y: 221, w: 560, h: 236, payload: 'portraitImage', fit: 'cover' },
                 { x: 1290, y: 484, w: 500, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, payload: 'persona.needsLabel' },
                 { x: 1290, y: 516, w: 500, color: 'rail', font: 'heading', size: SCALE.name, weight: 700, payload: 'persona.name' },
+                // pitch 140 + fitH 92 (2026-08-07 owner evidence): the prose readable-floor clamp
+                // grew a 3-line need past the 124 pitch and ran it into the next block's label.
                 {
-                    kind: 'columns', array: 'persona.needs', count: 3, baseX: 1290, pitchX: 0, baseY: 600, pitchY: 124, w: 480,
+                    kind: 'columns', array: 'persona.needs', count: 3, baseX: 1290, pitchX: 0, baseY: 572, pitchY: 132, w: 480,
                     cells: [
                         { dx: 0, dy: 0, w: 3, h: 92, kind: 'hairline', color: 'accent' },
                         { dx: 20, dy: 0, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'kind' },
-                        { dx: 20, dy: 30, w: 460, color: 'body', font: 'body', size: SCALE.caption, prose: true, key: 'body' },
+                        { dx: 20, dy: 30, w: 460, color: 'body', font: 'body', size: SCALE.caption, prose: true, key: 'body', fitH: 92 },
                     ],
                 },
             ],
@@ -1178,7 +1192,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
+            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title', fitH: 150 },
             { x: 196, y: 248, w: 1000, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, payload: 'thesis' },
             { x: 196, y: 388, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'SUPPORTING ACTIONS' },
             { x: 196, y: 420, w: 940, kind: 'hairline', h: 2, color: 'rail' },
@@ -1399,6 +1413,12 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
     // cells ALIGNED across panels on shared full-width hairline rows, with the criterion labels
     // in a left rail column. Distinct from evidence-table (row cards, one comparison axis): this
     // is option-vs-option down a criteria list. Figma canon: 324:2 > 1010:753 (NU 1010:828).
+    // 2026-08-07 owner uplift ("bland; doesn't feel like previous vs proposed"): the FIRST
+    // panel (the incumbent) recesses behind a muted band; every later panel (the proposal)
+    // advances with a black band + accent top rule; an accent connector bridges the bands so
+    // the eye travels previous -> proposed; an optional per-panel glyph (payload.panelIcons,
+    // index-aligned, filled by the visual router) sits in the band; body raised to the
+    // readable tier and the whole table pulled up into the dead zone.
     'comparison-panels': {
         chrome: 'content-rail',
         regions: [
@@ -1408,24 +1428,31 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             // criterion label rail (vertical stack) + full-width row separators (drawn per real
             // criterion, so a 3-row payload never leaves floating hairlines)
             {
-                kind: 'columns', array: 'criteria', count: 5, baseX: 196, pitchX: 0, baseY: 392, pitchY: 122, w: 280,
+                kind: 'columns', array: 'criteria', count: 5, baseX: 196, pitchX: 0, baseY: 344, pitchY: 132, w: 280,
                 cells: [
                     { dx: 0, dy: 0, w: 280, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.96, upper: true },
-                    { kind: 'hairline', dx: 0, dy: 96, w: 1622, h: 1, color: 'hairline' },
+                    { kind: 'hairline', dx: 0, dy: 104, w: 1622, h: 1, color: 'hairline' },
                 ],
             },
-            // option panels: rail header band + one cell per criterion (cells.0..cells.4 align
+            // option panels: header band + one cell per criterion (cells.0..cells.4 align
             // with the criteria rows by shared pitch)
             {
-                kind: 'columns', array: 'panels', count: 3, baseX: 500, pitchX: 449, fillW: 1318, gap: 48, w: 420, baseY: 300,
-                card: { y: 0, w: 420, h: 56, bg: 'rail' },
+                kind: 'columns', array: 'panels', count: 3, baseX: 500, pitchX: 449, fillW: 1318, gap: 48, w: 420, baseY: 252,
+                card: { y: 0, w: 420, h: 64, bg: 'rail' },
+                cardOverrides: [
+                    { bg: 'secondary' },
+                    { rule: 4, ruleColor: 'accent' },
+                    { rule: 4, ruleColor: 'accent' },
+                ],
+                connector: { dy: 30, h: 3, color: 'accent' },
                 cells: [
-                    { dx: 20, dy: 14, w: 380, color: 'paper', font: 'heading', size: 'deckHeading', weight: 700, key: 'name' },
-                    { dx: 8, dy: 92, w: 404, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'cells.0', fitH: 100 },
-                    { dx: 8, dy: 214, w: 404, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'cells.1', fitH: 100 },
-                    { dx: 8, dy: 336, w: 404, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'cells.2', fitH: 100 },
-                    { dx: 8, dy: 458, w: 404, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'cells.3', fitH: 100 },
-                    { dx: 8, dy: 580, w: 404, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'cells.4', fitH: 100 },
+                    { kind: 'image', dx: 14, dy: 12, w: 40, h: 40, imgCarrier: 'panelIcons' },
+                    { dx: 66, dy: 16, w: 340, color: 'paper', font: 'heading', size: 'deckHeading', weight: 700, key: 'name' },
+                    { dx: 8, dy: 92, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.0', fitH: 112 },
+                    { dx: 8, dy: 224, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.1', fitH: 112 },
+                    { dx: 8, dy: 356, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.2', fitH: 112 },
+                    { dx: 8, dy: 488, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.3', fitH: 112 },
+                    { dx: 8, dy: 620, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.4', fitH: 112 },
                 ],
             },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },

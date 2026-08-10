@@ -1323,6 +1323,25 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = 
     { phrase: 'navigate the landscape', severity: 'high' },
     { phrase: 'navigating the landscape', severity: 'high' },
 
+    // === (b2) AI-JARGON SALAD - 2026-08-07 owner evidence (GOLD 328:152/52, 974:544):
+    // abstract "-powered/-driven" modifiers + "intelligent insights" compounds that carry
+    // no actor and no mechanism. The Actor Rule (name the actor, plain nouns, grounded
+    // cause-effect) is the positive form; these are the detectable negatives. ===
+    { phrase: 'ai-powered', severity: 'high' },
+    { phrase: 'ai-driven', severity: 'high' },
+    { phrase: 'ai-enabled', severity: 'high' },
+    { phrase: 'value-driven', severity: 'high' },
+    { phrase: 'insight-driven', severity: 'high' },
+    { phrase: 'intelligence-driven', severity: 'high' },
+    { phrase: 'purpose-driven', severity: 'high' },
+    { phrase: 'intelligent insights', severity: 'high' },
+    { phrase: 'intelligent relationship insights', severity: 'high' },
+    { phrase: 'actionable intelligence', severity: 'high' },
+    { phrase: 'powered intelligence', severity: 'high' },
+    { phrase: 'path to value', severity: 'high' },
+    { phrase: 'network activation', severity: 'high' },
+    { phrase: 'digital transformation journey', severity: 'high' },
+
     // === (c) HYPERBOLE / SUPERLATIVES - high severity ===
     { phrase: 'revolutionary', severity: 'high' },
     { phrase: 'groundbreaking', severity: 'high' },

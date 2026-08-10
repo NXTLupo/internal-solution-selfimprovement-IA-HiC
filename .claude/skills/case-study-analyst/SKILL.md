@@ -30,7 +30,7 @@ fabrication, and forbidden.
   "caseStudies": [
     {
       "subject": "string -- the NAMED institution/company/program (e.g., 'University of Waterloo')",
-      "context": "string -- the eyebrow framing of what this case represents (e.g., 'The structured model')",
+      "context": "string -- the context tag rendered as the mono meta line (what this case represents) (e.g., 'The structured model')",
       "intervention": "string -- what they actually did, citing [CHUNK_XXX]",
       "outcome": "string -- what changed; qualitative unless a number rides inside a cited quote",
       "applicability": "string -- the explicit so-what for THIS client",
@@ -48,7 +48,7 @@ fabrication, and forbidden.
    actually holds. Do NOT invent subjects. (For the NU co-op corpus, verified named peers
    include Waterloo, Cincinnati, Drexel, Georgia Tech, Purdue, MIT, Cornell, Stanford,
    RIT -- only where real per-peer evidence exists.)
-2. **Per case:** name the subject, frame the context (one-line eyebrow), describe the
+2. **Per case:** name the subject, frame the context (one mono meta line), describe the
    intervention with a [CHUNK_XXX] citation, state the outcome (qualitative; numbers only
    inside a cited quote per the Quantitative Claim Rule), and write the applicability line
    that connects the case to the client's specific situation.
@@ -127,7 +127,7 @@ Render to the canonical GOLD design language. See
 `hic-workspace/wiki/design-system/gold-visual-language.md` for the full spec and
 `design-system/gold/case-study-{nu,nxt}.html` for the reference twin.
 - 1920x1080 stage, brand rail + 3x3 dot mark, IBM Plex Mono kicker, serif(NU)/Archivo(NXT) h1.
-- Layout: column per case (3-4 across) -- subject (serif), context eyebrow (mono, accent),
+- Layout: column per case (3-4 across) -- subject (serif), context meta line (mono, accent),
   WHAT THEY DO / OUTCOME rows, applicability line on a teal left-border (the so-what).
 - Dark takeaway band states the cross-case conclusion with one accent-bold phrase.
 
@@ -169,3 +169,20 @@ injects a `PRIOR CACHED SELECTION` block into your system prompt.
 The diffusion brand-image lane (`POST /api/ai/brand-image`, memphis-iso scene concepts, `brandImage: { concept }`) is RETIRED. Each case's panel is now a NATIVE infographic composed deterministically from THAT case's OWN structured data (`services/artifactIllustrator.ts::infographicSpecFrom` -> `/api/ai/diagram`; chromeless, token-locked, typeset natively).
 
 GOVERNING RULE unchanged (user-locked, HARD): NO PURE DECORATION; the panel represents THAT case's content, per-element never per-slide. The MECHANISM changes: do not describe a scene; author the case's structured fields richly. Concretely: 3+ named intervention steps render as that case's process-flow; a before/after outcome pair renders as a comparison; a citation mix of 2+ named sources renders as an evidence-mix composition. EMPTY BEATS INVENTED: a case with no derivable structured data gets no panel; never pad fields to force one. Do not emit `brandImage` / `imageConcept`; the native lane ignores them. Full routing contract: the `designer` skill + `nxt-visual-renderer` section 6.
+
+## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
+
+Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
+`.claude/CLAUDE.md`:
+
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds no
+   fact or step.

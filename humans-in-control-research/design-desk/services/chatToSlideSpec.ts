@@ -363,7 +363,19 @@ function _repairJsonSlice(s: string): string {
 
 export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<SlideSpecGenerateResult> {
     const model: SlideSpecModel = args.model ?? 'deepseek-v4-flash';
-    const prompt = buildPrompt(args);
+    let prompt = buildPrompt(args);
+    // EXEMPLAR CONTRACT (2026-08-07): the Designer desk consults the hashtag exemplar
+    // manifest for this KIND before composing, same rule as the Analyst desk. Appended
+    // after the stable prefix (per-kind stable, so caching keys stay consistent). Fail-open.
+    try {
+        const { fetchExemplarContractForKind, noteExemplarConsultation } = await import('../../services/exemplarContract');
+        const exemplarBlock = await fetchExemplarContractForKind(args.kind);
+        if (exemplarBlock) {
+            prompt += `\n${exemplarBlock}`;
+            console.log(`[designer] exemplar-contract consulted for kind=${args.kind}: ${exemplarBlock.length} chars`);
+            noteExemplarConsultation();
+        }
+    } catch { /* fail-open */ }
 
     let raw: string;
     try {

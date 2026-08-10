@@ -221,6 +221,17 @@
             "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/dispatch_validators.py"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/stop_chat_antislop.py",
+            "timeout": 10,
+            "statusMessage": "Checking reply for slop language"
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [

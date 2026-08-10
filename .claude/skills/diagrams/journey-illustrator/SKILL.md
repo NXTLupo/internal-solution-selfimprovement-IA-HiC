@@ -41,7 +41,7 @@ Before any layout work, classify the journey type from the corpus. This determin
 | `software-user` | Discovery, Evaluation, Onboarding, Adoption, Regular Use, Mastery, Renewal |
 | `general` | Use only when none of the above fit. Phases come entirely from corpus evidence. |
 
-**Detection rule.** Count occurrences of type-discriminator terms across the unstructured corpus (e.g., "student/co-op/internship" → coop; "patient/clinical/treatment" → healthcare; "subscriber/onboard/feature" → software-user). The dominant term cluster wins. Record the detected type as `journey_type` and emit it in the KPI dashboard's eyebrow.
+**Detection rule.** Count occurrences of type-discriminator terms across the unstructured corpus (e.g., "student/co-op/internship" → coop; "patient/clinical/treatment" → healthcare; "subscriber/onboard/feature" → software-user). The dominant term cluster wins. Record the detected type as `journey_type` and emit it in the KPI dashboard's kicker line.
 
 If the detected type's canonical phases conflict with what the corpus actually shows, FOLLOW THE CORPUS. The scaffold is a starting point, not a constraint. Re-name a phase, drop one that the corpus doesn't evidence, add one the scaffold misses. The journey is descriptive of the data, not prescriptive from the type.
 
@@ -52,7 +52,7 @@ If the detected type's canonical phases conflict with what the corpus actually s
 - Artboard is **1920 × 1080**, locked.
 - 80px safe area on every side.
 - Three regions stacked top-to-bottom: HEADER → KPI-DASHBOARD → GRID-TABLE. The KPI-DASHBOARD is strictly MANDATORY and must always be rendered.
-- KPI-DASHBOARD replaces the earlier KPI-row at the bottom. It carries: journey_type eyebrow, personas array, 3-5 journey-level KPIs (overall pain count, overall opportunity count, persona count, stage count, headline metric drawn from the corpus).
+- KPI-DASHBOARD replaces the earlier KPI-row at the bottom. It carries: journey_type kicker line, personas array, 3-5 journey-level KPIs (overall pain count, overall opportunity count, persona count, stage count, headline metric drawn from the corpus).
 - No floating SVG layers. No absolute positioning of cell content. The grid is responsible for all alignment.
 - **No Em-Dashes:** Do not use em-dashes (`—` or `&mdash;`) anywhere in the text. Use a standard hyphen `-` or colon `:` instead.
 
@@ -61,7 +61,7 @@ If the detected type's canonical phases conflict with what the corpus actually s
 ## 2. Title and headline system
 
 - Title is a **diagnostic action-title sentence** stating the central friction with a number from the corpus.
-- Eyebrow above title: `JOURNEY MAP · CURRENT STATE · {journey_type}` - 10px tracked uppercase. Self-identifies the artifact AND the detected type.
+- Kicker above title (the ONE permitted top label): `JOURNEY MAP · CURRENT STATE · {journey_type}` - 10px tracked uppercase. Self-identifies the artifact AND the detected type.
 - Optional lede paragraph (≤2 lines) below title - sets up what the grid shows.
 
 BAD title (topic): "Internship search lifecycle, current state"
@@ -75,7 +75,7 @@ If the corpus does not evidence a quantified headline finding, surface the stron
 
 ```html
 <section class="kpi-dashboard">
-  <div class="kpi-eyebrow">JOURNEY MAP · {journey_type} · {persona count} personas · {stage count} stages</div>
+  <div class="kpi-kicker">JOURNEY MAP · {journey_type} · {persona count} personas · {stage count} stages</div>
 
   <div class="personas">
     <div class="persona-eye">PERSONAS</div>
@@ -124,7 +124,7 @@ If the corpus does not evidence a quantified headline finding, surface the stron
 ### KPI tiles
 - 3-5 tiles. Each tile = numeral (48-64px) + label (uppercase tracked 10px) + supporting line (12px, ≤50 chars, naming which phase the metric characterizes).
 - Numerals MUST be real numbers from the corpus, never invented. If a tile would need an invented number, REPLACE that tile with a qualitative finding tile (numeral becomes a short word like "MULTIPLE" or "FRAGMENTED" in display type).
-- At most ONE inverted tile (dark bg, brand-accent text) - and only for the headline finding. Eyebrow on that tile reads "KEY FINDING".
+- At most ONE inverted tile (dark bg, brand-accent text) - and only for the headline finding. The mono meta label on that tile reads "KEY FINDING".
 
 ---
 
@@ -184,7 +184,7 @@ Each cell carries up to five internal elements, vertically stacked. To prevent l
 
 4. **`.vq` (STRONGLY RECOMMENDED for evidence depth)** - ONE verbatim voice-of-user quote pulled directly from the corpus, with inline `<cite>` carrying `Source: {source name}, {date if known}`. VERBATIM ONLY - never paraphrased, never composed. If the corpus does not carry a usable verbatim quote for this cell, OMIT the `.vq` element. The journey reads as deeply evidenced only when verbatim quotes anchor the cell-level claims; failing that, the cell remains evidenced via the source citation in the `.tp` or `.pain` element.
 
-5. **`.pain` (OPTIONAL, max one per cell)** - ONE short clause naming a SPECIFIC friction with a number, system, or proper noun. Max ~80 chars. CSS `::before` renders the "PAIN" eyebrow automatically - DO NOT prefix the body with "Pain:" or "PAIN:".
+5. **`.pain` (OPTIONAL, max one per cell)** - ONE short clause naming a SPECIFIC friction with a number, system, or proper noun. Max ~80 chars. CSS `::before` renders the "PAIN" mono meta label automatically - DO NOT prefix the body with "Pain:" or "PAIN:".
 
 For inactive (actor × phase) cells: emit `<div class="empty">- not active in this phase</div>` rather than leaving the cell empty.
 
@@ -262,7 +262,7 @@ Before drafting cells, run these analytical moves. These are the JM disciplines 
 3. Is there EXACTLY ONE `.phase-head.focal`? Not zero, not two.
 4. Does each `.ctext` start with the actor noun? Gerund-only fragments REJECT.
 5. Do inactive cells use the `.empty` placeholder rather than being blank?
-6. Does the dashboard carry: journey_type eyebrow, personas array (2-5), overall_pain_points (3-5), overall_opportunities (3-5), KPI tiles (3-5)?
+6. Does the dashboard carry: journey_type kicker line, personas array (2-5), overall_pain_points (3-5), overall_opportunities (3-5), KPI tiles (3-5)?
 7. Verbatim quote density ≥40% of cells? Named touchpoints ≥60%? Emotion specificity ≥80%? Source diversity ≥3 distinct named sources? If under floor, REGENERATE before emitting.
 8. No banned phrases (delve, tapestry, testament, "plays a pivotal role", knowledge-cutoff disclaimers, reporting-depth metadata, em-dashes)?
 9. Title is diagnostic with a number, not a topic phrase?

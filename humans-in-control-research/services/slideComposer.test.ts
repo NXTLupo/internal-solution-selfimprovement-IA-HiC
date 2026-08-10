@@ -356,10 +356,15 @@ describe('slideComposer (registry-driven, Method A)', () => {
                 expect(html).toContain(p.name);
                 for (const cell of p.cells) expect(html).toContain(cell);
             }
-            // alignment: first criterion label row and first panel cell row share y392
-            expect((html.match(/top:392px/g) || []).length).toBeGreaterThanOrEqual(2);
+            // alignment: first criterion label row and first panel cell row share y344
+            // (2026-08-07 uplift: table pulled up, rows at pitch 132)
+            expect((html.match(/top:344px/g) || []).length).toBeGreaterThanOrEqual(2);
             // full-width row separators drawn per real criterion (4 rows -> 4 hairlines at w1622)
             expect((html.match(/width:1622px;height:1px/g) || []).length).toBe(4);
+            // previous-vs-proposed identity: the incumbent band is muted, the proposal band
+            // carries the accent top rule, and an accent connector bridges the panels
+            expect(html).toMatch(/height:64px;background:#666666/i);
+            expect((html.match(/height:3px;background:#b8b800/gi) || []).length).toBeGreaterThanOrEqual(1);
         });
         it('overflow: a 6th criterion and 7 panel cells drop cleanly (5-row ceiling)', () => {
             const payload = {

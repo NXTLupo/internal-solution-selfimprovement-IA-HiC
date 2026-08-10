@@ -32,9 +32,20 @@ export interface DeckPlanReport {
     templates: string[];
     visualRatio: number;
     archetypeCounts: Record<string, number>;
+    /** V2 (2026-08-07): the visual floor this evaluation enforced (gate default
+     *  0.4, or the session-constraint override from a "more graphics" directive). */
+    visualFloorApplied?: number;
 }
 
-export function evaluateDeckPlan(replyText: string): DeckPlanReport {
+export interface DeckPlanGateOptions {
+    /** V2 (2026-08-07, sota-elevation plan): session-constraint override of the
+     *  strategic-visual floor. Compiled from user directives ("include more
+     *  graphics") by sessionConstraints.ts; deterministic enforcement of the
+     *  user's ask, per [S] user-selections-trump-auto-ranking. Clamped 0.4-0.7. */
+    visualQuotaFloor?: number;
+}
+
+export function evaluateDeckPlan(replyText: string, opts: DeckPlanGateOptions = {}): DeckPlanReport {
     const templates = [...(replyText || '').matchAll(/:::slide\s+template=(slides:[a-z0-9-]+)/g)].map(m => m[1]);
     const counts: Record<string, number> = {};
     for (const t of templates) counts[t] = (counts[t] || 0) + 1;
@@ -80,11 +91,15 @@ export function evaluateDeckPlan(replyText: string): DeckPlanReport {
     }
 
     // 5. STRATEGIC-VISUAL QUOTA (the plan's core lever): decks with real body length
-    //    must argue visually, not in text columns. Floor: 40% of body slides visual.
-    if (body.length >= 6 && report.visualRatio < 0.4) {
+    //    must argue visually, not in text columns. Floor: 40% of body slides visual,
+    //    raisable per-session by a user directive (V2; clamped so a bad parse can
+    //    never demand an all-visual or sub-default deck).
+    const visualFloor = Math.min(0.7, Math.max(0.4, opts.visualQuotaFloor ?? 0.4));
+    report.visualFloorApplied = visualFloor;
+    if (body.length >= 6 && report.visualRatio < visualFloor) {
         const texty = body.filter(t => !VISUAL.has(t));
         report.violations.push(
-            `only ${visualBody.length} of ${body.length} body slides are visual (${Math.round(report.visualRatio * 100)}%; floor 40%). ` +
+            `only ${visualBody.length} of ${body.length} body slides are visual (${Math.round(report.visualRatio * 100)}%; floor ${Math.round(visualFloor * 100)}%${visualFloor > 0.4 ? ', raised by the user\'s explicit request for more graphics' : ''}). ` +
             `Convert text-column slides (${[...new Set(texty)].join(', ')}) whose content has SHAPE: a sequence -> slides:flow-arc, ` +
             `a comparison -> slides:comparison-panels or slides:evidence-table, hard numbers -> slides:means-matters or slides:stat-row, ` +
             `a distribution/ranking -> slides:ranked-bars, positioning -> slides:quadrant, phased time -> slides:milestone-timeline`);

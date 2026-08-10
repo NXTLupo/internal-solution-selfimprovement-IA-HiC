@@ -133,8 +133,23 @@ for SKILL in "${!SKILLS[@]}"; do
     echo ""
     echo "  ACCEPTED"
     if [ "$AUTO_PROMOTE" = "1" ]; then
-      cp "$CANDIDATE" "$SKILL_PATH"
-      echo "  PROMOTED to $SKILL_PATH"
+      # L2 REGRESSION OBLIGATIONS (2026-08-07, sota-elevation plan, layer 4):
+      # previously-passing obligations must stay green before ANY promotion.
+      # Run once per batch (first promotion) and cache the verdict.
+      if [ -z "${_REG_OBLIGATIONS_VERDICT:-}" ]; then
+        echo "  [layer 4] regression obligations (once per batch)..."
+        if (cd "$REPO_ROOT/humans-in-control-research" && node scripts/regression-obligations.mjs); then
+          _REG_OBLIGATIONS_VERDICT=pass
+        else
+          _REG_OBLIGATIONS_VERDICT=fail
+        fi
+      fi
+      if [ "$_REG_OBLIGATIONS_VERDICT" = "pass" ]; then
+        cp "$CANDIDATE" "$SKILL_PATH"
+        echo "  PROMOTED to $SKILL_PATH"
+      else
+        echo "  PROMOTION BLOCKED: regression obligations failed (candidate kept at $CANDIDATE)"
+      fi
     else
       echo "  Candidate at $CANDIDATE (not auto-promoted)"
     fi

@@ -1,17 +1,12 @@
 {
   "engagement_slugs": [
-    "produce-a-client-facing-product-marketing-report-for-the-nxt"
+    "generate-a-structured-client-ready-introductory-and-capabili"
   ],
-  "theme_cluster_ids": [
-    "eng:produce-a-client-facing-product-marketing-report-for-the-nxt#5",
-    "eng:generate-a-comprehensive-product-marketing-presentation-deck#15",
-    "eng:generate-a-comprehensive-product-marketing-report-for-nxt-hu#9",
-    "eng:generate-a-comprehensive-product-marketing-report-for-nxt-hu#1"
-  ],
+  "theme_cluster_ids": [],
   "source_archive_paths": [],
   "social_subreddits": [],
   "article_sources": [],
-  "selected_at_ms": 1783610767852,
+  "selected_at_ms": 1786322609520,
   "source_engagement_slug": "",
-  "_uncommitted": true
+  "_uncommitted": false
 }

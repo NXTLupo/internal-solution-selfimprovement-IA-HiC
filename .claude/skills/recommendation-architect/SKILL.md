@@ -382,3 +382,20 @@ honor it:
 The diffusion brand-image lane (`POST /api/ai/brand-image`, memphis-iso scene concepts, `brandImage: { concept }`) is RETIRED. Each recommendation's panel is now a NATIVE infographic composed deterministically from THAT move's OWN structured data (`services/artifactIllustrator.ts::infographicSpecFrom` -> `/api/ai/diagram`; chromeless, token-locked, typeset natively).
 
 GOVERNING RULE unchanged (user-locked, HARD): NO PURE DECORATION; the panel represents THAT recommendation's content, per-element never per-slide. The MECHANISM changes: do not describe a scene; author the recommendation's structured fields richly. Concretely: 3+ concrete named `actions`/`steps` render as that move's process-flow (this is the primary lane for recommendations, so author real sequenced moves, not vague gestures); a `beforeAfter` pair renders as a comparison. EMPTY BEATS INVENTED: a recommendation with no derivable structured data gets no panel; never pad fields to force one. Do not emit `brandImage` / `imageConcept`; the native lane ignores them. Full routing contract: the `designer` skill + `nxt-visual-renderer` section 6.
+
+## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
+
+Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
+`.claude/CLAUDE.md`:
+
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds no
+   fact or step.

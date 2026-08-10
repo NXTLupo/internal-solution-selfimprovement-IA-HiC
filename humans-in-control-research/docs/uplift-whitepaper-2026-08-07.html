@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Making Humans in Control Listen Better: The August 2026 Upgrade</title>
+<style>
+  /* Token mirror (values from /api/design-tokens, NXT mode; static doc cannot fetch) */
+  :root {
+    --color-rail: #0D0D0D; --color-ink: #141414; --color-accent: #B8B800;
+    --color-cyan: #00B7C3; --color-teal: #115054; --color-rust: #CC6644;
+    --color-paper: #FFFFFF; --color-ecru: #F2F1EA; --color-grey: #73757A;
+    --color-hairline: #DDDDD6; --color-panel: #F5F5F0; --color-body: #333333;
+    --font-display: 'Saira Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', Consolas, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); color: var(--color-body); background: var(--color-paper); line-height: 1.55; }
+  .rail { position: fixed; left: 0; top: 0; bottom: 0; width: 14px; background: var(--color-rail); }
+  main { max-width: 860px; margin: 0 auto; padding: 64px 32px 96px; }
+  .kicker { color: var(--color-cyan); letter-spacing: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+  h1 { font-family: var(--font-display); font-size: 54px; line-height: 1.02; color: var(--color-ink); margin: 12px 0 8px; text-transform: uppercase; }
+  .dek { font-size: 20px; color: var(--color-grey); margin-bottom: 40px; max-width: 46em; }
+  h2 { font-family: var(--font-display); font-size: 30px; color: var(--color-ink); text-transform: uppercase; margin: 48px 0 12px; border-top: 2px solid var(--color-hairline); padding-top: 28px; }
+  h3 { font-size: 18px; color: var(--color-teal); margin: 24px 0 6px; }
+  p { margin: 10px 0; max-width: 46em; }
+  .band { background: var(--color-accent); color: var(--color-rail); padding: 20px 28px; font-size: 19px; font-weight: 600; margin: 28px 0; border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+  th { text-align: left; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-grey); padding: 8px 12px; border-bottom: 2px solid var(--color-ink); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--color-hairline); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--color-ink); white-space: nowrap; }
+  .quote { border-left: 4px solid var(--color-accent); background: var(--color-panel); padding: 14px 20px; margin: 14px 0; font-style: italic; border-radius: 0 3px 3px 0; }
+  .quote .who { display: block; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: var(--color-cyan); margin-top: 6px; }
+  .src { font-family: var(--font-mono); font-size: 12px; color: var(--color-grey); }
+  ul { margin: 10px 0 10px 22px; max-width: 44em; }
+  li { margin: 6px 0; }
+  .foot { margin-top: 56px; padding-top: 20px; border-top: 2px solid var(--color-hairline); font-family: var(--font-mono); font-size: 12px; color: var(--color-grey); }
+</style>
+</head>
+<body>
+<div class="rail"></div>
+<main>
+  <div class="kicker">NXT Humans · Intelligence Augmentation · August 2026</div>
+  <h1>Making Humans in Control listen better</h1>
+  <div class="dek">What changed in the August 2026 upgrade, why it changed, and how each piece answers
+  the feedback our own team gave after using the product for real work.</div>
+
+  <div class="band">The short version: every source now competes equally on relevance to your
+  research objective, your instructions change how the system behaves rather than what it is
+  politely asked, and everything the system improves about itself has to pass a test before it
+  ships.</div>
+
+  <h2>Why we did this</h2>
+  <p>Two things came together. First, colleagues who use Humans in Control every day told us plainly
+  where it let them down. Second, we studied five recent research publications on how AI systems
+  should be built and run: one on keeping long-running AI work on track, two on cutting the cost of
+  repeated AI requests, one on how AI systems can safely improve themselves, and one on connecting
+  AI to structured knowledge. We also studied a working design process from a sister project
+  (Plan Pulse) that keeps many designers producing one consistent product.</p>
+  <p>The upgrade is the intersection: every change below traces to a specific piece of feedback, a
+  specific research finding, or both.</p>
+
+  <h2>What our colleagues told us</h2>
+  <div class="quote">"When I upload a transcript and try to create slides, it often includes too much
+  from the transcript and not enough from its own research, even after I ask it not to include anything
+  from the transcript."<span class="who">Colleague feedback, July 2026</span></div>
+  <div class="quote">"Possibly more variety in the slides and including more images and graphics.
+  When I ask it to include more graphics, it is also not responsive to that."<span class="who">Colleague feedback, July 2026</span></div>
+  <div class="quote">"There is a lot of variety in text sizes. Not sure if there is a way to make it
+  more consistent."<span class="who">Colleague feedback, July 2026</span></div>
+  <div class="quote">"Some of the original language is very vague and the sentences do not make
+  sense."<span class="who">Colleague feedback, July 2026</span></div>
+  <div class="quote">"If there is a way to have it pull from more credible sources, that could be
+  beneficial, more so for citing on the slides."<span class="who">Colleague feedback, July 2026</span></div>
+
+  <h2>What changed, feedback by feedback</h2>
+
+  <h3>1. "The transcript takes over the slides, even when I ask it not to"</h3>
+  <p>This was the most serious report, because the product is named Humans in Control. The real
+  problem was balance: the source-selection math let uploaded documents crowd out the system's own
+  research simply because an upload is, by raw word overlap, always "about" the engagement. The
+  intent of the product has always been the opposite: every piece of material, transcripts
+  included, competes equally on one question only, how relevant it is to your research objective.</p>
+  <p>Two fixes shipped, in the right order. The primary fix is balance by default: uploaded
+  material can no longer take more than its fair share of any slide's source mix while the
+  system's own research has relevant material to offer. Transcripts are never shut out; they are
+  simply held to the same relevance standard as everything else, and your own hand-picked
+  selections are never touched by this balancing.</p>
+  <p>The second fix is explicit control on top of the default. If you do want a source set aside
+  for a session, saying so now creates a standing rule enforced by code, confirmed on screen at the
+  top of the reply, and lifted the moment you say "you can use the transcript again." Nothing is
+  ever excluded unless you asked, and a fresh session always starts clean.</p>
+  <p>"Include more graphics" works the same way: it raises the required share of visual slides that
+  a deck must meet before it is allowed through, rather than hoping the AI takes the hint.</p>
+
+  <h3>2. "More variety, more images and graphics"</h3>
+  <p>Decks already had to pass a quality check before reaching you. That check now also enforces
+  variety: no two identical slide layouts in a row, a minimum number of distinct layouts per deck,
+  and a floor on the share of slides that argue visually instead of in text columns. When a deck
+  fails, the system is told exactly which rule it broke and must fix it before you see it.</p>
+  <p>On the supply side, we built a new Figma design library for Humans in Control with six new
+  visual slide layouts that previously existed only as code: a positioning quadrant, ranked bars, a
+  process flow, a dated timeline, a hero-figure evidence layout, and side-by-side option panels.
+  Each one now has an official reference version that the generators and the quality checks compare
+  against, in both the NXT and Northeastern brand looks, and each is built from plain shapes and
+  text so exported PowerPoint files stay fully editable.</p>
+
+  <h3>3. "Text sizes are inconsistent"</h3>
+  <p>Diagnosis: each slide was shrinking its own text independently whenever content ran long, so
+  the same kind of text landed at a different size on every slide. The fix has two parts. Content
+  length limits are now enforced when the slide is composed, so shrinking rarely triggers at all.
+  And a new design rule says every size on every slide must come from the official type scale;
+  checks that read the final output and flag any stray size are built and will turn on fully in the
+  next cycle. In plain terms: text sizes stop being a side effect and become a rule.</p>
+
+  <h3>4. "The language is vague and some sentences do not make sense"</h3>
+  <p>The system already blocked hundreds of known bad phrases. The research we studied on humanizing
+  AI text points out that ban lists only remove words; they do not add substance. So we are adding
+  affirmative writing rules: every sentence must name something concrete (a person, a system, a
+  named source), and sentence lengths must vary the way a human writer's do. Sentences that fail get
+  sent back for revision automatically. Separately, a head-to-head comparison of writing models is
+  scheduled, so the model that writes your decks earns its place with evidence.</p>
+
+  <h3>5. "Pull from more credible sources, especially citations on slides"</h3>
+  <p>Today the AI writes citations and the system checks them afterward. The upgrade flips that:
+  the system will hand the AI a ranked menu of allowed sources, weighted by credibility, and the AI
+  must pick from the menu by number. A made-up citation becomes impossible rather than merely
+  detectable. Alongside this, every page in the knowledge base is gaining a shelf life and a
+  verified mark, so older or weaker material naturally loses ground to fresher, checked material.
+  The menu system is designed and scheduled for the next cycle; the credibility ranking it draws on
+  is already in place.</p>
+
+  <h2>What changed under the hood</h2>
+  <p>These changes come straight from the research and mostly pay for themselves.</p>
+  <table>
+    <tr><th>Change</th><th>What it means in practice</th></tr>
+    <tr><td>Repeat-work discount</td><td>AI providers charge less when the unchanged part of a request repeats. We measured exactly how our provider's discount behaves (it turned out to be simpler and more favorable than the published research suggested), tightened how we use it, and added a live dashboard that shows the savings instead of assuming them.</td></tr>
+    <tr><td>Run diary</td><td>Every research run now writes a one-line summary of its health: how many steps it took, what failed and recovered, whether anything that used to work broke, and whether your instructions were enforced. Improvement decisions now cite this diary instead of anecdotes.</td></tr>
+    <tr><td>No silent regressions</td><td>Before any part of the system upgrades itself (its skills, its rules, its choice of AI models), a fixed suite of past work is re-run and must still pass. If yesterday's good deck would come out worse, the upgrade is blocked.</td></tr>
+    <tr><td>Self-improvement needs real evidence</td><td>The research is blunt: AI systems that grade their own homework drift. Every self-improvement cycle here now must include at least one signal from outside the AI, such as your edits or a real run's results, and no change ships on the AI's own opinion alone.</td></tr>
+    <tr><td>A constitution for design</td><td>Ten written design laws, a decision log, and a deviation register now govern every visual the system produces. Breaking a law is allowed only deliberately and on the record, never silently. New slide layouts must pass a six-step review (specification, draft, automated check, critique, owner sign-off, publication) before they can appear in your decks.</td></tr>
+  </table>
+
+  <h2>How we know it works</h2>
+  <p>Before writing this document we tested the upgrade against the live product, in a real
+  browser, on a real saved research session.</p>
+  <ul>
+    <li>Typing "do not use anything from the transcript in the slides or analysis" produced an
+    immediate on-screen confirmation: <span class="src">Enforcing: excluding from retrieval +
+    citations: transcript. Say "lift the exclusions" or "use it again" to undo.</span> The rule
+    was stored for the session and wired into source selection.</li>
+    <li>Typing "please include more graphics in the slides from now on" raised the enforced
+    visual-slide requirement from 40 percent to 55 percent, again with an on-screen confirmation.</li>
+    <li>The run diary recorded a full synthetic run correctly: steps, one failure, one fallback,
+    one regression, and the enforcement events, all in one ledger row.</li>
+    <li>The savings dashboard booked the day's real traffic, showing that roughly two of every
+    five prompt tokens were already being served from cache.</li>
+    <li>The whole product loaded with zero browser errors after the upgrade, and the full
+    pre-release test suite (types, 681 unit tests, template consistency, benchmark comparison
+    against the frozen baseline, and server checks) passed before anything went live.</li>
+    <li>The directive rules themselves carry twenty dedicated tests, including the exact
+    sentences from the feedback above.</li>
+  </ul>
+
+  <h2>What to expect</h2>
+  <ul>
+    <li>Instructions about sources and visuals take effect immediately and visibly. Look for the
+    "Enforcing:" line at the top of replies.</li>
+    <li>Decks should show more layout variety right away; the richer visual library grows as the
+    new Figma system rolls out.</li>
+    <li>Text-size consistency and the citation menu arrive in the next cycle; both have their
+    designs and their acceptance tests already written.</li>
+    <li>Also queued for the next cycle: the Knowledge Library's theme clusters get plain-English
+    headings (a one-line summary of what the cluster is actually about) in place of labels like
+    "Cluster 1117" with raw keyword chips.</li>
+    <li>In about a month we will re-run this exact feedback list with the people who raised it, with
+    the run diary as the neutral scorekeeper.</li>
+  </ul>
+
+  <div class="band">One sentence to remember: the system now treats your instructions as rules to
+  enforce, and treats its own improvements as claims to prove.</div>
+
+  <div class="foot">
+    NXT Humans · Intelligence Augmentation · Humans in Control upgrade, 2026-08-07.<br>
+    Sources studied for this upgrade: LoopsBench (Microsoft Research and Nanjing University, 2026);
+    Cache-Aware Prompt Compression (PayPal, 2026); Token-Operations-Oriented Inference Optimization
+    (China Unicom, 2026); Recursive Self-Improvement in AI, a survey of 1,250 papers (UC Riverside,
+    2026); The Graph Language, GRALAN (University of Calabria, 2026); the Open Knowledge Format
+    specification (Google Cloud, 2026); the Plan Pulse design process repository (NXT Humans, 2026);
+    and written colleague feedback on Humans in Control (July 2026).
+  </div>
+</main>
+</body>
+</html>

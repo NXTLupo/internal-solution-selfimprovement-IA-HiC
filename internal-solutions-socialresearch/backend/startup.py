@@ -61,6 +61,43 @@ def initialize_pgvector():
         logger.error(f"Error initializing PGVector tables: {str(e)}")
         return False
 
+def cleanup_stale_jobs():
+    """Fail any jobs left in 'processing'/'pending' by a previous run.
+
+    Jobs execute in-process (background threads inside the Gunicorn workers),
+    so no job can survive a container restart. Any job still marked
+    processing/pending at startup is an orphan; left alone it permanently
+    holds the frontend's 1-concurrent-project slot and locks out new
+    project creation.
+    """
+    logger.info("Sweeping stale jobs...")
+    try:
+        from app.db.config.database import SessionLocal
+        from app.db.models.reddit_models import RedditJobStatus
+        from datetime import datetime
+
+        db = SessionLocal()
+        try:
+            stale = db.query(RedditJobStatus).filter(
+                RedditJobStatus.status.in_(["processing", "pending"])
+            ).all()
+            for job in stale:
+                job.status = "failed"
+                job.message = "Job interrupted by a backend restart"
+                job.error = "Orphaned: the backend restarted while this job was running"
+                job.updated_at = datetime.utcnow()
+            db.commit()
+            if stale:
+                logger.warning(f"Marked {len(stale)} orphaned job(s) as failed: {[j.id for j in stale]}")
+            else:
+                logger.info("No stale jobs found")
+            return True
+        finally:
+            db.close()
+    except Exception as e:
+        logger.error(f"Error sweeping stale jobs: {str(e)}")
+        return False
+
 def create_temp_directory():
     """Create temp directory for analysis files."""
     logger.info("Creating temp directory...")
@@ -85,6 +122,10 @@ def main():
 
     # Initialize database
     db_success = initialize_database()
+
+    # Sweep jobs orphaned by the previous shutdown (must run after DB init,
+    # before workers start accepting requests)
+    cleanup_stale_jobs()
 
     # Initialize PGVector
     pgvector_success = initialize_pgvector()

@@ -256,7 +256,7 @@ PAYLOAD: `{ eyebrow, title, role, phases: [ { label, name, items: [ ".." ] } ] (
 One roadmap across roles: role-rows x horizon-columns matrix. The cross-role closer.
 PAYLOAD: `{ eyebrow, title, horizons: [ 4 column labels, last emphasized ], roles: [ { name, cells: [ one per horizon ] } ] }`.
 
-### slides:quadrant — composer-native (Figma canon write-back pending, WS-2) · content-rail ← 2x2 positioning
+### slides:quadrant — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#4:2 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← 2x2 positioning
 A 2x2 strategy quadrant: two axis labels, four titled quadrant cells (quadrant order TL, TR, BL,
 BR), and 3-8 plotted subject chips rendered inside their quadrant as accent-bordered chips. Use
 when the finding POSITIONS named things against two dimensions (value vs effort, urgency vs
@@ -268,7 +268,7 @@ HIGH)"); quadrant title <= 24; each item <= 60; subject label <= 28. At most 3 s
 quadrant (extras drop in payload order) - spread them. DENSITY: fixed 4 quadrants; `density=dense`
 does not raise ceilings here.
 
-### slides:flow-arc — composer-native (Figma canon write-back pending, WS-2) · content-rail ← process / sequence
+### slides:flow-arc — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#5:9 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← process / sequence
 3-6 numbered step cards in a horizontal band with native connector bars between them; steps
 spread to fill the zone at any count. Optional `outcome` closes the slide with an accent OUTCOME
 band. THE brick for process-shaped content (phases, pipelines, operating loops) - never render a
@@ -278,7 +278,7 @@ BUDGETS: title <= 70 chars; step title <= 30 (2 lines); description = ONE comple
 substance, <= 170 chars (what happens and why it matters - a bare label renders a hollow card);
 outcome <= 140 (2 lines on the band). DENSITY: 4 steps base; `density=dense` warrants 5-6.
 
-### slides:milestone-timeline — composer-native (Figma canon write-back pending, WS-2) · content-rail ← dated milestones
+### slides:milestone-timeline — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#5:42 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← dated milestones
 A horizontal time axis with 3-6 milestone nodes: accent dot on the axis, mono date label, title +
 one-line detail alternating above/below the axis (collision-free by construction). Use for dated
 commitments, rollout gates, history arcs - anything where WHEN carries the argument.
@@ -287,7 +287,7 @@ BUDGETS: title <= 70 chars; date <= 14 chars (e.g. "MAR 2026", "Q3 2026"); miles
 (2 lines); detail = ONE line of substance, <= 60 chars. DENSITY: 4 milestones base;
 `density=dense` warrants 5-6.
 
-### slides:means-matters — composer-native (Figma canon write-back pending, WS-2) · content-rail ← hero-figure stat anatomy
+### slides:means-matters — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#6:15 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← hero-figure stat anatomy
 The two-layer stat anatomy (Farm-reference pattern): 2-3 columns, each an accent hero figure +
 plain caption + MEANS label (cyan mono) + readable interpretation + MATTERS as a DARK CARD (rail
 background, accent text); ONE source line closes the slide. Distinct from `slides:stat-row`: the
@@ -299,7 +299,7 @@ quantitative-claim rule, e.g. `Source: "One in three briefs stalls before synthe
 operations review)`); caption <= 40; means <= 110; matters <= 110. DENSITY: fixed 2-3 columns;
 `density=dense` does not raise ceilings here.
 
-### slides:ranked-bars — composer-native (Figma canon write-back pending, WS-2) · content-rail ← relative magnitude
+### slides:ranked-bars — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#4:29 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← relative magnitude
 Horizontal proportional bars: 3-6 rows, each label (left) + accent bar on an ecru track scaled by
 a 0-100 RELATIVE value + note (right). The value is NEVER rendered as text - it sets the bar
 length only; any figure the reader sees rides a cited quote in the note. Use when the finding is
@@ -309,7 +309,7 @@ value = integer 0-100 relative magnitude, top row = 100), sourceLine }`.
 BUDGETS: title <= 70 chars; label <= 28 (2 lines); note <= 90 chars (2 lines; carries the cited
 quote when a figure matters). DENSITY: 4 bars base; `density=dense` warrants 5-6.
 
-### slides:comparison-panels — composer-native (Figma canon write-back pending, WS-2) · content-rail ← option-vs-option
+### slides:comparison-panels — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#6:32 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← option-vs-option
 2-3 side-by-side option panels, each a dark header band + one cell per criterion, aligned across
 panels on shared hairline rows with the criterion labels in a left rail column. Distinct from
 `slides:evidence-table` (row cards profiling named subjects on ONE axis): this brick compares

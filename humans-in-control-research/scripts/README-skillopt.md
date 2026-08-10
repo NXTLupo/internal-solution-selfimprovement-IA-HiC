@@ -33,8 +33,16 @@ npm run skillopt:train-promote
 ```
 
 Each candidate goes through `validate-candidate.py` (structural integrity,
-universal hygiene, held-out failure-pattern coverage). Only candidates that
-pass all three layers are promoted to the deployed SKILL.md.
+universal hygiene, held-out failure-pattern coverage) PLUS the mandatory
+layer 4: `npm run regression:obligations` (L2, 2026-08-07 - tsc, vitest,
+template parity, frozen-baseline benchmarks, proxy syntax) must be green
+before any promotion. A candidate that passes layers 1-3 but fails layer 4
+stays un-promoted. The same suite gates epoch-proposer applications and
+aiRouter routing repoints.
+
+Additionally (R2, 2026-08-07): `build-training-set.py` REJECTS any batch with
+zero exogenous rollouts (real artifacts or user feedback) - synthetic-only
+training is a collapse risk, not a training run.
 
 ### Scheduled weekly retraining
 

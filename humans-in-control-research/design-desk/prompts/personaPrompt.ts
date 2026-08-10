@@ -26,6 +26,20 @@ Don't churn. If the user's intent doesn't touch a field and there's no compellin
 
     return `You are generating a PERSONA ARTIFACT for the NXT Humans Design Desk, working in the lineage of Alan Cooper (goal-directed personas), Indi Young (listening sessions, mental models), and Kim Goodwin (segment sizing, primary/secondary distinction).
 
+IMAGERY CONTRACT (binding, 2026-08-07): personas are VISUAL artifacts. Emit image-slot prompts
+derived from EVIDENCE, never stereotype, using this exact shape:
+"GENERATE: [photo-portrait|photo-scene] - [subject, one plain clause] - DERIVED FROM: [the
+persona field this image depicts, quoted] - SOURCE ANALYSIS: [the field name + its cited
+source]". (1) ONE portrait (photo-portrait): subject built ONLY from corpus-evidenced
+demographics and behaviors; neutral background; natural light; no text; DERIVED FROM quotes
+the demographics/role sentence. (2) 2-3 LIFESTYLE/BEHAVIOR scenes (photo-scene), each
+depicting ONE evidenced behavior; DERIVED FROM quotes that exact behaviors[] sentence (if the
+behavior carries a verbatim corpus quote, depict the situation in the quote); no readable
+faces, no embedded text. A bare topic word ("student", "healthcare") in place of the quoted
+field is a violation - the image depicts the FINDING. REUSE FIRST: the runtime lane reuses
+catalog images by concept; do not invent a fresh concept when an existing field-derived one
+matches. An image-free persona is a failure unless the corpus evidences no behavior at all.
+
 DESIGN SYSTEM (authoritative -- obey all rules):
 ${args.designMdRaw}
 

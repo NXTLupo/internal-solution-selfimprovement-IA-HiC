@@ -499,6 +499,27 @@ async function _fetchChunksByTitle(refs: string[]): Promise<NamedRefFetch> {
     return { records, matchedTitles, missingRefs };
 }
 
+/**
+ * V7 (2026-08-07) - pure cap check for the MMR pack's SOURCE-TYPE BALANCE.
+ * True when picking this candidate NOW would push its class share past its cap
+ * among AUTO (non-user-selected) picks. Protected chunks never breach (user
+ * selections trump auto-ranking). Exported for unit tests; the pack loop is the
+ * only production caller. The intent (colleague finding F5): all corpora are
+ * prioritized EQUALLY by objective relevance - no source class dominates
+ * structurally, and none is ever universally excluded.
+ */
+export function wouldBreachSourceCaps(
+    flags: { social: boolean; upload: boolean; protected: boolean },
+    counters: { autoSocial: number; autoUpload: number; autoTotal: number },
+    caps: { socialMaxFrac: number; uploadMaxFrac: number },
+): boolean {
+    if (flags.protected) return false;
+    const newTotal = counters.autoTotal + 1;
+    if (flags.social && counters.autoSocial + 1 > Math.ceil(caps.socialMaxFrac * newTotal)) return true;
+    if (flags.upload && counters.autoUpload + 1 > Math.ceil(caps.uploadMaxFrac * newTotal)) return true;
+    return false;
+}
+
 const _WORD_RE = /\b[a-z][a-z0-9'-]{2,}\b/g;
 
 function _tokenize(text: string): Set<string> {
@@ -569,6 +590,30 @@ export async function pickChunksForPrompt(
             console.log(`[chunkRetrieval] shard window: excluded ${before - catalog.length} prior-shard chunks; ${catalog.length} remain in catalog`);
         }
     }
+    // V4 (2026-08-07, sota-elevation plan): SESSION-CONSTRAINT source exclusion.
+    // User directives compiled by sessionConstraints.ts are enforced HERE, before
+    // ranking, so an excluded source can never win relevance. Rung-1 enforcement
+    // of [S] user-selections-trump-auto-ranking extended to chat directives.
+    // The filter also strips excluded chunks from the pinned set: an explicit
+    // NEW exclusion outranks an older KL pin (latest user intent wins).
+    try {
+        const { getSessionConstraints, isSourceExcluded, noteDirectiveEnforcement } = await import('./sessionConstraints');
+        const _sc = getSessionConstraints(engagementSlug);
+        if (_sc.excludeSources.length || _sc.includeOnly.length) {
+            const before = catalog.length;
+            catalog = catalog.filter(r => !isSourceExcluded(_sc, {
+                title: r.sourceTitle, wikiPath: r.sourcePath, source: r.chunkId,
+            }));
+            const dropped = before - catalog.length;
+            for (const id of Array.from(pinned)) {
+                if (isSourceExcluded(_sc, { wikiPath: id, source: id })) pinned.delete(id);
+            }
+            if (dropped > 0) {
+                console.log(`[chunkRetrieval] V4 session constraints: excluded ${dropped} chunk(s) from [${_sc.excludeSources.join('; ')}] before ranking`);
+                noteDirectiveEnforcement(engagementSlug, 1);
+            }
+        }
+    } catch { /* constraints module unavailable = pre-V4 behavior */ }
     // 2026-06-25 - BY-NAME admission. When the user named a specific document in
     // the prompt, fuzzy-match it against manifest page titles and merge that doc's
     // chunks into the candidate pool as a never-dropped priority tier (namedRef).
@@ -837,20 +882,37 @@ export async function pickChunksForPrompt(
     for (const rec of candidateRecs) {
         if (rec.sourceSubreddit || isSocialSource(rec.sourcePath, rec.sourceTitle)) _isSocialId.add(rec.chunkId);
     }
+    // V7 (2026-08-07, sota-elevation plan; colleague finding F5 ROOT FIX). The feedback's intent
+    // is EQUAL PRIORITIZATION of all corpora by objective relevance - a transcript/upload competes
+    // like every other source and never dominates BECAUSE it is an upload. Same mechanism as the
+    // social cap above (research-run-failure P0.1 pattern): UPLOAD-class chunks (client uploads,
+    // transcripts, cached upload reuse) fill at most UPLOAD_MAX_FRAC of the AUTO-admitted pool
+    // WHILE external candidates remain to fill the budget - the retrieval-time twin of the
+    // evidence hierarchy's >=60%-external floor. Once externals are exhausted, uploads may use the
+    // remainder (an upload-only corpus is never starved). User selections are never capped.
+    // The V4 exclusion compiler stays as the EXPLICIT user override on top of this default balance.
+    const UPLOAD_MAX_FRAC = 0.4;
+    const _isUploadId = new Set<string>();
+    for (const rec of candidateRecs) {
+        const hay = `${rec.sourcePath || ''} ${rec.sourceTitle || ''}`.toLowerCase();
+        if (/upload|transcript/.test(hay)) _isUploadId.add(rec.chunkId);
+    }
     let _socialSel = selected.reduce((n, id) => n + (_isSocialId.has(id) ? 1 : 0), 0);  // total social (incl pinned)
     let _autoSocial = 0;   // social picked from the AUTO (non-user-selected) tier
-    let _autoTotal = 0;    // total picks from the AUTO tier (the cap's denominator)
+    let _autoUpload = 0;   // upload-class picked from the AUTO tier (V7)
+    let _autoTotal = 0;    // total picks from the AUTO tier (the caps' denominator)
 
     const LAMBDA = 0.7;   // relevance weight; (1-LAMBDA) penalizes redundancy
     const pool = scored
         .filter(s => s.score !== Number.POSITIVE_INFINITY)
         .map(s => ({ s, set: _termSet(s.chunk), norm: 0, taken: false,
-            social: _isSocialId.has(s.chunk.id), prot: s.score >= USER_SELECTED_TIER }));
+            social: _isSocialId.has(s.chunk.id), upload: _isUploadId.has(s.chunk.id),
+            prot: s.score >= USER_SELECTED_TIER }));
     const maxScore = pool.reduce((m, p) => Math.max(m, p.s.score), 0) || 1;
     for (const p of pool) p.norm = p.s.score / maxScore;
     while (true) {
-        let bestIdx = -1, bestMmr = -Infinity;             // best overall
-        let bestOtherIdx = -1, bestOtherMmr = -Infinity;   // best NON-social (soft-cap fallback)
+        let bestIdx = -1, bestMmr = -Infinity;         // best overall
+        let bestOkIdx = -1, bestOkMmr = -Infinity;     // best pick that breaches NO source-type cap
         for (let i = 0; i < pool.length; i++) {
             const p = pool[i];
             if (p.taken || p.s.charLen > budgetChars) continue;
@@ -858,18 +920,25 @@ export async function pickChunksForPrompt(
             for (const sel of selectedSets) { const j = _jaccard(p.set, sel); if (j > maxSim) maxSim = j; }
             const mmr = LAMBDA * p.norm - (1 - LAMBDA) * maxSim;
             if (mmr > bestMmr) { bestMmr = mmr; bestIdx = i; }   // strict > -> first in stable order wins ties
-            if (!p.social && mmr > bestOtherMmr) { bestOtherMmr = mmr; bestOtherIdx = i; }
+            const breaches = wouldBreachSourceCaps(
+                { social: p.social, upload: p.upload, protected: p.prot },
+                { autoSocial: _autoSocial, autoUpload: _autoUpload, autoTotal: _autoTotal },
+                { socialMaxFrac: SOCIAL_MAX_FRAC, uploadMaxFrac: UPLOAD_MAX_FRAC },
+            );
+            if (!breaches && mmr > bestOkMmr) { bestOkMmr = mmr; bestOkIdx = i; }
         }
         if (bestIdx === -1) break;   // nothing left fits the budget
-        // SOCIAL cap (AUTO tier only): defer a non-protected social pick that would push auto-social
-        // past SOCIAL_MAX_FRAC of the AUTO picks, in favor of the best non-social candidate that still
-        // fits. Protected (user-selected) chunks are never deferred and never counted in the denominator.
-        let pickIdx = bestIdx;
-        const best = pool[bestIdx];
-        if (best.social && !best.prot && bestOtherIdx !== -1
-            && _autoSocial + 1 > Math.ceil(SOCIAL_MAX_FRAC * (_autoTotal + 1))) {
-            pickIdx = bestOtherIdx;
-        }
+        // SOURCE-TYPE caps (AUTO tier only; V7 generalizes the social cap to uploads): defer a
+        // non-protected pick that would push its class past its cap, in favor of the best candidate
+        // that breaches no cap. When EVERY remaining candidate breaches (single-class corpus), the
+        // best overall proceeds - balance when classes coexist, never starvation. Protected
+        // (user-selected) chunks are never deferred and never counted in the denominator.
+        const bestBreaches = wouldBreachSourceCaps(
+            { social: pool[bestIdx].social, upload: pool[bestIdx].upload, protected: pool[bestIdx].prot },
+            { autoSocial: _autoSocial, autoUpload: _autoUpload, autoTotal: _autoTotal },
+            { socialMaxFrac: SOCIAL_MAX_FRAC, uploadMaxFrac: UPLOAD_MAX_FRAC },
+        );
+        const pickIdx = (bestBreaches && bestOkIdx !== -1) ? bestOkIdx : bestIdx;
         const chosen = pool[pickIdx];
         chosen.taken = true;
         selected.push(chosen.s.chunk.id);
@@ -877,11 +946,15 @@ export async function pickChunksForPrompt(
         budgetChars -= chosen.s.charLen;
         selectedSets.push(chosen.set);
         if (chosen.social) _socialSel++;
-        if (!chosen.prot) { _autoTotal++; if (chosen.social) _autoSocial++; }
+        if (!chosen.prot) {
+            _autoTotal++;
+            if (chosen.social) _autoSocial++;
+            if (chosen.upload) _autoUpload++;
+        }
     }
     const droppedOverBudget = pool.filter(p => !p.taken).length;
     const _userSocial = _socialSel - _autoSocial;  // social that came from the user's own selection
-    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social (${_userSocial} user-selected / ${_autoSocial} auto) / ${selected.length - _socialSel} non-social (auto-social cap ${Math.round(SOCIAL_MAX_FRAC * 100)}% of ${_autoTotal} auto picks; user selections never capped)`);
+    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social (${_userSocial} user-selected / ${_autoSocial} auto), ${_autoUpload} auto upload-class / ${_autoTotal} auto picks (caps: social ${Math.round(SOCIAL_MAX_FRAC * 100)}%, upload ${Math.round(UPLOAD_MAX_FRAC * 100)}%; user selections never capped; single-class corpora never starved)`);
 
     // W6 (2026-07-01): normalized objective-relevance per selected chunk (0-100) so the AIR evidence
     // ledger carries a real objectiveScore per pointer. Pinned=100, user-selected tier=95; auto picks

@@ -345,3 +345,20 @@ into your system prompt. You MUST honor it:
 The diffusion brand-image lane (`POST /api/ai/brand-image`, memphis-iso scene concepts, `brandImage: { concept }`) is RETIRED. Each theme card's thumbnail is now a NATIVE infographic composed deterministically from THAT theme's OWN structured data (`services/artifactIllustrator.ts::infographicSpecFrom` -> `/api/ai/diagram`; chromeless, token-locked, typeset natively).
 
 GOVERNING RULE unchanged (user-locked, HARD): NO PURE DECORATION; the thumbnail represents THAT theme's content, per-element never a shared strip across the row. The MECHANISM changes: do not describe a scene; author the theme's structured fields richly. Concretely: the theme's citation mix (2+ real named sources across source types) composes its evidence-mix panel, so citation diversity is now ALSO the visual substrate; keep every citation real, named, and per-type attributed. EMPTY BEATS INVENTED: a theme with no derivable structured data gets no thumbnail; never pad citations to force one. Do not emit `brandImage` / `imageConcept`; the native lane ignores them. Full routing contract: the `designer` skill + `nxt-visual-renderer` section 6.
+
+## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
+
+Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
+`.claude/CLAUDE.md`:
+
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds no
+   fact or step.

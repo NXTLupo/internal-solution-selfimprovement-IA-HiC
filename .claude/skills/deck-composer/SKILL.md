@@ -6,6 +6,13 @@ description: "The single versioned authority for #slides / #strategy / #presenta
 
 # Deck Composer - the DECK MODE authority
 
+> DESIGN CONSTITUTION (2026-08-07, D1): every deck surface is bound by the ten HiC Design Laws
+> in `hic-workspace/wiki/brand/design-laws.md` (tokens only; compose from registered bricks;
+> frozen brick APIs; numbers only in cited quotes; citation-as-selection; provenance; honest
+> gaps; data geometry in instances; collision bans). Deviations are never silent: fix or log in
+> `humans-in-control-research/design-desk/deviation-register.md`. Settled arguments:
+> `design-desk/adr/`. New archetypes/bricks walk the D4 gate spine, never straight to prod.
+
 A `#slides` / `#strategy` / `#presentation` deck is COMPOSED from the registered SLIDES
 archetypes (catalog: `hic-workspace/wiki/design-system/slides-component-manifest.md`) the way
 `#proto` composes from its component manifest. Every slide is one fence:
@@ -217,3 +224,22 @@ exhibitImage / panelImage are runtime-owned). When a numbered-themes slide profi
 segments, keep each `items[].body` <= 140 chars so the thumbnail layout breathes. `slides:scene`
 takes an `imageConcept` (a literal shapes-as-content description), never a URL; not every scene
 needs one.
+
+## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
+
+Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
+`.claude/CLAUDE.md`:
+
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds no
+   fact or step.
+
+> FIELD-NAME NOTE (2026-08-07): the `eyebrow` payload field in the slides:* schemas renders as the CANON KICKER (IBM Plex Mono SemiBold 17/+5px, cyan, UPPERCASE) - exactly ONE per slide, always the artifact-type line. Never emit additional micro-labels above titles or section headings; per-section labels that color/position already convey are banned (the "eyebrow slop" rule, owner 2026-08-07).

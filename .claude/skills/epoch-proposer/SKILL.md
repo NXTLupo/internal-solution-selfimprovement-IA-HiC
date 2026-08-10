@@ -68,6 +68,20 @@ hic-workspace/_epoch-<id>/                                                      
 You read a median of 30-80 files per epoch. That is normal. The proposer's value comes
 from the depth of inspection, not the breadth of summary.
 
+6. **Read the loop-trace ledger (L1, 2026-08-07).** `cat hic-workspace/wiki/synthesis/loop-trace-ledger.md`
+   — per-run rounds, fallback events, gate-failure->repair counts, REGRESSION events, and
+   directive-adherence events. A step whose regression or fallback count trends up across
+   runs is a first-class intervention candidate; cite ledger lines in the rationale.
+
+### R2 MINIMUM-GROUNDING RULE (2026-08-07, UNIFIED_VISION phase 7 — hard requirement)
+Every proposal MUST cite at least one EXOGENOUS signal in its rationale: a user checkpoint
+edit, a live-run gate outcome, a loop-trace-ledger line, or a held-out golden item. A proposal
+motivated only by model judgment over traces ("this prompt reads badly") is NOT a valid epoch
+— exit without proposing instead. Pure closed loops degrade; the grounding line in the ledger
+entry is mandatory, alongside the verification-hierarchy rule (no promotion on rung-3/4 signal
+alone; the golden-set gate is your rung-2 signal and is never sufficient to SKIP — it is the
+minimum, not the ceiling). Audit reference: `wiki/synthesis/verification-hierarchy.md`.
+
 ## Edit surface — four layers, ONE edit per epoch
 
 Per the plan §6.4, the proposer can edit across four layers. **You ship at most one

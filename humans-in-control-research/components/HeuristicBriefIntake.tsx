@@ -93,6 +93,54 @@ const HeuristicBriefIntake: React.FC<Props> = ({ onSubmit, isAnalyzing, error })
         setScreenTypes(prev => prev.filter((_, i) => i !== index));
     };
 
+    // W2 (plans/browseros-live-capture-2026-07-13.md): PUBLIC-lane live-flow capture.
+    // The proxy's headless Chromium walks a URL flow and each step lands here as an
+    // auto-typed 'live' screenshot (heuristicAnalysisService captures-auto-type-live
+    // contract). Deterministic step grammar; partial captures append on a failed step.
+    const [captureUrl, setCaptureUrl] = useState('');
+    const [captureSteps, setCaptureSteps] = useState('');
+    const [capturing, setCapturing] = useState(false);
+    const [captureNote, setCaptureNote] = useState<string | null>(null);
+    const runCapture = async () => {
+        if (!captureUrl.trim() || capturing) return;
+        setCapturing(true);
+        setCaptureNote(null);
+        try {
+            const resp = await fetch('http://127.0.0.1:5012/api/heuristic/capture-flow', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ startUrl: captureUrl.trim(), steps: captureSteps, maxShots: 12 }),
+            });
+            if (!resp.ok) {
+                const detail = (await resp.json().catch(() => null))?.detail || `HTTP ${resp.status}`;
+                setCaptureNote(`Capture failed: ${detail}`);
+                return;
+            }
+            const data = await resp.json();
+            const caps: Array<{ png: string; url: string; action: string; step: number }> = data.captures || [];
+            if (caps.length === 0) {
+                setCaptureNote('No captures returned.');
+                return;
+            }
+            const room = Math.max(0, 20 - screenshots.length);
+            const kept = caps.slice(0, room);
+            setScreenshots(prev => [...prev, ...kept.map(c => ({
+                base64: c.png.split(',')[1],
+                mimeType: 'image/png',
+                dataUri: c.png,
+            }))]);
+            setScreenTypes(prev => [...prev, ...kept.map(() => 'live' as ScreenArtifactType)]);
+            setCaptureNote(
+                `${kept.length} live screen(s) captured` +
+                (kept.length < caps.length ? ` (${caps.length - kept.length} dropped at the 20-screenshot cap)` : '') +
+                (data.stopped ? `. Stopped early: ${data.stopped}` : ''));
+        } catch (e: any) {
+            setCaptureNote(`Capture failed: ${e?.message || e}`);
+        } finally {
+            setCapturing(false);
+        }
+    };
+
     const cycleScreenType = (index: number) => {
         const order: ScreenArtifactType[] = ['mockup', 'live', 'slide', 'document'];
         setScreenTypes(prev => prev.map((t, i) =>
@@ -170,6 +218,44 @@ const HeuristicBriefIntake: React.FC<Props> = ({ onSubmit, isAnalyzing, error })
                         ))}
                     </div>
                 )}
+
+                {/* Live-flow capture (public pages; proxy headless Chromium). Optional and
+                    additive: captured steps append as 'live' screenshots alongside uploads. */}
+                <div className="mt-4 border border-[var(--border-primary)] rounded p-4 bg-[var(--bg-secondary)]">
+                    <div className="flex items-center justify-between mb-2">
+                        <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest">
+                            Capture live flow (public pages)
+                        </label>
+                        <span className="text-[10px] text-[var(--text-tertiary)]">Steps: goto / click "text" / fill "field" "value" / press Key / scroll / wait N</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                        <input
+                            value={captureUrl}
+                            onChange={(e) => setCaptureUrl(e.target.value)}
+                            className="col-span-2 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded p-2 text-sm focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none"
+                            placeholder="Start URL, e.g. https://competitor.com/signup"
+                            disabled={capturing}
+                        />
+                        <button
+                            onClick={runCapture}
+                            disabled={!captureUrl.trim() || capturing || screenshots.length >= 20}
+                            className="rounded p-2 text-sm font-bold bg-[var(--nxt-teal)] text-white disabled:opacity-40"
+                        >
+                            {capturing ? 'Capturing (watch the count)...' : 'Run capture'}
+                        </button>
+                    </div>
+                    <textarea
+                        value={captureSteps}
+                        onChange={(e) => setCaptureSteps(e.target.value)}
+                        rows={3}
+                        className="w-full mt-2 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded p-2 text-xs font-mono focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none"
+                        placeholder={'# one step per line; a screenshot lands after each\nclick "Get started"\nscroll'}
+                        disabled={capturing}
+                    />
+                    {captureNote && (
+                        <div className={`text-xs mt-2 ${captureNote.startsWith('Capture failed') ? 'text-[#FF5A5A]' : 'text-[var(--text-secondary)]'}`}>{captureNote}</div>
+                    )}
+                </div>
             </div>
 
             {/* Product Info */}

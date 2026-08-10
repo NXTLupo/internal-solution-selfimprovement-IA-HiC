@@ -225,6 +225,19 @@ Watch verbs: serves as, stands as, marks (a/the), represents (a/the), embodies, 
 - BAD: "But here's the thing —"  (false-revelation transition)
 - BAD: "We are excited to announce..."  (press-release voice)
 
+### The Actor Rule (2026-08-07, HARD — binding on every generated sentence)
+Two tests every user-visible sentence must pass, on top of the phrase bans above:
+1. NAME THE ACTOR. Every claim states who or what acts: a named team, system, person, or
+   audience. Abstract nouns (engagement, advancement, alignment, transformation, adoption)
+   never act; dramatic verbs (leaks, dies, bleeds, unlocks, erodes, cannot see) never
+   substitute for the mechanism. Ground cause and effect: X fails because Y, so Z happens.
+   BAD: "Engagement leaks at three stages advancement cannot see."
+   GOOD: "Alumni drop off at three stages the advancement team cannot see."
+2. READ IT ALOUD. If a real person would not say the sentence out loud, rewrite it. Kill
+   broken grammar, buzzwords forced into the wrong part of speech, and word-salad
+   compression. Plain subject, direct verb, concrete object; delete every word that adds
+   no fact or step.
+
 ### Format Tells (HARD BANS, 2026-05-25)
 - NEVER emit Unicode bold/italic stylization characters (mathematical bold-script glyphs). These are AI-tell artifacts.
 - **EM-DASH HARD BAN**: NEVER use the em-dash character (U+2014) anywhere in any rendered output — generated artifacts, slides, chat replies, deliverables, JSON content fields, HTML body text. Use comma, semicolon, colon, period, or parenthesis instead. Em-dashes are the single most reliable AI-writing tell. The `slidePostProcessor.ts::stripEmDashes` function auto-replaces them at runtime. ASCII hyphens in compound words remain fine.

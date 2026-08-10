@@ -1,8 +1,14 @@
 import { it } from 'vitest';
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync } from 'fs';
+import { tmpdir } from 'os';
+import { join } from 'path';
 import { slideDataToStageHtml } from './slideToStageHtml';
 
-const OUT = 'C:/Users/JonathanLupo/AppData/Local/Temp/claude/D--NXT-HUMANS-AI-CX-WORKBENCH/3fe97bdd-739c-419d-aa6b-d1b65eb1ba5b/scratchpad';
+// 2026-08-07 (L2 regression-obligations hardening): the proof output dir was a
+// hardcoded per-session scratchpad path from a deleted session, which failed
+// the suite on every other machine. Portable temp dir, created on demand.
+const OUT = join(tmpdir(), 'hic-render-proofs');
+mkdirSync(OUT, { recursive: true });
 
 // Throwaway render-audit: emit the REAL stage HTML for architecture-map + service-blueprint so the
 // current native renderers can be screenshotted and checked for element placement. Not a permanent test.
@@ -38,6 +44,6 @@ it('emit architecture + blueprint audit html', () => {
         },
         sources: ['Alumni Interviews', 'Advancement CRM Audit'],
     };
-    writeFileSync(`${OUT}/arch-proof.html`, slideDataToStageHtml(arch), 'utf8');
-    writeFileSync(`${OUT}/blueprint-proof.html`, slideDataToStageHtml(blueprint), 'utf8');
+    writeFileSync(join(OUT, 'arch-proof.html'), slideDataToStageHtml(arch), 'utf8');
+    writeFileSync(join(OUT, 'blueprint-proof.html'), slideDataToStageHtml(blueprint), 'utf8');
 });

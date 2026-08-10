@@ -2889,6 +2889,9 @@ async function fetchSlidesArchetypeManifest(): Promise<string> {
     return _slidesManifestCache;
 }
 
+// EXEMPLAR CONTRACT (2026-08-07): lives in services/exemplarContract.ts (shared with the
+// Designer desk builders); consumed below on every artifact turn.
+
 // E5 (2026-07-02, artifact-total-elevation) - COMPONENT-SPEC RETRIEVAL. The component registry
 // (wiki brand/figma-node-map.md) has been manifest-chunked since 6/23 but NOTHING retrieved it at
 // generation time, so the model composed slides from prose memory of the bricks instead of their
@@ -3004,6 +3007,33 @@ export async function sendChatMessage(
         }
     };
     throwIfAborted();
+
+    // V4 (2026-08-07, sota-elevation plan) - DIRECTIVE-TO-CONSTRAINT COMPILER.
+    // Imperatives in the user's turn ("don't use the transcript", "more
+    // graphics", "use it again") compile into typed SESSION constraints that
+    // are enforced deterministically downstream (chunkRetrieval exclusion
+    // filter, deckPlanGate visual floor) and persist for the whole session
+    // until lifted (owner decision 7). The echo-back below makes enforcement
+    // visible; it is prepended to the reply just before return.
+    let _v4Echo = '';
+    let _v4Constraints: import('./sessionConstraints').SessionConstraints | undefined;
+    try {
+        const sc = await import('./sessionConstraints');
+        const _slug = (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : '') || '';
+        const compiled = sc.compileDirectives(userMessage, _slug);
+        _v4Constraints = compiled.constraints;
+        if (compiled.changed) {
+            _v4Echo = sc.describeEnforcement(compiled.constraints, compiled.turnActions);
+            sc.noteDirectiveEnforcement(_slug, compiled.turnActions.length);
+            console.info(`[chat][V4] session constraints updated: ${compiled.turnActions.join(' | ')}`);
+        } else if (_v4Constraints.excludeSources.length || _v4Constraints.visualQuotaFloor !== undefined) {
+            // Standing constraints stay visible on artifact turns so the user
+            // never wonders whether an earlier ask is still enforced.
+            if (isArtifactGenerationMessage(userMessage)) {
+                _v4Echo = sc.describeEnforcement(_v4Constraints);
+            }
+        }
+    } catch { /* constraints unavailable = pre-V4 behavior */ }
 
     // 2026-05-26 - Unknown-hashtag guard. If the user typed `#foo` and `foo`
     // is not a registered directive, surface a one-line warning ABOVE the
@@ -3294,6 +3324,19 @@ export async function sendChatMessage(
             }
         } catch (err: any) {
             console.warn('[chat] E5 component-spec retrieval skipped:', err?.message || err);
+        }
+        // EXEMPLAR CONTRACT (2026-08-07): the hashtag's Figma exemplar anatomy is consulted
+        // BEFORE composition on every artifact turn; consultation is logged for the L1 ledger.
+        try {
+            const { fetchExemplarContract, noteExemplarConsultation } = await import('./exemplarContract');
+            const exemplarBlock = await fetchExemplarContract(userMessage);
+            if (exemplarBlock) {
+                context = { ...context, nxtDesignSystemRules: (context.nxtDesignSystemRules || '') + exemplarBlock };
+                console.log(`[chat] exemplar-contract consulted: ${exemplarBlock.length} chars injected (design-system/exemplar-manifest.md)`);
+                noteExemplarConsultation();
+            }
+        } catch (err: any) {
+            console.warn('[chat] exemplar-contract retrieval skipped:', err?.message || err);
         }
     }
 
@@ -3933,14 +3976,18 @@ ${deckComposerSkill}
         if (/#presentation|#strateg|#slides?\b/i.test(userMessage)) {
             try {
                 const { evaluateDeckPlan, buildDeckRepairInstruction } = await import('./deckPlanGate');
-                const plan = evaluateDeckPlan(responseText);
+                // V2 (2026-08-07): the session-constraint visual floor ("more
+                // graphics") parameterizes the gate - the user's ask is enforced
+                // by code, not left to the model's discretion.
+                const _gateOpts = { visualQuotaFloor: _v4Constraints?.visualQuotaFloor };
+                const plan = evaluateDeckPlan(responseText, _gateOpts);
                 if (plan.isDeck && !plan.pass) {
                     console.warn(`[chat][deck-gate] plan violations (${plan.violations.length}): ${plan.violations.join(' | ')}`);
                     const repairMsg = `${buildDeckRepairInstruction(plan)}\n\nORIGINAL REQUEST:\n"""\n${userMessage}\n"""\n\nYOUR PREVIOUS DECK (revise per the violations, keep everything else verbatim):\n"""\n${responseText}\n"""`;
                     const repaired = activeModelId.startsWith('claude')
                         ? await callClaude(systemPrompt, repairMsg, [], activeModelId)
                         : await callGemini(systemPrompt, repairMsg, [], activeModelId);
-                    const rePlan = evaluateDeckPlan(repaired);
+                    const rePlan = evaluateDeckPlan(repaired, _gateOpts);
                     if (rePlan.isDeck && rePlan.violations.length < plan.violations.length) {
                         console.log(`[chat][deck-gate] repair accepted: ${plan.violations.length} -> ${rePlan.violations.length} violations, visual ratio ${Math.round(plan.visualRatio * 100)}% -> ${Math.round(rePlan.visualRatio * 100)}%`);
                         responseText = repaired;
@@ -4148,6 +4195,10 @@ ${deckComposerSkill}
         }
         if (notices.length > 0) {
             responseText = notices.join('\n') + '\n\n' + responseText;
+        }
+        // V4 echo-back: enforcement is never invisible (colleague finding F5).
+        if (_v4Echo) {
+            responseText = `[${_v4Echo}]\n\n` + responseText;
         }
 
         // 2026-06-15 (P3 insight RETRIEVABILITY, karpathy-second-brain-realignment): persist substantive
