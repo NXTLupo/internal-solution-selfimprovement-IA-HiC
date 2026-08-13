@@ -376,6 +376,11 @@ services:
         - GEMINI_API_KEY=${GEMINI_API_KEY}
         - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
         - OPENAI_API_KEY=${OPENAI_API_KEY}
+    # 2026-08-13 — pull_policy: build makes a PLAIN `docker compose up -d`
+    # rebuild this image from the working tree every time, so `git pull` +
+    # `up -d` (no --build) always serves the pulled code. Docker layer cache
+    # keeps the no-change case fast. Same policy on research-proxy.
+    pull_policy: build
     ports:
       - "${RESEARCH_GENERATOR_PORT:-5011}:5011"
     environment:
@@ -413,6 +418,8 @@ services:
   # /usr/local/lib/python3.11/site-packages where they survive the /app overlay.
   research-proxy:
     build: ./humans-in-control-research/proxy
+    # 2026-08-13 — see research-generator: plain `up -d` always rebuilds.
+    pull_policy: build
     ports:
       # 2026-05-20 — Explicit IPv4 bind (127.0.0.1) to work around Docker
       # Desktop on Windows advertising [::]:5012 but not actually forwarding
