@@ -1996,6 +1996,10 @@ for _pk_mod, _pk_attr, _pk_label in (
     ("energy_sources", "ENERGY_SOURCES", "Energy & Utilities"),
     ("social_clubs_sources", "SOCIAL_CLUBS_SOURCES", "Social Clubs"),
     ("travel_tourism_sources", "TRAVEL_TOURISM_SOURCES", "Travel, Tourism & Museums"),
+    # Executive search & leadership advisory pack (2026-08-13) - 189 free sources
+    # from the executive-search vertical registry; same wiring as the healthcare
+    # pack (supported connectors only; pack-unique categories; pack_match).
+    ("executive_search_sources", "EXECUTIVE_SEARCH_SOURCES", "Executive Search"),
 ):
     try:
         _pk_dict = getattr(__import__(_pk_mod), _pk_attr)
@@ -7533,6 +7537,25 @@ SOURCE_PACKS = {
                        "athletic club operations, membership-economy research, club communities.",
         "pack_match": "social_clubs",
         "categories": ["Club Communities & Forums", "Club Hospitality & F&B", "Club Management Trade & Profession", "Fraternal, Civic & Service Organizations", "Golf, Racquet & Athletic Club Operations", "Historic City & University Clubs", "Membership Economy & Association Research"]},
+    "executive_search": {"name": "Executive Search & Leadership Advisory", "kind": "industry",
+        "industries": ["executive_search", "leadership_advisory", "talent_acquisition", "board_governance", "hr_tech"],
+        "description": "189 free sources: search-firm trade press and newswire (Hunt Scanlon, ERE), major "
+                       "retained-search firm insights, board/governance and CEO-succession research, leadership "
+                       "diversity, PE/VC portfolio talent, executive compensation (EDGAR proxies), HR and "
+                       "future-of-work research, appointment wires, labor-market data, relationship-intelligence "
+                       "and AI-recruiting technology, profession standards and regulation (AESC, EEOC, EU AI Act).",
+        "pack_match": "executive_search",
+        "categories": ["Executive Search Trade Press & Newswire",
+                        "Search Firm Intelligence & Insights",
+                        "Board, Governance & C-Suite Research",
+                        "Leadership Diversity & Board Composition",
+                        "PE, VC & Portfolio Talent",
+                        "Executive Compensation & Talent Benchmarking",
+                        "Talent, HR & Future of Work Research",
+                        "Leadership Moves & Appointment Wires",
+                        "Executive Labor Market & Turnover Data",
+                        "Relationship Intelligence & Recruiting Technology",
+                        "Search Profession, Regulation & Communities"]},
     "travel_tourism": {"name": "Travel, Tourism & Museums", "kind": "industry",
         "industries": ["travel", "tourism", "museums", "hospitality", "aviation", "attractions"],
         "description": "250 free sources: travel & hospitality trade press (Skift, PhocusWire), tourism boards and "

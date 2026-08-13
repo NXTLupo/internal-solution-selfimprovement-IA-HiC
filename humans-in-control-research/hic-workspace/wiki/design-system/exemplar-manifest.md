@@ -134,6 +134,20 @@ Binding rules:
   "item: the problem it solves and its named owner"; sequencing takeaway band.
 
 ## Usage rules (enforced)
+0c. CLAIM DISCIPLINE (2026-08-13, Kaleynik/OpenScholar audit): a citation must support the
+   ACTUAL WORDING of its claim (same population, period, comparison, causal strength) -
+   narrow the sentence, never widen the citation. Citations repeating one original = ONE
+   source; CONVERGENT requires independent originals. Unsupported factual claims do not
+   earn prose: state only supported facts, derivations, and defensible inferences;
+   hypotheses ship only as explicitly framed bets; unknowns narrow the section. Empty
+   benefit phrases ("improve efficiency", "greater flexibility") are replaced by the
+   mechanism or cut.
+0b. SEMANTIC COHERENCE (2026-08-09, languagejones audit): zero metaphor by default; any
+   image must be physically enactable in one frame (nothing "overarching" also
+   "undergirds"; you cannot "point a toolkit at a problem"); never mix frames in a
+   sentence pair; verbs keep literal objects. No assistant-voice validation ("sure
+   thing", "great question", "and that matters"); no "quietly reshaping"/"amid a year
+   of" scene setters; no conceptual "buckets".
 0. THE ACTOR RULE (anti-slop): every user-visible sentence names its actor (a team, system,
    person, or audience - abstract nouns never act, dramatic verbs never substitute for the
    mechanism) and passes the read-aloud test (a real person would say it; no broken grammar,

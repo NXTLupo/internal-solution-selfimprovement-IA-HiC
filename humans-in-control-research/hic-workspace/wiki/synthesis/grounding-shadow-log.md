@@ -61,6 +61,5 @@ The validation framework utilizes confidence levels—including hypothesis, part
 ### Pending Evidence Categories Awaiting Ingestion
 
 To transition benchmarks from hypothesis to evidenced, primary source evidence must be ingested across the following pending categories:
-
-*   **CX Maturity**: Ingestion is required for evidence correlating organizational structures, employee metrics, and maturity-to-revenue levels [evidence/cx-maturity.md].
-*   **Digital Transformation**: Ingestion is required for evidence regarding transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md].
+*   **CX Maturity**: Ingestion of primary sources is required for maturity-to-outcome, maturity-to-revenue, and the correlation of maturity with organizational structures and employee levels [evidence/cx-maturity.md].
+*   **Digital Transformation**: Ingestion of primary sources is required for transformation failure, change management, technology adoption, culture, and primary change [evidence/digital-transformation.md].

@@ -394,6 +394,11 @@ export interface PickChunksOptions {
      *  default; sharded breadth passes set it so each shard's window is purely
      *  relevance-ranked (a named ref only makes sense for the first/whole pass). */
     skipNamedRefs?: boolean;
+    /** K1 (2026-08-13, WS-K OpenScholar audit) - skip the LLM rerank of the auto
+     *  tier. Rerank is ON by default when the auto pool is large enough; latency-
+     *  critical callers (sharded breadth passes) opt out. The proxy endpoint
+     *  falls back to identity ordering on any failure, so retrieval never breaks. */
+    skipRerank?: boolean;
 }
 
 export interface PickedChunks {
@@ -846,7 +851,67 @@ export async function pickChunksForPrompt(
     // where similarity is per-chunk key_term Jaccard (CPU-only, no embeddings).
     // Deterministic: candidates are pre-sorted (score desc, shorter, chunkId asc)
     // and ties use strict-greater, so the first in that stable order wins.
-    scored.sort((a, b) => (b.score - a.score) || (a.charLen - b.charLen) || (a.chunk.id < b.chunk.id ? -1 : 1));
+    const _scoredCmp = (a: Scored, b: Scored) =>
+        (b.score - a.score) || (a.charLen - b.charLen) || (a.chunk.id < b.chunk.id ? -1 : 1);
+    scored.sort(_scoredCmp);
+
+    // K1 (2026-08-13, WS-K OpenScholar audit): LLM RERANK of the AUTO tier before MMR.
+    // OpenScholar's ablations show a rerank stage between candidate retrieval and
+    // generation is load-bearing for correctness + citation F1. The keyword pre-rank
+    // measures surface term overlap; the reranker reads chunk CONTENT against the
+    // objective. Scope: AUTO-admitted candidates only (pinned/user-selected tiers are
+    // authoritative and never reordered); top RERANK_POOL by current score; reranked
+    // chunks are lifted to a band ABOVE keyword scores but BELOW the user tier, so
+    // content-relevance beats term counting while user intent still beats everything.
+    // The proxy endpoint (/api/wiki/rerank, Flash, session-cached, identity fallback)
+    // makes this fail-open: any error keeps the deterministic keyword order.
+    const RERANK_POOL = 40;
+    const RERANK_MIN_AUTO = 12;
+    const RERANK_BAND = 1000; // > any overlap*sentenceCount score observed; << USER_SELECTED_TIER
+    // Sharded breadth passes (excludeIds) auto-skip: N shards would mean N rerank
+    // calls over sliding windows for marginal gain; shard windows stay keyword-ranked.
+    if (!opts.skipRerank && !(opts.excludeIds && opts.excludeIds.length > 0)) {
+        try {
+            const auto = scored.filter(s => Number.isFinite(s.score) && s.score > 0 && s.score < USER_SELECTED_TIER);
+            if (auto.length >= RERANK_MIN_AUTO) {
+                const pool = auto.slice(0, RERANK_POOL);
+                const resp = await fetch(`${PROXY_BASE}/api/wiki/rerank`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        goal: (opts.researchObjective || opts.extraContext || '').slice(0, 800),
+                        question: userPrompt.slice(0, 600),
+                        candidates: pool.map(s => ({
+                            chunk_id: s.chunk.id,
+                            text: s.chunk.text.slice(0, 800),
+                            source_name: s.chunk.id.split('#')[0],
+                        })),
+                    }),
+                });
+                if (resp.ok) {
+                    const data = await resp.json();
+                    const ranked: Array<{ chunk_id?: string; score?: number }> = Array.isArray(data?.ranked) ? data.ranked : [];
+                    const rs = new Map<string, number>();
+                    for (const r of ranked) {
+                        const id = String(r.chunk_id || '');
+                        const sc = Number(r.score);
+                        if (id && Number.isFinite(sc)) rs.set(id, Math.max(0, Math.min(1, sc)));
+                    }
+                    let lifted = 0;
+                    for (const s of pool) {
+                        const r = rs.get(s.chunk.id);
+                        if (r !== undefined) { s.score = RERANK_BAND + r * 100; lifted++; }
+                    }
+                    if (lifted > 0) {
+                        scored.sort(_scoredCmp);
+                        console.log(`[chunkRetrieval] K1 rerank: content-reranked ${lifted}/${pool.length} auto candidate(s) (model=${data.model_used || '?'}, cache_hit=${!!data.cache_hit})`);
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn(`[chunkRetrieval] K1 rerank unavailable - keyword order kept: ${String(e).slice(0, 120)}`);
+        }
+    }
     const _termSet = (ch: ResolvedChunk): Set<string> => new Set(ch.keyTerms.map(t => t.toLowerCase()));
     const _jaccard = (a: Set<string>, b: Set<string>): number => {
         if (a.size === 0 || b.size === 0) return 0;

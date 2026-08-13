@@ -1459,6 +1459,82 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = 
     { phrase: 'most vendor evidence', severity: 'high' },
 
     // ════════════════════════════════════════════════════════════════════════
+    // 2026-08-09 - LANGUAGEJONES AUDIT (owner-directed)
+    // Patterns from the languagejones "How to Detect AI Slop" audit (YouTube
+    // ORgKY9AlybA, Dr. Taylor Jones, U-Penn linguistics). The video's core
+    // finding: word-list bingo is the WEAK signal; the strongest tell is
+    // SEMANTIC INCOHERENCE behind common word choices (physically impossible
+    // or mixed metaphors: "overarching pillars that undergird", "point a
+    // toolkit at a problem and see what it buys you"). The coherence RULE
+    // lives in .claude/CLAUDE.md (prompts can honor it; regex cannot fully);
+    // these entries catch the known incoherent collocations + the assistant
+    // voice + the per-model pet words the prior lists missed.
+    // NOT banned despite appearing in the video: "gap" and "blueprint"
+    // (legitimate deliverable vocabulary here), bare "actually"/"honestly"
+    // mid-sentence (too common in verbatim quotes; sentence-initial form
+    // only), "quietly" in engineering contexts (only the news-voice
+    // "quietly + amid" scene-setter is flagged).
+    // ════════════════════════════════════════════════════════════════════════
+
+    // === Assistant voice (chipper validation - "ChatGPT voice") ===
+    { phrase: 'sure thing', severity: 'high' },
+    { phrase: 'great question', severity: 'high' },
+    { phrase: 'really great question', severity: 'high' },
+    { phrase: 'and that matters', severity: 'high' },
+    { phrase: "here's why that matters", severity: 'high' },
+    { phrase: 'why this matters', severity: 'medium' },
+
+    // === Semantically incoherent collocations (the real giveaway) ===
+    { phrase: 'overarching', severity: 'high' },
+    { phrase: 'undergird', severity: 'high' },
+    { phrase: 'undergirds', severity: 'high' },
+    { phrase: 'undergirding', severity: 'high' },
+    { phrase: 'nestled amid', severity: 'high' },
+    { phrase: 'what it buys you', severity: 'high' },
+    { phrase: 'what they buy you', severity: 'high' },
+    { phrase: 'point them at a problem', severity: 'high' },
+    { phrase: 'point it at a problem', severity: 'high' },
+    { phrase: 'the move here is', severity: 'high' },
+
+    // === Per-model pet words (Gemini: buckets; Claude: toolkit/move) ===
+    { phrase: 'toolkit', severity: 'medium' },
+    { phrase: 'toolkits', severity: 'medium' },
+    { phrase: 'conceptual buckets', severity: 'high' },
+    { phrase: 'two buckets', severity: 'medium' },
+    { phrase: 'three buckets', severity: 'medium' },
+    { phrase: 'falls into buckets', severity: 'high' },
+
+    // === Empty-benefit phrases (2026-08-13 Kaleynik audit: they point toward a
+    // benefit without explaining one - replace with the mechanism, observation,
+    // decision, or action, or cut) ===
+    { phrase: 'improve efficiency', severity: 'high' },
+    { phrase: 'improves efficiency', severity: 'high' },
+    { phrase: 'improving efficiency', severity: 'high' },
+    { phrase: 'enhance engagement', severity: 'high' },
+    { phrase: 'greater flexibility', severity: 'high' },
+    { phrase: 'offer greater flexibility', severity: 'high' },
+    { phrase: 'streamline operations', severity: 'high' },
+    { phrase: 'streamlines operations', severity: 'high' },
+    { phrase: 'streamline processes', severity: 'high' },
+    { phrase: 'boost productivity', severity: 'high' },
+    { phrase: 'boosts productivity', severity: 'high' },
+    { phrase: 'drive growth', severity: 'medium' },
+    { phrase: 'drives growth', severity: 'medium' },
+    { phrase: 'drive efficiency', severity: 'high' },
+    { phrase: 'unlock value', severity: 'high' },
+    { phrase: 'deliver value', severity: 'medium' },
+    { phrase: 'create value', severity: 'medium' },
+
+    // === News-voice scene setters (quietly/amid family) ===
+    { phrase: 'quietly amid', severity: 'high' },
+    { phrase: 'amid a year of', severity: 'high' },
+    { phrase: 'amid growing', severity: 'medium' },
+    { phrase: 'amid rising', severity: 'medium' },
+    { phrase: 'quietly reshaping', severity: 'high' },
+    { phrase: 'quietly transforming', severity: 'high' },
+    { phrase: 'quietly becoming', severity: 'high' },
+
+    // ════════════════════════════════════════════════════════════════════════
     // 2026-05-25 - ANTI-SLOP UPLIFT
     // Patterns ingested from: ignorance.ai "Field Guide to AI Slop" (Charlie Guo),
     // Wikipedia "Signs of AI writing" (the canonical exhaustive index), and

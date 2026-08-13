@@ -3766,11 +3766,17 @@ Output JSON.`;
         // re-asks) to avoid double-running critics on already-revised content.
         if (!feedback && result.recommendations.length > 0) {
             try {
-                const { criticReviseLoop, RECOMMENDATIONS_LOOP } = await import('./criticReviseLoop');
+                const { criticReviseLoop, RECOMMENDATIONS_LOOP, makeCorpusEvidenceRetriever } = await import('./criticReviseLoop');
                 onStream(`Phase 1C: Critique-revise loop (${RECOMMENDATIONS_LOOP.critics.length} critics, budget $${RECOMMENDATIONS_LOOP.budget_usd?.toFixed(2)})...`);
+                // K2 (2026-08-13, WS-K): critics may request fresh corpus evidence for
+                // coverage holes; the fetcher rides the standard retrieval spine.
+                const _k2Slug = (typeof window !== 'undefined'
+                    ? (window as any).__hicCurrentEngagementSlug
+                    : undefined) || '';
                 const looped = await criticReviseLoop({
                     deliverable: result,
                     ...RECOMMENDATIONS_LOOP,
+                    retrieve_evidence: makeCorpusEvidenceRetriever(_k2Slug, (result as any)?.researchGoal || undefined),
                 });
                 Object.assign(result, looped.result);
                 (result as any).degradation_events = [
@@ -3782,6 +3788,21 @@ Output JSON.`;
             } catch (e: any) {
                 console.warn('[Wire 5] critic-revise-loop skipped (non-fatal):', e?.message || e);
             }
+        }
+
+        // K3 (2026-08-13, WS-K): mechanized CLAIMS PASS. An external verifier
+        // (Flash, never the generating model) scope-checks each claim against its
+        // own quoted evidence and narrows overreaching sentences in place.
+        // Risk-scaled to consequential kinds; fail-open.
+        try {
+            const { verifyClaimSupport } = await import('./claimSupportVerifier');
+            const k3 = await verifyClaimSupport(result, 'recommendations');
+            if (k3.report.applied > 0) {
+                Object.assign(result, k3.artifact);
+                onStream(`Claims pass: ${k3.report.applied} claim(s) narrowed to evidence scope`);
+            }
+        } catch (e: any) {
+            console.warn('[K3] claims pass skipped (non-fatal):', e?.message || e);
         }
 
         // Validate

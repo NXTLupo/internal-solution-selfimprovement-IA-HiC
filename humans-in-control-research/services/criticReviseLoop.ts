@@ -26,6 +26,12 @@ export type CriticVerdict = {
     edits: CriticEdit[];
     rationale: string;
     confidence: 'high' | 'medium' | 'low';
+    /** K2 (2026-08-13, WS-K OpenScholar audit): when the deficiency is MISSING
+     *  EVIDENCE (a coverage hole new retrieval could fill), the critic may emit
+     *  up to 3 natural-language retrieval queries instead of guessing edits.
+     *  The loop fetches evidence for them and re-invokes the critic ONCE with
+     *  the evidence block so its edits quote real corpus material. */
+    retrieval_queries?: string[];
 };
 
 export type CriticConfig = {
@@ -47,6 +53,11 @@ export type CriticReviseLoopOpts<T> = {
     surface_critique_log: boolean;  // default true
     proxy_base?: string;             // default http://localhost:5012
     invoke_critic?: CriticInvoker;   // custom critic invoker (for tests / external skills)
+    /** K2 (2026-08-13): evidence fetcher for critic retrieval_queries. Given up to
+     *  3 queries, returns corpus evidence snippets (each with a chunk id + text).
+     *  Artifact callers back this with pickChunksForPrompt + resolveChunks; absent
+     *  means retrieval_queries are ignored (pre-K2 behavior). */
+    retrieve_evidence?: (queries: string[]) => Promise<Array<{ id: string; text: string }>>;
 };
 
 export type CriticReviseLoopResult<T> = {
@@ -69,6 +80,10 @@ export type CriticInvoker = (opts: {
     deliverable: unknown;
     invocation_model: CriticConfig['invocation_model'];
     proxy_base: string;
+    /** K2: fresh corpus evidence for the critic's own retrieval_queries. Present
+     *  only on the one evidence-armed re-invoke; the critic must ground its edits
+     *  in these snippets (verbatim quotes + chunk-id citations). */
+    evidence_block?: string;
 }) => Promise<{ verdict: CriticVerdict; cost_usd: number }>;
 
 
@@ -277,13 +292,16 @@ Return ONLY a JSON object matching this contract:
     ...
   ],
   "rationale": "one-paragraph explanation",
-  "confidence": "high" | "medium" | "low"
+  "confidence": "high" | "medium" | "low",
+  "retrieval_queries": ["..."]
 }
 
 DELIVERABLE:
 {{DELIVERABLE_JSON}}
+{{EVIDENCE_BLOCK}}
+Apply the {{SKILL_NAME}} discipline. If the deliverable already satisfies it, return {"accept": true, "edits": [], ...}. Otherwise emit structured edits, NOT a rewrite. Edits must use dot-paths into the deliverable JSON.
 
-Apply the {{SKILL_NAME}} discipline. If the deliverable already satisfies it, return {"accept": true, "edits": [], ...}. Otherwise emit structured edits, NOT a rewrite. Edits must use dot-paths into the deliverable JSON.`;
+retrieval_queries (optional, max 3): ONLY when a deficiency is MISSING EVIDENCE that new corpus retrieval could fill (a section with no verbatim quote, a claim needing corroboration, one-sided sourcing) - emit short retrieval queries naming what evidence is needed. Never emit queries when the fix is rewording. If a FRESH CORPUS EVIDENCE block is present above, you already asked: ground your edits in those snippets (verbatim quotes, real chunk ids) and do NOT emit further queries.`;
 
 
 const PROVIDER_FOR_MODEL: Record<string, Provider> = {
@@ -309,11 +327,14 @@ const ESTIMATED_CALL_COST: Record<string, number> = {
 
 
 export const defaultCriticInvoker: CriticInvoker = async ({
-    skill_name, deliverable, invocation_model, proxy_base,
+    skill_name, deliverable, invocation_model, proxy_base, evidence_block,
 }) => {
     const prompt = CRITIC_PROMPT_TEMPLATE
-        .replace('{{SKILL_NAME}}', skill_name)
-        .replace('{{DELIVERABLE_JSON}}', JSON.stringify(deliverable, null, 2).slice(0, 12000));
+        .replaceAll('{{SKILL_NAME}}', skill_name)
+        .replace('{{DELIVERABLE_JSON}}', JSON.stringify(deliverable, null, 2).slice(0, 12000))
+        .replace('{{EVIDENCE_BLOCK}}', evidence_block
+            ? `\nFRESH CORPUS EVIDENCE (retrieved for your own queries - ground your edits here):\n${evidence_block.slice(0, 8000)}\n`
+            : '');
 
     const { result } = await withResilience<CriticVerdict>({
         primary: PROVIDER_FOR_MODEL[invocation_model] ?? 'anthropic',
@@ -371,6 +392,47 @@ function revisor<T>(deliverable: T, edits: CriticEdit[]): T {
 
 
 // ──────────────────────────────────────────────────────────────────────────
+// K2 standard evidence fetcher (2026-08-13, WS-K)
+// Backs retrieve_evidence with the SAME retrieval spine artifacts use
+// (pickChunksForPrompt manifest ranking + resolver), so critic-requested
+// evidence obeys every standing retrieval rule (V4 exclusions, V7 balance,
+// non-evidence filter). Dynamic imports keep this module test-light.
+// ──────────────────────────────────────────────────────────────────────────
+
+export function makeCorpusEvidenceRetriever(
+    engagementSlug: string,
+    researchObjective?: string,
+): (queries: string[]) => Promise<Array<{ id: string; text: string }>> {
+    return async (queries: string[]) => {
+        const { pickChunksForPrompt } = await import('./chunkRetrieval');
+        const { resolveChunks } = await import('./wikiPointerResolver');
+        const out: Array<{ id: string; text: string }> = [];
+        const seen = new Set<string>();
+        for (const q of queries.slice(0, 3)) {
+            try {
+                const picked = await pickChunksForPrompt(q, engagementSlug, {
+                    tokenBudget: 1500,
+                    researchObjective,
+                    skipAutoPin: true,
+                    skipNamedRefs: true,
+                    skipRerank: true,
+                });
+                const ids = picked.chunkIds.filter(id => !seen.has(id)).slice(0, 4);
+                if (ids.length === 0) continue;
+                const resolved = await resolveChunks(ids);
+                for (const ch of resolved.chunks) {
+                    if (seen.has(ch.id)) continue;
+                    seen.add(ch.id);
+                    out.push({ id: ch.id, text: ch.text });
+                }
+            } catch { /* per-query fail-open; remaining queries still run */ }
+        }
+        return out;
+    };
+}
+
+
+// ──────────────────────────────────────────────────────────────────────────
 // Main loop
 // ──────────────────────────────────────────────────────────────────────────
 
@@ -424,6 +486,37 @@ export async function criticReviseLoop<T>(opts: CriticReviseLoopOpts<T>): Promis
             }
 
             totalCost += result.cost_usd;
+
+            // K2 (2026-08-13, WS-K): feedback-triggered re-retrieval. When the critic
+            // reports a coverage hole via retrieval_queries AND the caller supplied an
+            // evidence fetcher, fetch corpus evidence for those queries and re-invoke
+            // the SAME critic ONCE with the evidence block, so its edits carry real
+            // verbatim quotes instead of guesses. One re-invoke per critic iteration
+            // (the prompt forbids further queries when evidence is present); fail-open.
+            const _rq = (result.verdict.retrieval_queries || []).filter(q => typeof q === 'string' && q.trim()).slice(0, 3);
+            if (_rq.length > 0 && opts.retrieve_evidence && !result.verdict.accept) {
+                try {
+                    const evidence = await opts.retrieve_evidence(_rq);
+                    if (evidence.length > 0) {
+                        const block = evidence.slice(0, 12)
+                            .map(e => `[${e.id}] ${e.text.replace(/\s+/g, ' ').slice(0, 600)}`)
+                            .join('\n\n');
+                        const rearmed = await invokeCritic({
+                            skill_name: critic.skill_name,
+                            deliverable: current,
+                            invocation_model: critic.invocation_model,
+                            proxy_base,
+                            evidence_block: block,
+                        });
+                        totalCost += rearmed.cost_usd;
+                        result = { ...rearmed, verdict: { ...rearmed.verdict, retrieval_queries: [] } };
+                        console.log(`[criticReviseLoop] K2 re-retrieval: critic ${critic.skill_name} asked ${_rq.length} quer(ies), got ${evidence.length} evidence chunk(s), re-invoked with evidence`);
+                    }
+                } catch (err) {
+                    console.warn(`[criticReviseLoop] K2 re-retrieval failed (keeping original verdict): ${String(err).slice(0, 120)}`);
+                }
+            }
+
             const editCount = result.verdict.edits?.length ?? 0;
             critiqueLog.push({
                 critic: critic.skill_name,

@@ -158,7 +158,29 @@ you think" (mid-sentence rhetorical question); "But here's the thing" (false rev
 
 ---
 
-## 10. Content coherence
+## 10. Semantic coherence (the languagejones rule, added 2026-08-09)
+
+Word-list bingo is the weak signal. The strongest AI tell is conceptual incoherence behind
+common word choices: words that co-occur statistically but describe nothing a person can
+picture. "Two overarching pillars that undergird the strategy" is architecturally
+impossible; nothing arches over and holds up from below at once. "Point a toolkit at a
+problem and see what it buys you" barters tools at gunpoint. "Words aren't empty containers,
+a blank slate to be filled" mixes two different acts of filling.
+
+- Default to zero metaphor; literal language names the actor, system, and mechanism.
+- Any image used must be physically enactable in a single frame. If you cannot draw it or
+  act it out, cut it.
+- Never mix frames within a sentence pair (a door opened, then knocked down like a SWAT
+  team).
+- Verbs keep their literal objects: fill a container or write on a slate; buy with money;
+  things rest on foundations and sit under arches.
+- Also banned from this audit: assistant-voice validation ("sure thing", "great question",
+  "and that matters"), the news-voice scene setters ("quietly reshaping", "amid a year
+  of"), conceptual "buckets", "toolkit" as a frame, "the move here is".
+- Still legitimate here: "gap" and "blueprint" are product vocabulary for gap analyses and
+  service blueprints, not tells.
+
+## 11. Content coherence
 
 - One synthetic dataset per artifact: every element tells the same story about the same
   subject. Mixed domains (retail title over fundraising node names) read as generated
@@ -168,6 +190,29 @@ you think" (mid-sentence rhetorical question); "But here's the thing" (false rev
   owns formatting.
 
 ---
+
+## 12. The claim ledger (Kaleynik method, added 2026-08-13)
+
+AI slop is two problems needing different fixes: epistemic slop (fabricated or overreaching
+claims) and editorial slop (generic, bloated prose). A source cannot rescue a dead
+paragraph; a rewrite cannot rescue an invented statistic. The controls:
+
+- Type every consequential claim: supported fact, derivation, defensible inference,
+  hypothesis, editorial judgment, or unknown. Unsupported factual claims do not earn prose;
+  they get researched, weakened, framed as an explicit bet, or removed.
+- Scope-match every citation: the cited passage must support the actual wording - same
+  population, period, product, comparison, and causal strength. A citation is evidence, not
+  seasoning.
+- Check independence: several citations repeating one original claim are one source. A
+  convergence label requires independent originals.
+- Stress-test the reasoning before recommending: what else explains this, when would the
+  conclusion fail, and under what condition does the opposite recommendation win. If no such
+  condition exists, a variable is missing.
+- Run two QA passes, never mixed: claims first (ignore how it sounds), prose second (ignore
+  whether it is true). Self-critique only nominates suspects; external checks convict.
+- Replace empty benefit phrases ("improve efficiency", "enhance engagement", "greater
+  flexibility") with the mechanism: what became faster, which behavior changed, who gained
+  what under which constraint.
 
 ## Quick reference card
 
@@ -179,3 +224,4 @@ you think" (mid-sentence rhetorical question); "But here's the thing" (false rev
 6. Never narrate the deck, the process, or the model.
 7. No em-dash, no emoji, one kicker, no debug chrome.
 8. When a claim lacks evidence, cut the claim, not the standard.
+9. Every image must be physically enactable; zero metaphor by default; never mix frames.

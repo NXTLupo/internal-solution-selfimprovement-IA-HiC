@@ -81,6 +81,41 @@ The values below are a NON-AUTHORITATIVE human reference (snapshot 2026-06-16). 
 - Every citations[] array MUST contain real, named source identifiers
 - Every evidenceBasis MUST contain verbatim quotes or named entities (see Quantitative Claim Rule: numbers only inside a cited quote, never as a bare figure)
 
+### The Scope-Match Rule (2026-08-13, Kaleynik/OpenScholar audit - a citation is evidence, not seasoning)
+A paragraph is not sourced because a citation appears near it. The cited passage must support
+the ACTUAL WORDING of the claim: same population, same period, same product/system, same
+comparison, and the same causal strength. "The study found a 40% gain on bounded writing
+tasks" does not license "AI makes content production 40% faster." When the citation supports
+a narrower claim than the sentence makes, narrow the sentence, never widen the citation.
+Correlation stated by a source never becomes causation in the deliverable.
+
+### The Independence Rule (2026-08-13)
+Several citations that repeat ONE original claim are one source, not several. Before labeling
+anything CONVERGENT (or claiming a pattern "across sources"), verify the citations trace to
+independent originals: different authors or organizations, and ideally different source
+types (article + transcript + social). Two news stories quoting the same press release are
+one source wearing two mastheads.
+
+### Claim-Type Discipline (2026-08-13 - the claim ledger)
+Every consequential statement in a deliverable is one of six types: SUPPORTED FACT (directly
+established by a cited passage), DERIVATION (follows deterministically from known inputs),
+DEFENSIBLE INFERENCE (evidence-supported but not stated by a source), HYPOTHESIS (plausible,
+testable, not established), EDITORIAL JUDGMENT (a reasoned framing or priority call), or
+UNKNOWN. The rule: UNSUPPORTED FACTUAL CLAIMS DO NOT EARN PROSE. Only the first three types
+may be stated declaratively. A hypothesis ships only in an explicitly framed bet (the #recs
+NON-OBVIOUS BET tag is the canonical carrier). Unknown means the section narrows around what
+IS evidenced - internally typed, never surfaced as a QA annotation. For recommendations and
+strategy: before shipping "choose A over B", name the condition under which B wins; if no
+such condition exists, a variable is missing.
+
+### Two-Pass QA Order (2026-08-13)
+Epistemic QA and editorial QA are different inspections and are never mixed in one pass.
+PASS 1 (claims): statistics, dates, quotes, named entities, causal language, absolutes,
+comparisons, recommendations, citations - each typed per the ledger and scope-matched,
+ignoring how the prose sounds. PASS 2 (prose): slop families, actor rule, semantic
+coherence, structure variety - ignoring whether claims are true. Self-critique only
+generates suspects; an external check (source text, calculation, gate, auditor) decides.
+
 ### Evidence Hierarchy (Mandatory for ALL Deliverables)
 1. LEAD with external research evidence (name the article, quote the finding)
 2. CORROBORATE with additional external sources (show convergence)
@@ -237,6 +272,28 @@ Two tests every user-visible sentence must pass, on top of the phrase bans above
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds
    no fact or step.
+
+### The Semantic Coherence Rule (2026-08-09, languagejones audit - HARD)
+Word-list bingo is the weak slop signal; the strongest tell is CONCEPTUAL INCOHERENCE behind
+common word choices - words that co-occur statistically but describe nothing a person can
+picture. Source: the languagejones "How to Detect AI Slop" audit (Dr. Taylor Jones). Rules:
+1. DEFAULT TO ZERO METAPHOR. Literal business language names the actor, the system, and the
+   mechanism. A metaphor must earn its place.
+2. If an image IS used, it must be PHYSICALLY ENACTABLE in one frame. Nothing can be
+   simultaneously "overarching" and "undergirding". You cannot "point a toolkit at a problem
+   and see what it buys you". Words are not "empty containers, a blank slate to be filled".
+   If you cannot draw it or act it out, cut it.
+3. NEVER MIX FRAMES in one clause or one sentence pair (a door that is opened and then
+   knocked down like a SWAT team; pillars that are also umbrellas).
+4. Verbs keep their literal objects: you fill a container OR write on a slate; you buy with
+   money, not by pointing tools; things rest ON foundations and sit UNDER arches.
+5. The read-aloud test from the Actor Rule applies with force: if the sentence describes an
+   impossible physical scene, a person cannot say it sincerely.
+BANNED collocations (enforced in slidePostProcessor): overarching, undergird(s/ing),
+"nestled amid", "what it buys you", "point it/them at a problem", "the move here is",
+conceptual "buckets", assistant-voice validation ("sure thing", "great question", "and that
+matters"), news-voice scene setters ("quietly reshaping/transforming/becoming",
+"amid a year of", "quietly amid").
 
 ### Format Tells (HARD BANS, 2026-05-25)
 - NEVER emit Unicode bold/italic stylization characters (mathematical bold-script glyphs). These are AI-tell artifacts.

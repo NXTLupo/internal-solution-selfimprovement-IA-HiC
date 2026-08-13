@@ -60,6 +60,17 @@ LEXICON = [
     r"\bnavigate the (?:complexit|landscape)",
     r"\bstands as a\b",
     r"\bserves as a\b",
+    # 2026-08-09 languagejones audit: assistant voice + incoherent collocations
+    r"\bsure thing\b",
+    r"\b(?:really )?great question\b",
+    r"\band that matters\b",
+    r"\boverarching\b",
+    r"\bundergird(?:s|ing)?\b",
+    r"\bwhat (?:it|they) buys? you\b",
+    r"\bpoint (?:it|them) at a problem\b",
+    r"\bthe move here is\b",
+    r"\bnestled amid\b",
+    r"\bquietly (?:reshaping|transforming|becoming)\b",
 ]
 LEXICON_RE = re.compile("|".join(LEXICON), re.IGNORECASE)
 EM_DASH = "—"

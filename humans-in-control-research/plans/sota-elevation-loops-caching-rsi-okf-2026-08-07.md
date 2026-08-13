@@ -901,6 +901,69 @@ token-edit PROPOSALS only via the D6 diff gate.
   Composer tests now ASSERT the identity (muted band hex + accent connector present);
   69/69 green, tsc clean, container rebuilt.
 
+## WS-K: Kaleynik/OpenScholar quality audit (2026-08-13, owner /goal)
+
+Sources: Hackernoon "How to Generate Non-Sloppy Content With AI" (Kaleynik, 2026-08-11;
+Evidence -> Claims -> Reasoning -> Prose -> QA method) + Nature "Synthesizing scientific
+literature with retrieval-augmented language models" (Asai et al., OpenScholar, Nature 650,
+2026). The owner directed an open-minded read of the RAG paper despite the anti-RAG stance.
+Honest finding: OpenScholar VALIDATES the anti-RAG position against naive embedding
+injection (their ablations show staged retrieval + rerank + verification beats raw RAG) and
+simultaneously exposes three things HiC's ARTIFACT path lacks. Audit facts verified in code
+2026-08-13: (a) chunkRetrieval.ts has NO reranker stage (bi-encoder cosine union only);
+(b) the artifact critic loop revises text but cannot issue new retrieval queries (chat's
+fetch_wiki_articles tool loop CAN - converge, don't build new); (c) no layer verifies that
+a cited chunk supports the claim's actual WORDING (resolution + diversity only).
+
+SHIPPED same day (rule level): CLAUDE.md Scope-Match Rule, Independence Rule, Claim-Type
+Discipline (6-type ledger; unsupported claims do not earn prose; hypotheses only as
+NON-OBVIOUS BET), Two-Pass QA Order (claims pass then prose pass, never mixed; self-critique
+nominates, external checks convict - consistent with Stechly ICLR 2025 and the standing
+self-verification rule); slidePostProcessor empty-benefit family (improve efficiency /
+greater flexibility / streamline operations / boost productivity / unlock value...);
+exemplar-manifest rule 0c (both desks); theme-analyst independence + scope-match checks;
+recommendation-architect reasoning stress-test (opposite-condition test) + claim typing;
+guide section 12.
+
+GATED workstreams (bake-off before code, per feedback_quality_first + benchmark harness):
+- K1 RERANK IN THE ARTIFACT PATH: add a cross-encoder rerank stage to pickChunksForPrompt's
+  candidate union (post-manifest-seed, pre-MMR; the wiki-reranker skill wraps the engine).
+  OpenScholar ablation evidence: reranking is load-bearing for correctness + citation F1.
+  Gate: scripts/benchmark.mjs citation-relevance diff on a real engagement corpus.
+- K2 FEEDBACK-TRIGGERED RE-RETRIEVAL (artifact critic loop): let auditGate/critic feedback
+  emit up to 3 natural-language deficiencies, each optionally carrying a retrieval query
+  that re-enters pickChunksForPrompt and patches the payload (OpenScholar's inference loop,
+  <=3 feedback items, sequential incorporation). Reuses the chat tool loop's machinery.
+  Gate: held-out deck-gate pass-rate + citation-diversity delta.
+- K3 CLAIM-SUPPORT VERIFICATION PASS (the claims pass, mechanized): for each consequential
+  claim + its resolved chunk, an EXTERNAL verifier (evidence-quality-auditor pattern, never
+  the generating model) checks wording support: population, period, comparison, causal
+  strength; verdict weaken/re-cite/cut. Runs before ship on strategy/recs/prd/case-study
+  (risk-scaled per Kaleynik: transformation-class artifacts skip it).
+- K4 (evidence note, no code): OpenScholar top-N ablation (larger N HURTS correctness past
+  ~10) supports the existing MMR token-budget cap; cite it if anyone proposes raising packs.
+
+WS-K IMPLEMENTED 2026-08-13 (owner: "implement your plan"):
+- K1 SHIPPED: chunkRetrieval.ts reranks the top-40 AUTO-tier candidates via the existing
+  proxy /api/wiki/rerank (Flash, session-cached, identity fallback) between scoring and MMR.
+  Reranked chunks lift to a band above keyword scores, below the user-selected tier; pinned/
+  user tiers never reordered; sharded passes auto-skip; fail-open. LIVE-VERIFIED in a real
+  browser #recs turn: "K1 rerank: content-reranked 40/40 auto candidate(s)".
+- K2 SHIPPED: CriticVerdict.retrieval_queries (<=3) + retrieve_evidence fetcher on
+  criticReviseLoop + one evidence-armed critic re-invoke; makeCorpusEvidenceRetriever rides
+  the full retrieval spine (V4/V7/non-evidence/MMR). Wired into Wire 5 (recommendations).
+  LIVE-VERIFIED: critic asked 3 queries, 11 evidence chunks fetched, empty quote field
+  filled with a verbatim corpus sentence.
+- K3 SHIPPED: services/claimSupportVerifier.ts (external Flash verifier, never the
+  generating model; risk-scaled to strategy/recs/prd/case-study; narrow-in-place, fail-open,
+  repair-parsed). Calibration: prescriptive titles are editorial judgments - only embedded
+  factual premises are scope-checked. Wired after Wire 5. LIVE-VERIFIED: overbroad "all
+  fundraising work" claim narrowed to the evidenced task scope; prescriptive title passed.
+- Follow-up (open): K3 at the chat-fence parse layer (chat artifacts render :::slide fences,
+  not JSON payloads); K2 beyond the recommendations loop (deck critic).
+- Tests: services/wsK.test.ts (6 pins: re-invoke flow, no-fetcher compat, extraction,
+  narrowing, risk-scaling, fail-open). Full suite 683/683 + tsc clean.
+
 The original decision list follows for the record.
 
 ## PART 5 (original) - OWNER DECISIONS REQUESTED

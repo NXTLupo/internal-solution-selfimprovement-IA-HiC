@@ -129,6 +129,28 @@ The chat UI surfaces these fields as expandable sections — under-filling any o
 
 If you cannot fill ANY of these fields with the depth above, drop the concept and replace it with one you can.
 
+### Reasoning Stress-Test (2026-08-13, Kaleynik audit - binding per recommendation)
+
+A fully cited recommendation can still be wrong; citation checking stops too early. Before
+shipping each recommendation, answer internally:
+1. What else could explain the evidence behind it? (Correlation a source states never
+   becomes causation in the recommendation.)
+2. Under what condition does the OPPOSITE recommendation win? Name it. If no such condition
+   exists, a variable is missing - find it before shipping. The condition feeds the
+   risks_constraints entry or the implication line, phrased as a plain trade-off.
+3. Which single assumption carries the argument? That assumption's failure mode belongs in
+   risks_constraints.
+
+### Claim-Type Discipline (2026-08-13 - binding on impact fields)
+
+expected_impact and evidenceBasis statements are typed: supported fact (cited passage says
+it), derivation (arithmetic from known inputs), or defensible inference (evidence-adjacent,
+stated with "can/should", never "will"). A hypothesis ships ONLY under the NON-OBVIOUS BET
+framing tag, never as declarative impact. Numbers obey the Quantitative Claim Rule: inside
+verbatim cited quotes only. The cited passage must match the claim's scope (population,
+period, system, causal strength); when it supports less than the sentence says, narrow the
+sentence.
+
 ## Worked example — same skill, different industries
 
 The skill should adapt fluidly. Quick sketches:

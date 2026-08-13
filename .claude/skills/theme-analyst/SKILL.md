@@ -74,6 +74,14 @@ ALL sources start with EQUAL credibility. Their value is determined by what they
 - An uploaded SOW detailing the client's budget and timeline is MORE valuable than 50 news articles about general fundraising trends
 - The strongest themes have CONVERGENT evidence: multiple independent sources -- regardless of type -- pointing to the same finding
 - Every theme MUST cite sources from at least 2 DIFFERENT source names (not just Reddit + Reddit)
+- INDEPENDENCE CHECK (2026-08-13, HARD): before labeling evidence CONVERGENT, verify the
+  citations trace to INDEPENDENT ORIGINALS -- different authors or organizations, ideally
+  different source types. Two articles quoting the same press release, or five posts
+  re-sharing one report, are ONE source. If independence cannot be established, drop the
+  convergence claim and cite the single strongest original.
+- SCOPE MATCH (2026-08-13, HARD): the cited passage must support the theme's ACTUAL WORDING
+  -- same population, period, system, and causal strength. A source about one industry or
+  country never licenses a claim about another; narrow the insight sentence instead.
 
 ### Extraction Rules
 
