@@ -53,7 +53,11 @@ const KIND_HASHTAG: Record<SuggestionKind, string | null> = {
     'theme-exploration': '#explainer',
     'persona-perspective': '#brief',
     'comparison': '#approaches',
-    'synthesis': '#report',
+    // 2026-08-13 (owner): synthesis/summary asks are CHAT answers, not HTML
+    // artifacts. The #report route sent "Summarize what the data shows" through
+    // the 41KB-skill HTML pipeline (137s Opus call) for what should be a fast
+    // grounded chat reply; ChatProse renders it structured, Flash routes it.
+    'synthesis': null,
     'slide-request': '#presentation',
     'evidence-probe': null,                 // open-ended prose answer is fine
 };

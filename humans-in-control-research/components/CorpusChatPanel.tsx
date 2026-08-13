@@ -5304,6 +5304,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const d = ap.parser(query);
             if (d.triggered) { firstHit = { directive: d, label: ap.label }; break; }
         }
+        // 2026-08-13 (owner): a SUMMARY ask is a chat answer, not an HTML artifact.
+        // "#report Summarize what the data shows..." routed a fast synthesis question
+        // through the 41KB-skill HTML pipeline. When the #report topic is a
+        // summarize-class verb, fall through to the normal grounded chat path
+        // (ChatProse renders it structured; Flash routes it).
+        if (firstHit && firstHit.directive.generator === '#report'
+            && /^(summari[sz]e|summary(\s+of)?|recap|tl;?dr)\b/i.test((firstHit.directive.topic || '').trim())) {
+            console.log('[#report] summarize-class topic -> grounded CHAT summary (HTML pipeline skipped)');
+            firstHit = null;
+        }
         // 2026-06-13 - #brief/#explainer/#report have GOLD slide TWINS (executive-brief).
         // When the user adds #slide/#slides, DEFER to sendChatMessage slide-mode (the GOLD
         // slide) instead of the HTML document; the bare directive keeps the HTML one-pager.
