@@ -5456,7 +5456,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     htmlResp ? htmlResp + '\n\n---\n\n' : '',
                     (vsResp || htmlResp) ? _cacheBreak : '',
                     genContextBlock ? genContextBlock + '\n\n---\n\n' : '',
-                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.`,
+                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.
+
+SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUBJECT, never about the research apparatus. The corpus, the evidence, the data, and the sources are NEVER the grammatical subject of the <h1> or any heading ("The evidence tells one clear story", "the corpus can name X but cannot substantiate Y" are instant failures). Never describe corpus coverage, adequacy, or gaps anywhere in the artifact. When the available material is thin (e.g. only client uploads so far), NARROW THE SCOPE: write a shorter artifact about what the material DOES establish about the subject, titled with a judgment about the SUBJECT. The <h1> is a complete-sentence judgment about the subject, 12 words or fewer.`,
                 ].join('');
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
@@ -5585,7 +5587,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // literal "&mdash;" shipped in the chat reply. Titles now decode entities,
                 // obey the em-dash ban (stripEmDashes), and truncate at a word boundary.
                 const h1Match = htmlBody.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-                const { stripEmDashes } = await import('../services/slidePostProcessor');
+                const { stripEmDashes, guardArtifactTitle } = await import('../services/slidePostProcessor');
                 const stripTags = (s: string) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
                 const decodeEntities = (s: string) => s
                     .replace(/&amp;/gi, '&').replace(/&nbsp;/gi, ' ')
@@ -5600,7 +5602,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     }
                     return t;
                 };
-                const title = h1Match ? tidyTitle(h1Match[1], 120) : tidyTitle(directive.topic || `${directive.generator} artifact`, 80);
+                // 2026-08-13 CORPUS-META TITLE GUARD (live defect: "The evidence tells one
+                // clear story: the corpus can name ... but it cannot yet substantiate the").
+                // guardArtifactTitle rejects corpus-as-subject meta titles (falls back to
+                // the user's topic), strips meta-narration + cliches, and trims the dangling
+                // function word truncation can leave.
+                const _rawTitle = h1Match ? tidyTitle(h1Match[1], 120) : tidyTitle(directive.topic || `${directive.generator} artifact`, 80);
+                const title = guardArtifactTitle(_rawTitle, tidyTitle(directive.topic || `${directive.generator} artifact`, 80));
 
                 const saved = await saveArtifact({
                     title,

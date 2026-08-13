@@ -499,6 +499,32 @@ export function scrubMetaTitle(title: string | undefined | null): string {
     return '';
 }
 
+// 2026-08-13 - CORPUS-META TITLE GUARD (live defect: an #report shipped titled
+// "The evidence tells one clear story: the corpus can name <subject>'s mandate,
+// but it cannot yet substantiate the" - corpus-as-subject meta-commentary, then
+// truncated onto a dangling article). A title whose grammatical subject is the
+// corpus/evidence/data/research is process language, never a judgment about the
+// SUBJECT; and no title may end on a dangling function word.
+const CORPUS_META_TITLE_RE = /^(the\s+)?(evidence|corpus|data|research|sources?|findings|analysis|material)\b[^.]*\b(tells?|shows?|reveals?|suggests?|indicates?|can(not)?|cannot|paints?|points?|confirms?|supports?)\b/i;
+const DANGLING_TAIL_RE = /\s+(the|a|an|of|to|and|but|or|for|nor|with|its|their|our|your|is|are|was|were|can|cannot|not|yet|that|which|who|whose|at|on|in|by|as|from)[\s,;:.]*$/i;
+
+/** Guard an ARTIFACT title (html-deliverable path). Rejects corpus-as-subject
+ *  meta titles (falls back to the user's topic), strips meta-narration and
+ *  cliches, and trims any dangling function word left by truncation. */
+export function guardArtifactTitle(title: string, fallbackTopic: string): string {
+    const cap = (s: string) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+    let t = (title || '').replace(/\s+/g, ' ').trim();
+    if (!t || CORPUS_META_TITLE_RE.test(t)) {
+        t = (fallbackTopic || '').replace(/\s+/g, ' ').trim();
+    }
+    const scrubbed = scrubMetaTitle(t);
+    t = scrubbed || (fallbackTopic || '').trim() || t;
+    t = deClicheTitle(t);
+    let prev = '';
+    while (prev !== t) { prev = t; t = t.replace(DANGLING_TAIL_RE, '').trim(); }
+    return cap(t.replace(/[\s,;:]+$/, '').trim());
+}
+
 // 2026-06-18 - CLICHE-METAPHOR TITLE GUARD (defense-in-depth)
 // ============================================================
 // User feedback: slide HEADERS came back wordy and leaning on cliche business
@@ -1453,6 +1479,14 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = 
     { phrase: 'is scarce in this corpus', severity: 'high' },
     { phrase: 'evidence is scarce in this', severity: 'high' },
     { phrase: 'our dataset shows', severity: 'high' },
+    // 2026-08-13 live-defect family: corpus-as-narrator commentary in an #report
+    { phrase: 'the evidence tells', severity: 'high' },
+    { phrase: 'one clear story', severity: 'high' },
+    { phrase: 'tells a clear story', severity: 'high' },
+    { phrase: 'cannot yet substantiate', severity: 'high' },
+    { phrase: 'the corpus can', severity: 'high' },
+    { phrase: 'the corpus cannot', severity: 'high' },
+    { phrase: 'the data cannot yet', severity: 'high' },
     { phrase: 'based on our collection', severity: 'high' },
     { phrase: 'the dataset contains', severity: 'high' },
     { phrase: 'most vendor material is', severity: 'high' },
