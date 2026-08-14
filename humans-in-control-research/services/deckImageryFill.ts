@@ -141,9 +141,7 @@ export async function fillDeckImagery(
     const report: FillReport = { slidesTouched: 0, filled: 0, reused: 0, generated: 0, budgetLeft: 0, errors: [] };
     const budget = { left: Math.max(0, opts.generationBudget ?? 6) };
     const brand = opts.brand || 'NXT';
-    // Fence header may carry extra attributes after the template (brand=nxt,
-    // etc.) - match to end of line, not straight to the newline.
-    const fenceRe = /(:::slide\s+template=(slides:[a-z0-9-]+)[^\n]*\n)([\s\S]*?)(\n:::)/g;
+    const fenceRe = /(:::slide\s+template=(slides:[a-z0-9-]+)\s*\n)([\s\S]*?)(\n:::)/g;
     const fences = [...replyText.matchAll(fenceRe)];
     if (!fences.length) { report.budgetLeft = budget.left; return { text: replyText, report }; }
 
