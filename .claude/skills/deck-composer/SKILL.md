@@ -225,23 +225,6 @@ segments, keep each `items[].body` <= 140 chars so the thumbnail layout breathes
 takes an `imageConcept` (a literal shapes-as-content description), never a URL; not every scene
 needs one.
 
-### The imagery quota contract (2026-08-14, binding when the user asks for images)
-
-Images and diagrams are DIFFERENT currencies. A table or flow-arc satisfies the visual floor;
-it never satisfies an ask for images, photos, graphics, or imagery. When the session carries
-an image directive (any phrasing: "include graphics and images", "add photos", "images on
-half the slides"), the plan MUST:
-1. Place image-capable archetypes on at least the asked fraction of body slides (default 40%
-   when no fraction is stated): slides:cover, slides:section-divider, slides:block-quote
-   (scene panel), slides:numbered-themes (item scenes), slides:role-needs (portrait),
-   slides:infographic-exhibit. The deck gate enforces this floor (deckPlanGate imageRatio)
-   and rejects plans that answer an image ask with more tables.
-2. Write the payload fields those slots derive their scenes from (title, item heading+body,
-   persona.name, quote) as CONCRETE, DEPICTABLE subject language, since the runtime slot-fill
-   pass (deckImageryFill) builds each image concept from those exact fields: library reuse
-   first, bounded generation second, no slot left empty on an imagery-directed run.
-3. Never claim the quota is met by viz archetypes alone, and never author URLs (runtime-owned).
-
 ## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
 
 Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in

@@ -35,11 +35,6 @@ export interface DeckPlanReport {
     /** V2 (2026-08-07): the visual floor this evaluation enforced (gate default
      *  0.4, or the session-constraint override from a "more graphics" directive). */
     visualFloorApplied?: number;
-    /** 2026-08-14 (colleague defect RC2): the share of BODY slides on
-     *  image-capable archetypes. Images are a DIFFERENT currency from viz
-     *  archetypes; a deck of tables is "visual" but image-free. */
-    imageRatio?: number;
-    imageFloorApplied?: number;
 }
 
 export interface DeckPlanGateOptions {
@@ -48,20 +43,7 @@ export interface DeckPlanGateOptions {
      *  graphics") by sessionConstraints.ts; deterministic enforcement of the
      *  user's ask, per [S] user-selections-trump-auto-ranking. Clamped 0.4-0.7. */
     visualQuotaFloor?: number;
-    /** 2026-08-14: image floor from an imagery directive ("include graphics and
-     *  images", "images on half the slides"). Enforced against IMAGE_CAPABLE
-     *  archetypes only; the post-compose slot-fill pass guarantees the slots
-     *  actually fill. undefined = no image floor (default decks unchanged). */
-    imageQuotaFloor?: number;
 }
-
-/** Archetypes whose canon carries a declared image slot the runtime can fill
- *  (photo lane 2026-07-03 + native exhibits). Mirror of IMAGE_SLOT_FIELDS in
- *  slideComposer.ts - update BOTH when canon gains an imagery variant. */
-export const IMAGE_CAPABLE = new Set<string>([
-    'slides:cover', 'slides:section-divider', 'slides:block-quote',
-    'slides:numbered-themes', 'slides:role-needs', 'slides:infographic-exhibit',
-]);
 
 export function evaluateDeckPlan(replyText: string, opts: DeckPlanGateOptions = {}): DeckPlanReport {
     const templates = [...(replyText || '').matchAll(/:::slide\s+template=(slides:[a-z0-9-]+)/g)].map(m => m[1]);
@@ -121,27 +103,6 @@ export function evaluateDeckPlan(replyText: string, opts: DeckPlanGateOptions = 
             `Convert text-column slides (${[...new Set(texty)].join(', ')}) whose content has SHAPE: a sequence -> slides:flow-arc, ` +
             `a comparison -> slides:comparison-panels or slides:evidence-table, hard numbers -> slides:means-matters or slides:stat-row, ` +
             `a distribution/ranking -> slides:ranked-bars, positioning -> slides:quadrant, phased time -> slides:milestone-timeline`);
-    }
-
-    // 5b. IMAGE QUOTA (2026-08-14, colleague defect RC2): when the user asked
-    //     for imagery, enough BODY slides must sit on image-capable archetypes.
-    //     The slot-fill pass then guarantees those slots carry real images;
-    //     this gate guarantees the PLAN gives it enough slots to fill.
-    if (opts.imageQuotaFloor !== undefined && body.length >= 6) {
-        const imageFloor = Math.min(0.7, Math.max(0.25, opts.imageQuotaFloor));
-        const imageBody = body.filter(t => IMAGE_CAPABLE.has(t));
-        report.imageRatio = body.length ? imageBody.length / body.length : 1;
-        report.imageFloorApplied = imageFloor;
-        if (report.imageRatio < imageFloor) {
-            const convertible = body.filter(t => !IMAGE_CAPABLE.has(t));
-            report.violations.push(
-                `the user asked for imagery on ~${Math.round(imageFloor * 100)}% of slides, but only ` +
-                `${imageBody.length} of ${body.length} body slides use image-capable archetypes ` +
-                `(${[...IMAGE_CAPABLE].join(', ')}). Convert slides whose content fits: a theme group -> ` +
-                `slides:numbered-themes (item scenes), a role or persona -> slides:role-needs (portrait), ` +
-                `a strong quote -> slides:block-quote (scene panel), a data story -> slides:infographic-exhibit. ` +
-                `Slides ${[...new Set(convertible)].join(', ')} are the candidates.`);
-        }
     }
 
     // 6. Connective padding: a deck that is mostly transitions is empty.

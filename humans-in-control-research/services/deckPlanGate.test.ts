@@ -49,32 +49,3 @@ describe('deckPlanGate', () => {
         expect(r.violations.some(v => v.includes('connective'))).toBe(true);
     });
 });
-
-// 2026-08-14 - imagery uplift C2: images are a separate currency from viz.
-describe('image quota floor (colleague defect RC2)', () => {
-    const deckOf = (...templates: string[]) =>
-        templates.map(t => `:::slide template=${t}\n{"title":"x"}\n:::`).join('\n');
-
-    it('a table-heavy deck PASSES the visual floor but FAILS an image floor', () => {
-        const deck = deckOf(
-            'slides:cover', 'slides:agenda',
-            'slides:evidence-table', 'slides:stat-row', 'slides:ranked-bars',
-            'slides:evidence-table', 'slides:stat-row', 'slides:ranked-bars',
-        );
-        const noFloor = evaluateDeckPlan(deck, {});
-        expect(noFloor.violations.some(v => v.includes('imagery'))).toBe(false);
-        const withFloor = evaluateDeckPlan(deck, { imageQuotaFloor: 0.5 });
-        expect(withFloor.imageFloorApplied).toBe(0.5);
-        expect(withFloor.violations.some(v => v.includes('image-capable'))).toBe(true);
-    });
-
-    it('an image-capable plan at the floor passes', () => {
-        const deck = deckOf(
-            'slides:cover', 'slides:numbered-themes', 'slides:role-needs',
-            'slides:block-quote', 'slides:evidence-table', 'slides:stat-row',
-            'slides:infographic-exhibit', 'slides:ranked-bars',
-        );
-        const r = evaluateDeckPlan(deck, { imageQuotaFloor: 0.5 });
-        expect(r.violations.some(v => v.includes('image-capable'))).toBe(false);
-    });
-});
