@@ -34,8 +34,14 @@ export interface SessionConstraints {
     excludeSources: string[];
     /** When non-empty, ONLY sources matching these names are eligible. */
     includeOnly: string[];
-    /** Raised visual-share floor for deck planning (0..1). undefined = gate default. */
+    /** Raised visual-share floor for deck planning (0..1). undefined = gate default.
+     *  Currency: VIZ ARCHETYPES (tables, flow, bars). Distinct from imageQuotaFloor. */
     visualQuotaFloor?: number;
+    /** IMAGE floor for deck planning (0..1): the share of body slides that must
+     *  carry actual imagery (photos/scenes/portraits/exhibit panels). The
+     *  colleague-defect currency (2026-08-14): "include graphics and images"
+     *  means pictures, not tables. undefined = no image floor. */
+    imageQuotaFloor?: number;
     /** Free-text tone/style directives worth persisting across turns. */
     toneDirectives: string[];
     /** UTC ms of last modification. */
@@ -118,8 +124,38 @@ const LIFT_RES: RegExp[] = [
     new RegExp(`(?:lift|remove|clear|drop|forget)\\s+(?:the\\s+|that\\s+|all\\s+)?(?:exclusions?|constraints?|restrictions?)`, 'gi'),
 ];
 
-const MORE_VISUALS_RE = /(?:more|additional|extra|add(?:\s+\w+)?)\s+(?:graphics?|images?|visuals?|charts?|diagrams?|figures?|infographics?|illustrations?|imagery)|(?:make\s+it|be)\s+more\s+visual/i;
-const FEWER_VISUALS_RE = /(?:fewer|less|reduce(?:\s+the)?|not\s+so\s+many)\s+(?:graphics?|images?|visuals?|charts?|diagrams?|figures?)/i;
+// 2026-08-14 (colleague defect RC1): the old verb list (more|additional|extra|add)
+// missed "INCLUDE graphics and images" - the exact phrasing a real user chose, so
+// her explicit ask never compiled. Broadened to every reasonable ask-verb, and
+// split into TWO currencies: IMAGE nouns (pictures) vs VIZ nouns (charts/tables).
+const _ASK_VERBS = `(?:more|additional|extra|add(?:\\s+\\w+)?|include|includ(?:e|ing)|insert|use|put|want|need|with(?:\\s+(?:some|more))?|show)`;
+// "graphics" and "visuals" are ambiguous: a user saying either plausibly wants
+// both richer viz AND pictures, so those two nouns raise BOTH floors; the
+// specific nouns steer one floor each.
+// Owner synonym list (2026-08-14): every noun a user might reach for when
+// they mean pictures. "people/places/scenes" count when they follow an
+// ask-verb ("add people to the slides", "show real places").
+const IMAGE_NOUNS = `(?:images?|imagery|photos?|photographs?|pictures?|pics?|graphics?|illustrations?|visuals?|infographics?|thumbnails?|thumbs?|icons?|iconography|portraits?|scenes?|person|people|places?|artwork|art)`;
+const VIZ_NOUNS = `(?:charts?|diagrams?|figures?|infographics?|tables?|graphs?|data\\s+viz(?:ualizations?)?|graphics?|visuals?)`;
+const MORE_IMAGES_RE = new RegExp(`${_ASK_VERBS}\\s+(?:\\w+\\s+){0,2}?${IMAGE_NOUNS}|(?:make\\s+it|be)\\s+more\\s+visual`, 'i');
+const MORE_VISUALS_RE = new RegExp(`${_ASK_VERBS}\\s+(?:\\w+\\s+){0,2}?${VIZ_NOUNS}|(?:make\\s+it|be)\\s+more\\s+visual`, 'i');
+const FEWER_VISUALS_RE = /(?:fewer|less|reduce(?:\s+the)?|not\s+so\s+many|no)\s+(?:graphics?|images?|visuals?|charts?|diagrams?|figures?|photos?)/i;
+// Quantity parsing: "on at least half the slides" -> 0.5, "every slide" -> cap,
+// "a third" -> 0.34, "60% of slides" -> 0.6. Absent -> the default bump.
+const FRACTION_RES: Array<[RegExp, number]> = [
+    [/every\s+slide|all\s+(?:the\s+)?slides/i, 0.7],
+    [/(?:at\s+least\s+)?half(?:\s+(?:of\s+)?the\s+slides)?/i, 0.5],
+    [/two[\s-]thirds?/i, 0.66],
+    [/(?:a|one)[\s-]third/i, 0.34],
+    [/(?:a|one)[\s-]quarter/i, 0.25],
+];
+const PERCENT_RE = /(\d{2})\s*(?:%|percent)\s+of\s+(?:the\s+)?slides/i;
+export function parseImageFraction(text: string): number | undefined {
+    const pm = text.match(PERCENT_RE);
+    if (pm) return Math.min(0.7, Math.max(0.25, Number(pm[1]) / 100));
+    for (const [re, v] of FRACTION_RES) if (re.test(text)) return v;
+    return undefined;
+}
 
 export interface CompileResult {
     constraints: SessionConstraints;
@@ -146,6 +182,7 @@ export function compileDirectives(userText: string, slug: string): CompileResult
         excludeSources: [...prior.excludeSources],
         includeOnly: [...prior.includeOnly],
         visualQuotaFloor: prior.visualQuotaFloor,
+        imageQuotaFloor: prior.imageQuotaFloor,
         toneDirectives: [...prior.toneDirectives],
         updatedAt: prior.updatedAt,
     };
@@ -194,17 +231,31 @@ export function compileDirectives(userText: string, slug: string): CompileResult
         }
     }
 
-    // Visual density.
-    if (MORE_VISUALS_RE.test(text)) {
-        const bumped = Math.min(0.7, Math.max(0.55, (next.visualQuotaFloor ?? 0.4) + 0.15));
-        if (bumped !== next.visualQuotaFloor) {
-            next.visualQuotaFloor = bumped;
-            actions.push(`visual-slide floor raised to ${Math.round(bumped * 100)}%`);
-        }
-    } else if (FEWER_VISUALS_RE.test(text)) {
-        if (next.visualQuotaFloor !== undefined) {
+    // Image density (pictures: photos/scenes/portraits/exhibits). The colleague
+    // currency: "include graphics and images" compiles HERE, and a stated
+    // fraction ("at least half the slides") wins over the default bump.
+    if (FEWER_VISUALS_RE.test(text)) {
+        if (next.visualQuotaFloor !== undefined || next.imageQuotaFloor !== undefined) {
             next.visualQuotaFloor = undefined;
-            actions.push('visual-slide floor reset to the gate default');
+            next.imageQuotaFloor = undefined;
+            actions.push('visual + image floors reset to the gate defaults');
+        }
+    } else {
+        if (MORE_IMAGES_RE.test(text)) {
+            const asked = parseImageFraction(text);
+            const bumped = Math.min(0.7, Math.max(0.25, asked ?? Math.max(0.4, (next.imageQuotaFloor ?? 0.25) + 0.15)));
+            if (bumped !== next.imageQuotaFloor) {
+                next.imageQuotaFloor = bumped;
+                actions.push(`image floor: at least ${Math.round(bumped * 100)}% of body slides will carry imagery`);
+            }
+        }
+        // Viz density (charts/tables/diagrams) - the original V2 floor.
+        if (MORE_VISUALS_RE.test(text)) {
+            const bumped = Math.min(0.7, Math.max(0.55, (next.visualQuotaFloor ?? 0.4) + 0.15));
+            if (bumped !== next.visualQuotaFloor) {
+                next.visualQuotaFloor = bumped;
+                actions.push(`visual-slide floor raised to ${Math.round(bumped * 100)}%`);
+            }
         }
     }
 
@@ -214,6 +265,121 @@ export function compileDirectives(userText: string, slug: string): CompileResult
         setSessionConstraints(slug, next);
     }
     return { constraints: changed ? next : prior, changed, turnActions: actions };
+}
+
+// ---------------------------------------------------------------------------
+// Tier-2 smart compile (2026-08-14, owner: "reasoning model, not regex, for
+// understanding the user"). The deterministic compiler above stays as the
+// fast path and offline fallback; on ARTIFACT turns the caller may pass a
+// model function (Gemini Flash, temperature 0, structured output) that maps
+// the user's natural phrasing onto the same typed shape. The model NEVER
+// widens authority: its output is clamped by the same bounds, merged through
+// the same store, and echoed back like any tier-1 compile.
+// ---------------------------------------------------------------------------
+
+export interface SmartParse {
+    imageFraction?: number;      // 0..1 - asked share of slides carrying imagery
+    wantsMoreImages?: boolean;
+    wantsMoreViz?: boolean;
+    wantsFewerVisuals?: boolean;
+    excludeSources?: string[];
+    liftExclusions?: boolean;
+}
+
+/** JSON schema handed to the model as forced structured output. */
+export const SMART_PARSE_SCHEMA = {
+    type: 'object',
+    properties: {
+        imageFraction: { type: 'number', description: 'If the user asked that some share of slides carry images/photos/graphics, the fraction 0..1 ("at least half" = 0.5). Omit if unstated.' },
+        wantsMoreImages: { type: 'boolean', description: 'True if the user asked for images/photos/pictures/graphics/imagery in the output.' },
+        wantsMoreViz: { type: 'boolean', description: 'True if the user asked for charts/diagrams/tables/data visualizations.' },
+        wantsFewerVisuals: { type: 'boolean', description: 'True if the user asked to reduce or remove visuals.' },
+        excludeSources: { type: 'array', items: { type: 'string' }, description: 'Source names the user told you not to use/cite.' },
+        liftExclusions: { type: 'boolean', description: 'True if the user lifted a prior exclusion.' },
+    },
+} as const;
+
+/** Merge a model parse into the session constraints under the SAME clamps as
+ *  tier 1. Pure on inputs; persists via the same store. Exported for tests. */
+export function applySmartParse(parse: SmartParse, slug: string): CompileResult {
+    const prior = getSessionConstraints(slug);
+    const next: SessionConstraints = {
+        excludeSources: [...prior.excludeSources],
+        includeOnly: [...prior.includeOnly],
+        visualQuotaFloor: prior.visualQuotaFloor,
+        imageQuotaFloor: prior.imageQuotaFloor,
+        toneDirectives: [...prior.toneDirectives],
+        updatedAt: prior.updatedAt,
+    };
+    const actions: string[] = [];
+    if (parse.liftExclusions && next.excludeSources.length) {
+        actions.push(`lifted all source exclusions (${next.excludeSources.join('; ')})`);
+        next.excludeSources = [];
+    }
+    for (const raw of parse.excludeSources || []) {
+        const target = String(raw || '').trim().toLowerCase().replace(/\s+/g, ' ').slice(0, 80);
+        if (target && !next.excludeSources.some(s => _fuzzyEq(s, target))) {
+            next.excludeSources.push(target);
+            actions.push(`excluding from retrieval + citations: ${target}`);
+        }
+    }
+    if (parse.wantsFewerVisuals) {
+        if (next.visualQuotaFloor !== undefined || next.imageQuotaFloor !== undefined) {
+            next.visualQuotaFloor = undefined;
+            next.imageQuotaFloor = undefined;
+            actions.push('visual + image floors reset to the gate defaults');
+        }
+    } else {
+        if (parse.wantsMoreImages || parse.imageFraction !== undefined) {
+            const bumped = Math.min(0.7, Math.max(0.25,
+                parse.imageFraction ?? Math.max(0.4, (next.imageQuotaFloor ?? 0.25) + 0.15)));
+            if (bumped !== next.imageQuotaFloor) {
+                next.imageQuotaFloor = bumped;
+                actions.push(`image floor: at least ${Math.round(bumped * 100)}% of body slides will carry imagery`);
+            }
+        }
+        if (parse.wantsMoreViz) {
+            const bumped = Math.min(0.7, Math.max(0.55, (next.visualQuotaFloor ?? 0.4) + 0.15));
+            if (bumped !== next.visualQuotaFloor) {
+                next.visualQuotaFloor = bumped;
+                actions.push(`visual-slide floor raised to ${Math.round(bumped * 100)}%`);
+            }
+        }
+    }
+    const changed = actions.length > 0;
+    if (changed) {
+        next.updatedAt = Date.now();
+        setSessionConstraints(slug, next);
+    }
+    return { constraints: changed ? next : prior, changed, turnActions: actions };
+}
+
+/**
+ * Two-tier compile: run the deterministic tier first (instant, offline-safe),
+ * then, when a model function is supplied, let the model catch what the
+ * regexes missed. Union of both tiers' actions; model failure degrades to
+ * tier-1 silently (strictly no worse than pre-smart behavior).
+ */
+export async function compileDirectivesSmart(
+    userText: string,
+    slug: string,
+    llmParse?: (text: string, schema: object) => Promise<SmartParse | null>,
+): Promise<CompileResult> {
+    const t1 = compileDirectives(userText, slug);
+    if (!llmParse || !String(userText || '').trim()) return t1;
+    try {
+        const parse = await llmParse(userText, SMART_PARSE_SCHEMA);
+        if (!parse) return t1;
+        const t2 = applySmartParse(parse, slug);
+        if (!t2.changed) return t1;
+        return {
+            constraints: t2.constraints,
+            changed: t1.changed || t2.changed,
+            turnActions: [...t1.turnActions, ...t2.turnActions.filter(a => !t1.turnActions.includes(a))],
+        };
+    } catch {
+        return t1;   // model unavailable -> tier-1 result stands
+    }
 }
 
 // ---------------------------------------------------------------------------

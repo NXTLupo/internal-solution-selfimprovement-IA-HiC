@@ -993,6 +993,20 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 101, y: 660, w: 1740, color: 'paper', font: 'display', size: 'hero', leading: 1, upper: true, payload: 'title' },
             { x: 101, y: 916, w: 1718, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, leading: 1.3, payload: 'supporting' },
         ],
+        // FULL-BLEED PHOTOGRAPHIC DIVIDER (2026-08-14 imagery uplift B2): same
+        // treatment as the cover - content-derived scene under a rail scrim,
+        // identical text geometry on top. Fail-open: no backgroundImage -> the
+        // dark canvas above, byte-identical. Filled by deckImageryFill.ts.
+        variants: [{
+            when: 'backgroundImage',
+            regions: [
+                { kind: 'image', x: 0, y: 0, w: 1920, h: 1080, payload: 'backgroundImage', fit: 'cover' },
+                { kind: 'scrim', x: 0, y: 0, w: 1920, h: 1080, color: 'rail', alphaTop: 0.38, alphaBottom: 0.80 },
+                { x: 101, y: 40, w: 648, color: 'accent', font: 'display', size: 'sectionNumeral', leading: 1, payload: 'number' },
+                { x: 101, y: 660, w: 1740, color: 'paper', font: 'display', size: 'hero', leading: 1, upper: true, payload: 'title' },
+                { x: 101, y: 916, w: 1718, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, leading: 1.3, payload: 'supporting' },
+            ],
+        }],
     },
     // thesis-interstitial (609:5) - full-bleed dark, one contestable sentence.
     // 2026-08-07 owner evidence: a long thesis at hero size overflowed the slide bottom and

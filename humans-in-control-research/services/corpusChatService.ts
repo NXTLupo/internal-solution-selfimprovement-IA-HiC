@@ -3020,13 +3020,24 @@ export async function sendChatMessage(
     try {
         const sc = await import('./sessionConstraints');
         const _slug = (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : '') || '';
-        const compiled = sc.compileDirectives(userMessage, _slug);
+        // 2026-08-14 TWO-TIER COMPILE (owner: reasoning model for understanding
+        // the user, regex only as fast path/fallback). On ARTIFACT turns a
+        // Flash structured-output parse catches phrasings the regexes miss
+        // ("INCLUDE graphics and images" - the colleague-defect phrasing);
+        // its output rides the SAME clamps and the SAME echo-back. Plain chat
+        // turns keep the zero-latency tier-1 path.
+        let compiled: import('./sessionConstraints').CompileResult;
+        if (isArtifactGenerationMessage(userMessage)) {
+            compiled = await sc.compileDirectivesSmart(userMessage, _slug, _flashDirectiveParse);
+        } else {
+            compiled = sc.compileDirectives(userMessage, _slug);
+        }
         _v4Constraints = compiled.constraints;
         if (compiled.changed) {
             _v4Echo = sc.describeEnforcement(compiled.constraints, compiled.turnActions);
             sc.noteDirectiveEnforcement(_slug, compiled.turnActions.length);
             console.info(`[chat][V4] session constraints updated: ${compiled.turnActions.join(' | ')}`);
-        } else if (_v4Constraints.excludeSources.length || _v4Constraints.visualQuotaFloor !== undefined) {
+        } else if (_v4Constraints.excludeSources.length || _v4Constraints.visualQuotaFloor !== undefined || _v4Constraints.imageQuotaFloor !== undefined) {
             // Standing constraints stay visible on artifact turns so the user
             // never wonders whether an earlier ask is still enforced.
             if (isArtifactGenerationMessage(userMessage)) {
@@ -3979,7 +3990,13 @@ ${deckComposerSkill}
                 // V2 (2026-08-07): the session-constraint visual floor ("more
                 // graphics") parameterizes the gate - the user's ask is enforced
                 // by code, not left to the model's discretion.
-                const _gateOpts = { visualQuotaFloor: _v4Constraints?.visualQuotaFloor };
+                const _gateOpts = {
+                    visualQuotaFloor: _v4Constraints?.visualQuotaFloor,
+                    // 2026-08-14 (imagery plan C2): the IMAGE floor is its own
+                    // currency - "include graphics and images" demands pictures,
+                    // not more tables.
+                    imageQuotaFloor: _v4Constraints?.imageQuotaFloor,
+                };
                 const plan = evaluateDeckPlan(responseText, _gateOpts);
                 if (plan.isDeck && !plan.pass) {
                     console.warn(`[chat][deck-gate] plan violations (${plan.violations.length}): ${plan.violations.join(' | ')}`);
@@ -3996,6 +4013,31 @@ ${deckComposerSkill}
                     }
                 } else if (plan.isDeck) {
                     console.log(`[chat][deck-gate] pass: ${plan.templates.length} slides, ${new Set(plan.templates).size} archetypes, visual ratio ${Math.round(plan.visualRatio * 100)}%`);
+                }
+
+                // 2026-08-14 (imagery plan B2): POST-COMPOSE SLOT-FILL. When the
+                // user asked for imagery, fill every declared image slot on the
+                // final deck: catalog reuse first (zero cost), generation under a
+                // per-deck budget. Fail-open: a dead lane leaves the deck as-is.
+                if (_v4Constraints?.imageQuotaFloor !== undefined) {
+                    try {
+                        const { fillDeckImagery } = await import('./deckImageryFill');
+                        const _brandM = userMessage.match(/#(NXT|NU)\b/i);
+                        const filled = await fillDeckImagery(responseText, {
+                            brand: _brandM ? _brandM[1].toUpperCase() : 'NXT',
+                            generationBudget: 6,
+                        });
+                        if (filled.report.filled > 0) {
+                            responseText = filled.text;
+                            console.log(`[chat][imagery-fill] ${filled.report.filled} slot(s) filled across ${filled.report.slidesTouched} slide(s) (${filled.report.reused} reused, ${filled.report.generated} generated, budget left ${filled.report.budgetLeft})`);
+                            _v4Echo = (_v4Echo ? _v4Echo + '\n' : '') +
+                                `Imagery: ${filled.report.filled} image slot(s) filled on ${filled.report.slidesTouched} slide(s) (${filled.report.reused} from the library, ${filled.report.generated} newly generated).`;
+                        } else if (filled.report.errors.length) {
+                            console.warn('[chat][imagery-fill] no slots filled:', filled.report.errors.join(' | '));
+                        }
+                    } catch (fillErr) {
+                        console.warn('[chat][imagery-fill] pass errored (fail-open):', fillErr);
+                    }
                 }
             } catch (gateErr) {
                 console.warn('[chat][deck-gate] gate errored (fail-open, deck ships ungated):', gateErr);
@@ -5143,6 +5185,34 @@ async function callOpenAI(
             return _finalizeChatViaClaude(system, messages as _ChatMsgLike[], 'OpenAI / GPT');
         }
         throw e;
+    }
+}
+
+/**
+ * 2026-08-14 - Tier-2 directive parse (visuals-root-cause plan C1): one
+ * temperature-0 Flash turn that maps the user's natural phrasing onto the
+ * SessionConstraints SmartParse shape. Fail-open: any error returns null and
+ * the deterministic tier-1 compile stands. Runs only on artifact turns.
+ */
+async function _flashDirectiveParse(text: string, schema: object): Promise<any | null> {
+    try {
+        const { callAIWithRetry } = await import('./aiRetryClient');
+        const prompt =
+            'Extract the user\'s OUTPUT-SHAPE directives from the request below. ' +
+            'Report ONLY what the user explicitly asked for; omit every field they did not state. ' +
+            'Respond with ONE JSON object matching this schema (no prose):\n' +
+            JSON.stringify(schema) + '\n\nREQUEST:\n' + text.slice(0, 4000);
+        const data: any = await callAIWithRetry('gemini', {
+            model: 'gemini-3.5-flash',
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            config: { temperature: 0, maxOutputTokens: 400, responseMimeType: 'application/json' },
+        }, { label: 'Directive parse (Flash)', maxAttempts: 2 });
+        const txt = (data?.candidates?.[0]?.content?.parts || []).map((p: any) => p.text || '').join('');
+        if (!txt.trim()) return null;
+        const parsed = JSON.parse(txt.replace(/^```json\s*|\s*```$/g, ''));
+        return (parsed && typeof parsed === 'object') ? parsed : null;
+    } catch {
+        return null;
     }
 }
 
