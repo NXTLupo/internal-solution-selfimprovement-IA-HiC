@@ -2163,6 +2163,15 @@ Be specific. Cite item numbers. Extract statistics, percentages, and named entit
     return `\n=== TRI-MODEL PARALLEL ANALYSIS ===\nThree reasoning models each analyzed a different subset of the enriched evidence.\nModels: ${modelConfigs.filter((_, i) => results[i].status === 'fulfilled' && (results[i] as any).value).map(c => c.name).join(', ')}\n${summaries.join('\n')}\n=== END TRI-MODEL ANALYSIS ===\n`;
 }
 
+/** WS-3 (2026-08-14 v2 program): the last merge's audit numbers, read by the
+ *  App's post-run diff so the user sees exactly what was reused vs fresh vs
+ *  collapsed (PDF item 3, blend-mode auditability). */
+let _lastMergeStats: {
+    cachedReused: number; uploads: number; fresh: number;
+    duplicatesCollapsed: number; finalUnique: number;
+} | null = null;
+export function getLastMergeStats() { return _lastMergeStats; }
+
 export async function mergeResultsToCorpus(
     executionResult: ResearchExecutionResult,
     researchGoal?: string,
@@ -2198,6 +2207,18 @@ export async function mergeResultsToCorpus(
     }
 
     const { merged: dedupedItems, stats: dedupStats } = mergeCorpusItems(taggedItems, { scope: 'mergeResultsToCorpus' });
+    // WS-3: record the audit numbers for the post-run diff.
+    {
+        const _cachedReused = (uploadedItems || []).filter((u: any) => u?.source === 'cached').length;
+        const _uploads = (uploadedItems || []).length - _cachedReused;
+        _lastMergeStats = {
+            cachedReused: _cachedReused,
+            uploads: _uploads,
+            fresh: taggedItems.length - (uploadedItems || []).length,
+            duplicatesCollapsed: dedupStats.collapsed,
+            finalUnique: dedupStats.output,
+        };
+    }
     if (dedupStats.collapsed > 0) {
         console.log(
             `[Corpus] Merge authority collapsed ${dedupStats.collapsed} duplicate item(s) ` +

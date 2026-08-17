@@ -34,6 +34,12 @@ const _chunkSources = new Map<string, string[]>(); // full pointer (path#cN) -> 
 // chunk resolves to the generic page bucket ("AI Research (gemini): ..."). This map lets a chunk with no
 // per-chunk source fall back to its page's real synthesized sources as an HONEST multi-source label.
 const _pageResolvedSources = new Map<string, string[]>(); // pagePath -> real synthesized source name(s)
+// PROVENANCE LOCK WS-C (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md):
+// the resolved-chunk source pairs carry URLs ({n, u}) but the registry dropped them, so
+// no rendered citation could ever be spot-checked. Stored per source NAME (urls are a
+// property of the source, not the chunk) + per pointer for direct lookup.
+const _sourceUrls = new Map<string, string>();   // lowercased source name -> url
+const _pointerUrls = new Map<string, string>();  // full pointer (path#cN) -> first url
 
 /** Register the REAL source name(s) for one chunk pointer (path#cN). Idempotent; first non-empty wins. */
 export function registerChunkSources(pointer: string, names: string[]): void {
@@ -55,8 +61,38 @@ export function registerResolvedChunkSources(chunks: Array<{ id?: string; source
         if (c && c.id && Array.isArray(c.sources) && c.sources.length) {
             const names = c.sources.map(s => (s?.n || '').trim()).filter(Boolean);
             if (names.length) registerChunkSources(c.id, names);
+            // WS-C: keep the URLs the pairs already carry (previously dropped).
+            for (const s of c.sources) {
+                const n = (s?.n || '').trim();
+                const u = (s?.u || '').trim();
+                if (u && /^https?:\/\//i.test(u)) {
+                    if (n && !_sourceUrls.has(n.toLowerCase())) _sourceUrls.set(n.toLowerCase(), u);
+                    const key = String(c.id).trim();
+                    if (key && !_pointerUrls.has(key)) _pointerUrls.set(key, u);
+                }
+            }
         }
     }
+}
+
+/** WS-C: the checkable URL for a pointer (chunk-level first, then any of its
+ *  resolved source names). Null when the provenance is a non-web source
+ *  (client upload, wiki synthesis) - the honest answer, never a guess. */
+export function lookupPointerUrl(pointer: string): string | null {
+    const clean = String(pointer || '').trim();
+    const direct = _pointerUrls.get(clean);
+    if (direct) return direct;
+    const attribution = lookupChunkAttribution(clean);
+    for (const name of [...attribution.chunkSources, ...attribution.pageResolvedSources, attribution.pageTitle || '']) {
+        const u = name ? _sourceUrls.get(name.toLowerCase()) : undefined;
+        if (u) return u;
+    }
+    return null;
+}
+
+/** WS-C: the checkable URL for a bare source NAME (ledger fallback lookups). */
+export function lookupSourceUrl(name: string): string | null {
+    return _sourceUrls.get(String(name || '').trim().toLowerCase()) || null;
 }
 
 /** STRAGGLER #14: register a page's DOC-LEVEL real sources (from `resolved_sources:` frontmatter). Used as a

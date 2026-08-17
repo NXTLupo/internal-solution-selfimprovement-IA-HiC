@@ -452,3 +452,34 @@ describe('slideComposer (registry-driven, Method A)', () => {
         });
     });
 });
+
+// S5b (2026-08-14): a payload/spec mismatch must never render a void.
+describe('fail-visible guard', () => {
+    it('renders a fallback title instead of an all-white body', () => {
+        const html = composeSlide('stat-row', { headline: 'Screening misses persist in a low-fire market', notes: 'Assessment and interview signals diverge for executive hires.' } as any, 'nxt')!;
+        const text = html.replace(/<[^>]+>/g, ' ');
+        expect(text).toContain('Screening misses persist');
+    });
+    it('does not fire on a correctly-filled archetype', () => {
+        const html = composeSlide('section-divider', { number: '01', title: 'THE MARKET', supporting: 'Search firms compete on data now.' } as any, 'nxt')!;
+        expect(html).not.toContain('fail-visible');
+        expect(html).toContain('THE MARKET');
+    });
+});
+
+// S5c (2026-08-14): the exhibit zone must never render as a void.
+describe('infographic-exhibit fail-visible', () => {
+    it('renders native text cards from steps[] when no exhibitImage', () => {
+        const html = composeSlide('infographic-exhibit', { kicker: 'INDUSTRY CONTEXT', title: 'Adoption concentrates in evaluation', steps: [
+            { number: '01', title: 'Screening first', description: 'Resume screening leads adoption across surveyed teams.' },
+            { number: '02', title: 'Outreach flat', description: 'AI outreach stays flat while screening rises.' },
+        ], takeaway: { label: 'OUTCOME', statement: 'Evaluation is where the tools land first.' }, sourceLine: 'Source: survey' } as any, 'nxt')!;
+        expect(html).toContain('Screening first');
+        expect(html).toContain('Resume screening leads adoption');
+    });
+    it('renders the image variant when exhibitImage fills', () => {
+        const html = composeSlide('infographic-exhibit', { title: 'T', exhibitImage: 'http://x/y.png', steps: [{ number: '01', title: 'Hidden', description: 'd' }], takeaway: { label: 'L', statement: 'S' } } as any, 'nxt')!;
+        expect(html).toContain('http://x/y.png');
+        expect(html).not.toContain('Hidden');
+    });
+});

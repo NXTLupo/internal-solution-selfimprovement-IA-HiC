@@ -707,6 +707,31 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
             }
         }
     }
+    // UNIVERSAL SCENE SLOT (2026-08-14, owner mandate: EVERY slide carries an
+    // image placeholder). Archetypes without a designed image variant get a
+    // GENERIC, grid-safe treatment when the user authors one:
+    //   content-rail  -> a header scene at the top-right (the one zone every
+    //                    dense layout leaves clear); wide title rows narrow so
+    //                    nothing runs under it.
+    //   full-bleed-dark -> the cover/divider treatment: full-bleed photo under
+    //                    a rail scrim, body regions unchanged on top.
+    if (typeof (payload as any)?.sceneImage === 'string' && (payload as any).sceneImage && spec.chrome === 'content-rail') {
+        regions = regions.map((r) => {
+            const sr = r as StaticRegion;
+            if (!sr.kind && typeof sr.w === 'number' && sr.w > 1180 && (sr.y || 0) < 200) {
+                return { ...sr, w: 1120 };
+            }
+            return r;
+        });
+        regions = regions.concat([{ kind: 'image', x: 1340, y: 36, w: 478, h: 170, payload: 'sceneImage', fit: 'cover' } as StaticRegion]);
+    }
+    if (typeof (payload as any)?.backgroundImage === 'string' && (payload as any).backgroundImage
+        && spec.chrome === 'full-bleed-dark' && !(spec as any).variants?.some((v: any) => v.when === 'backgroundImage')) {
+        regions = ([
+            { kind: 'image', x: 0, y: 0, w: 1920, h: 1080, payload: 'backgroundImage', fit: 'cover' } as StaticRegion,
+            { kind: 'scrim', x: 0, y: 0, w: 1920, h: 1080, color: 'rail', alphaTop: 0.42, alphaBottom: 0.82 } as unknown as StaticRegion,
+        ] as any[]).concat(regions as any[]) as typeof regions;
+    }
     if (HERO_PANEL[archetype] && heroSrc) {
         const [ix, iy, iw, ih] = HERO_PANEL[archetype];
         // narrow any text/static region that would run under the panel into the left column
@@ -730,7 +755,35 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
         else if (k === 'chips') body += renderChips(r as ChipsRegion, payload, tk);
         else body += renderStatic(r as StaticRegion, payload, tk);
     }
-    return `<div style="position:relative;width:1920px;height:1080px;background:${bg};overflow:hidden">${body}</div>`;
+    // FAIL-VISIBLE GUARD (2026-08-14, S5b - the owner's live deck rendered an
+    // all-white body when a payload carried none of the spec's keys). A slide
+    // must NEVER ship as a void: when the rendered body carries almost no
+    // visible text, fall back to a plain title + first-strings render and log
+    // the miss so the payload/spec mismatch is diagnosable.
+    const _visibleText = body.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (_visibleText.length < 40) {
+        const strings: string[] = [];
+        const walk = (v: any, d: number) => {
+            if (strings.length >= 6 || d > 3 || v == null) return;
+            if (typeof v === 'string' && v.trim().length > 8 && !v.startsWith('http')) strings.push(v.trim());
+            else if (Array.isArray(v)) v.forEach(x => walk(x, d + 1));
+            else if (typeof v === 'object') Object.entries(v).forEach(([kk, x]) => { if (!kk.startsWith('_')) walk(x, d + 1); });
+        };
+        walk(payload, 0);
+        console.warn(`[slideComposer] fail-visible fallback for ${archetype}: rendered body was empty (payload keys: ${Object.keys(payload || {}).join(', ')})`);
+        const title = strings.shift() || archetype.replace('slides:', '').replace(/-/g, ' ');
+        const rest = strings.map(s =>
+            `<div style="font-family:'Archivo',sans-serif;font-size:28px;line-height:1.4;color:${tk.color.body};margin-top:24px;max-width:1400px">${s.slice(0, 220)}</div>`).join('');
+        body += `<div style="position:absolute;left:196px;top:120px;width:1620px">` +
+            `<div style="font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:58px;line-height:1.06;color:${tk.color.rail}">${title.slice(0, 140)}</div>${rest}</div>`;
+    }
+    // Same transparency rule as the variant path: a full-bleed photo must be the
+    // true bottom layer or the export buries it under the wrapper rect.
+    const _fullBleedBg = regions.some((r) => {
+        const sr = r as StaticRegion;
+        return sr.kind === 'image' && sr.x === 0 && sr.y === 0 && sr.w === 1920 && sr.h === 1080;
+    });
+    return `<div style="position:relative;width:1920px;height:1080px;background:${_fullBleedBg ? 'transparent' : bg};overflow:hidden">${body}</div>`;
 }
 
 export function archetypeKeys(): string[] { return Object.keys(ARCHETYPE_SPECS); }
@@ -825,12 +878,47 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
             { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
             { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
-            { kind: 'image', x: 196, y: 226, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
+            // S5c FAIL-VISIBLE (2026-08-14, owner live deck shipped a white void):
+            // the BASE spec renders the payload's OWN structured fields as native
+            // text cards, so the zone is never empty; the native panel IMAGE is
+            // the variant below (when exhibitImage fills, it replaces these).
+            {
+                kind: 'columns', array: 'steps', count: 5, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 300, baseY: 250,
+                card: { y: 0, w: 300, h: 540, bg: 'ecru', rule: 4, ruleColor: 'accent' },
+                cells: [
+                    { dx: 20, dy: 24, w: 260, color: 'accent', font: 'display', size: 'title', key: 'number' },
+                    { dx: 20, dy: 96, w: 260, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, leading: 1.25, key: 'title' },
+                    { dx: 20, dy: 170, w: 260, color: 'body', font: 'body', size: SCALE.body, prose: true, leading: 1.35, key: 'description', fitH: 330 },
+                ],
+            },
+            {
+                kind: 'columns', array: 'stats', count: 4, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 380, baseY: 250,
+                card: { y: 0, w: 380, h: 540, bg: 'ecru', rule: 4, ruleColor: 'accent' },
+                cells: [
+                    { dx: 24, dy: 40, w: 330, color: 'accent', font: 'display', size: 'display', key: 'figure' },
+                    { dx: 24, dy: 170, w: 330, color: 'rail', font: 'heading', size: SCALE.body, weight: 700, leading: 1.3, key: 'label', fitH: 200 },
+                    { dx: 24, dy: 400, w: 330, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, key: 'source' },
+                ],
+            },
             { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
             { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
             { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
+        // The rendered native panel replaces the text-card fallback when it fills.
+        variants: [{
+            when: 'exhibitImage',
+            regions: [
+                { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+                { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
+                { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
+                { kind: 'image', x: 196, y: 226, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
+                { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+                { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+                { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement' },
+                { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+            ],
+        }],
     },
     // screen-critique (2026-07-07, heuristic-audit uplift Phase 1, owner directive): the audit
     // critique deck's per-screen slide. LEFT = the audited screen's ACTUAL screenshot (data-URI

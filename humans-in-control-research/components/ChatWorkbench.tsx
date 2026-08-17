@@ -835,6 +835,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                                             onGenerateVisual={handleSlideGenerateVisual}
                                             onEditTitle={handleSlideEditTitle}
                                             isGeneratingVisual={generatingVisualForSlide === slide.id}
+                                            onUpdateSlide={u => setSlides(prev => prev.map(x => x.id === u.id ? u : x))}
                                         />
                                     ));
                                 })()}

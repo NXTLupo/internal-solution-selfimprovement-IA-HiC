@@ -36,6 +36,12 @@ import { getBrand, type BrandId } from './slideTemplates/brands';
 // again. The renderTemplate() React path is kept ONLY as a fallback if stage HTML
 // generation throws. Export pipeline is unchanged (still native + editable).
 import { slideDataToStageHtml } from '../services/slideToStageHtml';
+import { USER_IMAGE_SLOTS, suggestPrompt } from '../services/userImagery';
+// WS-4 inline text editing (2026-08-14, v2 program; owner UX revision same day:
+// TRUE inline, no card flip). Clicking text on the preview matches it back to
+// its payload field; a toolbar offers the editable text + AI suggestions;
+// edits apply immutably with history through the one edit contract.
+import { matchFieldByText, suggestFieldRewrites, applyTextEdits, undoLastTextEdit, type TextFieldRef } from '../services/slideTextEditing';
 import type {
     SlideTemplate, PersonaCardData, RecommendationData, ThemeClusterData,
     CompetitiveMatrixData, BlockQuoteData, CaseStudyData, PrinciplesData,
@@ -55,6 +61,10 @@ export interface SlideData {
     brand?: BrandId;
     /** SLIDES-deck archetype (template=slides:*) raw payload, handed to composeSlide untouched. */
     composerPayload?: any;
+    /** WS-4 (2026-08-14): undo ring for inline text edits - pre-edit values per batch. Never rendered. */
+    _textHistory?: Array<{ at: number; edits: Array<{ path: string; prev: string }> }>;
+    /** WS-4: user lock - deck-wide AI passes (visual fill, rewrite passes, chat edits) must skip this slide. */
+    _locked?: boolean;
     /** Universal density axis (2026-06-10). 'dense' raises every template's
      *  item ceilings per types.ts DENSITY_SPEC and renderers adapt type size
      *  to the actual item count. Set by the model (fence attr density=dense or
@@ -113,6 +123,15 @@ interface Props {
     onGenerateVisual: (slide: SlideData, prompt: string) => void;
     onEditTitle: (slide: SlideData, newTitle: string) => void;
     isGeneratingVisual?: boolean;
+    /** USER-DIRECTED IMAGERY (2026-08-14 pivot): persist a per-slot visual spec
+     *  ({prompt, style}) onto the slide's composer payload. Present only on
+     *  slides:* archetype cards rendered in the chat desks. */
+    onAuthorImagery?: (slide: SlideData, slotField: string, spec: { prompt: string; style: 'illustration' | 'infographic' | 'realistic'; authoredAt: number }) => void;
+    /** slot keys (`slideId:field`) currently generating - drives the in-slot progress overlay. */
+    generatingSlotKeys?: string[];
+    /** WS-4 (2026-08-14): replace this slide with an edited version (text edits, undo, lock).
+     *  The panel swaps the slide in its state; the preview re-renders from the new payload. */
+    onUpdateSlide?: (updated: SlideData) => void;
 }
 
 const SLIDE_W = TOKENS.WEB_W;
@@ -252,12 +271,119 @@ const GeneratingOverlay: React.FC = () => (
 );
 
 export const SlideCanvas: React.FC<Props> = ({
-    slide, onApprove, onReject, onGenerateVisual, onEditTitle, isGeneratingVisual,
+    slide, onApprove, onReject, onGenerateVisual, onEditTitle, isGeneratingVisual, onAuthorImagery, generatingSlotKeys, onUpdateSlide,
 }) => {
     const [editingTitle, setEditingTitle] = useState(false);
     const [titleDraft, setTitleDraft] = useState(slide.title);
+    // WS-4 inline text editing (owner UX 2026-08-14: TYPE IN PLACE). Clicking a
+    // text element makes THAT element contenteditable inside the preview, in the
+    // slide's own typography; the toolbar under the slide carries only the AI
+    // suggestions + apply/cancel. Commit strips composer-baked chrome ("01: ")
+    // captured at edit start, so numbering never doubles into the payload.
+    const [inlineEdit, setInlineEdit] = useState<{ path: string; label: string; value: string; prefix: string; suffix: string } | null>(null);
+    const [inlineSuggestions, setInlineSuggestions] = useState<string[]>([]);
+    const [inlineSuggestionsLoading, setInlineSuggestionsLoading] = useState(false);
+    const previewFrameRef = useRef<HTMLIFrameElement>(null);
+    const clickedElRef = useRef<HTMLElement | null>(null);
+    const originalRenderedRef = useRef('');
+    const inlineEditRef = useRef<{ path: string; label: string; value: string; prefix: string; suffix: string } | null>(null);
+    inlineEditRef.current = inlineEdit;
+    const textEditable = slide.status === 'draft' && !!onUpdateSlide;
+
+    const teardownInlineEdit = () => {
+        const el = clickedElRef.current;
+        if (el) { try { el.contentEditable = 'false'; el.style.outline = ''; } catch { /* element may be gone */ } }
+        clickedElRef.current = null;
+        setInlineEdit(null);
+        setInlineSuggestions([]);
+    };
+
+    const cancelInlineEdit = () => {
+        const el = clickedElRef.current;
+        if (el) { try { el.textContent = originalRenderedRef.current; } catch { /* gone */ } }
+        teardownInlineEdit();
+    };
+
+    const commitInlineEdit = () => {
+        const edit = inlineEditRef.current;
+        const el = clickedElRef.current;
+        if (!edit || !el || !onUpdateSlide) { teardownInlineEdit(); return; }
+        let text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+        const pfx = edit.prefix.replace(/\s+/g, ' ');
+        const sfx = edit.suffix.replace(/\s+/g, ' ');
+        if (pfx && text.toLowerCase().startsWith(pfx.trimStart().toLowerCase())) text = text.slice(pfx.trimStart().length).trim();
+        if (sfx && text.toLowerCase().endsWith(sfx.trimEnd().toLowerCase())) text = text.slice(0, text.length - sfx.trimEnd().length).trim();
+        if (text && text.toLowerCase() !== edit.value.replace(/\s+/g, ' ').trim().toLowerCase()) {
+            onUpdateSlide(applyTextEdits(slide, [{ path: edit.path, value: text }]));
+        }
+        teardownInlineEdit();
+    };
+
+    const beginInlineEdit = (field: TextFieldRef, el: HTMLElement) => {
+        // switching targets mid-edit keeps what was typed: commit, then retarget
+        if (clickedElRef.current && clickedElRef.current !== el) commitInlineEdit();
+        clickedElRef.current = el;
+        const rendered = el.textContent || '';
+        originalRenderedRef.current = rendered;
+        const idx = rendered.toLowerCase().indexOf(field.value.toLowerCase());
+        const prefix = idx > 0 ? rendered.slice(0, idx) : '';
+        const suffix = idx >= 0 ? rendered.slice(idx + field.value.length) : '';
+        setInlineEdit({ path: field.path, label: field.label, value: field.value, prefix, suffix });
+        el.contentEditable = 'true';
+        el.style.outline = '3px solid #caca20';
+        el.style.outlineOffset = '2px';
+        // property assignment (not addEventListener) so a re-begin never stacks handlers
+        (el as any).onkeydown = (ke: KeyboardEvent) => {
+            if (ke.key === 'Enter' && !ke.shiftKey) { ke.preventDefault(); commitInlineEdit(); }
+            if (ke.key === 'Escape') { ke.preventDefault(); cancelInlineEdit(); }
+        };
+        el.focus();
+        // select the element's text so re-typing replaces it in one stroke
+        try {
+            const doc = el.ownerDocument;
+            const sel = doc.getSelection();
+            const range = doc.createRange();
+            range.selectNodeContents(el);
+            sel?.removeAllRanges();
+            sel?.addRange(range);
+        } catch { /* selection is a convenience, not a requirement */ }
+        setInlineSuggestions([]);
+        setInlineSuggestionsLoading(true);
+        suggestFieldRewrites(field.value, slide.title)
+            .then(s => setInlineSuggestions(s))
+            .finally(() => setInlineSuggestionsLoading(false));
+    };
+
+    // Attach click-to-edit inside the preview iframe. Re-attached on every
+    // iframe load (each payload edit swaps srcDoc, which refires onLoad).
+    const attachClickToEdit = () => {
+        if (!textEditable) return;
+        const doc = previewFrameRef.current?.contentDocument;
+        if (!doc) return;
+        try { doc.body.style.cursor = 'text'; } catch { /* no body yet */ }
+        doc.addEventListener('click', (e: any) => {
+            const target = e.target as HTMLElement;
+            // clicks inside the active editable place the caret naturally
+            if (clickedElRef.current && (target === clickedElRef.current || clickedElRef.current.contains(target))) return;
+            let el: HTMLElement | null = target;
+            for (let depth = 0; el && depth < 6; depth++, el = el.parentElement) {
+                const t = el.textContent || '';
+                if (t.trim().length < 3) continue;
+                if (t.length > 600) break; // container-level: no single field
+                const m = matchFieldByText(slide, t);
+                if (m) { e.preventDefault(); beginInlineEdit(m, el); return; }
+            }
+        }, true);
+    };
     const [fullscreen, setFullscreen] = useState(false);
     const [imagePrompt, setImagePrompt] = useState('');
+    // USER-DIRECTED IMAGERY state (2026-08-14): which slot's mini-form is open + its draft.
+    const [authoringSlot, setAuthoringSlot] = useState<string | null>(null);
+    const [slotPrompt, setSlotPrompt] = useState('');
+    const [slotStyle, setSlotStyle] = useState<'illustration' | 'infographic' | 'realistic'>('realistic');
+    const userSlots = React.useMemo(
+        () => (String(slide.template).startsWith('slides:') ? (USER_IMAGE_SLOTS[String(slide.template)] || []) : []),
+        [slide.template]);
     const [showPromptInput, setShowPromptInput] = useState(false);
     const [exporting, setExporting] = useState(false);
     const slideRef = useRef<HTMLDivElement>(null);
@@ -272,22 +398,97 @@ export const SlideCanvas: React.FC<Props> = ({
         try { return slideDataToStageHtml(slide as any); } catch (e) { console.warn('[SlideCanvas] stage HTML failed; falling back to React preview:', e); return ''; }
     }, [slide]);
 
+    // keyframes for the slot progress overlay (injected once per document)
+    React.useEffect(() => {
+        if (document.getElementById('hic-slot-anim')) return;
+        const st = document.createElement('style');
+        st.id = 'hic-slot-anim';
+        st.textContent = '@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.55}}';
+        document.head.appendChild(st);
+    }, []);
+
     const slideInternals = (
         <div ref={slideRef} style={{ width: SLIDE_W, height: SLIDE_H, position: 'relative', overflow: 'hidden', background: '#FFFFFF' }}>
             {stageHtml ? (
                 <iframe
+                    ref={previewFrameRef}
                     title={`${slide.template} preview`}
                     srcDoc={stageHtml}
                     scrolling="no"
                     tabIndex={-1}
                     aria-hidden="true"
-                    style={{ width: STAGE_W, height: STAGE_H, border: 0, transform: `scale(${SLIDE_W / STAGE_W})`, transformOrigin: 'top left', pointerEvents: 'none', display: 'block' }}
+                    onLoad={attachClickToEdit}
+                    style={{ width: STAGE_W, height: STAGE_H, border: 0, transform: `scale(${SLIDE_W / STAGE_W})`, transformOrigin: 'top left', pointerEvents: textEditable ? 'auto' : 'none', display: 'block' }}
                 />
             ) : renderTemplate(slide, !!isGeneratingVisual)}
             {/* Persona image-generation overlay (iframe path: shown at card level) */}
             {isGeneratingVisual && slide.template === 'persona-card' && (
                 <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.6)', zIndex: 4 }}><GeneratingOverlay /></div>
             )}
+            {/* USER-DIRECTED IMAGERY (2026-08-14 pivot): per-slot GENERATE chips on
+                slides:* archetypes. Draft slides only; the user authors a prompt +
+                style per slot, resolved by the deck-level regenerate button. */}
+            {slide.status === 'draft' && onAuthorImagery && userSlots.map(slot => {
+                const authored = (slide.composerPayload?._userImagery || {})[slot.field];
+                const generating = (generatingSlotKeys || []).includes(`${slide.id}:${slot.field}`);
+                const hasImage = !!slide.composerPayload?.[slot.field];
+                // The region outline is CLICK-TRANSPARENT and spans the slot's TRUE
+                // geometry (full slide for backdrops); only the label chip takes
+                // clicks, so text under the region stays inline-editable.
+                return (
+                    <div key={slot.field}
+                        style={{
+                            position: 'absolute', zIndex: 4, pointerEvents: 'none',
+                            left: `${slot.rect.x * 100}%`, top: `${slot.rect.y * 100}%`,
+                            width: `${slot.rect.w * 100}%`, height: `${slot.rect.h * 100}%`,
+                            border: authored ? '2px solid rgba(202,202,32,0.9)' : '2px dashed rgba(0,183,195,0.85)',
+                            background: authored ? 'rgba(202,202,32,0.04)' : 'rgba(0,183,195,0.04)',
+                            boxSizing: 'border-box',
+                        }}>
+                        <button
+                            onClick={() => { const opening = authoringSlot !== slot.field; setAuthoringSlot(opening ? slot.field : null); if (opening) { const prior = (slide.composerPayload?._userImagery || {})[slot.field]; setSlotPrompt(prior?.prompt || suggestPrompt(slot, slide.composerPayload)); } }}
+                            title={authored ? `${slot.label}: "${authored.prompt}" (${authored.style})` : `Describe the ${slot.label.toLowerCase()} to generate`}
+                            style={{
+                                position: 'absolute', top: 6, right: 6, pointerEvents: 'auto', cursor: 'pointer', border: 'none',
+                                fontSize: 8, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', padding: '2px 8px',
+                                background: generating ? '#0D0D0D' : (hasImage ? '#caca20' : '#00B7C3'),
+                                color: generating ? '#F5F3EA' : '#0D0D0D',
+                                animation: generating ? 'pulse 1.2s ease-in-out infinite' : undefined,
+                            }}>
+                            {generating ? `Generating ${slot.label}...` : (hasImage ? `Regenerate ${slot.label}` : `Generate ${slot.label}`)}
+                        </button>
+                        {generating && (
+                            <span style={{ position: 'absolute', inset: 0, background: 'rgba(13,13,13,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <span style={{ width: 26, height: 26, border: '3px solid #caca20', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.9s linear infinite' }} />
+                            </span>
+                        )}
+                    </div>
+                );
+            })}
+            {/* Slot authoring mini-form */}
+            {authoringSlot && slide.status === 'draft' && onAuthorImagery && (() => {
+                const slot = userSlots.find(s => s.field === authoringSlot);
+                if (!slot) return null;
+                return (
+                    <div style={{ position: 'absolute', left: '8%', right: '8%', bottom: 12, zIndex: 6, background: '#0D0D0D', padding: 10, display: 'flex', gap: 6, alignItems: 'center' }}>
+                        <span style={{ color: '#F5F3EA', fontSize: 9, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{slot.label}</span>
+                        <input value={slotPrompt} onChange={e => setSlotPrompt(e.target.value)} autoFocus
+                            placeholder={slot.field === 'portraitImage' ? 'e.g. mid-40s research director at her desk, natural light' : 'Describe the visual you want here'}
+                            onKeyDown={e => { if (e.key === 'Enter' && slotPrompt.trim()) { onAuthorImagery(slide, slot.field, { prompt: slotPrompt.trim(), style: slotStyle, authoredAt: Date.now() }); setAuthoringSlot(null); setSlotPrompt(''); } }}
+                            style={{ flex: 1, padding: '6px 10px', border: 'none', fontSize: 11, fontFamily: "'Archivo', sans-serif", outline: 'none' }} />
+                        <select value={slotStyle} onChange={e => setSlotStyle(e.target.value as any)}
+                            style={{ padding: '6px 6px', fontSize: 10, fontFamily: "'Archivo', sans-serif", border: 'none' }}>
+                            <option value="realistic">Realistic</option>
+                            <option value="illustration">Illustration</option>
+                        </select>
+                        <button disabled={!slotPrompt.trim()}
+                            onClick={() => { if (slotPrompt.trim()) { onAuthorImagery(slide, slot.field, { prompt: slotPrompt.trim(), style: slotStyle, authoredAt: Date.now() }); setAuthoringSlot(null); setSlotPrompt(''); } }}
+                            style={{ padding: '6px 14px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer' }}>Set</button>
+                        <button onClick={() => { setAuthoringSlot(null); setSlotPrompt(''); }}
+                            style={{ padding: '6px 8px', background: 'none', color: '#F5F3EA', border: '1px solid #555', fontWeight: 700, fontSize: 9, cursor: 'pointer' }}>X</button>
+                    </div>
+                );
+            })()}
             {/* Status badge */}
             {slide.status !== 'draft' && (
                 <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, letterSpacing: '1px', padding: '2px 8px', background: statusColor, color: '#FFFFFF', zIndex: 3 }}>
@@ -489,6 +690,39 @@ export const SlideCanvas: React.FC<Props> = ({
         setExporting(false);
     };
 
+    // WS-4 click-to-edit toolbar (owner UX 2026-08-14: inline, no card flip).
+    // Appears when a text element on the slide is clicked: the editable text
+    // plus AI-suggested alternative phrasings. Clicking a suggestion places it
+    // in the editor; Apply commits to the payload and the preview re-renders.
+    const editToolbar = inlineEdit && textEditable ? (
+        <div style={{ background: '#0D0D0D', padding: '10px 12px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                <span style={{ color: '#caca20', fontSize: 9, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>{inlineEdit.label}</span>
+                <span style={{ color: '#999', fontSize: 9 }}>type directly on the slide; Enter applies, Esc cancels</span>
+                <div style={{ flex: 1 }} />
+                <button onClick={commitInlineEdit}
+                    style={{ padding: '5px 16px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer' }}>Apply</button>
+                <button onClick={cancelInlineEdit}
+                    style={{ padding: '5px 10px', background: 'none', color: '#F5F3EA', border: '1px solid #555', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer' }}>Cancel</button>
+            </div>
+            {inlineSuggestionsLoading && (
+                <span style={{ color: '#999', fontSize: 10 }}>Drafting alternative phrasings...</span>
+            )}
+            {inlineSuggestions.map((s, i) => (
+                <button key={i}
+                    onClick={() => {
+                        const el = clickedElRef.current;
+                        const edit = inlineEditRef.current;
+                        if (el && edit) { try { el.textContent = `${edit.prefix}${s}${edit.suffix}`; } catch { /* gone */ } }
+                    }}
+                    title="Places this phrasing on the slide; Apply commits it"
+                    style={{ textAlign: 'left', padding: '6px 10px', background: '#1D1D1D', color: '#E8E8E0', border: '1px solid #333', borderLeft: '3px solid #00B7C3', fontSize: 11, fontFamily: "'Archivo', sans-serif", cursor: 'pointer', lineHeight: 1.4 }}>
+                    {s}
+                </button>
+            ))}
+        </div>
+    ) : null;
+
     return (
         <div style={{ margin: '12px 0' }}>
             {/* Label */}
@@ -499,8 +733,28 @@ export const SlideCanvas: React.FC<Props> = ({
                     QA-style annotations to the reader (per user directive 2026-05-05). The validator
                     still computes slide._evidenceGap for ops telemetry; it just isn't rendered. */}
                 <div style={{ flex: 1 }} />
-                {slide.status === 'draft' && (
+                {slide._locked && (
+                    <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1px', padding: '2px 8px', background: '#115054', color: '#F5F3EA' }}>LOCKED</span>
+                )}
+                {slide.status === 'draft' && !onUpdateSlide && (
                     <button onClick={() => setEditingTitle(true)} style={{ fontSize: 8, color: '#666', background: 'none', border: '1px solid #DDD', padding: '2px 8px', cursor: 'pointer', letterSpacing: '1px', fontWeight: 700 }}>EDIT TITLE</button>
+                )}
+                {slide.status === 'draft' && onUpdateSlide && (
+                    <>
+                        <span style={{ fontSize: 8, color: '#AAA', letterSpacing: '0.5px' }}>click any text on the slide to edit it</span>
+                        {(slide._textHistory || []).length > 0 && (
+                            <button onClick={() => { const u = undoLastTextEdit(slide); if (u) { onUpdateSlide(u); teardownInlineEdit(); } }}
+                                title="Undo the most recent text edit on this slide"
+                                style={{ fontSize: 8, color: '#115054', background: 'none', border: '1px solid #115054', padding: '2px 8px', cursor: 'pointer', letterSpacing: '1px', fontWeight: 700 }}>
+                                UNDO EDIT
+                            </button>
+                        )}
+                        <button onClick={() => onUpdateSlide({ ...slide, _locked: !slide._locked })}
+                            title="Locked slides are skipped by deck-wide AI passes"
+                            style={{ fontSize: 8, color: '#666', background: 'none', border: '1px solid #DDD', padding: '2px 8px', cursor: 'pointer', letterSpacing: '1px', fontWeight: 700 }}>
+                            {slide._locked ? 'UNLOCK' : 'LOCK'}
+                        </button>
+                    </>
                 )}
                 <button onClick={() => setFullscreen(!fullscreen)} style={{ fontSize: 8, color: '#666', background: 'none', border: '1px solid #DDD', padding: '2px 8px', cursor: 'pointer', letterSpacing: '1px', fontWeight: 700 }}>
                     {fullscreen ? 'MINIMIZE' : 'EXPAND'}
@@ -520,6 +774,12 @@ export const SlideCanvas: React.FC<Props> = ({
                         {slideInternals}
                     </div>
                     <button onClick={() => setFullscreen(false)} style={{ position: 'absolute', top: 16, right: 16, background: '#0D0D0D', color: '#FFFFFF', border: 'none', padding: '8px 16px', cursor: 'pointer', fontSize: 11, fontWeight: 700 }}>CLOSE</button>
+                    {/* WS-4: the click-to-edit toolbar rides the fullscreen view too */}
+                    {editToolbar && (
+                        <div style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', width: 'min(760px, 92vw)', zIndex: 1001 }}>
+                            {editToolbar}
+                        </div>
+                    )}
                 </div>
             ) : (() => {
                 const scale = Math.min(420 / SLIDE_W, 1);
@@ -537,6 +797,10 @@ export const SlideCanvas: React.FC<Props> = ({
                     </div>
                 );
             })()}
+
+            {/* WS-4: click-to-edit toolbar (card view) - sits directly under the
+                slide so the highlighted element and its editor read together. */}
+            {!fullscreen && editToolbar && <div style={{ marginTop: 6 }}>{editToolbar}</div>}
 
             {/* Action bar */}
             <div style={{ marginTop: 8, padding: '8px 0', borderTop: '1px solid #E8E8E8', display: 'flex', gap: 8, flexWrap: 'wrap' }}>

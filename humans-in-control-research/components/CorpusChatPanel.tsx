@@ -31,7 +31,16 @@ import { validateSlide } from '../services/slideValidator';
 // balance + 9-rung repair ladder) before falling back to per-array salvage.
 // Static import (over async dynamic import) lets the sync parseSlideBlocks /
 // parseDeliverableBlocks callbacks use these helpers without a refactor.
-import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel } from '../services/aiRouter';
+import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel, DEFAULT_MODELS } from '../services/aiRouter';
+// WS-6 FLUID CHAT (2026-08-14 v2 program): natural-language intent routing so
+// common asks (deck edits, client email, slide narrative) need no hashtags.
+// Static imports - dynamic import() chunks 404 on stale bundles (2026-08-14 lesson).
+import { quickIntentFilter, classifyChatIntent, applyDeckTextPass, draftClientEmail, draftSlideNarrative } from '../services/chatIntentRouter';
+// PROVENANCE LOCK (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md):
+// every freshly parsed deck gets its claims verified against the pointed corpus
+// sources; fabricated attributions are relabeled/stripped; the ledger renders
+// under the deck. Static imports (stale-bundle 404 lesson).
+import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow } from '../services/citationVerifier';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
@@ -112,6 +121,7 @@ import { imageSpecFor } from '../services/artifactImageSlots';
 // vizEngine, EMOTIVE -> the brand-locked Nano-Banana designer skill; honors the #img override and
 // the section-8 default-off gate. resolveRoutedSlotImages wraps the existing illustrator loop.
 import { resolveRoutedSlotImages } from '../services/visualRouter';
+import { resolveUserImageryForPayload } from '../services/userImagery';
 import { parseImgDirective } from '../services/hashtagParser';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
@@ -4016,6 +4026,34 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         return () => window.removeEventListener('message', onMessage);
     }, []);
     const [generatingVisualId, setGeneratingVisualId] = useState<string | null>(null);
+    // USER-DIRECTED IMAGERY (2026-08-14 pivot): deck-level resolve in flight.
+    const [regeneratingVisuals, setRegeneratingVisuals] = useState(false);
+    // Per-slot generate-now (owner UX 2026-08-14: see the result before leaving the slide).
+    const [generatingSlotKeys, setGeneratingSlotKeys] = useState<string[]>([]);
+    // PROVENANCE LOCK: verification ledger rows per assistant message id.
+    const [verificationLedgers, setVerificationLedgers] = useState<Record<string, LedgerRow[]>>({});
+
+    // Verify every claim in a freshly parsed deck against its pointed corpus
+    // sources; relabel/strip fabricated attributions; attach the ledger.
+    // Fail-open: a verifier error never blocks the deck, it logs and skips.
+    const verifyAndAttachLedger = useCallback(async (deckSlides: SlideData[], msgId: string) => {
+        if (!deckSlides?.length) return;
+        try {
+            const rows = await verifyDeckEvidence(deckSlides);
+            if (!rows.length) return;
+            const { slides: fixedSlides, fixed, stripped } = applyVerificationFixes(deckSlides, rows);
+            if (fixed || stripped) {
+                const changed = new Map<string, SlideData>();
+                fixedSlides.forEach((f, i) => { if (f !== deckSlides[i]) changed.set(f.id, f); });
+                if (changed.size) setSlides(prev => prev.map(s => changed.get(s.id) || s));
+            }
+            setVerificationLedgers(prev => ({ ...prev, [msgId]: rows }));
+            const flagged = rows.filter(r => r.verdict !== 'VERIFIED').length;
+            console.info(`[provenance-lock] ${rows.length} claim(s) checked, ${flagged} flagged, ${fixed} relabeled, ${stripped} label(s) stripped (msg ${msgId})`);
+        } catch (e: any) {
+            console.warn('[provenance-lock] verification failed (deck ships unverified):', e?.message || e);
+        }
+    }, []);
     const [imageLoading, setImageLoading] = useState(false);
     const [wikiSourceArchive, setWikiSourceArchive] = useState('');
     // 2026-05-08 - Mid-chat attachments staged for the next send. Cleared
@@ -4086,6 +4124,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             return merged;
                         });
                         try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
+                        verifyAndAttachLedger(stamped, m.id);
                     }
                 }
                 liftedArtifactMsgIdsRef.current.add(m.id);
@@ -7284,6 +7323,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         const stamped = newSlides.map(s => ({ ...s, model: msgForLift.model, timestamp: msgForLift.timestamp }));
                         setSlides(prev => [...prev, ...stamped]);
                         try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
+                        verifyAndAttachLedger(stamped, chunkMsgId);
                     }
                 }
                 liftedArtifactMsgIdsRef.current.add(chunkMsgId);
@@ -7297,6 +7337,59 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 if (pendingAttachments.length > 0) setPendingAttachments([]);
             }
             return;
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // WS-6 FLUID CHAT (2026-08-14 v2 program): natural-language asks reach
+        // the same executors the hashtags invoke. Regex pre-filter first (zero
+        // added latency for ordinary Q&A), then one flash classification;
+        // every failure falls open to plain chat. Hashtag messages skip this.
+        // ═══════════════════════════════════════════════════════════════
+        {
+            const draftDeck = slides.filter(s => s.status === 'draft' && String(s.template).startsWith('slides:'));
+            if (quickIntentFilter(query, draftDeck.length > 0)) {
+                const intent = await classifyChatIntent(query, { hasDeck: draftDeck.length > 0 });
+                if (intent.kind !== 'plain') {
+                    const live: any = getContext ? getContext() : context;
+                    const rawThemes = Array.isArray(live?.themes?.themes) ? live.themes.themes : (Array.isArray(live?.themes) ? live.themes : []);
+                    const ectx = {
+                        researchGoal: String(live?.researchGoal || ''),
+                        corpusText: String(live?.corpusText || ''),
+                        deckTitles: draftDeck.map(s => s.title),
+                        themeLines: rawThemes.map((t: any) => String(t?.title || t?.name || t?.theme || '')).filter(Boolean),
+                    };
+                    const noticeId = `msg_${Date.now()}_intent`;
+                    try {
+                        if (intent.kind === 'deck_edit') {
+                            setMessages(prev => [...prev, { id: noticeId, role: 'assistant', content: `Rewriting ${intent.slideIndex ? `slide ${intent.slideIndex}` : `${draftDeck.length} slides`} (${intent.op})...`, model: DEFAULT_MODELS.fast_generation, timestamp: Date.now() } as ChatMessage]);
+                            const res = await applyDeckTextPass(draftDeck as any[], intent.op, query, intent.slideIndex);
+                            if (res.updated.length) setSlides(prev => prev.map(s => (res.updated as any[]).find((u: any) => u.id === s.id) || s));
+                            const summary = [
+                                res.updated.length ? `Rewrote ${res.editedFields} field${res.editedFields === 1 ? '' : 's'} across ${res.updated.length} slide${res.updated.length === 1 ? '' : 's'} (${intent.op}).` : 'The current copy already reads tight; no fields needed rewriting.',
+                                res.skippedLocked ? `${res.skippedLocked} locked slide${res.skippedLocked === 1 ? '' : 's'} untouched.` : '',
+                                res.failed ? `${res.failed} slide${res.failed === 1 ? '' : 's'} hit an error and kept the original text.` : '',
+                                res.updated.length ? 'Review the previews above; each slide\'s EDIT TEXT panel has Undo.' : '',
+                            ].filter(Boolean).join(' ');
+                            setMessages(prev => prev.map(m => m.id === noticeId ? { ...m, content: summary } : m));
+                        } else if (intent.kind === 'client_email') {
+                            setMessages(prev => [...prev, { id: noticeId, role: 'assistant', content: 'Drafting the client follow-up email from the research and deck...', model: artifactModelFor('report'), timestamp: Date.now() } as ChatMessage]);
+                            const email = await draftClientEmail(ectx, query);
+                            setMessages(prev => prev.map(m => m.id === noticeId ? { ...m, content: email || 'The email draft came back empty. Try again, or add a sentence on what the email should emphasize.' } : m));
+                        } else if (intent.kind === 'slide_narrative') {
+                            setMessages(prev => [...prev, { id: noticeId, role: 'assistant', content: 'Planning the slide narrative from the research...', model: artifactModelFor('strategy'), timestamp: Date.now() } as ChatMessage]);
+                            const plan = await draftSlideNarrative(ectx, query);
+                            setMessages(prev => prev.map(m => m.id === noticeId ? { ...m, content: plan || 'The narrative plan came back empty. Try again, or name the audience and the decision the deck must drive.' } : m));
+                        }
+                        setIsLoading(false);
+                        if (pendingAttachments.length > 0) setPendingAttachments([]);
+                        return;
+                    } catch (intentErr: any) {
+                        // Fail open: remove the notice and continue into plain chat.
+                        setMessages(prev => prev.filter(m => m.id !== noticeId));
+                        console.warn('[fluid-chat] intent path failed; falling back to plain chat:', intentErr?.message || intentErr);
+                    }
+                }
+            }
         }
 
         // 2026-05-26 - Per-send AbortController so the user can cancel
@@ -7374,6 +7467,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp }));
                 setSlides(prev => [...prev, ...stampedSlides]);
                 generatePersonaSlidePortraits(stampedSlides);
+                // PROVENANCE LOCK: verify claims + attach the ledger (non-blocking).
+                verifyAndAttachLedger(stampedSlides, response.id);
                 // Phase 1-retrofit (2026-04-20) - WIKI-BACKED QUOTE BACKFILL.
                 // Walks every theme across the new slides; wherever the AI
                 // emitted a title-shaped evidence string (instead of a real
@@ -7963,14 +8058,117 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                             setGeneratingVisualId(null);
                                         }}
                                         onEditTitle={(s, t) => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, title: t } : x))}
+                                        onAuthorImagery={async (s, slotField, spec) => {
+                                            // GENERATE-NOW UX (owner 2026-08-14): Set = persist + render this
+                                            // slot immediately; the in-slot overlay shows progress and the
+                                            // preview updates in place before the user moves on.
+                                            const payload = { ...(s.composerPayload || {}), _userImagery: { ...((s.composerPayload || {})._userImagery || {}), [slotField]: spec } };
+                                            setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: payload } : x));
+                                            const key = `${s.id}:${slotField}`;
+                                            setGeneratingSlotKeys(prev => [...prev, key]);
+                                            try {
+                                                const res = await resolveUserImageryForPayload(String(s.template), payload, s.brand === 'nu' ? 'nu' : 'nxt', slotField);
+                                                if (res.rendered > 0) {
+                                                    setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...payload } } : x));
+                                                } else {
+                                                    console.warn(`[user-imagery] slot ${key} rendered nothing${res.failed.length ? ` (${res.failed.join(', ')})` : ''}`);
+                                                }
+                                            } catch (e: any) {
+                                                console.warn(`[user-imagery] slot ${key} failed:`, e?.message || e);
+                                            } finally {
+                                                setGeneratingSlotKeys(prev => prev.filter(k => k !== key));
+                                            }
+                                        }}
+                                        generatingSlotKeys={generatingSlotKeys}
+                                        onUpdateSlide={u => setSlides(prev => prev.map(x => x.id === u.id ? u : x))}
                                     />
                                 </div>
                             ))}
+                            {/* PROVENANCE LOCK: verification ledger - every claim in the deck,
+                                its real source, URL, and verdict. Auto-open when anything is
+                                flagged; collapsed when the deck is clean. */}
+                            {msg.role === 'assistant' && (verificationLedgers[msg.id]?.length || 0) > 0 && (() => {
+                                const rows = verificationLedgers[msg.id];
+                                const flagged = rows.filter(r => r.verdict !== 'VERIFIED');
+                                const chip = (v: LedgerRow['verdict']) => ({
+                                    VERIFIED: { bg: '#EAF3EE', fg: '#115054', label: 'VERIFIED' },
+                                    ATTRIBUTION_FIXED: { bg: '#F5F3D6', fg: '#6B6B00', label: 'RELABELED' },
+                                    UNVERIFIED: { bg: '#FBEAEA', fg: '#CC3333', label: 'UNVERIFIED' },
+                                    UNSOURCED: { bg: '#FBF2EE', fg: '#CC6644', label: 'UNSOURCED' },
+                                }[v]);
+                                return (
+                                    <details open={flagged.length > 0} style={{ marginTop: 8, border: '1px solid #E4E4DC', borderLeft: `3px solid ${flagged.length ? '#CC6644' : '#115054'}`, background: '#FFFFFF', padding: '8px 12px' }}>
+                                        <summary style={{ cursor: 'pointer', fontSize: 10, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, color: '#33332E' }}>
+                                            Verification ledger: {rows.length} claim{rows.length === 1 ? '' : 's'} checked, {flagged.length} flagged
+                                        </summary>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 8 }}>
+                                            {rows.map((r, i) => {
+                                                const c = chip(r.verdict);
+                                                return (
+                                                    <div key={i} style={{ fontSize: 11, lineHeight: 1.45, paddingBottom: 8, borderBottom: i < rows.length - 1 ? '1px solid #F0F0EA' : 'none' }}>
+                                                        <div style={{ display: 'flex', gap: 6, alignItems: 'baseline', flexWrap: 'wrap' as const }}>
+                                                            <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1px', padding: '1px 6px', background: c.bg, color: c.fg }}>{c.label}</span>
+                                                            <span style={{ color: '#888', fontSize: 9 }}>{r.slideTitle.slice(0, 60)}</span>
+                                                        </div>
+                                                        <div style={{ color: '#33332E', marginTop: 2 }}>"{r.claim.slice(0, 160)}{r.claim.length > 160 ? '...' : ''}"</div>
+                                                        <div style={{ color: '#666', fontSize: 10, marginTop: 2 }}>
+                                                            {r.citedAs && <>Cited as: {r.citedAs}{r.realSources.length ? ' ' : ''}</>}
+                                                            {r.realSources.length > 0 && <>Real source: {r.realSources.join('; ')} </>}
+                                                            {r.url && <a href={r.url} target="_blank" rel="noreferrer" style={{ color: '#00B7C3' }}>{r.url.replace(/^https?:\/\//, '').slice(0, 60)}</a>}
+                                                        </div>
+                                                        <div style={{ color: '#999', fontSize: 10 }}>{r.note}</div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </details>
+                                );
+                            })()}
+
                             {/* Export Deck bar - appears once a message produced 2+ slides */}
                             {msg.role === 'assistant' && msgSlides.length >= 2 && (
                                 <div style={{ display: 'flex', gap: 8, marginTop: 8, padding: '8px 12px', background: '#FAFAFA', borderLeft: '3px solid #caca20', alignItems: 'center' }}>
                                     <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#666' }}>{msgSlides.length}-slide deck</span>
                                     <div style={{ flex: 1 }} />
+                                    {/* USER-DIRECTED IMAGERY (2026-08-14 pivot): resolve every authored slot
+                                        through the illustration lane with the REAL style tokens, write the
+                                        URLs into the composer payloads, and let the preview re-render. */}
+                                    {(() => {
+                                        const authoredCount = msgSlides.reduce((n, s) => n + Object.values((s.composerPayload?._userImagery || {})).filter((v: any) => v?.prompt).length, 0);
+                                        if (!authoredCount) return null;
+                                        return (
+                                            <button disabled={regeneratingVisuals}
+                                                onClick={async () => {
+                                                    setRegeneratingVisuals(true);
+                                                    // Static import (2026-08-14 fix): the dynamic import() chunk 404s on a
+                                                    // stale bundle, which killed the whole click silently while the chips
+                                                    // (static path) kept working. Per-slide try/catch so one failure never
+                                                    // aborts the remaining authored slides.
+                                                    let rendered = 0; const failed: string[] = [];
+                                                    try {
+                                                        for (const s of msgSlides) {
+                                                            if (!s.composerPayload?._userImagery) continue;
+                                                            try {
+                                                                const res = await resolveUserImageryForPayload(String(s.template), s.composerPayload, s.brand === 'nu' ? 'nu' : 'nxt');
+                                                                rendered += res.rendered; failed.push(...res.failed);
+                                                                if (res.rendered > 0) {
+                                                                    setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...s.composerPayload } } : x));
+                                                                }
+                                                            } catch (slideErr: any) {
+                                                                failed.push(`${String(s.template)}: ${String(slideErr?.message || slideErr).slice(0, 60)}`);
+                                                            }
+                                                        }
+                                                        console.log(`[user-imagery] rendered ${rendered} visual(s)${failed.length ? `; failed: ${failed.join(', ')}` : ''}`);
+                                                        if (rendered === 0) {
+                                                            setMessages(prev => [...prev, { id: `ui-${Date.now()}`, role: 'assistant', content: `No visuals rendered${failed.length ? `: ${failed.join('; ')}` : ' (is the proxy running?)'}. The authored prompts are kept; try Regenerate again.`, timestamp: Date.now() } as any]);
+                                                        }
+                                                    } finally { setRegeneratingVisuals(false); }
+                                                }}
+                                                style={{ padding: '4px 12px', background: regeneratingVisuals ? '#E8E8E8' : '#00B7C3', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: regeneratingVisuals ? 'default' : 'pointer' }}>
+                                                {regeneratingVisuals ? 'Rendering visuals...' : `Regenerate with visuals (${authoredCount})`}
+                                            </button>
+                                        );
+                                    })()}
                                     <button onClick={(e) => handleExportDeckPPTX({ allGenerations: e.altKey })} title="Exports the latest deck generation. Alt-click to export every generation in this chat." style={{ padding: '4px 12px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PPTX</button>
                                     <button onClick={handleExportDeckPDF} style={{ padding: '4px 12px', background: '#0D0D0D', color: '#FFF', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PDF</button>
                                 </div>
@@ -8214,6 +8412,27 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                     </div>
                 )}
                 <EnhancePreview handle={enhancer} accentColor="#00B7C3" />
+                {/* WS-6: contextual next-step chips (PDF item 1). Prefill the input so
+                    the user edits before sending - nothing fires behind their back. */}
+                {!isLoading && (() => {
+                    const hasDeck = slides.some(s => s.status === 'draft' && String(s.template).startsWith('slides:'));
+                    const live: any = getContext ? getContext() : context;
+                    const hasCorpus = !!(live?.corpusText && String(live.corpusText).length > 500);
+                    const chips: string[] = [];
+                    if (hasCorpus && !hasDeck) chips.push('Draft the slide narrative from this research');
+                    if (hasDeck) chips.push('Draft a client follow-up email from this deck', 'Make the deck more concise');
+                    if (!chips.length) return null;
+                    return (
+                        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 6 }}>
+                            {chips.map(c => (
+                                <button key={c} onClick={() => { setInput(c); setTimeout(() => inputRef.current?.focus(), 0); }}
+                                    style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.5px', padding: '3px 10px', background: '#F5F3EA', color: '#33332E', border: '1px solid #E4E4DC', borderRadius: 2, cursor: 'pointer' }}>
+                                    {c}
+                                </button>
+                            ))}
+                        </div>
+                    );
+                })()}
                 <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
                     {/* Paperclip + drag-drop dropzone (shared component) */}
                     <ChatAttachmentDropzone

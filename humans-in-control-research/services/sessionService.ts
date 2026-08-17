@@ -118,13 +118,19 @@ export async function saveSession(snapshot: SessionSnapshot, slug?: string): Pro
 
 export async function listSessions(): Promise<SessionSummary[]> {
     try {
-        const resp = await fetch(`${PROXY_BASE}/api/sessions`);
-        if (!resp.ok) return [];
-        const data = await resp.json();
-        return Array.isArray(data.sessions) ? data.sessions : [];
+        return await listSessionsStrict();
     } catch {
         return [];
     }
+}
+
+/** WS-1 (2026-08-14 v2 program): throwing variant so the library UI can show a
+ *  real failure state + retry instead of silently rendering an empty panel. */
+export async function listSessionsStrict(): Promise<SessionSummary[]> {
+    const resp = await fetch(`${PROXY_BASE}/api/sessions`);
+    if (!resp.ok) throw new Error(`Session library HTTP ${resp.status}`);
+    const data = await resp.json();
+    return Array.isArray(data.sessions) ? data.sessions : [];
 }
 
 export async function loadSession(slug: string): Promise<SessionSnapshot | null> {

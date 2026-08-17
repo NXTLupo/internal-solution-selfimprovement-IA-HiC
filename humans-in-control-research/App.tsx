@@ -1295,6 +1295,15 @@ const App = () => {
     // pretend the user has a goal they didn't set. All slug derivations already
     // fall back to "default"/"default-engagement" when researchGoal is empty.
     const [researchGoal, setResearchGoal] = useState("");
+    // WS-2 transcript intake (2026-08-14 v2 program, PDF item 2): anonymize
+    // uploads before downstream use + generate the research goal from them.
+    const [anonymizeUploads, setAnonymizeUploads] = useState(false);
+    const [intakeStatus, setIntakeStatus] = useState('');
+    const [intakePublicContext, setIntakePublicContext] = useState('');
+    const [intakePanel, setIntakePanel] = useState<{
+        removals: Array<{ category: string; original: string; replacement: string; count: number }>;
+        synthesis: { clientGoals: string[]; businessChallenges: string[]; researchAngles: string[]; riskFlags: string[]; impliedResearchNeeds: string[] };
+    } | null>(null);
     // 2026-06-25 - Interview-Me-at-intake (P1): toggles the optional adaptive
     // scoping interview panel beside the Research Goal field.
     const [showInterview, setShowInterview] = useState(false);
@@ -1898,6 +1907,10 @@ const App = () => {
         error?: string;
     }>({ state: 'idle' });
     const [sessionListings, setSessionListings] = useState<any[]>([]);
+    // WS-1 (2026-08-14 v2 program): library loading/failure surfaces + retry.
+    const [sessionListLoading, setSessionListLoading] = useState(false);
+    const [sessionListError, setSessionListError] = useState('');
+    const [sessionListReloadTick, setSessionListReloadTick] = useState(0);
     const chatMessagesRef = useRef<any[]>([]);
     const initialChatMessagesRef = useRef<any[] | null>(null);
     const autoSavedRef = useRef(false); // guard so auto-save fires only once per run
@@ -2915,6 +2928,8 @@ const App = () => {
             if (!sessionSlug) setSessionSlug(result.slug);
             if (!sessionTitle) setSessionTitle(result.title);
             setSessionSaveStatus({ state: 'saved', savedAt: result.saved_at });
+            // WS-1 (2026-08-14 v2): the saved engagement is the last-active one.
+            try { localStorage.setItem('hic_last_session_slug', result.slug); } catch { /* best-effort */ }
             if (!opts?.silent) {
                 setThinkingEvents(prev => [...prev, {
                     type: 'LEARNING',
@@ -2948,6 +2963,65 @@ const App = () => {
         return () => { delete (window as any).__hicSaveSession; };
     }, [handleSaveSession]);
 
+    // WS-2 (2026-08-14 v2 program): the transcript-to-goal workflow. Optionally
+    // anonymizes every readable upload IN PLACE (the anonymized text is what
+    // flows into the corpus; the replacement map stays in this closure and is
+    // never persisted), synthesizes what the uploads establish, and writes a
+    // focused research goal into the goal field for the user to edit.
+    const handleGoalFromUploads = useCallback(async () => {
+        const readable = files.filter((f: any) => typeof (f as any).parsedText === 'string' && (f as any).parsedText.trim().length > 200);
+        if (!readable.length) {
+            setNotification('Upload transcripts or documents first. No readable text found yet (parsing may still be running).');
+            return;
+        }
+        try {
+            const { newAnonymizationMap, anonymizeTranscript, synthesizeTranscripts, generateResearchGoal } = await import('./services/transcriptIntake');
+            let texts = readable.map((f: any) => ({ name: f.name as string, text: (f as any).parsedText as string }));
+            const removals: Array<{ category: string; original: string; replacement: string; count: number }> = [];
+            if (anonymizeUploads) {
+                setIntakeStatus(`Anonymizing ${texts.length} upload${texts.length === 1 ? '' : 's'}...`);
+                const map = newAnonymizationMap();
+                const anonymized: typeof texts = [];
+                for (const t of texts) {
+                    const res = await anonymizeTranscript(t.text, map);
+                    anonymized.push({ name: t.name, text: res.text });
+                    removals.push(...res.removals);
+                }
+                texts = anonymized;
+                // Downstream must use the ANONYMIZED text: parsedText is attached to the
+                // File object by mutation elsewhere (FileUpload parser convention), so we
+                // update it the same way and poke React with a new array reference.
+                for (const f of files) {
+                    const m = anonymized.find(a => a.name === (f as any).name);
+                    if (m) (f as any).parsedText = m.text;
+                }
+                setFiles(prev => [...prev]);
+            }
+            setIntakeStatus('Synthesizing what the uploads establish...');
+            const synthesis = await synthesizeTranscripts(texts);
+            if (!synthesis) {
+                setIntakeStatus('');
+                setNotification('Transcript synthesis failed. Try again in a moment.');
+                return;
+            }
+            setIntakeStatus('Writing the focused research goal...');
+            const goal = await generateResearchGoal(synthesis, { publicContext: intakePublicContext, userHint: researchGoal });
+            if (goal) setResearchGoal(goal);
+            setIntakePanel({
+                removals,
+                synthesis: {
+                    clientGoals: synthesis.clientGoals, businessChallenges: synthesis.businessChallenges,
+                    researchAngles: synthesis.researchAngles, riskFlags: synthesis.riskFlags,
+                    impliedResearchNeeds: synthesis.impliedResearchNeeds,
+                },
+            });
+            setIntakeStatus('');
+        } catch (e: any) {
+            setIntakeStatus('');
+            setNotification(`Goal generation from uploads failed: ${e?.message || e}`);
+        }
+    }, [files, anonymizeUploads, intakePublicContext, researchGoal]);
+
     // 2026-05-11 - Load a saved session. Hydrates all state and switches the
     // app to the results view so the user can immediately interact with the
     // restored engagement (incl. AI Analyst chat that's context-aware of the
@@ -2961,6 +3035,9 @@ const App = () => {
                 return;
             }
             const r = restoreSessionSnapshot(snap);
+            // WS-1 (2026-08-14 v2): remember the active engagement so the next
+            // landing sorts it first with a LAST ACTIVE badge (one-click resume).
+            try { localStorage.setItem('hic_last_session_slug', slug); } catch { /* best-effort */ }
             // Apply everything. Order matters: set researchGoal first so any
             // downstream effects that key off it see the new value.
             setResearchGoal(r.researchGoal || '');
@@ -3142,16 +3219,38 @@ const App = () => {
     ]);
 
     // Pre-load session list on landing so Continue Session has fresh data.
+    // WS-1 (2026-08-14 v2 program, PDF item 4): stale-while-revalidate. Paint
+    // instantly from the localStorage cache, refresh from the proxy in the
+    // background, and surface loading/failure states instead of a blank panel.
     useEffect(() => {
         if (appState !== AppState.IDLE) return;
+        let cancelled = false;
+        try {
+            const cached = localStorage.getItem('hic_session_listings_cache');
+            if (cached) {
+                const arr = JSON.parse(cached);
+                if (Array.isArray(arr) && arr.length) setSessionListings(arr);
+            }
+        } catch { /* cache is best-effort */ }
+        setSessionListLoading(true);
+        setSessionListError('');
+        const t0 = Date.now();
         (async () => {
             try {
-                const { listSessions } = await import('./services/sessionService');
-                const list = await listSessions();
+                const { listSessionsStrict } = await import('./services/sessionService');
+                const list = await listSessionsStrict();
+                if (cancelled) return;
                 setSessionListings(list);
-            } catch {}
+                try { localStorage.setItem('hic_session_listings_cache', JSON.stringify(list.slice(0, 60))); } catch { /* quota */ }
+                console.info(`[latency] library_open ${Date.now() - t0}ms (${list.length} sessions)`);
+            } catch (e: any) {
+                if (!cancelled) setSessionListError(e?.message || 'Could not load prior engagement data.');
+            } finally {
+                if (!cancelled) setSessionListLoading(false);
+            }
         })();
-    }, [appState]);
+        return () => { cancelled = true; };
+    }, [appState, sessionListReloadTick]);
 
     const handleSaveProject = (updatedData?: AnalysisResult) => {
         // Use updatedData if provided (from child components edits), otherwise fallback to current result
@@ -4055,24 +4154,35 @@ const App = () => {
                     if (_total > 0 && !_blendFlag) {
                         _willSkipCollection = true;
                         (window as any).__hicCachedOnlyMode = true;
+                        (window as any).__hicRunMode = 'reuse-only';
                         console.info(`[App] CACHED-ONLY MODE: ${_total} KL items selected. Skipping ALL external collection. Generation will draw from the 60K+ wiki chunks via manifest pointers.`);
                         setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
                             type: 'PHASE',
-                            content: `[CACHED-ONLY] Using your ${_total} curated KL items. Zero fresh external API calls this run.`,
+                            content: `[RUN MODE: REUSE ONLY] Using your ${_total} curated KL items. Zero fresh external API calls this run. Toggle Blend to ALSO collect fresh data, or clear the KL selection for a full fresh run.`,
                         }]);
                     } else if (_total > 0 && _blendFlag) {
                         _blendMode = true;
                         (window as any).__hicCachedOnlyMode = false;
+                        (window as any).__hicRunMode = 'blend';
                         console.info(`[App] BLEND MODE: ${_total} KL items + fresh collection. Cached articles resolved as items and deduped against fresh via the merge authority.`);
                         setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
                             type: 'PHASE',
-                            content: `[BLEND] Combining your ${_total} curated KL items WITH fresh external collection. Duplicates between cached and fresh are collapsed automatically.`,
+                            content: `[RUN MODE: ADD FRESH] Reusing your ${_total} curated KL items AND collecting fresh data. Duplicates between cached and fresh collapse automatically; the post-run summary reports exact counts.`,
                         }]);
                     }
                 }
             }
         } catch (_e) { /* silent - fall through to default */ }
         if (!_willSkipCollection) (window as any).__hicCachedOnlyMode = false;
+        // WS-3 (2026-08-14 v2, PDF item 3): the third mode is now EXPLICIT too.
+        // Every run states its mode up front; nothing is inferred silently.
+        if (!_willSkipCollection && !_blendMode) {
+            (window as any).__hicRunMode = 'fresh';
+            setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
+                type: 'PHASE',
+                content: `[RUN MODE: FULL FRESH RUN] No cached Knowledge Library items selected: this run collects everything fresh. Select KL items on a prior engagement to reuse research instead of re-paying for collection.`,
+            }]);
+        }
 
         // ENHANCEMENT A: resolve KL-selected cached articles as INDIVIDUAL
         // DataSourceItems for the blend path (additive; does not touch the
@@ -5518,6 +5628,21 @@ const App = () => {
                     { ...executionResult, sources: [...executionResult.sources, ...proxySources] } as any,
                     researchGoal, _mergeUploads);
 
+                // WS-3 (2026-08-14 v2, PDF item 3): POST-RUN DIFF. State exactly what
+                // this run reused vs collected vs collapsed, so blend behavior is
+                // verifiable instead of guessed at ("did it re-run everything?").
+                try {
+                    const { getLastMergeStats } = await import('./services/researchFabricOrchestrator');
+                    const ms = getLastMergeStats();
+                    if (ms) {
+                        const mode = String((window as any).__hicRunMode || 'fresh');
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[RUN DIFF] Mode ${mode.toUpperCase()}: reused ${ms.cachedReused} cached item(s), ${ms.uploads} client upload(s), collected ${ms.fresh} fresh item(s); the merge authority collapsed ${ms.duplicatesCollapsed} duplicate(s); final corpus carries ${ms.finalUnique} unique items.`,
+                        }]);
+                    }
+                } catch { /* diff is informational; never blocks the run */ }
+
                 // WS-F (2026-06-30): OBJECTIVE-SUPREMACY post-collection audit. Score how well the assembled
                 // corpus covers each decomposed sub-question of the objective, and surface HIGH-priority ones
                 // the corpus under-covers so a targeted follow-up can run BEFORE generation. Deterministic +
@@ -6713,7 +6838,7 @@ ${synthesisParts.join('\n')}
                                 {/* 2026-05-11 (HiC-Session-Save) - Continue Session picker.
                                     Loads saved sessions from the proxy. Shows last 6 by
                                     most-recently saved. Hidden when there are none. */}
-                                {appMode === 'research' && sessionListings.length > 0 && (
+                                {appMode === 'research' && (sessionListings.length > 0 || sessionListLoading || !!sessionListError) && (
                                 <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-none mb-6">
                                     <div className="flex items-baseline justify-between mb-4">
                                         <div>
@@ -6721,16 +6846,54 @@ ${synthesisParts.join('\n')}
                                                 Continue Session
                                             </h2>
                                             <p className="text-xs text-[var(--text-tertiary)] mt-1">
-                                                {sessionListings.length} saved session{sessionListings.length === 1 ? '' : 's'} · Click to reload with full state restored
+                                                {sessionListLoading && sessionListings.length === 0
+                                                    ? 'Loading saved engagements...'
+                                                    : `${sessionListings.length} saved session${sessionListings.length === 1 ? '' : 's'} · Click to reload with full state restored${sessionListLoading ? ' · refreshing...' : ''}`}
                                             </p>
                                         </div>
                                     </div>
+                                    {/* WS-1 failure state + retry (PDF item 4): never a blank panel. */}
+                                    {!!sessionListError && sessionListings.length === 0 && (
+                                        <div className="flex items-center gap-3 text-sm" style={{ color: '#CC3333' }}>
+                                            <span>Could not load prior engagement data. ({sessionListError})</span>
+                                            <button onClick={() => setSessionListReloadTick(t => t + 1)}
+                                                style={{ padding: '4px 14px', border: '1px solid #CC3333', background: 'none', color: '#CC3333', fontWeight: 700, fontSize: 11, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer' }}>
+                                                Retry
+                                            </button>
+                                        </div>
+                                    )}
+                                    {!!sessionListError && sessionListings.length > 0 && (
+                                        <p className="text-xs mb-3" style={{ color: '#CC6644' }}>
+                                            Could not refresh the library; showing the cached list.
+                                            <button onClick={() => setSessionListReloadTick(t => t + 1)}
+                                                style={{ marginLeft: 8, padding: '1px 8px', border: '1px solid #CC6644', background: 'none', color: '#CC6644', fontWeight: 700, fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer' }}>
+                                                Retry
+                                            </button>
+                                        </p>
+                                    )}
+                                    {/* WS-1 skeletons while the first load runs (no cache yet). */}
+                                    {sessionListLoading && sessionListings.length === 0 && !sessionListError && (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                            {[0, 1, 2].map(i => (
+                                                <div key={i} className="animate-pulse" style={{ padding: '12px 14px', background: '#FAFAFA', border: '1px solid #E5E5E5', borderLeft: '4px solid #E5E5E5', borderRadius: 2 }}>
+                                                    <div style={{ height: 14, width: '70%', background: '#EAEAE2', marginBottom: 10 }} />
+                                                    <div style={{ height: 9, width: '90%', background: '#F0F0EA', marginBottom: 6 }} />
+                                                    <div style={{ height: 9, width: '55%', background: '#F0F0EA' }} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                         {/* 2026-05-26 - Show ALL sessions (was capped at 6) so stale
                                             sessions are reachable for delete. Each card is a div with
                                             a clickable restore region + a corner delete button so the
-                                            two actions don't fight for the same click target. */}
-                                        {sessionListings.map((s: any) => (
+                                            two actions don't fight for the same click target.
+                                            WS-1: the last-active session sorts first with a badge so
+                                            resuming yesterday's engagement is one obvious click. */}
+                                        {[...sessionListings].sort((a: any, b: any) => {
+                                            const last = (() => { try { return localStorage.getItem('hic_last_session_slug'); } catch { return null; } })();
+                                            return (b.slug === last ? 1 : 0) - (a.slug === last ? 1 : 0);
+                                        }).map((s: any) => (
                                             <div
                                                 key={s.slug}
                                                 style={{
@@ -6747,6 +6910,9 @@ ${synthesisParts.join('\n')}
                                                 onMouseLeave={e => { e.currentTarget.style.background = '#FAFAFA'; e.currentTarget.style.borderLeftColor = '#B8B800'; }}
                                                 title={`${s.research_goal || s.title}\nSlug: ${s.slug}`}
                                             >
+                                                {(() => { try { return localStorage.getItem('hic_last_session_slug') === s.slug; } catch { return false; } })() && (
+                                                    <span style={{ position: 'absolute', top: 8, right: 34, fontSize: 8, fontWeight: 700, letterSpacing: 1, padding: '1px 6px', background: '#B8B800', color: '#0D0D0D' }}>LAST ACTIVE</span>
+                                                )}
                                                 <button
                                                     onClick={() => handleDeleteSession(s.slug, s.title || s.research_goal || s.slug)}
                                                     aria-label={`Delete session ${s.title || s.slug}`}
@@ -6863,6 +7029,69 @@ ${synthesisParts.join('\n')}
                                              </button>
                                              <EnhanceButton handle={goalEnhancer} accentColor="#00B7C3" />
                                          </div>
+                                         {/* WS-2 (2026-08-14 v2, PDF item 2): transcript-to-goal. One row,
+                                             no new screens: anonymize toggle + optional public context +
+                                             the generate action. Results render in the panel below. */}
+                                         <div className="flex items-center gap-3 mt-2 flex-wrap">
+                                             <label className="flex items-center gap-2 text-[11px] text-[var(--text-tertiary)] cursor-pointer" title="Mask names, orgs, emails, phones, and client identifiers in every upload before anything downstream reads them">
+                                                 <input type="checkbox" checked={anonymizeUploads} onChange={e => setAnonymizeUploads(e.target.checked)} />
+                                                 Anonymize uploads
+                                             </label>
+                                             <input
+                                                 value={intakePublicContext}
+                                                 onChange={e => setIntakePublicContext(e.target.value)}
+                                                 placeholder="Optional public context (paste from the company site or LinkedIn)"
+                                                 className="flex-1 bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded px-3 py-1.5 text-xs outline-none"
+                                                 style={{ fontFamily: "'Archivo', sans-serif", minWidth: 220 }}
+                                             />
+                                             <button
+                                                 type="button"
+                                                 onClick={handleGoalFromUploads}
+                                                 disabled={!!intakeStatus}
+                                                 title="Synthesize the uploaded transcripts and write a focused research goal from them"
+                                                 style={{ padding: '5px 12px', background: intakeStatus ? '#E8E8E8' : '#115054', color: intakeStatus ? '#999' : '#FFFFFF', border: 'none', fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: intakeStatus ? 'default' : 'pointer', fontFamily: "'Archivo', sans-serif" }}
+                                             >
+                                                 {intakeStatus || 'Goal from uploads'}
+                                             </button>
+                                         </div>
+                                         {intakePanel && (
+                                             <div style={{ marginTop: 10, padding: '12px 14px', background: '#F5F5F0', border: '1px solid #D4D4B8', borderLeft: '3px solid #115054', fontSize: 12, fontFamily: 'Archivo, sans-serif', color: '#333' }}>
+                                                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 6 }}>
+                                                     <span style={{ fontFamily: "'Bebas Neue',sans-serif", letterSpacing: 2, fontSize: 13, color: '#115054' }}>TRANSCRIPT SYNTHESIS</span>
+                                                     <button onClick={() => setIntakePanel(null)} style={{ background: 'none', border: 'none', color: '#999', cursor: 'pointer', fontSize: 14 }}>{String.fromCharCode(0x00D7)}</button>
+                                                 </div>
+                                                 {intakePanel.removals.length > 0 && (
+                                                     <details style={{ marginBottom: 8 }}>
+                                                         <summary style={{ cursor: 'pointer', fontWeight: 700, fontSize: 11 }}>
+                                                             Anonymization summary: {intakePanel.removals.reduce((n, r) => n + r.count, 0)} replacements across {intakePanel.removals.length} identifiers (inspect before proceeding)
+                                                         </summary>
+                                                         <ul style={{ margin: '6px 0 0 16px', fontSize: 11, color: '#555' }}>
+                                                             {intakePanel.removals.map((r, i) => (
+                                                                 <li key={i}>{r.category}: "{r.original}" {String.fromCharCode(0x2192)} {r.replacement} ({r.count}x)</li>
+                                                             ))}
+                                                         </ul>
+                                                     </details>
+                                                 )}
+                                                 {([['Client goals', intakePanel.synthesis.clientGoals], ['Business challenges', intakePanel.synthesis.businessChallenges], ['Implied research needs', intakePanel.synthesis.impliedResearchNeeds], ['Research angles', intakePanel.synthesis.researchAngles]] as Array<[string, string[]]>).map(([label, items]) => (
+                                                     items.length > 0 && (
+                                                         <div key={label} style={{ marginBottom: 6 }}>
+                                                             <span style={{ fontWeight: 700, fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, color: '#115054' }}>{label}</span>
+                                                             <ul style={{ margin: '2px 0 0 16px', fontSize: 11.5, color: '#444' }}>
+                                                                 {items.slice(0, 5).map((it, i) => <li key={i}>{it}</li>)}
+                                                             </ul>
+                                                         </div>
+                                                     )
+                                                 ))}
+                                                 {intakePanel.synthesis.riskFlags.length > 0 && (
+                                                     <div style={{ marginTop: 6, padding: '6px 10px', background: '#FBF2EE', border: '1px solid #E8C9BC' }}>
+                                                         <span style={{ fontWeight: 700, fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, color: '#CC6644' }}>Never verbatim in client deliverables</span>
+                                                         <ul style={{ margin: '2px 0 0 16px', fontSize: 11.5, color: '#8A4A30' }}>
+                                                             {intakePanel.synthesis.riskFlags.slice(0, 5).map((it, i) => <li key={i}>{it}</li>)}
+                                                         </ul>
+                                                     </div>
+                                                 )}
+                                             </div>
+                                         )}
                                          {showInterview && (
                                              <ObjectiveInterview
                                                  seed={researchGoal}

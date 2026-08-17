@@ -3898,6 +3898,13 @@ ${deckComposerSkill}
                 }
             }
 
+            // PROVENANCE LOCK (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md).
+            // Born from a live client incident: real corpus content shipped wearing FABRICATED
+            // source identities ("Intuit Mid-Market AI Report", "BILL Case Study", "HFTP") and
+            // off-industry sources framed as in-industry proof. The runtime citationVerifier
+            // enforces this after generation; the contract here prevents most violations upstream.
+            systemPrompt += `\n\n========================================================================\nPROVENANCE LOCK - SOURCE IDENTITY IS NOT YOURS TO AUTHOR (HARD, every slide, every field)\n1. Every quote, statistic, and named finding MUST carry its manifest chunk pointer ([<wikiPath>#cN]) in the same field, copied EXACTLY from the evidence provided above. No pointer = the claim does not ship as sourced content: drop it and narrow the slide around what IS evidenced.\n2. NEVER author a source identity. Do not invent report titles, study names, events, speakers, or publication names. Do not rename a source to sound more fitting ("X Industry Report, 2026"). The attribution field carries ONLY the source name exactly as the evidence block states it; a runtime verifier cross-checks every attribution against the pointed chunk's recorded sources and relabels or strips mismatches.\n3. NEVER reuse a real organization's name (any vendor, publisher, or body) as a source label unless THAT organization is the pointed chunk's recorded source.\n4. Quotes are VERBATIM sentences from the pointed chunk. Never assemble, paraphrase-as-quote, or lightly reword. A paraphrase is prose (no quote marks) and still carries its pointer.\n5. CROSS-INDUSTRY EVIDENCE IS FRAMED, NEVER PASSED OFF: when the pointed source is from a different industry than this engagement's subject, the slide text MUST name that industry explicitly as an analog ("a nonprofit-sector benchmark", "in asset-management distribution", "a banking risk practice") and draw the lesson across. Presenting off-industry evidence as if it were about the subject's industry is a hard failure.\n========================================================================`;
+
             // 2026-06-23 - LEARNED-CONSTRAINT INJECTION (closes the feedback loop on the chat
             // #slides path). getActiveConstraints() was wired into geminiService + evidenceCatalog
             // but NEVER into corpusChatService, so durable user corrections (e.g. a learned
