@@ -184,8 +184,32 @@ export refusal; WS-F verify_sources chat intent + edit-learning signals; extendi
 verifier to the non-chat artifact paths (geminiService deliverables) and to CHUNK_XXX
 legacy citations; per-chunk (vs page-level) verbatim scoping.
 
-CO-WORK VERIFICATION: adversarial code-review agent + Playwright spa-smoke agent run on
-this build; their findings and fixes are recorded below before any ship claim.
+CO-WORK VERIFICATION (2026-08-17): a Playwright spa-smoke agent PASSED the rebuilt shell
+(zero console errors; chat-internal surface pends the owner's live session). An
+adversarial code-review agent returned FIX-FIRST with 4 blockers + 8 majors; ALL
+blockers and the majors below were fixed the same day and re-gated (726 tests):
+- B1 the verifier checked an idealized `attribution` key while the REAL block-quote
+  contract emits attributionName/attributionRole/sourceLine: the incident payload would
+  have shipped. FIXED: ATTRIBUTION_KEY covers the real contracts; ALL attribution
+  siblings per object are checked and fixed individually; tests now use manifest-shaped
+  payloads.
+- B2 the wiki quote-backfill raced the verifier and could restore fabricated labels
+  from pre-fix clones. FIXED: verification runs AFTER the backfill settles.
+- B3 an unreachable proxy page made every claim UNVERIFIED and stripped LEGITIMATE
+  labels. FIXED: new UNREACHABLE verdict, reported but never fix-applied.
+- B4 array-of-strings content (bullets, groups[].items) was invisible. FIXED: walked.
+- Majors fixed: quotes[].text+source shapes recognized (all siblings); fabricated
+  named sources INSIDE claim text flagged (inTextSourcePhrases); ellipsis segments must
+  appear in source ORDER (no stitched quotes); numeric tokens boundary-checked (20%
+  no longer passes on 120%); figure/value siblings ride their object's pointers;
+  session-restore re-lift no longer re-verifies (empty-registry misreports + user-edit
+  clobber); replacement labels are always honest (real sources or the page-derived
+  label, never blank); verifier fixes stay OUT of the user's undo history; duplicate
+  fixes to one field dedupe with relabel precedence.
+KNOWN REMAINING GAPS (honest): kind='text' prose is pointer-checked but not
+verbatim-checked (ledger note says so); spelled-out numbers ("one in five") are not
+stat-checked; the domain gate (WS-D) is prompt-contract only; verificationLedgers
+state grows per session (memory only). These ride the next pass with WS-D.
 
 ## 6. Acceptance criteria (her NEW RULE, generalized)
 

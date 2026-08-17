@@ -7,14 +7,29 @@
  * ("Intuit Mid-Market AI Report", "BILL Case Study", "HFTP") plus off-industry
  * evidence framed as in-industry proof. Every claim existed in the corpus;
  * attribution was the failure. This module makes the check deterministic and
- * in-path: quotes must appear verbatim in their pointed source, statistics'
- * numbers must exist in the source text, and attribution labels must match the
- * source's REAL recorded identity, or they are fixed/stripped before render.
+ * in-path: quotes must appear verbatim (in order) in their pointed source,
+ * statistics' numbers must exist with boundaries in the source text, and every
+ * attribution-carrying field must match the source's REAL recorded identity or
+ * be relabeled to it before render.
  *
- * Zero model calls. Page text loads once per deck via /api/wiki/read (cached).
+ * REVISED 2026-08-17 after adversarial review (all four blockers + majors):
+ * - attribution keys match the REAL archetype contracts (attributionName,
+ *   attributionRole, sourceLine, source, ...), ALL siblings per object;
+ * - array-of-strings content (bullets, groups[].items) is walked;
+ * - quotes[].text objects count as quotes when an attribution sibling exists;
+ * - an unreachable source page is UNREACHABLE: reported, NEVER fix-applied,
+ *   so a proxy outage cannot strip legitimate labels;
+ * - ellipsis segments must appear in source ORDER (no stitched quotes);
+ * - numeric tokens are boundary-checked ("20%" no longer passes on "120%");
+ * - figure/value siblings of pointer-carrying fields are stat-checked;
+ * - named-source phrases INSIDE claim text ("per the X Report") are checked;
+ * - relabel/strip always writes an HONEST label (real sources or the page-
+ *   derived label), and verifier edits do not pollute the user's undo history.
+ *
+ * Zero model calls. Page text loads once per cited page (cached per run).
  */
 
-import { lookupChunkAttribution, lookupPointerUrl, lookupSourceUrl } from './citationPointerRegistry';
+import { lookupChunkAttribution, lookupPointerUrl, lookupSourceUrl, prettifyPagePath } from './citationPointerRegistry';
 import { applyTextEdits } from './slideTextEditing';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
@@ -22,20 +37,21 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 /** [path.md#cN] markers as they appear in raw payload strings (pre-resolution). */
 const POINTER_RE = /([\w./\\-]+\.md)#c(\d+)/gi;
 
+export interface AttributionRef { field: string; value: string; }
+
 export interface EvidenceClaim {
     slideId: string;
     slideTitle: string;
     /** payload path of the CLAIM text field. */
     field: string;
-    /** payload path of the attribution field on the same object, when present. */
-    attributionField?: string;
+    /** ALL attribution-carrying siblings on the same object. */
+    attributions: AttributionRef[];
     kind: 'quote' | 'stat' | 'text';
     text: string;
-    attribution?: string;
     pointers: string[];
 }
 
-export type Verdict = 'VERIFIED' | 'ATTRIBUTION_FIXED' | 'UNVERIFIED' | 'UNSOURCED';
+export type Verdict = 'VERIFIED' | 'ATTRIBUTION_FIXED' | 'UNVERIFIED' | 'UNSOURCED' | 'UNREACHABLE';
 
 export interface LedgerRow {
     slideId: string;
@@ -48,10 +64,17 @@ export interface LedgerRow {
     url: string | null;
     verdict: Verdict;
     note: string;
+    /** attribution fields that must be rewritten, with their replacement. */
+    fixes?: Array<{ field: string; value: string }>;
 }
 
-const ATTRIBUTION_KEY = /^(attribution|source|speaker|citedFrom|sourceName|cite|byline)$/i;
+// The REAL archetype contracts (slides-component-manifest + corpusChatService
+// quote shapes) emit attributionName / attributionRole / sourceLine / source.
+const ATTRIBUTION_KEY = /^(attribution|attributionName|attributionRole|source|sourceLine|speaker|citedFrom|sourceName|cite|byline)$/i;
+/** role/speaker labels cannot be relabeled from the registry; mismatches strip to the honest page label. */
+const ROLE_KEY = /^(attributionRole|speaker)$/i;
 const QUOTEISH_KEY = /quote|evidence/i;
+const FIGURE_KEY = /^(figure|value|stat|number|metric|numeral)$/i;
 const MEDIA_KEY = /image|icon|url|src|logo|glyph/i;
 
 function extractPointers(s: string): string[] {
@@ -59,7 +82,9 @@ function extractPointers(s: string): string[] {
     let m: RegExpExecArray | null;
     const re = new RegExp(POINTER_RE.source, 'gi');
     while ((m = re.exec(s)) !== null) {
-        const p = `${m[1].replace(/\\/g, '/')}#c${m[2]}`;
+        // tolerate model-emitted "wiki/" prefixes: the wiki root is implicit
+        const page = m[1].replace(/\\/g, '/').replace(/^\/?(hic-workspace\/)?wiki\//i, '');
+        const p = `${page}#c${m[2]}`;
         if (!out.includes(p)) out.push(p);
     }
     return out;
@@ -81,40 +106,60 @@ export function extractEvidenceClaims(slide: any): EvidenceClaim[] {
     const slideId = String(slide?.id || '');
     const slideTitle = String(slide?.title || '');
 
-    const visit = (node: any, prefix: string, depth: number) => {
+    const pushClaim = (field: string, raw: string, key: string, attrs: AttributionRef[], extraPointers: string[] = []) => {
+        const pointers = [...new Set([...extractPointers(raw), ...extraPointers])];
+        const quoteish = QUOTEISH_KEY.test(key) || (key === 'text' && attrs.length > 0);
+        if (!pointers.length && !(quoteish && raw.trim().length >= 20)) return;
+        const text = stripPointerMarkers(raw);
+        if (text.length < 8) return;
+        const kind: EvidenceClaim['kind'] = quoteish ? 'quote' : (/\d/.test(text) ? 'stat' : 'text');
+        claims.push({ slideId, slideTitle, field, attributions: attrs, kind, text, pointers });
+    };
+
+    const visit = (node: any, prefix: string, depth: number, inheritedAttrs: AttributionRef[]) => {
         if (!node || typeof node !== 'object' || depth > 6 || claims.length >= 80) return;
         if (Array.isArray(node)) {
-            node.forEach((item, i) => visit(item, `${prefix}[${i}]`, depth + 1));
+            const arrayKey = prefix.replace(/^.*\./, '').replace(/\[\d+\]$/, '');
+            node.forEach((item, i) => {
+                if (typeof item === 'string') {
+                    // BLOCKER-4 fix: bullets / groups[].items / string arrays are claims too
+                    pushClaim(`${prefix}[${i}]`, item, arrayKey, inheritedAttrs);
+                } else {
+                    visit(item, `${prefix}[${i}]`, depth + 1, inheritedAttrs);
+                }
+            });
             return;
         }
-        // attribution sibling on this object (one per object is the schema norm)
-        let attribution: string | undefined;
-        let attributionField: string | undefined;
+        // ALL attribution siblings on this object (real contracts carry several:
+        // attributionName + attributionRole, or source + attribution).
+        const attrs: AttributionRef[] = [];
         for (const [k, v] of Object.entries(node)) {
             if (ATTRIBUTION_KEY.test(k) && typeof v === 'string' && v.trim()) {
-                attribution = stripPointerMarkers(v.trim());
-                attributionField = prefix ? `${prefix}.${k}` : k;
-                break;
+                attrs.push({ field: prefix ? `${prefix}.${k}` : k, value: stripPointerMarkers(v.trim()) });
             }
+        }
+        // pointers found anywhere on this object (for figure-sibling checks)
+        const objectPointers: string[] = [];
+        for (const v of Object.values(node)) {
+            if (typeof v === 'string') for (const p of extractPointers(v)) if (!objectPointers.includes(p)) objectPointers.push(p);
         }
         for (const [k, v] of Object.entries(node)) {
             if (k.startsWith('_') || MEDIA_KEY.test(k)) continue;
             const p = prefix ? `${prefix}.${k}` : k;
             if (typeof v === 'string') {
-                if (ATTRIBUTION_KEY.test(k)) continue; // the label, not a claim
-                const pointers = extractPointers(v);
-                const quoteish = QUOTEISH_KEY.test(k);
-                if (!pointers.length && !(quoteish && v.trim().length >= 20)) continue;
-                const text = stripPointerMarkers(v);
-                if (text.length < 8) continue;
-                const kind: EvidenceClaim['kind'] = quoteish ? 'quote' : (/\d/.test(text) ? 'stat' : 'text');
-                claims.push({ slideId, slideTitle, field: p, attributionField, kind, text, attribution, pointers });
+                if (ATTRIBUTION_KEY.test(k)) continue; // labels are verified via their claims
+                if (FIGURE_KEY.test(k) && /\d/.test(v) && !extractPointers(v).length && objectPointers.length) {
+                    // MAJOR-10 fix: the hero numeral rides its object's pointers
+                    claims.push({ slideId, slideTitle, field: p, attributions: attrs, kind: 'stat', text: stripPointerMarkers(v), pointers: objectPointers });
+                    continue;
+                }
+                pushClaim(p, v, k, attrs);
             } else if (v && typeof v === 'object') {
-                visit(v, p, depth + 1);
+                visit(v, p, depth + 1, attrs.length ? attrs : inheritedAttrs);
             }
         }
     };
-    visit(root, '', 0);
+    visit(root, '', 0, []);
     return claims;
 }
 
@@ -130,34 +175,55 @@ export function normalizeForMatch(s: string): string {
         .trim();
 }
 
-/** Quote check: every ellipsis-separated segment must appear verbatim in the source. */
+/**
+ * Quote check: ellipsis-separated segments must each appear verbatim AND in
+ * source ORDER (a quote stitched from out-of-order fragments is an assembly,
+ * which the provenance contract bans).
+ */
 export function quoteAppearsIn(quote: string, sourceNorm: string): boolean {
-    const segments = String(quote).split(/\.\.\.|…/).map(s => normalizeForMatch(s)).filter(s => s.length >= 15);
+    const rawSegments = String(quote).split(/\.\.\.|…/);
+    const segments = rawSegments.map(s => normalizeForMatch(s)).filter(s => s.length >= 10);
     if (!segments.length) {
-        const whole = normalizeForMatch(quote);
+        const whole = normalizeForMatch(String(quote).replace(/\.\.\.|…/g, ' '));
         return whole.length >= 8 && sourceNorm.includes(whole);
     }
-    return segments.every(seg => sourceNorm.includes(seg));
+    let cursor = 0;
+    for (const seg of segments) {
+        const idx = sourceNorm.indexOf(seg, cursor);
+        if (idx < 0) return false;
+        cursor = idx + seg.length;
+    }
+    return true;
 }
 
-/** Stat check: every numeric token in the claim must exist in the source text. */
+function escapeRe(s: string): string {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/** Stat check: every numeric token must exist in the source with boundaries
+ *  ("20%" must not pass on "120%"; "2026" must not pass inside "12026"). */
 export function statsAppearIn(claim: string, sourceNorm: string): boolean {
     const tokens = (claim.match(/\d[\d,]*(?:\.\d+)?%?/g) || []).map(t => t.replace(/,/g, ''));
     if (!tokens.length) return true;
     const src = sourceNorm.replace(/,/g, '');
-    return tokens.every(t => src.includes(t));
+    return tokens.every(t => new RegExp(`(?<![\\d.])${escapeRe(t)}${t.endsWith('%') ? '' : '(?![\\d%])'}`).test(src));
 }
 
-const NAMED_ARTIFACT = /\b(report|study|survey|summit|index|whitepaper|case stud|benchmark|census)\b/i;
-const ATTR_STOPWORDS = new Set(['report', 'study', 'survey', 'summit', 'index', 'case', 'whitepaper', 'review', 'article', 'blog', 'data', 'the', 'and', 'for', 'with', 'from', 'internal', 'client', 'upload']);
+const NAMED_ARTIFACT = /\b(report|study|survey|summit|index|whitepaper|case stud|benchmark|census|analysis|outlook|brief|guide|panel|interview|playbook)\b/i;
+const ATTR_STOPWORDS = new Set(['report', 'study', 'survey', 'summit', 'index', 'case', 'whitepaper', 'review', 'article', 'blog', 'data', 'the', 'and', 'for', 'with', 'from', 'internal', 'client', 'upload', 'analysis', 'outlook', 'brief', 'guide', 'panel', 'interview', 'playbook', 'source']);
+
+function wordBoundaryHit(token: string, haystackNorm: string): boolean {
+    return new RegExp(`(?<![a-z0-9])${escapeRe(token)}(?![a-z0-9])`).test(haystackNorm);
+}
 
 /**
  * Attribution check, two tiers:
  * - A NAMED ARTIFACT label ("X Report, 2026") must appear as a PHRASE (year
  *   stripped) in the source text or the registry's real names: invented report
  *   titles die here even when their brand words appear in the article.
- * - A person/org label needs at least one significant token in the real names
- *   or source text.
+ * - A person/org label needs a MAJORITY of significant tokens present with
+ *   word boundaries ("BILL" no longer passes on "pay bills" alone... boundary
+ *   matching still accepts the standalone word, so majority rule carries it).
  */
 export function attributionMatches(attribution: string, sourceNorm: string, realNames: string[]): boolean {
     const attr = String(attribution || '').trim();
@@ -170,8 +236,21 @@ export function attributionMatches(attribution: string, sourceNorm: string, real
     }
     const tokens = normalizeForMatch(attr).split(' ')
         .filter(t => t.length >= 4 && !ATTR_STOPWORDS.has(t) && !/^(19|20)\d{2}$/.test(t));
-    if (!tokens.length) return true; // nothing checkable ("2026"): leave to the quote check
-    return tokens.some(t => namesNorm.includes(t) || sourceNorm.includes(t));
+    if (!tokens.length) return true; // nothing checkable ("2026"): the quote check decides
+    const hits = tokens.filter(t => wordBoundaryHit(t, namesNorm) || wordBoundaryHit(t, sourceNorm)).length;
+    return hits >= Math.ceil(tokens.length / 2);
+}
+
+/** MAJOR-5: named-source phrases woven INTO claim text ("per the X Report",
+ *  "according to Y", "Source: Z"). Returns the phrases that FAIL the match. */
+export function inTextSourcePhrases(text: string, sourceNorm: string, realNames: string[]): string[] {
+    const failed: string[] = [];
+    const re = /(?:per|according to|source:|says|from)\s+(?:the\s+)?([A-Z][\w&.'-]*(?:\s+[A-Z][\w&.'-]*){0,5}\s+(?:Report|Study|Survey|Summit|Index|Whitepaper|Benchmark|Census|Analysis|Outlook|Playbook))/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(text)) !== null) {
+        if (!attributionMatches(m[1], sourceNorm, realNames)) failed.push(m[1]);
+    }
+    return failed;
 }
 
 /** Page-text loader with per-run cache. Exposed for test injection. */
@@ -188,13 +267,18 @@ export function makeWikiPageFetcher(): PageFetcher {
                 const d = await r.json();
                 if (d?.exists && typeof d.content === 'string' && d.content) text = normalizeForMatch(d.content);
             }
-        } catch { /* offline proxy: rows become UNVERIFIED(page unreachable), never a silent pass */ }
+        } catch { /* offline proxy: rows become UNREACHABLE and are never fix-applied */ }
         cache.set(pagePath, text);
         return text;
     };
 }
 
-/** Honest display label for a pointer's real identity (registry tiers). */
+/** Honest display label for a pointer's real identity (registry tiers, then the page path). */
+function honestLabelFor(pointer: string, realSources: string[]): string {
+    if (realSources.length) return realSources.slice(0, 2).join('; ');
+    return prettifyPagePath(pointer.replace(/#c\d+$/i, '')) || 'Research corpus';
+}
+
 function realSourceNames(pointer: string): string[] {
     const a = lookupChunkAttribution(pointer);
     if (a.chunkSources.length) return a.chunkSources;
@@ -208,19 +292,19 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
     const rows: LedgerRow[] = [];
     for (const slide of slides || []) {
         for (const claim of extractEvidenceClaims(slide)) {
+            const citedAs = claim.attributions.map(a => a.value).filter(Boolean).join(' / ');
             const row: LedgerRow = {
                 slideId: claim.slideId, slideTitle: claim.slideTitle, field: claim.field,
-                kind: claim.kind, claim: claim.text.slice(0, 220), citedAs: claim.attribution || '',
+                kind: claim.kind, claim: claim.text.slice(0, 220), citedAs,
                 realSources: [], url: null, verdict: 'UNSOURCED', note: '',
             };
             if (!claim.pointers.length) {
-                row.note = claim.attribution
-                    ? 'Carries a source label but no corpus pointer: the label cannot be trusted and will not render.'
+                row.note = citedAs
+                    ? 'Carries a source label but no corpus pointer: the label cannot be trusted.'
                     : 'No corpus pointer: unsourced content.';
                 rows.push(row);
                 continue;
             }
-            // try each pointer; first page containing the claim wins
             let verifiedOn: string | null = null;
             let anyPageLoaded = false;
             let sourceNorm = '';
@@ -236,21 +320,48 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
             const primary = verifiedOn || claim.pointers[0];
             row.realSources = realSourceNames(primary);
             row.url = lookupPointerUrl(primary) || (row.realSources[0] ? lookupSourceUrl(row.realSources[0]) : null);
-            if (!verifiedOn) {
-                row.verdict = 'UNVERIFIED';
-                row.note = anyPageLoaded
-                    ? (claim.kind === 'quote' ? 'Quote text not found in the pointed source.' : 'Statistic not found in the pointed source.')
-                    : 'Pointed source page could not be loaded for verification.';
+            if (!anyPageLoaded) {
+                // BLOCKER-3 fix: an unreachable page is reported, never acted on.
+                row.verdict = 'UNREACHABLE';
+                row.note = 'Pointed source page could not be loaded; claim left untouched and unchecked.';
                 rows.push(row);
                 continue;
             }
-            const attrOk = attributionMatches(claim.attribution || '', sourceNorm, row.realSources);
-            if (!attrOk) {
+            if (!verifiedOn) {
+                row.verdict = 'UNVERIFIED';
+                row.note = claim.kind === 'quote' ? 'Quote text not found verbatim in the pointed source.' : 'Statistic not found in the pointed source.';
+                if (citedAs) {
+                    row.fixes = claim.attributions.map(a => ({ field: a.field, value: honestLabelFor(primary, row.realSources) }));
+                    row.note += ' Source label replaced with the recorded provenance.';
+                }
+                rows.push(row);
+                continue;
+            }
+            // attribution fields: check each; MISMATCHES get honest replacements
+            const fixes: Array<{ field: string; value: string }> = [];
+            for (const a of claim.attributions) {
+                if (!attributionMatches(a.value, sourceNorm, row.realSources)) {
+                    fixes.push({
+                        field: a.field,
+                        value: ROLE_KEY.test(a.field.split('.').pop() || '') ? '' : honestLabelFor(primary, row.realSources),
+                    });
+                }
+            }
+            // MAJOR-5: named sources woven into the claim text itself
+            const badInText = inTextSourcePhrases(claim.text, sourceNorm, row.realSources);
+            if (fixes.length) {
                 row.verdict = 'ATTRIBUTION_FIXED';
-                row.note = `Cited label does not match the real source; relabeled to ${row.realSources.join('; ') || 'the recorded source'}.`;
+                row.fixes = fixes;
+                row.note = `Cited label does not match the real source; relabeled to ${honestLabelFor(primary, row.realSources)}.`;
+                if (badInText.length) row.note += ` Also names an unrecognized source in the text: ${badInText.join('; ')}.`;
+            } else if (badInText.length) {
+                row.verdict = 'UNVERIFIED';
+                row.note = `The text names a source not found in the pointed page: ${badInText.join('; ')}. Reword or repoint before shipping.`;
             } else {
                 row.verdict = 'VERIFIED';
-                row.note = claim.kind === 'quote' ? 'Verbatim in source.' : 'Present in source.';
+                row.note = claim.kind === 'quote' ? 'Verbatim in source.'
+                    : claim.kind === 'stat' ? 'Figures present in source.'
+                    : 'Pointer resolves; prose content is not verbatim-checked.';
             }
             rows.push(row);
         }
@@ -259,21 +370,22 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
 }
 
 /**
- * Enforce the lock on the slides (immutably, through the WS-4 edit contract):
- * - ATTRIBUTION_FIXED: the attribution field is rewritten to the REAL source
- *   name(s); the model's invented label never renders.
- * - UNVERIFIED with a source label: the label is STRIPPED so fabricated-looking
- *   attribution cannot ship; the ledger row carries the warning.
- * Returns the updated slides (same refs where nothing changed).
+ * Enforce the lock on the slides IMMUTABLY. Only rows that carry explicit
+ * `fixes` are applied (UNREACHABLE rows never have any). Replacement labels
+ * are always honest (real recorded sources, or the page-derived label), so a
+ * strip can no longer leave a bare unattributed "Evidence" quote. Verifier
+ * edits do NOT enter the user's undo history (undo must never resurrect a
+ * fabricated label). Duplicate edits to one field dedupe with the relabel
+ * (ATTRIBUTION_FIXED) taking precedence over an UNVERIFIED replacement.
  */
-export function applyVerificationFixes<T extends { id: string; template: string; title: string }>(
+export function applyVerificationFixes<T extends { id: string; template: string; title: string; _textHistory?: any[] }>(
     slides: T[], rows: LedgerRow[],
 ): { slides: T[]; fixed: number; stripped: number } {
     let fixed = 0;
     let stripped = 0;
     const bySlide = new Map<string, LedgerRow[]>();
     for (const r of rows) {
-        if (r.verdict !== 'ATTRIBUTION_FIXED' && r.verdict !== 'UNVERIFIED') continue;
+        if (!r.fixes?.length) continue;
         const l = bySlide.get(r.slideId) || [];
         l.push(r);
         bySlide.set(r.slideId, l);
@@ -281,20 +393,21 @@ export function applyVerificationFixes<T extends { id: string; template: string;
     const out = slides.map(slide => {
         const flagged = bySlide.get(slide.id);
         if (!flagged?.length) return slide;
-        const edits: Array<{ path: string; value: string }> = [];
-        const claims = extractEvidenceClaims(slide);
+        const editByPath = new Map<string, { value: string; relabel: boolean }>();
         for (const r of flagged) {
-            const claim = claims.find(c => c.field === r.field);
-            if (!claim?.attributionField) continue;
-            if (r.verdict === 'ATTRIBUTION_FIXED' && r.realSources.length) {
-                edits.push({ path: claim.attributionField, value: r.realSources.slice(0, 2).join('; ') });
-                fixed++;
-            } else if (r.verdict === 'UNVERIFIED' && claim.attribution) {
-                edits.push({ path: claim.attributionField, value: '' });
-                stripped++;
+            for (const f of r.fixes || []) {
+                const existing = editByPath.get(f.field);
+                const relabel = r.verdict === 'ATTRIBUTION_FIXED';
+                if (!existing || (relabel && !existing.relabel)) editByPath.set(f.field, { value: f.value, relabel });
             }
         }
-        return edits.length ? applyTextEdits(slide as any, edits) as T : slide;
+        if (!editByPath.size) return slide;
+        for (const e of editByPath.values()) (e.relabel ? fixed++ : stripped++);
+        const priorHistory = slide._textHistory;
+        const edited = applyTextEdits(slide as any, [...editByPath.entries()].map(([path, e]) => ({ path, value: e.value }))) as T;
+        // verifier fixes are not user edits: keep them OUT of the undo ring
+        edited._textHistory = priorHistory;
+        return edited;
     });
     return { slides: out, fixed, stripped };
 }

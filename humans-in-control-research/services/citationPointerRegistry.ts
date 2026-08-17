@@ -132,6 +132,13 @@ export function registerResolvedChunks(chunks: Array<{ id?: string; sourceTitle?
 
 const HEXISH = /^[0-9a-f]{8,}$/i;
 
+/** PROVENANCE LOCK: the citationVerifier needs the same honest page-derived
+ *  label the render ladder uses when it must replace a fabricated attribution
+ *  and the registry has no real names (e.g. after a session reload). */
+export function prettifyPagePath(pagePath: string): string | null {
+    return prettifyPath(pagePath);
+}
+
 /** Derive a readable label from a wiki page path when no registration exists. */
 function prettifyPath(pagePath: string): string | null {
     const noExt = pagePath.replace(/\.md$/i, '');

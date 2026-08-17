@@ -4124,7 +4124,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             return merged;
                         });
                         try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
-                        verifyAndAttachLedger(stamped, m.id);
+                        // NO verification here: this is the session-restore/safety-net
+                        // re-lift. The deck was verified at creation; re-verifying with
+                        // an empty pointer registry would misreport and could clobber
+                        // user-edited slides (adversarial review finding 11).
                     }
                 }
                 liftedArtifactMsgIdsRef.current.add(m.id);
@@ -7467,8 +7470,6 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp }));
                 setSlides(prev => [...prev, ...stampedSlides]);
                 generatePersonaSlidePortraits(stampedSlides);
-                // PROVENANCE LOCK: verify claims + attach the ledger (non-blocking).
-                verifyAndAttachLedger(stampedSlides, response.id);
                 // Phase 1-retrofit (2026-04-20) - WIKI-BACKED QUOTE BACKFILL.
                 // Walks every theme across the new slides; wherever the AI
                 // emitted a title-shaped evidence string (instead of a real
@@ -7478,6 +7479,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // original output; this updates state with improved quotes
                 // a second later. Failures leave slides untouched.
                 (async () => {
+                    let baseForVerify = stampedSlides;
                     try {
                         const backfilled = await backfillSlidesFromWiki(stampedSlides, query);
                         if (backfilled !== stampedSlides) {
@@ -7485,10 +7487,15 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                 const match = backfilled.find(b => b.id === s.id);
                                 return match || s;
                             }));
+                            baseForVerify = backfilled;
                         }
                     } catch (err: any) {
                         console.warn('[slides] wiki quote backfill skipped:', err?.message || err);
                     }
+                    // PROVENANCE LOCK: verify AFTER the backfill settles so the two
+                    // passes never race (the backfill previously replaced slides from
+                    // pre-fix clones, silently restoring fabricated labels).
+                    verifyAndAttachLedger(baseForVerify, response.id);
                 })();
                 // ILLUSTRATOR (2026-06-17): slides:scene scenes carry an imageConcept; generate a
                 // tasteful on-brand TRANSPARENT illustration per scene (proxy /api/ai/illustration ->
@@ -8095,6 +8102,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     ATTRIBUTION_FIXED: { bg: '#F5F3D6', fg: '#6B6B00', label: 'RELABELED' },
                                     UNVERIFIED: { bg: '#FBEAEA', fg: '#CC3333', label: 'UNVERIFIED' },
                                     UNSOURCED: { bg: '#FBF2EE', fg: '#CC6644', label: 'UNSOURCED' },
+                                    UNREACHABLE: { bg: '#EFEFEF', fg: '#666666', label: 'UNCHECKED' },
                                 }[v]);
                                 return (
                                     <details open={flagged.length > 0} style={{ marginTop: 8, border: '1px solid #E4E4DC', borderLeft: `3px solid ${flagged.length ? '#CC6644' : '#115054'}`, background: '#FFFFFF', padding: '8px 12px' }}>
