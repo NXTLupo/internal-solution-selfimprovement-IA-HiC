@@ -219,19 +219,54 @@ export function undoLastTextEdit<T extends { template: string; title: string; co
  * uppercase or lightly truncate text, so matching is case-insensitive with a
  * containment fallback; the deepest exact match wins.
  */
+/**
+ * Strip citation machinery from a string for CLICK MATCHING and for what the
+ * user edits: raw manifest pointers ([articles/x.md#c3]) live in the STORED
+ * field while the RENDERED element shows the clean sentence (or a resolved
+ * "(Source: X)" suffix). Without this strip, every citation-carrying field
+ * (most list items) failed to match and read as "not editable" (owner live
+ * report 2026-08-17).
+ */
+export function stripCitationArtifacts(s: string): string {
+    return String(s || '')
+        .replace(/\[\s*[\w./\\-]+\.md#c\d+(?:\s*[,;]\s*[\w./\\-]+\.md#c\d+)*\s*\]/gi, '')
+        .replace(/[\w./\\-]+\.md#c\d+/gi, '')
+        .replace(/\(Sources?:\s*[^)]+\)/gi, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+}
+
+/** The citation markers of a stored field value, verbatim, for re-attachment. */
+export function citationMarkersOf(value: string): string {
+    return (String(value || '').match(/\[\s*[\w./\\-]+\.md#c\d+(?:\s*[,;]\s*[\w./\\-]+\.md#c\d+)*\s*\]/gi) || []).join(' ');
+}
+
+/**
+ * Merge a user's inline edit back into a stored field WITHOUT destroying its
+ * provenance: the original value's pointer markers re-attach to the edited
+ * text (the user edits the sentence; the citation is the system's).
+ */
+export function mergeEditPreservingCitations(originalValue: string, editedText: string): string {
+    const markers = citationMarkersOf(originalValue);
+    const clean = editedText.trim();
+    if (!markers || clean.includes('.md#c')) return clean;
+    return `${clean} ${markers}`.trim();
+}
+
 export function matchFieldByText(slide: any, clickedText: string): TextFieldRef | null {
     const norm = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
     // composers bake enumeration prefixes ("01:", "3.") into the rendered
     // element; the payload field carries only the text, so match both forms.
     const stripEnum = (s: string) => s.replace(/^\d{1,2}\s*[:.)-]\s*/, '');
-    const clicked = norm(clickedText || '');
-    const clickedStripped = norm(stripEnum(clickedText || ''));
+    const clickedRaw = stripCitationArtifacts(clickedText || '');
+    const clicked = norm(clickedRaw);
+    const clickedStripped = norm(stripEnum(clickedRaw));
     if (clicked.length < 3 || clicked.length > 600) return null;
     const fields = enumerateTextFields(slide);
     let best: TextFieldRef | null = null;
     let bestScore = 0;
     for (const f of fields) {
-        const v = norm(f.value);
+        const v = norm(stripCitationArtifacts(f.value));
         if (!v) continue;
         let score = 0;
         for (const c of [clicked, clickedStripped]) {

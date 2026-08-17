@@ -3,6 +3,7 @@
 import { describe, it, expect } from 'vitest';
 import {
     enumerateTextFields, applyTextEdits, undoLastTextEdit, scrubRewrite, getAtPath, matchFieldByText,
+    stripCitationArtifacts, mergeEditPreservingCitations,
 } from './slideTextEditing';
 
 const composerSlide = (): any => ({
@@ -114,6 +115,35 @@ describe('matchFieldByText (click-to-edit)', () => {
         // deep two-column nesting enumerates (the live "not editable" defect)
         const g = matchFieldByText(slide, 'Confidential-data governance as the gate');
         expect(g?.path).toBe('right.items[0].heading');
+    });
+
+    it('matches citation-carrying fields: stored pointers vs clean rendered text (owner 2026-08-17: items read as not editable)', () => {
+        const slide: any = {
+            id: 's4', status: 'draft', timestamp: 1, template: 'slides:problem-diptych',
+            title: 'What the 2026 search landscape actually shows',
+            composerPayload: {
+                title: 'What the 2026 search landscape actually shows',
+                groups: [
+                    { label: 'Market Forces', items: ['The higher-stakes hiring market [articles/gemini-focused-research/e36bf713ff.md#c3]'] },
+                    { label: 'Pain Points', items: ['Fragmented data and manual client updates [articles/reddit-deep-r-recruiting/a1b2c3d4e5.md#c7]'] },
+                ],
+            },
+        };
+        // the rendered element shows the clean numbered line; the stored field carries the pointer
+        const m = matchFieldByText(slide, '05: Fragmented data and manual client updates');
+        expect(m?.path).toBe('groups[1].items[0]');
+        // a rendered, resolved source suffix must not break matching either
+        const r = matchFieldByText(slide, 'The higher-stakes hiring market (Source: Gemini Focused Research)');
+        expect(r?.path).toBe('groups[0].items[0]');
+    });
+
+    it('mergeEditPreservingCitations re-attaches the stored pointers to the edited text', () => {
+        const stored = 'Fragmented data and manual client updates [articles/reddit-deep-r-recruiting/a1b2c3d4e5.md#c7]';
+        const merged = mergeEditPreservingCitations(stored, 'Client updates are stitched together by hand');
+        expect(merged).toBe('Client updates are stitched together by hand [articles/reddit-deep-r-recruiting/a1b2c3d4e5.md#c7]');
+        // fields without citations stay untouched
+        expect(mergeEditPreservingCitations('Plain heading', 'New heading')).toBe('New heading');
+        expect(stripCitationArtifacts(stored)).toBe('Fragmented data and manual client updates');
     });
 
     it('rejects container-level text and unmatched clicks', () => {

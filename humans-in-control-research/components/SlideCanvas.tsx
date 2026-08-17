@@ -41,7 +41,7 @@ import { USER_IMAGE_SLOTS, suggestPrompt } from '../services/userImagery';
 // TRUE inline, no card flip). Clicking text on the preview matches it back to
 // its payload field; a toolbar offers the editable text + AI suggestions;
 // edits apply immutably with history through the one edit contract.
-import { matchFieldByText, suggestFieldRewrites, applyTextEdits, undoLastTextEdit, type TextFieldRef } from '../services/slideTextEditing';
+import { matchFieldByText, suggestFieldRewrites, applyTextEdits, undoLastTextEdit, stripCitationArtifacts, mergeEditPreservingCitations, type TextFieldRef } from '../services/slideTextEditing';
 import type {
     SlideTemplate, PersonaCardData, RecommendationData, ThemeClusterData,
     CompetitiveMatrixData, BlockQuoteData, CaseStudyData, PrinciplesData,
@@ -280,13 +280,13 @@ export const SlideCanvas: React.FC<Props> = ({
     // slide's own typography; the toolbar under the slide carries only the AI
     // suggestions + apply/cancel. Commit strips composer-baked chrome ("01: ")
     // captured at edit start, so numbering never doubles into the payload.
-    const [inlineEdit, setInlineEdit] = useState<{ path: string; label: string; value: string; prefix: string; suffix: string } | null>(null);
+    const [inlineEdit, setInlineEdit] = useState<{ path: string; label: string; value: string; storedValue: string; prefix: string; suffix: string } | null>(null);
     const [inlineSuggestions, setInlineSuggestions] = useState<string[]>([]);
     const [inlineSuggestionsLoading, setInlineSuggestionsLoading] = useState(false);
     const previewFrameRef = useRef<HTMLIFrameElement>(null);
     const clickedElRef = useRef<HTMLElement | null>(null);
     const originalRenderedRef = useRef('');
-    const inlineEditRef = useRef<{ path: string; label: string; value: string; prefix: string; suffix: string } | null>(null);
+    const inlineEditRef = useRef<{ path: string; label: string; value: string; storedValue: string; prefix: string; suffix: string } | null>(null);
     inlineEditRef.current = inlineEdit;
     const textEditable = slide.status === 'draft' && !!onUpdateSlide;
 
@@ -313,8 +313,10 @@ export const SlideCanvas: React.FC<Props> = ({
         const sfx = edit.suffix.replace(/\s+/g, ' ');
         if (pfx && text.toLowerCase().startsWith(pfx.trimStart().toLowerCase())) text = text.slice(pfx.trimStart().length).trim();
         if (sfx && text.toLowerCase().endsWith(sfx.trimEnd().toLowerCase())) text = text.slice(0, text.length - sfx.trimEnd().length).trim();
+        // edit.value is the CLEAN text; the stored field may carry citation
+        // pointers - re-attach them so an inline edit never destroys provenance.
         if (text && text.toLowerCase() !== edit.value.replace(/\s+/g, ' ').trim().toLowerCase()) {
-            onUpdateSlide(applyTextEdits(slide, [{ path: edit.path, value: text }]));
+            onUpdateSlide(applyTextEdits(slide, [{ path: edit.path, value: mergeEditPreservingCitations(edit.storedValue, text) }]));
         }
         teardownInlineEdit();
     };
@@ -325,10 +327,13 @@ export const SlideCanvas: React.FC<Props> = ({
         clickedElRef.current = el;
         const rendered = el.textContent || '';
         originalRenderedRef.current = rendered;
-        const idx = rendered.toLowerCase().indexOf(field.value.toLowerCase());
+        // compare CLEAN values: the stored field may carry pointer markers the
+        // rendered element does not show (and vice versa: resolved source lines)
+        const cleanValue = stripCitationArtifacts(field.value);
+        const idx = rendered.toLowerCase().indexOf(cleanValue.toLowerCase());
         const prefix = idx > 0 ? rendered.slice(0, idx) : '';
-        const suffix = idx >= 0 ? rendered.slice(idx + field.value.length) : '';
-        setInlineEdit({ path: field.path, label: field.label, value: field.value, prefix, suffix });
+        const suffix = idx >= 0 ? rendered.slice(idx + cleanValue.length) : '';
+        setInlineEdit({ path: field.path, label: field.label, value: cleanValue, storedValue: field.value, prefix, suffix });
         el.contentEditable = 'true';
         el.style.outline = '3px solid #caca20';
         el.style.outlineOffset = '2px';
@@ -349,7 +354,7 @@ export const SlideCanvas: React.FC<Props> = ({
         } catch { /* selection is a convenience, not a requirement */ }
         setInlineSuggestions([]);
         setInlineSuggestionsLoading(true);
-        suggestFieldRewrites(field.value, slide.title)
+        suggestFieldRewrites(cleanValue, slide.title)
             .then(s => setInlineSuggestions(s))
             .finally(() => setInlineSuggestionsLoading(false));
     };
