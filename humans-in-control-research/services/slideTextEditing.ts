@@ -300,20 +300,48 @@ export async function suggestFieldRewrites(current: string, slideTitle?: string)
             model: DEFAULT_MODELS.fast_generation,
             systemInstruction: { parts: [{ text: system }] },
             contents: [{ role: 'user', parts: [{ text: user }] }],
-            config: { temperature: 0.4, maxOutputTokens: 900, responseMimeType: 'application/json' },
+            // thinkingBudget 0: flash's thinking tokens count against
+            // maxOutputTokens and were TRUNCATING the array mid-string (live
+            // 2026-08-17 T6c failure: valid JSON cut off before the close).
+            config: { temperature: 0.4, maxOutputTokens: 2000, responseMimeType: 'application/json', thinkingBudget: 0 },
         }, { label: 'Field rewrite suggestions', maxAttempts: 2, requestTimeoutMs: 20_000 });
-        const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+        // models sometimes answer across several parts; concatenate them all
+        const parts = parsed?.candidates?.[0]?.content?.parts;
+        const text = Array.isArray(parts) ? parts.map((p: any) => p?.text || '').join('') : (parsed?.choices?.[0]?.message?.content ?? '');
         const cleaned = String(text).replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
         let arr: any = null;
         try { arr = JSON.parse(cleaned); } catch {
             const s = cleaned.indexOf('['); const e = cleaned.lastIndexOf(']');
             if (s >= 0 && e > s) { try { arr = JSON.parse(cleaned.slice(s, e + 1)); } catch { /* give up */ } }
         }
-        if (!Array.isArray(arr)) return [];
-        return arr.filter((v: any) => typeof v === 'string')
+        // tolerate an object wrapper ({"suggestions": [...]}) and object items
+        // ([{"text": "..."}]): both shapes were observed live 2026-08-17 when
+        // the toolbar silently showed no suggestions.
+        if (arr && !Array.isArray(arr) && typeof arr === 'object') {
+            arr = Object.values(arr).find(Array.isArray) || null;
+        }
+        if (!Array.isArray(arr)) {
+            // TRUNCATION SALVAGE (2026-08-17 T6c): a response cut off mid-array
+            // still contains complete quoted strings; recover those. The
+            // unterminated last string has no closing quote and drops naturally.
+            const literals = (cleaned.match(/"((?:[^"\\]|\\.)*)"/g) || [])
+                .map(l => { try { return JSON.parse(l); } catch { return ''; } })
+                .filter((v: any) => typeof v === 'string' && v.length >= 12);
+            if (literals.length) {
+                arr = literals;
+            } else {
+                console.warn('[slideTextEditing] suggestions unparseable (toolbar shows none); raw head:', cleaned.slice(0, 120));
+                return [];
+            }
+        }
+        const out = arr
+            .map((v: any) => typeof v === 'string' ? v
+                : (v && typeof v === 'object' ? String(Object.values(v).find(x => typeof x === 'string') || '') : ''))
             .map((v: string) => scrubRewrite(v))
             .filter((v: string) => v.length >= 2 && v !== current)
             .slice(0, 3);
+        if (!out.length) console.warn('[slideTextEditing] suggestions empty after scrub; raw head:', cleaned.slice(0, 120));
+        return out;
     } catch (e: any) {
         console.warn('[slideTextEditing] suggestions failed (toolbar shows none):', e?.message || e);
         return [];
@@ -364,7 +392,8 @@ export async function rewriteFieldText(
             model: DEFAULT_MODELS.fast_generation,
             systemInstruction: { parts: [{ text: system }] },
             contents: [{ role: 'user', parts: [{ text: user }] }],
-            config: { temperature: 0.3, maxOutputTokens: 800 },
+            // thinkingBudget 0 + headroom: same truncation class as T6c.
+            config: { temperature: 0.3, maxOutputTokens: 2000, thinkingBudget: 0 },
         }, { label: 'Slide text rewrite', maxAttempts: 2, requestTimeoutMs: 25_000 });
         const out = parsed?.candidates?.[0]?.content?.parts?.[0]?.text
             ?? parsed?.choices?.[0]?.message?.content ?? '';

@@ -206,6 +206,25 @@ blockers and the majors below were fixed the same day and re-gated (726 tests):
   clobber); replacement labels are always honest (real sources or the page-derived
   label, never blank); verifier fixes stay OUT of the user's undo history; duplicate
   fixes to one field dedupe with relabel precedence.
+COMPUTER-USE VERIFICATION (2026-08-17, Playwright against the live app, DSG session):
+11-point matrix run end to end. Final state ALL PASS: landing intake controls; session
+restore; #slides deck generation (5 slides); the verification ledger rendering with an
+UNSOURCED chip on a real deck; imagery chips on every slide; inline click-to-edit
+inside the preview iframe (type-in-place, Enter applies, re-render verified); UNDO +
+LOCK; the concise deck pass in place ("Rewrote 50 fields across 5 slides", zero
+regeneration); the client email intent; prefill-only suggestion chips; zero console
+errors across every run. Two live failures found and fixed during the passes:
+(1) "make the deck more concise" fell to plain chat when the flash classifier flaked,
+regenerating the whole deck: FIXED with a deterministic directIntent tier (chips never
+ride a network call), all-draft-slide deck detection, and loud classifier-failure
+logging; (2) the AI-suggestion toolbar rendered nothing because flash THINKING tokens
+counted against maxOutputTokens and truncated the JSON array mid-string: FIXED with
+thinkingBudget 0 + raised ceilings on the small structured calls + a salvage that
+recovers complete strings from truncated arrays (the live payload is a regression test).
+BACKLOG (observed, not blocking): decks generated inside a restored session do not
+survive the next session restore (slides state is not folded back into the autosave);
+Escape-to-cancel inline editing works only while focus is inside the slide iframe.
+
 KNOWN REMAINING GAPS (honest): kind='text' prose is pointer-checked but not
 verbatim-checked (ledger note says so); spelled-out numbers ("one in five") are not
 stat-checked; the domain gate (WS-D) is prompt-contract only; verificationLedgers

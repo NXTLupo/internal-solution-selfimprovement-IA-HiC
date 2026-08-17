@@ -7,7 +7,7 @@ vi.mock('./aiRetryClient', () => ({
     callAIWithRetry: (...args: any[]) => callMock(...args),
 }));
 
-import { quickIntentFilter, classifyChatIntent, applyDeckTextPass } from './chatIntentRouter';
+import { quickIntentFilter, classifyChatIntent, directIntent, applyDeckTextPass } from './chatIntentRouter';
 
 const geminiReply = (text: string) => ({ candidates: [{ content: { parts: [{ text }] } }] });
 
@@ -26,6 +26,20 @@ describe('quickIntentFilter', () => {
         expect(quickIntentFilter('#slides make a deck about retention', true)).toBe(false);
         // ordinary Q&A never pays the classifier latency
         expect(quickIntentFilter('what did the corpus say about churn drivers?', true)).toBe(false);
+    });
+});
+
+describe('directIntent (deterministic, no network: the T8 incident fix)', () => {
+    it('maps the suggested chips without any model call', () => {
+        expect(directIntent('Make the deck more concise', true)).toEqual({ kind: 'deck_edit', op: 'concise' });
+        expect(directIntent('make the slides plainer, less generic', true)).toEqual({ kind: 'deck_edit', op: 'plainer' });
+        expect(directIntent('Draft a client follow-up email from this deck', false)).toEqual({ kind: 'client_email' });
+        expect(directIntent('Draft the slide narrative from this research', false)).toEqual({ kind: 'slide_narrative' });
+    });
+    it('never fires on hashtags, no-deck edits, or ambiguous asks', () => {
+        expect(directIntent('#slides make a deck', true)).toBeNull();
+        expect(directIntent('make the deck more concise', false)).toBeNull();
+        expect(directIntent('what does the corpus say about churn?', true)).toBeNull();
     });
 });
 

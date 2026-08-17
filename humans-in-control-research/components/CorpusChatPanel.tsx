@@ -35,7 +35,7 @@ import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel,
 // WS-6 FLUID CHAT (2026-08-14 v2 program): natural-language intent routing so
 // common asks (deck edits, client email, slide narrative) need no hashtags.
 // Static imports - dynamic import() chunks 404 on stale bundles (2026-08-14 lesson).
-import { quickIntentFilter, classifyChatIntent, applyDeckTextPass, draftClientEmail, draftSlideNarrative } from '../services/chatIntentRouter';
+import { quickIntentFilter, classifyChatIntent, directIntent, applyDeckTextPass, draftClientEmail, draftSlideNarrative } from '../services/chatIntentRouter';
 // PROVENANCE LOCK (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md):
 // every freshly parsed deck gets its claims verified against the pointed corpus
 // sources; fabricated attributions are relabeled/stripped; the ledger renders
@@ -7349,9 +7349,14 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
         // every failure falls open to plain chat. Hashtag messages skip this.
         // ═══════════════════════════════════════════════════════════════
         {
-            const draftDeck = slides.filter(s => s.status === 'draft' && String(s.template).startsWith('slides:'));
-            if (quickIntentFilter(query, draftDeck.length > 0)) {
-                const intent = await classifyChatIntent(query, { hasDeck: draftDeck.length > 0 });
+            // ANY draft slide counts as deck material (classic templates included:
+            // the 2026-08-17 T8 test proved slides:*-only gating starves the router).
+            const draftDeck = slides.filter(s => s.status === 'draft');
+            if (quickIntentFilter(query, draftDeck.length > 0) || directIntent(query, draftDeck.length > 0)) {
+                // Deterministic mapping first (chips must never ride a network
+                // classifier); the model classifier only handles ambiguous asks.
+                const intent = directIntent(query, draftDeck.length > 0)
+                    || await classifyChatIntent(query, { hasDeck: draftDeck.length > 0 });
                 if (intent.kind !== 'plain') {
                     const live: any = getContext ? getContext() : context;
                     const rawThemes = Array.isArray(live?.themes?.themes) ? live.themes.themes : (Array.isArray(live?.themes) ? live.themes : []);
@@ -8423,7 +8428,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 {/* WS-6: contextual next-step chips (PDF item 1). Prefill the input so
                     the user edits before sending - nothing fires behind their back. */}
                 {!isLoading && (() => {
-                    const hasDeck = slides.some(s => s.status === 'draft' && String(s.template).startsWith('slides:'));
+                    const hasDeck = slides.some(s => s.status === 'draft');
                     const live: any = getContext ? getContext() : context;
                     const hasCorpus = !!(live?.corpusText && String(live.corpusText).length > 500);
                     const chips: string[] = [];

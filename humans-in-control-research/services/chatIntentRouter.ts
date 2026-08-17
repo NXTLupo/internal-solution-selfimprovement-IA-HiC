@@ -62,6 +62,28 @@ export function quickIntentFilter(query: string, hasDeck: boolean): boolean {
     return false;
 }
 
+/**
+ * DETERMINISTIC intent mapping for unambiguous phrasings, the suggested chips
+ * above all. Live incident 2026-08-17 (computer-use test T8): "make the deck
+ * more concise" fell to plain chat because the model classifier timed out
+ * during a Gemini flake, and plain chat regenerated the WHOLE deck on flash,
+ * discarding the Opus deck. Chip-shaped asks must never ride a network call.
+ */
+export function directIntent(query: string, hasDeck: boolean): ChatIntent | null {
+    const q = query.trim().toLowerCase();
+    if (/#[a-z]/i.test(q)) return null;
+    if (/^draft (a |the )?client follow[- ]?up e-?mail\b/.test(q) || /^draft (a |the )?client e-?mail\b/.test(q)) return { kind: 'client_email' };
+    if (/^draft (the )?slide narrative\b/.test(q) || /^give me the (slide|deck) narrative\b/.test(q)) return { kind: 'slide_narrative' };
+    if (hasDeck && /^(make|tighten|condense) (the )?(deck|slides?|presentation)\b/.test(q)) {
+        const op: DeckEditOp = /executive/.test(q) ? 'executive'
+            : /specific/.test(q) ? 'specific'
+            : /(plain|less generic|less ai|buzzword)/.test(q) ? 'plainer'
+            : 'concise';
+        return { kind: 'deck_edit', op };
+    }
+    return null;
+}
+
 /** Model classification (flash, temp 0, fail-open to plain chat). */
 export async function classifyChatIntent(query: string, opts: { hasDeck: boolean }): Promise<ChatIntent> {
     const system = [
@@ -79,7 +101,10 @@ export async function classifyChatIntent(query: string, opts: { hasDeck: boolean
             model: DEFAULT_MODELS.fast_generation,
             systemInstruction: { parts: [{ text: system }] },
             contents: [{ role: 'user', parts: [{ text: query.slice(0, 1200) }] }],
-            config: { temperature: 0, maxOutputTokens: 120, responseMimeType: 'application/json' },
+            // thinkingBudget 0: thinking tokens count against maxOutputTokens
+            // and starved the tiny JSON answer (the 2026-08-17 classifier
+            // flake); classification needs no reasoning chain.
+            config: { temperature: 0, maxOutputTokens: 500, responseMimeType: 'application/json', thinkingBudget: 0 },
         }, { label: 'Chat intent classify', maxAttempts: 2, requestTimeoutMs: 12_000 });
         const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
         const obj = salvageJsonObject<any>(text);
@@ -92,7 +117,10 @@ export async function classifyChatIntent(query: string, opts: { hasDeck: boolean
         if (kind === 'client_email') return { kind: 'client_email' };
         if (kind === 'slide_narrative') return { kind: 'slide_narrative' };
         return { kind: 'plain' };
-    } catch {
+    } catch (e: any) {
+        // fail-open to plain chat, but LOUDLY: a silent fail here caused the
+        // 2026-08-17 T8 incident (deck regenerated instead of tightened).
+        console.warn('[fluid-chat] intent classifier failed; treating as plain chat:', e?.message || e);
         return { kind: 'plain' };
     }
 }

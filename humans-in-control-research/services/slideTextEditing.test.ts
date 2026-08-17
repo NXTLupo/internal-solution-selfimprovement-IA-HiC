@@ -157,6 +157,50 @@ describe('matchFieldByText (click-to-edit)', () => {
     });
 });
 
+describe('suggestFieldRewrites truncation salvage (T6c live payload: array cut mid-string)', () => {
+    it('recovers the complete suggestions from a truncated JSON array', async () => {
+        const { vi } = await import('vitest');
+        vi.resetModules();
+        vi.doMock('./aiRetryClient', () => ({
+            callAIWithRetry: async () => ({
+                candidates: [{ content: { parts: [{ text:
+                    // the exact failure shape observed live 2026-08-17: valid array,
+                    // response truncated before the closing bracket
+                    '[\n  "AI reasons, MCP connects, and your CRM remains the system of record.",\n  "The AI handles synthesis while the CRM stays the ledger of record.",\n  "The AI',
+                }] } }],
+            }),
+        }));
+        const mod = await import('./slideTextEditing');
+        const out = await mod.suggestFieldRewrites('original line', 'Slide title');
+        expect(out).toHaveLength(2);
+        expect(out[0]).toMatch(/^AI reasons, MCP connects/);
+        expect(out[1]).toMatch(/^The AI handles synthesis/);
+        vi.doUnmock('./aiRetryClient');
+        vi.resetModules();
+    });
+});
+
+describe('suggestFieldRewrites parse robustness (T6c: silent empty toolbar)', () => {
+    it('tolerates an object wrapper and object items from the model', async () => {
+        const { vi } = await import('vitest');
+        vi.resetModules();
+        vi.doMock('./aiRetryClient', () => ({
+            callAIWithRetry: async () => ({
+                candidates: [{ content: { parts: [
+                    { text: '{"suggestions": [' },
+                    { text: '{"text": "Advancement loses alumni at three handoffs"}, "Email response takes weeks", "The CRM hides attendance data"]}' },
+                ] } }],
+            }),
+        }));
+        const mod = await import('./slideTextEditing');
+        const out = await mod.suggestFieldRewrites('original line', 'Slide title');
+        expect(out).toHaveLength(3);
+        expect(out[0]).toBe('Advancement loses alumni at three handoffs');
+        vi.doUnmock('./aiRetryClient');
+        vi.resetModules();
+    });
+});
+
 describe('scrubRewrite', () => {
     it('strips markdown, em-dashes, and surrounding quotes from model output', () => {
         const out = scrubRewrite('"**Advancement loses alumni** — at three handoffs"');
