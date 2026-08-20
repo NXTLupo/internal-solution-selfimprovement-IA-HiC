@@ -20,6 +20,7 @@
 import { readFeedbackIndex, type FeedbackSummary, type FeedbackIndex } from './feedbackService';
 import { persistChunkOverride, type ArtifactType } from './chunkBudgetCalculator';
 import { evaluateConstraint, normalizeConstraintKey } from './constraintQualityGate';
+import { reviewSkillPatch, reviewSummary } from './skillReview';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -393,10 +394,34 @@ async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: b
         return { ok: false, skillName };
     }
     const completeness = isCompleteSkillPatch(candidate.payload);
-    if (!completeness.ok) {
-        console.log(`[LearningEngine] Skill patch rejected as incomplete (${completeness.reason}): ${candidate.payload}`);
+
+    // DF-E4 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): a skill
+    // write now requires a REVIEW REPORT whose readiness is not `blocked`.
+    // `evaluateConstraint` + `isCompleteSkillPatch` are spell-checks: neither can
+    // see an unsafe instruction ("ignore the design-system gate"), an injection
+    // shape, or a duplicate of what the skill already says. Ported from
+    // deer-flow's skill-review contract, which separates readiness (structurally
+    // fit) from assurance (what runtime evidence exists) instead of collapsing
+    // both into one boolean. The completeness verdict becomes one deterministic
+    // finding INSIDE the report rather than a parallel gate.
+    let existing: string | undefined;
+    try {
+        const peek = await fetch(`${PROXY_BASE}/api/skill/read?name=${encodeURIComponent(skillName)}`);
+        if (peek.ok) existing = (await peek.json())?.content || undefined;
+    } catch { /* review proceeds with maintainability not_assessed, and says so */ }
+
+    const report = reviewSkillPatch({ skillName, patch: candidate.payload, existing, completeness });
+    console.log(reviewSummary(report));
+    if (report.readiness === 'blocked') {
+        const blockers = report.issues.filter(i => i.severity === 'blocker').map(i => `${i.id}: ${i.problem}`).join('; ');
+        console.log(`[LearningEngine] Skill patch BLOCKED by review (${blockers})`);
+        // Keep the signal: a blocked patch is still evidence that something in
+        // the skill needs attention, so it lands in the improvements log.
+        await appendToPage('synthesis/skill-improvements.md',
+            `\n## ${new Date().toISOString().split('T')[0]} | ${skillName} (BLOCKED by review)\n${candidate.payload}\nreadiness=${report.readiness} assurance=${report.assurance}\nblockers: ${blockers}\n`);
         return { ok: false, skillName };
     }
+
     const success = await patchSkillFile(skillName, candidate);
     return { ok: success, skillName };
 }

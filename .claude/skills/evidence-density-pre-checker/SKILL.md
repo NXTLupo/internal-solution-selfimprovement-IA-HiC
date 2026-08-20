@@ -119,7 +119,7 @@ halt_reason: <when halt=true, why>
 
 ## Engineering implementation (TypeScript)
 
-New service `services/evidenceDensityPreChecker.ts`:
+New service module (co-located with `services/wikiService.ts`, which already owns `scoreOutput`):
 
 ```typescript
 export interface PreCheckReport {

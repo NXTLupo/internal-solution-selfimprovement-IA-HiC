@@ -3749,6 +3749,15 @@ The reader is an expert. Write like a senior consultant, not a marketing brochur
 - Numbers are evidence carried by a cited quote, never a bare assertion you make.
 Write subject-verb-object sentences with concrete nouns and varied openings. If you catch yourself reaching for a buzzword, say the plain thing instead.
 === END PLAIN-VOICE / ANTI-SLOP RULES ===
+
+========================================================================
+PROVENANCE LOCK - SOURCE IDENTITY IS NOT YOURS TO AUTHOR (HARD, every slide, every field)
+1. Every quote, statistic, and named finding MUST carry its manifest chunk pointer ([<wikiPath>#cN]) in the same field, copied EXACTLY from the evidence provided below. No pointer = the claim does not ship as sourced content: drop it and narrow the slide around what IS evidenced.
+2. NEVER author a source identity. Do not invent report titles, study names, events, speakers, or publication names. Do not rename a source to sound more fitting ("X Industry Report, 2026"). The attribution field carries ONLY the source name exactly as the evidence block states it; a runtime verifier cross-checks every attribution against the pointed chunk's recorded sources and relabels or strips mismatches.
+3. NEVER reuse a real organization's name (any vendor, publisher, or body) as a source label unless THAT organization is the pointed chunk's recorded source.
+4. Quotes are VERBATIM sentences from the pointed chunk. Never assemble, paraphrase-as-quote, or lightly reword. A paraphrase is prose (no quote marks) and still carries its pointer.
+5. CROSS-INDUSTRY EVIDENCE IS FRAMED, NEVER PASSED OFF: when the pointed source is from a different industry than this engagement's subject, the text MUST name that industry explicitly as an analog ("a nonprofit-sector benchmark", "in asset-management distribution", "a banking risk practice") and draw the lesson across. Presenting off-industry evidence as if it were about the subject's industry is a hard failure.
+========================================================================
 ${CACHE_BREAK}================================================================================
 === ENGAGEMENT CONTEXT (this research run) ===
 ================================================================================
@@ -3900,10 +3909,15 @@ ${deckComposerSkill}
 
             // PROVENANCE LOCK (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md).
             // Born from a live client incident: real corpus content shipped wearing FABRICATED
-            // source identities ("Intuit Mid-Market AI Report", "BILL Case Study", "HFTP") and
-            // off-industry sources framed as in-industry proof. The runtime citationVerifier
-            // enforces this after generation; the contract here prevents most violations upstream.
-            systemPrompt += `\n\n========================================================================\nPROVENANCE LOCK - SOURCE IDENTITY IS NOT YOURS TO AUTHOR (HARD, every slide, every field)\n1. Every quote, statistic, and named finding MUST carry its manifest chunk pointer ([<wikiPath>#cN]) in the same field, copied EXACTLY from the evidence provided above. No pointer = the claim does not ship as sourced content: drop it and narrow the slide around what IS evidenced.\n2. NEVER author a source identity. Do not invent report titles, study names, events, speakers, or publication names. Do not rename a source to sound more fitting ("X Industry Report, 2026"). The attribution field carries ONLY the source name exactly as the evidence block states it; a runtime verifier cross-checks every attribution against the pointed chunk's recorded sources and relabels or strips mismatches.\n3. NEVER reuse a real organization's name (any vendor, publisher, or body) as a source label unless THAT organization is the pointed chunk's recorded source.\n4. Quotes are VERBATIM sentences from the pointed chunk. Never assemble, paraphrase-as-quote, or lightly reword. A paraphrase is prose (no quote marks) and still carries its pointer.\n5. CROSS-INDUSTRY EVIDENCE IS FRAMED, NEVER PASSED OFF: when the pointed source is from a different industry than this engagement's subject, the slide text MUST name that industry explicitly as an analog ("a nonprofit-sector benchmark", "in asset-management distribution", "a banking risk practice") and draw the lesson across. Presenting off-industry evidence as if it were about the subject's industry is a hard failure.\n========================================================================`;
+            // source identities and off-industry sources framed as in-industry proof.
+            //
+            // DF-C1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): the block itself
+            // MOVED into the STABLE CORE above the first cache breakpoint. It is 100% invariant
+            // text, so appending it here after the dynamic marker meant paying full input cost for
+            // ~1,700 characters on every single call and never caching a word of it. deer-flow's
+            // DynamicContextMiddleware makes the same point from the other side: keep the system
+            // prefix byte-identical and let only volatile values ride the tail.
+            // The runtime citationVerifier still enforces the contract after generation.
 
             // 2026-06-23 - LEARNED-CONSTRAINT INJECTION (closes the feedback loop on the chat
             // #slides path). getActiveConstraints() was wired into geminiService + evidenceCatalog

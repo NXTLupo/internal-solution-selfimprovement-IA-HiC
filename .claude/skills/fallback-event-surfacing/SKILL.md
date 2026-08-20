@@ -114,7 +114,7 @@ async function generateWithSurfacedFallback<T>(opts: {
 }
 ```
 
-Every existing silent-fallback site in `services/geminiService.ts`, `services/anthropicService.ts`, `services/openaiService.ts`, and `services/aiRouter.ts` gets wrapped with this. The behavior is identical except an event is now appended to the receipt.
+Every existing silent-fallback site in `services/geminiService.ts`, `services/openaiService.ts`, and `services/aiRouter.ts` gets wrapped with this. The behavior is identical except an event is now appended to the receipt.
 
 ## The 34 sites to wrap
 

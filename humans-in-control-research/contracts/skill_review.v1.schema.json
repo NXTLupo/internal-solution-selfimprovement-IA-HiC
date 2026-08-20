@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nxthumans.dev/contracts/hic/skill_review.v1.schema.json",
+  "title": "HiC Skill Review Report v1",
+  "description": "The verdict that gates a skill write (services/skillReview.ts). Ported from deer-flow's contracts/skill_review/review_report.v1.schema.json. The two axes are deliberately ORTHOGONAL: readiness says whether the package is structurally fit, assurance says what runtime evidence exists. Collapsing them into one boolean is what let ungated patch drift ship.",
+  "type": "object",
+  "required": ["schemaVersion", "subject", "review", "readiness", "assurance", "dimensions", "issues", "evidence", "recommendedActions"],
+  "properties": {
+    "schemaVersion": { "const": "hic.skill-review.report.v1" },
+    "subject": {
+      "type": "object",
+      "required": ["skillName", "packageDigest"],
+      "properties": {
+        "skillName": { "type": "string" },
+        "packageDigest": { "type": "string", "description": "Evidence bound to a different digest is discarded, not credited." }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["scope", "reviewerModel", "completedAt"],
+      "properties": {
+        "scope": { "type": "array", "items": { "type": "string" } },
+        "reviewerModel": { "type": "string", "description": "'deterministic' when no model was involved." },
+        "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "readiness": { "enum": ["blocked", "revise", "publish_candidate"] },
+    "assurance": { "enum": ["static_only", "trigger_checked", "behavior_verified", "regression_verified"] },
+    "dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "summary"],
+        "properties": {
+          "id": { "enum": ["trigger_boundary", "instruction_executability", "resource_design", "safety", "output_contract", "maintainability", "evidence_quality"] },
+          "status": { "enum": ["pass", "concern", "blocker", "not_assessed"] },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "confidence", "problem", "impact", "remediation"],
+        "properties": {
+          "id": { "type": "string" },
+          "severity": { "enum": ["blocker", "major", "minor"] },
+          "confidence": { "enum": ["high", "medium", "low"] },
+          "problem": { "type": "string" },
+          "impact": { "type": "string" },
+          "remediation": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["runtimeRuns", "retained", "limitations"],
+      "properties": {
+        "runtimeRuns": { "type": "integer", "minimum": 0 },
+        "retained": { "type": "array" },
+        "limitations": { "type": "array", "items": { "type": "string" }, "description": "What was NOT assessed. Naming it is required; implying a pass is not allowed." }
+      }
+    },
+    "recommendedActions": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

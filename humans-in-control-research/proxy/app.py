@@ -19199,7 +19199,7 @@ def _illus_registry_append(entry: dict) -> None:
 
 
 async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
-                              literal: bool = False, style: str = "line") -> dict:
+                              literal: bool = False, style: str = "line", reference: str = "") -> dict:
     """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
     library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
 
@@ -19222,7 +19222,22 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         variant = 0
     style = style if style in ("line", "photo-background", "photo-portrait", "photo-scene") else "line"
     is_photo = style.startswith("photo-")
-    iid = _illus_id(concept, brand, canvas, slot, variant, style)
+    # DF-V1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): REFERENCE
+    # CHAINING. deer-flow's ppt-generation skill generates slide art strictly one
+    # at a time, each call carrying the PREVIOUS image as a reference, because
+    # independent per-slide generation produces a deck whose palette and treatment
+    # drift from slide to slide. HiC generated every slot in parallel with no
+    # reference at all (`referenceImage` appeared nowhere in the repo), which is
+    # exactly that failure. The reference is salted into the dedup id so a chained
+    # image can never be served from the cache of an unchained one.
+    ref_b64 = ""
+    if reference:
+        try:
+            ref_b64 = reference.split(",", 1)[1] if reference.startswith("data:") else ""
+        except Exception:
+            ref_b64 = ""
+    ref_salt = hashlib.sha1(ref_b64[:4096].encode()).hexdigest()[:8] if ref_b64 else ""
+    iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}")
     os.makedirs(_ILLUS_DIR, exist_ok=True)
     out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
     url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
@@ -19249,7 +19264,18 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     prompt = (_photo_prompt(visual_concept, style.split("-", 1)[1]) if is_photo
               else _illustration_prompt(visual_concept, brand, canvas))
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
-    body = {"contents": [{"parts": [{"text": prompt}]}],
+    parts_out = []
+    if ref_b64:
+        # The reference image goes FIRST so the model reads it as the style
+        # ground, then the instruction naming what must stay identical.
+        parts_out.append({"inline_data": {"mime_type": "image/png", "data": ref_b64}})
+        prompt = (
+            "Continue the EXACT visual style of the reference image: same palette, same line weight, "
+            "same level of abstraction, same background treatment, same amount of negative space. "
+            "The subject changes; the visual language does not. " + prompt
+        )
+    parts_out.append({"text": prompt})
+    body = {"contents": [{"parts": parts_out}],
             "generationConfig": {"responseModalities": ["IMAGE"]}}
     try:
         async with httpx.AsyncClient() as client:
@@ -19291,10 +19317,14 @@ async def ai_illustration(payload: dict):
     # style: "line" (default, transparent single-line art) | "photo-background" | "photo-portrait"
     # | "photo-scene" (2026-07-03 slides-imagery uplift: opaque editorial photography, VS skipped,
     # concept = literal text from the slide's own generated content).
+    # `reference` (DF-V1): a data-URI PNG of the previously accepted image in this
+    # deck. Supplying it makes the deck visually coherent instead of a set of
+    # unrelated images; omitting it keeps the prior behavior exactly.
     res = await _brand_illustration(concept, payload.get("brand", "nxt"), payload.get("canvas", "light"),
                                     payload.get("slot", "side"), payload.get("variant", 0),
                                     literal=bool(payload.get("literal")),
-                                    style=str(payload.get("style") or "line"))
+                                    style=str(payload.get("style") or "line"),
+                                    reference=str(payload.get("reference") or ""))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res
 

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nxthumans.dev/contracts/hic/memory_fact.v1.schema.json",
+  "title": "HiC Memory Fact v1",
+  "description": "One durable second-brain fact (services/memoryLifecycle.ts), ported from deer-flow's deermem schema-v2 fact. The scope/durability/authority triple is load-bearing: the admission gate injects ONLY user-or-engagement + durable + descriptive facts into later runs, and a MISSING label is a rejection rather than a default.",
+  "type": "object",
+  "required": ["id", "content", "category", "confidence", "scope", "durability", "authority", "createdAt", "expectedValidDays", "confirmationCount", "sourceRunIds"],
+  "properties": {
+    "id": { "type": "string", "description": "Content-derived, so the same fact cannot enter twice." },
+    "content": { "type": "string", "minLength": 1 },
+    "category": { "enum": ["preference", "knowledge", "context", "behavior", "goal", "correction"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1, "description": "Explicit statement 0.9+, implied 0.6-0.8." },
+    "scope": { "enum": ["user", "engagement", "session"] },
+    "durability": { "enum": ["durable", "temporary"] },
+    "authority": { "enum": ["descriptive", "transactional"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "expectedValidDays": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Per-fact staleness window, clamped at write time to stalenessAgeDays x stalenessMaxLifetimeMultiplier so the model cannot defer its own first review indefinitely."
+    },
+    "lastConfirmedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Advances ONLY when a deterministic regex over the user's own words detected a confirmation. A model nomination alone never sets it."
+    },
+    "confirmationCount": { "type": "integer", "minimum": 0 },
+    "sourceRunIds": { "type": "array", "items": { "type": "string" } },
+    "accessCount": { "type": "integer", "minimum": 0, "description": "Collected only under hybrid or shadow eviction." },
+    "lastAccessedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

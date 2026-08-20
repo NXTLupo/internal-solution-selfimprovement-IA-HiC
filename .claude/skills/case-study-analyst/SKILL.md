@@ -82,7 +82,7 @@ fabrication, and forbidden.
 
 ## Dimensional Extensibility Contract
 
-The hand-authored exemplar (`design-system/gold/case-study-nu.html`) is a FLOOR, not a
+The hand-authored exemplar (`hic-workspace/wiki/design-system/gold/`) is a FLOOR, not a
 ceiling. Grow the artifact to the depth the corpus and the client conversation justify.
 
 ### Dimensions this artifact can carry

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nxthumans.dev/contracts/hic/step_envelope.v1.schema.json",
+  "title": "HiC Step Envelope v1",
+  "description": "The single result shape every pipeline step returns (services/stepEnvelope.ts). Ported from deer-flow's deerflow_tool_meta. Consumers branch on nextAction and errorType; they never parse `message`. Adding an enum value is a MINOR change (older consumers see an unknown value); removing one is BREAKING.",
+  "type": "object",
+  "required": ["status", "value", "errorType", "recoverableByModel", "nextAction", "source", "stepId"],
+  "properties": {
+    "status": { "enum": ["success", "partial", "error"] },
+    "value": { "description": "Step output. Null on error; usually present on partial." },
+    "errorType": {
+      "oneOf": [
+        { "type": "null" },
+        { "enum": ["auth", "rate_limited", "transient", "config", "permission", "no_results", "not_found", "schema_invalid", "truncated", "stale_write", "internal", "unknown"] }
+      ]
+    },
+    "recoverableByModel": {
+      "type": "boolean",
+      "description": "Whether another model attempt could fix this. Independent of status: an empty retrieval is an error AND recoverable; an auth failure is neither."
+    },
+    "nextAction": {
+      "enum": ["continue", "retry_same", "rewrite_query", "try_alternative", "narrow_scope", "ask_user", "stop"],
+      "description": "narrow_scope is HiC-specific: ship less rather than fabricate."
+    },
+    "source": { "enum": ["exception", "step_return", "content_analysis", "gate"] },
+    "stepId": { "type": "string", "description": "Stable identifier, e.g. 'chain:provenance'." },
+    "message": { "type": "string", "description": "Human-readable. Logged and shown in honest partials. NEVER parsed." },
+    "stopReason": {
+      "enum": ["iteration_capped", "loop_capped", "token_capped", "no_progress"],
+      "description": "ADDITIVE (deer-flow's own v1-compatibility lesson): older consumers that only read status keep working."
+    },
+    "meta": { "type": "object" }
+  },
+  "additionalProperties": true
+}

@@ -397,10 +397,10 @@ Same UX pattern as the recommendations grid Sprint 2 shipped, different surface.
 5. [ ] Wire to a feature flag so the touchpoint can be A/B'd off if quality regresses.
 6. [ ] Log diversity score (1 - mean pairwise cosine similarity) per run to wiki for monitoring.
 7. [ ] Validate every candidate against existing quality gates (banned phrases, evidence density, citation grounding) BEFORE selection.
-8. [ ] Add the touchpoint to the "VS-instrumented surfaces" registry in `plans/verbalized-sampling-uplift.md`.
+8. [ ] Add the touchpoint to the "VS-instrumented surfaces" registry in `the verbalized-sampling uplift plan (deleted in the ba753863a cleanup; recover from git history)`.
 
 ## Reference
 
 - Paper PDF: `.claude/skills/intelligence/2510.01171v3.pdf`
-- Uplift plan with prioritized rollout: `humans-in-control-research/plans/verbalized-sampling-uplift.md`
+- Uplift plan with prioritized rollout: `the verbalized-sampling uplift plan (deleted in the ba753863a cleanup; recover from git history)`
 - Canonical VS prompt template (paper Figure 2): see the "canonical VS directive" section above

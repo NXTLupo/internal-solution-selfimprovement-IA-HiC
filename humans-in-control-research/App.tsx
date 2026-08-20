@@ -3035,6 +3035,16 @@ const App = () => {
                 return;
             }
             const r = restoreSessionSnapshot(snap);
+            // DF-I1 (2026-08-20): push the restored chat artifacts into the
+            // durable projection so the chat panel adopts them. Without this the
+            // deck saved with the session was loaded and then dropped on the
+            // floor, which is the defect the 2026-08-17 testing recorded.
+            try {
+                const { projectDurableArtifacts } = await import('./services/sessionService');
+                if (r.slides?.length || r.deliverables?.length) {
+                    projectDurableArtifacts({ slides: r.slides, deliverables: r.deliverables });
+                }
+            } catch { /* best-effort: a restore without artifacts is still a valid restore */ }
             // WS-1 (2026-08-14 v2): remember the active engagement so the next
             // landing sorts it first with a LAST ACTIVE badge (one-click resume).
             try { localStorage.setItem('hic_last_session_slug', slug); } catch { /* best-effort */ }

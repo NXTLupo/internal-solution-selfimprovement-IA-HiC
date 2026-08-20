@@ -17,7 +17,7 @@ Trigger on any request involving NXT Humans slides, Humans in Control deliverabl
 1. Read `references/layouts.md` to pick the right template for each piece of content.
 2. Read `references/design-tokens.md` for the exact color, type, and spacing values.
 3. Copy `assets/nxt-tokens.js` into the working directory and `require` it from your generator script. This is the single source of truth for tokens — do not re-type hex values.
-4. Use `scripts/generate-deck.js` as the starting reference — it implements all 15 templates as reusable functions. Adapt or import its helpers.
+4. Use the renderer twins as the starting reference: `humans-in-control-research/components/slideTemplates/web.tsx` (preview) and `humans-in-control-research/services/slideToStageHtml.ts` (export stage).
 5. Run `node generate.js` → produces `.pptx` in `/home/claude`.
 6. Before delivering: run the anti-slop checklist in `references/anti-slop-checklist.md` and do a visual QA pass (see below).
 
@@ -71,7 +71,7 @@ After generating, always convert to images and inspect. View each slide. Check f
 - `references/design-tokens.md` — full token reference with rationale
 - `references/anti-slop-checklist.md` — 15-item pre-delivery quality gate
 - `assets/nxt-tokens.js` — importable JS module with every color, font, size, spacing value
-- `scripts/generate-deck.js` — reference generator implementing all 15 templates as functions
+- `humans-in-control-research/components/slideTemplates/web.tsx` — the renderer that defines every template shape
 
 ---
 

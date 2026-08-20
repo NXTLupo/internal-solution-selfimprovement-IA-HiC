@@ -67,7 +67,7 @@ regenerated each run:
 - REUSE: the id is `sha1(brand|canvas|concept)`; an exact match returns the cached PNG instantly
   (`reused:true`) - re-running a presentation costs nothing for unchanged scenes.
 - CATALOG: each image gets an entry (id, concept, brand, canvas, tags, url) in
-  `illustrations/_registry.json`, browsable via `GET /api/ai/illustrations?brand=&tag=` for agentic
+  `hic-workspace/wiki/design-system/illustrations/_registry.json`, browsable via `GET /api/ai/illustrations?brand=&tag=` for agentic
   retrieval and Phase-B Figma componentization.
 
 ## Placement + motion doctrine (how the illustration sits and moves)

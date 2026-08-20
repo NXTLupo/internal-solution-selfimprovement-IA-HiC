@@ -26,7 +26,7 @@ You do not retry the model. You do not call the model. You repair what the model
 
 ## When to activate
 
-- Before any `JSON.parse()` call against AI output in `services/geminiService.ts`, `services/anthropicService.ts`, `services/openaiService.ts`, `services/aiRouter.ts`
+- Before any `JSON.parse()` call against AI output in `services/geminiService.ts`, `services/openaiService.ts`, `services/aiRouter.ts`
 - Inside the catch block of any `JSON.parse()` that throws — the skill is the first recovery attempt, before the retry-with-backoff path
 - For HTML/SVG output: before any `DOMParser.parseFromString()` (the prototype pipeline's Stage 4 / Stage 5 output)
 - For CSS output: before any inline `<style>` injection

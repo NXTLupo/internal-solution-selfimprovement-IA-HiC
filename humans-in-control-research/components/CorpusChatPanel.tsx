@@ -41,6 +41,11 @@ import { quickIntentFilter, classifyChatIntent, directIntent, applyDeckTextPass,
 // sources; fabricated attributions are relabeled/stripped; the ledger renders
 // under the deck. Static imports (stale-bundle 404 lesson).
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow } from '../services/citationVerifier';
+// DF-A3 / DF-G / DF-W: the ordered post-generation chain and its reports.
+import { runArtifactChain, type ChainResult } from '../services/artifactChain';
+import { detectDomain } from '../services/evidenceSlots';
+// DF-I1: project chat-generated artifacts so the autosave can persist them.
+import { projectDurableArtifacts, subscribeDurableArtifacts } from '../services/sessionService';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
@@ -4032,28 +4037,47 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [generatingSlotKeys, setGeneratingSlotKeys] = useState<string[]>([]);
     // PROVENANCE LOCK: verification ledger rows per assistant message id.
     const [verificationLedgers, setVerificationLedgers] = useState<Record<string, LedgerRow[]>>({});
+    // DF-A3: the full chain result per assistant message (slot + prose reports
+    // alongside the ledger), so the UI can show WHY an artifact was flagged.
+    const [chainReports, setChainReports] = useState<Record<string, ChainResult<any>>>({});
 
     // Verify every claim in a freshly parsed deck against its pointed corpus
     // sources; relabel/strip fabricated attributions; attach the ledger.
     // Fail-open: a verifier error never blocks the deck, it logs and skips.
+    // DF-A3 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): this
+    // callback used to BE the post-generation pipeline (verify, then fix, then
+    // attach). It is now one call into the ORDERED chain, so lexical scrubbing,
+    // provenance, the evidence-slot gate, prose measurement and the render-plan
+    // count all run in a declared sequence whose order is pinned by a test.
+    // The chain never throws; each stage records a typed envelope instead.
     const verifyAndAttachLedger = useCallback(async (deckSlides: SlideData[], msgId: string) => {
         if (!deckSlides?.length) return;
-        try {
-            const rows = await verifyDeckEvidence(deckSlides);
-            if (!rows.length) return;
-            const { slides: fixedSlides, fixed, stripped } = applyVerificationFixes(deckSlides, rows);
-            if (fixed || stripped) {
-                const changed = new Map<string, SlideData>();
-                fixedSlides.forEach((f, i) => { if (f !== deckSlides[i]) changed.set(f.id, f); });
-                if (changed.size) setSlides(prev => prev.map(s => changed.get(s.id) || s));
-            }
-            setVerificationLedgers(prev => ({ ...prev, [msgId]: rows }));
-            const flagged = rows.filter(r => r.verdict !== 'VERIFIED').length;
-            console.info(`[provenance-lock] ${rows.length} claim(s) checked, ${flagged} flagged, ${fixed} relabeled, ${stripped} label(s) stripped (msg ${msgId})`);
-        } catch (e: any) {
-            console.warn('[provenance-lock] verification failed (deck ships unverified):', e?.message || e);
+        const runId = `deck_${msgId}`;
+        const liveCtx = getContext ? getContext() : context;
+        const result = await runArtifactChain(deckSlides as any[], {
+            runId,
+            artifactType: 'slides',
+            subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
+        });
+
+        const changed = new Map<string, SlideData>();
+        (result.slides as SlideData[]).forEach((f, i) => { if (f !== deckSlides[i]) changed.set(f.id, f); });
+        if (changed.size) setSlides(prev => prev.map(s => changed.get(s.id) || s));
+
+        if (result.ledger.length) setVerificationLedgers(prev => ({ ...prev, [msgId]: result.ledger }));
+        setChainReports(prev => ({ ...prev, [msgId]: result }));
+
+        const flagged = result.ledger.filter(r => r.verdict !== 'VERIFIED').length;
+        console.info(`[artifact-chain] ${runId} pass=${result.pass}`, result.trace);
+        console.info(`[provenance-lock] ${result.ledger.length} claim(s) checked, ${flagged} flagged (msg ${msgId})`);
+        if (result.slotReport && !result.slotReport.pass) {
+            console.warn(`[evidence-slots] ${result.slotReport.violations.length} violation(s), P0 coverage ${(result.slotReport.p0Coverage * 100).toFixed(0)}%`,
+                result.slotReport.violations.map(v => `${v.kind}@${v.title}`));
         }
-    }, []);
+        if (result.proseReport && !result.proseReport.pass) {
+            console.warn(`[prose-signal] ${result.proseReport.concerns.map(c => `${c.id}=${c.score.toFixed(2)}`).join(' ')}`);
+        }
+    }, [getContext, context]);
     const [imageLoading, setImageLoading] = useState(false);
     const [wikiSourceArchive, setWikiSourceArchive] = useState('');
     // 2026-05-08 - Mid-chat attachments staged for the next send. Cleared
@@ -4075,6 +4099,26 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     useEffect(() => {
         loadSkillManifest().then(m => { if (m.length > 0) setSkillManifest(m); });
     }, []);
+
+    // DF-I1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): DURABLE
+    // ARTIFACT PROJECTION. Slides and deliverables live in this panel, so the
+    // autosave in App.tsx could never see them, which is why a deck generated
+    // inside a restored session did not survive the next restore. Project them
+    // as they are produced; the session saver reads the projection.
+    useEffect(() => {
+        if (slides.length) projectDurableArtifacts({ slides });
+    }, [slides]);
+    useEffect(() => {
+        if (deliverables.length) projectDurableArtifacts({ deliverables });
+    }, [deliverables]);
+
+    // The other direction: a session restore writes the projection, and this
+    // panel adopts it ONLY when it has nothing of its own, so a restore can
+    // never clobber work in progress.
+    useEffect(() => subscribeDurableArtifacts(d => {
+        if (d.slides?.length) setSlides(prev => (prev.length ? prev : d.slides as SlideData[]));
+        if (d.deliverables?.length) setDeliverables(prev => (prev.length ? prev : d.deliverables as any[]));
+    }), []);
 
     // 2026-05-23 - Universal artifact-lifting safety net. Watches every
     // assistant message; whenever a NEW assistant message has fence content
@@ -7512,21 +7556,35 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         String(s.template || '').toLowerCase() === 'slides:scene'
                         && s.composerPayload?.imageConcept && !s.composerPayload?.illustration);
                     if (!scenes.length) return;
-                    await Promise.all(scenes.map(async (s: any) => {
+                    // DF-V1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md):
+                    // SEQUENTIAL with REFERENCE CHAINING, replacing Promise.all. Parallel
+                    // generation is faster and produces a deck whose palette, line weight
+                    // and abstraction level drift slide to slide, because no call can see
+                    // what the others made. deer-flow's ppt-generation skill forbids
+                    // parallel slide art for exactly this reason. The first scene sets the
+                    // visual language; every later scene carries the previous accepted
+                    // image as its reference. Still fail-open: a scene without art is fine,
+                    // and a failure does not break the chain for the scenes after it.
+                    let reference = '';
+                    for (const s of scenes as any[]) {
                         try {
                             const r = await fetch('http://127.0.0.1:5012/api/ai/illustration', {
                                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ concept: s.composerPayload.imageConcept,
-                                    brand: s.brand || 'nxt', canvas: s.composerPayload.canvas || 'dark' }),
+                                    brand: s.brand || 'nxt', canvas: s.composerPayload.canvas || 'dark',
+                                    ...(reference ? { reference } : {}) }),
                             });
                             const j = await r.json().catch(() => null);
                             const uri = j?.dataUri;
-                            if (uri) setSlides(prev => prev.map(x => x.id === s.id
-                                ? { ...x, composerPayload: { ...(x as any).composerPayload, illustration: uri } } : x));
+                            if (uri) {
+                                reference = uri;
+                                setSlides(prev => prev.map(x => x.id === s.id
+                                    ? { ...x, composerPayload: { ...(x as any).composerPayload, illustration: uri } } : x));
+                            }
                         } catch (e: any) {
                             console.warn(`[slides] illustration skipped for ${s.id}:`, e?.message || e);
                         }
-                    }));
+                    }
                 })();
                 // ILLUSTRATOR - REGISTRY-DRIVEN (2026-06-17): for GOLD/#slides artifacts, fill every
                 // image slot the IMAGE-SLOT REGISTRY defines for that template (artifactImageSlots.ts).

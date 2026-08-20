@@ -136,7 +136,7 @@ async function withRateLimit<T>(
 }
 ```
 
-The functions `acquireSlot`, `releaseSlot`, `recordSuccess`, `recordRateLimit`, `computeBackoff`, and `emitDegradationEvent` live in a single module (e.g., `services/rateLimit.ts`).
+The functions `acquireSlot`, `releaseSlot`, `recordSuccess`, `recordRateLimit`, `computeBackoff`, and `emitDegradationEvent` live in a single module (a single new services module; the provider chokepoint itself lives in `proxy/app.py`).
 
 ## The ease-up policy (under-described in most rate-limit implementations)
 

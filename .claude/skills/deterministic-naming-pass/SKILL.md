@@ -26,7 +26,7 @@ You are the contract that names the boundary between deterministic identity and 
 ## When to activate
 
 - Before any LLM call that produces a name, title, framing, label, or structural identity field
-- Whenever a code reviewer touches a `temperature:` parameter in `services/geminiService.ts` / `services/anthropicService.ts` / `services/openaiService.ts`
+- Whenever a code reviewer touches a `temperature:` parameter in `services/geminiService.ts` / `services/openaiService.ts` / `services/aiRouter.ts`
 - When the user types `#deterministic` to inspect what's deterministic in the current pipeline
 - When `validate_theme_reproducibility.py` Stop hook reports drift across runs
 
@@ -183,4 +183,4 @@ These get tightened in a follow-on patch (the precise call-purpose at each line 
 - **Pairs with** `theme-yield-guarantee` — the guarantee + the determinism together mean "20-25 robust themes consistently" AND "same themes across runs"
 - **Pairs with** `verbalized-sampling` — VS lives in Category B and must STAY non-deterministic; the deterministic pick happens downstream
 - **Validated by** `validate_theme_reproducibility.py` (Stop hook) — catches drift when same-hash runs produce different identity fields
-- **Encoded by** `services/topic_modeling.py` (already has random_state=42 — good) and TO-BE in `services/geminiService.ts` (12 sites need patching)
+- **Encoded by** `proxy/topic_modeling.py` (already has random_state=42 — good) and TO-BE in `services/geminiService.ts` (12 sites need patching)

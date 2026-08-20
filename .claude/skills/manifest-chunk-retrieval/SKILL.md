@@ -34,7 +34,7 @@ applies_to:
 
 HiC's wiki is the addressable second-brain memory. Every ingested artifact (article, Reddit post, YouTube transcript, uploaded PDF) is chunked at ingest into 500–1500-char paragraph-bounded spans. Each chunk gets a STABLE pointer of the form `<wikiPath>#c<index>` recorded in the page's frontmatter `chunks:` block.
 
-The MANIFEST (the wiki's journal at `wiki/.manifest.json` plus `wiki/user-selections/active.json` + each engagement's `manifest.json`) is the index over those chunks. It is the binding contract about what's in the corpus.
+The MANIFEST (the wiki's journal at `wiki/.manifest.json` plus the active user selection (`GET /api/user-selection/active`) + each engagement's `manifest.json`) is the index over those chunks. It is the binding contract about what's in the corpus.
 
 When you generate ANY deliverable, you do NOT dump full article bodies into your prompt. You do NOT call an embedding store. You do NOT guess at relevance. You pull a chunk catalog from the manifest, pre-rank chunks by their declared `key_terms` against the user's request, resolve only the relevant chunks to text via the wiki, and cite each evidence statement with its chunk pointer.
 

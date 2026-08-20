@@ -1,7 +1,7 @@
 ---
 name: topic-cluster-to-theme-converter
 version: 2.0
-description: PRIMARY theme generator for HiC (promoted 2026-05-24 from additive to primary). Mirrors the working architecture in internal-solutions-socialresearch/backend/util/BertTopic.py — BERTopic with UMAP random_state=42 + HDBSCAN with auto-scaled min_cluster_size produces 15-25 stable clusters from a 200+ document corpus; an LLM names each cluster at temperature=0 from top-terms + 25 example documents. Theme identity comes from the deterministic clustering layer; LLM only names. Same cached corpus + same goal → same theme set. Per feedback_check_sister_services_first, the simpler proven architecture replaces the over-engineered LLM-extraction layer that produced 13 unstable themes on the 2026-05-24 Northeastern run.
+description: PRIMARY theme generator for HiC (promoted 2026-05-24 from additive to primary). Mirrors the working architecture in internal-solutions-socialresearch/backend/util/topic_model/BertTopic.py — BERTopic with UMAP random_state=42 + HDBSCAN with auto-scaled min_cluster_size produces 15-25 stable clusters from a 200+ document corpus; an LLM names each cluster at temperature=0 from top-terms + 25 example documents. Theme identity comes from the deterministic clustering layer; LLM only names. Same cached corpus + same goal → same theme set. Per feedback_check_sister_services_first, the simpler proven architecture replaces the over-engineered LLM-extraction layer that produced 13 unstable themes on the 2026-05-24 Northeastern run.
 thinking: high
 category: upstream-quality
 triggers:
@@ -69,7 +69,7 @@ The existing LLM extraction (`_runBreadthPass` and related) becomes the FALLBACK
 ## Composition
 
 - **Reads from**: `proxy/topic_modeling.py` via `/api/topic-model/analyze` + `/api/topic-model/status`
-- **Reference implementation**: `internal-solutions-socialresearch/backend/util/BertTopic.py` (verified working)
+- **Reference implementation**: `internal-solutions-socialresearch/backend/util/topic_model/BertTopic.py` (verified working)
 - **Naming pattern**: `internal-solutions-socialresearch/backend/util/topic_prompt.py:9-29`
 - **Pairs with**: `deterministic-naming-pass` (the temperature=0 contract this skill honors), `theme-yield-guarantee` v2.0 (the count-is-from-algorithm rule)
 - **Validated by**: `validate_theme_yield.py`, `validate_theme_reproducibility.py`, `validate_evidence_tier_distribution.py`, `validate_citation_resolution.py`, `validate_source_diversity.py`

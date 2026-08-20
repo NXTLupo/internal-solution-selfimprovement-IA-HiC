@@ -58,6 +58,15 @@ export interface SessionSnapshot {
         source_toggles?: Record<string, boolean>;
         // File metadata (full bodies live in the wiki/uploads/ archive)
         file_names?: string[];
+        // DF-I1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md):
+        // chat-generated artifacts. Their ABSENCE here was the recorded live
+        // defect: a deck generated inside a restored session vanished on the
+        // next restore, because the autosave could not see state that lives in
+        // the chat panel. deer-flow's DurableContextMiddleware fixes the same
+        // class of bug by projecting derived state into a durable record at
+        // generation time instead of hoping the saver can reach it.
+        slides?: any[];
+        deliverables?: any[];
     };
     chat: Array<{
         id: string;
@@ -82,6 +91,47 @@ export interface SessionSnapshot {
     };
     reddit_deep?: any[];      // raw deep-Reddit items for topic-modeling re-runs
     learned_constraints?: string;
+}
+
+/**
+ * DF-I1 - DURABLE ARTIFACT PROJECTION.
+ *
+ * Chat-generated artifacts (decks, deliverables) live in CorpusChatPanel state,
+ * which the autosave in App.tsx cannot reach. Rather than thread props through
+ * three mount sites, the panel PROJECTS its artifacts here as they are produced
+ * and the saver reads the projection. This mirrors deer-flow's
+ * DurableContextMiddleware, which captures delegations and loaded skills into
+ * durable state BEFORE compaction can drop them: derived state is recorded when
+ * it is created, not when someone remembers to look for it.
+ */
+export interface DurableArtifacts { slides?: any[]; deliverables?: any[] }
+
+let _durableArtifacts: DurableArtifacts = {};
+const _durableSubs = new Set<(d: DurableArtifacts) => void>();
+
+export function projectDurableArtifacts(patch: Partial<DurableArtifacts>): void {
+    _durableArtifacts = { ..._durableArtifacts, ...patch };
+    for (const cb of Array.from(_durableSubs)) {
+        try { cb(_durableArtifacts); } catch { /* a broken subscriber never breaks the projection */ }
+    }
+}
+
+export function readDurableArtifacts(): DurableArtifacts {
+    return _durableArtifacts;
+}
+
+/** Subscribe to projection changes. Returns the unsubscribe function. */
+export function subscribeDurableArtifacts(cb: (d: DurableArtifacts) => void): () => void {
+    _durableSubs.add(cb);
+    return () => { _durableSubs.delete(cb); };
+}
+
+/** Clear on a new engagement so one run's deck cannot leak into the next. */
+export function resetDurableArtifacts(): void {
+    _durableArtifacts = {};
+    for (const cb of Array.from(_durableSubs)) {
+        try { cb(_durableArtifacts); } catch { /* ignore */ }
+    }
 }
 
 export async function saveSession(snapshot: SessionSnapshot, slug?: string): Promise<{
@@ -208,6 +258,9 @@ export function buildSessionSnapshot(input: {
     learnedConstraints?: string;
     status?: 'in-progress' | 'complete' | 'archived';
     createdAt?: string;
+    // DF-I1: chat-generated artifacts. Omit them and the projection is used.
+    slides?: any[];
+    deliverables?: any[];
 }): SessionSnapshot {
     const now = new Date().toISOString();
     return {
@@ -241,6 +294,10 @@ export function buildSessionSnapshot(input: {
             analysis_approach: input.analysisApproach,
             source_toggles: input.sourceToggles,
             file_names: input.fileNames,
+            // DF-I1: fall back to the durable projection so a deck generated in
+            // the chat panel is saved even when the caller never saw it.
+            slides: input.slides ?? readDurableArtifacts().slides,
+            deliverables: input.deliverables ?? readDurableArtifacts().deliverables,
         },
         chat: input.chatMessages || [],
         topic_model: input.topicModelResult,
@@ -262,6 +319,8 @@ export function buildSessionSnapshot(input: {
  *  manages, so the receiving side just spreads the keys. */
 export function restoreSessionSnapshot(snap: SessionSnapshot) {
     return {
+        slides: snap.state.slides,
+        deliverables: snap.state.deliverables,
         researchGoal: snap.metadata.research_goal,
         selectedOutputs: snap.metadata.selected_outputs,
         selectedLens: snap.metadata.selected_lens,

@@ -39,7 +39,7 @@ If current branch is `main`, STOP and tell the user — you cannot commit on mai
 Exclude by default:
 - `humans-in-control-research/hic-workspace/wiki/articles/`
 - `humans-in-control-research/hic-workspace/wiki/transcripts/`
-- `humans-in-control-research/hic-workspace/wiki/.embeddings.json`
+- `humans-in-control-research/hic-workspace/wiki/.manifest.json`
 - `humans-in-control-research/hic-workspace/sessions/*/`
 - Any `dist/`, `node_modules/`, `.venv/`, `__pycache__/`
 
