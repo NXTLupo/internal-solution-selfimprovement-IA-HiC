@@ -254,6 +254,32 @@ if (!existsSync(SKILLS_ROOT)) {
 const skillDirs = discoverSkills(SKILLS_ROOT);
 const names = new Map();
 
+/**
+ * Skill names referenced from CODE. A composition map that names a skill with no
+ * package behind it degrades a prompt silently: `human-voice-editor` was listed
+ * for every deliverable from 2026-06-14 to 2026-08-20 with no file behind it,
+ * and the loader swallowed the miss. Cheap to check, so it is checked.
+ */
+function codeReferencedSkills() {
+    const refs = new Map();   // name -> source file
+    const sources = [
+        join(HIC_ROOT, 'services', 'deliverableFrameworks.ts'),
+    ];
+    for (const file of sources) {
+        let text;
+        try { text = readFileSync(file, 'utf8'); } catch { continue; }
+        const block = /QUALITY_SKILL_COMPOSITION[\s\S]*?\n\};/.exec(text);
+        if (!block) continue;
+        for (const m of block[0].matchAll(/'([a-z0-9][a-z0-9-]{2,})'/g)) {
+            const name = m[1];
+            // Deliverable keys are UPPER_SNAKE, so a lowercase hyphen-case token
+            // inside the map is a skill name.
+            if (!refs.has(name)) refs.set(name, relative(REPO_ROOT, file).replace(/\\/g, '/'));
+        }
+    }
+    return refs;
+}
+
 for (const dir of skillDirs) {
     const rel = relative(SKILLS_ROOT, dir).replace(/\\/g, '/');
     const files = listFiles(dir);
@@ -269,6 +295,14 @@ for (const dir of skillDirs) {
         else names.set(name, rel);
     }
     checkResourceGraph(dir, rel, files);
+}
+
+// Every code-referenced skill must exist.
+for (const [name, source] of codeReferencedSkills()) {
+    if (!names.has(name)) {
+        add('error', 'skill.referenced-but-absent', name,
+            `referenced by ${source} but no skill package declares this name; the loader fails silently, so the prompt is quietly missing it`);
+    }
 }
 
 const errors = findings.filter(f => f.severity === 'error');

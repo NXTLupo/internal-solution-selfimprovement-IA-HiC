@@ -185,6 +185,12 @@ async function _fetchQualitySkillMd(skillName: string): Promise<string> {
             return content;
         } catch { /* try next */ }
     }
+    // 2026-08-20: this used to fail SILENTLY. `human-voice-editor` was listed for
+    // every deliverable from 2026-06-14 with no file behind it, so the additive
+    // half of the writing contract contributed nothing for two months while the
+    // chat log reported it as loaded. A composed skill that cannot be read is a
+    // configuration defect, not a soft degrade.
+    console.warn(`[qualitySkills] "${skillName}" is composed for a deliverable but no SKILL.md could be read from ${paths.join(' | ')}. It is contributing NOTHING to the prompt.`);
     _qualitySkillCache.set(skillName, '');
     return '';
 }

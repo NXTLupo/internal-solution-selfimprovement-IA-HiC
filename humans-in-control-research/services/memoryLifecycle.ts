@@ -568,11 +568,21 @@ export function renderFactsForInjection(facts: MemoryFact[], maxChars = 2400): s
 
 const STORE_PATH = 'synthesis/memory-facts.json';
 
+/**
+ * DF-A4 read-before-write: the hash of the store as it was last READ. The fact
+ * store is the one true read-modify-write file in this service (load, mutate,
+ * save), which is exactly the pattern a stale write corrupts, so it presents the
+ * precondition on save. A 409 means another writer won; the caller re-loads and
+ * re-runs the pass rather than clobbering.
+ */
+let _lastReadHash: string | null = null;
+
 export async function loadFactStore(): Promise<StepEnvelope<MemoryFact[]>> {
     return runStep('memory:load', async () => {
         const r = await fetch(`${PROXY_BASE}/api/wiki/read/${STORE_PATH}`);
         if (!r.ok) throw new Error(`wiki read failed: ${r.status}`);
         const data = await r.json();
+        _lastReadHash = typeof data?.content_sha256 === 'string' ? data.content_sha256 : null;
         if (!data?.exists || !data?.content) return [];
         const parsed = JSON.parse(data.content);
         return Array.isArray(parsed) ? parsed as MemoryFact[] : [];
@@ -584,9 +594,20 @@ export async function saveFactStore(facts: MemoryFact[]): Promise<StepEnvelope<n
         const r = await fetch(`${PROXY_BASE}/api/wiki/write`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ path: STORE_PATH, content: JSON.stringify(facts, null, 2) }),
+            body: JSON.stringify({
+                path: STORE_PATH,
+                content: JSON.stringify(facts, null, 2),
+                ...(_lastReadHash ? { expected_sha256: _lastReadHash } : {}),
+            }),
         });
+        if (r.status === 409) {
+            // Do not retry blindly: the next pass re-reads and recomputes, which
+            // is the only safe resolution for a snapshot-derived write.
+            throw new Error('stale write: the fact store changed since it was read');
+        }
         if (!r.ok) throw new Error(`wiki write failed: ${r.status}`);
+        // The write succeeded, so the caller's in-memory view is now the file.
+        _lastReadHash = null;
         return facts.length;
     });
 }

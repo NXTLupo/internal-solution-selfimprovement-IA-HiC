@@ -21,6 +21,7 @@ import { readFeedbackIndex, type FeedbackSummary, type FeedbackIndex } from './f
 import { persistChunkOverride, type ArtifactType } from './chunkBudgetCalculator';
 import { evaluateConstraint, normalizeConstraintKey } from './constraintQualityGate';
 import { reviewSkillPatch, reviewSummary } from './skillReview';
+import type { LifecyclePassReport } from './memoryLifecycle';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -111,6 +112,8 @@ export interface ImprovementCandidate {
 }
 
 export interface LearningPassResult {
+    /** DF-D lifecycle report for this pass; null when skipped or dry-run. */
+    secondBrain?: LifecyclePassReport | null;
     runId: string;
     startedAt: string;
     finishedAt: string;
@@ -841,6 +844,31 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
         .filter(c => c.decision === 'retire')
         .map(c => c.text);
 
+    // SECOND-BRAIN PASS (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md).
+    // `reviewConstraintEffectiveness` above retires a constraint only after 20
+    // applications below a floor, so a constraint that is simply OUT OF DATE
+    // lived forever and nothing ever consolidated fragments. The lifecycle pass
+    // adds the missing halves: every applied constraint is admitted as a TYPED
+    // fact (a negative-signal constraint becomes a `correction`, which the
+    // staleness pass protects), aged facts get reviewed, fragmented categories
+    // get merged, and capacity is enforced. Non-blocking and non-fatal: a
+    // failure here never fails the learning pass.
+    let secondBrain: LifecyclePassReport | null = null;
+    if (!opts.dryRun) {
+        try {
+            const { runSecondBrainPass, constraintToProposedFact } = await import('./secondBrainPass');
+            const proposed = applied.map(c => constraintToProposedFact(c.payload, {
+                confidence: c.confidence,
+                fromNegativeSignal: c.cluster.polarity === 'negative',
+                deliverableType: c.cluster.deliverableType,
+            }));
+            const pass = await runSecondBrainPass({ runId, proposed });
+            secondBrain = pass.report;
+        } catch (e: any) {
+            console.warn('[LearningEngine] second-brain pass skipped:', e?.message || e);
+        }
+    }
+
     const finishedAt = new Date();
     const result: LearningPassResult = {
         runId,
@@ -855,6 +883,7 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
         skillsTouched,
         constraintsRetired,
         chunkConfigsPromoted,
+        secondBrain,
     };
 
     if (!opts.dryRun) {

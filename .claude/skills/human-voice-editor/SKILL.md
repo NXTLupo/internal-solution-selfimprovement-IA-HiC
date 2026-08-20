@@ -1,9 +1,15 @@
 ---
-name: human-voice
-description: The POSITIVE half of HiC's writing contract. The 350+ banned phrases in .claude/CLAUDE.md say what not to write; this says what to write instead. Three parts only: register (how a knowledgeable colleague actually talks), audience calibration (executive, practitioner, mixed) with a worked sentence per audience, and sentence economy. Load this alongside any authoring skill (deck-narrative-composer, strategy-author, recommendation-architect, case-study-analyst, explainer, report writers) and whenever the deterministic prose signal in services/proseSignal.ts flags cadence, openers, actors, copula or dilution.
+name: human-voice-editor
+description: Pillar 4, the POSITIVE half of HiC's writing contract. The 350+ banned phrases in .claude/CLAUDE.md say what not to write; this says what to write instead. Three parts only: register (how a knowledgeable colleague actually talks), audience calibration (executive, practitioner, mixed) with a worked sentence per audience, and sentence economy. Load this alongside any authoring skill (deck-narrative-composer, strategy-author, recommendation-architect, case-study-analyst, explainer, report writers) and whenever the deterministic prose signal in services/proseSignal.ts flags cadence, openers, actors, copula or dilution.
 ---
 
 # Human voice
+
+> This skill is the `human-voice-editor` entry that `services/deliverableFrameworks.ts`
+> `QUALITY_SKILL_COMPOSITION` has auto-loaded for EVERY deliverable since 2026-06-14. That
+> reference had no file behind it until 2026-08-20, and the loader fails silently, so the
+> additive half of the writing contract was a no-op for two months while the console
+> reported it as loaded. Keep the directory name matching the map entry.
 
 Subtractive rules stop the worst tells and cannot produce voice. A deck can clear
 every banned phrase and still read like a machine, because the strongest tell

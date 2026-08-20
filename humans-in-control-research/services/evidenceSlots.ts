@@ -92,7 +92,11 @@ export interface SlotReport {
 /** Statement shapes that assert a fact about the world rather than a judgment. */
 const QUANT_RE = /(?<![\w.])\d+(?:\.\d+)?\s?(?:%|percent|x|bps)|\$\s?\d|(?<![\w.])\d{2,}(?![\w%])/i;
 const CAUSAL_RE = /\b(because|therefore|as a result|drives|causes|leads to|results in|due to)\b/i;
-const ABSOLUTE_RE = /\b(all|every|none|never|always|only|first|largest|fastest|most)\b/i;
+// "every week", "every quarter" is a CADENCE, not an absolute claim about the
+// world, so the absolute detector must not fire when a time unit follows. Found
+// by the repair suite: a neutral operational sentence ("the registrar exports
+// enrollment every week") was being refused as an unsupported assertion.
+const ABSOLUTE_RE = /\b(all|every|none|never|always|only|first|largest|fastest|most)\b(?!\s+(?:day|week|month|quarter|year|term|semester|cycle|sprint|morning|night|time)s?\b)/i;
 const COMPARATIVE_RE = /\b(more than|less than|higher than|lower than|outperform\w*|versus|compared with|compared to)\b/i;
 /** Hedged or intent language is NOT a factual assertion; it needs no slot. */
 const NON_FACTUAL_RE = /\b(should|must|recommend\w*|consider|propose\w*|we will|plan to|could|may|might)\b/i;
@@ -283,12 +287,14 @@ export function evaluateEvidenceSlots(
             });
         }
 
-        // VIOLATION 1: a declarative factual claim with no pointer in its own field.
-        const p0Unfilled = section.requiredSlots.some(s => s.priority === 'P0')
-            && !fills.some(f => f.sectionId === section.sectionId && f.priority === 'P0' && f.state !== 'unfilled');
+        // VIOLATION 1: a declarative factual claim with no pointer in its OWN
+        // field. PROVENANCE LOCK rule 1 is per-field ("in the same field"), and
+        // the earlier section-level condition let an unsourced claim ride along
+        // beside a sourced sibling, which is exactly how a fabricated-sounding
+        // assertion reaches a slide that looks cited.
         for (const cf of claimFields) {
             const own = pointersOf(cf.value);
-            if (own.length === 0 && (p0Unfilled || allPointers.length === 0)) {
+            if (own.length === 0) {
                 violations.push({
                     sectionId: section.sectionId, title: section.title, field: cf.path,
                     claim: stripCitationArtifacts(cf.value).slice(0, 240),

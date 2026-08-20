@@ -43,6 +43,7 @@ import { quickIntentFilter, classifyChatIntent, directIntent, applyDeckTextPass,
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow } from '../services/citationVerifier';
 // DF-A3 / DF-G / DF-W: the ordered post-generation chain and its reports.
 import { runArtifactChain, type ChainResult } from '../services/artifactChain';
+import { repairArtifact } from '../services/artifactRepair';
 import { detectDomain } from '../services/evidenceSlots';
 // DF-I1: project chat-generated artifacts so the autosave can persist them.
 import { projectDurableArtifacts, subscribeDurableArtifacts } from '../services/sessionService';
@@ -4076,6 +4077,28 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
         if (result.proseReport && !result.proseReport.pass) {
             console.warn(`[prose-signal] ${result.proseReport.concerns.map(c => `${c.id}=${c.score.toFixed(2)}`).join(' ')}`);
+        }
+
+        // REPAIR PASS (2026-08-20): the 2026-08-20 live test proved the chain
+        // finds real defects and nothing acted on them, so the deck shipped with
+        // a console warning. The repair NARROWS unsupported claims through the
+        // WS-4 edit contract; it can never add a citation, a source or a number,
+        // and it is bounded by the progress guard. Survivors stay visible: the
+        // final chain result is what the UI shows, not the repairer's opinion.
+        if (!result.pass && result.repairInstruction) {
+            const repaired = await repairArtifact(result.slides as any[], result as any, {
+                runId, artifactType: 'slides', subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
+            });
+            if (repaired.rounds.length) {
+                const changedByRepair = new Map<string, SlideData>();
+                (repaired.slides as SlideData[]).forEach((f, i) => { if (f !== (result.slides as SlideData[])[i]) changedByRepair.set(f.id, f); });
+                if (changedByRepair.size) setSlides(prev => prev.map(s => changedByRepair.get(s.id) || s));
+                if (repaired.finalChain.ledger.length) setVerificationLedgers(prev => ({ ...prev, [msgId]: repaired.finalChain.ledger }));
+                setChainReports(prev => ({ ...prev, [msgId]: repaired.finalChain }));
+                const before = result.slotReport?.violations.length ?? 0;
+                const after = repaired.finalChain.slotReport?.violations.length ?? 0;
+                console.info(`[artifact-repair] ${repaired.rounds.length} round(s), ${repaired.rounds.reduce((a, r) => a + r.fieldsEdited, 0)} field(s) rewritten, violations ${before} -> ${after}${repaired.stopReason ? ` (${repaired.stopReason})` : ''}`);
+            }
         }
     }, [getContext, context]);
     const [imageLoading, setImageLoading] = useState(false);
