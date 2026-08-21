@@ -80,6 +80,13 @@ export interface PostChainRecord {
         violationsAfter: number;
         stopReason?: string;
     } | null;
+    /** Deterministic pointer binding: what the runtime attached, and what it refused. */
+    binding: {
+        bound: number;
+        unbound: number;
+        byStrategy: Record<string, number>;
+        pointers: string[];
+    } | null;
     /** Layout quality: exhibit fit, archetype variety, cross-deck convergence. */
     deckQuality: {
         distinctArchetypes: number;
@@ -115,6 +122,15 @@ export function buildPostChainRecord<T>(
             unverified: final.gradeReport.unverified.length,
             superficial: final.gradeReport.superficial.length,
             rubricCritique: final.gradeReport.rubricCritique,
+        } : null,
+        binding: final.bindReport ? {
+            bound: final.bindReport.bound.length,
+            unbound: final.bindReport.unbound.length,
+            byStrategy: final.bindReport.bound.reduce((acc, b) => {
+                acc[b.strategy] = (acc[b.strategy] || 0) + 1;
+                return acc;
+            }, {} as Record<string, number>),
+            pointers: Array.from(new Set(final.bindReport.bound.map(b => b.pointer))).slice(0, 20),
         } : null,
         deckQuality: final.deckQualityReport ? {
             distinctArchetypes: final.deckQualityReport.distinctArchetypes,
@@ -166,6 +182,7 @@ export async function patchAirWithPostChain(
                             p0_coverage: record.evidence?.p0Coverage ?? 1,
                             prose_overall: record.prose?.overall ?? 1,
                             unverified_factual_claims: record.grade?.unverified ?? 0,
+                            pointers_bound: record.binding?.bound ?? 0,
                             distinct_archetypes: record.deckQuality?.distinctArchetypes ?? 0,
                             content_ratio: record.deckQuality?.contentRatio ?? 1,
                         },

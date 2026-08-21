@@ -28,7 +28,7 @@
  *     LAST of the text stages so it measures the final wording.
  */
 
-import { ok, fail, refuse, type StepEnvelope, envelopeTrace } from './stepEnvelope';
+import { ok, fail, refuse, partial, type StepEnvelope, envelopeTrace } from './stepEnvelope';
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow, type PageFetcher } from './citationVerifier';
 import { deClicheDeep, stripEmDashes, stripEmoji, stripFormatTells } from './slidePostProcessor';
 import { enumerateTextFields } from './slideTextEditing';
@@ -38,6 +38,7 @@ import {
     type ArtifactPlan, type SlotReport, type PlanSubQuestion, type SlotGateOptions,
 } from './evidenceSlots';
 import { gradeArtifact, buildGradeRepairInstruction, type GradeReport } from './outputGrader';
+import { bindPointers, readGroundingChunks, bindSummary, type BindReport, type BindableChunk } from './pointerBinder';
 import {
     evaluateDeckQuality, buildDeckQualityInstruction, noteDeckSequence, previousDeckSequence,
     type DeckQualityReport,
@@ -46,6 +47,7 @@ import {
 export type StageId =
     | 'normalize'
     | 'lexical'
+    | 'bindPointers'
     | 'provenance'
     | 'evidenceSlots'
     | 'prose'
@@ -57,6 +59,11 @@ export type StageId =
 export const STAGE_ORDER: StageId[] = [
     'normalize',
     'lexical',
+    // `bindPointers` runs BEFORE provenance and the evidence gate, because it
+    // supplies the pointers those two stages read. Three prompt-level attempts to
+    // make the model carry pointers itself were measured and failed; the runtime
+    // computes them from the chunk set the model was shown.
+    'bindPointers',
     'provenance',
     'evidenceSlots',
     'prose',
@@ -81,6 +88,8 @@ export interface ChainContext {
     subjectDomain?: string | null;
     /** Engagement slug, so this deck can be compared to the previous one. */
     engagementSlug?: string;
+    /** Grounding spans for pointer binding. Defaults to the run's projection. */
+    groundingChunks?: BindableChunk[];
     resolveSourceText?: SlotGateOptions['resolveSourceText'];
     /** Injected in tests; defaults to the real wiki fetcher inside the verifier. */
     fetchPage?: PageFetcher;
@@ -96,6 +105,7 @@ export interface ChainResult<T> {
     proseReport: ProseReport | null;
     gradeReport: GradeReport | null;
     deckQualityReport: DeckQualityReport | null;
+    bindReport: BindReport | null;
     plan: ArtifactPlan | null;
     /** Concatenated model-facing repair text. Empty when everything passed. */
     repairInstruction: string;
@@ -171,6 +181,7 @@ export async function runArtifactChain<T extends SlideLike>(
     let proseReport: ProseReport | null = null;
     let gradeReport: GradeReport | null = null;
     let deckQualityReport: DeckQualityReport | null = null;
+    let bindReport: BindReport | null = null;
     let plan: ArtifactPlan | null = null;
     const repairs: string[] = [];
 
@@ -195,6 +206,24 @@ export async function runArtifactChain<T extends SlideLike>(
                         return deClicheDeep(scrubbed) as T;
                     });
                     envelopes.push(ok('chain:lexical', { slides: slides.length }));
+                    break;
+                }
+                case 'bindPointers': {
+                    const pool = ctx.groundingChunks ?? readGroundingChunks();
+                    if (!pool.length) {
+                        envelopes.push(partial('chain:bindPointers', { bound: 0 },
+                            'no grounding spans available for this run', { nextAction: 'continue' }));
+                        break;
+                    }
+                    const res = bindPointers(slides, pool);
+                    slides = res.slides;
+                    bindReport = res.report;
+                    console.info(`[pointer-binder] ${bindSummary(res.report)}`);
+                    envelopes.push(res.report.bound.length
+                        ? ok('chain:bindPointers', { bound: res.report.bound.length, unbound: res.report.unbound.length })
+                        : partial('chain:bindPointers', { bound: 0, unbound: res.report.unbound.length },
+                            `no span cleared the binding bar for ${res.report.fieldsConsidered} field(s)`,
+                            { nextAction: 'continue' }));
                     break;
                 }
                 case 'provenance': {
@@ -302,7 +331,7 @@ export async function runArtifactChain<T extends SlideLike>(
     const trace = envelopes.map(envelopeTrace);
     const pass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
     return {
-        slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, plan,
+        slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, bindReport, plan,
         repairInstruction: repairs.filter(Boolean).join('\n\n'),
         trace, pass,
     };

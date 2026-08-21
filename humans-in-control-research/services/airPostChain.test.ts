@@ -30,6 +30,10 @@ const chain = (over: any = {}) => ({
         claims: [{ type: 'factual' }, { type: 'process' }], unverified: [{}], superficial: [],
         rubricCritique: ['the provenance verifier produced no rows'], pass: false, summary: 's',
     },
+    bindReport: {
+        bound: [{ slideId: 's1', field: 'source', pointer: 'articles/x/y1.md#c1', strategy: 'label', score: 1, reason: 'r' }],
+        unbound: [], fieldsConsidered: 1,
+    },
     deckQualityReport: {
         findings: [{ kind: 'exhibit_underfilled', template: 'slides:ranked-bars', detail: 'carries 2 bars (needs 3)', remedy: 'fill or re-map' }],
         distinctArchetypes: 3, contentRatio: 0.5, sequence: ['slides:cover'], pass: false,
@@ -84,6 +88,8 @@ describe('patchAirWithPostChain', () => {
         expect(body.patch.qualityReport.deterministicFailures).toContain('prose:actors');
         expect(body.patch.qualityReport.deterministicFailures).toContain('layout:exhibit_underfilled@slides:ranked-bars');
         expect(body.patch.postChain.deckQuality).toMatchObject({ distinctArchetypes: 3, contentRatio: 0.5 });
+        expect(body.patch.postChain.binding).toMatchObject({ bound: 1, unbound: 0, byStrategy: { label: 1 } });
+        expect(body.patch.qualityReport.reviewScores.pointers_bound).toBe(1);
         expect(body.patch.qualityReport.reviewScores).toMatchObject({ p0_coverage: 0, unverified_factual_claims: 1 });
         expect(body.patch.qualityReport.chainPass).toBe(false);
         expect(body.patch.postChain.chainTrace).toHaveLength(1);

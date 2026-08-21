@@ -1040,3 +1040,93 @@ which is the same move the provenance lock already made for source NAMES.
 Secondary, cheap, and worth doing alongside: rewrite the archetype table cells
 themselves so every `sourceLine` / `source` occurrence reads
 `source (name + [pointer])`. The table is what the model copies.
+
+---
+
+## G1 CLOSED: pointers are COMPUTED, not requested (2026-08-21)
+
+Three prompt-level attempts were measured on live decks and all three produced
+zero pointers. `services/pointerBinder.ts` stops asking and computes the pointer
+from the chunk set the model was shown, which is the same move the provenance lock
+already made for source NAMES.
+
+### How it binds
+
+**Strategy A, label match.** A field that already names a source is matched to the
+chunk that records it, in three tiers: exact recorded name, containment either
+way, then THE PAGE SLUG. That third tier is what makes the strategy work on real
+decks, and real data is what revealed the need for it: the model writes the
+PUBLISHER ("Clockwork") while the chunk records the ARTICLE TITLE ("3 Ways Data
+Enrichment Accelerates Executive Search"), so name-to-name matching found nothing
+on a deck whose evidence was sitting right there. The slug
+(`articles/exs-clockwork/63e5475889.md#c1`) is derived from the source at ingest
+and is the only place the publisher and the chunk meet. Container segments
+(`articles`, `transcripts`) and content hashes are excluded, and a label word must
+be at least five characters, so a fragment cannot claim an unrelated source.
+
+**Strategy B, claim match.** A claim-bearing field with no pointer and no label is
+matched to the span it was drawn from by distinctive-term overlap (numbers,
+hyphenated compounds, long words, capitalized names) plus a verbatim-run bonus.
+The bar is high on purpose: at least three shared distinctive terms, a five-token
+verbatim run, and a combined score of 0.34.
+
+Under-binding is merely conservative, because the evidence gate then narrows the
+claim. Over-binding attaches a real pointer to a claim its span does not support,
+which is fabrication wearing a citation, so every binding is re-checked by
+`citationVerifier` immediately afterwards. The stage runs THIRD in the chain,
+before provenance and before the evidence gate, because it supplies what both of
+them read.
+
+### Measured on the real artifact
+
+Run against the actual payload and the actual 49-chunk evidence ledger of the
+2026-08-21 live deck, the one three prompt fixes left at zero:
+
+```
+chunksFromLedger: 49      slidesParsed: 3       labelFieldsInDeck: 6
+pointersBefore:   0   ->  pointersAfter: 10
+bound:
+  label:sourceLine              -> articles/exs-clockwork/63e5475889.md#c1
+  label:sourceLine              -> articles/exs-recruiterflow/26b00acd34.md#c2
+  label:sourceLine              -> articles/exs-chief-executive/8e5464b62a.md#c1
+  label:attributionName         -> articles/exs-clockwork/63e5475889.md#c1
+  label:corroborating[1].source -> social-intelligence/reddit-deep/consulting/1rlukge.md#c2
+  claim:quote                   -> articles/exs-clockwork/5af374bb9c.md#c1
+  claim:corroborating[0].label  -> articles/exs-clockwork/5af374bb9c.md#c1
+refused (correctly):
+  intro                  no chunk shares enough distinctive terms with this claim
+  rows[0].implication    no chunk shares enough distinctive terms with this claim
+```
+
+The refusals matter as much as the bindings: two claims whose text matches no
+retrieved span were left alone for the evidence gate to narrow, rather than being
+given a pointer that would not survive verification.
+
+### A defect this uncovered
+
+`isFactualClaim` matched digits but not SPELLED-OUT quantities, so "Clockwork
+frames retained search as eight discrete stages, and research absorbs the majority
+of consultant hours" was not treated as a claim at all: the gate never asked for
+evidence and the binder never tried to attach any. The 2026-08-17 provenance work
+had recorded "spelled-out numbers unchecked" as a known gap; this is that gap
+biting. Now covered (one through twelve, dozens/hundreds/thousands/millions,
+majority, minority, half, third, quarter, double, triple, twofold, threefold).
+
+### The gate found a bug in itself
+
+`check:content` reported two shipped artifacts as carrying QA annotations. Both
+were `_evidenceGap`, an underscore-prefixed internal carrier, which
+`.claude/CLAUDE.md` explicitly PERMITS in JSON fields as long as it never reaches
+user-visible text. The gate was wrong about the rule it enforces, and now strips
+internal carriers before inspecting.
+
+### Verification status
+
+Unit-tested (19 cases on the binder, including the real-data regression and the
+three refusal paths), typecheck clean, 931/931 tests across 97 files, and all four
+gates green. The chain wiring is in the served bundle. The binder has NOT yet been
+observed firing inside a browser run: the verification generation was still in the
+model call after fifteen minutes and the session ended before it landed. What IS
+proven is stronger than a single console line, though: the binder was executed
+against the real payload and the real chunk set of a completed live run and took it
+from 0 pointers to 10.

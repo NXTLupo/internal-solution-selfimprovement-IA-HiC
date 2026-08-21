@@ -17,11 +17,14 @@ const pageWith = (text: string) => async () => text;
 
 describe('STAGE_ORDER', () => {
     it('is the declared contract', () => {
-        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'provenance', 'evidenceSlots', 'prose', 'grade', 'renderPlan', 'deckQuality']);
+        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'bindPointers', 'provenance', 'evidenceSlots', 'prose', 'grade', 'renderPlan', 'deckQuality']);
     });
 
     it('scrubs before verifying, and counts slots after verification settles', () => {
         expect(STAGE_ORDER.indexOf('lexical')).toBeLessThan(STAGE_ORDER.indexOf('provenance'));
+        // Binding supplies the pointers provenance and the evidence gate read.
+        expect(STAGE_ORDER.indexOf('bindPointers')).toBeLessThan(STAGE_ORDER.indexOf('provenance'));
+        expect(STAGE_ORDER.indexOf('bindPointers')).toBeLessThan(STAGE_ORDER.indexOf('evidenceSlots'));
         expect(STAGE_ORDER.indexOf('provenance')).toBeLessThan(STAGE_ORDER.indexOf('evidenceSlots'));
         expect(STAGE_ORDER.indexOf('evidenceSlots')).toBeLessThan(STAGE_ORDER.indexOf('prose'));
         // The grader grades the other gates, so it can only run after them.
@@ -123,5 +126,48 @@ describe('runArtifactChain', () => {
         const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith('') });
         const rp = res.envelopes.find(e => e.stepId === 'chain:renderPlan')!;
         expect(rp.value).toMatchObject({ withVisual: 1, total: 2, visualRatio: 0.5 });
+    });
+});
+
+describe('bindPointers stage', () => {
+    const CHUNK = {
+        id: 'articles/clockwork-blog/9f2a71c4de.md#c2',
+        text: 'Clockwork frames retained executive search as eight discrete stages, and research and sourcing absorb the majority of consultant hours.',
+        sourceNames: ['Clockwork'],
+    };
+
+    it('binds a bare source label so the evidence gate stops refusing the slide', async () => {
+        const slides = [slide('s1', {
+            title: 'Research and sourcing absorb the majority of consultant hours',
+            items: [{ heading: 'Clockwork frames retained executive search as eight discrete stages' }],
+            source: 'Clockwork',
+        })];
+        const before = await runArtifactChain(slides, { runId: 'r0', fetchPage: pageWith('') });
+        const after = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(CHUNK.text), groundingChunks: [CHUNK] });
+
+        expect(before.bindReport).toBeNull();
+        expect(after.bindReport!.bound.length).toBeGreaterThan(0);
+        expect(JSON.stringify(after.slides[0].composerPayload)).toContain(CHUNK.id);
+        // The whole point: coverage improves because the pointer is now present.
+        expect(after.slotReport!.p0Coverage).toBeGreaterThanOrEqual(before.slotReport!.p0Coverage);
+    });
+
+    it('records a partial envelope when no span clears the bar, and ships the deck anyway', async () => {
+        const slides = [slide('s1', {
+            title: 'A finding',
+            items: [{ heading: 'Adoption rose 40 percent because the desk changed tools' }],
+            source: 'Some Publication Nobody Retrieved',
+        })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(''), groundingChunks: [CHUNK] });
+        const env = res.envelopes.find(e => e.stepId === 'chain:bindPointers')!;
+        expect(env.status).toBe('partial');
+        expect(res.slides).toHaveLength(1);
+    });
+
+    it('is a no-op with no grounding set, and says so', async () => {
+        const slides = [slide('s1', { title: 'A finding', items: [{ heading: 'x' }] })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(''), groundingChunks: [] });
+        const env = res.envelopes.find(e => e.stepId === 'chain:bindPointers')!;
+        expect(env.message).toMatch(/no grounding spans/);
     });
 });

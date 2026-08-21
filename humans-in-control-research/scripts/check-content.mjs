@@ -88,15 +88,42 @@ function cadenceCV(text) {
     return Math.sqrt(variance) / mean;
 }
 
+/**
+ * Strip internal carriers before inspecting. `.claude/CLAUDE.md` is explicit that
+ * QA-style data MAY live in JSON fields and audit logs and must never reach
+ * user-visible text, so an underscore-prefixed carrier like `_evidenceGap` is
+ * COMPLIANT. The first version of this gate scanned the whole serialized payload
+ * and reported two such carriers as shipped QA annotations, which is the gate
+ * being wrong about the rule it enforces.
+ */
+function stripInternal(node) {
+    if (Array.isArray(node)) return node.map(stripInternal);
+    if (node && typeof node === 'object') {
+        const out = {};
+        for (const [k, v] of Object.entries(node)) {
+            if (k.startsWith('_')) continue;
+            out[k] = stripInternal(v);
+        }
+        return out;
+    }
+    return node;
+}
+
 /** Prefer the text the user received; fall back to what the model generated. */
 function shippedText(air) {
     const pc = air.postChain;
     if (pc && pc.shippedPayload) {
-        try { return JSON.stringify(pc.shippedPayload); } catch { /* fall through */ }
+        try { return JSON.stringify(stripInternal(pc.shippedPayload)); } catch { /* fall through */ }
     }
     const p = air.artifactPayload;
     if (typeof p === 'string') return p;
-    if (p && typeof p === 'object') return String(p.content || p.html || JSON.stringify(p));
+    if (p && typeof p === 'object') {
+        // `content` on the chat deck path is a fence STRING; internal carriers
+        // only appear once it has been parsed into payload objects.
+        if (typeof p.content === 'string') return p.content;
+        if (typeof p.html === 'string') return p.html;
+        try { return JSON.stringify(stripInternal(p)); } catch { return ''; }
+    }
     return '';
 }
 

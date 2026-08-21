@@ -98,6 +98,15 @@ const CAUSAL_RE = /\b(because|therefore|as a result|drives|causes|leads to|resul
 // enrollment every week") was being refused as an unsupported assertion.
 const ABSOLUTE_RE = /\b(all|every|none|never|always|only|first|largest|fastest|most)\b(?!\s+(?:day|week|month|quarter|year|term|semester|cycle|sprint|morning|night|time)s?\b)/i;
 const COMPARATIVE_RE = /\b(more than|less than|higher than|lower than|outperform\w*|versus|compared with|compared to)\b/i;
+/**
+ * SPELLED-OUT quantities. The 2026-08-17 provenance work recorded "spelled-out
+ * numbers unchecked" as a known gap, and the pointer binder walked straight into
+ * it: "Clockwork frames retained search as eight discrete stages, and research
+ * absorbs the majority of consultant hours" is a factual claim that QUANT_RE
+ * (digits only) and ABSOLUTE_RE both miss, so the gate never asked for evidence
+ * and the binder never tried to attach any.
+ */
+const QUANTITY_WORD_RE = /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|dozens?|hundreds?|thousands?|millions?|billions?|majority|minority|half|third|quarter|two-thirds|three-quarters|double|triple|twofold|threefold)\b/i;
 /** Hedged or intent language is NOT a factual assertion; it needs no slot. */
 const NON_FACTUAL_RE = /\b(should|must|recommend\w*|consider|propose\w*|we will|plan to|could|may|might)\b/i;
 
@@ -110,7 +119,7 @@ export function isFactualClaim(text: string): boolean {
     const t = stripCitationArtifacts(String(text || '')).trim();
     if (t.split(/\s+/).length < 6) return false;        // labels and headings
     if (NON_FACTUAL_RE.test(t)) return false;            // recommendation, not fact
-    return QUANT_RE.test(t) || CAUSAL_RE.test(t) || ABSOLUTE_RE.test(t) || COMPARATIVE_RE.test(t);
+    return QUANT_RE.test(t) || CAUSAL_RE.test(t) || ABSOLUTE_RE.test(t) || COMPARATIVE_RE.test(t) || QUANTITY_WORD_RE.test(t);
 }
 
 /** Manifest pointers carried by a field, e.g. `articles/x/ab12.md#c3`. */
