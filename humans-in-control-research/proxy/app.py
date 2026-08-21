@@ -3538,6 +3538,58 @@ async def air_write(req: Request):
         return JSONResponse({"persisted": False, "error": str(e)}, status_code=500)
 
 
+@app.post("/api/air/patch")
+async def air_patch(req: Request):
+    """Merge a patch into an already-persisted AIR record.
+
+    2026-08-21 (audit of the 2026-08-20 runs): AIR was written by emitDeliverable
+    at GENERATION time, so it recorded the model's raw output and nothing after
+    it. The lexical scrub, provenance relabeling, evidence-slot narrowing and the
+    repair pass were all invisible to the durable record, and `qualityReport`
+    reported `deterministicFailures: []` on a deck the chain had refused with four
+    evidence violations. Every AIR consumer (epoch proposer, pareto evaluator,
+    SkillOpt rollout mining) therefore read a clean record of an unclean artifact.
+
+    The patch is a SHALLOW merge, one level deep for dict values, so
+    `qualityReport` gains fields instead of losing the ones the emitter set. The
+    generated `artifactPayload` is never overwritten: the post-chain block carries
+    `shippedPayload` alongside it so the record holds the DIFF between what the
+    model wrote and what the gates made it say.
+
+    Body: {runId, artifactId, patch}.
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"patched": False, "error": "invalid JSON body"}, status_code=400)
+    run_id = _safe_air_id(str(body.get("runId") or ""))
+    artifact_id = _safe_air_id(str(body.get("artifactId") or ""))
+    patch = body.get("patch")
+    if not run_id or not artifact_id or not isinstance(patch, dict):
+        return JSONResponse({"patched": False, "error": "runId, artifactId, and patch object are required"}, status_code=400)
+    out_path = os.path.join(SESSIONS_BASE, run_id, "artifacts", f"{artifact_id}.air.json")
+    if not os.path.exists(out_path):
+        return JSONResponse({"patched": False, "error": "no such AIR record"}, status_code=404)
+    try:
+        with open(out_path, "r", encoding="utf-8") as f:
+            air = json.load(f)
+        if not isinstance(air, dict):
+            return JSONResponse({"patched": False, "error": "AIR record is not an object"}, status_code=422)
+        for key, value in patch.items():
+            if isinstance(value, dict) and isinstance(air.get(key), dict):
+                air[key] = {**air[key], **value}
+            else:
+                air[key] = value
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(air, f, ensure_ascii=True, separators=(",", ":"))
+        rel = out_path.replace("/hic-workspace/", "").replace(os.sep, "/")
+        logger.info(f"[air-patch] merged {sorted(patch.keys())} into AIR {run_id}/{artifact_id}")
+        return {"patched": True, "path": rel}
+    except Exception as e:
+        logger.warning(f"[air-patch] failed for {run_id}/{artifact_id}: {e}")
+        return JSONResponse({"patched": False, "error": str(e)}, status_code=500)
+
+
 @app.post("/api/sessions")
 async def session_save(req: Request):
     """Create or in-place update a session. Body shape:
@@ -4229,10 +4281,22 @@ async def clear_active_user_selection():
 # Lives at manifest.committed_provider so a single manifest read returns the
 # full engagement state.
 
-def _manifest_path(slug: str) -> str:
+def _manifest_path(slug: str, create: bool = False) -> str:
+    """Resolve the engagement manifest path.
+
+    2026-08-21 (audit finding): this helper used to `makedirs` UNCONDITIONALLY,
+    and `_read_manifest` calls it, so a READ created a session directory. The SPA
+    reads the provider commitment while the user is typing the research goal, so
+    every keystroke created a session folder named after the goal prefix: `a`,
+    `ac`, `act`, ... The workspace had accumulated 1,213 empty session directories
+    between 2026-06-11 and 2026-08-13, and `/api/sessions` walks all of them,
+    which is why the measured `library_open` latency was 3,493 ms. Directory
+    creation now belongs to the WRITE path only.
+    """
     safe = _safe_session_slug(slug)
     folder = os.path.join(SESSIONS_BASE, safe)
-    os.makedirs(folder, exist_ok=True)
+    if create:
+        os.makedirs(folder, exist_ok=True)
     return os.path.join(folder, "manifest.json")
 
 
@@ -4249,7 +4313,7 @@ def _read_manifest(slug: str) -> dict:
 
 
 def _write_manifest(slug: str, manifest: dict) -> None:
-    path = _manifest_path(slug)
+    path = _manifest_path(slug, create=True)
     tmp_path = path + ".tmp"
     with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)

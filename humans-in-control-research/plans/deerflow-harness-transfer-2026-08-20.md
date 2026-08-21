@@ -814,3 +814,107 @@ AI can act"), so the narrowing did not produce mush.
 - Not implemented: DF-C2 (step-output budget), DF-D8 (rebuildable index), DF-F
   (clarification card and goal state), DF-H (extraction tier), DF-V3/V4 (exhibit
   catalog, exhibits-before-prose). DF-A2 catch conversion remains partial.
+
+---
+
+## AUDIT OF THE LIVE RUNS (2026-08-21)
+
+Forensic audit of the three `#slides` runs that executed on 2026-08-20, reading the
+artifacts on disk rather than re-reading the console output that produced them.
+Verdict: **the transfer works, and the audit found four bugs, one of them mine and
+serious.**
+
+### Did it work?
+
+Yes, on the evidence. Across three independent Opus 4.8 decks the chain ran all
+seven stages, the gates found real defects every time, and the repair pass
+resolved them:
+
+| Run | Chain | Evidence gate | Repair |
+|---|---|---|---|
+| 10:08 | 7 stages, pass=false | 5 unsupported P0, coverage 0% | (pre-repair build) |
+| 11:22 | 7 stages, pass=false | 4 unsupported P0, coverage 0% | 2 rounds, 5 fields, 4 -> 0 |
+| 08-21 | 7 stages, pass=false | 4 unsupported P0, coverage 0% | 2 rounds, 5 fields, 4 -> 0 |
+
+Two independent confirmations that the gates are not decorative: the provenance
+verifier reported `4 claim(s) checked, 4 flagged` on the 08-21 run (it had reported
+`0 checked` on the earlier archetypes, so its coverage depends on which fields an
+archetype emits, not on the verifier being blind), and the deterministic prose
+signal flagged `actors` at 0.75 and 0.76 on two different decks.
+
+### Bugs found
+
+**BUG 1 (MINE, serious): AIR recorded the model's raw output and nothing after it.**
+`emitDeliverable` and the chat emitter both write AIR at GENERATION time, so the
+durable record held the pre-chain text with `qualityReport.deterministicFailures: []`
+on a deck the chain had simultaneously refused with four evidence violations.
+Every AIR consumer (epoch proposer, pareto evaluator, SkillOpt rollout mining) read
+a clean record of an unclean artifact, and SkillOpt would have trained on unrepaired
+text with a passing grade attached. This directly violated the plan's own principle
+that every artifact rides AIR. FIXED: `services/airPostChain.ts` +
+`POST /api/air/patch` fold the chain trace, the slot/prose/grade reports, the repair
+delta and the shipped payload into the record after the chain. The generated payload
+is deliberately preserved so the record carries the DIFF, which is the most useful
+training signal in the system: a labeled pair of what the model wrote and what the
+gates made it say.
+
+**BUG 2 (MINE, minor): the evidence-slots log printed the section title for every
+violation**, so two findings in one section read as the same claim flagged twice,
+during exactly the minute someone is trying to diagnose a refusal. FIXED: it now
+prints `kind section.field: "claim"`.
+
+**BUG 3 (MINE, found by the live run): only one of two AIR emitters was wired.**
+The first version of the post-chain patch registered `emitDeliverable`'s writer, but
+the chat deck path has its own emitter, so a live `#slides` run logged
+`[air-postchain] not recorded: no emitted AIR to patch` while an AIR file had just
+been written by the other one. FIXED: both emitters register, with a regression test.
+
+**BUG 4 (PRE-EXISTING, measured): a wiki READ was creating session directories.**
+`_manifest_path()` called `makedirs` unconditionally and `_read_manifest()` calls it,
+so the SPA's provider-commitment read created a session folder for every prefix of
+the goal as the user typed: `a`, `ac`, `act`, ... The workspace had **1,213 empty
+session directories** accumulated between 2026-06-11 and 2026-08-13, and
+`/api/sessions` walks all of them. FIXED: creation moved to the write path, and the
+1,213 empty directories were removed. Measured effect on `/api/sessions`:
+**2.0-3.0 s before, 0.18 s after**, with all five real sessions still listed. This
+also explains the `library_open 3,493 ms` latency line captured on 2026-08-20.
+
+### Observation, not a bug
+
+The AIR evidence ledger for the 11:22 run leads with a `resume-genius-blog` chunk
+about tailoring a resume, inside a retained-executive-search AI feasibility
+assessment. The grounding set admits consumer career-advice content for a
+professional-services question. Nothing fabricated it and no gate is wrong, but it
+is a retrieval-quality signal worth a look, and it is exactly what DF-G4's
+cross-domain framing check would catch if the deck had cited it.
+
+### Verification status of the audit fixes
+
+- Bug 2 and Bug 4: verified live. The new log format appeared on the 08-21 run, and
+  the directory fix was probed (three commitment reads, zero directories created)
+  plus measured on `/api/sessions`.
+- Bug 1 and Bug 3: unit-tested (9 cases), typechecked, and the `POST /api/air/patch`
+  endpoint was verified against a real record by curl (merge correct, no existing
+  key lost, `artifactPayload` preserved, probe reverted). The full browser path from
+  a fresh deck into `postChain` has NOT been observed end to end: the verification
+  run was still in the model call when the session ended. That last hop is the one
+  open verification item, and it is exactly the kind of gap this audit exists to
+  name rather than assume.
+
+### Gaps still open after the audit
+
+1. The generation prompt still does not bind manifest pointers to claims on the
+   `slides:*` archetypes. Every run refuses with 0% P0 coverage and the repair
+   narrows around it. Binding evidence upstream is the highest-value next change.
+2. The `#slides` deck emits AIR from a different writer than every other artifact.
+   Two emitters for one record is the kind of divergence the CONVERGE principle
+   exists to prevent; they should become one.
+3. Artifacts and session state live under DIFFERENT slugs for the same engagement
+   (`...-map-current-trends` holds 18 artifacts, `...-against-dsg-globals` holds
+   state and chat). The durable record of an engagement is split across two keys.
+4. An artifact was emitted at 10:37 on 2026-08-20 with no corresponding saved chat
+   turn, so the artifact stream and the session chat can diverge. Attribution for
+   that run could not be established from the artifacts alone.
+5. Unbuilt from the plan: DF-C2 (step-output budget), DF-D8 (rebuildable index),
+   DF-F (clarification card and goal state), DF-H (extraction tier), DF-V3/V4
+   (exhibit catalog, exhibits-before-prose). DF-A2 catch conversion remains partial.

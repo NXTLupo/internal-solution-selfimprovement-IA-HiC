@@ -396,8 +396,18 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
             if (!entry) {
                 console.warn(`[emitDeliverable/${opts.deliverable}] AIR: trigger '${opts.air.trigger}' not in artifact catalog - add it to services/artifactCatalog.ts`);
             }
-            void writeAir(air).then(w => {
-                if (w.persisted) console.info(`[emitDeliverable/${opts.deliverable}] AIR persisted (shadow): ${w.path}`);
+            void writeAir(air).then(async w => {
+                if (w.persisted) {
+                    console.info(`[emitDeliverable/${opts.deliverable}] AIR persisted (shadow): ${w.path}`);
+                    // 2026-08-21: record the id so the post-generation chain can
+                    // patch THIS record. The AIR id and the chat message id differ
+                    // by a few milliseconds, so deriving one from the other would
+                    // be a guess.
+                    try {
+                        const { noteEmittedAir } = await import('./airPostChain');
+                        noteEmittedAir({ runId, artifactId, artifactType: air.artifactType });
+                    } catch { /* non-fatal bookkeeping */ }
+                }
             }).catch(() => { /* fire-and-forget */ });
         } catch (e: any) {
             console.warn(`[emitDeliverable/${opts.deliverable}] AIR emission failed (non-fatal):`, e?.message || e);

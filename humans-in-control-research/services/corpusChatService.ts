@@ -4183,7 +4183,20 @@ ${deckComposerSkill}
                 } else if (_v.warnings.length) {
                     console.info(`[chat] AIR (${_trigger}) ok; well-formed ${Math.round(_v.wellFormedRatio * 100)}% - ${_v.warnings[0]}`);
                 }
-                void writeAir(_air).then(w => { if (w.persisted) console.info(`[chat] AIR persisted (blocking, ${Math.round(_v.wellFormedRatio * 100)}% well-formed): ${w.path}`); }).catch(() => { /* fire-and-forget */ });
+                void writeAir(_air).then(async w => {
+                    if (!w.persisted) return;
+                    console.info(`[chat] AIR persisted (blocking, ${Math.round(_v.wellFormedRatio * 100)}% well-formed): ${w.path}`);
+                    // 2026-08-21: record the id so the post-generation chain patches
+                    // THIS record. There are two AIR emitters (emitDeliverable for
+                    // the HTML-artifact path and this one for the chat deck path);
+                    // the first version of the post-chain patch only wired the
+                    // former, and the live run reported "no emitted AIR to patch"
+                    // on a #slides deck. Both emitters must register.
+                    try {
+                        const { noteEmittedAir } = await import('./airPostChain');
+                        noteEmittedAir({ runId: _air.runId, artifactId: _air.artifactId, artifactType: _air.artifactType });
+                    } catch { /* non-fatal bookkeeping */ }
+                }).catch(() => { /* fire-and-forget */ });
             } catch (airErr: any) {
                 console.warn('[chat] slide-deck AIR emission failed (non-fatal):', airErr?.message || airErr);
             }

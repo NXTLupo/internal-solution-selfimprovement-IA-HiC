@@ -44,6 +44,7 @@ import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow } from '../s
 // DF-A3 / DF-G / DF-W: the ordered post-generation chain and its reports.
 import { runArtifactChain, type ChainResult } from '../services/artifactChain';
 import { repairArtifact } from '../services/artifactRepair';
+import { buildPostChainRecord, patchAirWithPostChain } from '../services/airPostChain';
 import { detectDomain } from '../services/evidenceSlots';
 // DF-I1: project chat-generated artifacts so the autosave can persist them.
 import { projectDurableArtifacts, subscribeDurableArtifacts } from '../services/sessionService';
@@ -4072,13 +4073,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         console.info(`[artifact-chain] ${runId} pass=${result.pass}`, result.trace);
         console.info(`[provenance-lock] ${result.ledger.length} claim(s) checked, ${flagged} flagged (msg ${msgId})`);
         if (result.slotReport && !result.slotReport.pass) {
+            // Print the violating FIELD and its claim, not the section title: the
+            // first version printed `kind@title`, so two findings in one section
+            // read as the same claim flagged twice, which is actively misleading
+            // during the minute someone is trying to diagnose a refusal.
             console.warn(`[evidence-slots] ${result.slotReport.violations.length} violation(s), P0 coverage ${(result.slotReport.p0Coverage * 100).toFixed(0)}%`,
-                result.slotReport.violations.map(v => `${v.kind}@${v.title}`));
+                result.slotReport.violations.map(v => `${v.kind} ${v.sectionId}.${v.field}: "${v.claim.slice(0, 70)}"`));
         }
         if (result.proseReport && !result.proseReport.pass) {
             console.warn(`[prose-signal] ${result.proseReport.concerns.map(c => `${c.id}=${c.score.toFixed(2)}`).join(' ')}`);
         }
 
+        let chainForAir: typeof result = result;
+        let repairForAir: Awaited<ReturnType<typeof repairArtifact>> | null = null;
         // REPAIR PASS (2026-08-20): the 2026-08-20 live test proved the chain
         // finds real defects and nothing acted on them, so the deck shipped with
         // a console warning. The repair NARROWS unsupported claims through the
@@ -4099,6 +4106,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const after = repaired.finalChain.slotReport?.violations.length ?? 0;
                 console.info(`[artifact-repair] ${repaired.rounds.length} round(s), ${repaired.rounds.reduce((a, r) => a + r.fieldsEdited, 0)} field(s) rewritten, violations ${before} -> ${after}${repaired.stopReason ? ` (${repaired.stopReason})` : ''}`);
             }
+            chainForAir = repaired.finalChain as any;
+            repairForAir = repaired as any;
+        }
+
+        // 2026-08-21: fold the chain verdicts into the DURABLE record. AIR is
+        // written at generation time, so without this it holds the model's raw
+        // output plus a clean quality report, even when the chain refused the
+        // artifact. Fire-and-forget: bookkeeping never blocks the deck.
+        try {
+            const record = buildPostChainRecord(chainForAir as any, repairForAir as any, (repairForAir?.slides ?? result.slides) as any);
+            const patched = await patchAirWithPostChain(record);
+            if (patched.patched) console.info(`[air-postchain] chain verdicts recorded on ${patched.path}`);
+            else console.warn(`[air-postchain] not recorded: ${patched.error}`);
+        } catch (e: any) {
+            console.warn('[air-postchain] failed (non-fatal):', e?.message || e);
         }
     }, [getContext, context]);
     const [imageLoading, setImageLoading] = useState(false);
