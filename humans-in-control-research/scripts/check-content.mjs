@@ -57,10 +57,21 @@ const FORMAT_TELLS = [
 const findings = [];
 const add = (severity, rule, artifact, message) => findings.push({ severity, rule, artifact, message });
 
+/**
+ * Directories that hold PROCESS FEEDBACK, never a deliverable. Kept in sync with
+ * `services/stepBudget.ts::SCANNER_EXCLUDED_DIRS` by
+ * `stepBudget.test.ts`. deer-flow's rule is that a step dump must never be
+ * mistaken for an artifact; on this side the hazard is concrete, because this
+ * scanner grades whatever it finds and the session restore path rehydrates from
+ * the same tree.
+ */
+const EXCLUDED_DIRS = new Set(['.step-results']);
+
 function collectAirFiles() {
     if (!existsSync(SESSIONS)) return [];
     const out = [];
     for (const slug of readdirSync(SESSIONS)) {
+        if (EXCLUDED_DIRS.has(slug)) continue;
         const dir = join(SESSIONS, slug, 'artifacts');
         if (!existsSync(dir)) continue;
         for (const f of readdirSync(dir)) {

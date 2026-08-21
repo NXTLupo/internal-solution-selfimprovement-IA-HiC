@@ -3444,6 +3444,7 @@ async def knowledge_gaps_list(engagement_slug: str = Path(...)):
 #   GET    /api/sessions/{slug}/health — exists + bytes + last-modified
 
 SESSIONS_BASE = "/hic-workspace/sessions"
+import hashlib as _hashlib_for_steps
 SESSION_SCHEMA_VERSION = 1
 # Per-section filenames so loaders can fetch just what they need.
 SESSION_SECTION_FILES = {
@@ -3588,6 +3589,417 @@ async def air_patch(req: Request):
     except Exception as e:
         logger.warning(f"[air-patch] failed for {run_id}/{artifact_id}: {e}")
         return JSONResponse({"patched": False, "error": str(e)}, status_code=500)
+
+
+# ---------------------------------------------------------------------------
+# DF-C2 - STEP-RESULT OFFLOAD (plans/deerflow-harness-transfer-2026-08-20.md)
+#
+# An oversized step result is written here and replaced in the prompt by a typed
+# synopsis plus this pointer. The directory name is deliberate: `.step-results`
+# sits BESIDE `artifacts/`, never inside it, because deer-flow's rule is that
+# process feedback must never be mistaken for a deliverable. On this side that is
+# not a style point: `scripts/check-content.mjs` walks `artifacts/*.air.json` and
+# the session restore path rehydrates from the same folder, so a step dump landing
+# there would be graded as a shipped deck and could be restored as one.
+# ---------------------------------------------------------------------------
+
+STEP_RESULTS_DIRNAME = ".step-results"
+
+
+def _step_results_dir(slug: str, create: bool = False) -> str:
+    safe = _safe_session_slug(slug)
+    path = os.path.join(SESSIONS_BASE, safe, STEP_RESULTS_DIRNAME)
+    if create:
+        os.makedirs(path, exist_ok=True)
+    return path
+
+
+@app.post("/api/step-result/write")
+async def step_result_write(req: Request):
+    """Persist a full step result that was too large for the prompt.
+
+    Returns a pointer the model can be shown. Content-addressed, so the same
+    result written twice in a run costs one file and one pointer.
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"stored": False, "error": "invalid JSON body"}, status_code=400)
+    slug = str(body.get("slug") or "").strip()
+    step_id = str(body.get("step_id") or "").strip()
+    kind = str(body.get("kind") or "text").strip()
+    content = body.get("content")
+    if not slug or not step_id or not isinstance(content, str) or not content:
+        return JSONResponse({"stored": False, "error": "slug, step_id and non-empty content are required"}, status_code=400)
+    safe_step = "".join(c if (c.isalnum() or c in "-_.") else "-" for c in step_id)[:60] or "step"
+    digest = _hashlib_for_steps.sha256(content.encode("utf-8", "replace")).hexdigest()[:12]
+    try:
+        target_dir = _step_results_dir(slug, create=True)
+        name = f"{safe_step}.{digest}.txt"
+        path = os.path.join(target_dir, name)
+        if not os.path.exists(path):
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
+        pointer = f"{STEP_RESULTS_DIRNAME}/{name}"
+        logger.info(f"[step-result] {slug}: stored {len(content)} chars of {kind} at {pointer}")
+        return {"stored": True, "pointer": pointer, "chars": len(content), "sha256_12": digest}
+    except Exception as e:
+        logger.warning(f"[step-result] write failed for {slug}/{step_id}: {e}")
+        return JSONResponse({"stored": False, "error": str(e)}, status_code=500)
+
+
+@app.get("/api/step-result/read")
+async def step_result_read(slug: str, pointer: str, offset: int = 0, limit: int = 40000):
+    """Read back an offloaded step result. The synopsis tells the model this
+    endpoint exists; this is what makes the elision recoverable rather than a
+    silent truncation."""
+    name = os.path.basename(str(pointer or ""))
+    if not name or name.startswith("."):
+        return JSONResponse({"found": False, "error": "invalid pointer"}, status_code=400)
+    path = os.path.join(_step_results_dir(slug), name)
+    if not os.path.exists(path):
+        return JSONResponse({"found": False, "error": "no such step result"}, status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            full = f.read()
+        start = max(0, int(offset))
+        window = full[start:start + max(1, min(int(limit), 200000))]
+        return {
+            "found": True, "content": window, "offset": start,
+            "chars_total": len(full), "chars_returned": len(window),
+            "truncated": start + len(window) < len(full),
+        }
+    except Exception as e:
+        return JSONResponse({"found": False, "error": str(e)}, status_code=500)
+
+
+# ---------------------------------------------------------------------------
+# DF-D8 - REBUILDABLE FACT INDEX
+#
+# A DERIVED index over `wiki/synthesis/memory-facts.json`, never a source of
+# truth. deer-flow's rule, copied exactly: corrupt means delete and rebuild once,
+# then fall back to substring matching and mark the scope DIRTY. The dirty flag is
+# the part that matters. An index that silently degrades to substring search looks
+# like a working index returning fewer hits, and a second brain that quietly stops
+# recalling is worse than one that reports it cannot.
+#
+# SQLite FTS5 rather than a new dependency: the module is in the Python standard
+# library and the proxy already owns the filesystem.
+# ---------------------------------------------------------------------------
+
+FACT_STORE_REL = "synthesis/memory-facts.json"
+_FACT_INDEX_PATH = "/hic-workspace/wiki/.fact-index.sqlite3"
+_fact_index_state = {"built": False, "dirty": False, "reason": "", "facts": 0, "rebuilds": 0}
+
+
+def _fact_store_path() -> str:
+    return os.path.join("/hic-workspace/wiki", FACT_STORE_REL)
+
+
+def _load_facts_raw() -> list:
+    path = _fact_store_path()
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            data = data.get("facts") or []
+        return [f for f in data if isinstance(f, dict)]
+    except Exception as e:
+        logger.warning(f"[fact-index] fact store unreadable: {e}")
+        return []
+
+
+def _fact_index_build(force: bool = False) -> dict:
+    """(Re)build the derived index. Never raises: a failure marks the scope dirty
+    and the search endpoint degrades to substring, which is a real answer."""
+    import sqlite3
+    facts = _load_facts_raw()
+    try:
+        if force and os.path.exists(_FACT_INDEX_PATH):
+            os.remove(_FACT_INDEX_PATH)
+        conn = sqlite3.connect(_FACT_INDEX_PATH)
+        try:
+            conn.execute("DROP TABLE IF EXISTS facts_fts")
+            conn.execute(
+                "CREATE VIRTUAL TABLE facts_fts USING fts5("
+                "fact_id UNINDEXED, category UNINDEXED, scope UNINDEXED, statement, context)"
+            )
+            rows = [
+                (
+                    str(f.get("id") or ""),
+                    str(f.get("category") or ""),
+                    str(f.get("scope") or ""),
+                    str(f.get("statement") or ""),
+                    " ".join(str(f.get(k) or "") for k in ("why", "howToApply", "source", "tags")),
+                )
+                for f in facts
+            ]
+            conn.executemany("INSERT INTO facts_fts VALUES (?,?,?,?,?)", rows)
+            conn.commit()
+        finally:
+            conn.close()
+        _fact_index_state.update({"built": True, "dirty": False, "reason": "", "facts": len(facts)})
+        _fact_index_state["rebuilds"] = _fact_index_state.get("rebuilds", 0) + 1
+        logger.info(f"[fact-index] built over {len(facts)} fact(s)")
+    except Exception as e:
+        _fact_index_state.update({"built": False, "dirty": True, "reason": str(e), "facts": len(facts)})
+        logger.warning(f"[fact-index] build failed, scope marked dirty: {e}")
+    return dict(_fact_index_state)
+
+
+def _fact_search_substring(query: str, limit: int) -> list:
+    needle = (query or "").strip().lower()
+    if not needle:
+        return []
+    terms = [t for t in needle.split() if len(t) > 2]
+    out = []
+    for f in _load_facts_raw():
+        hay = " ".join(str(f.get(k) or "") for k in ("statement", "why", "howToApply", "tags")).lower()
+        hits = sum(1 for t in terms if t in hay)
+        if hits:
+            out.append((hits, f))
+    out.sort(key=lambda p: -p[0])
+    return [f for _, f in out[:limit]]
+
+
+@app.post("/api/facts/index/rebuild")
+async def facts_index_rebuild():
+    """Delete and rebuild once. Exposed because the recovery path must be
+    operable without a proxy restart."""
+    return _fact_index_build(force=True)
+
+
+def _fact_query_fts(q: str, limit: int) -> list:
+    """Run the FTS query. Raises on a corrupt index so the caller can decide
+    whether to rebuild or degrade."""
+    import sqlite3
+    # FTS5 treats bare punctuation as syntax; quote every term so a user phrase
+    # can never become a malformed MATCH expression.
+    cleaned = "".join(c if c.isalnum() or c.isspace() else " " for c in (q or ""))
+    terms = [t for t in cleaned.split() if t]
+    if not terms:
+        return []
+    expr = " OR ".join('"' + t + '"' for t in terms)
+    conn = sqlite3.connect(_FACT_INDEX_PATH)
+    try:
+        cur = conn.execute(
+            "SELECT fact_id, category, scope, statement FROM facts_fts "
+            "WHERE facts_fts MATCH ? ORDER BY rank LIMIT ?",
+            (expr, limit),
+        )
+        return [
+            {"id": r[0], "category": r[1], "scope": r[2], "statement": r[3]}
+            for r in cur.fetchall()
+        ]
+    finally:
+        conn.close()
+
+
+@app.get("/api/facts/search")
+async def facts_search(q: str, limit: int = 10):
+    """Search the second brain. ALWAYS reports which engine answered and whether
+    the scope is dirty, so a degraded recall is visible to its caller."""
+    limit = max(1, min(int(limit or 10), 50))
+    if not _fact_index_state["built"]:
+        _fact_index_build()
+    if _fact_index_state["built"]:
+        try:
+            rows = _fact_query_fts(q, limit)
+            return {"engine": "fts5", "dirty": False, "results": rows, "count": len(rows)}
+        except Exception as e:
+            # Delete, rebuild ONCE, and retry the query once. The first version
+            # rebuilt and then answered from substring anyway, so a probe against
+            # a corrupted index reported `dirty: true, index unavailable` on a
+            # query whose index had just been rebuilt successfully. A health
+            # signal that cries wolf is a health signal nobody reads.
+            logger.warning(f"[fact-index] query failed, rebuilding once: {e}")
+            _fact_index_build(force=True)
+            if _fact_index_state["built"]:
+                try:
+                    rows = _fact_query_fts(q, limit)
+                    logger.info("[fact-index] recovered after one rebuild")
+                    return {"engine": "fts5", "dirty": False, "recovered": True,
+                            "results": rows, "count": len(rows)}
+                except Exception as e2:
+                    _fact_index_state.update({"built": False, "dirty": True, "reason": str(e2)})
+            else:
+                _fact_index_state.update({"dirty": True, "reason": str(e)})
+    results = _fact_search_substring(q, limit)
+    return {
+        "engine": "substring",
+        "dirty": True,
+        "reason": _fact_index_state.get("reason") or "index unavailable",
+        "results": [
+            {"id": f.get("id"), "category": f.get("category"), "scope": f.get("scope"), "statement": f.get("statement")}
+            for f in results
+        ],
+        "count": len(results),
+    }
+
+
+@app.get("/api/facts/index/status")
+async def facts_index_status():
+    return dict(_fact_index_state)
+
+
+# ---------------------------------------------------------------------------
+# DF-H4 - NUMBERS COME FROM A QUERY ENGINE, NOT FROM READING
+#
+# The model receives COMPUTED aggregates with provenance, never a raw table to
+# eyeball. This is the structural fix behind the Quantitative Claim Rule: today
+# that rule forbids naked numbers because a number the model read off a table
+# cannot be trusted. A figure a SQL engine produced, whose row set is recoverable,
+# can be.
+#
+# stdlib sqlite3 rather than DuckDB. The plan named DuckDB and flagged the added
+# dependency as an owner decision; sqlite3 gives the property that matters here (a
+# deterministic engine computed it, and the query is recorded next to the result)
+# with no new dependency to approve. If a future workload needs DuckDB's columnar
+# speed, this endpoint's contract does not change.
+# ---------------------------------------------------------------------------
+
+_TABULAR_CACHE: dict = {}
+_SAFE_AGG = {"sum": "SUM", "avg": "AVG", "min": "MIN", "max": "MAX", "count": "COUNT"}
+
+
+def _sniff_rows(text: str) -> tuple:
+    """Parse delimited text into (headers, rows). Tab, comma and pipe only: a
+    format we cannot parse is reported, never guessed at."""
+    import csv as _csv
+    import io as _io
+    sample = text[:4000]
+    if sample.count("\t") > sample.count(","):
+        delim = "\t"
+    elif sample.count("|") > sample.count(","):
+        delim = "|"
+    else:
+        delim = ","
+    reader = _csv.reader(_io.StringIO(text), delimiter=delim)
+    rows = [r for r in reader if any((c or "").strip() for c in r)]
+    if not rows:
+        return [], []
+    headers = [(h or "").strip() or ("col" + str(i + 1)) for i, h in enumerate(rows[0])]
+    return headers, rows[1:]
+
+
+def _to_number(cell: str):
+    t = (cell or "").strip().replace(",", "").replace("$", "").replace("%", "")
+    if not t:
+        return None
+    try:
+        return float(t)
+    except Exception:
+        return None
+
+
+@app.post("/api/tabular/aggregate")
+async def tabular_aggregate(req: Request):
+    """Compute an aggregate over delimited tabular text with a real SQL engine.
+
+    Body: {content, agg: sum|avg|min|max|count, column, group_by?, where_column?,
+           where_equals?}
+    Returns the figure(s), the row count each is based on, the generated SQL, and a
+    content hash, so the claim it supports is reproducible and auditable.
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"computed": False, "error": "invalid JSON body"}, status_code=400)
+    content = body.get("content")
+    agg = str(body.get("agg") or "sum").lower()
+    column = str(body.get("column") or "").strip()
+    group_by = str(body.get("group_by") or "").strip()
+    where_column = str(body.get("where_column") or "").strip()
+    where_equals = body.get("where_equals")
+    if not isinstance(content, str) or not content.strip():
+        return JSONResponse({"computed": False, "error": "content is required"}, status_code=400)
+    if agg not in _SAFE_AGG:
+        return JSONResponse({"computed": False, "error": "agg must be one of " + str(sorted(_SAFE_AGG))}, status_code=400)
+
+    key_src = "|".join([content, agg, column, group_by, where_column, str(where_equals)])
+    digest = _hashlib_for_steps.sha256(key_src.encode("utf-8", "replace")).hexdigest()[:16]
+    if digest in _TABULAR_CACHE:
+        cached = dict(_TABULAR_CACHE[digest])
+        cached["cached"] = True
+        return cached
+
+    headers, rows = _sniff_rows(content)
+    if not headers:
+        return JSONResponse({"computed": False, "error": "no parsable table in content"}, status_code=422)
+    for label, name in (("column", column), ("group_by", group_by), ("where_column", where_column)):
+        if name and name not in headers:
+            return JSONResponse({"computed": False, "error": label + " '" + name + "' is not in " + str(headers)}, status_code=422)
+    if agg != "count" and not column:
+        return JSONResponse({"computed": False, "error": "column is required for " + agg}, status_code=400)
+
+    import sqlite3
+    try:
+        conn = sqlite3.connect(":memory:")
+        try:
+            cols = ['"c' + str(i) + '"' for i in range(len(headers))]
+            conn.execute("CREATE TABLE t (" + ", ".join(c + " TEXT" for c in cols) + ")")
+            padded = [(r + [""] * len(headers))[:len(headers)] for r in rows]
+            conn.executemany("INSERT INTO t VALUES (" + ", ".join("?" * len(headers)) + ")", padded)
+
+            def col_ref(name: str) -> str:
+                return '"c' + str(headers.index(name)) + '"'
+
+            # Numeric columns are CAST, so a text column cannot silently sum to 0.
+            target = "1" if agg == "count" else "CAST(" + col_ref(column) + " AS REAL)"
+            select = [_SAFE_AGG[agg] + "(" + target + ") AS value", "COUNT(*) AS rows_used"]
+            group_clause = ""
+            if group_by:
+                select.insert(0, col_ref(group_by) + " AS bucket")
+                group_clause = " GROUP BY " + col_ref(group_by)
+            where_clause = ""
+            params = []
+            if where_column:
+                where_clause = " WHERE " + col_ref(where_column) + " = ?"
+                params.append(str(where_equals if where_equals is not None else ""))
+            sql = "SELECT " + ", ".join(select) + " FROM t" + where_clause + group_clause
+            cur = conn.execute(sql, params)
+            fetched = cur.fetchall()
+        finally:
+            conn.close()
+    except Exception as e:
+        logger.warning(f"[tabular] aggregate failed: {e}")
+        return JSONResponse({"computed": False, "error": str(e)}, status_code=500)
+
+    if group_by:
+        results = [{"bucket": r[0], "value": r[1], "rows_used": r[2]} for r in fetched]
+    else:
+        results = [{"value": fetched[0][0] if fetched else None, "rows_used": fetched[0][1] if fetched else 0}]
+
+    # A column the engine could not read as numeric is REPORTED. Silently
+    # returning 0.0 is how a fabricated figure acquires a provenance stamp.
+    non_numeric = 0
+    if agg != "count" and column:
+        idx = headers.index(column)
+        non_numeric = sum(1 for r in rows if _to_number((r + [""] * len(headers))[idx]) is None)
+
+    payload = {
+        "computed": True,
+        "agg": agg,
+        "column": column or None,
+        "group_by": group_by or None,
+        "results": results,
+        "rows_total": len(rows),
+        "non_numeric_cells": non_numeric,
+        "headers": headers,
+        "sql": sql,
+        "content_sha256_16": digest,
+        "engine": "sqlite3",
+        "cached": False,
+    }
+    if non_numeric:
+        payload["caveat"] = (
+            str(non_numeric) + " of " + str(len(rows)) + " cells in '" + column + "' are not numeric and were "
+            "excluded by the CAST. State the figure against the rows that carried a number, not against the whole table."
+        )
+    _TABULAR_CACHE[digest] = payload
+    return payload
 
 
 @app.post("/api/sessions")

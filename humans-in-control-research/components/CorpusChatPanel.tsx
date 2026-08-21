@@ -4091,7 +4091,6 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 result.deckQualityReport.findings.map(f => `${f.kind}${f.template ? `@${f.template}` : ''}: ${f.detail}`));
         }
 
-        let chainForAir: typeof result = result;
         let repairForAir: Awaited<ReturnType<typeof repairArtifact>> | null = null;
         // REPAIR PASS (2026-08-20): the 2026-08-20 live test proved the chain
         // finds real defects and nothing acted on them, so the deck shipped with
@@ -4114,7 +4113,6 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const after = repaired.finalChain.slotReport?.violations.length ?? 0;
                 console.info(`[artifact-repair] ${repaired.rounds.length} round(s), ${repaired.rounds.reduce((a, r) => a + r.fieldsEdited, 0)} field(s) rewritten, violations ${before} -> ${after}${repaired.stopReason ? ` (${repaired.stopReason})` : ''}`);
             }
-            chainForAir = repaired.finalChain as any;
             repairForAir = repaired as any;
         }
 
@@ -4123,7 +4121,15 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // output plus a clean quality report, even when the chain refused the
         // artifact. Fire-and-forget: bookkeeping never blocks the deck.
         try {
-            const record = buildPostChainRecord(chainForAir as any, repairForAir as any, (repairForAir?.slides ?? result.slides) as any);
+            // Pass the ORIGINAL chain result, not the post-repair one. The
+            // record builder derives `final` from the repair argument itself and
+            // needs the FIRST pass to report what that pass did: the binding
+            // (the repair re-runs the chain, by which point pointers are already
+            // attached, so its bind report is legitimately empty) and the
+            // pre-repair violation count. Handing it the post-repair chain made a
+            // run that bound 11 pointers record `bound: 0` and a repair that
+            // rewrote 2 fields record `violations 0 -> 0`.
+            const record = buildPostChainRecord(result as any, repairForAir as any, (repairForAir?.slides ?? result.slides) as any);
             const patched = await patchAirWithPostChain(record);
             if (patched.patched) console.info(`[air-postchain] chain verdicts recorded on ${patched.path}`);
             else console.warn(`[air-postchain] not recorded: ${patched.error}`);

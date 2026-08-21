@@ -18,6 +18,7 @@
           "bindPointers",
           "provenance",
           "evidenceSlots",
+          "exhibits",
           "prose",
           "grade",
           "renderPlan",
@@ -30,12 +31,13 @@
         "bindPointers",
         "provenance",
         "evidenceSlots",
+        "exhibits",
         "prose",
         "grade",
         "renderPlan",
         "deckQuality"
       ],
-      "description": "Order rationale: bindPointers before provenance and the evidence gate, because it supplies the pointers both of them read (three prompt-level attempts to make the model carry pointers were measured and failed); scrub before verifying so the verifier sees the reader's text; verify before counting slots so relabels settle first; measure prose on the final wording; grade after the other gates because it grades them; deckQuality last because it judges the rendered shape against the previous deck."
+      "description": "Order rationale: bindPointers before provenance and the evidence gate, because it supplies the pointers both of them read (three prompt-level attempts to make the model carry pointers were measured and failed); scrub before verifying so the verifier sees the reader's text; verify before counting slots so relabels settle first; settle exhibits BEFORE prose so a section can never describe a chart that did not render (deer-flow's exhibits-before-prose rule); measure prose on the final wording; grade after the other gates because it grades them; deckQuality last because it judges the rendered shape against the previous deck."
     },
     "trace": {
       "type": "array",

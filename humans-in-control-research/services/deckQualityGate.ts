@@ -21,6 +21,8 @@
  * Deterministic, no model call, so it runs on every generation.
  */
 
+import { exhibitFitRules } from './exhibitCatalog';
+
 export interface DeckQualityFinding {
     kind: 'exhibit_underfilled' | 'archetype_monotony' | 'connective_heavy' | 'sequence_repeat';
     slideId?: string;
@@ -40,28 +42,16 @@ export interface DeckQualityReport {
 }
 
 /**
- * Per-archetype minimum data for the exhibit to CARRY meaning. Each entry names
- * the payload array that makes the archetype worth using and the floor below
- * which the slide is a shell. Sourced from the archetype geometry in
- * `slideComposer.ts::ARCHETYPE_SPECS` plus the same reasoning deer-flow applies
- * per chart type.
+ * Per-archetype minimum data for the exhibit to CARRY meaning: the payload array
+ * that makes the archetype worth using and the floor below which the slide is a
+ * shell.
+ *
+ * DERIVED from `exhibitCatalog.ts` (DF-V3), which is the single authority. These
+ * rules were declared here first; keeping a second copy meant a threshold could
+ * drift between the gate that enforces it and the guidance the model is given,
+ * which is the same duplicate-brain problem the routing convergence removed.
  */
-const FIT_RULES: Record<string, { field: string; min: number; why: string }> = {
-    'slides:ranked-bars': { field: 'bars', min: 3, why: 'a ranking needs at least three entries to show a rank' },
-    'slides:quadrant': { field: 'items', min: 3, why: 'a 2x2 with fewer than three plotted subjects shows no positioning' },
-    'slides:evidence-table': { field: 'rows', min: 3, why: 'a comparison table with fewer than three rows is a sentence in a grid' },
-    'slides:stat-row': { field: 'stats', min: 3, why: 'the archetype lays out three stat columns' },
-    'slides:means-matters': { field: 'stats', min: 2, why: 'the hero-numeral layout needs at least two figures to compare' },
-    'slides:flow-arc': { field: 'steps', min: 3, why: 'a process arc needs at least three steps to be a process' },
-    'slides:numbered-themes': { field: 'items', min: 4, why: 'the archetype profiles exactly four items' },
-    'slides:org-model': { field: 'columns', min: 3, why: 'a three-part model needs its three parts' },
-    'slides:milestone-timeline': { field: 'milestones', min: 3, why: 'a time axis with fewer than three milestones is a label' },
-    'slides:comparison-panels': { field: 'panels', min: 2, why: 'a comparison needs two sides' },
-    'slides:problem-diptych': { field: 'left', min: 1, why: 'a diptych needs both halves populated' },
-    'slides:role-needs': { field: 'needs', min: 3, why: 'a needs list with fewer than three entries does not characterize a role' },
-    'slides:aggregate-roadmap': { field: 'phases', min: 3, why: 'a roadmap needs at least three phases' },
-    'slides:role-roadmap': { field: 'phases', min: 3, why: 'a roadmap needs at least three phases' },
-};
+const FIT_RULES: Record<string, { field: string; min: number; why: string }> = exhibitFitRules();
 
 /** Archetypes that carry connective tissue rather than content. */
 const CONNECTIVE = new Set([

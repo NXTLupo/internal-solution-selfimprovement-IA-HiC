@@ -1200,3 +1200,267 @@ gates in general.
 All gaps from this program are now closed with live evidence. Gates: typecheck
 clean, 933/933 tests across 97 files, check:skills, check:content and
 check:templates green.
+
+---
+
+## FOURTH PASS: the rows that were still open (2026-08-21)
+
+The prior record closed with six items listed as unbuilt. All six are now built.
+
+### DF-A2 catch conversion, completed (`services/generationLedger.ts`)
+
+`runStep` gave HiC a typed result; nothing gave the generation path anywhere to
+PUT one, and a converted catch that logs an envelope and drops it is a prettier
+bare catch. The ledger is that place.
+
+A deck turn runs about a dozen best-effort enrichment steps before the model is
+called: design tokens from Figma, the component-spec registry, the exemplar
+contract, planned multi-angle retrieval, the wiki pre-fetch, manifest-chunk
+grounding, the grounding projection. Every one was a bare catch with a
+console.warn. The consequence: a turn where the tokens failed, the exemplar was
+skipped, and grounding fell back to bulk corpus produced a deck that looked, in
+the durable record, exactly like a turn where all three succeeded. The deck was
+measurably worse and nothing said so.
+
+Six catches and five success paths now record a typed envelope, weighted:
+`manifestGrounding` and `groundingProjection` are CRITICAL (their absence changes
+what the deck can honestly say), tokens and retrieval are MATERIAL, component-spec
+and exemplar are MINOR. Two consequences:
+
+- `postChain.enrichment` in AIR carries `{total, degraded, groundingIntact,
+  losses[]}`, so a thin deck can be traced to a thin turn.
+- When a CRITICAL step degrades, `buildDegradationNotice` puts a narrowing
+  instruction IN THE PROMPT, before generation. Reading it in a log afterwards is
+  too late: the model has already written confident prose against a corpus it
+  never received. This is `narrow_scope` applied at the input side.
+
+It also catches the failure mode the console.warn version could not see at all: a
+step that resolves 200 with an EMPTY body, takes the falsy branch, and warns
+nothing.
+
+Deliberately NOT converted: catches inside JSON-parse fallback ladders, where the
+next candidate parse IS the recovery and an envelope per attempt is noise.
+
+### DF-C2 step-output budget (`services/stepBudget.ts` + two proxy endpoints)
+
+The wiki pre-fetch already hard-coded a 48,000 / 200,000 character cap and simply
+DROPPED the remainder mid-sentence with no record of how much was lost, so a thin
+deck could not be distinguished from a truncated corpus. Now the cut lands on an
+ITEM boundary, a TYPED synopsis replaces the remainder (kind, items shown of items
+total, chars, pointer), and the synopsis tells the model the block is a SAMPLE so
+absence of evidence does not read as evidence of absence.
+
+The offload directory is `.step-results/`, BESIDE `artifacts/` and never inside
+it, and `check-content.mjs` skips it. That is not a style point here: the scanner
+grades whatever it finds in `artifacts/` and the session restore path rehydrates
+from the same tree, so a step dump landing there would be graded as a shipped deck
+and could be restored as one.
+
+Live: 6,540 chars written, pointer returned, window read back with
+`truncated: true`, the same content re-written to the same pointer
+(content-addressed), empty content 400, unknown pointer 404.
+
+### DF-D8 rebuildable fact index (proxy, SQLite FTS5)
+
+A DERIVED index over `wiki/synthesis/memory-facts.json`, never a source of truth.
+Corrupt means delete, rebuild once, retry the query once, and only then fall back
+to substring with the scope marked DIRTY. Every response names the engine that
+answered.
+
+The dirty flag is the point: an index that silently degrades to substring looks
+like a working index returning fewer hits, and a second brain that quietly stops
+recalling is worse than one that reports it cannot.
+
+Live, seeded with three real facts: the healthy path returned the right fact from
+FTS5. The index file was then overwritten with garbage; the next query detected it,
+rebuilt (counter 3 to 4), retried, and returned the right fact with
+`engine: fts5, dirty: false, recovered: true`. FTS5 punctuation that would be MATCH
+syntax returns 200 rather than 500, because every term is quoted before it reaches
+the query.
+
+**A false alarm this probe caught.** The first version rebuilt and then answered
+from substring anyway, so a corrupted-index probe reported `dirty: true, index
+unavailable` on a query whose index had just rebuilt successfully. A health signal
+that cries wolf is a health signal nobody reads. It now retries.
+
+stdlib sqlite3, not a new dependency.
+
+### DF-F1/F2/F3 clarification and goal state
+
+`services/clarification.ts` carries the versioned payload with ATOMIC validation:
+any structurally broken field degrades the WHOLE payload to free text, because a
+form that renders five of six business fields while reporting success is a
+data-loss bug wearing a UI. The degraded form still asks every question, folded
+into one message.
+
+The plan's REJECT is enforced in code, not in prose: three trigger points and no
+fourth. An undeclared trigger is rejected by the validator.
+`objective_underspecified` fires only when the objective names no subject AND no
+industry AND no audience, because a false trigger is a stall. `pack_mismatch` is
+the off-industry incident caught BEFORE collection. `deliverable_ambiguous` fires
+at three-way ambiguity and not at two, where the router should just decide.
+
+`services/goalState.ts` carries the typed blocker. Two details matter. The blocker
+ROUTES (`missing_evidence` narrows, `needs_user_input` asks once, `run_failed`
+stops), which a free-text reason cannot do, and that is why every previous version
+of this state ended as a console warning. And the no-progress budget is SEPARATE
+from the total: without it, a run that keeps continuing while producing nothing
+burns the whole total budget first. `satisfyGoal` also refuses a success claim with
+an empty summary, which is the vacuous pass in run form.
+
+**A regex defect the tests caught.** Every deliverable-hint alternative was
+anchored with a trailing word boundary, so "competitors" did not match
+"competitor" (the boundary fails against the following s) and a genuinely
+three-way ambiguous ask scored two. A word-list detector that misses plurals
+under-fires, and for a clarification trigger that means a wasted run.
+
+### DF-H1/H2/H3/H5 extraction tier (`services/extractionTier.ts`), H4 in the proxy
+
+- **H1** selects full-text captures PER SUB-QUESTION rather than globally. Global
+  top-N starves the sub-questions that returned fewer candidates, which are
+  exactly the ones whose evidence is thin. Ties break on the longer snippet.
+- **H2** records claimType, population, period, methodology, keyFindings,
+  limitations and namedEntities per source, every field nullable ON PURPOSE: a null
+  population is an honest "the source does not say", and it is what a scope check
+  needs in order to refuse. `checkScopeMatch` then mechanizes the Scope-Match Rule
+  and ABSTAINS whenever the dimension was not recorded. A check that guesses is
+  worse than one that abstains: a false match licenses exactly the overreach the
+  rule exists to stop.
+- **H3** batches from a TABLE, not model arithmetic, and every id appears exactly
+  once (proved by test). A failed fetch is REPORTED in a model-facing notice
+  ("these sources are NOT in the corpus; do not describe their contents from their
+  titles"), never fabricated.
+- **H5** reduces an objective to two or three keywords with proper nouns first,
+  keeps pack and date as FILTERS rather than query text, searches each plan slot
+  ONCE (no reworded retry), and reports the real yield including the slots that
+  returned nothing.
+- **H4** is `POST /api/tabular/aggregate`: sum, avg, min, max, count, with optional
+  group-by and equality filter, over comma, tab or pipe delimited text. It returns
+  the figure, the rows it is based on, the generated SQL, and a content hash, so a
+  claim built on it is reproducible. Non-numeric cells are COUNTED AND REPORTED
+  with a caveat, because silently returning 0.0 is how a fabricated figure acquires
+  a provenance stamp. This is the structural fix behind the Quantitative Claim
+  Rule: that rule forbids naked numbers because a number the model read off a table
+  cannot be trusted, and a figure a SQL engine produced can be.
+
+  **Owner decision resolved differently than planned.** The plan named DuckDB and
+  flagged the dependency for approval. stdlib sqlite3 gives the property that
+  matters (a deterministic engine computed it, the query is recorded beside the
+  result) with nothing to approve. The endpoint contract does not change if a
+  future workload needs DuckDB's columnar speed.
+
+  Live: sum of placements over a four-row table returned 50.0 with
+  `non_numeric_cells: 1` and the caveat; grouped by region returned EMEA 20.0 and
+  NA 30.0; a filtered average returned 10.0; a second identical call was served
+  from the content-hash cache; an unknown column 422; a non-whitelisted agg 400.
+
+### DF-V3/V4 exhibit catalog and exhibits before prose
+
+`services/exhibitCatalog.ts` is the missing middle between the archetype GEOMETRY
+in `slideComposer` and the minimum FILL in `deckQualityGate`. Nothing model-facing
+had said WHEN to reach for a quadrant instead of a table, or what to do when the
+evidence yields two items and the archetype needs four; the model picked a layout,
+the gate failed the payload, and the repair pass had to guess the intent backwards.
+
+Each of fifteen exhibits declares useWhen, the data shape with a floor AND a
+readable maximum, the failure mode a reader sees, and a DOWNGRADE TARGET. The
+ladder is what makes the visual quota reachable without inventing data: when the
+evidence cannot fill a quadrant the answer is a named smaller exhibit, not a padded
+one. `deckQualityGate` now DERIVES its fit rules from here, so a threshold cannot
+drift between the gate that enforces it and the guidance the model is given.
+
+`STAGE_ORDER` gains `exhibits` between `evidenceSlots` and `prose` (contract and
+test updated together): exhibits are settled BEFORE the prose stage judges the
+wording, which is deer-flow's exhibits-before-prose rule adapted to a pipeline
+where the model emits payload and prose in one call. The stage also catches prose
+that points at a visual the slide does not render, matching the referenced NOUN
+against what the archetype actually draws.
+
+**Three defects my own tests caught, all real:**
+
+1. `milestone-timeline` (min 3) downgraded to `flow-arc` (min 3), and both roadmaps
+   did the same, so the hop resolved nothing. Their own failureMode text already
+   named the answer ("two phases is a before-and-after"), so they now point at
+   `comparison-panels` (min 2).
+2. The dangling-reference check only fired when the slide's OWN exhibit misfitted,
+   so it missed the commonest case: a well-filled quote slide saying "the timeline
+   below". It now compares the referenced noun against a renderer map.
+3. The gate-exclusion rule was keyed off `downgradeTo === null`, doing two jobs with
+   one field. Correcting the ladder gave `problem-diptych` a null target, which
+   would have silently dropped it from the gate. The exclusion is now an explicit
+   `excludeFromGate` flag on the one narrative floor.
+
+The catalog is injected into DECK MODE ahead of the SELECTION DOCTRINE.
+
+### Gates
+
+`tsc --noEmit` clean. 1039 tests across 103 files (was 933 across 97).
+check:skills 0 errors, check:content 0 errors, check:templates PASS. SPA rebuilt
+and loaded in a browser with zero console errors.
+
+### Still not done, stated plainly
+
+- DF-H1's selection rule is built and unit-tested but NOT yet wired to a live
+  two-tier collection run: it needs the browseros-live-capture carrier, which is a
+  separate plan.
+- DF-F's triggers and goal state are built and tested but not yet mounted in the
+  intake UI (owner decision 5, card versus modal, is still open).
+- The unrecoverable branch of the D8 fallback (the rebuild itself failing, which
+  degrades to substring with `dirty: true`) is code-reviewed but I could not force
+  it live without breaking the container filesystem, so it is not live-proven the
+  way the corrupt-and-recover path is.
+- Verified on `#slides`. The chain, the binder, the exhibits stage and the repair
+  loop run on any path that calls `verifyAndAttachLedger`, but decks are the only
+  artifact type with live evidence.
+
+### Live confirmation of the fourth pass (artifact `slides_1787339035123`)
+
+Browser generation on the rebuilt bundle, session restored, zero console errors.
+
+```
+stages: normalize, lexical, bindPointers, provenance, evidenceSlots,
+        exhibits, prose, grade, renderPlan, deckQuality     (10, pass=true)
+exhibits   : checked 3, fitted 3, findings 0
+enrichment : total 5, degraded 0, groundingIntact true
+binding    : bound 12, unbound 4, byStrategy {label: 10, claim: 2}
+repair     : 1 round, 4 fields, violations 4 -> 0
+pointers   : generated 0, shipped 12
+```
+
+`exhibits` sits at index 5, between `evidenceSlots` and `prose`, which is the
+ordering the stage exists to enforce.
+
+**A THIRD occurrence of one bug class, found by this run.** The record said
+`binding: {bound: 0}` on a run that shipped 11 pointers, and `repair: violations
+0 -> 0` on a repair that rewrote 2 fields. The builder was already fixed to read
+the pass that did the work; the CALLER was handing it the post-repair chain as the
+"original" argument, so both arguments pointed at the same later pass. Two layers,
+one wrong number, three sightings:
+
+1. builder read `final` instead of the first pass (fixed earlier today);
+2. caller passed the post-repair chain in as the first pass (fixed here);
+3. the same caller therefore reported `violationsBefore` from AFTER the repair,
+   which made every successful repair look like a no-op.
+
+`airPostChain.test.ts` now pins all three: binding and `violationsBefore` come
+from the first pass, `chainPass` and `evidence` come from the repair pass, and the
+no-repair case still reports the single pass. After the fix the record reads
+`bound: 12` against `shipped: 12`, and the repair reads `4 -> 0`. The record and
+the artifact agree for the first time in this program.
+
+The lesson worth keeping: when a number is derived from "which pass do I mean",
+fixing the derivation is not enough, because every caller also decides what to
+hand in.
+
+**Note on the deck itself.** `deckQuality` still reports `sequence_repeat`: the
+model opens with the same three archetypes every time and reused 100% of the
+previous deck's layouts. That is the gate reporting a real, unfixed behavior, not
+a false positive. The exhibit catalog changed WHICH archetypes get filled properly
+(3 of 3 exhibits fitted, 0 findings, where earlier decks shipped underfilled
+exhibits); it did not change the opening sequence. Varying that is a separate
+prompt-side problem.
+
+**Suite note, stated honestly.** One test failed in a run executed CONCURRENTLY
+with a live browser generation (that run took 142s against a normal 45s, so it was
+timing-sensitive under load). A clean re-run passed 1043/1043 across 103 files. I
+did not capture which test it was before it went green, so I cannot name it.

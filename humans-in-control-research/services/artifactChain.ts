@@ -21,11 +21,12 @@
  *     chain continues with the last good slides (fail-open on the ARTIFACT, never
  *     fail-silent on the RECORD).
  *  3. Order rationale is load-bearing:
- *       normalize -> lexical -> provenance -> evidence -> prose -> render
+ *       normalize -> lexical -> bind -> provenance -> evidence -> exhibits -> prose -> grade -> render
  *     Lexical scrubbing runs BEFORE provenance so the verifier sees the text the
  *     reader will see. Provenance runs BEFORE the evidence gate so relabeled and
- *     stripped attributions are already settled when slots are counted. Prose runs
- *     LAST of the text stages so it measures the final wording.
+ *     stripped attributions are already settled when slots are counted. Exhibits are
+ *     settled BEFORE prose, so a section can never describe a chart that did not
+ *     render. Prose runs LAST of the text stages so it measures the final wording.
  */
 
 import { ok, fail, refuse, partial, type StepEnvelope, envelopeTrace } from './stepEnvelope';
@@ -43,6 +44,7 @@ import {
     evaluateDeckQuality, buildDeckQualityInstruction, noteDeckSequence, previousDeckSequence,
     type DeckQualityReport,
 } from './deckQualityGate';
+import { evaluateExhibits, buildExhibitInstruction, type ExhibitReport } from './exhibitCatalog';
 
 export type StageId =
     | 'normalize'
@@ -50,6 +52,7 @@ export type StageId =
     | 'bindPointers'
     | 'provenance'
     | 'evidenceSlots'
+    | 'exhibits'
     | 'prose'
     | 'grade'
     | 'renderPlan'
@@ -66,6 +69,13 @@ export const STAGE_ORDER: StageId[] = [
     'bindPointers',
     'provenance',
     'evidenceSlots',
+    // DF-V4, exhibits before prose. deer-flow renders every planned exhibit BEFORE
+    // authoring narrative, so a section can never describe a chart that failed to
+    // render. HiC's model emits payload and prose in one call, so the equivalent is
+    // to settle exhibits BEFORE the prose stage judges the wording: a slide whose
+    // exhibit does not fit gets its downgrade named, and prose that points at an
+    // absent exhibit is caught while it can still be rewritten.
+    'exhibits',
     'prose',
     // `grade` runs LAST of the inspection stages because it grades the other
     // gates as well as the artifact: it can only ask "could that gate have
@@ -105,6 +115,7 @@ export interface ChainResult<T> {
     proseReport: ProseReport | null;
     gradeReport: GradeReport | null;
     deckQualityReport: DeckQualityReport | null;
+    exhibitReport: ExhibitReport | null;
     bindReport: BindReport | null;
     plan: ArtifactPlan | null;
     /** Concatenated model-facing repair text. Empty when everything passed. */
@@ -181,6 +192,7 @@ export async function runArtifactChain<T extends SlideLike>(
     let proseReport: ProseReport | null = null;
     let gradeReport: GradeReport | null = null;
     let deckQualityReport: DeckQualityReport | null = null;
+    let exhibitReport: ExhibitReport | null = null;
     let bindReport: BindReport | null = null;
     let plan: ArtifactPlan | null = null;
     const repairs: string[] = [];
@@ -261,6 +273,26 @@ export async function runArtifactChain<T extends SlideLike>(
                     }
                     break;
                 }
+                case 'exhibits': {
+                    exhibitReport = evaluateExhibits(slides);
+                    if (exhibitReport.pass) {
+                        envelopes.push(ok('chain:exhibits', {
+                            exhibits: exhibitReport.exhibitsChecked,
+                            fitted: exhibitReport.fitted,
+                        }));
+                    } else {
+                        repairs.push(buildExhibitInstruction(exhibitReport));
+                        envelopes.push(refuse('chain:exhibits', {
+                            exhibits: exhibitReport.exhibitsChecked,
+                            fitted: exhibitReport.fitted,
+                        }, `${exhibitReport.findings.length} exhibit finding(s): ${exhibitReport.findings.map(f => f.kind).join(', ')}`,
+                            // A dangling reference is a claim about something the
+                            // reader cannot see, so it narrows. A misfit exhibit is
+                            // a layout choice and does not block the deck.
+                            { nextAction: exhibitReport.findings.some(f => f.kind === 'dangling_reference') ? 'narrow_scope' : 'continue' }));
+                    }
+                    break;
+                }
                 case 'prose': {
                     const text = slides
                         .flatMap(s => enumerateTextFields(s).map(f => f.value))
@@ -331,7 +363,7 @@ export async function runArtifactChain<T extends SlideLike>(
     const trace = envelopes.map(envelopeTrace);
     const pass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
     return {
-        slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, bindReport, plan,
+        slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, exhibitReport, bindReport, plan,
         repairInstruction: repairs.filter(Boolean).join('\n\n'),
         trace, pass,
     };

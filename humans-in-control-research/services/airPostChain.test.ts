@@ -169,3 +169,61 @@ describe('binding is reported from the pass that did the work', () => {
         expect(r.binding).toMatchObject({ bound: 1, byStrategy: { label: 1 } });
     });
 });
+
+/**
+ * REGRESSION (2026-08-21, second occurrence of the same class of bug). The record
+ * builder must report the FIRST pass's work, not the post-repair pass's. A live
+ * run bound 11 pointers and recorded `bound: 0` because the CALLER handed the
+ * post-repair chain in as the original; an earlier live run recorded the same 0
+ * because the BUILDER read the final pass. Two different layers, one wrong number,
+ * so both are pinned here.
+ */
+describe('the record reports the pass that did the work', () => {
+    const chainWithBinding: any = {
+        trace: [{ stepId: 'chain:bindPointers', status: 'success' }],
+        pass: false,
+        slotReport: { p0Coverage: 0.4, violations: [{ sectionId: 's1', field: 'body', kind: 'unsupported', claim: 'x' }, { sectionId: 's2', field: 'body', kind: 'unsupported', claim: 'y' }] },
+        proseReport: null, gradeReport: null, deckQualityReport: null, exhibitReport: null,
+        bindReport: {
+            bound: [
+                { strategy: 'label', pointer: 'a/b.md#c1', field: 'source' },
+                { strategy: 'claim', pointer: 'a/c.md#c2', field: 'body' },
+            ],
+            unbound: [], fieldsConsidered: 4,
+        },
+        ledger: [], plan: null, repairInstruction: 'narrow', slides: [], envelopes: [],
+    };
+    // The repair re-runs the chain; by then the pointers are attached, so the
+    // second pass legitimately binds nothing and the violations are resolved.
+    const postRepairChain: any = {
+        ...chainWithBinding,
+        pass: true,
+        slotReport: { p0Coverage: 1, violations: [] },
+        bindReport: { bound: [], unbound: [], fieldsConsidered: 0 },
+    };
+    const repair: any = { rounds: [{ fieldsEdited: 2 }], finalChain: postRepairChain, slides: [], stopReason: undefined };
+
+    it('reports the binding from the FIRST pass', () => {
+        const rec = buildPostChainRecord(chainWithBinding, repair, []);
+        expect(rec.binding).toMatchObject({ bound: 2, byStrategy: { label: 1, claim: 1 } });
+        expect(rec.binding!.pointers).toEqual(['a/b.md#c1', 'a/c.md#c2']);
+    });
+
+    it('reports violationsBefore from the FIRST pass and after from the repair', () => {
+        const rec = buildPostChainRecord(chainWithBinding, repair, []);
+        expect(rec.repair).toMatchObject({ rounds: 1, fieldsEdited: 2, violationsBefore: 2, violationsAfter: 0 });
+    });
+
+    it('takes the FINAL verdicts (pass, evidence) from the repair pass', () => {
+        const rec = buildPostChainRecord(chainWithBinding, repair, []);
+        expect(rec.chainPass).toBe(true);
+        expect(rec.evidence).toMatchObject({ p0Coverage: 1, violations: [] });
+    });
+
+    it('falls back to the single pass when no repair ran', () => {
+        const rec = buildPostChainRecord(chainWithBinding, null, []);
+        expect(rec.binding!.bound).toBe(2);
+        expect(rec.chainPass).toBe(false);
+        expect(rec.repair).toBeNull();
+    });
+});

@@ -31,6 +31,7 @@
  */
 
 import type { ChainResult } from './artifactChain';
+import { buildEnrichmentRecord } from './generationLedger';
 import type { RepairResult } from './artifactRepair';
 
 const PROXY_BASE = (import.meta as any)?.env?.VITE_PROXY_BASE || 'http://127.0.0.1:5012';
@@ -109,6 +110,24 @@ export interface PostChainRecord {
         contentRatio: number;
         findings: Array<{ kind: string; template?: string; detail: string }>;
     } | null;
+    /** Exhibit fit and dangling references (DF-V4, exhibits before prose). */
+    exhibits: {
+        checked: number;
+        fitted: number;
+        findings: Array<{ kind: string; template: string; detail: string }>;
+    } | null;
+    /**
+     * Which grounding steps degraded on the turn that produced this artifact
+     * (DF-A2). Before this field, a deck generated without design tokens, without
+     * the exemplar contract, or on bulk corpus instead of manifest grounding was
+     * indistinguishable in the record from a fully-grounded one.
+     */
+    enrichment: {
+        total: number;
+        degraded: number;
+        groundingIntact: boolean;
+        losses: Array<{ stepId: string; weight: string; errorType: string | null; empty: boolean }>;
+    } | null;
     /** The fences the user actually received, when the chain changed them. */
     shippedPayload?: unknown;
 }
@@ -119,6 +138,7 @@ export function buildPostChainRecord<T>(
     repair?: RepairResult<T> | null,
     shippedPayload?: unknown,
 ): PostChainRecord {
+    const enrichmentRecord = buildEnrichmentRecord();
     const final = repair?.finalChain || chain;
     // The initial pass is where binding happens; fall back to the final pass when
     // there was no repair (in which case they are the same object).
@@ -169,6 +189,17 @@ export function buildPostChainRecord<T>(
             violationsBefore: chain.slotReport?.violations.length ?? 0,
             violationsAfter: repair.finalChain.slotReport?.violations.length ?? 0,
             stopReason: repair.stopReason,
+        } : null,
+        exhibits: final.exhibitReport ? {
+            checked: final.exhibitReport.exhibitsChecked,
+            fitted: final.exhibitReport.fitted,
+            findings: final.exhibitReport.findings.map(f => ({ kind: f.kind, template: f.template, detail: f.detail })),
+        } : null,
+        enrichment: enrichmentRecord.total ? {
+            total: enrichmentRecord.total,
+            degraded: enrichmentRecord.degraded,
+            groundingIntact: enrichmentRecord.groundingIntact,
+            losses: enrichmentRecord.losses.map(l => ({ stepId: l.stepId, weight: l.weight, errorType: l.errorType, empty: l.empty })),
         } : null,
         ...(shippedPayload !== undefined ? { shippedPayload } : {}),
     };
