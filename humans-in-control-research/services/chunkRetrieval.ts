@@ -42,7 +42,6 @@ import {
 // WS-A: register per-chunk REAL sources at the assembleChunkCorpus chokepoint so cite-time resolution
 // (resolveManifestPointers) uses the chunk's actual attribution, not the page title.
 import { registerResolvedChunkSources } from './citationPointerRegistry';
-import { noteGroundingChunks } from './pointerBinder';
 // W6 (2026-07-01, scorecard "corpus bias toward Reddit"): stop junk grounding AT RETRIEVAL - the same
 // non-evidence predicate the ledger uses (bot/mod boilerplate, tombstones) now excludes chunks BEFORE
 // they ground a generation, not just before they enter the AIR ledger.
@@ -1086,11 +1085,6 @@ export function assembleChunkCorpus(
     // right place to register each chunk's REAL sources for cite-time resolution (synchronous, before the
     // model generates + resolveManifestPointers runs at render).
     try { registerResolvedChunkSources(chunks); } catch { /* non-fatal: page-title fallback still applies */ }
-    // 2026-08-21: this is also the moment the runtime knows exactly WHICH spans the
-    // model was shown, which is what the deterministic pointer binder needs. Three
-    // prompt-level attempts to make the model carry the pointer failed, so the
-    // binder computes it from this set instead.
-    try { noteGroundingChunks(chunks); } catch { /* non-fatal: the binder degrades to no-op without the set */ }
     const minChars = opts.minChunkChars ?? 0;
     // 2026-08-21: the pointer used to be printed on its own line with the bare
     // instruction "cite by pointer", and three consecutive live runs bound ZERO

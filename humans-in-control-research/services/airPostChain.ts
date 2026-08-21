@@ -50,9 +50,25 @@ export interface EmittedAirRef {
  */
 let _lastAir: EmittedAirRef | null = null;
 
+let _pending: PostChainRecord | null = null;
+
 export function noteEmittedAir(ref: EmittedAirRef): void {
     _lastAir = ref;
+    // Drain a patch that arrived before the record existed (see the race note in
+    // patchAirWithPostChain).
+    if (_pending) {
+        const record = _pending;
+        _pending = null;
+        void patchAirWithPostChain(record, ref).then(r => {
+            if (r.patched) console.info(`[air-postchain] queued chain verdicts recorded on ${r.path}`);
+            else console.warn(`[air-postchain] queued patch failed: ${r.error}`);
+        });
+    }
 }
+
+/** Test surface: is a patch waiting for its AIR record? */
+export function hasPendingPostChain(): boolean { return _pending !== null; }
+export function clearPendingPostChain(): void { _pending = null; }
 
 export function readLastEmittedAir(): EmittedAirRef | null {
     return _lastAir;
@@ -157,7 +173,16 @@ export async function patchAirWithPostChain(
     record: PostChainRecord,
     ref: EmittedAirRef | null = readLastEmittedAir(),
 ): Promise<{ patched: boolean; path?: string; error?: string }> {
-    if (!ref) return { patched: false, error: 'no emitted AIR to patch' };
+    if (!ref) {
+        // 2026-08-21 LIVE RACE: on the chat deck path the AIR write fires AFTER
+        // the chain runs, so the patch arrived before the record existed and
+        // logged "no emitted AIR to patch" while the file was written a second
+        // later. Stash the record; `noteEmittedAir` applies it the moment the
+        // writer registers. One slot is enough because one turn produces one
+        // artifact, and a stale pending record is dropped by the next turn.
+        _pending = record;
+        return { patched: false, error: 'AIR not emitted yet; patch queued for the write' };
+    }
     try {
         const resp = await fetch(`${PROXY_BASE}/api/air/patch`, {
             method: 'POST',

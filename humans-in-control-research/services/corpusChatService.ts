@@ -3407,6 +3407,17 @@ export async function sendChatMessage(
                             manifestChunkCorpus: assembleChunkCorpus(_grounding),
                         };
                         _airGroundingChunks = _grounding;  // Stage-3/D11: real AIR evidence ledger source
+                        // 2026-08-21: the SAME set is what the deterministic pointer
+                        // binder needs. Recorded HERE, at the artifact-grounding
+                        // moment, rather than inside assembleChunkCorpus: every
+                        // retrieval path calls that helper, so a later unrelated
+                        // call clobbered the deck's set between prompt assembly and
+                        // the chain (a live run considered 6 fields and bound 0
+                        // while the same artifact binds 6 against its own set).
+                        try {
+                            const { noteGroundingChunks } = await import('./pointerBinder');
+                            noteGroundingChunks(_grounding);
+                        } catch { /* non-fatal: the binder degrades to a no-op */ }
                         console.log(`[chat] MANIFEST-CHUNK grounding: ${_resolved.chunks.length} chunks from ${_resolved.sourcesRead} wiki pages (catalog=${_picked.catalogSize}, ~${_picked.estimatedTokens} tok) - leading evidence; bulk corpus demoted`);
                     } else {
                         console.warn(`[chat] MANIFEST-CHUNK grounding: ${_picked.chunkIds.length} pointers selected but 0 resolved (notFound=${_resolved.notFound.length}); falling back to bulk corpus`);

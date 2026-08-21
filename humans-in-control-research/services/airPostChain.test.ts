@@ -130,3 +130,26 @@ describe('both AIR emitters must register (the live miss)', () => {
         expect(readLastEmittedAir()?.artifactId).toBe('strategy_2');
     });
 });
+
+describe('the live race: the patch can arrive before the AIR write', () => {
+    it('queues the record and applies it when the writer registers', async () => {
+        const { hasPendingPostChain, clearPendingPostChain } = await import('./airPostChain');
+        clearPendingPostChain();
+        fetchMock.mockResolvedValue({ ok: true, json: async () => ({ patched: true, path: 'p' }) });
+
+        // No ref yet: the chain finished before the AIR write, which is what the
+        // 2026-08-21 live run actually did.
+        const first = await patchAirWithPostChain(buildPostChainRecord(chain()), null);
+        expect(first.patched).toBe(false);
+        expect(first.error).toMatch(/queued/);
+        expect(hasPendingPostChain()).toBe(true);
+        expect(fetchMock).not.toHaveBeenCalled();
+
+        // The writer registers; the queued record goes out.
+        noteEmittedAir({ runId: 'r', artifactId: 'slides_9', artifactType: 'slides' });
+        await new Promise(r => setTimeout(r, 0));
+        expect(hasPendingPostChain()).toBe(false);
+        const body = JSON.parse(String(fetchMock.mock.calls[0][1].body));
+        expect(body.artifactId).toBe('slides_9');
+    });
+});

@@ -1130,3 +1130,27 @@ model call after fifteen minutes and the session ended before it landed. What IS
 proven is stronger than a single console line, though: the binder was executed
 against the real payload and the real chunk set of a completed live run and took it
 from 0 pointers to 10.
+
+### Two bugs the first live binder run exposed, both fixed
+
+The binder DID run in the browser (`[pointer-binder] 0 pointer(s) bound (none),
+6 field(s) left unbound of 6 considered`, and the chain recorded all nine stages
+with `pass=true`). It bound nothing, and the reason was not the matcher:
+
+**BUG A: the grounding projection lived in a slot every retrieval path overwrote.**
+`noteGroundingChunks` was called inside `assembleChunkCorpus`, which themes,
+other artifacts and other engagements all call, so a later unrelated call clobbered
+the deck's chunk set between prompt assembly and the chain. Proof: the same
+artifact binds SIX pointers when handed its own evidence ledger, and bound zero
+live. The projection now happens at the artifact-grounding moment in
+`corpusChatService`, on the same line that already captures the set for AIR, so it
+cannot be overwritten by an unrelated retrieval.
+
+**BUG B: the post-chain patch raced the AIR write.** On the chat deck path the AIR
+is persisted AFTER the chain runs, so the patch arrived before the record existed
+and logged "no emitted AIR to patch" while the file appeared a second later. The
+patch is now queued when there is no record yet, and `noteEmittedAir` drains it the
+moment the writer registers.
+
+Both are covered by tests (the queue drain has its own case). Gates after the fix:
+typecheck clean, 932/932 tests, check:skills and check:content green.
