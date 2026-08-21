@@ -109,6 +109,16 @@ function stripInternal(node) {
     return node;
 }
 
+/**
+ * Remove verbatim-quote values before the banned-phrase scan. Format tells
+ * (em-dash, emoji, provider tags) stay global, because those are banned even
+ * inside a quote.
+ */
+const QUOTE_KEY_RE = /"(?:quote|quoteText|verbatim|evidenceQuote|pullQuote)"\s*:\s*"(?:[^"\\]|\\.)*"/g;
+function stripQuotes(text) {
+    return String(text || '').replace(QUOTE_KEY_RE, '"quote":""');
+}
+
 /** Prefer the text the user received; fall back to what the model generated. */
 function shippedText(air) {
     const pc = air.postChain;
@@ -137,10 +147,17 @@ for (const file of collectAirFiles()) {
     const text = shippedText(air);
     if (!text) { add('warning', 'air.no-payload', label, 'no payload text to inspect'); continue; }
 
-    const lower = text.toLowerCase();
+    // BANNED PHRASES apply to the model's OWN voice, not to a verbatim quote it
+    // carried from a source. `.claude/CLAUDE.md` is explicit: "If a source said it
+    // verbatim, you may quote it with attribution; never narrate it yourself."
+    // A live deck quoted "A.I. utilizes position details..." from its source and
+    // this gate called it a banned phrase, which is the gate being wrong about the
+    // rule it enforces (the second time today).
+    const proseOnly = stripQuotes(text);
+    const lower = proseOnly.toLowerCase();
     for (const phrase of BANNED) {
         if (lower.includes(phrase.toLowerCase())) {
-            add('error', 'content.banned-phrase', label, `shipped text contains "${phrase}"`);
+            add('error', 'content.banned-phrase', label, `shipped text contains "${phrase}" in the model's own voice`);
         }
     }
     for (const tell of FORMAT_TELLS) {

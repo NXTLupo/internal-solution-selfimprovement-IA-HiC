@@ -1154,3 +1154,49 @@ moment the writer registers.
 
 Both are covered by tests (the queue drain has its own case). Gates after the fix:
 typecheck clean, 932/932 tests, check:skills and check:content green.
+
+### G1 CONFIRMED IN A BROWSER RUN (2026-08-21, bundle `index-wvExinq9.js`)
+
+Artifact `slides_1787335697290`, generated in the live app after the projection
+fix, zero console errors:
+
+```
+stages: normalize, lexical, bindPointers, provenance, evidenceSlots,
+        prose, grade, renderPlan, deckQuality      (9, pass=true)
+pointers in the GENERATED text:  0
+pointers in the SHIPPED deck:    7
+evidence: p0Coverage 1, violations 0
+```
+
+The seven pointers in the shipped deck, in the binder's own shapes:
+
+```
+"...for rating and scoring candidates [articles/exs-clockwork/63e5475889.md#c1]"
+"...search platform; Recruiterflow [articles/exs-chief-executive/8e5464b62a.md#c1]"
+"...(For Specialized Executive Recruiters) [articles/exs-clockwork/63e5475889.md#c1]"
+"...ct, company and specialization data [articles/exs-clockwork/63e5475889.md#c1]"
+"...ve search platform [social-intelligence/reddit-deep/consulting/1rlukge.md#c2]"
+```
+
+The model generated none of them. Nothing else in the pipeline attaches pointers.
+Four decks at zero, then seven on the first run after the fix.
+
+**A reporting bug this exposed.** The AIR record said `binding: {bound: 0}` on the
+same run. The repair pass re-runs the chain, and by then the pointers are already
+attached, so the second pass legitimately binds nothing; taking the FINAL pass's
+report made a run that bound seven pointers record zero. The record now comes from
+the pass that did the work.
+
+**A second false positive in `check:content`.** It flagged "utilize" in a shipped
+deck. The word was inside a verbatim `quote` field ("A.I. utilizes position
+details, project, company, and specialization data"), and `.claude/CLAUDE.md` is
+explicit that a source's own wording may be quoted with attribution and only the
+model's own voice is bound by the phrase list. The gate now strips verbatim-quote
+values before the phrase scan, while format tells (em-dash, emoji, provider tags)
+stay global because those are banned even inside a quote. That is twice today the
+gate was wrong about the rule it enforces, which is worth remembering about
+gates in general.
+
+All gaps from this program are now closed with live evidence. Gates: typecheck
+clean, 933/933 tests across 97 files, check:skills, check:content and
+check:templates green.

@@ -120,6 +120,11 @@ export function buildPostChainRecord<T>(
     shippedPayload?: unknown,
 ): PostChainRecord {
     const final = repair?.finalChain || chain;
+    // The initial pass is where binding happens; fall back to the final pass when
+    // there was no repair (in which case they are the same object).
+    const bindingSource = (chain.bindReport && chain.bindReport.bound.length)
+        ? chain.bindReport
+        : final.bindReport;
     return {
         chainTrace: final.trace,
         chainPass: final.pass,
@@ -139,14 +144,19 @@ export function buildPostChainRecord<T>(
             superficial: final.gradeReport.superficial.length,
             rubricCritique: final.gradeReport.rubricCritique,
         } : null,
-        binding: final.bindReport ? {
-            bound: final.bindReport.bound.length,
-            unbound: final.bindReport.unbound.length,
-            byStrategy: final.bindReport.bound.reduce((acc, b) => {
+        // 2026-08-21: report the binding from the pass that DID the work. The
+        // repair re-runs the chain, and on that second pass the pointers are
+        // already attached, so the final pass legitimately binds nothing. Taking
+        // the final report made a live run that bound seven pointers record
+        // `bound: 0`, which reads as a failure of the thing that just worked.
+        binding: bindingSource ? {
+            bound: bindingSource.bound.length,
+            unbound: bindingSource.unbound.length,
+            byStrategy: bindingSource.bound.reduce((acc, b) => {
                 acc[b.strategy] = (acc[b.strategy] || 0) + 1;
                 return acc;
             }, {} as Record<string, number>),
-            pointers: Array.from(new Set(final.bindReport.bound.map(b => b.pointer))).slice(0, 20),
+            pointers: Array.from(new Set(bindingSource.bound.map(b => b.pointer))).slice(0, 20),
         } : null,
         deckQuality: final.deckQualityReport ? {
             distinctArchetypes: final.deckQualityReport.distinctArchetypes,

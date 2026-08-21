@@ -153,3 +153,19 @@ describe('the live race: the patch can arrive before the AIR write', () => {
         expect(body.artifactId).toBe('slides_9');
     });
 });
+
+describe('binding is reported from the pass that did the work', () => {
+    it('keeps the initial pass binding when the repair re-run binds nothing', () => {
+        const before = chain();   // bindReport with one binding
+        const after = chain({
+            pass: true,
+            slotReport: { fills: [], violations: [], p0Coverage: 1, pass: true },
+            // The repair re-runs the chain; by then the pointers are attached, so
+            // the second pass legitimately finds nothing to bind.
+            bindReport: { bound: [], unbound: [], fieldsConsidered: 0 },
+        });
+        const repair = { slides: [], rounds: [{ round: 1, slidesTouched: 1, fieldsEdited: 6, skippedLocked: 0, failed: 0, pass: true, violations: 0 }], finalChain: after, envelope: {} as any } as any;
+        const r = buildPostChainRecord(before, repair);
+        expect(r.binding).toMatchObject({ bound: 1, byStrategy: { label: 1 } });
+    });
+});
