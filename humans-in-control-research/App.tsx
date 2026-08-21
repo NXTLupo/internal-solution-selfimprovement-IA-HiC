@@ -1456,8 +1456,14 @@ const App = () => {
         // The user-level write is the load-bearing one; the manifest write
         // is best-effort.
         const goal = (researchGoal || '').trim();
+        // 2026-08-21: this used to truncate at 60 chars while the proxy's
+        // _safe_session_slug truncates at 80, so ONE engagement was filed under
+        // TWO names: artifacts and AIR under the 60-char slug, session state and
+        // chat under the 80-char one. No single place answered "what happened in
+        // this engagement?". 80 matches the proxy; `_resolve_session_folder`
+        // still finds folders written under the old form.
         const slug = goal
-            ? goal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').substring(0, 60).replace(/-+$/, '')
+            ? goal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').substring(0, 80).replace(/-+$/, '')
             : '';
         // 2026-06-06 - IDs only. Theme bodies live in the wiki synthesis
         // files (synthesis/<file>.json) and are resolved at generation time

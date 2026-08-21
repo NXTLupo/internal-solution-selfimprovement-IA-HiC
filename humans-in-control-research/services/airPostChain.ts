@@ -80,6 +80,12 @@ export interface PostChainRecord {
         violationsAfter: number;
         stopReason?: string;
     } | null;
+    /** Layout quality: exhibit fit, archetype variety, cross-deck convergence. */
+    deckQuality: {
+        distinctArchetypes: number;
+        contentRatio: number;
+        findings: Array<{ kind: string; template?: string; detail: string }>;
+    } | null;
     /** The fences the user actually received, when the chain changed them. */
     shippedPayload?: unknown;
 }
@@ -109,6 +115,11 @@ export function buildPostChainRecord<T>(
             unverified: final.gradeReport.unverified.length,
             superficial: final.gradeReport.superficial.length,
             rubricCritique: final.gradeReport.rubricCritique,
+        } : null,
+        deckQuality: final.deckQualityReport ? {
+            distinctArchetypes: final.deckQualityReport.distinctArchetypes,
+            contentRatio: final.deckQualityReport.contentRatio,
+            findings: final.deckQualityReport.findings.map(f => ({ kind: f.kind, template: f.template, detail: f.detail })),
         } : null,
         repair: repair && repair.rounds.length ? {
             rounds: repair.rounds.length,
@@ -149,11 +160,14 @@ export async function patchAirWithPostChain(
                             ...(record.evidence?.violations || []).map(v => `evidence:${v.kind}@${v.sectionId}`),
                             ...(record.prose?.concerns || []).map(c => `prose:${c.id}`),
                             ...(record.grade?.superficial ? [`grade:superficial=${record.grade.superficial}`] : []),
+                            ...(record.deckQuality?.findings || []).map(f => `layout:${f.kind}${f.template ? `@${f.template}` : ''}`),
                         ],
                         reviewScores: {
                             p0_coverage: record.evidence?.p0Coverage ?? 1,
                             prose_overall: record.prose?.overall ?? 1,
                             unverified_factual_claims: record.grade?.unverified ?? 0,
+                            distinct_archetypes: record.deckQuality?.distinctArchetypes ?? 0,
+                            content_ratio: record.deckQuality?.contentRatio ?? 1,
                         },
                         chainPass: record.chainPass,
                     },

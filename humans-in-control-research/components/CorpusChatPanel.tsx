@@ -4056,10 +4056,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (!deckSlides?.length) return;
         const runId = `deck_${msgId}`;
         const liveCtx = getContext ? getContext() : context;
+        const { engagementSlugFor } = await import('../services/engagementSlug');
+        const engagementSlug = engagementSlugFor(String(liveCtx?.researchGoal || ''));
         const result = await runArtifactChain(deckSlides as any[], {
             runId,
             artifactType: 'slides',
             subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
+            engagementSlug,
         });
 
         const changed = new Map<string, SlideData>();
@@ -4083,6 +4086,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (result.proseReport && !result.proseReport.pass) {
             console.warn(`[prose-signal] ${result.proseReport.concerns.map(c => `${c.id}=${c.score.toFixed(2)}`).join(' ')}`);
         }
+        if (result.deckQualityReport && !result.deckQualityReport.pass) {
+            console.warn(`[deck-quality] ${result.deckQualityReport.findings.length} finding(s), ${result.deckQualityReport.distinctArchetypes} distinct archetype(s), content ratio ${result.deckQualityReport.contentRatio}`,
+                result.deckQualityReport.findings.map(f => `${f.kind}${f.template ? `@${f.template}` : ''}: ${f.detail}`));
+        }
 
         let chainForAir: typeof result = result;
         let repairForAir: Awaited<ReturnType<typeof repairArtifact>> | null = null;
@@ -4095,6 +4102,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (!result.pass && result.repairInstruction) {
             const repaired = await repairArtifact(result.slides as any[], result as any, {
                 runId, artifactType: 'slides', subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
+                engagementSlug,
             });
             if (repaired.rounds.length) {
                 const changedByRepair = new Map<string, SlideData>();

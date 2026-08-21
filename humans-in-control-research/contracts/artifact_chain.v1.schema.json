@@ -4,32 +4,84 @@
   "title": "HiC Artifact Chain v1",
   "description": "The ordered post-generation pipeline (services/artifactChain.ts). stageOrder is the CONTRACT: a stage may be skipped by config, never reordered silently. services/artifactChain.test.ts pins the sequence and services/contracts.test.ts pins it against this file.",
   "type": "object",
-  "required": ["stageOrder", "trace"],
+  "required": [
+    "stageOrder",
+    "trace"
+  ],
   "properties": {
     "stageOrder": {
       "type": "array",
-      "items": { "enum": ["normalize", "lexical", "provenance", "evidenceSlots", "prose", "grade", "renderPlan"] },
-      "const": ["normalize", "lexical", "provenance", "evidenceSlots", "prose", "grade", "renderPlan"],
-      "description": "Order rationale: scrub before verifying (the verifier must see the reader's text); verify before counting slots (relabels settle first); measure prose on the final wording; grade last, because the grader also grades the other gates."
+      "items": {
+        "enum": [
+          "normalize",
+          "lexical",
+          "provenance",
+          "evidenceSlots",
+          "prose",
+          "grade",
+          "renderPlan",
+          "deckQuality"
+        ]
+      },
+      "const": [
+        "normalize",
+        "lexical",
+        "provenance",
+        "evidenceSlots",
+        "prose",
+        "grade",
+        "renderPlan",
+        "deckQuality"
+      ],
+      "description": "Order rationale: scrub before verifying (the verifier must see the reader's text); verify before counting slots (relabels settle first); measure prose on the final wording; grade after the other gates, because the grader also grades them; deckQuality last, because it judges the rendered shape and compares it to the previous deck in the engagement."
     },
     "trace": {
       "type": "array",
       "description": "One compact record per stage, for AIR. Decision fields only, never message text.",
       "items": {
         "type": "object",
-        "required": ["stepId", "status", "errorType", "nextAction"],
+        "required": [
+          "stepId",
+          "status",
+          "errorType",
+          "nextAction"
+        ],
         "properties": {
-          "stepId": { "type": "string", "pattern": "^chain:[a-zA-Z]+$" },
-          "status": { "enum": ["success", "partial", "error"] },
-          "errorType": { "type": ["string", "null"] },
-          "nextAction": { "type": "string" },
-          "stopReason": { "type": "string" }
+          "stepId": {
+            "type": "string",
+            "pattern": "^chain:[a-zA-Z]+$"
+          },
+          "status": {
+            "enum": [
+              "success",
+              "partial",
+              "error"
+            ]
+          },
+          "errorType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nextAction": {
+            "type": "string"
+          },
+          "stopReason": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
     },
-    "pass": { "type": "boolean", "description": "False when any stage refused the artifact (narrow_scope) or errored." },
-    "repairInstruction": { "type": "string", "description": "Concatenated model-facing repair text. Empty when everything passed." }
+    "pass": {
+      "type": "boolean",
+      "description": "False when any stage refused the artifact (narrow_scope) or errored."
+    },
+    "repairInstruction": {
+      "type": "string",
+      "description": "Concatenated model-facing repair text. Empty when everything passed."
+    }
   },
   "additionalProperties": true
 }

@@ -21,7 +21,8 @@
     "skillopt:all": "npm run skillopt:extract && npm run skillopt:build-training && npm run skillopt:train",
     "regression:obligations": "node scripts/regression-obligations.mjs",
     "check:skills": "node scripts/check-skills.mjs",
-    "check:all": "npm run typecheck && npm run test && npm run check:templates && npm run check:skills"
+    "check:all": "npm run typecheck && npm run test && npm run check:templates && npm run check:skills && npm run check:content",
+    "check:content": "node scripts/check-content.mjs"
   },
   "dependencies": {
     "@dagrejs/dagre": "^3.0.0",

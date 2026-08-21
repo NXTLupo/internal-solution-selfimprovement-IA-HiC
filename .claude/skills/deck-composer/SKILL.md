@@ -39,6 +39,21 @@ skill governs when that archetype is used at all.
 PLAN FIRST (mandatory): before emitting any fence, decide the archetype for EACH slide from ITS
 content and its role in the arc, then emit in that order. Never default to one archetype.
 
+`sourceLine` (2026-08-21, ROOT-CAUSE FIX): this field appears in twelve payload
+contracts below and was never defined, so the model filled it with a bare source
+name ("Source: Clockwork; Recruiterflow") and bound ZERO manifest pointers across
+four consecutive live decks. Every evidence gate downstream then had nothing to
+check, and the repair pass had to narrow real claims away. `sourceLine` carries the
+NAME **and** the pointer:
+
+    "sourceLine": "Source: Clockwork [articles/clockwork-blog/9f2a71c4de.md#c2]"
+
+Multiple sources are separated by a semicolon, each with its own pointer. The same
+rule applies to `source`, `attribution` and `attributionName`: a source label
+without its pointer is an unverifiable claim, and the runtime treats it as one. A
+fact stated in a body field carries its pointer inside that field as well; the
+source line is a caption, not a substitute.
+
 | The slide's content is... | Archetype | Payload core |
 |---|---|---|
 | Deck opener (one per deck) | `slides:cover` | `{ wordmark, title, subtitle }` |

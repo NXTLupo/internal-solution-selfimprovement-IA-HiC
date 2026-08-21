@@ -17,7 +17,7 @@ const pageWith = (text: string) => async () => text;
 
 describe('STAGE_ORDER', () => {
     it('is the declared contract', () => {
-        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'provenance', 'evidenceSlots', 'prose', 'grade', 'renderPlan']);
+        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'provenance', 'evidenceSlots', 'prose', 'grade', 'renderPlan', 'deckQuality']);
     });
 
     it('scrubs before verifying, and counts slots after verification settles', () => {

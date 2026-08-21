@@ -1086,12 +1086,20 @@ export function assembleChunkCorpus(
     // model generates + resolveManifestPointers runs at render).
     try { registerResolvedChunkSources(chunks); } catch { /* non-fatal: page-title fallback still applies */ }
     const minChars = opts.minChunkChars ?? 0;
-    const intro = opts.introText ?? (
-        'CORPUS (chunk-addressed). Each entry below is a verbatim span from a wiki ' +
-        'source page; the pointer in square brackets is its stable chunk id. Cite by ' +
-        'pointer in your output. Do not paraphrase as evidence; quote verbatim from ' +
-        'these spans only.'
-    );
+    // 2026-08-21: the pointer used to be printed on its own line with the bare
+    // instruction "cite by pointer", and three consecutive live runs bound ZERO
+    // pointers to their claims (evidence-slot coverage 0% every time). The model
+    // was not refusing; it had never been shown what a bound field looks like.
+    // deer-flow's output-patterns skill is explicit that examples teach format
+    // where descriptions do not, so the copy-ready form now ships with a worked
+    // pair.
+    const intro = opts.introText ?? [
+        'CORPUS (chunk-addressed). Each entry below is a verbatim span from a wiki source page; the pointer in square brackets is its stable chunk id.',
+        'HOW TO CITE: append the pointer verbatim, in square brackets, INSIDE the same field whose text draws on the span. Copy the pointer character for character; never invent, shorten, or renumber one.',
+        'WORKED EXAMPLE - the span [articles/retail-dive/aa11bb22cc.md#c4] reading "Assistant sessions converted at a higher rate than paid search in Q3" becomes the field value:',
+        '  "heading": "Assistant sessions convert better than paid search [articles/retail-dive/aa11bb22cc.md#c4]"',
+        'A field with no pointer may state only judgment, never a fact. Do not paraphrase as evidence; quote verbatim from these spans only.',
+    ].join('\n');
     const lines: string[] = [
         '=== CORPUS (chunk-addressed, cite by pointer) ===',
         intro,

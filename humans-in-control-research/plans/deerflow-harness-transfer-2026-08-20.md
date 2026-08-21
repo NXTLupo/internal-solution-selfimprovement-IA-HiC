@@ -918,3 +918,93 @@ cross-domain framing check would catch if the deck had cited it.
 5. Unbuilt from the plan: DF-C2 (step-output budget), DF-D8 (rebuildable index),
    DF-F (clarification card and goal state), DF-H (extraction tier), DF-V3/V4
    (exhibit catalog, exhibits-before-prose). DF-A2 catch conversion remains partial.
+
+---
+
+## QUALITY PASS (2026-08-21): deer-flow's visual and content-quality surfaces
+
+Read the deer-flow surfaces the earlier passes skipped: `image-generation`,
+`frontend-design`, `web-design-guidelines`, the `chart-visualization` per-type
+references, `skill-creator/references/output-patterns`, and the skill-review CI
+workflow. Four mechanisms transferred; one deer-flow idea was rejected because
+HiC is already ahead of it.
+
+### What transferred
+
+**Worked examples over descriptions (`output-patterns`).** deer-flow's own skill
+guidance says examples teach format where descriptions do not. Four consecutive
+live decks bound ZERO manifest pointers while the prompt described the requirement
+in prose, so the corpus block and DECK MODE now both carry a WORKED PAIR: the span,
+then the exact field value with the pointer inline, plus the wrong version beside it.
+
+**Root cause of the pointer gap, found by reading what the model actually emitted.**
+The decks were not ignoring citation; they were citing by NAME into the fields the
+archetype contracts give them (`"sourceLine": "Source: Clockwork; Recruiterflow"`).
+`sourceLine` appears in twelve payload contracts in `deck-composer/SKILL.md` and was
+**never defined**, so the model filled it with a bare label and considered the job
+done. A concrete schema beats a prose instruction every time. `sourceLine`, `source`,
+`attribution` and `attributionName` are now DEFINED as carrying the name AND the
+pointer, in the skill and in the DECK MODE prompt.
+
+**Exhibit data fit (`chart-visualization`).** Every deer-flow chart type declares its
+data requirements and a usage note (Top-N past 12 categories, at least three fishbone
+branches). HiC's archetypes had payload contracts but no fit rule, so a
+`slides:ranked-bars` with two bars or a `slides:quadrant` plotting one subject shipped
+as a legitimate-looking exhibit that said nothing. `services/deckQualityGate.ts` now
+carries a fit floor for fourteen archetypes.
+
+**Cross-generation convergence (`frontend-design`, "NEVER converge on common choices
+across generations").** DECK MODE asked for five distinct archetypes and nothing ever
+measured whether it got them, or whether this deck was shaped like the last one. The
+same gate now measures archetype variety, the content-to-connective ratio, and the
+opening sequence against the previous deck in the engagement.
+
+**Artifact-side CI (`skill-review-ci.yml`).** `npm run check:content` walks the most
+recent AIR records and applies the banned-phrase list, the format tells and a cadence
+measurement to what actually SHIPPED, and flags any artifact whose chain never
+recorded a verdict. Wired into `check:all`.
+
+### What was rejected
+
+deer-flow's `image-generation` skill puts a `negative_prompt` in a structured JSON
+brief. HiC bakes its negative constraints into the prompt string because the Gemini
+image endpoint has no negative-prompt parameter, and its cliche ban list is longer
+than deer-flow's. Adopting the field would have been a downgrade. The one piece of
+that skill worth taking was reference SOURCING: HiC could only chain a previously
+generated image, so the first image in a deck invented the visual language from text.
+`/api/ai/illustration` now accepts a URL reference as well as a data URI.
+
+### The three carried-over gaps
+
+**G1 pointer binding.** Implemented in three places (corpus block worked example,
+DECK MODE contract, `sourceLine` definition). **Not yet proven on a completed run:**
+the verification generation was still in the model call when the session ended. The
+first two edits were served and did NOT change behavior, which is what led to the
+`sourceLine` root cause; that third edit is the one that addresses the actual
+mechanism and it is unverified.
+
+**G2 one AIR writer. CLOSED and verified live.** `artifactAirService.emitAirRecord`
+is now the single emission path (validate, persist, register for patching), used by
+both `emitDeliverable` and the chat deck path. The live run at 09:52 recorded a full
+`postChain` block on the artifact, which also closes the open verification item from
+the 2026-08-21 audit.
+
+**G3 one engagement slug. CLOSED.** `services/engagementSlug.ts` is the single
+derivation, pinned against a transcription of the proxy's `_safe_session_slug` by
+`engagementSlug.test.ts`. App.tsx truncated at 60 while the proxy truncated at 80,
+which is why one engagement was filed under two names.
+
+### Verified live (bundle `index-DSn_zXus.js`, zero console errors)
+
+```
+stages: normalize, lexical, provenance, evidenceSlots, prose, grade, renderPlan, deckQuality
+deckQuality: {"distinctArchetypes": 3, "contentRatio": 0.67,
+              "findings": [{"kind": "sequence_repeat",
+                            "detail": "this deck opens with the same three archetypes
+                                       as the previous deck and reuses 100% of its layouts"}]}
+qualityReport.deterministicFailures: ["layout:sequence_repeat"]
+```
+
+The convergence check caught a real repeat on its first live deck, and the finding
+reached the durable record. Gates: typecheck clean, 909/909 tests across 96 files,
+check:skills 0 errors, check:content 0 errors.

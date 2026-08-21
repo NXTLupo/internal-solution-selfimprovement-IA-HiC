@@ -38,6 +38,10 @@ import {
     type ArtifactPlan, type SlotReport, type PlanSubQuestion, type SlotGateOptions,
 } from './evidenceSlots';
 import { gradeArtifact, buildGradeRepairInstruction, type GradeReport } from './outputGrader';
+import {
+    evaluateDeckQuality, buildDeckQualityInstruction, noteDeckSequence, previousDeckSequence,
+    type DeckQualityReport,
+} from './deckQualityGate';
 
 export type StageId =
     | 'normalize'
@@ -46,7 +50,8 @@ export type StageId =
     | 'evidenceSlots'
     | 'prose'
     | 'grade'
-    | 'renderPlan';
+    | 'renderPlan'
+    | 'deckQuality';
 
 /** THE CONTRACT. Pinned by artifactChain.test.ts. Do not reorder casually. */
 export const STAGE_ORDER: StageId[] = [
@@ -60,6 +65,10 @@ export const STAGE_ORDER: StageId[] = [
     // failed?" once the gate has run.
     'grade',
     'renderPlan',
+    // `deckQuality` judges the SHAPE of the deck (does each exhibit carry enough
+    // data, is the layout mix varied, does it look like the last deck), so it runs
+    // after the visual count is known.
+    'deckQuality',
 ];
 
 export interface ChainContext {
@@ -70,6 +79,8 @@ export interface ChainContext {
     subQuestions?: PlanSubQuestion[];
     /** The run's subject domain for the cross-domain framing check. */
     subjectDomain?: string | null;
+    /** Engagement slug, so this deck can be compared to the previous one. */
+    engagementSlug?: string;
     resolveSourceText?: SlotGateOptions['resolveSourceText'];
     /** Injected in tests; defaults to the real wiki fetcher inside the verifier. */
     fetchPage?: PageFetcher;
@@ -84,6 +95,7 @@ export interface ChainResult<T> {
     slotReport: SlotReport | null;
     proseReport: ProseReport | null;
     gradeReport: GradeReport | null;
+    deckQualityReport: DeckQualityReport | null;
     plan: ArtifactPlan | null;
     /** Concatenated model-facing repair text. Empty when everything passed. */
     repairInstruction: string;
@@ -158,6 +170,7 @@ export async function runArtifactChain<T extends SlideLike>(
     let slotReport: SlotReport | null = null;
     let proseReport: ProseReport | null = null;
     let gradeReport: GradeReport | null = null;
+    let deckQualityReport: DeckQualityReport | null = null;
     let plan: ArtifactPlan | null = null;
     const repairs: string[] = [];
 
@@ -260,6 +273,26 @@ export async function runArtifactChain<T extends SlideLike>(
                     envelopes.push(ok('chain:renderPlan', { visualRatio: Number(ratio.toFixed(2)), withVisual, total: slides.length }));
                     break;
                 }
+                case 'deckQuality': {
+                    const slug = ctx.engagementSlug || '';
+                    deckQualityReport = evaluateDeckQuality(slides, { previousSequence: previousDeckSequence(slug) });
+                    if (deckQualityReport.pass) {
+                        envelopes.push(ok('chain:deckQuality', {
+                            distinctArchetypes: deckQualityReport.distinctArchetypes,
+                            contentRatio: deckQualityReport.contentRatio,
+                        }));
+                    } else {
+                        repairs.push(buildDeckQualityInstruction(deckQualityReport));
+                        envelopes.push(refuse('chain:deckQuality', {
+                            distinctArchetypes: deckQualityReport.distinctArchetypes,
+                            contentRatio: deckQualityReport.contentRatio,
+                        }, `${deckQualityReport.findings.length} layout finding(s): ${deckQualityReport.findings.map(f => f.kind).join(', ')}`,
+                            { nextAction: 'continue' }));
+                    }
+                    // Remember the shape so the NEXT deck can be compared to it.
+                    noteDeckSequence(slug, deckQualityReport.sequence);
+                    break;
+                }
             }
         } catch (e: any) {
             envelopes.push(fail(`chain:${stageId}`, e));
@@ -269,7 +302,7 @@ export async function runArtifactChain<T extends SlideLike>(
     const trace = envelopes.map(envelopeTrace);
     const pass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
     return {
-        slides, envelopes, ledger, slotReport, proseReport, gradeReport, plan,
+        slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, plan,
         repairInstruction: repairs.filter(Boolean).join('\n\n'),
         trace, pass,
     };

@@ -19401,8 +19401,27 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     ref_b64 = ""
     if reference:
         try:
-            ref_b64 = reference.split(",", 1)[1] if reference.startswith("data:") else ""
-        except Exception:
+            if reference.startswith("data:"):
+                ref_b64 = reference.split(",", 1)[1]
+            elif reference.startswith("http"):
+                # 2026-08-21: accept a URL reference too. deer-flow's
+                # image-generation skill searches for a REAL reference image
+                # before generating when visual accuracy matters; HiC could only
+                # chain a previously generated image, so the first image in a
+                # deck invented the visual language from text alone and every
+                # later slide inherited it. A caller that has a real reference
+                # (a product shot, a captured page, an approved exemplar) can now
+                # ground the chain in it. Failure is silent: no reference is the
+                # prior behavior, which is safe.
+                import base64 as _b64
+                async with httpx.AsyncClient() as _rc:
+                    _rr = await _rc.get(reference, timeout=20.0)
+                if _rr.status_code == 200 and len(_rr.content) < 8_000_000:
+                    ref_b64 = _b64.b64encode(_rr.content).decode()
+                else:
+                    logger.warning(f"[illustration] reference fetch skipped: HTTP {_rr.status_code}, {len(_rr.content)} bytes")
+        except Exception as _re:
+            logger.warning(f"[illustration] reference unusable (continuing without): {_re}")
             ref_b64 = ""
     ref_salt = hashlib.sha1(ref_b64[:4096].encode()).hexdigest()[:8] if ref_b64 else ""
     iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}")

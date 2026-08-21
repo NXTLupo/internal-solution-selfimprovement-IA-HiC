@@ -272,6 +272,40 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 
 /** Persist an AIR via the proxy. Degrades gracefully (persisted:false) if the endpoint is absent, so this
  *  never breaks a build before POST /api/air/write ships. The proxy writes to sessions/<runId>/artifacts/. */
+/**
+ * THE single AIR emission path (2026-08-21). Validate, log the contract notes,
+ * persist, and register the record for post-generation patching.
+ *
+ * Before this existed there were two writers: `emitDeliverable` for the HTML
+ * artifact path and an inline block in `corpusChatService` for the chat deck
+ * path. The 2026-08-21 audit caught the consequence: the post-chain quality
+ * record was wired into the first one, and a live `#slides` run reported
+ * "no emitted AIR to patch" while the second writer had just written the file.
+ * Anything attached to AIR from now on attaches HERE, once.
+ */
+export async function emitAirRecord(
+    air: ArtifactAIR,
+    opts: { label: string; proxyBase?: string } = { label: 'air' },
+): Promise<{ persisted: boolean; path?: string; validation: AirValidationResult }> {
+    const validation = validateAir(air);
+    if (!validation.ok) {
+        console.warn(`[${opts.label}] AIR CONTRACT FAIL: ${validation.failures.join('; ')}`);
+    } else if (validation.warnings.length) {
+        console.info(`[${opts.label}] AIR ok; well-formed ${Math.round(validation.wellFormedRatio * 100)}% - ${validation.warnings[0]}`);
+    }
+    const w = await writeAir(air, opts.proxyBase || PROXY_BASE);
+    if (w.persisted) {
+        console.info(`[${opts.label}] AIR persisted (${Math.round(validation.wellFormedRatio * 100)}% well-formed): ${w.path}`);
+        try {
+            const { noteEmittedAir } = await import('./airPostChain');
+            noteEmittedAir({ runId: air.runId, artifactId: air.artifactId, artifactType: air.artifactType });
+        } catch { /* bookkeeping only */ }
+    } else {
+        console.warn(`[${opts.label}] AIR not persisted: ${w.error || 'unknown'}`);
+    }
+    return { persisted: w.persisted, path: w.path, validation };
+}
+
 export async function writeAir(air: ArtifactAIR, proxyBase: string = PROXY_BASE): Promise<{ persisted: boolean; path?: string; error?: string }> {
     try {
         const resp = await fetch(`${proxyBase}/api/air/write`, {
