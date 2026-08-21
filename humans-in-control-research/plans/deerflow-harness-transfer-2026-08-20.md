@@ -1008,3 +1008,35 @@ qualityReport.deterministicFailures: ["layout:sequence_repeat"]
 The convergence check caught a real repeat on its first live deck, and the finding
 reached the durable record. Gates: typecheck clean, 909/909 tests across 96 files,
 check:skills 0 errors, check:content 0 errors.
+
+### G1 RESULT: the fix did NOT work (verified, not assumed)
+
+The verification run completed after the commit. Artifact `slides_1787330877082`,
+generated on bundle `index-DSn_zXus.js` (which carries all three G1 edits, grep
+confirmed before the run):
+
+```
+POINTERS BOUND: 0
+source          -> "Clockwork", "Reddit r/consulting"
+attributionName -> "Clockwork"
+stages: 8   deckQuality: sequence_repeat   evidence violations: 0
+```
+
+Three prompt-level attempts have now failed: the corpus-block worked example, the
+DECK MODE binding contract, and the `sourceLine` definition. The model keeps citing
+by bare NAME into `source` / `attributionName`, which are per-item fields whose
+contract cells in the archetype table still read `source` with no mention of a
+pointer. The preamble I added is prose; the table is the pattern the model matches.
+
+**Stop adding prose. The next attempt should be deterministic.** The reliable fix is
+to bind pointers in CODE after generation, not to ask the model to remember:
+`citationVerifier.quoteAppearsIn` already matches claim text against a resolved
+chunk, and the retrieved chunk set for the run is in hand. Match each claim-bearing
+field to the chunk it was drawn from, attach that pointer, and let the existing
+verifier confirm the span actually supports it. That converts "ask the model to
+carry an identifier" into "compute the identifier from the evidence we retrieved",
+which is the same move the provenance lock already made for source NAMES.
+
+Secondary, cheap, and worth doing alongside: rewrite the archetype table cells
+themselves so every `sourceLine` / `source` occurrence reads
+`source (name + [pointer])`. The table is what the model copies.
