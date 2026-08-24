@@ -1,5 +1,6 @@
 ---
 name: critic-revise-loop
+invocation: model
 version: 1.0
 description: The architectural primitive that wraps any deliverable in a generator → critic → revisor loop. Inspired by NotebookLM's Audio Overview pipeline (outline → critique → revise → script → critique → revise). Takes (deliverable_draft, [critic_skills], revisor_model, budget) and runs critics in sequence; each critic emits structured edits which the revisor applies; loop until all critics accept OR iterations/budget exhausted. Makes Phases 4-6 of the NotebookLM uplift plan cheap by providing a composable primitive instead of bespoke per-deliverable pipelines. Composes with pre-mortem, stakeholder-lens-auditor, quantification-architect, contradiction-finder, second-order-thinker as critics; uses Sonnet 4.6 as the default revisor.
 thinking: high

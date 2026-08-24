@@ -1,5 +1,7 @@
 ---
 name: roadmap-builder
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Build evidence-based implementation roadmaps using NOW/NEXT/LATER horizon framework with problem framing
 thinking: high

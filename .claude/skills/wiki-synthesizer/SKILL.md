@@ -1,5 +1,6 @@
 ---
 name: wiki-synthesizer
+invocation: model
 version: 1.0
 description: For broad questions that span multiple articles, retrieves from 3 distinct angles, extracts verbatim quotes from each, clusters quotes by theme, and presents a Minto-style synthesis (answer first, supporting arguments by theme, evidence under each). Pairs with semantic embeddings because each of the 3 angles hits a different vector-space neighborhood — the synthesis then draws the cross-source pattern the user actually wants to see. Use when the user says "synthesize", "tell me everything about", "build a picture of", "what's the story on X". Do not use for narrow single-fact retrieval (that's wiki-query-expander + wiki-reranker).
 thinking: max

@@ -1,5 +1,6 @@
 ---
 name: contradiction-finder
+invocation: model
 version: 1.0
 description: Surfaces where sources in a research corpus actively disagree with each other on a specific claim, theme, or finding — instead of flattening contradictions into a smoothed consensus. Returns the surface consensus, 3 specific contradictions with both sides quoted verbatim, the single weakest claim in the material, the real underlying debate the field hasn't resolved, and a calibrated confidence verdict for any conclusion drawn from the set. Directly improves the Evidence Hierarchy dimension of the hic-output-qa rubric — sections that engage counter-evidence score higher than sections that only cite supporting sources. Composes with wiki-synthesizer (which clusters quotes by theme; this skill finds within-cluster conflict) and source-ranker (which validates source quality; this skill validates source agreement).
 thinking: high

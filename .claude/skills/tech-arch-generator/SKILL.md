@@ -1,5 +1,7 @@
 ---
 name: tech-arch-generator
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Two-phase technology architecture extraction from research corpus using C4 Model node/flow mapping with citations per component.
 thinking: high

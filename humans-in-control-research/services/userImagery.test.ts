@@ -1,6 +1,16 @@
 /** Multi-slot resolve (2026-08-14 owner bug: "regenerate does nothing with 3 authored"). */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { resolveUserImageryForPayload } from './userImagery';
+/**
+ * E1.4 (2026-08-21). These four modules were pulled in with `await import()` INSIDE
+ * the test bodies. `slideComposer` is a large module, so under CPU contention its
+ * transform-and-load blew the default 5s per-test timeout and the archetype-coverage
+ * test failed at 5015ms with nothing wrong in the assertion. The suite pins a
+ * contract, so a test that fails only when the machine is busy is a hole in that
+ * claim. Static imports move the load into collection, which the per-test timeout
+ * does not bound, and the file gets faster as a side effect.
+ */
+import { resolveUserImageryForPayload, USER_IMAGE_SLOTS } from './userImagery';
+import { archetypeKeys, composeSlide } from './slideComposer';
 
 beforeEach(() => {
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ url: '/i/x.png' }) } as any)));
@@ -29,8 +39,6 @@ describe('resolveUserImageryForPayload - multiple authored slots', () => {
 
 describe('universal slot coverage (owner mandate: every slide)', () => {
     it('every registered deck archetype has at least one authorable slot', async () => {
-        const { USER_IMAGE_SLOTS } = await import('./userImagery');
-        const { archetypeKeys } = await import('./slideComposer');
         for (const a of archetypeKeys()) {
             const key = `slides:${a}`;
             if (['screen-critique', 'screen-redesign', 'cover'].includes(a)) continue; // screens carry screenshots by contract
@@ -39,8 +47,6 @@ describe('universal slot coverage (owner mandate: every slide)', () => {
         }
     });
     it('a header scene renders on evidence-table when authored + resolved', async () => {
-        const { resolveUserImageryForPayload } = await import('./userImagery');
-        const { composeSlide } = await import('./slideComposer');
         const p: any = { kicker: 'K', title: 'Named subjects compared', intro: 'i', columns: ['A','B','C','D'], rows: [{ subject: 'Zappos', prove: 'x', implication: 'y', evidenceGrade: 'A' }], takeaway: { label: 'L', statement: 'S' }, sourceLine: 's', _userImagery: { sceneImage: { prompt: 'scene', style: 'realistic', authoredAt: 1 } } };
         const r = await resolveUserImageryForPayload('slides:evidence-table', p, 'nxt');
         expect(r.rendered).toBe(1);

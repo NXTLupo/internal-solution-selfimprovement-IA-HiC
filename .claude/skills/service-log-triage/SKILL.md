@@ -1,5 +1,6 @@
 ---
 name: service-log-triage
+invocation: model
 description: Runs the 15-symptom HiC log-audit checklist against a named Docker service's logs and maps each hit to its validator hook. Use when the user reports "the chat is slow", "the generator failed", "something feels off", "the proxy is throwing errors", or after a stage of the HiC pipeline produces a refusal, an empty output, or a 400/500 surfaces in DevTools. Reads docker compose logs for the named service, scans for the 15 known failure patterns from feedback_hic_log_audit_pattern.md, and emits a structured triage report mapping each hit to the validator hook that catches it. Works for hic-research, research-proxy, agent, launchpad, social-research-backend, journey-mapper, copilot-recipe-generator, and any other container in docker-compose-all.yml.
 ---
 
@@ -28,6 +29,43 @@ Trigger this skill when ANY of the following are true:
   service came up clean.
 - Proactively after the user replays a previously-failing prompt to
   confirm the bug is gone AND no new symptom was introduced.
+
+## The phase gate (E2.6, 2026-08-21)
+
+Adopted from `diagnosing-bugs`. Read this before Step 1, because it governs
+whether you are allowed to start.
+
+**Phase 1 is a red-capable command. Nothing else.** Before reading a single
+line of code to build a theory, produce a command that FAILS on demand. It has
+to be:
+
+- red-capable: it fails now, for the reason under investigation
+- deterministic: it fails every time, not one run in four
+- fast: seconds, so you can run it after each change
+- agent-runnable: no manual browser step in the middle
+
+If you catch yourself reading source to form a hypothesis before that command
+exists, stop. Jumping to a hypothesis is the exact failure this gate prevents,
+and this project has paid for it repeatedly: the standing rule that the stated
+symptom is rarely the root cause exists because fixes kept landing on
+symptoms. No red-capable command, no Phase 2.
+
+**Phase 2 is three to five ranked hypotheses, written down before testing
+any of them.** Generating one hypothesis anchors you on the first plausible
+idea, and the first plausible idea is what produced the 27-blank-slides fix
+that fixed nothing. Rank them by what the evidence actually supports, then
+test the cheapest discriminating one first.
+
+**Phase 3 is instrumentation, tagged.** Every debug log gets a unique prefix,
+for example `[DEBUG-a4f2]`, so cleanup at the end is a single grep rather than
+an archaeology exercise. Untagged debug output is how a temporary probe ships.
+
+**Phase 4 is the fix plus a regression test.** The red command from Phase 1
+becomes the test. A fix with no test is an invitation to pay for the same bug
+again; this repo's history is the argument.
+
+**Phase 5 is cleanup.** Grep the tag, remove the probes, confirm the
+regression test still fails without the fix.
 
 ## Procedure
 

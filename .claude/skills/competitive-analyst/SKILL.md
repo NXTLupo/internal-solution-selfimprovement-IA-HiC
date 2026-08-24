@@ -1,5 +1,7 @@
 ---
 name: competitive-analyst
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Dual-mode competitive landscape analysis combining named entity extraction with archetype analysis, benchmark scoring, maturity matrix, and gap summary.
 thinking: high

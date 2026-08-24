@@ -1,5 +1,6 @@
 ---
 name: long-running-service-call
+invocation: model
 description: Standard wrapper pattern for any HiC browser-to-backend service call that may take longer than ~10 seconds. Codifies the three things that must be true every time: (1) an immediate in-flight chat message so the user knows the call started, (2) an explicit AbortSignal with a bounded timeout (so a wedged service can't tie up the browser indefinitely), (3) a fast-model default (Gemini Flash, Claude Haiku) rather than the service's quality-default model. Use this whenever wiring a new HiC chat directive that posts to /api/journey-map, /api/artifact/generate, /api/bertopic, /api/transcribe-youtube, or any future endpoint that fans out to an LLM provider or a multi-pass pipeline. Closes the "Failed to fetch" UX trap where Chrome closes the connection at ~30s while the backend keeps working invisibly. Composes with the existing fallback-event-surfacing skill and the post_hic_rebuild_reminder hook.
 ---
 

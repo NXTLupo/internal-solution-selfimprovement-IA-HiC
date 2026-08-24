@@ -1,5 +1,7 @@
 ---
 name: skillopt-validation-gate
+invocation: human
+disable-model-invocation: true
 description: Validation gate that audits every SkillOpt-proposed skill edit BEFORE it lands in the skill library. Catches compounding bad instructions, blocks iterative drift, and only lets approved deltas pass into .claude/skills/. The validation gate is where optimization actually works — most systems just apply suggestions and compound bad edits into the skill library, producing skills that get worse over time, not better. This gate sits between the SkillOpt trajectory analysis (which scans hic-workspace/sessions/_journey-rollouts/ for user-rejected outputs and proposes skill edits) and the actual skill-library write. Use when the SkillOpt training loop emits a proposed_edits.json file, when running the weekly /loop training pass, or when any pipeline proposes mutating a SKILL.md or its referenced wiki frameworks. Composes with cross-engagement-pattern-miner (provides the corpus of trajectories), validate_ai_slop and validate_ai_output_syntax (apply same banned-phrase + structural checks to skill edits), and the wiki-curator subagent (which the gate flags for human review when it can't auto-decide).
 ---
 
@@ -31,7 +33,7 @@ Specifically:
   from a prior failure analysis (because the proposal might itself
   encode the failure pattern).
 
-## The 7-check validation rubric
+## The 10-check validation rubric
 
 Each proposed edit is scored independently on these dimensions. ANY hard
 fail blocks the edit. Soft fails accumulate; ≥ 3 soft fails block.
@@ -119,6 +121,34 @@ duplicated, or mutually-contradictory instructions. So, across the whole
 Rationale: "prefer a small accurate set of instructions over a bulk,
 duplicated, or contradictory one" — accuracy and coherence beat volume.
 
+### 9. No-op check (SOFT, E2.3 2026-08-21)
+An instruction the model already obeys by default pays context to say
+nothing. Adapted from `writing-for-agents`: a no-op is settled by RUNNING
+the document, not by arguing about it. So before accepting an edit that
+adds a rule, ask whether the current skill already produces that behaviour.
+If a rollout cannot be produced where the skill misbehaved without the new
+line, the edit is sediment: SOFT-fail it and require the miner to attach
+the rollout that shows the failure. "Adding feels safe and removing feels
+risky" is exactly how a skill library silts up.
+
+### 10. Negation check (HARD, E2.3 2026-08-21)
+Steering by prohibition drags the forbidden behaviour into context and makes
+it MORE available, so a rule phrased only as a ban is weaker than the same
+rule phrased as a target. This matters more here than almost anywhere,
+because HiC's writing control is already 350-plus prohibitions.
+
+BLOCK any proposed edit that adds a prohibition with no positive target
+beside it. The remedy is not to delete the ban, it is to pair it:
+
+- REJECTED: "Never open a section with a statistic."
+- ACCEPTED: "Open a section with the judgment the evidence supports, and
+  keep the supporting figure inside a cited quote. Never open with a bare
+  statistic."
+
+A prohibition may stand alone ONLY when it is a hard guardrail that cannot
+be phrased positively (an em-dash ban, a fabrication ban). If the proposal
+claims that exemption, it must say why the positive form is impossible.
+
 ## Output format
 
 The gate emits one verdict file per proposal:
@@ -153,7 +183,7 @@ APPROVE / BLOCK / HUMAN-REVIEW
 
 ## When to escalate to HUMAN-REVIEW
 
-The gate auto-APPROVES when all 8 checks pass with no soft fails. It
+The gate auto-APPROVES when all 10 checks pass with no soft fails. It
 auto-BLOCKS on any hard fail (including a check-8 cross-proposal
 contradiction or within-batch duplicate). Anything in between (1-2 soft
 fails, e.g. an over-generated batch) escalates to HUMAN-REVIEW with a

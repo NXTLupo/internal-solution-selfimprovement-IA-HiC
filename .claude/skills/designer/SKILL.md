@@ -1,5 +1,7 @@
 ---
 name: designer
+invocation: runtime
+disable-model-invocation: true
 description: Runtime visual router for deliverable image slots. Decides, per slot, which of the three visual lanes fills it: native GOLD exhibit render, composable content-true icon, or generated illustration. Bound by the ten HiC Design Laws in hic-workspace/wiki/brand/design-laws.md (tokens only, content-true or nothing, native render never image-gen for exhibits, collision bans). Use when a deliverable declares image slots and the lane choice is not already fixed by the archetype registry.
 ---
 

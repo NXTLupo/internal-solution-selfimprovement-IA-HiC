@@ -158,3 +158,45 @@ describe('buildSlotNarrowingInstruction', () => {
         }
     });
 });
+
+/**
+ * E1.1 (2026-08-21). A live deck logged `p0Coverage: 1` on a run whose AIR also said
+ * "objective.decomposedQuestions empty". The gate had graded the deck's own claims and
+ * reported that as full coverage, which reads identically to full coverage of a real
+ * objective. `planAbsent` is what separates the two.
+ */
+describe('planAbsent: a gate must not report coverage of a plan that does not exist', () => {
+    const slide = (id: string, title: string, body: string) => ({
+        id, template: 'slides:evidence-table', status: 'draft', timestamp: 1, title,
+        composerPayload: { title, rows: [{ cells: [body] }] },
+    });
+
+    const SOURCED = 'Retained search runs eight discrete stages because research absorbs the majority of hours [articles/a.md#c1]';
+
+    it('flags absence when NO sub-question produced a slot', () => {
+        const slides = [slide('s1', 'A finding', SOURCED)];
+        const plan = buildArtifactPlan(slides as any, [], 'slides');
+        const report = evaluateEvidenceSlots(slides as any, plan, { resolveSourceText: () => SOURCED });
+        expect(report.planAbsent).toBe(true);
+        expect(report.plannedSubQuestions).toBe(0);
+    });
+
+    it('does NOT flag absence once the research plan contributes a slot', () => {
+        const slides = [slide('s1', 'Retained search stages', SOURCED)];
+        const plan = buildArtifactPlan(slides as any, [
+            { id: 'sq_1', question: 'Which retained search stages does AI change?', priority: 'high' },
+        ], 'slides');
+        const report = evaluateEvidenceSlots(slides as any, plan, { resolveSourceText: () => SOURCED });
+        expect(report.plannedSubQuestions).toBeGreaterThan(0);
+        expect(report.planAbsent).toBe(false);
+    });
+
+    it('still grades the claims it can see on an unplanned run, so absence is not an excuse to skip', () => {
+        const slides = [slide('s1', 'A finding', 'Retained search runs eight discrete stages because research absorbs the majority of hours')];
+        const plan = buildArtifactPlan(slides as any, [], 'slides');
+        const report = evaluateEvidenceSlots(slides as any, plan, { resolveSourceText: () => '' });
+        expect(report.planAbsent).toBe(true);
+        // the unsourced claim is still a violation
+        expect(report.violations.length).toBeGreaterThan(0);
+    });
+});

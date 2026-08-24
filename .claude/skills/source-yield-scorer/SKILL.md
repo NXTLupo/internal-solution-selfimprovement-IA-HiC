@@ -1,5 +1,6 @@
 ---
 name: source-yield-scorer
+invocation: model
 version: 1.0
 description: Enhancement F (data-pipeline-bulletproofing-2026-06-08). The collection-side self-improvement loop the architecture audit found missing - the prior loop scored only deliverable OUTPUT, never data COLLECTION. Aggregates the proxy's connector-health ledger (per /api/search call: items_returned, http_status, latency_ms) into per-source reliability + yield scores, and writes source-scores.md. research-planner reads it to deprioritize dead connectors and prefer high-yield ones. Run on a weekly /loop cadence.
 thinking: medium

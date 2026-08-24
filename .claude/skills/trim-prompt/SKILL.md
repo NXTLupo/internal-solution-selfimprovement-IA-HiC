@@ -1,5 +1,6 @@
 ---
 name: trim-prompt
+invocation: model
 version: 1.0
 description: Strip every word that weakens a prompt without adding precision. Cuts qualifiers, redundancy, and filler to improve output reliability.
 allowed-tools: Read, Grep, Glob

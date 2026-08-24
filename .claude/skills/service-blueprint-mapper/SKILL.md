@@ -1,5 +1,7 @@
 ---
 name: service-blueprint-mapper
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Generate persona-driven service blueprints with Bitner 5-component model, fail points, and emotion intensity
 thinking: high

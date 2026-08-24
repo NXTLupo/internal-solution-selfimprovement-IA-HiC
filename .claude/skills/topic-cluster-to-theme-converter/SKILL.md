@@ -1,5 +1,6 @@
 ---
 name: topic-cluster-to-theme-converter
+invocation: model
 version: 2.0
 description: PRIMARY theme generator for HiC (promoted 2026-05-24 from additive to primary). Mirrors the working architecture in internal-solutions-socialresearch/backend/util/topic_model/BertTopic.py — BERTopic with UMAP random_state=42 + HDBSCAN with auto-scaled min_cluster_size produces 15-25 stable clusters from a 200+ document corpus; an LLM names each cluster at temperature=0 from top-terms + 25 example documents. Theme identity comes from the deterministic clustering layer; LLM only names. Same cached corpus + same goal → same theme set. Per feedback_check_sister_services_first, the simpler proven architecture replaces the over-engineered LLM-extraction layer that produced 13 unstable themes on the 2026-05-24 Northeastern run.
 thinking: high

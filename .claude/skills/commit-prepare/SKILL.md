@@ -1,5 +1,6 @@
 ---
 name: commit-prepare
+invocation: human
 version: 1.0
 description: Stage changes for commit and emit a structured pre-commit report. Runs the slop scanner against staged HiC files, reminds the user if HiC files were touched (Docker rebuild needed), and outputs the diff stat — but does NOT commit. The user reviews and either gives the green light or asks for fixes. Encodes the "build → test → commit, only after explicit approval" rule end-to-end.
 disable-model-invocation: true

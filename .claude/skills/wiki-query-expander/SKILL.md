@@ -1,5 +1,6 @@
 ---
 name: wiki-query-expander
+invocation: model
 version: 1.0
 description: Multiplies semantic-retrieval recall by expanding a single user question into 3-4 conceptually distinct query variants, firing one fetch_wiki_articles call per variant, and merging the results. Designed to exploit the underlying OpenAI/Gemini embedding layer — each variant hits a different neighborhood of vector space, surfacing articles a single-query search would miss.
 thinking: high

@@ -82,6 +82,15 @@ export interface PostChainRecord {
     evidence: {
         p0Coverage: number;
         violations: Array<{ sectionId: string; field: string; kind: string; claim: string }>;
+        /**
+         * E1.1 follow-up (2026-08-24). The live run exposed the other half of this item:
+         * `SlotReport` carried `planAbsent` but the AIR record dropped it, so the durable
+         * record still showed a bare `p0Coverage: 1` with no way to tell "every claim we
+         * noticed was sourced" from "the objective was covered". Threading the flag is
+         * what makes the record able to say NOT MEASURED.
+         */
+        planAbsent: boolean;
+        plannedSubQuestions: number;
     } | null;
     prose: { overall: number; concerns: Array<{ id: string; score: number }> } | null;
     grade: {
@@ -153,6 +162,8 @@ export function buildPostChainRecord<T>(
             violations: final.slotReport.violations.map(v => ({
                 sectionId: v.sectionId, field: v.field, kind: v.kind, claim: v.claim.slice(0, 200),
             })),
+            planAbsent: final.slotReport.planAbsent,
+            plannedSubQuestions: final.slotReport.plannedSubQuestions,
         } : null,
         prose: final.proseReport ? {
             overall: Number(final.proseReport.overall.toFixed(3)),

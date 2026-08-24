@@ -1,5 +1,6 @@
 ---
 name: verbalized-sampling
+invocation: model
 version: 1.0
 description: Training-free prompting technique to unlock LLM creative diversity by asking the model to verbalize a probability distribution over k candidate responses instead of generating a single answer. Mitigates the mode collapse caused by typicality bias in RLHF preference data. Recovers up to 66.8% of base-model pretraining diversity at inference time. Apply this skill at every HiC creative/synthesis touchpoint (theme synthesis, recommendations, prototype concept decomposition, persona rostering, slide narrative authoring) where the current output reads as predictable, conventional, or "slop". Bigger models benefit more (1.6-2.1x diversity gain on creative writing) — works best with Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.5.
 thinking: max

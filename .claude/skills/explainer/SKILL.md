@@ -1,5 +1,6 @@
 ---
 name: explainer
+invocation: model
 description: Long-form HTML explainer for a single concept, technology, framework, or operating model. Distinct from #report (multi-section strategic overview), #brief (compact action-summary), and #whitepaper (formal industry argument). An explainer ANSWERS ONE QUESTION end-to-end with definitions, mechanisms, examples, and named-source evidence, structured so a reader who knows nothing about the topic finishes informed enough to act. Target visible-word floor 1,200 (defined in CorpusChatPanel._wordFloor).
 ---
 

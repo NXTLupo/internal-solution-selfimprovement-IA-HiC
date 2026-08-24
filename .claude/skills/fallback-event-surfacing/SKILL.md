@@ -1,5 +1,6 @@
 ---
 name: fallback-event-surfacing
+invocation: model
 version: 1.0
 description: Replaces the 34 silent fallback sites across HiC's service layer with structured GenerationReceipt.degradation_events that the user actually sees. Pass 1 Pro → Flash → GPT chain, embedding-alignment fallback, theme angle fallback, depth enrichment timeout — all currently invisible. This skill defines the event taxonomy and the wrapper pattern; the runtime side wires those events into a "Brain status" inline notice in the chat so the user knows "GPT-5.5 substituted for Gemini Pro at theme depth — quality may differ." Pairs with validate_no_silent_fallback.py hook (Stop) that catches deliverables whose telltales suggest a degraded path was taken without a matching event.
 thinking: high

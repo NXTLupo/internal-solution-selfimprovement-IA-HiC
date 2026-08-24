@@ -1,5 +1,7 @@
 ---
 name: nano-banana-diagram-composer
+invocation: runtime
+disable-model-invocation: true
 description: >-
   Compose a Nano-Banana (Gemini image) prompt that renders a FULL-BLEED 16:9 consulting DIAGRAM
   (journey / architecture / mindmap / service-blueprint) with EVERY dimension and PIXEL-ACCURATE,

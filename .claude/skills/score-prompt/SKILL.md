@@ -1,5 +1,6 @@
 ---
 name: score-prompt
+invocation: model
 version: 1.0
 description: Score any prompt across 5 reliability dimensions before it goes into production. Flags launch risks. Use before deploying any system prompt.
 allowed-tools: Read, Grep, Glob

@@ -1,5 +1,6 @@
 ---
 name: quantification-architect
+invocation: model
 version: 1.0
 description: Enforces the finance-grade four-tuple on every recommendation — baseline (current state, sourced), target (committed delta with date), measurement method (named instrument), refresh cadence. The single change that moves HiC deliverables from "directionally interesting" to "approvable by a finance committee." Composes with recommendation-architect (which produces the recommendation), strategy-author (which sequences it into the Coherent Actions phase of Rumelt's Kernel), roadmap-builder (each horizon item inherits the four-tuple), and the validate_quantification.py Stop hook (which enforces presence). Closes the gap that validate_evidence.py misses — that hook checks evidence EXISTS, this skill checks the recommendation is MEASURABLE.
 thinking: high

@@ -1,5 +1,7 @@
 ---
 name: strategy-author
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Author strategic recommendations using Rumelt's Kernel and generate 15-section strategy documents with quantified impact
 thinking: high

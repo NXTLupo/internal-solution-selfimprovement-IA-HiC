@@ -1,5 +1,7 @@
 ---
 name: recommendation-architect
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Generate consulting-grade AI-tool recommendations grounded in client-uploaded docs and stakeholder constraints. Extracts an engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, existing systems, hard non-starters, regulatory constraints) from the user's prompt and uploads — then produces 5-12 distinct recommendations honoring every constraint, with implementation depth a senior consultant would defend in a client meeting. Brand/industry/persona-agnostic.
 thinking: max

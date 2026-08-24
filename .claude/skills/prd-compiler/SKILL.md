@@ -1,5 +1,7 @@
 ---
 name: prd-compiler
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Compile evidence-based product requirements documents with 16 Cagan/SVPG sections and MoSCoW prioritization
 thinking: high

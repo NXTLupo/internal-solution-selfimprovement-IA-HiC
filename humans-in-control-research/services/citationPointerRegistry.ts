@@ -218,6 +218,151 @@ export function resolveManifestPointers(text: string): string {
         .replace(/\s+([.,;:])/g, '$1');
 }
 
+/**
+ * SPLIT a pointer-carrying string into readable prose plus the pointers it carried.
+ *
+ * `resolveManifestPointers` above is the RENDER answer: it rewrites the pointer into
+ * "(Source: Name)" for surfaces that can only show text, which is why deck slides and
+ * the PPTX export never leak a path. It is the wrong answer for a surface that can
+ * offer an affordance, because it throws the address away and the reader is left with
+ * a name they cannot open.
+ *
+ * The 2026-08-21 verification run found the third case: a surface that did NEITHER.
+ * Theme cards rendered `q.text` verbatim, so 87 raw `[articles/x.md#c1]` markers were
+ * on screen, while the card's own "open in wiki" button stayed hidden because the
+ * pointer sat inside the quote instead of in the field the button reads. The evidence
+ * was addressable and the reader still could not reach it.
+ *
+ * So: text for the eye, pointers for the affordance, from ONE parse.
+ */
+export interface PointerSplit {
+    /** The prose with every pointer group removed, whitespace and punctuation repaired. */
+    text: string;
+    /** Every pointer found, in document order, deduped. */
+    pointers: string[];
+}
+export function extractPointers(text: string): PointerSplit {
+    const raw = String(text || '');
+    if (raw.indexOf('.md#c') === -1) return { text: raw, pointers: [] };
+    const pointers: string[] = [];
+    const push = (p: string) => {
+        const t = p.trim();
+        if (t && !pointers.includes(t)) pointers.push(t);
+    };
+    const cleaned = raw
+        .replace(POINTER_GROUP_RE, (_m, group: string) => {
+            for (const one of group.split(/[,;]/)) push(one);
+            return '';
+        })
+        // Bare pointers, same tolerance as the render path.
+        .replace(/(?<!\[)[\w./\\-]+\.md#c\d+/gi, (m) => { push(m); return ''; })
+        .replace(/\s{2,}/g, ' ')
+        .replace(/\s+([.,;:])/g, '$1')
+        // A quote whose pointer sat before the closing mark leaves a dangling space.
+        .replace(/([("'“‘])\s+/g, '$1')
+        .replace(/\s+([)"'”’])/g, '$1')
+        .trim();
+    return { text: cleaned, pointers };
+}
+
+/**
+ * E1.2 (2026-08-21). POSITIONAL split, for a surface that can render an affordance
+ * INSIDE the prose rather than beside it.
+ *
+ * `extractPointers` above answers "what does this string say, and what did it cite",
+ * which is what a card needs when the citation lives in a separate control. It throws
+ * position away, so it cannot drive a chip that sits where the citation actually was.
+ * Card prose has been shipping with the pointer stripped for exactly that reason, which
+ * loses the link between a specific sentence and the passage behind it.
+ *
+ * Segments come back in document order: prose runs and pointer runs, ready to map to
+ * text nodes and chips.
+ */
+export type ProseSegment =
+    | { kind: 'text'; value: string }
+    | { kind: 'pointer'; pointer: string; wikiPath: string | null };
+
+export function splitProseWithPointers(text: string): ProseSegment[] {
+    const raw = String(text || '');
+    if (!raw) return [];
+    if (raw.indexOf('.md#c') === -1) return [{ kind: 'text', value: raw }];
+
+    const segments: ProseSegment[] = [];
+    let cursor = 0;
+    const pushText = (value: string) => {
+        if (!value) return;
+        const last = segments[segments.length - 1];
+        if (last && last.kind === 'text') last.value += value;
+        else segments.push({ kind: 'text', value });
+    };
+
+    // One pass over bracket groups; a group may hold several pointers, and each becomes
+    // its own chip so the reader can open any of them.
+    const groupRe = new RegExp(POINTER_GROUP_RE.source, 'gi');
+    let m: RegExpExecArray | null;
+    while ((m = groupRe.exec(raw)) !== null) {
+        pushText(raw.slice(cursor, m.index));
+        for (const one of m[1].split(/[,;]/)) {
+            const pointer = one.trim();
+            if (pointer) segments.push({ kind: 'pointer', pointer, wikiPath: pointerToWikiPath(pointer) });
+        }
+        cursor = m.index + m[0].length;
+    }
+    pushText(raw.slice(cursor));
+
+    // Tidy the prose runs the removal left behind, without touching chip order. A text
+    // run that ends right before a chip loses its trailing space: a citation marker sits
+    // tight against the word it cites, the way a footnote does, and the chip's own left
+    // margin supplies the hairline gap.
+    const tidied = segments.map((seg, i) => {
+        if (seg.kind !== 'text') return seg;
+        let value = seg.value.replace(/[ 	]{2,}/g, ' ').replace(/\s+([.,;:])/g, '$1');
+        if (segments[i + 1]?.kind === 'pointer') value = value.replace(/[ 	]+$/, '');
+        return { kind: 'text' as const, value };
+    });
+    return tidied.filter(seg => seg.kind !== 'text' || seg.value !== '');
+}
+
+/** The wiki page a pointer addresses, with the chunk fragment removed. `null` when the
+ *  string is not a pointer, so a caller can never hand a bare label to a file open. */
+export function pointerToWikiPath(pointer: string): string | null {
+    const m = /^([\w./\\-]+\.md)#c\d+$/i.exec(String(pointer || '').trim());
+    return m ? m[1] : null;
+}
+
+/**
+ * Turn a raw evidence string into a card-ready quote: clean prose for the reader, plus
+ * the two fields a card needs to offer a way into the source.
+ *
+ * This lives here rather than in the component because the component is not the only
+ * surface that shows evidence, and a transform duplicated per surface is how the
+ * 2026-08-21 leak happened in the first place. A pointer already on the record wins over
+ * one parsed out of prose, since that one was recorded rather than written.
+ */
+export interface CardQuoteFields {
+    sourceLabel?: string;
+    sourceDate?: string;
+    externalUrl?: string;
+    wikiPath?: string;
+    chunkPointer?: string;
+}
+export function quoteWithAffordance<T extends CardQuoteFields>(
+    rawText: string,
+    base: T
+): T & { text: string; chunkPointer: string; wikiPath: string } {
+    const { text, pointers } = extractPointers(rawText);
+    const pointer = base.chunkPointer || pointers[0] || '';
+    return {
+        ...base,
+        text,
+        chunkPointer: pointer,
+        // Without a wikiPath a card cannot draw its "open in wiki" control, so derive one
+        // from the pointer we just recovered rather than leaving addressable evidence
+        // unreachable. An explicit path from the record is never overwritten.
+        wikiPath: base.wikiPath || (pointer ? (pointerToWikiPath(pointer) || '') : ''),
+    };
+}
+
 /** W1 (2026-07-01, scorecard gap "64% pointers unsourced"): expose the full attribution ladder for ONE
  *  pointer so the AIR evidence ledger (evidenceLedgerService.resolvedChunkToEvidence) can fall back to the
  *  SAME page-level attribution the render path uses. Most "unsourced" pointers are social/Reddit or upload

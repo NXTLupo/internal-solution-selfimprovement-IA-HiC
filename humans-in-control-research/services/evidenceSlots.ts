@@ -80,9 +80,20 @@ export interface SlotViolation {
 export interface SlotReport {
     fills: SlotFill[];
     violations: SlotViolation[];
-    /** Fraction of P0 slots filled, 0..1. */
+    /** Fraction of P0 slots filled, 0..1. Meaningless when `planAbsent` is true. */
     p0Coverage: number;
     pass: boolean;
+    /**
+     * E1.1 (2026-08-21). True when the run declared NO research plan, so the slots
+     * this gate graded came only from the artifact's own claims and not from a
+     * declared objective. `p0Coverage: 1` on an unplanned run means "every claim we
+     * happened to notice was sourced", NOT "the objective was covered". Reporting
+     * those two states with the same number is how a live deck came to log full
+     * coverage against an empty plan.
+     */
+    planAbsent: boolean;
+    /** How many sub-questions the plan contributed. Zero when `planAbsent`. */
+    plannedSubQuestions: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -336,10 +347,16 @@ export function evaluateEvidenceSlots(
 
     const p0 = fills.filter(f => f.priority === 'P0');
     const p0Filled = p0.filter(f => f.state !== 'unfilled').length;
+    // A slot carries a subQuestionId only when a declared sub-question produced it.
+    const planned = new Set(
+        plan.sections.flatMap(sec => sec.requiredSlots.map(r => r.subQuestionId).filter(Boolean) as string[]),
+    );
     return {
         fills, violations,
         p0Coverage: p0.length ? p0Filled / p0.length : 1,
         pass: violations.length === 0,
+        planAbsent: planned.size === 0,
+        plannedSubQuestions: planned.size,
     };
 }
 

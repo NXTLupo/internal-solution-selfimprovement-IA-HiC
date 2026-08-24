@@ -32,12 +32,14 @@
 import { ok, fail, refuse, partial, type StepEnvelope, envelopeTrace } from './stepEnvelope';
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow, type PageFetcher } from './citationVerifier';
 import { deClicheDeep, stripEmDashes, stripEmoji, stripFormatTells } from './slidePostProcessor';
+import { detectSlopInSlides, buildSlopRepairInstruction } from './slopDetector';
 import { enumerateTextFields } from './slideTextEditing';
 import { analyzeProse, buildProseRepairInstruction, type ProseReport } from './proseSignal';
 import {
     buildArtifactPlan, evaluateEvidenceSlots, buildSlotNarrowingInstruction,
     type ArtifactPlan, type SlotReport, type PlanSubQuestion, type SlotGateOptions,
 } from './evidenceSlots';
+import { readObjectivePlan, planSummary } from './objectivePlan';
 import { gradeArtifact, buildGradeRepairInstruction, type GradeReport } from './outputGrader';
 import { bindPointers, readGroundingChunks, bindSummary, type BindReport, type BindableChunk } from './pointerBinder';
 import {
@@ -217,7 +219,26 @@ export async function runArtifactChain<T extends SlideLike>(
                         const scrubbed = scrubStrings(s);
                         return deClicheDeep(scrubbed) as T;
                     });
-                    envelopes.push(ok('chain:lexical', { slides: slides.length }));
+                    /**
+                     * E1.3 (2026-08-21). Format tells above are removed outright, because a
+                     * provider tag or an em-dash carries no meaning to lose. A banned PHRASE
+                     * is different: deleting "utilize" from "firms utilize a comprehensive
+                     * approach" leaves broken grammar, and `.claude/CLAUDE.md` asks for the
+                     * insight kept and the wording fixed. So this stage DETECTS and hands the
+                     * sentence to the repair pass, which rewrites it. `check:content` fails the
+                     * build on these words, so runtime prevention has to exist somewhere; the
+                     * gates-bite pass found that it did not.
+                     */
+                    const slop = detectSlopInSlides(slides);
+                    if (slop.length) {
+                        repairs.push(buildSlopRepairInstruction(slop));
+                        envelopes.push(refuse('chain:lexical', { slides: slides.length },
+                            `${slop.length} banned phrase site(s): ${slop.slice(0, 4).map(v => v.phrase).join(', ')}`,
+                            { nextAction: 'narrow_scope', meta: { phrases: slop.length } }));
+                        for (const v of slop.slice(0, 6)) console.warn(`[lexical] "${v.phrase}" in ${v.slideId}.${v.field}`);
+                    } else {
+                        envelopes.push(ok('chain:lexical', { slides: slides.length }));
+                    }
                     break;
                 }
                 case 'bindPointers': {
@@ -254,7 +275,10 @@ export async function runArtifactChain<T extends SlideLike>(
                     break;
                 }
                 case 'evidenceSlots': {
-                    plan = buildArtifactPlan(slides, ctx.subQuestions || [], ctx.artifactType || 'slides');
+                    // E1.1: the plan comes from ONE reader, so a run with no declared
+                    // objective is recorded as unmeasured rather than fully covered.
+                    const planRead = readObjectivePlan(ctx.subQuestions);
+                    plan = buildArtifactPlan(slides, planRead.subQuestions, ctx.artifactType || 'slides');
                     slotReport = evaluateEvidenceSlots(slides, plan, {
                         subjectDomain: ctx.subjectDomain ?? null,
                         // DF-G4 needs text to infer the SOURCE's domain. Rather than
@@ -265,7 +289,9 @@ export async function runArtifactChain<T extends SlideLike>(
                         resolveSourceText: ctx.resolveSourceText || buildPointerTextResolver(slides, ledger),
                     });
                     if (slotReport.pass) {
-                        envelopes.push(ok('chain:evidenceSlots', { p0Coverage: slotReport.p0Coverage }));
+                        envelopes.push(ok('chain:evidenceSlots', slotReport.planAbsent
+                            ? { p0Coverage: slotReport.p0Coverage, planAbsent: true, note: planSummary(planRead) }
+                            : { p0Coverage: slotReport.p0Coverage, plannedSubQuestions: slotReport.plannedSubQuestions }));
                     } else {
                         repairs.push(buildSlotNarrowingInstruction(slotReport));
                         envelopes.push(refuse('chain:evidenceSlots', { p0Coverage: slotReport.p0Coverage },

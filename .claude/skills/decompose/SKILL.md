@@ -1,5 +1,6 @@
 ---
 name: decompose
+invocation: model
 version: 1.0
 description: Turn a single monolithic prompt into a multi-phase skill system with distinct phases, explicit handoffs, and output checkpoints between each phase.
 allowed-tools: Read, Grep, Glob

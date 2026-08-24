@@ -1,0 +1,5 @@
+# Rendered output is a build product: reproducible from the composition, large, and
+# never worth a diff. The directory itself is tracked (see .gitkeep) because the
+# container mounts it and Docker will not create a bind-mount source for you.
+renders/*
+!renders/.gitkeep

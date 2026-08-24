@@ -1,5 +1,7 @@
 ---
 name: nxt-style
+invocation: runtime
+disable-model-invocation: true
 description: NXT Humans brand-style skill for freeform-HTML diagram artifacts. Editorial layer (voice, anti-patterns, when-to-use). Visual tokens (colors, typography, atmospheric treatment) are inherited from the exemplar HTML files at humans-in-control-research/styles/.
 ---
 

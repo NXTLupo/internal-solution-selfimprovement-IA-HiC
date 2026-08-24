@@ -2924,6 +2924,13 @@ const App = () => {
                 redditDeepItems,
                 status: opts?.status || (themesResult && topicModelResult && personasResult && recsResult ? 'complete' : 'in-progress'),
                 createdAt: sessionStartedAt || undefined,
+                // E1.1: persist the objective plan so a RESTORED session can still measure
+                // evidence coverage against its own objective. Omitting it is why a live
+                // restored run reported zero declared sub-questions. Defaults to whatever
+                // the one reader can see, so the caller cannot forget it.
+                researchPlanSubQuestions: (typeof window !== 'undefined'
+                    ? (window as any).__hicResearchPlanSubQuestions
+                    : undefined) || undefined,
             });
             const result = await saveSession(snapshot, sessionSlug || undefined);
             if (!result.ok) {

@@ -1,5 +1,6 @@
 ---
 name: source-ranker
+invocation: model
 version: 1.0
 description: Ranks any candidate source set by four orthogonal dimensions wiki-reranker doesn't cover — credibility (high/medium/low based on publication, methodology, peer review), recency (current/dated/outdated for the topic's volatility), relevance to argument (direct/tangential/weak), and the binding citation-protocol classification external/client/synthetic. Emits per-source Use/Verify/Cut verdicts, the top 3 to build the argument on, the one to cut, and the missing source type that would make the argument stronger. Enforces the >=60% external floor and >=30% external-of-total-citations floor from .claude/CLAUDE.md. Composes with wiki-query-expander (recall) and wiki-reranker (intent relevance) — together they form a 3-stage retrieval pipeline.
 thinking: high

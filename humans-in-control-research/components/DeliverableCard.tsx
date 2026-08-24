@@ -12,6 +12,7 @@
  */
 
 import React, { useState, useRef } from 'react';
+import { extractPointers } from '../services/citationPointerRegistry';
 
 // --- Deliverable Types ---
 
@@ -53,7 +54,7 @@ function renderThemeDetail(data: any) {
             <p style={{ fontSize: 12, color: '#333', lineHeight: 1.6, marginBottom: 8 }}>{data.description}</p>
             {data.quote && (
                 <div style={{ borderLeft: '3px solid #B8B800', paddingLeft: 12, marginBottom: 8, fontStyle: 'italic', fontSize: 12, color: '#555' }}>
-                    "{data.quote}"
+                    "{extractPointers(data.quote).text}"
                 </div>
             )}
             {data.citations?.length > 0 && (
@@ -77,7 +78,7 @@ function renderPersonaDetail(data: any) {
                 <div>
                     <div style={{ fontSize: 15, fontWeight: 700, color: '#0D0D0D' }}>{data.name}</div>
                     <div style={{ fontSize: 11, color: '#666' }}>{data.role}</div>
-                    {data.quote && <div style={{ fontSize: 11, fontStyle: 'italic', color: '#555', marginTop: 4 }}>"{data.quote}"</div>}
+                    {data.quote && <div style={{ fontSize: 11, fontStyle: 'italic', color: '#555', marginTop: 4 }}>"{extractPointers(data.quote).text}"</div>}
                 </div>
             </div>
             {data.jtbd && <div style={{ fontSize: 11, color: '#333', marginTop: 8, background: '#F5F5F0', padding: '6px 10px' }}>JTBD: {data.jtbd}</div>}
@@ -86,7 +87,7 @@ function renderPersonaDetail(data: any) {
                     <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1px', color: '#CC6644', marginBottom: 4 }}>PAIN POINTS</div>
                     {data.painPoints.map((pp: any, i: number) => (
                         <div key={i} style={{ fontSize: 11, color: '#444', marginBottom: 4, paddingLeft: 8, borderLeft: '2px solid #E0E0E0' }}>
-                            <strong>{pp.label}:</strong> "{pp.quote}" <span style={{ fontSize: 9, color: '#999' }}>({pp.source || pp.citation?.sourceName || ''})</span>
+                            <strong>{pp.label}:</strong> "{extractPointers(pp.quote).text}" <span style={{ fontSize: 9, color: '#999' }}>({pp.source || pp.citation?.sourceName || ''})</span>
                         </div>
                     ))}
                 </div>

@@ -25,7 +25,11 @@ import { join, dirname, resolve } from 'node:path';
 
 const HERE = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'));
 const HIC_ROOT = resolve(HERE, '..');
-const SESSIONS = join(HIC_ROOT, 'hic-workspace', 'sessions');
+/** E1.3 (2026-08-24): overridable, so the gate can be handed a fixture and asked to
+ *  reject it. Absent the env var, nothing changes. */
+const SESSIONS = process.env.HIC_SESSIONS_ROOT
+    ? resolve(process.env.HIC_SESSIONS_ROOT)
+    : join(HIC_ROOT, 'hic-workspace', 'sessions');
 
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');

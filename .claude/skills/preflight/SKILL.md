@@ -1,5 +1,6 @@
 ---
 name: preflight
+invocation: model
 version: 1.0
 description: Full pre-deployment audit combining prompt scoring, stress testing, and constraint validation. Run this before deploying any prompt to production.
 allowed-tools: Read, Grep, Glob, Bash

@@ -1,0 +1,11 @@
+{
+  "name": "hic-video-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HTML-to-video render sidecar for the NXT Humans suite, built on HyperFrames.",
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "hyperframes": "0.8.7"
+  }
+}

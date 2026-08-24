@@ -1,5 +1,6 @@
 ---
 name: deterministic-naming-pass
+invocation: model
 version: 1.0
 description: Codifies the temperature=0 + seed-binding pattern for every LLM call that produces a deliverable's identity (theme names, persona names, recommendation titles, slide titles, cluster labels). Per the 2026-05-24 standing rule (feedback_determinism_first_for_cached_runs), same cached corpus + same goal MUST produce identical identity fields across runs. This skill is the contract that every naming-class LLM call must honor. It lists exactly which call sites in geminiService.ts need temperature=0 + seed, defines the seed-derivation policy (cluster_id, persona_id, recommendation_index → stable seed), and provides the wrapper function to enforce both.
 thinking: high

@@ -1,5 +1,7 @@
 ---
 name: analyst-chat-formatter
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Rich-text formatting contract for NON-HASHTAG chat replies in the Analyst Desk and Designer Desk panes (the conversational answers routed to Gemini 3.5 Flash). When a user asks a plain question - no #slide / #slides / artifact hashtag - the answer renders in a rich text pane (components/ChatProse.tsx) that formats a safe Markdown subset into NXT-styled headers, bullets, numbered lists, blockquotes, and bold. This skill defines HOW to structure that answer so it is beautifully scannable instead of a wall of text. Does NOT apply to hashtag deliverables (those follow nxt-visual-renderer + the SLIDE OUTPUT PROTOCOL).
 thinking: medium

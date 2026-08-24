@@ -1,5 +1,7 @@
 ---
 name: epoch-proposer
+invocation: human
+disable-model-invocation: true
 description: The Step-7 self-improvement epoch proposer. Reads M1 traces + M2 Pareto vectors + M3 golden-set baseline, proposes ONE bounded harness edit, runs the gate, applies if accepted. Fires when jobs_since_last_epoch >= k (default 5).
 ---
 

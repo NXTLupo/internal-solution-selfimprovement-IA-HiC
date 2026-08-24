@@ -1,5 +1,7 @@
 ---
 name: gap-analysis-evaluator
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Four-step capability gap extraction using Gartner 5-level maturity scoring with evidence-backed severity, risk register, and quick wins.
 thinking: high

@@ -1,5 +1,6 @@
 ---
 name: ai-output-syntax-repair
+invocation: model
 version: 1.0
 description: Pre-parse syntax repair pass for AI-generated artifacts (JSON, HTML, SVG, CSS). Defeats the single most common HiC pipeline failure — "Unterminated string in JSON at position N" from Gemini Flash, DeepSeek empty tool-call arguments, GPT-5.5 truncation at max-tokens. Generalizes the recoverTruncatedJson() helper that currently lives only in prototypeBuilder.ts to a deliverable-agnostic repair layer that runs before any downstream JSON.parse / DOMParser. Recovers ~75% of truncation-class failures; emits a structured RepairReport listing what was fixed and what couldn't be. Pairs with validate_ai_output_syntax.py hook (Stop) which gates whether repair output is safe to ship.
 thinking: high

@@ -36,7 +36,14 @@ import { join, relative, dirname, resolve, posix } from 'node:path';
 const HERE = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'));
 const HIC_ROOT = resolve(HERE, '..');
 const REPO_ROOT = resolve(HIC_ROOT, '..');
-const SKILLS_ROOT = join(REPO_ROOT, '.claude', 'skills');
+/**
+ * E1.3 (2026-08-24): overridable so the gate can be pointed at a fixture tree and asked
+ * to REJECT something. A gate with no red case is a gate nobody has proved bites, which
+ * is the whole argument of the gates-bite pass. Absent the env var, nothing changes.
+ */
+const SKILLS_ROOT = process.env.HIC_SKILLS_ROOT
+    ? resolve(process.env.HIC_SKILLS_ROOT)
+    : join(REPO_ROOT, '.claude', 'skills');
 
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');
@@ -48,6 +55,8 @@ const strict = args.includes('--strict');
  * accumulation of one-off keys is worth seeing.
  */
 const KNOWN_KEYS = new Set([
+    // E2.3: the invocation class (see checkInvocation below).
+    'invocation', 'disable-model-invocation',
     'name', 'description', 'version', 'license', 'allowed-tools', 'required-secrets',
     'secrets-autonomous', 'thinking', 'category', 'triggers', 'trigger', 'argument-hint',
     'inputs', 'outputs', 'references', 'metadata', 'last_improved', 'applies_to',
@@ -61,6 +70,8 @@ const CODE_SPAN = /`([^`\n]+)`/g;
 const PATH_TOKEN = /(?<![\w./-])(?:references|scripts|templates|assets|evals)\/[A-Za-z0-9._~/%+-]+/g;
 
 const findings = [];
+/** E2.3: one entry per skill, so the run can report the invocation distribution. */
+const invocationClasses = [];
 const add = (severity, rule, skill, message, extra = {}) =>
     findings.push({ severity, rule, skill, message, ...extra });
 
@@ -131,6 +142,68 @@ function checkFrontmatter(skillDir, rel, meta, fmError) {
         // would never act on.
         if (/[<>]/.test(description)) add('warning', 'frontmatter.description-brackets', rel, 'description contains angle brackets');
     }
+    /**
+     * E2.3 (2026-08-21). CONTEXT BUDGET AND INVOCATION CLASS.
+     *
+     * Every model-invoked skill's description sits in context on every turn of every
+     * session. With 82 packages that is a standing cost, and 52 of those descriptions
+     * ran past 300 characters because a description had drifted from a trigger pointer
+     * into a summary of the skill. `writing-for-agents` names the two loads precisely:
+     * context load on the model, cognitive load on the human. A description earns its
+     * length by helping the model decide whether to reach for the skill, and nothing
+     * else.
+     *
+     * The budget is a warning rather than an error: the existing library predates the
+     * rule, and turning 52 warnings into a red build would just get the gate bypassed.
+     * It is measured, reported, and enforced on anything new.
+     */
+    if (description) {
+        if (description.length > 300) {
+            add('warning', 'frontmatter.description-budget', rel,
+                `description is ${description.length} chars; a trigger pointer should fit in 300. The body carries the detail, the description only has to win the routing decision.`);
+        }
+        /**
+         * The NEGATION rule, also from `writing-for-agents`: "steering by prohibition
+         * drags the forbidden behaviour into context and makes it MORE available...
+         * Prompt the positive." A description that is only a list of things not to do
+         * gives the model no target to hit. This matters doubly in HiC, whose writing
+         * control is 350-plus prohibitions.
+         */
+        const prohibitions = (description.match(/(never|not|no|avoid|forbidden|banned|don't|do not)/gi) || []).length;
+        const positives = (description.match(/(use|apply|produce|emit|generate|load|read|write|compose|check|audit|when|for)/gi) || []).length;
+        if (prohibitions >= 3 && prohibitions > positives) {
+            add('warning', 'frontmatter.negation-heavy', rel,
+                `description carries ${prohibitions} prohibition(s) and ${positives} positive target(s): name what the skill DOES first, then the guardrail`);
+        }
+    }
+
+    /**
+     * The invocation class. `disable-model-invocation: true` costs no per-turn context,
+     * which is the right setting for a skill only ever reached by hand or by HiC's own
+     * runtime loader (which reads `/hic-workspace/skill-manifest.json` and the file
+     * path, never the frontmatter). Absent the key, a skill is model-invoked, so the
+     * gate reports the distribution rather than guessing.
+     */
+    const invocation = (meta.invocation || '').replace(/^["']|["']$/g, '').trim();
+    invocationClasses.push(invocation || 'unset');
+    if (!invocation) {
+        add('warning', 'frontmatter.invocation-missing', rel,
+            'no invocation class: declare model (the agent reaches for it mid-task), runtime (HiC loads it from the manifest by path) or human (a person invokes it by name)');
+    }
+    const disabled = String(meta['disable-model-invocation'] || '').trim() === 'true';
+    if (invocation && !['model', 'runtime', 'human'].includes(invocation)) {
+        add('error', 'frontmatter.invocation-class', rel,
+            `invocation '${invocation}' is not one of model | runtime | human`);
+    }
+    if (invocation === 'runtime' && !disabled) {
+        add('warning', 'frontmatter.invocation-cost', rel,
+            'invocation: runtime pays per-turn model context for nothing; add disable-model-invocation: true');
+    }
+    if (disabled && invocation === 'model') {
+        add('error', 'frontmatter.invocation-contradiction', rel,
+            'declared invocation: model but disable-model-invocation: true; the model can never reach it');
+    }
+
     for (const k of Object.keys(meta)) {
         if (!KNOWN_KEYS.has(k)) add('warning', 'frontmatter.unknown-key', rel, `unrecognized frontmatter key '${k}'`);
     }
@@ -297,13 +370,78 @@ for (const dir of skillDirs) {
     checkResourceGraph(dir, rel, files);
 }
 
-// Every code-referenced skill must exist.
-for (const [name, source] of codeReferencedSkills()) {
+/**
+ * Every code-referenced skill must exist.
+ *
+ * Scoped to the REAL tree. This analyzer scans the repo's own source for skill names and
+ * checks them against the discovered packages, so pointing it at a fixture root reports
+ * every genuinely-live skill as absent. Running it there would be measuring the fixture
+ * against the wrong library.
+ */
+const usingFixtureRoot = Boolean(process.env.HIC_SKILLS_ROOT);
+for (const [name, source] of (usingFixtureRoot ? [] : codeReferencedSkills())) {
     if (!names.has(name)) {
         add('error', 'skill.referenced-but-absent', name,
             `referenced by ${source} but no skill package declares this name; the loader fails silently, so the prompt is quietly missing it`);
     }
 }
+
+/**
+ * Analyzer 5: ROUTER SYNC (E2.4, 2026-08-21).
+ *
+ * `ask-hic` maps intent onto the library so a skill nobody remembers still gets reached.
+ * Matt Pocock's version of this states the failure mode exactly: "a new skill it never
+ * mentions, or a stale one it still routes to, is a router that lies." A router only
+ * helps while it is true, and nothing but a gate keeps it true.
+ *
+ * Scope is deliberate. Only MODEL-REACHABLE skills need routing: a package marked
+ * `disable-model-invocation: true` is loaded by HiC's runtime from the manifest by path,
+ * so listing it here would be noise. The router itself is excluded, and so is any skill
+ * whose own frontmatter says a human invokes it directly.
+ */
+function checkRouterSync(skillDirs) {
+    const routerPath = join(SKILLS_ROOT, 'ask-hic', 'SKILL.md');
+    if (!existsSync(routerPath)) {
+        add('warning', 'router.absent', 'ask-hic', 'no ask-hic router: with this many packages, a skill nobody remembers is a skill nobody reaches');
+        return;
+    }
+    const routerText = readFileSync(routerPath, 'utf8');
+    const missing = [];
+    const stale = [];
+    const named = new Set();
+    for (const m of routerText.matchAll(/\*\*([a-z0-9-]+)\*\*/g)) named.add(m[1]);
+
+    for (const dir of skillDirs) {
+        const name = dir.split(/[\\/]/).pop();
+        if (name === 'ask-hic') continue;
+        const raw = readFileSync(join(dir, 'SKILL.md'), 'utf8');
+        const fm = raw.split(/^---\s*$/m)[1] || '';
+        if (/disable-model-invocation:\s*true/.test(fm)) continue;   // runtime-loaded, not routed
+        if (/^invocation:\s*human/m.test(fm)) continue;
+        if (!named.has(name)) missing.push(name);
+    }
+    // Existence is resolved against the DISCOVERED packages, not a guessed path: skills
+    // nest (`brands/nu-style`, `illustrators/journey-illustrator`), so assuming a flat
+    // layout reported seven live skills as stale. A router entry may also name a slash
+    // COMMAND rather than a package, so that root counts too.
+    const COMMANDS_ROOT = join(REPO_ROOT, '.claude', 'commands');
+    const discovered = new Set(skillDirs.map(d => d.split(/[\\/]/).pop()));
+    for (const name of named) {
+        const isCommand = existsSync(join(COMMANDS_ROOT, `${name}.md`));
+        if (!discovered.has(name) && !isCommand) stale.push(name);
+    }
+    if (missing.length) {
+        add('warning', 'router.unrouted-skill', 'ask-hic',
+            `${missing.length} model-reachable skill(s) the router never mentions: ${missing.slice(0, 12).join(', ')}${missing.length > 12 ? ', ...' : ''}`);
+    }
+    for (const name of stale) {
+        add('error', 'router.stale-entry', 'ask-hic',
+            `router points at '${name}', which has no SKILL.md; a router that names a skill that does not exist is worse than no router`);
+    }
+}
+// Router sync is also a property of the REAL library: a fixture tree has no router and
+// owes none.
+if (!process.env.HIC_SKILLS_ROOT) checkRouterSync(skillDirs);
 
 const errors = findings.filter(f => f.severity === 'error');
 const warnings = findings.filter(f => f.severity === 'warning');
@@ -328,7 +466,13 @@ if (asJson) {
         console.log(`\n  ${skill}${errs ? `  [${errs} error(s)]` : ''}`);
         for (const f of list) console.log(`    ${f.severity === 'error' ? 'ERROR ' : 'warn  '} ${f.rule}: ${f.message}`);
     }
-    console.log(`\n[check-skills] ${errors.length} error(s), ${warnings.length} warning(s)`);
+    // E2.3: the DISTRIBUTION is the measurement this item was about, and an unreported
+    // measurement is the same as none. The per-turn count is the number that matters: a
+    // runtime or human package costs nothing until someone reaches for it.
+    const dist = invocationClasses.reduce((acc, c) => { acc[c] = (acc[c] || 0) + 1; return acc; }, {});
+    console.log(`\n[check-skills] invocation: ${dist.model || 0} model, ${dist.runtime || 0} runtime, ${dist.human || 0} human${dist.unset ? `, ${dist.unset} UNSET` : ''}`);
+    console.log(`[check-skills] ${dist.model || 0} description(s) load into model context per turn; runtime and human packages pay none`);
+    console.log(`[check-skills] ${errors.length} error(s), ${warnings.length} warning(s)`);
 }
 
 process.exit(errors.length > 0 || (strict && warnings.length > 0) ? 1 : 0);

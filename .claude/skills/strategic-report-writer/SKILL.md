@@ -1,5 +1,7 @@
 ---
 name: strategic-report-writer
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: McKinsey-format strategic whitepaper synthesis using Rumelt's Kernel, 20+ named sources, case studies, social evidence, and mandatory section manifest driven by available deliverables.
 thinking: max

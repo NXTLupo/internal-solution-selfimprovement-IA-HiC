@@ -20,6 +20,7 @@
  * (chunk-anchor scroll-to).
  */
 import React, { useCallback } from 'react';
+import { CitedProse } from './CiteChip';
 import { copyToClipboard } from '../services/clipboard';
 
 export interface QuoteEvidence {
@@ -251,11 +252,15 @@ export const ResearchCard: React.FC<ResearchCardProps> = ({
                 </div>
             )}
 
-            {/* Summary */}
+            {/* Summary. E1.2: citations render as chips IN the prose, so a sentence keeps
+                the link to the passage it came from. The card used to strip the pointer
+                entirely, which removed the machine text and the trail with it. */}
             {item.summary && (
-                <p style={{ fontSize: 12, lineHeight: 1.55, color: '#404040', marginBottom: 12 }}>
-                    {item.summary}
-                </p>
+                <CitedProse
+                    text={item.summary}
+                    onOpenWiki={onOpenWiki}
+                    style={{ fontSize: 12, lineHeight: 1.55, color: '#404040', marginBottom: 12 }}
+                />
             )}
 
             {/* Pass-2 DEPTH - expandable Analysis (the depth the renderer used to drop) */}

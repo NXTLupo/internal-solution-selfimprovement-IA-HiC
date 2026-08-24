@@ -1,5 +1,7 @@
 ---
 name: journey-illustrator
+invocation: runtime
+disable-model-invocation: true
 description: Journey map (CURRENT-state) illustrator. Two-pass depth pattern ported from the Intelligence Augmentation Journey Mapper - first pass drafts; second pass critiques and deepens. Output is a finished consulting HTML report (grid-table layout, per-cell verbatim evidence quotes with Source: citations, named touchpoints with importance scores, emotion intensity 0-100, journey-level KPI dashboard with overall pain points + overall opportunities). Shares grid layout with the service-blueprint exemplar - they differ ONLY semantically (current/pain vs future/gain). NU and NXT brand exemplars carry only color and typography differences; structural rules are identical for both brands.
 ---
 

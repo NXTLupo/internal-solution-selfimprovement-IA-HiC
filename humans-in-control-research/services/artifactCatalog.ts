@@ -91,6 +91,9 @@ export const ARTIFACT_CATALOG: ArtifactCatalogEntry[] = [
     { id: 'report', aliases: ['#report', '#reports'], templateId: 'executive-brief', ownerSkill: 'strategic-report-writer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'playground', aliases: ['#playground'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'approaches', aliases: ['#approaches'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    // E2.5 (2026-08-21): the artifact for a decision the corpus cannot settle. Asks the
+    // person who holds the answer, instead of writing that evidence is limited.
+    { id: 'questionnaire', aliases: ['#questionnaire', '#questions'], templateId: null, ownerSkill: 'questionnaire-author', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
 
     // ---- Graph / cross-engagement / dialogue ----
     { id: 'mindmap', aliases: ['#mindmap', '#mind-map'], templateId: null, ownerSkill: 'mind-map-architect', tier: 'schema', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },

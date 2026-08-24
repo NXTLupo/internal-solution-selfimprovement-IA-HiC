@@ -1,5 +1,6 @@
 ---
 name: pre-mortem
+invocation: model
 version: 1.0
 description: Inverts second-order-thinker — instead of mapping consequences forward, this skill assumes the recommendation has FAILED catastrophically 18 months from now and reasons backward to surface the failure modes that forward-mapping misses (political resistance, vendor lock-in, change-management bankruptcy, integration regret, talent flight, regulatory snap-back). Produces a Risk Register entry per recommendation, scored on likelihood x severity, grounded in named failure modes the deliverable's evidence already supports. Composes with second-order-thinker (forward-mapped consequences) and stakeholder-lens-auditor (most failures originate in stakeholder objections that were politely ignored). Pre-mortem before commit is the single discipline most often missing from consulting strategy decks.
 thinking: high

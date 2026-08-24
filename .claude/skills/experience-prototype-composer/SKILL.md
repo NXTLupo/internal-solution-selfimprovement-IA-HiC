@@ -1,5 +1,6 @@
 ---
 name: experience-prototype-composer
+invocation: model
 version: 1.0
 description: STRICT-RULE skill that mandates every Stage 4 prototype be composed exclusively from the AI Experience Patterns catalog at /hic-workspace/wiki/inspiration-hub/ai-patterns/ — no invented UI shapes, no generic Copilot shells, no "clean modern" placeholders. Parses the user hashtag (`#proto (experience name) #NU` or `#proto (experience name) #NXT`) and forces the Stage 4 Prototype Coder to render every region of its output as a NAMED pattern from the catalog in the requested brand. Loaded by `prototypeBuilder.ts` Stage 4 alongside the design-exemplar-curator injection. Replaces ad-hoc UI invention with disciplined composition from a curated, brand-vetted catalog.
 trigger: ALWAYS load at Stage 4 (Prototype Coder) when brand hashtag is present; OVERRIDES any other "build whatever feels right" instructions

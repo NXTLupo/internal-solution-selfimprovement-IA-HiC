@@ -20,7 +20,13 @@ import { newRunTrace } from './runTraceService';
 
 export const AIR_VERSION = 'hic-air-2026-06-30' as const;
 
-export type CoverageStatus = 'uncovered' | 'partial' | 'covered' | 'overcovered';
+/**
+ * E1.1 (2026-08-21): `unmeasured` is a real state and the record needs a word for it.
+ * A run with no declared research plan has sub-questions nobody scored, and writing
+ * `uncovered` there would claim a measurement that never happened while `covered`
+ * would claim a pass. Both lie in the same field.
+ */
+export type CoverageStatus = 'uncovered' | 'partial' | 'covered' | 'overcovered' | 'unmeasured';
 
 export interface SubQuestion {
     id: string;

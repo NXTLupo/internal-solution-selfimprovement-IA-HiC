@@ -1,5 +1,7 @@
 ---
 name: case-study-analyst
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Named, evidence-grounded case studies from the corpus -- subject, context, intervention, outcome, and applicability -- each anchored to verbatim quotes and named external sources.
 thinking: high

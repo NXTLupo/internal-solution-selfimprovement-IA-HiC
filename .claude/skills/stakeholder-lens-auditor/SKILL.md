@@ -1,5 +1,6 @@
 ---
 name: stakeholder-lens-auditor
+invocation: model
 version: 1.0
 description: Runs every recommendation through five named stakeholder lenses (CIO/CTO, CFO, CMO/Customer Officer, Frontline Owner, Regulator/Risk Officer) and emits an objections+responses appendix per recommendation. Turns single-stakeholder advocacy (usually CIO-friendly) into multi-stakeholder defensibility — the difference between a deck that wins the technical buyer and one that survives the procurement / legal / change-management gauntlet. Composes with pre-mortem (most failure modes originate in objections that were politely ignored), dissent-panel subagent (which runs the same lens set in parallel as 5 independent critics), and recommendation-architect (which gets the objections back as a re-scope ask if more than 2 lenses produce show-stoppers).
 thinking: high

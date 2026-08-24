@@ -1,5 +1,6 @@
 ---
 name: failure-log
+invocation: model
 version: 1.0
 description: Log, classify, and analyze failures from flow runs, API calls, or deployments. Builds a structured failure history that informs future prompt improvements.
 allowed-tools: Read, Grep, Glob, Bash, Write, Edit

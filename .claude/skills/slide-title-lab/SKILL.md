@@ -1,5 +1,7 @@
 ---
 name: slide-title-lab
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Generates 15 candidate action-titles for a single slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data + verb, no topic labels), and returns the top 3 plus the weakest dimension across all 15. Replaces one-shot slide-title generation in deck-narrative-composer with a generate-many + rank pattern that lifts action-title compliance directly. Composes with verbalized-sampling (diversity at variant generation) and the validate_titles.py Stop hook (post-hoc enforcement).
 thinking: high

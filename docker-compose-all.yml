@@ -50,6 +50,7 @@ services:
       # Claude 4 Journey Mapper removed
       - VIDEO_MCP_URL=http://video-mcp:8504
       - RESEARCH_MCP_URL=http://research-mcp:8507
+      - VIDEO_RENDER_MCP_URL=http://video-render-mcp:8508
     volumes:
       - ./mcp-services/agent:/app
     working_dir: /app
@@ -64,6 +65,7 @@ services:
       - social-mcp
       - journey-mcp
       - video-mcp
+      - video-render-mcp
       - research-mcp
 
   # Reddit Ripper MCP Wrapper
@@ -506,6 +508,52 @@ services:
     container_name: presentation-renderer
     depends_on:
       - research-proxy
+
+  # ============================================
+  # Video Renderer (HTML -> MP4, E3.1 2026-08-21)
+  # ============================================
+  # Deterministic HTML-to-video rendering via HyperFrames (Apache-2.0): a paused,
+  # seekable timeline captured frame by frame through Chrome BeginFrame, then encoded by
+  # ffmpeg. Node-only, so it cannot live inside the Python research proxy; this is the
+  # same split the platform already uses for gold_pptx_export and nxt_diagram_render.
+  video-renderer:
+    build:
+      context: ./internal-solutions-video-renderer
+      dockerfile: Dockerfile
+    ports:
+      - "${VIDEO_RENDERER_PORT:-5015}:4600"
+    environment:
+      - PORT=4600
+      - MAX_CONCURRENT_RENDERS=1
+      - HYPERFRAMES_NO_TELEMETRY=1
+    volumes:
+      # Renders outlive the request that made them, so they land on a mounted directory
+      # rather than in the container's ephemeral filesystem.
+      - ./internal-solutions-video-renderer/renders:/renders
+    # Headless Chromium crashes on the 64MB default /dev/shm. Each render worker is
+    # roughly one Chromium at ~256MB, so this is sized for the concurrency cap above.
+    shm_size: 2gb
+    networks:
+      - nxt-humans-network
+    container_name: video-renderer
+
+  # Video Renderer MCP Wrapper
+  video-render-mcp:
+    image: python:3.11-slim
+    ports:
+      - "${VIDEO_RENDER_MCP_PORT:-8508}:8508"
+    environment:
+      - PORT=8508
+      - VIDEO_RENDERER_URL=http://video-renderer:4600
+    volumes:
+      - ./mcp-services/video-render-mcp:/app
+    working_dir: /app
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && python -m uvicorn app:app --host 0.0.0.0 --port 8508"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - video-renderer
 
   # ============================================
   # NXT Agency - AI Agent Catalog + Backend

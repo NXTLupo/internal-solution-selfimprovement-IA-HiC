@@ -1,5 +1,6 @@
 ---
 name: research-planner
+invocation: model
 version: 1.0
 description: Phase 5 of the NotebookLM uplift plan. The "Humans in Control" feature - takes a research goal + uploaded brief + optional institution context and emits a structured research_plan.json with sub-questions, source strategy, named institutions, expected theme count, budget cap, reflection threshold. The plan is RENDERED IN THE UI for user edit/approval BEFORE any external API calls. After approval, the data fabric runs in a plan-act-reflect loop with reflection traces persisted to the engagement. NotebookLM has Deep Research; only HiC has Deep Research with a deliberate human checkpoint at the planning stage.
 thinking: high

@@ -1,5 +1,6 @@
 ---
 name: deck-composer
+invocation: model
 version: 1.0
 description: "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry, Figma 609). Covers archetype selection by content shape (including the six native diagram bricks), the gate-enforced visual floor and variety rules, the narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, and reference-deck language. Injected whole into the DECK MODE prompt; on deck surfaces this skill supersedes deck-narrative-composer and folds in infographic-composer."
 ---

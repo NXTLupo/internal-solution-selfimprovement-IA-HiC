@@ -1,5 +1,6 @@
 ---
 name: stress-test
+invocation: model
 version: 1.0
 description: Generate adversarial inputs to break any prompt or code, scoring each failure by severity. Use before deploying prompts or shipping features.
 allowed-tools: Read, Grep, Glob, Bash

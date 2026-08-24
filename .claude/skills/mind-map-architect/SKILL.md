@@ -1,5 +1,6 @@
 ---
 name: mind-map-architect
+invocation: model
 version: 1.0
 description: Reads BERTopic v2 output (clusters with parent_topic relationships from HDBSCAN hierarchy) + research_goal, emits a nested JSON mind-map (max depth 4, max 7 children per node) where each node carries chunk_ids[] references for click-to-chat drill-down. Convergent-evidence clusters get a visual_treatment flag for the Designer Window renderer. Inspired by NotebookLM's Mind Map deliverable; differentiated by HiC's source-stratification flag that NotebookLM categorically cannot match. The Phase 4 deliverable of the NotebookLM uplift plan.
 thinking: high

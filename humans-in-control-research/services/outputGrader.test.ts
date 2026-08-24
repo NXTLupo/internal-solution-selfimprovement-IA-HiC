@@ -87,7 +87,7 @@ describe('rubric critique (a gate that could not fail did not pass)', () => {
         const slides = [slide('s1', { title: 'T', items: [{ heading: 'A neutral sentence with no claim in it at all' }] })];
         const r = gradeArtifact(slides, {
             ledger: [],
-            slotReport: { fills: [], violations: [], p0Coverage: 1, pass: true },
+            slotReport: { fills: [], violations: [], p0Coverage: 1, pass: true, planAbsent: false, plannedSubQuestions: 2 },
         });
         expect(r.rubricCritique.join(' ')).toMatch(/zero P0 slots/);
     });
@@ -115,7 +115,7 @@ describe('repair instruction', () => {
         const slides = [slide('s1', { title: 'T', items: [{ heading: `${claim} [articles/x/y1.md#c1]` }] })];
         const r = gradeArtifact(slides, {
             ledger: [row({ claim, verdict: 'VERIFIED' })],
-            slotReport: { fills: [{ slotId: 'a', sectionId: 's1', priority: 'P0', state: 'filled', pointers: ['articles/x/y1.md#c1'], reason: '' }], violations: [], p0Coverage: 1, pass: true },
+            slotReport: { fills: [{ slotId: 'a', sectionId: 's1', priority: 'P0', state: 'filled', pointers: ['articles/x/y1.md#c1'], reason: '' }], violations: [], p0Coverage: 1, pass: true, planAbsent: false, plannedSubQuestions: 2 },
             proseReport: { metrics: [], overall: 1, pass: true, concerns: [], sentenceCount: 12 },
         });
         expect(buildGradeRepairInstruction(r)).toBe('');

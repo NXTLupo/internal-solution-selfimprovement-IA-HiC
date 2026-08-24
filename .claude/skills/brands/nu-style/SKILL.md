@@ -1,5 +1,7 @@
 ---
 name: nu-style
+invocation: runtime
+disable-model-invocation: true
 description: Northeastern University brand-style skill for freeform-HTML diagram artifacts. Editorial layer (voice, anti-patterns, when-to-use). Visual tokens are inherited from the exemplar HTML files at humans-in-control-research/styles/.
 ---
 

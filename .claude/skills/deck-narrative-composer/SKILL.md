@@ -1,5 +1,7 @@
 ---
 name: deck-narrative-composer
+invocation: runtime
+disable-model-invocation: true
 version: 1.20
 last_improved: 2026-05-23
 description: Content-block narrative generation for strategy decks using 12 block types, report-derived distillation, per-slide context injection, and layout auto-resolution. 2026-05-23 — per-slide narratives now use Verbalized Sampling (k=3 candidates with frame + probability) to escape templated McKinsey-prose phrasing.

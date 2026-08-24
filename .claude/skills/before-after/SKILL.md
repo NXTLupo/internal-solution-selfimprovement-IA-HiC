@@ -1,5 +1,6 @@
 ---
 name: before-after
+invocation: model
 version: 1.0
 description: Generate a structured before/after comparison for any code or prompt change. Shows exactly what changed, why, and the impact on output quality.
 allowed-tools: Read, Grep, Glob, Bash

@@ -95,7 +95,11 @@ tool_services = {
     "journey": JOURNEY_MCP_URL,
     "video": VIDEO_MCP_URL,
     "openai_journey": OPENAI_JOURNEY_MCP_URL,
-    "research": os.getenv("RESEARCH_MCP_URL", "http://research-mcp:8507")
+    "research": os.getenv("RESEARCH_MCP_URL", "http://research-mcp:8507"),
+    # E3.1 (2026-08-21): HTML-to-video rendering. lint_composition is free,
+    # render_composition is minutes of CPU that bakes copy into pixels, so the tool
+    # descriptions tell the model to lint first.
+    "video_render": os.getenv("VIDEO_RENDER_MCP_URL", "http://video-render-mcp:8508"),
 }
 
 # Cache the available tools from each service

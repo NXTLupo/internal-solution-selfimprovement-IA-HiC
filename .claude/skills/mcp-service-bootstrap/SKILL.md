@@ -1,5 +1,6 @@
 ---
 name: mcp-service-bootstrap
+invocation: model
 version: 1.0
 description: Scaffold a new MCP wrapper + core service for the NXT Humans IA Suite. Creates the wrapper directory under mcp-services/<name>-mcp/ with a minimal JSON-RPC 2.0 server, registers it in docker-compose-all.yml on the nxt-humans-network, adds the URL to the agent's tool_services dict, and emits the agent-restart command. Encodes the 5-step ritual from CLAUDE.md "Adding New Services" so it's done correctly every time.
 ---

@@ -1,5 +1,7 @@
 ---
 name: html-deliverable-composer
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Generate NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the 'Copy as prompt' round-trip helper. MUST compose with verbalized-sampling — load that skill first and apply the five-layer VS pattern (visual layout, IA, diagram type, interaction pattern, iconography) as a <vs_thinking> preamble before emitting HTML. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts.
 thinking: max

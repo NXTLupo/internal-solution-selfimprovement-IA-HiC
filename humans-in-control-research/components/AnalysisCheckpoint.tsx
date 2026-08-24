@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AnalysisStage, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_JourneyMap, StepResult_TechArch, StepResult_PRD, StepResult_Roadmap, StepResult_Recommendations, Slide, Theme, Persona, ScriptScene, ServiceBlueprintStage, PRDFeature, RoadmapItem, StrategicRecommendation, computeFreshnessScore } from '../types';
 import { logEdit as logEditToEngine, getStats as getPromptStats } from '../services/promptImprovementEngine';
+import { extractPointers } from '../services/citationPointerRegistry';
 
 interface Props {
   stage: AnalysisStage;
@@ -776,7 +777,9 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                       {/* Primary Quote */}
                       {theme.quote && (
                           <div className="mt-3 pl-3 border-l-2 border-[var(--nxt-lime)] bg-[var(--bg-secondary)] p-3 rounded-r">
-                              <p className="text-[13px] italic text-[var(--text-primary)] leading-relaxed">"{theme.quote}"</p>
+                              {/* A pointer is an address for a click, never text for a reader
+                                  (2026-08-21 verification: raw markers were on screen here). */}
+                              <p className="text-[13px] italic text-[var(--text-primary)] leading-relaxed">"{extractPointers(theme.quote).text}"</p>
                           </div>
                       )}
                   </div>

@@ -1,5 +1,7 @@
 ---
 name: infographic-composer
+invocation: runtime
+disable-model-invocation: true
 description: Authoring contract for slides:infographic-exhibit panels - data-dense, evidence-true native infographics composed from the slide's own corpus content. Injected into DECK MODE so every infographic carries real substance, never bare labels in empty frames.
 ---
 

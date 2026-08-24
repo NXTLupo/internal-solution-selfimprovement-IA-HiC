@@ -1464,3 +1464,86 @@ prompt-side problem.
 with a live browser generation (that run took 142s against a normal 45s, so it was
 timing-sensitive under load). A clean re-run passed 1043/1043 across 103 files. I
 did not capture which test it was before it went green, so I cannot name it.
+
+---
+
+## FIFTH PASS: the four items the fourth pass listed as open (2026-08-21)
+
+### The biggest one was not a testing gap, it was a hole (`services/deliverableChain.ts`)
+
+"Verified on #slides only" was the wrong description of the problem. The chain was
+wired at exactly two call sites, both fed by `parseSlideBlocks`. Artifacts that
+come back as `:::deliverable:TYPE` blocks (persona, recommendation, journey_stage,
+roadmap_item, gap, prd_feature, competitive_peer, theme) went straight to the UI
+with NO gate at all: no lexical scrub, no pointer binding, no provenance check, no
+evidence slots, no prose signal, no grader, no repair. A persona set could assert
+an unsourced factual claim and nothing in the pipeline would look at it.
+
+`runDeliverableChain` adapts a deliverable into the subject shape the chain and the
+WS-4 edit contract already understand, and maps the result back by id, so a subject
+the chain drops leaves its original on screen rather than vanishing. Wired at both
+places deliverables are added; deliberately NOT wired at the restore-time safety
+net, matching the slide path, because re-verifying already-shipped artifacts on
+every session restore would re-edit text the user already accepted.
+
+Two deliberate differences from the deck path:
+- `deckQuality` is SKIPPED. Its checks are about deck shape (archetype variety,
+  connective ratio, does this deck open like the last one). Run against five
+  personas they produce nonsense, and `noteDeckSequence` would poison the real
+  cross-deck comparison with a sequence that was never a deck.
+- The type lives in an underscore carrier, not in the template string, so no gate
+  can mistake a persona for a registered archetype. `slides:deliverable` is absent
+  from the exhibit catalog and the fit check therefore ABSTAINS, which is the
+  correct verdict for a payload that was never an exhibit.
+
+### DF-F is mounted (the card, per the plan's own recommendation)
+
+Owner decision 5 asked card-in-chat versus modal-at-intake. Taking the plan's
+recommendation: a card in the chat stream, because that is where the user already
+is and it does not block the rest of the screen. It fires BEFORE the model call, so
+the wasted run it exists to prevent never starts.
+
+One detail worth naming: sending the identical request again is an explicit
+override. A question the user already declined must not fire twice, so the request
+text is remembered in a ref and the second send runs as written.
+
+### DF-H1 and DF-C2 are wired to the path that actually feeds the model
+
+There is no generic full-text web fetcher in HiC yet, and building one is genuinely
+the browseros-live-capture plan's job. But H1's rule did not need a new fetcher to
+become real: the wiki pre-fetch already pulls article BODIES on every artifact turn
+and hands them to a formatter that cut them off at a character count.
+
+Two problems, both invisible in that path's log line. The ranked order was global,
+so a densely-covered angle could take every slot and starve a thin one. And the cut
+was blind, so a thin deck could not be told from a truncated corpus.
+
+Selection is now per angle (the objective supplies them, round-robin over the
+ranked list so each angle gets its own slots), and the cut goes through the DF-C2
+budget with a typed synopsis that names what was elided and tells the model the
+block is a SAMPLE. The log line now reports kept-of-total, the angle count, whether
+the remainder was elided, and how many angles were starved.
+
+### The unrecoverable DF-D8 branch is now live-proven
+
+The fourth pass could prove corrupt-and-recover but not the case where the rebuild
+ITSELF fails. Forced by replacing the index path with a DIRECTORY, which sqlite
+cannot open and `os.remove` cannot delete:
+
+```
+rebuild : built=False dirty=True
+          reason "[Errno 21] Is a directory: /hic-workspace/wiki/.fact-index.sqlite3"
+search  : engine=substring  dirty=True  reason "unable to open database file"
+          still returned the right fact (f2 for "em-dash generated output")
+status  : {built: False, dirty: True, ...}   (agrees with the response)
+```
+
+The point of the branch is that a degraded second brain SAYS so rather than
+quietly recalling less. It does. Cleanup removed the blocking directory and the
+next rebuild returned healthy.
+
+### Gates
+
+`tsc --noEmit` clean. 1057 tests across 104 files. check:skills, check:content and
+check:templates green. SPA rebuilt (`index-EEvVScmI.js`) and loaded with zero
+console errors.

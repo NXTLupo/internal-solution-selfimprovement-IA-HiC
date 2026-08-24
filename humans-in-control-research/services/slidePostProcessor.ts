@@ -686,9 +686,34 @@ export function stripEmoji(text: string): string {
     return cleaned;
 }
 
-/** Combined hygiene: strip em-dashes AND emoji. Use at every text chokepoint. */
+/**
+ * PROVIDER ARTIFACT TAGS (E1.3, 2026-08-21). `.claude/CLAUDE.md` bans "oaicite",
+ * "oai_citation", "contentReference", "attached_file" and "turn0search0" outright, and
+ * `scripts/check-content.mjs` fails the build when one reaches a shipped artifact. Until
+ * now nothing removed them at runtime: `stripProviderBucketCitations` only knew about
+ * the Google grounding-redirect hosts, so a ChatGPT-family tag had a hard rule, a CI
+ * rejection, and no prevention. The gates-bite pass found it by feeding the chain a tag
+ * and watching it ship.
+ *
+ * These are machine artifacts, so removal is lossless and belongs here rather than in a
+ * model-driven repair.
+ */
+const PROVIDER_ARTIFACT_TAG_RE =
+    /\[?\(?\s*(?:oaicite|oai_citation|contentReference|attached_file)(?::[\w\-\/]*(?:\.[\w\-\/]+)*)?\s*\]?\)?/gi;
+const TURN_SEARCH_TAG_RE = /\[?\(?\s*turn\d+(?:search|view|file)\d+\s*\]?\)?/gi;
+export function stripProviderArtifactTags(text: string): string {
+    if (!text) return text;
+    return text
+        .replace(PROVIDER_ARTIFACT_TAG_RE, ' ')
+        .replace(TURN_SEARCH_TAG_RE, ' ')
+        .replace(/[ 	]{2,}/g, ' ')
+        .replace(/ +([.,;:!?])/g, '$1')
+        .trim();
+}
+
+/** Combined hygiene: strip em-dashes, emoji AND provider artifact tags. Use at every text chokepoint. */
 export function stripFormatTells(text: string): string {
-    return stripEmoji(stripEmDashes(text));
+    return stripProviderArtifactTags(stripEmoji(stripEmDashes(text)));
 }
 
 // ============================================================================
@@ -1264,7 +1289,7 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
  * The replacement model (Gemini 3.1 Pro) produces cleaner prose than DeepSeek,
  * but defense-in-depth still strips anything that slips through.
  */
-const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = [
+export const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = [
     // === (a) JARGON / CONSULTANT BUZZWORDS - high severity ===
     { phrase: 'paradigm shift', severity: 'high' },
     { phrase: 'game-changer', severity: 'high' },

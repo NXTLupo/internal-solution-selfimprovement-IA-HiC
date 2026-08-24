@@ -26,6 +26,17 @@ import {
     type ResearchCardItem,
     type QuoteEvidence,
 } from './ResearchCard';
+// A quote's pointer belongs to the card's wiki affordance, never to the sentence the
+// reader is reading. The 2026-08-21 verification run found 87 raw `[articles/x.md#c1]`
+// markers on screen in these cards while the card's own "open in wiki" button stayed
+// hidden, because the address sat inside the quote instead of in the field the button
+// reads. `quoteWithAffordance` fixes both halves from one parse.
+import { quoteWithAffordance } from '../services/citationPointerRegistry';
+import { extractPointers } from '../services/citationPointerRegistry';
+
+/** Card prose with any manifest pointer removed. The address is not lost: the card's
+ *  quotes carry it as an openable control. */
+const cleanProse = (t: string): string => extractPointers(t).text;
 
 export interface ResearchBrowserProps {
     /** Themes payload from App.tsx state (themesResult.themes or themesResult.data.themes). */
@@ -162,27 +173,25 @@ function normalizeTheme(t: any, idx: number): ResearchCardItem {
     const quotes: QuoteEvidence[] = [];
     const tQuote = t.quote || t.key_quote;
     if (tQuote && typeof tQuote === 'string') {
-        quotes.push({
-            text: tQuote,
+        quotes.push(quoteWithAffordance(tQuote, {
             sourceLabel: (t.citations?.[0]?.sourceName) || t.source || 'unattributed',
             sourceDate: t.citations?.[0]?.date || '',
             externalUrl: t.citations?.[0]?.url || '',
             wikiPath: t.citations?.[0]?.wikiPath || t.citations?.[0]?.sourceFile || '',
             chunkPointer: t.citations?.[0]?.chunkPointer || '',
-        });
+        }));
     }
     // Pull additional quotes from citations[] if rich.
     const citationArr = Array.isArray(t.citations) ? t.citations : [];
     for (let i = 1; i < Math.min(citationArr.length, 4); i++) {
         const c = citationArr[i];
-        if (c?.text) quotes.push({
-            text: c.text,
+        if (c?.text) quotes.push(quoteWithAffordance(c.text, {
             sourceLabel: c.sourceName || '',
             sourceDate: c.date || '',
             externalUrl: c.url || '',
             wikiPath: c.wikiPath || c.sourceFile || '',
             chunkPointer: c.chunkPointer || '',
-        });
+        }));
     }
     // 2026-06-06 - Derive sentiment from theme content. Themes from the
     // wiki almost never carry an explicit sentiment field; previously this
@@ -231,6 +240,9 @@ function normalizeTheme(t: any, idx: number): ResearchCardItem {
             String(t.description || t.summary || ''),
             `Theme ${idx + 1}`,
         ).slice(0, 200),
+        // E1.2: the summary keeps its pointers, because ResearchCard now renders them
+        // as inline chips that open the passage. Stripping was the interim answer while
+        // prose had no way to carry a citation.
         summary: String(t.description || t.summary || ''),
         sentiment,
         frame: 'theme',
@@ -247,16 +259,15 @@ function normalizeTheme(t: any, idx: number): ResearchCardItem {
         depth,
         // 2026-06-08 - raw citations + implications for the deep-dive modal (source link-back).
         citations: Array.isArray(t.citations) ? t.citations : [],
-        implications: Array.isArray(t.implications)
+        implications: (Array.isArray(t.implications)
             ? t.implications.map((x: any) => (typeof x === 'string' ? x : (x?.text || x?.description || ''))).filter(Boolean)
-            : (typeof t.implications === 'string' ? [t.implications] : []),
+            : (typeof t.implications === 'string' ? [t.implications] : [])).map(cleanProse),
     };
 }
 
 function normalizeTopic(t: any, idx: number): ResearchCardItem {
     const samples: string[] = Array.isArray(t.sample_titles) ? t.sample_titles : [];
-    const quotes: QuoteEvidence[] = samples.slice(0, 3).map((s, i): QuoteEvidence => ({
-        text: s,
+    const quotes: QuoteEvidence[] = samples.slice(0, 3).map((s, i): QuoteEvidence => quoteWithAffordance(s, {
         sourceLabel: t.sample_subreddit || t.subreddit || 'social',
         externalUrl: Array.isArray(t.post_urls) ? t.post_urls[i] : undefined,
         wikiPath: Array.isArray(t.wiki_paths) ? t.wiki_paths[i] : undefined,

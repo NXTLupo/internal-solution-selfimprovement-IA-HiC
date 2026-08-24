@@ -1,5 +1,7 @@
 ---
 name: persona-architect
+invocation: runtime
+disable-model-invocation: true
 version: 1.1
 last_improved: 2026-05-23
 description: Generate evidence-grounded CX personas using two-phase roster+enrichment with Cooper goal hierarchy. Quality Discipline v2 enforces evidence-density floor (3+ named external citations per persona), verbatim quotes mandatory, JTBD presence required, demographics-first thinking auto-rejected, persona elasticity (age ranges >12 years, contradictory behaviors) auto-rejected. 2026-05-23 — Phase A now uses Verbalized Sampling (k=8 candidates with frame + probability) to break canonical-collapse personas.

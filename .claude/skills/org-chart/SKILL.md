@@ -1,5 +1,7 @@
 ---
 name: org-chart
+invocation: runtime
+disable-model-invocation: true
 description: Generate a brand-locked organizational structure diagram for a named institution, vendor, or initiative — roles, reporting lines, named stakeholders, key decision authorities. Distinct from a generic org chart in that every node carries evidence (named-source citation of the role or person) and the structure is descriptive of WHAT EXISTS today, not prescriptive of what should exist. Renders as a CSS-grid org diagram (NEVER SVG with absolute positioning per the graphic-collision ban in .claude/CLAUDE.md).
 ---
 

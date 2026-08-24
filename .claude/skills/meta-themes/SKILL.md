@@ -1,5 +1,7 @@
 ---
 name: meta-themes
+invocation: human
+disable-model-invocation: true
 version: 1.0
 description: Phase 6 of the NotebookLM uplift plan. Activates the cross-engagement-pattern-miner output as a first-class deliverable. Reads all engagements/<slug>/themes.json files + wiki/synthesis/cross-engagement-patterns.md. Surfaces themes that recur across ≥3 engagements as "portfolio patterns" — themes that appear in ≥5 engagements get a special "platform pattern" treatment. The differentiation NotebookLM categorically cannot do because they have no concept of an engagement portfolio. This is HiC's most defensible feature for the consulting partner audience.
 thinking: high

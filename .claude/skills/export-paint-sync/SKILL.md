@@ -1,5 +1,6 @@
 ---
 name: export-paint-sync
+invocation: model
 version: 1.0
 description: Defeats the html2canvas race condition in HiC's exportService.ts that produces blank slides in PPTX/PDF/PNG exports. Wraps every export call with a deterministic paint-readiness contract — fonts loaded, images decoded, React effects flushed, layout stable across two consecutive animation frames — BEFORE html2canvas fires. Closes the root cause of the "27 of 30 slides shipped blank" failure in STRATEGY_DECK_PIPELINE_AUDIT.md. Proactive complement to the export-render-verifier subagent (which catches blank slides after the fact); this skill prevents them. Composes with the pre_export_dom_audit.py hook (which fires the export-mode CSS class) — both proactive defenses share a single `body[data-export-mode]` chokepoint.
 thinking: high

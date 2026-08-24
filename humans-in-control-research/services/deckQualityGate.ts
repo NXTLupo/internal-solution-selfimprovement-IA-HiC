@@ -22,9 +22,10 @@
  */
 
 import { exhibitFitRules } from './exhibitCatalog';
+import { evaluateGrounding, type GroundingReport } from './groundingCheck';
 
 export interface DeckQualityFinding {
-    kind: 'exhibit_underfilled' | 'archetype_monotony' | 'connective_heavy' | 'sequence_repeat';
+    kind: 'exhibit_underfilled' | 'archetype_monotony' | 'connective_heavy' | 'sequence_repeat' | 'ungrounded_concept';
     slideId?: string;
     template?: string;
     detail: string;
@@ -34,6 +35,12 @@ export interface DeckQualityFinding {
 
 export interface DeckQualityReport {
     findings: DeckQualityFinding[];
+    /**
+     * E2.1: whether the deck introduces each concept before arguing from it. Kept as its
+     * own report rather than flattened into findings, because the repair instruction for
+     * an ungrounded concept differs from the one for a thin exhibit.
+     */
+    grounding: GroundingReport;
     distinctArchetypes: number;
     contentRatio: number;      // content slides / total
     /** Archetype sequence for this deck, for the next run to compare against. */
@@ -146,8 +153,24 @@ export function evaluateDeckQuality(slides: any[], opts: DeckQualityOptions = {}
         }
     }
 
+    /**
+     * E2.1. Grounding runs here because it is a deck-level property: no single slide can
+     * be judged for it, only the order. Each ungrounded concept becomes a finding so the
+     * existing repair path picks it up, and the full report travels alongside for AIR.
+     */
+    const grounding = evaluateGrounding(slides);
+    for (const g of grounding.findings) {
+        findings.push({
+            kind: 'ungrounded_concept',
+            slideId: g.slideId,
+            detail: `slide ${g.slideIndex + 1} argues from "${g.concept}" before any earlier slide introduces it`,
+            remedy: `Introduce "${g.concept}" on this slide, or rewrite the sentence to argue from something already established.`,
+        });
+    }
+
     return {
         findings,
+        grounding,
         distinctArchetypes: distinct,
         contentRatio: Number(contentRatio.toFixed(2)),
         sequence,
@@ -155,14 +178,41 @@ export function evaluateDeckQuality(slides: any[], opts: DeckQualityOptions = {}
     };
 }
 
-/** Model-facing repair text. Names the slide, the shortfall and the fix. */
+/**
+ * Model-facing repair text. Names the slide, the shortfall and the fix.
+ *
+ * E2.1 follow-up (2026-08-24): grounding findings get their own block. They used to
+ * travel with the layout findings under a header reading "Each item below is a layout
+ * that does not carry its content", which told the model to fix a layout when the real
+ * defect was narrative order. A repair instruction that names the wrong problem is worse
+ * than none, because the model does what it is told.
+ */
 export function buildDeckQualityInstruction(report: DeckQualityReport): string {
     if (report.pass) return '';
+    const grounding = report.findings.filter(f => f.kind === 'ungrounded_concept');
+    const layout = report.findings.filter(f => f.kind !== 'ungrounded_concept');
+    const blocks: string[] = [];
+
+    if (grounding.length) {
+        const g = [
+            'NARRATIVE ORDER. These are not layout problems. A reader who has seen only the',
+            'earlier slides does not know what these terms refer to, so the argument does not',
+            'land. For each one, either introduce the term on the slide that argues from it, or',
+            'rewrite the sentence to argue from something the deck has already established.',
+            'Do not add a note about the gap and do not delete the claim:',
+        ];
+        for (const f of grounding.slice(0, 8)) g.push(`- ${f.detail}. ${f.remedy}`);
+        blocks.push(g.join('\n'));
+    }
+
+    if (!layout.length) return blocks.join('\n\n');
+
     const lines = ['DECK QUALITY REVISION. Each item below is a layout that does not carry its content. Fix the layout or the content, never by padding with invented data:'];
-    for (const f of report.findings.slice(0, 8)) {
+    for (const f of layout.slice(0, 8)) {
         lines.push(`- ${f.template ? `${f.template}: ` : ''}${f.detail}. ${f.remedy}`);
     }
-    return lines.join('\n');
+    blocks.push(lines.join('\n'));
+    return blocks.join('\n\n');
 }
 
 /**

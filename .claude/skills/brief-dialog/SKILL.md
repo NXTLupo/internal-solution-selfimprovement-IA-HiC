@@ -1,5 +1,6 @@
 ---
 name: brief-dialog
+invocation: model
 version: 1.0
 description: Produces a two-persona text dialogue artifact (Skeptical Partner + Curious Strategist) covering a research finding or recommendation set in 600-900 words / 3 minutes of reading time. The HiC alternative to NotebookLM's Audio Overview - text-only by design (sidesteps voice IP risk + the multi-speaker TTS quality gap + aligns with the consulting use case where partners read briefs, not listen to podcasts). Each dialogue line cites [CHUNK_NNN] references like every other HiC deliverable. Optional v2 - send transcript to ElevenLabs for audio rendering with two non-celebrity voices.
 thinking: high

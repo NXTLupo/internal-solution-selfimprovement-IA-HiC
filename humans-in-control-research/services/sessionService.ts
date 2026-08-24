@@ -5,6 +5,8 @@
 // know how to turn App-level state into the JSON the proxy expects (and
 // back). Use this from App.tsx for auto-save and Continue-Session flows.
 
+import { readObjectivePlan } from './objectivePlan';
+
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface SessionSummary {
@@ -91,6 +93,9 @@ export interface SessionSnapshot {
     };
     reddit_deep?: any[];      // raw deep-Reddit items for topic-modeling re-runs
     learned_constraints?: string;
+    /** E1.1: the run's declared sub-questions, so a restored session can measure
+     *  evidence coverage against its own objective. */
+    research_plan_sub_questions?: any[];
 }
 
 /**
@@ -256,6 +261,14 @@ export function buildSessionSnapshot(input: {
     sourceReferences?: any[];
     redditDeepItems?: any[];
     learnedConstraints?: string;
+    /**
+     * E1.1 follow-up (2026-08-24). The research plan's sub-questions. Without this the
+     * plan lived ONLY in a window global set during a live collection phase, so a
+     * restored session could never measure evidence coverage against its own objective:
+     * the live run reported `decomposedQuestions: 0` for exactly that reason. Persisting
+     * them makes the objective durable rather than session-local.
+     */
+    researchPlanSubQuestions?: any[];
     status?: 'in-progress' | 'complete' | 'archived';
     createdAt?: string;
     // DF-I1: chat-generated artifacts. Omit them and the projection is used.
@@ -310,6 +323,9 @@ export function buildSessionSnapshot(input: {
         },
         reddit_deep: input.redditDeepItems,
         learned_constraints: input.learnedConstraints,
+        // Read through the one authority rather than the global directly, so save and
+        // restore agree with what the gate reads.
+        research_plan_sub_questions: input.researchPlanSubQuestions ?? readObjectivePlan().subQuestions,
     };
 }
 
@@ -318,6 +334,20 @@ export function buildSessionSnapshot(input: {
  *  buildSessionSnapshot - the shape mirrors what App.tsx already
  *  manages, so the receiving side just spreads the keys. */
 export function restoreSessionSnapshot(snap: SessionSnapshot) {
+    /**
+     * E1.1 follow-up (2026-08-24). Rehydrate the objective plan BEFORE anything reads it.
+     * The plan used to exist only in a window global set during a live collection phase,
+     * so a restored session measured evidence coverage against nothing and the AIR record
+     * showed zero declared sub-questions. Restoring it here means a reloaded engagement
+     * knows its own objective, which is the whole point of persisting it.
+     */
+    try {
+        const sqs = (snap as any)?.research_plan_sub_questions;
+        if (Array.isArray(sqs) && sqs.length && typeof window !== 'undefined') {
+            (window as any).__hicResearchPlanSubQuestions = sqs;
+        }
+    } catch { /* a restore must never fail on the plan */ }
+
     return {
         slides: snap.state.slides,
         deliverables: snap.state.deliverables,

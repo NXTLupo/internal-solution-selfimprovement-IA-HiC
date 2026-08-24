@@ -244,7 +244,7 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
 // only; the whitepaper directive composes a consulting-grade HTML long-form
 // document using the same html-deliverable-composer skill plus a whitepaper-
 // specific structural prompt overlay.
-export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper';
+export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire';
 
 export interface ArtifactDirective {
     triggered: boolean;
@@ -294,6 +294,7 @@ export const parseReportDirective = buildArtifactParser('#report');
 export const parsePlaygroundDirective = buildArtifactParser('#playground');
 export const parseApproachesDirective = buildArtifactParser('#approaches');
 export const parseWhitepaperDirective = buildArtifactParser('#whitepaper');
+export const parseQuestionnaireDirective = buildArtifactParser('#questionnaire');
 
 // 2026-06-26 - #img visual-routing override (visualRouter.ts / nano-banana designer plan C2+C6).
 // Lets the user PIN which branch fills a deliverable's image slot, overriding the auto router:

@@ -1,5 +1,6 @@
 ---
 name: second-order-thinker
+invocation: model
 version: 1.0
 description: Maps the second-order, third-order, unintended, and feedback-loop consequences of any strategic recommendation, decision, or trend. Most strategy deliverables stop at first-order effects (the obvious "if we do X, then Y happens") and miss the consequences that bite — Z happens because of Y, then W happens because of Z, then the system circles back and amplifies or undermines the original move. This skill forces three moves ahead per recommendation, names one unintended consequence, and surfaces the feedback loop. Composes with strategy-author (deepens the Coherent Actions phase of Rumelt's Kernel), recommendation-architect (turns shallow recommendations into ones a partner would defend), roadmap-builder (validates that NEXT and LATER phases account for what NOW unlocks or blocks), and gap-analysis-evaluator (the unintended consequences this skill finds are often the gaps that emerge after recommendations land).
 thinking: high

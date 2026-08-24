@@ -22,7 +22,8 @@
     "regression:obligations": "node scripts/regression-obligations.mjs",
     "check:skills": "node scripts/check-skills.mjs",
     "check:all": "npm run typecheck && npm run test && npm run check:templates && npm run check:skills && npm run check:content",
-    "check:content": "node scripts/check-content.mjs"
+    "check:content": "node scripts/check-content.mjs",
+    "test:contended": "vitest run --maxWorkers=2"
   },
   "dependencies": {
     "@dagrejs/dagre": "^3.0.0",

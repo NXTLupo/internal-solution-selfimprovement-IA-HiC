@@ -1,5 +1,6 @@
 ---
 name: manifest-chunk-retrieval
+invocation: model
 version: 1.0
 description: How every HiC generator pulls evidence from the wiki via manifest chunk pointers instead of bulk body injection. Replaces RAG.
 thinking: high

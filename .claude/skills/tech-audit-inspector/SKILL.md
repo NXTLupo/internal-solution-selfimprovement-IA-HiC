@@ -1,5 +1,7 @@
 ---
 name: tech-audit-inspector
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Two-phase technology ecosystem audit producing systems inventory, integration map, capability matrix, and consolidation opportunities.
 thinking: high

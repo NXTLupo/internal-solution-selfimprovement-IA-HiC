@@ -1,5 +1,6 @@
 ---
 name: evidence-density-pre-checker
+invocation: model
 version: 1.0
 description: Audits the corpus BEFORE theme/persona/recommendation generation begins. Predicts how many thick-evidence themes the current corpus can support. If the prediction is below the floor (20), fires upstream remediation — wiki-query-expander for additional retrieval angles, analog-finder for cross-industry analogues, framework-page check, search-query hallucination-guard inspection — BEFORE the generation pass runs, so the breadth pass starts with a corpus that can clear strict thick-evidence. Implements the standing rule (feedback_quality_first_never_relax_default): meet quantity floors by improving UPSTREAM, not by relaxing the strict gate. The shipping path that makes the 4-tier relaxation safety net rarely fire.
 thinking: high

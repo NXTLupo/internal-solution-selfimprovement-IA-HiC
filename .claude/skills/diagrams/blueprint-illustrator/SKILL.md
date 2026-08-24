@@ -1,5 +1,7 @@
 ---
 name: blueprint-illustrator
+invocation: runtime
+disable-model-invocation: true
 description: Service blueprint (FUTURE-state) illustrator. Frames the workflow as the proposed redesign post-analysis. Shares visual exemplar with journey (styles/01-service-blueprint-NU.html and 02-service-blueprint-NXT.html); diverges semantically.
 ---
 

@@ -1,5 +1,7 @@
 ---
 name: nxt-humans-slides
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: "Generate PowerPoint (.pptx) decks in the NXT Humans brand system — anti-slop business flat minimalism with Bebas Neue + Archivo typography, chartreuse/cyan accents, strict black-and-white dominance, and sharp geometry. Use this skill whenever the user asks for NXT Humans branded slides, a Humans in Control deck, an Intelligence Augmentation Suite deliverable, any consulting deck in the NXT style, or references the NXT Humans design system / style guide / brand. Also use when the user asks to 'build slides from this content in our brand,' 'turn this report into a deck,' or 'make a presentation like our other decks.' The skill includes 15 codified slide templates covering cover, section divider, agenda, executive summary, stat row, evidence quote, split panel, color-block grid, three-column grid, recommendation, chart, matrix, process timeline, do/don't, and closing. Do not use this skill for generic presentations where no NXT Humans branding is requested."
 ---

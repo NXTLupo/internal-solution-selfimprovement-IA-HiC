@@ -1,5 +1,7 @@
 ---
 name: theme-analyst
+invocation: runtime
+disable-model-invocation: true
 version: 1.0
 description: Extract strategic themes from multi-source research corpus using 6-lens thematic analysis
 thinking: high

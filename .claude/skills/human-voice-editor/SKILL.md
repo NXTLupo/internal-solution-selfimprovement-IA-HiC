@@ -1,5 +1,6 @@
 ---
 name: human-voice-editor
+invocation: model
 description: Pillar 4, the POSITIVE half of HiC's writing contract. The 350+ banned phrases in .claude/CLAUDE.md say what not to write; this says what to write instead. Three parts only: register (how a knowledgeable colleague actually talks), audience calibration (executive, practitioner, mixed) with a worked sentence per audience, and sentence economy. Load this alongside any authoring skill (deck-narrative-composer, strategy-author, recommendation-architect, case-study-analyst, explainer, report writers) and whenever the deterministic prose signal in services/proseSignal.ts flags cadence, openers, actors, copula or dilution.
 ---
 

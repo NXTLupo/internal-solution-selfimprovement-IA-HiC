@@ -1,5 +1,6 @@
 ---
 name: analog-finder
+invocation: model
 version: 1.0
 description: Abstracts the current challenge to its underlying functional pattern (matching variable supply to variable demand, retaining users with low intrinsic motivation, scaling expert judgment across non-expert practitioners, etc.) and retrieves 3+ named adjacent-industry analogues that have already solved or failed to solve the same functional problem. Breaks the within-industry retrieval ceiling that wiki-query-expander and wiki-reranker can't escape — those tools find better evidence in the same neighborhood; this skill finds evidence from neighborhoods nobody thought to query. Composes with wiki-query-expander (fires after abstraction to retrieve from each analogue domain), source-ranker (validates the analogue sources meet the >=60% external floor), and recommendation-architect (analogue precedents become the strongest input to quantification-architect's target.precedent field).
 thinking: high

@@ -13,6 +13,7 @@
  */
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { readObjectivePlan, toAirDecomposedQuestions } from '../services/objectivePlan';
 import {
     sendChatMessage, AVAILABLE_MODELS, loadSkillManifest, matchSkills,
     buildSourceReferences, parseChatCitations, routedModelFor,
@@ -184,7 +185,7 @@ async function emitComposeNarrativeAir(trigger: string, goal: string, payload: u
             runId: slug,
             artifactId: `presentation_${Date.now()}`,
             trigger,
-            objective: { objectiveId: objId, userObjective: g, decomposedQuestions: [] },
+            objective: { objectiveId: objId, userObjective: g, decomposedQuestions: toAirDecomposedQuestions(readObjectivePlan().subQuestions) },
             evidenceLedger: buildEvidenceLedger(resolved.chunks as any),
             artifactPayload: { kind: 'presentation', content: (() => { try { return JSON.stringify(payload).slice(0, 20000); } catch { return ''; } })() },
             trace,
@@ -4052,6 +4053,42 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // provenance, the evidence-slot gate, prose measurement and the render-plan
     // count all run in a declared sequence whose order is pinned by a test.
     // The chain never throws; each stage records a typed envelope instead.
+    /**
+     * THE OTHER HALF OF THE CHAIN (2026-08-21). `verifyAndAttachLedger` covers
+     * artifacts that arrive as slide fences. Everything arriving as a
+     * `:::deliverable:TYPE` block (persona, theme, gap, recommendation, roadmap,
+     * prd, competitive peer) reached the user with NO gate at all: no scrub, no
+     * pointer binding, no provenance check, no evidence slots, no prose signal, no
+     * grader, no repair. This runs the same chain over those, minus the deck-shape
+     * stage, which is meaningless for a persona set.
+     */
+    const verifyAndAttachDeliverables = useCallback(async (items: DeliverableItem[], msgId: string) => {
+        if (!items?.length) return;
+        try {
+            const liveCtx = getContext ? getContext() : context;
+            const { runDeliverableChain, deliverableChainSummary } = await import('../services/deliverableChain');
+            const { engagementSlugFor } = await import('../services/engagementSlug');
+            const outcome = await runDeliverableChain(items as any[], {
+                runId: `del_${msgId}`,
+                subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
+                engagementSlug: engagementSlugFor(String(liveCtx?.researchGoal || '')),
+            });
+            console.info(`[deliverable-chain] ${deliverableChainSummary(outcome)}`, outcome.result.trace);
+            if (outcome.result.slotReport && !outcome.result.slotReport.pass) {
+                console.warn(`[deliverable-chain] evidence: ${outcome.result.slotReport.violations
+                    .map(v => `${v.kind} ${v.sectionId}.${v.field}`).join(', ')}`);
+            }
+            if (outcome.changedIds.length) {
+                const byId = new Map(outcome.items.map(i => [String(i.id), i]));
+                setDeliverables(prev => prev.map(d => (byId.get(String(d.id)) as any) || d));
+            }
+        } catch (e: any) {
+            // Non-fatal by design: the deliverable the user is already looking at
+            // must survive a gate failure.
+            console.warn('[deliverable-chain] skipped (non-fatal):', e?.message || e);
+        }
+    }, [getContext, context, setDeliverables]);
+
     const verifyAndAttachLedger = useCallback(async (deckSlides: SlideData[], msgId: string) => {
         if (!deckSlides?.length) return;
         const runId = `deck_${msgId}`;
@@ -5191,6 +5228,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     };
 
     // --- Send ---
+    /** Requests whose clarification the user already saw or declined. */
+    const clarificationAnsweredRef = useRef<Set<string>>(new Set());
+
     const handleSend = async (queryOverride?: string) => {
         let query = queryOverride || input.trim();
         // 2026-05-08 - Allow send with attachments only (no text). When the
@@ -5210,6 +5250,60 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 : ''),
             timestamp: Date.now(),
         };
+
+        // DF-F2 (2026-08-21) - ASK BEFORE SPENDING THE RUN. Three declared trigger
+        // points, and no fourth: the model may not reach for a question whenever it
+        // feels unsure, because an ask-anywhere tool becomes a stall. Each of these
+        // three currently burns a full run on a guess:
+        //   (a) the objective names no subject, industry, or audience;
+        //   (b) the named industry matches no selected pack, which is the
+        //       off-industry incident, caught BEFORE collection rather than after
+        //       publication;
+        //   (c) a hashtag-free ask fits three or more artifact types.
+        // Rendered as a card in the chat stream rather than a modal: the user is
+        // already here, and it does not block the rest of the screen. One question
+        // covering every missing parameter, never one at a time.
+        if (!clarificationAnsweredRef.current.has(query.trim().toLowerCase())) {
+            try {
+                const liveForClarify = getContext ? getContext() : context;
+                const {
+                    checkObjectiveTrigger, checkPackTrigger, checkDeliverableTrigger, buildClarificationRequest,
+                } = await import('../services/clarification');
+                const packCats = Array.isArray((liveForClarify as any)?.selectedPackCategories)
+                    ? (liveForClarify as any).selectedPackCategories as string[]
+                    : [];
+                const request = buildClarificationRequest([
+                    checkObjectiveTrigger(query),
+                    checkPackTrigger(query, packCats),
+                    checkDeliverableTrigger(query),
+                ]);
+                if (request) {
+                    setMessages(prev => [...prev, userMsg, {
+                        id: `msg_clarify_${Date.now()}`,
+                        role: 'assistant',
+                        content: [
+                            request.preamble,
+                            '',
+                            ...request.fields.map(f => `- ${f.label}`),
+                            '',
+                            'Answer in one message and I will run it. Send the same request again to skip this and run it as written.',
+                        ].join('\n'),
+                        timestamp: Date.now(),
+                        model: 'clarification',
+                    }]);
+                    // Sending the identical request again is an explicit override:
+                    // the user has decided the ambiguity does not matter, and a
+                    // question they already declined must not fire twice.
+                    clarificationAnsweredRef.current.add(query.trim().toLowerCase());
+                    setInput('');
+                    console.info(`[clarification] ${request.trigger}: ${request.fields.length} field(s) asked before collection`);
+                    return;
+                }
+            } catch (e: any) {
+                // A clarification failure must never block a run the user asked for.
+                console.warn('[clarification] check skipped (non-fatal):', e?.message || e);
+            }
+        }
         // 2026-05-19 - Chat feedback capture. The AnalysisCheckpoint logEdit
         // path is no longer the user's interaction surface, so we intercept
         // here instead. Fire-and-forget; non-blocking. See
@@ -7423,6 +7517,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         // Override timestamp so renderer filter associates these with the chunk message
                         const stamped = newDels.map(d => ({ ...d, model: msgForLift.model, timestamp: msgForLift.timestamp }));
                         setDeliverables(prev => [...prev, ...stamped]);
+                        verifyAndAttachDeliverables(stamped, chunkMsgId);
                     }
                     const newSlides = parseSlideBlocks(result.deckMarkdown, msgForLift.model, query);
                     if (newSlides.length > 0) {
@@ -7569,6 +7664,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 const stamped = newDels.map(d => ({ ...d, model: response.model || d.model, timestamp: response.timestamp }));
                 setDeliverables(prev => [...prev, ...stamped]);
                 generatePersonaPortraits(stamped);
+                verifyAndAttachDeliverables(stamped, response.id);
             }
             const newSlides = parseSlideBlocks(response.content, response.model, query);
             // 2026-05-23 - Mark this message as lifted so the universal
@@ -7910,6 +8006,35 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     </span>
                                     {msg.skillUsed && <span style={{ fontSize: 7, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#00B7C3', background: '#E8F6F7', padding: '1px 5px' }}>{msg.skillUsed}</span>}
                                     {msg.durationMs && <span style={{ fontSize: 8, color: '#BBB' }}>{(msg.durationMs / 1000).toFixed(1)}s</span>}
+                                </div>
+                            )}
+                            {/* E2.2: the deck argued one thesis and considered others. Show the
+                                alternatives so the framing is the user's call, not whichever one
+                                the model reached for first. Taking one recomposes the deck with
+                                that sentence pinned verbatim. */}
+                            {Array.isArray(msg.thesisOptions) && msg.thesisOptions.length > 1 && (
+                                <div style={{ marginBottom: 8, padding: '7px 9px', background: 'var(--bg-secondary, #F7F7F5)', borderLeft: '2px solid var(--nxt-lime, #B8B800)' }}>
+                                    <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373', marginBottom: 5 }}>
+                                        Thesis this deck argues
+                                    </div>
+                                    {msg.thesisOptions.map(opt => (
+                                        <div key={opt.id} style={{ display: 'flex', gap: 7, alignItems: 'flex-start', marginBottom: 4 }}>
+                                            <span style={{ fontSize: 9, color: opt.chosen ? '#115054' : '#A3A3A3', minWidth: 44, fontFamily: "'JetBrains Mono', monospace", paddingTop: 2 }}>
+                                                {opt.chosen ? 'CHOSEN' : ''}
+                                            </span>
+                                            <div style={{ flex: 1 }}>
+                                                <div style={{ fontSize: 11.5, color: opt.chosen ? '#141414' : '#525252', fontWeight: opt.chosen ? 600 : 400 }}>{opt.thesis}</div>
+                                                {opt.implies && <div style={{ fontSize: 10, color: '#737373', marginTop: 1 }}>{opt.implies}</div>}
+                                            </div>
+                                            {!opt.chosen && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setInput(`#slides Recompose the deck arguing this thesis verbatim, and ladder every slide up to it: "${opt.thesis}"`)}
+                                                    style={{ fontSize: 9, padding: '2px 6px', border: '1px solid #D4D4D4', background: '#FFF', color: '#115054', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                                                >argue this instead</button>
+                                            )}
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                             <div style={{
