@@ -416,7 +416,50 @@ the image rebuilt from tracked files only to prove it.
 **E3.2 recap from AIR.** `services/recapComposition.ts`, verified through the live service
 at 660 frames, 22.000s, four beats, pointers stripped.
 
-## The one item not closed, stated plainly
+## E2.2 CLOSED, 2026-08-24
+
+Proven live on bundle `index-DPyX4KSS.js`, artifact `slides_1787580978928`:
+
+```
+"chosen":  "AI already reshapes four parts of the retained search research phase"
+"rejected": [
+  "The true risk of AI adoption in retained search research is data leakage rather
+   than execution speed."
+     implies: secure, ring-fenced data environments over general-purpose tools
+  "The primary barrier to scaling search firm margins is manual workflow integration
+   rather than candidate matching quality."
+     implies: connect existing calendars and project spaces before buying AI agents
+]
+"valid": true, "problems": []
+```
+
+The panel renders it: header, the CHOSEN marker on the deck's own thesis, and two working
+"argue this instead" buttons. Same run also recorded
+`evidence: {p0Coverage: 1, planAbsent: false, plannedSubQuestions: 2}`, so E1.1 is
+confirmed a second time.
+
+**Three separate causes had to be found, and only the first was the one I guessed.**
+
+1. The contract embedded in DECK MODE was ignored, twice. That is the pointer-instruction
+   failure repeating: one paragraph inside a very large prompt loses. Fixed by giving the
+   alternatives their own call, where they are the only ask, and reading the CHOSEN thesis
+   off the deck rather than generating it, which makes that entry true by construction.
+2. The dedicated call then returned nothing, and my `catch` swallowed the reason. Probing
+   the identical request against the live proxy directly returned two good alternatives in
+   about two seconds, which proved the function was correct and the environment was not.
+   The call fires immediately after a full deck generation, the busiest the proxy ever is,
+   and a 25 second budget was too thin. Now 60 seconds with three attempts, and every
+   failure path logs why.
+3. The run that was meant to confirm it never reached the code at all: the clarification
+   gate had intercepted the turn as underspecified and was waiting for input. That is
+   DF-F working correctly, and it cost two runs before I read the console carefully enough
+   to notice the turn had ended in a question rather than a deck.
+
+The lesson worth keeping is the second one. A silent catch inside a feature makes the
+feature undiagnosable, and I wrote one two days after criticizing exactly that in the slop
+detector. The fix that mattered was not the timeout, it was making the failure speak.
+
+## Previously open, now closed
 
 **E2.2 does not work end to end.** Its Done-when asks for a live deck showing three theses
 with the rejected pair in AIR. Two live runs recorded

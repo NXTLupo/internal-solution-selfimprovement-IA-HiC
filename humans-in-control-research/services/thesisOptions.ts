@@ -208,7 +208,14 @@ export async function proposeAlternativeTheses(opts: {
             contents: [{ role: 'user', parts: [{ text: user }] }],
             // thinkingBudget 0 for the same truncation reason the field-rewrite call cites.
             config: { temperature: 0.7, maxOutputTokens: 900, responseMimeType: 'application/json', thinkingBudget: 0 },
-        }, { label: 'Alternative theses', maxAttempts: 2, requestTimeoutMs: 25_000 });
+            /**
+             * This call fires immediately after a full deck generation, which is the
+             * busiest the proxy ever is: the same request succeeds in about two seconds
+             * against an idle proxy and returned nothing on a live run competing with the
+             * deck's own embedding traffic. So the budget is generous and it retries.
+             * A slow answer here costs a few seconds; no answer costs the whole feature.
+             */
+        }, { label: 'Alternative theses', maxAttempts: 3, requestTimeoutMs: 60_000 });
     } catch (e: any) {
         // Say WHY. A silent catch here is the same mistake the slop detector made earlier
         // in this program: the feature degrades to nothing and no log explains it, so the
