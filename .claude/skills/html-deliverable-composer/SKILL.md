@@ -3,7 +3,7 @@ name: html-deliverable-composer
 invocation: runtime
 disable-model-invocation: true
 version: 1.0
-description: Generate NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the 'Copy as prompt' round-trip helper. MUST compose with verbalized-sampling — load that skill first and apply the five-layer VS pattern (visual layout, IA, diagram type, interaction pattern, iconography) as a <vs_thinking> preamble before emitting HTML. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts.
+description: Generate NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the evidence contract the claim ledger gate enforces (chrome is runtime-owned). MUST compose with verbalized-sampling — load that skill first and apply the five-layer VS pattern (visual layout, IA, diagram type, interaction pattern, iconography) as a <vs_thinking> preamble before emitting HTML. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts.
 thinking: max
 ---
 
@@ -161,52 +161,50 @@ Canonical probability distribution for `--variants 6` (2×3 grid):
 
 Layout: 2×3 CSS grid, equal-height cards, "Pick this" CTA at the bottom of each card.
 
-## Two-way interaction: the "Copy as prompt" footer
+## Chrome is the runtime's, never the model's (2026-09-11, HARD)
 
-Every artifact ends with a footer block containing:
+The artifact `/view` endpoint and the HTML artifact chain own every piece of interface chrome: the
+brand wrapper, fonts, the print stylesheet, export controls, refine helpers, and the artifact metadata
+record. The model emits the DOCUMENT and nothing else. Never emit:
 
-1. A `<details>` collapsed `<vs_thinking>` block (audit trail)
-2. A `<button id="copy-as-prompt">Copy as prompt</button>` that, when clicked, copies a prompt-shaped string to the clipboard. Format:
-   ```
-   #refine <slug>: <natural-language tweak the user wants>
-   ```
-   The button uses navigator.clipboard.writeText. After copy, the button text flashes "Copied — paste into HiC chat to refine".
-3. A `<button id="open-in-chat">Open in chat</button>` that posts a `window.opener.postMessage({type: 'hic-open-in-chat', slug, prompt})` so HiC's main window can pre-fill the chat input. (Works only when the artifact was opened via window.open from HiC.)
-4. An optional `<button id="save-as-pdf">Save as PDF</button>` that calls `window.print()`. The print stylesheet renders cleanly.
+- a `<footer>` with buttons, a "Copy as prompt", "Save as PDF", "Open in chat" or download button,
+- a "Generation audit", verbalized-sampling commentary, committed-frame notes, or probability text
+  anywhere in the visible document (the `<vs_thinking>` preamble is the only place, and it is removed),
+- a `__HIC_ARTIFACT_META__` script or any JSON metadata block,
+- run ids, versions, timestamps of generation, model names, or pipeline labels.
 
-## The print stylesheet (always included)
+The 2026-09-10 white paper shipped all four because an earlier version of this skill required them;
+the chain now strips them, and any that survive count as a CHROME_LEAK finding in the claim ledger.
 
-```css
-@media print {
-  body { background: #FFFFFF !important; color: #000000 !important; }
-  .__hic_artifact_footer, .__hic_copy_buttons { display: none !important; }
-  .__hic_variant_picker { display: none !important; }
-  a { color: #000000; text-decoration: underline; }
-  page-break-inside: avoid for figures and tables;
-  /* Page margins */
-  @page { margin: 0.75in; }
-}
-```
+## Evidence contract (2026-09-11, checked by services/claimLedgerGate.ts after generation)
 
-## The embedded artifact metadata (for round-trip editing)
+Every sentence a reader could take as a fact is checked deterministically against the chunk it cites.
+Write to the contract so the check passes on the first draft:
 
-The artifact ends with a hidden script tag carrying the structured source:
+- CLAIM TYPES: SUPPORTED FACT, DERIVATION and DEFENSIBLE INFERENCE may be declarative. A HYPOTHESIS is
+  framed as a bet. An UNKNOWN is omitted and the section narrows; never annotate a gap.
+- TEMPORAL: date a capability, launch, beta or announcement by the PUBLISHED date on the cited chunk's
+  provenance line, or a date in its text. The objective's as-of window is the review date, never a
+  source date. Undated live documentation describes current documented behavior; dated posts establish
+  chronology. Disagreeing sources are both kept, with their dates. Reason code: DATE_SCOPE_MISMATCH.
+- MODALITY: "can", "helps", "lets", "working toward" never become "ensures", "requires", "guarantees",
+  "proves", "makes correct", "cannot", "never", "always". Reason code: UNSUPPORTED_MODALITY.
+- INDEPENDENCE: "every", "all", "consensus", "converges", "dominant" need three independent origins
+  (different authors or organizations, different URLs). Two pointers to one thread are one origin.
+  Reason code: INDEPENDENCE_INFLATED.
+- IDENTIFIERS: tool names, API names, commands, acronym expansions and product names must appear in a
+  cited chunk exactly. Hedged or social-only text ("or something", "I think") is reported as a
+  practitioner recollection in quotation marks, never as a documented capability. Reason code:
+  UNVERIFIED_IDENTIFIER.
+- SCOPE: a chunk about another product or organization is a NAMED analogy or nothing. Reason code:
+  PRODUCT_SCOPE_MISMATCH.
+- DERIVED SUMMARIES: the theme outline is not a source. Never write "via theme"; never put anything but
+  pointers inside a citation bracket. Reason code: DERIVED_AS_SOURCE.
+- Quoted spans are verbatim in the cited chunk (UNVERIFIED_QUOTE); factual sentences carry a pointer
+  (UNSOURCED_FACT).
 
-```html
-<script type="application/json" id="__HIC_ARTIFACT_META__">
-{
-  "slug": "...",
-  "title": "...",
-  "generator": "#brief | #explainer | #report | ...",
-  "engagement_context": { ... },
-  "vs_commitment": { "layer": "...", "chosen_frame": "...", "probability": ... },
-  "topic": "...",
-  "created_at": "..."
-}
-</script>
-```
-
-This lets the chat handler load the artifact, parse its metadata, and offer "Refine" actions that pre-fill a prompt with the prior generation context.
+The chain renders each pointer as a linked, dated citation and appends a dated Sources section. You
+write pointers; you never write source labels, URLs or dates the provenance line does not carry.
 
 ## Anti-mode-collapse instant-rejection patterns
 
@@ -233,7 +231,6 @@ Must include:
 - 2-3 key supporting findings as short prose paragraphs OR small data cards
 - One diagram (preceded by micro-VS on diagram type) OR one comparison table
 - Stakeholder names and engagement context surfaced
-- "Copy as prompt" footer
 
 Length: ~600-1200 words of visible content. Optimized for one screen + scroll.
 
@@ -246,7 +243,6 @@ Must include:
 - A flow diagram or system map at the top (mandatory — apply micro-VS to pick the diagram type)
 - 2-4 annotated code/data snippets beside or below the prose
 - A "Gotchas" section at the bottom with severity-coded callouts (the article's pattern)
-- "Copy as prompt" footer
 
 Length: ~1500-3500 words of visible content. Optimized for sequential read.
 
@@ -259,7 +255,6 @@ Must include:
 - Embedded charts/diagrams per section
 - Evidence panels with verbatim corpus quotes
 - A summary table at the top showing all sections + status
-- "Copy as prompt" footer
 
 Length: ~3000-8000 words. Optimized for navigation, not sequential read.
 
@@ -284,7 +279,6 @@ Must include:
 - 2×3 (or k-shaped) grid of approach cards
 - Per card: name, 2-3 pros, 2-3 cons, when-to-pick-this guidance, probability annotation
 - "Pick this" button per card that promotes the variant
-- "Copy as prompt" footer
 
 This directive IS VS-Multi rendered inline as a picker UI.
 
@@ -296,7 +290,7 @@ Renders in chat (not as a standalone HTML artifact) as a grid of cards. Each car
 
 ## Output format
 
-Emit ONLY the HTML body content. Do NOT wrap in `<html>` / `<head>` / `<body>` — the artifact `/view` endpoint injects those wrappers + the brand CSS + the copy-as-prompt script + the print stylesheet. Your output is the artifact's content. Start with your `<vs_thinking>` block (will be moved to the footer at render time), then the HTML structure.
+Emit ONLY the HTML body content: the artifact's `<main>` document. Do NOT wrap in `<html>` / `<head>` / `<body>`; the runtime injects the wrapper, brand CSS, print stylesheet and every control. Start with your `<vs_thinking>` block (removed before render), then the document, and nothing after the document: no footer, no buttons, no audit block, no metadata script.
 
 If your output begins with ` ```html ` markdown fence, the chat handler will strip it. Better: emit raw HTML.
 
@@ -307,11 +301,11 @@ If your output begins with ` ```html ` markdown fence, the chat handler will str
 3. [ ] NXT (or NU) brand tokens referenced as CSS variables, not hardcoded
 4. [ ] No `border-radius` value above 4px
 5. [ ] At least one diagram OR table OR interaction in the artifact
-6. [ ] "Copy as prompt" footer button present
+6. [ ] No footer, button, audit block, or metadata script anywhere in the output (the runtime owns chrome)
 7. [ ] Print stylesheet not blocked (no `display: none` on `body` or `main`)
 8. [ ] All section headings are finding-grade (sentences with data), not category labels
 9. [ ] No lorem ipsum, no placeholder text — every word grounded in topic
-10. [ ] `__HIC_ARTIFACT_META__` metadata script included
+10. [ ] Every factual sentence carries a corpus pointer; every date matches the cited provenance line; hedged or social-only identifiers are quoted as recollection
 
 Only after all checks pass do you emit.
 

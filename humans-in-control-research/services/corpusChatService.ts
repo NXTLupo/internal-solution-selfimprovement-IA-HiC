@@ -80,6 +80,19 @@ export interface ChatMessage {
      * menu.
      */
     thesisOptions?: Array<{ id: number; thesis: string; implies: string; chosen: boolean }>;
+    /**
+     * 2026-08-26 (owner report): the clarification gate blocked a prompt that already
+     * named its subject, industry-equivalent, and audience, in words a fixed keyword
+     * list did not happen to cover. The gate itself is now much more conservative (a
+     * content-richness backstop independent of any list), but the plan's REJECT is
+     * still explicit that clarification is not removed entirely: a genuinely bare
+     * ask should still be caught before a full run is spent on a guess. The bridge
+     * between those two facts is trust made instant rather than trust made a retype:
+     * carrying the original query here lets the chooser run it exactly as written
+     * with one click, instead of asking the user to type the identical message again
+     * to signal an override they may not know exists.
+     */
+    clarificationBypassQuery?: string;
     /** When the chat is delivering a pre-made Design Desk artifact, this holds a reference. */
     deliveredArtifactId?: string;
     deliveredArtifactType?: 'persona' | 'journey' | 'org';
@@ -3455,7 +3468,18 @@ export async function sendChatMessage(
                     // MMR pack still ranks the FINAL selection by userMessage + goal. Capped for
                     // the chunks-by-goal URL query param.
                     researchObjective: [userMessage, context.researchGoal || ''].filter(Boolean).join('\n').slice(0, 800),
-                    tokenBudget: 30_000,
+                    // 2026-08-26 (owner report, live: 300+ sequential /api/wiki/read calls
+                    // measured on a plain chat question before the model was ever invoked).
+                    // 30K tokens was sized for full artifact generation (a deck needs broad,
+                    // diverse evidence); a conversational answer does not, and MMR's
+                    // source-type-balance diversification was spreading that budget across
+                    // hundreds of distinct pages on a large corpus, each requiring its own
+                    // resolveChunks() network round trip BEFORE retrieval even finished.
+                    // Manifest grounding itself stays on for chat (anti-RAG principle,
+                    // unchanged) - only the budget shrinks to match what a chat answer
+                    // actually needs, the same reasoning already applied to maxOutputTokens
+                    // for chat vs. deliverable Gemini calls just above in this file.
+                    tokenBudget: messageTargetsArtifact(userMessage) ? 30_000 : 6_000,
                 });
                 // 2026-06-25 - BY-NAME honesty floor. If the user named specific
                 // document(s), tell the model which were FOUND (answer from their
@@ -5325,6 +5349,44 @@ async function callOpenAI(
     }
 }
 
+/**
+ * SUMMARIZE() for Algorithm 1 (arXiv 2606.10209v1, line 20). The paper prices this
+ * at "exactly one additional LLM call per eviction event" and measures it buying
+ * 79.0% -> 91.6% task completion for ~3% more tokens, so it is worth a call, but
+ * only a cheap one: fast model, thinking disabled, tight output ceiling. The
+ * digest records what the evicted tool calls DID (forms opened, data gathered),
+ * which is the situational awareness the paper credits for the gain.
+ *
+ * Returns '' on any failure. constructContext treats an empty digest as "prune
+ * without summarizing", which is the paper's C3 and still beats full history on
+ * both axes, so a failed digest degrades cleanly instead of aborting the prune.
+ */
+async function _summarizeEvictedToolPairs(transcript: string): Promise<string> {
+    const body = String(transcript || '').trim();
+    if (body.length < 40) return '';
+    try {
+        const { callAIWithRetry } = await import('./aiRetryClient');
+        const data: any = await callAIWithRetry('gemini', {
+            model: DEFAULT_MODELS.fast_generation,
+            contents: [{
+                role: 'user',
+                parts: [{
+                    text: 'Compress this record of an agent\'s completed tool calls into at most 4 terse lines. '
+                        + 'State what was searched or fetched and the substantive findings that came back, naming sources. '
+                        + 'This replaces the raw record, so a fact omitted here is lost. '
+                        + 'No preamble, no commentary, no em-dash.\n\n' + body.slice(0, 14_000),
+                }],
+            }],
+            config: { temperature: 0, maxOutputTokens: 400, thinkingBudget: 'minimal' },
+        }, { label: 'Tool-context digest', maxAttempts: 1, requestTimeoutMs: 20_000 });
+        const parts = data?.candidates?.[0]?.content?.parts || [];
+        return parts.filter((p: any) => typeof p?.text === 'string').map((p: any) => p.text).join('\n').trim();
+    } catch (e: any) {
+        console.warn('[chat.contextEng] digest failed, pruning without summary:', e?.message || e);
+        return '';
+    }
+}
+
 async function callGemini(
     system: string,
     userMsg: string,
@@ -5363,13 +5425,23 @@ async function callGemini(
     // candidate's text parts.
     const _geminiTurn = async (
         turnContents: GContent[],
-        opts: { withTools: boolean; temperature: number; maxOutputTokens: number },
+        opts: { withTools: boolean; temperature: number; maxOutputTokens: number; thinkingBudget?: string },
     ): Promise<any> => {
         const cfg: any = {
             systemInstruction: system,
             temperature: opts.temperature,
             maxOutputTokens: opts.maxOutputTokens,
         };
+        // 2026-08-26 (owner report, live: a plain chat question sat at 50s+ with
+        // "Composing response..." showing no real progress). No call in this loop
+        // ever set thinkingConfig, so Gemini fell back to its own default adaptive
+        // thinking budget on EVERY one of up to 5 sequential turns - on a FLASH
+        // model answering from evidence already grounded into the prompt, that
+        // hidden "thinking" time was the dominant cost, not the token generation.
+        // Cap it low for conversational chat only; leave deterministic SCHEMA-tier
+        // deliverable calls (temp 0, bake-off validated) untouched - this fix is
+        // scoped to the reported symptom, not a blanket retune of every Gemini call.
+        if (opts.thinkingBudget) cfg.thinkingBudget = opts.thinkingBudget;
         const data: any = await callAIWithRetry('gemini', {
             model,
             contents: turnContents,
@@ -5403,7 +5475,10 @@ async function callGemini(
     // Gemini conversation = list of `{role, parts:[{text|functionCall|functionResponse}]}`
     type GPart = { text?: string } | { functionCall?: { name: string; args: any } } | { functionResponse?: { name: string; response: { result: string } } };
     type GContent = { role: 'user' | 'model' | 'function'; parts: GPart[] };
-    const contents: GContent[] = [];
+    // `let`, not `const`: the context-engineering policy below (Algorithm 1 of
+    // arXiv 2606.10209v1) REPLACES this array with a pruned one between
+    // iterations rather than only ever appending to it.
+    let contents: GContent[] = [];
     // Fold prior chat history (user/assistant) into Gemini's user/model alternation
     for (const m of history) {
         if (m.role === 'system') continue;
@@ -5436,6 +5511,14 @@ async function callGemini(
     }];
 
     let lastText = '';
+    // 2026-08-26 (owner report, latency). The prompt already TELLS the model to
+    // call fetch_wiki_articles "at most once" for a conversational question, but
+    // that was compliance-only - nothing stopped a second or third call, and each
+    // one is a full extra retrieval + model round trip that compounds the wait.
+    // Enforce it in code for chat: the manifest corpus is already grounded into
+    // the prompt (Unified Vision anti-RAG principle), so a repeat fetch is
+    // redundant, not additive. Deliverable calls (deterministic) are unaffected.
+    let _fetchWikiArticlesCalls = 0;
     const _geminiLoopStart = Date.now();
     // 2026-06-23 - PLAIN-CHAT LATENCY FIX. The conversational chat path (gemini-3.5-flash)
     // was burning all 5 agentic tool-iterations re-fetching the wiki (the prompt pushes
@@ -5444,6 +5527,30 @@ async function callGemini(
     // conversational answer needs at most ONE optional fetch. Cap the chat loop at 3 iterations.
     // (Hashtag deliverables force-route to Opus / callClaude, which keeps the full MAX_TOOL_ITER.)
     const _chatIterCap = Math.min(MAX_TOOL_ITER, 3);
+    /**
+     * 2026-08-26 CONTEXT ENGINEERING (Algorithm 1, "Less Context, Better Agents",
+     * arXiv 2606.10209v1, at .claude/research/context_engineering.pdf). Tool
+     * responses in this loop are the verbose kind the paper targets: one
+     * fetch_wiki_articles can return 20 article bodies, and every retained pair is
+     * re-sent on each subsequent iteration. On the paper's benchmark, keeping full
+     * tool history scored 71.0% task completion against 91.6% for recency pruning
+     * plus summarization, at 2.68x the tokens, so retention loses on both axes.
+     *
+     * N is DERIVED, not copied. The paper sets N=5 from its own task structure
+     * ("a single itemization line requires 2-3 tool calls... five thus provide
+     * working memory for approximately two complete itemization cycles"), and is
+     * explicit that the window follows the workflow. HiC's chat structure is much
+     * shorter: the manifest corpus is already grounded into the prompt, the
+     * protocol tells the model to fetch at most once, and that limit is now
+     * enforced in code below. One fetch is a complete cycle here, so two pairs is
+     * the same "roughly two cycles" of working memory at HiC's scale. Copying 5
+     * into a 3-iteration loop would make the policy inert.
+     *
+     * Deliverable generation keeps full tool context: those runs are the ones
+     * whose quality the bake-offs validated, and the paper's own scope section
+     * declines to claim universal generalization.
+     */
+    const _keepToolPairs = deterministic ? Infinity : 2;
     try {
     for (let iter = 0; iter < _chatIterCap; iter += 1) {
         // 2026-05-26 - Abort + wall-clock check at each iteration boundary
@@ -5467,12 +5574,39 @@ async function callGemini(
         // (returning a Gemini-shaped 200 with _fallback_provider), so the prior
         // TS-level 429 fallback block is no longer needed here. Determinism: temp 0
         // for Gemini-tiered deliverables (bake-off #gap/#journey), 0.2 for chat.
+        // Algorithm 1: build the context to SEND from the accumulated history.
+        // A no-op on iteration 1 and whenever tool pairs are within the window,
+        // in which case it returns the same array by reference.
+        if (Number.isFinite(_keepToolPairs)) {
+            try {
+                const ce = await import('./contextEngineering');
+                const built = await ce.constructContext(contents, {
+                    isToolCall: ce.geminiIsToolCall,
+                    isToolResponse: ce.geminiIsToolResponse,
+                    makeSummaryMessage: ce.geminiSummaryMessage,
+                    keepWindow: _keepToolPairs,
+                    summaryWindow: ce.DEFAULT_SUMMARY_WINDOW,
+                    summarize: async (evicted) => _summarizeEvictedToolPairs(
+                        ce.geminiEvictedToText(evicted as any[]),
+                    ),
+                });
+                if (!built.unchanged) {
+                    contents = built.kept as GContent[];
+                    console.log(`[chat.contextEng] pruned ${built.evictedPairs} tool pair(s) before iter ${iter + 1}; summarized=${built.summarized}; context now ${contents.length} turns`);
+                }
+            } catch (ceErr: any) {
+                // Never let the context policy break the answer: on any failure the
+                // full accumulated context stands, which is the old behavior.
+                console.warn('[chat.contextEng] skipped (non-fatal):', ceErr?.message || ceErr);
+            }
+        }
         const response: any = await _geminiTurn(contents, {
             withTools: true,
             temperature: deterministic ? 0 : 0.2,
             // A conversational chat answer is short (16K ample); a schema-
             // constrained deliverable needs more room for the full matrix.
             maxOutputTokens: deterministic ? 32768 : 16384,
+            thinkingBudget: deterministic ? undefined : 'low',
         });
 
         const cand = (response as any).candidates?.[0];
@@ -5520,6 +5654,7 @@ async function callGemini(
                 withTools: false,
                 temperature: 0.2,
                 maxOutputTokens: 65536,
+                thinkingBudget: deterministic ? undefined : 'low',
             });
             const retryParts: GPart[] = (retryResp as any).candidates?.[0]?.content?.parts || [];
             const retryText = retryParts
@@ -5543,10 +5678,15 @@ async function callGemini(
             const call = (cp as any).functionCall;
             let result = '';
             if (call.name === FETCH_WIKI_ARTICLES_TOOL.name) {
-                try {
-                    result = await executeFetchWikiArticlesTool(call.args || {});
-                } catch (e: any) {
-                    result = `(tool error: ${e?.message || 'unknown'})`;
+                if (!deterministic && _fetchWikiArticlesCalls >= 1) {
+                    result = 'You have already fetched the wiki once this turn. Do not call fetch_wiki_articles again - answer now from the evidence already gathered, or state plainly what is missing.';
+                } else {
+                    _fetchWikiArticlesCalls += 1;
+                    try {
+                        result = await executeFetchWikiArticlesTool(call.args || {});
+                    } catch (e: any) {
+                        result = `(tool error: ${e?.message || 'unknown'})`;
+                    }
                 }
             } else if (call.name === FETCH_WIKI_RESOURCE_TOOL.name) {
                 try {
@@ -5592,6 +5732,7 @@ async function callGemini(
             withTools: false,
             temperature: 0.2,
             maxOutputTokens: 65536,
+            thinkingBudget: deterministic ? undefined : 'low',
         });
         const finalText = finalResp?.text
             || (finalResp?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('\n').trim();

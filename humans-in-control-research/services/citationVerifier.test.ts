@@ -3,12 +3,13 @@
  *  sourceLine, quotes[].text+source, groups[].items strings, figure siblings),
  *  not an idealized `attribution` key. Every review blocker has a regression
  *  test here. Real-corpus fixture at the bottom per the standing rule. */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
 import {
     extractEvidenceClaims, verifyDeckEvidence, applyVerificationFixes,
     quoteAppearsIn, statsAppearIn, attributionMatches, inTextSourcePhrases, normalizeForMatch,
+    makeWikiPageFetcher, lookupFrontmatterUrl,
     type PageFetcher,
 } from './citationVerifier';
 import { registerChunkSources, registerResolvedChunkSources, lookupPointerUrl } from './citationPointerRegistry';
@@ -213,5 +214,78 @@ describe('real-corpus fixture (standing rule: test against real data)', () => {
         expect(['VERIFIED', 'ATTRIBUTION_FIXED']).toContain(realRow.verdict);
         expect(fakeRow.verdict).toBe('UNVERIFIED');
         expect(fakeRow.fixes?.length).toBeGreaterThan(0); // the fabricated label is replaced
+    });
+});
+
+/**
+ * 2026-08-26 (owner correction). "The source should always link out to an
+ * external source. How can I trust an unverified source stored in the wiki?"
+ * HiC's own stored copy of a page is not independent verification; only a
+ * real external URL is. These guard the frontmatter fallback that makes
+ * `row.url` a real external link whenever the source page's own `url:` field
+ * records one, and confirm it stays null (never an internal wiki path
+ * disguised as a source) when the page has no real external origin on file.
+ */
+describe('lookupFrontmatterUrl: url must be a real external link, never a disguised internal path', () => {
+    afterEach(() => { vi.unstubAllGlobals(); });
+
+    it('reads the real external url from a page\'s own frontmatter when the registry captured none', async () => {
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            json: async () => ({
+                exists: true,
+                content: '---\nid: articles/amz/1.md\nurl: "https://www.amazon.science/blog/example"\n---\n\nBody text.',
+            }),
+        }));
+        const fetcher = makeWikiPageFetcher();
+        await fetcher('articles/amz/1.md');
+        expect(lookupFrontmatterUrl('articles/amz/1.md')).toBe('https://www.amazon.science/blog/example');
+    });
+
+    it('returns null when the page\'s own url field is itself an internal wiki path, not a real external link', async () => {
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            json: async () => ({
+                exists: true,
+                content: '---\nid: articles/chain/2.md\nurl: "articles/chain/original.md"\n---\n\nBody text.',
+            }),
+        }));
+        const fetcher = makeWikiPageFetcher();
+        await fetcher('articles/chain/2.md');
+        expect(lookupFrontmatterUrl('articles/chain/2.md')).toBeNull();
+    });
+
+    it('verifyDeckEvidence resolves row.url from frontmatter when the pointer registry has nothing registered', async () => {
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            json: async () => ({
+                exists: true,
+                content: '---\nid: articles/amz/3.md\nurl: "https://www.example.com/real-article"\n---\n\nA claim sentence worth citing appears right here in the body.',
+            }),
+        }));
+        const fetcher = makeWikiPageFetcher();
+        const slide = slideOf('slides:block-quote', {
+            quote: 'A claim sentence worth citing appears right here in the body. [articles/amz/3.md#c0]',
+        }, 'fm1');
+        const rows = await verifyDeckEvidence([slide], fetcher);
+        const row = rows.find(r => r.slideId === 'fm1')!;
+        expect(row.url).toBe('https://www.example.com/real-article');
+    });
+
+    it('verifyDeckEvidence leaves row.url null when the source page has no real external origin on file', async () => {
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            json: async () => ({
+                exists: true,
+                content: '---\nid: articles/chain/4.md\nurl: "articles/chain/original.md"\n---\n\nA different claim sentence appears right here in the body.',
+            }),
+        }));
+        const fetcher = makeWikiPageFetcher();
+        const slide = slideOf('slides:block-quote', {
+            quote: 'A different claim sentence appears right here in the body. [articles/chain/4.md#c0]',
+        }, 'fm2');
+        const rows = await verifyDeckEvidence([slide], fetcher);
+        const row = rows.find(r => r.slideId === 'fm2')!;
+        expect(row.url).toBeNull();
     });
 });

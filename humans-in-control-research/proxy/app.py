@@ -8719,6 +8719,395 @@ async def multi_search(q: str = Query(...), sources: str = Query(...), limit: in
 
 
 # ================================================================
+# 2026-09-11 SUBJECT-ANCHORED PRIMARY DOCUMENTATION DISCOVERY (WS-6, Phase 2)
+# plans/report-evidence-integrity-and-primary-source-discovery-2026-09-11.md
+#
+# "Scour <vendor>'s own documentation" in an objective was never translated into
+# collection: the source registry knows packs and feeds, not the documentation
+# hosts of whatever subject a user names. The 2026-09-10 Figma white paper was
+# written from the vendor blog RSS plus Reddit, with zero developer-docs or help-
+# center pages, and every major omission the reviewer found lived on those pages.
+#
+# This endpoint derives the named subjects and their OFFICIAL documentation
+# hostnames (one Flash call, then a deterministic ownership check: the host must
+# carry the subject's own name), expands them to the conventional doc subdomains
+# (developers., docs., help., support., api.) that answer, discovers pages through
+# three Jina-free tiers (help-center search API, sitemap walk, optional keyed Jina
+# search), reads each page directly (trafilatura), and persists it through
+# wiki_write_article as `kind: documentation`, `method: primary-docs`, tier 1, so
+# it chunks, manifests and retrieves like every other source and is reused by
+# later runs (second brain). Bounded by page count and wall clock; skipped when
+# the wiki already holds fresh documentation for the subject; never raises into
+# the caller's run.
+# ================================================================
+
+_PRIMARY_DOCS_FRESH_DAYS = 14
+_PRIMARY_DOCS_MIN_EXISTING = 8
+_PRIMARY_DOC_SUBDOMAINS = ("developers", "developer", "docs", "help", "support", "api")
+_LOCALE_PATH_RE = re.compile(r"/[a-z]{2}-[a-z]{2}/", re.IGNORECASE)
+_DOC_URL_SKIP_RE = re.compile(r"\.(png|jpe?g|svg|gif|webp|zip|pdf|css|js|mp4|xml)(\?|$)|/(careers|jobs|legal|privacy|terms|pricing|login|signup)(/|$)", re.IGNORECASE)
+
+
+def _primary_docs_valid_hosts(subject: str, hosts) -> list:
+    """Keep only hostnames that carry the subject's own name (deterministic ownership check)."""
+    tok = re.sub(r"[^a-z0-9]", "", (subject or "").lower())
+    out = []
+    for h in hosts or []:
+        h = str(h or "").lower().strip()
+        h = re.sub(r"^https?://", "", h).split("/")[0].strip()
+        if not h or " " in h or ".." in h or not re.fullmatch(r"[a-z0-9.-]+", h):
+            continue
+        if tok and tok in h.replace("-", "").replace(".", ""):
+            if h not in out:
+                out.append(h)
+    return out
+
+
+def _registrable_root(host: str) -> str:
+    parts = [p for p in host.lower().split(".") if p]
+    return ".".join(parts[-2:]) if len(parts) >= 2 else host.lower()
+
+
+async def _expand_doc_hosts(client, hosts: list) -> list:
+    """Add the conventional documentation subdomains of each root that actually answer."""
+    out = list(hosts)
+    roots = []
+    for h in hosts:
+        r = _registrable_root(h)
+        if r not in roots:
+            roots.append(r)
+    for r in roots:
+        for sub in _PRIMARY_DOC_SUBDOMAINS:
+            cand = f"{sub}.{r}"
+            if cand in out:
+                continue
+            try:
+                resp = await client.get(f"https://{cand}/", headers=DEFAULT_HEADERS, timeout=8.0)
+                if resp.status_code < 400:
+                    out.append(cand)
+            except Exception:
+                continue
+    return out
+
+
+async def _primary_docs_plan(goal: str, subjects_hint: list) -> dict:
+    prompt = (
+        "You map a research objective to the OFFICIAL documentation of the products, vendors, organizations, or standards it names.\n"
+        "Return ONLY JSON: {\"subjects\":[{\"name\":\"<proper name>\",\"hosts\":[\"<official documentation hostname>\"],"
+        "\"queries\":[\"<short documentation search query>\"]}]}\n"
+        "Rules: hosts are hostnames only (no paths) that the subject's OWN organization operates: developer docs, help center, API reference, "
+        "changelog, official blog. Never list third-party sites, forums, or news. Give 2-4 hosts per subject. Give 4-8 queries per subject, "
+        "2-6 words each, naming concrete capabilities, events, limits, APIs, policies, pricing or seat rules the objective asks about. "
+        "Omit a subject with no official documentation. At most 3 subjects.\n"
+        f"Objective: {(goal or '')[:1500]}\n"
+        f"Subjects already known: {', '.join(str(s) for s in subjects_hint) if subjects_hint else 'none'}"
+    )
+    text = await _call_gemini_for_artifact(prompt, "gemini-3.5-flash", 2000)
+    m = re.search(r"\{[\s\S]*\}", text or "")
+    data = json.loads(m.group(0)) if m else {}
+    subjects = []
+    for s in (data.get("subjects") or [])[:3]:
+        if not isinstance(s, dict):
+            continue
+        name = str(s.get("name") or "").strip()
+        hosts = _primary_docs_valid_hosts(name, s.get("hosts") or [])
+        queries = [str(q).strip() for q in (s.get("queries") or []) if str(q).strip()][:8]
+        if name and hosts and queries:
+            subjects.append({"name": name, "hosts": hosts[:4], "queries": queries})
+    return {"subjects": subjects}
+
+
+def _primary_docs_existing(bucket_dir: str) -> tuple:
+    """(count, newest_age_days) of documentation pages already in the bucket."""
+    if not os.path.isdir(bucket_dir):
+        return 0, None
+    newest = 0.0
+    n = 0
+    for fn in os.listdir(bucket_dir):
+        if not fn.endswith(".md"):
+            continue
+        n += 1
+        try:
+            newest = max(newest, os.path.getmtime(os.path.join(bucket_dir, fn)))
+        except OSError:
+            pass
+    age = (time.time() - newest) / 86400.0 if newest else None
+    return n, age
+
+
+def _query_tokens(queries: list) -> set:
+    toks = set()
+    for q in queries:
+        for w in re.findall(r"[a-z0-9]+", str(q).lower()):
+            if len(w) >= 3 and w not in ("the", "and", "for", "with", "how", "what", "api", "apis"):
+                toks.add(w)
+    return toks
+
+
+async def _discover_helpcenter(client, host: str, queries: list, limit: int) -> list:
+    """Tier 1: Zendesk-style help centers expose a public article search API. Returns page dicts with body HTML."""
+    found = []
+    for q in queries:
+        if len(found) >= limit:
+            break
+        try:
+            from urllib.parse import quote as _url_quote
+            resp = await client.get(f"https://{host}/api/v2/help_center/articles/search.json?query={_url_quote(q)}&per_page=8",
+                                    headers={**DEFAULT_HEADERS, "Accept": "application/json"}, timeout=15.0)
+            if resp.status_code != 200:
+                return found  # not a help center of this shape
+            data = resp.json()
+        except Exception:
+            return found
+        for r in (data.get("results") or []):
+            u = str(r.get("html_url") or "").strip()
+            if not u or any(f["url"] == u for f in found):
+                continue
+            # Help-center articles are LIVE documentation: `updated_at` is a modification stamp, not a
+            # publication date, so the page is stored undated and cited as "retrieved <date>".
+            found.append({"url": u, "title": str(r.get("title") or "").strip(), "published": "",
+                          "body_html": r.get("body") or "", "tier": "helpcenter"})
+    return found
+
+
+async def _discover_sitemap(client, host: str, queries: list, limit: int) -> list:
+    """Tier 2: walk sitemap.xml (one level of index), rank page URLs by query-token overlap."""
+    toks = _query_tokens(queries)
+    locs: list = []
+
+    async def _fetch_locs(u: str) -> tuple:
+        try:
+            resp = await client.get(u, headers={**DEFAULT_HEADERS, "Accept": "application/xml,text/xml,*/*"}, timeout=20.0)
+            if resp.status_code != 200:
+                return [], False
+            body = resp.text
+            is_index = "<sitemapindex" in body[:2000].lower()
+            # (loc, lastmod) pairs; lastmod may be absent.
+            pairs = []
+            for blk in re.findall(r"<(?:url|sitemap)>(.*?)</(?:url|sitemap)>", body, re.DOTALL | re.IGNORECASE):
+                lm = re.search(r"<loc>\s*([^<\s]+)\s*</loc>", blk)
+                if not lm:
+                    continue
+                md = re.search(r"<lastmod>\s*([^<\s]+)\s*</lastmod>", blk)
+                pairs.append((lm.group(1), md.group(1) if md else ""))
+            if not pairs:
+                pairs = [(u, "") for u in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", body)]
+            return pairs, is_index
+        except Exception:
+            return [], False
+
+    for root in (f"https://{host}/sitemap.xml", f"https://{host}/sitemap_index.xml"):
+        found, is_index = await _fetch_locs(root)
+        if not found:
+            continue
+        if is_index:
+            children = [c for c, _ in found if not _LOCALE_PATH_RE.search(c)][:4]
+            for c in children:
+                sub, _ = await _fetch_locs(c)
+                locs.extend(sub)
+                if len(locs) > 6000:
+                    break
+        else:
+            locs.extend(found)
+        break
+    # Recency floor: a page whose sitemap lastmod is older than the cutoff is history, not current
+    # documentation (the first live run admitted 2017-2020 blog posts on "design system" overlap).
+    cutoff_year = datetime.utcnow().year - 3
+    doc_words = {"docs", "doc", "developers", "developer", "help", "api", "reference", "guide", "guides", "changelog", "release", "releases"}
+    scored = []
+    for u, lastmod in locs:
+        if host not in u.lower() or _LOCALE_PATH_RE.search(u) or _DOC_URL_SKIP_RE.search(u):
+            continue
+        ym = re.match(r"(\d{4})", lastmod or "")
+        if ym and int(ym.group(1)) < cutoff_year:
+            continue
+        path_toks = set(re.findall(r"[a-z0-9]+", u.lower().split(host, 1)[-1]))
+        score = len(toks & path_toks) * 2 + len(doc_words & path_toks)
+        if len(toks & path_toks) > 0:
+            scored.append((score, lastmod or "", u))
+    scored.sort(key=lambda x: (-x[0], x[1]), reverse=False)
+    scored.sort(key=lambda x: -x[0])
+    # lastmod RANKS pages; it is a sitemap modification stamp, never a publication date (stamping it as
+    # one would be the reviewer's C01 class all over again). Publication comes from the page itself.
+    return [{"url": u, "title": "", "published": "", "body_html": "", "tier": "sitemap"} for _, _lm, u in scored[:limit]]
+
+
+async def _discover_jina(client, host: str, queries: list, limit: int) -> list:
+    """Tier 3: keyed Jina site search (anonymous calls are refused from many networks)."""
+    key = os.environ.get("JINA_API_KEY", "").strip()
+    if not key:
+        return []
+    found = []
+    from urllib.parse import quote as _url_quote
+    for q in queries:
+        if len(found) >= limit:
+            break
+        try:
+            resp = await client.get(f"https://s.jina.ai/{_url_quote(f'site:{host} {q}', safe='')}",
+                                    headers={"Accept": "application/json", "X-With-Links": "true", "Authorization": f"Bearer {key}"}, timeout=25.0)
+            if resp.status_code != 200:
+                return found
+            data = resp.json()
+        except Exception:
+            return found
+        for r in (data.get("data") or data.get("results") or []):
+            if not isinstance(r, dict):
+                continue
+            u = str(r.get("url") or "").strip()
+            if u and host in u.lower() and not any(f["url"] == u for f in found):
+                found.append({"url": u, "title": str(r.get("title") or ""), "published": "", "body_html": "", "tier": "jina"})
+    return found
+
+
+async def _discover_doc_urls(client, host: str, queries: list, limit: int) -> list:
+    pages = await _discover_helpcenter(client, host, queries, limit)
+    if len(pages) < limit:
+        seen = {p["url"] for p in pages}
+        pages += [p for p in await _discover_sitemap(client, host, queries, limit - len(pages)) if p["url"] not in seen]
+    if len(pages) < limit:
+        seen = {p["url"] for p in pages}
+        pages += [p for p in await _discover_jina(client, host, queries, limit - len(pages)) if p["url"] not in seen]
+    return pages[:limit]
+
+
+def _html_title(html: str) -> str:
+    m = re.search(r"<title[^>]*>(.*?)</title>", html or "", re.DOTALL | re.IGNORECASE)
+    if not m:
+        m = re.search(r"<h1[^>]*>(.*?)</h1>", html or "", re.DOTALL | re.IGNORECASE)
+    t = re.sub(r"<[^>]+>", " ", m.group(1)) if m else ""
+    return re.sub(r"\s+", " ", t).strip()[:200]
+
+
+def _html_published(html: str) -> str:
+    for pat in (r'property=["\']article:(?:published|modified)_time["\'][^>]*content=["\']([^"\']+)',
+                r'content=["\']([^"\']+)["\'][^>]*property=["\']article:(?:published|modified)_time',
+                r'"date(?:Published|Modified)"\s*:\s*"([^"]+)"',
+                r'<time[^>]*datetime=["\']([^"\']+)'):
+        m = re.search(pat, html or "", re.IGNORECASE)
+        if m:
+            return m.group(1).strip()[:40]
+    return ""
+
+
+def _html_to_text_fallback(html: str) -> str:
+    h = re.sub(r"<(script|style|nav|footer|header|svg)\b[^>]*>.*?</\1>", " ", html or "", flags=re.DOTALL | re.IGNORECASE)
+    h = re.sub(r"<(br|/p|/div|/li|/h[1-6]|/tr|/section|/article)[^>]*>", "\n", h, flags=re.IGNORECASE)
+    h = re.sub(r"<[^>]+>", " ", h)
+    import html as _html_lib
+    h = _html_lib.unescape(h)
+    return re.sub(r"\n\s*\n+", "\n\n", re.sub(r"[ \t]{2,}", " ", h)).strip()
+
+
+async def _read_doc_page(client, page: dict) -> dict:
+    """Direct read: use the help-center body when present, else fetch and extract."""
+    url = page["url"]
+    html = page.get("body_html") or ""
+    title = page.get("title") or ""
+    published = page.get("published") or ""
+    if not html:
+        resp = await client.get(url, headers={**DEFAULT_HEADERS, "Accept": "text/html,application/xhtml+xml,*/*;q=0.8"}, timeout=25.0)
+        if resp.status_code != 200:
+            return {"title": title, "content": "", "published": published}
+        html = resp.text
+        title = title or _html_title(html)
+        published = published or _html_published(html)
+    content = _extract_body_with_trafilatura(html, url) or _html_to_text_fallback(html)
+    import html as _html_lib
+    title = re.sub(r"\s+", " ", _html_lib.unescape(title or "")).strip()
+    return {"title": title or url, "content": content or "", "published": published}
+
+
+@app.post("/api/sources/primary-docs")
+async def sources_primary_docs(req: Request):
+    """Collect the named subjects' OWN documentation for an objective. Body:
+    { goal, engagement?, force?, max_pages? (<=40, default 24), budget_seconds? (<=180, default 90) }"""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "invalid JSON body"}, status_code=400)
+    goal = str(body.get("goal") or "").strip()
+    if not goal:
+        return JSONResponse({"ok": False, "error": "goal required"}, status_code=400)
+    engagement = str(body.get("engagement") or "").strip() or None
+    force = bool(body.get("force"))
+    try:
+        max_pages = max(1, min(int(body.get("max_pages") or 24), 40))
+    except (TypeError, ValueError):
+        max_pages = 24
+    try:
+        budget = max(15.0, min(float(body.get("budget_seconds") or 90), 180.0))
+    except (TypeError, ValueError):
+        budget = 90.0
+    t0 = time.time()
+    try:
+        plan = await _primary_docs_plan(goal, body.get("subjects") or [])
+    except Exception as e:
+        logger.warning(f"[primary-docs] plan failed (non-fatal): {e}")
+        return {"ok": False, "error": f"plan failed: {type(e).__name__}", "subjects": [], "written": [], "skipped": [], "existing": {}, "elapsed_s": round(time.time() - t0, 1)}
+    if not plan["subjects"]:
+        return {"ok": True, "subjects": [], "written": [], "skipped": [], "existing": {}, "elapsed_s": round(time.time() - t0, 1), "note": "objective names no subject with official documentation"}
+
+    written, skipped, existing, discovered = [], [], {}, {}
+    async with httpx.AsyncClient(follow_redirects=True, timeout=30.0) as client:
+        for subj in plan["subjects"]:
+            source_name = f"{subj['name']} documentation"
+            bucket_dir = os.path.join(WIKI_BASE, "articles", _wiki_slug(source_name))
+            have, age = _primary_docs_existing(bucket_dir)
+            existing[subj["name"]] = have
+            if have >= _PRIMARY_DOCS_MIN_EXISTING and age is not None and age <= _PRIMARY_DOCS_FRESH_DAYS and not force:
+                skipped.append({"name": subj["name"], "reason": f"{have} documentation page(s) already collected {age:.0f} day(s) ago", "existing": have})
+                continue
+            hosts = await _expand_doc_hosts(client, subj["hosts"])
+            subj["hosts"] = hosts
+            per_host = max(3, max_pages // max(1, len(hosts)))
+            pages: list = []
+            seen_urls: set = set()
+            for host in hosts:
+                if time.time() - t0 > budget or len(pages) >= max_pages:
+                    break
+                try:
+                    found = await _discover_doc_urls(client, host, subj["queries"], per_host)
+                except Exception as e:
+                    logger.info(f"[primary-docs] discovery failed for {host}: {e}")
+                    continue
+                discovered[host] = len(found)
+                for p in found:
+                    if p["url"] not in seen_urls:
+                        seen_urls.add(p["url"])
+                        pages.append(p)
+            for page in pages[:max_pages]:
+                if time.time() - t0 > budget:
+                    break
+                try:
+                    read = await _read_doc_page(client, page)
+                except Exception as e:
+                    logger.info(f"[primary-docs] read failed for {page['url']}: {e}")
+                    continue
+                content = read["content"]
+                if len(content) < 300:
+                    continue
+                is_announcement = bool(re.search(r"/(blog|newsroom|news|press|releases?|changelog)(/|$)", page["url"], re.IGNORECASE))
+                try:
+                    req_obj = WikiArticleWriteRequest(
+                        url=page["url"], content=content[:60000], source=source_name,
+                        title=(read["title"] or page["url"])[:200],
+                        # Documentation is undated live content; only an announcement carries its own published date.
+                        date=(read["published"] or None) if is_announcement else None,
+                        tier=1, method="primary-docs", kind="article" if is_announcement else "documentation",
+                        engagement=engagement, engagementGoal=goal,
+                        sourcePack="primary-docs", collectedAt=datetime.utcnow().isoformat() + "Z",
+                    )
+                    resp = await wiki_write_article(req_obj)
+                    wp = resp.get("wikiPath") if isinstance(resp, dict) else None
+                    if wp:
+                        written.append({"url": page["url"], "wikiPath": wp, "title": req_obj.title, "date": read["published"] or "", "tier": page.get("tier", "")})
+                except Exception as e:
+                    logger.info(f"[primary-docs] persist failed for {page['url']}: {e}")
+    logger.info(f"[primary-docs] {len(written)} page(s) written for {[s['name'] for s in plan['subjects']]} in {time.time() - t0:.1f}s; discovered={discovered}; skipped={len(skipped)}")
+    return {"ok": True, "subjects": plan["subjects"], "written": written, "skipped": skipped, "existing": existing, "discovered": discovered, "elapsed_s": round(time.time() - t0, 1)}
+
+
+# ================================================================
 # PDF EXTRACTION ENDPOINT — Download and parse actual PDFs
 # ================================================================
 
@@ -9315,7 +9704,7 @@ async def extract_content(url: str = Query(...)):
 import subprocess
 import tempfile
 import shutil
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 from fastapi import Request as _S5Request  # aliased so later `from fastapi import Request` stays cosmetic
 
 # OpenAI Whisper API rejects uploads >25 MB. Staying 1 MB under = safety margin.
@@ -16321,15 +16710,17 @@ async def skillopt_trajectory_append(req: Request):
 # ================================================================
 
 @app.get("/api/manifest/chunks")
-async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article", min_relevance: int = 0, include_pages: bool = False):
+async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article,documentation", min_relevance: int = 0, include_pages: bool = False):
     """Return every chunk-pointer the manifest knows about for an engagement.
 
     Query params:
       engagement       — engagement slug (filters to records whose wikiPath
                          or title contains the slug). Empty = whole wiki.
       types            — comma-separated record types to include. Default:
-                         "social-post,article" (the two types that the
-                         theme + persona pipelines actually consume).
+                         "social-post,article,documentation" (2026-09-11: vendor
+                         documentation collected by /api/sources/primary-docs is
+                         type=documentation and was invisible under the old
+                         two-type default; the writer never saw the pages).
       min_relevance    — drop records below this manifest-recorded relevance
                          score (0-100). Default 0 (include everything).
 
@@ -19089,6 +19480,165 @@ _LEAKED_QUOTE_TEXT_RE = re.compile(
 )
 
 
+
+# ─── 2026-09-11 Manifest-pointer citations + model-chrome strip (serve time) ──
+# plans/report-evidence-integrity-and-primary-source-discovery-2026-09-11.md, WS-5.
+# The 2026-09-10 #report shipped 57 raw `[articles/x.md#cN, paraphrased from theme]`
+# markers and a model-authored footer (Copy as prompt / Save as PDF / Generation
+# audit / __HIC_ARTIFACT_META__) to the reader. New artifacts are cleaned by the
+# SPA's htmlArtifactChain before save; this chokepoint covers every artifact
+# already on disk and every export path (PDF, PNG, PPTX) that re-reads html_source.
+_MANIFEST_POINTER_GROUP_RE = re.compile(
+    r'\[\s*((?:[\w.\\-]+/[\w./\\-]+\.md(?:#c\d+)?)(?:\s*[,;]\s*[\w.\\-]+/[\w./\\-]+\.md(?:#c\d+)?)*)(?:\s*[,;]\s*[^\]\n]{1,80})?\s*\]',
+    re.IGNORECASE,
+)
+_BARE_MANIFEST_POINTER_RE = re.compile(r'(?<!\[)[\w./\\-]+\.md#c\d+', re.IGNORECASE)
+_PAGE_PROVENANCE_CACHE: dict = {}
+_MONTHS_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def _page_provenance(rel_path: str) -> Optional[dict]:
+    """title/source/url/date/kind/extracted_at from a wiki page's frontmatter, cached by mtime."""
+    rel = (rel_path or "").replace("\\", "/").strip().lstrip("/")
+    if not rel or ".." in rel.split("/"):
+        return None
+    abs_path = os.path.normpath(os.path.join(WIKI_BASE, rel))
+    if not abs_path.startswith(os.path.normpath(WIKI_BASE)) or not os.path.isfile(abs_path):
+        return None
+    try:
+        mt = os.path.getmtime(abs_path)
+    except OSError:
+        return None
+    hit = _PAGE_PROVENANCE_CACHE.get(rel)
+    if hit and hit.get("_mt") == mt:
+        return hit
+    try:
+        with open(abs_path, "r", encoding="utf-8", errors="replace") as f:
+            head = f.read(12000)
+    except OSError:
+        return None
+    m = re.match(r"^---\s*\n(.*?)\n---", head, re.DOTALL)
+    fm = m.group(1) if m else ""
+
+    def scalar(key: str) -> str:
+        mm = re.search(rf"^{key}:\s*(.*)$", fm, re.MULTILINE)
+        if not mm:
+            return ""
+        v = mm.group(1).strip()
+        if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
+            v = v[1:-1]
+        return v.replace('\\"', '"').strip()
+
+    url = scalar("url")
+    rec = {
+        "_mt": mt,
+        "title": scalar("title"),
+        "source": scalar("source") or scalar("source_name"),
+        "url": url if url.lower().startswith(("http://", "https://")) else "",
+        "date": scalar("date") or scalar("published") or scalar("published_at"),
+        "kind": scalar("kind") or scalar("type"),
+        "extracted_at": scalar("extracted_at") or scalar("collected_at"),
+    }
+    _PAGE_PROVENANCE_CACHE[rel] = rec
+    return rec
+
+
+def _citation_month_year(raw: str) -> str:
+    s = (raw or "").strip()
+    if not s:
+        return ""
+    m = re.match(r"^(\d{4})-(\d{2})", s)
+    if m:
+        mi = int(m.group(2))
+        return f"{_MONTHS_ABBR[mi - 1]} {m.group(1)}" if 1 <= mi <= 12 else m.group(1)
+    m = re.search(r"\b\d{1,2}\s+([A-Z][a-z]{2})[a-z]*\s+((?:19|20)\d{2})\b", s) or re.search(r"\b([A-Z][a-z]{2})[a-z]*\s+\d{1,2},?\s+((?:19|20)\d{2})\b", s)
+    if m:
+        return f"{m.group(1)} {m.group(2)}" if m.group(1) in _MONTHS_ABBR else m.group(2)
+    m = re.search(r"\b(?:19|20)\d{2}\b", s)
+    return m.group(0) if m else ""
+
+
+def _humanize_source_token(name: str) -> str:
+    n = (name or "").strip()
+    if not n:
+        return ""
+    if re.fullmatch(r"[a-z0-9_\-]+", n):
+        return " ".join(w.capitalize() for w in re.split(r"[_\-]+", n) if w)
+    return n
+
+
+def _manifest_pointer_label(pointer: str) -> tuple:
+    """(label, url) for one manifest pointer, or ('', '') when the page is unknown."""
+    page = re.sub(r"#c\d+$", "", pointer.strip(), flags=re.IGNORECASE)
+    prov = _page_provenance(page)
+    if not prov:
+        return "", ""
+    name = _humanize_source_token(prov.get("source") or "")
+    title = (prov.get("title") or "").strip()
+    label = f"{name}: {title}" if name and title and title.lower() != name.lower() else (title or name)
+    if not label:
+        return "", ""
+    when = _citation_month_year(prov.get("date") or "")
+    if when:
+        label = f"{label} ({when})"
+    elif (prov.get("kind") or "").lower() in ("documentation", "docs", "help", "reference") and prov.get("extracted_at"):
+        got = _citation_month_year(prov.get("extracted_at") or "")
+        if got:
+            label = f"{label} (live documentation, retrieved {got})"
+    return label, prov.get("url") or ""
+
+
+def _render_manifest_pointer_citations(html: str) -> str:
+    """Replace `[path.md#cN(, ...)]` groups with linked, dated citations; drop what cannot resolve."""
+    if not html or ".md#c" not in html:
+        return html
+
+    def _esc(t: str) -> str:
+        return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+    def _sub(m):
+        parts, seen = [], set()
+        for raw in re.split(r"[,;]", m.group(1)):
+            ptr = raw.strip()
+            if not re.search(r"\.md(?:#c\d+)?$", ptr, re.IGNORECASE):
+                continue
+            label, url = _manifest_pointer_label(ptr)
+            if not label or label in seen:
+                continue
+            seen.add(label)
+            if url:
+                parts.append(f'<a class="hic-cite" href="{_esc(url)}" target="_blank" rel="noopener noreferrer" data-pointer="{_esc(ptr)}">{_esc(label)}</a>')
+            else:
+                parts.append(f'<span class="hic-cite" data-pointer="{_esc(ptr)}">{_esc(label)}</span>')
+        return f' <span class="hic-cites">({"; ".join(parts)})</span>' if parts else ""
+
+    out = _MANIFEST_POINTER_GROUP_RE.sub(_sub, html)
+    out = _BARE_MANIFEST_POINTER_RE.sub("", out)
+    out = re.sub(r"[ \t]{2,}", " ", out)
+    out = re.sub(r"\s+([.,;:])", r"\1", out)
+    return out
+
+
+_MODEL_CHROME_RES = [
+    re.compile(r'<(vs_thinking|emphasis_vs|commit_to|why_committed|thinking)\b[^>]*>.*?</\1>', re.DOTALL | re.IGNORECASE),
+    re.compile(r'<script[^>]*id=["\']__HIC_ARTIFACT_META__["\'][^>]*>.*?</script>', re.DOTALL | re.IGNORECASE),
+    re.compile(r'<details\b[^>]*>(?:(?!</details>).)*?(?:generation audit|verbalized[- ]sampling|vs[- ]audit)(?:(?!</details>).)*?</details>', re.DOTALL | re.IGNORECASE),
+    re.compile(r'<footer\b[^>]*>(?:(?!</footer>).)*?(?:copy as prompt|copy-as-prompt|save as pdf|save-as-pdf|open in chat|open-in-chat|generation audit|artifact metadata)(?:(?!</footer>).)*?</footer>', re.DOTALL | re.IGNORECASE),
+    re.compile(r'<button\b[^>]*(?:id=["\'](?:copy-as-prompt|save-as-pdf|open-in-chat|print-btn)["\']|class=["\'][^"\']*copy-btn[^"\']*["\'])[^>]*>.*?</button>', re.DOTALL | re.IGNORECASE),
+    re.compile(r'<button\b[^>]*>\s*(?:copy as prompt|save as pdf|open in (?:hic )?chat|download (?:pdf|png|pptx))\s*</button>', re.IGNORECASE),
+    re.compile(r'<p\b[^>]*>\s*artifact metadata\s*</p>', re.IGNORECASE),
+]
+
+
+def _strip_model_chrome(html: str) -> str:
+    if not html or not isinstance(html, str):
+        return html
+    out = html
+    for rx in _MODEL_CHROME_RES:
+        out = rx.sub("", out)
+    return re.sub(r"<footer\b[^>]*>\s*</footer>", "", out, flags=re.IGNORECASE)
+
+
 def _strip_leaked_artifacts(html: str) -> str:
     if not html or not isinstance(html, str):
         return html
@@ -19202,6 +19752,12 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     # "(Source: ... roadmap options)"). Cleans the STORED html so the PPTX/PDF
     # export path is also marker-free, not just the live view.
     out = _resolve_inline_citation_markers(out)
+    # ─── 3e. Manifest-pointer citations + model-authored chrome (2026-09-11) ──
+    # Raw `[articles/x.md#cN]` markers become linked, dated citations from the
+    # page frontmatter; footers/buttons/audit blocks/metadata scripts the model
+    # wrote are removed. Covers stored artifacts and every export re-read.
+    out = _strip_model_chrome(out)
+    out = _render_manifest_pointer_citations(out)
 
     is_nu = (brand or "nxt").lower() == "nu"
     tokens = _brand_tokens(brand)

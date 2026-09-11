@@ -10,7 +10,7 @@ const slide = (id: string, payload: any) => ({
 
 const row = (over: Partial<LedgerRow>): LedgerRow => ({
     slideId: 's1', slideTitle: 'T', field: 'items[0].heading', kind: 'text',
-    claim: '', citedAs: '', realSources: [], url: null, verdict: 'VERIFIED', note: '',
+    claim: '', citedAs: '', realSources: [], url: null, pointer: null, verdict: 'VERIFIED', note: '',
     ...over,
 });
 

@@ -40,6 +40,108 @@ const _pageResolvedSources = new Map<string, string[]>(); // pagePath -> real sy
 // property of the source, not the chunk) + per pointer for direct lookup.
 const _sourceUrls = new Map<string, string>();   // lowercased source name -> url
 const _pointerUrls = new Map<string, string>();  // full pointer (path#cN) -> first url
+// WS-1 (2026-09-11, report-evidence-integrity plan): PAGE PROVENANCE at cite time. The resolver parses the
+// page frontmatter (title, source, url, date, kind, method, extracted_at) and registers it here, so a
+// rendered citation can carry the publication date and a working link, and the claim ledger gate can
+// check a sentence's dates against the cited page's real date instead of the objective's as-of window.
+export interface PointerPageMeta {
+    title: string; sourceName: string; url: string; date: string; kind: string; method: string; extractedAt: string;
+}
+const _pageMeta = new Map<string, PointerPageMeta>(); // pagePath (no #cN) -> frontmatter provenance
+
+export function registerPageMeta(pagePath: string, meta: Partial<PointerPageMeta> | null | undefined): void {
+    if (!pagePath || !meta) return;
+    const key = pagePath.replace(/#c\d+$/i, '').trim();
+    if (!key) return;
+    const clean: PointerPageMeta = {
+        title: String(meta.title || '').trim(),
+        sourceName: String(meta.sourceName || '').trim(),
+        url: /^https?:\/\//i.test(String(meta.url || '')) ? String(meta.url).trim() : '',
+        date: String(meta.date || '').trim(),
+        kind: String(meta.kind || '').trim(),
+        method: String(meta.method || '').trim(),
+        extractedAt: String(meta.extractedAt || '').trim(),
+    };
+    const prior = _pageMeta.get(key);
+    // First non-empty wins per field; a later resolve never blanks a field an earlier one filled.
+    _pageMeta.set(key, prior ? {
+        title: prior.title || clean.title, sourceName: prior.sourceName || clean.sourceName, url: prior.url || clean.url,
+        date: prior.date || clean.date, kind: prior.kind || clean.kind, method: prior.method || clean.method,
+        extractedAt: prior.extractedAt || clean.extractedAt,
+    } : clean);
+    if (clean.url && clean.sourceName && !_sourceUrls.has(clean.sourceName.toLowerCase())) _sourceUrls.set(clean.sourceName.toLowerCase(), clean.url);
+    if (clean.title && !_pointerSources.has(key)) registerPointerSource(key, clean.sourceName ? `${clean.sourceName}: ${clean.title}` : clean.title);
+}
+
+/** The page provenance for a pointer or page path, or null when this run never resolved the page. */
+export function lookupPageMeta(pointerOrPage: string): PointerPageMeta | null {
+    const key = String(pointerOrPage || '').replace(/#c\d+$/i, '').trim();
+    return _pageMeta.get(key) || null;
+}
+
+/** Every page path with registered provenance (for source indexes). */
+export function listPageMeta(): Array<{ pagePath: string; meta: PointerPageMeta }> {
+    return Array.from(_pageMeta.entries()).map(([pagePath, meta]) => ({ pagePath, meta }));
+}
+
+/** "Mar 2026" from an ISO-ish or RFC date string; '' when unparseable. Deterministic, locale-free. */
+export function formatCitationDate(raw: string): string {
+    const s = String(raw || '').trim();
+    if (!s) return '';
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const iso = /^(\d{4})-(\d{2})/.exec(s);
+    if (iso) { const m = parseInt(iso[2], 10); return m >= 1 && m <= 12 ? `${MON[m - 1]} ${iso[1]}` : iso[1]; }
+    const dmy = /\b(\d{1,2})\s+([A-Z][a-z]{2})[a-z]*\s+(\d{4})\b/.exec(s);
+    if (dmy) return MON.includes(dmy[2]) ? `${dmy[2]} ${dmy[3]}` : dmy[3];
+    const mdy = /\b([A-Z][a-z]{2})[a-z]*\s+(\d{1,2}),?\s+(\d{4})\b/.exec(s);
+    if (mdy) return MON.includes(mdy[1]) ? `${mdy[1]} ${mdy[3]}` : mdy[3];
+    const year = /\b(19|20)\d{2}\b/.exec(s);
+    return year ? year[0] : '';
+}
+
+/** The reader-facing citation label for a pointer: "Figma Blog: Agents, meet the Figma canvas (Mar 2026)". */
+export function formatCitationLabel(pointer: string): string {
+    const name = resolveOne(String(pointer || '').trim());
+    if (!name) return '';
+    const meta = lookupPageMeta(pointer);
+    const when = meta ? formatCitationDate(meta.date) : '';
+    if (when) return `${name} (${when})`;
+    if (meta && meta.extractedAt && /^(documentation|docs|help|reference)$/i.test(meta.kind)) {
+        const got = formatCitationDate(meta.extractedAt);
+        return got ? `${name} (live documentation, retrieved ${got})` : name;
+    }
+    return name;
+}
+
+/**
+ * Render every pointer group in an HTML string as a linked, dated citation. Used by the HTML artifact
+ * chain (reader surface) where `resolveManifestPointers` (plain "(Source: X)" text) would throw the
+ * address away. Unresolvable pointers render as nothing: a file path never reaches the reader.
+ */
+export function renderPointerCitationsHtml(html: string): string {
+    if (!html || html.indexOf('.md#c') === -1) return html;
+    const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return html
+        .replace(POINTER_GROUP_RE, (_m, group: string) => {
+            const seen = new Set<string>();
+            const parts: string[] = [];
+            for (const raw of group.split(/[,;]/)) {
+                const ptr = raw.trim();
+                if (!/\.md(?:#c\d+)?$/i.test(ptr)) continue;
+                const label = formatCitationLabel(ptr);
+                if (!label || seen.has(label)) continue;
+                seen.add(label);
+                const url = lookupPointerUrl(ptr) || lookupPageMeta(ptr)?.url || '';
+                parts.push(url
+                    ? `<a class="hic-cite" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-pointer="${esc(ptr)}">${esc(label)}</a>`
+                    : `<span class="hic-cite" data-pointer="${esc(ptr)}">${esc(label)}</span>`);
+            }
+            return parts.length ? ` <span class="hic-cites">(${parts.join('; ')})</span>` : '';
+        })
+        .replace(/(?<!\[)[\w./\-]+\.md#c\d+/gi, '')
+        .replace(/ {2,}/g, ' ')
+        .replace(/ +([.,;:])/g, '$1');
+}
 
 /** Register the REAL source name(s) for one chunk pointer (path#cN). Idempotent; first non-empty wins. */
 export function registerChunkSources(pointer: string, names: string[]): void {
@@ -191,7 +293,10 @@ function resolveOne(pointer: string): string | null {
 
 // A bracket group of one or more comma/semicolon-separated pointers:
 // [articles/x.md#c15] or [sources/a.md#c3, sources/b.md#c9]
-const POINTER_GROUP_RE = /\[\s*((?:[\w./\\-]+\.md#c\d+)(?:\s*[,;]\s*[\w./\\-]+\.md#c\d+)*)\s*\]/gi;
+// 2026-09-11: tolerates a trailing commentary tail inside the bracket. The 2026-09-10 white paper wrote
+// `[articles/x.md#c2, paraphrased from theme]` 57 times; the old shape matched none of them, so every
+// one shipped to the reader as a file path. The tail is consumed and discarded, never rendered.
+const POINTER_GROUP_RE = /\[\s*((?:[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)(?:\s*[,;]\s*[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)*)(?:\s*[,;]\s*[^\]\n]{1,80})?\s*\]/gi;
 
 /**
  * Replace every [path.md#cN(, ...)] bracket group with named-source attribution.

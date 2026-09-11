@@ -1074,6 +1074,40 @@ export interface CorpusBlockOptions {
  * in the generator's system prompt - that tells the model to attach the
  * pointer at the END of each evidence sentence.
  */
+/**
+ * WS-1 (2026-09-11): the one-line provenance a chunk carries into the prompt. Built from the page
+ * frontmatter the resolver parsed (`pageMeta`) plus the per-chunk `sources:` pairs. Deterministic, and the
+ * same fields the claim ledger gate reads back at verification time, so the writer and the gate see one
+ * record. Returns '' only when the chunk has no provenance at all (legacy pages without frontmatter).
+ */
+export function describeChunkProvenance(c: {
+    id?: string;
+    sources?: Array<{ n?: string; u?: string }>;
+    pageMeta?: { title?: string; sourceName?: string; url?: string; date?: string; kind?: string; method?: string; extractedAt?: string } | null;
+}): string {
+    const meta = c.pageMeta || null;
+    const firstSrc = (c.sources || []).find(s => s && (s.n || s.u)) || null;
+    const name = (meta?.sourceName || firstSrc?.n || '').trim();
+    const title = (meta?.title || '').trim();
+    const url = (meta?.url || firstSrc?.u || '').trim();
+    const kind = (meta?.kind || (String(c.id || '').startsWith('social-intelligence/') ? 'social-post' : '')).trim();
+    const date = (meta?.date || '').trim();
+    const retrieved = (meta?.extractedAt || '').trim();
+    if (!name && !title && !url && !date && !kind) return '';
+    const iso = (d: string) => {
+        const m = /^(\d{4}-\d{2}-\d{2})/.exec(d);
+        if (m) return m[1];
+        const r = /\b(\d{1,2}) ([A-Z][a-z]{2})[a-z]* (\d{4})\b/.exec(d);
+        return r ? `${r[3]} ${r[2]} ${r[1]}` : d.slice(0, 24);
+    };
+    const parts: string[] = [];
+    parts.push(`source: ${name || 'unknown'}${title ? ` | title: "${title.replace(/"/g, '\'')}"` : ''}`);
+    parts.push(`kind: ${kind || 'article'}`);
+    parts.push(date ? `published: ${iso(date)}` : (retrieved ? `undated live page, retrieved: ${iso(retrieved)}` : 'published: unknown'));
+    if (url) parts.push(`url: ${url}`);
+    return `  provenance | ${parts.join(' | ')}`;
+}
+
 export function assembleChunkCorpus(
     chunks: ResolvedChunk[],
     opts: CorpusBlockOptions = {},
@@ -1099,6 +1133,12 @@ export function assembleChunkCorpus(
         'WORKED EXAMPLE - the span [articles/retail-dive/aa11bb22cc.md#c4] reading "Assistant sessions converted at a higher rate than paid search in Q3" becomes the field value:',
         '  "heading": "Assistant sessions convert better than paid search [articles/retail-dive/aa11bb22cc.md#c4]"',
         'A field with no pointer may state only judgment, never a fact. Do not paraphrase as evidence; quote verbatim from these spans only.',
+        // WS-1 (2026-09-11): the provenance line every chunk now carries, and the temporal contract that
+        // reads it. The 2026-09-10 white paper dated a March 2026 launch and an August 2025 blog post to
+        // "the September 2026 beta" because the writer saw no dates except the objective's as-of window.
+        'PROVENANCE LINE: the line after each pointer names the source, its title, its KIND (article, social-post, documentation, upload, transcript, synthesis), its PUBLISHED date or "undated live page, retrieved <date>", and its URL. Put NOTHING inside a citation bracket except pointers (no "via theme", no commentary).',
+        'TEMPORAL DISCIPLINE: a capability, launch, or announcement is dated by the PUBLISHED date of the chunk you cite, never by the objective\'s as-of window (that window is the REVIEW date). Never write "the <Month Year> announcement / beta / release" unless that month appears in the cited chunk\'s published date or in its text. Undated live documentation describes CURRENT documented behavior as of retrieval; dated announcements establish chronology. When two sources disagree, keep both statements with their dates.',
+        'SOURCE KIND DISCIPLINE: documentation and primary announcements establish what a product does; social-post chunks establish practitioner experience and are reported as such ("a practitioner on r/x reported"). A tool name, API name, or identifier that appears ONLY in a social-post chunk, or that the chunk itself hedges ("or something", "I think"), stays quoted as a recollection and is never listed as a documented capability. A chunk about a DIFFERENT product or organization than the objective\'s subject may be used only as a named analogy ("by analogy, Webflow\'s MCP routes ..."), never as a description of the subject.',
     ].join('\n');
     const lines: string[] = [
         '=== CORPUS (chunk-addressed, cite by pointer) ===',
@@ -1109,6 +1149,8 @@ export function assembleChunkCorpus(
         if (c.text.length < minChars) continue;
         const sectionTag = c.section ? ` (section: ${c.section})` : '';
         lines.push(`[${c.id}]${sectionTag}`);
+        const prov = describeChunkProvenance(c);
+        if (prov) lines.push(prov);
         lines.push(c.text.trim());
         lines.push('');
     }

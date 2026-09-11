@@ -288,6 +288,31 @@ export interface ResolvedChunk {
     /** W6 (2026-07-01): retrieval-time objective relevance (0-100), attached by buildManifestCorpusForGoal
      *  from pickChunksForPrompt's ranking. Flows into the AIR EvidencePointer.objectiveScore. */
     retrievalScore?: number;
+    /**
+     * WS-1 (2026-09-11, report-evidence-integrity plan): the PAGE-LEVEL provenance the resolver already
+     * had in hand and used to throw away. The 2026-09-10 white paper dated every Figma capability to
+     * "the September 2026 beta" because the writer was shown chunk text with no publication date, no
+     * source name and no source kind; the frontmatter carried all three correctly. This travels with the
+     * chunk into the corpus block the model reads and into the citation the reader sees.
+     */
+    pageMeta?: ResolvedPageMeta;
+}
+
+/** Page frontmatter fields that matter for citation: identity, origin, date and kind. */
+export interface ResolvedPageMeta {
+    title: string;
+    /** The recorded source name (outlet, subreddit, platform). */
+    sourceName: string;
+    /** Real external origin, or '' for chained / synthesis / cached pages. */
+    url: string;
+    /** Publication or event date as recorded (ISO-ish string), or '' when the page is undated. */
+    date: string;
+    /** Frontmatter `kind:` (article, social-post, documentation, upload, transcript, ...). */
+    kind: string;
+    /** Frontmatter `method:` (source-native, deep-research, primary-docs, pdf-remote, ...). */
+    method: string;
+    /** When HiC fetched the page (`extracted_at:` / `collected_at:`), so an undated live page can still be dated as "retrieved". */
+    extractedAt: string;
 }
 
 export interface ResolvedChunks {
@@ -428,6 +453,36 @@ function _stripFrontmatter(pageText: string): string {
     return m ? m[2] : pageText;
 }
 
+/** One top-level scalar frontmatter field, unquoted. Tolerates `key: "v"`, `key: v`, `key: ''`. */
+function _fmScalar(fm: string, key: string): string {
+    const m = new RegExp(`^${key}:\s*(.*)$`, 'm').exec(fm);
+    if (!m) return '';
+    return m[1].trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1').replace(/\\"/g, '"').trim();
+}
+
+/**
+ * WS-1: page-level provenance from the frontmatter the resolver already fetched. Tolerant: every field
+ * degrades to '' rather than throwing, and a non-http `url:` (internal wiki path on chained/synthesis
+ * pages) is reported as '' so nothing downstream can dress it as an external origin.
+ */
+export function parsePageMeta(pageText: string): ResolvedPageMeta {
+    const empty: ResolvedPageMeta = { title: '', sourceName: '', url: '', date: '', kind: '', method: '', extractedAt: '' };
+    if (!pageText) return empty;
+    const m = _FRONTMATTER_RE.exec(pageText);
+    if (!m) return empty;
+    const fm = m[1];
+    const rawUrl = _fmScalar(fm, 'url');
+    return {
+        title: _fmScalar(fm, 'title'),
+        sourceName: _fmScalar(fm, 'source') || _fmScalar(fm, 'source_name') || _fmScalar(fm, 'sourceName'),
+        url: /^https?:\/\//i.test(rawUrl) ? rawUrl : '',
+        date: _fmScalar(fm, 'date') || _fmScalar(fm, 'published') || _fmScalar(fm, 'published_at') || _fmScalar(fm, 'publicationDate'),
+        kind: _fmScalar(fm, 'kind') || _fmScalar(fm, 'type'),
+        method: _fmScalar(fm, 'method') || _fmScalar(fm, 'extraction_method'),
+        extractedAt: _fmScalar(fm, 'extracted_at') || _fmScalar(fm, 'collected_at') || _fmScalar(fm, 'collectedAt'),
+    };
+}
+
 /**
  * Resolve a list of chunk pointers to their text spans. Each pointer is
  * "<source-path>#c<index>". Groups pointers by source path so each page
@@ -507,6 +562,9 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
         } catch { /* non-fatal */ }
         const declared = _parseChunksFrontmatter(text);
         const body = _stripFrontmatter(text);
+        // WS-1: page provenance rides every chunk from this page, and the registry learns it for cite time.
+        const pageMeta = parsePageMeta(text);
+        try { if (_cpr?.registerPageMeta) _cpr.registerPageMeta(src, pageMeta); } catch { /* non-fatal */ }
         const byId = new Map<string, typeof declared[0]>();
         for (const d of declared) byId.set(d.id, d);
         for (const id of ids) {
@@ -539,6 +597,7 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
                 sources: d.sources && d.sources.length ? d.sources : undefined,
                 concepts: d.concepts && d.concepts.length ? d.concepts : undefined,
                 relatedChunks: d.relatedChunks && d.relatedChunks.length ? d.relatedChunks : undefined,
+                pageMeta,
             });
         }
     }));

@@ -201,6 +201,33 @@ export function applyTextEdits<T extends { template: string; title: string; comp
     return next;
 }
 
+/**
+ * 2026-08-26 (owner report). The verification ledger flags a claim; nothing let the
+ * user act on the flag. "I don't understand how to rectify citation issues... I
+ * should be able to preview and accept them or reject them and they do not appear
+ * in the requested deliverable." REJECT needed a real mechanism, and this is it:
+ * the same edit contract every other write in the deck goes through, so preview,
+ * export and the undo ring all see the removal for free, nothing bypasses them.
+ *
+ * Blank the field, and ONLY blank it. The first version also tried to splice a
+ * rejected item out of its array when the path ended in a numeric index, to avoid
+ * leaving an empty bullet behind. Its own test caught the bug immediately: `field`
+ * paths from the citation verifier address a table CELL exactly as often as a
+ * bullet, and `rows[1].cells[1]` also ends in a numeric index. Splicing that
+ * "removed" the middle cell by shifting the third cell into its place, so the
+ * source that belonged to row 1 silently attached itself to a different claim.
+ * A blank cell is a cosmetic wrinkle; a source attached to the wrong claim is
+ * exactly the fabrication class this whole citation system exists to prevent.
+ * There is no way to tell a shrinkable bullet list from a fixed-width row from the
+ * path alone, so the only version of this function that cannot corrupt a deck is
+ * the one that never resizes an array.
+ */
+export function applyClaimRejection<T extends { template: string; title: string; composerPayload?: any; _textHistory?: any[] }>(
+    slide: T, fieldPath: string,
+): T {
+    return applyTextEdits(slide, [{ path: fieldPath, value: '' }]);
+}
+
 /** Undo the most recent edit batch. Returns the restored slide, or null when no history. */
 export function undoLastTextEdit<T extends { template: string; title: string; composerPayload?: any; _textHistory?: any[] }>(
     slide: T,

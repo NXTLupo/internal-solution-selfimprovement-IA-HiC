@@ -1611,7 +1611,7 @@ CITATION REQUIREMENTS (non-negotiable):
 - "url" = URL from the chunk metadata (appears after "URL:" in chunk header)
 - "sourceName" = source name from the SOURCE header (e.g. "Industry Trade Press", "OpenAlex")
 - "author" = author if present, empty string otherwise
-- "publicationDate" = date from "Date:" line, empty string otherwise
+- "publicationDate" = the published date on the chunk's provenance line ("published: YYYY-MM-DD") or its "Date:" line, empty string otherwise. Never infer it from the research goal.
 - "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
 - "isCrossDocument" = true if evidence spans 2+ different source names (this should be TRUE for most themes)
 
@@ -1630,6 +1630,10 @@ ANTI-PATTERNS (these will be rejected):
 - Generic theme names without specificity
 - Descriptions that don't cite specific evidence
 - Missing URLs when the chunk clearly has one
+- WRITER COACHING (2026-09-11): a description that tells the downstream author how to structure or use the material ("the white paper's section can lean on...", "this supports the harnessed-execution section"). Describe the finding, never the deliverable.
+- HEDGE PROMOTION: turning hedged source text ("or something", "I think", "maybe") or a social-only mention into a stated capability, named tool, or API. Keep it as a quoted practitioner recollection.
+- ANALOGY AS FACT: describing the research subject's architecture or behavior with a chunk about a DIFFERENT product or organization. Name the other product and call it an analogy, or leave it out.
+- DATE PROJECTION: assigning a month, year, "beta", or "as of" period to a capability that the cited chunk does not state. Dates come from the chunk's provenance line (published date), never from the research goal's window.
 - All themes from the same source type (e.g., all from Reddit, ignoring academic papers)
 - ECHO CHAMBER: Multiple themes restating the same finding instead of diverse findings from different source categories
 

@@ -42,6 +42,10 @@ import { quickIntentFilter, classifyChatIntent, directIntent, applyDeckTextPass,
 // sources; fabricated attributions are relabeled/stripped; the ledger renders
 // under the deck. Static imports (stale-bundle 404 lesson).
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow } from '../services/citationVerifier';
+// PROVENANCE LOCK reject action (2026-08-26): the ledger flags a claim, this blanks it
+// via the same edit contract every other slide write goes through (preview/export/undo
+// all see it for free).
+import { applyClaimRejection, undoLastTextEdit } from '../services/slideTextEditing';
 // DF-A3 / DF-G / DF-W: the ordered post-generation chain and its reports.
 import { runArtifactChain, type ChainResult } from '../services/artifactChain';
 import { repairArtifact } from '../services/artifactRepair';
@@ -260,14 +264,44 @@ interface Props {
  * contextual status text so the user knows the system is alive even on the
  * longer (multi-second) Opus or Imagen calls.
  */
-const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: string; accentColor: string }> = ({ mode, modelName, accentColor }) => {
-    const [elapsed, setElapsed] = useState(0);
+const LoadingIndicator: React.FC<{
+    mode: 'reasoning' | 'image';
+    modelName: string;
+    accentColor: string;
+    /**
+     * 2026-08-26 (owner report: "the counter goes back to 0 seconds after
+     * 70+seconds so it hides the actual latency count"). The elapsed time used to
+     * be `useState(0)` local to this component, incremented by its own interval.
+     * This component is conditionally rendered on `(isLoading || imageLoading)`,
+     * so ANY momentary flip of that condition unmounts it, destroys the state, and
+     * the next mount starts counting from zero again. The number on screen was
+     * therefore "seconds since the last remount", not "seconds since the user hit
+     * send", and it under-reported exactly the long waits worth measuring.
+     *
+     * Passing the send's start timestamp in from the parent makes the reading
+     * immune to remounting: the displayed value is derived from a fixed origin
+     * that lives outside this component's lifecycle. That is correct regardless of
+     * WHICH code path causes the flicker, which is the point, since a timer must
+     * not depend on being mounted continuously to tell the truth.
+     */
+    startedAt?: number | null;
+    /** Real backend progress, when known, instead of the canned phrase carousel. */
+    liveStatus?: string | null;
+}> = ({ mode, modelName, accentColor, startedAt, liveStatus }) => {
+    const [now, setNow] = useState(() => Date.now());
     const [phaseIdx, setPhaseIdx] = useState(0);
+    // Fallback origin for callers with no send timestamp (the image path). Still
+    // remount-sensitive, but it is the pre-existing behavior and the image path
+    // was never the reported problem; the chat path now passes a real origin.
+    const mountedAtRef = useRef<number>(Date.now());
 
     useEffect(() => {
-        const t = setInterval(() => setElapsed(e => e + 0.1), 100);
+        const t = setInterval(() => setNow(Date.now()), 100);
         return () => clearInterval(t);
     }, []);
+
+    const origin = startedAt ?? mountedAtRef.current;
+    const elapsed = Math.max(0, (now - origin) / 1000);
 
     const phases = mode === 'image'
         ? ['Composing scene', 'Rendering pixels', 'Finalizing image']
@@ -276,6 +310,11 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
         const t = setInterval(() => setPhaseIdx(p => (p + 1) % phases.length), 2400);
         return () => clearInterval(t);
     }, [phases.length]);
+    // Prefer the REAL status the backend reported. The carousel is a fallback for
+    // the gap before the first progress callback arrives; the owner correctly read
+    // a static "Composing response..." as a stuck step when it was only a canned
+    // phrase on a 2.4s timer, unrelated to what the backend was doing.
+    const statusText = (liveStatus && liveStatus.trim()) ? liveStatus.trim() : phases[phaseIdx];
 
     const label = mode === 'image' ? 'GENERATING IMAGE' : `${modelName.toUpperCase()} IS WORKING`;
     const ringColor = mode === 'image' ? '#B8B800' : accentColor;
@@ -316,7 +355,7 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
                     {label}
                 </div>
                 <div style={{ marginTop: 3, fontSize: 11, color: '#666', fontWeight: 400, fontStyle: 'italic', minHeight: 16 }}>
-                    {phases[phaseIdx]}...
+                    {statusText}...
                 </div>
                 {/* Traveling progress bar */}
                 <div style={{ marginTop: 10, height: 3, background: '#E8E8E8', position: 'relative', overflow: 'hidden' }}>
@@ -3966,6 +4005,15 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // so a Fable artifact generation never displays as "Gemini 3.5 Flash".
     const [inFlightModelId, setInFlightModelId] = useState<ChatModel | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    /**
+     * 2026-08-26 (owner report: the elapsed counter reset to 0 mid-wait and hid the
+     * real latency). The send's start timestamp and latest real progress string
+     * live HERE, in the parent that survives the loading indicator's mount cycle,
+     * so the displayed elapsed time is measured from one fixed origin instead of
+     * from whenever the indicator last mounted. See LoadingIndicator's docblock.
+     */
+    const [sendStartedAt, setSendStartedAt] = useState<number | null>(null);
+    const [liveProgressText, setLiveProgressText] = useState<string | null>(null);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
     const [coverageOpen, setCoverageOpen] = useState(false);
@@ -4040,6 +4088,17 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [generatingSlotKeys, setGeneratingSlotKeys] = useState<string[]>([]);
     // PROVENANCE LOCK: verification ledger rows per assistant message id.
     const [verificationLedgers, setVerificationLedgers] = useState<Record<string, LedgerRow[]>>({});
+    /**
+     * 2026-08-26 (owner report). "I don't understand how to rectify citation issues
+     * caught in the verification ledger. If there are unverified claims I should be
+     * able to preview and accept them or reject them and they do not appear in the
+     * requested deliverable." The ledger listed the problem with no way to act on
+     * it: `applyVerificationFixes` only auto-fixes an attribution the registry can
+     * relabel, and every other verdict (UNVERIFIED, UNSOURCED, UNREACHABLE) just sat
+     * there. Keyed by `${msgId}:${rowIndex}` since the ledger array is stable per
+     * message once the chain has run.
+     */
+    const [ledgerDecisions, setLedgerDecisions] = useState<Record<string, 'accepted' | 'rejected'>>({});
     // DF-A3: the full chain result per assistant message (slot + prose reports
     // alongside the ledger), so the UI can show WHY an artifact was flagged.
     const [chainReports, setChainReports] = useState<Record<string, ChainResult<any>>>({});
@@ -5286,10 +5345,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             '',
                             ...request.fields.map(f => `- ${f.label}`),
                             '',
-                            'Answer in one message and I will run it. Send the same request again to skip this and run it as written.',
+                            'Answer in one message and I will run it, or click "Run it as written" below to skip this.',
                         ].join('\n'),
                         timestamp: Date.now(),
                         model: 'clarification',
+                        // The one-click override: run exactly this text, no clarification.
+                        clarificationBypassQuery: query,
                     }]);
                     // Sending the identical request again is an explicit override:
                     // the user has decided the ambiguity does not matter, and a
@@ -5312,6 +5373,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setMessages(prev => [...prev, userMsg]);
         setInput('');
         setIsLoading(true);
+        // Fixed origin for the elapsed-time readout, and clear any stale status
+        // from the previous send so the indicator never shows the old one.
+        setSendStartedAt(Date.now());
+        setLiveProgressText(null);
         setShowSuggestions(false);
         import('../services/chatFeedbackExtractor').then(({ classifyMessage }) => {
             return classifyMessage(query, _lastAiForFeedback, 'analyst');
@@ -5598,6 +5663,22 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // (same path themes/journey use); fall back to the raw corpus only
                 // if retrieval is empty.
                 const _wpGoal = `${directive.topic || ''}. ${liveCtx?.researchGoal || ''}`.trim();
+                // 2026-09-11 (report-evidence-integrity plan, WS-6, Phase 2): the subject's OWN documentation.
+                // An objective that names a product and asks for its documentation was answered from feeds and
+                // forums because nothing derived the vendor's documentation hosts. Bounded, cached per engagement
+                // for the session, non-fatal; the pages persist as kind=documentation and retrieve by pointer.
+                try {
+                    const { ensurePrimaryDocs } = await import('../services/primaryDocsDiscovery');
+                    const _pd = await ensurePrimaryDocs({
+                        goal: _wpGoal || (liveCtx?.researchGoal || query),
+                        engagement: currentEngagementSlug() || '',
+                        onProgress: (msg: string) => setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m)),
+                    });
+                    if (_pd.written.length) console.log(`[${directive.generator}] primary docs: ${_pd.written.length} page(s) from ${_pd.subjects.map(sx => sx.hosts.join(', ')).join('; ')}`);
+                    else if (_pd.error) console.warn(`[${directive.generator}] primary docs skipped: ${_pd.error}`);
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] primary docs discovery failed (non-fatal):`, e?.message || e);
+                }
                 // 2026-06-12 - MANIFEST-CHUNK grounding (supercharge 5.1): the HTML
                 // directives now lead with cite-by-pointer chunks via the shared
                 // MCR helper; embedding retrieval and the raw corpus are fallbacks.
@@ -5641,8 +5722,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // evidence-anchored sections instead of summarizing labels.
                 const themesSummary = themesArr.length > 0
                     ? themesArr.slice(0, 15).map((t: any, i: number) => {
-                        const desc = (t?.thesis || t?.description || '').slice(0, 320);
-                        const q = t?.quote ? `\n   Quote: "${String(t.quote).slice(0, 220)}"` : '';
+                        // 2026-09-11: pointer-free. A theme is a derived summary; a pointer copied out of its text
+                        // let the writer cite "via theme" instead of the corpus span (report-evidence-integrity plan).
+                        const _noPtr = (x: string) => String(x || '').replace(/\[[^\]]*\.md#c\d+[^\]]*\]/g, '').replace(/[\w./\\-]+\.md#c\d+/g, '').replace(/\s{2,}/g, ' ').trim();
+                        const desc = _noPtr(t?.thesis || t?.description || '').slice(0, 320);
+                        const q = t?.quote ? `\n   Quote: "${_noPtr(String(t.quote)).slice(0, 220)}"` : '';
                         const cites = Array.isArray(t?.citations)
                             ? t.citations.slice(0, 3).map((c: any) => c?.sourceName || c?.sourceFile).filter(Boolean).join(', ')
                             : '';
@@ -5667,7 +5751,22 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     ? `\n\n=== VARIANTS MODIFIER ACTIVE ===\nThe user requested --variants ${directive.variants}. Emit exactly ${directive.variants} distinct full variants of the deliverable in a single 2×3 (or appropriate) HTML grid. Each variant card includes: full content (small-rendered), probability pill, one-line tradeoff caption, "Pick this" button. Canonical probability distribution: 1 near-modal (p≈0.30-0.45) + (${Math.floor(directive.variants / 2) - 1}) shifted-frame (p≈0.10-0.20) + remaining tail (p<0.05).`
                     : '';
 
-                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}, summarized) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content. Do NOT wrap in <html>/<head>/<body> - the artifact /view endpoint injects the NXT/NU brand wrapper, fonts, print stylesheet, and Copy-as-prompt footer. Your output is the artifact's <main> content. Start with the <vs_thinking> block (will be moved to footer at render time), then the HTML structure.`;
+                // 2026-09-11 (plans/report-evidence-integrity-and-primary-source-discovery-2026-09-11.md, WS-4).
+                // The binding evidence contract for prose documents. Every clause maps to a reason code in
+                // services/claimLedgerGate.ts, which checks the shipped text deterministically; the prompt
+                // states the rule so the model writes it right the first time, the gate makes it true.
+                const evidenceContract = [
+                    'CLAIM TYPES. Every consequential sentence is one of: SUPPORTED FACT (a cited chunk states it), DERIVATION (follows from cited facts), DEFENSIBLE INFERENCE (evidence-backed, not stated by a source), HYPOTHESIS, EDITORIAL JUDGMENT, UNKNOWN. Only the first three may be written declaratively; a hypothesis is framed as a bet; an unknown is omitted and the section narrows, never annotated.',
+                    'TEMPORAL. The objective\'s as-of window is the REVIEW date. A capability, launch, beta, or announcement is dated by the PUBLISHED date on its cited chunk\'s provenance line, or by a date stated in the chunk text. Never write "the <Month Year> beta / announcement / launch" from the objective\'s window. Undated live documentation describes current documented behavior; dated posts establish chronology. Where two sources disagree, keep both statements with their dates.',
+                    'MODALITY. Keep the source\'s strength. "can", "helps", "lets", "working toward" never become "ensures", "requires", "guarantees", "proves", "makes correct", "cannot", "never", "always".',
+                    'INDEPENDENCE. "every", "all", "consensus", "converges", "dominant" need at least three independent origins (different authors or organizations, different URLs). Two pointers to one thread, or an article plus its summary, are one origin. Otherwise state the count or name the sources.',
+                    'IDENTIFIERS AND NAMES. A tool name, API name, command, acronym expansion, or product name must appear in a cited chunk exactly as written. Text the chunk itself hedges ("or something", "I think"), or that appears only in a social post, is reported as a practitioner recollection in quotation marks, never listed as a documented capability. Never expand an acronym the source does not expand.',
+                    'SCOPE. A chunk about another product, vendor, or organization is used only as a NAMED analogy ("by analogy, <Vendor>\'s ..."), never as a description of the subject. Vendor documentation and primary announcements outrank social posts and commentary for what the subject does; social posts are the evidence for practitioner experience.',
+                    'DERIVED SUMMARIES. The THEME OUTLINE block is an outline aid built from the corpus. It is not a source: never cite a theme, never write "via theme" or "paraphrased from theme", never put anything but pointers inside a citation bracket. Cite the CORPUS pointer that carries the fact.',
+                    'GUARANTEES. Before writing that a check, gate, tool, or process "is deterministic", "cannot drift", or "makes output correct", name what it checks and what it does not; a passing check proves the checked properties only.',
+                ].join('\n');
+
+                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== DERIVED THEME OUTLINE (${themesArr.length} themes; an outline aid, NOT citable; cite CORPUS pointers only) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== EVIDENCE CONTRACT (binding on every sentence; checked deterministically after generation) ===\n${evidenceContract}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content: the artifact's <main> content. Do NOT wrap in <html>/<head>/<body>. Do NOT emit any footer, button, "Copy as prompt", "Save as PDF", "Open in chat", export bar, "Generation audit", verbalized-sampling commentary, artifact metadata, JSON script, or run / version chrome: the runtime owns every one of those and strips any you write. Put the <vs_thinking> block FIRST (it is removed before render), then the document, and nothing after the document.`;
 
                 // Phase 1.4 (intent-realization-plan) - this artifact/hashtag path
                 // previously BYPASSED loadGenerationContext: framework spec, anti-
@@ -5830,6 +5929,25 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 }
                 if (htmlBody.length < 100) throw new Error('Model returned empty/short HTML body');
 
+                // 2026-09-11 (report-evidence-integrity plan, WS-3): the HTML document path now runs the
+                // claim ledger gate, the bounded narrowing repair, and linked dated citations BEFORE anything
+                // is saved. Until now #report/#whitepaper/#brief/#explainer met no gate at all.
+                let _htmlChainSummary = 'claim verification did not run';
+                try {
+                    const { runHtmlArtifactChain } = await import('../services/htmlArtifactChain');
+                    setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... verifying every claim against its cited source...` } : m));
+                    const _chain = await runHtmlArtifactChain(htmlBody, {
+                        goalText: `${directive.topic || ''}. ${liveCtx?.researchGoal || ''}`,
+                        chunks: _airChunks as any,
+                        onProgress: (msg: string) => setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m)),
+                    });
+                    htmlBody = _chain.html;
+                    _htmlChainSummary = _chain.summaryLine;
+                    console.log(`[${directive.generator}] html artifact chain: ${_chain.summaryLine}${_chain.airPatched ? ' (AIR patched)' : ''}`);
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] html artifact chain failed; artifact saved without verification:`, e?.message || e);
+                }
+
                 // Derive a slug + title. Title = first <h1> if present, else the topic.
                 // 2026-07-02 live-defect fix: the old hard .slice(0,120) cut mid-word
                 // ("...lenders price smallh") and stripTags never decoded entities, so a
@@ -5869,7 +5987,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
-                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Footer has Copy-as-prompt + Save-as-PDF buttons. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.`,
+                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Claim check: ${_htmlChainSummary}. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.`,
                     artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,
@@ -7629,6 +7747,9 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 signal: sendAbort.signal,
                 onProgress: (status: string) => {
                     setMessages(prev => prev.map(m => m.id === progressMsgId ? { ...m, content: status } : m));
+                    // Surface the SAME real status on the loading indicator, so it
+                    // stops showing a canned phrase while the backend is elsewhere.
+                    setLiveProgressText(status);
                 },
             });
             // Remove the progress placeholder once the real response arrives
@@ -8008,6 +8129,29 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     {msg.durationMs && <span style={{ fontSize: 8, color: '#BBB' }}>{(msg.durationMs / 1000).toFixed(1)}s</span>}
                                 </div>
                             )}
+                            {/* 2026-08-26: the clarification gate already trusts a detailed prompt
+                                far more than it used to (see clarification.ts), but a genuinely
+                                bare ask is still caught before a full run is spent on a guess. This
+                                button is the escape hatch made instant: retyping the identical
+                                message was always an override, but nothing told the user that, and
+                                nobody should have to guess a keyboard trick to be believed. */}
+                            {typeof msg.clarificationBypassQuery === 'string' && msg.clarificationBypassQuery && (
+                                <div style={{ marginBottom: 8 }}>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const q = msg.clarificationBypassQuery!;
+                                            clarificationAnsweredRef.current.add(q.trim().toLowerCase());
+                                            handleSend(q);
+                                        }}
+                                        style={{
+                                            fontSize: 10, fontWeight: 600, padding: '5px 10px',
+                                            border: '1px solid var(--nxt-teal, #115054)', borderRadius: 2,
+                                            background: 'transparent', color: 'var(--nxt-teal, #115054)', cursor: 'pointer',
+                                        }}
+                                    >Run it as written</button>
+                                </div>
+                            )}
                             {/* E2.2: the deck argued one thesis and considered others. Show the
                                 alternatives so the framing is the user's call, not whichever one
                                 the model reached for first. Taking one recomposes the deck with
@@ -8359,19 +8503,80 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 8 }}>
                                             {rows.map((r, i) => {
                                                 const c = chip(r.verdict);
+                                                const decisionKey = `${msg.id}:${i}`;
+                                                const decision = ledgerDecisions[decisionKey];
+                                                const actionable = r.verdict !== 'VERIFIED' && r.verdict !== 'ATTRIBUTION_FIXED';
+                                                const rejectClaim = () => {
+                                                    setSlides(prev => prev.map(s => s.id === r.slideId ? applyClaimRejection(s, r.field) : s));
+                                                    setLedgerDecisions(prev => ({ ...prev, [decisionKey]: 'rejected' }));
+                                                };
+                                                const acceptClaim = () => setLedgerDecisions(prev => ({ ...prev, [decisionKey]: 'accepted' }));
+                                                /**
+                                                 * 2026-08-26 (owner correction, two rounds). Round 1 added a "view
+                                                 * source in wiki" button for rows with a pointer but no external
+                                                 * url. The owner rejected that: "The source should always link out
+                                                 * to an external source. How can I trust an unverified source
+                                                 * stored in the wiki?" - correct. HiC's own stored copy of a page is
+                                                 * not independent verification; opening it just shows the reader
+                                                 * their own system talking to itself. `url` (citationVerifier.ts)
+                                                 * now also reads the source page's frontmatter `url:` field, so any
+                                                 * claim whose page DOES record a real external origin gets a real
+                                                 * link automatically - no internal-wiki fallback needed for that
+                                                 * case. When `url` is still null, there is no external source on
+                                                 * record, full stop, whether or not a corpus pointer exists. The
+                                                 * only honest actions left are: say so plainly, and offer to search
+                                                 * the corpus for independent corroboration.
+                                                 */
+                                                const searchCorpusForClaim = () => {
+                                                    setInput(`Search the corpus for this exact quote and tell me if it is real, and if so name the real external source (not an internal wiki page): "${r.claim}"`);
+                                                    inputRef.current?.focus();
+                                                };
+                                                const undoDecision = () => {
+                                                    if (decision === 'rejected') {
+                                                        setSlides(prev => prev.map(s => {
+                                                            if (s.id !== r.slideId) return s;
+                                                            const restored = undoLastTextEdit(s);
+                                                            return restored || s;
+                                                        }));
+                                                    }
+                                                    setLedgerDecisions(prev => {
+                                                        const next = { ...prev };
+                                                        delete next[decisionKey];
+                                                        return next;
+                                                    });
+                                                };
                                                 return (
-                                                    <div key={i} style={{ fontSize: 11, lineHeight: 1.45, paddingBottom: 8, borderBottom: i < rows.length - 1 ? '1px solid #F0F0EA' : 'none' }}>
+                                                    <div key={i} style={{ fontSize: 11, lineHeight: 1.45, paddingBottom: 8, borderBottom: i < rows.length - 1 ? '1px solid #F0F0EA' : 'none', opacity: decision === 'rejected' ? 0.55 : 1 }}>
                                                         <div style={{ display: 'flex', gap: 6, alignItems: 'baseline', flexWrap: 'wrap' as const }}>
                                                             <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1px', padding: '1px 6px', background: c.bg, color: c.fg }}>{c.label}</span>
                                                             <span style={{ color: '#888', fontSize: 9 }}>{r.slideTitle.slice(0, 60)}</span>
+                                                            {decision === 'rejected' && <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1px', color: '#CC3333' }}>REMOVED FROM DECK</span>}
+                                                            {decision === 'accepted' && <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1px', color: '#115054' }}>KEPT AS-IS</span>}
                                                         </div>
-                                                        <div style={{ color: '#33332E', marginTop: 2 }}>"{r.claim.slice(0, 160)}{r.claim.length > 160 ? '...' : ''}"</div>
+                                                        <div style={{ color: '#33332E', marginTop: 2, textDecoration: decision === 'rejected' ? 'line-through' : 'none' }}>"{r.claim.slice(0, 160)}{r.claim.length > 160 ? '...' : ''}"</div>
                                                         <div style={{ color: '#666', fontSize: 10, marginTop: 2 }}>
                                                             {r.citedAs && <>Cited as: {r.citedAs}{r.realSources.length ? ' ' : ''}</>}
                                                             {r.realSources.length > 0 && <>Real source: {r.realSources.join('; ')} </>}
                                                             {r.url && <a href={r.url} target="_blank" rel="noreferrer" style={{ color: '#00B7C3' }}>{r.url.replace(/^https?:\/\//, '').slice(0, 60)}</a>}
+                                                            {!r.url && <span style={{ color: '#CC6644', fontStyle: 'italic' }}>No external source on record: not independently verifiable.</span>}
                                                         </div>
                                                         <div style={{ color: '#999', fontSize: 10 }}>{r.note}</div>
+                                                        {actionable && (
+                                                            <div style={{ display: 'flex', gap: 6, marginTop: 6, flexWrap: 'wrap' as const }}>
+                                                                {!decision && (
+                                                                    <>
+                                                                        {!r.url && (
+                                                                            <button onClick={searchCorpusForClaim} style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase' as const, padding: '3px 8px', background: 'transparent', color: '#115054', border: '1px solid #115054', cursor: 'pointer' }}>Search corpus for this quote</button>
+                                                                        )}
+                                                                        <button onClick={acceptClaim} style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase' as const, padding: '3px 8px', background: '#EAF3EE', color: '#115054', border: '1px solid #115054', cursor: 'pointer' }}>Accept claim</button>
+                                                                        <button onClick={rejectClaim} style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase' as const, padding: '3px 8px', background: '#FBEAEA', color: '#CC3333', border: '1px solid #CC3333', cursor: 'pointer' }}>Reject: remove from deck</button>
+                                                                    </>
+                                                                )}
+                                                                {decision && (
+                                                                    <button onClick={undoDecision} style={{ fontSize: 9, fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' as const, padding: '3px 8px', background: 'transparent', color: '#666', border: '1px solid #CCC', cursor: 'pointer' }}>Undo</button>
+                                                                )}
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 );
                                             })}
@@ -8600,6 +8805,8 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                             mode={imageLoading ? 'image' : 'reasoning'}
                             modelName={liveCfg?.name || 'AI'}
                             accentColor={liveCfg?.color || '#B8B800'}
+                            startedAt={imageLoading ? null : sendStartedAt}
+                            liveStatus={imageLoading ? null : liveProgressText}
                         />
                     );
                 })()}

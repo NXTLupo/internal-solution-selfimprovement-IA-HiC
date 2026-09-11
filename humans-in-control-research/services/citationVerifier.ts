@@ -62,6 +62,24 @@ export interface LedgerRow {
     citedAs: string;
     realSources: string[];
     url: string | null;
+    /**
+     * 2026-08-26 (owner correction). `url` now also falls back to the cited
+     * page's own frontmatter `url:` field (see `lookupFrontmatterUrl`), so any
+     * claim whose source page records a real external origin gets a real
+     * external link, not just claims the in-memory registry happened to
+     * capture during this generation. `pointer` is the raw manifest pointer
+     * ("articles/x.md#c3") the claim resolved against, kept only as an
+     * internal key (e.g. to build the "search corpus for this quote" query
+     * context). The owner was explicit: HiC's own stored copy of a page is
+     * NOT independent verification, only a real external URL is - so the UI
+     * must never render `pointer` as a clickable "view source" link when
+     * `url` is null. A null `url` with a non-null `pointer` means the source
+     * page itself never had a real external origin on record (chained,
+     * synthesis, or cached pages); a null `pointer` means no source was cited
+     * at all. Both cases are equally unverifiable to the reader and must be
+     * shown as such, never disguised behind an internal link.
+     */
+    pointer: string | null;
     verdict: Verdict;
     note: string;
     /** attribution fields that must be rewritten, with their replacement. */
@@ -256,6 +274,26 @@ export function inTextSourcePhrases(text: string, sourceNorm: string, realNames:
 /** Page-text loader with per-run cache. Exposed for test injection. */
 export type PageFetcher = (pagePath: string) => Promise<string | null>;
 
+/**
+ * 2026-08-26 (owner correction, live). "The source should always link out to
+ * an external source. How can I trust an unverified source stored in the
+ * wiki?" - correct: HiC's own stored copy of a page is not independent
+ * verification, only the real external origin is. The frontmatter `url:`
+ * field on an ingested article page carries that real origin (see
+ * `hic-workspace/wiki/articles/*.md`), but the in-memory pointer registry
+ * (citationPointerRegistry) is only populated when a generation explicitly
+ * registered one, and a session reload starts that registry empty. Reading
+ * the frontmatter directly closes that gap. When a page's own `url:` field is
+ * itself an internal wiki path (chained/synthesis/cached pages, no external
+ * permalink was ever captured at ingest), this returns null - there is no
+ * external source, and nothing should claim otherwise.
+ */
+const _wikiFrontmatterUrls = new Map<string, string | null>(); // pagePath (no #cN) -> real external url, or null
+
+export function lookupFrontmatterUrl(pagePath: string): string | null {
+    return _wikiFrontmatterUrls.get(pagePath) ?? null;
+}
+
 export function makeWikiPageFetcher(): PageFetcher {
     const cache = new Map<string, string | null>();
     return async (pagePath: string) => {
@@ -265,7 +303,15 @@ export function makeWikiPageFetcher(): PageFetcher {
             const r = await fetch(`${PROXY_BASE}/api/wiki/read/${pagePath.split('/').map(encodeURIComponent).join('/')}`);
             if (r.ok) {
                 const d = await r.json();
-                if (d?.exists && typeof d.content === 'string' && d.content) text = normalizeForMatch(d.content);
+                if (d?.exists && typeof d.content === 'string' && d.content) {
+                    if (!_wikiFrontmatterUrls.has(pagePath)) {
+                        const fm = d.content.match(/^---\n([\s\S]*?)\n---/);
+                        const urlLine = fm?.[1]?.match(/^url:\s*"?([^"\n]+?)"?\s*$/m);
+                        const raw = urlLine?.[1]?.trim();
+                        _wikiFrontmatterUrls.set(pagePath, raw && /^https?:\/\//i.test(raw) ? raw : null);
+                    }
+                    text = normalizeForMatch(d.content);
+                }
             }
         } catch { /* offline proxy: rows become UNREACHABLE and are never fix-applied */ }
         cache.set(pagePath, text);
@@ -296,7 +342,7 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
             const row: LedgerRow = {
                 slideId: claim.slideId, slideTitle: claim.slideTitle, field: claim.field,
                 kind: claim.kind, claim: claim.text.slice(0, 220), citedAs,
-                realSources: [], url: null, verdict: 'UNSOURCED', note: '',
+                realSources: [], url: null, pointer: null, verdict: 'UNSOURCED', note: '',
             };
             if (!claim.pointers.length) {
                 row.note = citedAs
@@ -318,8 +364,11 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
                 if (quoteOk && statOk) { verifiedOn = pointer; sourceNorm = text; break; }
             }
             const primary = verifiedOn || claim.pointers[0];
+            row.pointer = primary;
             row.realSources = realSourceNames(primary);
-            row.url = lookupPointerUrl(primary) || (row.realSources[0] ? lookupSourceUrl(row.realSources[0]) : null);
+            row.url = lookupPointerUrl(primary)
+                || (row.realSources[0] ? lookupSourceUrl(row.realSources[0]) : null)
+                || lookupFrontmatterUrl(primary.replace(/#c\d+$/i, ''));
             if (!anyPageLoaded) {
                 // BLOCKER-3 fix: an unreachable page is reported, never acted on.
                 row.verdict = 'UNREACHABLE';

@@ -3,7 +3,7 @@
 import { describe, it, expect } from 'vitest';
 import {
     enumerateTextFields, applyTextEdits, undoLastTextEdit, scrubRewrite, getAtPath, matchFieldByText,
-    stripCitationArtifacts, mergeEditPreservingCitations,
+    stripCitationArtifacts, mergeEditPreservingCitations, applyClaimRejection,
 } from './slideTextEditing';
 
 const composerSlide = (): any => ({
@@ -207,5 +207,90 @@ describe('scrubRewrite', () => {
         expect(out).not.toContain('**');
         expect(out).not.toContain('—');
         expect(out.startsWith('"')).toBe(false);
+    });
+});
+
+/**
+ * 2026-08-26 owner report: the verification ledger flags a claim and there was no
+ * way to act on it. REJECT has to make the claim genuinely absent from what the
+ * deck renders and exports, using the same edit contract as every other write so
+ * nothing downstream needs to know a rejection happened versus a manual edit.
+ */
+describe('applyClaimRejection', () => {
+    const tableSlide = (): any => ({
+        id: 's2', status: 'draft', timestamp: 1,
+        template: 'slides:evidence-table',
+        title: 'A finding',
+        composerPayload: {
+            title: 'A finding',
+            rows: [
+                { cells: ['Research', 'Enrichment shortens the phase', 'Clockwork'] },
+                { cells: ['Screening', 'AI already reviews every resume', 'Clockwork'] },
+            ],
+        },
+    });
+
+    const bulletSlide = (): any => ({
+        id: 's3', status: 'draft', timestamp: 1,
+        template: 'slides:numbered-themes',
+        title: 'Findings',
+        composerPayload: {
+            title: 'Findings',
+            bullets: [
+                'Enrichment shortens the research phase',
+                'AI already reviews every resume',
+                'Partners keep the finalist call',
+            ],
+        },
+    });
+
+    it('blanks a leaf field (a table cell) without touching its siblings', () => {
+        const rejected = applyClaimRejection(tableSlide(), 'rows[1].cells[1]');
+        expect(getAtPath(rejected.composerPayload, 'rows[1].cells[1]')).toBe('');
+        expect(getAtPath(rejected.composerPayload, 'rows[1].cells[0]')).toBe('Screening');
+        expect(rejected.composerPayload.rows).toHaveLength(2);
+    });
+
+    /**
+     * The regression this guards: the first version of this function spliced any
+     * path ending in a numeric index out of its array, on the theory that a
+     * rejected bullet should leave no empty line. `rows[1].cells[1]` ALSO ends in a
+     * numeric index, and splicing it shifted `cells[2]` ('Clockwork') into position
+     * 1, which silently reattaches a source to a claim it was never verified
+     * against. That is a worse defect than the blank line it was avoiding, and
+     * there is no way to tell a shrinkable bullet list from a fixed-width row from
+     * the path string alone, so the array must never be resized.
+     */
+    it('never resizes the row when rejecting one cell in a table', () => {
+        const rejected = applyClaimRejection(tableSlide(), 'rows[1].cells[1]');
+        expect(rejected.composerPayload.rows[1].cells).toEqual(['Screening', '', 'Clockwork']);
+    });
+
+    it('blanks a bullet-array item too, rather than removing it', () => {
+        const rejected = applyClaimRejection(bulletSlide(), 'bullets[1]');
+        expect(rejected.composerPayload.bullets).toEqual([
+            'Enrichment shortens the research phase',
+            '',
+            'Partners keep the finalist call',
+        ]);
+    });
+
+    it('records the rejection in _textHistory, so it is a real, undoable edit', () => {
+        const rejected = applyClaimRejection(tableSlide(), 'rows[1].cells[1]');
+        expect(rejected._textHistory).toHaveLength(1);
+        expect(rejected._textHistory![0].edits[0]).toMatchObject({ path: 'rows[1].cells[1]', prev: 'AI already reviews every resume' });
+    });
+
+    it('never mutates the slide passed in', () => {
+        const original = bulletSlide();
+        const originalBullets = [...original.composerPayload.bullets];
+        applyClaimRejection(original, 'bullets[1]');
+        expect(original.composerPayload.bullets).toEqual(originalBullets);
+    });
+
+    it('is undoable through the same ring every other edit uses', () => {
+        const rejected = applyClaimRejection(tableSlide(), 'rows[1].cells[1]');
+        const restored = undoLastTextEdit(rejected)!;
+        expect(getAtPath(restored.composerPayload, 'rows[1].cells[1]')).toBe('AI already reviews every resume');
     });
 });

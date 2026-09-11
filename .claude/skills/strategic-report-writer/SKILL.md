@@ -95,18 +95,18 @@ Do NOT add sections not in this list. No "Vision and Mission", "Governance Model
 
 ### Writing Standards
 
-- **Write like a journalist**: Name specific articles, quote specific people, cite specific data. "According to a February 2025 Higher Ed Dive report..." not "according to research."
+- **Write like a journalist**: Name specific articles, quote specific people. "According to a Higher Ed Dive report published in February 2025..." not "according to research." The month and year come from the cited chunk's provenance line (its PUBLISHED date), never from the research goal's as-of window.
 - **Case studies** (minimum 3 across the report): When an article describes a real institution, company, or person's experience, present it as a 2-4 sentence case study. Example: "CASE STUDY: Southern Oregon University received a $15M state lifeline in March 2025 to maintain operations after enrollment dropped below sustainability thresholds."
 - **Social evidence**: Reddit posts and community discussions are primary practitioner evidence. Quote them directly: "One practitioner on a community forum wrote: 'We waited three weeks for onboarding...', a sentiment echoed by dozens of similar posts in the dataset."
 - **Weave multiple sources**: Each paragraph should reference 2-3 different sources showing convergent evidence. "Federal Register data confirms the regulatory shift, while a Hechinger Report investigation revealed the implementation gap."
-- **Convergent evidence**: When 3+ sources agree, explicitly note the convergence. This is the strongest evidence type.
+- **Convergent evidence**: When 3+ INDEPENDENT sources agree (different authors or organizations, different URLs; two pointers to one thread, or an article plus its summary, are ONE origin), note the convergence. Below three independent origins, state the count or name the sources; never write "every", "all", "consensus", or "converges".
 - **Counter-evidence**: When sources disagree, note the tension.
 
 ## Evidence Mandates
 
 1. The report MUST cite evidence from AT LEAST 20 different named sources -- not just uploaded client documents.
 2. CITE SPECIFIC ARTICLES BY NAME: "According to Higher Ed Dive's article 'Universities Struggle with Skills Gap'..." or "A Reddit post in r/cscareerquestions noted that..."
-3. QUOTE SPECIFIC DATA: Use specific statistics, dates, percentages, dollar amounts. NEVER generalize what can be specified. BAD: "Research shows enrollment declined." GOOD: "Higher Ed Dive reported a 15% enrollment decline across 23 public universities in Q1 2025."
+3. QUOTE SPECIFIC EVIDENCE: a number appears ONLY inside a verbatim quote that carries its pointer (Quantitative Claim Rule); a date appears only when the cited chunk's provenance line or text carries it. NEVER generalize what a quote can specify, and NEVER specify what no chunk states. BAD: "Research shows enrollment declined." GOOD: Higher Ed Dive wrote that "enrollment fell across 23 public universities in the first quarter" [pointer].
 4. MINIMUM 3 case studies across the report using real organizations from the evidence.
 5. Social evidence (Reddit, forums, reviews) must be quoted DIRECTLY and EXTENSIVELY with attribution.
 6. Client documents provide ORGANIZATIONAL CONTEXT; intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH.
@@ -114,6 +114,28 @@ Do NOT add sections not in this list. No "Vision and Mission", "Governance Model
 8. EVERY section must include keyMetrics with 2-4 specific numbers from evidence, and keyQuote with a VERBATIM quote from a named source.
 9. If a section relies only on uploaded client documents with no external evidence, narrow the section to claims that ARE evidenced. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in user-facing fields — the report is read by executives, not annotated by QA.
 10. Articles marked "PRIORITY CITATION" MUST be cited prominently -- they must anchor the argument, not be footnotes. If a priority article does not fit any section naturally, create a "Notable Evidence" subsection.
+
+### Claim Ledger Contract (2026-09-11, enforced by services/claimLedgerGate.ts)
+
+Every consequential sentence is typed: SUPPORTED FACT, DERIVATION, DEFENSIBLE INFERENCE (declarative
+allowed); HYPOTHESIS (framed as a bet); EDITORIAL JUDGMENT; UNKNOWN (omitted, the section narrows).
+After generation the shipped text is checked deterministically against the cited chunks, sentence by
+sentence, with these reason codes: UNSOURCED_FACT, UNRESOLVED_SOURCE, UNVERIFIED_QUOTE,
+DATE_SCOPE_MISMATCH, UNSUPPORTED_MODALITY, PRODUCT_SCOPE_MISMATCH, INDEPENDENCE_INFLATED,
+UNVERIFIED_IDENTIFIER, DERIVED_AS_SOURCE, CHROME_LEAK. A blocking finding triggers a narrowing repair
+that may delete or weaken a claim and may never add a source, a number, or a date. Write to the
+contract so the first draft passes:
+
+- Date a capability by the published date on the chunk's provenance line; the goal's as-of window is
+  the review date. Undated live documentation describes current documented behavior; dated posts
+  establish chronology; disagreeing sources are both kept, with their dates.
+- Keep the source's modality. Before calling any check, gate, or process "deterministic" or saying it
+  "makes output correct", name what it checks and what it does not.
+- Identifiers, commands, acronym expansions, and product names appear in a cited chunk exactly, or
+  they are quoted as a practitioner's recollection.
+- Vendor documentation and primary announcements outrank social posts and commentary for what a
+  product does; social posts are the evidence for practitioner experience.
+- A chunk about another product or organization is a named analogy or nothing.
 
 ### Evidence Hierarchy
 
@@ -131,7 +153,12 @@ Do NOT add sections not in this list. No "Vision and Mission", "Governance Model
 - **Bullet-point summaries instead of prose**: Each section must be 400-800 words of analytical prose. This is a published research paper, not a slide deck in paragraph form.
 - **Approximations instead of specifics**: "About 15%" when the source says "14.7%." Use the exact number.
 - **Visible QA annotations**: NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any user-facing field. If a claim is single-sourced, either reinforce it with retrieval or omit it.
-- **Hedging language**: "It seems", "Perhaps", "It's possible that." Assert findings with evidence backing.
+- **Hedging filler**: "It seems", "Perhaps", "It's possible that." State what the evidence supports, plainly.
+- **Modality drift**: a source that says "can", "helps", "lets", or "working toward" is never restated as "ensures", "requires", "guarantees", "proves", "makes correct", "cannot", "never", or "always". Keep the source's strength; strengthening it is fabrication of certainty.
+- **Date projection**: assigning the research goal's as-of month or year to a capability, launch, or announcement. Dates come from the cited chunk's provenance line.
+- **Analogy as fact**: describing the subject's architecture or behavior with a chunk about a different product or organization. Name the other product as an analogy or leave it out.
+- **Hedge promotion**: turning hedged source text ("or something", "I think") or a social-only mention into a named tool, API, or documented capability. Report it as a practitioner recollection, quoted.
+- **Derived summaries as sources**: citing a theme, cluster, or synthesis ("via theme"). Themes are an outline aid; cite the corpus pointer that carries the fact, and put nothing but pointers inside a citation bracket.
 
 ---
 

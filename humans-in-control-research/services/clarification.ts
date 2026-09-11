@@ -197,6 +197,59 @@ const SUBJECT_HINT_RE = /\b(?:for|about|of|on)\s+(?:the\s+)?([A-Z][\w&.-]*(?:\s+
 const INDUSTRY_WORDS = /\b(retail|healthcare|insurance|education|higher\s?ed|finance|banking|energy|agriculture|travel|tourism|manufacturing|logistics|government|nonprofit|saas|telecom|media|hospitality|automotive|pharma|legal|real\s?estate|consulting|recruit\w*|executive\s+search)\b/i;
 const AUDIENCE_WORDS = /\b(executives?|c-?suite|cio|cmo|cfo|board|practitioners?|advisors?|clinicians?|students?|alumni|donors?|partners?|operators?|founders?|buyers?|candidates?|recruiters?|customers?|patients?|members?)\b/i;
 
+/**
+ * 2026-08-26 (owner report). A prompt asking for "the 25 most engaging marketing
+ * email design patterns targeting skincare and cosmetics consumers" fired this
+ * trigger anyway: "skincare" and "cosmetics" are not in INDUSTRY_WORDS, and
+ * "consumers" is not in AUDIENCE_WORDS. A finite keyword list can never cover every
+ * industry or audience word a real objective might use, so a prompt with genuine
+ * substance was blocked for a reason that had nothing to do with being vague.
+ *
+ * This is a keyword-independent specificity signal: how much CONTENT the objective
+ * actually carries, regardless of whether any word happens to sit in one of the
+ * fixed lists above. "Analyze the market and give me insights" carries almost no
+ * content once the generic business filler is removed, so it still fires. A long,
+ * detailed ask carries plenty, so it does not, no matter which specific nouns it
+ * uses. The keyword lists stay as a fast path; this is the backstop that makes the
+ * gate trust a real prompt instead of a finite vocabulary.
+ */
+const STOPWORDS = new Set([
+    'the', 'a', 'an', 'and', 'or', 'but', 'of', 'in', 'on', 'at', 'to', 'for', 'with',
+    'by', 'from', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'this', 'that',
+    'these', 'those', 'it', 'its', 'their', 'they', 'we', 'our', 'you', 'your', 'i',
+    'me', 'my', 'us', 'each', 'every', 'all', 'some', 'any', 'not', 'no', 'can',
+    'will', 'should', 'must', 'may', 'more', 'less', 'than', 'then', 'when', 'where',
+    'while', 'because', 'so', 'if', 'into', 'out', 'up', 'down', 'over', 'under',
+    'about', 'across', 'before', 'after', 'also', 'both', 'has', 'have', 'had',
+    'does', 'do', 'please', 'like',
+]);
+/**
+ * Business words generic enough to carry no specificity on their own. "Market" and
+ * "insights" are exactly the words a genuinely vague ask reaches for; a real ask
+ * uses them TOO, but alongside real nouns, which is why this list only removes
+ * points rather than deciding the verdict by itself.
+ */
+const GENERIC_FILLER = new Set([
+    'analyze', 'analysis', 'research', 'study', 'understand', 'understanding',
+    'review', 'evaluate', 'evaluation', 'assess', 'assessment', 'examine',
+    'examination', 'look', 'help', 'need', 'needs', 'want', 'wants', 'information',
+    'insight', 'insights', 'data', 'report', 'reports', 'market', 'markets',
+    'industry', 'industries', 'business', 'businesses', 'company', 'companies',
+    'strategy', 'strategies', 'give', 'tell', 'show', 'find', 'explore', 'overview',
+    'summary', 'summarize', 'detail', 'details', 'thing', 'things', 'stuff',
+]);
+
+/** Distinct content words: real length, not a stopword, not generic filler. */
+function contentWordCount(text: string): number {
+    const words = text.toLowerCase().match(/[a-z][a-z-]{3,}/g) || [];
+    const distinct = new Set(words.filter(w => !STOPWORDS.has(w) && !GENERIC_FILLER.has(w)));
+    return distinct.size;
+}
+
+/** Below this, the ask is genuinely thin even after removing filler. Above it, the
+ *  objective is carrying real substance and the gate has no business stopping it. */
+const SPECIFIC_CONTENT_FLOOR = 4;
+
 export function checkObjectiveTrigger(objective: string): TriggerVerdict {
     const text = String(objective || '').trim();
     const missing: string[] = [];
@@ -210,10 +263,12 @@ export function checkObjectiveTrigger(objective: string): TriggerVerdict {
     const hasSubject = SUBJECT_HINT_RE.test(text) || /"[^"]{3,}"/.test(text);
     const hasIndustry = INDUSTRY_WORDS.test(text);
     const hasAudience = AUDIENCE_WORDS.test(text);
-    if (!hasSubject) missing.push('the subject of the research (the product, market, organization, or audience)');
-    if (!hasIndustry && !hasAudience) missing.push('the industry or the audience, so sources can be selected');
-    // Fire only when BOTH are absent. One of the two is enough to plan a run.
-    const fire = !hasSubject && !hasIndustry && !hasAudience;
+    const hasSpecificContent = contentWordCount(text) >= SPECIFIC_CONTENT_FLOOR;
+    if (!hasSubject && !hasSpecificContent) missing.push('the subject of the research (the product, market, organization, or audience)');
+    if (!hasIndustry && !hasAudience && !hasSpecificContent) missing.push('the industry or the audience, so sources can be selected');
+    // Fire only when EVERY signal is absent, including the content-richness backstop.
+    // Any one of the four is enough to plan a run.
+    const fire = !hasSubject && !hasIndustry && !hasAudience && !hasSpecificContent;
     return {
         fire,
         trigger: fire ? 'objective_underspecified' : null,

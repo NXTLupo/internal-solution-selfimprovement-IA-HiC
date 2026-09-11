@@ -120,6 +120,48 @@ describe('trigger (a): objective intake', () => {
     it('does NOT fire when an audience is named', () => {
         expect(checkObjectiveTrigger('what do recruiters need from their tooling').fire).toBe(false);
     });
+
+    /**
+     * 2026-08-26 owner report: this exact prompt (with the leading #slides hashtag
+     * stripped, since the caller passes the full chat message) fired the trigger and
+     * blocked a fully-specified ask. "Skincare" and "cosmetics" are not in
+     * INDUSTRY_WORDS; "consumers" is not in AUDIENCE_WORDS. Neither omission means
+     * the prompt was vague, it means the fixed lists do not cover every industry or
+     * audience word. The content-richness backstop is what fixes this class of bug,
+     * not another entry added to a list that will always be incomplete.
+     */
+    it('does NOT fire on a detailed ask whose industry/audience words are not in the fixed lists', () => {
+        const v = checkObjectiveTrigger(
+            'a structured presentation detailing the 25 most engaging and converting marketing '
+            + 'email design patterns targeting skincare and cosmetics consumers, specifying the '
+            + 'pattern name, visual layout, psychological trigger, and conversion impact for each.',
+        );
+        expect(v.fire).toBe(false);
+    });
+
+    it('does NOT fire on a detailed ask with the hashtag directive left in, as the real chat message carries it', () => {
+        const v = checkObjectiveTrigger(
+            '#slides a structured presentation detailing the 25 most engaging and converting '
+            + 'marketing email design patterns targeting skincare and cosmetics consumers, '
+            + 'specifying the pattern name, visual layout, psychological trigger, and conversion '
+            + 'impact for each.',
+        );
+        expect(v.fire).toBe(false);
+    });
+
+    it('still fires on generic business filler with no real content, even at length', () => {
+        const v = checkObjectiveTrigger(
+            'I need some research and analysis to understand the market and get some insights '
+            + 'and information about the industry and the business and the company strategy.',
+        );
+        expect(v.fire).toBe(true);
+    });
+
+    it('does not fire once enough distinct real nouns appear, independent of any keyword list', () => {
+        // None of these words are in INDUSTRY_WORDS or AUDIENCE_WORDS; the objective is
+        // still not vague, so the content-richness signal alone must clear it.
+        expect(checkObjectiveTrigger('vintage motorcycle restoration hobbyists and their parts sourcing habits').fire).toBe(false);
+    });
 });
 
 describe('trigger (b): pack mismatch', () => {
