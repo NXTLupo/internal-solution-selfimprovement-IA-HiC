@@ -11,6 +11,7 @@ chunks:
     concepts: [benchmarks, evidenced, digital-transformation, evidence, maturity]
     section: Benchmark Status and Tracking
     token_count: 245
+exclude_from_compile: true
 ---
 
 ```yaml
@@ -31,5 +32,5 @@ chunks:
 
 ## Benchmark Status and Tracking
 
-*   **CX Maturity Benchmarks**: Benchmark data within customer experience (CX) maturity models is currently designated as a hypothesis [evidence/cx-maturity.md#c1]. These entries are slated to be upgraded to partially evidenced or evidenced status as source documents are ingested into the research workspace [evidence/cx-maturity.md#c0][evidence/cx-maturity.md#c1]. Once verified, this evidence is intended to support claims and correlations regarding organizational maturity levels, structures, employee factors, gap analysis, and financial or maturity-to-revenue impacts [evidence/cx-maturity.md#c2][evidence/cx-maturity.md#c3].
-*   **Technology Adoption Benchmarks**: Benchmark data within digital transformation and technology adoption frameworks is currently designated as a hypothesis [evidence/digital-transformation.md#c1][evidence/digital-transformation.md#c3]. These entries will be upgraded to partially evidenced or evidenced status upon the ingestion and verification of primary research and source documents [evidence/digital-transformation.md#c0][evidence/digital-transformation.md#c1]. This verified evidence is intended to address pending categories including transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md#c2].
+*   **CX Maturity Benchmarks**: Benchmark data within customer experience (CX) maturity models is currently speculative and designated as a hypothesis [evidence/cx-maturity.md]. These entries are slated to be upgraded to partially evidenced or fully evidenced status as source documents are ingested into the research workspace [evidence/cx-maturity.md]. Once verified, this evidence is intended to support claims and correlations regarding organizational maturity levels, structures, employee factors, gap analysis, and financial or maturity-to-revenue/outcome impacts [evidence/cx-maturity.md].
+*   **Technology Adoption Benchmarks**: Benchmark data within digital transformation and technology adoption frameworks is also currently speculative and designated as a hypothesis [evidence/digital-transformation.md]. These entries will be upgraded to partially evidenced or fully evidenced status upon the ingestion and verification of primary research and source documents [evidence/digital-transformation.md]. This verified evidence is intended to address pending categories including transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md].

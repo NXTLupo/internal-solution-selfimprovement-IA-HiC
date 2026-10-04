@@ -26,7 +26,7 @@ import {
     stripModelChrome, evaluateClaimLedger, applyDeterministicFixes, buildNarrowingInstruction, ledgerSummaryLine,
     type ClaimLedger, type ClaimGateContext, type GateChunk, type LedgerFinding,
 } from './claimLedgerGate';
-import { renderPointerCitationsHtml, formatCitationLabel, lookupPageMeta, lookupPointerUrl, lookupSourceUrl, formatCitationDate } from './citationPointerRegistry';
+import { renderPointerCitationsHtml, formatCitationLabel, lookupPageMeta, lookupPointerUrl, lookupSourceUrl, formatCitationDate, prettifyPagePath } from './citationPointerRegistry';
 import { lookupFrontmatterUrl, type PageFetcher } from './citationVerifier';
 import { callAIWithRetry } from './aiRetryClient';
 import { DEFAULT_MODELS } from './aiRouter';
@@ -41,7 +41,7 @@ const MAX_REPAIR_ROUNDS = 1;
  * already normalized, frontmatter included; the gate needs the raw body so it can strip the
  * frontmatter (which carries the research goal on every ingested article) before matching.
  */
-export function makeRawWikiPageFetcher(): PageFetcher {
+function makeRawWikiPageFetcher(): PageFetcher {
     const cache = new Map<string, string | null>();
     return async (pagePath: string) => {
         if (cache.has(pagePath)) return cache.get(pagePath)!;
@@ -165,19 +165,108 @@ function applySentenceRepairs(html: string, ledger: ClaimLedger, repaired: Recor
 
 const CITE_STYLE = '<style id="hic-cite-style">.hic-cites{font-family:var(--nxt-mono,var(--font-mono,ui-monospace,monospace));font-size:0.82em;color:var(--nxt-text-secondary,inherit);}.hic-cite{text-decoration:none;border-bottom:1px solid currentColor;}.hic-cite:hover{color:var(--nxt-teal,inherit);}.hic-sources ol{padding-left:1.4em;}.hic-sources li{margin:0 0 .45em 0;font-size:0.92em;line-height:1.45;}.hic-sources .hic-src-kind{font-family:var(--nxt-mono,ui-monospace,monospace);font-size:0.8em;color:var(--nxt-text-secondary,inherit);margin-left:.5em;}</style>';
 
+// ---- reader-facing source labels (2026-10-01, B8) ----------------------------------------------------
+//
+// A citation label must be a source's name, never a file path, slug or hash. The registry's last resort
+// is a prettified path ("Hic Theme Synthesis", "Cached Reuse Sow012 Nxt Humans ...", "1qxkv3v"): the
+// live #prd rendered 85 citations as "Hic Theme Synthesis". Two fixes, both generic:
+//   1. an artifact may DECLARE its labels in <script type="application/json" id="hic-source-labels">
+//      ({ pointer: { n: name, d?: date } }), written by a projection that holds the evidence item's
+//      registered name (prdProjection). The chain reads it, strips it, and uses it first.
+//   2. a label that is still path-derived is replaced by the page's source TYPE ("Client document",
+//      "Reddit r/neu", "Engagement research synthesis").
+
+export type DeclaredSourceLabels = Map<string, { n: string; d?: string }>;
+const LABELS_SCRIPT_RE = /<script\b[^>]*id=["']hic-source-labels["'][^>]*>([\s\S]*?)<\/script>/i;
+
+function readDeclaredSourceLabels(html: string): { html: string; labels: DeclaredSourceLabels } {
+    const labels: DeclaredSourceLabels = new Map();
+    const m = LABELS_SCRIPT_RE.exec(String(html || ''));
+    if (!m) return { html, labels };
+    try {
+        const obj = JSON.parse(m[1]);
+        for (const [k, v] of Object.entries(obj || {})) {
+            const n = String((v as any)?.n || '').trim();
+            if (k && n) labels.set(k.trim(), { n, d: (v as any)?.d ? String((v as any).d) : undefined });
+        }
+    } catch { /* a malformed declaration is ignored, never rendered */ }
+    return { html: html.replace(LABELS_SCRIPT_RE, ''), labels };
+}
+
+const HASHLIKE_TOKEN_RE = /^(?=[a-z0-9]*\d)(?=[a-z0-9]*[a-z])[a-z0-9]{5,12}$/i;
+
+/** The page's source type, for a pointer whose only label is its path. '' when the path says nothing. */
+function sourceTypeLabel(pointer: string): string {
+    const page = String(pointer || '').replace(/#c\d+$/i, '');
+    const sub = /reddit[\w-]*\/(?:r-)?([\w-]+)\/[^/]+\.md$/i.exec(page) || /reddit-deep-r-([\w-]+)\//i.exec(page);
+    if (sub) return `Reddit r/${sub[1]}`;
+    if (/reddit|social-intelligence/i.test(page)) return 'Reddit discussion';
+    if (/(?:^|\/)(?:client-uploads|cached-reuse[^/]*|uploads?|sources)\//i.test(page)) return 'Client document';
+    if (/(?:^|\/)(?:hic-theme-synthesis|synthesis)\//i.test(page)) return 'Engagement research synthesis';
+    return '';
+}
+
+function isPathDerivedLabel(label: string, pointer: string): boolean {
+    const bare = String(label || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (!bare) return true;
+    const page = String(pointer || '').replace(/#c\d+$/i, '');
+    if (bare === (prettifyPagePath(page) || '')) return true;
+    return bare.split(/\s+/).some(w => HASHLIKE_TOKEN_RE.test(w)) && bare.split(/\s+/).length <= 2;
+}
+
+function citationLabelFor(pointer: string, declared?: DeclaredSourceLabels): string {
+    const page = String(pointer || '').replace(/#c\d+$/i, '');
+    const d = declared?.get(pointer) || declared?.get(page);
+    if (d) {
+        // The declaration owns the date too: an absent date is deliberate (an ingest date is not a publication date).
+        const when = formatCitationDate(d.d || '');
+        return when ? `${d.n} (${when})` : d.n;
+    }
+    const label = formatCitationLabel(pointer);
+    if (label && !isPathDerivedLabel(label, pointer)) return label;
+    const typed = sourceTypeLabel(pointer);
+    if (!typed) return label;
+    const when = formatCitationDate(lookupPageMeta(pointer)?.date || '');
+    return when ? `${typed} (${when})` : typed;
+}
+
+const CITE_GROUP_RE = /\[\s*((?:[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)(?:\s*[,;]\s*[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)*)(?:\s*[,;]\s*[^\]\n]{1,80})?\s*\]/gi;
+
+/** Pointer groups as linked, dated citations with reader-facing labels; then the registry strips any stray pointer. */
+function renderCitations(html: string, declared: DeclaredSourceLabels): string {
+    const escA = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const out = String(html || '').replace(CITE_GROUP_RE, (_m, group: string) => {
+        const seen = new Set<string>();
+        const parts: string[] = [];
+        for (const raw of group.split(/[,;]/)) {
+            const ptr = raw.trim();
+            if (!/\.md(?:#c\d+)?$/i.test(ptr)) continue;
+            const label = citationLabelFor(ptr, declared);
+            if (!label || seen.has(label)) continue;
+            seen.add(label);
+            const url = lookupPointerUrl(ptr) || lookupPageMeta(ptr)?.url || '';
+            parts.push(url
+                ? `<a class="hic-cite" href="${escA(url)}" target="_blank" rel="noopener noreferrer" data-pointer="${escA(ptr)}">${escA(label)}</a>`
+                : `<span class="hic-cite" data-pointer="${escA(ptr)}">${escA(label)}</span>`);
+        }
+        return parts.length ? ` <span class="hic-cites">(${parts.join('; ')})</span>` : '';
+    });
+    return renderPointerCitationsHtml(out);
+}
+
 function collectPointers(html: string): string[] {
     const found = String(html || '').match(/[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?/gi) || [];
     return Array.from(new Set(found.map(p => p.trim())));
 }
 
 /** A dated, linked bibliography built from the pointers the document actually cites. */
-export function buildSourceIndexHtml(pointers: string[], retrievedAt = new Date()): string {
-    const byPage = new Map<string, string>();
-    for (const p of pointers) { const page = p.replace(/#c\d+$/i, ''); if (!byPage.has(page)) byPage.set(page, p); }
+function buildSourceIndexHtml(pointers: string[], retrievedAt = new Date(), declared?: DeclaredSourceLabels): string {
+    // One entry per reader-facing source (an aggregate upload page holds several documents).
+    const byLabel = new Map<string, string>();
+    for (const p of pointers) { const l = citationLabelFor(p, declared); if (l && !byLabel.has(l)) byLabel.set(l, p); }
     const items: string[] = [];
-    for (const [page, pointer] of byPage) {
-        const label = formatCitationLabel(pointer);
-        if (!label) continue;
+    for (const [label, pointer] of byLabel) {
+        const page = pointer.replace(/#c\d+$/i, '');
         const meta = lookupPageMeta(page);
         const url = lookupPointerUrl(pointer) || meta?.url || lookupSourceUrl(meta?.sourceName || '') || lookupFrontmatterUrl(page) || '';
         const kind = (meta?.kind || '').toLowerCase();
@@ -229,6 +318,7 @@ async function patchAir(before: ClaimLedger, after: ClaimLedger, shippedHtml: st
                         shippedPayload: { kind: 'html', html: shippedHtml },
                     },
                     qualityReport: {
+                        chainRan: true,
                         deterministicFailures: codes(after),
                         reviewScores: {
                             claim_rows: after.rows.length,
@@ -257,8 +347,10 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
     const fetchPage = opts.fetchPage || makeRawWikiPageFetcher();
     const gateCtx: ClaimGateContext = { goalText: opts.goalText, chunks: opts.chunks || [], fetchPage };
 
-    // 1. Chrome.
-    const chrome = stripModelChrome(inputHtml);
+    // 1. Chrome, and the artifact's declared source labels (read once, never shown).
+    const declaredRead = readDeclaredSourceLabels(inputHtml);
+    const declared = declaredRead.labels;
+    const chrome = stripModelChrome(declaredRead.html);
     let html = chrome.html;
     if (chrome.stripped.length) progress(`stripped ${chrome.stripped.length} model-authored chrome element(s)`);
 
@@ -303,8 +395,8 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
 
     // 5. Citations and the source index.
     const pointers = collectPointers(html);
-    html = renderPointerCitationsHtml(html);
-    if (opts.sourceIndex !== false) html = appendSourceIndex(html, buildSourceIndexHtml(pointers));
+    html = renderCitations(html, declared);
+    if (opts.sourceIndex !== false) html = appendSourceIndex(html, buildSourceIndexHtml(pointers, new Date(), declared));
     if (pointers.length && !html.includes('id="hic-cite-style"')) html = CITE_STYLE + html;
 
     // 6. Record.

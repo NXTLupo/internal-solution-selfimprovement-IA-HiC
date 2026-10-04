@@ -1,0 +1,13 @@
+# Client-identifying literals that must never appear in rule-engine code (scripts/check-generic-rules.mjs).
+# One regex per line, matched on word boundaries, case-insensitive; prefix "cs:" for case-sensitive entries.
+# Add a line whenever a new client engagement starts; never add sector vocabulary used to pick a legal regime.
+northeastern
+huskies
+boland
+deciem
+abnormal beauty
+cs:NU
+SOW0\d\d
+student 360
+exphub
+experiential learning hub

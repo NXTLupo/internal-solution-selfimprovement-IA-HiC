@@ -19,12 +19,12 @@ import type { BrandHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 // 2026-07-02 Designer-chat prompt caching: single-sourced marker + scrub from the router.
-import { HIC_CACHE_BREAK as SLIDESPEC_CACHE_BREAK, stripCacheMarkers } from '../../services/aiRouter';
+import { HIC_CACHE_BREAK as SLIDESPEC_CACHE_BREAK, stripCacheMarkers, CLAUDE_REASONING_MODEL } from '../../services/aiRouter';
 
 // 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary.
 // 2026-06-12 - claude-opus-4-8 added: Designer-chat generation + revision
 // route to Opus 4.8 per Jonathan's directive (DesignDeskChat call sites).
-export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'claude-opus-4-8';
+export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | typeof CLAUDE_REASONING_MODEL;
 
 export interface SlideSpecGenerateArgs {
     kind: FreeformKind;
@@ -53,7 +53,7 @@ function resolveProviderModelId(m: SlideSpecModel): string {
     if (m === 'deepseek-v4-flash') return 'deepseek-v4-flash';
     if (m === 'gpt-5.4') return 'gpt-5.4';
     if (m === 'gemini-3.1-pro-preview') return 'gemini-3.1-pro-preview';
-    if (m === 'claude-opus-4-8') return 'claude-opus-4-8';
+    if (m.startsWith('claude-')) return CLAUDE_REASONING_MODEL;   // any stored Claude id -> the current reasoning model
     return 'gemini-3.5-flash';
 }
 
@@ -66,7 +66,7 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     // 2026-06-12 - Anthropic path (Claude Opus 4.8). Single-shot JSON
     // generation via the proxy /api/ai/anthropic (key attached server-side).
     // max_tokens cap unverified for opus-4-8 - lower if the API 400s.
-    if (m === 'claude-opus-4-8') {
+    if (m.startsWith('claude-')) {
         const { callAIWithRetry } = await import('../../services/aiRetryClient');
         // 2026-07-02 caching: lift the stable prefix (schema + palette + layout guidance,
         // marked by buildPrompt) into the system string; the proxy's marker split sets
@@ -252,8 +252,24 @@ CRITICAL: omit any property whose value is the default. Don't include keys with 
     // parallel brand system (violet 6E54E0, pink FBE8EC, Fraunces) that does
     // not exist in either Figma file - Design Desk regenerations drifted
     // off-brand from the Analyst Desk GOLD twins.
+    // 2026-10-01 - DECIEM joins NU / NXT. Values mirror brands.ts deciemBrand + figma-tokens.json
+    // `DECIEM` (PPTX-sourced); the live set hydrates from /api/design-tokens?brand=DECIEM.
     sections.push(`\n=== BRAND PALETTE (${args.brand.toUpperCase()}) - GOLD design system ===\n` + (
-        args.brand === 'nu'
+        args.brand === 'deciem'
+            ? `paper: "FFFFFF" (body slide background; title / section / thesis canvases are solid "000000" with white type)
+ink: "000000" (body text, headlines, dark canvases; no rail, no dot mark, radius 0)
+accent: "FB48C4" (DECIEM pink pop - kicker/eyebrow, emphasis, solid section-divider fill with white text)
+cyan: "00FACC" (cool pop - evidence / cool panels, divider fill with black text)
+purple: "8A69D4" (premium pop - rare accent, divider fill with white text)
+rust: "FF6C2F" (orange pop - pain/warn emphasis)
+washWarn: "FFEFE7" (light orange wash - pain/fail panel fills; SOLID hex, never a transparent overlay)
+washCool: "E5FFF9" (light cyan wash - positive/cool panel fills)
+panel: "F4F4F4" (neutral panel fill)
+hairline: "E3E3E3" (rules + cell borders, 1px; thin line-art only)
+grey: "6B6B6B" (meta text, muted labels)
+lockup: thin-bordered box, "THE ABNORMAL BEAUTY COMPANY." over "DECIEM", white on the black canvases
+fonts: Poppins Bold UPPERCASE (titles + headlines), Josefin Sans (body), Poppins Bold uppercase (kicker/eyebrow + labels), Nunito (tables, data, meta)`
+        : args.brand === 'nu'
             ? `paper: "FFFFFF" (slide background)
 rail: "0E1626" (navy left rail, 0.64" wide, full height)
 ink: "16233C" (body text, dark panels, takeaway band fill)

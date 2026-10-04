@@ -1,8 +1,8 @@
 ---
 name: deck-composer
 invocation: model
-version: 1.0
-description: "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry, Figma 609). Covers archetype selection by content shape (including the six native diagram bricks), the gate-enforced visual floor and variety rules, the narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, and reference-deck language. Injected whole into the DECK MODE prompt; on deck surfaces this skill supersedes deck-narrative-composer and folds in infographic-composer."
+version: 1.1
+description: "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry, Figma 609). Covers archetype selection by content shape (including the six native diagram bricks), the gate-enforced visual floor and variety rules, the narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, and reference-deck language. Injected whole into the DECK MODE prompt; it also carries the legacy GOLD Slide-object contract (section 8, folded from the deleted deck-narrative-composer) and folds in infographic-composer."
 ---
 
 # Deck Composer - the DECK MODE authority
@@ -29,11 +29,11 @@ falls back to a legacy template and is a hard failure in deck mode. GOLD templat
 (persona-card, theme-cluster, recommendation, timeline, case-study, ...) are NOT deck archetypes;
 never use them in a deck.
 
-SUPERSESSION: on deck surfaces this skill is the one contract. `deck-narrative-composer`
-(the 12-content-block architecture) applies only to legacy GOLD Slide-object flows, never to
-DECK MODE. `infographic-composer` remains the detailed per-family reference for
-`slides:infographic-exhibit`; its load-bearing rules are folded into section 5 below and this
-skill governs when that archetype is used at all.
+SUPERSESSION: on deck surfaces this skill is the one contract. The former `deck-narrative-composer`
+skill (the 12-content-block architecture) was folded into section 8 below on 2026-10-01 and deleted;
+section 8 applies only to legacy GOLD Slide-object flows, never to DECK MODE. `infographic-composer`
+remains the detailed per-family reference for `slides:infographic-exhibit`; its load-bearing rules are
+folded into section 5 below and this skill governs when that archetype is used at all.
 
 ## 1. The archetype selection table (content shape -> archetype)
 
@@ -79,6 +79,17 @@ source line is a caption, not a substitute.
 | The cross-role roadmap matrix (closer) | `slides:aggregate-roadmap` | `{ eyebrow, title, horizons (4), roles: [{ name, cells }] }` |
 | A STRUCTURAL finding prose would bury (a 3-5 move sequence, a before/after contrast, a labeled qualitative distribution, an evidence-source mix) | `slides:infographic-exhibit` | `{ kicker, title, takeaway, sourceLine }` + exactly ONE of `steps` / `beforeAfter` / `stats` / `citations`; see section 5 |
 | A #presentation narrative scene that wants a supporting visual | `slides:scene` | `{ kicker, title, body, imageConcept, canvas: "dark" }`; imageConcept = literal shapes-as-content description, no image URL |
+| The #prd problem (quotes), goals and non-goals, or risks: a story column + up to three evidence cards + a band | `slides:prd-story` | `{ kicker, title, storyLabel, story, cards: [{ heading, body, foot }] (<=3), band: { label, statement } (a typed requirement_target object when the band carries the appetite), sourceLine }` |
+| The #prd requirements ledger | `slides:prd-ledger` | `{ kicker, title, columns (5), rows: [{ id, tier, text, traces, test, target?: requirement_target }] (<=6), takeaway: { label, statement }, sourceLine }`; a HYPOTHESIS requirement carries tier `BET` |
+| The #prd seven-field success signals | `slides:prd-signals` | `{ kicker, title, columns (7), rows: [{ signal, instrument, population, direction, baseline, type, guardrail }] (<=5), takeaway, sourceLine }`; baseline is a sentence, never a bare figure |
+| The #prd traceability matrix (closer) | `slides:prd-trace` | `{ kicker, title, columns (9), rows: [{ id, tier, pain, persona, theme, quote, source, test, signal }] (<=7), takeaway, sourceLine }` |
+
+PRD PROJECTION NOTE (2026-10-01, Stage 3.3): `slides:prd-feature` is NOT an archetype and must never be
+emitted. A `#prd` deck is a PROJECTION of the one PRD contract (`services/prdAir.ts` -> `services/prdProjection.ts`)
+onto the four `prd-*` archetypes above plus `cover`, `thesis-interstitial`, `role-needs` (users and jobs) and
+`flow-arc` (rollout and decision). The model writes the PrdAir record through the prd-compiler skill; the deck
+payloads are derived from it deterministically. Any number on a PRD slide rides in a typed `requirement_target`
+object (metric, value, unit, rationale), never in a prose cell.
 
 The role trio (`role-needs` / `role-recommendation` / `role-roadmap`) is ONE narrative set per
 role: emit all three with the same `role` value; `aggregate-roadmap` folds them into one matrix.
@@ -240,6 +251,134 @@ exhibitImage / panelImage are runtime-owned). When a numbered-themes slide profi
 segments, keep each `items[].body` <= 140 chars so the thumbnail layout breathes. `slides:scene`
 takes an `imageConcept` (a literal shapes-as-content description), never a URL; not every scene
 needs one.
+
+## 8. Legacy GOLD Slide-object flows (folded from deck-narrative-composer, 2026-10-01)
+
+Stage 6.3 of `plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md` (finding A9) converged the
+two deck skills. `deck-narrative-composer` is DELETED; this section carries its binding content for
+the one surface it still governed: legacy GOLD Slide-object flows (`resolveLayout()` picks an
+archetype, `mapToFields()` produces standard Slide objects; `services/layoutResolver.ts`,
+`services/narrativeComposer.ts` for the interactive `#presentation` lane). On DECK MODE surfaces
+(`:::slide template=slides:*` fences) sections 1-7 are the only contract; never inject both output
+schemas into one prompt (the G3 conflict the 2026-07-09 split resolved).
+
+### 8.1 Report-derived architecture and per-slide context injection
+
+Data flow: Strategic Report sections -> per-slide injection -> the model declares WHAT to communicate
+as content blocks -> `resolveLayout()` decides HOW (which archetype) -> `mapToFields()` emits Slide
+objects. This removes empty templates, broken layouts, and missing evidence by construction.
+
+Each slide is matched to a report section by, in order: `sourceDeliverable` exact match, prefix
+match, title substring overlap (first 25 characters), keyword fallback (words longer than 4
+characters). The matched section's content, key metrics, key quote, and citations are the context
+for that slide only. Validator telemetry stays internal: never write "EVIDENCE GAP", "TBD", or any
+QA-style annotation in a slide field; the reader is an executive, not a QA reviewer.
+
+### 8.2 The 12 content block types and their composition rules
+
+1. `hero_stat`: one dominant figure, carried by a cited quote. Fields: value, unit, context.
+2. `evidence_bullets`: 2-4 findings with sources. Fields: items[{text, source}].
+3. `metric_cards`: 2-4 KPI points. Fields: items[{label, value, trend}].
+4. `quote_block`: VERBATIM quote with provenance. Fields: text, attribution, source.
+5. `persona_card`: persona reference (portrait auto-injected by exact name). Fields: name, role, jtbd, quote.
+6. `problem_statement`: a challenge backed by evidence. Fields: value, description, severity.
+7. `solution_points`: 2-3 actions. Fields: items[{title, description}].
+8. `data_grid`: 3-6 points for a grid / bento layout. Fields: items[{label, value, description}].
+9. `journey_strip`: one blueprint stage. Fields: phase, action, pain, emotion, mot.
+10. `comparison_row`: competitive or gap comparison. Fields: dimension, ours, theirs, gap.
+11. `narrative_text`: 2-3 sentences of analytical prose. Fields: text.
+12. `section_label`: section divider (alone on a section header slide). Fields: text.
+
+Composition: every body slide carries at least one block with a source attribution
+(`evidence_bullets`, `quote_block`, or `metric_cards` with source); 2-5 blocks per slide, mixed
+types. The renderer selects the template from the block mix: `section_label` alone = section header;
+`problem_statement` + `solution_points` = problem/solution split; `hero_stat` + 3 or more
+`metric_cards` = data insight chart; 4 or more distinct block types = bento grid; `evidence_bullets`
+without metrics = full-width card; otherwise the 55/45 content/data panel. Monotone slides (only
+`narrative_text`) are a failure.
+
+### 8.3 Verbalized Sampling for per-slide narrative (k=3)
+
+Do not emit one fixed narrative per slide. Emit `narrativeCandidates[]` with three candidates, each
+tagged `frame` ('data_lead' opens with the strongest cited figure and its named source; 'story_lead'
+opens with a verbatim persona quote or vignette; 'tension_lead' opens with the contradiction or the
+stakes), `probability` (0.0-1.0, the model's credence the framing fits this slide's role in the deck),
+and `narrativeBlocks` (2-5 blocks from the schema above). The selector keeps the highest-probability
+candidate that satisfies the deck-level variety rule (section dividers prefer 'story_lead';
+data-heavy slides prefer 'data_lead'), then falls back to highest probability, then to the order
+data_lead, story_lead, tension_lead. This is what breaks the "the data shows X, suggesting Y, with
+implications for Z" cadence.
+
+### 8.4 Deterministic enrichment after generation
+
+A deterministic step (no model call) injects metrics, quotes, and sources from the matched report
+section when the slide has none, replaces label-only bullets under 40 characters with evidence
+sentences from the report, and fills empty content arrays from the section prose. Evidence reaches
+the final deck regardless of generation quality; the step never invents.
+
+### 8.5 Element-data imagery contract (E4, 2026-07-02)
+
+The diffusion brand-image lane (`/api/ai/brand-image`, scene descriptions, `brandImage: { concept }`)
+is retired. Content slots on repeating-item templates (theme thumbnail, persona panel, case-study
+panel, recommendation panel) are filled by NATIVE infographic panels composed from each element's
+own structured data (`services/artifactIllustrator.ts::infographicSpecFrom` -> `/api/ai/diagram`;
+families stat-row, process-flow, comparison, ranked-bars, composition; chromeless, token-locked).
+Data-dense matrices (journey, architecture, gap, competitive, blueprint, roadmap) carry diagrams.
+
+GOVERNING RULE (user-locked, HARD): no pure decoration; visuals represent the element's content. You
+no longer describe a scene; you author the element's structured fields richly enough that a
+content-true panel composes from them. Per element: recommendations carry 3 or more concrete
+`actions` / `steps` (each a named move; a `beforeAfter` pair renders as a comparison); themes carry a
+real, named, diverse citation mix (2 or more named sources across source types); personas carry
+complete, specific goals / pains / context entries; case studies carry intervention steps or a
+before/after outcome pair. EMPTY BEATS INVENTED: an element with no derivable structured data gets no
+panel; never pad fields to force one. Numbers in any stat-like field obey the Quantitative Claim
+Rule. Legacy `brandImage` / `imageConcept` fields on GOLD elements are ignored; do not emit them (the
+interactive `#presentation` lane, via the `illustrator` skill, is the one place a composer-seeded
+`imageConcept` still applies).
+
+### 8.6 Evidence mandates, storytelling rules, anti-patterns
+
+- Every body slide has at least one block with a source attribution; `sources[]` lists actual
+  publication / platform names; quote blocks are verbatim with text, attribution, and source;
+  metric values are specific figures from the evidence carried by their cited quote.
+- Every title is a complete sentence stating a conclusion (section 4 governs the craft). Every slide
+  creates urgency, surprise, opportunity, or concern. Speaker notes carry presenter context,
+  audience objections, and transition cues; they never repeat slide content.
+- Never hedge ("it seems", "perhaps", "it is possible that"). Never greet, announce, or narrate the
+  structure (the meta-narration ban in `.claude/CLAUDE.md`). No SaaS calls to action on the closing
+  slide: the close names specific next steps with action, owner, and timeline. Plain text only in
+  every field. Generic sources ("research data", "intelligence sources") are rejected.
+
+### 8.7 Quality floors, dimensional extensibility, and the exemplar firewall
+
+The universal floors apply to every record this flow emits: 3 or more named external citations per
+top-level record; 60 percent or more of citations external; at least one verbatim attributed quote
+per record when the corpus supports it; no fabricated entities; the 350-phrase ban, meta-narration,
+process language, and QA annotations rejected; every top-level title a complete-sentence finding;
+every claim naming a specific entity, system, or mechanism. Before emitting, check each floor; if one
+fails, regenerate.
+
+Dimensions this deck can carry: slide sequence and arc, action titles (one judgment each), per-slide
+evidence, pull quotes, stat callouts (inside cited quotes only), section dividers, speaker notes,
+transitions and throughline. Populate a dimension when the corpus or manifest evidences it; the
+volume of insight is proportional to the volume of data. A chat-driven change is additive and
+anchored: preserve approved content, modify only the named dimension (the reinforcement-inference
+anchored re-ask), never silently rewrite the whole deck. If the user asks for a dimension the corpus
+cannot support, say so and offer to ingest sources; never invent.
+
+The gold-standard exemplar in `hic-workspace/wiki/eval/exemplars/` shows REPRESENTATIVE content for
+form and depth. Match its structure, dimensional coverage, and house style; never its values. A thin
+corpus yields a smaller, honest deck; the exemplar's depth is the ceiling of form, never a quota.
+
+### 8.8 Learned behaviors (consolidated from feedback signals)
+
+- Strictly adhere to the user's specified topic, narrative structure, slide sequence, source
+  materials, and precise UI / UX design elements.
+- Always include a title page, a table of contents (the narrative-arc agenda), and a structured
+  narrative framework with clear themes.
+- Eliminate redundant source citations, increase body copy size, and align sources directly beneath
+  the quotes they support.
 
 ## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
 

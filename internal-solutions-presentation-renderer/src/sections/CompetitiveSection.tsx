@@ -124,7 +124,7 @@ export const CompetitiveSection: React.FC<SectionProps> = ({ data, headlineScale
                         style={{
                           marginTop: '10px',
                           fontSize: '10px',
-                          fontFamily: 'JetBrains Mono, monospace',
+                          fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace",
                           color: 'var(--text-tertiary)',
                         }}
                       >

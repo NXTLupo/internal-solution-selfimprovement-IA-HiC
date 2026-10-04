@@ -130,9 +130,27 @@
       "type": "object",
       "properties": {
         "shadowMode": { "type": "boolean" },
+        "chainRan": { "type": "boolean" },
         "deterministicFailures": { "type": "array", "items": { "type": "string" } },
         "reviewScores": { "type": "object" },
-        "promotedToSkillOpt": { "type": "boolean" }
+        "promotedToSkillOpt": { "type": "boolean" },
+        "ri": {
+          "type": "object",
+          "description": "R-M4: reinforcement-inference record (mirror of RepairResult.ri). Optional, additive.",
+          "required": ["fired", "before", "after", "resolved", "survived"],
+          "properties": {
+            "fired": { "type": "boolean" },
+            "before": { "type": "object", "additionalProperties": { "type": "number" } },
+            "after": { "type": "object", "additionalProperties": { "type": "number" } },
+            "resolved": { "type": "number" },
+            "survived": { "type": "number" }
+          }
+        },
+        "vsCandidates": {
+          "type": "array",
+          "description": "R-M4: verbalized-sampling candidates the gate chose among. Optional, additive.",
+          "items": { "type": "string" }
+        }
       }
     },
     "createdAtIso": { "type": "string" }

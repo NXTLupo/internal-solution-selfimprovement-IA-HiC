@@ -98,7 +98,7 @@ export interface ProviderAdapter {
 /**
  * Provider Registry - manages available providers and selection
  */
-export class ProviderRegistry {
+class ProviderRegistry {
     private adapters: Map<string, ProviderAdapter> = new Map();
     private defaultProvider: string = 'gemini';
 

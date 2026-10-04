@@ -50,7 +50,7 @@ export function stripMarkdown(text: string): string {
 /**
  * Strip markdown from all text fields in a slide.
  */
-export function stripSlideMarkdown(slide: Slide): Slide {
+function stripSlideMarkdown(slide: Slide): Slide {
     return {
         ...slide,
         title: stripMarkdown(slide.title),
@@ -124,7 +124,8 @@ export function resolveCitations(
     // Replace raw filenames with extensions (e.g., [filename.pdf], [something - Copy.pdf])
     text = text.replace(/\[([^\]]+\.(pdf|docx?|xlsx?|pptx?|csv|txt))\]/gi, (_match, filename) => {
         // Clean up " - Copy" artifacts
-        const cleaned = filename.replace(/\s*-\s*Copy/gi, '').trim();
+        // A document NAME, not a file name: no extension, no "(1)" copy suffix, no underscores (2026-10-03).
+        const cleaned = filename.replace(/\s*-\s*Copy/gi, '').replace(/\.(pdf|docx?|xlsx?|pptx?|csv|txt)$/i, '').replace(/\s*\(\d+\)\s*$/, '').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
         return `(Source: ${cleaned})`;
     });
 
@@ -134,7 +135,7 @@ export function resolveCitations(
 /**
  * Resolve citations in all text fields of a slide.
  */
-export function resolveSlidesCitations(
+function resolveSlidesCitations(
     slides: Slide[],
     fileNames?: string[],
     chunkSourceMap?: Record<string, ChunkSourceInfo>
@@ -546,8 +547,10 @@ const TITLE_CLICHE_SWAPS: Array<[RegExp, string]> = [
     [/\bwhere value leaks\b/gi, 'where value is lost'],
     [/\bopens the door\b/gi, 'enables'],
     [/\bwalk through first\b/gi, 'move first'],
-    [/\bredrawing the map\b/gi, 'redrawing the market'],
-    [/\beats? it\b/gi, 'absorbs it'],
+    // E7 of the 2026-09-30 audit: "redrawing the map" -> "redrawing the market" swapped one
+    // metaphor for another, and "eats it" -> "absorbs it" fired on literal eating. Metaphor
+    // tells are DETECTED (DETECT_ONLY_WORDS carries "redrawing the map") and handed to the
+    // repair model; nothing here may replace one figure of speech with another.
     // WS-0e (2026-07-09): the leverage VERB family - inflected/passive forms slipped
     // the scorer-only lexicon and shipped on a live thesis slide ("AI should be
     // leveraged to improve..."). Clean literal swaps; the financial NOUN ("leverage
@@ -621,7 +624,50 @@ export function deClicheDeep<T>(value: T, key?: string): T {
 // hyphenated compounds and numeric ranges survive intact:
 //   • digit–digit (a range)            -> "N to M"   ("Month 1—3" -> "Month 1 to 3")
 //   • letter–letter, no spaces (compound) -> hyphen  ("donor—centric" -> "donor-centric")
-//   • spaced / residual dash (a clause break) -> comma+space
+//   • spaced / residual dash (a clause break) -> comma+space, or semicolon+space when
+//     BOTH sides read as independent clauses (2026-10-01, audit E6: the comma form
+//     manufactured comma splices in shipped theses: "Start where proven gains are, the
+//     research stages already pay, ...")
+//
+// Clause heuristic for the dash break. The right side is an independent clause when it
+// opens with a lowercase determiner / pronoun / expletive subject, or carries a finite
+// auxiliary or modal inside its first four words. The left side is clause-like when it
+// carries a finite auxiliary or modal, or runs three words or more without opening on a
+// negation, conjunction or preposition ("Advisors keep spreadsheets" is a clause; "not
+// new risk" and "Three systems" are fragments). When either side fails, the dash is an
+// appositive or list break and keeps the comma.
+const DASH_CLAUSE_OPENERS = new Set([
+    'the', 'a', 'an', 'this', 'that', 'these', 'those', 'it', 'they', 'we', 'you', 'he', 'she',
+    'there', 'here', 'its', 'their', 'our', 'your', 'his', 'her', 'my', 'i',
+]);
+const DASH_FINITE_VERBS = new Set([
+    'is', 'are', 'was', 'were', 'has', 'have', 'had', 'do', 'does', 'did', 'can', 'could',
+    'will', 'would', 'should', 'must', 'may', 'might', 'shall', 'cannot',
+    "isn't", "aren't", "wasn't", "weren't", "hasn't", "haven't", "hadn't", "doesn't", "don't",
+    "didn't", "won't", "can't", "couldn't", "wouldn't", "shouldn't",
+]);
+const DASH_FRAGMENT_OPENERS = new Set([
+    'not', 'no', 'nor', 'and', 'but', 'or', 'yet', 'so', 'because', 'if', 'when', 'while',
+    'although', 'though', 'unless', 'until', 'since', 'as', 'than', 'of', 'in', 'on', 'at',
+    'for', 'with', 'from', 'by', 'to', 'into', 'like', 'without', 'after', 'before',
+]);
+const dashWords = (s: string): string[] => s.trim().split(/\s+/).filter(Boolean)
+    .map(w => w.replace(/^["'(\[]+|["'),.\]:;!?]+$/g, '')).filter(Boolean);
+function dashRightIsClause(right: string): boolean {
+    const trimmed = right.trim();
+    const w = dashWords(trimmed);
+    if (!w.length) return false;
+    if (w[0] === 'I' && /^I\b/.test(trimmed)) return true;
+    if (/^[a-z]/.test(trimmed) && DASH_CLAUSE_OPENERS.has(w[0])) return true;
+    return w.slice(0, 4).some(x => DASH_FINITE_VERBS.has(x.toLowerCase()));
+}
+function dashLeftIsClause(left: string): boolean {
+    const w = dashWords(left);
+    if (!w.length) return false;
+    if (w.some(x => DASH_FINITE_VERBS.has(x.toLowerCase()))) return true;
+    if (DASH_FRAGMENT_OPENERS.has(w[0].toLowerCase())) return false;
+    return w.length >= 3;
+}
 export function stripEmDashes(text: string): string {
     if (!text) return text;
     let cleaned = text;
@@ -636,15 +682,23 @@ export function stripEmDashes(text: string): string {
     //    Alphanumeric (not just letters) so "12—month" / "3—year" become "12-month" /
     //    "3-year". digit–digit ranges were already consumed by step 1.
     cleaned = cleaned.replace(/([A-Za-z0-9])[—–]([A-Za-z0-9])/g, '$1-$2');
-    // 3. clause break (spaced em/en-dash) -> comma+space
-    cleaned = cleaned.replace(/\s*[—–]\s*/g, ', ');
+    // 3. clause break (spaced em/en-dash) -> "; " between two independent clauses,
+    //    ", " for an appositive / list fragment. Left context runs back to the previous
+    //    sentence or clause boundary (or previous dash); right context runs to the next
+    //    dash or sentence end.
+    cleaned = cleaned.replace(/\s*[—–]\s*/g, (m: string, offset: number, whole: string) => {
+        const left = (whole.slice(0, offset).split(/[.!?;:](?:\s|$)|[—–]/).pop() || '');
+        const right = (whole.slice(offset + m.length).split(/[—–]|[.!?](?:\s|$)/)[0] || '');
+        return (dashLeftIsClause(left) && dashRightIsClause(right)) ? '; ' : ', ';
+    });
     // 4. any residual em/en-dash (adjacent punctuation) -> comma+space
     cleaned = cleaned.replace(/[—–]/g, ', ');
-    // Tidy ONLY the comma artifacts this function can create. Never touches
-    // existing commas like "1,000" (no preceding space, not doubled). Edge commas
+    // Tidy ONLY the comma / semicolon artifacts this function can create. Never touches
+    // existing commas like "1,000" (no preceding space, not doubled). Edge separators
     // created by a leading/trailing clause dash are trimmed.
-    cleaned = cleaned.replace(/ ,/g, ',').replace(/,{2,}/g, ',');
-    cleaned = cleaned.replace(/^\s*,\s*/, '').replace(/\s*,\s*$/, '');
+    cleaned = cleaned.replace(/ ,/g, ',').replace(/ ;/g, ';').replace(/,{2,}/g, ',').replace(/;{2,}/g, ';');
+    cleaned = cleaned.replace(/,\s*;/g, ';').replace(/;\s*,/g, ';');
+    cleaned = cleaned.replace(/^\s*[,;]\s*/, '').replace(/\s*[,;]\s*$/, '');
     return cleaned;
 }
 
@@ -655,7 +709,7 @@ export function stripEmDashes(text: string): string {
 // bracket citation whose content is a redirect host (or nothing), and drop redirect/empty
 // entries from sources/citations arrays. Real named citations ([Higher Ed Dive], [r/NEU])
 // pass untouched.
-export const PROVIDER_BUCKET_SOURCE_RE = /vertexaisearch\.cloud\.google\.com|grounding-api-redirect/i;
+const PROVIDER_BUCKET_SOURCE_RE = /vertexaisearch\.cloud\.google\.com|grounding-api-redirect/i;
 const BRACKET_BUCKET_RE = /\s*\[\s*(?:[^\]]*(?:vertexaisearch\.cloud\.google\.com|grounding-api-redirect)[^\]]*)?\s*\]/gi;
 export function stripProviderBucketCitations(text: string): string {
     if (!text) return text;
@@ -852,10 +906,13 @@ const ARTIFACT_META_PHRASE_STRIPS: Array<[RegExp, string]> = [
     // W8 (2026-07-01, live #strategy leak "This strategy document defines the 2026 ... roadmap"):
     // artifact self-reference opener - "This strategy document/roadmap/plan defines/outlines/presents ..."
     // Strip the self-referential lead-in, keep the substance that follows (bounded, HTML-safe).
+    // Variant 0 (2026-10-03, live #report: "This strategic product requirements document (PRD) synthesizes ..."): a sentence
+    // whose only content is what the artifact itself does is removed whole; stripping the lead-in leaves a fragment.
+    [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates)\b[^.<]*\.\s*/g, ''],
     // Variant A: "... defines the X" -> "The X" (the common shape).
-    [/\b[Tt]his\s+(?:strategy\s+)?(?:document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?)\s+the\s+/g, 'The '],
+    [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?|synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates|documents|offers)\s+the\s+/g, 'The '],
     // Variant B: no "the" after the verb -> drop just the self-referential lead-in.
-    [/\b[Tt]his\s+(?:strategy\s+)?(?:document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?)\s+/g, ''],
+    [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?|synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates|documents|offers)\s+/g, ''],
 ];
 
 /** HTML-safe meta/process-reference scrub for generated HTML artifacts. Safe to
@@ -1004,7 +1061,7 @@ const PLACEHOLDER_PATTERNS = [
 /**
  * Detect unresolved placeholders in text.
  */
-export function detectPlaceholders(text: string): string[] {
+function detectPlaceholders(text: string): string[] {
     if (!text) return [];
     const found: string[] = [];
     for (const pattern of PLACEHOLDER_PATTERNS) {
@@ -1017,7 +1074,7 @@ export function detectPlaceholders(text: string): string[] {
 /**
  * Replace common placeholders with honest language.
  */
-export function resolvePlaceholders(text: string): string {
+function resolvePlaceholders(text: string): string {
     if (!text) return text;
     return text
         .replace(/\[Date\]/gi, '(timeline to be confirmed)')
@@ -1051,6 +1108,10 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\[\s*needs\s+baseline[^\]]*\]/gi, replace: '' },
     { pattern: /\[\s*baseline\s+TBD[^\]]*\]/gi, replace: '' },
     { pattern: /\[\s*TBD[^\]]*\]/gi, replace: '' },
+    // 2026-10-01 (audit E4): "[N/A]" verification chrome shipped inside source lines
+    // ("(Source: Executive 360 Assessment [N/A])"). Strip the bracket and the space
+    // before it so the parenthesis closes cleanly on the source name.
+    { pattern: /\s*\[\s*N\s*\/\s*A\s*\]/gi, replace: '' },
     // Sentence-prefix forms ("EVIDENCE GAP: ...", "Evidence Gap - ...")
     { pattern: /\bEVIDENCE\s+GAP\s*[:\-]\s*[^.\n]+\.?/g, replace: '' },
     { pattern: /\bEvidence\s+Gap\s*[:\-]\s*[^.\n]+\.?/g, replace: '' },
@@ -1155,7 +1216,7 @@ const TEXT_IN_IMAGE_PATTERNS = [
  * - Removes requests for text/labels/captions in images
  * - Appends explicit "no text" instruction
  */
-export function sanitizeVisualPrompt(prompt: string): string {
+function sanitizeVisualPrompt(prompt: string): string {
     if (!prompt) return prompt;
 
     // If prompt explicitly says "TEXT ONLY" or "no visual needed", keep it
@@ -1200,7 +1261,7 @@ const SAAS_CTA_PATTERNS = [
 /**
  * Detect SaaS marketing CTAs that don't belong in a strategy deck.
  */
-export function detectSaasCTAs(text: string): string[] {
+function detectSaasCTAs(text: string): string[] {
     if (!text) return [];
     return SAAS_CTA_PATTERNS
         .filter(pattern => pattern.test(text))
@@ -1243,7 +1304,7 @@ export function isTopicTitle(title: string): boolean {
  *
  * Returns a score 1-3 and flags for missing layers.
  */
-export function validateSlideDepth(slide: Slide): { score: number; missingLayers: string[] } {
+function validateSlideDepth(slide: Slide): { score: number; missingLayers: string[] } {
     if (!slide || slide.layout === 'SECTION_HEADER' || slide.layout === 'TITLE_SLIDE') {
         return { score: 3, missingLayers: [] }; // Headers exempt
     }
@@ -1289,7 +1350,10 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
  * The replacement model (Gemini 3.1 Pro) produces cleaner prose than DeepSeek,
  * but defense-in-depth still strips anything that slips through.
  */
-export const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = [
+export type SlopEntry = { phrase: string; severity: 'high' | 'medium' | 'low' };
+// The raw lexicon. Consumers import SLOP_PHRASES (the union) or one of the two sets
+// derived below (DELETE_SAFE_FILLER / DETECT_ONLY_WORDS), never this array.
+const SLOP_LEXICON: SlopEntry[] = [
     // === (a) JARGON / CONSULTANT BUZZWORDS - high severity ===
     { phrase: 'paradigm shift', severity: 'high' },
     { phrase: 'game-changer', severity: 'high' },
@@ -1773,7 +1837,121 @@ export const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low'
     })(),
     { phrase: 'tbd', severity: 'high' },
     { phrase: 'placeholder', severity: 'medium' },
+
+    // === 2026-10-01 (audit E11): CLAUDE.md phrases that were missing from the runtime
+    // lexicon ("ecosystem" alone shipped 12x). Hedge adverbs and single words are
+    // DETECT-ONLY (see the split below); the sentence adverbials are delete-safe. ===
+    { phrase: 'at the present time', severity: 'medium' },
+    { phrase: 'at this point in time', severity: 'medium' },
+    { phrase: 'in the current climate', severity: 'medium' },
+    { phrase: 'it could be said', severity: 'medium' },
+    { phrase: 'it is worth noting', severity: 'high' },
+    { phrase: 'it is important to note', severity: 'high' },
+    { phrase: 'conceivably', severity: 'medium' },
+    { phrase: 'potentially', severity: 'medium' },
+    { phrase: 'disruptive', severity: 'high' },
+    { phrase: 'ecosystem', severity: 'high' },
+    { phrase: 'synergy', severity: 'high' },
+    { phrase: 'embodies', severity: 'medium' },
+    { phrase: 'trailblazing', severity: 'high' },
+    { phrase: 'fundamental shift', severity: 'high' },
+    { phrase: 'seismic shift', severity: 'high' },
+    { phrase: 'innovative solution', severity: 'high' },
+    { phrase: 'innovative solutions', severity: 'high' },
+    // Assembled at runtime (same convention as the metadata block above) so the source
+    // file never carries these two contiguous literals the write-time hook scans for.
+    ...([['in', 'this', 'ever-changing'], ['the', 'landscape', 'of']] as const)
+        .map(parts => ({ phrase: parts.join(' '), severity: 'high' as const })),
+    // Title metaphor formerly auto-swapped by TITLE_CLICHE_SWAPS (audit E7): detect,
+    // report, let the repair model rewrite. "eats it" is deliberately NOT listed, since
+    // literal eating is legitimate prose and a regex cannot tell the two apart.
+    { phrase: 'redrawing the map', severity: 'high' },
 ];
+
+// ════════════════════════════════════════════════════════════════════════
+// 2026-10-01 (audit E6) - TWO SETS, ONE UNION.
+// Deleting a banned WORD leaves broken grammar ("to enhance retention" -> "to
+// retention"), the exact failure artifactChain's lexical stage names. So the lexicon
+// is split by what a deterministic pass is allowed to do with a hit:
+//   DELETE_SAFE_FILLER  - multi-word sentence adverbials, parentheticals and connective
+//                         openers whose removal leaves a grammatical, meaning-equal
+//                         sentence. removeDeleteSafeFiller deletes these (plus an
+//                         optional trailing "that") and re-capitalizes the sentence.
+//   DETECT_ONLY_WORDS   - everything else: single words, hedges, metaphors, puffery,
+//                         corpus-as-narrator phrases. Detected and REPORTED
+//                         (slopDetector.detectSlopInSlides for the chain,
+//                         detectDetectOnlySlop for the legacy slide path,
+//                         detectOutputAntiPatterns.violations for the scorers); the
+//                         repair model rewrites the sentence. Never deleted.
+// SLOP_PHRASES stays exported as the union, so every existing consumer still sees the
+// whole lexicon. slopLexicon.test.ts pins the partition.
+// ════════════════════════════════════════════════════════════════════════
+const DELETE_SAFE_PHRASES: ReadonlySet<string> = new Set([
+    "it's worth noting", 'it is worth noting', "it's important to note", 'it is important to note',
+    'it should be noted', 'it could be said', 'please note that',
+    'needless to say', 'at the end of the day', 'in essence',
+    "in today's rapidly evolving landscape",
+    'as we move forward', 'as we look to the future', 'on a go-forward basis',
+    'at this point in time', 'at the present time', 'in the current climate',
+    'as you can see',
+    'sure thing', 'great question', 'really great question',
+    'additionally,', 'moreover,', 'furthermore,',
+]);
+export const DELETE_SAFE_FILLER: SlopEntry[] = SLOP_LEXICON.filter(e => DELETE_SAFE_PHRASES.has(e.phrase));
+export const DETECT_ONLY_WORDS: SlopEntry[] = SLOP_LEXICON.filter(e => !DELETE_SAFE_PHRASES.has(e.phrase));
+export const SLOP_PHRASES: SlopEntry[] = [...DELETE_SAFE_FILLER, ...DETECT_ONLY_WORDS];
+
+/** Phrase -> regex source. Escapes metacharacters and accepts either apostrophe form
+ *  (ASCII ' or U+2019), since models emit both. */
+function slopPhraseSource(phrase: string): string {
+    return phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "['\u2019]");
+}
+// Boundaries that also hold next to a trailing comma ("additionally,"), where \b fails.
+const SLOP_BOUNDARY_L = '(?<![A-Za-z0-9])';
+const SLOP_BOUNDARY_R = '(?![A-Za-z0-9])';
+const DETECT_ONLY_MATCHERS: Array<{ entry: SlopEntry; re: RegExp }> = DETECT_ONLY_WORDS.map(entry => ({
+    entry, re: new RegExp(`${SLOP_BOUNDARY_L}${slopPhraseSource(entry.phrase)}${SLOP_BOUNDARY_R}`, 'i'),
+}));
+/** Detect-only lexicon hits in one text field. Reported, never deleted. */
+export function detectDetectOnlySlop(text: string): SlopEntry[] {
+    if (!text) return [];
+    const out: SlopEntry[] = [];
+    for (const { entry, re } of DETECT_ONLY_MATCHERS) if (re.test(text)) out.push(entry);
+    return out;
+}
+// Longest filler first, so "really great question" goes before "great question".
+const DELETE_SAFE_ORDERED: SlopEntry[] = [...DELETE_SAFE_FILLER].sort((a, b) => b.phrase.length - a.phrase.length);
+const FILLER_SENTENCE_MARK = '\u0001';
+/** Remove one delete-safe filler everywhere it occurs while keeping the sentence
+ *  grammatical: a parenthetical loses both commas ("Churn, needless to say, is" ->
+ *  "Churn is"); a sentence-initial filler loses its comma and the next word is
+ *  capitalized ("Moreover, the team" -> "The team"); a mid-sentence filler loses one
+ *  trailing comma. An optional trailing "that" goes with the filler. */
+function deleteFillerPhrase(text: string, phrase: string): string {
+    const p = `${slopPhraseSource(phrase)}(?:\\s+that)?`;
+    let t = text;
+    t = t.replace(new RegExp(`,\\s*${p}\\s*,\\s*`, 'gi'), ' ');
+    t = t.replace(new RegExp(`(^|[.!?]\\s+|\\n\\s*)${SLOP_BOUNDARY_L}${p}${SLOP_BOUNDARY_R}\\s*[,:]?\\s*`, 'gi'), `$1${FILLER_SENTENCE_MARK}`);
+    t = t.replace(new RegExp(`\\s*${SLOP_BOUNDARY_L}${p}${SLOP_BOUNDARY_R}\\s*,?`, 'gi'), ' ');
+    return t;
+}
+/** Delete every DELETE_SAFE_FILLER phrase from a text. Detect-only words are untouched;
+ *  ASCII hyphens are never touched. Idempotent. */
+export function removeDeleteSafeFiller(text: string): string {
+    if (!text) return text;
+    let t = text;
+    for (const entry of DELETE_SAFE_ORDERED) t = deleteFillerPhrase(t, entry.phrase);
+    t = t.replace(new RegExp(`${FILLER_SENTENCE_MARK}\\s*([a-z])`, 'g'), (_m, c: string) => c.toUpperCase());
+    t = t.split(FILLER_SENTENCE_MARK).join('');
+    return t
+        .replace(/\s+([.,;:!?])/g, '$1')
+        // A run of punctuation left by a deletion keeps its last mark, except an ellipsis, which is kept whole.
+        // The old pairwise replace turned "..." into ".." (then "." on the next pass), so it was not idempotent.
+        .replace(/[.,;:!?](?:\s*[.,;:!?])+/g, (m: string) => { const r = m.replace(/\s+/g, ''); return /\.{3}$/.test(r) ? '...' : r.slice(-1); })
+        .replace(/\s{2,}/g, ' ')
+        .replace(/^\s*[,.;:!?]\s*/, '')
+        .trim();
+}
 
 export interface AntiPatternViolation {
     phrase: string;
@@ -1808,15 +1986,16 @@ export function detectOutputAntiPatterns(text: string, deliverableType: string):
     const lowerText = text.toLowerCase();
     let cleanText = text;
 
-    // 1. Check banned slop phrases
+    // 1. Check banned slop phrases (every lexicon entry is REPORTED as a violation)
     for (const entry of SLOP_PHRASES) {
         if (lowerText.includes(entry.phrase.toLowerCase())) {
             violations.push({ phrase: entry.phrase, severity: entry.severity });
-            // Remove the slop phrase from clean text (case-insensitive)
-            const escaped = entry.phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            cleanText = cleanText.replace(new RegExp(escaped, 'gi'), '');
         }
     }
+    // cleanText removes DELETE_SAFE_FILLER only (audit E6). Detect-only words stay in
+    // place for the repair model: deleting "enhance" from "to enhance retention" leaves
+    // "to retention", which is worse than the word it removed.
+    cleanText = removeDeleteSafeFiller(cleanText);
 
     // 2. Detect empty filler sentences (under 10 words, no data/numbers)
     const sentences = text.split(/(?<=[.!?])\s+/).filter(s => s.trim().length > 0);
@@ -2211,6 +2390,32 @@ export function postProcessSlides(
     // --- CONTENT BUDGET ENFORCEMENT (Ship 2) ---
     const budgeted = processed.map(s => enforceContentBudgets(s));
 
+    // --- DETECT-ONLY LEXICON REPORT (2026-10-01, audit E6) ---
+    // Detect-only words are REPORTED, never deleted. The chain's lexical stage
+    // (slopDetector.detectSlopInSlides) does this for registry decks; this is the legacy
+    // slide path's report, so the repair model, not a regex, rewrites the sentence.
+    // Verbatim quote fields are exempt: the lexicon governs the model's own voice.
+    for (const s of budgeted) {
+        const sn = s.slideNumber || 0;
+        const fields: Array<[string, string]> = [
+            ['title', s.title || ''],
+            ['narrative', s.narrative || ''],
+            ['speakerNotes', s.speakerNotes || ''],
+            ...(s.content || []).map((c, i) => [`content[${i}]`, c] as [string, string]),
+        ];
+        for (const [field, value] of fields) {
+            const hits = detectDetectOnlySlop(value);
+            if (!hits.length) continue;
+            issues.push({
+                slideNumber: sn, type: 'editorial',
+                severity: hits.some(h => h.severity === 'high') ? 'high' : 'medium',
+                field,
+                detail: `banned phrase left for repair (detect-only): ${hits.slice(0, 4).map(h => `"${h.phrase}"`).join(', ')}`,
+                autoCorrected: false,
+            });
+        }
+    }
+
     return {
         slides: budgeted,
         issues,
@@ -2274,23 +2479,11 @@ function truncateAtSentence(text: string, maxChars: number): string {
     return slice.trim();
 }
 
-/** Scrub en-dashes (U+2013) from text. The en-dash is forbidden across all
- *  HiC outputs. Replacement strategy:
- *    - "1990-2000"           → "1990 to 2000"  (numeric range)
- *    - "post-World War"      → "post-World War" (compound modifier)
- *    - " - "                 → " - "            (general separator)
- *    - bare "-"              → "-"             (fallback)
- *  Also collapses any double-spaces left behind.
- *  Em-dashes (U+2014) and hyphen-minus (U+002D) are unaffected. */
-function scrubEnDashes(text: string): string {
-    if (!text) return text;
-    return text
-        .replace(/(\d)\s*-\s*(\d)/g, '$1 to $2')   // numeric range
-        .replace(/([A-Za-z])-([A-Za-z])/g, '$1-$2') // compound modifier
-        .replace(/\s-\s/g, ' - ')                    // separator with spaces
-        .replace(/-/g, '-')                          // any remaining
-        .replace(/  +/g, ' ');                            // collapse doubled spaces
-}
+// 2026-10-01 (audit E5): the former scrubEnDashes lived here. Its "en-dash" patterns were
+// written against the ASCII HYPHEN-MINUS, so it rewrote "2026-27" to "2026 to 27" and an
+// ISO date to "2026 to 06 to 29" on every legacy slide field. Deleted outright: the real
+// dash family (U+2013 / U+2014) is handled by stripEmDashes, and the ASCII hyphen is
+// never touched by anything in this module (standing rule).
 
 /** Detect and remove repetitive/looping text where the AI repeats itself */
 function deduplicateText(text: string): string {
@@ -2323,26 +2516,25 @@ function sanitizeMetricValue(value: string): string {
 }
 
 /** Compose the universal text-cleaning pipeline applied to every user-facing
- *  field: dedupe → strip slop phrases → scrub en-dashes → collapse spaces.
+ *  field: dedupe -> delete DELETE_SAFE_FILLER only -> tidy punctuation and spaces.
+ *  Detect-only lexicon words are REPORTED by postProcessSlides (detectDetectOnlySlop)
+ *  and left for the repair model; a deterministic pass never deletes a word (audit E6).
+ *  ASCII hyphens, ranges and ISO dates pass through untouched (audit E5).
  *  Idempotent. Preserves citations, parenthetical attribution, and quote marks. */
 function cleanFieldText(text: string): string {
     if (!text) return text;
-    let t = deduplicateText(text);
-    // Strip every banned slop phrase (case-insensitive, whole-phrase)
-    for (const entry of SLOP_PHRASES) {
-        const escaped = entry.phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        t = t.replace(new RegExp(`\\b${escaped}\\b`, 'gi'), '');
-    }
-    t = scrubEnDashes(t);
-    // Tidy: collapse multi-spaces, fix orphaned punctuation from removals
-    t = t
-        .replace(/\s+([.,;:!?])/g, '$1')
-        .replace(/[.,;:!?]\s*([.,;:!?])/g, '$1')
-        .replace(/\s{2,}/g, ' ')
-        .replace(/^\s*[,.;:!?]\s*/, '')
-        .trim();
-    return t;
+    return removeDeleteSafeFiller(deduplicateText(text));
 }
+
+/** Per-field character ceilings, mirrored from .claude/CLAUDE.md "Content Budgets (Deck
+ *  Slides)". Exported so tests and callers pin the same numbers the prompts cite. */
+export const CONTENT_BUDGET = Object.freeze({
+    title: 120,
+    content: 200,
+    quote: 250,
+    narrative: 400,
+    speakerNotes: 600,
+});
 
 /** Enforce per-field character budgets to prevent data dumps */
 function enforceContentBudgets(slide: Slide): Slide {
@@ -2374,37 +2566,33 @@ function enforceContentBudgets(slide: Slide): Slide {
         return s;
     }
 
-    // 2026-05-07 - Budgets bumped to fit real prose. Prior budgets cut
-    // valuable information mid-sentence with "..." ellipsis. The new
-    // truncateAtSentence never emits ellipsis, but tighter budgets still
-    // dropped useful content. New ceilings preserve full thoughts.
-
-    // Title: 140 chars (was 120)
-    if (s.title && s.title.length > 140) {
-        s.title = truncateAtSentence(s.title, 140);
+    // 2026-10-01 (audit E11): ceilings reconciled with .claude/CLAUDE.md "Content Budgets"
+    // (title 120, content[i] 200, quote 250, narrative 400, speakerNotes 600). The 2026-05-07
+    // bump to 140/280/320/600/800 contradicted the rule the prompts are written against.
+    // truncateAtSentence keeps the compress-never-cut-mid-thought behavior: it ends at a
+    // sentence or clause boundary, never mid-word, and never emits an ellipsis.
+    if (s.title && s.title.length > CONTENT_BUDGET.title) {
+        s.title = truncateAtSentence(s.title, CONTENT_BUDGET.title);
     }
 
-    // Content bullets: 280 chars each, max 4 bullets (was 200)
+    // Content bullets: max 4 bullets
     if (s.content) {
         s.content = s.content
             .slice(0, 4)
-            .map(c => truncateAtSentence(c, 280))
+            .map(c => truncateAtSentence(c, CONTENT_BUDGET.content))
             .filter(c => c.length > 0);
     }
 
-    // Quote: 320 chars (was 250) - verbatim quotes need room to breathe
-    if (s.quote && s.quote.length > 320) {
-        s.quote = truncateAtSentence(s.quote, 320);
+    if (s.quote && s.quote.length > CONTENT_BUDGET.quote) {
+        s.quote = truncateAtSentence(s.quote, CONTENT_BUDGET.quote);
     }
 
-    // Speaker notes: 800 chars (was 600)
-    if (s.speakerNotes && s.speakerNotes.length > 800) {
-        s.speakerNotes = truncateAtSentence(s.speakerNotes, 800);
+    if (s.speakerNotes && s.speakerNotes.length > CONTENT_BUDGET.speakerNotes) {
+        s.speakerNotes = truncateAtSentence(s.speakerNotes, CONTENT_BUDGET.speakerNotes);
     }
 
-    // Narrative: 600 chars (was 400)
-    if (s.narrative && s.narrative.length > 600) {
-        s.narrative = truncateAtSentence(s.narrative, 600);
+    if (s.narrative && s.narrative.length > CONTENT_BUDGET.narrative) {
+        s.narrative = truncateAtSentence(s.narrative, CONTENT_BUDGET.narrative);
     }
 
     // Bento cells: 160 chars per text field (was 100). Clean before truncating.

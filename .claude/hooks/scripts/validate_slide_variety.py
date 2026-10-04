@@ -105,7 +105,7 @@ def main():
             sys.stderr.write(f"  ... and {len(failures) - 8} more\n")
         sys.stderr.write(
             "\nGuidance: invoke the slide-archetype-enforcer skill (or "
-            "deck-narrative-composer with explicit template budget) to allocate "
+            "deck-composer with explicit template budget) to allocate "
             "templates BEFORE the AI fills content. The 18-template system in "
             "components/slideTemplates/types.ts is wasted if every slide is the "
             "same template.\n"

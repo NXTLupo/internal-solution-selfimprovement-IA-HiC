@@ -176,7 +176,7 @@ export async function startTopicModelJob(opts: {
 
 /** Poll once. Returns the current job state. Caller manages the polling
  *  cadence so UIs can throttle or back off. */
-export async function pollTopicModelJob(jobId: string): Promise<TopicJobStatus> {
+async function pollTopicModelJob(jobId: string): Promise<TopicJobStatus> {
     let resp: Response;
     try {
         resp = await fetch(`${PROXY_BASE}/api/topic-model/status/${jobId}`);
@@ -254,7 +254,7 @@ export async function waitForTopicModelJob(
 
 /** Check whether the ML stack is loadable in the proxy. Used to decide
  *  whether to show the Topic Modeling tab at all. */
-export async function checkTopicModelHealth(): Promise<{ ok: boolean; error: string | null }> {
+async function checkTopicModelHealth(): Promise<{ ok: boolean; error: string | null }> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/topic-model/health`);
         if (!resp.ok) return { ok: false, error: `HTTP ${resp.status}` };

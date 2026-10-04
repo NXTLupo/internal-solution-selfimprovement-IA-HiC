@@ -5,6 +5,7 @@
 // 2026-05-24 - Phase 3 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import { parseJSONWithRepair } from './aiOutputRepair';
+import { CLAUDE_REASONING_MODEL } from './aiRouter';
 import {
     emitDegradationEvent,
     isThrottleError,
@@ -32,6 +33,10 @@ export type CriticVerdict = {
      *  The loop fetches evidence for them and re-invokes the critic ONCE with
      *  the evidence block so its edits quote real corpus material. */
     retrieval_queries?: string[];
+    /** 2026-10-01 (plan 2.6, audit C8): set when the critic could NOT review (rubric missing,
+     *  dispatch failure, unparseable output). An errored verdict is never an acceptance: the loop
+     *  records a degradation event, applies no edits, and the panel cannot declare pass. */
+    error?: string;
 };
 
 export type CriticConfig = {
@@ -73,6 +78,8 @@ export type CriticReviseLoopResult<T> = {
     total_cost_usd: number;
     halted_reason: HaltReason;
     degradation_events: DegradationEvent[];
+    /** 2026-10-01: critics that failed to review (name: reason). Empty when every critic ran. */
+    critic_errors: string[];
 };
 
 export type CriticInvoker = (opts: {
@@ -228,7 +235,7 @@ function isPathSafeForDeliverable(deliverable: any, target_path: string): string
  *      strip relies on this; without it the strip never applied and em-dashes
  *      went UP not down.
  */
-export function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
+function applyEdits<T>(deliverable: T, edits: CriticEdit[]): T {
     let draft = JSON.parse(JSON.stringify(deliverable)) as T;
     for (const edit of edits) {
         // 2026-05-25 - $ROOT sentinel handler. When a critic returns an edit
@@ -312,7 +319,9 @@ const PROVIDER_FOR_MODEL: Record<string, Provider> = {
 
 const MODEL_ID: Record<string, string> = {
     'sonnet-4.6': 'claude-sonnet-4-6',
-    'opus-4.8': 'claude-opus-4-8',
+    // 2026-09-30 (plan Stage 0.5): 'opus-*' tier names resolve to the current Claude reasoning model.
+    'opus-4.8': CLAUDE_REASONING_MODEL,
+    'opus-5.5': CLAUDE_REASONING_MODEL,
     'haiku-4.5': 'claude-haiku-4-5-20251001',
 };
 
@@ -326,7 +335,7 @@ const ESTIMATED_CALL_COST: Record<string, number> = {
 };
 
 
-export const defaultCriticInvoker: CriticInvoker = async ({
+const defaultCriticInvoker: CriticInvoker = async ({
     skill_name, deliverable, invocation_model, proxy_base, evidence_block,
 }) => {
     const prompt = CRITIC_PROMPT_TEMPLATE
@@ -446,6 +455,7 @@ export async function criticReviseLoop<T>(opts: CriticReviseLoopOpts<T>): Promis
     const iterationsPerCritic: Record<string, number> = {};
     const critiqueLog: CriticReviseLoopResult<T>['critique_log'] = [];
     const degradationEvents: DegradationEvent[] = [];
+    const criticErrors: string[] = [];
     let totalCost = 0;
     let haltedReason: HaltReason = 'all_accept';
 
@@ -474,7 +484,11 @@ export async function criticReviseLoop<T>(opts: CriticReviseLoopOpts<T>): Promis
                     proxy_base,
                 });
             } catch (err) {
+                // 2026-10-01 (plan 2.6, audit C8): one failed critic no longer skips the rest of the
+                // panel. The failure is recorded (degradation event + critic_errors) and the loop
+                // moves to the next critic; the panel decides what an unreviewed artifact may do.
                 haltedReason = 'critic_error';
+                criticErrors.push(`${critic.skill_name}: ${String((err as any)?.message || err).slice(0, 200)}`);
                 degradationEvents.push(emitDegradationEvent({
                     kind: 'feature_omission',
                     stage: `critic_revise_loop:${critic.skill_name}`,
@@ -482,10 +496,34 @@ export async function criticReviseLoop<T>(opts: CriticReviseLoopOpts<T>): Promis
                     recoverable: true,
                     user_action: 'investigate',
                 }));
-                break outer;
+                continue outer;
             }
 
             totalCost += result.cost_usd;
+
+            if (result.verdict.error) {
+                // The critic answered that it could not review (missing rubric, dispatch failure,
+                // unparseable output). Not an acceptance, not an edit set: record and move on.
+                haltedReason = 'critic_error';
+                criticErrors.push(`${critic.skill_name}: ${result.verdict.error.slice(0, 200)}`);
+                degradationEvents.push(emitDegradationEvent({
+                    kind: 'feature_omission',
+                    stage: `critic_revise_loop:${critic.skill_name}`,
+                    requested: `critic ${critic.skill_name} verdict`,
+                    actual: 'no review',
+                    detail: `Critic could not review: ${result.verdict.error.slice(0, 200)}`,
+                    recoverable: true,
+                    user_action: 'investigate',
+                }));
+                critiqueLog.push({
+                    critic: critic.skill_name,
+                    iteration: iterationsPerCritic[critic.skill_name],
+                    verdict: { ...result.verdict, accept: false, edits: [] },
+                    edits_applied: 0,
+                    cost_usd: result.cost_usd,
+                });
+                continue outer;
+            }
 
             // K2 (2026-08-13, WS-K): feedback-triggered re-retrieval. When the critic
             // reports a coverage hole via retrieval_queries AND the caller supplied an
@@ -570,6 +608,7 @@ export async function criticReviseLoop<T>(opts: CriticReviseLoopOpts<T>): Promis
         total_cost_usd: totalCost,
         halted_reason: haltedReason,
         degradation_events: degradationEvents,
+        critic_errors: criticErrors,
     };
 }
 
@@ -590,23 +629,4 @@ export const RECOMMENDATIONS_LOOP: Omit<CriticReviseLoopOpts<any>, 'deliverable'
     surface_critique_log: true,
 };
 
-export const PERSONAS_LOOP: Omit<CriticReviseLoopOpts<any>, 'deliverable'> = {
-    critics: [
-        { skill_name: 'contradiction-finder', max_iterations: 1, invocation_model: 'sonnet-4.6' },
-    ],
-    revisor_model: 'sonnet-4.6',
-    halt_when: 'all_accept',
-    budget_usd: 0.25,
-    surface_critique_log: true,
-};
 
-export const STRATEGY_LOOP: Omit<CriticReviseLoopOpts<any>, 'deliverable'> = {
-    critics: [
-        { skill_name: 'second-order-thinker', max_iterations: 2, invocation_model: 'opus-4.8' },
-        { skill_name: 'pre-mortem', max_iterations: 1, invocation_model: 'sonnet-4.6' },
-    ],
-    revisor_model: 'sonnet-4.6',
-    halt_when: 'all_accept',
-    budget_usd: 0.75,
-    surface_critique_log: true,
-};

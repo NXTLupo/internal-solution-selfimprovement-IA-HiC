@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-01T15:41:30.164Z",
+  "corpus": {
+    "excerpts": 18,
+    "distinctOrigins": 18
+  },
+  "reps": 2,
+  "models": [
+    "claude-opus-5-5",
+    "claude-sonnet-5-5",
+    "gemini-3.5-flash"
+  ],
+  "runs": [
+    {
+      "model": "claude-opus-5-5",
+      "rep": 1,
+      "ms": 45392,
+      "usage": {
+        "input_tokens": 9476,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 9476,
+            "output_tokens": 5246,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 5246,
+        "output_tokens_details": {
+          "thinking_tokens": 2866
+        },
+        "service_tier": "standard",
+        "inference_geo": "global"
+      },
+      "costUsd": 0.1428,
+      "themes": 11,
+      "thick": 11,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 0,
+      "quotesTotal": 22,
+      "quoteVerified": 22,
+      "quality": 1,
+      "parsed": true
+    },
+    {
+      "model": "claude-opus-5-5",
+      "rep": 2,
+      "ms": 47257,
+      "usage": {
+        "input_tokens": 9476,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 9476,
+            "output_tokens": 5346,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 5346,
+        "output_tokens_details": {
+          "thinking_tokens": 3120
+        },
+        "service_tier": "standard",
+        "inference_geo": "global"
+      },
+      "costUsd": 0.1448,
+      "themes": 10,
+      "thick": 10,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 0,
+      "quotesTotal": 20,
+      "quoteVerified": 20,
+      "quality": 1,
+      "parsed": true
+    },
+    {
+      "model": "claude-sonnet-5-5",
+      "rep": 1,
+      "ms": 41878,
+      "usage": {
+        "input_tokens": 9476,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 9476,
+            "output_tokens": 5834,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 5834,
+        "output_tokens_details": {
+          "thinking_tokens": 3821
+        },
+        "service_tier": "standard",
+        "inference_geo": "global"
+      },
+      "costUsd": 0.0773,
+      "themes": 9,
+      "thick": 3,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 0,
+      "quotesTotal": 18,
+      "quoteVerified": 18,
+      "quality": 0.767,
+      "parsed": true
+    },
+    {
+      "model": "claude-sonnet-5-5",
+      "rep": 2,
+      "ms": 47425,
+      "usage": {
+        "input_tokens": 9477,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 9477,
+            "output_tokens": 6503,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 6503,
+        "output_tokens_details": {
+          "thinking_tokens": 4713
+        },
+        "service_tier": "standard",
+        "inference_geo": "global"
+      },
+      "costUsd": 0.084,
+      "themes": 8,
+      "thick": 7,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 0,
+      "quotesTotal": 16,
+      "quoteVerified": 16,
+      "quality": 0.956,
+      "parsed": true
+    },
+    {
+      "model": "gemini-3.5-flash",
+      "rep": 1,
+      "ms": 49446,
+      "usage": {
+        "input_tokens": 6709,
+        "output_tokens": 1821,
+        "cache_read_input_tokens": 4034
+      },
+      "costUsd": 0.0057,
+      "themes": 10,
+      "thick": 10,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 0,
+      "quotesTotal": 20,
+      "quoteVerified": 19,
+      "quality": 0.982,
+      "parsed": true
+    },
+    {
+      "model": "gemini-3.5-flash",
+      "rep": 2,
+      "ms": 48748,
+      "usage": {
+        "input_tokens": 6708,
+        "output_tokens": 1602,
+        "cache_read_input_tokens": 4034
+      },
+      "costUsd": 0.0051,
+      "themes": 9,
+      "thick": 9,
+      "hedged": 0,
+      "unverifiedIdentifiers": 0,
+      "slopHits": 3,
+      "quotesTotal": 18,
+      "quoteVerified": 17,
+      "quality": 0.931,
+      "parsed": true
+    }
+  ],
+  "aggregate": {
+    "claude-opus-5-5": {
+      "runs": 2,
+      "failed": 0,
+      "quality": 1,
+      "themes": 10.5,
+      "thick": 10.5,
+      "quoteVerbatimRate": 1,
+      "costUsd": 0.1438,
+      "seconds": 46.3
+    },
+    "claude-sonnet-5-5": {
+      "runs": 2,
+      "failed": 0,
+      "quality": 0.861,
+      "themes": 8.5,
+      "thick": 5,
+      "quoteVerbatimRate": 1,
+      "costUsd": 0.0806,
+      "seconds": 44.7
+    },
+    "gemini-3.5-flash": {
+      "runs": 2,
+      "failed": 0,
+      "quality": 0.957,
+      "themes": 9.5,
+      "thick": 9.5,
+      "quoteVerbatimRate": 0.947,
+      "costUsd": 0.0054,
+      "seconds": 49.1
+    }
+  },
+  "decisionRule": "a cheaper model may take theme breadth only if its mean quality is at least 0.90 of the reasoning model and its failed-run count is 0",
+  "recommendation": "re-tier theme breadth to gemini-3.5-flash (quality 0.957 vs 1, cost 0.0054 vs 0.1438 per run)",
+  "totalCostUsd": 0.4597
+}

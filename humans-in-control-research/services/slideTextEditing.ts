@@ -376,7 +376,7 @@ export async function suggestFieldRewrites(current: string, slideTitle?: string)
 }
 
 /** The per-field AI rewrite actions (PDF item 12). Instructions are literal and minimal. */
-export const REWRITE_ACTIONS: Record<string, string> = {
+const REWRITE_ACTIONS: Record<string, string> = {
     concise: 'Rewrite this more concisely. Keep the core claim and any named sources. Cut every word that adds no fact.',
     executive: 'Rewrite this for an executive reader: plain subject, direct verb, the decision or consequence up front.',
     specific: 'Rewrite this to be more specific: name the actor, the system, or the named source instead of abstractions.',
@@ -400,7 +400,7 @@ export function scrubRewrite(text: string): string {
  * DEFAULT_MODELS.fast_generation - the model id is never hardcoded here).
  * Returns the scrubbed rewrite, or '' on any failure (caller keeps the original).
  */
-export async function rewriteFieldText(
+async function rewriteFieldText(
     current: string, action: keyof typeof REWRITE_ACTIONS | string, slideTitle?: string,
 ): Promise<string> {
     const instruction = REWRITE_ACTIONS[action as string] || String(action);

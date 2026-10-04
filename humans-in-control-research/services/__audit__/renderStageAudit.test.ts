@@ -295,7 +295,8 @@ describe('stage-html audit harness', () => {
     fs.mkdirSync(OUT, { recursive: true });
     const index: string[] = [];
     for (const [template, fixture] of Object.entries(FIXTURES)) {
-      const brands = BOTH_BRANDS.has(template) ? ['nxt', 'nu'] : ['nxt'];
+      // 2026-10-01 - third brand mode: the dual-brand set renders DECIEM too (template art + lockup).
+      const brands = BOTH_BRANDS.has(template) ? ['nxt', 'nu', 'deciem'] : ['nxt'];
       for (const brand of brands) {
         const slide = { ...fixture, template, brand };
         const html = slideDataToStageHtml(slide as any);

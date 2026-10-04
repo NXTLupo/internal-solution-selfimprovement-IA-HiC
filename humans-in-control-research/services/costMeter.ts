@@ -18,6 +18,8 @@ export type ModelId =
     | 'gemini-3.5-flash'
     | 'gemini-2.5-flash'
     | 'deepseek-v4-pro'
+    | 'claude-opus-5-5'
+    | 'claude-sonnet-5-5'
     | 'claude-opus-4-8'
     | 'claude-opus-4-7'
     | 'claude-opus-4-6'
@@ -39,6 +41,10 @@ const PRICING: Record<ModelId, { in: number; out: number }> = {
     'gemini-3.5-flash':       { in: 0.30, out: 1.20 },
     'gemini-2.5-flash':       { in: 0.30, out: 1.20 },
     'deepseek-v4-pro':        { in: 0.55, out: 2.20 },
+    // 2026-09-30 (plan Stage 0.5): Claude Opus 5.5 is THE reasoning model ($4/$20,
+    // cache read $0.20 = 0.05x); Sonnet 5.5 the structured / fallback tier ($2/$10).
+    'claude-opus-5-5':        { in: 4.00, out: 20.0 },
+    'claude-sonnet-5-5':      { in: 2.00, out: 10.0 },
     'claude-opus-4-8':        { in: 5.00, out: 25.0 },
     'claude-opus-4-7':        { in: 15.0, out: 75.0 },
     'claude-opus-4-6':        { in: 15.0, out: 75.0 },
@@ -117,7 +123,7 @@ export function getRunTotals(): RunTotals {
     return currentRun;
 }
 
-export function getRecentCalls(n = 50): CallRecord[] {
+function getRecentCalls(n = 50): CallRecord[] {
     return recentCalls.slice(-n);
 }
 
@@ -131,13 +137,15 @@ export function subscribeRunTotals(fn: Subscriber): () => void {
  * whatever string the body had in body.model; we map alias/variant strings
  * to the canonical entry.
  */
-export function normalizeModel(raw: string | undefined): ModelId {
+function normalizeModel(raw: string | undefined): ModelId {
     if (!raw) return 'unknown';
     const s = String(raw).toLowerCase().trim();
     // 2026-06-13 - Fable 5 temporarily banned; any stray 'fable' string maps to
     // its stand-in Opus 4.8 so cost accounting never drops to 'unknown'.
-    if (s.includes('fable')) return 'claude-opus-4-8';
-    if (s.includes('opus-4-8') || s === 'claude-opus') return 'claude-opus-4-8';
+    if (s.includes('fable')) return 'claude-opus-5-5';
+    if (s.includes('opus-5-5') || s.includes('opus-5') || s === 'claude-opus') return 'claude-opus-5-5';
+    if (s.includes('sonnet-5-5') || s.includes('sonnet-5')) return 'claude-sonnet-5-5';
+    if (s.includes('opus-4-8')) return 'claude-opus-4-8';
     if (s.includes('opus-4-7')) return 'claude-opus-4-7';
     if (s.includes('opus-4-6')) return 'claude-opus-4-6';
     if (s.includes('sonnet-4-6') || s === 'claude-sonnet') return 'claude-sonnet-4-6';
@@ -180,7 +188,7 @@ export interface TokenUsage {
     cacheWrite: number;
 }
 
-export function extractTokenUsage(response: any): TokenUsage {
+function extractTokenUsage(response: any): TokenUsage {
     const z: TokenUsage = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
     if (!response || typeof response !== 'object') return z;
 
@@ -263,8 +271,14 @@ export function recordAICall(args: {
     // subset (see extractTokenUsage): Anthropic input EXCLUDES cache tokens;
     // OpenAI/Gemini input INCLUDES cacheRead, so we bill the non-cached
     // remainder at full rate + the cached remainder at the read discount.
-    const CACHE_READ_FACTOR = 0.1;
-    const CACHE_WRITE_FACTOR = 1.25;
+    // 2026-09-30 (plan 0.5.8): the 5.x generation prices cache reads at 0.05x
+    // ($0.20 on $4.00); earlier Claude models at 0.1x. The WRITE premium depends on
+    // the TTL the proxy bought (1.25x at 5m, 2.0x at 1h): the proxy reports it on
+    // the response as _hic_cache_write_factor so the meter bills the real price
+    // instead of the 1.25x it assumed while the proxy was buying 1h (plan D3).
+    const CACHE_READ_FACTOR = /claude-(opus-5|sonnet-5|fable)/.test(model) ? 0.05 : 0.1;
+    const _reportedWrite = Number((args.response as any)?._hic_cache_write_factor);
+    const CACHE_WRITE_FACTOR = Number.isFinite(_reportedWrite) && _reportedWrite > 0 ? _reportedWrite : 1.25;
     const isAnthropicShape = cacheWrite > 0 || (cacheRead > 0 && input > 0 && model.startsWith('claude'));
     let inputCostUSD: number;
     if (isAnthropicShape) {
@@ -324,6 +338,12 @@ export function recordAICall(args: {
 }
 
 /** Format a USD amount with sensible precision: <$1 → cents, ≥$1 → 2 decimals. */
+/** List price (USD per 1M tokens) for a model id, normalized. Critic/panel cost
+ *  estimates read this instead of carrying their own hardcoded numbers. */
+export function listPriceFor(model: string | undefined): { in: number; out: number } {
+    return PRICING[normalizeModel(model)] || PRICING.unknown;
+}
+
 export function formatUSD(usd: number): string {
     if (!isFinite(usd) || usd <= 0) return '$0.00';
     if (usd < 0.01) return '<$0.01';
@@ -333,7 +353,9 @@ export function formatUSD(usd: number): string {
 
 /** User-facing display names for each model id. Surfaces wherever costs are shown
  *  so the user knows WHICH model their money went to, not just how much. */
-export const MODEL_DISPLAY_NAMES: Record<ModelId, string> = {
+const MODEL_DISPLAY_NAMES: Record<ModelId, string> = {
+    'claude-opus-5-5':         'Claude Opus 5.5',
+    'claude-sonnet-5-5':       'Claude Sonnet 5.5',
     'claude-opus-4-8':         'Claude Opus 4.8',
     'claude-opus-4-7':         'Claude Opus 4.7',
     'claude-opus-4-6':         'Claude Opus 4.6',
@@ -368,7 +390,7 @@ export function snapshotByModel(): Record<string, { callCount: number; inputToke
 
 /** Diff a prior byModel snapshot against the current state. Returns only models
  *  that actually accrued cost since the snapshot, sorted by cost descending. */
-export function diffByModel(snapshot: Record<string, { costUSD: number; callCount: number; inputTokens: number; outputTokens: number }>): Array<{ model: string; displayName: string; costUSD: number; callCount: number; inputTokens: number; outputTokens: number }> {
+function diffByModel(snapshot: Record<string, { costUSD: number; callCount: number; inputTokens: number; outputTokens: number }>): Array<{ model: string; displayName: string; costUSD: number; callCount: number; inputTokens: number; outputTokens: number }> {
     const out: Array<any> = [];
     const seen = new Set<string>();
     Object.entries(currentRun.byModel).forEach(([k, v]) => {

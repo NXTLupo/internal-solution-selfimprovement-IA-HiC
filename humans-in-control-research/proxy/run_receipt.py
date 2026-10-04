@@ -77,6 +77,13 @@ class RunReceipt:
         self.duration_ms = int((time.time() - self.started) * 1000)
         return self
 
+    def _estimate_cost(self):
+        try:
+            from model_registry import price_usd
+            return round(price_usd(self.model_final or "", self.tokens_in, self.tokens_out), 6)
+        except Exception:
+            return None
+
     def to_dict(self) -> dict:
         return {
             "run_id": self.run_id,
@@ -87,7 +94,9 @@ class RunReceipt:
             "duration_ms": getattr(self, "duration_ms", int((time.time() - self.started) * 1000)),
             "model_final": self.model_final,
             "totals": {"tokens_in": self.tokens_in, "tokens_out": self.tokens_out,
-                       "cost_usd": None},  # deferred: from actual account charge data, not estimated
+                       # 2026-10-01 (plan Stage 0.2): list-price estimate from model_registry.PRICES
+                       # (the same table the per-call usage ledger uses). Labeled as an estimate.
+                       "cost_usd": self._estimate_cost(), "cost_basis": "list-price estimate"},
             "attempts": self.attempts,
             "degradations": self.degradations,
             "coverage": self.coverage,

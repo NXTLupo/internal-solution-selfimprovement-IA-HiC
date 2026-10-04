@@ -171,7 +171,9 @@ export function extractEvidenceClaims(slide: any): EvidenceClaim[] {
                     claims.push({ slideId, slideTitle, field: p, attributions: attrs, kind: 'stat', text: stripPointerMarkers(v), pointers: objectPointers });
                     continue;
                 }
-                pushClaim(p, v, k, attrs);
+                // 2026-10-02: a quote may carry its pointer in a sibling field ({quote, source, pointer}) instead of
+                // inline text; the coverage fills do, so a provenance-locked quote is not reported as label-only.
+                pushClaim(p, v, k, attrs, QUOTEISH_KEY.test(k) ? objectPointers : []);
             } else if (v && typeof v === 'object') {
                 visit(v, p, depth + 1, attrs.length ? attrs : inheritedAttrs);
             }
@@ -188,6 +190,10 @@ export function normalizeForMatch(s: string): string {
         .replace(/[‘’‚′]/g, "'")
         .replace(/[“”„″]/g, '"')
         .replace(/[–—]/g, '-')
+        // 2026-10-01: a single quote used as QUOTATION punctuation ('platform') is treated like a double
+        // quote (dropped), so nested quote marks never decide a verbatim match; apostrophes inside a word
+        // (don't, student's) are kept.
+        .replace(/(^|[^a-z0-9])'+|'+(?=[^a-z0-9]|$)/g, '$1 ')
         .replace(/[^a-z0-9%$.']+/g, ' ')
         .replace(/\s{2,}/g, ' ')
         .trim();

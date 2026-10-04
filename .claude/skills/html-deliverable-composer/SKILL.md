@@ -44,7 +44,7 @@ Which layer dominates depends on the directive:
 
 ## NXT brand-lock (mandatory — non-negotiable)
 
-Every HTML artifact MUST use the NXT design system unless the user explicitly invokes `#NU` in the directive. The artifact `/view` endpoint will inject these CSS variables at runtime, but you SHOULD reference them by name in your generated CSS:
+Every HTML artifact MUST use the NXT design system unless the user explicitly invokes `#NU` or `#DECIEM` in the directive. The artifact `/view` endpoint will inject these CSS variables at runtime, but you SHOULD reference them by name in your generated CSS:
 
 ```css
 :root {
@@ -90,6 +90,25 @@ For `#NU` artifacts, swap the accent system to:
   --nu-red-tint: #FBE7EA;
   --nxt-font-display: 'Lato', sans-serif;
   --nxt-font-body: 'Lato', sans-serif;
+}
+```
+
+For `#DECIEM` artifacts, swap to the DECIEM set. DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM:
+
+```css
+:root {
+  --nxt-bg: #000000;             /* title / section canvases; body surfaces use #FFFFFF with black type */
+  --nxt-surface: #0A0A0A;
+  --nxt-text-primary: #FFFFFF;
+  --nxt-text-secondary: #E6E6E6;
+  --deciem-pink: #FB48C4;        /* primary accent */
+  --deciem-cyan: #00FACC;
+  --deciem-purple: #8A69D4;
+  --deciem-orange: #FF6C2F;      /* warn */
+  --nxt-font-display: 'Poppins', sans-serif;   /* Bold, uppercase headlines */
+  --nxt-font-body: 'Josefin Sans', sans-serif;
+  --nxt-font-mono: 'Nunito', sans-serif;
+  --nxt-font-label: 'Poppins', sans-serif;
 }
 ```
 

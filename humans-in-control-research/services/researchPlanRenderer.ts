@@ -8,8 +8,9 @@
 // 2026-05-24 - Phase 5 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import type { ResearchPlan } from './researchPlanner';
+import { getBrand, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
-type Brand = 'nxt' | 'nu';
+type Brand = BrandId;
 
 function escapeHtml(s: string): string {
     return (s || '')
@@ -103,8 +104,58 @@ export interface ResearchPlanRenderInput {
     brand: Brand;
 }
 
+// 2026-10-01 - DECIEM research-plan skin, token-derived (white canvas, black ink, Poppins Bold
+// uppercase title, Josefin Sans body, pink / purple pops). Mirrors the NU_RP_STYLE class set.
+function deciemRpStyle(): string {
+    const b = getBrand('deciem');
+    const hx = (v: string) => '#' + String(v || '000000').replace(/^#/, '');
+    const ink = hx(b.INK), paper = hx(b.WHITE), accent = hx(b.CHARTREUSE), purple = hx(b.ACCENT_COOL), warn = hx(b.ACCENT_WARN);
+    const hair = hx(b.HAIRLINE), grey = hx(b.GREY), body = hx(b.BODY), panel = hx(b.PANEL), wash = hx(b.CHARTREUSE_PALE);
+    // Font roles (template audit): Poppins Bold uppercase = every title, subtitle and label; Josefin Sans = body;
+    // FONT_MONO (Nunito) = tables, data, meta and source lines. FONT_LABEL falls back to the display face.
+    const labelFace = String((b as Record<string, unknown>).FONT_LABEL || b.FONT_DISPLAY);
+    const display = `'${b.FONT_DISPLAY}', sans-serif`, bodyFont = `'${b.FONT_BODY}', sans-serif`, mono = `'${b.FONT_MONO}', sans-serif`;
+    const label = `'${labelFace}', sans-serif`;
+    const transform = b.TITLE_TRANSFORM || 'none';
+    return `
+  html, body { width: 1920px; min-height: 1080px; background: ${paper}; color: ${body}; }
+  body { font-family: ${bodyFont}; }
+  .rp-frame { width: 1920px; padding: 56px 80px; }
+  .rp-kicker { font-family: ${label}; font-weight: 700; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: ${grey}; margin-bottom: 8px; }
+  .rp-title { font-family: ${display}; font-weight: ${b.TITLE_WEIGHT}; text-transform: ${transform}; font-size: 44px; line-height: 1; color: ${ink}; margin-bottom: 6px; }
+  .rp-goal { font-size: 16px; color: ${ink}; max-width: 1500px; margin-bottom: 24px; line-height: 1.45; }
+  .rp-rail { width: 56px; height: 4px; background: ${accent}; margin-bottom: 24px; }
+  .rp-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; }
+  .rp-section-label { font-family: ${label}; font-weight: 700; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: ${grey}; margin-bottom: 12px; }
+  .rp-sq { margin-bottom: 14px; padding: 12px 16px; background: ${panel}; border-left: 3px solid ${purple}; }
+  .rp-sq.priority-high { border-left-color: ${accent}; }
+  .rp-sq.priority-low { border-left-color: ${hair}; }
+  .rp-sq-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
+  .rp-sq-id { font-family: ${label}; font-weight: 700; text-transform: uppercase; font-size: 9px; letter-spacing: 1.5px; color: ${grey}; }
+  .rp-sq-prio { font-family: ${label}; font-weight: 700; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 6px; border-radius: 1px; }
+  .rp-sq-prio.high { background: ${accent}; color: ${ink}; }
+  .rp-sq-prio.medium { background: ${paper}; color: ${ink}; border: 1px solid ${ink}; }
+  .rp-sq-prio.low { background: ${panel}; color: ${grey}; }
+  .rp-sq-q { font-size: 14px; line-height: 1.45; color: ${body}; margin-bottom: 6px; }
+  .rp-sq-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .rp-tag { display: inline-block; padding: 2px 6px; font-family: ${label}; font-weight: 700; text-transform: uppercase; font-size: 8px; letter-spacing: 0.8px; background: ${paper}; color: ${purple}; border: 1px solid ${hair}; border-radius: 1px; }
+  .rp-tag.angle { color: ${ink}; }
+  .rp-tag.entity { color: ${warn}; }
+  .rp-budget-card { padding: 22px; background: ${panel}; border: 1px solid ${hair}; margin-bottom: 20px; }
+  .rp-budget-stat { margin-bottom: 14px; }
+  .rp-budget-label { font-family: ${label}; font-weight: 700; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: ${grey}; margin-bottom: 4px; }
+  .rp-budget-value { font-family: ${display}; font-weight: ${b.TITLE_WEIGHT}; font-size: 28px; color: ${ink}; line-height: 1; }
+  .rp-source-list { font-family: ${mono}; font-size: 10px; line-height: 1.7; color: ${body}; }
+  .rp-source-list li { margin-bottom: 8px; padding-left: 10px; border-left: 2px solid ${hair}; }
+  .rp-source-list b { color: ${purple}; }
+  .rp-help { margin-top: 28px; padding: 16px 20px; background: ${wash}; border-left: 3px solid ${accent}; font-size: 12px; line-height: 1.55; color: ${body}; }
+  .rp-help b { color: ${ink}; }
+`;
+}
+
 export function renderResearchPlanHtml(input: ResearchPlanRenderInput): string {
-    const css = input.brand === 'nu' ? NU_RP_STYLE : NXT_RP_STYLE;
+    const brandId = normalizeBrandId(input.brand);
+    const css = brandId === 'deciem' ? deciemRpStyle() : brandId === 'nu' ? NU_RP_STYLE : NXT_RP_STYLE;
 
     const sqHtml = input.plan.sub_questions.map(sq => {
         const angleColor = ANGLE_COLORS[sq.angle] || '#888';

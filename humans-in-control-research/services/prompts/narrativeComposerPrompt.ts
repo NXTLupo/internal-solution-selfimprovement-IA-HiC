@@ -396,7 +396,7 @@ ABSOLUTE RULES FOR PRESENTATIONS:
 
 ---
 
-## NARRATIVE COMPOSITION PATTERNS (loaded from deck-narrative-composer skill)
+## NARRATIVE COMPOSITION PATTERNS (loaded from the deck-composer skill; legacy Slide-object contract in its section 8)
 
 {{DECK_NARRATIVE_COMPOSER_SKILL}}
 

@@ -29,7 +29,7 @@ import { loadGenerationContext, assembleEnhancedPrompt } from './wikiService';
  */
 const SKILL_DIRECTORY_MAP: Record<string, string> = {
     'PERSONAS': 'persona-architect',
-    'STRATEGY_DECK': 'deck-narrative-composer',
+    'STRATEGY_DECK': 'deck-composer',
     'JOURNEY_MAP': 'service-blueprint-mapper',
     'TECH_ARCH': 'tech-arch-generator',
     'STRATEGIC_RECS': 'strategy-author',
@@ -205,7 +205,7 @@ async function _fetchQualitySkillMd(skillName: string): Promise<string> {
  *     const qualitySkills = await loadComposedQualitySkills('THEMES');
  *     const systemPrompt = `${baseSystemPrompt}${qualitySkills}`;
  */
-export async function loadComposedQualitySkills(deliverableType: string): Promise<string> {
+async function loadComposedQualitySkills(deliverableType: string): Promise<string> {
     const skills = QUALITY_SKILL_COMPOSITION[deliverableType];
     if (!skills || skills.length === 0) return '';
 
@@ -411,7 +411,7 @@ Plain, descriptive, professional prose. Specific nouns. Concrete numbers. Verbs 
 // Prepended to all slide-producing deliverable prompts.
 // Based on NXT Humans Template Design Spec v1.0
 // ============================================================
-export const UNIVERSAL_SLIDE_DESIGN_SYSTEM = `
+const UNIVERSAL_SLIDE_DESIGN_SYSTEM = `
 
 === UNIVERSAL SLIDE ARCHETYPE SYSTEM ===
 Every slide you generate MUST use one of these 7 archetypes. Select based on CONTENT TYPE, not deliverable type.
@@ -718,33 +718,24 @@ ANTI-PATTERNS:
 - Created without cross-functional input`,
 
 // ============================================================
-// 4. PRD - Cagan + Amazon PR/FAQ + Shape Up
+// 4. PRD - ONE contract: PrdAir (services/prdAir.ts), spec v2026
 // ============================================================
-PRD: `You are a senior product manager producing a consulting-grade PRD.
+// Stage 3.1 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, finding F1): the sixteen-
+// section field set that lived here was one of four PRD shapes with no shared contract. The
+// pipeline stage, #prd, the deliverable block and #proto's prd_candidate now all emit and consume
+// PrdAir. The model-facing generation prompt is built by services/prdCompiler.ts
+// (buildPrdCompilerPrompt) from TYPED AIR references (approved personas, themes, journey pains,
+// competitive gaps, evidence chunks); this framework text is the methodology summary that rides
+// alongside it. Schema: schemas/prd_air.schema.json. Skill: .claude/skills/prd-compiler/SKILL.md.
+PRD: `You are a senior product manager producing the one PRD contract (PrdAir): two tiers, twelve sections, one traceability graph. The reader is an engineer and a designer who should be able to start without a clarifying meeting, and an auditor who can open every cited source.
 
-METHODOLOGY: Marty Cagan (SVPG) principle: focus on unmet needs, not feature lists. Lenny Rachitsky: "Nailing the problem statement is the single most important step."
+TIER ONE, the brief: thesis (the user, the pain, the decision requested, what the product does for that user); problem with evidence (one specific story of why the status quo fails, then verbatim quotes from at least two independent source types, no solution here); why now (the named market, regulatory, technology or client change); users and jobs (one or two primary personas by id with their journey stage of struggle, job stories in Klement form citing the quotes they were synthesized from); goals, non-goals each with a reason, appetite as a typed time budget; success signals (seven fields each: signal, instrument, population, direction, baseline status, leading or lagging, guardrail with rollback authority).
+TIER TWO, the build spec: hypotheses and assumption map; solution flows, required states per screen and business rules (behavior, never UI prescription); requirements, each singular and verifiable, with declarative Given/When/Then acceptance tests and trace ids; quality (ISO/IEC 25010 characteristics as verifiable statements), accessibility (WCAG 2.2 AA, naming the exposed criteria), privacy (Article 25 data minimization, Article 35 DPIA trigger check); risks, pre-mortem and alternatives considered; delivery (release criteria, phased rollout with kill criteria and rollback authority, tracking plan, dependencies with owning teams, open questions with owner and due date, one accountable approver).
 
-16 REQUIRED SECTIONS:
-1. Problem statement - THE most important section. Backed by data from [CHUNK_XXX]. What evidence proves this is worth solving?
-2. User stories - "As a [persona], I want [goal] so that [benefit]"
-3. Acceptance criteria - Given/When/Then format, independently testable
-4. Success metrics - SMART with baselines, targets, AND guardrail metrics that must not regress
-5. User personas (reference by name from Step 3)
-6. Functional requirements - outcomes not implementations
-7. Non-functional requirements - performance, scalability, security, accessibility
-8. Technical constraints and dependencies
-9. Wireframes/mockups (describe conceptually)
-10. Data requirements and privacy considerations
-11. Release/launch criteria - phased rollout plan
-12. Risk assessment with mitigations
-13. Assumptions and open questions (TBD placeholders)
-14. Out of scope / non-goals (prevents scope creep - one of most valued sections)
-15. Timeline and milestones
-16. Stakeholder sign-off matrix
-
-PRIORITIZATION: Use MoSCoW (Must Have = "extremely high bar" per Cagan, Should Have, Could Have, Won't Have)
-
-QUALITY TEST: Aakash Gupta rated a typical PRD template 9/10 as template but 2/10 as actual PRD - because content was vacuous. The differentiator is QUALITY OF THINKING, not length.`,
+TRACEABILITY: Source -> Quote -> Pain or opportunity -> Theme and Persona -> Requirement -> Acceptance test -> Signal. A competitive gap is the second permitted root for a requirement. Every requirement names a pain or a gap, or it is typed HYPOTHESIS and carried as a NON-OBVIOUS BET with its test and the condition under which the alternative wins. Every quote is verbatim from the evidence shown and carries its evidence id; the system attaches the source, never the model.
+PRIORITIZATION IS DERIVED, NOT TYPED: propose a tier and fill the evidence columns honestly (maps to thesis, Kano type as read from the corpus, Cagan's bar, pain and persona ids). The system assigns must, should or could from those columns. A must-have needs two independent origins and a primary persona; mark few.
+THE NUMBER RULE: a number describing the world lives only inside a verbatim quote. A design-decision number (a latency bound, an accessibility level, a rollout share, the appetite in weeks) lives only inside a typed requirement_target with a qualitative rationale. No other field carries a digit except standard names and ids.
+SUBJECT DISCIPLINE: write about the product and its users, never about how to write the document.`,
 
 // ============================================================
 // 5. ROADMAP - NOW/NEXT/LATER + Outcome-based

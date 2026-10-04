@@ -879,7 +879,7 @@
     "bestModel": "claude-opus-4-7",
     "thinkingEffort": "high",
     "executionContext": "subagent",
-    "path": "inline://case-study-template"
+    "path": "/skills/case-study-analyst/SKILL.md"
   },
   {
     "id": "benchmark-reporter",
@@ -925,9 +925,9 @@
     "path": "inline://stat-row-template"
   },
   {
-    "id": "deck-narrative-composer",
-    "name": "Deck Narrative Composer",
-    "description": "Content-block narrative generation using 12 block types. Report-derived distillation with per-slide context injection. Progressive disclosure: outline narrative first, then map to NXT visual blocks.",
+    "id": "deck-composer",
+    "name": "Deck Composer",
+    "description": "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry): archetype selection by content shape, gate-enforced visual floor and variety rules, narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, reference-deck voice; section 8 carries the legacy GOLD Slide-object contract (12 content block types) folded from deck-narrative-composer on 2026-10-01.",
     "category": "research-deliverable",
     "triggers": [
       "deck",
@@ -961,7 +961,7 @@
       "second-order-thinker",
       "human-voice-editor"
     ],
-    "path": "/skills/deck-narrative-composer/SKILL.md"
+    "path": "/skills/deck-composer/SKILL.md"
   },
   {
     "id": "nxt-visual-renderer",
@@ -1015,7 +1015,7 @@
   {
     "id": "slide-templates",
     "name": "NXT Humans Slide Templates",
-    "description": "The 10 canonical slide templates, available in two visual brands chosen by hashtag in the user's prompt: #NXT (NXT Humans — teal + chartreuse, default) or #NU (Northeastern University — near-black + Huskies Red). Every slide emitted by the chat picks one of the 10 templates, fills the data shape, and the web preview + PPTX export + PDF export all render from the SAME data for pixel parity. Templates: persona-card (persona-architect), recommendation (strategy-author), theme-cluster (theme-analyst), competitive-matrix (competitive-analyst), block-quote (evidence-curator), case-study (case-study-analyst), principles (strategy-author), stat-row (benchmark-reporter), timeline (roadmap-builder), section-divider (deck-narrative-composer). Emit :::slide template=NAME [brand=nxt|nu] blocks — never freelance a layout.",
+    "description": "The 10 canonical slide templates, available in two visual brands chosen by hashtag in the user's prompt: #NXT (NXT Humans — teal + chartreuse, default) or #NU (Northeastern University — near-black + Huskies Red). Every slide emitted by the chat picks one of the 10 templates, fills the data shape, and the web preview + PPTX export + PDF export all render from the SAME data for pixel parity. Templates: persona-card (persona-architect), recommendation (strategy-author), theme-cluster (theme-analyst), competitive-matrix (competitive-analyst), block-quote (evidence-curator), case-study (case-study-analyst), principles (strategy-author), stat-row (benchmark-reporter), timeline (roadmap-builder), section-divider (deck-composer). Emit :::slide template=NAME [brand=nxt|nu] blocks — never freelance a layout.",
     "category": "rendering-system",
     "triggers": [
       "slide",
@@ -1106,7 +1106,7 @@
       },
       {
         "id": "section-divider",
-        "owner": "deck-narrative-composer"
+        "owner": "deck-composer"
       },
       {
         "id": "service-blueprint",
@@ -1232,7 +1232,7 @@
   {
     "id": "slide-title-lab",
     "name": "Slide Title Lab",
-    "description": "Generates 15 candidate action-titles for every body slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data point AND action verb, no topic labels, no banned slop, complete sentence, under 120 chars), and returns the top 3 plus the weakest pattern across all 15. Replaces one-shot slide-title generation with a generate-many + rank pattern that lifts action-title compliance directly. Auto-loaded via composes_with on deck-narrative-composer and strategic-report-writer — every slide title goes through this gate before the deck renders. Section dividers, cover slides, and persona cards are exempt (they follow their own naming convention).",
+    "description": "Generates 15 candidate action-titles for every body slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data point AND action verb, no topic labels, no banned slop, complete sentence, under 120 chars), and returns the top 3 plus the weakest pattern across all 15. Replaces one-shot slide-title generation with a generate-many + rank pattern that lifts action-title compliance directly. Auto-loaded via composes_with on deck-composer and strategic-report-writer — every slide title goes through this gate before the deck renders. Section dividers, cover slides, and persona cards are exempt (they follow their own naming convention).",
     "category": "quality-enhancer",
     "triggers": [
       "slide title",

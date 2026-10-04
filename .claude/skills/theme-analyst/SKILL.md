@@ -344,7 +344,7 @@ into your system prompt. You MUST honor it:
    from zero). The four-tuple {cached + extended + new + KPI evidence} is the
    product.
 
-5. **What appears in the trace.** The themes-deliverable-auditor reads
+5. **What appears in the trace.** The themes rubric (`wiki/eval/rubrics/themes-rubric.json`, scored at runtime by `runExpertPanel`) reads
    `themes[].source` and computes `cached_selection_coverage_pct =
    (count(source IN ['cached','extended']) / total_selected_theme_ids) * 100`.
    This becomes a qualityFrontier dim (`cached_selection_coverage_pct`,

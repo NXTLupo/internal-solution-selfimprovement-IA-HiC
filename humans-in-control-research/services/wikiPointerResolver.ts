@@ -231,7 +231,7 @@ export function manifestPointerBlock(resolved: ResolvedDeliverables): string {
 /**
  * Clear the cache. Called when an engagement is changed or reset.
  */
-export function clearResolverCache(slug?: string): void {
+function clearResolverCache(slug?: string): void {
     if (!slug) {
         _cache.clear();
         return;
@@ -280,7 +280,7 @@ export interface ResolvedChunk {
     /** WS-A: the REAL underlying source(s) of THIS chunk, from the chunk's frontmatter `sources:` (written at
      *  ingest by wiki_chunker.attribute_chunks_to_grounding). {n: source name/title, u: url}. Empty when the
      *  page carries no per-chunk attribution (e.g. a single-source upload where the page title suffices). */
-    sources?: Array<{ n: string; u: string }>;
+    sources?: Array<{ n: string; u: string; kind?: string; date?: string; date_raw?: string; author?: string; subreddit?: string }>;
     /** WS-G: the chunk's dominant concepts (manifest concept graph). */
     concepts?: string[];
     /** WS-G: intra-doc concept-adjacent chunk pointers (seed edges for concept-walk retrieval). */
@@ -326,8 +326,42 @@ export interface ResolvedChunks {
 // entries and evict oldest. Per-render TTL of 60s matches the per-engagement
 // resolver cache above.
 const _PAGE_CACHE = new Map<string, { ts: number; text: string }>();
-const _PAGE_CACHE_MAX = 32;
+const _PAGE_CACHE_MAX = 1200;   // 2026-10-01 (R-L1): a grounding pass resolves up to 1,200 pages; 32 made the cache useless
 const _PAGE_CACHE_TTL_MS = 60_000;
+
+/** 2026-10-01 (plan R-L1): warm the page cache for many pages with ONE proxy call instead of
+ *  one GET per page (300 to 960 sequential reads per grounding pass on the live runs). Pages the
+ *  batch endpoint cannot return fall back to the per-page reader. Fail-open: any batch error
+ *  simply leaves the cache cold. */
+async function _warmPageCache(sourcePaths: string[]): Promise<void> {
+    const need = Array.from(new Set(sourcePaths)).filter(p => {
+        const c = _PAGE_CACHE.get(p);
+        return !(c && Date.now() - c.ts < _PAGE_CACHE_TTL_MS);
+    });
+    if (need.length < 2) return;
+    for (let i = 0; i < need.length; i += 400) {
+        const slice = need.slice(i, i + 400);
+        try {
+            const resp = await fetch(`${PROXY_BASE}/api/wiki/read-batch`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ paths: slice }),
+            });
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const pages = (data && typeof data.pages === 'object' && data.pages) ? data.pages : {};
+            for (const [path, rec] of Object.entries<any>(pages)) {
+                if (rec && rec.exists && typeof rec.content === 'string') {
+                    if (_PAGE_CACHE.size >= Math.max(_PAGE_CACHE_MAX, slice.length + 8)) {
+                        const oldest = Array.from(_PAGE_CACHE.entries()).sort((a, b) => a[1].ts - b[1].ts)[0];
+                        if (oldest) _PAGE_CACHE.delete(oldest[0]);
+                    }
+                    _PAGE_CACHE.set(path, { ts: Date.now(), text: rec.content });
+                }
+            }
+        } catch { /* fail-open: per-page reads take over */ }
+    }
+}
 
 async function _readWikiPageRaw(sourcePath: string): Promise<string | null> {
     const cached = _PAGE_CACHE.get(sourcePath);
@@ -372,7 +406,7 @@ function _parseChunksFrontmatter(pageText: string): Array<{
     keyTerms: string[];
     section: string;
     sentenceCount: number;
-    sources?: Array<{ n: string; u: string }>;
+    sources?: Array<{ n: string; u: string; kind?: string; date?: string; date_raw?: string; author?: string; subreddit?: string }>;
     concepts?: string[];
     relatedChunks?: string[];
 }> {
@@ -433,9 +467,18 @@ function _parseChunksFrontmatter(pageText: string): Array<{
             try {
                 const arr = JSON.parse(v);
                 if (Array.isArray(arr)) {
+                    // 1.5 (2026-10-01): the chunker now writes kind/date|date_raw/author/subreddit
+                    // beside n/u (page-default provenance). Carry them; the corpus block and the
+                    // citation label read them at cite time.
                     cur.sources = arr
                         .filter((s: any) => s && (s.n || s.u))
-                        .map((s: any) => ({ n: String(s.n || '').trim(), u: String(s.u || '').trim() }));
+                        .map((s: any) => {
+                            const o: any = { n: String(s.n || '').trim(), u: String(s.u || '').trim() };
+                            for (const k of ['kind', 'date', 'date_raw', 'author', 'subreddit']) {
+                                if (s[k] !== undefined && s[k] !== null && String(s[k]).trim()) o[k] = String(s[k]).trim();
+                            }
+                            return o;
+                        });
                 }
             } catch { /* malformed sources line - skip, page title fallback still applies */ }
         } else if (!line.startsWith(' ') && !line.startsWith('\t')) {
@@ -547,6 +590,7 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
         byPage.get(src)!.push(id);
     }
     let reads = 0;
+    await _warmPageCache(Array.from(byPage.keys()));   // R-L1: one round trip for the whole page set
     await Promise.all(Array.from(byPage.entries()).map(async ([src, ids]) => {
         const text = await _readWikiPageRaw(src);
         if (!text) {

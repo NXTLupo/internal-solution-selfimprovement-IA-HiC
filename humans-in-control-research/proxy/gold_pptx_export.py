@@ -12,6 +12,7 @@ Critical constant: the 1920px stage = 144 px/in, so px->pt = px*0.5 (PX2PT). Usi
 1280px exporter's 0.75 oversizes every glyph 1.5x and causes the text collisions.
 """
 import os
+import re
 import tempfile
 import pathlib
 import logging
@@ -24,6 +25,109 @@ W, H = 1920, 1080
 EMU = 914400
 PX2PT = 13.333 * 72.0 / W   # = 0.5 for W=1920 (144 px/in stage)
 _FONTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "static")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+
+# ---------------------------------------------------------------------------
+# BRAND-AWARE PRESENTATION SOURCE (2026-10-01, DECIEM third brand mode)
+# NXT and NU decks start from python-pptx's default Presentation() exactly as before.
+# A DECIEM deck (stage HTML <html data-brand="deciem">) starts FROM the dissected DECIEM
+# template (34 layouts, zero slides) so the exported file inherits the template master,
+# theme and layouts; the per-variant chrome layouts are then cloned from the template's
+# own BLANK layout instead of the default template's index 6.
+# ---------------------------------------------------------------------------
+_STAGE_BRAND_RE = re.compile(r'<html\b[^>]*\bdata-brand=["\']([A-Za-z0-9_-]+)["\']', re.I)
+_DECIEM_TEMPLATE_CANDIDATES = (
+    "/hic-workspace/design-system/deciem/deciem-template.pptx",
+    os.path.join(_HERE, "..", "hic-workspace", "design-system", "deciem", "deciem-template.pptx"),
+)
+_SIZE_TOLERANCE_EMU = 2000   # ~0.002 in: 13.333in (12191695) vs the template's 12192000
+
+
+def stage_brand(html_list) -> str:
+    """Lower-case brand id carried by the FIRST stage document's <html data-brand="...">.
+    Unknown or missing -> 'nxt' (the pre-DECIEM behaviour)."""
+    if not html_list:
+        return "nxt"
+    first = html_list[0] if isinstance(html_list, (list, tuple)) else html_list
+    m = _STAGE_BRAND_RE.search(first or "")
+    b = (m.group(1).strip().lower() if m else "nxt")
+    return b if b in ("nxt", "nu", "deciem") else "nxt"
+
+
+def deciem_template_path():
+    """Container path first, repo-relative fallback (same order as the token loader).
+    Returns None when neither exists."""
+    for c in _DECIEM_TEMPLATE_CANDIDATES:
+        if os.path.isfile(c):
+            return os.path.normpath(c)
+    return None
+
+
+def _blank_layout_index(prs, default: int = 6) -> int:
+    """Index of the layout to clone per-variant chrome onto: a layout named like
+    'Blank' first, else the first layout carrying no placeholders, else `default`."""
+    layouts = list(prs.slide_layouts)
+    for i, lay in enumerate(layouts):
+        if (lay.name or "").strip().lower() == "blank":
+            return i
+    for i, lay in enumerate(layouts):
+        try:
+            if len(lay.placeholders) == 0:
+                return i
+        except Exception:
+            continue
+    return default if default < len(layouts) else 0
+
+
+def _strip_embedded_fonts(prs) -> int:
+    """Remove a template's own <p:embeddedFontLst> and its font relationships so the
+    export's embedder (pptx_export.embed_brand_fonts, which writes ppt/fonts/fontN.fntdata
+    by index and appends ONE embeddedFontLst) does not collide with template parts or
+    produce a second font list. The unreferenced .fntdata parts are not serialized.
+    Returns the number of font relationships dropped."""
+    from pptx.oxml.ns import qn
+    dropped = 0
+    try:
+        el = prs.part._element
+        for lst in el.findall(qn("p:embeddedFontLst")):
+            el.remove(lst)
+    except Exception:
+        pass
+    try:
+        font_rt = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/font"
+        rels = prs.part.rels
+        for rId in [r for r in list(rels.keys()) if getattr(rels[r], "reltype", "") == font_rt]:
+            try:
+                prs.part.drop_rel(rId)
+                dropped += 1
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return dropped
+
+
+def new_presentation(brand: str = "nxt"):
+    """(prs, blank_layout_index) for the brand. NXT / NU: default Presentation() sized
+    13.333x7.5in with blank layout 6 (unchanged). DECIEM: the template file when present
+    (size verified, not resized when already 13.333x7.5in; template fonts stripped so the
+    manifest embedder owns the font list), else the default with a warning."""
+    from pptx import Presentation
+    from pptx.util import Emu
+    target_w, target_h = int(13.333 * EMU), int(7.5 * EMU)
+    if brand == "deciem":
+        tp = deciem_template_path()
+        if tp:
+            prs = Presentation(tp)
+            if abs(int(prs.slide_width) - target_w) > _SIZE_TOLERANCE_EMU or abs(int(prs.slide_height) - target_h) > _SIZE_TOLERANCE_EMU:
+                logger.warning(f"[gold-pptx] DECIEM template is {prs.slide_width}x{prs.slide_height} EMU; resizing to 13.333x7.5in")
+                prs.slide_width, prs.slide_height = Emu(target_w), Emu(target_h)
+            _strip_embedded_fonts(prs)
+            return prs, _blank_layout_index(prs)
+        logger.warning("[gold-pptx] DECIEM template not found at any candidate path; exporting on the default master")
+    prs = Presentation()
+    prs.slide_width, prs.slide_height = Emu(target_w), Emu(target_h)
+    return prs, 6
 
 RESET = ("<style>html,body{margin:0!important;padding:0!important;overflow:visible!important;background:#fff}"
          "#stage{transform:none!important;left:0!important;top:0!important;position:absolute!important}</style>")
@@ -337,18 +441,19 @@ def _rect_sp(sid, name, x_emu, y_emu, cx_emu, cy_emu, hexcol):
         f'<p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>')
 
 
-def _clone_blank_layout(prs, name):
-    """Clone the blank layout (idx 6) into a NEW registered slide layout and return it. The clone
-    is a clean blank canvas (no Microsoft placeholders leak because the source is the blank layout)
-    onto which a variant's chrome is appended. Registered in the master's sldLayoutIdLst + rels so
-    the package is valid on reopen."""
+def _clone_blank_layout(prs, name, blank_idx: int = 6):
+    """Clone the blank layout (default template idx 6; the DECIEM template's BLANK layout via
+    `blank_idx`) into a NEW registered slide layout and return it. The clone is a clean blank
+    canvas (no Microsoft placeholders leak because the source is the blank layout) onto which a
+    variant's chrome is appended. Registered in the master's sldLayoutIdLst + rels so the
+    package is valid on reopen."""
     import copy
     from pptx.oxml.ns import nsdecls, qn
     from pptx.oxml import parse_xml
     from pptx.parts.slide import SlideLayoutPart
     from pptx.opc.constants import RELATIONSHIP_TYPE as RT, CONTENT_TYPE as CT
     master = prs.slide_masters[0]
-    src = prs.slide_layouts[6]
+    src = prs.slide_layouts[blank_idx]
     new_el = copy.deepcopy(src._element)
     try:
         new_el.get_or_add_cSld().set("name", name)
@@ -479,18 +584,19 @@ def html_to_editable_pptx(html: str, out_path: str) -> dict:
     + one pptx Presentation across N stages and embeds fonts once at the end, which is
     materially cheaper than calling this single-slide entry N times.
     """
-    from pptx import Presentation
-    from pptx.util import Emu
-
-    prs = Presentation()
-    prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
-    run_total = _render_into_presentation(prs, [html])[0]
+    brand = stage_brand([html])
+    prs, blank_idx = new_presentation(brand)
+    used_families = set()
+    run_total = _render_into_presentation(prs, [html], blank_idx=blank_idx, brand=brand, used_families=used_families)[0]
     _native = validate_pptx_native(prs)
     if not _native["native"]:
-        logger.warning(f"[gold-pptx] NON-NATIVE export {out_path}: {'; '.join(_native['failures'])}")
+        # E9 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, Stage 2.5): the single-slide
+        # route (SlideCanvas per-slide download) used to WARN and ship a picture-only / zero-run
+        # file. validate_pptx_native is a HARD GATE on every path, same as the multi-slide route.
+        raise RuntimeError(f"non-native slide refused: {'; '.join(_native['failures'])}")
     prs.save(out_path)
-    _embed_gold_fonts(out_path)
-    return {"path": out_path, "runs": run_total, "native": _native}
+    _embed_gold_fonts(out_path, brand=brand, used_families=used_families)
+    return {"path": out_path, "runs": run_total, "native": _native, "brand": brand}
 
 
 def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
@@ -510,15 +616,13 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
 
     Returns: {path, slides:[{runs:int}], total_runs:int}
     """
-    from pptx import Presentation
-    from pptx.util import Emu
-
     if not isinstance(html_list, list) or len(html_list) == 0:
         raise ValueError("html_list must be a non-empty list of HTML strings")
 
-    prs = Presentation()
-    prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
-    per_slide_runs = _render_into_presentation(prs, html_list)
+    brand = stage_brand(html_list)
+    prs, blank_idx = new_presentation(brand)
+    used_families = set()
+    per_slide_runs = _render_into_presentation(prs, html_list, blank_idx=blank_idx, brand=brand, used_families=used_families)
     _native = validate_pptx_native(prs)
     if not _native["native"]:
         # WS-0b (2026-07-09 uplift plan): the native guarantee is a HARD GATE, not a
@@ -529,7 +633,7 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
     if len(prs.slides) != len(html_list):
         raise RuntimeError(f"slide-count mismatch before save: built {len(prs.slides)} of {len(html_list)} requested")
     prs.save(out_path)
-    _embed_gold_fonts(out_path)
+    _embed_gold_fonts(out_path, brand=brand, used_families=used_families)
     import zipfile as _zf
     import re as _zre
     with _zf.ZipFile(out_path) as _z:
@@ -541,75 +645,30 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
         "slides": [{"runs": r} for r in per_slide_runs],
         "total_runs": sum(per_slide_runs),
         "native": _native,
+        "brand": brand,
     }
 
 
-def html_list_to_faithful_pptx(html_list: list, out_path: str) -> dict:
-    """FAITHFUL render (the #proto workflow): each composed 1920x1080 HTML stage is rendered in a
-    real browser with fonts loaded, then captured as ONE full-bleed image per slide - NO graphics/
-    text split, NO native-text re-render, NO font substitution. The exported pixels are identical to
-    the Analyst Desk preview because they ARE the same rendered HTML (logo SVG, Saira/Archivo/Lato,
-    every archetype layout - all baked from the actual render). This is the unified-vision / prototype
-    contract: the composed HTML is the single source of truth and the artifact is a faithful capture
-    of it, never a re-interpretation. Trade-off: the slide text is not natively editable (it is the
-    rendered image) - fidelity over editability, exactly as #proto.
-    """
-    from playwright.sync_api import sync_playwright
-    from pptx import Presentation
-    from pptx.util import Emu
-
-    if not isinstance(html_list, list) or len(html_list) == 0:
-        raise ValueError("html_list must be a non-empty list of HTML strings")
-
-    prs = Presentation()
-    prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
-    shots = []
-    try:
-        with sync_playwright() as p:
-            b = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            try:
-                for stage_html in html_list:
-                    doc = stage_html.replace("</head>", RESET + "</head>", 1) if "</head>" in stage_html else RESET + stage_html
-                    tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
-                    tmp.write(doc); tmp.close()
-                    shot = tempfile.NamedTemporaryFile(suffix=".png", delete=False); shot.close()
-                    shots.append((tmp.name, shot.name))
-                    pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2)
-                    pg.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
-                    try:
-                        pg.evaluate("async () => { await document.fonts.ready; }")
-                    except Exception:
-                        pass
-                    pg.wait_for_timeout(500)   # let webfonts + the inline logo SVG settle before capture
-                    pg.screenshot(path=shot.name, clip={"x": 0, "y": 0, "width": W, "height": H})
-                    pg.close()
-            finally:
-                b.close()
-        for _html_tmp, shot_png in shots:
-            slide = prs.slides.add_slide(prs.slide_layouts[6])
-            slide.shapes.add_picture(shot_png, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
-        prs.save(out_path)
-    finally:
-        for html_tmp, shot_png in shots:
-            for f in (html_tmp, shot_png):
-                try:
-                    os.unlink(f)
-                except Exception:
-                    pass
-    return {"path": out_path, "slides": [{"runs": 0} for _ in html_list], "total_runs": 0, "mode": "faithful"}
-
-
-def _render_into_presentation(prs, html_list: list) -> list:
+def _render_into_presentation(prs, html_list: list, blank_idx: int = 6, brand: str = "nxt", used_families=None) -> list:
     """Shared core: open one Playwright browser, iterate over each HTML, screenshot +
     measure, append one slide to `prs` per HTML. Returns the per-slide run count list.
 
     Single-slide entry: pass [html]. Multi-slide entry: pass [html1, html2, ...].
     Browser is launched ONCE for the whole list, which is the cost win.
+
+    `blank_idx` is the layout the per-variant chrome layouts are cloned from (6 on the
+    default template; the DECIEM template's BLANK layout otherwise). `brand` selects the
+    token fallbacks for unattributed runs and the DECIEM background guard; `used_families`
+    (a set, optional) collects every measured font family so the embedder can include the
+    DECIEM faces only when a deck uses them.
     """
     from playwright.sync_api import sync_playwright
     from pptx.util import Emu, Pt
     from pptx.dml.color import RGBColor
     from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
+
+    _fb = _TOKEN_FALLBACKS if brand != "deciem" else _export_fallbacks("DECIEM")
+    _is_deciem = brand == "deciem"
 
     def ex(px): return Emu(int(px / W * 13.333 * EMU))
     def ey(px): return Emu(int(px / H * 7.5 * EMU))
@@ -640,6 +699,15 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     pg.wait_for_timeout(500)
                     m = pg.evaluate(MEASURE)
                     geo = pg.evaluate(GEO)
+                    # 2026-10-02 - SPEAKER NOTES: renderers park overflow detail (persona JTBD, day in
+                    # the life, full pain evidence, the full gap list) in an inert
+                    # <template class="pptx-notes"> so the slide face stays legible; its text lands
+                    # in the PPTX notes page. A <template> has no layout and no child nodes, so the
+                    # MEASURE / GEO walks never paint it.
+                    try:
+                        _notes = pg.evaluate("() => Array.from(document.querySelectorAll('template.pptx-notes')).map(t => (t.content && t.content.textContent) || '').join(String.fromCharCode(10)).trim()")
+                    except Exception:
+                        _notes = ''
                     # 2026-06-27 - SVG no longer forces a full-slide raster. ANY slide with geometry
                     # goes NATIVE: solid Gold decoration -> movable native shapes (direct
                     # interpretation, token colour + bounds), text -> native runs, each <svg>
@@ -708,7 +776,7 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     # logo -> native picture. Subsequent same-variant slides reuse it (no duplication).
                     layout = sig_to_layout.get(sig)
                     if layout is None:
-                        layout = _clone_blank_layout(prs, f"GOLD variant {len(sig_to_layout) + 1}")
+                        layout = _clone_blank_layout(prs, f"GOLD variant {len(sig_to_layout) + 1}", blank_idx)
                         from pptx.oxml import parse_xml as _px  # noqa: F401 (kept for symmetry)
                         for _ci, rc in enumerate(chrome_rects):
                             if rc["x"] >= W or rc["y"] >= H:
@@ -738,6 +806,11 @@ def _render_into_presentation(prs, html_list: list) -> list:
                                 pass
                         sig_to_layout[sig] = layout
                     slide = prs.slides.add_slide(layout)
+                    if _notes:
+                        try:
+                            slide.notes_slide.notes_text_frame.text = _notes
+                        except Exception as _nerr:
+                            logger.warning(f"[gold-pptx] speaker notes not written: {_nerr}")
                     if True:
                         # NATIVE GEOMETRY tier (the ONLY tier post-D15): every fill and border bar is
                         # a real PPTX rectangle a consultant can recolor/move/resize. An empty
@@ -842,6 +915,13 @@ def _render_into_presentation(prs, html_list: list) -> list:
                             for _rc in chrome_rects:
                                 if _rc["x"] >= W or _rc["y"] >= H:
                                     continue
+                                # The #stage paper canvas is tagged chrome. Re-drawing that full-stage
+                                # rect above the background picture hides the picture: DECIEM first
+                                # (2026-10-01, no rail / dot-mark), then every brand (2026-10-02: a
+                                # full-bleed diagram exhibit exported as a picture placeholder buried
+                                # under a white full-slide rectangle, the "blank journey slide").
+                                if _rc["x"] <= 4 and _rc["y"] <= 4 and _rc["w"] >= W - 8 and _rc["h"] >= H - 8:
+                                    continue
                                 _csh = slide.shapes.add_shape(
                                     MSO_SHAPE.RECTANGLE, ex(_rc["x"]), ey(_rc["y"]),
                                     ex(max(_rc["w"], 1.0)), ey(max(_rc["h"], 1.0)))
@@ -912,10 +992,13 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     # is DELETED. Every slide - including one whose geometry walk found no rects - now
                     # exports on the native path above (phase 9: native + editable from every path).
 
+                    _all_runs = [q for q in m.get("runs", []) if q.get("text", "").strip()]
                     for r in m.get("runs", []):
                         txt = r["text"]
                         if not txt.strip():
                             continue
+                        if used_families is not None and r.get("family"):
+                            used_families.add(r.get("family"))
                         # 2026-06-05 — Out-of-bounds clip. Belt-and-suspenders
                         # against any future template that overflows the 1920x1080
                         # stage. Universal rule: a text run whose origin sits
@@ -943,7 +1026,9 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # box-overlap assertions against the sources strip.
                         _tw0 = r.get("tw") or r["w"]
                         if r["h"] <= _lh * 1.6 and (r.get("align", "left") or "left") in ("left", "start"):
-                            bw = min(bw, max(_tw0 * 1.10 + 24.0, 60.0))
+                            # 1.14 = the PW wrap allowance below; a narrower cap made scale < 1 for
+                            # every run wider than 600px and shrank 12 pt type to 11.9 pt.
+                            bw = min(bw, max(_tw0 * 1.14 + 24.0, 60.0))
                             # Single-line runs also cap HEIGHT at their own line:
                             # table cells / flex parents otherwise donate their
                             # full container bottom (header text inheriting the
@@ -955,6 +1040,26 @@ def _render_into_presentation(prs, html_list: list) -> list:
                             _align = "right"; bx = r["x"] - 20; bw = (W - 24) - bx
                         PW = 1.14
                         tw = r.get("tw") or r["w"]
+                        # 2026-10-02 - SINGLE-LINE NO-SHRINK. A shrink-wrapped element (flex child,
+                        # inline-block label, table header) has eright == text right, so bw == tw and
+                        # the PW wrap allowance below scaled the type to 1/1.14 (24px labels exported
+                        # at 10.5-11.8 pt). A single line grows its BOX by the allowance instead,
+                        # on the side its alignment leaves free, and keeps its measured size.
+                        if _lh and r["h"] <= _lh * 1.6 and bw < tw * PW + 2:
+                            # grow only into free space: up to the nearest run on the same line band
+                            # (and inside the slide); any remainder falls back to the scale below.
+                            _band = [q for q in _all_runs if q is not r
+                                     and min(r["y"] + r["h"], q["y"] + q["h"]) - max(r["y"], q["y"]) > 1]
+                            # keep a 12px gutter to the neighbour: cell borders sit between runs
+                            _rlim = min([q["x"] - 12.0 for q in _band if q["x"] >= r["x"] + r["w"] - 1] + [W - 8.0])
+                            _llim = max([q["x"] + q["w"] + 12.0 for q in _band if q["x"] + q["w"] <= r["x"] + 1] + [8.0])
+                            _grow = tw * PW + 2 - bw
+                            if _align == "right":
+                                _g = max(0.0, min(_grow, bx - _llim)); bx -= _g; bw += _g
+                            elif _align == "center":
+                                _g = max(0.0, min(_grow / 2.0, bx - _llim, _rlim - (bx + bw))); bx -= _g; bw += 2 * _g
+                            else:
+                                bw += max(0.0, min(_grow, _rlim - (bx + bw)))
                         target_lines = max(1, round(bh / _lh)) if _lh else 1
                         scale = min(1.0, (target_lines * bw) / max(tw * PW, 1.0))
                         _size_px = r["size"] * scale
@@ -965,6 +1070,16 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # phantom depth; one line is enough headroom for
                         # PowerPoint font-metric rewrap drift.
                         bh = min(bh, r["h"] + _lh)
+                        # 2026-10-02 - DE-COLLISION. The one line of slack above is headroom for
+                        # font-metric rewrap, but it must not reach into the run painted directly
+                        # below (pain label over its evidence line, quote over the next label: the
+                        # owner's "colliding text fields"). Clamp the box to stop above the nearest
+                        # lower run that shares its columns; never below the measured text height.
+                        _below = [q["y"] for q in _all_runs
+                                  if q is not r and q["y"] > r["y"] + 2
+                                  and min(bx + bw, q["x"] + q["w"]) - max(bx, q["x"]) > 1]
+                        if _below:
+                            bh = max(min(bh, min(_below) - r["y"] - 1.0), min(bh, r["h"]))
                         tb = slide.shapes.add_textbox(ex(bx), ey(r["y"]), ex(bw), ey(bh))
                         tf = tb.text_frame; tf.word_wrap = True; tf.auto_size = None
                         tf.vertical_anchor = MSO_ANCHOR.TOP
@@ -975,14 +1090,16 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         pp.line_spacing = Pt(lh * PX2PT) if lh else 1.0
                         pp.space_before = Pt(0); pp.space_after = Pt(0)
                         run = pp.add_run(); run.text = txt
-                        run.font.name = r.get("family") or _TOKEN_FALLBACKS["body_font"]
+                        run.font.name = r.get("family") or _fb["body_font"]
                         # 2026-06-14 - editable-overlay floor raised 5->8pt to match the
                         # redesign's 8.5pt legibility floor (the renderer now sizes all text
                         # at >=17 stage px); guarantees the PPTX text layer never undercuts it.
-                        run.font.size = Pt(max(8, _size_px * PX2PT))
+                        # round to 0.01 pt: PX2PT is 0.49999 (13.333 in), and python-pptx truncates
+                        # to centipoints, so a 24px run landed at 11.99 pt instead of 12.
+                        run.font.size = Pt(round(max(8, _size_px * PX2PT), 2))
                         run.font.bold = (r.get("weight", 400) >= 600)
                         run.font.italic = bool(r.get("italic"))
-                        run.font.color.rgb = RGBColor.from_string(r.get("color") or _TOKEN_FALLBACKS["ink"])
+                        run.font.color.rgb = RGBColor.from_string(r.get("color") or _fb["ink"])
                         sp = r.get("spacing")
                         if sp and sp not in ("normal",):
                             try:
@@ -1009,15 +1126,32 @@ def _render_into_presentation(prs, html_list: list) -> list:
     return per_slide_runs
 
 
-def _embed_gold_fonts(pptx_path: str) -> None:
+def _embed_gold_fonts(pptx_path: str, brand: str = "nxt", used_families=None) -> None:
     """Embed Lora / IBM Plex Mono (plus the brand families already in pptx_export) so the
-    editable text renders faithfully on machines without the gold fonts installed."""
+    editable text renders faithfully on machines without the gold fonts installed.
+
+    DECIEM (2026-10-01): the Poppins / Josefin Sans / Questrial / Nunito manifest entries
+    (brand_fonts.DECIEM_TYPEFACES) are added for the duration of the call when the deck is
+    DECIEM or a measured run used one of them; NXT and NU decks embed exactly the set they
+    embedded before."""
     # WS-0g (2026-07-09): ONE font manifest (brand_fonts.FONT_MANIFEST) - the
     # runtime-monkeypatch era ended after Saira Condensed went silently missing and
     # every title substituted Calibri. Embed failure is LOUD (fonts are part of the
     # editable-export contract), never a silent pass.
     import pptx_export as pe
-    from brand_fonts import FONT_MANIFEST
+    from brand_fonts import FONT_MANIFEST, DECIEM_TYPEFACES
     have = {f.get("typeface") for f in pe.FONT_FAMILIES}
-    pe.FONT_FAMILIES = pe.FONT_FAMILIES + [f for f in FONT_MANIFEST if f["typeface"] not in have]
-    pe.embed_brand_fonts(pptx_path)
+    pe.FONT_FAMILIES = pe.FONT_FAMILIES + [
+        f for f in FONT_MANIFEST if f["typeface"] not in have and f["typeface"] not in DECIEM_TYPEFACES]
+    want_deciem = (brand == "deciem") or bool(set(used_families or ()) & set(DECIEM_TYPEFACES))
+    if not want_deciem:
+        pe.embed_brand_fonts(pptx_path)
+        return
+    have_now = {f.get("typeface") for f in pe.FONT_FAMILIES}
+    extra = [f for f in FONT_MANIFEST if f["typeface"] in DECIEM_TYPEFACES and f["typeface"] not in have_now]
+    base = pe.FONT_FAMILIES
+    pe.FONT_FAMILIES = base + extra
+    try:
+        pe.embed_brand_fonts(pptx_path)
+    finally:
+        pe.FONT_FAMILIES = base

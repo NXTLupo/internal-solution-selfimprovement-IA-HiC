@@ -7,14 +7,14 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of Dec 15th, 2025"
 author: "adventurepaul"
 date: "2025-12-15T21:36:19.000Z"
-score: 13
-upvote_ratio: 0.89
+score: 14
+upvote_ratio: 0.94
 num_comments: 10
 flair: "📰 News"
-extracted_at: "2026-06-24T22:13:57.313Z"
+extracted_at: "2026-08-25T23:08:27.675Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1pnjr0n.md#c0"
     char_span: [0, 250]
@@ -54,7 +54,7 @@ chunks:
     concepts: [openai, disney, characters, investment, investing]
     token_count: 244
   - id: "social-intelligence/reddit-deep/ecommerce/1pnjr0n.md#c6"
-    char_span: [10266, 11447]
+    char_span: [10267, 11448]
     sentence_count: 10
     key_terms: [devs, like, appreciate, senior, efficiencyempty2364, gonna, never, "we're"]
     concepts: [appreciate, senior, gonna, never, "we're"]
@@ -64,7 +64,7 @@ chunks:
 # E-commerce Industry News Recap 🔥 Week of Dec 15th, 2025
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1pnjr0n/ecommerce_industry_news_recap_week_of_dec_15th/)
-Posted by **adventurepaul** · **13↑** · **10 comments**
+Posted by **adventurepaul** · **14↑** · **10 comments**
 
 Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
 ___

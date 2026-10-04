@@ -12,12 +12,14 @@
  */
 
 import { estimateCost, ResearchMode, executeResearch } from './deepResearchService';
+import { engagementSlugFor } from './engagementSlug';
 import { ALL_CONNECTORS, DataSourceConnector, DataSourceResult, DataSourceQuery, DataSourceItem } from './dataSourceConnectors';
 import { collectSocialData, SocialCollectionConfig, SocialDataSummary } from './cxIntegrationService';
 import { AnalyticalLens } from '../types';
 import { GoogleGenAI } from "@google/genai";
 import { tryRepairJson } from './aiRouter';
 import { mergeCorpusItems, contentFingerprint } from './corpusMergeAuthority';
+import { collectionBudgetFor, type CollectionBudgetEntry } from './researchPlanner';
 
 /**
  * Chunk-to-source mapping built during corpus assembly.
@@ -62,6 +64,12 @@ export interface ResearchPlan {
     totalEstimatedCost: { low: number; high: number };
     totalEstimatedTimeSeconds: number;
     recommendedSubreddits?: SubredditRecommendation[];
+    /**
+     * 2026-10-01 (plan Stage 1.6 / R-D2): the objective decomposition the run path attaches after
+     * `ensureObjectiveDecomposition`. Each carries its coverage status from the previous pass so
+     * `executePlan` can budget collection per sub-question and stop spending on covered ones.
+     */
+    sub_questions?: Array<{ id: string; question?: string; priority?: string; coverage_status?: string }>;
 }
 
 export interface SubredditRecommendation {
@@ -87,6 +95,13 @@ export interface ResearchExecutionResult {
     totalSources: number;
     successfulSources: number;
     durationMs: number;
+    /** R-D2: what the collection budget did on this pass (absent when the plan carried no decomposition). */
+    collectionBudget?: {
+        entries: CollectionBudgetEntry[];
+        uncovered: number;
+        skippedDeepResearch: number;
+        focusAnchored: number;
+    };
 }
 
 export interface ResearchProgress {
@@ -307,7 +322,7 @@ function computeFreshnessFromDate(dateStr: string): string {
  * Returns Record<target, refinedQuery>. Gracefully falls back to a heuristic
  * (extract nouns from the goal) if the Gemini call fails.
  */
-export async function refineSubredditQueries(
+async function refineSubredditQueries(
     goal: string,
     lens: AnalyticalLens,
     subreddits: string[]
@@ -1004,8 +1019,43 @@ export async function executePlan(
     const enabledSources = plan.sources.filter(s => s.enabled);
     const connectorMap = new Map(ALL_CONNECTORS.map(c => [c.name, c]));
 
+    // R-D2 (2026-10-01, plan Stage 1.6 / Section 9): COLLECTION BUDGET BY SUB-QUESTION. The
+    // decomposition (when the run carries one) ranks sub-questions uncovered -> partial -> covered;
+    // a covered sub-question earns zero further queries. Deep-research sources are the paid,
+    // model-driven queries, so they are the ones budgeted: each is anchored to the next uncovered
+    // sub-question (round-robin), and when EVERY sub-question is covered they are skipped
+    // outright. Pack/API sources are cheap and stay as planned.
+    const _sqs = Array.isArray(plan.sub_questions) ? plan.sub_questions.filter(q => q && q.id) : [];
+    const _budget = _sqs.length ? collectionBudgetFor(_sqs) : [];
+    const _uncovered = _budget.filter(b => b.queries > 0);
+    const _sqById = new Map(_sqs.map(q => [q.id, q]));
+    let _skippedDeepResearch = 0;
+    let _focusAnchored = 0;
+    let _deepIdx = 0;
+    if (_budget.length) {
+        console.log(`[R-D2] collection budget: ${_uncovered.length}/${_budget.length} sub-question(s) still earn queries (${_uncovered.reduce((a, b) => a + b.queries, 0)} total); covered sub-questions get none`);
+    }
+
     const results = await Promise.allSettled(
         enabledSources.map(async (source) => {
+            let effectiveQuery = source.query;
+            if (source.type === 'deep_research' && _budget.length) {
+                if (!_uncovered.length) {
+                    _skippedDeepResearch++;
+                    onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'completed', itemsCollected: 0, message: `Skipped: every sub-question is already covered (collection budget)` });
+                    return {
+                        sourceId: source.id, name: source.name, type: source.type, status: 'skipped' as const,
+                        items: [], error: 'collection budget: every sub-question covered (R-D2)', durationMs: 0,
+                    };
+                }
+                const target = _uncovered[_deepIdx++ % _uncovered.length];
+                const sq = _sqById.get(target.id);
+                const focus = String(sq?.question || '').trim();
+                if (focus) {
+                    effectiveQuery = `${source.query} (focus: ${focus.slice(0, 200)})`;
+                    _focusAnchored++;
+                }
+            }
             onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: `Querying ${source.name}...` });
 
             try {
@@ -1017,7 +1067,7 @@ export async function executePlan(
 
                     const researchResult = await executeResearch({
                         mode: source.config.mode || 'focused',
-                        query: source.query,
+                        query: effectiveQuery,
                     }, (p) => {
                         onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: p.message });
                     });
@@ -1258,7 +1308,7 @@ export async function executePlan(
                             const { buildEngagementSlug } = await import('./wikiService');
                             _redditEngSlug = buildEngagementSlug(cfg.goalQuery || '', 60) || '';
                         } catch {
-                            _redditEngSlug = (cfg.goalQuery || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+                            _redditEngSlug = engagementSlugFor(cfg.goalQuery || '');
                         }
                         const writes = items.map(async (item: any) => {
                             try {
@@ -1351,6 +1401,7 @@ export async function executePlan(
         totalSources: enabledSources.length,
         successfulSources: successful,
         durationMs: Date.now() - start,
+        ...(_budget.length ? { collectionBudget: { entries: _budget, uncovered: _uncovered.length, skippedDeepResearch: _skippedDeepResearch, focusAnchored: _focusAnchored } } : {}),
     };
 }
 
@@ -1666,7 +1717,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
             const { buildEngagementSlug } = await import('./wikiService');
             _engagementSlug = buildEngagementSlug(engagementGoal, 60) || '';
         } catch {
-            _engagementSlug = engagementGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+            _engagementSlug = engagementSlugFor(engagementGoal);
         }
     }
     // Items qualify for enrichment if they have an http URL AND either:

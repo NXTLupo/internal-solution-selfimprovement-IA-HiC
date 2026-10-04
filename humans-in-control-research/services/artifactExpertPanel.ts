@@ -19,12 +19,27 @@
 // safe (the critics will accept on second pass when the first pass landed).
 
 import { criticReviseLoop, type CriticConfig, type CriticInvoker, type CriticReviseLoopResult, type CriticVerdict } from './criticReviseLoop';
-import { parseJSONWithRepair } from './aiOutputRepair';
-import { withResilience, isThrottleError, type DegradationEvent } from './multiModelResilience';
+import { emitDegradationEvent, type DegradationEvent } from './multiModelResilience';
 // 2026-05-25 - Real LLM critic dispatcher. Replaces the prior pass-through
 // default so domain experts (pre-mortem, persona-architect, etc.) actually
 // fire against the Anthropic proxy.
-import { dispatchCritic } from './criticDispatcher';
+import { dispatchCritic, dispatchRubricScores, type RubricScorer } from './criticDispatcher';
+// 2026-10-01 (plan Stage 2.6 / 3.7 / 5.4, audit C6 + C8): the panel DECIDES. Rubrics resolved
+// through the manifest, scored at runtime, verdict written to wiki/eval/auditor-verdicts.jsonl.
+import {
+    loadRubricForKind,
+    scoreRubric,
+    refineInstructions,
+    buildVerdictRecord,
+    appendAuditorVerdict,
+    type RubricLoadOpts,
+    type RubricScoreResult,
+    type PanelVerdict,
+    type AuditorVerdictRecord,
+    type VerdictWriter,
+    type ModelCriterionScore,
+} from './auditorRubrics';
+import { noteAttempt, noteResult, resetProgress } from './progressGuard';
 
 // ─── Artifact kind → expert critic config ────────────────────────────────────
 // Each kind names the experts that should review that artifact type. The
@@ -186,7 +201,7 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
 
     // Multi-slide presentation deck
     presentation: [
-        { skill_name: 'deck-narrative-composer',   max_iterations: 1, invocation_model: 'sonnet-4.6' },
+        { skill_name: 'deck-composer',             max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
 };
 
@@ -201,7 +216,7 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
 // then the cross-cutting hygiene pass cleans up anything the domain experts
 // introduced.
 
-export const UNIVERSAL_CRITICS: CriticConfig[] = [
+const UNIVERSAL_CRITICS: CriticConfig[] = [
     { skill_name: 'anti-slop-auditor',       max_iterations: 1, invocation_model: 'haiku-4.5' },
     { skill_name: 'structural-conformance',  max_iterations: 1, invocation_model: 'haiku-4.5' },
 ];
@@ -212,7 +227,7 @@ export const UNIVERSAL_CRITICS: CriticConfig[] = [
 // Higher-leverage artifacts (strategy slide, presentation) get larger budgets;
 // hygiene artifacts (mindmap, meta-themes) get smaller budgets.
 
-export const PANEL_BUDGETS_USD: Record<ArtifactKind, number> = {
+const PANEL_BUDGETS_USD: Record<ArtifactKind, number> = {
     persona:         0.55,
     // 2026-05-25 - Journey panel now fires 4 critics (was 2) per JM-depth
     // uplift. Budget raised proportionally; verbatim-quote-auditor +
@@ -241,7 +256,8 @@ export const PANEL_BUDGETS_USD: Record<ArtifactKind, number> = {
 // call needed) - the patterns are well-defined regex and DOM-shape rules.
 // This keeps the universal pass cheap and reliable.
 
-const EM_DASH_RE = /-/g;
+// 2026-10-01 (audit C8): U+2014 only. The prior /-/g counted every ASCII hyphen.
+const EM_DASH_RE = /\u2014/g;
 const UNICODE_BOLD_ITALIC_RE = /[\u{1D400}-\u{1D7FF}]/u;
 const CHATGPT_ARTIFACT_RE = /\b(oaicite|oai_citation|contentReference|attached_file|attributableIndex|turn\d+search\d+)\b/i;
 const KNOWLEDGE_CUTOFF_RE = /\b(as an ai|i'm an ai|i am an ai|as of my knowledge cutoff|my training data|i don't have real-time|i should note)\b/i;
@@ -358,7 +374,34 @@ export type ExpertPanelOpts<T> = {
     proxy_base?: string;
     /** Custom critic invoker (for tests). */
     invoke_critic?: CriticInvoker;
+    /** Stable ids for the verdict line and the progress guard. */
+    artifact_id?: string;
+    run_id?: string;
+    /** 2026-10-01 (plan 2.6): regenerate the artifact when the rubric verdict is `refine`. The
+     *  panel calls it at most `max_rebuilds` times (default 2) with the below-floor findings, then
+     *  re-scores. Without it the bounded rebuild re-runs the critic loop on the current draft. */
+    rebuild?: (feedback: PanelRebuildFeedback) => Promise<T>;
+    max_rebuilds?: number;
+    /** Model-side rubric scorer. Default: criticDispatcher.dispatchRubricScores. `null` disables
+     *  model scoring (deterministic checks still run). */
+    score_rubric?: RubricScorer | null;
+    /** Rubric loading overrides (tests pass an in-memory index + rubrics). */
+    rubric_loader?: RubricLoadOpts;
+    /** Verdict line writer. Default appends to wiki/eval/auditor-verdicts.jsonl via the proxy;
+     *  `null` disables the write. */
+    write_verdict?: VerdictWriter | null;
 };
+
+export interface PanelRebuildFeedback {
+    attempt: number;
+    kind: ArtifactKind;
+    verdict: PanelVerdict;
+    /** One instruction per criterion below its floor, worst first. */
+    instructions: string[];
+    scores: RubricScoreResult;
+    /** The progress guard's nudge when a prior attempt returned the same content. */
+    hint: string;
+}
 
 export type ExpertPanelResult<T> = CriticReviseLoopResult<T> & {
     panel_summary: {
@@ -369,14 +412,26 @@ export type ExpertPanelResult<T> = CriticReviseLoopResult<T> & {
         em_dash_count_before: number;
         em_dash_count_after: number;
     };
+    /** 2026-10-01: the panel DECIDES. `fail` = the panel could not run (rubric missing);
+     *  `withhold` = a blocking criterion scored 1; `refine` = below floor after the bounded
+     *  rebuild (or a critic could not review); `pass` = every scored criterion at its floor. */
+    verdict: PanelVerdict;
+    rubric: { kind: string; id: string; version: string } | null;
+    rubric_scores: RubricScoreResult | null;
+    auditor_verdict: AuditorVerdictRecord | null;
+    rebuilds: number;
+    rebuild_stop_reason?: string;
 };
 
+const EM_DASH_COUNT_RE = /\u2014/g;
+const RUBRIC_SCORER_RESERVE_USD = 0.06;
 
 /**
  * Run the domain-expert panel for an artifact. Composes the per-kind experts
  * with the universal hygiene critics, applies their edits via the existing
- * criticReviseLoop primitive, and returns the revised deliverable plus a
- * summary of what fired.
+ * criticReviseLoop primitive, scores the kind's rubric, rebuilds (bounded) on
+ * `refine`, writes one auditor-verdict line, and returns the revised
+ * deliverable plus the verdict.
  *
  * Idempotent: calling runExpertPanel twice in a row on the same artifact
  * is safe - the critics will accept on the second pass.
@@ -400,7 +455,7 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
     // offline, not deliverable mutations online. Until the SkillOpt loop fully
     // replaces this path, freeform-HTML artifacts run ONLY the deterministic
     // hygiene critics (em-dash + slop strip) which use the $ROOT sentinel and
-    // can't corrupt structure.
+    // can't corrupt structure. The rubric scorer still runs: it reads, never edits.
     const isFreeformHtml = (() => {
         const d = opts.deliverable as any;
         return d && typeof d === 'object' && typeof d.html === 'string' && d.html.length > 100;
@@ -416,10 +471,13 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
 
     const budget = opts.budget_usd ?? PANEL_BUDGETS_USD[opts.kind] ?? 0.40;
     const proxyBase = opts.proxy_base ?? 'http://localhost:5012';
+    const maxRebuilds = Math.max(0, Math.min(2, opts.max_rebuilds ?? 2));
+    const runId = opts.run_id || 'panel';
+    const stepId = `expert_panel:${opts.kind}:${opts.artifact_id || 'artifact'}`;
 
-    // Count em-dashes before the panel for the summary
+    // Count em-dashes before the panel for the summary (U+2014 only; the ASCII hyphen is fine).
     const beforeText = JSON.stringify(opts.deliverable);
-    const beforeEm = (beforeText.match(/-/g) || []).length;
+    const beforeEm = (beforeText.match(EM_DASH_COUNT_RE) || []).length;
 
     // Wrap the invoker so the universal critics use the deterministic path
     // when no custom invoker was supplied.
@@ -453,40 +511,180 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
         }
         // Defer to caller-supplied invoker if present
         if (baseInvoker) return baseInvoker(invokeOpts);
-        // Default: real LLM dispatcher (2026-05-25). Fetches the skill markdown,
-        // builds a critic prompt, calls Anthropic via the proxy, parses a
-        // CriticVerdict back out. Falls through to pass-through on failure.
+        // Default: real LLM dispatcher (2026-05-25). Resolves the critic's rubric text through
+        // the manifest, calls Anthropic via the proxy, parses a CriticVerdict back out. A critic
+        // that cannot review returns a verdict carrying `error` (2026-10-01, never pass-through).
         return dispatchCritic(invokeOpts);
     };
 
-    const loopResult = await criticReviseLoop<T>({
-        deliverable: opts.deliverable,
+    // ── 2026-10-01 (plan 2.6 / 3.7 / 5.4): resolve the kind's rubric THROUGH THE MANIFEST first.
+    // A missing rubric fails the panel as a degradation event; the artifact is not reviewed by a
+    // panel that has nothing to review against.
+    const resolution = await loadRubricForKind(opts.kind, { proxyBase, ...(opts.rubric_loader || {}) });
+    const rubric = resolution.rubric;
+    const extraEvents: DegradationEvent[] = [];
+    if (!rubric) {
+        extraEvents.push(emitDegradationEvent({
+            kind: 'feature_omission',
+            stage: `expert_panel:${opts.kind}`,
+            requested: `rubric for '${opts.kind}'`,
+            actual: 'missing',
+            detail: `Expert panel FAILED: ${resolution.reason}. The artifact was not reviewed against a rubric.`,
+            recoverable: false,
+            user_action: 'investigate',
+        }));
+        console.warn(`[runExpertPanel/${opts.kind}] rubric missing: ${resolution.reason}`);
+    }
+
+    const runLoop = (deliverable: T, loopBudget: number) => criticReviseLoop<T>({
+        deliverable,
         critics,
         revisor_model: 'sonnet-4.6',
         halt_when: 'all_accept',
-        budget_usd: budget,
+        budget_usd: loopBudget,
         surface_critique_log: true,
         proxy_base: proxyBase,
         invoke_critic: composedInvoker,
     });
 
-    const afterText = JSON.stringify(loopResult.result);
-    const afterEm = (afterText.match(/-/g) || []).length;
+    let loopResult = await runLoop(opts.deliverable, budget);
+    let current: T = loopResult.result;
+    let spent = loopResult.total_cost_usd;
+    const critiqueLog = [...loopResult.critique_log];
+    const degradationEvents = [...extraEvents, ...loopResult.degradation_events];
+    const criticErrors = [...loopResult.critic_errors];
+    const iterations: Record<string, number> = { ...loopResult.iterations_per_critic };
+
+    const scorer: RubricScorer | null = opts.score_rubric === undefined ? dispatchRubricScores : opts.score_rubric;
+    const scoreOnce = async (deliverable: T): Promise<RubricScoreResult | null> => {
+        if (!rubric) return null;
+        let modelScores: Record<string, ModelCriterionScore> | null = null;
+        if (scorer && budget - spent >= RUBRIC_SCORER_RESERVE_USD) {
+            const r = await scorer({ rubric, deliverable, proxy_base: proxyBase, model_tier: 'sonnet-4.6' });
+            spent += r.cost_usd;
+            if (r.error) {
+                degradationEvents.push(emitDegradationEvent({
+                    kind: 'feature_omission',
+                    stage: `expert_panel:${opts.kind}:rubric_scorer`,
+                    detail: `Model rubric scoring unavailable (${r.error}); deterministic checks decide alone.`,
+                    recoverable: true,
+                    user_action: 'no_action_needed',
+                }));
+            }
+            modelScores = r.scores;
+        }
+        return scoreRubric(rubric, deliverable, modelScores);
+    };
+
+    // A critic that could not review leaves the artifact partly unreviewed: the panel may not
+    // declare `pass` on it (auditGate doctrine: the gate declares verified).
+    const decide = (scores: RubricScoreResult | null): PanelVerdict => {
+        if (!rubric) return 'fail';
+        const v = scores?.verdict ?? 'refine';
+        if (v === 'pass' && criticErrors.length > 0) return 'refine';
+        return v;
+    };
+
+    let scores = await scoreOnce(current);
+    let verdict = decide(scores);
+    let rebuilds = 0;
+    let rebuildStop: string | undefined;
+
+    // ── Bounded rebuild on `refine` (max 2), guarded against stalls by progressGuard.
+    if (verdict === 'refine' && rubric && scores) {
+        resetProgress(runId);
+        for (let attempt = 1; attempt <= maxRebuilds; attempt++) {
+            if (budget - spent <= 0) { rebuildStop = 'budget_exhausted'; break; }
+            const instructions = refineInstructions(scores, rubric);
+            const attemptDecision = noteAttempt(runId, stepId, instructions.join(' | ') || `refine:${attempt}`);
+            if (attemptDecision.blocked) { rebuildStop = attemptDecision.stopReason || 'loop_capped'; break; }
+            let next: T;
+            try {
+                if (opts.rebuild) {
+                    next = await opts.rebuild({ attempt, kind: opts.kind, verdict, instructions, scores, hint: attemptDecision.hint });
+                } else {
+                    const again = await runLoop(current, Math.max(0, budget - spent));
+                    spent += again.total_cost_usd;
+                    critiqueLog.push(...again.critique_log);
+                    degradationEvents.push(...again.degradation_events);
+                    for (const e of again.critic_errors) if (!criticErrors.includes(e)) criticErrors.push(e);
+                    for (const [k, v] of Object.entries(again.iterations_per_critic)) iterations[k] = (iterations[k] || 0) + v;
+                    loopResult = again;
+                    next = again.result;
+                }
+            } catch (e: any) {
+                rebuildStop = `rebuild_error: ${String(e?.message || e).slice(0, 120)}`;
+                degradationEvents.push(emitDegradationEvent({
+                    kind: 'feature_omission',
+                    stage: `expert_panel:${opts.kind}:rebuild`,
+                    detail: `Rebuild attempt ${attempt} failed: ${String(e?.message || e).slice(0, 160)}`,
+                    recoverable: true,
+                    user_action: 'investigate',
+                }));
+                break;
+            }
+            rebuilds += 1;
+            const progress = noteResult(runId, stepId, { ok: true, output: JSON.stringify(next ?? '') });
+            current = next;
+            scores = await scoreOnce(current);
+            verdict = decide(scores);
+            if (verdict !== 'refine') break;
+            if (progress.blocked || progress.strikes >= 2) { rebuildStop = progress.stopReason || 'no_progress'; break; }
+        }
+        if (verdict === 'refine' && !rebuildStop) rebuildStop = rebuilds >= maxRebuilds ? 'iteration_capped' : 'not_attempted';
+    }
+
+    const afterText = JSON.stringify(current);
+    const afterEm = (afterText.match(EM_DASH_COUNT_RE) || []).length;
+
+    // ── One verdict line per artifact: wiki/eval/auditor-verdicts.jsonl.
+    const verdictRecord: AuditorVerdictRecord = buildVerdictRecord({
+        panelKind: opts.kind,
+        rubricKind: resolution.rubricKind || 'none',
+        result: scores ?? {
+            rubric_id: 'missing', rubric_version: '0', scores: [], verdict: 'fail',
+            blocking_hits: [], below_floor: [], unscored: [], deterministic_failures: [resolution.reason],
+        },
+        verdict,
+        rebuilds,
+        criticErrors,
+        expertsFired: critics.map(c => c.skill_name),
+        costUsd: spent,
+        artifactId: opts.artifact_id,
+        runId: opts.run_id,
+    });
+    if (opts.write_verdict !== null) {
+        const writer: VerdictWriter = opts.write_verdict ?? ((rec) => appendAuditorVerdict(rec, { proxyBase }));
+        try { await writer(verdictRecord); } catch (e: any) { console.warn(`[runExpertPanel/${opts.kind}] verdict write failed (non-fatal):`, e?.message || e); }
+    }
+    console.info(`[runExpertPanel/${opts.kind}] verdict=${verdict} rubric=${resolution.rubricKind || 'none'} rebuilds=${rebuilds} critic_errors=${criticErrors.length} $${spent.toFixed(3)}`);
 
     return {
         ...loopResult,
+        result: current,
+        iterations_per_critic: iterations,
+        critique_log: critiqueLog,
+        total_cost_usd: spent,
+        degradation_events: degradationEvents,
+        critic_errors: criticErrors,
         panel_summary: {
             kind: opts.kind,
             experts_fired: critics.map(c => c.skill_name),
-            critics_accepted: loopResult.critique_log
+            critics_accepted: critiqueLog
                 .filter(entry => entry.verdict.accept)
                 .map(entry => entry.critic),
-            critics_with_edits: loopResult.critique_log
+            critics_with_edits: critiqueLog
                 .filter(entry => entry.edits_applied > 0)
                 .map(entry => entry.critic),
             em_dash_count_before: beforeEm,
             em_dash_count_after: afterEm,
         },
+        verdict,
+        rubric: rubric ? { kind: rubric.kind, id: rubric.rubric_id, version: rubric.version } : null,
+        rubric_scores: scores,
+        auditor_verdict: verdictRecord,
+        rebuilds,
+        ...(rebuildStop ? { rebuild_stop_reason: rebuildStop } : {}),
     };
 }
 
@@ -563,7 +761,7 @@ const SLOP_SUBSTITUTIONS: Array<[RegExp, string]> = [
     [/\b(?:stands|stood) as a\b/gi, 'is a'],
 ];
 
-export function stripSlopPhrasesInPlace<T>(obj: T): T {
+function stripSlopPhrasesInPlace<T>(obj: T): T {
     if (obj === null || obj === undefined) return obj;
     if (typeof obj === 'string') {
         let s = obj as string;
@@ -583,6 +781,6 @@ export function stripSlopPhrasesInPlace<T>(obj: T): T {
 /** Combined hygiene strip: em-dashes + slop-phrase substitution. Call this
  * on any artifact before it lands in the design desk; the runExpertPanel
  * function applies it automatically via the deterministic universal critic. */
-export function applyHygieneStrip<T>(obj: T): T {
+function applyHygieneStrip<T>(obj: T): T {
     return stripSlopPhrasesInPlace(stripEmDashesInPlace(obj));
 }

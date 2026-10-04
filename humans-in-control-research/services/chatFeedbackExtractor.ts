@@ -61,7 +61,7 @@ const IMPERATIVE_RX = /^(make|change|fix|rewrite|redo|shorten|lengthen|simplify|
 const DENSITY_RX = /\b(more|fewer|less|N|\d+)\s+(activit(?:y|ies)|pain[\s-]?points?|detail|details|items|stages|phases|cells|lanes|quotes|swimlanes|touchpoints?|steps?|nodes?|columns?|rows?)\b/i;
 const PER_X_RX = /\b(per|each|every)\s+(phase|swimlane|lane|stage|cell|column|row|step|touchpoint)\b/i;
 
-export function looksLikeFeedback(text: string): boolean {
+function looksLikeFeedback(text: string): boolean {
     if (!text || text.length < 4) return false;
     // Long messages are usually new requests with rich context, not pure feedback.
     if (text.length > 800) return false;
@@ -78,7 +78,7 @@ export function looksLikeFeedback(text: string): boolean {
  *  classifier mis-tag them as one-off `correction`. Returns true when the
  *  message contains language like "more activities per phase", "always
  *  include 3 pain points", "fewer details", etc. */
-export function isDensityPreference(text: string): boolean {
+function isDensityPreference(text: string): boolean {
     return DENSITY_RX.test(text) && (PER_X_RX.test(text) || /\b(always|every|each|more|fewer|all)\b/i.test(text));
 }
 

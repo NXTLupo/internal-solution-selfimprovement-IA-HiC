@@ -1,0 +1,144 @@
+{
+  "rubric_id": "tech-audit-rubric",
+  "kind": "tech-audit",
+  "version": "1.0.0",
+  "title": "tech-audit deliverable rubric",
+  "absorbed_from": ".claude/agents/tech-audit-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #audit output. Audits the tech-audit-inspector SKILL.md contract end-to-end (systems inventory completeness, named tool versions, gap-to-recommendation linkage). Returns a structured verdict the orchestrator must respond to before the #audit deliverable ships. Templated from the 5 reference auditors (journey/recommendations/themes/personas/strategy) shipped 2026-06-06.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "skill_contract_compliance",
+      "n": 1,
+      "label": "Skill-contract compliance",
+      "five": "Every section the skill mandates is present + populated",
+      "one": "Missing sections or shallow content",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "evidence_anchoring",
+      "n": 2,
+      "label": "Evidence anchoring",
+      "five": "Every claim has a named-source citation; verbatim quotes where applicable",
+      "one": "Generic citations (\"research\", \"studies\")",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": "evidence_anchoring"
+    },
+    {
+      "id": "quantitative_discipline",
+      "n": 3,
+      "label": "Quantitative discipline",
+      "five": "Numbers appear ONLY inside cited quotes; titles + body have no standalone figures",
+      "one": "Bare percentages in titles",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "naked_numbers"
+    },
+    {
+      "id": "anti_slop_hygiene",
+      "n": 4,
+      "label": "Anti-slop hygiene",
+      "five": "No meta-narration; no metaphor titles; no em-dashes; no \"in conclusion\" wraps",
+      "one": "Multiple slop tells",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "brand_consistency",
+      "n": 5,
+      "label": "Brand consistency",
+      "five": "Stark-white surface, brand-correct tokens (NXT chartreuse + cyan / NU red + Spectral)",
+      "one": "Off-brand colors or rounded cards",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "citation_diversity",
+      "n": 6,
+      "label": "Citation diversity",
+      "five": "≥3 named external sources; ≥50% external (not client-upload PDFs)",
+      "one": "Citation cluster around 1-2 sources",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "citation_diversity"
+    },
+    {
+      "id": "action_titles",
+      "n": 7,
+      "label": "Action titles",
+      "five": "Every section title is a complete-sentence judgment",
+      "one": "Topic labels",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "action_titles"
+    },
+    {
+      "id": "domain_specific",
+      "n": 8,
+      "label": "Domain-specific dim",
+      "five": "systems inventory completeness, named tool versions, gap-to-recommendation linkage",
+      "one": "Failure of the above",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "citation_resolution",
+      "n": 9,
+      "label": "Citation resolution",
+      "five": "Every [CHUNK_XXX] resolved to SourceName: ArticleTitle format",
+      "one": "Raw chunk markers leaked",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "raw_chunk_markers"
+    },
+    {
+      "id": "self_consistency",
+      "n": 10,
+      "label": "Self-consistency",
+      "five": "No internal contradictions across sections",
+      "one": "Contradictory claims",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cached_selection_coverage",
+      "n": 11,
+      "label": "Cached-selection coverage (2026-06-06)",
+      "five": "≥80% of user's KL-curated items appear as source: cached or source: extended",
+      "one": "<60% coverage (auto Stop-hook reject)",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "cached_selection_coverage"
+    }
+  ],
+  "blocking": [
+    "evidence_anchoring",
+    "cached_selection_coverage"
+  ],
+  "decision": {
+    "approve": "all dims ≥3 AND skill-contract compliance ≥4 AND evidence anchoring ≥4",
+    "revise": "1-2 dims below floor; orchestrator regenerates the violator sections",
+    "reject": "3+ dims below floor OR cached-selection coverage <60% OR fabricated quotes"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

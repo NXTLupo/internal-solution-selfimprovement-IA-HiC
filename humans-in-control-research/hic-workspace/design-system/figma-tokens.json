@@ -1,345 +1,823 @@
 {
-  "_meta": {
-    "refreshed": "2026-06-28",
-    "source": "Figma MCP on NXT file iSQhAVM7SI4QHAWB7y9C2z, collection 'NXT Brand Tokens' which now carries TWO MODES on one collection: NXT (modeId 221:0) and NU (modeId 535:0). NU is a mode flip, not a separate collection. The NXT/NU blocks below mirror those two modes. Fonts: NXT display=Saira Condensed, heading/body=Archivo, mono=IBM Plex Mono; NU=single-typeface Lato across all slots. on-accent token carries text-on-accent (NXT #0D0D0D black, NU #FFFFFF white) per the white-on-red accessibility rule.",
-    "refresh_2026_06_28": "Re-pulled both modes via Figma MCP get_variable_defs (nodes 223:2 NXT-mode, 590:9 NXT instance, 625:385/625:314 NU mode-535:0 instances). ALL colors verified IDENTICAL to live Figma for both modes (rail/ink/accent/cyan/rust/teal/ecru/hairline/grey/on-accent/paper match; NU.teal stays the renderer-semantic #16233C navy override per nu_provenance while the mode's color/teal=#A4804A lives under the 'gold' key). Fonts verified unchanged (Saira Condensed/Archivo/IBM Plex Mono for NXT; single-typeface Lato for NU). ONE DRIFT FIXED: radius/base was 0 in this mirror but live Figma reports radius/base=3 for BOTH modes -> corrected to 3. Type scale + space tokens not pulled live (PAT lacks file_variables:read per refresh_protocol); left unchanged, no evidence of drift. Renderer twins hardcode per-element border-radius (2/3/4px) and do not read radius.base, so this correction is documentation-fidelity only and does not cascade.",
-    "componentized": "2026-06-15: all ~68 NXT GOLD deliverable components are token-bound + componentized; each has a materialized NU-mode sub-component instance (mode 535:0) beside it. Brand/Logo \u00b7 masthead (619:2) flips NXT wordmark -> NU red-N monogram by the brand/is-nxt|is-nu booleans. 53 mastheads unified to that component (logo consistency).",
-    "nu_provenance": "2026-06-15: NU block reconciled against mode 535:0 (single-file, NU-as-a-mode). All values verified == mode 535:0 EXCEPT two intentional renderer-semantic keys: (1) 'teal' stays #16233C (navy header/premium slot for NU); the mode's color/teal var = #A4804A (gold) lives under the separate 'gold' key - do NOT overwrite 'teal' with the mode's color/teal. (2) renderer-only keys with no Figma var: kicker, band, band-text, source, gold, warn. Added missing 'success' #38A169 + 'error' #D8132D to reach NXT parity. This block is a RENDERER-FACING contract keyed by role, not a raw 1:1 mirror of Figma variable names.",
-    "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP and rewrites it. NEVER hand-edit hex values; re-pull both modes from 'NXT Brand Tokens' (NXT 221:0 / NU 535:0). When re-pulling, preserve the renderer-semantic keys noted in nu_provenance - map by ROLE, not by raw Figma var name.",
-    "nu_type_scale_note": "NU display/deck tier reduced for Lato width (mode 535:0): hero 88, deckTitle 50, sectionNumeral 300, numeral 68, quoteMark 215, display 52 (2026-06-25). NXT mode 221:0 unchanged.",
-    "rust_nu_2026_07_09": "NU 'rust' added as a RENDERER-SEMANTIC role key (= warn family, per nu_provenance role-mapping): proto_partials/_RUST previously fell to its NXT literal fallback on NU renders. No Figma var exists for NU rust; map by role, do not re-pull."
+ "_meta": {
+  "refreshed": "2026-06-28",
+  "source": "Figma MCP on NXT file iSQhAVM7SI4QHAWB7y9C2z, collection 'NXT Brand Tokens' which now carries TWO MODES on one collection: NXT (modeId 221:0) and NU (modeId 535:0). NU is a mode flip, not a separate collection. The NXT/NU blocks below mirror those two modes. Fonts: NXT display=Saira Condensed, heading/body=Archivo, mono=IBM Plex Mono; NU=single-typeface Lato across all slots. on-accent token carries text-on-accent (NXT #0D0D0D black, NU #FFFFFF white) per the white-on-red accessibility rule.",
+  "refresh_2026_06_28": "Re-pulled both modes via Figma MCP get_variable_defs (nodes 223:2 NXT-mode, 590:9 NXT instance, 625:385/625:314 NU mode-535:0 instances). ALL colors verified IDENTICAL to live Figma for both modes (rail/ink/accent/cyan/rust/teal/ecru/hairline/grey/on-accent/paper match; NU.teal stays the renderer-semantic #16233C navy override per nu_provenance while the mode's color/teal=#A4804A lives under the 'gold' key). Fonts verified unchanged (Saira Condensed/Archivo/IBM Plex Mono for NXT; single-typeface Lato for NU). ONE DRIFT FIXED: radius/base was 0 in this mirror but live Figma reports radius/base=3 for BOTH modes -> corrected to 3. Type scale + space tokens not pulled live (PAT lacks file_variables:read per refresh_protocol); left unchanged, no evidence of drift. Renderer twins hardcode per-element border-radius (2/3/4px) and do not read radius.base, so this correction is documentation-fidelity only and does not cascade.",
+  "componentized": "2026-06-15: all ~68 NXT GOLD deliverable components are token-bound + componentized; each has a materialized NU-mode sub-component instance (mode 535:0) beside it. Brand/Logo · masthead (619:2) flips NXT wordmark -> NU red-N monogram by the brand/is-nxt|is-nu booleans. 53 mastheads unified to that component (logo consistency).",
+  "nu_provenance": "2026-06-15: NU block reconciled against mode 535:0 (single-file, NU-as-a-mode). All values verified == mode 535:0 EXCEPT two intentional renderer-semantic keys: (1) 'teal' stays #16233C (navy header/premium slot for NU); the mode's color/teal var = #A4804A (gold) lives under the separate 'gold' key - do NOT overwrite 'teal' with the mode's color/teal. (2) renderer-only keys with no Figma var: kicker, band, band-text, source, gold, warn. Added missing 'success' #38A169 + 'error' #D8132D to reach NXT parity. This block is a RENDERER-FACING contract keyed by role, not a raw 1:1 mirror of Figma variable names.",
+  "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP and rewrites it. NEVER hand-edit hex values; re-pull both modes from 'NXT Brand Tokens' (NXT 221:0 / NU 535:0). When re-pulling, preserve the renderer-semantic keys noted in nu_provenance - map by ROLE, not by raw Figma var name.",
+  "nu_type_scale_note": "NU display/deck tier reduced for Lato width (mode 535:0): hero 88, deckTitle 50, sectionNumeral 300, numeral 68, quoteMark 215, display 52 (2026-06-25). NXT mode 221:0 unchanged.",
+  "rust_nu_2026_07_09": "NU 'rust' added as a RENDERER-SEMANTIC role key (= warn family, per nu_provenance role-mapping): proto_partials/_RUST previously fell to its NXT literal fallback on NU renders. No Figma var exists for NU rust; map by role, do not re-pull.",
+  "deciem_2026_10_01": "Third brand mode DECIEM added from the DECIEM PowerPoint template (not a Figma mode). Hashtag #deciem; tokens at /api/design-tokens?brand=DECIEM; template assets served at /api/design-assets/deciem/. Brand ids: nxt | nu | deciem (components/slideTemplates/brands.ts)."
+ },
+ "NXT": {
+  "color": {
+   "rail": "#0D0D0D",
+   "ink": "#141414",
+   "accent": "#B8B800",
+   "cyan": "#00B7C3",
+   "rust": "#CC6644",
+   "teal": "#115054",
+   "success": "#0CCE6B",
+   "error": "#FF5A5A",
+   "paper": "#FFFFFF",
+   "ecru": "#F2F1EA",
+   "grey": "#73757A",
+   "hairline": "#DDDDD6",
+   "kicker": "#00B7C3",
+   "source": "#00B7C3",
+   "warn": "#CC6644",
+   "wash-warn": "#FAF1EC",
+   "wash-cool": "#EBF7F8",
+   "on-accent": "#0D0D0D",
+   "pale": "#FAFAF7",
+   "muted": "#999999",
+   "body": "#333333",
+   "secondary": "#666666",
+   "panel": "#F5F5F0",
+   "accent-bright": "#CACA20",
+   "accent-pale": "#F5F5C8",
+   "teal-dark": "#0B3A3D",
+   "status-red": "#CC3333",
+   "graphite": "#262626",
+   "rule-warm": "#B8B8B0",
+   "slate": "#3A4A66",
+   "rule-mid": "#CCCCCC",
+   "band": "#B8B800",
+   "band-text": "#0D0D0D"
   },
-  "NXT": {
-    "color": {
-      "rail": "#0D0D0D",
-      "ink": "#141414",
-      "accent": "#B8B800",
-      "cyan": "#00B7C3",
-      "rust": "#CC6644",
-      "teal": "#115054",
-      "success": "#0CCE6B",
-      "error": "#FF5A5A",
-      "paper": "#FFFFFF",
-      "ecru": "#F2F1EA",
-      "grey": "#73757A",
-      "hairline": "#DDDDD6",
-      "kicker": "#00B7C3",
-      "source": "#00B7C3",
-      "warn": "#CC6644",
-      "wash-warn": "#FAF1EC",
-      "wash-cool": "#EBF7F8",
-      "on-accent": "#0D0D0D",
-      "pale": "#FAFAF7",
-      "muted": "#999999",
-      "body": "#333333",
-      "secondary": "#666666",
-      "panel": "#F5F5F0",
-      "accent-bright": "#CACA20",
-      "accent-pale": "#F5F5C8",
-      "teal-dark": "#0B3A3D",
-      "status-red": "#CC3333",
-      "graphite": "#262626",
-      "rule-warm": "#B8B8B0",
-      "slate": "#3A4A66",
-      "rule-mid": "#CCCCCC",
-      "band": "#B8B800",
-      "band-text": "#0D0D0D"
-    },
-    "font": {
-      "display": "Saira Condensed",
-      "title": "Archivo",
-      "title-weight": "600",
-      "body": "Archivo",
-      "mono": "IBM Plex Mono"
-    },
-    "space": {
-      "rail": 92,
-      "contentLeft": 172,
-      "contentWidth": 1660,
-      "marginRight": 80,
-      "top": 58,
-      "dotSize": 12,
-      "dotGap": 6,
-      "panelPadX": 32,
-      "panelPadY": 30,
-      "bandPadX": 48,
-      "bandPadY": 28,
-      "bandHeight": 96
-    },
-    "type": {
-      "_note": "Type system sourced from Brand Tokens variables (type/*, track/*, space/scale-*). Stage px (1920-space); web=px/2, pptx pt=px/2. See plans/typographic-system-redesign-2026-06-14.md",
-      "scale": {
-        "label": 17,
-        "caption": 18,
-        "body": 21,
-        "bodyReadable": 28,
-        "lead": 25,
-        "name": 30,
-        "subhead": 36,
-        "title": 46,
-        "display": 60,
-        "kicker": 22,
-        "deckHeading": 24,
-        "deckTitle": 58,
-        "numeral": 80,
-        "hero": 120,
-        "sectionNumeral": 360,
-        "quoteMark": 260,
-        "micro": 13,
-        "nano": 11
-      },
-      "floor": 17,
-      "readableBody": 28,
-      "lineHeight": {
-        "tight": 1.0,
-        "body": 1.15,
-        "prose": 1.3
-      },
-      "heroCap": 36,
-      "measureCh": 62,
-      "weight": {
-        "body": 400,
-        "label": 500,
-        "title": 600
-      },
-      "track": {
-        "kicker": 4,
-        "label": 1.5,
-        "title": -0.5
-      },
-      "space": {
-        "xs": 4,
-        "sm": 8,
-        "md": 12,
-        "lg": 16,
-        "xl": 24,
-        "xxl": 32,
-        "xxxl": 48,
-        "huge": 64
-      }
-    },
-    "radius": {
-      "base": 3
-    },
-    "logo": {
-      "type": "wordmark-vector",
-      "wordmark": "NXT HUMANS",
-      "font": "Saira Condensed",
-      "weight": 600,
-      "letter_spacing": "1px",
-      "on_light": "#141414",
-      "on_dark": "#FFFFFF",
-      "source": "Figma node 31:13 panel/brand-logo -> vector 31:17 (true vector NXT HUMANS wordmark, custom letterforms from the website EPS LOGOS, NOT typeset Saira). Stored once with fill=currentColor so the renderer sets color per context. Verified 2026-06-17.",
-      "usage": "Render the SVG wordmark (BRAND_LOGO_SVG) at the masthead; CSS color per context: ink on light, paper on dark, chartreuse for accent. `wordmark` text is fallback only.",
-      "svg": "<svg viewBox=\"0 0 300 86\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" style=\"height:100%;width:auto;display:block\"><path d=\"M290.585 85.0962C297.226 85.0962 299.883 82.4437 299.883 75.8128V55.0362C299.883 52.2734 299.22 50.3946 297.67 48.1843L284.276 29.0652V12.9302H286.269V27.8495H299.883V9.28329C299.883 2.65242 297.226 0 290.585 0H279.96C273.319 9.78128e-06 270.662 2.65244 270.662 9.28329V29.9495C270.662 32.7123 271.327 34.4806 272.877 36.8014L286.269 55.9202V72.1659H284.276V57.0255H270.662V75.8128C270.662 82.4437 273.319 85.0962 279.96 85.0962H290.585ZM13.2823 84.7646V59.3462C13.2823 57.6883 12.729 48.0737 12.729 48.0737L18.7061 84.7646H31.4348V0.331625H18.1524V25.75C18.1526 27.4079 18.7061 37.0224 18.7061 37.0224L12.729 0.331625H0V84.7646H13.2823ZM47.9054 56.6941L49.8976 84.7646H63.512V84.433L58.0885 42.4377L62.7372 0.663093V0.331625H49.6763L47.9054 29.2864L46.1343 0.331625H33.0734V0.663093L37.7223 42.4377L32.2986 84.433V84.7646H45.913L47.9054 56.6941ZM83.5715 13.9248H89.5486V0.331625H63.9801V13.9248H69.9571V84.7646H83.5715V13.9248ZM115.545 46.9686H117.538V84.7646H131.152V0.331625H117.538V33.0438H115.545V0.331625H101.931V84.7646H115.545V46.9686ZM152.877 85.0962C159.518 85.0962 162.175 82.4437 162.175 75.8128V0.331625H148.56V72.1659H146.567V0.331625H132.953V75.8128C132.953 82.4437 135.61 85.0962 142.251 85.0962H152.877ZM177.479 56.6941C177.479 54.4837 177.037 40.6692 177.037 40.6692L179.915 74.2657H187.662L190.54 40.6692C190.54 40.6692 190.098 54.4837 190.098 56.6941V84.7646H203.601V0.331625H190.098L185.67 20.7766C184.562 25.9708 184.01 29.9494 183.788 34.591C183.567 29.9494 183.013 25.9708 181.907 20.7766L177.479 0.331625H163.976V84.7646H177.479V56.6941ZM218.104 71.6133H222.974L223.638 84.7646H236.367V84.5436L228.287 0.331625H212.79L204.71 84.5436V84.7646H217.439L218.104 71.6133ZM250.76 59.3462C250.76 57.6883 250.207 48.0737 250.207 48.0737L256.184 84.7646H268.913V0.331625H255.63V25.75C255.63 27.4075 256.184 37.0192 256.184 37.0224L250.207 0.331625H237.478V84.7646H250.76V59.3462ZM220.538 27.5181L222.199 58.0202H218.878L220.538 27.5181Z\" fill=\"currentColor\"/></svg>",
-      "svg_viewbox": "0 0 300 86"
-    }
+  "font": {
+   "display": "Saira Condensed",
+   "title": "Archivo",
+   "title-weight": "600",
+   "body": "Archivo",
+   "mono": "IBM Plex Mono"
   },
-  "NU": {
-    "color": {
-      "rail": "#0E1626",
-      "ink": "#16233C",
-      "accent": "#C8102E",
-      "accent-bright": "#D41B2C",
-      "gold": "#A4804A",
-      "source": "#1D6E64",
-      "cyan": "#1D6E64",
-      "teal": "#16233C",
-      "paper": "#FFFFFF",
-      "ecru": "#F2F1EA",
-      "grey": "#73757A",
-      "hairline": "#DDDDD6",
-      "kicker": "#C8102E",
-      "warn": "#C8102E",
-      "success": "#38A169",
-      "error": "#D8132D",
-      "wash-warn": "#FAEDED",
-      "wash-cool": "#EDF7F5",
-      "on-accent": "#FFFFFF",
-      "pale": "#FAF9F4",
-      "muted": "#73757A",
-      "body": "#16233C",
-      "secondary": "#73757A",
-      "panel": "#F2F1EA",
-      "accent-pale": "#FAEDED",
-      "teal-dark": "#0E1626",
-      "status-red": "#D8132D",
-      "graphite": "#16233C",
-      "rule-warm": "#C9C7BD",
-      "slate": "#1D6E64",
-      "rule-mid": "#B9BEC7",
-      "band": "#16233C",
-      "band-text": "#FFFFFF",
-      "rust": "#C8102E"
-    },
-    "font": {
-      "display": "Lato",
-      "title": "Lato",
-      "title-weight": "700",
-      "body": "Lato",
-      "mono": "Lato",
-      "_note": "NU is a SINGLE-TYPEFACE system (Lato, weight = hierarchy) per Northeastern's model. All four slots resolve to Lato; weight + size carry hierarchy. Sourced from the NU MODE (535:0) of the NXT Brand Tokens collection font/* variables (single-file, NU-as-a-mode); the legacy NU file's 95:2 collection is reference-only. Google Fonts Lato lacks 600, so web title-weight is 700."
-    },
-    "space": {
-      "rail": 92,
-      "contentLeft": 172,
-      "contentWidth": 1660,
-      "marginRight": 80,
-      "top": 58,
-      "dotSize": 12,
-      "dotGap": 6,
-      "panelPadX": 32,
-      "panelPadY": 30,
-      "bandPadX": 48,
-      "bandPadY": 28,
-      "bandHeight": 96
-    },
-    "type": {
-      "_note": "Type system sourced from Brand Tokens variables (type/*, track/*, space/scale-*). Stage px (1920-space); web=px/2, pptx pt=px/2. See plans/typographic-system-redesign-2026-06-14.md",
-      "scale": {
-        "label": 17,
-        "caption": 18,
-        "body": 21,
-        "bodyReadable": 28,
-        "lead": 25,
-        "name": 30,
-        "subhead": 36,
-        "title": 46,
-        "display": 52,
-        "kicker": 22,
-        "deckHeading": 24,
-        "deckTitle": 50,
-        "numeral": 68,
-        "hero": 88,
-        "sectionNumeral": 300,
-        "quoteMark": 215,
-        "micro": 13,
-        "nano": 11
-      },
-      "floor": 17,
-      "readableBody": 28,
-      "lineHeight": {
-        "tight": 1.0,
-        "body": 1.15,
-        "prose": 1.3
-      },
-      "heroCap": 36,
-      "measureCh": 62,
-      "weight": {
-        "body": 400,
-        "label": 500,
-        "title": 700
-      },
-      "track": {
-        "kicker": 4,
-        "label": 1.5,
-        "title": 0
-      },
-      "space": {
-        "xs": 4,
-        "sm": 8,
-        "md": 12,
-        "lg": 16,
-        "xl": 24,
-        "xxl": 32,
-        "xxxl": 48,
-        "huge": 64
-      }
-    },
-    "radius": {
-      "base": 3
-    },
-    "logo": {
-      "monogram": "<svg viewBox=\"0 0 64 53\" height=\"26\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z\" fill=\"#C8102E\"/></svg>",
-      "monogram_viewbox": "0 0 64 53",
-      "monogram_path": "M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z",
-      "fill": "#C8102E",
-      "source": "Figma node 25:5 (panel/brand-logo) \u2014 official Northeastern N monogram + northeastern wordmark, true vector",
-      "usage": "Use this EXACT vector for the brand mark in mastheads/nav. NEVER draw a letter inside a colored box."
-    }
+  "space": {
+   "rail": 92,
+   "contentLeft": 172,
+   "contentWidth": 1660,
+   "marginRight": 80,
+   "top": 58,
+   "dotSize": 12,
+   "dotGap": 6,
+   "panelPadX": 32,
+   "panelPadY": 30,
+   "bandPadX": 48,
+   "bandPadY": 28,
+   "bandHeight": 96
   },
-  "_grid": {
-    "canvas": {
-      "pptx": {
-        "w": 1920,
-        "h": 1080
-      },
-      "html": {
-        "w": 1920
-      }
-    },
-    "page": {
-      "rail": 92,
-      "contentLeft": 172,
-      "contentWidth": 1660,
-      "marginRight": 80,
-      "top": 58
-    },
-    "journeyMatrix": {
-      "labelGutter": 140,
-      "matrixStartX": 172,
-      "phaseCols": {
-        "default": 5,
-        "min": 3,
-        "max": 7,
-        "width": "fluid (FILL)",
-        "gutter": 26
-      },
-      "swimlanes": {
-        "default": 4,
-        "rowHeight": 120,
-        "rowGutter": 18
-      },
-      "phaseHeaderH": 64,
-      "painRowH": 90,
-      "cellPadding": 16,
-      "_extend": "Grow dimensions through auto-layout only: the matrix is a vertical stack of horizontal rows, cells set to FILL. Add a phase = add a column entry and let the row reflow; add a swimlane = add a row. Never absolute-position cells (collision-prone)."
-    },
-    "breakpoints": {
-      "_doc": "Mobile-first responsive breakpoint grid. min-width px / columns / margin px / gutter px. Styles cascade up. Max content width 1440, centered beyond 2xl. Figma layout-grids live on the 'GOLD \u00b7 responsive grids' pages (NU 408:2 / NXT 511:2).",
-      "xs": {
-        "min": 360,
-        "cols": 4,
-        "margin": 16,
-        "gutter": 16,
-        "label": "Mobile"
-      },
-      "sm": {
-        "min": 480,
-        "cols": 4,
-        "margin": 24,
-        "gutter": 16,
-        "label": "Mobile L"
-      },
-      "md": {
-        "min": 768,
-        "cols": 8,
-        "margin": 32,
-        "gutter": 24,
-        "label": "Tablet"
-      },
-      "lg": {
-        "min": 1024,
-        "cols": 12,
-        "margin": 48,
-        "gutter": 24,
-        "label": "Laptop"
-      },
-      "xl": {
-        "min": 1280,
-        "cols": 12,
-        "margin": 64,
-        "gutter": 32,
-        "label": "Desktop"
-      },
-      "2xl": {
-        "min": 1440,
-        "cols": 12,
-        "margin": 80,
-        "gutter": 32,
-        "label": "Wide / Desktop XL"
-      },
-      "maxContentWidth": 1440
-    }
+  "type": {
+   "_note": "Type system sourced from Brand Tokens variables (type/*, track/*, space/scale-*). Stage px (1920-space); web=px/2, pptx pt=px/2. See plans/typographic-system-redesign-2026-06-14.md",
+   "scale": {
+    "label": 17,
+    "caption": 18,
+    "body": 21,
+    "bodyReadable": 28,
+    "lead": 25,
+    "name": 30,
+    "subhead": 36,
+    "title": 46,
+    "display": 60,
+    "kicker": 22,
+    "deckHeading": 24,
+    "deckTitle": 58,
+    "numeral": 80,
+    "hero": 120,
+    "sectionNumeral": 360,
+    "quoteMark": 260,
+    "micro": 13,
+    "nano": 11
+   },
+   "floor": 17,
+   "readableBody": 28,
+   "lineHeight": {
+    "tight": 1.0,
+    "body": 1.15,
+    "prose": 1.3
+   },
+   "heroCap": 36,
+   "measureCh": 62,
+   "weight": {
+    "body": 400,
+    "label": 500,
+    "title": 600
+   },
+   "track": {
+    "kicker": 4,
+    "label": 1.5,
+    "title": -0.5
+   },
+   "space": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+    "xxxl": 48,
+    "huge": 64
+   }
+  },
+  "radius": {
+   "base": 3
+  },
+  "logo": {
+   "type": "wordmark-vector",
+   "wordmark": "NXT HUMANS",
+   "font": "Saira Condensed",
+   "weight": 600,
+   "letter_spacing": "1px",
+   "on_light": "#141414",
+   "on_dark": "#FFFFFF",
+   "source": "Figma node 31:13 panel/brand-logo -> vector 31:17 (true vector NXT HUMANS wordmark, custom letterforms from the website EPS LOGOS, NOT typeset Saira). Stored once with fill=currentColor so the renderer sets color per context. Verified 2026-06-17.",
+   "usage": "Render the SVG wordmark (BRAND_LOGO_SVG) at the masthead; CSS color per context: ink on light, paper on dark, chartreuse for accent. `wordmark` text is fallback only.",
+   "svg": "<svg viewBox=\"0 0 300 86\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" style=\"height:100%;width:auto;display:block\"><path d=\"M290.585 85.0962C297.226 85.0962 299.883 82.4437 299.883 75.8128V55.0362C299.883 52.2734 299.22 50.3946 297.67 48.1843L284.276 29.0652V12.9302H286.269V27.8495H299.883V9.28329C299.883 2.65242 297.226 0 290.585 0H279.96C273.319 9.78128e-06 270.662 2.65244 270.662 9.28329V29.9495C270.662 32.7123 271.327 34.4806 272.877 36.8014L286.269 55.9202V72.1659H284.276V57.0255H270.662V75.8128C270.662 82.4437 273.319 85.0962 279.96 85.0962H290.585ZM13.2823 84.7646V59.3462C13.2823 57.6883 12.729 48.0737 12.729 48.0737L18.7061 84.7646H31.4348V0.331625H18.1524V25.75C18.1526 27.4079 18.7061 37.0224 18.7061 37.0224L12.729 0.331625H0V84.7646H13.2823ZM47.9054 56.6941L49.8976 84.7646H63.512V84.433L58.0885 42.4377L62.7372 0.663093V0.331625H49.6763L47.9054 29.2864L46.1343 0.331625H33.0734V0.663093L37.7223 42.4377L32.2986 84.433V84.7646H45.913L47.9054 56.6941ZM83.5715 13.9248H89.5486V0.331625H63.9801V13.9248H69.9571V84.7646H83.5715V13.9248ZM115.545 46.9686H117.538V84.7646H131.152V0.331625H117.538V33.0438H115.545V0.331625H101.931V84.7646H115.545V46.9686ZM152.877 85.0962C159.518 85.0962 162.175 82.4437 162.175 75.8128V0.331625H148.56V72.1659H146.567V0.331625H132.953V75.8128C132.953 82.4437 135.61 85.0962 142.251 85.0962H152.877ZM177.479 56.6941C177.479 54.4837 177.037 40.6692 177.037 40.6692L179.915 74.2657H187.662L190.54 40.6692C190.54 40.6692 190.098 54.4837 190.098 56.6941V84.7646H203.601V0.331625H190.098L185.67 20.7766C184.562 25.9708 184.01 29.9494 183.788 34.591C183.567 29.9494 183.013 25.9708 181.907 20.7766L177.479 0.331625H163.976V84.7646H177.479V56.6941ZM218.104 71.6133H222.974L223.638 84.7646H236.367V84.5436L228.287 0.331625H212.79L204.71 84.5436V84.7646H217.439L218.104 71.6133ZM250.76 59.3462C250.76 57.6883 250.207 48.0737 250.207 48.0737L256.184 84.7646H268.913V0.331625H255.63V25.75C255.63 27.4075 256.184 37.0192 256.184 37.0224L250.207 0.331625H237.478V84.7646H250.76V59.3462ZM220.538 27.5181L222.199 58.0202H218.878L220.538 27.5181Z\" fill=\"currentColor\"/></svg>",
+   "svg_viewbox": "0 0 300 86"
   }
+ },
+ "NU": {
+  "color": {
+   "rail": "#0E1626",
+   "ink": "#16233C",
+   "accent": "#C8102E",
+   "accent-bright": "#D41B2C",
+   "gold": "#A4804A",
+   "source": "#1D6E64",
+   "cyan": "#1D6E64",
+   "teal": "#16233C",
+   "paper": "#FFFFFF",
+   "ecru": "#F2F1EA",
+   "grey": "#73757A",
+   "hairline": "#DDDDD6",
+   "kicker": "#C8102E",
+   "warn": "#C8102E",
+   "success": "#38A169",
+   "error": "#D8132D",
+   "wash-warn": "#FAEDED",
+   "wash-cool": "#EDF7F5",
+   "on-accent": "#FFFFFF",
+   "pale": "#FAF9F4",
+   "muted": "#73757A",
+   "body": "#16233C",
+   "secondary": "#73757A",
+   "panel": "#F2F1EA",
+   "accent-pale": "#FAEDED",
+   "teal-dark": "#0E1626",
+   "status-red": "#D8132D",
+   "graphite": "#16233C",
+   "rule-warm": "#C9C7BD",
+   "slate": "#1D6E64",
+   "rule-mid": "#B9BEC7",
+   "band": "#16233C",
+   "band-text": "#FFFFFF",
+   "rust": "#C8102E"
+  },
+  "font": {
+   "display": "Lato",
+   "title": "Lato",
+   "title-weight": "700",
+   "body": "Lato",
+   "mono": "Lato",
+   "_note": "NU is a SINGLE-TYPEFACE system (Lato, weight = hierarchy) per Northeastern's model. All four slots resolve to Lato; weight + size carry hierarchy. Sourced from the NU MODE (535:0) of the NXT Brand Tokens collection font/* variables (single-file, NU-as-a-mode); the legacy NU file's 95:2 collection is reference-only. Google Fonts Lato lacks 600, so web title-weight is 700."
+  },
+  "space": {
+   "rail": 92,
+   "contentLeft": 172,
+   "contentWidth": 1660,
+   "marginRight": 80,
+   "top": 58,
+   "dotSize": 12,
+   "dotGap": 6,
+   "panelPadX": 32,
+   "panelPadY": 30,
+   "bandPadX": 48,
+   "bandPadY": 28,
+   "bandHeight": 96
+  },
+  "type": {
+   "_note": "Type system sourced from Brand Tokens variables (type/*, track/*, space/scale-*). Stage px (1920-space); web=px/2, pptx pt=px/2. See plans/typographic-system-redesign-2026-06-14.md",
+   "scale": {
+    "label": 17,
+    "caption": 18,
+    "body": 21,
+    "bodyReadable": 28,
+    "lead": 25,
+    "name": 30,
+    "subhead": 36,
+    "title": 46,
+    "display": 52,
+    "kicker": 22,
+    "deckHeading": 24,
+    "deckTitle": 50,
+    "numeral": 68,
+    "hero": 88,
+    "sectionNumeral": 300,
+    "quoteMark": 215,
+    "micro": 13,
+    "nano": 11
+   },
+   "floor": 17,
+   "readableBody": 28,
+   "lineHeight": {
+    "tight": 1.0,
+    "body": 1.15,
+    "prose": 1.3
+   },
+   "heroCap": 36,
+   "measureCh": 62,
+   "weight": {
+    "body": 400,
+    "label": 500,
+    "title": 700
+   },
+   "track": {
+    "kicker": 4,
+    "label": 1.5,
+    "title": 0
+   },
+   "space": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+    "xxxl": 48,
+    "huge": 64
+   }
+  },
+  "radius": {
+   "base": 3
+  },
+  "logo": {
+   "monogram": "<svg viewBox=\"0 0 64 53\" height=\"26\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z\" fill=\"#C8102E\"/></svg>",
+   "monogram_viewbox": "0 0 64 53",
+   "monogram_path": "M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z",
+   "fill": "#C8102E",
+   "source": "Figma node 25:5 (panel/brand-logo) — official Northeastern N monogram + northeastern wordmark, true vector",
+   "usage": "Use this EXACT vector for the brand mark in mastheads/nav. NEVER draw a letter inside a colored box."
+  }
+ },
+ "_grid": {
+  "canvas": {
+   "pptx": {
+    "w": 1920,
+    "h": 1080
+   },
+   "html": {
+    "w": 1920
+   }
+  },
+  "page": {
+   "rail": 92,
+   "contentLeft": 172,
+   "contentWidth": 1660,
+   "marginRight": 80,
+   "top": 58
+  },
+  "journeyMatrix": {
+   "labelGutter": 140,
+   "matrixStartX": 172,
+   "phaseCols": {
+    "default": 5,
+    "min": 3,
+    "max": 7,
+    "width": "fluid (FILL)",
+    "gutter": 26
+   },
+   "swimlanes": {
+    "default": 4,
+    "rowHeight": 120,
+    "rowGutter": 18
+   },
+   "phaseHeaderH": 64,
+   "painRowH": 90,
+   "cellPadding": 16,
+   "_extend": "Grow dimensions through auto-layout only: the matrix is a vertical stack of horizontal rows, cells set to FILL. Add a phase = add a column entry and let the row reflow; add a swimlane = add a row. Never absolute-position cells (collision-prone)."
+  },
+  "breakpoints": {
+   "_doc": "Mobile-first responsive breakpoint grid. min-width px / columns / margin px / gutter px. Styles cascade up. Max content width 1440, centered beyond 2xl. Figma layout-grids live on the 'GOLD · responsive grids' pages (NU 408:2 / NXT 511:2).",
+   "xs": {
+    "min": 360,
+    "cols": 4,
+    "margin": 16,
+    "gutter": 16,
+    "label": "Mobile"
+   },
+   "sm": {
+    "min": 480,
+    "cols": 4,
+    "margin": 24,
+    "gutter": 16,
+    "label": "Mobile L"
+   },
+   "md": {
+    "min": 768,
+    "cols": 8,
+    "margin": 32,
+    "gutter": 24,
+    "label": "Tablet"
+   },
+   "lg": {
+    "min": 1024,
+    "cols": 12,
+    "margin": 48,
+    "gutter": 24,
+    "label": "Laptop"
+   },
+   "xl": {
+    "min": 1280,
+    "cols": 12,
+    "margin": 64,
+    "gutter": 32,
+    "label": "Desktop"
+   },
+   "2xl": {
+    "min": 1440,
+    "cols": 12,
+    "margin": 80,
+    "gutter": 32,
+    "label": "Wide / Desktop XL"
+   },
+   "maxContentWidth": 1440
+  }
+ },
+ "DECIEM": {
+  "_source": "DECIEM PowerPoint template docs/DECIEM-AIStratPresentation.pptx (template slides 11-51; content slides 1-10 excluded), dissected 2026-10-01 into hic-workspace/design-system/deciem/ (deciem-template.pptx = the 34 layouts with zero slides, layout-assets.json, layoutNN-*-background.jpg, layoutNN-*-logo.png). This block is PPTX-sourced, not a Figma mode; when the template changes re-extract, never hand-edit values here.",
+  "color": {
+   "rail": "#000000",
+   "ink": "#000000",
+   "accent": "#FB48C4",
+   "cyan": "#00FACC",
+   "rust": "#FF6C2F",
+   "teal": "#000000",
+   "success": "#00FACC",
+   "error": "#FF6C2F",
+   "paper": "#FFFFFF",
+   "ecru": "#F4F4F4",
+   "grey": "#6B6B6B",
+   "hairline": "#E3E3E3",
+   "kicker": "#FB48C4",
+   "source": "#8A69D4",
+   "warn": "#FF6C2F",
+   "wash-warn": "#FFEFE7",
+   "wash-cool": "#E5FFF9",
+   "on-accent": "#000000",
+   "pale": "#FAFAFA",
+   "muted": "#8A8A8A",
+   "body": "#1A1A1A",
+   "secondary": "#5A5A5A",
+   "panel": "#F4F4F4",
+   "accent-bright": "#FB48C4",
+   "accent-pale": "#FFE1F4",
+   "teal-dark": "#000000",
+   "status-red": "#FF6C2F",
+   "graphite": "#1F1F1F",
+   "rule-warm": "#D9D9D9",
+   "slate": "#3A3A3A",
+   "rule-mid": "#CCCCCC",
+   "band": "#000000",
+   "band-text": "#FFFFFF",
+   "gold": "#8A69D4",
+   "purple": "#8A69D4",
+   "orange": "#FF6C2F",
+   "yellow": "#FFE900",
+   "pink": "#FB48C4"
+  },
+  "font": {
+   "display": "Poppins",
+   "title": "Poppins",
+   "title-weight": "700",
+   "title-transform": "uppercase",
+   "body": "Josefin Sans",
+   "mono": "Nunito",
+   "label": "Poppins",
+   "label-weight": "700",
+   "label-transform": "uppercase",
+   "table": "Nunito",
+   "_evidence": "Run counts over template slides 11-51: Poppins bold = every title/subtitle/label (88/44/32/18/16/14 pt, always uppercase); Josefin Sans = body (10-16 pt, 145 runs); Nunito = table headers (18 pt bold) and table cells (12 pt), 40 runs; Questrial = one 16 pt product label; Century Gothic embedded but unused. Theme major/minor = Arial (placeholders only)."
+  },
+  "space": {
+   "rail": 0,
+   "contentLeft": 108,
+   "contentWidth": 1660,
+   "marginRight": 80,
+   "top": 58,
+   "dotSize": 12,
+   "dotGap": 6,
+   "panelPadX": 32,
+   "panelPadY": 30,
+   "bandPadX": 48,
+   "bandPadY": 28,
+   "bandHeight": 96
+  },
+  "type": {
+   "_note": "Type system sourced from Brand Tokens variables (type/*, track/*, space/scale-*). Stage px (1920-space); web=px/2, pptx pt=px/2. See plans/typographic-system-redesign-2026-06-14.md",
+   "scale": {
+    "label": 17,
+    "caption": 18,
+    "body": 21,
+    "bodyReadable": 28,
+    "lead": 25,
+    "name": 30,
+    "subhead": 32,
+    "title": 40,
+    "display": 52,
+    "kicker": 20,
+    "deckHeading": 24,
+    "deckTitle": 50,
+    "numeral": 72,
+    "hero": 104,
+    "sectionNumeral": 300,
+    "quoteMark": 260,
+    "micro": 13,
+    "nano": 11
+   },
+   "floor": 17,
+   "readableBody": 28,
+   "lineHeight": {
+    "tight": 1.0,
+    "body": 1.15,
+    "prose": 1.3
+   },
+   "heroCap": 36,
+   "measureCh": 62,
+   "weight": {
+    "body": 400,
+    "label": 700,
+    "title": 700
+   },
+   "track": {
+    "kicker": 2,
+    "label": 1,
+    "title": -0.5
+   },
+   "space": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+    "xxxl": 48,
+    "huge": 64
+   },
+   "_deciem_note": "Scale trimmed for uppercase Poppins Bold (wider than Archivo sentence case): hero 104, deckTitle 50, title 40, subhead 32, display 52, sectionNumeral 300, kicker 20; body/caption/label unchanged. Template pt sizes: 88 (cover), 44 (page title), 32/18 (subtitles), 14/12 body."
+  },
+  "radius": {
+   "base": 0
+  },
+  "logo": {
+   "type": "lockup-text",
+   "wordmark": "DECIEM",
+   "lockup_lines": [
+    "THE ABNORMAL BEAUTY COMPANY.",
+    "DECIEM"
+   ],
+   "font": "Poppins",
+   "weight": 700,
+   "letter_spacing": "0",
+   "on_light": "#000000",
+   "on_dark": "#FFFFFF",
+   "source": "Template layouts 11/27/28/29: a thin-bordered box, Poppins Bold uppercase \"THE ABNORMAL BEAUTY COMPANY.\" over a lighter \"DECIEM\". Typeset natively so the PPTX keeps it editable; the extracted PNGs are the raster reference only.",
+   "usage": "Cover: lockup box top-right on the black canvas. Body slides: no masthead (the template carries none). Section dividers: none.",
+   "image_white": "/api/design-assets/deciem/layout27-11-custom-layout-logo.png"
+  },
+  "art": {
+   "assetsRoute": "/api/design-assets/deciem/",
+   "templatePptx": "hic-workspace/design-system/deciem/deciem-template.pptx",
+   "canvas": {
+    "cover": "dark",
+    "section": "pop",
+    "thesis": "dark",
+    "body": "paper"
+   },
+   "cover": {
+    "background": "layout11-title-slide-background.jpg",
+    "fill": "#000000",
+    "text": "#FFFFFF",
+    "lockup": true
+   },
+   "dividerFills": [
+    {
+     "fill": "#00FACC",
+     "text": "#000000",
+     "layout": "6_Custom Layout"
+    },
+    {
+     "fill": "#8A69D4",
+     "text": "#FFFFFF",
+     "layout": "7_Custom Layout"
+    },
+    {
+     "fill": "#FB48C4",
+     "text": "#FFFFFF",
+     "layout": "8_Custom Layout"
+    },
+    {
+     "fill": "#FF6C2F",
+     "text": "#FFFFFF",
+     "layout": "9_Custom Layout"
+    },
+    {
+     "fill": "#000000",
+     "text": "#FFFFFF",
+     "layout": "Section Header"
+    }
+   ],
+   "bodyBackgrounds": [
+    {
+     "file": "layout13-1-custom-layout-background.jpg",
+     "pop": "pink",
+     "corners": [
+      "top-left",
+      "bottom-right"
+     ],
+     "layout": "1_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 640,
+       "h": 135
+      },
+      {
+       "x": 1440,
+       "y": 540,
+       "w": 480,
+       "h": 540
+      }
+     ]
+    },
+    {
+     "file": "layout16-20-custom-layout-background.jpg",
+     "pop": "purple",
+     "corners": [
+      "top-left",
+      "bottom-right"
+     ],
+     "layout": "20_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 640,
+       "h": 135
+      },
+      {
+       "x": 1280,
+       "y": 675,
+       "w": 640,
+       "h": 405
+      }
+     ]
+    },
+    {
+     "file": "layout17-4-custom-layout-background.jpg",
+     "pop": "orange",
+     "corners": [
+      "top-left",
+      "bottom-right"
+     ],
+     "layout": "4_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 640,
+       "h": 270
+      },
+      {
+       "x": 1600,
+       "y": 810,
+       "w": 320,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout18-21-custom-layout-background.jpg",
+     "pop": "cyan",
+     "corners": [
+      "top-left",
+      "bottom-right"
+     ],
+     "layout": "21_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 640,
+       "h": 270
+      },
+      {
+       "x": 1600,
+       "y": 675,
+       "w": 320,
+       "h": 405
+      }
+     ]
+    },
+    {
+     "file": "layout19-2-custom-layout-background.jpg",
+     "pop": "cyan",
+     "corners": [
+      "bottom-left",
+      "top-right"
+     ],
+     "layout": "2_Custom Layout",
+     "zones": [
+      {
+       "x": 1600,
+       "y": 0,
+       "w": 320,
+       "h": 270
+      },
+      {
+       "x": 0,
+       "y": 810,
+       "w": 640,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout20-3-custom-layout-background.jpg",
+     "pop": "purple",
+     "corners": [
+      "bottom-left",
+      "bottom-right"
+     ],
+     "layout": "3_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 810,
+       "w": 480,
+       "h": 270
+      },
+      {
+       "x": 1600,
+       "y": 810,
+       "w": 320,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout21-25-custom-layout-background.jpg",
+     "pop": "pink",
+     "corners": [
+      "bottom-left",
+      "top-right"
+     ],
+     "layout": "25_Custom Layout",
+     "zones": [
+      {
+       "x": 1760,
+       "y": 0,
+       "w": 160,
+       "h": 270
+      },
+      {
+       "x": 0,
+       "y": 810,
+       "w": 640,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout22-22-custom-layout-background.jpg",
+     "pop": "orange",
+     "corners": [
+      "bottom-left",
+      "bottom-right"
+     ],
+     "layout": "22_Custom Layout",
+     "zones": [
+      {
+       "x": 1440,
+       "y": 405,
+       "w": 480,
+       "h": 675
+      },
+      {
+       "x": 0,
+       "y": 810,
+       "w": 480,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout23-23-custom-layout-background.jpg",
+     "pop": "yellow",
+     "corners": [
+      "bottom-left",
+      "bottom-right"
+     ],
+     "layout": "23_Custom Layout",
+     "zones": [
+      {
+       "x": 1440,
+       "y": 540,
+       "w": 480,
+       "h": 540
+      },
+      {
+       "x": 0,
+       "y": 810,
+       "w": 480,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout14-24-custom-layout-background.jpg",
+     "pop": "yellow",
+     "corners": [
+      "top-left",
+      "bottom-right"
+     ],
+     "layout": "24_Custom Layout",
+     "zones": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 640,
+       "h": 135
+      },
+      {
+       "x": 1600,
+       "y": 675,
+       "w": 320,
+       "h": 405
+      }
+     ]
+    },
+    {
+     "file": "layout15-13-custom-layout-background.jpg",
+     "pop": "lineart",
+     "corners": [
+      "bottom-right"
+     ],
+     "layout": "13_Custom Layout",
+     "zones": [
+      {
+       "x": 1600,
+       "y": 810,
+       "w": 320,
+       "h": 270
+      }
+     ]
+    },
+    {
+     "file": "layout33-custom-layout-background.jpg",
+     "pop": "lineart",
+     "corners": [
+      "bottom-right"
+     ],
+     "layout": "Custom Layout",
+     "zones": [
+      {
+       "x": 1600,
+       "y": 675,
+       "w": 320,
+       "h": 405
+      }
+     ]
+    }
+   ],
+   "subBrandBackgrounds": [
+    {
+     "file": "layout27-11-custom-layout-background.jpg",
+     "brand": "The Ordinary",
+     "layout": "11_Custom Layout",
+     "canvas": "paper"
+    },
+    {
+     "file": "layout28-10-custom-layout-background.jpg",
+     "brand": "NIOD",
+     "layout": "10_Custom Layout",
+     "canvas": "dark"
+    },
+    {
+     "file": "layout29-12-custom-layout-background.jpg",
+     "brand": "Hylamide",
+     "layout": "12_Custom Layout",
+     "canvas": "paper"
+    }
+   ],
+   "rules": [
+    "Headlines are Poppins Bold UPPERCASE; body is Josefin Sans; labels are Poppins Bold uppercase small; tables, data and meta are Nunito (the template's table face); Questrial is embedded in the template but used once and is not a role.",
+    "No left rail, no dot-mark, no takeaway band color: dark surfaces are pure black with white text.",
+    "Body slides sit on white paper with ONE corner line-art background from bodyBackgrounds, rotated per slide so consecutive slides differ; keep text clear of the art corners.",
+    "Section dividers rotate through dividerFills (cyan with black text; purple, pink, orange with white text).",
+    "Sub-brand photo backgrounds are used only when the slide is about that sub-brand (The Ordinary, NIOD, Hylamide)."
+   ],
+   "_zones_note": "zones = measured occupancy rectangles of each background in 1920x1080 stage space (cells with >1.5% non-white pixels on a 12x8 grid, merged). Text boxes must not intersect a zone; everything outside is free, so most backgrounds allow full-width text above y~540-675."
+  }
+ }
 }

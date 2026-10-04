@@ -1,29 +1,306 @@
 {
-  "version": 2,
+  "version": 3,
   "purpose": "Frozen held-out evaluation set for the self-improvement gate (goldenSetRunner.runGate + the SkillOpt accept-gate). Positive exemplars = the 2026-05-25 curated, brand-locked, post-processed HTML deliverable twins (should score HIGH). Negative failure corpus = raw cached engagement JSON deliverables (pre-render, carry banned phrases + em-dashes; should score LOW). DISCRIMINATION = mean(exemplar) - mean(failure) must stay positive and not shrink for an edit to be accepted. Built 2026-06-15 as the keystone that makes recursive self-improvement gating runnable; validated offline by scripts/benchmark.mjs Phase-6 (golden_set_discrimination_proxy > 0) before trusting it (gate-quality guardrail per plans/karpathy-second-brain-realignment-2026-06-15.md WS2).",
-  "frozen_at": "2026-06-15",
+  "frozen_at": "2026-10-01",
   "tiers": {
     "positive_exemplars": {
       "role": "Curated gold deliverables that should score HIGH on the mechanical quality vector.",
       "status": "frozen",
       "registered": [
-        { "deliverable": "personas", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25-real-pipeline/01-personas-NU-real-pipeline.html" },
-        { "deliverable": "journey", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/02-journey-NU.html" },
-        { "deliverable": "blueprint", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/03-blueprint-NU.html" },
-        { "deliverable": "mindmap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/04-mindmap-NU.html" },
-        { "deliverable": "brief-dialog", "brand": "NXT", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/05-brief-dialog-NXT.html" },
-        { "deliverable": "strategy", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/06-strategy-slide-NU.html" },
-        { "deliverable": "gap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/07-gap-analysis-NU.html" },
-        { "deliverable": "roadmap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/08-roadmap-NU.html" },
-        { "deliverable": "org", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/09-org-NU.html" },
-        { "deliverable": "arch", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/10-arch-NU.html" },
-        { "deliverable": "prd", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/11-prd-NU.html" },
-        { "deliverable": "tech-audit", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/12-tech-audit-NU.html" },
-        { "deliverable": "competitive", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/13-competitive-NU.html" },
-        { "deliverable": "heuristic-ux", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/14-heuristic-ux-NU.html" },
-        { "deliverable": "meta-themes", "brand": "NXT", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/15-meta-themes-NXT.html" },
-        { "deliverable": "presentation", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/17-presentation-NU.html" },
-        { "deliverable": "prototype", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/18-prototype-NU.html" }
+        {
+          "deliverable": "personas",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/personas-nu-slide.html"
+        },
+        {
+          "deliverable": "personas",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/personas-nu-slides.html"
+        },
+        {
+          "deliverable": "personas",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/personas-nxt-slide.html"
+        },
+        {
+          "deliverable": "personas",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/personas-nxt-slides.html"
+        },
+        {
+          "deliverable": "journey",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/journey-nu-slide.html"
+        },
+        {
+          "deliverable": "journey",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/journey-nu-slides.html"
+        },
+        {
+          "deliverable": "journey",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/journey-nxt-slide.html"
+        },
+        {
+          "deliverable": "journey",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/journey-nxt-slides.html"
+        },
+        {
+          "deliverable": "blueprint",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/blueprint-nu-slide.html"
+        },
+        {
+          "deliverable": "blueprint",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/blueprint-nu-slides.html"
+        },
+        {
+          "deliverable": "blueprint",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/blueprint-nxt-slide.html"
+        },
+        {
+          "deliverable": "blueprint",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/blueprint-nxt-slides.html"
+        },
+        {
+          "deliverable": "gap",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/gap-nu-slide.html"
+        },
+        {
+          "deliverable": "gap",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/gap-nu-slides.html"
+        },
+        {
+          "deliverable": "gap",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/gap-nxt-slide.html"
+        },
+        {
+          "deliverable": "gap",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/gap-nxt-slides.html"
+        },
+        {
+          "deliverable": "roadmap",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/roadmap-nu-slide.html"
+        },
+        {
+          "deliverable": "roadmap",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/roadmap-nu-slides.html"
+        },
+        {
+          "deliverable": "roadmap",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/roadmap-nxt-slide.html"
+        },
+        {
+          "deliverable": "roadmap",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/roadmap-nxt-slides.html"
+        },
+        {
+          "deliverable": "org",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/org-nu-slide.html"
+        },
+        {
+          "deliverable": "org",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/org-nu-slides.html"
+        },
+        {
+          "deliverable": "org",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/org-nxt-slide.html"
+        },
+        {
+          "deliverable": "org",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/org-nxt-slides.html"
+        },
+        {
+          "deliverable": "arch",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/arch-nu-slide.html"
+        },
+        {
+          "deliverable": "arch",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/arch-nu-slides.html"
+        },
+        {
+          "deliverable": "arch",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/arch-nxt-slide.html"
+        },
+        {
+          "deliverable": "arch",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/arch-nxt-slides.html"
+        },
+        {
+          "deliverable": "prd",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/prd-nu-slide.html"
+        },
+        {
+          "deliverable": "prd",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/prd-nu-slides.html"
+        },
+        {
+          "deliverable": "prd",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/prd-nxt-slide.html"
+        },
+        {
+          "deliverable": "prd",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/prd-nxt-slides.html"
+        },
+        {
+          "deliverable": "competitive",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/competitive-nu-slide.html"
+        },
+        {
+          "deliverable": "competitive",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/competitive-nu-slides.html"
+        },
+        {
+          "deliverable": "competitive",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/competitive-nxt-slide.html"
+        },
+        {
+          "deliverable": "competitive",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/competitive-nxt-slides.html"
+        },
+        {
+          "deliverable": "recs",
+          "brand": "NU",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/recs-nu-slide.html"
+        },
+        {
+          "deliverable": "recs",
+          "brand": "NU",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/recs-nu-slides.html"
+        },
+        {
+          "deliverable": "recs",
+          "brand": "NXT",
+          "variant": "slide",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/recs-nxt-slide.html"
+        },
+        {
+          "deliverable": "recs",
+          "brand": "NXT",
+          "variant": "slides",
+          "html_twin": "hic-workspace/wiki/eval/exemplars/recs-nxt-slides.html"
+        },
+        {
+          "deliverable": "case-study",
+          "brand": "NU",
+          "variant": "gold",
+          "html_twin": "hic-workspace/wiki/design-system/gold/case-study-nu.html"
+        },
+        {
+          "deliverable": "case-study",
+          "brand": "NXT",
+          "variant": "gold",
+          "html_twin": "hic-workspace/wiki/design-system/gold/case-study-nxt.html"
+        }
+      ],
+      "deferred_until_exemplar_exists": [
+        {
+          "deliverable": "mindmap",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/04-mindmap-NU.html"
+        },
+        {
+          "deliverable": "brief-dialog",
+          "brand": "NXT",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/05-brief-dialog-NXT.html"
+        },
+        {
+          "deliverable": "strategy",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/06-strategy-slide-NU.html"
+        },
+        {
+          "deliverable": "tech-audit",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/12-tech-audit-NU.html"
+        },
+        {
+          "deliverable": "heuristic-ux",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/14-heuristic-ux-NU.html"
+        },
+        {
+          "deliverable": "meta-themes",
+          "brand": "NXT",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/15-meta-themes-NXT.html"
+        },
+        {
+          "deliverable": "presentation",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/17-presentation-NU.html"
+        },
+        {
+          "deliverable": "prototype",
+          "brand": "NU",
+          "former_path": "hic-workspace/sample-artifacts/2026-05-25/18-prototype-NU.html"
+        }
       ]
     },
     "negative_failure_corpus": {
@@ -33,15 +310,39 @@
     }
   },
   "failure_taxonomy": [
-    { "id": 1, "name": "banned-phrase slop", "lens": "writing-quality", "layer": "content" },
-    { "id": 2, "name": "em-dash format tell", "lens": "format", "layer": "content" },
-    { "id": 3, "name": "thin evidence density", "lens": "evidence-hierarchy", "layer": "structure" },
-    { "id": 4, "name": "client-upload citation dominance (<60% external)", "lens": "evidence-hierarchy", "layer": "structure" }
+    {
+      "id": 1,
+      "name": "banned-phrase slop",
+      "lens": "writing-quality",
+      "layer": "content"
+    },
+    {
+      "id": 2,
+      "name": "em-dash format tell",
+      "lens": "format",
+      "layer": "content"
+    },
+    {
+      "id": 3,
+      "name": "thin evidence density",
+      "lens": "evidence-hierarchy",
+      "layer": "structure"
+    },
+    {
+      "id": 4,
+      "name": "client-upload citation dominance (<60% external)",
+      "lens": "evidence-hierarchy",
+      "layer": "structure"
+    }
   ],
   "acceptance": {
     "discrimination": "after.discrimination >= before.discrimination - 0.05",
     "content_edit": "exemplar mean must not regress more than 0.05",
     "wiring_edit": "discrimination must strictly increase",
-    "hard_zero_checks": ["em_dash_hits==0 on exemplars", "fabricated_quote_count==0 on exemplars"]
-  }
+    "hard_zero_checks": [
+      "em_dash_hits==0 on exemplars",
+      "fabricated_quote_count==0 on exemplars"
+    ]
+  },
+  "refreeze_note": "2026-10-01 (plan Stage 0.4, audit C1): v2 pointed every positive exemplar at hic-workspace/sample-artifacts/, which no longer exists, so the held-out gate scored zero exemplars. v3 points at the exemplar twins regenerated by scripts/eval/build-*-slides-html.py (tracked under wiki/eval/exemplars/) plus the two GOLD case-study twins. services/goldenSetPaths.test.ts fails when any registered path is missing."
 }

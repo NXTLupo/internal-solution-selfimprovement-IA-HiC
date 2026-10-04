@@ -108,7 +108,7 @@ export const CitationFooter: React.FC<{ sources: string[] }> = ({ sources }) => 
     <div style={{
       fontSize: '10px',
       color: 'var(--text-tertiary)',
-      fontFamily: 'JetBrains Mono, monospace',
+      fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace",
       borderTop: `1px solid var(--border-secondary)`,
       paddingTop: '12px',
       marginTop: '16px',

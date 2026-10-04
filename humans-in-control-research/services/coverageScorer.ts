@@ -46,7 +46,7 @@ export interface ScoreCoverageOpts {
     targets?: Partial<typeof DEFAULT_TARGETS>;
 }
 
-export function scoreCoverage(
+function scoreCoverage(
     brief: ParsedBrief,
     records: EvidenceRecord[],
     opts: ScoreCoverageOpts = {}
@@ -302,28 +302,3 @@ export interface CoverageRollup {
     weakestComposite: number;
 }
 
-export function rollupCoverage(coverage: QuestionCoverage[]): CoverageRollup {
-    if (coverage.length === 0) {
-        return {
-            totalQuestions: 0,
-            fullyCoveredCount: 0,
-            thinCount: 0,
-            avgComposite: 0,
-            weakestQuestionId: null,
-            weakestComposite: 0,
-        };
-    }
-    const fullyCovered = coverage.filter(c => c.compositeScore >= 0.7).length;
-    const thin = coverage.filter(c => c.compositeScore < 0.5).length;
-    const avg = coverage.reduce((s, c) => s + c.compositeScore, 0) / coverage.length;
-    const weakest = coverage.reduce((min, c) => c.compositeScore < min.compositeScore ? c : min, coverage[0]);
-
-    return {
-        totalQuestions: coverage.length,
-        fullyCoveredCount: fullyCovered,
-        thinCount: thin,
-        avgComposite: avg,
-        weakestQuestionId: weakest.questionId,
-        weakestComposite: weakest.compositeScore,
-    };
-}

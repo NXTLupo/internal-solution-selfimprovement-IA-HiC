@@ -6,6 +6,7 @@ import { FreeformViewer } from './components/FreeformViewer';
 import { SlideSpecViewer } from './components/SlideSpecViewer';
 import { ExportMenu } from './components/ExportMenu';
 import type { DesignTokens } from './services/designMdLoader';
+import { paletteFor } from './services/brandPalette';
 
 interface Props {
     tokens: DesignTokens;
@@ -48,6 +49,7 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
                     <code style={{ background: '#F0F0E8', padding: '4px 10px' }}>#persona #NU first-gen junior dev</code>
                     <code style={{ background: '#F0F0E8', padding: '4px 10px' }}>#journey #NXT application to enrollment</code>
                     <code style={{ background: '#F0F0E8', padding: '4px 10px' }}>#org #NU advancement reporting structure</code>
+                    <code style={{ background: '#F0F0E8', padding: '4px 10px' }}>#persona #DECIEM skincare-routine builder</code>
                 </div>
             </div>
         );
@@ -76,7 +78,7 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
                 <div style={{ display: 'flex', gap: 4, flex: 1, overflowX: 'auto', minWidth: 0 }}>
                     {artifacts.map(a => {
                         const isActive = a.id === activeArtifactId;
-                        const palette = (tokens.brands[a.brand] ?? {}) as Record<string, string>;
+                        const palette = paletteFor(tokens, a.brand);
                         const accent = palette.accent ?? '#B8B800';
                         return (
                             <div key={a.id} style={{

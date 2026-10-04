@@ -23,9 +23,14 @@
 // from slidePostProcessor.ts so the slop policy stays single-sourced.
 
 import { detectMetaNarration, detectOutputAntiPatterns } from './slidePostProcessor';
-import { getActiveConstraints } from './promptImprovementEngine';
+import { getActiveConstraints, recordConstraintApplications } from './promptImprovementEngine';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
+
+// 2026-10-01 (plan Stage 5.2, audit C5): the constraint LIFECYCLE write is fire-and-forget from the
+// sync `discriminate`, so expose the last write promise for callers/tests that need to await it.
+let _lastConstraintRecordWrite: Promise<number> = Promise.resolve(0);
+export function lastConstraintRecordWrite(): Promise<number> { return _lastConstraintRecordWrite; }
 
 // ============================================================================
 // Storage keys
@@ -229,7 +234,7 @@ function scoreDensity(text: string, kind: string): number {
     return Math.min(100, Math.round((words / kb) * 5));
 }
 
-export function computeScorecard(input: ScoringInput): QualityScorecard {
+function computeScorecard(input: ScoringInput): QualityScorecard {
     const t = input.content || '';
     const pre = input.precomputed || {};
     const s: QualityScorecard = {
@@ -278,7 +283,7 @@ function setPriorOutput(kind: string, rec: PriorOutputRecord): void {
     try { localStorage.setItem(LAST_OUTPUT_KEY_PREFIX + kind, JSON.stringify(rec)); } catch {}
 }
 
-export function getLineageLog(): ImprovementLineageRecord[] {
+function getLineageLog(): ImprovementLineageRecord[] {
     try { return JSON.parse(localStorage.getItem(LINEAGE_LOG_KEY) || '[]'); } catch { return []; }
 }
 
@@ -552,6 +557,13 @@ export function discriminate(input: ScoringInput): ImprovementLineageRecord | nu
             scorecard: currentScore,
             activeConstraints: input.activeConstraints,
         });
+
+        // C5 lifecycle: every constraint active on this scored deliverable earns an application;
+        // a measured regression against the prior generation of the same kind is the negative
+        // signal. These rows are what reviewConstraintEffectiveness retires on. Best-effort.
+        const regressed = priorScore !== null && scoreDelta < 0;
+        _lastConstraintRecordWrite = recordConstraintApplications(input.activeConstraints, regressed)
+            .catch(() => 0);
 
         // Mirror to wiki so cross-session lineage is preserved. Best-effort.
         try {

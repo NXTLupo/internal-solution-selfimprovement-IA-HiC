@@ -259,7 +259,7 @@ export interface ResolvedVerticalContribution {
  * Idempotent. Pure function - no AI calls. Result merges with the user's
  * explicit toggles + brief's explicit named entities; never overrides.
  */
-export function resolveVerticals(verticals: string[]): ResolvedVerticalContribution {
+function resolveVerticals(verticals: string[]): ResolvedVerticalContribution {
     const activated = SKILLS.filter(s =>
         s.verticals.some(v => verticals.includes(v))
     );
@@ -328,7 +328,7 @@ export function resolveVerticals(verticals: string[]): ResolvedVerticalContribut
  * Brief's explicit entities ALWAYS win - vertical defaults only fill blanks.
  * Excluded domains are unioned (vertical excludes ADD to brief excludes).
  */
-export function applyVerticalDefaults(
+function applyVerticalDefaults(
     brief: ParsedBrief,
     contribution: ResolvedVerticalContribution
 ): ParsedBrief {
@@ -364,7 +364,3 @@ export function applyVerticalDefaults(
     };
 }
 
-/** Convenience: list every vertical skill (e.g. for UI / preview rendering). */
-export function listVerticalSkills(): VerticalSkill[] {
-    return SKILLS.slice();
-}

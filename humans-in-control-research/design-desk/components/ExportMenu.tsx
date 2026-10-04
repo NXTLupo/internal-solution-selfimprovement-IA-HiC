@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Artifact } from '../types';
 import type { DesignTokens } from '../services/designMdLoader';
 import { exportPdf, exportPng, exportPptx } from '../services/artifactExporter';
+import { normalizeBrandId } from '../../components/slideTemplates/brands';
 
 interface Props {
     artifact: Artifact;
@@ -33,13 +34,17 @@ export const ExportMenu: React.FC<Props> = ({ artifact, tokens }) => {
                 const ff = artifact as any;
                 const { generateJourneyBrief } = await import('../../services/journeyBriefExporter');
                 const { exportGoldPptx, journeyBriefToStageHtml } = await import('../../services/goldArtifact');
-                const brandId: 'nu' | 'nxt' = (ff.brand === 'nu') ? 'nu' : 'nxt';
+                // 2026-10-01 - three brands (nxt | nu | deciem) resolve through ONE normalizer.
+                // journeyBriefExporter / goldArtifact still declare the two-brand literal type; the
+                // id is passed through unchanged so the DECIEM twin lights up the moment those
+                // signatures widen (their owners' change), and the filename already carries it.
+                const brandId = normalizeBrandId(ff.brand);
                 const brief = await generateJourneyBrief({
                     journeyHtml: ff.html || '',
                     researchGoal: ff.title || 'Journey',
-                    brand: brandId,
+                    brand: brandId as 'nu' | 'nxt',
                 });
-                const stageHtml = journeyBriefToStageHtml(brief, brandId);
+                const stageHtml = journeyBriefToStageHtml(brief, brandId as 'nu' | 'nxt');
                 const safeTitle = (brief.diagnostic_title || ff.title || 'journey-brief')
                     .toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
                 await exportGoldPptx(stageHtml, `${safeTitle}-${brandId}.pptx`);

@@ -67,7 +67,7 @@ function pseudonymFor(map: AnonymizationMap, category: keyof PiiEntities, origin
 }
 
 /** Model pass: extract the PII entities the regexes cannot see (names, orgs). */
-export async function extractPiiEntities(text: string): Promise<PiiEntities> {
+async function extractPiiEntities(text: string): Promise<PiiEntities> {
     const empty: PiiEntities = { people: [], organizations: [], emails: [], phones: [], locations: [], products: [] };
     const system = [
         'Extract personally identifying and client-identifying strings from a meeting transcript. Return ONLY JSON:',

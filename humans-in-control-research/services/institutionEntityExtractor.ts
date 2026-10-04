@@ -62,7 +62,7 @@ function wordBoundaryMatch(text: string, needle: string): boolean {
  * Returns matches in order of specificity (longest/most-precise match first)
  * with duplicates removed by institution id.
  */
-export async function extractInstitutionsFromText(
+async function extractInstitutionsFromText(
     text: string,
     manifest?: InstitutionManifest | null,
 ): Promise<InstitutionRecord[]> {
@@ -74,7 +74,7 @@ export async function extractInstitutionsFromText(
 
 /** Synchronous extractor once the manifest has been loaded. Used by the
  *  async wrapper above and by any caller that already has the manifest. */
-export function extractInstitutionsFromTextSync(
+function extractInstitutionsFromTextSync(
     text: string,
     manifest: InstitutionManifest,
 ): InstitutionRecord[] {
@@ -211,43 +211,4 @@ export async function tierZeroUrlsForGoal(text: string): Promise<string[]> {
     return candidates.slice(0, MAX_TIER0_URLS).map((c) => c.url);
 }
 
-/**
- * Companion helper: return the YouTube channel RSS URLs for institutions
- * mentioned in a goal. Used by the S8 scheduler to know which channels to
- * poll when a brief targets specific institutions. Distinct from
- * tierZeroUrlsForGoal which handles webpage URLs only.
- */
-export async function youtubeRssUrlsForGoal(text: string): Promise<{ url: string; institution_id: string; role?: string }[]> {
-    const { collectTierZeroSources } = await import('./institutionManifest');
-    const matches = await extractInstitutionsFromText(text);
-    const out: { url: string; institution_id: string; role?: string }[] = [];
-    const seen = new Set<string>();
-    for (const inst of matches) {
-        for (const src of collectTierZeroSources(inst)) {
-            if (src.kind !== 'youtube_rss') continue;
-            if (!seen.has(src.url)) {
-                seen.add(src.url);
-                out.push({ url: src.url, institution_id: src.institution_id, role: src.role });
-            }
-        }
-    }
-    return out;
-}
 
-/**
- * Convenience: get IPEDS UNITIDs for institutions mentioned in a goal.
- * Used by callers that want to query Urban Institute Education Data.
- */
-export async function unitIdsForGoal(text: string): Promise<number[]> {
-    const matches = await extractInstitutionsFromText(text);
-    const ids: number[] = [];
-    for (const inst of matches) {
-        for (const ident of inst.identifiers) {
-            if (ident.kind === 'ipeds_unitid' && 'unitid' in ident) {
-                const n = Number((ident as any).unitid);
-                if (Number.isFinite(n)) ids.push(n);
-            }
-        }
-    }
-    return ids;
-}

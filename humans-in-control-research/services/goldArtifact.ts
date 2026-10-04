@@ -11,11 +11,44 @@
 // The gold exemplars are served by the Vite wiki middleware (dev) / nginx (prod) at
 // /hic-workspace/wiki/design-system/gold/<deliverable>-<brand>.html, so no build-time bundling.
 
-export type GoldBrand = 'nu' | 'nxt';
+import { stripEmDashes, stripEmoji } from './slidePostProcessor';
+import { normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
+import { brandTokens, brandBodyArtUrl } from './slideToStageHtml';
+
+// 2026-10-01 - the brand id set is owned by brands.ts (nxt | nu | deciem).
+export type GoldBrand = BrandId;
+
+// E9 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, Stage 2.2; vision phase 9): the
+// export surface had no em-dash / emoji scrub at all - gold_pptx_export.py renders whatever text
+// the stage HTML carries. Every POST to the proxy exporter now passes through this scrub first.
+// It touches TEXT NODES ONLY (the run between a `>` and the next `<`): never a tag name, never an
+// attribute value (a data-URI or class token must survive byte-for-byte), and never the contents
+// of <style>/<script> blocks. Each scrub fires only when its target glyph is present, because
+// stripEmDashes trims edge commas and stripEmoji collapses double spaces, and a text node that
+// carries neither glyph must come back byte-identical (pre-wrap meta rows depend on it).
+const _DASH_PRESENT_RE = /[–—]|&(?:m|n)dash;|&#8212;|&#8211;|&#x201[34];/i;
+// Mirrors slidePostProcessor EMOJI_RE (not exported there): emoji / pictographic ranges only.
+const _EMOJI_PRESENT_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/u;
+
+export function scrubStageHtmlText(html: string): string {
+    if (!html) return html;
+    return html
+        .split(/(<style\b[\s\S]*?<\/style>|<script\b[\s\S]*?<\/script>)/i)
+        .map((seg, i) => {
+            if (i % 2 === 1) return seg; // a captured <style>/<script> block: verbatim
+            return seg.replace(/>([^<]+)</g, (_m, text: string) => {
+                let out = text;
+                if (_DASH_PRESENT_RE.test(out)) out = stripEmDashes(out);
+                if (_EMOJI_PRESENT_RE.test(out)) out = stripEmoji(out);
+                return `>${out}<`;
+            });
+        })
+        .join('');
+}
 
 // hashtag (canonical id, no leading #) -> gold exemplar base name. Covers every static
 // deliverable that has a gold twin. (#playground / #proto are interactive - excluded.)
-export const HASHTAG_TO_GOLD: Record<string, string> = {
+const HASHTAG_TO_GOLD: Record<string, string> = {
     blueprint: 'blueprint', journey: 'journey', gap: 'gap',
     compete: 'competitive', competitive: 'competitive',
     persona: 'personas', personas: 'personas',
@@ -28,16 +61,6 @@ export const HASHTAG_TO_GOLD: Record<string, string> = {
     brief: 'brief', explainer: 'explainer', report: 'report', approaches: 'approaches',
     'brief-dialog': 'brief-dialog', presentation: 'presentation',
 };
-
-function brandFromTags(tags: string[]): GoldBrand {
-    return tags.some(t => t.toLowerCase() === '#nu' || t.toLowerCase() === 'nu') ? 'nu' : 'nxt';
-}
-
-/** Resolve a deliverable hashtag (with or without leading #) to its gold base, or null. */
-export function goldBaseForHashtag(hashtag: string): string | null {
-    const id = hashtag.replace(/^#/, '').toLowerCase().trim();
-    return HASHTAG_TO_GOLD[id] || null;
-}
 
 /** Fetch the canonical gold-language HTML for (deliverable, brand). */
 export async function loadGoldTemplate(deliverableBase: string, brand: GoldBrand): Promise<string> {
@@ -74,7 +97,7 @@ export async function exportGoldPptx(html: string, filename: string, proxyBase =
     const resp = await fetch(`${base}/api/gold/export-pptx`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ html, filename }),
+        body: JSON.stringify({ html: scrubStageHtmlText(html), filename }),
     });
     if (!resp.ok) {
         const msg = await resp.text().catch(() => '');
@@ -103,7 +126,7 @@ export async function exportGoldDeckPptx(htmlList: string[], filename: string, p
     const resp = await fetch(`${base}/api/gold/export-pptx-multi`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slides: htmlList, filename }),
+        body: JSON.stringify({ slides: htmlList.map(scrubStageHtmlText), filename }),
     });
     if (!resp.ok) {
         const msg = await resp.text().catch(() => '');
@@ -130,7 +153,7 @@ export async function exportGoldDeckPptx(htmlList: string[], filename: string, p
  */
 export async function captureSlideAsStageHtml(
     sourceNode: HTMLElement,
-    opts: { brand?: 'nxt' | 'nu'; title?: string } = {},
+    opts: { brand?: BrandId | string; title?: string } = {},
 ): Promise<string> {
     if (!sourceNode) throw new Error('captureSlideAsStageHtml: sourceNode is required');
 
@@ -197,10 +220,10 @@ export async function captureSlideAsStageHtml(
         // Build a self-contained #stage doc. The shell includes brand fonts via Google
         // Fonts (the SPA already loads them; reload at file:// for Playwright). The
         // gold exporter resets html/body margin + #stage transform via its own RESET.
-        const brand = (opts.brand || 'nxt').toLowerCase();
+        const brand = normalizeBrandId(opts.brand);
         const title = (opts.title || 'Slide').replace(/</g, '&lt;');
         const stageOuter = stage.outerHTML;
-        const fontsHref = 'https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap';
+        const fontsHref = 'https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&family=Questrial&display=swap';
         const html = `<!DOCTYPE html>
 <html lang="en" data-brand="${brand}">
 <head>
@@ -225,7 +248,6 @@ ${stageOuter}
     }
 }
 
-export { brandFromTags };
 
 // ---------------------------------------------------------------------------
 // JOURNEY BRIEF → #stage HTML (for design-desk ExportMenu PPTX path)
@@ -258,48 +280,23 @@ export interface JourneyBriefLike {
     sources?: string[];
 }
 
-// 2026-06-10 - Reconciled to the LIVE Figma design-system files (NXT
-// iSQhAVM7SI4QHAWB7y9C2z node 223:2, NU z2v9Pvhg23hlljEitPBdAt node 97:2).
-// NU rail is the navy #0E1626 (not teal), ink #16233C, cool accent is the
-// source teal #1D6E64, display is Lora + body Archivo + IBM Plex Mono.
-// Mirrors components/slideTemplates/brands.ts and services/slideToStageHtml.ts.
-const _NXT_TOKENS = {
-    rail: '#0D0D0D',
-    paper: '#FFFFFF',
-    ink: '#141414',
-    accent: '#B8B800',   // chartreuse
-    accent2: '#00B7C3',  // cyan
-    muted: '#73757A',
-    hair: '#DDDDD6',
-    band: '#B8B800',
-    bandText: '#0D0D0D',
-    // 2026-06-13 - NXT display = Saira Condensed (replaced Bebas Neue).
-    displayFont: "'Saira Condensed', sans-serif",
-    bodyFont: "'Archivo', sans-serif",
-    monoFont: "'IBM Plex Mono', monospace",
-};
-const _NU_TOKENS = {
-    rail: '#0E1626',
-    paper: '#FFFFFF',
-    ink: '#16233C',
-    accent: '#C8102E',   // huskies red
-    accent2: '#1D6E64',  // source teal
-    muted: '#73757A',
-    hair: '#DDDDD6',
-    band: '#16233C',
-    bandText: '#FFFFFF',
-    // 2026-06-13 - NU single-typeface system: Lato everywhere (weight = hierarchy).
-    displayFont: "'Lato', sans-serif",
-    bodyFont: "'Lato', sans-serif",
-    monoFont: "'Lato', sans-serif",
-};
-
 function _esc(s: string | undefined): string {
     return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 export function journeyBriefToStageHtml(brief: JourneyBriefLike, brand: GoldBrand): string {
-    const T = brand === 'nu' ? _NU_TOKENS : _NXT_TOKENS;
+    // 2026-10-01 - ONE token authority: the hydrated brand tokens (brandTokens, per-field fallbacks
+    // inside), not two hand-written literal maps. DECIEM rides the same path: no rail, lockup
+    // masthead, one corner line-art background.
+    const B = brandTokens(brand);
+    const T = {
+        rail: B.rail, paper: B.paper, ink: B.ink, accent: B.accent, accent2: B.accent2, muted: B.muted,
+        hair: B.hair, band: B.band, bandText: B.bandText, displayFont: B.displayFont, bodyFont: B.bodyFont, monoFont: B.monoFont,
+        // labelFont = kickers / small-cap labels (DECIEM Poppins); monoFont = sources / data (DECIEM Nunito).
+        labelFont: B.labelFont,
+    };
+    const hasArt = brand === 'deciem';
+    const bodyArt = hasArt ? brandBodyArtUrl(brand, brief.diagnostic_title || '') : '';
     const stages = (brief.stages || []).slice(0, 6);
     const stageCols = Math.max(1, stages.length);
     const kpis = (brief.kpis || []).slice(0, 4);
@@ -319,18 +316,18 @@ export function journeyBriefToStageHtml(brief: JourneyBriefLike, brand: GoldBran
 <title>${_esc(brief.diagnostic_title || 'Journey Brief')}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Lato:wght@300;400;700;900&family=Poppins:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&family=Questrial&display=swap">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#080808;overflow:hidden}
 #stage{position:absolute;width:1920px;height:1080px;background:${T.paper};font-family:${T.bodyFont};color:${T.ink};transform-origin:top left}
-.rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
-.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px}
+${hasArt ? '' : `.rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
+`}.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px}
 .brandlogo svg{display:block}
 .brandlogo .wm{font-family:${T.bodyFont};font-weight:800;font-size:${brand === 'nu' ? '22px' : '25px'};letter-spacing:${brand === 'nu' ? '3px' : '0.5px'};color:${T.ink};text-transform:uppercase}
-.canvas{position:absolute;left:92px;top:0;right:0;bottom:0;padding:46px 80px 36px 72px;display:flex;flex-direction:column;gap:18px}
-.kicker{font-family:${T.monoFont};font-size:14px;letter-spacing:5px;color:${T.accent2};text-transform:uppercase}
-h1{font-family:${T.displayFont};font-weight:600;letter-spacing:-0.5px;font-size:44px;line-height:1.1;color:${T.ink};margin-top:6px}
+.canvas{position:absolute;left:${hasArt ? '0' : '92px'};top:0;right:0;bottom:0;padding:${hasArt ? '150px 160px 36px 196px' : '46px 80px 36px 72px'};display:flex;flex-direction:column;gap:18px;z-index:1}
+.kicker{font-family:${T.labelFont};font-size:14px;letter-spacing:${hasArt ? '1px' : '5px'};color:${T.accent2};text-transform:uppercase${hasArt ? ';font-weight:700' : ''}}
+h1{font-family:${T.displayFont};font-weight:${hasArt ? B.titleWeight : 600};letter-spacing:${hasArt ? '0.2px' : '-0.5px'};font-size:44px;line-height:1.1;color:${T.ink};margin-top:6px${hasArt && B.titleTransform !== 'none' ? `;text-transform:${B.titleTransform}` : ''}}
 .persona{font-family:${T.monoFont};font-size:13px;color:${T.muted};letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .kpis{display:grid;grid-template-columns:repeat(${Math.max(1, kpis.length)},1fr);gap:18px;margin-top:6px}
 .kpi{border-left:3px solid ${T.accent};padding:6px 0 6px 14px}
@@ -339,10 +336,10 @@ h1{font-family:${T.displayFont};font-weight:600;letter-spacing:-0.5px;font-size:
 .stages{display:grid;grid-template-columns:repeat(${stageCols},1fr);gap:18px}
 .stage{border-top:2px solid ${T.ink};padding-top:8px}
 .stage .sn{font-family:${T.displayFont};font-weight:600;font-size:22px;letter-spacing:1px;color:${T.ink};text-transform:uppercase;margin-bottom:6px}
-.stage .lbl{font-family:${T.monoFont};font-size:9px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;margin-top:8px}
+.stage .lbl{font-family:${T.labelFont};font-size:9px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;margin-top:8px}
 .stage .pp{font-size:13px;line-height:1.45;color:${T.ink};margin-top:2px}
 .lanes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.lane h2{font-family:${T.monoFont};font-size:11px;letter-spacing:2.5px;color:${T.muted};text-transform:uppercase;margin-bottom:6px}
+.lane h2{font-family:${T.labelFont};font-size:11px;letter-spacing:2.5px;color:${T.muted};text-transform:uppercase;margin-bottom:6px}
 .lane li{font-size:13.5px;line-height:1.4;color:${T.ink};list-style:none;padding-left:14px;position:relative;margin-bottom:4px}
 .lane li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:${T.accent};display:block}
 .lane.opp li::before{background:${T.accent2}}
@@ -354,10 +351,12 @@ h1{font-family:${T.displayFont};font-weight:600;letter-spacing:-0.5px;font-size:
 </head>
 <body>
 <div id="stage">
-  <div class="rail"></div>
+  ${hasArt
+    ? (bodyArt ? `<img class="bgart" src="${_esc(bodyArt)}" alt="" style="position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;display:block;z-index:0">` : '')
+    : `<div class="rail"></div>
   ${brand === 'nu'
     ? `<div class="brandlogo"><svg viewBox="0 0 64 53" height="34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z" fill="${T.accent}"/></svg><span class="wm">NORTHEASTERN</span></div>`
-    : `<div class="brandlogo"><span class="wm">NXT HUMANS</span></div>`}
+    : `<div class="brandlogo"><span class="wm">NXT HUMANS</span></div>`}`}
   <div class="canvas">
     <div>
       <div class="kicker">${_esc(brief.journey_type || 'JOURNEY')} BRIEF</div>

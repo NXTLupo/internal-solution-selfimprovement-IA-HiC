@@ -45,26 +45,19 @@ function _emit(): void {
     }
 }
 
-export function getResearchBrowserState(): ResearchBrowserState {
-    return _state;
-}
 
-export function setResearchBrowserState(patch: Partial<ResearchBrowserState>): void {
+function setResearchBrowserState(patch: Partial<ResearchBrowserState>): void {
     _state = { ..._state, ...patch };
     _emit();
 }
 
-export function resetResearchBrowserState(): void {
-    _state = { ...DEFAULT_STATE };
-    _emit();
-}
 
 /**
  * Subscribe to state changes. Returns an unsubscribe function. Used by the
  * Knowledge Graph treemap and the Research Browser card lattice so they
  * stay in sync when the user clicks a sentiment column header in either.
  */
-export function subscribeResearchBrowserState(fn: (s: ResearchBrowserState) => void): () => void {
+function subscribeResearchBrowserState(fn: (s: ResearchBrowserState) => void): () => void {
     _subscribers.add(fn);
     return () => { _subscribers.delete(fn); };
 }

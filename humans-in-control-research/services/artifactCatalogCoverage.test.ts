@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ARTIFACT_CATALOG, catalogEntryFor, allArtifactIds } from './artifactCatalog';
+import { CATALOG_TEMPLATE_RULES, CATALOG_HASHTAG_TO_SKILL_ID } from './artifactCatalog';
 import { isArtifactGenerationMessage, messageTargetsArtifact } from './corpusChatService';
 
 // WS-0 OMISSION GUARD. The artifact catalog must cover EVERY directive HiC accepts, so no hashtag is ever
@@ -23,22 +24,12 @@ describe('artifact catalog coverage (none omitted)', () => {
         }
     });
 
-    it('covers every ARTIFACT_TPL slide-template id', () => {
-        // capture the second quoted token on each ARTIFACT_TPL row: [/.../i, 'template-id'],
-        const tplBlock = src.slice(src.indexOf('const ARTIFACT_TPL'), src.indexOf('];', src.indexOf('const ARTIFACT_TPL')));
-        const tplIds = Array.from(tplBlock.matchAll(/,\s*'([a-z-]+)'\s*\]/g)).map(m => m[1]);
-        expect(tplIds.length, 'found ARTIFACT_TPL rows').toBeGreaterThan(10);
-        const missing = tplIds.filter(t => !ARTIFACT_CATALOG.some(e => e.templateId === t));
-        expect(missing, `ARTIFACT_TPL template ids missing from catalog: ${missing.join(', ')}`).toEqual([]);
-    });
-
-    it('resolves every directive hashtag in the corpusChatService directive map', () => {
-        // capture keys like '#proto': 'skill-name'  (the canonical directive->skill map)
-        const hashtags = Array.from(src.matchAll(/'(#[a-z][a-z-]*)'\s*:/g)).map(m => m[1]);
-        const uniq = Array.from(new Set(hashtags));
-        expect(uniq.length, 'found directive hashtags').toBeGreaterThan(15);
-        const unresolved = uniq.filter(h => catalogEntryFor(h) === null);
-        expect(unresolved, `directives not covered by the catalog: ${unresolved.join(', ')}`).toEqual([]);
+    it('the chat service binds the catalog-generated template rules and directive map (Stage 6.1)', () => {
+        expect(src).toMatch(/const ARTIFACT_TPL: Array<\[RegExp, string\]> = CATALOG_TEMPLATE_RULES;/);
+        expect(src).toMatch(/const HASHTAG_TO_SKILL_ID: Record<string, string> = CATALOG_HASHTAG_TO_SKILL_ID;/);
+        // every generated template id and every canonical directive resolves in the catalog
+        for (const [, t] of CATALOG_TEMPLATE_RULES) expect(ARTIFACT_CATALOG.some(e => e.templateId === t), t).toBe(true);
+        for (const k of Object.keys(CATALOG_HASHTAG_TO_SKILL_ID)) expect(catalogEntryFor(k), k).not.toBeNull();
     });
 
     it('resolves directives by hashtag, id, and template id', () => {
@@ -80,11 +71,13 @@ describe('artifact catalog coverage (none omitted)', () => {
             '#strategy #slides #NU', '#gap #slides', '#personas #dense', '#journey #NU',
             '#competitive #slides #dense', '#brief #slides', '#audits #slides', '#architecture #NU',
             '#strategy', '#playground', '#approaches',
+            '#strategy #slides #deciem', '#personas #DECIEM', '#prd #deciem',   // 2026-10-01 third brand modifier
         ];
         const missed = combos.filter(c => !messageTargetsArtifact(`${c} on the corpus`));
         expect(missed, `combined-hashtag artifact requests NOT caught (deck would emit NO AIR): ${missed.join(' | ')}`).toEqual([]);
         // and a modifier-only / non-artifact combo must NOT trigger
         expect(messageTargetsArtifact('summarize the corpus #NU')).toBe(false);
+        expect(messageTargetsArtifact('summarize the corpus #deciem')).toBe(false);
     });
 
     it('keeps schema_flash routingClass in sync with aiRouter SCHEMA_FLASH_ARTIFACTS', () => {

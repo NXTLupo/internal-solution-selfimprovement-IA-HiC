@@ -61,7 +61,9 @@ caller passes (rail, paper, ink, accent, cyan, teal, rust, hairline, grey):
 - **Ground MUST match the host surface** (content-relevance extended to contrast):
   a viz on a DARK slide interstitial uses ground=dark; a viz on a LIGHT GOLD/paper
   artifact uses ground=light. The img-slot's `imgGround: dark|light` drives it.
-- **Brand** comes from the run (#NXT|#NU); NU swaps accent->red, structural->teal.
+- **Brand** comes from the run (#NXT|#NU|#DECIEM); NU swaps accent->red, structural->teal.
+  DECIEM swaps accent->pink `FB48C4`, cool->cyan `00FACC`, premium->purple `8A69D4`, warn->orange `FF6C2F`, ground black or white.
+  DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM.
 
 ## The twelve content families
 | family | shows | `data` |

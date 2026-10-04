@@ -126,7 +126,7 @@ const NXT_STYLE: VisualizationStyle = {
  * The single visualization style. This array exists for backward compatibility
  * with code that iterates VISUALIZATION_STYLES. It contains exactly one entry.
  */
-export const VISUALIZATION_STYLES: VisualizationStyle[] = [NXT_STYLE];
+const VISUALIZATION_STYLES: VisualizationStyle[] = [NXT_STYLE];
 
 export const DEFAULT_STYLE_ID = 'nxt_design_system';
 
@@ -138,9 +138,3 @@ export function getStyleById(_styleId?: string): VisualizationStyle {
     return NXT_STYLE;
 }
 
-/**
- * Returns the NXT Humans design system style.
- */
-export function getActiveStyle(): VisualizationStyle {
-    return NXT_STYLE;
-}

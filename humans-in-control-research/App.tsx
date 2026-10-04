@@ -1,5 +1,6 @@
 ﻿import './tailwind.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { engagementSlugFor } from './services/engagementSlug';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
 import { EpochProposalsPanel } from './components/EpochProposalsPanel';
@@ -81,6 +82,7 @@ import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedP
 import { DEFAULT_STYLE_ID } from './services/visualizationStyles';
 // Research methods are auto-selected by the intelligence engine
 import { LENS_CONFIGS, getLensPromptSegment } from './services/analyticalLensService';
+import { normalizeBrandId } from './components/slideTemplates/brands';
 
 // Define interface locally to avoid global conflicts
 interface AIStudio {
@@ -1920,6 +1922,28 @@ const App = () => {
     const chatMessagesRef = useRef<any[]>([]);
     const initialChatMessagesRef = useRef<any[] | null>(null);
     const autoSavedRef = useRef(false); // guard so auto-save fires only once per run
+    // 2026-10-02 live #prd audit: chat turns lived only in chatMessagesRef (a ref), so the debounced auto-save
+    // never fired for chat-only work. An upload analysis and a 50-minute #prd reply were lost when the window
+    // closed, and reopening the session saved the stale transcript over them. The chat now schedules its own
+    // silent save: 4s after the transcript settles, or at most every 60s while a long generation keeps updating it.
+    // Nothing is saved for the transcript a restore just loaded (only a change since load schedules a save).
+    const chatSaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const chatSavePendingSinceRef = useRef<number>(0);
+    const handleSaveSessionRef = useRef<((opts?: { silent?: boolean; status?: 'in-progress' | 'complete' }) => Promise<boolean>) | null>(null);
+    const chatSignature = (msgs: any[]) => `${msgs.length}:${msgs[msgs.length - 1]?.id || ''}:${String(msgs[msgs.length - 1]?.content || '').length}`;
+    const onChatMessagesChange = useCallback((msgs: any[]) => {
+        chatMessagesRef.current = msgs;
+        if (chatSignature(msgs) === chatSignature(initialChatMessagesRef.current || [])) return;
+        const now = Date.now();
+        if (!chatSavePendingSinceRef.current) chatSavePendingSinceRef.current = now;
+        if (chatSaveTimerRef.current) clearTimeout(chatSaveTimerRef.current);
+        const overdue = now - chatSavePendingSinceRef.current >= 60_000;
+        chatSaveTimerRef.current = setTimeout(() => {
+            chatSaveTimerRef.current = null;
+            chatSavePendingSinceRef.current = 0;
+            void handleSaveSessionRef.current?.({ silent: true });
+        }, overdue ? 0 : 4000);
+    }, []);
     const [topicModelResult, setTopicModelResult] = useState<any>(null);
     // 2026-06-02 - promise of the in-flight topic-model job, handed to the theme
     // session so generateThemes can ground themes on the deterministic clusters.
@@ -2029,9 +2053,10 @@ const App = () => {
     // so the FIRST AI call routes to the committed provider, not the default.
     useEffect(() => {
         const goal = (researchGoal || '').trim();
-        const slug = goal
-            ? goal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').substring(0, 60).replace(/-+$/, '')
-            : '';
+        // 2026-10-01 (plan Stage 0.1): the ONE derivation (services/engagementSlug.ts, 80 chars,
+        // matches the proxy). The inline 60-char variant here is what split every engagement
+        // into an artifacts folder and a state folder.
+        const slug = goal ? engagementSlugFor(goal) : '';
         if (typeof window !== 'undefined') {
             (window as any).__hicCurrentEngagementSlug = slug || undefined;
             (window as any).__hicResearchGoal = goal || undefined;
@@ -2794,7 +2819,8 @@ const App = () => {
                 (window as any).__hicSlideRoot = r;
                 const fn = renderers[template];
                 if (!fn) { mount.textContent = `Unknown template: ${template}`; return; }
-                const props: any = { data, sources: opts.sources || [], brand: opts.brand || 'nu' };
+                // 2026-10-01 - any brand id or hashtag (nxt | nu | deciem) normalizes; the dev-helper default stays 'nu'.
+                const props: any = { data, sources: opts.sources || [], brand: normalizeBrandId(opts.brand || 'nu') };
                 if (template === 'persona-card') props.hasImage = !!opts.hasImage;
                 // All renderers except persona-card, block-quote, and section-divider
                 // take a `title` string prop. (persona-card uses data.name; block-quote
@@ -3194,6 +3220,68 @@ const App = () => {
             setTimeout(() => setNotification(null), 3000);
         }
     }, []);
+
+    useEffect(() => { handleSaveSessionRef.current = handleSaveSession; }, [handleSaveSession]);
+    // A deliverable that is about to hand the browser a download asks for an immediate save first, so its reply is
+    // in the saved transcript even if the window does not survive the download (2026-10-03 live #prd runs).
+    useEffect(() => {
+        const flush = () => {
+            if (chatSaveTimerRef.current) { clearTimeout(chatSaveTimerRef.current); chatSaveTimerRef.current = null; }
+            chatSavePendingSinceRef.current = 0;
+            void handleSaveSessionRef.current?.({ silent: true });
+        };
+        window.addEventListener('hic:flush-session-save', flush);
+        return () => window.removeEventListener('hic:flush-session-save', flush);
+    }, []);
+
+    // 2026-10-03 (owner decision): BOARD-ADMISSION relevance gate. Every path that puts themes on the board (Knowledge
+    // Library apply, session hydration, the run's cached-theme merge) lands in themesResult, so the gate runs here,
+    // once per new set of other-engagement themes: a fast model judges each against the objective and the client's
+    // scope (verdicts cached per engagement), and off-topic themes are taken off the board and out of the cached
+    // selection. The engagement's own themes are never judged; a failed judgment keeps the theme.
+    const themeGateSigRef = useRef<string>('');
+    const themeGateInFlightRef = useRef<string>('');
+    useEffect(() => {
+        const arr: any[] = Array.isArray(themesResult?.themes) ? themesResult.themes : (Array.isArray(themesResult) ? themesResult : []);
+        const goal = String(researchGoal || '').trim();
+        if (!arr.length || !goal) return;
+        (async () => {
+            try {
+                const { engagementSlugFor } = await import('./services/engagementSlug');
+                const { gateForeignThemes, foreignSourceOf } = await import('./services/themeRelevanceGate');
+                const slug = engagementSlugFor(goal);
+                const foreignIds = arr.filter(t => foreignSourceOf(t, slug)).map(t => String(t.id || t.name || '')).sort();
+                const sig = `${slug}|${foreignIds.join(',')}`;
+                if (!foreignIds.length || sig === themeGateSigRef.current || sig === themeGateInFlightRef.current) return;
+                themeGateInFlightRef.current = sig;
+                let scope: string[] = [];
+                try {
+                    const { loadEngagementLedger } = await import('./services/engagementLedger');
+                    scope = ((await loadEngagementLedger(slug))?.items || []).filter(i => i.type !== 'theme').map(i => i.item).slice(0, 40);
+                } catch { /* scope is optional */ }
+                const gate = await gateForeignThemes(arr, { engagement: slug, objective: goal, scope });
+                themeGateInFlightRef.current = '';
+                // Applied even when a newer board arrived meanwhile: the update filters the CURRENT board by the held
+                // keys, so a stale run can only remove themes the gate judged off-topic.
+                if (!gate.held.length) { themeGateSigRef.current = sig; return; }
+                const heldKeys = new Set(gate.held.map((t: any) => String(t.id || t.name || '')));
+                cachedThemesRef.current = (cachedThemesRef.current || []).filter((t: any) => !heldKeys.has(String(t.id || t.name || '')));
+                themeGateSigRef.current = `${slug}|${gate.kept.filter((t: any) => foreignSourceOf(t, slug)).map((t: any) => String(t.id || t.name || '')).sort().join(',')}`;
+                setThemesResult((prev: any) => {
+                    const cur: any[] = Array.isArray(prev?.themes) ? prev.themes : (Array.isArray(prev) ? prev : []);
+                    const next = cur.filter(t => !heldKeys.has(String(t?.id || t?.name || '')));
+                    return Array.isArray(prev) ? next : { ...(prev || {}), themes: next };
+                });
+                const names = gate.held.slice(0, 6).map((t: any) => t.name).join('; ');
+                console.info(`[theme-gate] ${gate.held.length} theme(s) from other engagements set aside as off-topic for this objective (${gate.judgedNow} judged now): ${names}${gate.held.length > 6 ? '; ...' : ''}`);
+                setNotification(`${gate.held.length} theme${gate.held.length === 1 ? '' : 's'} from other engagements set aside as off-topic for this goal (still in the Knowledge Library): ${names}${gate.held.length > 6 ? '; ...' : ''}`);
+                setTimeout(() => setNotification(null), 9000);
+            } catch (e: any) {
+                themeGateInFlightRef.current = '';
+                console.warn('[theme-gate] skipped (non-fatal):', e?.message || e);
+            }
+        })();
+    }, [themesResult, researchGoal]);
 
     // 2026-05-11 - Auto-save trigger. Fires exactly once per run, when all
     // four "default deliverables" (themes, topic-model, personas, recs)
@@ -5382,6 +5470,53 @@ const App = () => {
                     } : undefined,
                 });
 
+                // 1.6 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, B8 / R-D1, phase 1):
+                // objective decomposition is MANDATORY and RECORDED. `generateResearchPlan` above is the
+                // orchestrator's SOURCE plan (connectors + queries); it never carried sub_questions, so the
+                // coverage audit after collection was dead on this path (91 of 93 AIR records undecomposed).
+                // ensureObjectiveDecomposition builds the planner's plan, re-asks ONCE with the prior plan
+                // anchored when it comes back empty, and otherwise reports `unavailable` with a reason. The
+                // outcome is published through the one objectivePlan writer so every AIR record, the session
+                // snapshot and the coverage audit below read the same thing. The run never proceeds silently.
+                try {
+                    const { ensureObjectiveDecomposition } = await import('./services/researchPlanner');
+                    const { publishObjectivePlan, recordDecompositionStatus } = await import('./services/objectivePlan');
+                    const uploadedBrief = (((files as any[]) || [])
+                        .map(f => (f as any)?.parsedText)
+                        .filter((t: unknown): t is string => typeof t === 'string' && t.length >= 40)
+                        .join('\n\n')
+                        .slice(0, 4000)) || undefined;
+                    const decomposition = await ensureObjectiveDecomposition({
+                        research_goal: researchGoal,
+                        uploaded_brief: uploadedBrief,
+                        proxy_base: 'http://127.0.0.1:5012',
+                    });
+                    if (decomposition.status === 'decomposed') {
+                        (plan as any).sub_questions = decomposition.subQuestions;
+                        publishObjectivePlan(decomposition.subQuestions, decomposition.attempts);
+                        const highCount = decomposition.subQuestions.filter(q => q.priority === 'high').length;
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[DECOMPOSITION] Objective decomposed into ${decomposition.subQuestions.length} sub-question(s), ${highCount} high priority${decomposition.reasked ? '; the planner needed one anchored re-ask' : ''}. Evidence coverage is measured against them after collection.`,
+                        }]);
+                    } else {
+                        recordDecompositionStatus({ decomposition: 'unavailable', reason: decomposition.reason, attempts: decomposition.attempts });
+                        setDataSourceStatus(`Objective decomposition unavailable (${decomposition.reason}). Collection continues; evidence coverage is not measured against sub-questions for this run.`);
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[DECOMPOSITION] Unavailable after ${decomposition.attempts} planner attempt(s): ${decomposition.reason}. This run's AIR records carry decomposition: unavailable and evidence coverage is NOT measured against an objective.`,
+                        }]);
+                    }
+                } catch (decompErr: any) {
+                    const reason = `decomposition step failed: ${String(decompErr?.message || decompErr).slice(0, 200)}`;
+                    try {
+                        const { recordDecompositionStatus } = await import('./services/objectivePlan');
+                        recordDecompositionStatus({ decomposition: 'unavailable', reason, attempts: 1 });
+                    } catch { /* the marker is best-effort; the status line below still fires */ }
+                    setDataSourceStatus(`Objective decomposition unavailable (${reason}). Collection continues; evidence coverage is not measured against sub-questions for this run.`);
+                    setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[DECOMPOSITION] ${reason}. Evidence coverage is NOT measured against an objective for this run.` }]);
+                }
+
                 // Execute orchestrator plan (for deep research, CX mesh, web URLs, video transcripts)
                 const enabledPlanSources = plan.sources.filter(s => s.enabled);
                 if (enabledPlanSources.length > 0) {
@@ -5669,23 +5804,35 @@ const App = () => {
                 // WS-F (2026-06-30): OBJECTIVE-SUPREMACY post-collection audit. Score how well the assembled
                 // corpus covers each decomposed sub-question of the objective, and surface HIGH-priority ones
                 // the corpus under-covers so a targeted follow-up can run BEFORE generation. Deterministic +
-                // fail-safe; only runs when the plan carries real sub-questions (shape guard).
+                // fail-safe.
+                // 1.6 (2026-10-01): no silent skip. The plan is read through the one objectivePlan reader; when
+                // it is absent the status line names the recorded reason. When present, every sub-question gets
+                // `coverage_status` (covered | partial | uncovered) written onto it and the plan is republished,
+                // so the session snapshot (`research_plan_sub_questions`) and every AIR record carry the audit.
                 try {
-                    const _sqs = (plan as any)?.sub_questions;
-                    if (Array.isArray(_sqs) && _sqs.length > 0 && typeof _sqs[0]?.question === 'string' && corpus) {
-                        // W3 (2026-07-01): publish the plan's sub-questions for the AIR Objective Graph.
-                        // emitDeliverable reads this global (same idiom as __hicCurrentEngagementSlug) so
-                        // EVERY artifact's AIR carries decomposedQuestions + per-artifact coverage status.
-                        try { (window as any).__hicResearchPlanSubQuestions = _sqs; } catch { /* non-fatal */ }
-                        const { auditSubQuestionCoverage } = await import('./services/researchPlanner');
+                    const { readObjectivePlan, publishObjectivePlan } = await import('./services/objectivePlan');
+                    const planRead = readObjectivePlan((plan as any)?.sub_questions);
+                    if (!planRead.planAbsent && corpus) {
+                        const { auditSubQuestionCoverage, applyCoverageToSubQuestions } = await import('./services/researchPlanner');
+                        const _sqs: any[] = Array.isArray((plan as any)?.sub_questions) && (plan as any).sub_questions.length
+                            ? (plan as any).sub_questions
+                            : planRead.subQuestions;
                         const _audit = auditSubQuestionCoverage(corpus, _sqs);
+                        const withCoverage = applyCoverageToSubQuestions(_sqs, _audit);
+                        (plan as any).sub_questions = withCoverage;
+                        publishObjectivePlan(withCoverage);
+                        const counts = { covered: 0, partial: 0, uncovered: 0 } as Record<string, number>;
+                        for (const p of _audit.perQuestion) counts[p.status] = (counts[p.status] || 0) + 1;
                         console.info(`[App] WS-F sub-question coverage: ${Math.round(_audit.coverage * 100)}% of high+medium sub-questions covered; ${_audit.openHighPriority.length} high-priority still open`);
-                        if (_audit.openHighPriority.length > 0) {
-                            setThinkingEvents(prev => [...prev, {
-                                type: 'PHASE',
-                                content: `[COVERAGE] ${_audit.openHighPriority.length} high-priority sub-question(s) under-covered by the collected corpus (${_audit.openHighPriority.join(', ')}). Objective-supremacy: a targeted follow-up would strengthen the evidence before generation.`,
-                            }]);
-                        }
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[COVERAGE] ${counts.covered} covered, ${counts.partial} partial, ${counts.uncovered} uncovered of ${_audit.perQuestion.length} sub-question(s)${_audit.openHighPriority.length > 0 ? `; high-priority still open: ${_audit.openHighPriority.join(', ')}. A targeted follow-up would strengthen the evidence before generation.` : '.'}`,
+                        }]);
+                    } else if (planRead.planAbsent) {
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[COVERAGE] Not measured: ${planRead.reason}.`,
+                        }]);
                     }
                 } catch (covErr: any) {
                     console.warn('[App] sub-question coverage audit failed (non-fatal):', covErr?.message || covErr);
@@ -6369,7 +6516,7 @@ ${synthesisParts.join('\n')}
                         .map((t: any) => `${t.name}: ${(t.description || '').slice(0, 240)}`)
                         .join('\n');
                     const engagementSlugForGaps = (window as any).__hicCurrentEngagementSlug
-                        || (researchGoal || 'default-engagement').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+                        || engagementSlugFor(researchGoal || 'default-engagement');
                     const deliverableTypesForGaps = (selectedOutputs || [])
                         .map(o => String(o).toLowerCase().replace(/_/g, '-').replace(/^strategic-recs$/, 'recommendations'));
 
@@ -6654,7 +6801,7 @@ ${synthesisParts.join('\n')}
                      </div>
                      <KnowledgeGapsPanel
                          gaps={gapsResult.gaps as KnowledgeGap[]}
-                         engagementSlug={(window as any).__hicCurrentEngagementSlug || (researchGoal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 60)}
+                         engagementSlug={(window as any).__hicCurrentEngagementSlug || engagementSlugFor(researchGoal || 'default')}
                      />
                  </div>
              )}
@@ -7535,7 +7682,7 @@ ${synthesisParts.join('\n')}
                                topicModelStatus={topicModelStatus}
                                onTopicModelResult={setTopicModelResult}
                                initialChatMessages={initialChatMessagesRef.current || undefined}
-                               onChatMessagesChange={(msgs: any[]) => { chatMessagesRef.current = msgs; }}
+                               onChatMessagesChange={onChatMessagesChange}
                                knowledgeGaps={gapsResult?.gaps || []}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);

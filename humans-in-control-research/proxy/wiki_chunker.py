@@ -396,7 +396,11 @@ def _extract_inline_sources(text: str) -> list[dict]:
                 seen.add(key)
                 out.append({"n": name, "u": url})
         if not had_link:
-            name = clause.rstrip(")]").strip()[:80]
+            # 1.5 (2026-10-01): a markdown link whose target is NOT http(s) (a wiki-path dedupe
+            # pointer like "[agr_reddit](articles/x.md)") used to leak the raw "[name](path" string
+            # as the source name. Take the link TEXT; the page frontmatter carries the real locator.
+            _mlink = re.match(r"\s*\[([^\]]+)\]\(", clause)
+            name = ((_mlink.group(1) if _mlink else clause.rstrip(")]")).strip())[:80]
             key = name.lower()
             if len(name) >= 2 and key not in seen and not _is_junk_source_name(name):
                 seen.add(key)
@@ -405,6 +409,226 @@ def _extract_inline_sources(text: str) -> list[dict]:
             break
     return out
 
+
+
+# ============================================================================
+# 1.5 PROVENANCE EVERYWHERE (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, B4,
+# phase 3). Per-chunk `sources` used to be written ONLY when a chunk body carried an inline
+# "Source: [Name](url)" line or a Gemini groundingSupports match, so Tier 1 of the citation
+# resolver fired on roughly a quarter of chunks and every other quote fell back to the page
+# title. Every chunk now defaults to the PAGE's real provenance {n, u, kind, date} read from
+# the page frontmatter; the inline / grounding paths still win when present (more specific).
+# ============================================================================
+
+_FM_SCALAR_RE = re.compile(r"^([A-Za-z_][A-Za-z0-9_-]*):[ \t]*(.*)$")
+
+
+def _fm_unquote(v: str) -> str:
+    v = (v or "").strip()
+    if len(v) >= 2 and v[0] == v[-1] and v[0] in ("'", '"'):
+        inner = v[1:-1]
+        if v[0] == '"':
+            inner = inner.replace('\\"', '"').replace("\\\\", "\\")
+        return inner
+    return v
+
+
+def parse_page_frontmatter(page_text: str) -> dict[str, str]:
+    """Flat top-level SCALAR frontmatter -> {key: value}. Nested blocks (`chunks:`, block lists)
+    and indented lines are skipped. Hand-rolled on purpose: the writer (`_yaml_scalar`) is
+    hand-rolled too and the proxy carries no PyYAML dependency. Returns {} without frontmatter."""
+    if not isinstance(page_text, str):
+        return {}
+    m = _FRONTMATTER_RE.match(page_text)
+    if not m:
+        return {}
+    out: dict[str, str] = {}
+    for raw in m.group(1).splitlines():
+        if not raw or raw[0] in (" ", "\t"):
+            continue
+        mm = _FM_SCALAR_RE.match(raw.rstrip())
+        if not mm:
+            continue
+        key, val = mm.group(1), mm.group(2).strip()
+        if not val or val in ("|", ">", "|-", ">-"):
+            continue  # block scalar / nested mapping or list -> not a flat scalar
+        out[key] = _fm_unquote(val)
+    return out
+
+
+_MONTHS = {
+    "jan": 1, "january": 1, "feb": 2, "february": 2, "mar": 3, "march": 3, "apr": 4, "april": 4,
+    "may": 5, "jun": 6, "june": 6, "jul": 7, "july": 7, "aug": 8, "august": 8, "sep": 9, "sept": 9,
+    "september": 9, "oct": 10, "october": 10, "nov": 11, "november": 11, "dec": 12, "december": 12,
+}
+_ISO_DATE_RE = re.compile(r"^(\d{4})-(\d{1,2})-(\d{1,2})(?:[T\s]|$)")
+_SLASH_DATE_RE = re.compile(r"^(\d{4})/(\d{1,2})/(\d{1,2})(?:\D|$)")
+# "Tue, 25 Aug 2026 00:57:21 GMT" / "25 August 2026"
+_DMY_RE = re.compile(r"^(?:[A-Za-z]{3,9},?\s+)?(\d{1,2})\s+([A-Za-z]{3,9})\.?,?\s+(\d{4})")
+# "August 25, 2026" / "Aug 25 2026" / "Tuesday, August 25, 2026"
+_MDY_RE = re.compile(r"^(?:[A-Za-z]{3,9},?\s+)?([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+(\d{4})")
+_EPOCH_RE = re.compile(r"^(\d{10})(?:\d{3})?(?:\.\d+)?$")
+
+
+def iso_date(raw) -> str | None:
+    """Normalize a publication date string to ISO 8601 `YYYY-MM-DD`, or None when it cannot be
+    parsed. Handles RFC 2822 / RSS ("Tue, 25 Aug 2026 00:57:21 GMT"), ISO datetimes with offsets
+    or a trailing Z, bare `YYYY-MM-DD`, `YYYY/MM/DD`, "August 25, 2026", "25 August 2026" and
+    unix epoch seconds / milliseconds (Reddit `created_utc`). The STATED calendar date is kept;
+    no timezone conversion is applied (a GMT timestamp at 00:57 stays on its own day)."""
+    import datetime as _dt
+    s = str(raw if raw is not None else "").strip()
+    if not s:
+        return None
+
+    def _mk(y, mo, d):
+        try:
+            return _dt.date(int(y), int(mo), int(d)).isoformat()
+        except (TypeError, ValueError):
+            return None
+
+    m = _ISO_DATE_RE.match(s)
+    if m:
+        return _mk(*m.groups())
+    m = _SLASH_DATE_RE.match(s)
+    if m:
+        return _mk(*m.groups())
+    m = _DMY_RE.match(s)
+    if m and m.group(2).lower() in _MONTHS:
+        return _mk(m.group(3), _MONTHS[m.group(2).lower()], m.group(1))
+    m = _MDY_RE.match(s)
+    if m and m.group(1).lower() in _MONTHS:
+        return _mk(m.group(3), _MONTHS[m.group(1).lower()], m.group(2))
+    m = _EPOCH_RE.match(s)
+    if m:
+        try:
+            return _dt.datetime.fromtimestamp(int(m.group(1)), tz=_dt.timezone.utc).date().isoformat()
+        except (OverflowError, OSError, ValueError):
+            return None
+    try:
+        from email.utils import parsedate_to_datetime
+        return parsedate_to_datetime(s).date().isoformat()
+    except Exception:
+        return None
+
+
+_PAGE_SOURCE_KEYS = ("source", "source_name", "publisher", "feed", "site")
+_PAGE_KIND_KEYS = ("kind", "type", "source_type")
+_PAGE_DATE_KEYS = ("date", "published", "published_at", "pubDate", "pub_date", "created_utc", "created")
+_GENERIC_UPLOAD_BUCKETS = {"client uploads", "client-uploads", "client_uploads", "uploads", "upload"}
+_SUBREDDIT_RE = re.compile(r"\br/([A-Za-z0-9_]+)")
+
+
+# Model / provider names only. Placeholders ("n/a", "source", "") are NOT here on purpose: a page whose
+# source is a placeholder still has a real identity in its URL or author; a page whose source is a MODEL
+# has none at page level (its real sources are resolved_sources + per-chunk grounding).
+_PROVIDER_MODEL_NAMES = {"gemini", "openai", "claude", "anthropic", "deepseek", "gpt", "chatgpt", "vertex", "vertexai"}
+
+
+def _is_provider_bucket_page_source(name: str) -> bool:
+    """A page whose `source` is a model/provider bucket ("gemini", "gemini (focused research)")
+    has no citable page-level provenance: its real sources live in `resolved_sources` and in the
+    per-chunk grounding attribution. A subreddit ABOUT a provider ("reddit-deep: r/gemini") is a
+    real source and is NOT a bucket."""
+    n = re.sub(r"\(.*?\)", "", (name or "")).strip().lower()
+    return n in _PROVIDER_MODEL_NAMES
+
+
+def page_source_from_frontmatter(fm: dict, source_path: str = "") -> dict | None:
+    """Build the page-level provenance record `{n, u, kind?, date?|date_raw?, author?, subreddit?}`
+    from flat frontmatter. Returns None when the page has no citable identity (no source name
+    and no http URL, a provider-bucket source, or a deep-research synthesis page whose chunks are
+    attributed from groundingSupports instead)."""
+    if not isinstance(fm, dict):
+        return None
+    method = (fm.get("method") or "").strip().lower()
+    if method == "deep-research":
+        return None
+    if _is_provider_bucket_page_source(fm.get("source") or ""):
+        return None
+    url = (fm.get("url") or fm.get("link") or "").strip()
+    if not url.lower().startswith(("http://", "https://")):
+        url = ""
+    name = ""
+    for k in _PAGE_SOURCE_KEYS:
+        v = (fm.get(k) or "").strip()
+        if v and not _is_junk_source_name(v):
+            name = v
+            break
+    title = (fm.get("title") or "").strip()
+    # A client upload's `source` is the bucket ("Client Uploads"); the DOCUMENT title is the
+    # provenance a reader can check ("(Source: filename)" per the citation protocol).
+    if (method == "upload" or name.lower() in _GENERIC_UPLOAD_BUCKETS) and title:
+        name = title
+    author = (fm.get("author") or "").strip()
+    if not name and author and not _is_junk_source_name(author):
+        name = author
+    if not name and url:
+        name = _publisher_from_url(url)
+    if not name and source_path and "/" in source_path:
+        parts = [p for p in source_path.split("/") if p]
+        if len(parts) >= 2:
+            name = parts[-2].replace("-", " ").replace("_", " ").strip()
+    if not name and not url:
+        return None
+    rec: dict = {"n": name[:120], "u": url}
+    for k in _PAGE_KIND_KEYS:
+        v = (fm.get(k) or "").strip().lower()
+        if v:
+            rec["kind"] = v[:40]
+            break
+    raw_date = ""
+    for k in _PAGE_DATE_KEYS:
+        v = (fm.get(k) or "").strip()
+        if v:
+            raw_date = v
+            break
+    if raw_date:
+        iso = iso_date(raw_date)
+        if iso:
+            rec["date"] = iso
+        else:
+            rec["date_raw"] = raw_date[:60]
+    if author and not _is_junk_source_name(author) and author.lower() != name.lower():
+        rec["author"] = author[:120]
+    sub = (fm.get("subreddit") or "").strip()
+    if sub.lower().startswith("r/"):
+        sub = sub[2:]
+    if not sub:
+        msub = _SUBREDDIT_RE.search((fm.get("source") or "") + " " + (fm.get("source_name") or ""))
+        if msub:
+            sub = msub.group(1)
+    if sub:
+        rec["subreddit"] = sub[:60]
+    return rec
+
+
+def _merge_page_provenance(inline: list[dict], page_src: dict | None) -> list[dict]:
+    """Inline sources win (more specific), but when an inline entry IS the page's own source
+    (same URL, or same name with no URL) it inherits the page's url / kind / date so Tier 1
+    resolution carries the full record instead of a bare name."""
+    if not page_src:
+        return inline
+    pu = (page_src.get("u") or "").strip().lower()
+    pn = (page_src.get("n") or "").strip().lower()
+    out: list[dict] = []
+    for e in inline:
+        if not isinstance(e, dict):
+            continue
+        eu = (e.get("u") or "").strip().lower()
+        en = (e.get("n") or "").strip().lower()
+        same = bool((eu and eu == pu) or (not eu and en and en == pn))
+        if same:
+            merged = dict(e)
+            if not merged.get("u") and page_src.get("u"):
+                merged["u"] = page_src["u"]
+            for k in ("kind", "date", "date_raw", "author", "subreddit"):
+                if k not in merged and k in page_src:
+                    merged[k] = page_src[k]
+            out.append(merged)
+        else:
+            out.append(e)
+    return out
 
 def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
     """Manifest-shape chunker. Wraps `chunk_markdown` (the existing
@@ -429,6 +653,9 @@ def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
     if not body or not source_path:
         return []
     chunks = chunk_markdown(body)
+    # 1.5: page-level provenance, read once from the frontmatter the callers pass in with the body
+    # (write-article, wiki-write and the retrofit walker all hand over the FULL page text).
+    _page_src = page_source_from_frontmatter(parse_page_frontmatter(body), source_path)
     out: list[dict] = []
     for c in chunks:
         _ctext = c.get("text", "")
@@ -447,7 +674,11 @@ def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
         # already set sources via groundingSupports keep those - this only fills the gap for other pages).
         _inline = _extract_inline_sources(_ctext)
         if _inline:
-            _chunk["sources"] = _inline
+            _chunk["sources"] = _merge_page_provenance(_inline, _page_src)
+        elif _page_src:
+            # 1.5: no inline attribution -> the page's own {n,u,kind,date}. attribute_chunks_to_grounding
+            # (run by write-article AFTER this) still overrides matched chunks with the grounding source.
+            _chunk["sources"] = [dict(_page_src)]
         out.append(_chunk)
     # WS-G: intra-doc concept adjacency. Two chunks that share >=2 concepts are related_chunks
     # (the seed edges of the concept graph WS-G-traversal walks; cross-doc edges are Stage 2).
@@ -508,7 +739,9 @@ def _serialize_chunks_yaml(chunks: list[dict]) -> str:
         # 2026-06-30 - PER-CHUNK REAL SOURCE ATTRIBUTION. For deep-research synthesis
         # docs, each chunk's actual supporting source(s) (from Gemini groundingSupports)
         # are stored here so a quote from THIS chunk resolves to its REAL source, not
-        # the whole-doc synthesis bucket. Compact JSON: [{"n":name,"u":url}].
+        # the whole-doc synthesis bucket. 1.5 (2026-10-01): every other chunk carries the
+        # page's own provenance by default. Compact JSON:
+        # [{"n":name,"u":url,"kind":kind,"date":"YYYY-MM-DD"|"date_raw":raw,"author"?,"subreddit"?}].
         if c.get("sources"):
             import json as _json
             lines.append(f"    sources: {_json.dumps(c['sources'], separators=(',', ':'), ensure_ascii=True)}")
@@ -578,6 +811,149 @@ def attribute_chunks_to_grounding(chunks: list[dict], body: str, grounding_suppo
         if found:
             c["sources"] = found[:5]
     return chunks
+
+
+# ============================================================================
+# 1.7 CONCEPT GRAPH, chunker half (plan 2026-09-30, B2, phase 4). `related_chunks` written by
+# chunk_for_manifest are INTRA-document only (one page in hand at chunk time). The backfill job
+# holds every page, so it can propose CROSS-document edges from the per-chunk `concepts` already
+# in frontmatter plus any named entities the caller supplies. Pure: nothing is written here.
+# ============================================================================
+
+_ENTITY_KEYS = ("entities", "named_entities", "key_entities", "named_institutions", "tags")
+
+
+def _norm_term(s) -> str:
+    return re.sub(r"\s+", " ", str(s if s is not None else "").strip().lower())
+
+
+def _doc_of_chunk_id(chunk_id: str) -> str:
+    return str(chunk_id or "").split("#c", 1)[0]
+
+
+def _terms_of(d: dict, keys: tuple[str, ...]) -> set[str]:
+    out: set[str] = set()
+    for k in keys:
+        v = d.get(k)
+        if isinstance(v, str):
+            v = [p for p in re.split(r"[,;|]", v)]
+        if isinstance(v, (list, tuple, set)):
+            for t in v:
+                n = _norm_term(t)
+                if len(n) >= 3:
+                    out.add(n)
+    return out
+
+
+def _iter_chunk_rows(records_or_pages) -> "Iterable[tuple[str, set[str], set[str], str]]":
+    """Yield (chunk_id, concepts, entities, doc) from either CHUNK RECORDS
+    ({"id","concepts",["entities"|...],["doc"|"source_path"]}) or PAGES
+    ({"id"|"path", "chunks":[...], ["entities"|"named_entities"|"key_entities"|"tags"]}).
+    Page-level entities apply to every chunk of that page."""
+    for item in records_or_pages or []:
+        if not isinstance(item, dict):
+            continue
+        if isinstance(item.get("chunks"), list):
+            page_id = str(item.get("id") or item.get("path") or item.get("source_path") or "")
+            page_entities = _terms_of(item, _ENTITY_KEYS)
+            for c in item["chunks"]:
+                if not isinstance(c, dict) or not c.get("id"):
+                    continue
+                cid = str(c["id"])
+                yield cid, _terms_of(c, ("concepts",)), (_terms_of(c, _ENTITY_KEYS) | page_entities), (page_id or _doc_of_chunk_id(cid))
+        elif item.get("id"):
+            cid = str(item["id"])
+            doc = str(item.get("doc") or item.get("source_path") or item.get("page") or _doc_of_chunk_id(cid))
+            yield cid, _terms_of(item, ("concepts",)), _terms_of(item, _ENTITY_KEYS), doc
+
+
+def build_cross_document_edges(
+    records_or_pages,
+    max_per_chunk: int = 5,
+    *,
+    jaccard_threshold: float = 0.25,
+    min_shared_concepts: int = 2,
+    neighbors: "dict[str, list[str]] | None" = None,
+) -> dict[str, list[str]]:
+    """Propose cross-document `related_chunks` edges. Returns {chunk_id: [related_ids]} for every
+    chunk that has at least one edge; nothing is written.
+
+    An edge between two chunks of DIFFERENT documents exists when either
+      - they share >= `min_shared_concepts` concepts AND Jaccard(concepts) >= `jaccard_threshold`
+        (two top-5 concept lists sharing 2 give 2/8 = 0.25, the same bar the intra-document rule
+        applies in absolute terms), or
+      - they share at least one exact named entity.
+    Edges are ranked by jaccard + 0.5 * shared_entities, then id (deterministic), and capped at
+    `max_per_chunk`. `neighbors` ({chunk_id: [chunk_id, ...]} from the vector store, best first)
+    is merged in as a lower tier: a neighbour not already matched by concepts/entities fills the
+    remaining slots in its own order; same-document neighbours are dropped (this map is
+    cross-document by contract; the intra-document edges already exist on the page).
+
+    Complexity is bounded by an inverted index over concepts and entities, never an n^2 scan.
+    """
+    rows = list(_iter_chunk_rows(records_or_pages))
+    by_id: dict[str, tuple[set[str], set[str], str]] = {}
+    order: list[str] = []
+    for cid, cs, es, doc in rows:
+        if cid in by_id:
+            continue
+        by_id[cid] = (cs, es, doc)
+        order.append(cid)
+    c_index: dict[str, list[str]] = {}
+    e_index: dict[str, list[str]] = {}
+    for cid in order:
+        cs, es, _ = by_id[cid]
+        for c in cs:
+            c_index.setdefault(c, []).append(cid)
+        for e in es:
+            e_index.setdefault(e, []).append(cid)
+
+    scores: dict[str, dict[str, float]] = {}
+    for cid in order:
+        cs, es, doc = by_id[cid]
+        candidates: set[str] = set()
+        for c in cs:
+            candidates.update(c_index.get(c, ()))
+        for e in es:
+            candidates.update(e_index.get(e, ()))
+        for other in candidates:
+            if other == cid:
+                continue
+            ocs, oes, odoc = by_id[other]
+            if odoc == doc:
+                continue
+            shared_c = len(cs & ocs)
+            union = len(cs | ocs)
+            jac = (shared_c / union) if union else 0.0
+            shared_e = len(es & oes)
+            concept_ok = shared_c >= min_shared_concepts and jac >= jaccard_threshold
+            if not concept_ok and shared_e == 0:
+                continue
+            scores.setdefault(cid, {})[other] = (jac if concept_ok else 0.0) + 0.5 * shared_e
+
+    # Embedding-neighbour tier (optional): fills remaining slots, ranked below any concept/entity edge.
+    for cid, nbrs in (neighbors or {}).items():
+        if not isinstance(nbrs, (list, tuple)):
+            continue
+        doc = by_id[cid][2] if cid in by_id else _doc_of_chunk_id(cid)
+        for rank, nid in enumerate(nbrs):
+            nid = str(nid or "")
+            if not nid or nid == cid:
+                continue
+            ndoc = by_id[nid][2] if nid in by_id else _doc_of_chunk_id(nid)
+            if ndoc == doc:
+                continue
+            bucket = scores.setdefault(cid, {})
+            if nid not in bucket:
+                bucket[nid] = -1.0 - rank  # strictly below every concept/entity score (>= 0), in neighbour order
+
+    out: dict[str, list[str]] = {}
+    for cid, bucket in scores.items():
+        if not bucket:
+            continue
+        ranked = sorted(bucket.items(), key=lambda kv: (-kv[1], kv[0]))
+        out[cid] = [oid for oid, _ in ranked[: max(0, int(max_per_chunk))]]
+    return out
 
 
 def has_chunks_frontmatter(page_text: str) -> bool:
@@ -772,6 +1148,12 @@ def extract_chunk_sources(page_text: str, chunk_id: str) -> list[dict]:
 __all__ = [
     "chunk_markdown",
     "chunk_for_manifest",
+    "parse_page_frontmatter",
+    "page_source_from_frontmatter",
+    "iso_date",
+    "build_cross_document_edges",
+    "attribute_chunks_to_grounding",
+    "extract_chunk_sources",
     "has_chunks_frontmatter",
     "upsert_chunks_into_frontmatter",
     "extract_chunk_spans",

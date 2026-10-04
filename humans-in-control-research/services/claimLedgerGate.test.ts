@@ -219,3 +219,76 @@ describe('WS-1 provenance: registry labels, linked citations, chunk provenance l
         expect(describeChunkProvenance({ id: 'a.md#c0' })).toBe('');
     });
 });
+
+// 2026-10-01 #prd consulting-grade pass: nested blocks, spec / ref kinds, typed targets, compound absolutes,
+// population words inside verbatim quotes. Each case is a shape the live #prd replay produced.
+describe('claim rows: nested blocks are read, never twice', () => {
+    it('reads the inner blocks of a block that holds blocks (blockquote > p, li > p, td > p)', () => {
+        const html = '<blockquote><p>"Salesforce is kind of all over the place in many different versions."</p></blockquote>'
+            + '<ul><li><p>Students track every application in a spreadsheet of their own.</p><p>Advisors cannot see the external applications at all.</p></li></ul>'
+            + '<table><tr><td><p>Advisors open four systems before a single advising call.</p></td></tr></table>';
+        const rows = extractClaimRows(html);
+        expect(rows.map(r => r.tag)).toEqual(['p', 'p', 'p', 'p']);
+        expect(rows.map(r => r.text)).toEqual([
+            '"Salesforce is kind of all over the place in many different versions."',
+            'Students track every application in a spreadsheet of their own.',
+            'Advisors cannot see the external applications at all.',
+            'Advisors open four systems before a single advising call.',
+        ]);
+    });
+    it('keeps a parent block\'s own prose between its children as separate rows', () => {
+        const rows = extractClaimRows('<li>The lead sentence of this list item.<ul><li>The nested child item sentence.</li></ul>The tail sentence of the outer item.</li>');
+        expect(rows.map(r => r.text)).toEqual(['The lead sentence of this list item.', 'The nested child item sentence.', 'The tail sentence of the outer item.']);
+    });
+    it('closes unclosed paragraphs and list items the way a parser does', () => {
+        const rows = extractClaimRows('<p>The first unclosed paragraph is here.<p>The second unclosed paragraph is here.<ul><li>An unclosed list item one.<li>An unclosed list item two.</ul>');
+        expect(rows.map(r => r.text)).toEqual(['The first unclosed paragraph is here.', 'The second unclosed paragraph is here.', 'An unclosed list item one.', 'An unclosed list item two.']);
+    });
+});
+
+describe('claim kinds: specification and references are decisions, not claims', () => {
+    it('a spec-marked block needs no pointer and is never routed to narrowing; the mark inherits from an ancestor', async () => {
+        const html = '<div data-claim-kind="spec"><p>Given a student has open tasks in every connected source, when the student opens the dashboard, then all tasks appear.</p></div>'
+            + '<h3 data-claim-kind="spec">The student tracks every application in one place.</h3>'
+            + '<p data-claim-kind="ref">Serves: Co-op Seeking Student and Incoming First-Year Student</p>';
+        const ledger = await evaluateClaimLedger(html, { goalText: 'Specify the hub', chunks: [] });
+        expect(ledger.rows.map(r => r.kind)).toEqual(['spec', 'spec', 'ref']);
+        expect(ledger.exemptRows).toBe(3);
+        expect(ledger.findings).toEqual([]);
+        expect(buildNarrowingInstruction(ledger)).toBe('');
+    });
+    it('the same sentence unmarked stays fully gated', async () => {
+        const ledger = await evaluateClaimLedger('<p>Every student tracks all applications in a spreadsheet because the portal fails.</p>', { goalText: 'x', chunks: [] });
+        expect(ledger.summary.UNSOURCED_FACT).toBe(1);
+        expect(ledger.blocking).toBe(1);
+    });
+    it('a spec row that carries a quotation still gets the verbatim check', async () => {
+        const html = `<p data-claim-kind="spec">The rule quotes the source: "Agents now operate on the canvas through a brand new plugin bridge." [${FIGMA_LAUNCH.id}]</p>`;
+        const ledger = await evaluateClaimLedger(html, { goalText: GOAL, chunks: [FIGMA_LAUNCH] });
+        expect(ledger.summary.UNVERIFIED_QUOTE).toBe(1);
+    });
+    it('a typed requirement target inside a block is exempt from the number rule', () => {
+        const rows = extractClaimRows('<li>Search results load before the student loses the thread.<div class="prd-target-row" data-requirement-target="1"><span class="prd-target">latency: 800 ms p95</span></div></li>');
+        expect(rows).toHaveLength(1);
+        expect(rows[0].text).toBe('Search results load before the student loses the thread.');
+        expect(rows[0].kind).toBe('text');
+        expect(extractClaimRows('<td data-requirement-target="1">rollout share: 10 percent of the pilot cohort</td>')[0].kind).toBe('spec');
+    });
+});
+
+describe('false positives from the live #prd replay', () => {
+    it('"First" inside a compound or proper noun is not an absolute', () => {
+        expect(classifyClaim('Incoming First-Year Student · Arriving at the university')).not.toBe('fact');
+        expect(classifyClaim('Owned by the First Generation Students Office for the whole cohort')).not.toBe('fact');
+        expect(classifyClaim('A first-year student is the only user the advisors never contact')).toBe('fact');   // a real absolute in the same sentence still counts
+    });
+    it('a population word inside a verbatim quote is the source speaking, not the deliverable generalizing', async () => {
+        const chunk: GateChunk = { id: 'articles/client-uploads/ab12cd34ef.md#c4', text: 'Interviewer notes. Salesforce is kind of all over the place in many different versions across the university.' };
+        const html = `<blockquote>"Salesforce is kind of all over the place in many different versions across the university." [${chunk.id}]</blockquote>`;
+        const ledger = await evaluateClaimLedger(html, { goalText: 'x', chunks: [chunk] });
+        expect(ledger.summary.INDEPENDENCE_INFLATED).toBe(0);
+        // the deliverable's own population claim over one origin is still flagged
+        const own = await evaluateClaimLedger(`<p>All advisors report that Salesforce is kind of all over the place in many different versions across the university. [${chunk.id}]</p>`, { goalText: 'x', chunks: [chunk] });
+        expect(own.summary.INDEPENDENCE_INFLATED).toBe(1);
+    });
+});

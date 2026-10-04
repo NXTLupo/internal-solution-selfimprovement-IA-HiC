@@ -138,13 +138,33 @@ async function fetchImageAsBase64(url: string): Promise<{ data: string; mime: st
   return { data: buf.toString('base64'), mime };
 }
 
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company), the third brand mode. Values mirror
+// brands.ts deciemBrand (PPTX-template sourced). Not run yet: the deciem lane is wired so the
+// next generation pass can emit {exemplar_id}-deciem.png beside the nxt / nu renders.
+const DECIEM_PROMPT = `${STRIP_PROMO_PREFACE}
+
+DECIEM DESIGN SYSTEM (The Abnormal Beauty Company):
+- Black and white editorial canvases. Title and section surfaces are pure black #000000 with white type; body surfaces are white #FFFFFF with black type.
+- Type rendering: Poppins Bold UPPERCASE for display and headlines, Josefin Sans for body, Poppins Bold uppercase for labels, Nunito for tables and data.
+- Pops used as single accents per block: pink #FB48C4 (primary), cyan #00FACC, purple #8A69D4, orange #FF6C2F. Never a rainbow, never a gradient.
+- Geometry: radius 0, thin 1px line-art, hairline rules #E3E3E3 on white and #2A2A2A on black. NO shadows, NO glows, NO blur, NO rail, NO dot mark.
+- A thin-bordered lockup box reading as two stacked lines may appear in a corner (render as abstract bars, no letters).
+- Minimal, product-literal, high-contrast. Every block has one dominant element.
+
+OUTPUT: a flat, full-bleed, head-on rendering of the source's UI re-skinned for DECIEM. The viewer must be able to identify this as "the source app's UI, rebuilt for DECIEM" - not a marketing cover.
+
+CRITICAL: Do NOT include any readable text, words, letters, numbers, or labels. AI image models cannot spell. Render text as abstract horizontal bars or geometric placeholders of varying widths. Zero readable characters.`;
+
+type ExemplarBrand = 'nxt' | 'nu' | 'deciem';
+const BRAND_PROMPTS: Record<ExemplarBrand, string> = { nxt: NXT_PROMPT, nu: NU_PROMPT, deciem: DECIEM_PROMPT };
+
 async function generateImageForBrand(
   ai: GoogleGenAI,
   ex: any,
-  brand: 'nxt' | 'nu',
+  brand: ExemplarBrand,
   source: { data: string; mime: string },
 ): Promise<string> {
-  const prompt = brand === 'nxt' ? NXT_PROMPT : NU_PROMPT;
+  const prompt = BRAND_PROMPTS[brand];
 
   const response = await ai.models.generateContent({
     model: 'gemini-3.1-flash-image-preview',

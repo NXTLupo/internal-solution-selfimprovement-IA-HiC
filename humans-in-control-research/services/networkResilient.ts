@@ -60,7 +60,7 @@ export interface AttemptDigest {
     elapsed_ms: number;
 }
 
-export class ResilientFetchError extends Error {
+class ResilientFetchError extends Error {
     constructor(
         message: string,
         public readonly url: string,

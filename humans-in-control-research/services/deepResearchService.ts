@@ -67,7 +67,7 @@ export interface ResearchResult {
 /** Map a provider groundingMetadata object to our GroundingSupport[]. Defensive:
  *  field names per the Gemini grounded-generation response; logs nothing, returns
  *  [] when the shape is absent so callers degrade to doc-level attribution. */
-export function extractGroundingSupports(gm: any): GroundingSupport[] {
+function extractGroundingSupports(gm: any): GroundingSupport[] {
     const raw = gm?.groundingSupports;
     if (!Array.isArray(raw)) return [];
     const out: GroundingSupport[] = [];

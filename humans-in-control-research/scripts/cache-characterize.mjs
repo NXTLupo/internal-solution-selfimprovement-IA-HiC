@@ -7,7 +7,7 @@
 // for the models WE route (CAPC measured ~3,500 tokens on Sonnet 4.6, May 2026).
 //
 // Usage:
-//   node scripts/cache-characterize.mjs [--model claude-opus-4-8] [--n 15] \
+//   node scripts/cache-characterize.mjs [--model claude-opus-5-5] [--n 15] \
 //        [--trials 2] [--sizes 2000,3500,8000,30000,100000] [--ttl 5m]
 //
 // Output: JSON lines to stdout + a summary table; paste the summary into
@@ -21,7 +21,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((a, i, arr) =>
     a.startsWith('--') ? [a.slice(2), (arr[i + 1] && !arr[i + 1].startsWith('--')) ? arr[i + 1] : '1'] : null
 ).filter(Boolean));
 
-const MODEL = args.model || 'claude-opus-4-8';
+const MODEL = args.model || 'claude-opus-5-5';
 const N = parseInt(args.n || '15', 10);
 const TRIALS = parseInt(args.trials || '2', 10);
 const SIZES = (args.sizes || '2000,3500,8000,30000,100000').split(',').map(s => parseInt(s.trim(), 10));

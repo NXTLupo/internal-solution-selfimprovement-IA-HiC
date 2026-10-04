@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nxthumans.com/hic/schemas/prd_air.schema.json",
+  "title": "PrdAir",
+  "description": "The one PRD contract on AIR (Stage 3.1): twelve sections, requirement nodes with trace ids, acceptance tests, success signals. The traceability matrix is derived from this graph, never authored. Numbers outside verbatim quote text may appear only inside requirement_target objects.",
+  "type": "object",
+  "required": ["prdAirVersion", "artifactId", "objective", "title", "graph", "sections"],
+  "additionalProperties": false,
+  "properties": {
+    "prdAirVersion": { "const": "hic-prd-air-2026-10-01" },
+    "artifactId": { "type": "string", "minLength": 1 },
+    "runId": { "type": "string" },
+    "objective": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "brand": { "enum": ["nxt", "nu", "deciem"] },
+    "createdAtIso": { "type": "string" },
+    "receipt": {
+      "type": "object",
+      "description": "The deterministic rule registry receipt (services/deliverableRules.ts): one entry per rule with checked, found, repaired, filled, pass and the violations left.",
+      "required": ["deliverable", "at", "pass", "rules"],
+      "properties": {
+        "deliverable": { "type": "string" }, "at": { "type": "string" }, "pass": { "type": "boolean" },
+        "rules": { "type": "array", "items": { "type": "object", "required": ["ruleId", "title", "checked", "pass", "violations", "found", "repaired", "filled"], "properties": { "ruleId": { "type": "string" }, "title": { "type": "string" }, "checked": { "type": "integer" }, "pass": { "type": "boolean" }, "violations": { "type": "array", "items": { "type": "string" } }, "found": { "type": "integer" }, "repaired": { "type": "integer" }, "filled": { "type": "integer" } } } }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "required": ["sources", "quotes", "pains", "themes", "personas", "competitiveGaps", "requirements", "acceptanceTests", "signals"],
+      "additionalProperties": false,
+      "properties": {
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+        "quotes": { "type": "array", "items": { "$ref": "#/$defs/quote" } },
+        "pains": { "type": "array", "items": { "$ref": "#/$defs/pain" } },
+        "themes": { "type": "array", "items": { "$ref": "#/$defs/themeRef" } },
+        "personas": { "type": "array", "items": { "$ref": "#/$defs/personaRef" } },
+        "competitiveGaps": { "type": "array", "items": { "$ref": "#/$defs/competitiveGap" } },
+        "requirements": { "type": "array", "items": { "$ref": "#/$defs/requirement" } },
+        "acceptanceTests": { "type": "array", "items": { "$ref": "#/$defs/acceptanceTest" } },
+        "signals": { "type": "array", "items": { "$ref": "#/$defs/signal" } },
+        "areas": { "type": "array", "description": "Feature areas derived from this project's own ledger text (never a fixed list).", "items": { "type": "object", "required": ["id", "label", "items"], "properties": { "id": { "type": "string" }, "label": { "type": "string" }, "items": { "type": "integer" } } } },
+        "ledger": { "type": "array", "items": { "$ref": "#/$defs/ledgerItem" }, "description": "Scope and feedback ledger (2026-10-02): every feature (STATED, SF-n) and piece of feedback (FEEDBACK, FB-n) the client articulated in its documents, read in full and provenance-locked, plus every Research Assembly Board theme in near-duplicate groups (THEME, TH-n). Each item is a requirement root, and every item is documented by at least one requirement." }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "required": ["thesis", "problem", "whyNow", "usersAndJobs", "goalsNonGoalsAppetite", "successSignals", "hypotheses", "solutionFlows", "requirements", "quality", "risks", "delivery"],
+      "additionalProperties": false,
+      "properties": {
+        "thesis": {
+          "type": "object",
+          "required": ["statement", "user", "pain", "decisionRequested", "whatItDoes"],
+          "properties": {
+            "statement": { "type": "string" },
+            "user": { "type": "string" },
+            "pain": { "type": "string" },
+            "decisionRequested": { "type": "string" },
+            "whatItDoes": { "type": "string" },
+            "governingThemeId": { "type": "string" }
+          }
+        },
+        "problem": {
+          "type": "object",
+          "required": ["story", "quoteIds"],
+          "properties": {
+            "story": {
+              "type": "object",
+              "required": ["user", "need", "insight"],
+              "properties": { "user": { "type": "string" }, "need": { "type": "string" }, "insight": { "type": "string" } }
+            },
+            "quoteIds": { "type": "array", "items": { "type": "string" }, "minItems": 2 }
+          }
+        },
+        "whyNow": {
+          "type": "object",
+          "required": ["statement", "change", "quoteIds"],
+          "properties": { "statement": { "type": "string" }, "change": { "type": "string" }, "quoteIds": { "type": "array", "items": { "type": "string" } } }
+        },
+        "usersAndJobs": {
+          "type": "object",
+          "required": ["primaryPersonaIds", "jobStories"],
+          "properties": {
+            "primaryPersonaIds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 2 },
+            "jobStories": { "type": "array", "items": { "$ref": "#/$defs/jobStory" } }
+          }
+        },
+        "goalsNonGoalsAppetite": {
+          "type": "object",
+          "required": ["goals", "nonGoals", "appetite"],
+          "properties": {
+            "goals": { "type": "array", "items": { "type": "object", "required": ["text", "measurable"], "properties": { "text": { "type": "string" }, "measurable": { "type": "boolean" } } } },
+            "nonGoals": { "type": "array", "items": { "type": "object", "required": ["text", "reason"], "properties": { "text": { "type": "string" }, "reason": { "type": "string", "minLength": 1 } } } },
+            "appetite": { "$ref": "#/$defs/requirementTarget" }
+          }
+        },
+        "successSignals": { "type": "object", "required": ["signalIds"], "properties": { "signalIds": { "type": "array", "items": { "type": "string" } } } },
+        "hypotheses": { "type": "object", "required": ["assumptions"], "properties": { "assumptions": { "type": "array", "items": { "$ref": "#/$defs/assumption" } } } },
+        "solutionFlows": {
+          "type": "object",
+          "required": ["flows", "screenStates", "businessRules"],
+          "properties": {
+            "flows": { "type": "array", "items": { "type": "object", "required": ["jobStoryId", "name", "steps"], "properties": { "jobStoryId": { "type": "string" }, "name": { "type": "string" }, "steps": { "type": "array", "items": { "type": "string" } } } } },
+            "screenStates": { "type": "array", "items": { "type": "object", "required": ["screen", "states"], "properties": { "screen": { "type": "string" }, "states": { "type": "array", "items": { "type": "string" } } } } },
+            "businessRules": { "type": "array", "items": { "type": "string" } },
+            "designLink": { "type": "string" }
+          }
+        },
+        "requirements": { "type": "object", "required": ["requirementIds"], "properties": { "requirementIds": { "type": "array", "items": { "type": "string" } } } },
+        "quality": {
+          "type": "object",
+          "required": ["characteristics", "accessibility", "privacy"],
+          "properties": {
+            "characteristics": { "type": "array", "items": { "type": "object", "required": ["characteristic", "statement"], "properties": { "characteristic": { "type": "string" }, "statement": { "type": "string" }, "target": { "$ref": "#/$defs/requirementTarget" } } } },
+            "accessibility": { "type": "object", "required": ["level", "exposedCriteria"], "properties": { "level": { "type": "string" }, "exposedCriteria": { "type": "array", "items": { "type": "string" } } } },
+            "privacy": {
+              "type": "object",
+              "required": ["dataMinimization", "dpiaTrigger"],
+              "properties": {
+                "dataMinimization": { "type": "string" },
+                "dpiaTrigger": { "type": "object", "required": ["triggered", "reason"], "properties": { "triggered": { "type": "boolean" }, "reason": { "type": "string" } } }
+              }
+            }
+          }
+        },
+        "risks": {
+          "type": "object",
+          "required": ["register", "alternatives"],
+          "properties": {
+            "register": { "type": "array", "items": { "$ref": "#/$defs/risk" } },
+            "alternatives": { "type": "array", "items": { "type": "object", "required": ["option", "rejectedBecause", "tradeoff"], "properties": { "option": { "type": "string" }, "rejectedBecause": { "type": "string" }, "tradeoff": { "type": "string" } } } }
+          }
+        },
+        "delivery": {
+          "type": "object",
+          "required": ["releaseCriteria", "rollout", "trackingPlan", "dependencies", "openQuestions", "accountableApprover"],
+          "properties": {
+            "releaseCriteria": { "type": "array", "items": { "type": "string" } },
+            "rollout": { "type": "array", "items": { "type": "object", "required": ["phase", "gate", "killCriteria", "rollbackAuthority"], "properties": { "phase": { "type": "string" }, "gate": { "type": "string" }, "killCriteria": { "type": "string", "minLength": 1 }, "rollbackAuthority": { "type": "string" } } } },
+            "trackingPlan": { "type": "array", "items": { "type": "object", "required": ["event", "properties", "owner"], "properties": { "event": { "type": "string" }, "properties": { "type": "array", "items": { "type": "string" } }, "owner": { "type": "string" } } } },
+            "dependencies": { "type": "array", "items": { "type": "object", "required": ["name", "kind", "owner"], "properties": { "name": { "type": "string" }, "kind": { "enum": ["api", "data", "team", "vendor", "other"] }, "owner": { "type": "string" } } } },
+            "openQuestions": { "type": "array", "items": { "type": "object", "required": ["question", "owner", "due"], "properties": { "question": { "type": "string" }, "owner": { "type": "string", "minLength": 1 }, "due": { "type": "string", "minLength": 1 } } } },
+            "accountableApprover": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "requirementTarget": {
+      "type": "object",
+      "description": "The one legitimate home for a number outside a verbatim quote. Exempt from the naked-number gate.",
+      "required": ["kind", "metric", "value", "unit"],
+      "properties": {
+        "kind": { "const": "requirement_target" },
+        "metric": { "type": "string" },
+        "value": { "type": ["number", "string"] },
+        "unit": { "type": "string" },
+        "baseline": { "type": "string" },
+        "source_pointer": { "type": "string" },
+        "rationale": { "type": "string", "description": "Cites evidence qualitatively; never a second figure." }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "kind": { "type": "string" }, "pointer": { "type": "string" }, "url": { "type": "string" }, "date": { "type": "string" } }
+    },
+    "quote": {
+      "type": "object",
+      "required": ["id", "text", "sourceId"],
+      "properties": { "id": { "type": "string" }, "text": { "type": "string", "minLength": 1 }, "sourceId": { "type": "string", "minLength": 1 }, "pointer": { "type": "string" }, "attribution": { "type": "string" } }
+    },
+    "pain": {
+      "type": "object",
+      "required": ["id", "text", "kind", "quoteIds", "personaIds", "themeIds"],
+      "properties": {
+        "id": { "type": "string" }, "text": { "type": "string" }, "kind": { "enum": ["pain", "opportunity"] },
+        "quoteIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "personaIds": { "type": "array", "items": { "type": "string" } },
+        "themeIds": { "type": "array", "items": { "type": "string" } },
+        "journeyStage": { "type": "string" }
+      }
+    },
+    "themeRef": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "insight": { "type": "string" }, "sentiment": { "type": "string" }, "category": { "type": "string" } } },
+    "personaRef": { "type": "object", "required": ["id", "name", "primary"], "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "role": { "type": "string" }, "primary": { "type": "boolean" }, "stageOfStruggle": { "type": "string" } } },
+    "competitiveGap": { "type": "object", "required": ["id", "text", "quoteIds"], "properties": { "id": { "type": "string" }, "text": { "type": "string" }, "competitor": { "type": "string" }, "quoteIds": { "type": "array", "items": { "type": "string" } } } },
+    "requirement": {
+      "type": "object",
+      "required": ["id", "text", "kind", "tier", "tierRationale", "claimType", "mapsToThesis", "kano", "cagansBar", "painIds", "competitiveGapIds", "personaIds", "themeIds", "acceptanceTestIds", "signalIds"],
+      "properties": {
+        "id": { "type": "string" }, "text": { "type": "string" },
+        "kind": { "enum": ["functional", "non-functional"] },
+        "tier": { "enum": ["must", "should", "could", "wont"] },
+        "proposedTier": { "enum": ["must", "should", "could", "wont"] },
+        "tierRationale": { "type": "string" },
+        "claimType": { "enum": ["SUPPORTED_FACT", "DERIVATION", "DEFENSIBLE_INFERENCE", "HYPOTHESIS", "EDITORIAL_JUDGMENT", "UNKNOWN"] },
+        "mapsToThesis": { "type": "boolean" },
+        "kano": { "enum": ["must-be", "one-dimensional", "attractive", "indifferent", "unknown"] },
+        "cagansBar": { "type": "boolean" },
+        "painIds": { "type": "array", "items": { "type": "string" } },
+        "competitiveGapIds": { "type": "array", "items": { "type": "string" } },
+        "personaIds": { "type": "array", "items": { "type": "string" } },
+        "themeIds": { "type": "array", "items": { "type": "string" } },
+        "acceptanceTestIds": { "type": "array", "items": { "type": "string" } },
+        "signalIds": { "type": "array", "items": { "type": "string" } },
+        "target": { "$ref": "#/$defs/requirementTarget" },
+        "bet": { "type": "object", "required": ["statement", "test", "conditionWhereAlternativeWins"], "properties": { "statement": { "type": "string" }, "test": { "type": "string" }, "conditionWhereAlternativeWins": { "type": "string" } } },
+        "ledgerIds": { "type": "array", "items": { "type": "string" } },
+        "origin": { "enum": ["area-pass", "gap-fill", "research-pass", "fallback", "model"] },
+        "notes": { "type": "string" }
+      },
+      "if": { "properties": { "claimType": { "const": "HYPOTHESIS" } } },
+      "then": { "required": ["bet"] },
+      "else": {
+        "anyOf": [
+          { "properties": { "painIds": { "minItems": 1 } } },
+          { "properties": { "competitiveGapIds": { "minItems": 1 } } },
+          { "properties": { "themeIds": { "minItems": 1 } } },
+          { "required": ["ledgerIds"], "properties": { "ledgerIds": { "minItems": 1 } } }
+        ]
+      }
+    },
+    "ledgerItem": {
+      "type": "object",
+      "description": "A STATED item (feature, capability, deliverable, acceptance item) or a FEEDBACK item (stakeholder reaction, decision, change request). The quote is located in the cited chunk by the system; source, pointer and title are copied from the page.",
+      "required": ["id", "type", "item", "statement", "quote", "sourceName", "pointer", "documentTitle", "featureArea", "label", "sources"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(SF|FB|TH)-[0-9]+$" }, "type": { "enum": ["stated", "feedback", "theme"] },
+        "item": { "type": "string", "minLength": 1 }, "statement": { "type": "string" }, "quote": { "type": "string" },
+        "sourceName": { "type": "string" }, "pointer": { "type": "string" }, "documentTitle": { "type": "string" },
+        "speaker": { "type": "string" }, "date": { "type": "string" },
+        "featureArea": { "type": "string", "description": "A derived area id (graph.areas)." },
+        "themeIds": { "type": "array", "items": { "type": "string" } },
+        "themeMembers": { "type": "array", "items": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "sentiment": { "type": "string" }, "category": { "type": "string" } } } },
+        "documentKind": { "enum": ["contract", "brief", "meeting-notes", "feedback", "requirements-list", "deck", "spreadsheet", "document"] },
+        "disposition": { "enum": ["add", "change", "remove", "reprioritize", "open-question"] },
+        "label": { "enum": ["required", "recommended", "optional", "out-of-scope", "decision", "request", "unspecified"] },
+        "group": { "type": "string" }, "quoteId": { "type": "string" },
+        "sources": { "type": "array", "items": { "type": "object", "required": ["quote", "sourceName", "pointer", "documentTitle"], "properties": { "quote": { "type": "string" }, "sourceName": { "type": "string" }, "pointer": { "type": "string" }, "documentTitle": { "type": "string" }, "date": { "type": "string" }, "speaker": { "type": "string" } } } }
+      }
+    },
+    "acceptanceTest": {
+      "type": "object",
+      "required": ["id", "requirementId", "given", "when", "then"],
+      "properties": { "id": { "type": "string" }, "requirementId": { "type": "string" }, "given": { "type": "string", "minLength": 1 }, "when": { "type": "string", "minLength": 1 }, "then": { "type": "string", "minLength": 1 }, "target": { "$ref": "#/$defs/requirementTarget" } }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["id", "signal", "instrument", "population", "direction", "baselineStatus", "type", "guardrail", "requirementIds"],
+      "properties": {
+        "id": { "type": "string" }, "signal": { "type": "string" }, "instrument": { "type": "string" },
+        "population": { "type": "object", "properties": { "personaId": { "type": "string" }, "stage": { "type": "string" } } },
+        "direction": { "enum": ["up", "down", "hold"] },
+        "baselineStatus": { "type": "string" },
+        "type": { "enum": ["leading", "lagging"] },
+        "guardrail": { "type": "object", "required": ["statement", "rollbackAuthority"], "properties": { "statement": { "type": "string" }, "rollbackAuthority": { "type": "string" } } },
+        "requirementIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "jobStory": {
+      "type": "object",
+      "required": ["id", "personaId", "when", "iWantTo", "soICan", "quoteIds"],
+      "properties": { "id": { "type": "string" }, "personaId": { "type": "string" }, "when": { "type": "string" }, "iWantTo": { "type": "string" }, "soICan": { "type": "string" }, "journeyStage": { "type": "string" }, "quoteIds": { "type": "array", "items": { "type": "string" } } }
+    },
+    "assumption": {
+      "type": "object",
+      "required": ["id", "text", "quadrant", "test", "owner", "supportingQuoteIds"],
+      "properties": { "id": { "type": "string" }, "text": { "type": "string" }, "quadrant": { "enum": ["test-now", "plan", "monitor", "defer"] }, "test": { "type": "string" }, "owner": { "type": "string" }, "supportingQuoteIds": { "type": "array", "items": { "type": "string" } } }
+    },
+    "risk": {
+      "type": "object",
+      "required": ["id", "failureMode", "likelihood", "severity", "earlySignal", "owner", "mitigation"],
+      "properties": { "id": { "type": "string" }, "failureMode": { "type": "string" }, "likelihood": { "enum": ["low", "medium", "high"] }, "severity": { "enum": ["low", "medium", "high"] }, "earlySignal": { "type": "string" }, "owner": { "type": "string" }, "mitigation": { "type": "string" } }
+    }
+  }
+}

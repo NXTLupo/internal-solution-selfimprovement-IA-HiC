@@ -66,18 +66,12 @@ function activeSlug(): string | null {
  *  Synchronous + cheap (no proxy round-trip). Use this in the router
  *  chain-head decision. The proxy is the source of truth; on a cache miss
  *  callers may want to `await fetchCommitment(slug)` once at engagement init. */
-export function getCommittedProvider(): CommittedProvider | null {
+function getCommittedProvider(): CommittedProvider | null {
     const slug = activeSlug();
     if (!slug) return null;
     return _cache.get(slug)?.provider ?? null;
 }
 
-/** Synchronous read of the full record (provider + reason + when). */
-export function getCommitmentRecord(): CommitmentRecord | null {
-    const slug = activeSlug();
-    if (!slug) return null;
-    return _cache.get(slug) ?? null;
-}
 
 /** Force a re-read from the proxy. Use at engagement init so the cache is
  *  warm before the first AI call routes. Idempotent. */
@@ -186,17 +180,6 @@ export async function setCommitment(
     }
 }
 
-/** Clear commitment cache for a slug. Use when an engagement ends or is
- *  explicitly reset. Does NOT clear the proxy manifest - the manifest is
- *  the historical record. */
-export function clearCommitmentCache(slug?: string): void {
-    const s = slug || activeSlug();
-    if (!s) {
-        _cache.clear();
-        return;
-    }
-    _cache.delete(s);
-}
 
 /** Map a model id to its provider family. Mirrors deliverableModelRouter's
  *  internal mapping but exported here so other layers don't have to import

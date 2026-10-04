@@ -54,12 +54,4 @@ export function recordToolStep(trace: RunTrace, step: ToolTraceStep): RunTrace {
     return trace;
 }
 
-/** Total estimated spend across the run (for cost telemetry + budget gates). */
-export function traceTotalCostUsd(trace: RunTrace): number {
-    return trace.modelSteps.reduce((sum, s) => sum + (Number.isFinite(s.costEstimateUsd) ? s.costEstimateUsd : 0), 0);
-}
 
-/** Did any step route to a model while its quota was exhausted? (a routing-correctness alarm). */
-export function hasExhaustedRoute(trace: RunTrace): boolean {
-    return trace.modelSteps.some(s => s.quotaState === 'exhausted');
-}

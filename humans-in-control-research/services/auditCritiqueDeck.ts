@@ -16,7 +16,7 @@
 
 import { HeuristicReport, HeuristicFinding, HEURISTIC_DIMENSION_LABELS, HeuristicDimensionId } from '../types';
 import { stripEmDashes, removeMetaNarration } from './slidePostProcessor';
-import { brandTokens } from './slideToStageHtml';
+import { getBrand, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
 /** One audited screen: the display name + the data-URI the slide image region paints.
  *  2026-07-08 elevation: the App seam enriches each screen with its natural ASPECT
@@ -276,15 +276,24 @@ export function markerPositions(
 /** Canvas-composite the numbered accent discs INTO the screenshot pixels. Disc colors come
  *  from the brand tokens (accent fill, paper ring, band-text numeral - never hardcoded).
  *  Fail-open: any decode/canvas failure returns the original dataUri untouched. */
-export function annotateImageWithMarkers(
+function annotateImageWithMarkers(
     dataUri: string,
     markers: { n: string; x: number; y: number }[],
-    brand: 'nxt' | 'nu' = 'nxt',
+    brand: BrandId = 'nxt',
 ): Promise<string> {
     if (!markers.length) return Promise.resolve(dataUri);
     return new Promise((resolve) => {
         try {
-            const T = brandTokens(brand);
+            // 2026-10-01 - marker chrome from the brand token mirror for every brand (NXT / NU /
+            // DECIEM): accent disc, paper ring, on-accent numeral (white on NU red, ink otherwise).
+            const B = getBrand(brand);
+            const hx = (v: string) => '#' + String(v || '000000').replace(/^#/, '');
+            const T = {
+                accent: hx(B.CHARTREUSE),
+                paper: hx(B.WHITE),
+                bandText: normalizeBrandId(brand) === 'nu' ? hx(B.WHITE) : hx(B.INK),
+                bodyFont: `'${B.FONT_BODY}', sans-serif`,
+            };
             const img = new Image();
             img.onload = () => {
                 try {
@@ -322,7 +331,7 @@ export function annotateImageWithMarkers(
 
 /** Bake the numbered discs into every screen that has marker-bearing findings. Mutates
  *  screens[i].annotatedDataUri; all fail-open. */
-export async function bakeScreenAnnotations(report: HeuristicReport, screens: AuditScreen[], brand: 'nxt' | 'nu' = 'nxt'): Promise<void> {
+export async function bakeScreenAnnotations(report: HeuristicReport, screens: AuditScreen[], brand: BrandId = 'nxt'): Promise<void> {
     await Promise.all(screens.map(async (screen, idx) => {
         const markers = screenMarkers(report, idx + 1);
         if (!markers.length) return;

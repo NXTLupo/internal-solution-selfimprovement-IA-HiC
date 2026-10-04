@@ -1,7 +1,8 @@
 ﻿
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
-import { tryRepairJson, OPUS_CAP_ACTIVE, HIC_CACHE_BREAK, stripCacheMarkers } from './aiRouter';
+import { tryRepairJson, OPUS_CAP_ACTIVE, HIC_CACHE_BREAK, stripCacheMarkers, artifactModelFor, endpointForModel } from './aiRouter';
+import { engagementSlugFor } from './engagementSlug';
 import { recordAICall } from './costMeter';
 
 // 2026-06-20 COST METER FIX. The GoogleGenAI client below talks DIRECT to Google
@@ -480,7 +481,7 @@ export class GenAISession {
                 const { buildEngagementSlug } = await import('./wikiService');
                 slug = buildEngagementSlug(this.goal || 'default', 60) || 'default';
             } catch {
-                slug = (this.goal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'default';
+                slug = engagementSlugFor(this.goal || 'default') || 'default';
             }
             const picked = await pickChunksForPrompt(promptText, slug, {
                 tokenBudget: opts.tokenBudget ?? DEFAULT_CORPUS_TOKEN_BUDGET,
@@ -1954,9 +1955,25 @@ Now extract the FULL theme set. Do not under-emit again.`;
 
         try {
             const beforeFilter = result.themes.length;
+            // 2026-10-01 (plan R-D4 / Stage 1.4, Independence Rule): two citations are the same ORIGIN
+            // when they share a canonical URL (host + path, no www., no tracking params), or, lacking a
+            // URL, the same normalized source name. 4,620 URL groups were ingested under two source
+            // labels, so counting names made one article "convergent" with itself.
+            const _originKey = (c: any): string => {
+                const url = String(c?.url || c?.sourceUrl || '').trim();
+                if (url) {
+                    try {
+                        const u = new URL(url);
+                        const host = u.hostname.toLowerCase().replace(/^www\./, '');
+                        const path = u.pathname.replace(/\/+$/, '') || '/';
+                        return `${host}${path}`;
+                    } catch { /* fall through to name */ }
+                }
+                return String(c?.sourceName || c?.sourceFile || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+            };
             const distinctSourcesOf = (t: any): Set<string> => new Set(
                 (Array.isArray(t.citations) ? t.citations : [])
-                    .map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim())
+                    .map(_originKey)
                     .filter(Boolean)
             );
             const goalOf = (t: any): number => this._relevanceOf(t);  // objective relevance is the lever
@@ -1986,6 +2003,9 @@ Now extract the FULL theme set. Do not under-emit again.`;
                 (t as any).distinct_source_count = ds;
                 (t as any).evidence_tier = ds >= 2 ? 'thick' : 'single_source';
             }
+            // 2026-10-01 (plan Stage 1.8, audit B5): the theme EVIDENCE GATE. Applied after the
+            // deliverable-cap tagging below, so it can clear the cap on a hedged theme.
+            let _themeGateReport: import('./themeEvidenceGate').ThemeEvidenceReport | null = null;
             // 2026-06-07 - DO NOT cap the persisted/dashboard set. The Research
             // Browser shows ALL on-objective themes; the TOP_N cap applies only when
             // a downstream deliverable (deck/persona/recs) consumes a SUBSET (it
@@ -2008,10 +2028,20 @@ Now extract the FULL theme set. Do not under-emit again.`;
                     : i < TOP_N;                                          // fallback only if scoring failed
             });
             result.themes = sorted;
+            try {
+                const { applyThemeEvidenceGate } = await import('./themeEvidenceGate');
+                _themeGateReport = applyThemeEvidenceGate(result.themes);
+                if (_themeGateReport.flagged) {
+                    console.warn(`[Themes][evidence-gate] ${_themeGateReport.flagged} theme(s) flagged (hedge promotion / unverified identifier); ${_themeGateReport.excludedFromDeliverables} excluded from downstream deliverables, all still shown`);
+                    onStream(`Evidence gate: ${_themeGateReport.flagged} theme(s) flagged, ${_themeGateReport.excludedFromDeliverables} held back from deliverables`);
+                }
+            } catch (gateErr: any) {
+                console.warn('[Themes][evidence-gate] skipped (non-fatal):', gateErr?.message || gateErr);
+            }
             const inDeliv = result.themes.filter((t: any) => t.withinDeliverableCap).length;
             const multi = result.themes.filter((t: any) => t.evidence_tier === 'thick').length;
             const single = result.themes.length - multi;
-            console.log(`[Themes] relevance-first ranking: kept ALL ${result.themes.length} of ${beforeFilter} (full set shown); ${inDeliv} clear the in-deliverable relevance bar (>=${IN_DELIVERABLE_RELEVANCE}${anyScored ? '' : ', FALLBACK rank<' + TOP_N + ' - scoring unavailable'}); ${multi} multi-source, ${single} single-source`);
+            console.log(`[Themes] relevance-first ranking: kept ALL ${result.themes.length} of ${beforeFilter} (full set shown); ${inDeliv} clear the in-deliverable relevance bar (>=${IN_DELIVERABLE_RELEVANCE}${anyScored ? '' : ', FALLBACK rank<' + TOP_N + ' - scoring unavailable'}); ${multi} multi-source, ${single} single-source${_themeGateReport ? `, ${_themeGateReport.flagged} evidence-flagged` : ''}`);
         } catch (filterErr: any) {
             console.warn('[Themes] relevance-first ranking failed (non-fatal):', filterErr?.message || filterErr);
         }
@@ -2038,12 +2068,21 @@ Now extract the FULL theme set. Do not under-emit again.`;
                 `[Themes] BREADTH FLOOR VIOLATION - only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
                 `Re-prompting with under-extraction feedback.`
             );
+            // 2026-10-01 (plan Stage 4.4 / D8, the RI contract): the retry is a DELTA TURN. The prior
+            // themes are anchored by name and the model is asked only for ADDITIONS from the widened
+            // window; the two sets are merged (dedupe by normalized name) instead of discarding the
+            // first pass. The stable prompt prefix is cache-aligned (R-T1), so the re-ask pays for
+            // the widened window, not for regenerating what already exists.
+            const _priorNames = result.themes.map((t: any) => String(t?.name || t?.title || '').trim()).filter(Boolean);
             const reprompt = `Your previous theme extraction returned only ${themeCount} themes.
 That is BELOW the breadth floor of ${BREADTH_FLOOR}. This pass gives you a WIDER slice of the
 corpus: the evidence window has been BROADENED to include adjacent, relevance-ranked chunks that
 the focused first pass excluded. The additional evidence is real corpus, not filler.
 
-Extract themes spanning the FULL widened evidence set:
+THEMES YOU ALREADY PRODUCED (kept as they are; do NOT repeat or rephrase them):
+${_priorNames.map((n: string, i: number) => `  ${i + 1}. ${n}`).join('\n')}
+
+Return ONLY NEW themes (target ${Math.max(4, BREADTH_FLOOR - themeCount)} or more) that the widened evidence supports:
   1. Read EVERY chunk in this widened window, including the newly-included adjacent evidence.
   2. The adjacent evidence surfaces themes the narrow first pass could not see - find them.
   3. Where a single umbrella theme conflates distinct evidenced findings, separate them
@@ -2060,15 +2099,18 @@ Now extract the full theme set from the widened evidence.`;
                 // relevance-ranked backfill so the model sees MORE evidence, rather than
                 // re-prompting the same narrow set to manufacture splits.
                 const retry = await this._runBreadthPass(reprompt, schema, onStream, 'Themes-Retry', true);
-                if (Array.isArray(retry?.themes) && retry.themes.length > themeCount) {
-                    console.log(`[Themes] Retry produced ${retry.themes.length} themes (was ${themeCount})`);
-                    // Apply meta-theme filter to retry result too
-                    retry.themes = retry.themes.filter((t: any) => !isMetaTheme(t));
-                    result.themes = retry.themes;
+                const _norm = (n: any) => String(n || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+                const _have = new Set(result.themes.map((t: any) => _norm(t?.name || t?.title)));
+                const additions = (Array.isArray(retry?.themes) ? retry.themes : [])
+                    .filter((t: any) => t && !isMetaTheme(t))
+                    .filter((t: any) => { const k = _norm(t?.name || t?.title); if (!k || _have.has(k)) return false; _have.add(k); return true; });
+                if (additions.length > 0) {
+                    console.log(`[Themes] Delta retry added ${additions.length} new theme(s) to the ${themeCount} kept (${(retry?.themes || []).length - additions.length} duplicate/meta dropped)`);
+                    result.themes = result.themes.concat(additions);
                     retriedThemes = true;
-                    if (retry.methodology) result.methodology = retry.methodology;
+                    if (retry.methodology && !result.methodology) result.methodology = retry.methodology;
                 } else {
-                    console.warn(`[Themes] Retry did not improve count (${retry?.themes?.length ?? 0} vs ${themeCount}). Keeping original.`);
+                    console.warn(`[Themes] Delta retry added nothing new (${retry?.themes?.length ?? 0} returned). Keeping original.`);
                 }
             } catch (retryErr: any) {
                 console.warn('[Themes] Retry failed, keeping original count:', retryErr?.message || retryErr);
@@ -2474,7 +2516,7 @@ Now extract the full theme set from the widened evidence.`;
      * in-stream repetition-collapse abort as the single-pass path (fail in seconds,
      * not 322s). One retry only (vs two single-pass) to keep waves fast.
      */
-    private async _runBreadthShard(contents: any[], effectivePrompt: string, schema: Schema, onStream: (t: string) => void, label: string): Promise<StepResult_Themes | null> {
+    private async _runBreadthShard(contents: any[], effectivePrompt: string, schema: Schema, onStream: (t: string) => void, label: string, shardParts?: { stable: string; window: string }): Promise<StepResult_Themes | null> {
         const started = Date.now();
         // 2026-06-13 - OPUS 4.8 PRIMARY (temp stand-in for the banned Fable 5).
         // Gemini 3.1 Pro shards repetition-collapse under structured-JSON +
@@ -2485,6 +2527,7 @@ Now extract the full theme set from the widened evidence.`;
         // in-prompt; no temperature - opus-4-8 400s on it); on ANY failure fall
         // through to the existing Gemini -> GPT-5.5 chain unchanged, so
         // reliability is strictly added.
+        const shardModel = artifactModelFor('theme-breadth');
         try {
             // 2026-06-29 - Honor the Opus cap. While OPUS_CAP_ACTIVE (single source of
             // truth in aiRouter) is true, claude-opus-4-8 returns HTTP 400, so the
@@ -2492,37 +2535,57 @@ Now extract the full theme set from the widened evidence.`;
             // (live-observed 10x) before falling through to Gemini. Skip it while capped
             // and go straight to the Gemini -> GPT-5.5 chain; the single flag flip in
             // aiRouter restores Opus here in lockstep with the other two cap sites.
-            if (!OPUS_CAP_ACTIVE && (process.env as any).ANTHROPIC_API_KEY) {
+            // 2026-10-01 (plan Stage 4.5 bake-off): the shard model is the authority's pick for the
+            // `theme-breadth` kind (Flash after the bake-off; the reasoning model if the tier is
+            // reverted). A Claude pick runs the cache-aligned Claude call; a Gemini pick skips it and
+            // leads the Gemini chain below with that model.
+            if (!OPUS_CAP_ACTIVE && (process.env as any).ANTHROPIC_API_KEY && endpointForModel(shardModel) === 'anthropic') {
                 const { callAIWithRetry } = await import('./aiRetryClient');
                 const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
-                onStream(`[${label}] generating via Claude Opus 4.8...`);
+                // 2026-09-30 (plan Stage 0.5): the Claude reasoning model resolves through the ONE
+                // routing authority; theme breadth is schema-bound extraction, so effort=medium
+                // (effortForArtifact('theme-breadth')) rides as _hicKind and aiRetryClient sends it.
+                onStream(`[${label}] generating via ${shardModel}...`);
+                // R-T1 / D2 (2026-10-01): stable prefix in `system` behind a cache marker (the proxy turns
+                // HIC_CACHE_BREAK into an Anthropic cache_control breakpoint), only the shard window in
+                // the user turn. Before this every shard re-sent ~70K chars of identical skill text
+                // AFTER the corpus, so nothing was cacheable (audit D2: 86% of traced spend).
+                const _system = shardParts
+                    ? `${this.systemInstructionCached}\n${HIC_CACHE_BREAK}\n${shardParts.stable}${schemaDescription}`
+                    : this.systemInstructionCached;
+                const _user = shardParts
+                    ? `=== CORPUS WINDOW FOR THIS SHARD ===\n${shardParts.window}\n=== END CORPUS WINDOW ===\nProduce the themes JSON for this window now.`
+                    : effectivePrompt + schemaDescription;
                 const data: any = await callAIWithRetry('anthropic', {
-                    model: 'claude-opus-4-8',
+                    model: shardModel,
                     max_tokens: 32_000,
-                    system: this.systemInstructionCached,
-                    messages: [{ role: 'user', content: effectivePrompt + schemaDescription }],
-                }, { label: `Themes ${label} SHARD (Opus 4.8)`, maxAttempts: 2, requestTimeoutMs: 240_000 });
+                    system: _system,
+                    messages: [{ role: 'user', content: _user }],
+                    _hicKind: 'theme-breadth',
+                }, { label: `Themes ${label} SHARD (${shardModel})`, maxAttempts: 2, requestTimeoutMs: 600_000 });
                 const text = (Array.isArray(data?.content) ? data.content : [])
-                    .map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
+                    .map((b: any) => (b?.type === 'text' && typeof b?.text === 'string' ? b.text : '')).join('').trim();
                 const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
                 const fableParsed = JSON.parse(tryRepairJson(cleaned)) as StepResult_Themes;
                 if (fableParsed && Array.isArray((fableParsed as any).themes) && (fableParsed as any).themes.length > 0) {
-                    onStream(`[${label}] Opus 4.8 produced ${(fableParsed as any).themes.length} themes.`);
+                    onStream(`[${label}] ${shardModel} produced ${(fableParsed as any).themes.length} themes.`);
                     try {
                         const { recordTurn } = await import('./traceRecorder');
-                        recordTurn({ step_label: `${label} SHARD`, model_id: 'claude-opus-4-8', prompt: effectivePrompt, response: text.slice(0, 200_000), started_at: started, note: 'deliverable=#themes | shard primary=opus-4-8 (temp stand-in for banned fable-5; no seed support; determinism via fixed catalog windows)' });
+                        recordTurn({ step_label: `${label} SHARD`, model_id: shardModel, prompt: effectivePrompt, response: text.slice(0, 200_000), started_at: started, usage: data?.usage, note: 'deliverable=#themes | shard primary=claude reasoning model (aiRouter); no seed support; determinism via fixed catalog windows' });
                     } catch { /* non-fatal */ }
                     return fableParsed;
                 }
-                console.warn(`[${label}] Opus 4.8 shard returned no themes; falling back to Gemini chain.`);
+                console.warn(`[${label}] Claude shard returned no themes; falling back to Gemini chain.`);
             }
         } catch (fableErr: any) {
-            console.warn(`[${label}] Opus 4.8 shard failed (${(fableErr?.message || String(fableErr)).slice(0, 120)}); falling back to Gemini chain.`);
+            console.warn(`[${label}] Claude shard failed (${(fableErr?.message || String(fableErr)).slice(0, 120)}); falling back to Gemini chain.`);
         }
         try {
+            const _geminiLead = endpointForModel(shardModel) === 'gemini' ? shardModel : 'gemini-3.1-pro-preview';
+            onStream(`[${label}] generating via ${_geminiLead}...`);
             const proResult = await withRetry(async () => {
                 const result: any = await this.ai.models.generateContentStream({
-                    model: 'gemini-3.1-pro-preview',
+                    model: _geminiLead,
                     contents,
                     config: {
                         responseMimeType: 'application/json',
@@ -2638,7 +2701,7 @@ Now extract the full theme set from the widened evidence.`;
             // Build this wave's windows SERIALLY (cheap selection; disjoint via
             // excludeIds so each shard sees fresh corpus). The expensive Pro calls
             // then run in PARALLEL below.
-            const windows: { contents: any[]; eff: string; n: number }[] = [];
+            const windows: { contents: any[]; eff: string; n: number; stable: string; window: string }[] = [];
             for (let w = 0; w < WAVE_SIZE && (shardsRun + windows.length) < SAFETY_MAX_SHARDS; w++) {
                 const idx = shardsRun + windows.length;
                 const block = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, {
@@ -2652,13 +2715,18 @@ Now extract the full theme set from the widened evidence.`;
                 if (winChunks.length === 0) break;
                 winChunks.forEach(id => usedChunks.add(id));
                 const eff = [this.buildObjectiveAnchor(), block, prompt].filter(s => s && s.length > 0).join('\n');
-                windows.push({ contents: [{ role: 'user', parts: [{ text: eff }] }], eff, n: winChunks.length });
+                // 2026-10-01 (plan R-T1 / D2): the STABLE part (objective anchor + the theme-analyst
+                // prompt, identical on every shard) and the per-shard corpus WINDOW travel separately so
+                // the Claude call can put the stable text behind a cache breakpoint in `system` and
+                // send only the window in the user turn. The Gemini/GPT fallbacks keep `eff`.
+                windows.push({ contents: [{ role: 'user', parts: [{ text: eff }] }], eff, n: winChunks.length,
+                    stable: [this.buildObjectiveAnchor(), prompt].filter(s => s && s.length > 0).join('\n'), window: block });
             }
             if (windows.length === 0) break;   // nothing left to cover
             wave++;
             onStream(`[${label}] Breadth wave ${wave}: ${windows.length} relevance-ranked shard(s) in parallel...`);
             const results = await Promise.all(
-                windows.map((win, i) => this._runBreadthShard(win.contents, win.eff, schema, onStream, `${label}-S${shardsRun + i + 1}`))
+                windows.map((win, i) => this._runBreadthShard(win.contents, win.eff, schema, onStream, `${label}-S${shardsRun + i + 1}`, { stable: win.stable, window: win.window }))
             );
             let waveNew = 0;
             for (const r of results) {
@@ -3133,7 +3201,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
         if (!result?.themes || result.themes.length === 0) return;
         const PROXY = (process.env.VITE_PROXY_URL as string) || 'http://127.0.0.1:5012';
         const ts = new Date().toISOString();
-        const slug = this.goal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+        const slug = engagementSlugFor(this.goal);
         const isoDate = ts.slice(0, 10);
 
         // Render each theme as a markdown section. The chunker will split on
@@ -3794,20 +3862,9 @@ Output JSON.`;
             }
         }
 
-        // K3 (2026-08-13, WS-K): mechanized CLAIMS PASS. An external verifier
-        // (Flash, never the generating model) scope-checks each claim against its
-        // own quoted evidence and narrows overreaching sentences in place.
-        // Risk-scaled to consequential kinds; fail-open.
-        try {
-            const { verifyClaimSupport } = await import('./claimSupportVerifier');
-            const k3 = await verifyClaimSupport(result, 'recommendations');
-            if (k3.report.applied > 0) {
-                Object.assign(result, k3.artifact);
-                onStream(`Claims pass: ${k3.report.applied} claim(s) narrowed to evidence scope`);
-            }
-        } catch (e: any) {
-            console.warn('[K3] claims pass skipped (non-fatal):', e?.message || e);
-        }
+        // 2026-10-01 (plan Stage 2.4): the K3 Flash claims re-read that lived here is deleted.
+        // Claims are checked by the ONE ledger as the `claims` stage of the artifact chain
+        // (claimStage.ts), which the deliverable path runs with repair (runGatedDeliverables).
 
         // Validate
         const validation = validateDeliverableOutput(result, 'recommendations');
@@ -5818,13 +5875,25 @@ Output JSON.`;
                 const panelResult = await runExpertPanel({
                     deliverable: result,
                     kind: 'gap-analysis',
-                });
+                } as any);
+                // 2026-10-01 (plan 2.6, panels that DECIDE): a `withhold` or `fail` verdict does not ship
+                // the artifact as if nothing happened. The result is returned FLAGGED so the caller
+                // and the AIR record see the verdict; the findings ride on `_panelVerdict`.
+                const verdict = (panelResult as any)?.verdict as string | undefined;
+                if (verdict === 'withhold' || verdict === 'fail') {
+                    onStream(`Gap-analysis expert panel verdict: ${verdict}; the artifact is held for review (${((panelResult as any).auditor_verdict?.blocking || []).join(', ') || 'rubric or critic failure'})`);
+                    const held: any = { ...((panelResult?.result || result) as any), _panelVerdict: verdict, _panelFindings: (panelResult as any).auditor_verdict || null, _withheld: true };
+                    return held;
+                }
                 if (panelResult?.result) {
-                    onStream(`Gap-analysis expert panel: ${panelResult.panel_summary.experts_fired.length} critics fired, ${panelResult.panel_summary.critics_with_edits.length} produced edits ($${panelResult.total_cost_usd.toFixed(3)})`);
-                    return panelResult.result;
+                    onStream(`Gap-analysis expert panel: ${panelResult.panel_summary.experts_fired.length} critics fired, ${panelResult.panel_summary.critics_with_edits.length} produced edits, verdict ${verdict || 'pass'} ($${panelResult.total_cost_usd.toFixed(3)})`);
+                    return { ...(panelResult.result as any), _panelVerdict: verdict || 'pass' };
                 }
             } catch (panelErr: any) {
-                console.warn('[Gap Analysis] expert panel skipped:', panelErr?.message || panelErr);
+                // Plan 2.6: a panel that could not run is a degradation, not a pass. The artifact
+                // ships flagged so the record never shows a clean verdict it did not earn.
+                console.warn('[Gap Analysis] expert panel errored; artifact flagged unreviewed:', panelErr?.message || panelErr);
+                return { ...(result as any), _panelVerdict: 'unreviewed', _panelError: String(panelErr?.message || panelErr).slice(0, 200) };
             }
             return result;
         } catch (chunkErr: any) {
@@ -7494,7 +7563,7 @@ Output JSON matching the section schema.`;
  * Returns { valid: boolean, failures: string[] }.
  * When valid is false, the pipeline should retry with failures as feedback.
  */
-export function validateDeliverableOutput(
+function validateDeliverableOutput(
     deliverable: any,
     deliverableType: string,
     prioritySources?: string[]

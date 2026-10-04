@@ -868,7 +868,7 @@ async function appendLogEntry(report: LintReport): Promise<boolean> {
 
 // --- TRIGGER HELPERS ---
 
-export async function shouldAutoLint(): Promise<boolean> {
+async function shouldAutoLint(): Promise<boolean> {
     try {
         const content = await readPage('synthesis/last-lint.json');
         if (!content) return true; // never run

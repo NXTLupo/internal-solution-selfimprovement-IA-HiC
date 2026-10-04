@@ -9,8 +9,9 @@
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { withResilience, isThrottleError } from './multiModelResilience';
+import { getBrand, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
-type Brand = 'nxt' | 'nu';
+type Brand = BrandId;
 
 export interface BriefDialogTurn {
     speaker: 'Skeptical Partner' | 'Curious Strategist';
@@ -208,8 +209,53 @@ const NU_STYLE = `
   .bd-meta span { color: #C8102E; }
 `;
 
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company): white canvas, black ink, Poppins Bold
+// uppercase title, Josefin Sans body, pink / cyan / purple pops. Built from the token mirror at
+// call time so the hydrated /api/design-tokens?brand=DECIEM values win over build defaults.
+function deciemStyle(): string {
+    const b = getBrand('deciem');
+    const hx = (v: string) => '#' + String(v || '000000').replace(/^#/, '');
+    const ink = hx(b.INK), paper = hx(b.WHITE), accent = hx(b.CHARTREUSE), purple = hx(b.ACCENT_COOL);
+    const warn = hx(b.ACCENT_WARN), hair = hx(b.HAIRLINE), grey = hx(b.GREY), body = hx(b.BODY), wash = hx(b.CHARTREUSE_PALE);
+    // Font roles (template audit): Poppins Bold uppercase = every title, subtitle and label; Josefin Sans = body;
+    // FONT_MONO (Nunito) = tables, data, meta and source lines. FONT_LABEL falls back to the display face.
+    const labelFace = String((b as Record<string, unknown>).FONT_LABEL || b.FONT_DISPLAY);
+    const display = `'${b.FONT_DISPLAY}', sans-serif`, bodyFont = `'${b.FONT_BODY}', sans-serif`, mono = `'${b.FONT_MONO}', sans-serif`;
+    const label = `'${labelFace}', sans-serif`;
+    const transform = b.TITLE_TRANSFORM || 'none';
+    return `
+  html, body { width: 1920px; height: 1080px; background: ${paper}; color: ${body}; }
+  body { font-family: ${bodyFont}; }
+  .bd-frame { width: 1920px; min-height: 1080px; padding: 60px 80px; }
+  .bd-kicker { font-family: ${label}; font-weight: 700; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: ${grey}; margin-bottom: 8px; }
+  .bd-title { font-family: ${display}; font-weight: ${b.TITLE_WEIGHT}; text-transform: ${transform}; font-size: 42px; line-height: 1; color: ${ink}; margin-bottom: 6px; }
+  .bd-subtitle { font-size: 14px; color: ${ink}; max-width: 1400px; margin-bottom: 32px; line-height: 1.4; }
+  .bd-rail { width: 56px; height: 4px; background: ${accent}; margin: 0 0 28px 0; }
+  .bd-turns { columns: 2; column-gap: 60px; column-rule: 1px solid ${hair}; }
+  .bd-turn { break-inside: avoid; margin-bottom: 18px; padding: 10px 14px 12px 14px; border-left: 3px solid transparent; }
+  .bd-turn.partner { border-left-color: ${warn}; }
+  .bd-turn.strategist { border-left-color: ${purple}; }
+  .bd-turn.concession { background: ${wash}; border-left-color: ${accent}; }
+  .bd-speaker { font-family: ${label}; font-weight: 700; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: ${grey}; margin-bottom: 4px; }
+  .bd-turn.partner .bd-speaker { color: ${warn}; }
+  .bd-turn.strategist .bd-speaker { color: ${purple}; }
+  .bd-turn.concession .bd-speaker::after { content: ' · concession'; color: ${ink}; }
+  .bd-line { font-size: 14px; line-height: 1.55; color: ${body}; }
+  .bd-cite { display: inline-block; padding: 1px 6px; margin: 0 2px; background: ${hx(b.WASH_COOL)}; color: ${purple}; font-family: ${mono}; font-size: 9px; letter-spacing: 0.5px; border-radius: 1px; }
+  .bd-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid ${hair}; display: flex; justify-content: space-between; align-items: baseline; }
+  .bd-stance-label { font-family: ${label}; font-weight: 700; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: ${grey}; }
+  .bd-stance { font-family: ${display}; font-weight: ${b.TITLE_WEIGHT}; text-transform: ${transform}; font-size: 24px; letter-spacing: 0.02em; }
+  .bd-stance.stronger { color: ${ink}; }
+  .bd-stance.qualified { color: ${purple}; }
+  .bd-stance.rejected { color: ${warn}; }
+  .bd-meta { font-family: ${mono}; font-size: 9px; color: ${grey}; letter-spacing: 1px; text-align: right; }
+  .bd-meta span { color: ${ink}; }
+`;
+}
+
 export function renderBriefDialogHtml(input: BriefDialogRenderInput): string {
-    const css = input.brand === 'nu' ? NU_STYLE : NXT_STYLE;
+    const brandId = normalizeBrandId(input.brand);
+    const css = brandId === 'deciem' ? deciemStyle() : brandId === 'nu' ? NU_STYLE : NXT_STYLE;
     const turnsHtml = input.transcript.turns.map(turn => {
         const cls = turn.speaker === 'Skeptical Partner' ? 'partner' : 'strategist';
         const concession = turn.is_concession ? ' concession' : '';

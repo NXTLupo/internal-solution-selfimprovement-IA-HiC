@@ -62,7 +62,7 @@ export const RoadmapSection: React.FC<SectionProps> = ({ data, headlineScale, in
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '20px' }}>
                 <div style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.2em', color: accent }}>{label}</div>
-                <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace' }}>{range}</div>
+                <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace" }}>{range}</div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {items.map((init, j) => {

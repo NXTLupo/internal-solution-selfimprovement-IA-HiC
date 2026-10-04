@@ -14,6 +14,8 @@
 import { runChunked } from './chunkDispatcher';
 import { calculateChunkPlan, type FeedbackSignalsForChunking } from './chunkBudgetCalculator';
 import { validateCompleteness } from './outputCompletenessValidator';
+import { getBrand, type BrandVariantId } from '../components/slideTemplates/brands';
+import { brandVariantOf } from './hashtagParser';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -21,7 +23,7 @@ export interface SlideDeckRequest {
     prompt: string;
     themes?: string[];
     slidesPerTheme?: number;
-    brand?: 'NXT' | 'NU';
+    brand?: BrandVariantId;
     template?: string;
     engagementSlug?: string;
     corpusContext?: string;
@@ -49,7 +51,7 @@ export interface SlideDeckResult {
  *
  * Strategy C (last resort): `themes: A, B, C` explicit list.
  */
-export function extractThemesFromPrompt(prompt: string): string[] {
+function extractThemesFromPrompt(prompt: string): string[] {
     // Strategy A: numbered inline. We use a split-then-walk approach so
     // each theme can contain arbitrary internal punctuation.
     // Find every position where `\d+\.\s+[A-Z]` begins a numbered item.
@@ -118,7 +120,7 @@ export function extractThemesFromPrompt(prompt: string): string[] {
 /**
  * Heuristically extract requested slide count from prompt.
  */
-export function extractSlideCountFromPrompt(prompt: string): { perTheme?: number; total?: number } {
+function extractSlideCountFromPrompt(prompt: string): { perTheme?: number; total?: number } {
     const lc = prompt.toLowerCase();
     // `#?` makes the hashtag prefix optional - handles "5 case study #slides
     // per theme" (very common) just like "5 case study slides per theme".
@@ -141,15 +143,19 @@ export function extractSlideCountFromPrompt(prompt: string): { perTheme?: number
 function buildChunkPrompt(opts: {
     theme: string;
     slidesPerTheme: number;
-    brand: 'NXT' | 'NU';
+    brand: BrandVariantId;
     template: string;
     corpusContext: string;
     originalUserPrompt: string;
     feedbackHint?: string;
 }): string {
+    const d = getBrand('deciem');
     const brandBlock = opts.brand === 'NU'
         ? 'Brand: Northeastern University (NU). Background `#141414`, accent Huskies Red `#C8102E`.'
-        : 'Brand: NXT Humans. Stark white background `#FFFFFF`, chartreuse accent `#B8B800`, cyan secondary `#00B7C3`.';
+        : opts.brand === 'DECIEM'
+            // 2026-10-01 - DECIEM (The Abnormal Beauty Company), values from the token mirror
+            ? `Brand: DECIEM (The Abnormal Beauty Company). Black title canvases, white body slides \`#${d.WHITE}\`, ${d.FONT_DISPLAY} Bold uppercase headlines and labels, ${d.FONT_BODY} body, ${d.FONT_MONO} for tables and data, pink accent \`#${d.CHARTREUSE}\`, cyan \`#${d.CYAN}\` and purple \`#${d.ACCENT_COOL}\` pops.`
+            : 'Brand: NXT Humans. Stark white background `#FFFFFF`, chartreuse accent `#B8B800`, cyan secondary `#00B7C3`.';
 
     return `You are generating slides for ONE theme of a multi-theme deck. Your job is to produce EXACTLY ${opts.slidesPerTheme} \`:::slide\` blocks for this theme. Do not produce slides for other themes.
 
@@ -189,7 +195,7 @@ export async function generateChunkedSlideDeck(
     const slidesPerTheme = req.slidesPerTheme || counts.perTheme || (counts.total ? Math.ceil(counts.total / themes.length) : 5);
     const expectedSlides = themes.length * slidesPerTheme;
 
-    const brand = req.brand || (/#NU\b/i.test(req.prompt) ? 'NU' : 'NXT');
+    const brand: BrandVariantId = req.brand || brandVariantOf(req.prompt);   // #NXT / #NU / #DECIEM
     const template = req.template || 'case-study';
 
     const plan = await calculateChunkPlan({

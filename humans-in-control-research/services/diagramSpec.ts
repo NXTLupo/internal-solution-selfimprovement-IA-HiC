@@ -4,6 +4,8 @@
 // every field comes from the slide's already-generated data. Used at gen-time (inline preview)
 // AND at export (PPTX embed) so both paths build the SAME full-bleed exhibit image.
 
+import { normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
+
 type AnySlide = any;
 
 function asList<T = any>(v: any): T[] {
@@ -16,7 +18,7 @@ function s(v: any): string {
 }
 
 /** The diagram-image templates and their proxy `kind`. Returns null for non-diagram templates. */
-export function diagramTemplateKind(template: string): string | null {
+function diagramTemplateKind(template: string): string | null {
     const t = (template || '').toLowerCase();
     if (t === 'journey-map') return 'journey';
     if (t === 'architecture-map') return 'architecture';
@@ -90,14 +92,16 @@ export function buildDiagramSpec(slide: AnySlide): any | null {
 
 /** Fetch (or reuse) the full-bleed exhibit PNG for a slide. Returns a data URI, or '' on failure
  *  (fail-open: the caller keeps the native matrix fallback). */
-export async function fetchDiagramImage(slide: AnySlide, brand: 'nxt' | 'nu', proxyBase = 'http://127.0.0.1:5012'): Promise<string> {
+export async function fetchDiagramImage(slide: AnySlide, brand: BrandId | string, proxyBase = 'http://127.0.0.1:5012'): Promise<string> {
     const spec = buildDiagramSpec(slide);
     if (!spec) return '';
     try {
+        // brand is normalized to its id (nxt | nu | deciem) so the proxy renderer paints the matching
+        // token palette (DECIEM: black / white with pink, cyan, purple pops; never NXT chartreuse).
         const r = await fetch(`${proxyBase}/api/ai/diagram`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ spec, brand, canvas: 'light' }),
+            body: JSON.stringify({ spec, brand: normalizeBrandId(brand), canvas: 'light' }),
         });
         if (!r.ok) return '';
         const d = await r.json();

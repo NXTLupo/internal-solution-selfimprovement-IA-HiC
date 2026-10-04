@@ -48,7 +48,9 @@ export const USER_IMAGE_SLOTS: Record<string, SlotDescriptor[]> = {
 // stay one contract.
 const _HEADER_SCENE: SlotDescriptor = { field: 'sceneImage', label: 'Scene', realistic: 'photo-scene', rect: { x: 1340 / 1920, y: 36 / 1080, w: 478 / 1920, h: 170 / 1080 } };
 const _DARK_BG: SlotDescriptor = { field: 'backgroundImage', label: 'Backdrop', realistic: 'photo-background', rect: { x: 0, y: 0, w: 1, h: 1 } };
-for (const a of ['evidence-table', 'flow-arc', 'quadrant', 'milestone-timeline', 'means-matters', 'ranked-bars', 'comparison-panels', 'stat-row', 'org-model', 'role-recommendation', 'role-roadmap', 'aggregate-roadmap', 'infographic-exhibit']) {
+// The four PRD projection archetypes (2026-10-01, Stage 3.3) are content-rail tables and story
+// columns; they take the generic header scene like the other dense layouts.
+for (const a of ['evidence-table', 'flow-arc', 'quadrant', 'milestone-timeline', 'means-matters', 'ranked-bars', 'comparison-panels', 'stat-row', 'org-model', 'role-recommendation', 'role-roadmap', 'aggregate-roadmap', 'infographic-exhibit', 'prd-story', 'prd-ledger', 'prd-signals', 'prd-trace']) {
     USER_IMAGE_SLOTS[`slides:${a}`] = USER_IMAGE_SLOTS[`slides:${a}`] || [_HEADER_SCENE];
 }
 for (const a of ['thesis-interstitial', 'problem-diptych', 'scene', 'agenda']) {

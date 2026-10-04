@@ -11,7 +11,7 @@
 // 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import type { MindMapNode, MindMapOutput } from './mindMapArchitect';
-import { getBrand } from '../components/slideTemplates/brands';
+import { getBrand, type BrandId } from '../components/slideTemplates/brands';
 import { compositeIcon, isContentTrueIcon } from './iconLibrary';
 
 // 2026-06-27 - DE-HARDCODE + HUB GLYPH. Previously two hand-keyed hex palettes
@@ -22,7 +22,7 @@ import { compositeIcon, isContentTrueIcon } from './iconLibrary';
 // central root node paints the tokenized hub glyph (compositeIcon) - the live Figma
 // slot 683:5509 on component 612:2.
 
-type Brand = 'nxt' | 'nu';
+type Brand = BrandId;   // nxt | nu | deciem, all resolved through getBrand()
 
 interface PalettedTokens {
     pageBg: string;
@@ -33,6 +33,7 @@ interface PalettedTokens {
     titleFont: string;
     bodyFont: string;
     monoFont: string;
+    labelFont: string;    // kickers, meta, legend: DECIEM = Poppins Bold (template audit); NXT / NU = the mono face
     titleWeight: string;
     titleColor: string;
     bodyColor: string;
@@ -58,6 +59,7 @@ function tokensFor(brand: Brand): PalettedTokens {
         titleFont: `${fam(b.FONT_DISPLAY)}, sans-serif`,
         bodyFont: `${fam(b.FONT_BODY)}, sans-serif`,
         monoFont: `${fam(b.FONT_MONO)}, monospace`,
+        labelFont: brand === 'deciem' ? `${fam(String((b as Record<string, unknown>).FONT_LABEL || b.FONT_DISPLAY))}, sans-serif` : `${fam(b.FONT_MONO)}, monospace`,
         titleWeight: b.TITLE_WEIGHT,
         titleColor: hx(b.INK),
         bodyColor: hx(b.INK),
@@ -328,15 +330,15 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
   body { font-family: ${t.bodyFont}; color: ${t.bodyColor}; position: relative; }
   .mm-frame { width: 1920px; height: 1080px; padding: 50px 60px 40px 60px; position: relative; }
   .mm-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; padding-bottom: 14px; border-bottom: 1px solid ${t.hair}; }
-  .mm-kicker { font-family: ${t.monoFont}; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: ${t.mutedColor}; margin-bottom: 6px; }
+  .mm-kicker { font-family: ${t.labelFont}; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: ${t.mutedColor}; margin-bottom: 6px; }
   .mm-title { font-family: ${t.titleFont}; font-weight: ${t.titleWeight}; font-size: 42px; color: ${t.titleColor}; letter-spacing: 0.01em; line-height: 1; }
-  .mm-meta { text-align: right; font-family: ${t.monoFont}; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: ${t.mutedColor}; }
+  .mm-meta { text-align: right; font-family: ${t.labelFont}; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: ${t.mutedColor}; }
   .mm-meta div { margin-bottom: 4px; }
   .mm-meta span { color: ${t.accent}; font-weight: 700; }
   .mm-runid { margin-top: 6px; font-family: ${t.monoFont}; font-size: 9px; color: ${t.mutedColor}; }
   .mm-runid span { color: ${t.accent}; }
   .mm-canvas { position: relative; width: 100%; height: calc(100% - 96px); }
-  .mm-legend { position: absolute; bottom: 12px; left: 60px; right: 60px; display: flex; gap: 28px; align-items: center; font-family: ${t.monoFont}; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: ${t.mutedColor}; }
+  .mm-legend { position: absolute; bottom: 12px; left: 60px; right: 60px; display: flex; gap: 28px; align-items: center; font-family: ${t.labelFont}; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: ${t.mutedColor}; }
   .mm-legend .mm-sw { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
   .mm-legend .mm-conv { background: ${t.canvasBg}; border: 2px solid ${t.cyanRing}; }
   .mm-legend .mm-grp { background: ${t.canvasBg}; border: 2px solid ${t.accent}; }

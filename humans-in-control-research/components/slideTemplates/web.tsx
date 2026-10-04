@@ -8,7 +8,15 @@
 
 import React from 'react';
 import { TOKENS, hex, densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, webPx, clampMin } from './types';
-import { nxtBrand, type Brand } from './brands';
+import { nxtBrand, getBrandArt, normalizeBrandId, type Brand } from './brands';
+// 2026-10-01 - DECIEM canvas picks are SHARED with the export twin (same hash of the same title) so
+// the preview shows the exact background / divider fill the PPTX will carry.
+import { brandBodyArtPick, brandDividerFill, brandCanvasFor, goldArtInsets, brandType, type DeckPosition } from '../../services/slideToStageHtml';
+
+// Round 2 (2026-10-01): the deck position (array index + divider ordinal) reaches the GOLD preview
+// twins through this context, so goldPreviews.tsx (which only forwards `brand`) never has to change.
+// SlideCanvas provides it; GoldFrame / SectionDividerFullBleed read it when no prop is given.
+export const DeckPositionContext = React.createContext<DeckPosition>({});
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
@@ -17,12 +25,48 @@ import type {
 } from './types';
 import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
 import type { JourneyBrief } from '../../services/journeyBriefExporter';
+import { composeSlide } from '../../services/slideComposer';
+
+// === PRD PROJECTION ARCHETYPES (2026-10-01, Stage 3.3) ===
+// The #prd deck is a projection of PrdAir onto four REGISTERED composer archetypes
+// (slides:prd-story / prd-ledger / prd-signals / prd-trace). The export twin composes them in
+// slideToStageHtml; this is the preview twin: the SAME composed 1920x1080 stage, scaled to the
+// 960x540 web canvas, so preview and PPTX cannot drift (one spec, one payload, two scales).
+export const PRD_PREVIEW_ARCHETYPES = ['prd-story', 'prd-ledger', 'prd-signals', 'prd-trace'] as const;
+export const PrdArchetypeSlide: React.FC<{ template: string; payload: any; brand?: Brand }> = ({ template, payload, brand }) => {
+    const T = resolveT(brand);
+    const pos = React.useContext(DeckPositionContext);
+    const archetype = String(template || '').replace(/^slides:/, '');
+    const composed = React.useMemo(() => {
+        try { return composeSlide(archetype, payload, normalizeBrandId(T.BRAND_ID), pos) || ''; } catch { return ''; }
+    }, [archetype, payload, T.BRAND_ID, pos.deckIndex, pos.dividerOrdinal]);
+    if (!composed) return null;
+    return (
+        <div style={{ width: T.WEB_W, height: T.WEB_H, overflow: 'hidden', position: 'relative', background: hex(T.WHITE) }}>
+            <div style={{ width: 1920, height: 1080, transform: 'scale(0.5)', transformOrigin: 'top left' }} dangerouslySetInnerHTML={{ __html: composed }} />
+        </div>
+    );
+};
 
 // Renderers fall back to the nxt brand when no brand prop is supplied.
 // When a brand is supplied, we use its token values so `T.TEAL` semantic slots
 // resolve to the brand's dark-surface color, and `T.CHARTREUSE*` resolves to
 // the brand's primary accent.
 const resolveT = (b?: Brand): Brand => b || nxtBrand;
+
+// 2026-10-01 - DECIEM lockup (preview twin of slideToStageHtml lockupHtml, at the 960x540 half
+// scale): a thin-bordered box top-right, line 1 bold, line 2 lighter, both uppercase in the title
+// face. Renders nothing for brands without a BRAND_LOGO_LOCKUP token.
+const BrandLockup: React.FC<{ T: Brand; color: string }> = ({ T, color }) => {
+    const lines = String(T.BRAND_LOGO_LOCKUP || '').split('\n').map(s => s.trim()).filter(Boolean);
+    if (lines.length === 0) return null;
+    return (
+        <div className="brandlogo lockup" style={{ position: 'absolute', top: 36, right: 36, width: 108, padding: '11px 10px 10px', border: `1px solid ${color}`, color, fontFamily: `'${T.FONT_TITLE}', sans-serif`, textTransform: 'uppercase', zIndex: 1 }}>
+            <div style={{ fontWeight: 700, fontSize: 11.5, lineHeight: 1.1, letterSpacing: '0.1px' }}>{lines[0]}</div>
+            {lines.slice(1).map((l, i) => <div key={i} style={{ fontWeight: 400, fontSize: 9.5, lineHeight: 1.1, marginTop: 7, letterSpacing: '0.3px' }}>{l}</div>)}
+        </div>
+    );
+};
 
 // === SHARED CHROME ===
 
@@ -92,29 +136,45 @@ interface GoldFrameProps {
     meta?: string;
     /** Takeaway band text - the dark/accent band at the bottom. Omitted = no band. */
     takeaway?: string;
+    /** Round 2: deck position (else read from DeckPositionContext) and the art-vs-imagery flag. */
+    deckIndex?: number;
+    noArt?: boolean;
 }
 
-export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, title, meta, takeaway }) => {
+export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, title, meta, takeaway, deckIndex, noArt }) => {
     const T = resolveT(brand);
     const isNu = T.BRAND_ID === 'nu';
+    const ctxPos = React.useContext(DeckPositionContext);
+    const BT = brandType(T.BRAND_ID);
+    // 2026-10-01 - brands with template art (DECIEM): no rail, no dot-mark, no masthead on paper body
+    // slides; ONE corner line-art background (same deck-order / title-hash pick as the export twin);
+    // the canvas inset follows the art's SAFE BOX at half scale (text left of right-side art, clear
+    // of the blobs). Imagery slides carry no art.
+    const hasArt = !!getBrandArt(T.BRAND_ID);
+    const pick = (hasArt && !noArt) ? brandBodyArtPick(T.BRAND_ID, title || kicker || '', deckIndex ?? ctxPos.deckIndex) : null;
+    const bodyArt = pick ? pick.url : '';
+    // Round 3: insets from the MEASURED zones (same least-area rule as the stage twin), half scale.
+    const ins = pick ? goldArtInsets(pick.zones, !!takeaway) : null;
+    const titleXform = (T.TITLE_TRANSFORM && T.TITLE_TRANSFORM !== 'none') ? (T.TITLE_TRANSFORM as any) : undefined;
     return (
         <div style={{
             width: T.WEB_W, height: T.WEB_H, background: hex(T.WHITE),
             position: 'relative', overflow: 'hidden',
             fontFamily: `'${T.FONT_BODY}', sans-serif`, color: hex(T.INK),
         }}>
+            {bodyArt && <img className="bgart" src={bodyArt} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', zIndex: 0 }} />}
             {/* RAIL */}
-            <div style={{ position: 'absolute', left: 0, top: 0, width: 46, height: '100%', background: hex(T.RAIL) }} />
+            {!hasArt && <div style={{ position: 'absolute', left: 0, top: 0, width: 46, height: '100%', background: hex(T.RAIL) }} />}
             {/* 3x3 DOT MARK (bottom of rail) */}
-            <div style={{ position: 'absolute', left: 15, top: 495, display: 'grid', gridTemplateColumns: 'repeat(3, 6px)', gap: 3 }}>
+            {!hasArt && <div style={{ position: 'absolute', left: 15, top: 495, display: 'grid', gridTemplateColumns: 'repeat(3, 6px)', gap: 3 }}>
                 {Array(9).fill(0).map((_, i) => <span key={i} style={{ width: 6, height: 6, background: hex(T.CHARTREUSE) }} />)}
-            </div>
+            </div>}
             {/* OFFICIAL BRAND LOGO (top-right) - HYDRATED from the Figma token feed
                 (logo.monogram / logo.wordmark), never hardcoded, so a newly deployed
                 Figma mark reaches the preview. NXT reads the hydrated global TOKENS
                 (nxtBrand is a stale pre-hydration snapshot); NU reads the hydrated T
                 (nuBrand). Wordmark is the fallback until a mark populates. */}
-            {(() => {
+            {!hasArt && (() => {
                 const _lt: any = isNu ? T : TOKENS;
                 const _logoSvg = String(_lt.BRAND_LOGO_SVG || '').trim();
                 const _logoWm = String(_lt.BRAND_LOGO_WORDMARK || (isNu ? 'NORTHEASTERN' : 'NXT HUMANS'));
@@ -134,14 +194,17 @@ export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, t
                 );
             })()}
             {/* CONTENT COLUMN */}
-            <div style={{ position: 'absolute', left: 86, top: 29, width: 834, bottom: 20, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={hasArt
+                ? { position: 'absolute', left: ins ? webPx(ins.left) : 98, top: ins ? webPx(ins.top) : 55, right: ins ? webPx(ins.right) : 80, bottom: ins ? webPx(ins.bottom) : 20, display: 'flex', flexDirection: 'column', gap: 8, zIndex: 1 }
+                : { position: 'absolute', left: 86, top: 29, width: 834, bottom: 20, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {kicker && (
-                    <div style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontWeight: 600, fontSize: webPx(SCALE.caption), letterSpacing: '3px', color: hex(T.KICKER), textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                    // Kicker = LABEL role: FONT_LABEL when the brand defines one (DECIEM Poppins 700), else FONT_MONO.
+                    <div style={{ fontFamily: `'${(T as any).FONT_LABEL || T.FONT_MONO}', ${(T as any).FONT_LABEL ? 'sans-serif' : 'monospace'}`, fontWeight: hasArt ? BT.weight.label : 600, fontSize: webPx(BT.scale.caption), letterSpacing: hasArt ? '0.5px' : '3px', color: hex(T.KICKER), textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                         {kicker}
                     </div>
                 )}
                 {title && (
-                    <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: Number(T.TITLE_WEIGHT) || 600, fontSize: webPx(SCALE.subhead), lineHeight: isNu ? 1.12 : 1.08, letterSpacing: isNu ? '0' : '-0.25px', color: hex(T.INK), maxWidth: 700 }}>
+                    <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: Number(T.TITLE_WEIGHT) || 600, fontSize: webPx(BT.scale.subhead), lineHeight: isNu ? 1.12 : hasArt ? 1.1 : 1.08, letterSpacing: isNu ? '0' : hasArt ? '0.1px' : '-0.25px', color: hex(T.INK), maxWidth: ins ? webPx(Math.min(1400, 1920 - ins.left - ins.right)) : 700, textTransform: titleXform }}>
                         {title}
                     </div>
                 )}
@@ -398,6 +461,16 @@ const QuoteStack: React.FC<{
     );
 };
 
+/** E10 twin parity (2026-10-01): the per-theme content-true thumbnail the export twin paints
+ *  (slideToStageHtml themeThumb): the index-aligned `themeImages[i]` carrier first, then the
+ *  theme's own `brandImage` (a string or `{ url }`). Empty -> nothing (no decorative placeholder). */
+function themeThumbSrc(data: { themeImages?: string[] }, t: { brandImage?: string | { url?: string } }, i: number): string {
+    const arr = Array.isArray(data.themeImages) ? data.themeImages : null;
+    let src = arr && typeof arr[i] === 'string' ? arr[i] : '';
+    if (!src && t && t.brandImage) src = typeof t.brandImage === 'string' ? t.brandImage : (t.brandImage.url || '');
+    return src || '';
+}
+
 /** Normalize legacy `evidence` + `source` into the QuoteLike[] shape the stack
  *  expects. If `quotes[]` is provided, it takes precedence and the singular
  *  evidence is ignored. */
@@ -435,6 +508,12 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                     <div style={{ fontSize: webPx(SCALE.lead), color: 'var(--fg-muted)', marginTop: 4, fontFamily: 'var(--font-mono)', letterSpacing: '.04em' }}>
                         {p.role}{p.demographics ? ` · ${p.demographics}` : ''}
                     </div>
+                    {/* E10 twin parity (2026-10-01): descriptor strip + stakes line, as the dense export identity column paints them. */}
+                    {p.descriptors && (
+                        <div style={{ fontSize: webPx(SCALE.label), color: 'var(--fg-muted)', marginTop: 4, fontFamily: 'var(--font-mono)', letterSpacing: '.1em', textTransform: 'uppercase' }}>
+                            {truncate(p.descriptors, 84)}
+                        </div>
+                    )}
                 </div>
             </header>
             <div style={{ padding: '4px 28px 8px', flex: 1, display: 'grid', gridTemplateColumns: hasImage ? '1fr' : '1.05fr 1fr', gap: 18, minHeight: 0, overflow: 'hidden' }}>
@@ -466,6 +545,9 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                             <span className="pill pill--brand" style={{ marginLeft: 8, verticalAlign: 'middle' }}>verbatim</span>
                         </blockquote>
                     )}
+                    {p.bio && (
+                        <p style={{ margin: 0, fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5 }}>{truncate(p.bio, 260)}</p>
+                    )}
                     {p.jtbd && (
                         <div className="art-card" style={{ padding: '8px 12px', fontSize: webPx(SCALE.body), lineHeight: 1.45 }}>
                             <span style={{ fontSize: webPx(SCALE.caption), letterSpacing: '.14em', fontWeight: 700, textTransform: 'uppercase', color: 'var(--fg-muted)', marginRight: 8 }}>JTBD</span>
@@ -495,8 +577,14 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                             </div>
                             {p.painPoints.slice(0, hasImage ? 2 : 3).map((pp, i) => (
                                 <div key={i} style={{ fontSize: hasImage ? webPx(SCALE.body) : webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
-                                    <strong style={{ color: 'var(--fg-strong)' }}>{pp.label}:</strong> “{truncate(pp.quote, 130)}”
-                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-subtle)', marginLeft: 4 }}>({pp.source})</span>
+                                    {/* 2026-10-02 twin parity with the legible export: the pain, then ONE verbatim evidence line with its source. */}
+                                    <strong style={{ color: 'var(--fg-strong)' }}>{pp.label}</strong>
+                                    {pp.quote ? (
+                                        <div style={{ fontStyle: 'italic', marginTop: 2 }}>
+                                            “{truncate(pp.quote, 100)}”
+                                            {pp.source ? <span style={{ fontStyle: 'normal', color: 'var(--fg-muted)', marginLeft: 6 }}>{pp.source}</span> : null}
+                                        </div>
+                                    ) : null}
                                 </div>
                             ))}
                         </div>
@@ -509,11 +597,30 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                             </div>
                             {p.motivations.slice(0, hasImage ? 2 : 3).map((m, i) => (
                                 <div key={i} style={{ fontSize: hasImage ? webPx(SCALE.body) : webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
-                                    <strong style={{ color: 'var(--fg-strong)' }}>{m.label}:</strong> “{truncate(m.quote, 130)}”
-                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-subtle)', marginLeft: 4 }}>({m.source})</span>
+                                    <strong style={{ color: 'var(--fg-strong)' }}>{m.label}{m.quote ? ':' : ''}</strong>{m.quote ? <> “{truncate(m.quote, 130)}”</> : null}
+                                    {m.source ? <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-subtle)', marginLeft: 4 }}>({m.source})</span> : null}
                                 </div>
                             ))}
                         </div>
+                    )}
+                    {Array.isArray(p.behaviors) && p.behaviors.length > 0 && (
+                        <div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>Behaviors</div>
+                            {p.behaviors.slice(0, 3).map((b, i) => (
+                                <div key={i} style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 4, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>{truncate(b, 92)}</div>
+                            ))}
+                        </div>
+                    )}
+                    {Array.isArray(p.winConditions) && p.winConditions.length > 0 && (
+                        <div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>What wins them</div>
+                            {p.winConditions.slice(0, 3).map((w, i) => (
+                                <div key={i} style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 4, paddingLeft: 10, borderLeft: '1px solid var(--nu-red-600)', lineHeight: 1.4 }}>{truncate(w, 92)}</div>
+                            ))}
+                        </div>
+                    )}
+                    {p.stakes && (
+                        <div style={{ marginTop: 'auto', fontSize: webPx(SCALE.caption), color: 'var(--fg-muted)', lineHeight: 1.45, borderTop: '1px solid var(--border-subtle)', paddingTop: 6 }}>{truncate(p.stakes, 130)}</div>
                     )}
                 </div>
             </div>
@@ -541,6 +648,10 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
     const recImageSrc = data.panelImage || (data.heroImage && data.heroImage.src) || '';
     const hasImage = !!recImageSrc;
     const hasStrip = !!(data.impactStrip && (data.impactStrip.effort || data.impactStrip.risk || data.impactStrip.outcome));
+    // E10 twin parity (2026-10-01): the NU_Giving impact CARD STACK (label / headline / body) the
+    // export twin routes to at two or more cards; the preview dropped it.
+    const impactCards = Array.isArray(data.impactCards) ? data.impactCards.slice(0, 3) : [];
+    const hasCards = impactCards.length >= 2;
     const footerText = data.implication || data.whyMatters || '';
     const footerLabel = data.implication ? 'Implication' : (data.whyMatters ? 'Why it matters' : '');
     return (
@@ -598,7 +709,17 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                 </div>
                 {/* RIGHT - hero image | impact grid | impact strip | hero metric */}
                 <div className="art-card" style={{ padding: 14, borderTop: '3px solid var(--nu-red-600)', minWidth: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                    {hasImage ? (
+                    {hasCards ? (
+                        <dl style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                            {impactCards.map((c, i) => (
+                                <div key={i} style={{ borderTop: i > 0 ? '1px solid var(--border-subtle)' : 'none', paddingTop: i > 0 ? 8 : 0 }}>
+                                    <dt style={{ fontSize: webPx(SCALE.label), letterSpacing: '.12em', fontWeight: 700, color: 'var(--nu-red-600)', textTransform: 'uppercase', marginBottom: 2 }}>{truncate(c.label, 20)}</dt>
+                                    <dd style={{ margin: 0, fontSize: webPx(SCALE.lead), color: 'var(--fg-strong)', lineHeight: 1.25, fontWeight: 700 }}>{truncate(c.headline, 36)}</dd>
+                                    <dd style={{ margin: '3px 0 0', fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.4 }}>{truncate(c.body, 170)}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                    ) : hasImage ? (
                         <>
                             <img
                                 src={recImageSrc}
@@ -857,6 +978,9 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
             <div style={{ flex: 1, padding: '6px 28px 0', display: 'grid', gridTemplateColumns: `repeat(${themes.length}, 1fr)`, gap: 0, minHeight: 0, overflow: 'hidden' }}>
                 {themes.map((t, i) => (
                     <div key={`c-${i}`} style={{ padding: '6px 10px', display: 'flex', flexDirection: 'column', gap: 5, borderLeft: i > 0 ? '1px solid var(--border-subtle)' : 'none', minWidth: 0 }}>
+                        {themeThumbSrc(data, t, i) && (
+                            <img src={themeThumbSrc(data, t, i)} alt="" style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', borderRadius: 2, border: '1px solid var(--border-subtle)' }} onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                        )}
                         <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.body) }}>{truncate(t.name, 70)}</h3>
                         <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 280)}</p>
                         <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={140} />
@@ -914,6 +1038,9 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
                             borderBottom: i < 2 ? '1px solid var(--border-subtle)' : 'none',
                             borderTop: isPrimary ? '3px solid var(--nu-red-600)' : '3px solid transparent',
                         }}>
+                            {themeThumbSrc(data, t, i) && (
+                                <img src={themeThumbSrc(data, t, i)} alt="" style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', borderRadius: 2 }} onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                            )}
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
                                 <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: isPrimary ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                                     {String(i + 1).padStart(2, '0')}
@@ -951,7 +1078,53 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
 // left border so it stands out across the matrix without re-scanning.
 export const CompetitiveMatrixSlide: React.FC<{ title: string; data: CompetitiveMatrixData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const max = data.scaleMax || 5;
-    const rows = data.rows.slice(0, Math.min(densityCaps('competitive-matrix', density).items, 10));
+    // E10 twin parity (2026-10-01): the two-tier PROSE evidence table (rowsProse / prove /
+    // implication / evidenceTag / tier / patternLine / peerImages) the export twin renders when
+    // two or more prose rows are present; the preview dropped every one of those fields.
+    const prose = Array.isArray(data.rowsProse) ? data.rowsProse : [];
+    if (prose.length >= 2) {
+        const top = prose.filter(r => r.tier !== 'second').slice(0, 3);
+        const second = prose.filter(r => r.tier === 'second').slice(0, 6);
+        const peerImages = Array.isArray(data.peerImages) ? data.peerImages : [];
+        const peerImg = (r: typeof prose[number]) => { const i = prose.indexOf(r); return i >= 0 ? (peerImages[i] || '') : ''; };
+        const row = (r: typeof prose[number], isTop: boolean) => (
+            <div key={`${isTop ? 't' : 's'}-${r.name}`} style={{ display: 'grid', gridTemplateColumns: '4px 125px 1.05fr 1.15fr 100px', gap: 10, alignItems: 'start', padding: isTop ? '10px 0' : '8px 0', borderBottom: '1px solid var(--border-subtle)', background: isTop ? 'var(--bg-subtle)' : 'transparent' }}>
+                <div style={{ width: 4, height: '100%', background: isTop ? 'var(--nu-red-600)' : 'transparent' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontWeight: isTop ? 700 : 600, fontSize: webPx(isTop ? SCALE.lead : SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.2 }}>
+                    {peerImg(r) && <img src={peerImg(r)} alt="" style={{ width: 14, height: 14, objectFit: 'contain', flexShrink: 0 }} />}
+                    <span>{truncate(r.name, 24)}</span>
+                </div>
+                <div style={{ fontSize: webPx(isTop ? SCALE.body : SCALE.caption), lineHeight: 1.32, color: isTop ? 'var(--nu-red-700)' : 'var(--fg-default)', fontWeight: isTop ? 600 : 400 }}>{truncate(r.prove, 110)}</div>
+                <div style={{ fontSize: webPx(isTop ? SCALE.caption : SCALE.label), lineHeight: 1.32, color: 'var(--fg-default)' }}>{truncate(r.implication, isTop ? 150 : 120)}</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.06em', color: 'var(--fg-muted)', textTransform: 'uppercase', lineHeight: 1.3 }}>{truncate(r.evidenceTag || '', 26)}</div>
+            </div>
+        );
+        return (
+            <div className="nu-artifact-stage nu-artifact-stage--slide" data-brand={brand || 'nu'} style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <header className="art-masthead" style={{ paddingBottom: 8 }}>
+                    <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                        <div className="art-masthead__kicker">Competitive landscape</div>
+                        <h1 className="art-masthead__title">{title}</h1>
+                    </div>
+                </header>
+                <div style={{ flex: 1, padding: '0 28px', minHeight: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '4px 125px 1.05fr 1.15fr 100px', gap: 10, paddingBottom: 5, borderBottom: '2px solid var(--ink-800)', fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.12em', color: 'var(--fg-muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+                        <div /><div>Institution</div><div>What they prove</div><div>Implication</div><div>Evidence</div>
+                    </div>
+                    {top.map(r => row(r, true))}
+                    {second.map(r => row(r, false))}
+                    {data.patternLine && (
+                        <div style={{ display: 'grid', gridTemplateColumns: '110px 1fr', gap: 12, alignItems: 'center', background: 'var(--ink-900)', padding: '9px 16px', marginTop: 8 }}>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.18em', color: 'var(--nu-red-500)', textTransform: 'uppercase', fontWeight: 600 }}>Pattern</div>
+                            <div style={{ fontSize: webPx(SCALE.body), lineHeight: 1.36, color: 'var(--white)' }}>{truncate(data.patternLine, 190)}</div>
+                        </div>
+                    )}
+                </div>
+                <SourceFooter sources={sources} brand={brand} />
+            </div>
+        );
+    }
+    const rows = (Array.isArray(data.rows) ? data.rows : []).slice(0, Math.min(densityCaps('competitive-matrix', density).items, 10));
     const subjectLower = (data.subjectRow || '').toLowerCase();
     const bestPerCol: number[] = data.columns.map((_, ci) => Math.max(...rows.map(r => r.scores[ci] || 0)));
     return (
@@ -1038,6 +1211,41 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
 // Spectral italic with brand-red left rule, attribution row below, optional
 // corroborating-data .art-card sidebar, implication line in footer.
 export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ data, sources = [], brand, density }) => {
+    // E10 twin parity (2026-10-01): the DENSE three-voice layout (additionalQuotes + synthesis
+    // band, GOLD block-quote-dense NU 199:3 / NXT 322:3) the export twin routes to at two or
+    // more additional voices; the preview dropped both fields.
+    const extra = Array.isArray(data.additionalQuotes) ? data.additionalQuotes : [];
+    if (data.text && extra.length >= 2) {
+        const voices = [{ text: data.text, attribution: data.attribution, role: data.role, source: data.source }, ...extra.slice(0, 2)];
+        const synthesis = data.synthesis || data.implication || '';
+        return (
+            <div className="nu-artifact-stage nu-artifact-stage--slide" data-brand={brand || 'nu'} style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <header className="art-masthead" style={{ paddingBottom: 10 }}>
+                    <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                        <div className="art-masthead__kicker">{data.context || 'Three voices converge'}</div>
+                    </div>
+                </header>
+                <div style={{ flex: 1, padding: '0 30px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 13, minHeight: 0, overflow: 'hidden' }}>
+                    {voices.map((v, i) => (
+                        <div key={i} style={{ borderLeft: '2px solid var(--nu-red-600)', padding: '11px 13px 10px', display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0, overflow: 'hidden' }}>
+                            <div style={{ fontFamily: 'var(--font-display)', fontSize: webPx(SCALE.subhead), lineHeight: 1, color: 'var(--nu-red-600)' }}>“</div>
+                            <div style={{ fontSize: webPx(SCALE.lead), lineHeight: 1.5, color: 'var(--fg-strong)', fontStyle: 'italic' }}>{smartQuoteClip(v.text || '', 210)}</div>
+                            <div style={{ marginTop: 'auto', fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.12em', color: 'var(--fg-strong)', textTransform: 'uppercase', fontWeight: 600 }}>{truncate(v.attribution || '', 36)}</div>
+                            {v.source && <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.06em', color: 'var(--nu-teal-600, var(--fg-muted))', textTransform: 'uppercase' }}>{truncate(v.source, 44)}</div>}
+                            {v.role && <div style={{ fontSize: webPx(SCALE.label), lineHeight: 1.35, color: 'var(--fg-muted)' }}>{truncate(v.role, 50)}</div>}
+                        </div>
+                    ))}
+                </div>
+                {synthesis && (
+                    <div style={{ margin: '8px 30px 0', display: 'grid', gridTemplateColumns: '150px 1fr', gap: 14, alignItems: 'center', background: 'var(--bg-subtle)', padding: '10px 16px' }}>
+                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.18em', color: 'var(--nu-red-700)', textTransform: 'uppercase', fontWeight: 600 }}>Where they converge</div>
+                        <div style={{ fontSize: webPx(SCALE.lead), lineHeight: 1.46, color: 'var(--fg-strong)', fontWeight: 600 }}>{truncate(synthesis, 200)}</div>
+                    </div>
+                )}
+                <SourceFooter sources={[data.source, ...sources.filter(s => s !== data.source)]} brand={brand} />
+            </div>
+        );
+    }
     const hasSidebar = !!(data.corroboratingData && data.corroboratingData.length > 0);
     const quoteText = data.text || '';
     const qLen = quoteText.length;
@@ -1348,6 +1556,32 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
 // the NU document density rule).
 export const PrinciplesSlide: React.FC<{ title: string; data: PrinciplesData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const items = data.items.slice(0, Math.min(densityCaps('principles', density).items, 8));
+    // E10 twin parity (2026-10-01): the `diptych` variant (two dark numbered problem panels, GOLD
+    // slides pages NU 103:2 / NXT 324:2) the export twin renders; the preview ignored `variant`.
+    if (data.variant === 'diptych' && items.length >= 2) {
+        const Td = resolveT(brand);
+        return (
+            <div className="nu-artifact-stage nu-artifact-stage--slide" data-brand={brand || 'nu'} style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <header className="art-masthead" style={{ paddingBottom: 12 }}>
+                    <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                        <div className="art-masthead__kicker">Two challenges</div>
+                        <h1 className="art-masthead__title">{title}</h1>
+                    </div>
+                </header>
+                <div style={{ flex: 1, padding: '0 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, alignContent: 'center', minHeight: 0 }}>
+                    {items.slice(0, 2).map((p, i) => (
+                        <div key={i} style={{ position: 'relative', background: hex(Td.INK), padding: '22px 24px', minHeight: 190, overflow: 'hidden' }}>
+                            <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: 2, background: hex(Td.CHARTREUSE) }} />
+                            <div style={{ fontFamily: `'${Td.FONT_DISPLAY}', sans-serif`, fontWeight: 600, fontSize: webPx(SCALE.subhead), color: hex(Td.CHARTREUSE), lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</div>
+                            <div style={{ fontFamily: `'${Td.FONT_TITLE}', sans-serif`, fontWeight: Number(Td.TITLE_WEIGHT) || 600, fontSize: webPx(SCALE.subhead), lineHeight: 1.2, color: hex(Td.WHITE), marginTop: 4 }}>{truncate(p.name, 44)}</div>
+                            <div style={{ fontSize: webPx(SCALE.body), lineHeight: 1.46, color: 'rgba(255,255,255,0.82)', marginTop: 7 }}>{truncate(p.description, 290)}</div>
+                        </div>
+                    ))}
+                </div>
+                <SourceFooter sources={sources} brand={brand} />
+            </div>
+        );
+    }
     return (
         <div
             className="nu-artifact-stage nu-artifact-stage--slide"
@@ -1495,6 +1729,39 @@ export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?
 export const TimelineSlide: React.FC<{ title: string; data: TimelineData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const _tc = densityCaps('timeline', density);
     const phases = data.phases.slice(0, Math.min(_tc.items, 6));
+    // E10 twin parity (2026-10-01): the role x horizon card grid (rows[].role / rows[].cells, the
+    // NU_Giving aggregate roadmap) the export twin draws at two or more rows; phases[] then
+    // supplies the horizon headers. The preview dropped rows, role and cells.
+    const roleRows = Array.isArray(data.rows) ? data.rows : [];
+    if (roleRows.length >= 2 && phases.length >= 2) {
+        const horizons = phases.slice(0, 4).map(ph => ph.name || '');
+        return (
+            <div className="nu-artifact-stage nu-artifact-stage--slide" data-brand={brand || 'nu'} style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <header className="art-masthead" style={{ paddingBottom: 12 }}>
+                    <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
+                        <div className="art-masthead__kicker">Program roadmap</div>
+                        <h1 className="art-masthead__title">{title}</h1>
+                    </div>
+                </header>
+                <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: `110px repeat(${horizons.length}, 1fr)`, gap: 9, alignContent: 'start', minHeight: 0, overflow: 'hidden' }}>
+                    <div />
+                    {horizons.map((h, i) => (
+                        <div key={`h-${i}`} style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.14em', color: i === horizons.length - 1 ? 'var(--nu-red-600)' : 'var(--fg-muted)', textTransform: 'uppercase', fontWeight: 600, paddingBottom: 5, borderBottom: '2px solid var(--ink-800)' }}>{truncate(h, 22)}</div>
+                    ))}
+                    {roleRows.slice(0, 4).map((r, ri) => ([
+                        <div key={`r-${ri}`} style={{ fontWeight: 700, fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', paddingTop: 9 }}>{truncate(r.role, 20)}</div>,
+                        ...(r.cells || []).slice(0, horizons.length).map((c, ci) => (
+                            <div key={`c-${ri}-${ci}`} style={{ position: 'relative', background: 'var(--bg-subtle)', padding: '12px 11px 9px', minHeight: 64, overflow: 'hidden' }}>
+                                <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: 2, background: ci === horizons.length - 1 ? 'var(--ink-800)' : 'var(--nu-red-600)' }} />
+                                <p style={{ margin: 0, fontSize: webPx(SCALE.caption), lineHeight: 1.38, color: 'var(--fg-default)' }}>{truncate(c, 90)}</p>
+                            </div>
+                        )),
+                    ])).flat()}
+                </div>
+                <SourceFooter sources={sources} brand={brand} />
+            </div>
+        );
+    }
     return (
         <div
             className="nu-artifact-stage nu-artifact-stage--slide"
@@ -1541,18 +1808,24 @@ export const TimelineSlide: React.FC<{ title: string; data: TimelineData; source
     );
 };
 
-// === 10. SECTION DIVIDER (deck-narrative-composer) ===
+// === 10. SECTION DIVIDER (deck-composer) ===
 // 2026-05-23 - Refactored to NU's "arc-section" archetype (strategy-deck.html
 // §02): ink-900 background with ghost type, Spectral display title, mono
 // section counter, brand-red detail accent. Goes full-bleed; no masthead.
-export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand?: Brand }> = ({ data, brand }) => {
+export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand?: Brand; dividerOrdinal?: number }> = ({ data, brand, dividerOrdinal }) => {
+    const ctxPos = React.useContext(DeckPositionContext);
+    const ordinal = dividerOrdinal ?? ctxPos.dividerOrdinal;
 
     // SLIDE-SYSTEM VARIANT (NU_Giving): single-sentence thesis interstitial.
     if (data.variant === 'thesis') {
         const Tt = brand || nxtBrand;
+        // 2026-10-01 - DECIEM thesis = black canvas, uppercase Poppins Bold, boxed lockup (brand art block).
+        const ttArt = !!getBrandArt(Tt.BRAND_ID);
+        const ttXform = (ttArt && Tt.TITLE_TRANSFORM && Tt.TITLE_TRANSFORM !== 'none') ? (Tt.TITLE_TRANSFORM as any) : undefined;
         return (
-            <div style={{ width: '100%', aspectRatio: '16/9', background: hex(Tt.INK), display: 'flex', alignItems: 'center', padding: '0 7%', boxSizing: 'border-box' }}>
-                <div style={{ fontFamily: `'${Tt.FONT_DISPLAY}', sans-serif`, fontWeight: 600, fontSize: 'clamp(22px, 4.6vw, 52px)', lineHeight: 1.12, color: hex(Tt.WHITE), maxWidth: '82%' }}>{data.title}</div>
+            <div data-brand={normalizeBrandId(Tt.BRAND_ID)} style={{ width: '100%', aspectRatio: '16/9', background: hex(Tt.INK), display: 'flex', alignItems: 'center', padding: '0 7%', boxSizing: 'border-box', position: 'relative' }}>
+                {ttArt && <BrandLockup T={Tt} color={hex(Tt.WHITE)} />}
+                <div style={{ fontFamily: `'${Tt.FONT_DISPLAY}', sans-serif`, fontWeight: ttArt ? (Number(Tt.TITLE_WEIGHT) || 700) : 600, fontSize: 'clamp(22px, 4.6vw, 52px)', lineHeight: 1.12, color: hex(Tt.WHITE), maxWidth: '82%', textTransform: ttXform }}>{data.title}</div>
             </div>
         );
     }
@@ -1566,17 +1839,27 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
     // switches on isNu.
     const T = resolveT(brand);
     const isNu = T.BRAND_ID === 'nu';
+    // 2026-10-01 - DECIEM section divider: the brand art block assigns the 'section' canvas (a solid
+    // pop fill rotating cyan / purple / pink / orange, picked by the SAME title hash as the export
+    // twin) with the fill's text color and the boxed lockup; title uppercase per TITLE_TRANSFORM.
+    const sdArt = !!getBrandArt(T.BRAND_ID);
+    const sdDivider = sdArt && brandCanvasFor(T.BRAND_ID, 'section') === 'pop' ? brandDividerFill(T.BRAND_ID, data.title || '', ordinal) : null;
+    const sdBg = sdDivider ? sdDivider.fill : hex(T.INK);
+    const sdText = sdDivider ? sdDivider.text : hex(T.WHITE);
+    const sdAccent = sdDivider ? sdDivider.text : hex(T.KICKER);
+    const sdXform = (sdArt && T.TITLE_TRANSFORM && T.TITLE_TRANSFORM !== 'none') ? (T.TITLE_TRANSFORM as any) : undefined;
     return (
         <div
             className="nu-artifact-stage"
-            data-brand={isNu ? 'nu' : 'nxt'}
+            data-brand={normalizeBrandId(T.BRAND_ID)}
             style={{
                 width: 960, height: 540, position: 'relative', overflow: 'hidden',
-                background: hex(T.INK),
+                background: sdBg,
                 padding: '48px 64px',
                 display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             }}
         >
+            {sdArt && <BrandLockup T={T} color={sdText} />}
             {/* Ghost number - large faded display numeral behind the foreground */}
             <div
                 aria-hidden="true"
@@ -1598,8 +1881,8 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
             </div>
             {/* Top - SECTION kicker + brand accent rule */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, position: 'relative' }}>
-                <div style={{ width: 36, height: 2, background: hex(T.KICKER) }} />
-                <span style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), fontWeight: 600, letterSpacing: '.22em', textTransform: 'uppercase', color: hex(T.KICKER) }}>
+                <div style={{ width: 36, height: 2, background: sdAccent }} />
+                <span style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), fontWeight: 600, letterSpacing: '.22em', textTransform: 'uppercase', color: sdAccent }}>
                     Section · {data.number}
                 </span>
             </div>
@@ -1609,21 +1892,22 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
                     fontFamily: `'${T.FONT_DISPLAY}', sans-serif`,
                     fontWeight: Number(T.TITLE_WEIGHT) || 600,
                     fontSize: data.title.length > 40 ? 48 : data.title.length > 28 ? 56 : 64,
-                    color: hex(T.WHITE),
+                    color: sdText,
                     lineHeight: 1.05,
-                    letterSpacing: '-0.02em',
+                    letterSpacing: sdArt ? '0' : '-0.02em',
                     margin: 0,
+                    textTransform: sdXform,
                 }}>
                     {data.title}
                 </h1>
                 {data.subtitle && (
-                    <p style={{ fontSize: webPx(SCALE.name), color: 'rgba(255,255,255,0.7)', marginTop: 16, fontWeight: 300, lineHeight: 1.45, maxWidth: '70ch' }}>
+                    <p style={{ fontSize: webPx(SCALE.name), color: sdDivider ? sdText : 'rgba(255,255,255,0.7)', opacity: sdDivider ? 0.78 : undefined, marginTop: 16, fontWeight: 300, lineHeight: 1.45, maxWidth: '70ch' }}>
                         {truncate(data.subtitle, 180)}
                     </p>
                 )}
             </div>
             {/* Brand seal bottom right */}
-            <div style={{ position: 'absolute', bottom: 32, right: 64, fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), letterSpacing: '.16em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+            <div style={{ position: 'absolute', bottom: 32, right: 64, fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), letterSpacing: '.16em', color: sdDivider ? sdText : 'rgba(255,255,255,0.3)', opacity: sdDivider ? 0.5 : undefined, textTransform: 'uppercase' }}>
                 {T.SEAL_LABEL}
             </div>
         </div>
@@ -1667,7 +1951,12 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
     const kicker = data.journeyType
         ? `SERVICE JOURNEY · ${String(data.journeyType).toUpperCase()}`
         : 'SERVICE BLUEPRINT · BITNER MODEL';
-    const meta = sources.length ? `Sources: ${sources.slice(0, 3).join(' · ')}` : undefined;
+    // E10 twin parity (2026-10-01): the JTBD personas ride the mono meta row by name, the same
+    // dashboard field the export twin reads; sources fill the row when no personas are declared.
+    const personaNames = (Array.isArray(data.personas) ? data.personas : []).map(p => [p.name, p.role].filter(Boolean).join(', ')).filter(Boolean).slice(0, 4);
+    const meta = personaNames.length
+        ? `Personas: ${personaNames.join(' · ')}`
+        : (sources.length ? `Sources: ${sources.slice(0, 3).join(' · ')}` : undefined);
     const gridCols = `${dense ? 52 : 60}px repeat(${stages.length}, 1fr)`;
     const cellFs = dense ? 6.6 : 7.4;
     const labelFs = dense ? 5.6 : 6.2;
@@ -2122,7 +2411,13 @@ export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sour
                 </div>
                 {rows.map((g, i) => (
                     <div key={i} style={{ display: 'grid', gridTemplateColumns: '30% 1fr 90px', gap: 12, alignItems: 'center', padding: '6px 0', borderTop: '1px solid var(--border-subtle)' }}>
-                        <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', fontWeight: 600, lineHeight: 1.3 }}>{g.capability}</div>
+                        <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', fontWeight: 600, lineHeight: 1.3 }}>{g.capability}</div>
+                            {/* E10 twin parity (2026-10-01): the per-gap impact line the export twin's IMPACT column carries. */}
+                            {g.impact && <div style={{ fontSize: webPx(SCALE.caption), color: 'var(--fg-muted)', lineHeight: 1.35, marginTop: 2 }}>{truncate(g.impact, 90)}</div>}
+                            {(g as any).competitor && <div style={{ fontSize: webPx(SCALE.caption), fontFamily: 'var(--font-mono)', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginTop: 3 }}>{truncate(String((g as any).competitor), 60)}</div>}
+                            {(g as any).evidence && <div style={{ fontSize: webPx(SCALE.caption), color: 'var(--fg-strong)', lineHeight: 1.35, marginTop: 3, borderLeft: '2px solid var(--accent-cool, currentColor)', paddingLeft: 6 }}>&ldquo;{truncate(String((g as any).evidence), 140)}&rdquo;{(g as any).source ? <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}> {truncate(String((g as any).source), 50)}</span> : null}</div>}
+                        </div>
                         <div className="matbar" style={{ position: 'relative' }}>
                             <div className="matbar__track" style={{ position: 'relative', height: 16, background: 'var(--bg-subtle)' }}>
                                 <div
@@ -2325,6 +2620,11 @@ export const ArchitectureMapSlide: React.FC<{ title: string; data: ArchitectureM
 // (others) - staying inside "red as scalpel".
 export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const allFeatures = Array.isArray(data?.features) ? data.features : [];
+    // E10 twin parity (2026-10-01): per-feature tokenized emblem carrier (index-aligned to
+    // features, registry prd-feature carrier) + the canon 607:2 column heads the export twin
+    // renders: storyId (US-N), successMetric, traces. The preview dropped all four.
+    const featureImages: string[] = Array.isArray(data?.featureImages) ? data.featureImages : [];
+    const storyIdOf = (f: PrdFeatureData['features'][number], i: number) => String(f.storyId || `US-${i + 1}`);
     const prioPill = (p: string) => p === 'must' ? 'pill pill--error' : p === 'should' ? 'pill pill--warning' : p === 'could' ? 'pill pill--progress' : 'pill pill--outline';
     const prioAccent = (p: string) => p === 'must' ? 'var(--nu-red-600)' : 'var(--ink-700)';
     const single = allFeatures.length === 1 ? allFeatures[0] : null;
@@ -2383,6 +2683,8 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                 <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, minHeight: 0, overflow: 'hidden' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: webPx(SCALE.lead), color: 'var(--nu-red-600)', lineHeight: 1 }}>{storyIdOf(f, 0)}</span>
+                            {featureImages[0] && <img src={featureImages[0]} alt="" style={{ width: 17, height: 17, objectFit: 'contain', flexShrink: 0 }} />}
                             <span className={prioPill(f.priority)}>{f.priority}</span>
                             <h2 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.name) }}>{f.name}</h2>
                         </div>
@@ -2399,6 +2701,15 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                                 ))}
                             </ul>
                         </div>
+                        {f.successMetric && (
+                            <div style={{ borderLeft: '3px solid var(--nu-red-600)', paddingLeft: 10 }}>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 2 }}>Success metric</div>
+                                <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.42 }}>{truncate(f.successMetric, 120)}</div>
+                            </div>
+                        )}
+                        {f.traces && (
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.06em', color: 'var(--fg-muted)', textTransform: 'uppercase' }}>Traces: {truncate(f.traces, 76)}</div>
+                        )}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
                         {f.problemSolved && (
@@ -2455,7 +2766,11 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
             <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: `repeat(${features.length}, 1fr)`, gap: 12, minHeight: 0 }}>
                 {features.map((f, i) => (
                     <div key={i} className="art-card" style={{ padding: 14, borderTop: `3px solid ${prioAccent(f.priority)}`, display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
-                        <span className={prioPill(f.priority)} style={{ alignSelf: 'flex-start' }}>{f.priority}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), letterSpacing: '.08em', color: 'var(--fg-muted)', fontWeight: 600 }}>{storyIdOf(f, i)}</span>
+                            {featureImages[i] && <img src={featureImages[i]} alt="" style={{ width: 13, height: 13, objectFit: 'contain', flexShrink: 0 }} />}
+                            <span className={prioPill(f.priority)}>{f.priority}</span>
+                        </div>
                         <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.lead) }}>{f.name}</h3>
                         <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, fontStyle: 'italic', margin: 0, paddingBottom: 8, borderBottom: '1px solid var(--border-subtle)' }}>{f.userStory}</p>
                         <div>

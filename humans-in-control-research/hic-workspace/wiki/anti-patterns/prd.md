@@ -85,7 +85,7 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Detection Criteria**: Problem statement contains implementation-specific language (e.g., "build a chatbot," "create a dashboard," "implement SSO") rather than describing the user need or business outcome.
 - **Severity**: Critical
 - **Example of Mistake**: "Problem: We need to build an AI-powered chatbot to handle customer inquiries."
-- **Correct Alternative**: "Problem: 68% of Tier 1 support inquiries are repetitive questions with known answers, consuming 1,200 agent hours/month. Customers wait an average of 7 minutes for answers available in our knowledge base."
+- **Correct Alternative**: "Problem: most first-line support inquiries are repetitive questions with known answers, so agents spend their shifts re-answering them while customers wait for answers already in the knowledge base." Any figure here rides inside a verbatim cited quote, never as the author's assertion.
 - **Root Cause**: AI generates solutions because they are concrete and satisfying to articulate. Staying at the problem level requires deliberate restraint and is less common in training data.
 
 ### AP-PRD-002: Feature List Without Strategic Context
@@ -93,7 +93,7 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Detection Criteria**: Features listed without a preceding section that explains what business problem they solve, what user need they address, or how success will be measured at the portfolio level.
 - **Severity**: Critical
 - **Example of Mistake**: "Features: 1. User profile page. 2. Search functionality. 3. Notification system. 4. Admin dashboard. 5. Reporting module."
-- **Correct Alternative**: Strategic context establishes the product thesis: "Reducing onboarding time-to-value from 14 days to 3 days for mid-market customers will improve 90-day retention by 15-20% (validated in pilot cohort A). The following capabilities directly serve this objective..."
+- **Correct Alternative**: Strategic context establishes the product thesis: "Mid-market customers abandon onboarding before they reach first value; shortening time-to-value is the lever the pilot cohort validated. The following capabilities directly serve this objective..." Targets are typed requirement_target fields set at a named post-baseline event, not prose.
 - **Root Cause**: AI excels at enumerating features from patterns in training data but struggles to synthesize the strategic narrative that gives features meaning and priority.
 
 ### AP-PRD-003: Vacuous Acceptance Criteria
@@ -101,7 +101,7 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Detection Criteria**: Acceptance criteria containing words like "intuitive," "fast," "user-friendly," "seamless," or "robust" without quantitative thresholds or specific behavioral definitions.
 - **Severity**: Critical
 - **Example of Mistake**: "Acceptance Criteria: The search feature should be fast and return relevant results."
-- **Correct Alternative**: "Acceptance Criteria: Search returns results in <500ms at p95 for queries up to 100 characters. First-page results include the user's target item in >85% of test cases across the validation query set (n=200 queries). Zero-result rate is <5% for queries matching existing catalog items."
+- **Correct Alternative**: "Acceptance criteria: Given a query within the supported length, when the user submits it, then first-page results render within the typed target for search latency at p95 and include the user's target item for the validation query set; given a query matching an existing catalog item, then the result set is never empty." Every bound is a typed requirement_target (metric, value, unit, rationale), never a figure in the sentence.
 - **Root Cause**: AI generates natural language descriptions of desired behavior rather than testable specifications because most PRD examples in training data use informal language.
 
 ### AP-PRD-004: Missing Out-of-Scope Section
@@ -109,23 +109,23 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Detection Criteria**: No "Out of Scope" or "Non-Goals" section. No explicit documentation of features or capabilities that were considered and deliberately excluded.
 - **Severity**: Major
 - **Example of Mistake**: A PRD for a search feature that does not state whether faceted search, natural language queries, or search analytics are in or out of scope.
-- **Correct Alternative**: "Out of Scope for v1: Natural language query parsing (planned for v2), search analytics dashboard (requires data pipeline work, tracked in separate initiative), personalized result ranking (blocked on recommendation engine, ETA Q3)."
+- **Correct Alternative**: "Out of scope for this release: natural language query parsing (planned for the next release), the search analytics dashboard (requires data pipeline work, tracked as a separate initiative), personalized result ranking (blocked on the recommendation engine)." Each non-goal carries its reason.
 - **Root Cause**: AI optimizes for describing what will exist rather than drawing boundaries around what will not. Exclusion requires knowledge of adjacent possibilities that AI may not proactively consider.
 
 ### AP-PRD-005: No Guardrail Metrics
 - **Description**: Success metrics are defined but guardrail metrics (things that must NOT get worse) are absent. Optimizing one metric at the expense of others is a common failure mode.
 - **Detection Criteria**: Only positive/target metrics defined. No counter-metrics, health metrics, or explicitly stated constraints on acceptable trade-offs.
 - **Severity**: Major
-- **Example of Mistake**: "Success metric: Increase self-service resolution rate from 40% to 65%." No guardrail preventing this from being achieved by making it impossible to reach a human agent.
-- **Correct Alternative**: "Success metric: Self-service resolution rate 40% to 65%. Guardrails: CSAT must remain above 4.2 (currently 4.4). Human agent accessibility within 2 minutes must remain below current 3.5-minute average. Escalation-to-resolution time must not increase."
+- **Example of Mistake**: "Success metric: raise the self-service resolution rate." No guardrail preventing this from being achieved by making it impossible to reach a human agent.
+- **Correct Alternative**: "Signal: self_service_resolution (lagging), instrument: the ticketing system, population: first-line customers, direction: up, baseline: to be measured by the support analyst by the end of the pilot. Guardrails: satisfaction does not fall, time to reach a human agent does not rise, escalation-to-resolution time does not rise; rollback authority: head of support."
 - **Root Cause**: AI generates the requested positive outcomes without modeling the system-level trade-offs that optimization pressure creates.
 
 ### AP-PRD-006: Success Metrics Without Baselines
 - **Description**: Target metrics are specified without documenting the current baseline, making it impossible to assess whether the target is ambitious, realistic, or already achieved.
-- **Detection Criteria**: Metrics state targets ("achieve 95% uptime") without current state ("currently at 91.2% uptime over the past 6 months").
+- **Detection Criteria**: Metrics state a direction or a figure without a baseline status ("to be measured by [owner] by [date]", or a cited figure inside its quote).
 - **Severity**: Major
-- **Example of Mistake**: "Goal: Achieve NPS of 50." Without knowing the current NPS is 47 versus 12, the effort and feasibility cannot be assessed.
-- **Correct Alternative**: "Goal: Improve NPS from 31 (baseline: Q4 2025 survey, n=2,400) to 45 within 12 months. Interim target: 38 at 6 months."
+- **Example of Mistake**: "Goal: raise NPS." Without a baseline status, the effort and feasibility cannot be assessed.
+- **Correct Alternative**: "Signal: NPS (lagging), instrument: the quarterly relationship survey, population: active mid-market accounts, direction: up, baseline: the most recent survey wave, cited by name inside its quote. Target: set at the post-baseline review, as a typed requirement_target."
 - **Root Cause**: AI generates aspirational targets from industry benchmarks without grounding them in the specific organization's current performance.
 
 ### AP-PRD-007: User Stories That Are Actually Tasks
@@ -148,8 +148,8 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Description**: The PRD is treated as a rigid specification that must be implemented exactly as written, rather than a living document that evolves as the team learns. This creates waterfall dynamics in nominally agile teams.
 - **Detection Criteria**: Language like "must implement exactly as specified," no versioning strategy, no learning milestones, and no mechanism for incorporating discovery insights during implementation.
 - **Severity**: Minor
-- **Example of Mistake**: A 40-page PRD with detailed specifications for every feature, presented as the complete and final specification with no provision for iteration.
-- **Correct Alternative**: PRD structured in tiers: P0 requirements (firm, validated), P1 requirements (high confidence, subject to user testing), P2 requirements (hypotheses, will be validated during first sprint). Update cadence defined: "PRD reviewed bi-weekly; section owners responsible for incorporating sprint learnings."
+- **Example of Mistake**: A long PRD with detailed specifications for every feature, presented as the complete and final specification with no provision for iteration.
+- **Correct Alternative**: PRD structured in tiers derived from evidence: must-have (two independent origins, a primary persona), should-have, could-have, and HYPOTHESIS requirements carried as bets with their tests. Update cadence defined: "PRD reviewed every sprint; section owners responsible for incorporating sprint learnings."
 - **Root Cause**: AI generates definitive documents and lacks the meta-awareness to build in its own uncertainty or the team's future learning into the document structure.
 
 ### AP-PRD-010: No Stakeholder Alignment
@@ -157,5 +157,5 @@ Known failure modes in product requirements document deliverables. Use as negati
 - **Detection Criteria**: No RACI or stakeholder section. No sign-off log. No documentation of open questions, unresolved debates, or known disagreements between stakeholders.
 - **Severity**: Minor
 - **Example of Mistake**: A PRD published to the team with no record of whether engineering leadership, design, legal, or customer success have reviewed and agreed to the scope and priorities.
-- **Correct Alternative**: Stakeholder alignment section: "Approved by: VP Product (scope), Engineering Lead (feasibility), Legal (compliance review pending, ETA April 15). Open disagreement: Sales wants feature X in v1; Product recommends v2 based on usage data. Decision: escalated to CPO, deadline April 12."
+- **Correct Alternative**: Stakeholder alignment section: "Accountable approver: VP Product. Consulted: Engineering Lead (feasibility), Legal (compliance review pending, due before the launch readiness review). Open disagreement: Sales wants feature X in this release; Product recommends the next release based on usage data. Decision: escalated to the CPO, due before the solution alignment review."
 - **Root Cause**: AI generates the document content but cannot simulate the organizational alignment process that makes PRDs actionable. Stakeholder management is a human-process concern that AI consistently omits.

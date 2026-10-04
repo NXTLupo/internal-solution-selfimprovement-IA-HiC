@@ -78,7 +78,7 @@ export async function logChunkRun(record: ChunkRunRecord): Promise<boolean> {
  * Read recent chunk telemetry for a specific artifact type.
  * Used by the learning engine to detect patterns.
  */
-export async function readRecentChunkRuns(
+async function readRecentChunkRuns(
     artifactType?: string,
     limit: number = 100,
 ): Promise<ChunkRunRecord[]> {
@@ -100,31 +100,4 @@ export async function readRecentChunkRuns(
     } catch {
         return [];
     }
-}
-
-/**
- * Aggregate stats for an artifact type - used to drive chunk-plan adjustments.
- */
-export async function getArtifactStats(artifactType: string): Promise<{
-    totalRuns: number;
-    truncationRate: number;
-    avgChunkCount: number;
-    avgDurationMs: number;
-    avgFailureRate: number;
-}> {
-    const runs = await readRecentChunkRuns(artifactType, 100);
-    if (runs.length === 0) {
-        return { totalRuns: 0, truncationRate: 0, avgChunkCount: 0, avgDurationMs: 0, avgFailureRate: 0 };
-    }
-    const truncations = runs.filter(r => r.truncationDetected).length;
-    const totalChunks = runs.reduce((s, r) => s + r.chunkCount, 0);
-    const totalDuration = runs.reduce((s, r) => s + r.durationMs, 0);
-    const totalFailures = runs.reduce((s, r) => s + r.failedCount, 0);
-    return {
-        totalRuns: runs.length,
-        truncationRate: truncations / runs.length,
-        avgChunkCount: totalChunks / runs.length,
-        avgDurationMs: totalDuration / runs.length,
-        avgFailureRate: totalFailures / totalChunks,
-    };
 }

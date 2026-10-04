@@ -33,6 +33,19 @@ describe('slideComposer (registry-driven, Method A)', () => {
         expect(nu.toLowerCase()).toContain('#0e1626'); // NU navy rail
         expect(nu.toLowerCase()).toContain('#c8102e'); // NU red accent
     });
+    it('flips brand by token to DECIEM (pink accent, Poppins, no rail, template art), identical content', () => {
+        const nxt = composeSlide('numbered-themes', ntPayload, 'nxt')!;
+        const dc = composeSlide('numbered-themes', ntPayload, 'deciem')!;
+        expect(dc).toContain('Nine apps, three jobs, one workflow');
+        expect(nxt.toLowerCase()).toContain('#b8b800');      // NXT chartreuse where ...
+        expect(dc.toLowerCase()).toContain('#fb48c4');       // ... DECIEM paints pink
+        expect(dc.toLowerCase()).not.toContain('#b8b800');
+        expect(dc).toContain('Poppins');
+        expect(dc).not.toContain('class="rail"');
+        expect(dc).not.toContain('class="dotmark"');
+        expect(dc).toContain('/api/design-assets/deciem/');
+        expect(nxt).not.toContain('/api/design-assets/');
+    });
 
     it('stat-row composes 3 stats with MEANS/MATTERS labels', () => {
         const html = composeSlide('stat-row', { kicker: 'BY THE NUMBERS', title: 'Three numbers anchor the suite', stats: [
@@ -47,11 +60,11 @@ describe('slideComposer (registry-driven, Method A)', () => {
         expect(composeSlide('does-not-exist', {}, 'nxt')).toBeNull();
     });
 
-    it('registers all 24 SLIDES archetypes (incl. the 2026-07-09 native diagram tier)', () => {
+    it('registers all 28 SLIDES archetypes (incl. the 2026-07-09 native diagram tier and the 2026-10-01 PRD projection tier)', () => {
         expect(archetypeKeys().sort()).toEqual([
             'agenda', 'aggregate-roadmap', 'block-quote', 'comparison-panels', 'cover', 'evidence-table',
             'flow-arc', 'infographic-exhibit', 'means-matters', 'milestone-timeline', 'numbered-themes',
-            'org-model', 'problem-diptych', 'quadrant', 'ranked-bars',
+            'org-model', 'prd-ledger', 'prd-signals', 'prd-story', 'prd-trace', 'problem-diptych', 'quadrant', 'ranked-bars',
             'role-needs', 'role-recommendation', 'role-roadmap',
             'scene', 'screen-critique', 'screen-redesign', 'section-divider', 'stat-row', 'thesis-interstitial',
         ]);
@@ -150,6 +163,53 @@ describe('slideComposer (registry-driven, Method A)', () => {
             ],
             sourceLine: 'Sources: vendor evaluations, platform architecture review',
         },
+        // ---- PRD projection tier (2026-10-01, Stage 3.3): payloads as services/prdProjection.ts emits them ----
+        'prd-story': {
+            kicker: 'PROBLEM WITH EVIDENCE',
+            title: 'Growers decide coverage from a static plan the agent never revisits',
+            storyLabel: 'THE STORY',
+            story: 'A small-scale grower renews the same policy every year because nobody re-reads the plan against the season she just had. She needs the plan to change when her risk changes.',
+            cards: [
+                { heading: 'Agriculture Weekly', body: '"We renew the same thing every year because nobody asks what changed."', foot: 'Grower interview · [articles/agriculture-weekly/ab12cd34ef.md#c3]' },
+                { heading: 'Reddit r/farming', body: '"My agent has not called since the hail claim."', foot: '[social/reddit/r-farming/9f8e7d6c5b.md#c1]' },
+            ],
+            band: { label: 'WHY NOW', statement: 'Carriers now re-price mid-season, so a static plan leaves the grower exposed between renewals.' },
+            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
+        },
+        'prd-ledger': {
+            kicker: 'REQUIREMENTS LEDGER',
+            title: 'Each requirement traces to a pain, a persona and a declarative test',
+            columns: ['ID', 'TIER', 'REQUIREMENT', 'TRACES', 'ACCEPTANCE TEST'],
+            rows: [
+                { id: 'R-1', tier: 'MUST', text: 'The grower sees the plan re-read against the season that just ended before renewal.', traces: 'Static plan never revisited · The deciding grower', test: 'Given a renewal is due, when the grower opens the plan, then the prior season review appears before the quote.', target: { kind: 'requirement_target', metric: 'review latency', value: 2, unit: 's p95', label: 'review latency: 2 s p95' } },
+                { id: 'R-2', tier: 'SHOULD', text: 'The agent receives a prompt when a claim closes without a follow-up call.', traces: 'Silence after the claim · The deciding grower', test: 'Given a claim closed, when a week passes without contact, then the agent sees the grower in the follow-up queue.' },
+                { id: 'R-3', tier: 'BET', text: 'The grower compares two coverage options side by side.', traces: 'NON-OBVIOUS BET · Test with five growers before build', test: 'Given two quotes exist, when the grower opens either, then both render on one screen.' },
+            ],
+            takeaway: { label: 'MUST-HAVE BAR', statement: 'A must-have maps to the thesis, carries two independent origins and a primary persona, and the product cannot ship without it.' },
+            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
+        },
+        'prd-signals': {
+            kicker: 'SUCCESS SIGNALS',
+            title: 'Every success signal carries an instrument, a baseline status and a guardrail',
+            columns: ['SIGNAL', 'INSTRUMENT', 'POPULATION', 'DIRECTION', 'BASELINE', 'TYPE', 'GUARDRAIL'],
+            rows: [
+                { signal: 'plan_review_opened', instrument: 'product analytics event', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the product analyst by the first renewal cycle', type: 'leading', guardrail: 'renewal abandonment does not rise · rollback: head of product' },
+                { signal: 'renewal_completed_with_change', instrument: 'policy admin system', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the actuarial lead by the first renewal cycle', type: 'lagging', guardrail: 'loss ratio holds · rollback: chief underwriter' },
+            ],
+            takeaway: { label: 'TARGETS', statement: 'Targets are set at the named post-baseline event; the first draft ships instruments and guardrails, not figures.' },
+            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
+        },
+        'prd-trace': {
+            kicker: 'TRACEABILITY',
+            title: 'Every requirement resolves to a quote, a named source, a test and a signal',
+            columns: ['R', 'TIER', 'PAIN', 'PERSONA', 'THEME', 'QUOTE', 'SOURCE', 'TEST', 'SIGNAL'],
+            rows: [
+                { id: 'R-1', tier: 'MUST', pain: 'Static plan never revisited', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'We renew the same thing every year because nobody asks what changed.', source: 'Agriculture Weekly', test: 'AT-1', signal: 'M-1, M-2' },
+                { id: 'R-2', tier: 'SHOULD', pain: 'Silence after the claim', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'My agent has not called since the hail claim.', source: 'Reddit r/farming', test: 'AT-2', signal: 'M-1' },
+            ],
+            takeaway: { label: 'TRACE', statement: 'Every requirement resolves to a pain or gap, a verbatim quote and a named source; every test and signal points back to a requirement.' },
+            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
+        },
     };
 
     // END-TO-END: the deck render path. `template=slides:<archetype>` must route through
@@ -171,16 +231,31 @@ describe('slideComposer (registry-driven, Method A)', () => {
         expect(composed).not.toBe(gold);
     });
 
-    for (const arch of ['cover', 'agenda', 'section-divider', 'thesis-interstitial', 'block-quote', 'evidence-table', 'problem-diptych', 'org-model', 'role-needs', 'role-recommendation', 'role-roadmap', 'aggregate-roadmap', 'quadrant', 'flow-arc', 'milestone-timeline', 'means-matters', 'ranked-bars', 'comparison-panels']) {
-        for (const brand of ['nxt', 'nu'] as const) {
+    for (const arch of ['cover', 'agenda', 'section-divider', 'thesis-interstitial', 'block-quote', 'evidence-table', 'problem-diptych', 'org-model', 'role-needs', 'role-recommendation', 'role-roadmap', 'aggregate-roadmap', 'quadrant', 'flow-arc', 'milestone-timeline', 'means-matters', 'ranked-bars', 'comparison-panels', 'prd-story', 'prd-ledger', 'prd-signals', 'prd-trace']) {
+        for (const brand of ['nxt', 'nu', 'deciem'] as const) {
             it(`composes ${arch} for ${brand} (branded, non-empty, key content present)`, () => {
                 const html = composeSlide(arch, SAMPLES[arch], brand)!;
                 expect(html).toBeTruthy();
                 expect(html.length).toBeGreaterThan(400);
                 expect(html).toContain('1920px');
-                // brand token bound: NXT chartreuse OR NU red appears
+                // brand token bound: NXT chartreuse OR NU red OR DECIEM pink appears. DECIEM's dark /
+                // pop canvases (cover, section header, thesis, agenda, diptych) carry no accent by
+                // design (black canvas + lockup, or a solid pop fill), so they bind via the canvas fill.
                 const lc = html.toLowerCase();
-                expect(brand === 'nu' ? lc.includes('#c8102e') : lc.includes('#b8b800')).toBe(true);
+                const deciemDark = new Set(['cover', 'section-divider', 'thesis-interstitial', 'agenda', 'problem-diptych']);
+                // paper slides bind via the pink accent, the deck-art URL, or the black band (a slide whose
+                // only accent carrier was the takeaway band now paints that band black per the owner rule)
+                const deciemBound = deciemDark.has(arch)
+                    ? ['#000000', '#00facc', '#8a69d4', '#fb48c4', '#ff6c2f'].some(h => lc.includes(`background:${h}`))
+                    : (lc.includes('#fb48c4') || lc.includes('/api/design-assets/deciem/') || lc.includes('background:#000000'));
+                expect(brand === 'nu' ? lc.includes('#c8102e') : brand === 'deciem' ? deciemBound : lc.includes('#b8b800')).toBe(true);
+                if (brand === 'deciem') {
+                    // template chrome: no rail, no dot-mark, Poppins title face, data-brand carried by the doc shell
+                    expect(html).not.toContain('class="rail"');
+                    expect(html).not.toContain('class="dotmark"');
+                    expect(html).toContain('Poppins');
+                    expect(lc).not.toContain('#b8b800');
+                }
                 expect(html).not.toContain('undefined');
                 expect(html).not.toContain('[object Object]');
                 expect(html).not.toContain('NaN');

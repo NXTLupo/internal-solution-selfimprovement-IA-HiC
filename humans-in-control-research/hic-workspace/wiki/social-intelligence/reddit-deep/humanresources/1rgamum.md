@@ -7,13 +7,14 @@ subreddit: "humanresources"
 title: "[N/A] Really struggling to land interviews, is it my resume?"
 author: "SlowTeal"
 date: "2026-02-27T16:02:18.000Z"
-score: 47
+score: 49
 upvote_ratio: 0.91
 num_comments: 82
 flair: "Career Development"
-extracted_at: "2026-06-08T17:32:00.976Z"
+extracted_at: "2026-08-13T16:56:19.267Z"
 extraction_method: "praw-deep"
-research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
+research_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
 chunks:
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c0"
     char_span: [0, 851]
@@ -23,14 +24,14 @@ chunks:
     token_count: 204
     sources: [{"n":"reddit-deep: r/humanresources","u":"https://www.reddit.com/r/humanresources/comments/1rgamum/na_really_struggling_to_land_interviews_is_it_my/"}]
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c1"
-    char_span: [865, 2053]
+    char_span: [866, 2054]
     sentence_count: 7
     key_terms: [people, job, lunch, roles, bold, get, hrg, like]
     concepts: [people, lunch, roles]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/humanresources/1rgamum.md#c2"
-    char_span: [2055, 3893]
+    char_span: [2056, 3893]
     sentence_count: 18
     key_terms: [bullet, people, different, did, experience, formatting, jumpcity69, metrics]
     concepts: [bullet, people, different, experience, formatting]
@@ -63,7 +64,7 @@ chunks:
 # [N/A] Really struggling to land interviews, is it my resume?
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1rgamum/na_really_struggling_to_land_interviews_is_it_my/)
-Posted by **SlowTeal** · **47↑** · **82 comments**
+Posted by **SlowTeal** · **49↑** · **82 comments**
 
 As the title says it's been really difficult getting my foot in the door for interviews, I'm really trying to move up into an HR Generalist or HRBP role, I'm even studying to take the SCHRM test in May to see if that gives me an edge for hiring managers.
 
@@ -73,10 +74,10 @@ Wondering if there's something I'm not seeing in my current resume that is putti
 
 ## Comments
 
-- **XombieRx** (97↑): Market is tough right now...maybe look into getting a HRCI cert.
-  - **redyokai** (11↑): I have one. It doesn’t help.
-- **janually** (92↑): shoot for HRG, people ops to HRBP is quite a jump but HRG is a good middle ground. and my #1 advice to land interviews is the be an early applicant. watch job listings like a hawk and when you see one you like, try to be one of the first 100 apps, first 50 if you can swing it.
-- **benicebuddy** (98↑): * Your employers lack scope. How many employees, locations, and how much revenue is essential information. HR Associate and Office Manager could be for a company of 5 people. 
+- **XombieRx** (99↑): Market is tough right now...maybe look into getting a HRCI cert.
+  - **redyokai** (10↑): I have one. It doesn’t help.
+- **janually** (91↑): shoot for HRG, people ops to HRBP is quite a jump but HRG is a good middle ground. and my #1 advice to land interviews is the be an early applicant. watch job listings like a hawk and when you see one you like, try to be one of the first 100 apps, first 50 if you can swing it.
+- **benicebuddy** (97↑): * Your employers lack scope. How many employees, locations, and how much revenue is essential information. HR Associate and Office Manager could be for a company of 5 people. 
 * Your bullets aren't aligned.
 * Claiming an increase in employee engagement is bold. 
 * Instead of junior through senior level roles, say exempt, nonexempt, leadership roles...etc
@@ -86,12 +87,12 @@ Wondering if there's something I'm not seeing in my current resume that is putti
 * Increased profit margins by 20% would get you promoted to COO. I would dial that down and get really specific, or be prepared to. 
 
 You have a good start but every bullet needs scale. How many people did you hire? How many associates did you support? Its OK if it is not very many people, but it is not OK to obfuscate the number. You just won't get calls if there are more questions than answers on your resume.
-  - **pak256** (33↑): This is my feedback as well. This is mostly a list of their tasks not their accomplishments. Needs more metrics
+  - **pak256** (32↑): This is my feedback as well. This is mostly a list of their tasks not their accomplishments. Needs more metrics
   - **Quick_Slip_6364** (12↑): I agree with this. The bullet point metrics read like ChatGPT. Employee engagement alone can mean a bunch of different things. A blanket “20% increase” doesn’t provide any insight in what actually improved.
-  - **Hrgooglefu** (3↑): agree that was my first thought....what scale were each of these ....50 is different than 300....and different than 1000....
+  - **Hrgooglefu** (4↑): agree that was my first thought....what scale were each of these ....50 is different than 300....and different than 1000....
 - **Ok-Row-6088** (25↑): Is rippling the only HRIS you have worked with?  The industry demand is high for payroll people who have done time and attendance. Do you have any experience in that?
-- **Norcalguy8615** (48↑): I think it’s tough to go from People Ops to HRBP. Most companies will want someone with current HRBP experience, but maybe look for a more junior type role that allows for growth.
-  - **CoeurDeSirene** (11↑): Esp when they’ve only been a manager for less than 1 year!
+- **Norcalguy8615** (45↑): I think it’s tough to go from People Ops to HRBP. Most companies will want someone with current HRBP experience, but maybe look for a more junior type role that allows for growth.
+  - **CoeurDeSirene** (9↑): Esp when they’ve only been a manager for less than 1 year!
 - **JumpCity69** (22↑): Your formatting is a major issue, if you can physically see weird spacing immediately, you are at an auto-disadvantage. 
 
 Remove color. Too many bullet points, is this 12 pt font?
@@ -101,15 +102,15 @@ Can certainly remove the color and yes it’s 12 pt, is that bad?
     - **JumpCity69** (2↑): 12 pt is good. I just wanted to make sure you weren’t going lower to squeeze in more bullet points.
 
 I will say while the SHRM sucks, it will def help your marketability. Good luck
-- **RileyKohaku** (53↑): Your most recent job sounds like great experience to becoming an HRBP, but you haven’t even been in it for a year. As a hiring manager, I don’t really consider less than a year of experience relevant, which makes me look at your last job, which is barely HR related. I think if you stick with your current job for 2 full years, you’ll start to get interviews. 
+- **RileyKohaku** (54↑): Your most recent job sounds like great experience to becoming an HRBP, but you haven’t even been in it for a year. As a hiring manager, I don’t really consider less than a year of experience relevant, which makes me look at your last job, which is barely HR related. I think if you stick with your current job for 2 full years, you’ll start to get interviews. 
 
 I also read this and think, “what’s wrong with the applicant that he’s already trying to leave when he finally got a job that does real work? Is he failing the probationary period and they are considering firing him and that’s why he’s leaving so soon? I better not take the gamble.”
-  - **sjwit** (13↑): I think this may be at play as well.  Shoot for 2 years where you are, if that's possible.  Your current role is the only role that's pure HR, and you just don't have enough time in that role yet to appear to be ready for the next step.  (you may well be, but hard to get that across on a resume)
+  - **sjwit** (14↑): I think this may be at play as well.  Shoot for 2 years where you are, if that's possible.  Your current role is the only role that's pure HR, and you just don't have enough time in that role yet to appear to be ready for the next step.  (you may well be, but hard to get that across on a resume)
   - **SlowTeal** (3↑): >I also read this and think, “what’s wrong with the applicant that he’s already trying to leave when he finally got a job that does real work? Is he failing the probationary period and they are considering firing him and that’s why he’s leaving so soon? I better not take the gamble.”
 
 To address this particular point, the HR Ops and Office Manage job are at the same company, so really I've been there for over four years. Does that change your thoughts on it?
     - **RileyKohaku** (2↑): In that case I’d give you an interview after 1 year at the new role instead of 2 years. I’d still want to know you were able to handle the higher level responsibilities for a full year. So you’ll probably have better luck in 3 months applying.
-- **noesey** (16↑): As a HR Director who has “grown up” through the BP function, your CV reads like someone I’d place in a Generalist role not a HR BP (unless you’re looking at large orgs with a junior role who would train you up- that might be a way in). 
+- **noesey** (15↑): As a HR Director who has “grown up” through the BP function, your CV reads like someone I’d place in a Generalist role not a HR BP (unless you’re looking at large orgs with a junior role who would train you up- that might be a way in). 
 
 Your last role being Ops/ BP mix tells me a lot about your company and structure; I would suggest to refine that title to just be a HR Ops manager and ditch the BP, go for Generalist roles and you would have more luck (just my gut feeling seeing as I recently recruited for both, and I’d give you a call back for a generalist if I saw your CV). But why were you even a manager, did you lead a team? Or were you a senior IC?
 

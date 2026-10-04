@@ -42,8 +42,18 @@ export type ReasonCode =
     | 'DERIVED_AS_SOURCE'      // "via theme" / "paraphrased from theme": a cached summary cited as evidence
     | 'CHROME_LEAK';           // model-emitted footer / buttons / audit / metadata in the reader document
 
-export type ClaimKind = 'quote' | 'stat' | 'text';
-export type ClaimType = 'fact' | 'recommendation' | 'judgment' | 'label';
+/**
+ * `spec` and `ref` rows are NOT claims about the world (2026-10-01, #prd consulting-grade pass).
+ * `spec` is specification text: a requirement, an acceptance test, a guardrail, a flow step, a screen
+ * state, a business rule, a rollout step, a goal. It is a decision the document makes, so it needs no
+ * source pointer and is never handed to the narrowing repair (the live #prd run had 82 sentences
+ * "narrowed", most of them acceptance tests and spec text). `ref` names an approved graph record (a
+ * persona or theme name, a section label). A projection marks either with `data-claim-kind="spec"` or
+ * `data-claim-kind="ref"` on the block or on any ancestor element; the gate skips the evidence checks
+ * for them and keeps the verbatim quote check. Evidence-bearing prose is never marked and stays gated.
+ */
+export type ClaimKind = 'quote' | 'stat' | 'text' | 'spec' | 'ref';
+export type ClaimType = 'fact' | 'recommendation' | 'judgment' | 'label' | 'decision';
 export type Severity = 'block' | 'warn';
 export type RepairAction = 'narrow' | 'reframe_as_recollection' | 'name_the_analogy' | 'strip_pointer' | 'strip_tail' | 'remove_quote_marks' | 'none';
 
@@ -86,6 +96,8 @@ export interface ClaimLedger {
     /** Pointers cited that resolved to a chunk or page. */
     resolvedPointers: number;
     unresolvedPointers: string[];
+    /** Rows marked `spec` or `ref` by the projection: present in `rows`, exempt from the evidence checks. */
+    exemptRows: number;
 }
 
 export interface GateChunk {
@@ -106,7 +118,7 @@ export interface ClaimGateContext {
     pageMetaByPath?: Record<string, Partial<PointerPageMeta>>;
 }
 
-export const REASON_CODES: ReasonCode[] = [
+const REASON_CODES: ReasonCode[] = [
     'UNRESOLVED_SOURCE', 'UNSOURCED_FACT', 'UNVERIFIED_QUOTE', 'DATE_SCOPE_MISMATCH', 'UNSUPPORTED_MODALITY',
     'PRODUCT_SCOPE_MISMATCH', 'INDEPENDENCE_INFLATED', 'UNVERIFIED_IDENTIFIER', 'DERIVED_AS_SOURCE', 'CHROME_LEAK',
 ];
@@ -171,7 +183,7 @@ function innerText(inner: string): string {
 }
 
 /** Pull pointers + bracket tails out of a text, returning the pointer-free prose. */
-export function splitPointers(text: string): { text: string; pointers: string[]; tails: string[] } {
+function splitPointers(text: string): { text: string; pointers: string[]; tails: string[] } {
     const pointers: string[] = [];
     const tails: string[] = [];
     const cleaned = String(text || '')
@@ -194,7 +206,7 @@ export function splitPointers(text: string): { text: string; pointers: string[];
  * the 2026-09-10 replay: `... and vice versa" [ptr]. Annotations extend this: teams who add "` was
  * checked as a quotation and failed). Curly quotes are normalized first, then odd segments are quotes.
  */
-export function quotedSpans(text: string, minLen = 24): string[] {
+function quotedSpans(text: string, minLen = 24): string[] {
     const t = String(text || '').replace(/[“”„]/g, '"');
     const parts = t.split('"');
     if (parts.length < 3) return [];
@@ -211,27 +223,136 @@ const NON_FACTUAL_RE = /\b(should|must|recommend\w*|consider|propose\w*|we will|
 const DECLARATIVE_RE = /\b(is|are|was|were|has|have|ships?|shipped|launch\w*|announc\w*|support\w*|expos\w*|provid\w*|requir\w*|lack\w*|document\w*|deliver\w*|route\w*|run\w*|depend\w*|correct\w*|detect\w*|emit\w*|scan\w*|output\w*|bring\w*|post\w*|ensur\w*|guarantee\w*|prove\w*|proves|eliminat\w*|converg\w*|corrupt\w*)\b/i;
 const PROPER_RE = /\b[A-Z][a-zA-Z0-9]+(?:[ -][A-Z][a-zA-Z0-9]+)*\b/;
 
+/**
+ * An absolute word that is part of a compound or a proper noun is not an absolute claim: "First-Year
+ * Student", "first-year cohort", "the First Year Experience Program", "all-hands". The live #prd run
+ * blocked "Incoming First-Year Student" as an unsourced absolute. The word is neutralized before the
+ * factual-claim and population tests read the sentence; the sentence itself is never changed.
+ */
+function neutralizeCompoundAbsolutes(text: string): string {
+    return String(text || '')
+        // hyphenated compound, any case: first-year, First-Year, all-hands
+        .replace(/\b(first|all|every|only|each)(?=-[A-Za-z])/gi, 'compound')
+        // a capitalized absolute inside a proper-noun run, mid-sentence: "the First Year Experience Program"
+        .replace(/(?<=[a-z,;:)]\s+)(First|All|Every|Only|Each|Most)(?=\s+[A-Z][a-z])/g, 'Proper');
+}
+
+function factualClaim(text: string): boolean {
+    return isFactualClaim(neutralizeCompoundAbsolutes(text));
+}
+
+/** The prose of a row with every quoted span removed: what the DELIVERABLE says, not what a source said. */
+function unquotedProse(text: string): string {
+    return String(text || '').replace(/[“”„]/g, '"').split('"').filter((_, i) => i % 2 === 0).join(' ').replace(/\s+/g, ' ').trim();
+}
+
 export function classifyClaim(text: string): ClaimType {
     const t = String(text || '').trim();
     if (t.split(/\s+/).length < 6) return 'label';
     if (NON_FACTUAL_RE.test(t)) return 'recommendation';
-    if (isFactualClaim(t)) return 'fact';
+    if (factualClaim(t)) return 'fact';
     if (DECLARATIVE_RE.test(t) && PROPER_RE.test(t)) return 'fact';
     return 'judgment';
 }
 
+// ---- block scanner ----------------------------------------------------------------------------------
+//
+// 2026-10-01: the gate used to read blocks with one lazy regex and SKIP any block that held another
+// block; the regex then consumed the outer block, so its inner blocks were never visited either. A
+// <blockquote><p>, a <td><p> or an <li><p> was invisible. The scanner below walks the tag stream with
+// an element stack and emits LEAF blocks as rows. When a block holds both prose and child blocks
+// (`<li>Lead text<ul><li>a</li></ul></li>`), each contiguous run of its own prose between the children
+// is a row of its own, so nothing is read twice and nothing is dropped. Unclosed <p>, <li>, <dt>, <dd>,
+// <td>, <th> close the way an HTML parser closes them.
+
+const BLOCK_TAG_SET = new Set(BLOCK_TAGS.split('|'));
+const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const RAW_TEXT_TAGS = new Set(['script', 'style', 'template', 'noscript', 'textarea']);
+const IMPLIED_CLOSE_FAMILY: Record<string, string[]> = { li: ['li'], dt: ['dt', 'dd'], dd: ['dt', 'dd'], td: ['td', 'th'], th: ['td', 'th'] };
+/** A typed design-decision target is exempt from the number rule: its text never reaches a row (spec 3.5). */
+const TARGET_ELEMENT_RE = /<(div|span|p|li|td|dd)\b[^>]*\bdata-requirement-target\b[^>]*>[\s\S]*?<\/\1>/gi;
+
+type MarkedKind = 'spec' | 'ref' | null;
+interface RawBlock { pos: number; tag: string; openTag: string; rawInner: string; marked: MarkedKind; target: boolean }
+interface OpenElement {
+    tag: string; openStart: number; openEnd: number; openTag: string; block: boolean; marked: MarkedKind;
+    hasChildBlock: boolean; segStart: number; segments: Array<[number, number]>;
+}
+
+function markedKindOf(openTag: string): MarkedKind {
+    const m = /\bdata-claim-kind\s*=\s*["']?(spec|ref)\b/i.exec(openTag);
+    return m ? (m[1].toLowerCase() as 'spec' | 'ref') : null;
+}
+
+function scanLeafBlocks(html: string): RawBlock[] {
+    const src = String(html || '');
+    // Comments are blanked in a scan copy (same offsets) so a commented-out tag never opens an element.
+    const scan = src.replace(/<!--[\s\S]*?-->/g, c => ' '.repeat(c.length));
+    const lowerScan = scan.toLowerCase();
+    const out: RawBlock[] = [];
+    const stack: OpenElement[] = [];
+    const innermostBlock = (): OpenElement | null => { for (let k = stack.length - 1; k >= 0; k--) if (stack[k].block) return stack[k]; return null; };
+    const finalize = (el: OpenElement, closeStart: number) => {
+        if (!el.block) return;
+        const target = /\bdata-requirement-target\b/i.test(el.openTag);
+        if (!el.hasChildBlock) {
+            out.push({ pos: el.openStart, tag: el.tag, openTag: el.openTag, rawInner: src.slice(el.openEnd, closeStart), marked: el.marked, target });
+            return;
+        }
+        const segs: Array<[number, number]> = [...el.segments, [el.segStart, closeStart]];
+        for (const [a, b] of segs) {
+            if (b > a) out.push({ pos: a, tag: el.tag, openTag: '', rawInner: src.slice(a, b), marked: el.marked, target });
+        }
+    };
+    /** Close stack[idx] and every element above it at [closeStart, closeEnd). */
+    const closeAt = (idx: number, closeStart: number, closeEnd: number) => {
+        while (stack.length > idx) finalize(stack.pop()!, closeStart);
+        const parent = innermostBlock();
+        if (parent) parent.segStart = closeEnd;
+    };
+    const TAG_RE = /<(\/?)([a-zA-Z][\w-]*)\b[^>]*>/g;
+    let m: RegExpExecArray | null;
+    while ((m = TAG_RE.exec(scan)) !== null) {
+        const closing = m[1] === '/';
+        const tag = m[2].toLowerCase();
+        const start = m.index;
+        const end = start + m[0].length;
+        if (!closing && RAW_TEXT_TAGS.has(tag)) {
+            const close = lowerScan.indexOf('</' + tag, end);
+            TAG_RE.lastIndex = close < 0 ? scan.length : close;
+            continue;
+        }
+        if (closing) {
+            let idx = -1;
+            for (let k = stack.length - 1; k >= 0; k--) if (stack[k].tag === tag) { idx = k; break; }
+            if (idx >= 0) closeAt(idx, start, end);
+            continue;
+        }
+        if (VOID_TAGS.has(tag) || /\/>$/.test(m[0])) continue;
+        const block = BLOCK_TAG_SET.has(tag);
+        if (block) {
+            // HTML's implied closes: a block opening inside an open <p>, or a list item / cell / term opening
+            // directly inside an open sibling of its family.
+            const top = stack[stack.length - 1];
+            if (top && (top.tag === 'p' || (IMPLIED_CLOSE_FAMILY[tag] || []).includes(top.tag))) closeAt(stack.length - 1, start, start);
+            const parent = innermostBlock();
+            if (parent) { parent.hasChildBlock = true; parent.segments.push([parent.segStart, start]); }
+        }
+        let inherited: MarkedKind = null;
+        for (let k = stack.length - 1; k >= 0; k--) if (stack[k].marked) { inherited = stack[k].marked; break; }
+        stack.push({ tag, openStart: start, openEnd: end, openTag: src.slice(start, end), block, marked: markedKindOf(m[0]) || inherited, hasChildBlock: false, segStart: end, segments: [] });
+    }
+    while (stack.length) finalize(stack.pop()!, src.length);
+    return out.sort((a, b) => a.pos - b.pos);
+}
+
 export function extractClaimRows(html: string): ClaimRow[] {
     const rows: ClaimRow[] = [];
-    const src = String(html || '');
-    let m: RegExpExecArray | null;
     let i = 0;
-    const re = new RegExp(BLOCK_RE.source, 'gi');
-    while ((m = re.exec(src)) !== null) {
-        const tag = m[1].toLowerCase();
-        const rawInner = m[2];
-        // Nested blocks (a <li> holding <p>s) are covered by their inner blocks.
-        if (new RegExp(`<(${BLOCK_TAGS})\\b`, 'i').test(rawInner)) continue;
-        const flat = innerText(rawInner);
+    for (const blk of scanLeafBlocks(html)) {
+        const tag = blk.tag;
+        const rawInner = blk.rawInner;
+        const flat = innerText(rawInner.replace(TARGET_ELEMENT_RE, ' '));
         if (!flat) continue;
         const { text, pointers, tails } = splitPointers(flat);
         if (text.length < 12) {
@@ -244,12 +365,22 @@ export function extractClaimRows(html: string): ClaimRow[] {
             }
             continue;
         }
-        const isQuote = tag === 'blockquote' || /class=["'][^"']*quote/i.test(m[0]) || quotedSpans(text).length > 0 || /^["“].{20,}["”]$/.test(text);
-        const kind: ClaimKind = isQuote ? 'quote' : (STAT_RE.test(text) ? 'stat' : 'text');
-        rows.push({ id: `r${++i}`, tag, text, rawInner, pointers, bracketTails: tails, kind, claimType: classifyClaim(text) });
+        let kind: ClaimKind;
+        let claimType: ClaimType;
+        if (blk.marked === 'ref') { kind = 'ref'; claimType = 'label'; }
+        else if (blk.marked === 'spec' || blk.target) { kind = 'spec'; claimType = 'decision'; }
+        else {
+            const isQuote = tag === 'blockquote' || /class=["'][^"']*quote/i.test(blk.openTag) || quotedSpans(text).length > 0 || /^["“].{20,}["”]$/.test(text);
+            kind = isQuote ? 'quote' : (STAT_RE.test(text) ? 'stat' : 'text');
+            claimType = classifyClaim(text);
+        }
+        rows.push({ id: `r${++i}`, tag, text, rawInner, pointers, bracketTails: tails, kind, claimType });
     }
     return rows;
 }
+
+/** Spec and ref rows are decisions and references: exempt from every evidence check but the quote check. */
+function isExempt(row: ClaimRow): boolean { return row.kind === 'spec' || row.kind === 'ref'; }
 
 // ---------------------------------------------------------------------------
 // Objective analysis: subject entities and the as-of window
@@ -350,7 +481,7 @@ function vendorOfSource(meta: Partial<PointerPageMeta> | null | undefined, pageP
     return first;
 }
 
-const HEDGE_RE = /\b(or something|i think|something like|if i recall|iirc|not sure|maybe|i believe|i guess|kind of|sort of)\b/i;
+export const HEDGE_RE = /\b(or something|i think|something like|if i recall|iirc|not sure|maybe|i believe|i guess|kind of|sort of)\b/i;
 const RECOLLECTION_FRAME_RE = /\b(reported|recalled|recollect\w*|described|according to (?:a|one) practitioner|one practitioner|a practitioner|a designer|a user|posted|wrote|said|commenter|remembered|paraphras\w+)\b/i;
 const STRONG_MODAL_RE = /\b(ensures?|ensuring|guarantee[sd]?|guaranteeing|requires?|required|proves?|proven|eliminates?|non-negotiable|cannot|can't|never|always|the only|does not drift|will not|makes? (?:\w+ ){0,3}(?:correct|deterministic|impossible|certain)|is the (?:whole|entire) (?:point|justification|answer))\b/i;
 const SOFT_MODAL_RE = /\b(can|could|may|might|help|helps|helping|lets|let|allow|allows|allowing|aim|aims|working toward|reduc\w+|more predictable|makes it easier|enable\w*|intended to|designed to|meant to)\b/i;
@@ -440,15 +571,16 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
             // A heading is an action title: a judgment by contract (.claude/CLAUDE.md), so it earns a
             // warning, not a block, unless it carries a number. Body sentences hold the sourced facts.
             const isHeading = /^h[1-6]$/.test(row.tag);
-            const hard = (isHeading ? STAT_RE.test(row.text) : (isFactualClaim(row.text) || row.kind !== 'text'));
+            const hard = (isHeading ? STAT_RE.test(row.text) : (factualClaim(row.text) || row.kind !== 'text'));
             push('UNSOURCED_FACT', hard ? 'block' : 'warn', hard
                 ? 'Declarative factual claim (quantity, absolute, comparison, causal link or quoted material) carries no resolvable pointer.'
                 : 'Declarative statement about a named entity carries no pointer; state it as judgment or source it.', 'narrow');
         }
         if (resolvedTexts.length === 0) continue;
 
-        // UNVERIFIED_QUOTE: every quoted span of 24+ chars must be verbatim in a cited chunk.
-        if (row.kind === 'quote') {
+        // UNVERIFIED_QUOTE: every quoted span of 24+ chars must be verbatim in a cited chunk. A spec or ref row
+        // that carries a quotation is still checked: the exemption covers decisions, never a quotation.
+        if (row.kind === 'quote' || (isExempt(row) && quotedSpans(row.text).length > 0)) {
             const spans: string[] = quotedSpans(row.text);
             if (!spans.length && /^["“].{20,}["”]$/.test(row.text)) spans.push(row.text.replace(/^["“]|["”]$/g, ''));
             if (!spans.length && row.tag === 'blockquote') spans.push(row.text);
@@ -458,6 +590,9 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
                 }
             }
         }
+
+        // Spec and ref rows stop here: a date, a scope or a name in a decision is the decision's, not a source's.
+        if (isExempt(row)) continue;
 
         // DATE_SCOPE_MISMATCH: month-year mentions must appear in cited text or equal a cited publication month.
         const citedYms = new Set<number>();
@@ -527,12 +662,17 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
             }
         }
 
-        // INDEPENDENCE_INFLATED: population words need three independent origins.
-        if (row.claimType === 'fact' && POPULATION_RE.test(row.text) && !/\b(every|all|each) (?:day|week|month|quarter|year|session|edit|frame|write|read|call|request|page|file)s?\b/i.test(row.text)) {
+        // INDEPENDENCE_INFLATED: population words need three independent origins. Only the deliverable's own
+        // prose is read: a population word inside a VERBATIM quote is the source speaking ("Salesforce is all
+        // over the place"), not the document generalizing across sources. A first-person job story ("I want to
+        // see every application") states a user's goal, not a population claim.
+        const ownProse = neutralizeCompoundAbsolutes(unquotedProse(row.text));
+        if (row.claimType === 'fact' && POPULATION_RE.test(ownProse) && !/\b(every|all|each) (?:day|week|month|quarter|year|session|edit|frame|write|read|call|request|page|file)s?\b/i.test(ownProse)
+            && !/\bI want to\b/i.test(ownProse)) {
             const origins = new Set(resolvedTexts.map(t => originOf(t.pointer)));
             if (origins.size < 3) {
                 const dupNote = resolvedTexts.length > origins.size ? ` ${resolvedTexts.length} pointers resolve to ${origins.size} origin(s); duplicates share one URL.` : '';
-                push('INDEPENDENCE_INFLATED', 'block', `Population or consensus language ("${row.text.match(new RegExp(POPULATION_RE.source, 'i'))?.[0]}") rests on ${origins.size} independent origin(s).${dupNote} State the count or name the sources.`, 'narrow');
+                push('INDEPENDENCE_INFLATED', 'block', `Population or consensus language ("${ownProse.match(new RegExp(POPULATION_RE.source, 'i'))?.[0]}") rests on ${origins.size} independent origin(s).${dupNote} State the count or name the sources.`, 'narrow');
             }
         }
 
@@ -599,7 +739,7 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
     const asOfTargets = [objective.asOf.toYm, objective.asOf.fromYm].filter((v): v is number => v !== null);
     if (asOfTargets.length) {
         for (const row of rows) {
-            if (row.pointers.length) continue;
+            if (row.pointers.length || isExempt(row)) continue;
             let dm: RegExpExecArray | null;
             const myre = new RegExp(MONTH_YEAR_RE.source, 'gi');
             while ((dm = myre.exec(row.text)) !== null) {
@@ -650,6 +790,7 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
         rows, findings, summary, blocking, warnings: findings.length - blocking, pass: blocking === 0,
         independentOrigins: allOrigins.size, resolvedPointers: resolvedCount,
         unresolvedPointers: Array.from(new Set(unresolved)),
+        exemptRows: rows.filter(isExempt).length,
     };
 }
 
@@ -670,7 +811,10 @@ export function applyDeterministicFixes(html: string, ledger: ClaimLedger): stri
 
 /** The model-facing repair text. Narrowing only: the prohibitions are the point. */
 export function buildNarrowingInstruction(ledger: ClaimLedger): string {
-    const blocking = ledger.findings.filter(f => f.severity === 'block' && f.repair !== 'strip_pointer' && f.repair !== 'strip_tail');
+    // Spec and ref rows are never narrowed: a requirement or an acceptance test is a decision, and the repair
+    // model rewriting it changes the specification (the live #prd run "narrowed" acceptance tests).
+    const exempt = new Set(ledger.rows.filter(isExempt).map(r => r.id));
+    const blocking = ledger.findings.filter(f => f.severity === 'block' && f.repair !== 'strip_pointer' && f.repair !== 'strip_tail' && (!exempt.has(f.rowId) || f.repair === 'remove_quote_marks'));
     if (!blocking.length) return '';
     const lines = blocking.map(f => {
         const how = f.repair === 'reframe_as_recollection' ? 'Reframe as what a practitioner reported, in quotation marks or with "a practitioner on the forum described".'
@@ -684,5 +828,6 @@ export function buildNarrowingInstruction(ledger: ClaimLedger): string {
 
 export function ledgerSummaryLine(ledger: ClaimLedger): string {
     const parts = REASON_CODES.filter(c => ledger.summary[c] > 0).map(c => `${c} ${ledger.summary[c]}`);
-    return `${ledger.rows.length} claim rows, ${ledger.resolvedPointers} pointers resolved, ${ledger.independentOrigins} independent origins, ${ledger.blocking} blocking, ${ledger.warnings} warning(s)${parts.length ? `: ${parts.join(', ')}` : ''}`;
+    const exempt = ledger.exemptRows ? ` (${ledger.exemptRows} spec/ref rows exempt)` : '';
+    return `${ledger.rows.length} claim rows${exempt}, ${ledger.resolvedPointers} pointers resolved, ${ledger.independentOrigins} independent origins, ${ledger.blocking} blocking, ${ledger.warnings} warning(s)${parts.length ? `: ${parts.join(', ')}` : ''}`;
 }

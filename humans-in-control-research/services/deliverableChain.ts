@@ -28,6 +28,7 @@
  */
 
 import { runArtifactChain, type ChainContext, type ChainResult, type StageId } from './artifactChain';
+import { repairArtifact, type RepairResult } from './artifactRepair';
 
 export interface DeliverableLike {
     id: string;
@@ -97,8 +98,11 @@ export function fromChainSubjects<T extends DeliverableLike>(items: T[], subject
     });
 }
 
-/** Stages that do not apply to a non-deck artifact. */
-export const DELIVERABLE_SKIP: StageId[] = ['deckQuality'];
+/**
+ * Stages that do not apply to a non-deck artifact. `titles` is the slide Partner Test; a
+ * persona's name or a theme's label is not a slide title.
+ */
+export const DELIVERABLE_SKIP: StageId[] = ['deckQuality', 'titles'];
 
 export interface DeliverableChainOutcome<T extends DeliverableLike> {
     items: T[];
@@ -137,4 +141,45 @@ export function deliverableChainSummary<T extends DeliverableLike>(
     const bound = outcome.result.bindReport?.bound.length ?? 0;
     return `${outcome.items.length} deliverable(s) [${types.join(', ')}], pass=${outcome.result.pass}, `
         + `${bound} pointer(s) bound, ${violations} evidence violation(s), ${outcome.changedIds.length} changed`;
+}
+
+export interface GatedDeliverablesOutcome<T extends DeliverableLike> extends DeliverableChainOutcome<T> {
+    /** Null when the chain passed or had no repair instruction. */
+    repair: RepairResult<ChainSubject> | null;
+    /** The chain result the UI should trust: post-repair when a repair ran. */
+    finalResult: ChainResult<ChainSubject>;
+}
+
+/**
+ * 2026-10-01 (plan Stage 2.1): the deliverable-block path gets the SAME repair the deck
+ * path has. Until now `runDeliverableChain` inspected a persona set and logged what it
+ * found; nothing acted on it. This runs the chain, repairs through the narrow-never-source
+ * edit contract when the chain refused, re-checks, and maps the result back onto the items.
+ */
+export async function runGatedDeliverables<T extends DeliverableLike>(
+    items: T[],
+    ctx: Omit<ChainContext, 'skip'> & { skip?: StageId[] },
+): Promise<GatedDeliverablesOutcome<T>> {
+    const subjects = toChainSubjects(items);
+    const chainCtx: ChainContext = {
+        ...ctx,
+        artifactType: ctx.artifactType || 'deliverable',
+        skip: Array.from(new Set([...(ctx.skip || []), ...DELIVERABLE_SKIP])),
+    };
+    const result = await runArtifactChain(subjects, chainCtx);
+    let repair: RepairResult<ChainSubject> | null = null;
+    let finalSubjects = result.slides as ChainSubject[];
+    if (!result.pass && result.repairInstruction) {
+        try {
+            repair = await repairArtifact(result.slides as ChainSubject[], result, chainCtx);
+            if (repair.rounds.length) finalSubjects = repair.slides;
+        } catch (e: any) {
+            console.warn('[deliverable-chain] repair failed (non-fatal):', e?.message || e);
+        }
+    }
+    const mapped = fromChainSubjects(items, finalSubjects);
+    const changedIds = mapped
+        .filter((m, i) => m !== items[i] && JSON.stringify(m.data) !== JSON.stringify(items[i]?.data))
+        .map(m => String(m.id));
+    return { items: mapped, result, changedIds, repair, finalResult: repair?.finalChain || result };
 }

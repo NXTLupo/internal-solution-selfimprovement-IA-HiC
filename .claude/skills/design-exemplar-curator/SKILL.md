@@ -2,7 +2,7 @@
 name: design-exemplar-curator
 invocation: model
 version: 1.0
-description: Curated reference library skill that matches a prototype brief's concept and brand hashtag to the highest-signal Behance exemplars and selects ONE Verbalized-Sampling framing (α-ε) per match. Loaded by Stage 3 (Visual Direction) and Stage 4 (Prototype Coder) of the prototype pipeline. Replaces the "clean modern" aesthetic placeholder with named, evidence-backed visual references that ship into the coder's system prompt as STUDY-THESE images + framing rules. The retrieval is hashtag-aware — #NXT-radical loads framing ε, #NXT-convention loads α/δ, #NU-institutional swaps to NU brand and loads NU α/γ. Used wherever a brief's `visual_direction` or `interaction_choreography` needs grounding in real-world design quality rather than the LLM's typicality bias.
+description: Curated reference library skill that matches a prototype brief's concept and brand hashtag to the highest-signal Behance exemplars and selects ONE Verbalized-Sampling framing (α-ε) per match. Loaded by Stage 3 (Visual Direction) and Stage 4 (Prototype Coder) of the prototype pipeline. Replaces the "clean modern" aesthetic placeholder with named, evidence-backed visual references that ship into the coder's system prompt as STUDY-THESE images + framing rules. The retrieval is hashtag-aware — #NXT-radical loads framing ε, #NXT-convention loads α/δ, #NU-institutional swaps to NU brand and loads NU α/γ, #DECIEM swaps to the DECIEM brand and loads framing α. Used wherever a brief's `visual_direction` or `interaction_choreography` needs grounding in real-world design quality rather than the LLM's typicality bias.
 trigger: load at Stage 3 (Visual Direction) and Stage 4 (Prototype Coder); also at Brief Generator Pass 2 when `visual_direction.exemplar_refs` is empty
 inputs: brief.concept, brief.interaction_pattern, brief.aesthetic_keywords, brief.committed_frame, brief.brand_hashtag
 outputs: brief.visual_direction.exemplar_refs (array of {exemplar_id, framing_letter, rationale}), Stage 4 system-prompt injection block
@@ -28,7 +28,7 @@ The skill expects a `brief` object with at least:
   interaction_pattern: string;        // e.g., "multi-identity-reasoning", "schedule-negotiation"
   aesthetic_keywords?: string[];      // e.g., ["editorial-dark", "warm-institutional"]
   committed_frame: 'radical' | 'convention-honoring' | 'unspecified';  // Stage 1 VS commitment
-  brand_hashtag: '#NXT' | '#NU' | '#NXT-radical' | '#NXT-convention' | '#NU-institutional' | '#NU-editorial';
+  brand_hashtag: '#NXT' | '#NU' | '#NXT-radical' | '#NXT-convention' | '#NU-institutional' | '#NU-editorial' | '#DECIEM';
 }
 ```
 
@@ -58,6 +58,7 @@ The skill expects a `brief` object with at least:
    - `#NU-institutional` → swap to NU brand, framing **α** (editorial-institutional) or **γ** (density)
    - `#NU-editorial` → framing **δ** (color-restraint) in NU palette
    - `#NU` (default) → NU framing **α** (editorial-institutional)
+   - `#DECIEM` → DECIEM brand, framing **α** (typography-led): the system's identity is carried by Poppins Bold uppercase type on black / white, so α fits; δ would mute the pops. DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM
 
 6. **Compose the rationale** — One-sentence rationale per match: why this exemplar, why this framing. Format: `"behance-{id} / framing {letter} — {concept-bridge rationale}"`.
 
@@ -149,7 +150,7 @@ systemPrompt = exemplarBlock + '\n\n' + originalSystemPrompt;
 
 1. **No `aesthetic_keywords: "clean modern"`** — the brief generator must replace vague aesthetic strings with named exemplar references.
 2. **No empty `exemplar_refs`** — if zero matches above the appreciations floor, the curator returns the global top 3 across all tags rather than nothing. Empty refs would let the coder default back to typicality bias.
-3. **Brand consistency** — if `brand_hashtag` is `#NU-*`, the curator MUST pick framings explicitly authored for NU (the `nu` track on each Pattern Translation page). It MUST NOT pick the NXT track and expect the coder to translate.
+3. **Brand consistency** — if `brand_hashtag` is `#NU-*`, the curator MUST pick framings explicitly authored for NU (the `nu` track on each Pattern Translation page). It MUST NOT pick the NXT track and expect the coder to translate. For `#DECIEM`, until a `deciem` track is authored, the curator passes the DECIEM design-language commitment in the Stage 4 block and the coder repaints from `/api/design-tokens?brand=DECIEM`.
 4. **Frame discipline** — `committed_frame: radical` MUST select framing ε from every matched exemplar. If ε is not authored for a particular exemplar (only some are radical-capable), the curator drops that exemplar and pulls the next-best.
 
 ## Failure modes & recovery

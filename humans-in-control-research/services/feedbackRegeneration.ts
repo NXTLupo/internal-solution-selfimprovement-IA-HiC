@@ -11,7 +11,7 @@
  * Created 2026-05-22 as part of the self-improvement loop, Phase 2.
  */
 
-import { OPUS_CAP_ACTIVE } from './aiRouter';
+import { OPUS_CAP_ACTIVE, artifactModelFor, applyAnthropicRequestDefaults, chooseUtilityModel, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -81,7 +81,7 @@ Return only the instruction text. No preamble. No quotes.`;
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-3.5-flash',
+                model: chooseUtilityModel('feedback-summarize').model,
                 contents: prompt,
                 config: { temperature: 0.2, maxOutputTokens: 250 },
             }),
@@ -94,11 +94,11 @@ Return only the instruction text. No preamble. No quotes.`;
         const fbResp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: 'claude-haiku-4-5-20251001',
+            body: JSON.stringify(applyAnthropicRequestDefaults({
+                model: CLAUDE_STRUCTURED_MODEL,   // _utility fallback (Stage 4.3 / D7); Haiku 4.5 literal retired
                 max_tokens: 200,
                 messages: [{ role: 'user', content: prompt }],
-            }),
+            }, { kind: 'utility' })),
         });
         if (!fbResp.ok) return feedbackText;
         const data = await fbResp.json();
@@ -141,11 +141,11 @@ CONSTRAINTS:
         const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: 'claude-opus-4-8',
+            body: JSON.stringify(applyAnthropicRequestDefaults({
+                model: artifactModelFor('feedback-regeneration'),
                 max_tokens: 8000,
                 messages: [{ role: 'user', content: prompt }],
-            }),
+            }, { kind: 'feedback-regeneration' })),
         });
         if (!resp.ok) return null;
         const data = await resp.json();
@@ -158,7 +158,7 @@ CONSTRAINTS:
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-3.5-flash',
+                model: chooseUtilityModel('feedback-regeneration').model,
                 contents: prompt,
                 config: { temperature: 0.2, maxOutputTokens: 8000 },
             }),

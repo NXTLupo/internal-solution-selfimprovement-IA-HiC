@@ -333,16 +333,4 @@ export function getLensPromptSegment(lens: AnalyticalLens): string {
     return `\n\n${config.specializedPromptSegment}`;
 }
 
-/**
- * Get the persona extension field definitions for a lens.
- */
-export function getLensPersonaExtensions(lens: AnalyticalLens) {
-    return LENS_CONFIGS[lens].personaExtensions;
-}
 
-/**
- * Get the default journey stages for a lens.
- */
-export function getLensJourneyStages(lens: AnalyticalLens) {
-    return LENS_CONFIGS[lens].journeyStages;
-}

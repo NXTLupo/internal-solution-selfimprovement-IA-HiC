@@ -84,6 +84,15 @@ const BRAND_STYLE = {
         'Layout: editorial hierarchy, generous whitespace, hairline rules. Reads as a research librarian, not a consumer app.',
         'Forbidden: editorial-brutalist all-caps, chartreuse, decorative gradients, playful illustration, generic Copilot shell.',
     ].join(' '),
+    // 2026-10-01 - DECIEM (The Abnormal Beauty Company), the third brand mode (brands.ts deciemBrand).
+    deciem: [
+        'A user interface design rendered in the DECIEM brand (The Abnormal Beauty Company): black and white editorial canvases, bold minimal, product-literal.',
+        'Typography: Poppins Bold UPPERCASE headlines, Josefin Sans body text, Poppins Bold uppercase labels, Nunito for tables and numerics.',
+        'Color palette: pure black #000000 title surfaces with white type, white #FFFFFF body surfaces with black type, pink #FB48C4 as the primary accent, cyan #00FACC, purple #8A69D4 and orange #FF6C2F as single pops per block.',
+        'Geometry: radius 0, thin 1px line-art, no shadows, no gradients, no rail, no dot mark.',
+        'Layout: one dominant element per block, generous black or white field, hairline rules.',
+        'Forbidden: chartreuse, Huskies red, rainbow use of all pops at once, gradients, rounded SaaS cards, generic Copilot shell.',
+    ].join(' '),
 };
 
 const NO_TEXT_RULE = 'CRITICAL: do not include any readable text, letters, words, or numbers in the image. Text rendering must remain a post-overlay step. The image must contain ZERO readable characters.';
@@ -185,7 +194,7 @@ async function main() {
     if (args.only) exemplars = exemplars.filter(e => e.exemplar_id === args.only);
     if (args.limit) exemplars = exemplars.slice(0, parseInt(args.limit, 10));
 
-    const brands = args.brand ? [args.brand] : ['nxt', 'nu'];
+    const brands = args.brand ? [args.brand] : ['nxt', 'nu', 'deciem'];
 
     console.log(`Generating ${exemplars.length} exemplars × ${brands.length} brand(s) = ${exemplars.length * brands.length} images`);
     console.log(`Estimated cost: ~$${(exemplars.length * brands.length * 0.04).toFixed(2)}`);

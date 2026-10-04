@@ -35,7 +35,8 @@ import { getBrand, type BrandId } from './slideTemplates/brands';
 // re-implementation (goldPreviews) can never drift/clamp away from the export
 // again. The renderTemplate() React path is kept ONLY as a fallback if stage HTML
 // generation throws. Export pipeline is unchanged (still native + editable).
-import { slideDataToStageHtml } from '../services/slideToStageHtml';
+import { slideDataToStageHtml, type DeckPosition } from '../services/slideToStageHtml';
+import { DeckPositionContext } from './slideTemplates/web';
 import { USER_IMAGE_SLOTS, suggestPrompt } from '../services/userImagery';
 // WS-4 inline text editing (2026-08-14, v2 program; owner UX revision same day:
 // TRUE inline, no card flip). Clicking text on the preview matches it back to
@@ -57,7 +58,9 @@ export interface SlideData {
      *  - the visible `evidenceGap` field stays unset so no badge ships. Carried so
      *  the chat composer can attach audit data without a tsc excess-property error. */
     _evidenceGap?: { summary?: string; issues?: any[] };
-    /** Visual brand: 'nxt' (default) or 'nu' (Northeastern). Set by hashtag detection in the parser. */
+    /** Visual brand id: 'nxt' (default), 'nu' (Northeastern, #NU) or 'deciem' (The Abnormal Beauty
+     *  Company, #deciem). Set by hashtag detection in the parser; resolved to its token set via
+     *  getBrand() so every template renderer switches on the id, never on a font or hex. */
     brand?: BrandId;
     /** SLIDES-deck archetype (template=slides:*) raw payload, handed to composeSlide untouched. */
     composerPayload?: any;
@@ -116,8 +119,38 @@ export interface SlideData {
     timestamp: number;
 }
 
+/**
+ * The chat card's slide box. 2026-10-03 live: the old fixed 420px scale clipped the right edge whenever the chat
+ * column (or a short reply's shrink-wrapped bubble) was narrower than 420px. The box measures its own width and
+ * scales the stage to whichever is smaller, the box or 420px, so the whole slide is always visible.
+ */
+const ScaledSlideBox: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const ref = React.useRef<HTMLDivElement>(null);
+    const [boxW, setBoxW] = React.useState(420);
+    React.useEffect(() => {
+        const el = ref.current;
+        if (!el || typeof ResizeObserver === 'undefined') return;
+        const ro = new ResizeObserver(entries => { const w = entries[0]?.contentRect?.width; if (w && w > 0) setBoxW(w); });
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
+    const scale = Math.min(Math.min(boxW, 420) / SLIDE_W, 1);
+    return (
+        <div ref={ref} style={{ width: '100%', height: SLIDE_H * scale, position: 'relative', overflow: 'hidden' }}>
+            <div style={{ width: SLIDE_W, height: SLIDE_H, transform: `scale(${scale})`, transformOrigin: 'top left', position: 'absolute', top: 0, left: 0 }}>
+                {children}
+            </div>
+        </div>
+    );
+};
+
 interface Props {
     slide: SlideData;
+    /** Round 2 (2026-10-01): the slide's 0-based position in its deck and the count of section dividers
+     *  before it. Drives the DECIEM body-art rotation and divider pop-fill ordinal; the export loop
+     *  passes the same positions so preview == export. Optional: absent -> title-hash picks. */
+    deckIndex?: number;
+    dividerOrdinal?: number;
     onApprove: (slide: SlideData) => void;
     onReject: (slide: SlideData) => void;
     onGenerateVisual: (slide: SlideData, prompt: string) => void;
@@ -272,7 +305,11 @@ const GeneratingOverlay: React.FC = () => (
 
 export const SlideCanvas: React.FC<Props> = ({
     slide, onApprove, onReject, onGenerateVisual, onEditTitle, isGeneratingVisual, onAuthorImagery, generatingSlotKeys, onUpdateSlide,
+    deckIndex, dividerOrdinal,
 }) => {
+    // Round 2: the deck position rides into EVERY stage render of this card (preview iframe, PNG
+    // capture, single-slide export) and into the React fallback via DeckPositionContext.
+    const deckPos: DeckPosition = React.useMemo(() => ({ deckIndex, dividerOrdinal }), [deckIndex, dividerOrdinal]);
     const [editingTitle, setEditingTitle] = useState(false);
     const [titleDraft, setTitleDraft] = useState(slide.title);
     // WS-4 inline text editing (owner UX 2026-08-14: TYPE IN PLACE). Clicking a
@@ -400,8 +437,8 @@ export const SlideCanvas: React.FC<Props> = ({
     // so the iframe only re-renders when the slide changes. Falls back to the React
     // template renderer only if stage generation throws (defensive, never silent).
     const stageHtml = React.useMemo(() => {
-        try { return slideDataToStageHtml(slide as any); } catch (e) { console.warn('[SlideCanvas] stage HTML failed; falling back to React preview:', e); return ''; }
-    }, [slide]);
+        try { return slideDataToStageHtml(slide as any, deckPos); } catch (e) { console.warn('[SlideCanvas] stage HTML failed; falling back to React preview:', e); return ''; }
+    }, [slide, deckPos]);
 
     // keyframes for the slot progress overlay (injected once per document)
     React.useEffect(() => {
@@ -425,7 +462,7 @@ export const SlideCanvas: React.FC<Props> = ({
                     onLoad={attachClickToEdit}
                     style={{ width: STAGE_W, height: STAGE_H, border: 0, transform: `scale(${SLIDE_W / STAGE_W})`, transformOrigin: 'top left', pointerEvents: textEditable ? 'auto' : 'none', display: 'block' }}
                 />
-            ) : renderTemplate(slide, !!isGeneratingVisual)}
+            ) : <DeckPositionContext.Provider value={deckPos}>{renderTemplate(slide, !!isGeneratingVisual)}</DeckPositionContext.Provider>}
             {/* Persona image-generation overlay (iframe path: shown at card level) */}
             {isGeneratingVisual && slide.template === 'persona-card' && (
                 <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.6)', zIndex: 4 }}><GeneratingOverlay /></div>
@@ -559,7 +596,7 @@ export const SlideCanvas: React.FC<Props> = ({
         try {
             const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
             const { exportGoldPptx } = await import('../services/goldArtifact');
-            const stageHtml = slideDataToStageHtml(slide as any);
+            const stageHtml = slideDataToStageHtml(slide as any, deckPos);
             await exportGoldPptx(stageHtml, `${slide.template}.pptx`);
             setExporting(false);
             return;
@@ -629,7 +666,7 @@ export const SlideCanvas: React.FC<Props> = ({
     // CSS fidelity), then html2canvas the iframe's #stage. This keeps PNG/PDF
     // pixel-identical to both the preview iframe and the PPTX export.
     const captureSlideAtNaturalSize = async (): Promise<HTMLCanvasElement | null> => {
-        const html = stageHtml || (() => { try { return slideDataToStageHtml(slide as any); } catch { return ''; } })();
+        const html = stageHtml || (() => { try { return slideDataToStageHtml(slide as any, deckPos); } catch { return ''; } })();
         if (!html) return null;
         const iframe = document.createElement('iframe');
         Object.assign(iframe.style, {
@@ -786,22 +823,9 @@ export const SlideCanvas: React.FC<Props> = ({
                         </div>
                     )}
                 </div>
-            ) : (() => {
-                const scale = Math.min(420 / SLIDE_W, 1);
-                const visibleH = SLIDE_H * scale;
-                return (
-                    <div style={{ width: '100%', height: visibleH, position: 'relative', overflow: 'hidden' }}>
-                        <div style={{
-                            width: SLIDE_W, height: SLIDE_H,
-                            transform: `scale(${scale})`,
-                            transformOrigin: 'top left',
-                            position: 'absolute', top: 0, left: 0,
-                        }}>
-                            {slideInternals}
-                        </div>
-                    </div>
-                );
-            })()}
+            ) : (
+                <ScaledSlideBox>{slideInternals}</ScaledSlideBox>
+            )}
 
             {/* WS-4: click-to-edit toolbar (card view) - sits directly under the
                 slide so the highlighted element and its editor read together. */}

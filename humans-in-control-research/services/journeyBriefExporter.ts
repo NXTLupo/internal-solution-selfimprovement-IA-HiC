@@ -21,6 +21,8 @@
 // diagnostic title). Flash flattens; Opus/Sonnet discriminate.
 
 import { parseJSONWithRepair } from './aiOutputRepair';
+import { artifactModelFor, applyAnthropicRequestDefaults } from './aiRouter';
+import type { BrandId } from '../components/slideTemplates/brands';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -46,7 +48,7 @@ export interface JourneyBriefInput {
     /** The rendered journey HTML (from the JM service) OR the structured journey JSON. */
     journeyHtml: string;
     researchGoal: string;
-    brand: 'nxt' | 'nu';
+    brand: BrandId;
     /** Reasoning model to use; defaults to Opus 4.7 with Sonnet fallback. */
     model?: string;
     proxyBase?: string;
@@ -107,18 +109,18 @@ export async function generateJourneyBrief(input: JourneyBriefInput): Promise<Jo
     // fallback; never Flash for distillation. Routed through the proxy's
     // Anthropic endpoint (which now has its own per-provider semaphore +
     // the 429 fallback added 2026-05-26).
-    const model = input.model || 'claude-opus-4-8';
+    const model = input.model || artifactModelFor('journey-brief');
 
     async function callReasoning(useModel: string): Promise<string> {
         const resp = await fetch(`${proxyBase}/api/ai/anthropic`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+            body: JSON.stringify(applyAnthropicRequestDefaults({
                 model: useModel,
                 max_tokens: 4096,
                 system: BRIEF_SYSTEM,
                 messages: [{ role: 'user', content: userPrompt }],
-            }),
+            }, { kind: 'journey-brief' })),
             signal: AbortSignal.timeout(120_000),
         });
         if (!resp.ok) {

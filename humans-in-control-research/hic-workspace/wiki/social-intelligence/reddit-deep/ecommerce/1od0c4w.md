@@ -8,13 +8,13 @@ title: "Learnings after working with marketing agencies"
 author: "Aggravating_Emu_7190"
 date: "2025-10-22T06:00:38.000Z"
 score: 11
-upvote_ratio: 0.82
+upvote_ratio: 0.79
 num_comments: 33
 flair: ""
-extracted_at: "2026-06-24T22:13:57.308Z"
+extracted_at: "2026-08-25T23:08:27.671Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c0"
     char_span: [0, 2199]
@@ -43,7 +43,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c4"]
     token_count: 479
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c4"
-    char_span: [8539, 10636]
+    char_span: [8539, 10637]
     sentence_count: 20
     key_terms: [design, agencies, templates, good, agency, "we're", contractors, cro]
     concepts: [design, agencies, templates, agency, contractors]
@@ -51,48 +51,48 @@ chunks:
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c5"
-    char_span: [10638, 12722]
+    char_span: [10639, 12723]
     sentence_count: 17
     key_terms: [people, whatsapp, profit, understanding, "don't", pearlsswine, ltv, team]
     concepts: [people, whatsapp, understanding, profit, pearlsswine]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c6"
-    char_span: [12724, 14337]
+    char_span: [12725, 14338]
     sentence_count: 10
     key_terms: [example, total, ltv, agencies, boutique, agency, revenue-based, profit-based]
     concepts: [example, total, agencies, boutique, revenue-based]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c7"
-    char_span: [14339, 16671]
+    char_span: [14340, 16672]
     sentence_count: 15
     key_terms: [agency, revenue, segmentation, automations, email, list, creative, retainer]
     concepts: [agency, segmentation, automations, revenue, email]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c8"
-    char_span: [16448, 17185]
+    char_span: [16449, 17186]
     sentence_count: 6
     key_terms: [etc, per, founder-story, calendaring, testimonial, commercial, andromeda, creatives]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c9"
-    char_span: [17187, 17835]
+    char_span: [17188, 17836]
     sentence_count: 7
     key_terms: [agencies, "don't", fast, everything, marketing, spend, grow, too]
     concepts: [agencies, "don't", everything, marketing, spend]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c10"
-    char_span: [17837, 20017]
+    char_span: [17838, 20018]
     sentence_count: 18
     key_terms: [higher, commission, because, agency, based, costs, model, sales]
     concepts: [commission, higher, because, agency, conversions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1od0c4w.md#c11"
-    char_span: [19779, 20920]
+    char_span: [19780, 20921]
     sentence_count: 9
     key_terms: [roas, commission, margin, model, scale, kevinfromadamplify, remarkabletwo5927, "i'm"]
     concepts: [commission, margin, model, scale]
@@ -176,7 +176,7 @@ If you have other learnings to add to this, please chime in. I'm still trying to
 
 ## Comments
 
-- **mtgentry** (5↑): Some general thoughts. When it comes to creative work, I often see agencies make beautiful “aspirational” work that the CMO loves—but the in-house team can’t actually  execute on. For example, my old agency in LA worked with a fashion retailer and built out a full system: brand guidelines, landing pages, detailed photo direction, everything. But the clients internal team in Texas couldn’t maintain that same level of quality. Not a good result IMO.
+- **mtgentry** (6↑): Some general thoughts. When it comes to creative work, I often see agencies make beautiful “aspirational” work that the CMO loves—but the in-house team can’t actually  execute on. For example, my old agency in LA worked with a fashion retailer and built out a full system: brand guidelines, landing pages, detailed photo direction, everything. But the clients internal team in Texas couldn’t maintain that same level of quality. Not a good result IMO.
 
 For a smaller company like yours, I’d still try to hire the best agency you can afford to create the core assets—landing page templates, ad templates, design systems, etc. Just make sure the creative is built in a way that cheaper contractors can reuse it later without breaking it.
 

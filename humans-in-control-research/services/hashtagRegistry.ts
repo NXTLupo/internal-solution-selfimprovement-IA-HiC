@@ -10,6 +10,41 @@
 // When adding a new directive, register it here FIRST. The autocomplete,
 // help artifact, and analytics all read from this list.
 
+import { ARTIFACT_CATALOG, catalogEntryFor } from './artifactCatalog';
+import { getBrand, type BrandId } from '../components/slideTemplates/brands';
+
+// Stage 6.1 (2026-10-01, finding A7): this registry is the HUMAN COPY layer (name, summary, description,
+// examples) over the artifact catalog. Every artifact directive's `aliases` are generated from
+// services/artifactCatalog.ts at module load (see `withCatalogAliases` at the bottom), and the two brand
+// entries read their colors and typefaces from the token mirror (components/slideTemplates/brands.ts,
+// which mirrors /api/design-tokens), never from literal font or hex strings in this file.
+
+/** Reader-facing brand copy derived from the token mirror, so a Figma mode change never leaves stale copy here. */
+function brandCopy(id: BrandId): { summary: string; description: string } {
+    const b = getBrand(id);
+    const fonts = Array.from(new Set([b.FONT_DISPLAY, b.FONT_BODY, b.FONT_MONO].filter(Boolean)));
+    const typeLine = fonts.length === 1
+        ? `single-typeface ${fonts[0]} (weight and size carry hierarchy)`
+        : `${b.FONT_DISPLAY} display / ${b.FONT_BODY} body / ${b.FONT_MONO} mono`;
+    if (id === 'deciem') {
+        // 2026-10-01 - DECIEM (The Abnormal Beauty Company), PPTX-template-sourced tokens
+        return {
+            summary: `DECIEM brand: black and white canvases, ${b.FONT_DISPLAY} Bold uppercase headlines and labels, ${b.FONT_BODY} body, ${b.FONT_MONO} for tables and data, pink / cyan / purple pops from the DECIEM template; applies to any deliverable hashtag.`,
+            description: `Modifier hashtag for the DECIEM (The Abnormal Beauty Company) variant. Tokens from the DECIEM PowerPoint template: ink #${b.INK}, paper #${b.WHITE}, accent #${b.CHARTREUSE}, cyan #${b.CYAN}, purple #${b.ACCENT_COOL}, orange #${b.ACCENT_WARN}; ${b.FONT_DISPLAY} Bold uppercase for every headline, subtitle and label, ${b.FONT_BODY} body, ${b.FONT_MONO} for tables, data and meta; black text on the pink accent. Combine with #slides, #personas, #report, #prd, #journey, #brief or any other deliverable hashtag.`,
+        };
+    }
+    if (id === 'nu') {
+        return {
+            summary: `Apply Northeastern University branding (accent #${b.ACCENT_WARN} + ${fonts.length === 1 ? fonts[0] : b.FONT_DISPLAY}).`,
+            description: `Modifier hashtag for the Northeastern variant. Tokens from the NU mode of the NXT design system: rail #${b.RAIL}, accent #${b.ACCENT_WARN}, cool accent #${b.ACCENT_COOL}, ${typeLine}; white text on the accent block. Used for any deliverable bound for NU stakeholders.`,
+        };
+    }
+    return {
+        summary: `Apply NXT Humans branding (rail #${b.RAIL} + accent #${b.CHARTREUSE} + ${b.FONT_DISPLAY}). Default when no brand is named.`,
+        description: `Modifier hashtag - combines with experience builders and consulting deliverables. Tokens from the NXT mode of the design system: rail #${b.RAIL}, accent #${b.CHARTREUSE}, cool accent #${b.ACCENT_COOL}, ${typeLine}. Minimal 2-4px radius, geometric, restrained.`,
+    };
+}
+
 export type DirectiveCategory =
     | 'experience-builder'       // produces interactive prototypes / artifacts
     | 'consulting-deliverable'   // produces consulting-grade content
@@ -49,7 +84,7 @@ export interface HashtagDirective {
     outputType?: 'prototype' | 'html_artifact' | 'presentation' | 'recommendation_tiles' | 'library_list' | 'chat_response' | 'freeform_slide' | 'slide_template';
 }
 
-export const DIRECTIVES: HashtagDirective[] = [
+const DIRECTIVES_COPY: HashtagDirective[] = [
     // ────────────────────────────────────────────────────────────────────
     // Experience builders (produce interactive output you launch in a window)
     // ────────────────────────────────────────────────────────────────────
@@ -498,6 +533,20 @@ export const DIRECTIVES: HashtagDirective[] = [
         outputType: 'library_list',
     },
 
+    {
+        id: '#questionnaire',
+        name: 'Stakeholder Questionnaire',
+        category: 'consulting-deliverable',
+        summary: 'Ask the people who hold the answers the corpus cannot settle: a numbered, role-addressed question set as an HTML artifact.',
+        description: 'E2.5 (2026-08-21). The artifact for a decision the evidence cannot close. Opens with the decision at stake, then 8-15 numbered questions grouped by theme; each names the role who holds the answer, says why the corpus cannot answer it (nearest evidence cited by pointer), and offers the answer format. Closes with how the answers change the recommendation. Brand modifiers apply.',
+        combinesWith: ['#NXT', '#NU'],
+        examples: ['#questionnaire for the registrar on transfer-credit delays #NU', '#questions the advancement team must answer before the CRM decision'],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-08-21',
+        outputType: 'html_artifact',
+    },
+
     // ────────────────────────────────────────────────────────────────────
     // Edit / refine
     // ────────────────────────────────────────────────────────────────────
@@ -584,8 +633,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#NXT',
         name: 'NXT Brand (default)',
         category: 'system',
-        summary: 'Apply NXT Humans branding (near-black + chartreuse + Bebas Neue). Default when no brand is named.',
-        description: 'Modifier hashtag - combines with experience builders and consulting deliverables. NXT design system: foundation neutrals + chartreuse #B8B800 as primary accent + Bebas Neue display / Archivo body / JetBrains Mono code. Sharp 2px corners, geometric, restrained.',
+        ...brandCopy('nxt'),
         examples: ['#proto first-year coach #NXT', '#brief ... #NXT'],
         requiresContext: false,
         usesVerbalizedSampling: false,
@@ -595,12 +643,21 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#NU',
         name: 'Northeastern University Brand',
         category: 'system',
-        summary: 'Apply Northeastern University branding (Pantone 200 #C8102E + Roboto Condensed + Open Sans).',
-        description: 'Modifier hashtag for the Northeastern variant. Pantone 200 red (#C8102E - never #C00000), Roboto Condensed for display, Open Sans for body, asymmetric editorial layouts. Used for any deliverable bound for NU stakeholders.',
+        ...brandCopy('nu'),
         examples: ['#proto ... #NU', '#brief ... #NU', '#presentation ... #NU'],
         requiresContext: false,
         usesVerbalizedSampling: false,
         introduced: '2026-05-11',
+    },
+    {
+        id: '#DECIEM',
+        name: 'DECIEM Brand (The Abnormal Beauty Company)',
+        category: 'system',
+        ...brandCopy('deciem'),
+        examples: ['#slides ... #DECIEM', '#personas ... #DECIEM', '#report ... #DECIEM', '#prd ... #DECIEM', '#presentation ... #DECIEM'],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-10-01',
     },
 
     // ────────────────────────────────────────────────────────────────────
@@ -689,6 +746,29 @@ export const DIRECTIVES: HashtagDirective[] = [
         outputType: 'chat_response',
     },
 ];
+
+/**
+ * GENERATED ALIASES: every artifact directive's `aliases` come from the catalog entry its id resolves to
+ * (all catalog aliases except the registry id itself). Browse / edit / system entries keep their own copy.
+ */
+function withCatalogAliases(list: HashtagDirective[]): HashtagDirective[] {
+    return list.map(d => {
+        if (d.category === 'browse' || d.category === 'edit-refine' || d.category === 'system') return d;
+        const entry = catalogEntryFor(d.id);
+        if (!entry) return d;
+        const own = d.id.toLowerCase();
+        const aliases = entry.aliases.map(a => a.toLowerCase()).filter(a => a !== own);
+        return { ...d, aliases };
+    });
+}
+
+export const DIRECTIVES: HashtagDirective[] = withCatalogAliases(DIRECTIVES_COPY);
+
+/** Catalog ids that have no human-copy entry here (the coverage test asserts this stays empty). */
+export function catalogIdsMissingFromRegistry(): string[] {
+    const ids = new Set(DIRECTIVES.map(d => (catalogEntryFor(d.id)?.id) || ''));
+    return ARTIFACT_CATALOG.filter(e => e.modality !== 'multi' && !ids.has(e.id)).map(e => e.id);
+}
 
 export function findDirective(idOrText: string): HashtagDirective | undefined {
     const raw = idOrText.toLowerCase().trim();

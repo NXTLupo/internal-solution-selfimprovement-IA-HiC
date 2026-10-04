@@ -8,47 +8,47 @@ title: "E-commerce Industry News Recap 🔥 Week of May 11th, 2026"
 author: "adventurepaul"
 date: "2026-05-11T20:12:48.000Z"
 score: 13
-upvote_ratio: 0.94
+upvote_ratio: 1
 num_comments: 1
 flair: "📰 News"
-extracted_at: "2026-06-24T22:13:57.310Z"
+extracted_at: "2026-08-25T23:08:27.674Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c0"
-    char_span: [0, 526]
+    char_span: [0, 527]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, comments, industry, posted, recap, week, adventurepaul]
     concepts: [e-commerce, ecommerce, comments, industry, posted]
-    token_count: 146
+    token_count: 147
     sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c1"
-    char_span: [528, 3105]
+    char_span: [529, 3106]
     sentence_count: 11
     key_terms: [amazon, countries, logistics, new, services, "organization's", international, manufacturing]
     concepts: [amazon, countries, logistics, services, "organization's"]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c2"
-    char_span: [2815, 5325]
+    char_span: [2816, 5326]
     sentence_count: 13
     key_terms: [store, chatgpt, shopify, ads, like, new, product, advertisers]
     concepts: [store, chatgpt, shopify, advertisers, product]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c3"
-    char_span: [4979, 7433]
+    char_span: [4980, 7434]
     sentence_count: 10
     key_terms: [agent, shopping, company, meta, product, updates, advertisers, lets]
     concepts: [shopping, agent, company, product, updates]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c4"
-    char_span: [7090, 9593]
+    char_span: [7091, 9594]
     sentence_count: 6
     key_terms: [consumers, new, product, running, openai, discretionary, ceo, low-income]
     concepts: [consumers, discretionary, product, running, openai]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c5"
-    char_span: [9282, 10252]
+    char_span: [9283, 10253]
     sentence_count: 4
     key_terms: [spirit, campaign, airline, already, started, effort, letsbuyspiritair-com, going]
     concepts: [spirit, campaign, airline, already, started]

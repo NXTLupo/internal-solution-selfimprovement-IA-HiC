@@ -75,7 +75,7 @@ export interface MethodExecutor {
 // RESEARCH METHOD REGISTRY
 // ================================================================
 
-export const RESEARCH_METHODS: ResearchMethod[] = [
+const RESEARCH_METHODS: ResearchMethod[] = [
     {
         id: 'general_synthesis',
         name: 'General Research Synthesis',
@@ -189,7 +189,3 @@ export const RESEARCH_METHODS: ResearchMethod[] = [
     },
 ];
 
-/** Get method definition by ID */
-export function getMethodById(id: string): ResearchMethod | undefined {
-    return RESEARCH_METHODS.find(m => m.id === id);
-}

@@ -97,7 +97,7 @@ let _activeEpoch: { id: number; baseline_vector: Record<string, number>; target_
 
 /** Bind the tracker to the active epoch. Called from the SkillOpt applier
  *  after an edit lands; the next deliverables get tagged with this epoch_id. */
-export function bindActiveEpoch(rec: EpochRecord): void {
+function bindActiveEpoch(rec: EpochRecord): void {
     _activeEpoch = {
         id: rec.epoch_id,
         baseline_vector: rec.baseline_vector,
@@ -177,7 +177,7 @@ export async function scoreEpochOutcome(
  *    - dominate_rate > 60%: 'keep' - the edit demonstrably improved target
  *      dims without regressing floor dims
  *    - otherwise: 'human-review' - ambiguous signal */
-export async function computeEpochVerdict(epochId: number): Promise<EpochVerdict | null> {
+async function computeEpochVerdict(epochId: number): Promise<EpochVerdict | null> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/epochs/${epochId}/outcomes`, {
             signal: AbortSignal.timeout(5000),

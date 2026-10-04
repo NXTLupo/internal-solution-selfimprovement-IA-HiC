@@ -6,7 +6,7 @@
  * 2026-07-05 (heuristic-audit uplift Phase 0): model resolution goes through the
  * ONE routing authority. The heuristic audit is artifact-class generation, so the
  * default resolves via artifactModelFor('heuristic-audit') (evidence tier ->
- * claude-opus-4-8 while the cap is lifted; cap-aware fallback otherwise). An
+ * the Claude reasoning model while the cap is lifted; cap-aware fallback otherwise). An
  * explicit vision preference still wins, but only if that model is
  * vision-capable per MODEL_REGISTRY. NOTE: the plain 'audit' kind belongs to the
  * #audit tech-audit hashtag (schema tier / flash) - do not reuse it here.

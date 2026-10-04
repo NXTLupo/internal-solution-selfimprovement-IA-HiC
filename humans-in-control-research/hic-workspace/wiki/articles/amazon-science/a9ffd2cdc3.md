@@ -8,12 +8,15 @@ title: "How Amazon tracks carbon intensity across its operations"
 author: ""
 date: "Wed, 01 Jul 2026 15:56:42 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T17:18:37.689225+00:00"
+method: "source-native"
+extracted_at: "2026-08-26T19:33:31.785057+00:00"
 chars: 4322
-engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-02T17:18:35+00:00"
+engagement: "deliver-a-technical-architecture-and-implementation-blueprin"
+collected_at: "2026-08-26T19:33:32.177Z"
+relevance: 0
+engagement_goal: "Deliver a technical architecture and implementation blueprint for Deciem's marketing and design teams to automate the email production workflow from Figma design to validated, sendable HTML using a multi-agent AI system, specifying agent roles, skills, and Model Context Protocol configurations that connect Figma libraries, brand guidelines, and design patterns while preserving creative flexibility and brand compliance, based on state of the art evidence current as of August 2026 and no earlier than January 2026. Define the reusable email component approach (including MJML), sending-platform and personalization-token integration, and the QA and validation criteria that qualify automated output as sendable."
 content_hash: "fb0aa4dad2e4ec13"
+relevance_by_goal: {"bb7e192171b3":0,"d21cb50b17ba":0}
 chunks:
   - id: "articles/amazon-science/a9ffd2cdc3.md#c0"
     char_span: [0, 175]

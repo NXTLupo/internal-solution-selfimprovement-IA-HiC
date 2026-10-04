@@ -17,7 +17,7 @@ export interface SourcePackSummary {
 }
 
 /** Fetch the pack registry (for the selector UI). */
-export async function fetchSourcePacks(proxyBase: string = PROXY_BASE): Promise<SourcePackSummary[]> {
+async function fetchSourcePacks(proxyBase: string = PROXY_BASE): Promise<SourcePackSummary[]> {
     try {
         const r = await fetch(`${proxyBase}/api/source-packs`);
         if (!r.ok) return [];

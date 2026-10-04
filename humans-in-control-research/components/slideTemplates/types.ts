@@ -21,7 +21,7 @@ export type SlideTemplate =
     | 'principles'          // strategy-author
     | 'stat-row'            // benchmark-reporter
     | 'timeline'            // roadmap-builder
-    | 'section-divider'     // deck-narrative-composer
+    | 'section-divider'     // deck-composer
     | 'service-blueprint'   // service-blueprint-mapper  (#blueprint - frontstage/backstage Bitner model)
     | 'journey-map'         // service-blueprint-mapper  (#journey - GOLD actor-lane journey matrix per
                             // Figma NU 53:159 base 53:2 / T3 156:2, NXT 75:2: stages x actor lanes with
@@ -727,6 +727,12 @@ export const TOKENS = {
     // Lato (weight = hierarchy). Hydrated from font/title.
     FONT_TITLE: 'Archivo',
     TITLE_WEIGHT: '600',
+    // 2026-10-01 - action-title text-transform (DECIEM headlines are UPPERCASE Poppins Bold;
+    // NXT/NU keep sentence case). Hydrated from font/title-transform.
+    TITLE_TRANSFORM: 'none',
+    // 2026-10-01 - dedicated LABEL face (kickers, eyebrows, tracked caps). Empty = use FONT_MONO
+    // (NXT / NU); DECIEM sets Poppins because its template sets every label in Poppins Bold.
+    FONT_LABEL: '',
     // Brand seal / wordmark shown on section-divider footers (and any "brand
     // signature" chrome). A TOKEN, not a renderer literal - the section-divider
     // used to hardcode "Northeastern · Advancement" via a ternary, which forced
@@ -758,6 +764,9 @@ export const TOKENS = {
     // overwrite at boot. NU supplies a monogram SVG via the token feed.
     BRAND_LOGO_SVG: '',                 // inline <svg> monogram (brands that use a mark, e.g. NU)
     BRAND_LOGO_WORDMARK: 'NXT HUMANS',  // wordmark text (NXT)
+    // 2026-10-01 - multi-line typeset lockup (DECIEM: "THE ABNORMAL BEAUTY COMPANY." / "DECIEM"
+    // inside a thin-bordered box). Lines joined by '\n'; empty for brands with no lockup.
+    BRAND_LOGO_LOCKUP: '',
     BRAND_LOGO_WEIGHT: '800',
     BRAND_LOGO_TRACKING: '0.01em',
 } as const;
@@ -915,7 +924,7 @@ export function densityCaps(template: string, density?: SlideDensity | string | 
 // a console.error is logged - it NEVER silently substitutes a guessed value.
 const _TOKENS_PROXY = 'http://127.0.0.1:5012';
 export let figmaTokensLoaded = false;
-export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target?: Record<string, any>): Promise<boolean> {
+export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' | 'DECIEM' = 'NXT', target?: Record<string, any>): Promise<boolean> {
     // 2026-06-11 - DUAL-BRAND hydration. Previously only the global TOKENS
     // (NXT) hydrated live; NU rode the static brands.ts values. Callers pass
     // the NU brand object as `target` so BOTH brands paint from the live
@@ -952,8 +961,10 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
         // the title face so the PPTX heading matches the on-screen heading.
         if (f.title) { T.FONT_TITLE = f.title; T.FONT_DISPLAY_PPTX = f.title; }
         if (f['title-weight']) T.TITLE_WEIGHT = String(f['title-weight']);
+        if (f['title-transform']) T.TITLE_TRANSFORM = String(f['title-transform']);
         if (f.body) { T.FONT = f.body; T.FONT_BODY = f.body; }
         if (f.mono) T.FONT_MONO = f.mono;
+        if (f.label) T.FONT_LABEL = f.label;
         // 2026-06-15 - hydrate the BRAND LOGO so the masthead paints the DEPLOYED Figma
         // mark, not a baked-in literal. figma-tokens.json `logo`: {type, wordmark?,
         // monogram?(inline svg), monogram_viewbox?, weight?, letter_spacing?}.
@@ -964,6 +975,16 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
         if (typeof lg.monogram === 'string') T.BRAND_LOGO_SVG = lg.monogram;
         else if (typeof lg.svg === 'string') T.BRAND_LOGO_SVG = lg.svg;
         if (typeof lg.wordmark === 'string') T.BRAND_LOGO_WORDMARK = lg.wordmark;
+        if (Array.isArray(lg.lockup_lines)) T.BRAND_LOGO_LOCKUP = lg.lockup_lines.map((x: any) => String(x)).join('\n');
+        // 2026-10-01 - template-sourced ART (DECIEM backgrounds / divider fills / cover) hydrates the
+        // brand's BRAND_ART entry so every twin reads the live block, never the build-time fallback.
+        const art: any = (t as any).art;
+        if (art && typeof art === 'object' && Array.isArray(art.bodyBackgrounds)) {
+            try {
+                const { BRAND_ART, normalizeBrandId } = await import('./brands');
+                (BRAND_ART as any)[normalizeBrandId(brand)] = { ...((BRAND_ART as any)[normalizeBrandId(brand)] || {}), ...art };
+            } catch { /* art is optional; the fallback block stands */ }
+        }
         if (lg.weight != null) T.BRAND_LOGO_WEIGHT = String(lg.weight);
         if (lg.letter_spacing) T.BRAND_LOGO_TRACKING = String(lg.letter_spacing);
         // 2026-06-14 - hydrate the TYPE SYSTEM (scale/weight/space/doctrine) from the
@@ -979,16 +1000,32 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
             // own token object so the slides composer can resolve a per-brand deck-display size
             // (slideComposer deckScaleFor reads T.TYPE_SCALE). Vision-pure: values still come from
             // the Figma mode feed, never hardcoded; this only routes them per-mode.
+            // 2026-10-01 - the GLOBAL tables (SCALE / WEIGHT / SPACE / TYPO / LINE) are the NXT
+            // defaults every renderer reads; only the NXT feed may mutate them. NU shares NXT's type
+            // block so the old last-writer-wins race never showed, but DECIEM carries a trimmed
+            // uppercase-Poppins scale and 700 weights that must NOT leak into NXT / NU slides. Each
+            // brand's values are stashed on ITS token object (TYPE_SCALE / TYPE_WEIGHT / TYPE_TRACK)
+            // for brand-aware renderers (slideComposer deckScaleFor, slideToStageHtml, web.tsx).
+            const mutatesGlobals = !target || target === (TOKENS as any);
             (T as any).TYPE_SCALE = { ...((T as any).TYPE_SCALE || {}) };
-            for (const k of Object.keys(ty.scale)) if (typeof ty.scale[k] === 'number') { S[k] = ty.scale[k]; (T as any).TYPE_SCALE[k] = ty.scale[k]; }
-            if (ty.space) for (const k of Object.keys(ty.space)) if (typeof ty.space[k] === 'number') SP[k] = ty.space[k];
-            if (ty.weight) { if (typeof ty.weight.body === 'number') W.body = ty.weight.body; if (typeof ty.weight.label === 'number') W.label = ty.weight.label; if (typeof ty.weight.title === 'number') W.title = ty.weight.title; }
-            if (typeof ty.floor === 'number') TP.HARD_MIN_PX = ty.floor;
-            if (typeof ty.readableBody === 'number') TP.READABLE_BODY_PX = ty.readableBody;
-            if (typeof ty.heroCap === 'number') TP.HERO_CAP_PX = ty.heroCap;
-            if (typeof ty.measureCh === 'number') TP.MEASURE_CH = ty.measureCh;
-            if (ty.lineHeight) { const L = LINE as any; for (const k of Object.keys(ty.lineHeight)) if (typeof ty.lineHeight[k] === 'number') L[k] = ty.lineHeight[k]; }
-            if (ty.track) { if (typeof ty.track.kicker === 'number') TP.KICKER_TRACK_PX = ty.track.kicker; if (typeof ty.track.label === 'number') TP.LABEL_TRACK_PX = ty.track.label; if (typeof ty.track.title === 'number') TP.TITLE_TRACK_PX = ty.track.title; }
+            for (const k of Object.keys(ty.scale)) if (typeof ty.scale[k] === 'number') { if (mutatesGlobals) S[k] = ty.scale[k]; (T as any).TYPE_SCALE[k] = ty.scale[k]; }
+            if (ty.weight) {
+                (T as any).TYPE_WEIGHT = { ...((T as any).TYPE_WEIGHT || {}) };
+                for (const k of ['body', 'label', 'title']) if (typeof ty.weight[k] === 'number') { if (mutatesGlobals) W[k] = ty.weight[k]; (T as any).TYPE_WEIGHT[k] = ty.weight[k]; }
+            }
+            if (ty.track) {
+                (T as any).TYPE_TRACK = { ...((T as any).TYPE_TRACK || {}) };
+                for (const k of ['kicker', 'label', 'title']) if (typeof ty.track[k] === 'number') (T as any).TYPE_TRACK[k] = ty.track[k];
+            }
+            if (mutatesGlobals) {
+                if (ty.space) for (const k of Object.keys(ty.space)) if (typeof ty.space[k] === 'number') SP[k] = ty.space[k];
+                if (typeof ty.floor === 'number') TP.HARD_MIN_PX = ty.floor;
+                if (typeof ty.readableBody === 'number') TP.READABLE_BODY_PX = ty.readableBody;
+                if (typeof ty.heroCap === 'number') TP.HERO_CAP_PX = ty.heroCap;
+                if (typeof ty.measureCh === 'number') TP.MEASURE_CH = ty.measureCh;
+                if (ty.lineHeight) { const L = LINE as any; for (const k of Object.keys(ty.lineHeight)) if (typeof ty.lineHeight[k] === 'number') L[k] = ty.lineHeight[k]; }
+                if (ty.track) { if (typeof ty.track.kicker === 'number') TP.KICKER_TRACK_PX = ty.track.kicker; if (typeof ty.track.label === 'number') TP.LABEL_TRACK_PX = ty.track.label; if (typeof ty.track.title === 'number') TP.TITLE_TRACK_PX = ty.track.title; }
+            }
         }
         figmaTokensLoaded = true;
         console.log(`[tokens] Figma-live tokens hydrated into renderer TOKENS (${brand}): accent=${T.CHARTREUSE} teal=${T.TEAL} mono=${T.FONT_MONO}`);

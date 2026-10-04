@@ -96,7 +96,7 @@ the synchronous Python validators.
 | `#report` | `strategic-report-writer`, `html-deliverable-composer` | `validate_titles`, `validate_evidence`, `validate_no_em_dashes` | evidence_density, action_title_rate, meta_narration_count |
 | `#explainer` | `explainer` (authored 2026-06-06) | `validate_titles`, `validate_no_em_dashes` | meta_narration_count, banned_phrase_count |
 | `#case-study` | `case-study-analyst` | `validate_titles`, `validate_evidence`, `validate_quantification` | evidence_density, action_title_rate |
-| `#strategy` | `strategy-author`, `deck-narrative-composer` | `validate_titles`, `validate_evidence`, `validate_speculative_claims`, `validate_slide_variety` | meta_narration_count, evidence_density, action_title_rate |
+| `#strategy` | `strategy-author`, `deck-composer` | `validate_titles`, `validate_evidence`, `validate_speculative_claims`, `validate_slide_variety` | meta_narration_count, evidence_density, action_title_rate |
 | `#proto` | `experience-prototype-composer`, `design-exemplar-curator` | `validate_titles`, `validate_no_em_dashes` | meta_narration_count, banned_phrase_count |
 | `#mindmap` | `mind-map-architect` | `validate_titles` | meta_narration_count |
 | `#meta-themes` | `meta-themes` | `validate_titles`, `validate_evidence` | meta_narration_count, evidence_density |
@@ -111,7 +111,7 @@ Three layers are now universal across all 22 deliverables, NOT enumerated per-en
 | Layer | Universal default | Per-deliverable override |
 |-------|-------------------|--------------------------|
 | Validator | `validate_cached_selection_honored.py` runs on every deliverable that has a per-deliverable skill | (none — universal) |
-| Subagent | `{deliverable}-deliverable-auditor.md` exists for ALL 22 deliverables (18 authored 2026-06-06; 5 had existed prior in the C3 initial build) | Subagent's rubric extends with dim-11 cached-selection coverage |
+| Subagent | the per-deliverable rubric `wiki/eval/rubrics/{deliverable}-rubric.json` (22 kinds, absorbed from the former `{deliverable}-deliverable-auditor.md` agents on 2026-10-01) is scored at runtime by `runExpertPanel`; verdicts land in `wiki/eval/auditor-verdicts.jsonl` | Subagent's rubric extends with dim-11 cached-selection coverage |
 | Frontier dim | `cached_selection_coverage_pct` (direction: maximize, floor: 60) added to every deliverable's scored vector | (none — universal) |
 | Skill section | "Cached-selection contract" §N appended to all 19 per-deliverable skills (3 done in initial round, 16 batched 2026-06-06) | (none — universal) |
 
@@ -122,7 +122,7 @@ is: per-entry items + the global defaults above.
 ## YAML contract (parsed by Hook Bus + Emission Wrapper)
 
 > Note: the universal validators (e.g. `validate_cached_selection_honored.py`)
-> and universal auditors (`{deliverable}-deliverable-auditor.md`) are NOT
+> and universal rubrics (`wiki/eval/rubrics/{deliverable}-rubric.json`, scored by `runExpertPanel`) are NOT
 > enumerated in the per-deliverable entries below. The dispatcher's
 > `UNIVERSAL_VALIDATORS` constant adds them to every matched deliverable's
 > stack at runtime. See the "Global defaults" table above for the universal
@@ -146,7 +146,7 @@ deliverables:
       - validate_cached_selection_honored.py
     subagents_async:
       - evidence-quality-auditor
-      - themes-deliverable-auditor
+      - rubric wiki/eval/rubrics/themes-rubric.json (runExpertPanel)
     frontier_dims:
       - meta_narration_count
       - banned_phrase_count
@@ -168,7 +168,7 @@ deliverables:
       - validate_cached_selection_honored.py
     subagents_async:
       - evidence-quality-auditor
-      - personas-deliverable-auditor
+      - rubric wiki/eval/rubrics/personas-rubric.json (runExpertPanel)
     frontier_dims:
       - meta_narration_count
       - evidence_density
@@ -190,7 +190,7 @@ deliverables:
     subagents_async:
       - evidence-quality-auditor
       - dissent-panel
-      - recommendations-deliverable-auditor
+      - rubric wiki/eval/rubrics/recommendations-rubric.json (runExpertPanel)
     frontier_dims:
       - meta_narration_count
       - action_title_rate
@@ -473,11 +473,11 @@ Five per-deliverable auditor subagents are now defined in `.claude/agents/`:
 
 | Auditor | Audits | Lives at |
 |---------|--------|----------|
-| journey-deliverable-auditor | #journey + #blueprint output (phase coverage, cell anatomy, overview slide, action titles) | `.claude/agents/journey-deliverable-auditor.md` |
-| recommendations-deliverable-auditor | #recommendations VS framing + tile execution depth + four-tuple quantification | `.claude/agents/recommendations-deliverable-auditor.md` |
-| themes-deliverable-auditor | #themes yield + evidence anchoring + distinctiveness + naming determinism | `.claude/agents/themes-deliverable-auditor.md` |
-| personas-deliverable-auditor | #personas Cooper-goal-hierarchy + JTBD + verbatim quote authenticity + elasticity rejection | `.claude/agents/personas-deliverable-auditor.md` |
-| strategy-deliverable-auditor | #strategy Rumelt's Kernel + pre-mortem coverage + second-order depth | `.claude/agents/strategy-deliverable-auditor.md` |
+| journey-deliverable-auditor | #journey + #blueprint output (phase coverage, cell anatomy, overview slide, action titles) | `wiki/eval/rubrics/journey-rubric.json` (runtime rubric; the agent file was absorbed 2026-10-01) |
+| recommendations-deliverable-auditor | #recommendations VS framing + tile execution depth + four-tuple quantification | `wiki/eval/rubrics/recommendations-rubric.json` (runtime rubric; the agent file was absorbed 2026-10-01) |
+| themes-deliverable-auditor | #themes yield + evidence anchoring + distinctiveness + naming determinism | `wiki/eval/rubrics/themes-rubric.json` (runtime rubric; the agent file was absorbed 2026-10-01) |
+| personas-deliverable-auditor | #personas Cooper-goal-hierarchy + JTBD + verbatim quote authenticity + elasticity rejection | `wiki/eval/rubrics/personas-rubric.json` (runtime rubric; the agent file was absorbed 2026-10-01) |
+| strategy-deliverable-auditor | #strategy Rumelt's Kernel + pre-mortem coverage + second-order depth | `wiki/eval/rubrics/strategy-rubric.json` (runtime rubric; the agent file was absorbed 2026-10-01) |
 
 Each auditor emits a structured YAML verdict appended to `hic-workspace/wiki/synthesis/auditor-verdicts.jsonl` for the epoch-proposer to mine. Remaining deliverables (#blueprint, #compete, #arch, #audit, #gap, #prd, #roadmap, #brief, #report, #explainer, #case-study, #proto, #mindmap, #meta-themes, #org, #presentation, #deep-research) inherit cross-cutting subagents (`evidence-quality-auditor`, `hic-output-qa`) until their per-deliverable auditors are written.
 

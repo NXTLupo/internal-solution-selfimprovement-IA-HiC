@@ -94,7 +94,7 @@ const DISFLUENCY_PATTERNS: Array<{ find: RegExp; replace: string }> = [
     { find: /([,.!?]){2,}/g, replace: '$1' },
 ];
 
-export function cleanDisfluencies(text: string): string {
+function cleanDisfluencies(text: string): string {
     if (!text) return text;
     let out = text;
     for (const { find, replace } of DISFLUENCY_PATTERNS) {
@@ -103,7 +103,7 @@ export function cleanDisfluencies(text: string): string {
     return out.trim();
 }
 
-export function isTranscriptIntroNarration(sentence: string): boolean {
+function isTranscriptIntroNarration(sentence: string): boolean {
     if (!sentence) return false;
     return TRANSCRIPT_META_PATTERNS.some(p => p.test(sentence));
 }

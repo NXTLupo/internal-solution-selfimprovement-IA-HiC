@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { DesignDesk } from './design-desk';
 import { installChunkLoadGuard } from './services/chunkLoadGuard';
+import { CLAUDE_REASONING_LABEL } from './services/claudeModelPolicy';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
 import { hydrateTokensFromFigma, TOKENS } from './components/slideTemplates/types';
 
@@ -86,6 +87,9 @@ void import('./components/slideTemplates/brands').then(({ nxtBrand, getBrand }) 
     // NU brand object hydrates from its own live token sheet so both brands paint
     // Figma-live, not just the NXT default.
     void hydrateTokensFromFigma('NU', getBrand('nu') as any);
+    // DECIEM (2026-10-01) hydrates from its PPTX-template-sourced token block (figma-tokens.json
+    // `DECIEM`, served by the same /api/design-tokens endpoint) so #deciem paints from the template.
+    void hydrateTokensFromFigma('DECIEM', getBrand('deciem') as any);
 }).catch(() => { /* non-fatal: static brand values stand */ });
 
 // ================================================================
@@ -99,7 +103,7 @@ void import('./components/slideTemplates/brands').then(({ nxtBrand, getBrand }) 
 // bundle and need a hard-refresh.
 // ================================================================
 const HIC_BUNDLE_VERSION = 'v4.0';
-const HIC_CODENAME = 'Vertical-Slice + 30-Session Coverage + Opus 4.8 Briefs';
+const HIC_CODENAME = `Vertical-Slice + 30-Session Coverage + ${CLAUDE_REASONING_LABEL} Briefs`;
 const HIC_BUILD_STAMP = '2026-05-13';
 // Feature flags — codename reflects the cumulative v3.8 + v3.9 shipped work:
 //   v3.8 (HiC-VS-HTML-Hashtag-UX branch, prior session):
@@ -170,7 +174,7 @@ const HIC_FEATURES = {
     // v3.9 features (2026-05-12) — HiC-Active-Loop-Improvements
     reinforcementInferenceR1Themes: true,             // generateThemes Pass 1 emits per-theme confidence + selfAssessment envelope; calibration gate logs distribution to console
     // v4.0 features (2026-05-13) — Prototype Pipeline Deepening
-    prototypeOpusFourSevenBriefs: true,               // brief generator switched from Gemini 3.1 Pro to Claude Opus 4.8
+    prototypeOpusFourSevenBriefs: true,               // brief generator switched from Gemini 3.1 Pro to the Claude reasoning model
     prototypeTwoPassBriefs: true,                     // pass 1 = 5 skeleton framings (single call), pass 2 = 5 parallel deepenings (16K tokens each)
     prototypeBriefSchemaV2: true,                     // feature_roadmap + narrative_arc + interaction_choreography + data_examples (5+ anchor records per entity)
     prototypeDedicatedBriefWindow: true,              // "Open brief in new window" launches popup with rich brand-aware HTML rendering
@@ -192,7 +196,7 @@ console.log(
     'color:#B8B800;background:#0D0D0D;padding:6px 12px;font-weight:700;letter-spacing:0.5px;font-family:ui-monospace,Menlo,Consolas,monospace;',
 );
 console.log(
-    `%c  #proto pipeline (Opus 4.8 all stages · Gemini 3.1 Pro fallback): brief 2-pass · spec · 2.5 30-session VS · design · MULTI-AGENT PODS (orchestrator contract → parallel screen pods → assemble → integration reviewer)`,
+    `%c  #proto pipeline (${CLAUDE_REASONING_LABEL} code stages · Gemini 3.1 Pro planning + fallback): brief 2-pass · spec · 2.5 30-session VS · design · MULTI-AGENT PODS (orchestrator contract → parallel screen pods → assemble → integration reviewer)`,
     'color:#999999;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;',
 );
 console.log('[NXT HiC] Feature flags:', HIC_FEATURES);

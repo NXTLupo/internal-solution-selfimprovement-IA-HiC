@@ -11,6 +11,8 @@
  */
 
 import type { OutputOption } from '../types';
+import { engagementSlugFor } from './engagementSlug';
+import type { BrandVariantId } from '../components/slideTemplates/brands';
 
 // --- TYPES ---
 
@@ -441,7 +443,7 @@ export async function writeWikiPage(
 /**
  * Append content to a wiki page. Optionally append under a specific section header.
  */
-export async function appendToWikiPage(relativePath: string, content: string, section?: string): Promise<boolean> {
+async function appendToWikiPage(relativePath: string, content: string, section?: string): Promise<boolean> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/append`, {
             method: 'POST',
@@ -685,9 +687,12 @@ export function extractResearchObjective(goal: string): string {
  *  to /uploads/<40-char> while the rest of the chain wrote / read at
  *  /engagements/<60-char>. Bumping the default unifies every call site
  *  on a single canonical slug for any given goal. */
-export function buildEngagementSlug(goal: string, maxLen: number = 60): string {
-    const objective = extractResearchObjective(goal);
-    return objective.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, maxLen).replace(/-+$/, '') || 'misc';
+export function buildEngagementSlug(goal: string, _maxLen: number = 60): string {
+    // 2026-10-01 (plan Stage 0.1): ONE derivation. The maxLen parameter is kept for the
+    // eleven callers' signatures but ignored: every caller gets the same 80-character slug
+    // the proxy's _safe_session_slug produces, so artifacts, traces, AIR, chat and state land
+    // in ONE folder. The 60/50-character variants split seven engagements in half.
+    return engagementSlugFor(goal) || 'misc';
 }
 
 /**
@@ -712,7 +717,7 @@ export function buildEngagementSlug(goal: string, maxLen: number = 60): string {
  * signal (speaker name, document topic) enters the prompt. Original filename
  * stays in the frontmatter as {originalName} for provenance.
  */
-export function normalizeUploadedFilename(raw: string): { display: string; type: string; original: string } {
+function normalizeUploadedFilename(raw: string): { display: string; type: string; original: string } {
     const ext = raw.split('.').pop()?.toLowerCase() || 'unknown';
     const typeMap: Record<string, string> = {
         'pdf': 'Document', 'docx': 'Document', 'doc': 'Document',
@@ -901,11 +906,76 @@ export interface UploadedDoc {
     content: string;
 }
 
-/** Decode base64 safely; returns empty string on malformed input. */
-function _safeB64Decode(b64: string): string {
+// ---------------------------------------------------------------------------
+// 2026-10-02 evidence hygiene: UTF-8-safe decoding + mojibake repair.
+// A .docx upload (2026-10-01) was converted by mammoth to correct UTF-8,
+// base64'd as UTF-8, then decoded here with bare `atob()` (one latin-1 code point
+// per BYTE), so every curly quote and non-breaking space landed in the wiki as
+// "â\u0080\u0099" / "Â ". Decode the bytes as UTF-8, and heal text that was
+// already mangled upstream. Mirrors proxy/evidence_hygiene.py::repair_mojibake.
+// ---------------------------------------------------------------------------
+
+/** cp1252 glyphs for bytes 0x80..0x9F (the five undefined bytes are omitted). */
+const _CP1252_GLYPH_TO_BYTE: Record<string, number> = {
+    '€': 0x80, '‚': 0x82, 'ƒ': 0x83, '„': 0x84, '…': 0x85, '†': 0x86, '‡': 0x87,
+    'ˆ': 0x88, '‰': 0x89, 'Š': 0x8a, '‹': 0x8b, 'Œ': 0x8c, 'Ž': 0x8e,
+    '‘': 0x91, '’': 0x92, '“': 0x93, '”': 0x94, '•': 0x95, '–': 0x96, '—': 0x97,
+    '˜': 0x98, '™': 0x99, 'š': 0x9a, '›': 0x9b, 'œ': 0x9c, 'ž': 0x9e, 'Ÿ': 0x9f,
+};
+const _CONT = '[\\u0080-\\u00bf' + Object.keys(_CP1252_GLYPH_TO_BYTE).join('') + ']';
+const _MOJIBAKE_RE = new RegExp(
+    `(?:[\\u00c2-\\u00df]${_CONT})|(?:[\\u00e0-\\u00ef]${_CONT}{2})|(?:[\\u00f0-\\u00f4]${_CONT}{3})`, 'g');
+
+/** Repair UTF-8 text that was decoded as latin-1 / cp1252. Only complete, valid
+ *  UTF-8 byte runs are rewritten, so clean accented prose is never touched. */
+export function repairMojibake(text: string): string {
+    if (!text || typeof text !== 'string') return text;
+    let out = text;
+    for (let pass = 0; pass < 2; pass++) {
+        _MOJIBAKE_RE.lastIndex = 0;
+        if (!_MOJIBAKE_RE.test(out)) break;
+        _MOJIBAKE_RE.lastIndex = 0;
+        const next = out.replace(_MOJIBAKE_RE, (run) => {
+            const bytes: number[] = [];
+            for (const ch of run) {
+                const code = ch.codePointAt(0) as number;
+                const b = code < 0x100 ? code : _CP1252_GLYPH_TO_BYTE[ch];
+                if (b === undefined) return run;
+                bytes.push(b);
+            }
+            try {
+                const fixed = new TextDecoder('utf-8', { fatal: true }).decode(new Uint8Array(bytes));
+                return fixed.replace(/ /g, ' ');
+            } catch {
+                return run;
+            }
+        });
+        if (next === out) break;
+        out = next;
+    }
+    return out;
+}
+
+/** Decode base64 as UTF-8 safely (repairing pre-existing mojibake); returns
+ *  empty string on malformed input. */
+export function _safeB64Decode(b64: string): string {
     try {
-        if (typeof atob === 'function') return atob(b64);
-        return Buffer.from(b64, 'base64').toString('utf-8');
+        let bytes: Uint8Array;
+        if (typeof atob === 'function') {
+            const bin = atob(b64);
+            bytes = new Uint8Array(bin.length);
+            for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        } else {
+            bytes = new Uint8Array(Buffer.from(b64, 'base64'));
+        }
+        let text: string;
+        try {
+            text = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+        } catch {
+            // Not UTF-8 (a genuine cp1252 / latin-1 text file): keep the byte-per-char reading.
+            text = new TextDecoder('windows-1252').decode(bytes);
+        }
+        return repairMojibake(text.replace(/^﻿/, ''));
     } catch {
         return '';
     }
@@ -913,16 +983,16 @@ function _safeB64Decode(b64: string): string {
 
 /** Best-effort text extraction from a FileUpload object. Accepts either
  *  { data: base64 } (current FileUpload shape) or pre-parsed text via
- *  content/text fields. Binary formats (PDF/DOCX) need upstream parsing -
- *  they return empty and the caller should skip the wiki write. */
+ *  content/text fields. Binary formats (PDF/DOCX/PPTX/XLSX) need upstream
+ *  parsing - they return empty and the caller parses inline or skips. */
 export function extractTextFromUpload(f: any): string {
     if (!f) return '';
     // Preferred path: proxy-parsed text populated by FileUpload background parse.
-    // Works for PDFs (PyPDF2), DOCX/XLSX (office-regex), text files (decode).
-    if (typeof f.parsedText === 'string' && f.parsedText.length > 40) return f.parsedText;
+    // Works for PDFs (PyPDF2), PPTX (python-pptx), DOCX/XLSX (structured), text files (decode).
+    if (typeof f.parsedText === 'string' && f.parsedText.length > 40) return repairMojibake(f.parsedText);
     // Legacy pre-parsed fields
-    if (typeof f.content === 'string' && f.content.length > 40) return f.content;
-    if (typeof f.text === 'string' && f.text.length > 40) return f.text;
+    if (typeof f.content === 'string' && f.content.length > 40) return repairMojibake(f.content);
+    if (typeof f.text === 'string' && f.text.length > 40) return repairMojibake(f.text);
     // Decode base64 for text-like MIME types (fallback when parser hasn't run yet)
     const mime = (f.mimeType || f.type || '').toLowerCase();
     const ext = ((f.name || '').split('.').pop() || '').toLowerCase();
@@ -935,19 +1005,126 @@ export function extractTextFromUpload(f: any): string {
     return '';
 }
 
+/** One ingested upload: the display name the user knows and the wiki page that
+ *  holds its body (the canonical page when the proxy aliased a duplicate). */
+export interface IngestedUpload { name: string; wikiPath: string }
+
+/** Per-upload ingestion receipt (2026-10-02). Deterministic facts about what the
+ *  pipeline did with ONE uploaded file, shown in the chat line and returned to
+ *  callers. `chunksRead` counts the chunks the document analysis will read back
+ *  (prdScopeLedger.parseUploadPage over /api/wiki/read-batch); `chunkCountMatches`
+ *  is the invariant chunksRead === chunksRegistered. */
+export interface UploadIngestionReceipt {
+    document: string;
+    type: string;                 // file extension, lower-case ('pptx', 'pdf', ...)
+    status: 'ingested' | 'duplicate' | 'not-ingested';
+    wikiPath?: string;
+    chunksRegistered: number;     // chunks the proxy wrote into the page frontmatter
+    chunksRead: number;           // chunks read back from the page (what analysis consumes)
+    chunkCountMatches: boolean;
+    duplicateOf?: string;         // set when the proxy collapsed this upload onto an existing page
+    itemsExtracted?: number;      // filled in when the document analysis completes
+    reason?: string;              // why a file was not ingested
+}
+
+/** Detail of the `hic:upload-analysis` window event fired when the document
+ *  analysis of an ingestion batch finishes. The analyst chat renders it. */
+export interface UploadAnalysisEventDetail {
+    engagementSlug: string;
+    surface: 'research-start' | 'analyst-chat';
+    documents: string[];
+    items: number;
+    byDocument: Record<string, number>;
+    receipts: UploadIngestionReceipt[];
+    error?: string;
+}
+export const UPLOAD_ANALYSIS_EVENT = 'hic:upload-analysis';
+/** Completed analyses no chat panel has rendered yet (research-start analysis can
+ *  finish before the analyst chat mounts). The chat drains this on mount. */
+const _undeliveredUploadAnalyses: UploadAnalysisEventDetail[] = [];
+export function takeUndeliveredUploadAnalyses(): UploadAnalysisEventDetail[] {
+    return _undeliveredUploadAnalyses.splice(0, _undeliveredUploadAnalyses.length);
+}
+export function markUploadAnalysisDelivered(detail: UploadAnalysisEventDetail): void {
+    const i = _undeliveredUploadAnalyses.indexOf(detail);
+    if (i >= 0) _undeliveredUploadAnalyses.splice(i, 1);
+}
+
+/** Analyzer contract (prdScopeLedger.analyzeUploadedDocuments). Injectable for tests. */
+export type UploadAnalyzer = (engagementSlug: string, wikiPaths: string[]) => Promise<{ items: number; byDocument: Record<string, number> }>;
+
+/** Render one chat line from an analysis event: documents, type, chunk receipt, items. */
+export function formatUploadAnalysisLine(d: UploadAnalysisEventDetail): string {
+    const where = d.surface === 'analyst-chat' ? 'chat attachment' : 'research upload';
+    const n = d.documents.length;
+    const receiptText = (d.receipts || []).map(r => {
+        if (r.status === 'not-ingested') return `${r.document} (${r.type}): not ingested${r.reason ? `, ${r.reason}` : ''}`;
+        const parts = [`${r.chunksRegistered} chunks registered`, `${r.chunksRead} read for analysis`];
+        if (!r.chunkCountMatches) parts.push('chunk count mismatch');
+        if (r.duplicateOf) parts.push(`duplicate collapsed onto ${r.duplicateOf}`);
+        if (typeof r.itemsExtracted === 'number') parts.push(`${r.itemsExtracted} item${r.itemsExtracted === 1 ? '' : 's'} extracted`);
+        return `${r.document} (${r.type}): ${parts.join(', ')}`;
+    }).join('; ');
+    if (d.error) {
+        return `Upload analysis did not finish for ${n} ${where}${n === 1 ? '' : 's'} (${d.documents.join(', ')}). The documents are ingested and citable; their feature and feedback ledger is rebuilt on the next #prd run. Receipt: ${receiptText}. Detail: ${d.error}`;
+    }
+    return `Analyzed ${n} ${where}${n === 1 ? '' : 's'}: ${d.items} feature and feedback item${d.items === 1 ? '' : 's'} extracted into the engagement ledger. Receipt: ${receiptText}.`;
+}
+
+function _ext(name: string): string {
+    const m = /\.([a-z0-9]+)$/i.exec(String(name || ''));
+    return m ? m[1].toLowerCase() : 'unknown';
+}
+
+/** Chunks the document analysis will read for each page (same reader the ledger uses). */
+const _readBackTitles: Record<string, string> = {};
+async function _chunksReadBack(paths: string[]): Promise<Record<string, number>> {
+    const out: Record<string, number> = {};
+    if (!paths.length) return out;
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/wiki/read-batch`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ paths }),
+        });
+        const j: any = r.ok ? await r.json() : null;
+        const { parseUploadPage } = await import('./prdScopeLedger');
+        for (const p of paths) {
+            const pg = j?.pages?.[p];
+            const parsed = pg?.exists && pg.content ? parseUploadPage(String(pg.content), p) : null;
+            out[p] = parsed ? parsed.chunks.length : 0;
+            if (parsed?.title) _readBackTitles[p] = parsed.title;
+        }
+    } catch (e) {
+        console.warn('[WikiService] chunk read-back failed:', e);
+    }
+    return out;
+}
+
 /**
- * Archive every uploaded document's body as its own wiki article.
+ * THE ingestion path for uploaded documents, shared by the research-start upload
+ * and the analyst-chat attach button (2026-10-02 owner rule: "Document uploads,
+ * whether in the beginning of a research project or in the analyst chat SHOULD
+ * ALWAYS BE THOROUGHLY ANALYZED"). Engagement-agnostic: the engagement is derived
+ * from the caller's research goal, nothing here names a client or a page.
  *
- * Each file lands at `wiki/uploads/{engagement-slug}/{hash}.md` via the
- * proxy's `/api/wiki/write-article` endpoint, with frontmatter capturing
- * filename, MIME type, upload date, engagement context, and char count.
- * Binaries without parseable text are skipped - they'll be wiki'd later
- * when the orchestrator runs them through `/api/extract-pdf`.
- *
- * Returns the count of files successfully archived.
+ * For each unique file: take the parsed text (parsing inline through
+ * /api/parse-upload when the background parse has not landed), write it through
+ * /api/wiki/write-article as a Client Uploads article tagged to the engagement
+ * (chunked + manifest-registered + embedded + mojibake-repaired by the proxy),
+ * read the page back to prove chunks read == chunks registered, record its name
+ * for the session state, then run the document analysis in the background and
+ * announce the receipt through the `hic:upload-analysis` window event. Never
+ * blocks the caller on analysis.
  */
-export async function archiveUploadedDocs(files: any[], researchGoal: string): Promise<number> {
-    if (!Array.isArray(files) || files.length === 0) return 0;
+export async function ingestUploadedDocuments(
+    files: any[],
+    researchGoal: string,
+    opts: { surface?: 'research-start' | 'analyst-chat'; analyze?: boolean; analyzer?: UploadAnalyzer } = {},
+): Promise<{ archived: number; pages: IngestedUpload[]; skipped: string[]; receipts: UploadIngestionReceipt[]; analysis?: Promise<UploadAnalysisEventDetail | null> }> {
+    const result = {
+        archived: 0, pages: [] as IngestedUpload[], skipped: [] as string[], receipts: [] as UploadIngestionReceipt[],
+        analysis: undefined as Promise<UploadAnalysisEventDetail | null> | undefined,
+    };
+    if (!Array.isArray(files) || files.length === 0) return result;
     // Engagement slug now derived from the extracted research OBJECTIVE rather
     // than the raw goal - so "ROLE You are an elite market research analyst..."
     // doesn't leak into directory names and false-match future runs.
@@ -961,44 +1138,49 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
         byName.set(f.name, f);
     }
     const uniqueFiles = Array.from(byName.values());
-    let archived = 0;
+    const registered: Record<string, number> = {};
     for (const f of uniqueFiles) {
         if (!f || !f.name) continue;
+        const name = String(f.name);
         let text = extractTextFromUpload(f);
         // 2026-06-16 fix (deck-ignored-uploads, sequencing): a binary upload (scanned/image PDF) whose
         // slow vision-OCR was still in flight when the archive ran lands here with NO parsedText and gets
         // skipped -> "Archived 1/3" -> its body never reaches the wiki/manifest (primary grounding), even
         // though parsing eventually succeeds. Parse it inline NOW (idempotent; 280s budget matches the
         // proxy's vision OCR) so every uploaded body is archived, not just the fast text docs.
-        if ((!text || text.length < 40) && f.data && !/\.(txt|md|json|csv)$/i.test(String(f.name))) {
+        if ((!text || text.length < 40) && f.data && !/\.(txt|md|json|csv)$/i.test(name)) {
             try {
                 const pr = await fetch(`${PROXY_BASE}/api/parse-upload`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ filename: f.name, base64: f.data, mimeType: f.type }),
+                    body: JSON.stringify({ filename: name, base64: f.data, mimeType: f.type }),
                     signal: AbortSignal.timeout(280_000),
                 });
                 if (pr.ok) {
                     const pj = await pr.json();
                     if (pj && typeof pj.text === 'string' && pj.text.length >= 40) {
-                        text = pj.text;
-                        console.log(`[WikiService] inline-parsed ${f.name} for archive -> ${pj.text.length} chars via ${pj.method || '?'}`);
+                        text = repairMojibake(pj.text);
+                        console.log(`[WikiService] inline-parsed ${name} for archive -> ${pj.text.length} chars via ${pj.method || '?'}`);
                     }
                 }
-            } catch (e) { console.warn(`[WikiService] inline parse for archive failed for ${f.name}:`, e); }
+            } catch (e) { console.warn(`[WikiService] inline parse for archive failed for ${name}:`, e); }
         }
-        if (!text || text.length < 40) continue;
+        if (!text || text.length < 40) {
+            result.skipped.push(name);
+            result.receipts.push({ document: name, type: _ext(name), status: 'not-ingested', chunksRegistered: 0, chunksRead: 0, chunkCountMatches: false, reason: 'no readable text could be extracted' });
+            continue;
+        }
         try {
             // Synthetic URL uses the ORIGINAL filename so hashes stay stable
             // across re-runs (no drift between engagements). But the SOURCE
             // and TITLE that land in frontmatter + embedding text get the
             // normalized display name - this is what the LLM sees in prompts
             // and what the attractor phrase had to be stripped from.
-            const { display: normalizedName } = normalizeUploadedFilename(f.name);
+            const { display: normalizedName } = normalizeUploadedFilename(name);
             // 2026-06-25 - content-stable URL (no engagement slug) so re-archiving
             // the same file across engagements hits ONE page (engagement tag is
             // carried in the `engagement` field below, not the URL).
-            const syntheticUrl = uploadSyntheticUrl(f.name);
+            const syntheticUrl = uploadSyntheticUrl(name);
             const resp = await fetch(`${PROXY_BASE}/api/wiki/write-article`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1008,10 +1190,8 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
                     // 2026-06-25 - UNIFIED with uploadsToDataSourceItems so both
                     // writers target the SAME canonical page (articles/client-uploads/<h>.md):
                     // source='Client Uploads' (grouping) + default kind 'article' +
-                    // title=filename. Previously this wrote source=filename/kind='upload'
-                    // -> a SECOND, separate page per upload at uploads/<engagement>/<h>.md,
-                    // forking every upload into two pages. The filename is preserved as
-                    // the title (the human handle); the engagement is a tag, not a path.
+                    // title=filename. The filename is preserved as the title (the human
+                    // handle); the engagement is a tag, not a path.
                     source: 'Client Uploads',
                     title: normalizedName,
                     tier: 1, // Client uploads are Tier 1 context
@@ -1020,16 +1200,117 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
                 }),
             });
             if (resp.ok) {
-                archived++;
+                result.archived++;
+                let wikiPath = `articles/client-uploads/${_urlHash10(syntheticUrl)}.md`;
+                let duplicateOf: string | undefined;
+                let chunkCount: number | undefined;
+                try {
+                    const rj = await resp.json();
+                    if (rj?.aliased && rj?.canonicalPath) duplicateOf = String(rj.canonicalPath);
+                    wikiPath = String(rj?.canonicalPath || rj?.wikiPath || wikiPath);
+                    if (Number.isFinite(rj?.chunkCount)) chunkCount = Number(rj.chunkCount);
+                } catch { /* keep the computed path */ }
+                if (chunkCount !== undefined) registered[wikiPath] = chunkCount;
+                result.pages.push({ name, wikiPath });
+                result.receipts.push({
+                    document: name, type: _ext(name), status: duplicateOf ? 'duplicate' : 'ingested', wikiPath,
+                    chunksRegistered: chunkCount ?? -1, chunksRead: 0, chunkCountMatches: false,
+                    ...(duplicateOf ? { duplicateOf } : {}),
+                });
+            } else {
+                result.skipped.push(name);
+                result.receipts.push({ document: name, type: _ext(name), status: 'not-ingested', chunksRegistered: 0, chunksRead: 0, chunkCountMatches: false, reason: `wiki write failed (${resp.status})` });
             }
         } catch (e) {
-            console.warn(`[WikiService] Upload archive failed for ${f.name}:`, e);
+            result.skipped.push(name);
+            result.receipts.push({ document: name, type: _ext(name), status: 'not-ingested', chunksRegistered: 0, chunksRead: 0, chunkCountMatches: false, reason: 'wiki write failed' });
+            console.warn(`[WikiService] Upload archive failed for ${name}:`, e);
         }
     }
-    if (archived > 0) {
-        console.log(`[WikiService] Archived ${archived}/${uniqueFiles.length} uploaded document bodies to wiki/uploads/${engagementSlug}/${files.length !== uniqueFiles.length ? ` (deduped from ${files.length} input entries)` : ''}`);
+    // Read every ingested page back exactly as the analysis will, and pin the invariant.
+    const readBack = await _chunksReadBack(Array.from(new Set(result.pages.map(p => p.wikiPath))));
+    for (const r of result.receipts) {
+        if (!r.wikiPath) continue;
+        r.chunksRead = readBack[r.wikiPath] ?? 0;
+        // An aliased duplicate reports no chunks of its own; its canonical page's read-back is the registry.
+        if (r.chunksRegistered < 0) r.chunksRegistered = registered[r.wikiPath] ?? r.chunksRead;
+        r.chunkCountMatches = r.chunksRead > 0 && r.chunksRead === r.chunksRegistered;
+        if (!r.chunkCountMatches) console.warn(`[WikiService] ingestion receipt: ${r.document} registered ${r.chunksRegistered} chunks but ${r.chunksRead} read back from ${r.wikiPath}`);
     }
-    return archived;
+    if (result.archived > 0) {
+        console.log(`[WikiService] Archived ${result.archived}/${uniqueFiles.length} uploaded document bodies as Client Uploads articles (engagement ${engagementSlug})${files.length !== uniqueFiles.length ? ` (deduped from ${files.length} input entries)` : ''}`);
+    }
+    // Session state: every uploaded name is recorded, ingested or not, so the saved
+    // session shows what the user handed over (sessionService unions it into file_names).
+    try {
+        const { noteUploadedFileNames } = await import('./sessionService');
+        noteUploadedFileNames(researchGoal, uniqueFiles.map(f => f?.name));
+    } catch { /* bookkeeping only */ }
+    if (opts.analyze !== false && result.pages.length > 0) {
+        result.analysis = runUploadAnalysis(engagementSlug, result.pages, result.receipts, opts.surface || 'research-start', opts.analyzer);
+        // Fire-and-forget for callers that do not await it; never an unhandled rejection.
+        result.analysis.catch(() => null);
+    }
+    return result;
+}
+
+/** Background document analysis for an ingestion batch. Fires the
+ *  `hic:upload-analysis` event on completion (success or failure). */
+async function runUploadAnalysis(
+    engagementSlug: string,
+    pages: IngestedUpload[],
+    receipts: UploadIngestionReceipt[],
+    surface: 'research-start' | 'analyst-chat',
+    analyzer?: UploadAnalyzer,
+): Promise<UploadAnalysisEventDetail | null> {
+    const documents = receipts.map(r => r.document);
+    const emit = (detail: UploadAnalysisEventDetail) => {
+        _undeliveredUploadAnalyses.push(detail);
+        try {
+            if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
+                window.dispatchEvent(new CustomEvent(UPLOAD_ANALYSIS_EVENT, { detail }));
+            }
+        } catch { /* no window (tests) */ }
+        return detail;
+    };
+    try {
+        let analyze: UploadAnalyzer | undefined = analyzer;
+        if (!analyze) {
+            const mod: any = await import('./prdScopeLedger');
+            if (typeof mod?.analyzeUploadedDocuments !== 'function') {
+                console.warn('[WikiService] prdScopeLedger.analyzeUploadedDocuments is not available; upload analysis skipped');
+                return null;
+            }
+            analyze = (slug, paths) => mod.analyzeUploadedDocuments(slug, paths);
+        }
+        const paths = Array.from(new Set(pages.map(p => p.wikiPath)));
+        const out = await analyze(engagementSlug, paths);
+        const byDocument: Record<string, number> = (out && typeof out.byDocument === 'object' && out.byDocument) ? out.byDocument : {};
+        // byDocument is keyed by prdScopeLedger.documentTitle(<page title>); map it back
+        // onto receipts through the page title read back from each wikiPath.
+        let titleOf: (t: string) => string = (t) => t;
+        try { const m: any = await import('./prdScopeLedger'); if (typeof m?.documentTitle === 'function') titleOf = m.documentTitle; } catch { /* identity */ }
+        for (const r of receipts) {
+            if (r.status === 'not-ingested' || !r.wikiPath) continue;
+            const keys = [_readBackTitles[r.wikiPath], normalizeUploadedFilename(r.document).display, r.document]
+                .filter(Boolean).map(k => titleOf(String(k)));
+            for (const k of keys) { if (byDocument[k] !== undefined) { r.itemsExtracted = Number(byDocument[k]) || 0; break; } }
+        }
+        return emit({ engagementSlug, surface, documents, items: Number(out?.items) || 0, byDocument, receipts });
+    } catch (e: any) {
+        console.warn('[WikiService] upload analysis failed (non-fatal):', e?.message || e);
+        return emit({ engagementSlug, surface, documents, items: 0, byDocument: {}, receipts, error: String(e?.message || e) });
+    }
+}
+
+/**
+ * Archive every uploaded document's body as its own wiki article (research-start
+ * entry point). Delegates to ingestUploadedDocuments so research-start uploads and
+ * analyst-chat attachments share one path. Returns the count archived.
+ */
+export async function archiveUploadedDocs(files: any[], researchGoal: string): Promise<number> {
+    const out = await ingestUploadedDocuments(files, researchGoal, { surface: 'research-start' });
+    return out.archived;
 }
 
 /**
@@ -2084,7 +2365,7 @@ let _wikiManifestCache: WikiManifestEntry[] | null = null;
  *
  * Output is sorted by kind then by path for stable prompt diffs.
  */
-export async function buildWikiManifest(forceRefresh = false): Promise<WikiManifestEntry[]> {
+async function buildWikiManifest(forceRefresh = false): Promise<WikiManifestEntry[]> {
     if (_wikiManifestCache && !forceRefresh) return _wikiManifestCache;
 
     const proxyBase = (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
@@ -2209,7 +2490,7 @@ async function loadAllEvidencePages(): Promise<(WikiPage | null)[]> {
 /**
  * Load the complete brand configuration from wiki/brand/ pages.
  */
-export async function loadBrandConfig(): Promise<BrandConfig> {
+async function loadBrandConfig(): Promise<BrandConfig> {
     const [identity, illustrationStyle, chartStandards, layoutPatterns, antiSlop, referenceDeck] =
         await Promise.all([
             readWikiPage('brand/identity.md'),
@@ -2230,12 +2511,6 @@ export async function loadBrandConfig(): Promise<BrandConfig> {
     };
 }
 
-/**
- * Load the wiki index for navigation.
- */
-export async function loadWikiIndex(): Promise<WikiPage | null> {
-    return readWikiPage('index.md');
-}
 
 /**
  * Assemble the enhanced prompt for a deliverable type.
@@ -2704,7 +2979,7 @@ export interface EngagementBriefRecord {
     frame_label: string;
     probability: number;
     title: string;
-    brand: 'NXT' | 'NU';
+    brand: BrandVariantId;
     based_on?: string;
     research_goal?: string;
     original_concept: string;
@@ -2715,7 +2990,7 @@ export interface EngagementBriefsFile {
     schema_version: 1;
     slug: string;
     research_goal: string;
-    brand: 'NXT' | 'NU';
+    brand: BrandVariantId;
     created_at: string;
     updated_at: string;
     briefs: EngagementBriefRecord[];
@@ -2729,7 +3004,7 @@ export interface EngagementManifest {
     schema_version: 1;
     slug: string;
     research_goal: string;
-    brand?: 'NXT' | 'NU';
+    brand?: BrandVariantId;
     created_at: string;
     updated_at: string;
     /** Quick-glance counts so the IDLE-screen resume picker can show "5 briefs · 3 prototypes" without loading the full files. */
@@ -2916,7 +3191,7 @@ export async function writeEngagementDeliverable(
 }
 
 /** Read a previously persisted deliverable. Returns the unwrapped payload or null. */
-export async function readEngagementDeliverable<T = any>(slug: string, kind: DeliverableKind): Promise<T | null> {
+async function readEngagementDeliverable<T = any>(slug: string, kind: DeliverableKind): Promise<T | null> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${deliverablePath(slug, kind)}`);
         if (!resp.ok) return null;
@@ -2977,7 +3252,7 @@ export async function writeEngagementManifest(slug: string, partial: Partial<Eng
 }
 
 /** Read the engagement manifest, or null if none. */
-export async function readEngagementManifest(slug: string): Promise<EngagementManifest | null> {
+async function readEngagementManifest(slug: string): Promise<EngagementManifest | null> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${engagementManifestPath(slug)}`);
         if (!resp.ok) return null;

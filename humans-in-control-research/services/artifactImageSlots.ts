@@ -76,7 +76,7 @@ export interface ArtifactImageSpec {
 //   - thin-banner chart slots (themes 4.13, prd-story 4.53) constrain vizFamilies to horizontal flow.
 //   - meta-themes + mindmap: glyph slots ADDED to live Figma 2026-06-27 (613:2 = 4 pattern marks 72px;
 //     612:2 = 1 central-hub mark 120px; NU twins inherit) -> branch icon (renderer-paint pending, wired:false).
-export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
+const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     // ---- WIRED reference -------------------------------------------------------------------
     'journey-map': {
         artifact: 'journey-map', mode: 'per-element', branch: 'icon', node: '676:769',
@@ -274,8 +274,3 @@ export function imageSpecFor(artifact: string | undefined | null): ArtifactImage
     return ARTIFACT_IMAGE_SPECS[artifact];
 }
 
-/** True when the registry explicitly lists this artifact as deliberately image-free. */
-export function isImageFree(artifact: string | undefined | null): boolean {
-    const s = imageSpecFor(artifact);
-    return !!s && s.mode === 'none';
-}

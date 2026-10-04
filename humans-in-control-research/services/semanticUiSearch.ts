@@ -220,7 +220,7 @@ export interface RankOptions {
  * Substring matches get a multiplicative boost so exact tokens always
  * surface near the top even when the embedding similarity is mediocre.
  */
-export function rankBySimilarity<T>(
+function rankBySimilarity<T>(
     items: T[],
     getId: (item: T) => string,
     getText: (item: T) => string,
@@ -422,9 +422,4 @@ export function useSemanticSearch<T>(
 // Helpers exposed for non-React callers
 // ============================================================================
 
-export {
-    ensureItemEmbeddings,
-    ensureQueryEmbedding,
-    cosineSimilarity,
-    substringMatches,
-};
+export { cosineSimilarity };

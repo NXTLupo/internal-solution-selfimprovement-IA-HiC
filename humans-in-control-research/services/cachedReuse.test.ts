@@ -27,7 +27,9 @@ describe('WS-C: cached second-brain auto-reuse by objective', () => {
         const loader = read('services/wikiCacheLoader.ts');
         expect(loader).toMatch(/\(it as any\)\.source = 'cached'/);
         expect(loader).toMatch(/cachedProvenance/);
-        expect(loader).toMatch(/scoreGoalSimilarity\(goal, archiveGoal\)/);
+        // 2026-10-01 (plan Stage 1.8 / B7): reuse is a MANIFEST QUERY over chunk records, not a
+        // serial scan of archive summaries; the floor applies to the record's objective similarity.
+        expect(loader).toMatch(/\/api\/manifest\/chunks-by-goal/);
     });
 });
 
@@ -62,7 +64,8 @@ describe('objective-contamination guards (2026-07-01)', () => {
         // the gate only fires on _dormant - explicit selections are never scored away
         expect(src).toMatch(/if \(_dormant && researchObjective/);
         // the objective is threaded into the selection fetch
-        expect(src).toMatch(/_fetchSelectionCatalogIds\(_obj\)/);
+        // (2026-10-02: the engagement slug rides along so the proxy scopes synthesis + collapses duplicates)
+        expect(src).toMatch(/_fetchSelectionCatalogIds\(_obj(?:, engagementSlug)?\)/);
     });
 
     it('auto-reuse floor is 0.45 (contamination band 0.29-0.38 excluded)', () => {

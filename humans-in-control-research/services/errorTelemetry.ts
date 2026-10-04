@@ -77,14 +77,7 @@ export function recordFailure(evt: Omit<FailureEvent, 'ts'>): FailureEvent {
     return e;
 }
 
-/** Snapshot of the ring buffer. The Reasoning Stream Anomaly Panel reads this. */
-export function getFailureEvents(): FailureEvent[] {
-    return _ring.slice();
-}
 
-export function clearFailureEvents(): void {
-    _ring.length = 0;
-}
 
 /** Aggregate stats for surfacing on the Step-6 ledger or as a qualityFrontier
  *  input. `windowMs` defaults to a 10-minute trailing window. */

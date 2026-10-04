@@ -48,6 +48,17 @@ output MUST resolve colors / fonts / spacing from tokens (`/api/design-tokens`, 
 into this file. When the Figma library changes, re-pull both modes into `figma-tokens.json` and
 re-chunk the node map — do not edit values here and call it done.
 
+**Third mode, template-sourced (2026-10-01): DECIEM.** `#deciem` on any deliverable hashtag selects
+the DECIEM brand (The Abnormal Beauty Company). Its tokens are NOT a Figma mode: they were extracted
+from the DECIEM PowerPoint template (template slides only) into the `DECIEM` block of
+`figma-tokens.json` (served at `/api/design-tokens?brand=DECIEM`) plus `hic-workspace/design-system/deciem/`
+(template pptx, corner-art backgrounds, logo PNGs, served at `/api/design-assets/deciem/`). Black
+cover/section canvases with a typeset bordered lockup, white body slides, Poppins Bold UPPERCASE
+titles and labels, Josefin Sans body, Nunito for tables and data, pink `#FB48C4` / cyan `#00FACC` / purple `#8A69D4` /
+orange `#FF6C2F` pops, no rail, no dot-mark. Brand ids are `nxt | nu | deciem`; resolve through
+`brands.normalizeBrandId` / `getBrand`, never a two-way ternary. See
+`hic-workspace/wiki/brand/deciem/design-system.md` and `plans/deciem-brand-mode-2026-10-01.md`.
+
 The values below are a NON-AUTHORITATIVE human reference (snapshot 2026-06-16). If they disagree with
 `figma-tokens.json`, the JSON (and Figma) win — fix this file, not the JSON.
 

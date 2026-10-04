@@ -28,6 +28,53 @@
 //   #auto-open               - synchronous window.open() workaround for popups
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
+import {
+  ARTIFACT_CATALOG,
+  CATALOG_MODIFIERS,
+  catalogDirectiveRegex,
+  catalogEntryFor,
+  isCatalogModifier,
+  matchCatalogDirectives,
+  primaryCatalogHit,
+  type CatalogHit,
+} from './artifactCatalog';
+
+// Stage 6.2 (2026-10-01, finding A2): every directive regex in this file is GENERATED from
+// services/artifactCatalog.ts with a word boundary on both sides, and routing is multi-hit:
+// `parseDirectiveHits` returns every catalog entry a message names; `routeDirective` returns
+// the one whose quality bar decides the model. No hand-written `/#compet/i` style prefixes.
+
+/** Every catalog directive the message names, in document order (one hit per entry). */
+export function parseDirectiveHits(message: string): CatalogHit[] {
+  return matchCatalogDirectives(message);
+}
+
+/** The hit that decides routing for a mixed request (highest routing rank, then document order). */
+export function routeDirective(message: string): CatalogHit | null {
+  return primaryCatalogHit(message);
+}
+
+/** True when the message carries the modifier token as a whole tag (`#slides`, `#dense`, `#NU`). */
+export function hasModifier(message: string, token: string): boolean {
+  if (!isCatalogModifier(token)) return false;
+  return hasFlag(message, token.startsWith('#') ? token : `#${token}`);
+}
+
+/** Split the hashtags in a message into catalog directives, modifiers, and unknown tags. */
+export function classifyHashtags(message: string): { directives: CatalogHit[]; modifiers: string[]; unknown: string[] } {
+  const directives = matchCatalogDirectives(message);
+  const known = new Set(directives.map(h => h.alias));
+  const modifiers: string[] = [];
+  const unknown: string[] = [];
+  for (const m of String(message || '').matchAll(/(?<![\w#-])#[a-z][a-z0-9-]*(?:=(?:"[^"]*"|'[^']*'|\S+))?/gi)) {
+    const raw = m[0];
+    const bare = raw.replace(/=.*$/, '').toLowerCase();
+    if (known.has(bare)) continue;
+    if (isCatalogModifier(raw)) { if (!modifiers.includes(bare)) modifiers.push(bare); continue; }
+    if (!unknown.includes(bare)) unknown.push(bare);
+  }
+  return { directives, modifiers, unknown };
+}
 
 // 2026-05-07 - Composer migrated to Gemini 3.1 Pro. DeepSeek V4 Flash
 // produced jargon-heavy, hyperbolic, AI-slop narratives; Gemini 3.1 Pro at
@@ -61,9 +108,20 @@ export interface PresentationDirective {
 // apostrophe ("#NUs"), with apostrophe ("#NU's"), or with trailing punctuation
 // ("#NU,"). They do NOT match mid-word ("#NUmber" is not #NU).
 // Other tags require a word-boundary (so "#presentationally" doesn't match).
+/**
+ * ONE brand resolver for every directive (#presentation, #proto, HTML artifacts, slides):
+ * `#DECIEM` → DECIEM, `#NU` → NU, otherwise NXT. Case-insensitive, possessive-tolerant
+ * (#NU's). Mirrors brands.normalizeBrandId; keep the two in sync when a brand is added.
+ */
+export function brandVariantOf(message: string): BrandVariant {
+  if (hasFlag(message, '#DECIEM')) return 'DECIEM';
+  if (hasFlag(message, '#NU')) return 'NU';
+  return 'NXT';
+}
+
 function hasFlag(message: string, tag: string): boolean {
   const escaped = tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const isBrandTag = /^#(NU|NXT)$/i.test(tag);
+  const isBrandTag = /^#(NU|NXT|DECIEM)$/i.test(tag);
   // Brand tag: optionally consume 's or s, then forbid any further letter
   const trailing = isBrandTag ? `(?:'?s)?(?![A-Za-z])` : `(?=\\s|$|[.,;:!?'"])`;
   return new RegExp(`(?:^|\\s)${escaped}${trailing}`, 'i').test(message);
@@ -81,19 +139,20 @@ function stripDirectives(message: string): string {
   // Remove all known directive hashtags - leave domain/topic hashtags intact.
   // Brand tags swallow trailing 's or s (so "frame #NUs challenges" becomes
   // "frame challenges" rather than "frame s challenges").
-  const knownDirectives = [
-    /#presentation\b/gi,
+  // Generated from the catalog: the #presentation directive, both brand tags, and every
+  // modifier in CATALOG_MODIFIERS (value-taking ones consume their quoted or bare value).
+  const knownDirectives: RegExp[] = [
+    catalogDirectiveRegex(['#presentation', '#presentations'], 'gi'),
     /#NXT(?:'?s)?(?![A-Za-z])/gi,
     /#NU(?:'?s)?(?![A-Za-z])/gi,
-    /#dark\b/gi,
-    /#light\b/gi,
-    /#preview\b/gi,
-    /#export-pptx\b/gi,
-    /#auto-open\b/gi,
-    /#model=(?:"[^"]+"|'[^']+'|\S+)/gi,
-    /#hero=(?:"[^"]+"|'[^']+'|\S+)/gi,
-    /#sections=(?:"[^"]+"|'[^']+'|\S+)/gi,
   ];
+  for (const mod of CATALOG_MODIFIERS) {
+    if (mod.kind === 'brand') continue;
+    const escaped = mod.token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    knownDirectives.push(mod.takesValue
+      ? new RegExp(`${escaped}=(?:"[^"]+"|'[^']+'|\\S+)`, 'gi')
+      : new RegExp(`(?<![\\w#-])${escaped}(?![\\w-])`, 'gi'));
+  }
   let out = message;
   for (const re of knownDirectives) {
     out = out.replace(re, '');
@@ -155,7 +214,7 @@ function parseModel(raw: string | undefined): ComposerModelChoice {
  * untriggered.
  */
 export function parsePresentationDirective(message: string): PresentationDirective {
-  const triggered = hasFlag(message, '#presentation');
+  const triggered = catalogDirectiveRegex(['#presentation']).test(message);
 
   if (!triggered) {
     return {
@@ -170,7 +229,7 @@ export function parsePresentationDirective(message: string): PresentationDirecti
     };
   }
 
-  const brand: BrandVariant = hasFlag(message, '#NU') ? 'NU' : 'NXT';
+  const brand: BrandVariant = brandVariantOf(message);
   // Theme default is brand-aware:
   //   NXT  → dark (chartreuse on near-black)
   //   NU   → light (Huskies red on stark white per the NU brand spec)
@@ -214,17 +273,17 @@ export interface PrototypeDirective {
 }
 
 export function parsePrototypeDirective(message: string): PrototypeDirective {
-  // Match `#proto` as standalone word so it doesn't collide with `#prototypes`
-  const triggered = /(?:^|\s)#proto(?=\s|$|[.,;:!?'"])/i.test(message);
+  // Match `#proto` as a whole tag (catalog word boundary) so it never collides with `#prototypes`
+  const triggered = catalogDirectiveRegex(['#proto']).test(message);
   if (!triggered) {
     return { triggered: false, brand: 'NXT', concept: '' };
   }
-  const brand: BrandVariant = hasFlag(message, '#NU') ? 'NU' : 'NXT';
+  const brand: BrandVariant = brandVariantOf(message);
   // basedOn lets the chat reference a specific recommendation slug
   const basedOn = extractValue(message, 'name') || extractValue(message, 'rec') || undefined;
   // Strip the directive markers from the message to get the clean concept text
   const concept = message
-    .replace(/(?:^|\s)#proto(?=\s|$|[.,;:!?'"])/gi, ' ')
+    .replace(catalogDirectiveRegex(['#proto'], 'gi'), ' ')
     .replace(/#NXT|#NU/gi, ' ')
     .replace(/#name=\S+/gi, ' ')
     .replace(/#rec=\S+/gi, ' ')
@@ -244,7 +303,7 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
 // only; the whitepaper directive composes a consulting-grade HTML long-form
 // document using the same html-deliverable-composer skill plus a whitepaper-
 // specific structural prompt overlay.
-export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire';
+export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire' | '#prd';
 
 export interface ArtifactDirective {
     triggered: boolean;
@@ -271,30 +330,74 @@ function stripArtifactCommon(message: string): string {
         .trim();
 }
 
+/** Reader-facing label per HTML generator (the chat's "Generating <label>..." line). */
+const HTML_GENERATOR_LABELS: Record<ArtifactGenerator, string> = {
+    '#brief': 'stakeholder brief',
+    '#explainer': 'concept explainer',
+    '#report': 'strategic report',
+    '#playground': 'interactive playground',
+    '#approaches': 'approaches picker',
+    '#whitepaper': 'consulting whitepaper',
+    '#questionnaire': 'stakeholder questionnaire',
+    '#prd': 'product requirements document',
+};
+
+/** The typed aliases that trigger one HTML generator. `#whitepaper` is its own generator inside the report
+ *  entry, so `#report` must not trigger it and vice versa: each generator owns every alias of its entry
+ *  except the aliases that belong to another generator of the same entry (and their plurals). */
+function generatorAliases(token: ArtifactGenerator): string[] {
+    const entry = catalogEntryFor(token);
+    if (!entry) return [token];
+    const others = entry.aliases.filter(a => a !== token && a in HTML_GENERATOR_LABELS);
+    const own = entry.aliases.filter(a => !others.some(g => a === g || a === `${g}s`));
+    return own.length ? own : [token];
+}
+
 function buildArtifactParser(token: ArtifactGenerator) {
+    // Word-boundary regex generated from the catalog: #report never trips on
+    // "#reporting", #brief never trips on "#brief-dialog" or "#debriefing".
+    const re = catalogDirectiveRegex(generatorAliases(token));
+    const reAll = catalogDirectiveRegex(generatorAliases(token), 'gi');
     return (message: string): ArtifactDirective => {
-        // Match the token as a standalone word so #report doesn't trip on
-        // "reporting" and #brief doesn't trip on "debriefing".
-        const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const re = new RegExp(`(?:^|\\s)${escaped}(?=\\s|$|[.,;:!?'"])`, 'i');
         const triggered = re.test(message);
         if (!triggered) {
             return { triggered: false, generator: token, topic: '', brand: 'NXT', variants: 1 };
         }
-        const brand: BrandVariant = hasFlag(message, '#NU') ? 'NU' : 'NXT';
+        const brand: BrandVariant = brandVariantOf(message);
         const variants = parseVariantsModifier(message);
-        const topic = stripArtifactCommon(message.replace(new RegExp(`(?:^|\\s)${escaped}(?=\\s|$|[.,;:!?'"])`, 'gi'), ' '));
+        const topic = stripArtifactCommon(message.replace(reAll, ' '));
         return { triggered: true, generator: token, topic, brand, variants };
     };
 }
 
-export const parseBriefDirective = buildArtifactParser('#brief');
-export const parseExplainerDirective = buildArtifactParser('#explainer');
-export const parseReportDirective = buildArtifactParser('#report');
-export const parsePlaygroundDirective = buildArtifactParser('#playground');
-export const parseApproachesDirective = buildArtifactParser('#approaches');
-export const parseWhitepaperDirective = buildArtifactParser('#whitepaper');
-export const parseQuestionnaireDirective = buildArtifactParser('#questionnaire');
+/**
+ * GENERATED from the catalog: every HTML-modality directive, in catalog order, with its parser and label.
+ * CorpusChatPanel iterates this instead of a hand-kept list, so a new HTML directive added to the catalog
+ * reaches the HTML pipeline without a panel edit (the coverage test asserts the set matches).
+ */
+export const HTML_ARTIFACT_PARSERS: Array<{ generator: ArtifactGenerator; label: string; parser: (message: string) => ArtifactDirective }> = (() => {
+    const out: Array<{ generator: ArtifactGenerator; label: string; parser: (message: string) => ArtifactDirective }> = [];
+    const seen = new Set<string>();
+    for (const e of ARTIFACT_CATALOG) {
+        if (e.modality !== 'html') continue;
+        for (const a of e.aliases) {
+            const gen = a as ArtifactGenerator;
+            if (!(gen in HTML_GENERATOR_LABELS) || seen.has(gen)) continue;
+            seen.add(gen);
+            out.push({ generator: gen, label: HTML_GENERATOR_LABELS[gen], parser: buildArtifactParser(gen) });
+        }
+    }
+    return out;
+})();
+
+/** First HTML generator the message triggers, in catalog order, or null. */
+export function parseHtmlArtifactDirective(message: string): { directive: ArtifactDirective; label: string } | null {
+    for (const ap of HTML_ARTIFACT_PARSERS) {
+        const d = ap.parser(message);
+        if (d.triggered) return { directive: d, label: ap.label };
+    }
+    return null;
+}
 
 // 2026-06-26 - #img visual-routing override (visualRouter.ts / nano-banana designer plan C2+C6).
 // Lets the user PIN which branch fills a deliverable's image slot, overriding the auto router:
@@ -322,12 +425,12 @@ export function parseImgDirective(message: string): ImgDirective | undefined {
 
 /** Help directive - bare hashtag, no topic needed. */
 export function parseHelpDirective(message: string): { triggered: boolean } {
-    return { triggered: /(?:^|\s)#help(?=\s|$|[.,;:!?'"])/i.test(message) };
+    return { triggered: catalogDirectiveRegex(['#help']).test(message) };
 }
 
 /** Artifact library directive - bare hashtag. */
 export function parseArtifactsLibraryDirective(message: string): { triggered: boolean } {
-    return { triggered: /(?:^|\s)#artifacts(?=\s|$|[.,;:!?'"])/i.test(message) };
+    return { triggered: catalogDirectiveRegex(['#artifacts']).test(message) };
 }
 
 /** Refine directive - targets an existing slug. */
@@ -346,20 +449,4 @@ export function parseRefineDirective(message: string): RefineDirective {
         slug: (m[1] || '').toLowerCase().trim(),
         instruction: (m[2] || '').trim(),
     };
-}
-
-/**
- * Convenience: returns a short human-readable summary of a directive.
- * Used in the chat to acknowledge what the user asked for before composition begins.
- */
-export function summarizeDirective(d: PresentationDirective): string {
-  if (!d.triggered) return '';
-  const parts: string[] = [`brand=${d.brand}`, `model=${d.model}`];
-  if (d.theme !== 'dark') parts.push(`theme=${d.theme}`);
-  if (d.heroOverride) parts.push(`hero="${d.heroOverride}"`);
-  if (d.sectionFilter?.length) parts.push(`sections=${d.sectionFilter.join(',')}`);
-  if (d.ephemeral) parts.push('preview');
-  if (d.alsoExportPptx) parts.push('+pptx');
-  if (d.autoOpen) parts.push('auto-open');
-  return parts.join(' · ');
 }

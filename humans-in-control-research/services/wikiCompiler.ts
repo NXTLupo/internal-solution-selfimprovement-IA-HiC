@@ -10,6 +10,7 @@
  *
  * Created 2026-05-22 as part of Phase 5 of the self-improvement loop.
  */
+import { chooseUtilityModel, applyAnthropicRequestDefaults, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 const STALE_SYNTHESIS_DAYS = 30;
@@ -161,6 +162,19 @@ const COMPILE_EXCLUDE_FILES = new Set([
     'learning-state.json',
     'constraint-effectiveness.json',
     'constraint-records.json',
+    // 2026-10-01 (plan Stage 0.3, audit C3): the self-improvement ledgers the compiler
+    // overwrote with synthesized prose on 2026-09-11. Append-only; never regenerated.
+    'improvement-epochs.md',
+    'improvement-lineage.md',
+    'verification-hierarchy.md',
+    'loop-trace-ledger.md',
+    'dismissed-constraints.md',
+    'auditor-verdicts.jsonl',
+    'epoch-proposals.json',
+    'cost-telemetry.md',
+    'skillopt-weekly-log.md',
+    'curator-log.md',
+    'hook-rejection-log.md',
 ]);
 
 async function loadSynthesisPages(): Promise<SynthesisPage[]> {
@@ -289,7 +303,7 @@ RULES:
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-3.5-flash',
+                model: chooseUtilityModel('wiki-compile').model,
                 contents: prompt,
                 config: { temperature: 0.2, maxOutputTokens: 4500 },
             }),
@@ -307,11 +321,13 @@ RULES:
             const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'claude-opus-4-8',
+                body: JSON.stringify(applyAnthropicRequestDefaults({
+                    // _utility class (Stage 4.3 / D7): the escalation is the STRUCTURED Claude model,
+                    // never the reasoning model; a wiki compile is a rewrite, not a judgment.
+                    model: CLAUDE_STRUCTURED_MODEL,
                     max_tokens: 4000,
                     messages: [{ role: 'user', content: prompt }],
-                }),
+                }, { kind: 'wiki-compile' })),
             });
             if (!resp.ok) return null;
             const data = await resp.json();
@@ -384,7 +400,7 @@ Then the body sections (## Themes, ## Personas, ## Recommendations, ## Gaps).`;
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-3.5-flash',
+                model: chooseUtilityModel('wiki-compile').model,
                 contents: prompt,
                 config: { temperature: 0.2, maxOutputTokens: 3500 },
             }),
@@ -401,11 +417,13 @@ Then the body sections (## Themes, ## Personas, ## Recommendations, ## Gaps).`;
             const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'claude-opus-4-8',
+                body: JSON.stringify(applyAnthropicRequestDefaults({
+                    // _utility class (Stage 4.3 / D7): the escalation is the STRUCTURED Claude model,
+                    // never the reasoning model; a wiki compile is a rewrite, not a judgment.
+                    model: CLAUDE_STRUCTURED_MODEL,
                     max_tokens: 3000,
                     messages: [{ role: 'user', content: prompt }],
-                }),
+                }, { kind: 'wiki-compile' })),
             });
             if (!resp.ok) return null;
             const data = await resp.json();

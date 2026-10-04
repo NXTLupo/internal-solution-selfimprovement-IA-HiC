@@ -67,6 +67,7 @@ _GEMINI_EMBED_URL = "https://generativelanguage.googleapis.com/v1beta/models/gem
 import hashlib
 from pathlib import Path
 import functools
+from model_registry import CLAUDE_REASONING_MODEL as _CLAUDE_REASONING_MODEL, normalize_claude_body as _normalize_claude_body
 
 # 2026-05-31 — CPU-bound clustering (UMAP/HDBSCAN via numba) holds the GIL in
 # bursts and would stall the worker's event loop → intermittent 502s on /status
@@ -706,17 +707,14 @@ Return ONLY a JSON array, one object per cluster, in the same order. Example:
                 "anthropic-version": "2023-06-01",
                 "Content-Type": "application/json",
             },
-            json={
-                # opus-4-8 REJECTS `temperature` with a 400 ("deprecated for this
-                # model"), which made EVERY label call fail -> heuristic keyword-salad
-                # names + the domain gate silently skipped. opus-4-8 is deterministic
-                # by default, so omitting temperature preserves the determinism the
-                # 2026-05-24 note wanted. (Fixed 2026-06-02 alongside the same bug in
-                # _call_claude_for_artifact and the /api/ai/anthropic passthrough.)
-                "model": "claude-opus-4-8",
+            # 2026-09-30 (plan Stage 0.5): the Claude reasoning model from model_registry,
+            # body through the shared normalizer (adaptive thinking, effort=low for a
+            # labeling task, no sampling params - they 400 on Claude 4.6+/5.x).
+            json=_normalize_claude_body({
+                "model": _CLAUDE_REASONING_MODEL,
                 "max_tokens": 4000,
                 "messages": [{"role": "user", "content": prompt}],
-            },
+            }, default_effort="low"),
         )
         parsed = None
         if resp.status_code != 200:

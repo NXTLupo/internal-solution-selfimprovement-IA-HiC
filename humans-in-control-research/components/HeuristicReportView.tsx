@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { HeuristicReport, HeuristicFinding, HeuristicDimensionId, HEURISTIC_DIMENSION_LABELS, SeverityScore } from '../types';
-import { exportHTML, exportJSON } from '../services/exportService';
+import { exportHTML, exportJSON } from '../services/resultExports';
 import { orderFindingsForScreen } from '../services/auditCritiqueDeck';
 
 interface Props {

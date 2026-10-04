@@ -1,3 +1,5 @@
+import { resolveCitations } from './slidePostProcessor';
+import type { ChunkSourceInfo } from './researchFabricOrchestrator';
 /**
  * Citation Resolver - Maps ALL raw citation references to human-readable sources.
  *
@@ -76,66 +78,34 @@ export function buildFileMap(corpusText: string): Map<number, string> {
  * Input:  "Donor retention declined 18% [CHUNK_001]"
  * Output: "Donor retention declined 18% (Source: Bank of America Study of Philanthropy, 2025)"
  */
-export function resolveChunkReferences(
+function resolveChunkReferences(
     text: string,
     citationMap: Map<string, ResolvedCitation>,
     fileMap?: Map<number, string>
 ): string {
     if (!text) return text;
-
-    let resolved = text;
-
-    // 1. Resolve [CHUNK_XXX] with citation map
-    if (citationMap.size > 0) {
-        resolved = resolved.replace(/\[CHUNK_(\d+)\]/g, (fullMatch, num) => {
-            const chunkId = `CHUNK_${num}`;
-            const citation = citationMap.get(chunkId);
-
-            if (!citation) return ''; // Strip orphaned chunk refs entirely
-
-            const parts: string[] = [];
-            if (citation.title && citation.title.length < 60) {
-                parts.push(`"${citation.title}"`);
-            }
-            parts.push(citation.sourceName);
-            if (citation.date) {
-                const yearMatch = citation.date.match(/\d{4}/);
-                if (yearMatch) parts.push(yearMatch[0]);
-            }
-
-            return `(Source: ${parts.join(', ')})`;
-        });
+    // 2026-10-01 (plan Stage 6.3 / A9): ONE text resolver. The [CHUNK_XXX] / [FILE N] / pointer
+    // rewriting lives in slidePostProcessor.resolveCitations (which delegates manifest pointers to
+    // citationPointerRegistry); this adapter only translates the pipeline's maps into its inputs.
+    // The old local copy also REPLACED "(baseline: X%)" with a written-in placeholder sentence; that
+    // is a QA annotation the reader must never see, so the placeholder is now stripped, not reworded.
+    const chunkSourceMap: Record<string, ChunkSourceInfo> = {};
+    for (const [id, c] of citationMap.entries()) {
+        chunkSourceMap[id] = { sourceName: c.sourceName, title: c.title || '', url: c.sourceUrl } as ChunkSourceInfo;
     }
-
-    // 2. Resolve [FILE N] references to actual filenames
-    if (fileMap && fileMap.size > 0) {
-        resolved = resolved.replace(/\[FILE\s*(\d+)\]/gi, (_fullMatch, num) => {
-            const fileName = fileMap.get(parseInt(num));
-            if (fileName) {
-                // Strip extension for cleaner display
-                const displayName = fileName.replace(/\.[^.]+$/, '').replace(/[_-]/g, ' ');
-                return `(Source: ${displayName})`;
-            }
-            return ''; // Strip unresolved file refs
-        });
-    } else {
-        // No file map - strip [FILE N] refs entirely rather than showing raw
-        resolved = resolved.replace(/\[FILE\s*\d+\]/gi, '');
+    const fileNames: string[] = [];
+    if (fileMap && fileMap.size) {
+        const maxIdx = Math.max(...Array.from(fileMap.keys()));
+        for (let i = 1; i <= maxIdx; i++) fileNames.push(fileMap.get(i) || '');
     }
-
-    // 3. Strip any remaining orphaned [CHUNK_XXX] not caught by map (empty map case)
-    resolved = resolved.replace(/\[CHUNK_\d+\]/g, '');
-
-    // 4. Resolve placeholder baselines: (baseline: X%) -> meaningful text
-    resolved = resolved.replace(/\(baseline:\s*X%?\)/gi, '(baseline: to be measured in first 30 days)');
-    resolved = resolved.replace(/\(baseline:\s*[A-Z]%?\)/gi, '(baseline: to be measured in first 30 days)');
-
-    // 5. Strip comma-separated FILE/CHUNK lists like "[FILE 4, CHUNK_069, CHUNK_190]"
-    resolved = resolved.replace(/\[\s*(?:FILE\s*\d+|CHUNK_\d+)(?:\s*,\s*(?:FILE\s*\d+|CHUNK_\d+))*\s*\]/gi, '');
-
-    // 6. Clean up double spaces and orphaned punctuation from stripped refs
-    resolved = resolved.replace(/\s{2,}/g, ' ').replace(/\s+([.,;])/g, '$1');
-
+    let resolved = resolveCitations(text, fileNames.length ? fileNames : undefined, chunkSourceMap);
+    resolved = resolved
+        .replace(/\s*\(baseline:\s*[A-Za-z]%?\)/gi, '')
+        .replace(/\[\s*(?:FILE\s*\d+|CHUNK_\d+)(?:\s*,\s*(?:FILE\s*\d+|CHUNK_\d+))*\s*\]/gi, '')
+        .replace(/\[CHUNK_\d+\]/g, '')
+        .replace(/\[FILE\s*\d+\]/gi, '')
+        .replace(/\(Source #\d+\)/g, '')
+        .replace(/\s{2,}/g, ' ').replace(/\s+([.,;])/g, '$1');
     return resolved;
 }
 
@@ -161,21 +131,6 @@ export function resolveAllCitations<T>(obj: T, citationMap: Map<string, Resolved
     return obj;
 }
 
-/**
- * Strip markdown formatting artifacts from rendered text.
- * S-03: No raw **bold** or __underline__ markup in rendered output.
- */
-export function stripMarkdownArtifacts(text: string): string {
-    if (!text) return text;
-    return text
-        .replace(/\*\*(.+?)\*\*/g, '$1')   // **bold** -> bold
-        .replace(/__(.+?)__/g, '$1')         // __underline__ -> underline
-        .replace(/\*(.+?)\*/g, '$1')         // *italic* -> italic
-        .replace(/`(.+?)`/g, '$1')           // `code` -> code
-        .replace(/^#+\s/gm, '')              // ### heading -> heading
-        .replace(/^[-*]\s/gm, '')            // - bullet -> bullet
-        .trim();
-}
 
 // ================================================================
 // TYPO-01: Proper noun spell-check with fuzzy matching
@@ -253,7 +208,7 @@ function editDistance(a: string, b: string): number {
  * For each word 5+ chars, check edit distance against the dictionary.
  * Auto-correct matches with distance <= 2 and similarity > 80%.
  */
-export function fuzzyCorrectProperNouns(text: string): string {
+function fuzzyCorrectProperNouns(text: string): string {
     if (!text) return text;
 
     // Build a reverse lookup: for each canonical, store the correct form

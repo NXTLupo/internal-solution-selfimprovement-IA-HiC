@@ -31,6 +31,10 @@ import { noteAttempt, noteResult, resetProgress } from './progressGuard';
 import { runArtifactChain, type ChainContext, type ChainResult } from './artifactChain';
 import type { SlotViolation } from './evidenceSlots';
 import type { GradeReport } from './outputGrader';
+import type { ProseReport } from './proseSignal';
+import type { SlopSite } from './slopDetector';
+import type { ClaimStageReport } from './claimStage';
+import { pickTitleCandidate, TITLE_MAX_CHARS, type TitleReport } from './titleGate';
 import { ok, partial, type StepEnvelope, type StopReason } from './stepEnvelope';
 
 const MAX_ROUNDS = 2;
@@ -58,11 +62,80 @@ const REPAIR_SYSTEM = [
     '- NEVER delete a manifest pointer, a source label or a verbatim quote that is already present and correct.',
     '',
     'STYLE: plain business language, one idea per sentence, no em-dash, no emoji, no markdown, no buzzwords. A short honest sentence beats a padded one.',
+    '',
+    `TITLES: when a finding names the title, ALSO return a key "_titleCandidates" holding THREE distinct alternative titles. Each is one literal sentence under ${TITLE_MAX_CHARS} characters with a finite verb, naming the actor or system, with no figure of speech and no number. The caller picks the one that passes its checks.`,
 ].join('\n');
 
-/** Per-slide instruction assembled from the violations that name that slide. */
-function slideInstruction(violations: SlotViolation[], grade: GradeReport | null, slideId: string): string {
+/**
+ * 2026-10-01 (Stage 2.1): every finding family the chain produces, in one bag, so the
+ * per-slide instruction and the `needsWork` test read the SAME set. Before this the
+ * repairer only knew about evidence violations and grader findings; slop and prose
+ * instructions were built by the chain and discarded here.
+ */
+interface Findings {
+    violations: SlotViolation[];
+    grade: GradeReport | null;
+    slop: SlopSite[];
+    titles: TitleReport | null;
+    prose: ProseReport | null;
+    claims: ClaimStageReport | null;
+}
+
+function findingsOf(chain: ChainResult<any>): Findings {
+    return {
+        violations: chain.slotReport?.violations || [],
+        grade: chain.gradeReport,
+        slop: chain.slopFindings || [],
+        titles: chain.titleReport,
+        prose: chain.proseReport && !chain.proseReport.pass ? chain.proseReport : null,
+        claims: chain.claimReport && !chain.claimReport.pass ? chain.claimReport : null,
+    };
+}
+
+/** Which slide fields carry a prose offender: concerns are deck-level, edits are per field. */
+function proseLinesFor(slide: RepairableSlide, prose: ProseReport | null): string[] {
+    if (!prose) return [];
     const lines: string[] = [];
+    let fields: Array<{ path: string; value: string }> = [];
+    try { fields = enumerateTextFields(slide).map((f: any) => ({ path: f.path, value: String(f.value || '') })); } catch { return []; }
+    for (const c of prose.concerns) {
+        for (const offender of c.offenders || []) {
+            const needle = String(offender || '').trim().slice(0, 80);
+            if (needle.length < 12) continue;
+            const hit = fields.find(f => f.value.includes(needle));
+            if (hit) lines.push(`- Field ${hit.path} fails the ${c.label} check: "${needle}". ${c.detail}`);
+        }
+    }
+    return lines;
+}
+
+function countFindings(f: Findings): Record<string, number> {
+    return {
+        evidence: f.violations.length,
+        superficial: f.grade?.superficial.length || 0,
+        nonFactual: (f.grade?.claims || []).filter(c => c.type !== 'factual').length,
+        slop: f.slop.length,
+        titles: f.titles ? f.titles.findings.filter(t => t.failing).length : 0,
+        prose: f.prose ? f.prose.concerns.length : 0,
+        claims: f.claims ? f.claims.blocking : 0,
+    };
+}
+
+/** Per-slide instruction assembled from every finding that names that slide. */
+function slideInstruction(f: Findings, slide: RepairableSlide): string {
+    const { violations, grade, slop, titles } = f;
+    const slideId = slide.id;
+    const lines: string[] = [];
+    for (const site of slop.filter(x => x.slideId === slideId)) {
+        lines.push(`- Field ${site.field} uses banned wording "${site.phrase}" in: "${site.sentence.slice(0, 160)}". Rewrite the sentence in plain language with the same claim; do not delete it.`);
+    }
+    for (const t of (titles?.findings || []).filter(x => x.slideId === slideId && x.failing)) {
+        lines.push(`- Field title "${t.title.slice(0, 120)}" fails the Partner Test: ${t.detail}. Rewrite it as one short literal sentence with a finite verb and no number.`);
+    }
+    lines.push(...proseLinesFor(slide, f.prose));
+    for (const c of (f.claims?.findings || []).filter(x => x.slideId === slideId && x.severity === 'block')) {
+        lines.push(`- Field ${c.field} fails the claim ledger [${c.code}]: "${c.sentence.slice(0, 140)}". ${c.detail} Say only what the cited passage supports; keep the citation.`);
+    }
     for (const v of violations.filter(x => x.sectionId === slideId)) {
         if (v.kind === 'unsupported_p0') {
             lines.push(`- Field ${v.field} asserts something the corpus does not support: "${v.claim.slice(0, 160)}". Narrow it.`);
@@ -115,8 +188,16 @@ async function repairSlide<T extends RepairableSlide>(slide: T, instruction: str
 
     const byPath = new Map(fields.map(f => [f.path, f.value]));
     const edits: TextEdit[] = [];
+    // R-M2: verbalized sampling for titles. The model proposes three; the title gate
+    // picks the first that passes, so the selection is the gate's, not the model's.
+    const picked = pickTitleCandidate((map as any)._titleCandidates, slide.template);
+    if (picked && byPath.has('title') && picked !== byPath.get('title')) {
+        edits.push({ path: 'title', value: mergeEditPreservingCitations(byPath.get('title') || '', stripCitationArtifacts(scrubRewrite(picked))) });
+    }
     for (const [path, raw] of Object.entries(map)) {
         if (typeof raw !== 'string') continue;
+        if (path === 'title' && picked) continue;                 // the gate's pick wins
+        if (path.startsWith('_')) continue;
         const original = byPath.get(path);
         if (original === undefined) continue;                     // hallucinated path
         // Provenance is the system's, not the model's. STRIP every pointer and
@@ -143,6 +224,20 @@ export interface RepairRound {
     violations: number;
 }
 
+/**
+ * R-M1 (2026-10-01): the reinforcement-inference record. Per finding family, how many
+ * the chain found before repair and how many survived, so the self-improvement loop
+ * can learn which instruction families the repairer actually resolves.
+ */
+export interface RepairRiRecord {
+    before: Record<string, number>;
+    after: Record<string, number>;
+    resolved: number;
+    survived: number;
+    /** True when the final chain verdict improved on the initial one. */
+    improved: boolean;
+}
+
 export interface RepairResult<T> {
     slides: T[];
     rounds: RepairRound[];
@@ -150,6 +245,14 @@ export interface RepairResult<T> {
     finalChain: ChainResult<T>;
     envelope: StepEnvelope<{ rounds: number; fieldsEdited: number }>;
     stopReason?: StopReason;
+    ri: RepairRiRecord;
+}
+
+function riRecord(initial: ChainResult<any>, final: ChainResult<any>): RepairRiRecord {
+    const before = countFindings(findingsOf(initial));
+    const after = countFindings(findingsOf(final));
+    const sum = (r: Record<string, number>) => Object.values(r).reduce((a, b) => a + b, 0);
+    return { before, after, resolved: Math.max(0, sum(before) - sum(after)), survived: sum(after), improved: sum(after) < sum(before) };
 }
 
 /**
@@ -173,27 +276,30 @@ export async function repairArtifact<T extends RepairableSlide>(
     let stopReason: StopReason | undefined;
 
     for (let round = 1; round <= MAX_ROUNDS; round++) {
-        const violations = latest.slotReport?.violations || [];
-        const grade = latest.gradeReport;
-        const needsWork = violations.length > 0
-            || (grade?.superficial.length || 0) > 0
-            || (grade?.claims || []).some(c => c.type !== 'factual');
+        const f = findingsOf(latest);
+        const violations = f.violations;
+        const counts = countFindings(f);
+        const needsWork = Object.values(counts).some(n => n > 0);
         if (!needsWork) break;
 
         // Call-pattern guard: the same finding set twice means the model is not
         // moving, so stop paying for another identical round.
         const signature = JSON.stringify([
             violations.map(v => `${v.sectionId}:${v.field}:${v.kind}`).sort(),
-            (grade?.superficial || []).map(s => `${s.slideId}:${s.field}`).sort(),
+            (f.grade?.superficial || []).map(s => `${s.slideId}:${s.field}`).sort(),
+            f.slop.map(s => `${s.slideId}:${s.field}:${s.phrase}`).sort(),
+            (f.titles?.findings || []).filter(t => t.failing).map(t => `${t.slideId}:${t.kinds.join('+')}`).sort(),
+            f.prose ? f.prose.concerns.map(c => c.id).sort() : [],
+            (f.claims?.findings || []).filter(x => x.severity === 'block').map(x => `${x.slideId}:${x.field}:${x.code}`).sort(),
         ]);
         const attempt = noteAttempt(runId, 'repair', signature);
         if (attempt.blocked) { stopReason = attempt.stopReason; break; }
 
         const targets = current.filter(s => {
             if (s._locked) return false;
-            return !!slideInstruction(violations, grade, s.id);
+            return !!slideInstruction(f, s);
         });
-        const skippedLocked = current.filter(s => s._locked && slideInstruction(violations, grade, s.id)).length;
+        const skippedLocked = current.filter(s => s._locked && slideInstruction(f, s)).length;
 
         let failed = 0;
         let fieldsEdited = 0;
@@ -202,7 +308,7 @@ export async function repairArtifact<T extends RepairableSlide>(
         // loop keeps the provider from rate-limiting a deck-wide burst.
         for (const slide of targets) {
             try {
-                const edits = await repairSlide(slide, slideInstruction(violations, grade, slide.id));
+                const edits = await repairSlide(slide, slideInstruction(f, slide));
                 if (edits.length) {
                     edited.set(slide.id, applyTextEdits(slide, edits) as T);
                     fieldsEdited += edits.length;
@@ -231,10 +337,12 @@ export async function repairArtifact<T extends RepairableSlide>(
         const after = latest.slotReport?.violations.length ?? 0;
         rounds.push({ round, slidesTouched: edited.size, fieldsEdited, skippedLocked, failed, pass: latest.pass, violations: after });
 
+        const afterCounts = countFindings(findingsOf(latest));
         const decision = noteResult(runId, 'repair', {
             ok: true,
-            output: JSON.stringify(latest.slotReport?.violations || []),
-            emptyResult: after === violations.length,   // no violations resolved
+            output: JSON.stringify([latest.slotReport?.violations || [], afterCounts]),
+            // no finding of ANY family resolved
+            emptyResult: Object.values(afterCounts).reduce((a, b) => a + b, 0) >= Object.values(counts).reduce((a, b) => a + b, 0),
         });
         if (decision.blocked) { stopReason = decision.stopReason; break; }
     }
@@ -246,5 +354,5 @@ export async function repairArtifact<T extends RepairableSlide>(
             `${latest.slotReport?.violations.length ?? 0} finding(s) survived repair`,
             { nextAction: 'narrow_scope', stopReason });
 
-    return { slides: current, rounds, finalChain: latest, envelope, stopReason };
+    return { slides: current, rounds, finalChain: latest, envelope, stopReason, ri: riRecord(chain, latest) };
 }

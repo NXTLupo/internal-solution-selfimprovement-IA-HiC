@@ -54,7 +54,7 @@ export interface PickChannelsOptions {
 /** The five original AI-focused channels, kept for backward compat with
  *  briefs that ARE AI-topic-focused. These map to connector IDs in
  *  dataSourceConnectors.ts. */
-export const AI_LENS_CHANNEL_SOURCE_IDS = [
+const AI_LENS_CHANNEL_SOURCE_IDS = [
     'yt_two_minute_papers',
     'yt_yannic_kilcher',
     'yt_lex_fridman',
@@ -69,7 +69,7 @@ const MANIFEST_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 /** Load the channel manifest via the Vite dev server's /hic-workspace/ route.
  *  Returns null on failure so callers can fall back to AI defaults. */
-export async function loadYouTubeChannelManifest(): Promise<YouTubeChannelManifest | null> {
+async function loadYouTubeChannelManifest(): Promise<YouTubeChannelManifest | null> {
     const now = Date.now();
     if (_manifestCache && (now - _manifestLoadedAt) < MANIFEST_CACHE_TTL_MS) {
         return _manifestCache;
@@ -173,7 +173,7 @@ export async function pickYouTubeChannelIdsForLens(
 }
 
 /** Convenience: get full channel entries (not just IDs) for UI display. */
-export async function pickYouTubeChannelsForLens(
+async function pickYouTubeChannelsForLens(
     lens: string | undefined,
     opts: PickChannelsOptions = {},
 ): Promise<YouTubeChannelEntry[]> {

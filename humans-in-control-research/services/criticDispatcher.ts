@@ -1,51 +1,97 @@
-// services/criticDispatcher.ts - 2026-05-25
+// services/criticDispatcher.ts - 2026-05-25, rewired 2026-10-01 (plan Stage 2.6, audit C8)
 //
 // The piece that makes the expert panel actually fire LLM-based domain
 // critics (not just deterministic hygiene). Given a critic skill name +
-// a deliverable, it fetches the skill markdown, builds a model prompt,
-// calls the proxy, and parses a CriticVerdict back out.
+// a deliverable, it resolves the critic's rubric text THROUGH THE MANIFEST
+// (hic-workspace/wiki/eval/rubrics/index.json `critics` map), builds a model
+// prompt, calls the proxy, and parses a CriticVerdict back out.
+//
+// 2026-10-01 fail-closed contract (C8 named the three leaks):
+//   - a critic whose rubric text cannot be loaded returns a verdict carrying
+//     `error` (never a generic "you are a critic" prompt);
+//   - unparseable critic output returns `error`, not `accept: true`;
+//   - a dispatch failure returns `error`, not `accept: true`.
+//   criticReviseLoop records each as a degradation event and runExpertPanel
+//   refuses to declare `pass` while any critic errored.
 //
 // Pairs with services/artifactExpertPanel.ts as the invoke_critic param.
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { withResilience, isThrottleError } from './multiModelResilience';
-import type { CriticInvoker, CriticVerdict, CriticConfig } from './criticReviseLoop';
+import type { CriticInvoker, CriticVerdict } from './criticReviseLoop';
+import { CLAUDE_REASONING_MODEL } from './aiRouter';
+import { listPriceFor } from './costMeter';
+import {
+    loadRubricIndex,
+    resolveCriticSource,
+    runDeterministicCheck,
+    buildRubricScoringPrompt,
+    parseRubricScores,
+    type AuditorRubric,
+    type ModelCriterionScore,
+    type RubricIndex,
+} from './auditorRubrics';
 
 
 // ─── Skill loader ────────────────────────────────────────────────────────────
-// Skills live at .claude/skills/<name>/SKILL.md and are served by the Vite
-// dev server at /skills/<name>/SKILL.md (see vite.config.ts custom plugin).
+// Skills live at .claude/skills/<name>/SKILL.md and are served at /skills/<name>/SKILL.md
+// (Vite plugin in dev, nginx volume mount in Docker). Nested skills (skills/diagrams/*) are
+// reachable only through the manifest's `critics` map; the flat path 404s (C8).
 
 const SKILL_CACHE = new Map<string, string>();
 
-async function loadSkillMarkdown(skillName: string, proxyBase: string): Promise<string> {
+class CriticRubricMissingError extends Error {
+    constructor(public readonly skill: string, detail: string) {
+        super(`rubric missing for critic '${skill}': ${detail}`);
+        this.name = 'CriticRubricMissingError';
+    }
+}
+
+/** The SPA fallback answers unknown paths with index.html and HTTP 200; a skill body is markdown. */
+function looksLikeSkillMarkdown(text: string): boolean {
+    if (!text || text.trim().length < 40) return false;
+    if (/^\s*<(!doctype|html)/i.test(text)) return false;
+    return true;
+}
+
+async function loadSkillMarkdown(skillName: string, proxyBase: string, index: RubricIndex | null): Promise<string> {
     if (SKILL_CACHE.has(skillName)) return SKILL_CACHE.get(skillName)!;
-    try {
-        const resp = await fetch(`/skills/${skillName}/SKILL.md`);
-        if (resp.ok) {
-            const text = await resp.text();
-            SKILL_CACHE.set(skillName, text);
-            return text;
-        }
-    } catch { /* fall through */ }
-    // Fallback: try the wiki path the proxy serves
-    try {
-        const resp = await fetch(`${proxyBase}/skills/${skillName}/SKILL.md`);
-        if (resp.ok) {
-            const text = await resp.text();
-            SKILL_CACHE.set(skillName, text);
-            return text;
-        }
-    } catch { /* fall through */ }
-    // No skill found - return a minimal generic critic guidance so the call
-    // doesn't fail. The panel keeps moving.
-    return `You are a domain critic for the "${skillName}" skill. Review the deliverable for quality, evidence grounding, and adherence to the skill's core discipline. Suggest structured edits.`;
+    const source = resolveCriticSource(index, skillName);
+    const attempts: string[] = [];
+    if (source.path) {
+        attempts.push(source.path);
+        try {
+            const resp = await fetch(source.path);
+            if (resp.ok) {
+                const text = await resp.text();
+                if (looksLikeSkillMarkdown(text)) { SKILL_CACHE.set(skillName, text); return text; }
+            }
+        } catch { /* fall through */ }
+    }
+    // Proxy read (flat names only; the proxy sanitizes '/' out of the name).
+    if (!/[\/\\]/.test(skillName)) {
+        attempts.push(`${proxyBase}/api/skill/read?name=${encodeURIComponent(skillName)}`);
+        try {
+            const resp = await fetch(`${proxyBase}/api/skill/read?name=${encodeURIComponent(skillName)}`);
+            if (resp.ok) {
+                const data = await resp.json();
+                const text = typeof data?.content === 'string' ? data.content : '';
+                if (looksLikeSkillMarkdown(text)) { SKILL_CACHE.set(skillName, text); return text; }
+            }
+        } catch { /* fall through */ }
+    }
+    throw new CriticRubricMissingError(skillName, `tried ${attempts.join(', ') || 'no path'}`);
+}
+
+/** Tests and hot-reload callers clear the skill cache. */
+export function resetCriticSkillCache(): void {
+    SKILL_CACHE.clear();
 }
 
 
 // ─── Prompt builder ──────────────────────────────────────────────────────────
 
-function buildCriticPrompt(skillName: string, skillMd: string, deliverable: unknown): string {
+function buildCriticPrompt(skillName: string, skillMd: string, deliverable: unknown, evidenceBlock?: string): string {
     return `You are the "${skillName}" critic. Your job is to review the deliverable below against your domain discipline and return a structured verdict with concrete edits.
 
 ═══════════════════════════════════════════════════════════════
@@ -57,7 +103,12 @@ ${skillMd.slice(0, 12000)}
 DELIVERABLE UNDER REVIEW
 ═══════════════════════════════════════════════════════════════
 ${JSON.stringify(deliverable, null, 2).slice(0, 28000)}
-
+${evidenceBlock ? `
+═══════════════════════════════════════════════════════════════
+FRESH CORPUS EVIDENCE (retrieved for your own queries; ground edits here)
+═══════════════════════════════════════════════════════════════
+${evidenceBlock.slice(0, 8000)}
+` : ''}
 ═══════════════════════════════════════════════════════════════
 RETURN FORMAT
 ═══════════════════════════════════════════════════════════════
@@ -91,48 +142,61 @@ Return the JSON now.`;
 }
 
 
-// ─── Anthropic invoker ───────────────────────────────────────────────────────
+// ─── Anthropic call ──────────────────────────────────────────────────────────
 
-interface AnthropicCallOpts {
-    skill: string;
-    deliverable: unknown;
-    model: 'claude-sonnet-4-6' | 'claude-opus-4-8' | 'claude-haiku-4-5';
-    proxyBase: string;
-}
+const MODEL_MAP: Record<string, string> = {
+    'sonnet-4.6': 'claude-sonnet-4-6',
+    // 2026-09-30 (plan Stage 0.5): the skills' 'opus-*' tier name means the current
+    // Claude reasoning model (Opus 5.5), resolved through aiRouter.
+    'opus-4.8':   CLAUDE_REASONING_MODEL,
+    'opus-5.5':   CLAUDE_REASONING_MODEL,
+    'haiku-4.5':  'claude-haiku-4-5',
+};
 
-async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict: CriticVerdict; cost_usd: number }> {
-    const skillMd = await loadSkillMarkdown(opts.skill, opts.proxyBase);
-    const prompt = buildCriticPrompt(opts.skill, skillMd, opts.deliverable);
-
+async function callAnthropicText(model: string, prompt: string, proxyBase: string, maxTokens: number): Promise<string> {
     const body = {
-        model: opts.model,
-        max_tokens: 2000,
-        temperature: 0.1,
+        model,
+        max_tokens: maxTokens,
         messages: [{ role: 'user', content: prompt }],
     };
-
-    const resp = await fetch(`${opts.proxyBase}/api/ai/anthropic`, {
+    const resp = await fetch(`${proxyBase}/api/ai/anthropic`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
     });
-
     if (!resp.ok) {
         throw new Error(`anthropic HTTP ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
     }
-
     const data = await resp.json();
-    const text = data.content?.[0]?.text ?? '';
+    return data.content?.[0]?.text ?? '';
+}
+
+interface AnthropicCallOpts {
+    skill: string;
+    deliverable: unknown;
+    model: string;   // a Claude model id from aiRouter (sonnet tier, the reasoning model, or haiku)
+    proxyBase: string;
+    index: RubricIndex | null;
+    evidenceBlock?: string;
+}
+
+async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict: CriticVerdict; cost_usd: number }> {
+    const skillMd = await loadSkillMarkdown(opts.skill, opts.proxyBase, opts.index);
+    const prompt = buildCriticPrompt(opts.skill, skillMd, opts.deliverable, opts.evidenceBlock);
+    const text = await callAnthropicText(opts.model, prompt, opts.proxyBase, 2000);
 
     let parsed: any;
     try {
         parsed = parseJSONWithRepair(text, { calling_context: `critic:${opts.skill}` });
     } catch (e: any) {
-        // Critic returned unparseable output - accept as a pass-through so
-        // the panel doesn't block. Log for telemetry.
-        console.warn(`[critic-dispatcher/${opts.skill}] unparseable output, pass-through:`, e?.message);
+        // 2026-10-01 (C8): unparseable output is NOT an acceptance.
+        console.warn(`[critic-dispatcher/${opts.skill}] unparseable critic output:`, e?.message);
         return {
-            verdict: { accept: true, edits: [], rationale: `${opts.skill}: unparseable critic output, pass-through`, confidence: 'low' },
+            verdict: {
+                accept: false, edits: [], confidence: 'low',
+                rationale: `${opts.skill}: unparseable critic output`,
+                error: `unparseable critic output: ${String(e?.message || e).slice(0, 120)}`,
+            },
             cost_usd: estimateCost(opts.model, text.length),
         };
     }
@@ -140,10 +204,11 @@ async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict
     // Normalize the verdict - defensively, since critic models occasionally
     // omit fields under load.
     const verdict: CriticVerdict = {
-        accept: parsed.accept !== false,
+        accept: parsed.accept === true,
         edits: Array.isArray(parsed.edits) ? parsed.edits : [],
         rationale: typeof parsed.rationale === 'string' ? parsed.rationale : `${opts.skill}: no rationale`,
         confidence: ['high', 'medium', 'low'].includes(parsed.confidence) ? parsed.confidence : 'medium',
+        ...(Array.isArray(parsed.retrieval_queries) ? { retrieval_queries: parsed.retrieval_queries.filter((q: unknown) => typeof q === 'string') } : {}),
     };
 
     return { verdict, cost_usd: estimateCost(opts.model, text.length) };
@@ -151,15 +216,12 @@ async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict
 
 
 // ─── Cost estimation ─────────────────────────────────────────────────────────
-// Anthropic standard pricing per 1M tokens (2026-05-29):
-//   Opus 4.8:   $5 input / $25 output
-//   Sonnet 4.6: $3 input / $15 output
 // Sample size approximation: 4 chars per token.
 function estimateCost(model: string, outputChars: number): number {
     const inputTokens = 14000 / 4; // skill md + prompt + deliverable
     const outputTokens = outputChars / 4;
-    const inputCostPerM = model === 'claude-opus-4-8' ? 5 : 3;
-    const outputCostPerM = model === 'claude-opus-4-8' ? 25 : 15;
+    // 2026-09-30: list prices come from the cost meter, never a local constant.
+    const { in: inputCostPerM, out: outputCostPerM } = listPriceFor(model);
     return (inputTokens * inputCostPerM + outputTokens * outputCostPerM) / 1_000_000;
 }
 
@@ -169,11 +231,21 @@ function estimateCost(model: string, outputChars: number): number {
 // critics (pre-mortem, persona-architect, etc.) will actually fire.
 
 export const dispatchCritic: CriticInvoker = async (opts) => {
-    const modelMap: Record<CriticConfig['invocation_model'], 'claude-sonnet-4-6' | 'claude-opus-4-8' | 'claude-haiku-4-5'> = {
-        'sonnet-4.6': 'claude-sonnet-4-6',
-        'opus-4.8':   'claude-opus-4-8',
-        'haiku-4.5':  'claude-haiku-4-5',
-    };
+    const index = await loadRubricIndex({ proxyBase: opts.proxy_base }).catch(() => null);
+
+    // A critic the manifest marks deterministic (verbatim-quote-auditor, evidence-quality-auditor)
+    // runs its check in-process: no SKILL.md, no model call, no fabricated edits.
+    const source = resolveCriticSource(index, opts.skill_name);
+    if (source.deterministic) {
+        const r = runDeterministicCheck(source.deterministic, opts.deliverable);
+        if (r.score === null) {
+            return { verdict: { accept: false, edits: [], confidence: 'low', rationale: `${opts.skill_name}: ${r.finding}`, error: `deterministic check '${source.deterministic}' could not score: ${r.finding}` }, cost_usd: 0 };
+        }
+        return {
+            verdict: { accept: r.score >= 3, edits: [], confidence: 'high', rationale: `${opts.skill_name} (${source.deterministic}): ${r.finding} [score ${r.score}/5]` },
+            cost_usd: 0,
+        };
+    }
 
     try {
         return await withResilience<{ verdict: CriticVerdict; cost_usd: number }>({
@@ -185,16 +257,58 @@ export const dispatchCritic: CriticInvoker = async (opts) => {
                 return invokeAnthropicCritic({
                     skill: opts.skill_name,
                     deliverable: opts.deliverable,
-                    model: modelMap[opts.invocation_model],
+                    model: MODEL_MAP[opts.invocation_model] ?? MODEL_MAP['sonnet-4.6'],
                     proxyBase: opts.proxy_base,
+                    index,
+                    evidenceBlock: opts.evidence_block,
                 });
             },
         }).then(r => r.result);
     } catch (err: any) {
-        console.warn(`[critic-dispatcher/${opts.skill_name}] failed, pass-through:`, err?.message);
+        // 2026-10-01 (C8): a dispatch failure is NOT an acceptance.
+        const reason = err instanceof CriticRubricMissingError
+            ? err.message
+            : `dispatcher error: ${String(err?.message || err).slice(0, 160)}`;
+        console.warn(`[critic-dispatcher/${opts.skill_name}] failed, no review:`, reason);
         return {
-            verdict: { accept: true, edits: [], rationale: `${opts.skill_name}: dispatcher error, pass-through`, confidence: 'low' },
+            verdict: { accept: false, edits: [], confidence: 'low', rationale: `${opts.skill_name}: ${reason}`, error: reason },
             cost_usd: 0,
         };
+    }
+};
+
+
+// ─── Rubric scorer (2026-10-01, plan 3.7 / 5.4) ─────────────────────────────
+// One model call that scores every criterion of a kind's rubric 1-5. The panel merges it
+// with the deterministic checks (model may lower, never raise) and decides the verdict.
+
+export type RubricScorer = (opts: {
+    rubric: AuditorRubric;
+    deliverable: unknown;
+    proxy_base: string;
+    model_tier?: 'sonnet-4.6' | 'opus-4.8' | 'haiku-4.5';
+}) => Promise<{ scores: Record<string, ModelCriterionScore> | null; cost_usd: number; error?: string }>;
+
+export const dispatchRubricScores: RubricScorer = async (opts) => {
+    const model = MODEL_MAP[opts.model_tier ?? 'sonnet-4.6'] ?? MODEL_MAP['sonnet-4.6'];
+    const prompt = buildRubricScoringPrompt(opts.rubric, opts.deliverable);
+    try {
+        const { result: text } = await withResilience<string>({
+            primary: 'anthropic',
+            fallbacks: [],
+            stage: `rubric:${opts.rubric.kind}`,
+            is429: isThrottleError,
+            invoke: async () => callAnthropicText(model, prompt, opts.proxy_base, 1800),
+        });
+        let parsed: unknown;
+        try {
+            parsed = parseJSONWithRepair(text, { calling_context: `rubric:${opts.rubric.kind}` });
+        } catch (e: any) {
+            return { scores: null, cost_usd: estimateCost(model, text.length), error: `unparseable rubric scores: ${String(e?.message || e).slice(0, 120)}` };
+        }
+        const scores = parseRubricScores(parsed, opts.rubric);
+        return { scores, cost_usd: estimateCost(model, text.length), ...(scores ? {} : { error: 'rubric scorer returned no usable scores' }) };
+    } catch (err: any) {
+        return { scores: null, cost_usd: 0, error: `rubric scorer failed: ${String(err?.message || err).slice(0, 160)}` };
     }
 };

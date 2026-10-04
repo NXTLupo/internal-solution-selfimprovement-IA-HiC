@@ -8,6 +8,9 @@ each workstream lands its feature; nothing here gates an absent feature.
 Usage:
   python quality_gate.py --scope air --scope catalog <path-to-air.json>
   python quality_gate.py --scope air --scope catalog            # reads AIR JSON from stdin (hook mode)
+  python quality_gate.py --stop-hook --scope citations --scope editorial
+        # Claude Code Stop hook: stdin is the Stop payload; the gate resolves `transcript_path`
+        # to the last assistant text and runs the TEXT scopes on it (2026-10-01, plan Stage 5).
 
 Scopes (WS-0 set; more land per workstream):
   air      -> checks.air_schema_integrity      (AIR contract; ramped shadow->block)
@@ -54,9 +57,40 @@ def _load_target(path: str | None) -> object:
         return raw  # raw text target (e.g. rendered prose for the citations scope)
 
 
+def _last_assistant_text(transcript_path: str) -> str:
+    """The final assistant text in a Claude Code transcript (JSONL). Same extractor the
+    stop_chat_antislop hook uses; a Stop payload carries the path, never the text."""
+    text = ""
+    try:
+        with open(transcript_path, "r", encoding="utf-8", errors="replace") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+                except Exception:
+                    continue
+                msg = entry.get("message") or {}
+                if entry.get("type") != "assistant" and msg.get("role") != "assistant":
+                    continue
+                content = msg.get("content")
+                if not isinstance(content, list):
+                    continue
+                parts = [c.get("text", "") for c in content if isinstance(c, dict) and c.get("type") == "text"]
+                joined = "\n".join(p for p in parts if p)
+                if joined.strip():
+                    text = joined
+    except Exception:
+        return ""
+    return text
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="HiC unified quality gate")
     ap.add_argument("--scope", action="append", default=[], help="check scope (repeatable)")
+    ap.add_argument("--stop-hook", action="store_true",
+                    help="stdin is a Claude Code Stop payload; run the scopes on the last assistant text")
     ap.add_argument("target", nargs="?", help="path to an AIR JSON file (else stdin)")
     args = ap.parse_args()
 
@@ -66,11 +100,23 @@ def main() -> int:
         print(json.dumps({"error": f"unknown scope(s): {unknown}", "known": list(SCOPES)}))
         return 1
 
-    try:
-        target = _load_target(args.target)
-    except (OSError, json.JSONDecodeError) as e:
-        print(json.dumps({"error": f"could not load target: {e}"}))
-        return 1
+    if args.stop_hook:
+        try:
+            payload = json.load(sys.stdin)
+        except Exception:
+            return 0
+        if not isinstance(payload, dict) or payload.get("stop_hook_active"):
+            return 0
+        text = _last_assistant_text(str(payload.get("transcript_path") or ""))
+        if len(text.strip()) < 40:
+            return 0
+        target: object = text
+    else:
+        try:
+            target = _load_target(args.target)
+        except (OSError, json.JSONDecodeError) as e:
+            print(json.dumps({"error": f"could not load target: {e}"}))
+            return 1
 
     results = {}
     any_block = False
@@ -83,7 +129,12 @@ def main() -> int:
         if r.get("blocking"):
             any_block = True
 
-    print(json.dumps({"gate": "hic-quality-gate", "blocking": any_block, "results": results}, indent=2))
+    out = json.dumps({"gate": "hic-quality-gate", "blocking": any_block, "results": results}, indent=2)
+    if args.stop_hook and any_block:
+        # A Stop hook's exit-2 stderr is what the model reads back; stdout is discarded.
+        sys.stderr.write(out + "\n")
+    else:
+        print(out)
     return 2 if any_block else 0
 
 

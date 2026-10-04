@@ -63,7 +63,7 @@ export interface ClaimSupportPolicy {
     requireVerifierPass: boolean;
 }
 
-export const DEFAULT_CLAIM_POLICY: ClaimSupportPolicy = {
+const DEFAULT_CLAIM_POLICY: ClaimSupportPolicy = {
     minSupportCount: 2,
     minSourceDiversity: 2,
     requireVerifierPass: true,
@@ -185,7 +185,7 @@ export function extractInlineSources(text: string): EvidenceSource[] {
 /** W1 (2026-07-01): classify a wiki path into an EvidenceSourceType so page-level fallback attribution
  *  carries an honest type (a Reddit page is 'social', a client upload is 'upload', a deep-research
  *  synthesis is 'deep_research'), matching the per-type provenance rule (phase 3). */
-export function sourceTypeForPath(wikiPath: string): EvidenceSourceType {
+function sourceTypeForPath(wikiPath: string): EvidenceSourceType {
     const p = (wikiPath || '').toLowerCase();
     if (/reddit|social-intelligence|hackernews|hacker-news|bluesky|lobsters|mastodon/.test(p)) return 'social';
     if (/client-uploads|uploads[-/]/.test(p)) return 'upload';
@@ -279,10 +279,17 @@ export function isNonEvidenceChunk(text?: string): boolean {
 /** Build an evidence ledger from the resolved chunks that grounded a generation. Non-evidence chunks
  *  (bot/mod boilerplate, tombstones) are dropped: an evidence ledger lists only claim-supporting corpus.
  *  A chunk carrying structured manifest sources is citable regardless of body text (the drop is text-based). */
+/** Derived pages (prior-run insights, synthesis) are memory, not evidence (owner decision 3, 2026-10-01). */
+function isDerivedEvidencePath(path: string | undefined | null): boolean {
+    const p = String(path || '').replace(/\\/g, '/').toLowerCase();
+    return p.includes('/nxt-insight/') || p.startsWith('synthesis/') || p.startsWith('wiki/synthesis/');
+}
+
 export function buildEvidenceLedger(chunks: ResolvedChunkLike[]): EvidencePointer[] {
     return (chunks || [])
         .filter(c => {
             if (!c || !c.id) return false;
+            if (isDerivedEvidencePath((c as any).sourcePath || String(c.id).split('#')[0])) return false;
             if (c.sources && c.sources.length) return true;   // structured sources -> citable, keep
             return !isNonEvidenceChunk(c.text);                // else drop bot/mod boilerplate + stubs
         })

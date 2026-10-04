@@ -1,0 +1,695 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>HiC slide twin</title>
+<style>/* ============================================================================
+   NXT ARTIFACT SYSTEM  —  stark-white, flat, minimal, dark-on-white, WCAG AA
+   The single component library every #NXT deliverable is built from.
+   2026 brand: Saira Condensed (Agency FB fallback) display + Archivo body,
+   teal #115054, lime #CACA20, ink #141414. No shadows, 2px radius, hairlines.
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700;800&family=Archivo:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --nxt-white:#FFFFFF;  --nxt-paper:#FAFAFA;  --nxt-line:#EAEAEA;  --nxt-line-2:#E2E2DC;
+  --nxt-ink:#141414;    --nxt-ink-2:#242424;  --nxt-mid:#3A3A3A;   --nxt-muted:#5A5A52;
+  --nxt-teal:#115054;   --nxt-lime:#CACA20;   --nxt-cyan:#00B7C3;  --nxt-rust:#CC6644;
+  --nxt-lime-tint:#F7F7DE; --nxt-teal-tint:#E4EFEF;
+  --nxt-disp:'Saira Condensed','Agency FB','Oswald',sans-serif;
+  --nxt-body:'Archivo',-apple-system,'Segoe UI',sans-serif;
+  --nxt-mono:'JetBrains Mono',ui-monospace,monospace;
+  --nxt-radius:2px;  --nxt-pad:64px;  --nxt-gap:20px;
+  /* ---- LAYOUT GRID SYSTEM (2026-06-02) -----------------------------------
+     One grid governs every artifact so the left margin is identical across the
+     masthead, tabs, hero, every section, and the footer at ALL viewport widths.
+     Document grid: a centered page box (--nxt-page) with equal --nxt-pad outer
+     margins and a 12-column field (--nxt-gutter between columns). Baseline 8px.
+     Slide grid: separate 16:9 field with its own margin/gutter (see SLIDE). */
+  --nxt-page:1760px;     /* page box: wide enough that side margins stay tight on
+                            large monitors (prose is separately capped at 68ch for
+                            readability; tables/grids use the full width) */
+  --nxt-cols:12;         /* document column count */
+  --nxt-gutter:24px;     /* document column gutter */
+  --nxt-baseline:8px;    /* vertical rhythm unit (all spacing = N x baseline) */
+  --nxt-slide-margin:64px;  /* 16:9 slide safe-area margin */
+  --nxt-slide-gutter:24px;  /* slide column gutter */
+  --nxt-slide-cols:12;      /* slide column count */
+  /* logo: gallery uses file path; artifact injection overrides with a data: URI */
+  --nxt-logo-black:url('assets/nxt-logo-black.png');
+  --nxt-logo-white:url('assets/nxt-logo-white.png');
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--nxt-paper);color:var(--nxt-ink);
+  font-family:var(--nxt-body);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:var(--nxt-teal);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---- LAYOUT GRID: shared centered column ---------------------------------
+   The masthead, tabs, every .nxt-wrap section, and the footer all resolve to
+   the SAME centered page box with the SAME --nxt-pad outer margin, so their
+   content left-edges are identical at every viewport width (the consistent
+   left margin). Full-bleed bands break out and re-pad to land back on it. */
+.nxt-masthead,.nxt-tabs,.nxt-wrap,.nxt-footer{
+  max-width:var(--nxt-page);margin-left:auto;margin-right:auto;
+  padding-left:var(--nxt-pad);padding-right:var(--nxt-pad);box-sizing:border-box;}
+.nxt-wrap{max-width:var(--nxt-page);}
+.nxt-section{padding:72px 0;border-top:1px solid var(--nxt-line);}
+.nxt-section:first-of-type{border-top:0;}
+/* full-bleed feature bands: span the page box, text returns to the grid margin */
+.nxt-wrap > .nxt-block--ink,.nxt-wrap > .nxt-block--teal,.nxt-wrap > .nxt-block--lime,
+.nxt-section > .nxt-block--ink,.nxt-section > .nxt-block--teal,.nxt-section > .nxt-block--lime{
+  margin-left:calc(-1*var(--nxt-pad));margin-right:calc(-1*var(--nxt-pad));
+  padding-left:var(--nxt-pad);padding-right:var(--nxt-pad);}
+
+/* ---- LAYOUT GRID: 12-column field ----------------------------------------
+   Place content on the grid with .nxt-row + .nxt-col-N. Collapses to a single
+   column under 720px. .nxt-grid--2/--3 remain as convenience shorthands. */
+.nxt-row{display:grid;grid-template-columns:repeat(var(--nxt-cols),minmax(0,1fr));gap:var(--nxt-gutter);}
+.nxt-col-1{grid-column:span 1}.nxt-col-2{grid-column:span 2}.nxt-col-3{grid-column:span 3}
+.nxt-col-4{grid-column:span 4}.nxt-col-5{grid-column:span 5}.nxt-col-6{grid-column:span 6}
+.nxt-col-7{grid-column:span 7}.nxt-col-8{grid-column:span 8}.nxt-col-9{grid-column:span 9}
+.nxt-col-10{grid-column:span 10}.nxt-col-11{grid-column:span 11}.nxt-col-12{grid-column:span 12}
+@media(max-width:720px){.nxt-row{grid-template-columns:minmax(0,1fr);}
+  [class*="nxt-col-"]{grid-column:auto;}}
+
+/* ---- 1. LOGO ------------------------------------------------------------- */
+.nxt-logo{display:inline-block;background:var(--nxt-logo-black) no-repeat left center;
+  background-size:contain;width:150px;height:39px;text-indent:-9999px;overflow:hidden;}
+.nxt-logo--sm{width:104px;height:27px;}
+.nxt-logo--lg{width:230px;height:60px;}
+.nxt-logo--white{background-image:var(--nxt-logo-white);}
+
+/* ---- 2. MASTHEAD --------------------------------------------------------- */
+.nxt-masthead{display:flex;align-items:center;justify-content:space-between;
+  padding:18px var(--nxt-pad);background:var(--nxt-white);border-bottom:1px solid var(--nxt-line);
+  position:sticky;top:0;z-index:50;}
+.nxt-masthead__label{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--nxt-muted);}
+
+/* ---- 3. TABS (working; JS in nxt-artifact-system.js) --------------------- */
+.nxt-tabs{display:flex;gap:28px;padding:0 var(--nxt-pad);background:var(--nxt-white);
+  border-bottom:1px solid var(--nxt-line);position:sticky;top:75px;z-index:40;flex-wrap:wrap;}
+.nxt-tab{appearance:none;background:none;border:0;cursor:pointer;padding:16px 0;
+  font-family:var(--nxt-disp);font-weight:600;font-size:15px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--nxt-muted);border-bottom:3px solid transparent;}
+.nxt-tab:hover{color:var(--nxt-ink);}
+.nxt-tab[aria-selected="true"]{color:var(--nxt-teal);border-bottom-color:var(--nxt-lime);}
+.nxt-panel{display:none;}
+.nxt-panel[data-active="true"]{display:block;}
+
+/* ---- 4. HERO ------------------------------------------------------------- */
+.nxt-hero{padding:80px 0 56px;}
+.nxt-hero__title{font-family:var(--nxt-body);font-weight:200;font-size:64px;line-height:1.05;
+  letter-spacing:-.01em;color:var(--nxt-ink);margin:0 0 24px;max-width:18ch;}
+.nxt-hero__standfirst{font-size:19px;font-weight:300;line-height:1.6;color:var(--nxt-mid);max-width:60ch;}
+
+/* ---- 5. EYEBROW + HEADINGS ---------------------------------------------- */
+.nxt-eyebrow{font-family:var(--nxt-mono);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--nxt-teal);margin:0 0 14px;}
+.nxt-h2{font-family:var(--nxt-body);font-weight:200;font-size:40px;line-height:1.1;
+  color:var(--nxt-ink);margin:0 0 20px;}
+.nxt-h3{font-family:var(--nxt-body);font-weight:400;font-size:21px;line-height:1.3;
+  color:var(--nxt-ink);margin:0 0 10px;}
+.nxt-display{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;
+  letter-spacing:.01em;color:var(--nxt-ink);line-height:.95;}
+.nxt-prose{font-size:16px;font-weight:300;line-height:1.65;color:var(--nxt-ink);max-width:68ch;}
+.nxt-prose--muted{color:var(--nxt-mid);}
+
+/* ---- 6. CARD + GRID ------------------------------------------------------ */
+.nxt-card{background:var(--nxt-white);border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);
+  padding:28px;color:var(--nxt-ink);}
+.nxt-card__label{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--nxt-teal);margin:0 0 10px;}
+.nxt-card__title{font-family:var(--nxt-body);font-weight:500;font-size:18px;color:var(--nxt-ink);margin:0 0 8px;}
+.nxt-card__body{font-size:14.5px;font-weight:300;line-height:1.6;color:var(--nxt-mid);}
+.nxt-grid{display:grid;gap:var(--nxt-gap);}
+/* COLLAPSE-SAFE GRIDS (2026-06-02): two strategies, by primitive type.
+   (A) "N equal columns" grids (grid--2/3/4) hold a VARIABLE child count, so they
+       keep a FIXED column count (auto-fit would over-pack >N children into narrow
+       tracks) and shed columns via breakpoints on narrow VIEWPORTS. min-width:0
+       lets the 1fr tracks shrink so nested content never overflows.
+   (B) 2-cell inner primitives (.nxt-gap/.nxt-compare/.nxt-toc) use auto-fit +
+       minmax(min(100%,MIN),1fr) so when nested inside a narrow card they drop to
+       a single column instead of crushing text to one word per line. */
+.nxt-grid--2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.nxt-grid--3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.nxt-grid--4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.nxt-grid > *,.nxt-grid--2 > *,.nxt-grid--3 > *,.nxt-grid--4 > *{min-width:0;}
+@media(max-width:1024px){.nxt-grid--3,.nxt-grid--4{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:640px){.nxt-grid--2,.nxt-grid--3,.nxt-grid--4{grid-template-columns:minmax(0,1fr);}}
+
+/* ---- 7. STAT TILE (opt-in) ---------------------------------------------- */
+.nxt-stat{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:3px solid var(--nxt-lime);
+  padding:22px 24px;}
+.nxt-stat__fig{font-family:var(--nxt-disp);font-weight:700;font-size:44px;color:var(--nxt-teal);line-height:1;}
+.nxt-stat__label{font-size:13px;color:var(--nxt-mid);margin-top:8px;}
+.nxt-stat__src{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.04em;color:var(--nxt-muted);margin-top:6px;}
+
+/* ---- 8. QUOTE ------------------------------------------------------------ */
+.nxt-quote{border-left:3px solid var(--nxt-teal);padding:6px 0 6px 26px;margin:24px 0;}
+.nxt-quote__text{font-family:var(--nxt-body);font-weight:300;font-size:23px;line-height:1.4;
+  color:var(--nxt-ink);font-style:italic;}
+.nxt-quote__cite{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;color:var(--nxt-teal);
+  margin-top:12px;font-style:normal;text-transform:uppercase;}
+
+/* ---- 9. CHIPS ------------------------------------------------------------ */
+.nxt-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:var(--nxt-radius);
+  font-family:var(--nxt-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--nxt-paper);border:1px solid var(--nxt-line);color:var(--nxt-ink);font-weight:500;}
+.nxt-chip--source{background:var(--nxt-white);color:var(--nxt-mid);}
+.nxt-chip--status{background:var(--nxt-teal);color:#fff;border-color:var(--nxt-teal);}
+.nxt-chip--accent{background:var(--nxt-lime);color:var(--nxt-ink);border-color:var(--nxt-lime);}
+
+/* ---- 10. COLOR BLOCKS (intentional, AA-enforced text) -------------------- */
+.nxt-block{padding:56px var(--nxt-pad);border-radius:var(--nxt-radius);}
+.nxt-block--teal{background:var(--nxt-teal);color:#fff;}
+.nxt-block--ink{background:var(--nxt-ink);color:#fff;}
+.nxt-block--lime{background:var(--nxt-lime);color:var(--nxt-ink);}
+.nxt-block--teal *, .nxt-block--ink *{color:#fff;}          /* no dark-on-dark, ever */
+.nxt-block--lime *{color:var(--nxt-ink);}                    /* no light-on-light */
+.nxt-block--teal .nxt-eyebrow,.nxt-block--ink .nxt-eyebrow{color:var(--nxt-lime);}
+.nxt-block .nxt-display{font-size:48px;}
+
+/* ---- 11. TABLE (light header, never a black bar) ------------------------- */
+.nxt-table{width:100%;border-collapse:collapse;font-size:14px;}
+.nxt-table thead th{background:var(--nxt-paper);color:var(--nxt-ink);text-align:left;
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;
+  padding:13px 16px;border-bottom:2px solid var(--nxt-teal);}
+.nxt-table td{padding:13px 16px;border-bottom:1px solid var(--nxt-line);color:var(--nxt-ink);vertical-align:top;font-weight:300;}
+.nxt-table tbody tr:nth-child(even){background:#fcfcfa;}
+
+/* ---- 12. SOURCE INDEX + FOOTER ------------------------------------------ */
+.nxt-source-index{background:var(--nxt-white);}
+.nxt-source-index ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.nxt-source-index li{font-size:14px;color:var(--nxt-ink);padding-left:18px;position:relative;font-weight:300;}
+.nxt-source-index li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--nxt-lime);}
+.nxt-source-index .sname{font-weight:600;color:var(--nxt-ink);}
+.nxt-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:28px var(--nxt-pad);background:var(--nxt-white);border-top:1px solid var(--nxt-line);
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;color:var(--nxt-muted);text-transform:uppercase;}
+
+/* ---- 13. ICON (flat line, currentColor) --------------------------------- */
+.nxt-icon{width:24px;height:24px;display:inline-block;stroke:currentColor;stroke-width:1.5;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;color:var(--nxt-teal);}
+
+/* ---- 14. RULE + SIDEBAR LAYOUT ------------------------------------------ */
+.nxt-rule{height:1px;background:var(--nxt-line);border:0;margin:32px 0;}
+.nxt-layout{display:grid;grid-template-columns:300px 1fr;gap:48px;}
+.nxt-rail{border-right:1px solid var(--nxt-line);padding-right:32px;}
+.nxt-rail__item{margin-bottom:22px;}
+.nxt-rail__k{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--nxt-muted);margin-bottom:5px;}
+.nxt-rail__v{font-size:14px;color:var(--nxt-ink);font-weight:400;}
+@media(max-width:820px){.nxt-layout{grid-template-columns:1fr;}.nxt-rail{border-right:0;border-bottom:1px solid var(--nxt-line);padding:0 0 24px;}}
+
+/* ============================================================================
+   ARTIFACT-SPECIFIC MODULES
+   ============================================================================ */
+
+/* journey timeline */
+.nxt-timeline{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:16px;overflow-x:auto;padding-bottom:8px;}
+.nxt-phase{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:22px;}
+.nxt-phase__n{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.14em;color:var(--nxt-muted);}
+.nxt-phase__name{font-family:var(--nxt-body);font-weight:500;font-size:17px;margin:4px 0 12px;color:var(--nxt-ink);}
+.nxt-phase__emotion{display:inline-block;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--nxt-rust);border:1px solid var(--nxt-line);padding:3px 8px;margin-top:10px;}
+
+/* blueprint swimlane */
+.nxt-swimlane{display:grid;gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);}
+.nxt-swimlane__row{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1px;background:var(--nxt-line);}
+.nxt-swimlane__cell{background:var(--nxt-white);padding:14px;font-size:13px;color:var(--nxt-ink);font-weight:300;}
+.nxt-swimlane__lane{background:var(--nxt-paper);font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--nxt-muted);padding:14px;}
+.nxt-divider-line{background:var(--nxt-teal);color:#fff;font-family:var(--nxt-mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;text-align:center;}
+.nxt-failpoint{border-left:3px solid var(--nxt-rust)!important;}
+
+/* competitive matrix + strength markers */
+.nxt-matrix{width:100%;border-collapse:collapse;font-size:13.5px;}
+.nxt-matrix th,.nxt-matrix td{padding:12px 14px;border:1px solid var(--nxt-line);text-align:left;vertical-align:top;color:var(--nxt-ink);font-weight:300;}
+.nxt-matrix thead th{background:var(--nxt-paper);font-family:var(--nxt-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+.nxt-matrix tbody th{font-weight:600;background:#fcfcfa;}
+.nxt-strength{display:inline-block;width:100%;height:6px;background:var(--nxt-line);position:relative;}
+.nxt-strength i{position:absolute;left:0;top:0;height:100%;background:var(--nxt-teal);}
+/* A .nxt-strength is a 6px meter TRACK and must contain an <i> fill, nothing else.
+   The model sometimes misuses it as a label wrapper (<div class="nxt-strength">Leader
+   </div>), so the 6px gray bar renders on top of the word. If there is no <i> fill,
+   it is being used as a text label: render it as plain text, not a bar. */
+.nxt-strength:not(:has(> i)){height:auto;min-height:0;background:transparent;display:inline;width:auto;}
+.nxt-strength--leader i{width:100%;}.nxt-strength--parity i{width:60%;}.nxt-strength--gap i{width:25%;background:var(--nxt-rust);}
+
+/* tech-arch layer bands */
+.nxt-layer{border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);padding:20px 24px;margin-bottom:16px;background:var(--nxt-white);}
+.nxt-layer__name{font-family:var(--nxt-disp);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--nxt-teal);margin-bottom:14px;}
+.nxt-component{background:var(--nxt-paper);border:1px solid var(--nxt-line);padding:14px;font-size:13px;color:var(--nxt-ink);}
+
+/* personas */
+.nxt-persona{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:28px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;align-items:start;}
+/* collapse guard: avatar owns col 1; EVERYTHING else lands in the content column
+   so flat persona markup (role + sections + quotes) never falls into the 64px
+   avatar column and wraps one word per line. */
+.nxt-persona > *{grid-column:2;min-width:0;}
+.nxt-persona > .nxt-persona__avatar,.nxt-persona > .nxt-persona__monogram{grid-column:1;grid-row:1;}
+.nxt-persona__avatar{width:64px;height:64px;border-radius:50%;background:var(--nxt-teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:26px;}
+.nxt-persona__name{font-family:var(--nxt-body);font-weight:600;font-size:20px;color:var(--nxt-ink);}
+.nxt-persona__arch{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--nxt-teal);margin-top:2px;}
+.nxt-persona__k{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-muted);margin:14px 0 4px;}
+
+/* prd */
+.nxt-userstory{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:3px solid var(--nxt-teal);padding:18px 22px;margin-bottom:12px;}
+.nxt-userstory__role{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-teal);}
+.nxt-userstory__text{font-size:16px;color:var(--nxt-ink);font-weight:400;margin-top:6px;}
+.nxt-userstory__ac{font-size:13px;color:var(--nxt-mid);margin-top:10px;}
+
+/* roadmap horizons */
+.nxt-horizons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.nxt-horizons > *{min-width:0;}
+@media(max-width:760px){.nxt-horizons{grid-template-columns:minmax(0,1fr);}}
+.nxt-horizon__head{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#fff;background:var(--nxt-teal);padding:12px 16px;}
+.nxt-horizon:nth-child(2) .nxt-horizon__head{background:var(--nxt-ink-2);}
+.nxt-horizon:nth-child(3) .nxt-horizon__head{background:var(--nxt-mid);}
+.nxt-horizon__item{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:0;padding:16px;font-size:14px;color:var(--nxt-ink);}
+
+/* gap matrix */
+.nxt-gap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);margin-bottom:1px;}
+.nxt-gap > *{min-width:0;}
+.nxt-gap__cur{background:var(--nxt-paper);padding:16px;font-size:14px;color:var(--nxt-mid);}
+.nxt-gap__tgt{background:var(--nxt-white);padding:16px;font-size:14px;color:var(--nxt-ink);}
+
+/* org tree (collision-free CSS grid) */
+.nxt-org{text-align:center;}
+.nxt-org__node{display:inline-block;background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:12px 18px;margin:8px;min-width:160px;}
+.nxt-org__name{font-weight:600;font-size:14px;color:var(--nxt-ink);}
+.nxt-org__role{font-size:12px;color:var(--nxt-muted);}
+.nxt-org__row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.nxt-org__connector{width:1px;height:24px;background:var(--nxt-line);margin:0 auto;}
+
+/* strategy kernel */
+.nxt-kernel{display:grid;gap:16px;}
+.nxt-kernel__step{background:var(--nxt-white);border:1px solid var(--nxt-line);border-left:4px solid var(--nxt-lime);padding:24px;}
+.nxt-kernel__k{font-family:var(--nxt-disp);font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--nxt-teal);font-size:14px;margin-bottom:8px;}
+
+/* recommendation */
+.nxt-rec{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:24px;margin-bottom:14px;display:grid;grid-template-columns:auto 1fr;gap:20px;}
+.nxt-rec__n{font-family:var(--nxt-disp);font-weight:700;font-size:40px;color:var(--nxt-line-2);line-height:1;}
+.nxt-rec__title{font-family:var(--nxt-body);font-weight:500;font-size:18px;color:var(--nxt-ink);margin-bottom:8px;}
+
+/* mindmap callouts */
+.nxt-callout{background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-lime);padding:18px;color:var(--nxt-ink);}
+.nxt-callout__title{font-weight:600;font-size:15px;color:var(--nxt-ink);margin-bottom:6px;}
+
+/* dialog (brief / brief-dialog) */
+.nxt-dialog{display:grid;gap:14px;}
+.nxt-bubble{background:var(--nxt-white);border:1px solid var(--nxt-line);border-radius:var(--nxt-radius);padding:16px 20px;max-width:78%;color:var(--nxt-ink);}
+.nxt-bubble--q{background:var(--nxt-paper);border-left:3px solid var(--nxt-teal);justify-self:start;}
+.nxt-bubble--a{background:var(--nxt-white);justify-self:end;}
+.nxt-bubble__role{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-teal);margin-bottom:6px;}
+
+/* theme cards (meta-themes) */
+.nxt-theme{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:22px;}
+.nxt-theme__tag{display:inline-block;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--nxt-ink);background:var(--nxt-lime);padding:3px 8px;margin-bottom:12px;}
+
+/* ---- SLIDE FRAMES (#slide / #slides — summarized density) ---------------- */
+.nxt-slide{width:1280px;max-width:100%;aspect-ratio:16/9;background:var(--nxt-white);border:1px solid var(--nxt-line);
+  padding:var(--nxt-slide-margin);display:flex;flex-direction:column;justify-content:center;position:relative;margin:0 auto 24px;overflow:hidden;}
+/* ---- SLIDE GRID: 12-column field inside the 16:9 safe area ----------------
+   Slides carry their OWN grid (separate margin + gutter tokens) so multi-pane
+   layouts align to a consistent column field. .nxt-slide__grid + .nxt-s-col-N;
+   the PPTX exporter mirrors these same 12 columns in inches. */
+.nxt-slide__grid{display:grid;grid-template-columns:repeat(var(--nxt-slide-cols),minmax(0,1fr));
+  gap:var(--nxt-slide-gutter);width:100%;align-items:start;}
+.nxt-s-col-2{grid-column:span 2}.nxt-s-col-3{grid-column:span 3}.nxt-s-col-4{grid-column:span 4}
+.nxt-s-col-5{grid-column:span 5}.nxt-s-col-6{grid-column:span 6}.nxt-s-col-7{grid-column:span 7}
+.nxt-s-col-8{grid-column:span 8}.nxt-s-col-9{grid-column:span 9}.nxt-s-col-10{grid-column:span 10}
+.nxt-s-col-12{grid-column:span 12}
+.nxt-slide--title{background:var(--nxt-ink);color:#fff;}
+.nxt-slide--title *{color:#fff;}
+.nxt-slide--divider{background:var(--nxt-teal);color:#fff;}
+.nxt-slide--divider *{color:#fff;}
+.nxt-slide__kicker{font-family:var(--nxt-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--nxt-teal);margin-bottom:18px;}
+.nxt-slide--title .nxt-slide__kicker,.nxt-slide--divider .nxt-slide__kicker{color:var(--nxt-lime);}
+.nxt-slide__title{font-family:var(--nxt-body);font-weight:200;font-size:46px;line-height:1.08;margin:0 0 18px;}
+.nxt-slide__logo{position:absolute;top:32px;right:48px;}
+.nxt-slide__body{font-size:17px;font-weight:300;line-height:1.6;color:var(--nxt-mid);max-width:62ch;}
+.nxt-slide--title .nxt-slide__body,.nxt-slide--divider .nxt-slide__body{color:rgba(255,255,255,.82);}
+.nxt-slide--closing{background:var(--nxt-ink);color:#fff;}
+.nxt-slide--closing *{color:#fff;}
+.nxt-slide--quote{justify-content:center;}
+.nxt-slide--quote .nxt-quote__text{font-size:38px;line-height:1.25;}
+.nxt-slide--image{padding:0;flex-direction:row;}
+.nxt-slide--split{flex-direction:row;gap:0;padding:0;}
+.nxt-slide--split .nxt-slide__pane{flex:1;padding:56px;display:flex;flex-direction:column;justify-content:center;}
+.nxt-slide--split .nxt-slide__pane--img{padding:0;}
+
+/* 2026-06-01 — Slide-template uplift: dense-content frames + semantic shells so
+   every hashtag deliverable has a matching 16:9 stark-white template.
+   A content frame that carries a deliverable MODULE must top-align (not center)
+   so it does not clip; :has() is evaluated by the Chromium render+measure path. */
+.nxt-slide:has(.nxt-numlist),.nxt-slide:has(.nxt-grid),.nxt-slide:has(.nxt-table),
+.nxt-slide:has(.nxt-process),.nxt-slide:has(.nxt-compare),.nxt-slide:has(.nxt-persona),
+.nxt-slide:has(.nxt-org),.nxt-slide:has(.nxt-horizons),.nxt-slide:has(.nxt-matrix),
+.nxt-slide:has(.nxt-bars),.nxt-slide:has(.nxt-funnel),.nxt-slide:has(.nxt-rec),
+.nxt-slide:has(.nxt-gap),.nxt-slide:has(.nxt-kernel),.nxt-slide--flow{justify-content:flex-start;}
+.nxt-slide--flow{justify-content:flex-start;}
+
+/* Table of contents — numbered agenda grid */
+.nxt-toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px 48px;margin-top:8px;width:100%;}
+.nxt-toc__item{display:flex;gap:18px;align-items:baseline;border-top:1px solid var(--nxt-line);padding-top:14px;}
+.nxt-toc__n{font-family:var(--nxt-display);font-size:30px;color:var(--nxt-teal);line-height:1;min-width:48px;}
+.nxt-toc__t{font-size:18px;font-weight:300;color:var(--nxt-ink);}
+.nxt-toc__t small{display:block;font-size:13px;color:var(--nxt-muted);margin-top:4px;}
+
+/* Case study — Problem / Approach / Result three-band */
+.nxt-case{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:100%;margin-top:8px;}
+.nxt-case > *{min-width:0;}
+@media(max-width:760px){.nxt-case{grid-template-columns:minmax(0,1fr);}}
+.nxt-case__band{border-top:3px solid var(--nxt-teal);padding-top:16px;}
+.nxt-case__band--result{border-top-color:var(--nxt-lime);}
+.nxt-case__k{font-family:var(--nxt-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--nxt-teal);margin-bottom:10px;}
+.nxt-case__body{font-size:15px;font-weight:300;line-height:1.55;color:var(--nxt-mid);}
+
+/* Hero stat — one dominant figure carried inside a cited quote/context */
+.nxt-slide--stat{justify-content:center;}
+.nxt-stat{text-align:center;}
+.nxt-stat__fig{font-family:var(--nxt-display);font-size:140px;line-height:.9;color:var(--nxt-teal);}
+.nxt-stat__cap{font-size:20px;font-weight:300;color:var(--nxt-ink);max-width:48ch;margin:18px auto 0;}
+.nxt-stat__src{font-family:var(--nxt-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);margin-top:14px;}
+
+/* Bulleted content — distinct from numbered list */
+.nxt-bullets{list-style:none;margin:8px 0 0;padding:0;width:100%;}
+.nxt-bullets li{position:relative;padding:0 0 14px 28px;font-size:17px;font-weight:300;line-height:1.5;color:var(--nxt-ink);}
+.nxt-bullets li::before{content:"";position:absolute;left:4px;top:9px;width:9px;height:9px;background:var(--nxt-lime);border:1px solid var(--nxt-teal);}
+
+/* Content-with-image: two-column flow frame (text left, image-placeholder right) */
+.nxt-slide--cols{flex-direction:row;gap:40px;align-items:center;}
+.nxt-slide--cols .nxt-slide__col{flex:1;}
+.nxt-slide--cols .nxt-slide__col--img{align-self:stretch;display:flex;}
+
+/* 2026-06-01 — NU BRAND THEME (part 2). Same templates, restyled by remapping
+   the design-system variables to official Northeastern tokens (Huskies red +
+   ink navy + Spectral/Roboto). Wrap an artifact in class="nxt-nu" and every
+   .nxt-slide template renders in NU brand; the measured PPTX exporter reads the
+   computed NU colors + fonts, so NU exports correctly through the same path. */
+.nxt-nu{
+  --nxt-white:#FFFFFF;  --nxt-paper:#F8FAFC;  --nxt-line:#E2E8F0;  --nxt-line-2:#CBD5E1;
+  --nxt-ink:#141D30;    --nxt-ink-2:#0B1326;  --nxt-mid:#334155;   --nxt-muted:#64748B;
+  --nxt-teal:#C8102E;   --nxt-lime:#C8102E;   --nxt-cyan:#22547C;  --nxt-rust:#AA1D25;
+  --nxt-lime-tint:#FCEAEC; --nxt-teal-tint:#FCEAEC;
+  --nxt-body:'Roboto',-apple-system,'Segoe UI',sans-serif;
+  --nxt-display:'Spectral',Georgia,serif;
+  --nxt-mono:'Roboto Mono',ui-monospace,monospace;
+}
+/* NU dark frames: ink-navy title/closing, red divider; titles in Spectral */
+.nxt-nu .nxt-slide--title,.nxt-nu .nxt-slide--closing{background:#0B1326;}
+.nxt-nu .nxt-slide--divider{background:#C8102E;}
+.nxt-nu .nxt-slide__title{font-family:'Spectral',Georgia,serif;font-weight:300;}
+.nxt-nu .nxt-stat__fig,.nxt-nu .nxt-toc__n,.nxt-nu .nxt-rec__n{font-family:'Spectral',Georgia,serif;color:#C8102E;}
+.nxt-nu .nxt-slide--title .nxt-slide__kicker,.nxt-nu .nxt-slide--divider .nxt-slide__kicker,
+.nxt-nu .nxt-slide--closing .nxt-slide__kicker{color:#FFFFFF;}
+
+/* image placeholder (no external asset dependency) */
+.nxt-img-ph{background:repeating-linear-gradient(135deg,#EFEFEA,#EFEFEA 14px,#E7E7E1 14px,#E7E7E1 28px);
+  display:flex;align-items:center;justify-content:center;color:var(--nxt-muted);min-height:200px;width:100%;height:100%;
+  font-family:var(--nxt-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+
+/* ============================================================================
+   INFOGRAPHIC PRIMITIVES
+   ============================================================================ */
+
+/* numbered process flow */
+.nxt-process{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;align-items:start;}
+.nxt-process__step{position:relative;padding:0 18px;text-align:center;}
+.nxt-process__num{width:44px;height:44px;border-radius:50%;background:var(--nxt-teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:20px;margin:0 auto 12px;position:relative;z-index:2;}
+.nxt-process__step:not(:last-child)::after{content:'';position:absolute;top:22px;left:50%;width:100%;height:2px;background:var(--nxt-line);z-index:1;}
+.nxt-process__label{font-weight:500;font-size:14px;color:var(--nxt-ink);margin-bottom:4px;}
+.nxt-process__sub{font-size:12.5px;color:var(--nxt-muted);}
+
+/* 2x2 quadrant */
+.nxt-quadrant{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);aspect-ratio:1.6;position:relative;}
+.nxt-quadrant__cell{background:var(--nxt-white);padding:18px;font-size:13px;color:var(--nxt-ink);}
+.nxt-quadrant__cell--hi{background:var(--nxt-lime-tint);}
+.nxt-quadrant__axis-x{text-align:center;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);margin-top:8px;}
+.nxt-quadrant__axis-y{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);}
+
+/* maturity / progress bars */
+.nxt-bars{display:grid;gap:14px;}
+.nxt-bar{display:grid;grid-template-columns:180px 1fr auto;gap:14px;align-items:center;}
+.nxt-bar__label{font-size:14px;color:var(--nxt-ink);}
+.nxt-bar__track{height:10px;background:var(--nxt-line);border-radius:2px;overflow:hidden;}
+.nxt-bar__fill{height:100%;background:var(--nxt-teal);}
+.nxt-bar__fill--lime{background:var(--nxt-lime);}
+.nxt-bar__val{font-family:var(--nxt-mono);font-size:12px;color:var(--nxt-muted);}
+
+/* donut (CSS conic) */
+.nxt-donut{width:160px;height:160px;border-radius:50%;
+  background:conic-gradient(var(--nxt-teal) 0 var(--a,55%),var(--nxt-lime) var(--a,55%) var(--b,80%),var(--nxt-line) var(--b,80%) 100%);
+  display:flex;align-items:center;justify-content:center;}
+.nxt-donut__hole{width:96px;height:96px;border-radius:50%;background:var(--nxt-white);display:flex;align-items:center;justify-content:center;font-family:var(--nxt-disp);font-weight:700;font-size:24px;color:var(--nxt-ink);}
+.nxt-legend{display:grid;gap:8px;}
+.nxt-legend__row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--nxt-ink);}
+.nxt-legend__sw{width:12px;height:12px;border-radius:2px;}
+
+/* funnel */
+.nxt-funnel{display:grid;gap:6px;justify-items:center;}
+.nxt-funnel__band{background:var(--nxt-teal);color:#fff;padding:12px 18px;text-align:center;font-size:13px;font-weight:500;}
+.nxt-funnel__band:nth-child(1){width:100%;}
+.nxt-funnel__band:nth-child(2){width:82%;background:#1c6166;}
+.nxt-funnel__band:nth-child(3){width:64%;background:#2a7176;}
+.nxt-funnel__band:nth-child(4){width:46%;background:var(--nxt-lime);color:var(--nxt-ink);}
+
+/* tiers / pyramid */
+.nxt-tiers{display:grid;gap:6px;justify-items:center;}
+.nxt-tier{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:12px 18px;text-align:center;font-size:13px;color:var(--nxt-ink);}
+.nxt-tier:nth-child(1){width:50%;border-top:3px solid var(--nxt-lime);}
+.nxt-tier:nth-child(2){width:72%;}
+.nxt-tier:nth-child(3){width:90%;}
+.nxt-tier:nth-child(4){width:100%;}
+
+/* icon-stat */
+.nxt-iconstat{display:flex;gap:16px;align-items:center;background:var(--nxt-white);border:1px solid var(--nxt-line);padding:20px 22px;}
+.nxt-iconstat .nxt-icon{width:32px;height:32px;flex:none;}
+.nxt-iconstat__fig{font-family:var(--nxt-disp);font-weight:700;font-size:34px;color:var(--nxt-teal);line-height:1;}
+.nxt-iconstat__label{font-size:13px;color:var(--nxt-mid);}
+
+/* before/after compare */
+.nxt-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:var(--nxt-line);border:1px solid var(--nxt-line);}
+.nxt-compare > *{min-width:0;}
+.nxt-compare__col{background:var(--nxt-white);padding:22px;}
+.nxt-compare__col--before{background:var(--nxt-paper);}
+.nxt-compare__tag{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nxt-muted);margin-bottom:8px;}
+.nxt-compare__col--after .nxt-compare__tag{color:var(--nxt-teal);}
+
+/* big-number list */
+.nxt-numlist{display:grid;gap:16px;counter-reset:nl;}
+.nxt-numlist__item{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;border-bottom:1px solid var(--nxt-line);padding-bottom:14px;}
+.nxt-numlist__item::before{counter-increment:nl;content:counter(nl,decimal-leading-zero);font-family:var(--nxt-disp);font-weight:700;font-size:30px;color:var(--nxt-teal);line-height:1;}
+
+/* ============================================================================
+   TECH-DIAGRAM PRIMITIVES (collision-free, CSS only)
+   ============================================================================ */
+
+/* horizontal flow / pipeline with arrows */
+.nxt-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+.nxt-flow__node{flex:1;min-width:140px;background:var(--nxt-white);border:1px solid var(--nxt-line);border-top:3px solid var(--nxt-teal);padding:16px;font-size:13px;color:var(--nxt-ink);}
+.nxt-flow__arrow{flex:0 0 32px;display:flex;align-items:center;justify-content:center;color:var(--nxt-teal);font-size:20px;}
+.nxt-flow__arrow::before{content:'\2192';}
+
+/* hub and spoke */
+.nxt-hub{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:center;justify-items:center;}
+.nxt-hub > *{min-width:0;}
+@media(max-width:760px){.nxt-hub{grid-template-columns:minmax(0,1fr);}}
+.nxt-hub__center{grid-column:2;background:var(--nxt-teal);color:#fff;border-radius:50%;width:130px;height:130px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;font-size:14px;padding:12px;}
+.nxt-hub__spoke{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:12px 14px;font-size:13px;color:var(--nxt-ink);width:100%;text-align:center;}
+
+/* ============================================================================
+   ICON SPRITE styling (sprite markup injected separately)
+   ============================================================================ */
+.nxt-ico{width:24px;height:24px;display:inline-block;stroke:currentColor;stroke-width:1.5;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;color:var(--nxt-teal);vertical-align:middle;}
+.nxt-ico--lg{width:40px;height:40px;}
+</style><style>
+.nxt-slide{margin:0 auto 28px;padding:48px 56px 40px 116px;justify-content:flex-start;}
+.nxt-slide--title,.nxt-slide--closing,.nxt-slide--divider{padding-left:116px;}
+/* PURPOSEFUL COLOR TOKENS (semantic, brand-aware). --struct neutral identity,
+   --pain problems/frustrations, --need needs/fixes/opportunities. */
+.nxt-slide{--struct:#141414;--pain:#CC6644;--need:#115054;}
+.nxt-nu .nxt-slide{--struct:#0B1326;--pain:#C8102E;--need:#115054;}
+/* brand furniture: NXT defaults (near-black rail, chartreuse dots); .nxt-nu overrides to NU */
+.rail{position:absolute;left:0;top:0;bottom:0;width:76px;background:#141414;}
+.nxt-nu .rail{background:#0B1326;}
+.dots{position:absolute;left:26px;bottom:34px;display:grid;grid-template-columns:repeat(3,7px);grid-auto-rows:7px;gap:5px;}
+.dots span{width:7px;height:7px;background:#CACA20;}
+.nxt-nu .dots span{background:#C8102E;}
+.wordmark{position:absolute;top:30px;right:48px;width:260px;text-align:right;white-space:nowrap;font-family:var(--nxt-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;}
+.wordmark--ink{color:var(--nxt-ink);} .wordmark--white{color:#fff;}
+.ov-title{font-size:36px!important;line-height:1.05!important;margin:4px 0 8px!important;}
+/* convergent insight / so-what band */
+.insight{margin-top:18px;background:var(--nxt-lime-tint);border-left:3px solid var(--nxt-teal);padding:14px 20px;}
+.insight__l{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--nxt-teal);font-weight:600;display:block;margin-bottom:6px;}
+.insight__t{display:block;font-size:13px;line-height:1.5;color:var(--nxt-ink);font-weight:300;}
+/* overview columns: no boxes, light-gray hairline between items, big accent figure */
+.cols{display:grid;grid-auto-flow:row;overflow:visible;gap:0;margin-top:8px;}
+.col{padding:2px 20px 14px;border:0;background:transparent;}
+.col:first-child{padding-left:0;}
+.col:not(:first-child){border-left:1px solid var(--nxt-line);}
+.col-fig{font-family:var(--nxt-display);font-size:34px;line-height:1;color:var(--acc);margin:10px 0 2px;}
+.col-eyebrow2{font-family:var(--nxt-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-muted);}
+.col-name{font-family:var(--nxt-display);font-weight:600;font-size:14px;line-height:1.18;color:var(--nxt-ink);margin:5px 0 12px;min-height:34px;}
+.k{font-family:var(--nxt-mono);font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:var(--acc);font-weight:600;display:block;margin-bottom:3px;}
+.t{display:block;font-size:10px;line-height:1.4;color:var(--nxt-ink);margin-bottom:11px;}
+.q{display:block;font-family:var(--nxt-display);font-style:italic;font-size:10px;line-height:1.35;color:var(--nxt-ink-2);}
+.qsrc{display:block;font-family:var(--nxt-mono);font-style:normal;font-size:7.5px;letter-spacing:.04em;color:var(--acc);margin-top:4px;font-weight:600;}
+.chiprow .chip{display:inline-block;font-family:var(--nxt-mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);border:1px solid var(--nxt-line);padding:4px 8px;margin-top:4px;}
+/* detail slide: two-pane grid + cards */
+.dgrid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;margin-top:14px;}
+.dpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.drail{display:grid;gap:13px;align-content:start;}
+.card{background:var(--nxt-white);border:1px solid var(--nxt-line);padding:16px 18px;}
+.card--accent{border-left:3px solid var(--acc);}
+.card--teal{border-left:3px solid var(--nxt-teal);}
+.lab{font-family:var(--nxt-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin:0 0 10px;}
+.lab2{font-family:var(--nxt-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-muted);margin:0 0 8px;}
+.sev{font-family:var(--nxt-mono);font-size:8.5px;letter-spacing:.05em;color:var(--acc);font-weight:600;display:block;margin-bottom:7px;}
+.bodytext{display:block;font-size:12px;line-height:1.45;color:var(--nxt-ink);font-weight:300;margin-bottom:12px;}
+.bq{display:block;border-left:2px solid var(--acc);padding-left:12px;}
+.bq__t{display:block;font-family:var(--nxt-display);font-style:italic;font-size:14px;line-height:1.35;color:var(--nxt-ink-2);}
+.bq__src{display:block;font-family:var(--nxt-mono);font-style:normal;font-size:9px;letter-spacing:.05em;color:var(--acc);margin-top:7px;font-weight:600;}
+.bul{list-style:none;margin:0;padding:0;}
+.bul li{position:relative;padding:0 0 8px 14px;font-size:11.5px;line-height:1.4;color:var(--nxt-ink);font-weight:300;}
+.bul li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--acc);}
+.chip{display:inline-block;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.04em;text-transform:uppercase;background:var(--nxt-paper);border:1px solid var(--nxt-line);color:var(--nxt-ink);padding:4px 8px;margin:0 5px 6px 0;}
+.tag{font-family:var(--nxt-mono);font-size:8.5px;letter-spacing:.05em;color:var(--nxt-teal);font-weight:600;display:block;margin-top:9px;}
+.dfig{font-family:var(--nxt-display);font-size:64px;line-height:.9;color:var(--acc);}
+/* ---- CLEAN HOUSE STYLE (2026-06-04): large, human, no metadata labels ---- */
+.col-fig{font-size:40px;}
+.ov-name{font-family:var(--nxt-display);font-weight:600;font-size:18px;line-height:1.2;color:var(--nxt-ink);margin:8px 0 3px;min-height:46px;}
+.ov-sub{font-family:var(--nxt-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--nxt-muted);margin-bottom:12px;}
+.ov-desc{display:block;font-size:14px;line-height:1.55;color:var(--nxt-ink);font-weight:300;margin-bottom:16px;}
+.ov-q{display:block;border-left:2px solid var(--acc);padding-left:12px;margin-bottom:12px;}
+.ov-q__t{display:block;font-family:var(--nxt-display);font-style:italic;font-size:14px;line-height:1.4;color:var(--nxt-ink-2);}
+.ov-q__s{display:block;font-family:var(--nxt-mono);font-style:normal;font-size:9px;letter-spacing:.04em;color:var(--acc);margin-top:6px;font-weight:600;}
+.band{margin-top:24px;border-left:3px solid var(--nxt-teal);padding:6px 0 6px 20px;}
+.band span{display:block;font-family:var(--nxt-display);font-style:italic;font-size:17px;line-height:1.45;color:var(--nxt-ink);}
+.dt-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;margin-top:24px;align-items:start;}
+.dt-lead{font-size:18px;line-height:1.62;color:var(--nxt-ink);font-weight:300;}
+.dt-q{display:block;border-left:3px solid var(--acc);padding-left:18px;margin-bottom:22px;}
+.dt-q__t{display:block;font-family:var(--nxt-display);font-style:italic;font-size:21px;line-height:1.36;color:var(--nxt-ink-2);}
+.dt-q__s{display:block;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.05em;color:var(--acc);margin-top:9px;font-weight:600;}
+.dt-close{margin-top:30px;border-left:3px solid var(--need);padding:4px 0 4px 18px;font-family:var(--nxt-display);font-style:italic;font-size:18px;line-height:1.5;color:var(--need);max-width:82ch;}
+/* ---- HIGH-CONTRAST GRAPHITE HIGHLIGHTS (2026-06-04): anchor key content in dark
+   tiles with white text, both brands; accent (var(--nxt-lime)) = red on NU,
+   chartreuse on NXT. The exporter reliably renders filled boxes >4px. ---- */
+.gt{background:#23262E;padding:18px 20px;}
+.gt-h{display:block;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--nxt-lime);font-weight:600;margin:0 0 10px;white-space:nowrap;}
+.gt-b{display:block;font-size:13.5px;line-height:1.5;color:#FFFFFF;font-weight:300;}
+.gt-q{display:block;font-family:var(--nxt-display);font-style:italic;font-size:15px;line-height:1.42;color:#FFFFFF;}
+.gt-s{display:block;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.04em;color:var(--nxt-lime);margin-top:8px;font-weight:600;}
+.gt-list{list-style:none;margin:0;padding:0;}
+.gt-list li{position:relative;padding:0 0 8px 14px;font-size:13px;line-height:1.45;color:#FFFFFF;font-weight:300;}
+.gt-list li:last-child{padding-bottom:0;}
+.gt-list li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--nxt-lime);}
+.gband{margin-top:22px;background:#23262E;padding:16px 24px;}
+.gband__h{display:block;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--nxt-lime);font-weight:600;margin-bottom:7px;white-space:nowrap;}
+.gband span,.gband__t{display:block;font-family:var(--nxt-display);font-style:italic;font-size:16px;line-height:1.45;color:#FFFFFF;}
+
+.bp{display:grid;grid-template-columns:150px repeat(5,1fr);gap:0;margin-top:16px;border:0;}
+.bp-h{font-family:var(--nxt-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--struct);font-weight:600;padding:0 10px 9px;text-align:center;}
+.bp-h.bp-corner{text-align:left;color:var(--nxt-muted);}
+/* lane bands: light cream fill = structure, dark text = AA. label is a full-width block. */
+.bp-lab{background:#ECECE4;display:flex;align-items:center;padding:0 14px;min-height:62px;}
+.bp-lab span{display:block;width:100%;font-family:var(--nxt-mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--struct);font-weight:700;line-height:1.25;}
+.bp-cell{background:#F6F6F1;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 10px;min-height:62px;font-size:11.5px;line-height:1.35;color:var(--nxt-ink);font-weight:300;position:relative;}
+.bp-cell--pain{background:#FBEDED;}
+.bp-pin{position:absolute;top:8px;left:8px;width:8px;height:8px;background:var(--pain);}
+.bp-band{background:#FFFFFF;height:6px;}
+.bp-sep{grid-column:1 / -1;background:#23262E;display:flex;align-items:center;justify-content:center;min-height:26px;}
+.bp-sep span{display:block;width:100%;text-align:center;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;font-weight:600;white-space:nowrap;}
+.bp-rowgap{grid-column:1 / -1;height:4px;background:#FFFFFF;}
+/* emotion line: named emotion + 1-5 intensity bar (shape, not color alone) */
+.bp-emo{background:#F6F6F1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:10px;min-height:62px;}
+.bp-emo__n{font-family:var(--nxt-mono);font-size:9px;letter-spacing:.03em;text-transform:uppercase;color:var(--pain);font-weight:700;white-space:nowrap;}
+.bp-emo__bar{display:flex;gap:3px;}
+.bp-emo__bar i{display:inline-block;width:12px;height:8px;background:#D8D8CE;}
+.bp-emo__bar i.on{background:var(--pain);}
+/* detail */
+.bd-goal{margin-top:18px;border-left:3px solid var(--need);padding:5px 0 5px 18px;font-family:var(--nxt-display);font-style:italic;font-size:18px;line-height:1.45;color:var(--need);}
+.bd-stack{display:grid;grid-template-columns:150px 1fr;gap:0;margin-top:20px;}
+.bd-lab{background:#ECECE4;display:flex;align-items:center;padding:0 14px;min-height:46px;}
+.bd-lab span{display:block;width:100%;font-family:var(--nxt-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--struct);font-weight:700;}
+.bd-cell{background:#F6F6F1;display:flex;align-items:center;padding:0 18px;min-height:46px;font-size:14px;line-height:1.4;color:var(--nxt-ink);font-weight:300;position:relative;}
+.bd-cell--pain{background:#FBEDED;}
+.bd-pin{position:absolute;top:10px;left:8px;width:8px;height:8px;background:var(--pain);}
+.bd-sep{grid-column:1 / -1;background:#23262E;display:flex;align-items:center;justify-content:center;min-height:24px;margin:0;}
+.bd-sep span{display:block;width:100%;text-align:center;font-family:var(--nxt-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;font-weight:600;white-space:nowrap;}
+.bd-rowgap{grid-column:1 / -1;height:4px;background:#FFFFFF;}
+.bd-gap{margin-top:22px;border-left:3px solid var(--pain);padding:5px 0 5px 18px;font-family:var(--nxt-display);font-style:italic;font-size:16px;line-height:1.5;color:var(--pain);max-width:96ch;}
+.bd-emo{display:flex;align-items:center;gap:14px;margin-top:16px;}
+.bd-emo__n{font-family:var(--nxt-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--pain);font-weight:700;}
+.bd-emo__bar{display:flex;gap:4px;}
+.bd-emo__bar i{display:inline-block;width:18px;height:10px;background:#D8D8CE;}
+.bd-emo__bar i.on{background:var(--pain);}
+</style>
+</head><body class="" style="background:#fff;padding:24px;">
+<section class="nxt-slide nxt-slide--title"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--white">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Service Blueprint</p>
+  <h2 class="nxt-slide__title">What the student reaches, and what stays hidden, across the first-year co-op search</h2>
+  <p class="nxt-slide__body">Five phases across; service layers top to bottom, split by the lines of interaction and visibility. Failure markers show where the experience breaks, grounded in student voice and the 2025 NU Student Survey.</p>
+</section>
+<section class="nxt-slide nxt-slide--flow"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Service Blueprint · First-Year Co-op</p>
+  <h2 class="nxt-slide__title ov-title">What the student reaches, and what stays hidden, at every phase</h2>
+  <div class="bp"><div class="bp-h bp-corner">Service layer</div><div class="bp-h">Resume</div><div class="bp-h">Diagnosis</div><div class="bp-h">Search</div><div class="bp-h">Interview</div><div class="bp-h">Match</div><div class="bp-lab"><span>Student emotion</span></div><div class="bp-emo"><span class="bp-emo__n">Frustrated</span><span class="bp-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div><div class="bp-emo"><span class="bp-emo__n">Negative</span><span class="bp-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div><div class="bp-emo"><span class="bp-emo__n">Frustrated</span><span class="bp-emo__bar"><i class="on"></i><i></i><i></i><i></i><i></i></span></div><div class="bp-emo"><span class="bp-emo__n">Negative</span><span class="bp-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div><div class="bp-emo"><span class="bp-emo__n">Negative</span><span class="bp-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div><div class="bp-rowgap"></div><div class="bp-lab"><span>Touchpoints</span></div><div class="bp-cell">Blank doc, peer resumes</div><div class="bp-cell">Readiness dashboard</div><div class="bp-cell">NUworks listings</div><div class="bp-cell">Video-call link</div><div class="bp-cell">Ranking form</div><div class="bp-rowgap"></div><div class="bp-lab"><span>Student actions</span></div><div class="bp-cell">Drafts the resume alone</div><div class="bp-cell">Reviews flagged skill gaps</div><div class="bp-cell">Sends ~60 applications</div><div class="bp-cell">Sits the first interview</div><div class="bp-cell">Submits a ranking</div><div class="bp-sep"><span>line of interaction</span></div><div class="bp-lab"><span>Frontstage</span></div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Advisor intake, weeks out</div><div class="bp-cell">Diagnostic + skill prompts</div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Job board, no major filter</div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Live-only prep workshop</div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Matching portal, unexplained</div><div class="bp-sep"><span>line of visibility</span></div><div class="bp-lab"><span>Backstage</span></div><div class="bp-cell">Advisor reviews when free</div><div class="bp-cell">Model parses resume vs roles</div><div class="bp-cell">Postings ingested, unranked</div><div class="bp-cell">Career Center schedules sessions</div><div class="bp-cell">Algorithm computes the match</div><div class="bp-rowgap"></div><div class="bp-lab"><span>Support</span></div><div class="bp-cell">Peer screenshots, r/NEU</div><div class="bp-cell">Major + course records</div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Email inbox, no triage</div><div class="bp-cell">r/NEU debriefs</div><div class="bp-cell bp-cell--pain"><div class="bp-pin"></div>Upperclassmen explain rules</div><div class="bp-rowgap"></div></div>
+  <div class="gband"><span class="gband__t">Every failure marker sits in the frontstage, the one layer a student can reach. The backstage that could help stays below the line of visibility, invisible to them.</span></div>
+</section>
+<section class="nxt-slide nxt-slide--flow" style="--acc:var(--struct)"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Phase · Resume</p>
+  <h2 class="nxt-slide__title">Resume: what happens at every service layer</h2>
+  <p class="bd-goal">The student's goal in this phase: produce a resume an employer will actually read.</p>
+  <div class="bd-emo"><span class="bd-emo__n">Emotional state &middot; Frustrated</span><span class="bd-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+  <div class="bd-stack"><div class="bd-lab"><span>Touchpoints</span></div><div class="bd-cell">The student faces a blank document with only a few friends' resumes pulled up for reference.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Student actions</span></div><div class="bd-cell">The student drafts a first resume alone, with no prior employer-facing writing to draw on.</div><div class="bd-sep"><span>line of interaction</span></div><div class="bd-lab"><span>Frontstage</span></div><div class="bd-cell bd-cell--pain">The only visible help is a co-op advisor whose next opening is weeks away.</div><div class="bd-sep"><span>line of visibility</span></div><div class="bd-lab"><span>Backstage</span></div><div class="bd-cell">When the advisor finally has time, the review arrives too late to shape the draft.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Support</span></div><div class="bd-cell">In the meantime the student leans on peer screenshots and r/NEU threads to guess the format.</div><div class="bd-rowgap"></div></div>
+  <p class="bd-gap">Where it breaks: the only frontstage help, the advisor, is weeks out, so the student falls back on peer screenshots.</p>
+  <div class="gt"><span class="gt-q">&ldquo;I have no idea how to write a resume that an employer would actually look at.&rdquo;</span><span class="gt-s">Source: Reddit r/NEU</span></div>
+</section>
+<section class="nxt-slide nxt-slide--flow" style="--acc:var(--struct)"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Phase · Diagnosis</p>
+  <h2 class="nxt-slide__title">Diagnosis: what happens at every service layer</h2>
+  <p class="bd-goal">The student's goal in this phase: know which skills to build before applications open.</p>
+  <div class="bd-emo"><span class="bd-emo__n">Emotional state &middot; Negative</span><span class="bd-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+  <div class="bd-stack"><div class="bd-lab"><span>Touchpoints</span></div><div class="bd-cell">The student opens a readiness dashboard that scores their resume against employer expectations.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Student actions</span></div><div class="bd-cell">The student reviews the flagged skill gaps and tries to decide which ones to close first.</div><div class="bd-sep"><span>line of interaction</span></div><div class="bd-lab"><span>Frontstage</span></div><div class="bd-cell">The diagnostic surfaces gaps and learning prompts but offers no plan to close them in time.</div><div class="bd-sep"><span>line of visibility</span></div><div class="bd-lab"><span>Backstage</span></div><div class="bd-cell">A model parses the resume and declared major against employer skill requirements.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Support</span></div><div class="bd-cell">The student's major and course records feed the tool, but nothing connects them to a next step.</div><div class="bd-rowgap"></div></div>
+  <p class="bd-gap">Where it breaks: backstage names the gap; nothing frontstage helps the student close it in time.</p>
+  <div class="gt"><span class="gt-q">&ldquo;It told me what I was missing but not how I was supposed to fix it before applications opened.&rdquo;</span><span class="gt-s">Source: Reddit r/NEU</span></div>
+</section>
+<section class="nxt-slide nxt-slide--flow" style="--acc:var(--struct)"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Phase · Search</p>
+  <h2 class="nxt-slide__title">Search: what happens at every service layer</h2>
+  <p class="bd-goal">The student's goal in this phase: find and apply to co-ops that actually fit.</p>
+  <div class="bd-emo"><span class="bd-emo__n">Emotional state &middot; Frustrated</span><span class="bd-emo__bar"><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+  <div class="bd-stack"><div class="bd-lab"><span>Touchpoints</span></div><div class="bd-cell">The student scrolls thousands of unfiltered NUworks listings looking for a match.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Student actions</span></div><div class="bd-cell">The student sends roughly sixty applications to compensate for a low expected response rate.</div><div class="bd-sep"><span>line of interaction</span></div><div class="bd-lab"><span>Frontstage</span></div><div class="bd-cell bd-cell--pain">The job board lists every role and cannot narrow results to the student's major.</div><div class="bd-sep"><span>line of visibility</span></div><div class="bd-lab"><span>Backstage</span></div><div class="bd-cell">Employer postings are ingested into NUworks but are never ranked by fit.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Support</span></div><div class="bd-cell bd-cell--pain">Rejections pile up in an email inbox with no triage and no pattern to learn from.</div><div class="bd-rowgap"></div></div>
+  <p class="bd-gap">Where it breaks: frontstage lists everything; no backstage logic ranks by fit, so volume becomes the only move.</p>
+  <div class="gt"><span class="gt-q">&ldquo;I applied to 60 co-ops and heard back from 4.&rdquo;</span><span class="gt-s">Source: Reddit r/NEU</span></div>
+</section>
+<section class="nxt-slide nxt-slide--flow" style="--acc:var(--struct)"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Phase · Interview</p>
+  <h2 class="nxt-slide__title">Interview: what happens at every service layer</h2>
+  <p class="bd-goal">The student's goal in this phase: walk in prepared and convert the interview.</p>
+  <div class="bd-emo"><span class="bd-emo__n">Emotional state &middot; Negative</span><span class="bd-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+  <div class="bd-stack"><div class="bd-lab"><span>Touchpoints</span></div><div class="bd-cell">The student joins a video call for their first real co-op interview.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Student actions</span></div><div class="bd-cell">The student sits the interview having never completed a single mock beforehand.</div><div class="bd-sep"><span>line of interaction</span></div><div class="bd-lab"><span>Frontstage</span></div><div class="bd-cell bd-cell--pain">The only prep workshop is live, collides with class, and is never recorded.</div><div class="bd-sep"><span>line of visibility</span></div><div class="bd-lab"><span>Backstage</span></div><div class="bd-cell">The Career Center schedules the live sessions but offers no asynchronous option.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Support</span></div><div class="bd-cell">Afterward the student debriefs informally on r/NEU instead of with the Career Center.</div><div class="bd-rowgap"></div></div>
+  <p class="bd-gap">Where it breaks: the one frontstage prep channel is live-only; no backstage recording reaches the rest of the cohort.</p>
+  <div class="gt"><span class="gt-q">&ldquo;The interview prep workshop was at 9am on a Friday and I had class. They need to record these.&rdquo;</span><span class="gt-s">Source: Reddit r/NEU</span></div>
+</section>
+<section class="nxt-slide nxt-slide--flow" style="--acc:var(--struct)"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--ink">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">Phase · Match</p>
+  <h2 class="nxt-slide__title">Match: what happens at every service layer</h2>
+  <p class="bd-goal">The student's goal in this phase: rank well and secure the right offer.</p>
+  <div class="bd-emo"><span class="bd-emo__n">Emotional state &middot; Negative</span><span class="bd-emo__bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+  <div class="bd-stack"><div class="bd-lab"><span>Touchpoints</span></div><div class="bd-cell">The student is handed a ranking form inside the matching portal.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Student actions</span></div><div class="bd-cell">The student submits a ranking without having been shown how the match is computed.</div><div class="bd-sep"><span>line of interaction</span></div><div class="bd-lab"><span>Frontstage</span></div><div class="bd-cell bd-cell--pain">The matching portal asks for a decision but never explains the rules behind it.</div><div class="bd-sep"><span>line of visibility</span></div><div class="bd-lab"><span>Backstage</span></div><div class="bd-cell">An algorithm computes the match from the rankings, invisibly to the student.</div><div class="bd-rowgap"></div><div class="bd-lab"><span>Support</span></div><div class="bd-cell bd-cell--pain">The student reconstructs the rules from upperclassmen in the middle of the decision.</div><div class="bd-rowgap"></div></div>
+  <p class="bd-gap">Where it breaks: the backstage algorithm decides; no frontstage step teaches the rules before the student must act.</p>
+  <div class="gt"><span class="gt-q">&ldquo;I didn't understand how the matching process worked until I was already in it.&rdquo;</span><span class="gt-s">Source: NU Student Survey 2025</span></div>
+</section>
+<section class="nxt-slide nxt-slide--closing"><div class="rail"></div><div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="wordmark wordmark--white">NXT HUMANS</span>
+  <p class="nxt-slide__kicker">What the blueprint shows</p>
+  <h2 class="nxt-slide__title">The reachable frontstage breaks; the helpful backstage stays invisible.</h2>
+  <p class="nxt-slide__body">Every fix moves capability from the hidden backstage up to a frontstage students can actually reach.</p>
+</section>
+</body></html>

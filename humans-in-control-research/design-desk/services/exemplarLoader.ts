@@ -29,6 +29,10 @@ import journeyNxtHtml from '../../styles/10-journey-NXT.html?raw';
 
 import nxtBrandSkill from '../../exemplar-skills/brands/nxt-style/SKILL.md?raw';
 import nuBrandSkill from '../../exemplar-skills/brands/nu-style/SKILL.md?raw';
+// 2026-10-01 - DECIEM has no authored exemplar HTML yet (styles/ carries NU + NXT twins only).
+// Brand is a token-set flip on shared geometry, so DECIEM reuses the NXT frame and carries its
+// own brand-style text built from the brands.ts token set (see deciemBrandStyle.ts).
+import { DECIEM_BRAND_STYLE_SKILL } from './deciemBrandStyle';
 
 import orgSkill from '../../exemplar-skills/diagrams/org-illustrator/SKILL.md?raw';
 import journeySkill from '../../exemplar-skills/diagrams/journey-illustrator/SKILL.md?raw';
@@ -40,9 +44,9 @@ import blueprintSkill from '../../exemplar-skills/diagrams/blueprint-illustrator
 // exemplars; the other FreeformKind values resolve via fallback. (was a total
 // Record, which tsc rejected for the missing keys.)
 const EXEMPLARS: Partial<Record<FreeformKind, Record<BrandHashtag, string>>> = {
-    org:       { nu: orgNuHtml,      nxt: orgNxtHtml      },
-    arch:      { nu: archNuHtml,     nxt: archNxtHtml     },
-    roadmap:   { nu: roadmapNuHtml,  nxt: roadmapNxtHtml  },
+    org:       { nu: orgNuHtml,      nxt: orgNxtHtml,      deciem: orgNxtHtml      },
+    arch:      { nu: archNuHtml,     nxt: archNxtHtml,     deciem: archNxtHtml     },
+    roadmap:   { nu: roadmapNuHtml,  nxt: roadmapNxtHtml,  deciem: roadmapNxtHtml  },
     // 2026-05-09: Journey + blueprint NOW SHARE the new journey exemplar
     // (09/10) which embodies the 10-point design spec. Blueprint is
     // semantically a journey with pain-points-solved + recommendations
@@ -50,13 +54,14 @@ const EXEMPLARS: Partial<Record<FreeformKind, Record<BrandHashtag, string>>> = {
     // perKindGuidance handles the future-state framing and intervention
     // overlays. The old service-blueprint exemplars (01/02) are retired
     // from the registry but remain in styles/ for historical reference.
-    blueprint: { nu: journeyNuHtml,  nxt: journeyNxtHtml  },
-    journey:   { nu: journeyNuHtml,  nxt: journeyNxtHtml  },
+    blueprint: { nu: journeyNuHtml,  nxt: journeyNxtHtml,  deciem: journeyNxtHtml  },
+    journey:   { nu: journeyNuHtml,  nxt: journeyNxtHtml,  deciem: journeyNxtHtml  },
 };
 
 const BRAND_SKILLS: Record<BrandHashtag, string> = {
     nxt: nxtBrandSkill,
     nu:  nuBrandSkill,
+    deciem: DECIEM_BRAND_STYLE_SKILL,
 };
 
 const DIAGRAM_SKILLS: Partial<Record<FreeformKind, string>> = {

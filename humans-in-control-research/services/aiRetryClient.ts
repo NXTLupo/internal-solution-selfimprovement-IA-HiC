@@ -20,6 +20,11 @@
 // user-facing error message on persistent failure.
 
 import { recordAICall } from './costMeter';
+// 2026-09-30 (plan Stage 0.5): every Anthropic body leaving the SPA gets the Claude
+// 4.6+/5.x request contract (adaptive thinking, output_config.effort from the artifact
+// policy, no sampling params, no forced tool_choice). Callers tag the body with
+// `_hicKind` (artifact kind) and/or `_hicEffort`; both are stripped before send.
+import { applyAnthropicRequestDefaults } from './claudeModelPolicy';
 // 2026-05-24 NotebookLM uplift Wire 2: multi-model resilience layer
 import {
     isProviderHealthy,
@@ -115,6 +120,7 @@ export async function callAIWithRetry(
     const { url, family } = resolveEndpoint(endpointId);
     const label = options.label;
     const maxAttempts = options.maxAttempts ?? 3;
+    if (endpointId === 'anthropic') body = applyAnthropicRequestDefaults(body);
     let lastStatus = 0;
     let lastErrText = '';
 
@@ -131,15 +137,21 @@ export async function callAIWithRetry(
     const sessionHeader = (typeof sessionSlug === 'string' && sessionSlug.length > 0)
         ? { 'x-hic-session': sessionSlug }
         : {};
+    // D10 second half (2026-10-01, plan Stage 4.5): a LONG Anthropic call (the chat deck path asks for
+    // up to 600 seconds) runs as a proxy JOB and is polled, so a dropped socket never loses a finished
+    // deck and the client and proxy budgets cannot disagree. Short calls keep the direct POST.
+    const useJob = endpointId === 'anthropic' && timeoutMs > JOB_THRESHOLD_MS && !options.headers;
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const callStart = Date.now();
         try {
-            const resp = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', ...sessionHeader, ...(options.headers || {}) },
-                body: JSON.stringify(body),
-                signal: AbortSignal.timeout(timeoutMs),
-            });
+            const resp = useJob
+                ? await runAnthropicJob(url, body, timeoutMs, sessionHeader)
+                : await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', ...sessionHeader, ...(options.headers || {}) },
+                    body: JSON.stringify(body),
+                    signal: AbortSignal.timeout(timeoutMs),
+                });
             if (resp.ok) {
                 const parsed = await resp.json();
                 // 2026-05-14 - Cost meter accounting. The body may carry the
@@ -266,4 +278,42 @@ export async function callAnthropic(body: any, options: CallAIOptions): Promise<
 export async function callGeminiCompat(body: any, options: CallAIOptions & { openAIEndpoint?: 'chat' | 'completion' } = { label: 'Gemini-compat' }): Promise<any> {
     const headers = { ...(options.headers || {}), 'x-openai-endpoint': options.openAIEndpoint || 'chat' };
     return callAIWithRetry('gemini-compat', body, { ...options, headers });
+}
+
+
+/** Calls longer than this ride the proxy job store (POST /api/jobs, poll GET /api/jobs/<id>). */
+const JOB_THRESHOLD_MS = 180_000;
+
+/**
+ * Run an Anthropic call as a proxy job and return a Response-shaped object so the retry loop's
+ * status handling is unchanged. Falls back to the direct POST when the jobs API is absent (older
+ * proxy), so the client never depends on the proxy build.
+ */
+async function runAnthropicJob(url: string, body: any, timeoutMs: number, sessionHeader: Record<string, string>): Promise<Response> {
+    const base = url.replace(/\/api\/ai\/anthropic.*$/, '');
+    const started = await fetch(`${base}/api/jobs`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', ...sessionHeader },
+        body: JSON.stringify({ op: '/api/ai/anthropic', body }),
+        signal: AbortSignal.timeout(30_000),
+    });
+    if (started.status === 404) {
+        return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', ...sessionHeader }, body: JSON.stringify(body), signal: AbortSignal.timeout(timeoutMs) });
+    }
+    if (!started.ok) return started;
+    const { job_id: jobId } = await started.json();
+    const deadline = Date.now() + timeoutMs;
+    let pollMs = 2000;
+    while (Date.now() < deadline) {
+        await new Promise(r => setTimeout(r, pollMs));
+        pollMs = Math.min(8000, pollMs + 1000);
+        let st: Response;
+        try { st = await fetch(`${base}/api/jobs/${encodeURIComponent(jobId)}`, { signal: AbortSignal.timeout(20_000) }); } catch { continue; }
+        if (!st.ok) continue;
+        const j = await st.json();
+        if (j.status === 'running' || j.status === 'queued') continue;
+        const status = Number(j.http_status) || (j.status === 'done' ? 200 : 500);
+        const payload = j.result ?? { error: j.error || 'job failed' };
+        return new Response(JSON.stringify(payload), { status, headers: { 'Content-Type': 'application/json' } });
+    }
+    return new Response(JSON.stringify({ error: `anthropic job ${jobId} did not finish within ${Math.round(timeoutMs / 1000)}s` }), { status: 504, headers: { 'Content-Type': 'application/json' } });
 }

@@ -19,7 +19,9 @@ import type { ArchitectureMapData } from '../components/slideTemplates/types';
 // BRAND VARIANTS
 // ============================================================================
 
-export type BrandVariant = 'NXT' | 'NU';
+// 2026-10-01 - DECIEM joins NXT / NU (same contract: brand is a token-set flip selected by
+// hashtag; `#deciem` sources the DECIEM PowerPoint template, see components/slideTemplates/brands.ts).
+export type BrandVariant = 'NXT' | 'NU' | 'DECIEM';
 export type ThemeMode = 'dark' | 'light';
 
 export interface BrandTokens {
@@ -91,6 +93,30 @@ export const BRAND_TOKENS: Record<BrandVariant, BrandTokens> = {
     fontDisplay: 'Archivo',
     fontBody: 'Archivo',
     fontMono: 'JetBrains Mono',
+  },
+  DECIEM: {
+    // DECIEM PowerPoint template: pure black canvas, white type, pink / cyan / purple pops,
+    // Poppins Bold uppercase headlines + Josefin Sans body (figma-tokens.json `DECIEM`).
+    bgPrimary: '#000000',
+    bgSecondary: '#0A0A0A',
+    textPrimary: '#FFFFFF',
+    textSecondary: '#E6E6E6',
+    textTertiary: '#B3B3B3',
+    accentPrimary: '#FB48C4',     // pink pop
+    accentSecondary: '#00FACC',   // cyan pop
+    accentTertiary: '#8A69D4',    // purple pop
+    gradientStart: '#FB48C4',
+    gradientEnd: '#8A69D4',
+    borderPrimary: '#FFFFFF',
+    borderSecondary: '#2A2A2A',
+    cardBg: 'rgba(255, 255, 255, 0.06)',
+    navDot: '#2A2A2A',
+    navDotActive: '#FB48C4',
+    fontDisplay: 'Poppins',
+    fontBody: 'Josefin Sans',
+    // The renderer's mono slot carries section labels and kickers; the template sets every
+    // label in Poppins Bold uppercase and has no mono face (tables use Nunito).
+    fontMono: 'Poppins',
   },
 };
 
@@ -343,14 +369,6 @@ export function resolveBrandTokens(brand: BrandVariant): BrandTokens {
   return BRAND_TOKENS[brand];
 }
 
-// Type guard helpers - useful in renderer's section dispatcher
-export function isSectionKind(value: unknown): value is SectionKind {
-  return typeof value === 'string' && [
-    'hero', 'context', 'themes', 'evidence', 'quotes',
-    'personas', 'journey', 'recommendations', 'roadmap',
-    'gap_analysis', 'tech_arch', 'team', 'cta',
-  ].includes(value);
-}
 
 // Slug generation - engagement-derived + short content hash
 export function generateSlug(engagementGoal: string, narrativeThesis: string): string {

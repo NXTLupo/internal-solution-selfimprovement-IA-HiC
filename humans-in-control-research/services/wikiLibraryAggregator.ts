@@ -20,6 +20,7 @@
  */
 
 import { listEngagementManifests, type EngagementManifest } from './wikiService';
+import type { BrandVariantId } from '../components/slideTemplates/brands';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -97,7 +98,7 @@ export interface LibraryUploadGroup {
 export interface LibraryEngagementSummary {
     slug: string;
     research_goal: string;
-    brand?: 'NXT' | 'NU';
+    brand?: BrandVariantId;
     updated_at: string;
     brief_count: number;
     prototype_count: number;
@@ -616,7 +617,7 @@ function tokenizeForRelevance(s: string): Set<string> {
 }
 
 /** Generic 0-1 relevance scorer: Jaccard-style word overlap between goal and item text. */
-export function scoreItemRelevance(itemText: string, researchGoal: string): number {
+function scoreItemRelevance(itemText: string, researchGoal: string): number {
     const goal = tokenizeForRelevance(researchGoal);
     const item = tokenizeForRelevance(itemText);
     if (goal.size === 0 || item.size === 0) return 0;

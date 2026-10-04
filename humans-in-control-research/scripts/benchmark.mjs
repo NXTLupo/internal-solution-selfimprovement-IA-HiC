@@ -8,7 +8,7 @@
 // Usage:
 //   node scripts/benchmark.mjs                      # score -> eval/benchmark-latest.json + scorecard
 //   node scripts/benchmark.mjs --baseline           # also freeze eval/benchmark-baseline.json
-//   node scripts/benchmark.mjs --diff               # print delta vs frozen baseline (exit 1 on regression)
+//   node scripts/benchmark.mjs --diff               # print delta vs frozen baseline (exit 1 on regression OR missing baseline)
 //
 // Phases (the user's named benchmark dimensions):
 //  1 DATA COLLECTION  2 THEMES  3 ANALYST-CHAT  4 DELIVERABLES+DESIGN
@@ -446,7 +446,9 @@ if (args.has('--baseline')) {
 // diff vs baseline
 if (args.has('--diff')) {
   const basePath = path.join(EVAL, 'benchmark-baseline.json');
-  if (!exists(basePath)) { console.log('No baseline to diff; run --baseline first.'); process.exit(0); }
+  // 2026-10-01 (plan Stage 0/5, audit C9): a missing baseline is a FAILED diff, not a pass. Exiting 0 here
+  // made regression-obligations.mjs obligation 4 vacuous (no frozen baseline -> every promotion "passed").
+  if (!exists(basePath)) { console.error('No baseline to diff: eval/benchmark-baseline.json is missing. Freeze one with --baseline (and commit it). Exit 1.'); process.exit(1); }
   const base = readJSON(basePath);
   let regressions = 0;
   const HIGHER_BETTER = new Set(['chunk_retrievability_pct', 'article_provenance_pct', 'fixture_external_citation_pct', 'fixture_citation_named_pct', 'theme_count', 'avg_goal_alignment', 'themes_with_external_citation_pct', 'validated_pct', 'avg_citations_per_theme', 'avg_subthemes_per_theme', 'learned_constraints_count', 'export_fonthref_token_derived', 'golden_set_discrimination_proxy', 'golden_set_exemplar_mean', 'report_grounds_via_manifest', 'report_raw_injection_gated', 'designer_slidespec_json_recovery', 'sample_artifacts_found', 'chat_persists_insights', 'chat_grounds_via_manifest', 'avg_evidence_refs_per_theme', 'avg_distinct_sources_per_theme', 'themes_mandate_multisource', 'themes_live_distinct_sources_per_theme', 'themes_live_multi_source_pct']);

@@ -31,7 +31,18 @@ export type BrandHashtag =
   | '#NU'
   | '#NU-institutional'
   | '#NU-editorial'
+  | '#DECIEM'
   | string;
+
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company) is the third brand mode.
+export type CuratorBrand = 'nxt' | 'nu' | 'deciem';
+
+function brandOfHashtag(brandHashtag: BrandHashtag | undefined): CuratorBrand {
+  const hash = (brandHashtag || '#NXT').toLowerCase();
+  if (hash.startsWith('#deciem')) return 'deciem';
+  if (hash.startsWith('#nu')) return 'nu';
+  return 'nxt';
+}
 
 export type CommittedFrame = 'radical' | 'convention-honoring' | 'unspecified';
 export type FramingLetter = 'α' | 'β' | 'γ' | 'δ' | 'ε';
@@ -60,7 +71,7 @@ export interface ExemplarRef {
   exemplar_id: string;
   framing_letter: FramingLetter;
   framing_name: string;
-  brand: 'nxt' | 'nu';
+  brand: CuratorBrand;
   rationale: string;
   pattern_url: string | null;
   thumbnail_url: string;
@@ -106,9 +117,9 @@ const FRAMING_NAMES: Record<FramingLetter, string> = {
   'ε': 'radical-departure',
 };
 
-function selectFraming(input: CurateInput): { letter: FramingLetter; brand: 'nxt' | 'nu' } {
+function selectFraming(input: CurateInput): { letter: FramingLetter; brand: CuratorBrand } {
   const hash = (input.brandHashtag || '#NXT').toLowerCase();
-  const brand: 'nxt' | 'nu' = hash.startsWith('#nu') ? 'nu' : 'nxt';
+  const brand: CuratorBrand = brandOfHashtag(input.brandHashtag);
   const aestheticBlob = (input.aestheticKeywords || []).join(' ').toLowerCase();
 
   // Explicit hashtag commitments take priority
@@ -118,6 +129,10 @@ function selectFraming(input: CurateInput): { letter: FramingLetter; brand: 'nxt
   }
   if (hash === '#nu-institutional') return { letter: 'α', brand: 'nu' };
   if (hash === '#nu-editorial') return { letter: 'δ', brand: 'nu' };
+  // DECIEM: a bold minimal editorial system whose identity is carried by the type (Poppins Bold
+  // uppercase on black / white). Framing α (typography-led) is the match; δ (color-restraint)
+  // would mute the pink / cyan / purple pops the template depends on.
+  if (hash === '#deciem') return { letter: 'α', brand: 'deciem' };
 
   // Frame commitment second
   if (input.committedFrame === 'radical') return { letter: 'ε', brand };
@@ -129,7 +144,7 @@ function selectFraming(input: CurateInput): { letter: FramingLetter; brand: 'nxt
   if (/minimal|restraint|austere|silent/.test(aestheticBlob)) return { letter: 'δ', brand };
 
   // Default
-  return { letter: brand === 'nu' ? 'α' : 'β', brand };
+  return { letter: brand === 'nxt' ? 'β' : 'α', brand };
 }
 
 // ─────────────────────────────────────────────────────────
@@ -266,9 +281,11 @@ export async function curateExemplarsForBrief(input: CurateInput, k = 5): Promis
 // ─────────────────────────────────────────────────────────
 export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: BrandHashtag): string {
   if (!refs || refs.length === 0) return '';
-  const brand = (brandHashtag || '#NXT').toLowerCase().startsWith('#nu') ? 'nu' : 'nxt';
+  const brand = brandOfHashtag(brandHashtag);
   const brandLanguage = brand === 'nu'
     ? "Spectral Light (display) / Roboto (body) / Roboto Mono (data) / Huskies red sparingly on navy ink-900"
+    : brand === 'deciem'
+    ? "black and white editorial canvases, Poppins Bold uppercase (display) / Josefin Sans (body) / Nunito (tables and data), pink / cyan / purple pops, thin line-art, no gradients"
     : "Bebas Neue (display) / Archivo (body) / JetBrains Mono (data) / chartreuse on near-white";
 
   const exemplarLines = refs.map((r, i) => {
@@ -308,16 +325,9 @@ export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: Bra
     'DELIVERABLE RULES',
     '  - Every UI region must echo one of the 5 exemplar framings, not invent a new one',
     '  - Use the brand\'s typefaces by their exact names; do not approximate',
-    '  - Motion: borrow timing from framing β (80ms stagger NXT) or NU 180ms standard ease',
+    '  - Motion: borrow timing from framing β (80ms stagger NXT), NU 180ms standard ease, or DECIEM 120ms linear cuts (no easing flourish)',
     '  - If a region renders a loading state, a corresponding fetch + state binding MUST exist',
     '═════════════════════════════════════════════════════════════════',
   ].join('\n');
 }
 
-// ─────────────────────────────────────────────────────────
-// PUBLIC - clear cache (testing / forced refresh after re-batching)
-// ─────────────────────────────────────────────────────────
-export function clearExemplarCache(): void {
-  cachedIndex = null;
-  cachedAt = 0;
-}

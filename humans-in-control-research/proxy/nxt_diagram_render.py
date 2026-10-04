@@ -46,6 +46,32 @@ def _font_face_css() -> str:
     return "\n".join(out)
 
 
+# Brand font stacks (2026-10-01). The palette dict from app._diagram_palette may carry
+# css_body / css_title / css_disp / css_mono / title_transform; when absent, the NXT
+# faces below apply, so NXT and NU exhibits render exactly as before. DECIEM passes
+# the 'DECIEM Display' / 'DECIEM Body' / 'DECIEM Mono' @font-face slots registered in
+# brand_fonts.DIAGRAM_FONT_FACES (Poppins display + label / Josefin Sans body / Nunito mono).
+_DEFAULT_FACES = {
+    "css_body": "'Archivo'",
+    "css_title": "'Archivo'",
+    "css_disp": "'Saira Condensed'",
+    "css_mono": "'NXT Mono'",
+    "title_transform": "none",
+    # label slot weight / transform: NXT and NU kickers stay 400 upper-tracked; DECIEM passes 700
+    # because the template sets every label in Poppins Bold.
+    "label_weight": "400",
+    "label_transform": "uppercase",
+    # NXT / NU exhibits carry the 56px rail + 3x3 dot-mark; a brand whose template has neither
+    # (DECIEM) passes rail_chrome False and the content column takes the full frame.
+    "rail_chrome": True,
+}
+
+
+def _faces(pal: dict) -> dict:
+    # a palette may legitimately pass False (rail_chrome) - only None / '' fall back to the default
+    return {k: (pal[k] if (k in pal and pal[k] is not None and pal[k] != "") else v) for k, v in _DEFAULT_FACES.items()}
+
+
 # ---- REAL NXT icon set (Figma Icons 796:2) via services/iconLibrary.ts, extracted to
 # icon-glyphs.json (104 tag-indexed glyphs). Icons are concept-matched to phase/section text
 # so every glyph is MEANINGFUL and brand-authentic - never hand-drawn or generic filler.
@@ -139,64 +165,69 @@ def _shell(pal: dict, kicker: str, title: str, body_html: str, takeaway: str) ->
     accent, ink, kick = pal["accent"], pal["ink"], pal["kicker"]
     rail, paper, grey = pal["rail"], pal["paper"], pal["grey"]
     hair, band, band_tx = pal["hairline"], pal["band"], pal["band_text"]
+    fc = _faces(pal)
+    FB, FT, FD, FM = fc["css_body"], fc["css_title"], fc["css_disp"], fc["css_mono"]
+    ttl_tx = f"text-transform:{fc['title_transform']};" if fc["title_transform"] not in ("", "none") else ""
     dots = "".join(f'<i></i>' for _ in range(9))
     kick_html = (f'<div class="kick">{_e(kicker)}</div>') if kicker else ""
     title_html = (f'<div class="ttl">{_e(title)}</div>') if title else ""
     hair_html = '<div class="hair"></div>' if title else ""
     band_html = (f'<div class="band"><span>{_e(takeaway)}</span></div>') if takeaway else ""
+    rail_on = bool(fc.get("rail_chrome", True))
+    rail_html = (f'<div class="rail"><div class="dots">{dots}</div></div>') if rail_on else ""
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 {_font_face_css()}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};overflow:hidden}}
 .exhibit{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};display:flex;position:relative;
-  font-family:'Archivo',system-ui,sans-serif;color:{ink};-webkit-font-smoothing:antialiased}}
+  font-family:{FB},system-ui,sans-serif;color:{ink};-webkit-font-smoothing:antialiased}}
 .rail{{width:56px;flex:0 0 56px;background:{rail};position:relative}}
 .dots{{position:absolute;left:14px;bottom:16px;display:grid;grid-template-columns:repeat(3,7px);
   grid-template-rows:repeat(3,7px);gap:4px}}
 .dots i{{background:{accent};width:7px;height:7px;display:block}}
 .content{{flex:1;display:flex;flex-direction:column;padding:26px 30px 0 30px;min-width:0}}
-.kick{{font-family:'NXT Mono',monospace;font-size:12px;font-weight:400;letter-spacing:4px;
-  text-transform:uppercase;color:{kick};margin-bottom:6px}}
-.ttl{{font-family:'Archivo';font-weight:700;font-size:33px;line-height:1.05;letter-spacing:-0.4px;
-  color:{ink};margin-bottom:10px}}
+.kick{{font-family:{FM},monospace;font-size:12px;font-weight:{fc["label_weight"]};letter-spacing:4px;
+  text-transform:{fc["label_transform"]};color:{kick};margin-bottom:6px}}
+.ttl{{font-family:{FT};font-weight:700;font-size:33px;line-height:1.05;letter-spacing:-0.4px;
+  {ttl_tx}color:{ink};margin-bottom:10px}}
 .hair{{height:1px;background:{hair};width:100%;margin-bottom:14px}}
 .bodywrap{{flex:1;min-height:0;display:flex;flex-direction:column}}
 .bodywrap>.jgrid{{flex:1;align-content:space-between}}
 .bodywrap>.tree,.bodywrap>.mind{{flex:1}}
 .band{{margin:12px -30px 0 -30px;background:{band};min-height:52px;display:flex;align-items:center;
   padding:10px 30px}}
-.band span{{font-family:'Archivo';font-weight:700;font-size:17px;line-height:1.3;color:{band_tx}}}
+.band span{{font-family:{FT};font-weight:700;font-size:17px;line-height:1.3;color:{band_tx}}}
 /* --- journey matrix --- */
 .jgrid{{display:grid;gap:8px 10px;align-items:stretch;width:100%}}
-.rowlab{{font-family:'NXT Mono',monospace;font-size:9.5px;font-weight:400;letter-spacing:1px;
+.rowlab{{font-family:{FM},monospace;font-size:9.5px;font-weight:400;letter-spacing:1px;
   text-transform:uppercase;color:{grey};display:flex;align-items:center;gap:5px;padding-right:4px}}
 .rowlab svg{{flex:0 0 auto}}
 .pcard{{border:1px solid {hair};border-radius:4px;background:{paper};padding:9px 10px;position:relative;
   display:flex;flex-direction:column;gap:4px;min-width:0}}
 .pcard.crit{{border-top:3px solid {accent}}}
-.pcard .crittag{{position:absolute;top:-8px;left:10px;background:{accent};color:{ink};font-family:'NXT Mono';
+.pcard .crittag{{position:absolute;top:-8px;left:10px;background:{accent};color:{ink};font-family:{FM};
   font-size:8px;font-weight:400;letter-spacing:1.5px;padding:1px 6px;border-radius:2px}}
-.pcard .pnum{{font-family:'NXT Mono';font-size:8.5px;letter-spacing:1px;color:{grey}}}
+.pcard .pnum{{font-family:{FM};font-size:8.5px;letter-spacing:1px;color:{grey}}}
 .pcard .phead{{display:flex;align-items:flex-start;gap:7px}}
-.pcard .ptitle{{font-family:'Archivo';font-weight:700;font-size:14px;line-height:1.1;color:{ink};flex:1;min-width:0}}
+.pcard .ptitle{{font-family:{FT};font-weight:700;font-size:14px;line-height:1.1;color:{ink};flex:1;min-width:0}}
 .pcard .kpi{{margin-top:2px;display:inline-flex;flex-direction:column;background:{pal['wash_cool']};
   border-radius:3px;padding:3px 7px;align-self:flex-start}}
-.pcard .kpi b{{font-family:'Saira Condensed';font-weight:600;font-size:15px;line-height:1;color:{ink}}}
-.pcard .kpi s{{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:{grey};text-decoration:none;text-transform:uppercase}}
+.pcard .kpi b{{font-family:{FD};font-weight:600;font-size:15px;line-height:1;color:{ink}}}
+.pcard .kpi s{{font-family:{FM};font-size:8px;letter-spacing:.5px;color:{grey};text-decoration:none;text-transform:uppercase}}
 .cell{{display:flex;flex-direction:column;gap:4px;min-width:0}}
-.tag{{font-family:'Archivo';font-size:10.5px;line-height:1.25;color:{ink};display:flex;gap:5px;align-items:flex-start}}
+.tag{{font-family:{FB};font-size:10.5px;line-height:1.25;color:{ink};display:flex;gap:5px;align-items:flex-start}}
 .tag svg{{flex:0 0 auto;margin-top:1px}}
 .painbox{{background:{pal['wash_warn']};border-radius:4px;padding:7px 9px;display:flex;flex-direction:column;gap:4px;height:100%}}
 .oppbox{{background:{pal['wash_cool']};border-radius:4px;padding:7px 9px;display:flex;flex-direction:column;gap:4px;height:100%}}
 .qbox{{border-left:3px solid {kick};padding:5px 0 5px 9px;display:flex;flex-direction:column;gap:3px}}
-.qbox .qt{{font-family:'Archivo';font-size:10.5px;font-style:italic;line-height:1.3;color:{ink}}}
-.qbox .qs{{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:{grey};text-transform:uppercase}}
-.lanecell{{border:1px solid {hair};border-radius:4px;padding:7px 9px;font-family:'Archivo';font-size:11px;
+.qbox .qt{{font-family:{FB};font-size:10.5px;font-style:italic;line-height:1.3;color:{ink}}}
+.qbox .qs{{font-family:{FM};font-size:8px;letter-spacing:.5px;color:{grey};text-transform:uppercase}}
+.lanecell{{border:1px solid {hair};border-radius:4px;padding:7px 9px;font-family:{FB};font-size:11px;
   line-height:1.2;color:{ink};text-align:center;display:flex;align-items:center;justify-content:center;height:100%}}
 .lanecell.empty{{border-style:dashed;opacity:.35}}
 .bubble{{background:{paper};border:1px solid {hair};border-radius:8px;padding:7px 9px;position:relative}}
-.bubble .bt{{font-family:'Archivo';font-size:10px;font-style:italic;line-height:1.25;color:{ink}}}
-.bubble .bn{{font-family:'NXT Mono';font-size:8px;letter-spacing:.5px;color:{grey};text-transform:uppercase;margin-top:3px}}
+.bubble .bt{{font-family:{FB};font-size:10px;font-style:italic;line-height:1.25;color:{ink}}}
+.bubble .bn{{font-family:{FM};font-size:8px;letter-spacing:.5px;color:{grey};text-transform:uppercase;margin-top:3px}}
 .bubble.empty{{border:none;background:transparent}}
 /* --- tree (architecture) --- */
 .tree{{display:flex;flex-direction:column;justify-content:center;align-items:stretch;width:100%;padding:6px 0}}
@@ -205,26 +236,26 @@ html,body{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};overflow:hidd
 .tcard{{border:1px solid {hair};border-radius:4px;background:{paper};padding:13px 16px;min-width:168px;max-width:250px;
   display:flex;gap:11px;align-items:flex-start}}
 .tcard .tcbody{{min-width:0}}
-.tcard .ntype{{font-family:'NXT Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:{pal['kicker']};margin-bottom:2px}}
-.tcard .tt{{font-family:'Archivo';font-weight:700;font-size:15px;line-height:1.12;color:{ink}}}
-.tcard .td{{font-family:'Archivo';font-size:10.5px;line-height:1.25;color:{grey};margin-top:3px}}
+.tcard .ntype{{font-family:{FM},monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:{pal['kicker']};margin-bottom:2px}}
+.tcard .tt{{font-family:{FT};font-weight:700;font-size:15px;line-height:1.12;color:{ink}}}
+.tcard .td{{font-family:{FB};font-size:10.5px;line-height:1.25;color:{grey};margin-top:3px}}
 .branch .bpts{{margin:5px 0 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}}
-.branch .bpts li{{font-family:'Archivo';font-size:9.5px;line-height:1.25;color:{ink};padding-left:9px;position:relative}}
+.branch .bpts li{{font-family:{FB};font-size:9.5px;line-height:1.25;color:{ink};padding-left:9px;position:relative}}
 .branch .bpts li:before{{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;background:{pal['kicker']};border-radius:1px}}
-.tierlab{{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:'NXT Mono';font-size:9px;
+.tierlab{{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:{FM};font-size:9px;
   letter-spacing:1px;text-transform:uppercase;color:{grey}}}
-.flowcap{{margin-top:14px;text-align:center;font-family:'Archivo';font-size:12px;color:{grey};font-style:italic}}
+.flowcap{{margin-top:14px;text-align:center;font-family:{FB};font-size:12px;color:{grey};font-style:italic}}
 .branch .bhead{{display:flex;align-items:center;gap:7px}}
 .branch .bhead svg{{flex:0 0 auto}}
 /* --- mindmap --- */
 .mind{{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}}
-.hub{{background:{ink};color:{paper};border-radius:8px;padding:14px 20px;font-family:'Archivo';font-weight:700;
+.hub{{background:{ink};color:{paper};border-radius:8px;padding:14px 20px;font-family:{FT};font-weight:700;
   font-size:18px;text-align:center;max-width:260px;z-index:2}}
 .branch{{position:absolute;background:{paper};border:1px solid {hair};border-radius:6px;padding:9px 12px;max-width:200px;z-index:2}}
-.branch .bl{{font-family:'Archivo';font-weight:700;font-size:12.5px;line-height:1.15;color:{ink}}}
-.branch .bd{{font-family:'Archivo';font-size:10px;line-height:1.2;color:{grey};margin-top:3px}}
+.branch .bl{{font-family:{FT};font-weight:700;font-size:12.5px;line-height:1.15;color:{ink}}}
+.branch .bd{{font-family:{FB};font-size:10px;line-height:1.2;color:{grey};margin-top:3px}}
 </style></head><body><div class="exhibit">
-<div class="rail"><div class="dots">{dots}</div></div>
+{rail_html}
 <div class="content">{kick_html}{title_html}{hair_html}
 <div class="bodywrap">{body_html}</div>{band_html}</div>
 </div></body></html>"""
@@ -420,22 +451,22 @@ _INFO_CSS = """
 .stat{flex:1;min-width:0;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
   padding:20px 22px;display:flex;flex-direction:column;gap:9px;justify-content:center}
 .stat .shead{display:flex;align-items:center;gap:10px}
-.stat .sv{font-family:'Saira Condensed';font-weight:600;font-size:46px;line-height:1;color:__INK__}
-.stat .sl{font-family:'NXT Mono',monospace;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:__GREY__}
-.stat .sq{font-family:'Archivo';font-size:13px;font-style:italic;line-height:1.35;color:__INK__;
+.stat .sv{font-family:__FDISP__;font-weight:600;font-size:46px;line-height:1;color:__INK__}
+.stat .sl{font-family:__FMONO__,monospace;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:__GREY__}
+.stat .sq{font-family:__FBODY__;font-size:13px;font-style:italic;line-height:1.35;color:__INK__;
   border-left:3px solid __KICK__;padding-left:10px;margin-top:3px}
-.stat .ss{font-family:'NXT Mono';font-size:10px;letter-spacing:.6px;color:__GREY__;text-transform:uppercase}
+.stat .ss{font-family:__FMONO__;font-size:10px;letter-spacing:.6px;color:__GREY__;text-transform:uppercase}
 .pflow{display:flex;gap:0;width:100%;align-items:stretch;justify-content:center}
 .pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;padding:24px 24px 28px;
   justify-content:flex-end;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
   position:relative;overflow:hidden}
 /* 2026-07-03 card anatomy: giant ghost step numeral (GOLD section-divider signature) owns the
    upper field; conceptual glyph + title (+ description) anchor low. */
-.pstep .psghost{position:absolute;top:6px;right:18px;font-family:'Saira Condensed';font-weight:600;
+.pstep .psghost{position:absolute;top:6px;right:18px;font-family:__FDISP__;font-weight:600;
   font-size:120px;line-height:1;color:__KICK__;opacity:.16;letter-spacing:-2px}
 .pstep .psico{line-height:0;margin-bottom:4px}
-.pstep .pst{font-family:'Archivo';font-weight:700;font-size:22px;line-height:1.2;color:__INK__}
-.pstep .psd{font-family:'Archivo';font-size:14.5px;line-height:1.4;color:__GREY__}
+.pstep .pst{font-family:__FTITLE__;font-weight:700;font-size:22px;line-height:1.2;color:__INK__}
+.pstep .psd{font-family:__FBODY__;font-size:14.5px;line-height:1.4;color:__GREY__}
 .pflow.nodesc .pstep{gap:20px}
 .pflow.nodesc .pstep .pst{font-size:27px;line-height:1.18}
 .pconn{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:__GREY__}
@@ -443,29 +474,32 @@ _INFO_CSS = """
 .cmp{flex:1;min-width:0;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:center}
 .cmp.a{background:__WASHCOOL__}
 .cmp.b{background:__PAPER__;border:1px solid __HAIR__}
-.cmp .ct{font-family:'Archivo';font-weight:700;font-size:19px;line-height:1.2;color:__INK__}
-.cmp li{font-family:'Archivo';font-size:14px;line-height:1.4;color:__INK__;padding-left:12px;position:relative;list-style:none;margin-top:6px}
+.cmp .ct{font-family:__FTITLE__;font-weight:700;font-size:19px;line-height:1.2;color:__INK__}
+.cmp li{font-family:__FBODY__;font-size:14px;line-height:1.4;color:__INK__;padding-left:12px;position:relative;list-style:none;margin-top:6px}
 .cmp li:before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;background:__KICK__}
 .rbars{display:flex;flex-direction:column;gap:12px;width:100%;justify-content:center}
 .rbar{display:grid;grid-template-columns:minmax(150px,32%) 1fr;gap:12px;align-items:center}
-.rbar .rl{font-family:'Archivo';font-weight:600;font-size:14px;line-height:1.25;color:__INK__;text-align:right}
+.rbar .rl{font-family:__FTITLE__;font-weight:600;font-size:14px;line-height:1.25;color:__INK__;text-align:right}
 .rbar .rtrack{background:__HAIR__;border-radius:2px;height:20px;position:relative}
 .rbar .rfill{background:__ACCENT__;height:20px;border-radius:2px}
-.rbar .rn{font-family:'NXT Mono';font-size:10px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
+.rbar .rn{font-family:__FMONO__;font-size:10px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
 .compo{display:flex;flex-direction:column;gap:14px;width:100%;justify-content:center}
 .cbar{display:flex;height:42px;border-radius:3px;overflow:hidden}
 .cseg{height:100%}
 .clegend{display:flex;gap:18px;flex-wrap:wrap}
-.cleg{display:flex;align-items:center;gap:8px;font-family:'Archivo';font-size:13px;color:__INK__}
+.cleg{display:flex;align-items:center;gap:8px;font-family:__FBODY__;font-size:13px;color:__INK__}
 .cleg i{width:12px;height:12px;display:block}
 """
 
 
 def _info_css(pal: dict) -> str:
     css = _INFO_CSS
+    fc = _faces(pal)
     for key, val in (("__HAIR__", pal["hairline"]), ("__PAPER__", pal["paper"]), ("__INK__", pal["ink"]),
                      ("__GREY__", pal["grey"]), ("__KICK__", pal["kicker"]), ("__ACCENT__", pal["accent"]),
-                     ("__WASHCOOL__", pal["wash_cool"])):
+                     ("__WASHCOOL__", pal["wash_cool"]),
+                     ("__FTITLE__", fc["css_title"]), ("__FBODY__", fc["css_body"]),
+                     ("__FDISP__", fc["css_disp"]), ("__FMONO__", fc["css_mono"])):
         css = css.replace(key, val)
     return css
 
@@ -581,12 +615,13 @@ def _chromeless_shell(pal: dict, body_html: str, w: int, h: int) -> str:
     k = max(1.0, w / 1600.0)
     dw = int(round(w / k))
     dh = int(round(h / k))
+    FB = _faces(pal)["css_body"]
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 {_font_face_css()}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:{w}px;height:{h}px;background:{pal['paper']};overflow:hidden}}
 .exhibit{{width:{dw}px;height:{dh}px;zoom:{k};background:{pal['paper']};display:flex;align-items:stretch;
-  padding:16px 18px;font-family:'Archivo',system-ui,sans-serif;color:{pal['ink']};
+  padding:16px 18px;font-family:{FB},system-ui,sans-serif;color:{pal['ink']};
   -webkit-font-smoothing:antialiased}}
 {_info_css(pal)}
 </style></head><body><div class="exhibit">{body_html}</div></body></html>"""

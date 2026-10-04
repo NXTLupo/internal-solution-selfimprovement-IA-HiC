@@ -76,10 +76,6 @@ export function contentFingerprint(text: string | undefined | null, maxChars = 4
   return n.toString(16).padStart(14, '0');
 }
 
-/** Stable hash of a research goal, for relevance_by_goal keying. */
-export function goalHashOf(goal: string | undefined | null): string {
-  return contentFingerprint(goal, 512);
-}
 
 // ---------------------------------------------------------------------------
 // Identity extraction
@@ -92,7 +88,7 @@ export interface MergeIdentity {
 }
 
 /** Identity for a raw corpus item (article / social post / upload). */
-export function identityOfItem(item: any): MergeIdentity {
+function identityOfItem(item: any): MergeIdentity {
   return {
     clusterId: '', // raw items carry no cluster identity
     contentHash: contentFingerprint(item?.content ?? item?.body ?? item?.selftext ?? ''),
@@ -106,7 +102,7 @@ export function identityOfItem(item: any): MergeIdentity {
  * that were assigned a fresh id. NAME is intentionally NOT a key — variant
  * names were the double-count bug.
  */
-export function identityOfTheme(theme: any): MergeIdentity {
+function identityOfTheme(theme: any): MergeIdentity {
   const cid = String(theme?.id ?? theme?.cluster_id ?? theme?.clusterId ?? '').trim();
   const summary = theme?.summary ?? theme?.description ?? theme?.name ?? theme?.title ?? '';
   return {
@@ -140,7 +136,7 @@ function emptyStats(input: number): MergeStats {
 // Surfaced for traceRecorder / qualityFrontier (corpus_dedup_rate dim) and for
 // the validate_no_corpus_duplicates Stop hook. Last merge wins; cheap to read.
 export interface LastDedup { scope: string; stats: MergeStats; at: number }
-export function recordLastDedup(scope: string, stats: MergeStats): void {
+function recordLastDedup(scope: string, stats: MergeStats): void {
   try {
     const g: any = (typeof window !== 'undefined' ? window : globalThis) as any;
     const log: LastDedup[] = g.__hicDedupLog || (g.__hicDedupLog = []);

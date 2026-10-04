@@ -1,0 +1,15 @@
+import { readFileSync } from 'node:fs';
+const air = JSON.parse(readFileSync('hic-workspace/sessions/analyze-the-executive-search-industry-to-map-current-trends/artifacts/slides_1787577788440.air.json', 'utf8'));
+const shipped = air.postChain.shippedPayload as any[];
+const mod = await import('file:///D:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/services/slideToStageHtml.ts');
+let leaks = 0, slides = 0, bannedLeaks = 0;
+for (const s of shipped) {
+  const html: string = mod.slideDataToStageHtml({ ...s, composerPayload: s.composerPayload });
+  slides++;
+  const text = html.replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
+  const m = text.match(/\[[^\]]*\.md#c\d+[^\]]*\]/g) || [];
+  if (m.length) { leaks += m.length; console.log('POINTER VISIBLE on', s.template, '->', m.slice(0,2).join(' | ')); }
+  const na = text.match(/\[N\/A\]/g) || []; if (na.length) console.log('N/A VISIBLE on', s.template);
+  for (const ph of ['best practices','ecosystem','utilization','lead with']) if (text.toLowerCase().includes(ph)) { bannedLeaks++; console.log('PHRASE VISIBLE', ph, 'on', s.template); }
+}
+console.log(`slides=${slides} visiblePointerTokens=${leaks} bannedVisible=${bannedLeaks}`);

@@ -8,12 +8,15 @@ title: "How mechanism design theory helps optimize Amazon-vendor collaboration"
 author: ""
 date: "Tue, 05 May 2026 13:11:23 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T16:08:41.283969+00:00"
+method: "source-native"
+extracted_at: "2026-08-26T19:21:41.602529+00:00"
 chars: 9523
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic"
-collected_at: "2026-07-02T16:08:39+00:00"
+engagement: "deliver-a-technical-architecture-and-implementation-blueprin"
+collected_at: "2026-08-26T19:21:41.171Z"
+relevance: 5
+engagement_goal: "Deliver a technical architecture and implementation blueprint for Deciem's marketing and design teams to automate the email production workflow from Figma design to validated, sendable HTML using a multi-agent AI system, specifying agent roles, skills, and Model Context Protocol configurations that connect Figma libraries, brand guidelines, and design patterns while preserving creative flexibility and brand compliance, based on state of the art evidence current as of August 2026 and no earlier than January 2026. Define the reusable email component approach (including MJML), sending-platform and personalization-token integration, and the QA and validation criteria that qualify automated output as sendable."
 content_hash: "c8d5305e299cfb95"
+relevance_by_goal: {"8429cfd39d4f":0,"d21cb50b17ba":5}
 chunks:
   - id: "articles/amazon-science/5acb6aef94.md#c0"
     char_span: [0, 203]

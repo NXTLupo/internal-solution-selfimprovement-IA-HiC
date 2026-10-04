@@ -166,7 +166,7 @@ export function renderSynopsis(synopsis: StepSynopsis | null): string {
  * Fire-and-forget from the caller's perspective: a failure here costs the pointer,
  * never the turn.
  */
-export async function persistStepResult(
+async function persistStepResult(
     fullText: string,
     opts: { engagementSlug: string; stepId: string; kind: ElidedKind },
 ): Promise<string | null> {
@@ -195,7 +195,7 @@ export async function persistStepResult(
  * The prompt text is available synchronously from `applyStepBudget`; this is for
  * callers that can await.
  */
-export async function budgetAndPersist(
+async function budgetAndPersist(
     fullText: string,
     opts: BudgetOptions & { engagementSlug?: string; stepId?: string },
 ): Promise<BudgetedResult> {

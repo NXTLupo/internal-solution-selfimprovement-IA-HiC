@@ -1,0 +1,145 @@
+{
+  "rubric_id": "personas-rubric",
+  "kind": "personas",
+  "version": "1.0.0",
+  "title": "personas deliverable rubric",
+  "absorbed_from": ".claude/agents/personas-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #personas output. Audits Cooper-goal-hierarchy completeness (life goals + end goals + experience goals), JTBD presence, persona elasticity (age range <=12 years, contradictory behaviors flagged), verbatim quote authenticity (no fabricated quotes), and the 3+ named-external-citation evidence floor per persona per the persona-architect skill.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "cooper_goal_hierarchy",
+      "n": 1,
+      "label": "Cooper goal hierarchy",
+      "five": "Every persona has life goals + end goals + experience goals populated and distinguishable",
+      "one": "Goals collapsed into a flat list",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "jtbd_presence",
+      "n": 2,
+      "label": "JTBD presence",
+      "five": "Every persona has an explicit Jobs-To-Be-Done statement (3-5 sentences naming functional + emotional + social dimensions)",
+      "one": "JTBD missing or one-liner",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "persona_quote_authenticity",
+      "n": 3,
+      "label": "Persona-quote authenticity",
+      "five": "Every persona-quote is a VERBATIM excerpt from a named source (user-research interview, Reddit comment, forum post), not paraphrased, not generic",
+      "one": "Generic/fabricated quotes",
+      "floor": 5,
+      "blocking": true,
+      "deterministic_check": "quote_attribution"
+    },
+    {
+      "id": "evidence_density",
+      "n": 4,
+      "label": "Evidence density",
+      "five": "≥3 named external citations per persona; ≥50% citations external (not client uploads)",
+      "one": "Citations all from same upload",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "citation_diversity"
+    },
+    {
+      "id": "persona_elasticity",
+      "n": 5,
+      "label": "Persona elasticity (REJECT criteria)",
+      "five": "Age ranges ≤12 years (not \"25-55\"); no contradictory behaviors in same persona; not a \"composite of 4 personas in 1\"",
+      "one": "Wide age, contradictory behaviors",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": null
+    },
+    {
+      "id": "demographics_first_thinking",
+      "n": 6,
+      "label": "Demographics-first thinking (REJECT criteria)",
+      "five": "Personas built from JTBD + goals + pains; demographics descriptive, not defining",
+      "one": "Persona = \"millennial woman, 32, lives in Brooklyn\"",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": null
+    },
+    {
+      "id": "distinct_personas",
+      "n": 7,
+      "label": "Distinct personas",
+      "five": "No 2 personas are near-duplicates (>60% JTBD + pain overlap)",
+      "one": "Multiple personas saying same thing",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "distinct_items"
+    },
+    {
+      "id": "anti_slop_in_persona_names",
+      "n": 8,
+      "label": "Anti-slop in persona names",
+      "five": "No metaphor names (\"The Architect\", \"The Sage\"); plain descriptive names (\"First-Year Co-op Applicant\", \"Mid-Career Returner\")",
+      "one": "Archetype labels masquerading as names",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "pain_point_specificity",
+      "n": 9,
+      "label": "Pain point specificity",
+      "five": "Each pain point names the SYSTEM, TEAM, or STAKEHOLDER affected + the operational consequence (per constraint feedback_personas_persona_quote in MEMORY)",
+      "one": "Vague \"struggles with X\"",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "image_prompt_consistency",
+      "n": 10,
+      "label": "Image-prompt consistency",
+      "five": "If persona-card includes image_prompt, the described persona MATCHES the persona attributes (per memory: persona image gender must match caption pronouns + varied non-cliche scenes)",
+      "one": "Prompt drift from persona",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cached_selection_coverage",
+      "n": 11,
+      "label": "Cached-selection coverage",
+      "five": "≥80% of the user's KL-curated items appear in the emission as source: cached or source: extended; new items have source: new; coverage is reported as cached_selection_coverage_pct in the verdict",
+      "one": "<60% coverage (auto Stop-hook reject via validate_cached_selection_honored.py); model regenerated from scratch and ignored the user's curation",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "cached_selection_coverage"
+    }
+  ],
+  "blocking": [
+    "persona_quote_authenticity",
+    "persona_elasticity",
+    "demographics_first_thinking"
+  ],
+  "decision": {
+    "approve": "all dimensions ≥3 AND Cooper-goal-hierarchy ≥4 AND persona-quote authenticity = 5 (any fabrication = automatic reject)",
+    "revise": "1-2 dimensions below floor; orchestrator regenerates the violator personas only",
+    "reject": "persona-quote authenticity ≤3 (fabricated quotes) OR persona elasticity violations OR demographics-first thinking"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

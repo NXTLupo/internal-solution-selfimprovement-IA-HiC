@@ -8,13 +8,13 @@ title: "E-commerce Industry News Recap 🔥 Week of May 25th, 2026"
 author: "adventurepaul"
 date: "2026-05-25T19:39:16.000Z"
 score: 38
-upvote_ratio: 0.97
+upvote_ratio: 0.95
 num_comments: 28
 flair: "📰 News"
-extracted_at: "2026-06-24T22:13:57.306Z"
+extracted_at: "2026-08-25T23:08:27.669Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c0"
     char_span: [0, 527]
@@ -56,7 +56,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c4"]
     token_count: 220
   - id: "social-intelligence/reddit-deep/ecommerce/1tnjki7.md#c6"
-    char_span: [10266, 10706]
+    char_span: [10267, 10707]
     sentence_count: 3
     key_terms: [graceonajourney1611, cro, roi, subscription, information, challenge, customers, ecommerce]
     concepts: [graceonajourney1611]

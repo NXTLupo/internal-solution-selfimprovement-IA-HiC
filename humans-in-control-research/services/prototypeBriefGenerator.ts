@@ -23,7 +23,8 @@
 // Industry-agnostic: same generator works for healthcare, fintech, retail,
 // government, manufacturing, education, SaaS, or any vertical.
 
-import type { ExperienceBrief } from './prototypeBuilder';
+import type { ExperienceBrief, Brand } from './prototypeBuilder';
+import { isPrdAir, prdAirToPrdCandidate, buildReadinessChecklist, type PrdAir, type BuildReadinessChecklist } from './prdAir';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 // 2026-05-13 - Switched from Gemini 3.1 Pro to Claude Opus for brief
@@ -33,12 +34,12 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 // 2026-05-29 - Upgraded to Opus 4.8 (released 2026-05-28). Standard pricing
 // dropped 3x ($5/$25 per 1M vs 4.7's $15/$75) and adaptive thinking by default
 // reduces unnecessary token consumption.
-import { artifactModelFor, endpointForModel } from './aiRouter';
+import { artifactModelFor, endpointForModel, CLAUDE_REASONING_LABEL } from './aiRouter';
 // 2026-06-30 - cap-aware via the canonical artifact-model policy (aiRouter SSOT).
 // #proto's brief is an evidence/imagery-heavy deliverable, so while the Opus cap
 // is active this resolves to gemini-3.1-pro-preview; the skeleton (Pass 1) + the
 // opus-mode deepen (Pass 2) therefore no longer hard-fail with HTTP 400. Restores
-// claude-opus-4-8 automatically when OPUS_CAP_ACTIVE flips to false.
+// the Claude reasoning model automatically when OPUS_CAP_ACTIVE flips to false.
 const BRIEF_MODEL = artifactModelFor('proto');
 // 2026-05-14 - Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
 // structured deepening tasks; we keep Opus for Pass 1 (divergent framing)
@@ -160,6 +161,9 @@ export interface ProductBrief {
     interaction_choreography?: InteractionBeat[];  // 6-12 beats
     visual_direction: VisualDirection;
     success_criteria: string[];
+    /** 2026-10-02 coverage contract (services/deliverableCoverage.ts): client-stated features and prototype feedback the
+     *  brief's own text did not carry, each with its verbatim quote and the reviewers' disposition. Build stages read it. */
+    client_scope?: Array<{ ledgerIds: string[]; item: string; requirement: string; quote?: string; source?: string; disposition?: string }>;
     hard_constraints: {
         brand: string | null;
         platform: 'web' | 'mobile-web' | 'native-feeling-web';
@@ -184,11 +188,21 @@ export interface ProductBrief {
         risks: string[];
         out_of_scope: string[];
     };
+    /** Stage 3.6 (2026-10-01): when the brief was generated from a PrdAir record, the PRD's
+     *  build-readiness checklist (states inventory, data touchpoints, dependencies, tracking plan,
+     *  agent boundaries, registered component inventory, feature-to-screen seed) rides along so
+     *  Stage 2 maps features to screens from the contract, not from a re-derived list. */
+    build_readiness?: BuildReadinessChecklist;
 }
 
 export interface BriefGenerationOptions {
+    /** Stage 3.6 (2026-10-01, plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md): the one
+     *  PRD contract. When present, `#proto` reads it as `prd_candidate` (prdAirToPrdCandidate) on
+     *  every brief instead of letting the brief model invent a PRD, and the brief prompt carries the
+     *  PRD's build-readiness checklist as input. Closes the research -> PRD -> prototype loop. */
+    prdAir?: PrdAir;
     concept: string;                    // Free-form or rich consulting brief from a #recommendation tile
-    brand: 'NXT' | 'NU';
+    brand: Brand;                       // 'NXT' | 'NU' | 'DECIEM' (shared BrandVariant)
     industry?: string;                  // From engagement_context; aids the generator without locking it
     researchGoal?: string;
     basedOn?: string;                   // Slug if from a tile
@@ -406,6 +420,22 @@ function buildBriefUserContent(opts: BriefGenerationOptions): string {
     if (opts.industry) lines.push(``, `INDUSTRY CONTEXT (use for persona archetype + entity naming + regulatory frame): ${opts.industry}`);
     if (opts.researchGoal) lines.push(``, `ENGAGEMENT RESEARCH GOAL (every brief must transparently advance this): ${opts.researchGoal}`);
     if (opts.basedOn) lines.push(``, `BASED-ON CONCEPT SLUG (identifier only, not the concept itself): ${opts.basedOn}`);
+    if (opts.prdAir && isPrdAir(opts.prdAir)) {
+        // Stage 3.6: the PRD is the brief's INPUT. Every framing must demonstrate the must-have
+        // requirements and honor the non-goals; the readiness checklist names the states, data
+        // touchpoints and dependencies the prototype has to show.
+        const air = opts.prdAir;
+        const ck = buildReadinessChecklist(air);
+        const reqLines = air.graph.requirements.map(r => `  - ${r.id} [${r.claimType === 'HYPOTHESIS' ? 'bet' : r.tier}] ${r.text}`);
+        lines.push(``, `PRD CONTRACT (PrdAir ${air.artifactId}; the prototype is built against this, not against a new feature list):`,
+            `THESIS: ${air.sections.thesis.statement}`,
+            `REQUIREMENTS (every framing demonstrates each must-have on at least one screen):`, ...reqLines,
+            `NON-GOALS (never shown as features): ${air.sections.goalsNonGoalsAppetite.nonGoals.map(n => n.text).join('; ') || 'none'}`,
+            `REQUIRED SCREEN STATES: ${ck.statesInventory.map(s => `${s.screen} (${s.states.join(', ')})`).join('; ') || 'none declared'}`,
+            `DATA TOUCHPOINTS: ${ck.dataTouchpoints.join('; ') || 'none declared'}`,
+            `TRACKING EVENTS: ${ck.trackingPlan.map(t => t.event).join(', ') || 'none declared'}`,
+            `AGENT BOUNDARIES: ${ck.agentBoundaries.join('; ') || 'none declared'}`);
+    }
     lines.push(``, `Generate the 5 briefs now. Return the JSON object only.`);
     return lines.join('\n');
 }
@@ -769,7 +799,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     const fire = opts.onProgress;
 
     // ---- Pass 1: skeletons ----
-    fire?.('thinking', 'Pass 1/2 - generating 5 distinct framings via Verbalized Sampling (Claude Opus 4.8)...');
+    fire?.('thinking', `Pass 1/2 - generating 5 distinct framings via Verbalized Sampling (${CLAUDE_REASONING_LABEL})...`);
     let skeletonPayload: { briefs: SkeletonBrief[] };
     try {
         skeletonPayload = await callOpusJson<{ briefs: SkeletonBrief[] }>(
@@ -817,7 +847,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     // Caller can still pass briefModelMode: 'hybrid' or 'gpt' explicitly to opt
     // back in once the quota is healthy.
     const mode = opts.briefModelMode || 'opus';
-    const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.8'
+    const deepenModelLabel = mode === 'opus' ? CLAUDE_REASONING_LABEL
         : mode === 'gpt' ? 'GPT-5.5'
         : 'GPT-5.5 + Opus narrative gate';
     fire?.('thinking', `Pass 2/2 - deepening all ${skeletons.length} briefs in parallel (${deepenModelLabel} · 5 parallel calls, 32K tokens each, staggered starts)...`);
@@ -955,6 +985,17 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
         fire?.('done', `${pass2Successes}/${briefs.length} briefs deepened · ${pass2Failures} fell back to skeletons${refinedDetail} (check console; likely token truncation or rate limit)`);
     } else {
         fire?.('done', `${briefs.length}/${briefs.length} briefs deepened · avg ${avgUseCases} use cases per brief${refinedDetail}`);
+    }
+    // Stage 3.6: with a PrdAir in hand, the PRD-in-brief IS the contract. The model's prd_candidate
+    // (one of the four PRD shapes finding F1 retired) is replaced on every brief by the projection
+    // of the one record, and the build-readiness checklist rides along for Stage 2 / Stage 5.
+    if (opts.prdAir && isPrdAir(opts.prdAir)) {
+        const candidate = prdAirToPrdCandidate(opts.prdAir);
+        const readiness = buildReadinessChecklist(opts.prdAir);
+        for (const b of briefs) {
+            b.prd_candidate = candidate;
+            b.build_readiness = readiness;
+        }
     }
     return briefs;
 }

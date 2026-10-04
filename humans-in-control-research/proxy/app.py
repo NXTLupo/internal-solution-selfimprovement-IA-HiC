@@ -47,6 +47,146 @@ import hmac  # A1 auth: constant-time token comparison
 # by 50% and triggers backoff+retry, but does NOT touch OpenAI/Anthropic.
 # Composed inside the existing AI proxy endpoints — pacer handles backoff,
 # the existing DeepSeek fallback fires only after pacer exhaustion.
+# 2026-09-30 (plan Stage 0.5) - the proxy half of the Claude request contract:
+# the reasoning/structured model ids + the body normalizer every Claude call
+# shares (SPA chokepoint, artifact engine, topic-model labels).
+from model_registry import (
+    CLAUDE_REASONING_MODEL as _CLAUDE_REASONING_MODEL,
+    CLAUDE_STRUCTURED_MODEL as _CLAUDE_STRUCTURED_MODEL,
+    CLAUDE_SERVER_FALLBACK_RE as _CLAUDE_SERVER_FALLBACK_RE,
+    normalize_claude_body as _claude_normalize_body,
+    claude_uses_adaptive_thinking as _claude_adaptive,
+)
+# Opus 5.5 contract knobs (all reversible by env, no code edit):
+#   ANTHROPIC_STREAM_THRESHOLD   max_tokens above which the proxy streams upstream and
+#                                aggregates (128K outputs cannot ride a non-streaming call)
+#   ANTHROPIC_SERVER_FALLBACKS   "1" (default) sends fallbacks:"default" so a classifier
+#                                refusal is re-run server-side on Anthropic's recommended model
+#   ANTHROPIC_THINKING_BINDING_DROP  "1" (default) sets thinking.block_binding.prefix_mismatch_behavior
+#                                =drop_block under the binding-controls beta so an edited history
+#                                degrades to "re-plan without the old reasoning" instead of a 400
+_ANTHROPIC_STREAM_THRESHOLD = int(os.getenv("ANTHROPIC_STREAM_THRESHOLD", "16000") or "16000")
+_ANTHROPIC_SERVER_FALLBACKS = (os.getenv("ANTHROPIC_SERVER_FALLBACKS", "1") or "1") != "0"
+_ANTHROPIC_THINKING_BINDING_DROP = (os.getenv("ANTHROPIC_THINKING_BINDING_DROP", "1") or "1") != "0"
+_ANTHROPIC_BETA_SERVER_FALLBACK = "server-side-fallback-2026-07-01"
+_ANTHROPIC_BETA_THINKING_BINDING = "thinking-binding-controls-2026-08-01"
+
+
+class _AnthropicStreamShim:
+    """Response-shaped object for the rate-limit pacer when the upstream call was
+    streamed and aggregated (status_code / headers / text / json())."""
+    def __init__(self, status_code, headers, payload):
+        self.status_code = status_code
+        self.headers = headers or {}
+        self._payload = payload
+        try:
+            self.text = json.dumps(payload)[:4000]
+        except Exception:
+            self.text = str(payload)[:4000]
+
+    def json(self):
+        return self._payload
+
+
+async def _anthropic_stream_collect(client, body, headers, timeout=600.0):
+    """POST with stream=true and aggregate the SSE events into the same Message
+    JSON a non-streaming call returns (content blocks incl. thinking / text /
+    tool_use, stop_reason, stop_details, usage, input_transformations). Lets the
+    SPA keep its non-streaming contract while long outputs (Opus 5.5: 128K) no
+    longer sit behind a silent single response."""
+    req = dict(body)
+    req["stream"] = True
+    async with client.stream("POST", "https://api.anthropic.com/v1/messages", json=req, headers=headers, timeout=timeout) as resp:
+        if resp.status_code != 200:
+            raw = await resp.aread()
+            try:
+                payload = json.loads(raw.decode("utf-8", "replace"))
+            except Exception:
+                payload = {"error": "Anthropic API returned non-JSON", "raw": raw[:500].decode("utf-8", "replace")}
+            return _AnthropicStreamShim(resp.status_code, dict(resp.headers), payload)
+        message = None
+        blocks = {}
+        partial_json = {}
+        stop_reason = None
+        stop_details = None
+        out_usage = {}
+        err = None
+        event_name = None
+        async for line in resp.aiter_lines():
+            if not line:
+                continue
+            if line.startswith("event:"):
+                event_name = line[6:].strip()
+                continue
+            if not line.startswith("data:"):
+                continue
+            data_s = line[5:].strip()
+            if not data_s or data_s == "[DONE]":
+                continue
+            try:
+                ev = json.loads(data_s)
+            except Exception:
+                continue
+            et = ev.get("type") or event_name
+            if et == "message_start":
+                message = ev.get("message") or {}
+            elif et == "content_block_start":
+                idx = int(ev.get("index", 0))
+                cb = dict(ev.get("content_block") or {})
+                if cb.get("type") == "tool_use":
+                    partial_json[idx] = ""
+                    cb.setdefault("input", {})
+                elif cb.get("type") == "text":
+                    cb.setdefault("text", "")
+                elif cb.get("type") == "thinking":
+                    cb.setdefault("thinking", "")
+                blocks[idx] = cb
+            elif et == "content_block_delta":
+                idx = int(ev.get("index", 0))
+                d = ev.get("delta") or {}
+                cb = blocks.setdefault(idx, {"type": "text", "text": ""})
+                dt = d.get("type")
+                if dt == "text_delta":
+                    cb["text"] = (cb.get("text") or "") + (d.get("text") or "")
+                elif dt == "thinking_delta":
+                    cb["thinking"] = (cb.get("thinking") or "") + (d.get("thinking") or "")
+                elif dt == "signature_delta":
+                    cb["signature"] = (cb.get("signature") or "") + (d.get("signature") or "")
+                elif dt == "input_json_delta":
+                    partial_json[idx] = partial_json.get(idx, "") + (d.get("partial_json") or "")
+            elif et == "content_block_stop":
+                idx = int(ev.get("index", 0))
+                if idx in partial_json:
+                    try:
+                        blocks[idx]["input"] = json.loads(partial_json[idx] or "{}")
+                    except Exception:
+                        blocks[idx]["input"] = {}
+            elif et == "message_delta":
+                d = ev.get("delta") or {}
+                stop_reason = d.get("stop_reason", stop_reason)
+                if d.get("stop_details") is not None:
+                    stop_details = d.get("stop_details")
+                if isinstance(ev.get("usage"), dict):
+                    out_usage.update(ev["usage"])
+                if ev.get("input_transformations") is not None and isinstance(message, dict):
+                    message["input_transformations"] = ev.get("input_transformations")
+            elif et == "error":
+                err = ev.get("error") or {"type": "stream_error", "message": "unknown"}
+        if err and message is None:
+            return _AnthropicStreamShim(502, dict(resp.headers), {"error": err})
+        result = dict(message or {})
+        result["content"] = [blocks[i] for i in sorted(blocks)]
+        result["stop_reason"] = stop_reason or result.get("stop_reason") or ("end_turn" if not err else "error")
+        if stop_details is not None:
+            result["stop_details"] = stop_details
+        usage = dict(result.get("usage") or {})
+        usage.update(out_usage)
+        result["usage"] = usage
+        if err:
+            result["_hic_stream_error"] = err
+        return _AnthropicStreamShim(200, dict(resp.headers), result)
+
+
 from rate_limit_pacer import (
     with_rate_limit as _pacer_with_rate_limit,
     acquire_slot as _pacer_acquire_slot,
@@ -3456,6 +3596,10 @@ SESSION_SECTION_FILES = {
     "corpus": "corpus.json",
     "reddit_deep": "reddit_deep.json",
     "learned_constraints": "learned_constraints.md",
+    # 2026-10-01 (plan Stage 1.6 / E1.1): the objective decomposition and its coverage
+    # status persist with the session, so a restored engagement knows its own objective.
+    "research_plan_sub_questions": "research_plan_sub_questions.json",
+    "decomposition_status": "decomposition_status.json",
 }
 
 
@@ -4037,6 +4181,26 @@ async def session_save(req: Request):
 
     folder = os.path.join(SESSIONS_BASE, slug)
     os.makedirs(folder, exist_ok=True)
+
+    # 2026-10-02: uploaded file names are an append-only fact of the engagement. A
+    # restored session has no File objects in memory, so every save after a reload
+    # sent file_names: [] and erased the record (a live 2026-10-01 session: 12
+    # uploads, 9 ingested, state.file_names = []). Union with what is on disk.
+    try:
+        _st = sections.get("state")
+        if isinstance(_st, dict):
+            _prev_names: list = []
+            _sp = os.path.join(folder, SESSION_SECTION_FILES["state"])
+            if os.path.exists(_sp):
+                with open(_sp, "r", encoding="utf-8") as f:
+                    _prev_names = (json.load(f) or {}).get("file_names") or []
+            _merged: list = []
+            for _n in list(_prev_names) + list(_st.get("file_names") or []):
+                if isinstance(_n, str) and _n.strip() and _n not in _merged:
+                    _merged.append(_n)
+            _st["file_names"] = _merged
+    except Exception as _fn_err:
+        logger.warning(f"[session_save] file_names merge skipped for slug={slug}: {_fn_err}")
 
     # Build metadata with server-side timestamps so the source of truth is
     # the proxy clock, not whatever the browser reports.
@@ -5353,8 +5517,13 @@ async def prototype_view(slug: str = Path(...)):
     _nxtc = ((_ft.get("NXT") or {}).get("color") or {})
     _nuc = ((_ft.get("NU") or {}).get("color") or {})
     _proto_brand = (p.get("brand") or "NU").upper()
-    _bc = _nuc if _proto_brand == "NU" else _nxtc
-    _bf = ((_ft.get("NU") if _proto_brand == "NU" else _ft.get("NXT")) or {}).get("font") or {}
+    # 2026-10-01 - brand-generic: any token block (NXT / NU / DECIEM) resolves by name;
+    # unknown brands fall back to the NU/NXT pair exactly as before.
+    _brand_blk = _ft.get(_proto_brand) if isinstance(_ft.get(_proto_brand), dict) else (
+        _ft.get("NU") if _proto_brand == "NU" else _ft.get("NXT"))
+    _brand_blk = _brand_blk or {}
+    _bc = _brand_blk.get("color") or {}
+    _bf = _brand_blk.get("font") or {}
     def _gtok(d, k, fb):
         v = d.get(k)
         return v if v else fb
@@ -5406,6 +5575,18 @@ async def prototype_view(slug: str = Path(...)):
     _lg = ((_ft.get(_proto_brand) or {}).get("logo")) or {}
     if _lg.get("monogram"):
         _brand_logo_html = _lg["monogram"]
+    elif _lg.get("lockup_lines"):
+        # DECIEM-style text lockup: stacked uppercase lines in a thin-bordered box,
+        # typeset natively (never a raster) so the prototype keeps it editable.
+        import html as _html_lk
+        _lk_lines = [str(x).strip() for x in (_lg.get("lockup_lines") or []) if str(x).strip()]
+        _brand_logo_html = (
+            "<span style=\"display:inline-flex;flex-direction:column;border:1px solid currentColor;"
+            "padding:6px 10px;font-family:'" + str(_lg.get("font", "Poppins")) + "',sans-serif;font-weight:"
+            + str(_lg.get("weight", 700)) + ";letter-spacing:" + str(_lg.get("letter_spacing", "0"))
+            + ";text-transform:uppercase;line-height:1.15;white-space:nowrap\">"
+            + "".join("<span>" + _html_lk.escape(_l) + "</span>" for _l in _lk_lines) + "</span>"
+        )
     elif _lg.get("wordmark"):
         _brand_logo_html = (
             "<span style=\"font-family:'" + _lg.get("font", "Archivo") + "',sans-serif;font-weight:"
@@ -5796,6 +5977,24 @@ NXT_BRAND_TOKENS_CSS = """
   --nxt-font-display: 'Lato', sans-serif;
   --nxt-font-body: 'Lato', sans-serif;
 }
+/* DECIEM (2026-10-01): static mirror of figma-tokens.json DECIEM block, same pattern as the NU block above */
+[data-brand="DECIEM"] {
+  --nxt-bg: #FFFFFF;
+  --nxt-surface: #F4F4F4;
+  --nxt-text-primary: #000000;
+  --nxt-text-secondary: #5A5A5A;
+  --nxt-lime: #FB48C4;
+  --deciem-pink: #FB48C4;
+  --deciem-cyan: #00FACC;
+  --deciem-purple: #8A69D4;
+  --deciem-orange: #FF6C2F;
+  --nxt-font-display: 'Poppins', sans-serif;
+  --nxt-font-body: 'Josefin Sans', sans-serif;
+  --nxt-font-mono: 'Nunito', sans-serif;
+  --nxt-font-label: 'Poppins', sans-serif;
+  --nxt-radius: 0px;
+  --nxt-radius-card: 0px;
+}
 html, body { margin: 0; padding: 0; min-height: 100vh; }
 body {
   font-family: var(--nxt-font-body), -apple-system, BlinkMacSystemFont, sans-serif;
@@ -5826,6 +6025,9 @@ button.__hic_primary { background: var(--nxt-lime); color: var(--nxt-text-primar
 button.__hic_primary:hover { background: var(--nxt-text-primary); color: var(--nxt-lime); border-color: var(--nxt-text-primary); }
 [data-brand="NU"] button.__hic_primary { background: var(--nu-red); color: #FFFFFF; border-color: var(--nu-red); }
 [data-brand="NU"] button.__hic_primary:hover { background: var(--nu-red-deep); border-color: var(--nu-red-deep); }
+[data-brand="DECIEM"] h1, [data-brand="DECIEM"] h2, [data-brand="DECIEM"] h3, [data-brand="DECIEM"] h4 { text-transform: uppercase; letter-spacing: 0; }
+[data-brand="DECIEM"] button.__hic_primary { background: var(--deciem-pink); color: #000000; border-color: var(--deciem-pink); }
+[data-brand="DECIEM"] button.__hic_primary:hover { background: #000000; color: var(--deciem-pink); border-color: #000000; }
 .__hic_artifact_footer {
   margin-top: 48px;
   padding: 24px;
@@ -5875,10 +6077,35 @@ button.__hic_primary:hover { background: var(--nxt-text-primary); color: var(--n
 """
 
 
+# Brand ids the proxy understands. Token blocks are keyed upper-case (NXT / NU / DECIEM);
+# the SPA sends lower-case ids ('nxt' | 'nu' | 'deciem'; stage HTML data-brand, diagram
+# payload.brand). DECIEM (2026-10-01) is PPTX-template-sourced, not a Figma mode.
+_TOKEN_BRANDS = ("NXT", "NU", "DECIEM")
+_BRAND_IDS = ("nxt", "nu", "deciem")
+_BRAND_DISPLAY_NAME = {"nxt": "NXT Humans", "nu": "Northeastern", "deciem": "DECIEM"}
+
+
+def _norm_brand(brand, default: str = "nxt") -> str:
+    """Lower-case brand id ('nxt' | 'nu' | 'deciem'); anything unknown -> default.
+    Replaces the two-way `"nu" if ... == "nu" else "nxt"` ternaries."""
+    b = str(brand or default).strip().lower()
+    return b if b in _BRAND_IDS else default
+
+
+def _brand_token_block(brand) -> dict:
+    """The token block for a brand id (either case), falling back to NXT."""
+    tokens = _load_figma_tokens() or {}
+    b = str(brand or "NXT").strip().upper()
+    blk = tokens.get(b)
+    if not isinstance(blk, dict):
+        blk = tokens.get("NXT") or {}
+    return blk
+
+
 def _load_figma_tokens() -> dict:
     """Load the Figma-MCP-sourced design tokens (the runtime source of truth,
-    mirrored from Figma NXT 223:2 / NU mode 535:0). Returns {} on failure so
-    callers degrade rather than crash."""
+    mirrored from Figma NXT 223:2 / NU mode 535:0, plus the PPTX-sourced DECIEM
+    block). Returns {} on failure so callers degrade rather than crash."""
     import json as _json
     tok_path = "/hic-workspace/design-system/figma-tokens.json"
     if not os.path.exists(tok_path):
@@ -5895,8 +6122,13 @@ def _design_token_block(bn: str, t: dict) -> str:
     fo = t.get("font", {}) or {}
     sp = t.get("space", {}) or {}
     rad = (t.get("radius", {}) or {}).get("base")
+    # Provenance header: NXT / NU are Figma modes; a block that carries its own `_source` (DECIEM,
+    # extracted from the brand's PowerPoint template) names that source instead.
+    _src = t.get("_source") if isinstance(t.get("_source"), str) else ""
+    _prov = ("extracted from the brand's PowerPoint template, not a Figma mode" if "PowerPoint" in _src
+             else "pulled from Figma via MCP")
     lines = [
-        f"=== FIGMA DESIGN TOKENS ({bn}) - the design-system source of truth, pulled from Figma via MCP ===",
+        f"=== DESIGN TOKENS ({bn}) - the design-system source of truth, {_prov} ===",
         "Use these EXACT values for every color/font/spacing decision. Do NOT invent hex codes or fonts.",
         "Colors: " + ", ".join(f"{k}={v}" for k, v in c.items()),
         "Fonts: " + ", ".join(f"{k}={v}" for k, v in fo.items()),
@@ -5925,6 +6157,14 @@ def _design_token_block(bn: str, t: dict) -> str:
         if _mark:
             lines.append(f"{bn} mark is a custom vector. Render this EXACT inline SVG for the logo (size via height ~26px, width auto; if it uses fill=currentColor set CSS color: ink on light, white on dark): {_mark}")
             lines.append(lg.get("usage", ""))
+        elif lg.get("lockup_lines"):
+            _lk = " / ".join(str(x) for x in (lg.get("lockup_lines") or []) if str(x).strip())
+            lines.append(
+                f"{bn} logo is a TEXT LOCKUP in a thin-bordered box: stack these lines, uppercase, in the heading font "
+                f"{lg.get('font', 'Poppins')} (weight {lg.get('weight', 700)}, letter-spacing {lg.get('letter_spacing', '0')}, "
+                f"color {lg.get('on_light')} on light / {lg.get('on_dark')} on dark): {_lk}. "
+                "Typeset it as live text, never as an image. " + lg.get("usage", "")
+            )
         elif lg.get("wordmark"):
             lines.append(
                 f"{bn} logo is a WORDMARK: render the text \"{lg.get('wordmark')}\" in the heading font "
@@ -5976,9 +6216,11 @@ def build_design_tokens_prompt(brand: str = "") -> str:
     b = (brand or "").strip().upper()
     grid = _design_grid_block(tokens)
     suffix = ("\n\n" + grid) if grid else ""
-    if b in ("NXT", "NU"):
+    if b in _TOKEN_BRANDS and isinstance(tokens.get(b), dict):
         return _design_token_block(b, tokens.get(b, {})) + suffix
-    return _design_token_block("NXT", tokens.get("NXT", {})) + "\n\n" + _design_token_block("NU", tokens.get("NU", {})) + suffix
+    # no brand: every block present (NXT, NU, DECIEM) in canonical order
+    blocks = [_design_token_block(k, tokens.get(k, {})) for k in _TOKEN_BRANDS if isinstance(tokens.get(k), dict)]
+    return "\n\n".join(blocks) + suffix
 
 
 def _design_token_css_vars(brand: str) -> str:
@@ -5988,7 +6230,7 @@ def _design_token_css_vars(brand: str) -> str:
     emits (following the injected token block, which lists tokens by bare name)
     ALWAYS resolves - this kills the undefined-var class of bug (e.g. var(--ink)
     rendering as nothing). Sourced from figma-tokens.json, never hardcoded."""
-    t = _load_figma_tokens().get("NU" if (brand or "").lower() == "nu" else "NXT", {})
+    t = _brand_token_block(brand)
     out = []
     for k, v in (t.get("color", {}) or {}).items():
         out.append(f"    --{k}: {v} !important;")
@@ -6014,8 +6256,10 @@ async def design_tokens(brand: str = "", format: str = "json"):
     the Pro tier; the MCP-OAuth read is the working path and the agent is the bridge.
     NEVER hardcode these into types.ts - this endpoint is the runtime token source the
     Analyst Desk + Designer Chat inject as nxtDesignSystemRules, keeping Figma the source.
-      - format=json (default): full token object, or one brand if ?brand=NXT|NU.
+      - format=json (default): full token object, or one brand if ?brand=NXT|NU|DECIEM.
       - format=prompt: a ready-to-inject text block instructing the LLM to use these exact tokens.
+    DECIEM (2026-10-01) is the PPTX-template-sourced third brand; its static layout art is
+    served by /api/design-assets/deciem/{filename} (DECIEM.art.assetsRoute).
     """
     import json as _json
     tok_path = "/hic-workspace/design-system/figma-tokens.json"
@@ -6030,9 +6274,25 @@ async def design_tokens(brand: str = "", format: str = "json"):
 
     if format == "prompt":
         return Response(build_design_tokens_prompt(b), media_type="text/plain")
-    if b in ("NXT", "NU"):
+    if b in _TOKEN_BRANDS:
         return JSONResponse(tokens.get(b, {}))
     return JSONResponse(tokens)
+
+
+@app.get("/api/design-assets/{brand}/{filename}")
+async def design_assets(brand: str, filename: str):
+    """Serve a brand's static design assets (DECIEM template backgrounds / logo PNGs /
+    layout-assets.json / the template .pptx) from /hic-workspace/design-system/<brand>/
+    with the repo-relative fallback the token loader uses. The brand segment is
+    allow-listed (design_assets.ASSET_BRANDS) and the filename must be a bare name with
+    a jpg/jpeg/png/json/pptx extension; anything else is a 404."""
+    from fastapi.responses import FileResponse
+    from design_assets import resolve_design_asset
+    hit = resolve_design_asset(brand, filename)
+    if not hit:
+        return JSONResponse({"error": "asset not found"}, status_code=404)
+    path, media_type = hit
+    return FileResponse(path, media_type=media_type, headers={"Cache-Control": "public, max-age=86400"})
 
 
 @app.post("/api/artifacts")
@@ -6334,7 +6594,7 @@ async def artifact_view(slug: str = Path(...)):
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} — HiC Artifact</title>
+    <title>{title} · HiC Artifact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{google_fonts}" rel="stylesheet">
@@ -9308,8 +9568,19 @@ def _parse_pptx_bytes(raw: bytes) -> dict:
                     parts.append(f"TITLE: {slide.shapes.title.text.strip()}")
             except Exception:
                 pass
-            # Iterate every shape; collect text frame paragraphs and table cells
-            for shape in slide.shapes:
+            # Iterate every shape; collect text frame paragraphs and table cells.
+            # 2026-10-02: recurse into GROUP shapes. People/session grids and
+            # card layouts are usually grouped, and a flat walk skipped every
+            # name, role and session line inside the group.
+            def _flat_shapes(shapes):
+                for _s in shapes:
+                    yield _s
+                    try:
+                        if getattr(_s, "shape_type", None) == 6 and hasattr(_s, "shapes"):  # MSO_SHAPE_TYPE.GROUP
+                            yield from _flat_shapes(_s.shapes)
+                    except Exception:
+                        continue
+            for shape in _flat_shapes(slide.shapes):
                 # Text frames (covers titles, body placeholders, text boxes)
                 try:
                     if shape.has_text_frame:
@@ -9499,8 +9770,11 @@ async def parse_upload(req: ParseUploadRequest):
     """Parse an uploaded file (provided as base64) to plain text.
     Routes by extension/MIME:
       .pdf                         → PyPDF2
-      .txt/.md/.csv/.json/.xml     → direct UTF-8 / latin-1 decode
-      .docx/.xlsx/.pptx/.doc/.xls  → office regex text extraction
+      .txt/.md/.csv/.json/.xml     → strict UTF-8, cp1252 fallback, mojibake repair
+      .pptx                        → python-pptx (titles, body, tables, speaker notes)
+      .docx                        → word/document.xml paragraphs + tables
+      .xlsx                        → openpyxl, every sheet and row
+      .doc/.xls/.ppt (legacy)      → office regex text extraction (best effort)
       other                        → returns empty text + 'unsupported'
     Never raises — always returns a result dict so the frontend can
     attach the outcome to FileType without exception handling."""
@@ -9544,10 +9818,10 @@ async def parse_upload(req: ParseUploadRequest):
     text_exts = {"txt", "md", "markdown", "csv", "json", "xml", "log", "tsv", "yaml", "yml"}
     is_text_mime = mime.startswith("text/") or mime in {"application/json", "application/xml", "text/csv"}
     if ext in text_exts or is_text_mime:
-        try:
-            decoded = raw.decode("utf-8")
-        except UnicodeDecodeError:
-            decoded = raw.decode("latin-1", errors="replace")
+        # 2026-10-02 evidence hygiene: strict UTF-8 (BOM-aware), then cp1252, and
+        # repair any UTF-8-read-as-latin-1 mojibake already baked into the bytes.
+        from evidence_hygiene import decode_text_bytes as _eh_decode
+        decoded = _eh_decode(raw)
         decoded = _neutralize_untrusted_text(decoded, fn)  # strip invisible injection vectors + flag directives
         logger.info(f"[parse-upload] TEXT {fn} → {len(decoded)} chars")
         return {"filename": fn, "text": decoded[:200_000], "method": "decode", "bytes": len(raw)}
@@ -9556,10 +9830,30 @@ async def parse_upload(req: ParseUploadRequest):
     is_pptx = ext == "pptx" or "presentationml.presentation" in mime or "powerpoint" in mime
     if is_pptx:
         out = _parse_pptx_bytes(raw)
+        if out.get("text"):
+            from evidence_hygiene import repair_mojibake as _eh_repair
+            out["text"] = _neutralize_untrusted_text(_eh_repair(out["text"]), fn)
         logger.info(f"[parse-upload] PPTX {fn} → {len(out.get('text') or '')} chars ({out.get('slideCount', 0)} slides)")
         return {"filename": fn, **out, "bytes": len(raw)}
 
-    # 3b. Other office documents (DOCX/XLSX/DOC/XLS/PPT)
+    # 3b. DOCX and XLSX - structured extraction (2026-10-02). The office-regex
+    # fallback below scans the COMPRESSED zip bytes for printable ASCII, which
+    # recovers little and drops every non-ASCII character; a .xlsx table or a
+    # .docx with curly quotes came through empty or mangled.
+    is_docx = ext == "docx" or "wordprocessingml.document" in mime
+    is_xlsx = ext in ("xlsx", "xlsm") or "spreadsheetml.sheet" in mime
+    if is_docx or is_xlsx:
+        from evidence_hygiene import parse_docx_bytes as _eh_docx, parse_xlsx_bytes as _eh_xlsx
+        out = _eh_docx(raw) if is_docx else _eh_xlsx(raw)
+        if len((out.get("text") or "").strip()) < 40:
+            logger.warning(f"[parse-upload] {'DOCX' if is_docx else 'XLSX'} {fn} structured parse empty ({out.get('error')}); falling back to office-regex")
+            out = _parse_office_bytes(raw)
+        else:
+            out["text"] = _neutralize_untrusted_text(out["text"], fn)
+        logger.info(f"[parse-upload] {'DOCX' if is_docx else 'XLSX'} {fn} -> {len(out.get('text') or '')} chars via {out.get('method')}")
+        return {"filename": fn, **out, "bytes": len(raw)}
+
+    # 3c. Legacy binary office documents (DOC/XLS/PPT) and ODF
     office_exts = {"docx", "xlsx", "doc", "xls", "ppt", "odt", "ods", "odp"}
     is_office_mime = "officedocument" in mime or "ms-excel" in mime or "msword" in mime
     if ext in office_exts or is_office_mime:
@@ -10864,7 +11158,10 @@ def _gemini_explicit_cache_key(model: str, system_text: str) -> "str | None":
     if not system_text:
         return None
     import hashlib as _hl
-    raw = f"gem-explicit|{model}|{_corpus_version()}|{system_text}"
+    # 2026-10-01 (plan D4 / Stage 4.2): the key used to carry _corpus_version(), which rotates on
+    # every manifest journal write during a run, so the "seen twice" gate never fired (gemseen n=1
+    # forever, 3% reads over 1,185 calls). The system text IS the identity of the prefix.
+    raw = f"gem-explicit|{model}|{system_text}"
     return f"{model}:{_hl.sha256(raw.encode('utf-8','ignore')).hexdigest()}"
 
 def _gemini_cache_store_get(key: "str | None") -> "str | None":
@@ -10925,13 +11222,36 @@ async def _gemini_create_cached_content(
 # + chat turns over far more than 5 minutes against the SAME grounding prefix, so
 # the longer-lived cache is read back many times and amortizes the write premium.
 # Override with ANTHROPIC_CACHE_TTL=5m for short bursty workloads.
-ANTHROPIC_CACHE_TTL = os.environ.get("ANTHROPIC_CACHE_TTL", "1h")
+# 2026-10-01 (owner decision 5, plan D3): default is the GA 5-minute TTL. Measured over
+# 2026-08-07..09-11 the 1-hour tier wrote 5.85M tokens against 4.93M read at a 2.0x write
+# premium and cost more than no cache. A session is PROMOTED to 1h only after the proxy has
+# seen a cache READ on its prefix (reuse proven), tracked per x-hic-session below.
+# ANTHROPIC_CACHE_TTL=1h forces the old behavior; ANTHROPIC_CACHE_TTL=5m disables promotion.
+ANTHROPIC_CACHE_TTL = os.environ.get("ANTHROPIC_CACHE_TTL", "auto")
 ANTHROPIC_EXTENDED_CACHE_BETA = "extended-cache-ttl-2025-04-11"
+import contextvars as _contextvars
+_ANTHROPIC_TTL_FOR_REQUEST: "_contextvars.ContextVar[str]" = _contextvars.ContextVar("hic_anthropic_ttl", default="5m")
+_ANTHROPIC_SESSION_CACHE_HOT: dict = {}   # session slug -> epoch seconds of the last proven cache read
+_ANTHROPIC_SESSION_HOT_WINDOW_S = 3600.0
+
+def _anthropic_ttl_for_session(session: str) -> str:
+    if ANTHROPIC_CACHE_TTL == "1h":
+        return "1h"
+    if ANTHROPIC_CACHE_TTL == "5m":
+        return "5m"
+    hot_at = _ANTHROPIC_SESSION_CACHE_HOT.get((session or "").strip())
+    if hot_at and (time.time() - hot_at) < _ANTHROPIC_SESSION_HOT_WINDOW_S:
+        return "1h"
+    return "5m"
+
+def _anthropic_note_cache_read(session: str, cache_read_tokens: int) -> None:
+    if session and cache_read_tokens and cache_read_tokens > 0:
+        _ANTHROPIC_SESSION_CACHE_HOT[session.strip()] = time.time()
 
 def _anthropic_cc() -> dict:
-    """The cache_control object honoring the configured TTL."""
+    """The cache_control object honoring the TTL chosen for THIS request."""
     cc = {"type": "ephemeral"}
-    if ANTHROPIC_CACHE_TTL == "1h":
+    if _ANTHROPIC_TTL_FOR_REQUEST.get() == "1h":
         cc["ttl"] = "1h"
     return cc
 
@@ -10953,6 +11273,35 @@ except ValueError:
     ANTHROPIC_CACHE_TIER_TOKENS = 3500
 _CACHE_CHARS_PER_TOKEN = 4  # coarse char->token proxy used for tier bucketing only
 _CACHE_TIER_MIN_CHARS = ANTHROPIC_CACHE_TIER_TOKENS * _CACHE_CHARS_PER_TOKEN
+
+def _usage_ledger_append(session: str, provider: str, model: str, usage: dict) -> None:
+    """2026-10-01 (plan Stage 0.2, audit D1): cost telemetry as DATA. One JSONL row per
+    provider call under hic-workspace/sessions/<session>/usage.jsonl with tokens, cache
+    tokens and list-price dollars (model_registry.PRICES). Best-effort; never raises.
+    `_unassigned` collects calls that arrive without an x-hic-session header."""
+    try:
+        from model_registry import price_usd
+        sess = (session or "").strip() or "_unassigned"
+        safe = _safe_session_slug(sess) if sess != "_unassigned" else sess
+        d = os.path.join(SESSIONS_DIR, safe) if "SESSIONS_DIR" in globals() else os.path.join(WIKI_DIR, "..", "sessions", safe)
+        os.makedirs(d, exist_ok=True)
+        row = {
+            "ts": datetime.utcnow().isoformat() + "Z",
+            "provider": provider,
+            "model": model,
+            **{k: (int(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else v) for k, v in (usage or {}).items()},
+        }
+        row["cost_usd"] = price_usd(model, row.get("input_tokens") or 0, row.get("output_tokens") or 0,
+                                    row.get("cache_read_tokens") or 0, row.get("cache_write_tokens") or 0,
+                                    str(row.get("cache_ttl") or "5m"))
+        with open(os.path.join(d, "usage.jsonl"), "a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception as e:
+        try:
+            logger.debug(f"[usage-ledger] skipped: {e}")
+        except Exception:
+            pass
+
 
 def _cache_telemetry_book(provider: str, **fields) -> None:
     """Accumulate per-provider per-day cache counters in the shared sqlite kv
@@ -11113,20 +11462,17 @@ async def proxy_anthropic(request: Request):
         if _clean != body:
             logger.warning("Anthropic proxy: scrubbed emoji / lone-surrogate halves from request body before send")
             body = _clean
-        model = body.get("model", "claude-opus-4-8")
-        # HARDENING (2026-06-02) — opus-4-7/4-8/4-9 reject `temperature` with a 400
-        # ("temperature is deprecated for this model"). Strip it at this chokepoint
-        # so NO client-side deliverable that routes opus through this proxy can 400
-        # (it previously failed the primary attempt on every such call).
-        # 2026-06-12 — claude-opus-4-8 rejects `temperature` the same way (confirmed
-        # live: 400 "temperature is deprecated for this model"); added to the strip.
-        if isinstance(body, dict) and "temperature" in body and re.search(r"opus-4-[789]|fable", str(model)):
-            body.pop("temperature", None)
-            for _k in ("config", "generationConfig"):
-                if isinstance(body.get(_k), dict):
-                    body[_k].pop("temperature", None)
-        # C0 guard: the Predicted-Outputs marker is OpenAI-chat-only; never forward it here.
+        if isinstance(body, dict) and not body.get("model"):
+            body["model"] = _CLAUDE_REASONING_MODEL
+        model = body.get("model", _CLAUDE_REASONING_MODEL) if isinstance(body, dict) else _CLAUDE_REASONING_MODEL
+        # 2026-09-30 (plan Stage 0.5) - ONE normalizer for the Claude 4.6+/5.x request
+        # contract at this chokepoint (defense in depth behind the SPA's own pass):
+        # strip temperature/top_p/top_k, adaptive thinking only (budgets / disabled are
+        # 400s on 5.x), forced tool_choice -> auto, HiC-private hint fields removed.
+        # The 2026-06-02 temperature-only strip for opus-4-[789] is subsumed.
         if isinstance(body, dict):
+            _claude_normalize_body(body)
+            # C0 guard: the Predicted-Outputs marker is OpenAI-chat-only; never forward it here.
             body.pop("_hic_prediction", None)
         # App-level EXACT-MATCH cache (deterministic only). Compute the key on
         # the post-scrub / post-temp-strip body BEFORE cache_control injection so
@@ -11151,10 +11497,12 @@ async def proxy_anthropic(request: Request):
         # edits. The latest user turn (in `messages`) is intentionally left
         # uncached as the dynamic suffix.
         _cache_telem: dict = {}
+        _sess_slug = request.headers.get("x-hic-session", "").strip()
+        _ttl_used = _anthropic_ttl_for_session(_sess_slug)
+        _ANTHROPIC_TTL_FOR_REQUEST.set(_ttl_used)
         cached_prefix = _inject_anthropic_cache_control(body, telemetry=_cache_telem)
         # C3: mutated-fraction of the cached prefix vs this session's previous call
         # (CAPC §7.2 - the cost driver query-aware assembly hides). Logged + booked.
-        _sess_slug = request.headers.get("x-hic-session", "").strip()
         _mut_frac = _prefix_mutation_fraction(_sess_slug, _cache_telem.get("segments") or [])
         logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars, "
                     f"cache_breakpoint={'yes' if cached_prefix else 'no'}"
@@ -11168,14 +11516,36 @@ async def proxy_anthropic(request: Request):
         }
         # The 1-hour extended cache TTL requires the beta opt-in header. Only add
         # it when we actually set a 1h breakpoint (no-op for the 5m default).
-        if cached_prefix and ANTHROPIC_CACHE_TTL == "1h":
-            headers["anthropic-beta"] = ANTHROPIC_EXTENDED_CACHE_BETA
+        _betas = []
+        if cached_prefix and _ttl_used == "1h":
+            _betas.append(ANTHROPIC_EXTENDED_CACHE_BETA)
+        # 2026-09-30 (plan 0.5.6) - server-side refusal fallback: a classifier decline
+        # on a 5.x model is re-run on Anthropic's recommended substitute inside the same
+        # call (routed by refusal category) instead of surfacing as an empty reply.
+        if _ANTHROPIC_SERVER_FALLBACKS and isinstance(body, dict) and _CLAUDE_SERVER_FALLBACK_RE.search(str(model)):
+            body["fallbacks"] = "default"
+            _betas.append(_ANTHROPIC_BETA_SERVER_FALLBACK)
+        # 2026-09-30 (plan 0.5.5) - preserved thinking: when a resent history no longer
+        # matches the prefix a thinking block was produced under (our client-side
+        # compaction / tool-pair eviction), drop the block and continue rather than 400.
+        # Every response then carries input_transformations, which we log.
+        if _ANTHROPIC_THINKING_BINDING_DROP and isinstance(body, dict) and _claude_adaptive(str(model)) and isinstance(body.get("thinking"), dict):
+            body["thinking"].setdefault("block_binding", {"prefix_mismatch_behavior": "drop_block"})
+            _betas.append(_ANTHROPIC_BETA_THINKING_BINDING)
+        if _betas:
+            headers["anthropic-beta"] = ",".join(dict.fromkeys(_betas))
         # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
         # rate-limit pacer. The pacer auto-shrinks Anthropic concurrency on
         # 429 and retries with exponential backoff before the request
         # surfaces back to the caller.
+        # 2026-09-30 (plan 0.5.4) - above the streaming threshold the upstream call is
+        # streamed and aggregated into the same Message JSON, so a 32K-128K output never
+        # depends on one long-lived non-streaming response.
+        _stream_upstream = isinstance(body, dict) and int(body.get("max_tokens") or 0) > _ANTHROPIC_STREAM_THRESHOLD
         async def _do_anthropic_post():
             async with httpx.AsyncClient() as client:
+                if _stream_upstream:
+                    return await _anthropic_stream_collect(client, body, headers, timeout=600.0)
                 return await client.post(
                     "https://api.anthropic.com/v1/messages",
                     json=body,
@@ -11205,6 +11575,25 @@ async def proxy_anthropic(request: Request):
         if resp.status_code != 200:
             logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
         else:
+            # 2026-09-30 (plan 0.5.6) - refusals are a first-class outcome, never a
+            # silent empty reply: log the category and tag the response so the SPA
+            # surfaces it as a degradation event. (If fallbacks:"default" was sent, the
+            # server already re-ran the request; a refusal here means the chain refused.)
+            if isinstance(result, dict) and result.get("stop_reason") == "refusal":
+                _sd = result.get("stop_details") if isinstance(result.get("stop_details"), dict) else {}
+                logger.warning(f"[anthropic] REFUSAL model={model} category={_sd.get('category')} explanation={(_sd.get('explanation') or '')[:200]}")
+                result["_hic_degradation"] = {"kind": "refusal", "category": _sd.get("category"), "explanation": _sd.get("explanation"), "model": model}
+            # preserved-thinking telemetry: which blocks the API dropped and why
+            try:
+                _it = result.get("input_transformations") if isinstance(result, dict) else None
+                if isinstance(_it, list) and _it:
+                    logger.info(f"[anthropic] input_transformations model={model}: {json.dumps(_it)[:600]}")
+            except Exception:
+                pass
+            # the cache WRITE premium the meter must bill (1.25x at 5m, 2.0x at 1h)
+            if isinstance(result, dict):
+                result["_hic_cache_write_factor"] = 2.0 if (cached_prefix and _ttl_used == "1h") else 1.25
+                result["_hic_cache_ttl"] = _ttl_used
             # Prompt-cache telemetry: surface read/write token counts so we can
             # confirm hits and compute the discount. cache_read at ~0.1x,
             # cache_creation at ~1.25x of the base input rate.
@@ -11214,6 +11603,12 @@ async def proxy_anthropic(request: Request):
                     cr = usage.get("cache_read_input_tokens") or 0
                     cc = usage.get("cache_creation_input_tokens") or 0
                     inp = usage.get("input_tokens") or 0
+                    _anthropic_note_cache_read(_sess_slug, int(cr or 0))
+                    _usage_ledger_append(_sess_slug, "anthropic", str(model), {
+                        "input_tokens": inp, "output_tokens": usage.get("output_tokens") or 0,
+                        "cache_read_tokens": cr, "cache_write_tokens": cc,
+                        "cache_ttl": _ttl_used, "thinking_tokens": ((usage.get("output_tokens_details") or {}).get("thinking_tokens") or 0),
+                    })
                     if cr or cc:
                         logger.info(f"[prompt-cache] anthropic model={model} "
                                     f"cache_read={cr} cache_write={cc} fresh_input={inp}")
@@ -11558,6 +11953,12 @@ async def proxy_gemini(request: Request):
                                     cache_read_toks=_um.get("cachedContentTokenCount") or 0,
                                     fresh_toks=_um.get("promptTokenCount") or 0,
                                 )
+                                _usage_ledger_append(request.headers.get("x-hic-session", ""), "gemini", str(body.get("model") if isinstance(body, dict) else ""), {
+                                    "input_tokens": _um.get("promptTokenCount") or 0,
+                                    "output_tokens": (_um.get("candidatesTokenCount") or 0) + (_um.get("thoughtsTokenCount") or 0),
+                                    "cache_read_tokens": _um.get("cachedContentTokenCount") or 0,
+                                    "thinking_tokens": _um.get("thoughtsTokenCount") or 0,
+                                })
                         except Exception:
                             pass
                     return JSONResponse(result, status_code=resp.status_code)
@@ -11907,6 +12308,11 @@ async def proxy_openai(request: Request):
                                 pred_accepted_toks=(_cdet.get("accepted_prediction_tokens") or 0),
                                 pred_rejected_toks=(_cdet.get("rejected_prediction_tokens") or 0),
                             )
+                            _usage_ledger_append(request.headers.get("x-hic-session", ""), "openai", str(body.get("model") if isinstance(body, dict) else ""), {
+                                "input_tokens": (_u.get("prompt_tokens") or _u.get("input_tokens") or 0),
+                                "output_tokens": (_u.get("completion_tokens") or _u.get("output_tokens") or 0),
+                                "cache_read_tokens": (_det.get("cached_tokens") or 0),
+                            })
                     except Exception:
                         pass
                 return JSONResponse(_oa_result, status_code=resp.status_code)
@@ -12506,6 +12912,9 @@ class SkillWriteRequest(BaseModel):
     name: str
     content: str
     archive_version: Optional[str] = None  # If given, save old content as _versions/v<version>.md
+    # 2026-10-01 (plan Stage 5.1, audit C4): a skill edit lands ONLY with a held-out gate verdict.
+    # {verdict: "APPROVE", discrimination_before, discrimination_after, golden_set_version, source_rollouts?}
+    gate_verdict: Optional[dict] = None
 
 
 def _skill_path(name: str) -> Optional[str]:
@@ -12546,6 +12955,28 @@ async def skill_write(req: SkillWriteRequest):
     skill_dir = os.path.dirname(path)
     if not os.path.isdir(skill_dir):
         return JSONResponse({"error": f"Skill directory does not exist: {req.name}"}, status_code=404)
+    # 2026-10-01 (plan Stage 5.1, UNIFIED_VISION phase 7): no skill mutation on rung-3/4 signal alone.
+    # The writer must carry an APPROVE verdict from the held-out golden-set gate whose discrimination
+    # did not shrink. SKILL_WRITE_UNGATED=1 is the one reversible override (local experiments only).
+    if os.getenv("SKILL_WRITE_UNGATED", "0") != "1":
+        gv = req.gate_verdict if isinstance(req.gate_verdict, dict) else None
+        ok_verdict = bool(gv) and str(gv.get("verdict", "")).upper() == "APPROVE"
+        try:
+            before = float(gv.get("discrimination_before")) if gv and gv.get("discrimination_before") is not None else None
+            after = float(gv.get("discrimination_after")) if gv and gv.get("discrimination_after") is not None else None
+        except (TypeError, ValueError):
+            before = after = None
+        ok_disc = before is not None and after is not None and after >= before - 0.05
+        if not (ok_verdict and ok_disc):
+            logger.warning(f"[skill-write] REFUSED {req.name}: missing or failing gate verdict ({gv})")
+            return JSONResponse({"error": "skill write refused: requires gate_verdict {verdict:'APPROVE', discrimination_before, discrimination_after} with discrimination not shrinking (plan Stage 5.1)",
+                                 "refused": True}, status_code=403)
+        try:
+            _ledger = os.path.join(WIKI_BASE, "synthesis", "skill-write-ledger.jsonl")
+            with open(_ledger, "a", encoding="utf-8") as _lf:
+                _lf.write(json.dumps({"ts": datetime.utcnow().isoformat() + "Z", "skill": req.name, "verdict": gv, "chars": len(req.content)}) + "\n")
+        except Exception:
+            pass
     try:
         # Archive previous version
         if req.archive_version and os.path.exists(path):
@@ -12866,6 +13297,35 @@ async def wiki_list(path: str):
     return {"path": path, "files": files, "dirs": dirs, "exists": True}
 
 
+class WikiReadBatchRequest(BaseModel):
+    paths: list
+
+
+@app.post("/api/wiki/read-batch")
+async def wiki_read_batch(req: WikiReadBatchRequest):
+    """2026-10-01 (plan R-L1 / Stage 4, audit D10): the chunk resolver read every shortlisted
+    page with its own GET (300+ sequential reads on a plain chat question; 960 on the live
+    #prd run). One POST returns every requested page body (missing pages come back with
+    exists=false), capped at 400 paths per call. Same traversal guard as /api/wiki/read."""
+    paths = [str(p) for p in (req.paths or []) if isinstance(p, str) and p.strip()][:400]
+    base = os.path.normpath(WIKI_BASE)
+    out: dict = {}
+    for rel in paths:
+        safe_path = os.path.normpath(os.path.join(WIKI_BASE, rel))
+        if not safe_path.startswith(base):
+            out[rel] = {"content": "", "exists": False, "error": "traversal"}
+            continue
+        if not os.path.exists(safe_path):
+            out[rel] = {"content": "", "exists": False}
+            continue
+        try:
+            with open(safe_path, "r", encoding="utf-8") as f:
+                out[rel] = {"content": f.read(), "exists": True}
+        except Exception as e:
+            out[rel] = {"content": "", "exists": False, "error": str(e)[:120]}
+    return {"pages": out, "count": len(out)}
+
+
 @app.get("/api/wiki/read/{path:path}")
 async def wiki_read(path: str):
     """Read a wiki page. Alternative to the nginx/vite static serving.
@@ -12956,6 +13416,57 @@ def _content_norm_hash(text: str) -> str:
     if not norm:
         return ''
     return hashlib.sha256(norm.encode('utf-8')).hexdigest()[:16]
+
+_URL_INDEX_FILE = os.path.join(WIKI_BASE, ".url-index.json")
+_URL_INDEX_CACHE: dict = {}
+_URL_TRACKING_PARAMS = ("utm_", "fbclid", "gclid", "mc_cid", "mc_eid", "ref", "ref_src", "igshid", "s", "feature")
+
+
+def _url_canon(url: str) -> str:
+    """Canonical origin key for one web resource (plan Stage 1.4): lowercase scheme and host,
+    drop www., drop tracking query params, drop fragment and trailing slash."""
+    try:
+        from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+        u = (url or "").strip()
+        if not u:
+            return ""
+        parts = urlsplit(u)
+        host = (parts.netloc or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
+        q = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=False)
+             if not any(k.lower() == t or k.lower().startswith(t) for t in _URL_TRACKING_PARAMS)]
+        path = (parts.path or "/").rstrip("/") or "/"
+        # scheme is not part of the origin identity (http and https copies of one article are one origin)
+        return urlunsplit(("https", host, path, urlencode(sorted(q)), ""))
+    except Exception:
+        return (url or "").strip().lower()
+
+
+def _url_index_load() -> dict:
+    global _URL_INDEX_CACHE
+    if _URL_INDEX_CACHE:
+        return _URL_INDEX_CACHE
+    try:
+        if os.path.exists(_URL_INDEX_FILE):
+            with open(_URL_INDEX_FILE, "r", encoding="utf-8") as f:
+                _URL_INDEX_CACHE = json.load(f) or {}
+    except Exception:
+        _URL_INDEX_CACHE = {}
+    return _URL_INDEX_CACHE
+
+
+def _url_index_save(idx: dict) -> None:
+    global _URL_INDEX_CACHE
+    _URL_INDEX_CACHE = idx
+    try:
+        tmp = _URL_INDEX_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(idx, f)
+        os.replace(tmp, _URL_INDEX_FILE)
+    except Exception as e:
+        logger.warning(f"[url-index] save failed: {e}")
+
 
 def _content_index_load() -> dict:
     global _CONTENT_INDEX
@@ -13234,6 +13745,17 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
     Overwrites if the hash already exists (latest extraction wins)."""
     if not req.url or not req.content:
         return JSONResponse({"error": "url + content required"}, status_code=400)
+    # 2026-10-02 evidence hygiene: heal UTF-8-read-as-latin-1 mojibake at the ONE
+    # chokepoint every upload/article body passes through before it is chunked and
+    # quoted (a live .docx upload page shipped U+00E2 U+0080 U+0099 for an apostrophe). Only
+    # complete, valid UTF-8 byte runs are rewritten, so clean prose is unchanged.
+    try:
+        from evidence_hygiene import repair_mojibake as _eh_repair
+        req.content = _eh_repair(req.content)
+        if req.title:
+            req.title = _eh_repair(req.title)
+    except Exception as _eh_err:
+        logger.warning(f"[wiki-write-article] mojibake repair skipped: {_eh_err}")
     # 2026-06-25 - lift a human title out of the body when the supplied title is an
     # opaque filename, so by-name retrieval can find the doc the way a user names it.
     try:
@@ -13264,6 +13786,38 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
     # stale score from a different objective (P5 goal-drift).
     content_hash = _content_norm_hash(req.content)
     rel_by_goal = _read_existing_relevance_by_goal(safe_path)
+    # 2026-10-01 (plan Stage 1.4, owner decision 3 / Independence Rule): ONE ORIGIN, ONE PAGE.
+    # 4,620 URL groups were ingested twice under different source labels (e.g. the same AgFunder
+    # article under two pack ids), and each copy counted as an independent source. The canonical
+    # URL (scheme/host lowercased, www. and tracking params dropped, fragment and trailing slash
+    # removed) is indexed; a second write of the same origin becomes a thin alias of the first.
+    _ucanon = _url_canon(req.url)
+    if _ucanon and (req.kind or 'article') != 'alias':
+        async with _content_index_lock:
+            _uidx = _url_index_load()
+            _ucan_path = _uidx.get(_ucanon)
+            _ucan_abs = os.path.normpath(os.path.join(WIKI_BASE, _ucan_path)) if _ucan_path else None
+            if _ucan_path and _ucan_path != path_rel and _ucan_abs and os.path.exists(_ucan_abs):
+                try:
+                    if req.engagement:
+                        try:
+                            if _ensure_canonical_engagement(_ucan_abs, req.engagement):
+                                _manifest_upsert(_ucan_path, abs_path=_ucan_abs)
+                        except Exception as _rt_err:
+                            logger.warning(f"[wiki-write-article] url-canonical retag failed for {_ucan_path}: {_rt_err}")
+                    alias_fm = _build_alias_frontmatter(req, h, content_hash or "", _ucan_path)
+                    await _robust_write_text(safe_path, alias_fm + "\n")
+                    logger.info(f"[wiki-write-article] url dup: {path_rel} aliases {_ucan_path} (origin {_ucanon})")
+                    return {
+                        "status": "ok", "wikiPath": path_rel, "canonicalPath": _ucan_path,
+                        "urlHash": h, "contentHash": content_hash, "aliased": True, "aliasReason": "url",
+                        "chars": 0, "kind": "alias", "embedded": False,
+                    }
+                except Exception as _ua_err:
+                    logger.warning(f"[wiki-write-article] url alias write failed, normal write: {_ua_err}")
+            elif not _ucan_path:
+                _uidx[_ucanon] = path_rel
+                _url_index_save(_uidx)
     if req.engagementGoal and req.relevanceScore is not None:
         gh = _goal_hash(req.engagementGoal)
         if gh:
@@ -13413,6 +13967,9 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
             "chars": chars,
             "kind": req.kind or 'article',
             "embedded": embedded,
+            # 2026-10-02: chunks registered in the page frontmatter, so the caller's
+            # ingestion receipt can prove chunks read == chunks registered.
+            "chunkCount": len(locals().get("_chunks_for_ptr") or []),
         }
     except Exception as e:
         logger.error(f"Wiki article write failed: {e}")
@@ -14399,16 +14956,26 @@ def _manifest_upsert(rel: str, text: str = None, abs_path: str = None) -> None:
             return
         ap = abs_path or os.path.normpath(os.path.join(WIKI_BASE, rel))
         if text is None:
-            try:
-                with open(ap, 'r', encoding='utf-8') as f:
-                    text = f.read(8000)
-            except Exception:
+            text = _manifest_read_head(ap)   # reads past 8000 to the closing '---'
+            if text is None:
                 return
         try:
             mtime = os.path.getmtime(ap)
         except OSError:
             mtime = 0.0
-        rec = _manifest_record(rel, mtime, text[:8000])
+        # 2026-10-02: never cut the head INSIDE the frontmatter. A page whose chunks:
+        # block runs past 8000 chars (a 20-chunk upload, a 111-theme synthesis) was
+        # recorded from an unterminated frontmatter, so the record lost title / url /
+        # engagement and defaulted to type "article". That is how this run's own
+        # theme-synthesis page (under articles/hic-theme-synthesis/) passed the
+        # evidence type filter, and why four SOW uploads had blank titles. Same
+        # extended-read rule _manifest_read_head already applies on the backfill path.
+        _head = text[:8000]
+        if text.startswith('---') and '\n---\n' not in _head:
+            _fm_end = text.find('\n---\n', 4)
+            if 0 < _fm_end < 256_000:
+                _head = text[:_fm_end + 5 + 2000]
+        rec = _manifest_record(rel, mtime, _head)
         line = json.dumps(rec, ensure_ascii=False) + '\n'
         with _MANIFEST_LOCK:
             with open(MANIFEST_JOURNAL, 'a', encoding='utf-8') as f:
@@ -14497,7 +15064,89 @@ def _manifest_backfill() -> dict:
         counts[rec['type']] = counts.get(rec['type'], 0) + 1
     _manifest_save_base(records)
     logger.info(f"[manifest] backfill complete: {len(records)} records across {len(counts)} types {counts}")
+    # 2026-10-01 (plan R-S1 / Stage 1.7): the backfill already holds every page head, so the
+    # CROSS-document concept edges are built here from the per-chunk `concepts` those heads
+    # carry, and persisted beside the manifest. The page frontmatter keeps only intra-document
+    # edges; rewriting thousands of pages for a derived index would be the wrong store.
+    try:
+        pages = []
+        for res in results:
+            if not res:
+                continue
+            rel, _mt, text = res
+            rows = _chunk_rows_from_head(rel, text)
+            if rows:
+                pages.append({"id": rel, "chunks": rows})
+        _cross_doc_edges_rebuild(pages)
+    except Exception as e:
+        logger.warning(f"[manifest] cross-document edge build skipped: {e}")
     return counts
+
+
+_CROSS_DOC_EDGES_PATH = os.path.join(WIKI_BASE, ".cross-doc-edges.json")
+_CHUNK_ID_LINE_RE = re.compile(r'^\s*- id:\s*"([^"\n]*#c\d+)"', re.MULTILINE)
+
+
+def _chunk_rows_from_head(rel: str, text: str) -> list:
+    """[{id, concepts}] for every chunk declared in a page head's frontmatter (chunks: block)."""
+    if not text or not text.startswith('---'):
+        return []
+    end = text.find('\n---\n', 3)
+    fm = text[3:end] if end > 0 else text[3:]
+    if 'chunks:' not in fm:
+        return []
+    rows: list = []
+    cur = None
+    for line in fm.splitlines():
+        m = _CHUNK_ID_LINE_RE.match(line)
+        if m:
+            cur = {"id": m.group(1), "concepts": []}
+            rows.append(cur)
+            continue
+        if cur is not None and line.startswith('    concepts:'):
+            inner = line.split(':', 1)[1].strip()
+            mm = re.match(r'\[(.*)\]', inner)
+            if mm:
+                cur["concepts"] = [t.strip().strip('"') for t in mm.group(1).split(',') if t.strip().strip('"')]
+    return [r for r in rows if r["concepts"]]
+
+
+def _cross_doc_edges_rebuild(pages: list) -> dict:
+    """Build + persist {chunk_id: [cross-document related ids]} for the whole wiki."""
+    from wiki_chunker import build_cross_document_edges
+    edges = build_cross_document_edges(pages, max_per_chunk=5)
+    from datetime import datetime as _dt
+    out = {"computed_at": _dt.utcnow().isoformat() + "Z", "pages": len(pages),
+           "chunks_with_edges": len(edges), "edges": edges}
+    tmp = _CROSS_DOC_EDGES_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=True)
+    os.replace(tmp, _CROSS_DOC_EDGES_PATH)
+    logger.info(f"[manifest] cross-document edges: {len(edges)} chunk(s) with edges across {len(pages)} page(s)")
+    return out
+
+
+_CROSS_DOC_EDGES_CACHE: dict = {"mtime": None, "data": {}}
+
+
+def _cross_doc_edges_load() -> dict:
+    """The whole-wiki index is ~20 MB (67K chunks with edges on the 2026-10-01 build); parse it once
+    per file version per worker, keyed on mtime, instead of on every GET."""
+    if not os.path.exists(_CROSS_DOC_EDGES_PATH):
+        return {}
+    try:
+        mtime = os.path.getmtime(_CROSS_DOC_EDGES_PATH)
+        if _CROSS_DOC_EDGES_CACHE["mtime"] == mtime and _CROSS_DOC_EDGES_CACHE["data"]:
+            return _CROSS_DOC_EDGES_CACHE["data"]
+        with open(_CROSS_DOC_EDGES_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        d = d if isinstance(d, dict) else {}
+        _CROSS_DOC_EDGES_CACHE["mtime"] = mtime
+        _CROSS_DOC_EDGES_CACHE["data"] = d
+        return d
+    except Exception as e:
+        logger.warning(f"[manifest] cross-document edges read failed: {e}")
+        return {}
 
 def _manifest_read_head(ap: str) -> Optional[str]:
     """Read a wiki file's head for manifest recording. Mirrors the backfill's
@@ -14831,7 +15480,7 @@ async def ai_cache_stats():
         "exact_match": stats,
         "tool_stage": tstats,
         "semantic": sstats,
-        "anthropic_prefix": {"enabled": PROMPT_CACHE_ENABLED, "ttl": ANTHROPIC_CACHE_TTL},
+        "anthropic_prefix": {"enabled": PROMPT_CACHE_ENABLED, "ttl": ANTHROPIC_CACHE_TTL, "hot_sessions": len(_ANTHROPIC_SESSION_CACHE_HOT)},
         "gemini_explicit": gestats,
         "vision_extract": vestats,
         # W2 relevance-ranking cache: routed through /api/ai/gemini, so its hits land
@@ -15867,8 +16516,8 @@ async def _validate_model_registry() -> None:
         from model_registry import assert_startup
         # The model IDs the proxy itself defaults to across its generation paths.
         assert_startup([
-            "claude-sonnet-4-6",        # artifact-generate default
-            "claude-opus-4-8",          # deep-reasoning / journey-mapper + chat-surface deliverable gen (Fable 5 stand-in, 2026-06-13)
+            _CLAUDE_STRUCTURED_MODEL,   # artifact-generate default (Sonnet 5.5, 2026-09-30)
+            _CLAUDE_REASONING_MODEL,    # deep-reasoning / chat-surface deliverable gen (Opus 5.5, owner directive 2026-09-30)
             "gemini-3.1-pro-preview",   # deliverable router primary
             "gemini-3.5-flash",         # fast-tier / fallback (2.5-flash sunset 2026-06-12)
         ])
@@ -16709,6 +17358,33 @@ async def skillopt_trajectory_append(req: Request):
 # subset, then resolves only those (not the full body of every page).
 # ================================================================
 
+def _engagement_matches(eng: str, wp: str, rec: dict) -> bool:
+    """2026-10-01 (plan Stage 0.1). The canonical slug is 80 characters
+    (_safe_session_slug == services/engagementSlug.ts). Records tagged by earlier
+    SPA builds carry the same goal truncated at 60, 59 or 40 characters, so a
+    request for the 80-character slug must still find them: two slugs name the
+    SAME engagement when one is a prefix of the other and the shared prefix is at
+    least 40 characters. Substring match on path and title is kept for the
+    engagement-folder pages themselves."""
+    e = (eng or "").strip().lower()
+    if not e:
+        return True
+    tag = str(rec.get("engagement") or "").strip().lower()
+    if tag:
+        if tag == e:
+            return True
+        shorter, longer = (tag, e) if len(tag) <= len(e) else (e, tag)
+        if len(shorter) >= 40 and longer.startswith(shorter):
+            return True
+    if e in (wp or "").lower() or e in str(rec.get("title", "")).lower():
+        return True
+    # the request slug itself may be the longer form; the path may carry the shorter
+    for n in (60, 59, 50, 40):
+        if len(e) > n and e[:n] in (wp or "").lower():
+            return True
+    return False
+
+
 @app.get("/api/manifest/chunks")
 async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article,documentation", min_relevance: int = 0, include_pages: bool = False):
     """Return every chunk-pointer the manifest knows about for an engagement.
@@ -16760,7 +17436,7 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
             rs = 0
         if min_relevance and rs < int(min_relevance):
             continue
-        if eng and eng not in wp.lower() and eng not in str(rec.get("title", "")).lower() and eng not in str(rec.get("engagement", "")).lower():
+        if eng and not _engagement_matches(eng, wp, rec):
             continue
         seen_paths.add(wp)
         for i in range(chunk_count):
@@ -16781,6 +17457,107 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
     if include_pages:
         out["pages"] = pages
     return out
+
+
+@app.get("/api/manifest/cross-doc-edges")
+async def manifest_cross_doc_edges(engagement: str = ""):
+    """Cross-document concept edges {chunk_id: [related chunk ids]} (plan R-S1). With `engagement`,
+    only edges whose SOURCE chunk belongs to that engagement's pages are returned (targets may be
+    anywhere: that is the point of a cross-document edge). Empty until a manifest backfill or
+    POST /api/manifest/cross-doc-edges/rebuild has run."""
+    data = _cross_doc_edges_load()
+    edges = data.get("edges") if isinstance(data.get("edges"), dict) else {}
+    eng = (engagement or "").strip().lower()
+    if eng and edges:
+        records = _manifest_load()
+        keep: dict = {}
+        for cid, targets in edges.items():
+            wp = str(cid).split('#', 1)[0]
+            rec = records.get(wp)
+            if rec is not None and _engagement_matches(eng, wp, rec):
+                keep[cid] = targets
+        edges = keep
+    return {"engagement": engagement, "computed_at": data.get("computed_at"), "chunks_with_edges": len(edges), "edges": edges}
+
+
+# Disk-authoritative job marker: the proxy runs several uvicorn workers, so an in-memory dict is
+# per-worker (the 2026-10-01 smoke POSTed on one worker and polled another, which reported idle).
+_CROSS_DOC_STATUS_PATH = os.path.join(WIKI_BASE, ".cross-doc-edges.status.json")
+
+
+def _cross_doc_status_read() -> dict:
+    try:
+        with open(_CROSS_DOC_STATUS_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {"running": False, "started_at": None, "finished_at": None, "error": None, "result": None}
+
+
+def _cross_doc_status_write(d: dict) -> None:
+    try:
+        os.makedirs(os.path.dirname(_CROSS_DOC_STATUS_PATH), exist_ok=True)
+        tmp = _CROSS_DOC_STATUS_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(d, f, ensure_ascii=True)
+        os.replace(tmp, _CROSS_DOC_STATUS_PATH)
+    except Exception as e:
+        logger.warning(f"[manifest] cross-doc status write failed: {e}")
+
+
+def _cross_doc_edges_rebuild_sync() -> dict:
+    """Walk every chunked page head (thousands of file reads) and build the index. Sync by design:
+    it runs in a worker thread, never on the event loop. The first version read the heads inline in
+    the async handler and stalled the whole proxy for minutes (2026-10-01 live smoke)."""
+    records = _manifest_load()
+    pages = []
+    for wp, rec in records.items():
+        if int(rec.get("chunk_count") or 0) <= 0:
+            continue
+        head = _manifest_read_head(os.path.join(WIKI_BASE, wp))
+        if not head:
+            continue
+        rows = _chunk_rows_from_head(wp, head)
+        if rows:
+            pages.append({"id": wp, "chunks": rows})
+    return _cross_doc_edges_rebuild(pages)
+
+
+@app.post("/api/manifest/cross-doc-edges/rebuild")
+async def manifest_cross_doc_edges_rebuild():
+    """Queue a rebuild of the cross-document edge index (job + poll, R-L3): returns at once; poll
+    GET /api/manifest/cross-doc-edges for `computed_at`, or GET .../rebuild/status."""
+    from datetime import datetime as _dt
+    cur = _cross_doc_status_read()
+    if cur.get("running"):
+        # A marker older than 30 minutes is a crashed worker, not a live job.
+        try:
+            started = _dt.fromisoformat(str(cur.get("started_at") or "").rstrip("Z"))
+            if (_dt.utcnow() - started).total_seconds() < 1800:
+                return {"ok": True, "status": "running", "started_at": cur.get("started_at")}
+        except Exception:
+            pass
+    state = {"running": True, "started_at": _dt.utcnow().isoformat() + "Z", "finished_at": None, "error": None, "result": None}
+    _cross_doc_status_write(state)
+
+    async def _job():
+        try:
+            out = await asyncio.to_thread(_cross_doc_edges_rebuild_sync)
+            state["result"] = {k: out.get(k) for k in ("pages", "chunks_with_edges", "computed_at")}
+        except Exception as e:
+            state["error"] = str(e)[:300]
+            logger.warning(f"[manifest] cross-document edge rebuild failed: {e}")
+        finally:
+            state["running"] = False
+            state["finished_at"] = _dt.utcnow().isoformat() + "Z"
+            _cross_doc_status_write(state)
+    asyncio.create_task(_job())
+    return {"ok": True, "status": "queued", "started_at": state["started_at"]}
+
+
+@app.get("/api/manifest/cross-doc-edges/rebuild/status")
+async def manifest_cross_doc_edges_rebuild_status():
+    return _cross_doc_status_read()
 
 
 @app.get("/api/manifest/chunks-by-title")
@@ -16943,8 +17720,11 @@ async def manifest_chunks_by_goal(
     want_types = set(t.strip() for t in (types or "").split(",") if t.strip())
     chunk_ids: list[str] = []
     pages: dict = {}
+    scores: dict = {}   # 2026-10-01 (plan Stage 1.2): per-chunk objective similarity, no longer discarded here
     seen_paths: set[str] = set()
     dropped_unmanifested = 0
+    # Pass 1: manifest / type / relevance eligibility (unchanged rules).
+    eligible: list[tuple[dict, str, int, dict, int]] = []
     for r in rows:
         wp = r.get("wiki_path") or ""
         ci = r.get("chunk_idx")
@@ -16966,29 +17746,125 @@ async def manifest_chunks_by_goal(
             rs = 0
         if min_relevance and rs < int(min_relevance):
             continue
+        eligible.append((r, wp, int(ci), rec, rs))
+    # Pass 2 (2026-10-02 evidence hygiene): collapse duplicate copies of one document
+    # (client-uploads + cached-reuse-* + old engagement-scoped re-uploads) to ONE
+    # canonical page, and refuse generated synthesis from other engagements, BEFORE
+    # the admission limit is spent. Live: each SOW was admitted twice and this run's
+    # own theme-synthesis page (mis-typed "article") carried NXT product quotes.
+    allow_synth = bool(want_types & {"synthesis", "insight"}) or not want_types
+    _eh = _evidence_admission_filter({wp for _, wp, _, _, _ in eligible}, records, engagement, allow_synth)
+    dup_dropped: dict = _eh["duplicates"]
+    synth_blocked: dict = _eh["synthesis_blocked"]
+    page_info: dict = _eh["info"]
+    for r, wp, ci, rec, rs in eligible:
+        if wp in dup_dropped or wp in synth_blocked:
+            continue
         chunk_ids.append(f"{wp}#c{int(ci)}")
+        try:
+            _sc = r.get("score")
+            if _sc is not None:
+                scores[f"{wp}#c{int(ci)}"] = round(float(_sc), 4)
+        except (TypeError, ValueError):
+            pass
         if wp not in pages:
             kt = rec.get("key_terms") or rec.get("keyTerms") or []
+            _pi = page_info.get(wp) or {}
             pages[wp] = {
-                "title": str(rec.get("title") or r.get("title") or ""),
+                "title": str(rec.get("title") or _pi.get("title") or r.get("title") or ""),
                 "relevance": rs,
                 "key_terms": list(kt) if isinstance(kt, (list, tuple)) else [],
             }
+            if _pi.get("synthesis_engagement") is not None:
+                pages[wp]["synthesis_engagement"] = _pi.get("synthesis_engagement")
         seen_paths.add(wp)
         if len(chunk_ids) >= limit:
             break
     logger.info(
         f"[chunks-by-goal] objective-ranked admission: {len(chunk_ids)} manifest-tied pointers "
-        f"from {len(seen_paths)} pages (dropped {dropped_unmanifested} unmanifested store hits); "
-        f"goal={g[:50]!r}"
+        f"from {len(seen_paths)} pages (dropped {dropped_unmanifested} unmanifested store hits; "
+        f"collapsed {len(dup_dropped)} duplicate document copies; refused {len(synth_blocked)} "
+        f"generated-synthesis pages from other engagements or evidence-typed requests); goal={g[:50]!r}"
     )
     return {
         "engagement": engagement,
         "source_count": len(seen_paths),
         "chunk_id_count": len(chunk_ids),
         "chunk_ids": chunk_ids,
+        "scores": scores,
         "pages": pages,
+        "duplicates_collapsed": dup_dropped,
+        "synthesis_refused": synth_blocked,
     }
+
+
+def _evidence_page_info(wp: str, rec: dict) -> dict:
+    """Title / url / engagement for a manifest record, refilled from the page head
+    when the record was written from a truncated frontmatter (blank fields)."""
+    info = {
+        "path": wp,
+        "title": str(rec.get("title") or ""),
+        "url": str(rec.get("url") or ""),
+        "engagement": rec.get("engagement") or "",
+        "mtime": rec.get("mtime") or 0.0,
+        "chunk_count": int(rec.get("chunk_count") or 0),
+        "content_hash": rec.get("content_hash") or "",
+    }
+    if not info["title"] or not info["url"]:
+        try:
+            from evidence_hygiene import read_head_fields
+            ap = os.path.normpath(os.path.join(WIKI_BASE, wp))
+            if ap.startswith(os.path.normpath(WIKI_BASE)) and os.path.exists(ap):
+                with open(ap, "r", encoding="utf-8", errors="replace") as f:
+                    head = read_head_fields(f.read(4000))
+                info["title"] = info["title"] or head.get("title", "")
+                info["url"] = info["url"] or head.get("url", "")
+                info["engagement"] = info["engagement"] or head.get("engagement", "")
+        except Exception:
+            pass
+    return info
+
+
+def _evidence_admission_filter(paths, records: dict, engagement: str, allow_synthesis: bool) -> dict:
+    """2026-10-02 evidence hygiene for manifest admission (chunks-by-goal and
+    chunks-from-selection).
+
+    duplicates         {dropped_path: kept_path}: copies of one document collapsed to
+                       the engagement-tagged / original / fullest / newest copy.
+    synthesis_blocked  {path: owner_slug}: generated theme-synthesis or insight pages
+                       refused. Always refused when they belong to ANOTHER engagement
+                       (or the owner is unknown); refused for this engagement too when
+                       the caller asked for evidence types only (synthesis is memory,
+                       never citable evidence: owner decision 3, 2026-10-01).
+    info               {path: page info} incl. synthesis_engagement for synthesis pages."""
+    from evidence_hygiene import dedupe_pages, synthesis_engagement, engagement_matches, is_generated_synthesis
+    info: dict = {}
+    synth_blocked: dict = {}
+    _url_cache: dict = {}
+
+    def _read_url_cached(target: str) -> str:
+        # Alias synthesis pages point at their canonical page; its url names the owner.
+        if target not in _url_cache:
+            trec = records.get(target) or {}
+            _url_cache[target] = str(trec.get("url") or "") or _evidence_page_info(target, trec).get("url", "")
+        return _url_cache[target]
+
+    for wp in paths:
+        rec = records.get(wp) or {}
+        pi = _evidence_page_info(wp, rec) if (is_generated_synthesis(wp) or not rec.get("title") or not rec.get("url")) else {
+            "path": wp, "title": str(rec.get("title") or ""), "url": str(rec.get("url") or ""),
+            "engagement": rec.get("engagement") or "", "mtime": rec.get("mtime") or 0.0,
+            "chunk_count": int(rec.get("chunk_count") or 0), "content_hash": rec.get("content_hash") or "",
+        }
+        owner = synthesis_engagement(wp, pi.get("url", ""), pi.get("engagement", ""), read_url=_read_url_cached)
+        if owner is not None:
+            pi["synthesis_engagement"] = owner
+            own = bool(engagement) and engagement_matches(owner, engagement)
+            if not own or not allow_synthesis:
+                synth_blocked[wp] = owner
+        info[wp] = pi
+    dups = dedupe_pages([info[p] for p in info if p not in synth_blocked], engagement)
+    return {"duplicates": dups, "synthesis_blocked": synth_blocked, "info": info}
 
 
 # =========================================================================
@@ -17084,14 +17960,85 @@ async def manifest_chunks_from_selection(payload: dict):
         # the manifest (page key_terms are empty for social-post/article records);
         # the client tokenizes it when key_terms is empty.
         pages[wp] = {"key_terms": [str(t) for t in kt[:24]], "relevance": rel, "chunk_count": cc, "title": str(rec.get("title") or "")}
-        for i in range(cc):
+    # 2026-10-02 evidence hygiene. A KL selection that names the whole
+    # `hic-theme-synthesis` source folder admitted all 251 theme-synthesis pages from
+    # EVERY engagement (NXT's own product-marketing runs included): a live 2026-10-01 PRD
+    # run's theme shards cited 33 of them. When the caller names its engagement,
+    # generated synthesis is kept only for that engagement, and duplicate copies of
+    # one document collapse to one page. Without `engagement` the legacy behavior holds.
+    eng = str(payload.get("engagement") or "").strip()
+    dup_dropped: dict = {}
+    synth_blocked: dict = {}
+    if eng and pages:
+        _eh = _evidence_admission_filter(set(pages.keys()), records, eng, True)
+        dup_dropped, synth_blocked = _eh["duplicates"], _eh["synthesis_blocked"]
+        for wp in list(pages.keys()):
+            if wp in dup_dropped or wp in synth_blocked:
+                pages.pop(wp, None)
+            elif (_eh["info"].get(wp) or {}).get("synthesis_engagement") is not None:
+                pages[wp]["synthesis_engagement"] = _eh["info"][wp]["synthesis_engagement"]
+        if dup_dropped or synth_blocked:
+            logger.info(f"[chunks-from-selection] engagement={eng[:50]!r}: collapsed {len(dup_dropped)} duplicate copies, "
+                        f"refused {len(synth_blocked)} other-engagement synthesis pages")
+    for wp, pm in pages.items():
+        for i in range(int(pm.get("chunk_count") or 0)):
             chunk_ids.append(f"{wp}#c{i}")
     return {
         "source_count": len(pages),
         "chunk_id_count": len(chunk_ids),
         "chunk_ids": chunk_ids,
         "pages": pages,
+        "duplicates_collapsed": dup_dropped,
+        "synthesis_refused": synth_blocked,
     }
+
+
+@app.post("/api/wiki/repair-mojibake")
+async def wiki_repair_mojibake(payload: dict):
+    """2026-10-02 ONE-OFF, PER-PAGE repair of UTF-8-read-as-latin-1 mojibake in an
+    existing wiki page (one articles/client-uploads/<hash>.md upload page per call). Body: {path, dry_run?}. Re-chunks the page so char_spans match
+    the repaired text, writes it back, and re-records the manifest entry. There is
+    deliberately NO "all pages" mode: re-ingest is the owner's call, page by page."""
+    rel = str(payload.get("path") or "").strip().lstrip("/").replace("\\", "/")
+    dry = bool(payload.get("dry_run"))
+    if not rel or not rel.endswith(".md"):
+        return JSONResponse({"error": "path (a wiki .md path) required"}, status_code=400)
+    ap = os.path.normpath(os.path.join(WIKI_BASE, rel))
+    if not ap.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(ap):
+        return JSONResponse({"error": f"page not found: {rel}"}, status_code=404)
+    from evidence_hygiene import repair_page_mojibake
+    with open(ap, "r", encoding="utf-8") as f:
+        before = f.read()
+    res = repair_page_mojibake(before, rel)
+    out = {k: v for k, v in res.items() if k != "text"}
+    out["path"] = rel
+    out["dry_run"] = dry
+    if res["changed"] and not dry:
+        await _robust_write_text(ap, res["text"])
+        _manifest_upsert(rel, abs_path=ap)
+        out["written"] = True
+        logger.info(f"[repair-mojibake] {rel}: fixed {res['fixed_runs']} runs, re-chunked into {res['chunk_count']}")
+    return out
+
+
+@app.post("/api/manifest/reindex-pages")
+async def manifest_reindex_pages(payload: dict):
+    """2026-10-02: re-record named pages' manifest entries from their full
+    frontmatter. For records written by the pre-fix _manifest_upsert from a head cut
+    inside the frontmatter (blank title / url / engagement, type defaulted to
+    "article"). Body: {paths: [...]}; max 200 per call."""
+    paths = [str(p).strip().lstrip("/") for p in (payload.get("paths") or []) if p][:200]
+    done, missing = [], []
+    for rel in paths:
+        ap = os.path.normpath(os.path.join(WIKI_BASE, rel))
+        if not ap.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(ap):
+            missing.append(rel)
+            continue
+        _manifest_upsert(rel, abs_path=ap)
+        done.append(rel)
+    recs = _manifest_load()
+    return {"reindexed": done, "missing": missing,
+            "records": {p: {k: (recs.get(p) or {}).get(k) for k in ("type", "title", "engagement", "chunk_count")} for p in done}}
 
 
 # ================================================================
@@ -17523,50 +18470,42 @@ async def corpus_from_selection(payload: dict):
     }
 
 
-@app.get("/api/epochs/status")
-async def epochs_status(threshold: int = 5):
-    """Step-7 epoch trigger — disk-authoritative readiness check.
+# =============================================================================
+# 2026-10-01 (plan Stage 5 / C2): the epoch trigger counts JOBS, on disk. The previous
+# status endpoint counted engagements whose manifest mtime postdated the last epoch,
+# which is "how many engagement folders were touched", not "how many research runs
+# completed"; it has read due=true since inception. The SPA now posts one job per run
+# (POST /api/epochs/jobs); the counter persists at wiki/synthesis/epoch-job-counter.json
+# (the same file + shape the SPA writes when the endpoint is unreachable) and resets when
+# a new "## Epoch N" record lands in improvement-epochs.md.
+# =============================================================================
+_EPOCH_LEDGER_PATH = "/hic-workspace/wiki/synthesis/improvement-epochs.md"
+_EPOCH_COUNTER_PATH = "/hic-workspace/wiki/synthesis/epoch-job-counter.json"
 
-    Computes `jobs_since_last_epoch` by:
-      1. Reading wiki/synthesis/improvement-epochs.md to find the most recent
-         epoch record's timestamp + the highest epoch id seen.
-      2. Counting completed research jobs (engagements with a manifest.json)
-         whose manifest mtime is newer than the last epoch timestamp.
 
-    Returns `{due, jobs_since_last_epoch, threshold, last_epoch_at,
-              next_epoch_id, computed_at}` matching services/epochTrigger.ts
-    EpochStatus shape.
-
-    Disk-authoritative: never trusts in-memory state; survives uvicorn worker
-    splits (the same pattern that fixed the topic-model 502s).
-    """
-    threshold = max(1, min(int(threshold or 5), 100))
-    ledger_path = "/hic-workspace/wiki/synthesis/improvement-epochs.md"
-    engagement_root = "/hic-workspace/wiki/engagements"
-
-    last_epoch_at_iso: str | None = None
-    last_epoch_at_ts: float = 0.0
-    next_epoch_id: int = 1
-    if os.path.exists(ledger_path):
+def _epoch_ledger_state() -> tuple:
+    """(last_epoch_at_iso | None, last_epoch_at_ts, next_epoch_id) from improvement-epochs.md."""
+    last_epoch_at_iso = None
+    last_epoch_at_ts = 0.0
+    next_epoch_id = 1
+    if os.path.exists(_EPOCH_LEDGER_PATH):
         try:
-            with open(ledger_path, "r", encoding="utf-8") as f:
+            with open(_EPOCH_LEDGER_PATH, "r", encoding="utf-8") as f:
                 text = f.read()
-            # Parse "## Epoch <id> — <YYYY-MM-DD HH:MM UTC>" lines.
-            # Match the id and the timestamp; pick the most recent by timestamp.
             heading_re = re.compile(
-                r"^##\s+Epoch\s+(\d+)\s+[—-]\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(?::\d{2})?)\s*UTC",
+                r"^##\s+Epoch\s+(\d+)\s+[\u2014-]\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(?::\d{2})?)\s*UTC",
                 re.MULTILINE,
             )
             best_ts = 0.0
             best_id = 0
-            best_iso: str | None = None
+            best_iso = None
+            from datetime import datetime as _dt
             for m in heading_re.finditer(text):
                 eid = int(m.group(1))
                 ts_str = m.group(2)
                 try:
-                    from datetime import datetime
-                    parsed = datetime.strptime(ts_str, "%Y-%m-%d %H:%M:%S") if len(ts_str) > 16 \
-                        else datetime.strptime(ts_str, "%Y-%m-%d %H:%M")
+                    parsed = _dt.strptime(ts_str, "%Y-%m-%d %H:%M:%S") if len(ts_str) > 16 \
+                        else _dt.strptime(ts_str, "%Y-%m-%d %H:%M")
                     ts = parsed.timestamp()
                 except Exception:
                     continue
@@ -17580,37 +18519,184 @@ async def epochs_status(threshold: int = 5):
                 last_epoch_at_ts = best_ts
             next_epoch_id = best_id + 1
         except Exception as e:
-            logger.warning(f"[epochs/status] ledger parse failed (will treat as no prior epoch): {e}")
+            logger.warning(f"[epochs] ledger parse failed (treating as no prior epoch): {e}")
+    return last_epoch_at_iso, last_epoch_at_ts, next_epoch_id
 
-    # Count engagements completed AFTER the last epoch timestamp.
-    jobs_since: int = 0
-    if os.path.isdir(engagement_root):
+
+def _epoch_counter_read() -> dict:
+    if not os.path.exists(_EPOCH_COUNTER_PATH):
+        return {"jobs_since_last_epoch": 0, "since_epoch_at": None, "runs": [], "updated_at": None}
+    try:
+        with open(_EPOCH_COUNTER_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        if not isinstance(d, dict):
+            raise ValueError("counter is not an object")
+        runs = d.get("runs") if isinstance(d.get("runs"), list) else []
+        return {
+            "jobs_since_last_epoch": max(int(d.get("jobs_since_last_epoch") or 0), len(runs)),
+            "since_epoch_at": d.get("since_epoch_at"),
+            "runs": [str(r) for r in runs][:5000],
+            "updated_at": d.get("updated_at"),
+        }
+    except Exception as e:
+        logger.warning(f"[epochs] counter read failed, starting at zero: {e}")
+        return {"jobs_since_last_epoch": 0, "since_epoch_at": None, "runs": [], "updated_at": None}
+
+
+def _epoch_counter_write(d: dict) -> None:
+    os.makedirs(os.path.dirname(_EPOCH_COUNTER_PATH), exist_ok=True)
+    from datetime import datetime as _dt
+    d = dict(d)
+    d["updated_at"] = _dt.utcnow().isoformat() + "Z"
+    tmp = _EPOCH_COUNTER_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=True, indent=2)
+    os.replace(tmp, _EPOCH_COUNTER_PATH)
+
+
+def _epoch_counter_current() -> dict:
+    """The counter, reset when a newer epoch record exists than the one it was counting from."""
+    last_iso, _ts, _next = _epoch_ledger_state()
+    counter = _epoch_counter_read()
+    if (counter.get("since_epoch_at") or None) != (last_iso or None):
+        counter = {"jobs_since_last_epoch": 0, "since_epoch_at": last_iso, "runs": [], "updated_at": None}
         try:
-            for slug in os.listdir(engagement_root):
-                slug_dir = os.path.join(engagement_root, slug)
-                if not os.path.isdir(slug_dir):
-                    continue
-                manifest = os.path.join(slug_dir, "manifest.json")
-                if not os.path.exists(manifest):
-                    continue
-                try:
-                    mtime = os.path.getmtime(manifest)
-                except OSError:
-                    continue
-                if mtime > last_epoch_at_ts:
-                    jobs_since += 1
+            _epoch_counter_write(counter)
         except Exception as e:
-            logger.warning(f"[epochs/status] engagement enumeration failed: {e}")
+            logger.warning(f"[epochs] counter reset write failed: {e}")
+    return counter
 
-    from datetime import datetime
+
+def _epoch_pending_proposal_id(epoch_id: int) -> Optional[str]:
+    for pitem in _read_epoch_proposals():
+        if not isinstance(pitem, dict) or pitem.get("status") != "pending":
+            continue
+        if pitem.get("kind") == "epoch_due" and int(pitem.get("epoch_id") or 0) == int(epoch_id):
+            return str(pitem.get("id") or "") or None
+    return None
+
+
+def _epoch_status_payload(threshold: int) -> dict:
+    threshold = max(1, min(int(threshold or 5), 100))
+    last_iso, _ts, next_epoch_id = _epoch_ledger_state()
+    counter = _epoch_counter_current()
+    jobs_since = int(counter.get("jobs_since_last_epoch") or 0)
+    from datetime import datetime as _dt
     return {
         "due": jobs_since >= threshold,
         "jobs_since_last_epoch": jobs_since,
         "threshold": threshold,
-        "last_epoch_at": last_epoch_at_iso,
+        "last_epoch_at": last_iso,
         "next_epoch_id": next_epoch_id,
-        "computed_at": datetime.utcnow().isoformat() + "Z",
+        "computed_at": _dt.utcnow().isoformat() + "Z",
+        "pending_proposal_id": _epoch_pending_proposal_id(next_epoch_id),
     }
+
+
+@app.get("/api/epochs/status")
+async def epochs_status(threshold: int = 5):
+    """Step-7 epoch trigger, disk-authoritative: the persisted JOB counter (one job per completed
+    research run, posted by the SPA) against the threshold, reset by the epoch ledger. Returns
+    `{due, jobs_since_last_epoch, threshold, last_epoch_at, next_epoch_id, computed_at,
+    pending_proposal_id}` (services/epochTrigger.ts EpochStatus)."""
+    return _epoch_status_payload(threshold)
+
+
+@app.post("/api/epochs/jobs")
+async def epochs_record_job(req: Request):
+    """Record ONE completed research job. Body `{run_id, deliverable?, threshold?}`. Idempotent per
+    run_id (the second artifact of the same run does not count twice). Returns the status after."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "invalid JSON"}, status_code=400)
+    run_id = str(body.get("run_id") or "").strip()[:200]
+    if not run_id:
+        return JSONResponse({"ok": False, "error": "run_id is required"}, status_code=400)
+    threshold = int(body.get("threshold") or 5)
+    counter = _epoch_counter_current()
+    runs = list(counter.get("runs") or [])
+    if run_id not in runs:
+        runs.append(run_id)
+        counter["runs"] = runs
+        counter["jobs_since_last_epoch"] = len(runs)
+        try:
+            _epoch_counter_write(counter)
+        except Exception as e:
+            return JSONResponse({"ok": False, "error": f"counter write failed: {e}"}, status_code=500)
+        logger.info(f"[epochs] job recorded: {run_id} ({body.get('deliverable') or 'artifact'}) -> {len(runs)} since last epoch")
+    payload = _epoch_status_payload(threshold)
+    payload["ok"] = True
+    payload["run_id"] = run_id
+    return payload
+
+
+_SKILLOPT_SCRIPT_DIRS = [
+    "/app/scripts",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scripts"),
+    "/scripts",
+]
+
+
+def _skillopt_scripts_dir() -> Optional[str]:
+    for d in _SKILLOPT_SCRIPT_DIRS:
+        if os.path.exists(os.path.join(d, "skillopt-batch.sh")):
+            return os.path.abspath(d)
+    return None
+
+
+@app.post("/api/epochs/run-batch")
+async def epochs_run_batch(req: Request):
+    """Run ONE SkillOpt batch for an epoch (the single scheduler). Body `{epoch_id, dry_run?, skills?}`.
+    Spawns scripts/skillopt-batch.sh with BATCH_ID=epoch-<id>-<ts>; it writes PROPOSAL files only
+    (hic-workspace/skillopt/proposals/<batch>/), never promotes: promotion needs an APPROVE verdict
+    file (scripts/skillopt-batch.sh --promote-only). Requires the scripts directory to be mounted
+    (docker-compose-all.yml: ./humans-in-control-research/scripts:/app/scripts:ro)."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "invalid JSON"}, status_code=400)
+    epoch_id = int(body.get("epoch_id") or _epoch_ledger_state()[2])
+    dry_run = bool(body.get("dry_run"))
+    skills = [str(x) for x in (body.get("skills") or []) if str(x).strip()]
+    scripts_dir = _skillopt_scripts_dir()
+    if not scripts_dir:
+        return JSONResponse({"ok": False, "error": "skillopt-batch.sh not reachable; mount ./humans-in-control-research/scripts at /app/scripts (docker-compose-all.yml research-proxy volumes)"}, status_code=503)
+    batch_id = f"epoch-{epoch_id}-{int(time.time())}"
+    proposals_root = "/hic-workspace/skillopt/proposals"
+    log_dir = "/hic-workspace/skillopt/logs"
+    os.makedirs(proposals_root, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
+    args = ["bash", os.path.join(scripts_dir, "skillopt-batch.sh")]
+    if dry_run:
+        args.append("--dry-run")
+    for sk in skills:
+        args.append(f"--skill={sk}")
+    env = dict(os.environ)
+    env.update({"BATCH_ID": batch_id, "PROPOSALS_ROOT": proposals_root, "HIC_WORKSPACE": "/hic-workspace",
+                "SKILLS_DIR": os.environ.get("SKILLS_DIR", "/skills")})
+    log_path = os.path.join(log_dir, f"{batch_id}.log")
+    from datetime import datetime as _dt
+    started = _dt.utcnow().isoformat() + "Z"
+    try:
+        log_f = open(log_path, "a", encoding="utf-8")
+        proc = await asyncio.create_subprocess_exec(*args, cwd=scripts_dir, env=env, stdout=log_f, stderr=asyncio.subprocess.STDOUT)
+
+        async def _reap():
+            try:
+                rc = await proc.wait()
+                logger.info(f"[epochs/run-batch] {batch_id} finished rc={rc} (log: {log_path})")
+            finally:
+                try:
+                    log_f.close()
+                except Exception:
+                    pass
+        asyncio.create_task(_reap())
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": f"could not start batch: {e}"}, status_code=500)
+    logger.info(f"[epochs/run-batch] {batch_id} queued (dry_run={dry_run}, skills={skills or 'all'})")
+    return {"ok": True, "batch_id": batch_id, "proposals_dir": f"hic-workspace/skillopt/proposals/{batch_id}",
+            "log": log_path, "started_at": started, "status": "queued", "dry_run": dry_run}
 
 
 # =============================================================================
@@ -17677,6 +18763,17 @@ async def epoch_proposals_create(req: Request):
         "proposed_edit": body.get("proposed_edit", ""),     # diff / description; NOT applied
         "gate_verdict": body.get("gate_verdict"),           # {decision, discrimination_delta, ...}
         "risk_class": body.get("risk_class", "material"),   # low_risk|material (material -> commit-approval)
+        # 2026-10-01 (plan Stage 5 / C4): the proposal carries its evidence. `kind` is
+        # epoch_due | skill_patch; the rollout ids and confidence are what the gate and the
+        # review panel read; the handler used to drop every unknown key.
+        "kind": str(body.get("kind") or ("skill_patch" if body.get("target_layer") == "skill" else "proposal"))[:40],
+        "source_rollout_ids": [str(x) for x in (body.get("source_rollout_ids") or []) if str(x).strip()][:200],
+        "confidence": body.get("confidence"),
+        "signal_count": body.get("signal_count"),
+        "deliverable_type": body.get("deliverable_type"),
+        "review": body.get("review") if isinstance(body.get("review"), dict) else None,
+        "jobs_since_last_epoch": body.get("jobs_since_last_epoch"),
+        "threshold": body.get("threshold"),
         "status": "pending",
         "reviewed_at": None,
         "review_note": "",
@@ -17822,6 +18919,168 @@ async def heuristic_capture_flow(payload: dict):
     return result
 
 
+def _upload_engagement_matches(eng: str, wp: str, rec: dict) -> bool:
+    """Strict engagement matching for CLIENT UPLOADS (2026-10-02 audit). `_engagement_matches` falls back to a
+    substring test on the path and title, so a short slug matched unrelated uploads ("x" listed 368 pages from
+    every engagement) and an upload TAGGED for another engagement could match by its title. A client document
+    belongs to an engagement by its tag: a tagged record must match a tag (the 40-character prefix rule kept); an
+    untagged record may match by path or title only when the slug is long enough to be specific."""
+    e = (eng or "").strip().lower()
+    if not e:
+        return True
+    tags = [t for t in str(rec.get("engagement") or "").strip().lower().split() if t]
+    if tags:
+        return any(_engagement_matches(e, "", {"engagement": t, "title": ""}) for t in tags)
+    if len(e) < 24:
+        return False
+    return _engagement_matches(e, wp, {"engagement": "", "title": rec.get("title", "")})
+
+
+@app.post("/api/engagement/page-owners")
+async def engagement_page_owners(payload: dict):
+    """Which engagement generated each synthesis page (2026-10-02, handoff step 6). Board theme quotes can point at
+    theme-synthesis or insight pages written for ANOTHER engagement; the deliverable rule engine drops those quotes.
+    Body: {engagement, paths: [...]} (max 2000). Returns {owners: {path: owner_slug or ""}, foreign: [path]}. Only
+    generated-synthesis pages appear; "" means the owner could not be determined, which is treated as foreign."""
+    from evidence_hygiene import synthesis_engagement, engagement_matches
+    eng = str(payload.get("engagement") or "").strip().lower()
+    paths = sorted({str(p).split("#", 1)[0].strip().lstrip("/") for p in (payload.get("paths") or []) if p})[:2000]
+    records = _manifest_load()
+
+    def _url(target: str) -> str:
+        trec = records.get(target) or {}
+        return str(trec.get("url") or "") or _evidence_page_info(target, trec).get("url", "")
+
+    owners, foreign = {}, []
+    for wp in paths:
+        owner = synthesis_engagement(wp, _url(wp), "", read_url=_url)
+        if owner is None:
+            continue
+        owners[wp] = owner
+        if not owner or not eng or not engagement_matches(owner, eng):
+            foreign.append(wp)
+    return {"engagement": eng, "owners": owners, "foreign": foreign}
+
+
+@app.get("/api/engagement/upload-pages")
+async def engagement_upload_pages(engagement: str = ""):
+    """Engagement ledger (services/engagementLedger.ts, 2026-10-02): every client-upload page of an engagement, read-only.
+
+    Source: the merged manifest (`_manifest_load()`). A page is a client upload when it lives under
+    articles/client-uploads/ (or an uploads folder), its method is "upload", or its url is upload://.
+    Engagement matching is `_engagement_matches` (the same rule as /api/manifest/chunks). The ledger reads
+    every listed page IN FULL through /api/wiki/read-batch; this route only lists them."""
+    records = _manifest_load()
+    eng = (engagement or "").strip().lower()
+    pages = []
+    for wp, rec in records.items():
+        wpl = (wp or "").lower()
+        is_upload = ("/client-uploads/" in wpl or wpl.startswith("uploads/") or "/uploads/" in wpl
+                     or str(rec.get("method") or "").lower() == "upload"
+                     or str(rec.get("url") or "").lower().startswith("upload://"))
+        if not is_upload or not wpl.endswith(".md"):
+            continue
+        if eng and not _upload_engagement_matches(eng, wp, rec):
+            continue
+        pages.append({
+            "wikiPath": wp,
+            "title": str(rec.get("title") or ""),
+            "chunk_count": int(rec.get("chunk_count") or 0),
+            "chars": int(rec.get("chars") or 0),
+            "collected_at": str(rec.get("collected_at") or ""),
+            "mtime": rec.get("mtime") or 0,
+        })
+    # The page frontmatter is the ground truth: a manifest record can be stale (2026-10-02: four statement-of-work
+    # pages carried `engagement: ""` in the manifest while their frontmatter named the engagement). Scan the
+    # upload folder's frontmatter heads too; read-only, first 4KB of each page.
+    seen = {p["wikiPath"] for p in pages}
+    if eng:
+        for folder in ("articles/client-uploads",):
+            absdir = os.path.join(WIKI_BASE, folder)
+            if not os.path.isdir(absdir):
+                continue
+            for fn in os.listdir(absdir):
+                if not fn.endswith(".md"):
+                    continue
+                wp = f"{folder}/{fn}"
+                if wp in seen:
+                    continue
+                try:
+                    with open(os.path.join(absdir, fn), "r", encoding="utf-8", errors="replace") as f:
+                        head = f.read(4096)
+                        # The chunk map can run far past 4KB (a 62-chunk page reported 10): count chunks on the
+                        # whole frontmatter, which ends at the second "---" line.
+                        fm = head
+                        if head.startswith("---") and "\n---" not in head[3:]:
+                            fm = head + f.read(400000)
+                        end = fm.find("\n---", 3)
+                        fm = fm[:end] if end > 0 else fm
+                except Exception:
+                    continue
+                m = re.search(r'^engagement:\s*"?([^"\n]*)"?\s*$', head, re.M)
+                if not m or not any(_upload_engagement_matches(eng, wp, {"engagement": t, "title": ""}) for t in m.group(1).split()):
+                    continue
+                tm = re.search(r'^title:\s*"?([^"\n]*)"?\s*$', head, re.M)
+                ca = re.search(r'^collected_at:\s*"?([^"\n]*)"?\s*$', head, re.M)
+                pages.append({"wikiPath": wp, "title": tm.group(1) if tm else "", "chunk_count": fm.count("char_span:"),
+                              "chars": 0, "collected_at": ca.group(1) if ca else "", "mtime": 0})
+                seen.add(wp)
+    pages.sort(key=lambda p: p["wikiPath"])
+    return {"engagement": engagement, "count": len(pages), "pages": pages}
+
+
+@app.post("/api/prd/export-xlsx")
+async def prd_export_xlsx(payload: dict):
+    """#prd requirements workbook (owner directive 2026-10-02: the PRD ships as a structured .xlsx).
+
+    Payload: { "air": <PrdAir record from services/prdAir.ts>, "brand": "NXT|NU|DECIEM", "title": "...",
+               "slug": "<saved artifact slug>" (optional) }
+    Returns the .xlsx bytes as an attachment. When a slug is given, a copy is also written next to the
+    artifact JSON as /hic-workspace/artifacts/{slug}.requirements.xlsx (best-effort; the response never
+    depends on it). Building is pure (proxy/prd_xlsx.py): no model call.
+    """
+    import asyncio
+    from fastapi import HTTPException
+    air = payload.get("air") if isinstance(payload, dict) else None
+    if not isinstance(air, dict) or not isinstance((air.get("graph") or {}).get("requirements"), list):
+        raise HTTPException(status_code=400, detail="payload must include 'air' (a PrdAir record with graph.requirements)")
+    brand = _norm_brand(payload.get("brand") or air.get("brand") or "nxt").upper()
+    title = str(payload.get("title") or air.get("title") or "prd")
+    try:
+        from prd_xlsx import build_prd_workbook_with_checks, checks_header, slug_filename
+        data, _checks = await asyncio.to_thread(build_prd_workbook_with_checks, air, brand)
+    except Exception as e:
+        logger.exception("prd xlsx export failed")
+        raise HTTPException(status_code=500, detail=f"prd workbook export failed: {e}")
+    filename = slug_filename(title, brand)
+    slug = "".join(c if c.isalnum() or c in "-_" else "-" for c in str(payload.get("slug") or "").lower()).strip("-")[:80]
+    saved_path = ""
+    if slug:
+        try:
+            os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+            saved_path = os.path.join(ARTIFACTS_DIR, f"{slug}.requirements.xlsx")
+            with open(saved_path, "wb") as f:
+                f.write(data)
+            # The PrdAir record the workbook was built from, kept next to it so the PRD can be audited and re-validated
+            # after the browser window that compiled it is gone (2026-10-02: a closed window lost the record).
+            with open(os.path.join(ARTIFACTS_DIR, f"{slug}.prdair.json"), "w", encoding="utf-8") as f:
+                json.dump(air, f, ensure_ascii=False)
+        except Exception as e:
+            logger.warning("prd xlsx persist skipped: %s", e)
+            saved_path = ""
+    logger.info("prd xlsx export: %d requirement(s), %d bytes -> %s%s", len(air["graph"]["requirements"]), len(data),
+                filename, f" (saved {saved_path})" if saved_path else "")
+    return Response(
+        content=data,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"',
+                 "X-Requirement-Count": str(len(air["graph"]["requirements"])),
+                 # Independent export check (prd_xlsx.export_checks): "pass" or the failing checks; the workbook ships either way.
+                 "X-Prd-Checks": checks_header(_checks),
+                 "Access-Control-Expose-Headers": "Content-Disposition, X-Requirement-Count, X-Prd-Checks"},
+    )
+
+
 @app.post("/api/gold/export-pptx-multi")
 async def gold_export_pptx_multi(payload: dict):
     """Convert a LIST of #stage 1920x1080 HTML docs into ONE editable N-slide .pptx.
@@ -17861,15 +19120,13 @@ async def gold_export_pptx_multi(payload: dict):
     # exported text stays editable. The graphic layer now renders the brand logo (its SVG fill is
     # resolved to an explicit color upstream so HIDE_TEXT can't blank it) and the native text embeds
     # the brand fonts (Saira Condensed / Archivo / Lato), so it matches the preview WITHOUT
-    # flattening to an image. mode="faithful" (opt-in only) is a pure raster fallback.
-    mode = str(payload.get("mode") or "editable").lower()
+    # flattening to an image. 2026-10-01 (plan E9 / Stage 2.2): the "faithful" raster path is
+    # DELETED (html_list_to_faithful_pptx no longer exists); every PPTX is native and editable,
+    # and a non-native slide is refused by the exporter rather than rasterized.
+    mode = "editable"
     try:
-        if mode == "faithful":
-            from gold_pptx_export import html_list_to_faithful_pptx
-            rep = await asyncio.to_thread(html_list_to_faithful_pptx, stages, out_path)
-        else:
-            from gold_pptx_export import html_list_to_editable_pptx
-            rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
+        from gold_pptx_export import html_list_to_editable_pptx
+        rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
         runs_per_slide = ",".join(str(s.get("runs", 0)) for s in rep.get("slides", []))
         logger.info("gold pptx-multi export (mode=%s): %d slides, runs=%s -> %s",
                     mode, len(stages), runs_per_slide, filename)
@@ -19254,6 +20511,17 @@ _BRAND_TOKENS = {
         "font_display": "'Saira Condensed', sans-serif",
         "font_body": "'Archivo', sans-serif",
     },
+    # DECIEM static mirror (2026-10-01) - used only when figma-tokens.json is unavailable
+    "deciem": {
+        "primary": "#FB48C4",     # DECIEM pink
+        "primary_deep": "#FB48C4",
+        "secondary": "#00FACC",   # DECIEM cyan
+        "text_primary": "#000000",
+        "text_secondary": "#5A5A5A",
+        "surface": "#FAFAFA",
+        "font_display": "'Poppins', sans-serif",
+        "font_body": "'Josefin Sans', sans-serif",
+    },
 }
 
 
@@ -19264,9 +20532,8 @@ def _brand_tokens(brand: str) -> dict:
     single-typeface Lato system and NXT display is Saira Condensed - both flow
     from the token file, not stale literals. Falls back to the static mirror only
     if the token file is unavailable."""
-    bl = (brand or "nxt").lower()
-    bn = "NU" if bl == "nu" else "NXT"
-    t = (_load_figma_tokens().get(bn) or {})
+    bl = _norm_brand(brand)
+    t = _brand_token_block(bl)
     c = t.get("color", {}) or {}
     fo = t.get("font", {}) or {}
     if not c or not fo:
@@ -19575,6 +20842,12 @@ def _manifest_pointer_label(pointer: str) -> tuple:
         return "", ""
     name = _humanize_source_token(prov.get("source") or "")
     title = (prov.get("title") or "").strip()
+    # An upload's title is its FILE NAME ("Meeting Summary - 09302026.txt"); citations name the document (2026-10-03).
+    if re.search(r"\.(pdf|docx?|xlsx?|pptx?|csv|txt|md|rtf)$", title, re.I) or ("_" in title and " " not in title):
+        title = re.sub(r"\.(pdf|docx?|xlsx?|pptx?|csv|txt|md|rtf)$", "", title, flags=re.I)
+        title = re.sub(r"\s*\(\d+\)\s*$", "", title).replace("_", " ")
+        title = re.sub(r"\s+(?:final|redacted|clean|draft)(?=\s|$)", "", title, flags=re.I)
+        title = re.sub(r"\s+", " ", title).strip()
     label = f"{name}: {title}" if name and title and title.lower() != name.lower() else (title or name)
     if not label:
         return "", ""
@@ -19758,9 +21031,21 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     # wrote are removed. Covers stored artifacts and every export re-read.
     out = _strip_model_chrome(out)
     out = _render_manifest_pointer_citations(out)
+    # 2026-10-03: model-authored inline SVG with height="auto" / width="auto" is invalid ("Expected length") and logs
+    # a console error on every view; dropping the attribute lets viewBox + the other dimension size the SVG.
+    out = re.sub(r'(<svg\b[^>]*?)\s(?:height|width)\s*=\s*["\']auto["\']', r'\1', out, flags=re.I)
 
     is_nu = (brand or "nxt").lower() == "nu"
+    _bl = _norm_brand(brand)
+    _is_deciem = _bl == "deciem"
+    if _is_deciem:
+        # 2026-10-03: a DECIEM artifact authored against NU tokens (the old prompt said "or NU when brand=...")
+        # resolved its accent to Huskies red. NU variables on a DECIEM page map to the DECIEM pink.
+        out = re.sub(r'var\(--nu-red(?:-deep|-tint|-dark|-light)?\b', 'var(--deciem-pink', out)
     tokens = _brand_tokens(brand)
+    # DECIEM neutrals come from its token block (panel / hairline / rail / graphite);
+    # NXT and NU keep their existing literal pairs below.
+    _dc = (_brand_token_block(_bl).get("color") or {}) if _is_deciem else {}
 
     # ─── 3d. NU SLIDE-MODE → design-system template path (2026-06-01) ─────
     # When an NU artifact is SLIDE-MODE (carries .nxt-slide frames), route it
@@ -19808,11 +21093,11 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
         ("#F8F9FD", tokens["surface"]),
         ("#F0F2FF", tokens["surface"]),
         # JM gray -> brand text-secondary
-        ("#f1f3f9", "#F2F0EA" if is_nu else "#F5F5F0"),
-        ("#e5e8f5", "#E8E4DC" if is_nu else "#E5E5E5"),
+        ("#f1f3f9", _dc.get("panel", "#F4F4F4") if _is_deciem else ("#F2F0EA" if is_nu else "#F5F5F0")),
+        ("#e5e8f5", _dc.get("hairline", "#E3E3E3") if _is_deciem else ("#E8E4DC" if is_nu else "#E5E5E5")),
         # Common dark backgrounds that drift to navy -> brand surface or paper
-        ("#0f1729", "#FAF8F4" if is_nu else "#0D0D0D"),
-        ("#1a1f3a", "#FAF8F4" if is_nu else "#1A1A1A"),
+        ("#0f1729", _dc.get("rail", "#000000") if _is_deciem else ("#FAF8F4" if is_nu else "#0D0D0D")),
+        ("#1a1f3a", _dc.get("graphite", "#1F1F1F") if _is_deciem else ("#FAF8F4" if is_nu else "#1A1A1A")),
     ]
     for src, dst in jm_to_brand:
         out = out.replace(src, dst)
@@ -19829,8 +21114,10 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     # CSS + JS + icon sprite + logo, plus a Python whitening pass that kills
     # dark-on-dark and a banned-chrome strip. This is what makes the artifacts
     # actually match the brand instead of merely being asked to. NU keeps the
-    # legacy override path unchanged.
-    if not is_nu:
+    # legacy override path unchanged. DECIEM (2026-10-01) also takes the legacy
+    # token-override path: nxt_design_system carries the NXT wordmark and NXT
+    # :root, so it must not run on a DECIEM artifact.
+    if _bl == "nxt":
         try:
             import nxt_design_system as _nxt_ds
             out = _nxt_ds.inject_nxt_system(out)
@@ -19839,15 +21126,17 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
             logger.warning(f"[brand] NXT design-system injection failed, falling back to legacy override: {_ds_err}")
 
     # ─── 5b. BRAND-TOKEN STYLE OVERRIDE (NU + NXT fallback) ───────────────
-    eyebrow_text = "NU · HUMANS IN CONTROL" if is_nu else "NXT HUMANS · HUMANS IN CONTROL"
+    eyebrow_text = {"nu": "NU · HUMANS IN CONTROL", "deciem": "DECIEM · HUMANS IN CONTROL"}.get(_bl, "NXT HUMANS · HUMANS IN CONTROL")
     # Inject a Google Fonts <link> for the brand fonts so they actually load
     fonts_link = (
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         + (
             '<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
-            if is_nu else
-            '<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Archivo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
+            if is_nu else (
+            '<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Josefin+Sans:wght@300;400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">'
+            if _is_deciem else
+            '<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Archivo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">')
         )
     )
 
@@ -19878,6 +21167,13 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     --bg-secondary: {tokens['surface']} !important;
     --color-primary: {tokens['primary']} !important;
     --accent: {tokens['primary']} !important;
+    /* 2026-10-03 live (#report #deciem): the artifact declared a dark-canvas token block (--nxt-text-secondary #E6E6E6)
+       while this override forces the light brand surface below; every paragraph rendered pale grey on #FAFAFA. The
+       artifact's own surface and text tokens follow the forced surface so text always contrasts with it. */
+    --nxt-bg: {tokens['surface']} !important;
+    --nxt-surface: {tokens['surface']} !important;
+    --nxt-text-primary: {tokens['text_primary']} !important;
+    --nxt-text-secondary: {tokens['text_secondary']} !important;
   }}
   /* Body-level enforcement: dark-theme JM variants use body{{background: navy}}
      which CSS-variable overrides alone can't reach. Force the brand surface. */
@@ -19897,7 +21193,7 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     color: {tokens['text_primary']} !important;
   }}
   /* Brand accent on links + nav buttons that JM emits */
-  a, .tab-btn, .nav-btn, button[class*="primary"], [class*="accent"] {{
+  a:not(.__hic_btn), .tab-btn, .nav-btn, button[class*="primary"]:not(.__hic_btn), [class*="accent"]:not(.__hic_btn) {{
     color: {tokens['primary']} !important;
     border-color: {tokens['primary']} !important;
   }}
@@ -19976,7 +21272,10 @@ async def _generate_gemini_image(prompt: str, brand: str) -> str:
     if not api_key or not prompt:
         return ""
     # Style wrapper: keep imagery editorial, on-brand-neutral, text-free.
-    palette = "muted, desaturated, editorial documentary photography" if brand == "nu" else "clean, modern, restrained editorial photography"
+    palette = {
+        "nu": "muted, desaturated, editorial documentary photography",
+        "deciem": "high-contrast, clean, studio-lit editorial photography on a pure white or pure black ground",
+    }.get(_norm_brand(brand), "clean, modern, restrained editorial photography")
     full_prompt = (
         f"{prompt.strip()}. Style: {palette}, natural light, candid, shallow depth of field, "
         "realistic, high detail. Absolutely NO text, NO captions, NO logos, NO watermarks, "
@@ -20024,6 +21323,9 @@ _ILLUS_PALETTE = {
     "nu":  {"all": "crimson Huskies red (#C8102E), deep navy (#0E1626), muted teal (#1D6E64), warm gold (#A4804A)",
             "dark": "crimson red (#C8102E), warm gold (#A4804A), light teal (#1D6E64), and white - NO dark navy, NO black",
             "light": "deep navy (#0E1626), crimson red (#C8102E), warm gold (#A4804A), muted teal (#1D6E64)"},
+    "deciem": {"all": "hot pink (#FB48C4), electric cyan (#00FACC), violet (#8A69D4), orange (#FF6C2F), pure black (#000000)",
+               "dark": "hot pink (#FB48C4), electric cyan (#00FACC), violet (#8A69D4), and white - LIGHT colors only, NO black",
+               "light": "pure black (#000000), hot pink (#FB48C4), electric cyan (#00FACC), violet (#8A69D4)"},
 }
 
 # House line-art palette: the continuous LINE color + the OFF-REGISTER flat color shapes behind it.
@@ -20038,6 +21340,10 @@ _ILLUS_LINEART = {
         "dark":  {"line": "warm gold (#A4804A)",  "blobs": "crimson Huskies red (#C8102E) and muted teal (#1D6E64)"},
         "light": {"line": "deep navy (#0E1626)",  "blobs": "crimson Huskies red (#C8102E) and warm gold (#A4804A)"},
     },
+    "deciem": {
+        "dark":  {"line": "hot pink (#FB48C4)",   "blobs": "electric cyan (#00FACC) and violet (#8A69D4)"},
+        "light": {"line": "pure black (#000000)", "blobs": "hot pink (#FB48C4) and electric cyan (#00FACC)"},
+    },
 }
 
 
@@ -20047,7 +21353,7 @@ def _illus_palette(brand: str, canvas: str) -> dict:
     hexes come from the live token sheet; falls back to the static _ILLUS_LINEART map only if tokens
     are unavailable. The role->slot mapping (accent as the line on NXT-dark, gold on NU-dark, near-
     black ink on light, etc.) is the design intent, not a value."""
-    b = "nu" if str(brand).lower() == "nu" else "nxt"
+    b = _norm_brand(brand)
     c = "dark" if str(canvas).lower() == "dark" else "light"
     toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
     if not toks:
@@ -20060,6 +21366,11 @@ def _illus_palette(brand: str, canvas: str) -> dict:
     teal = hx("teal", "#115054")
     rail = hx("rail", "#0D0D0D")
     gold = hx("gold", accent)  # NU-only warm; NXT has no gold token -> reuse accent
+    if b == "deciem":
+        purple = hx("purple", hx("source", accent))
+        if c == "dark":
+            return {"line": f"the brand accent colour ({accent})", "blobs": f"the cool accent ({cyan}) and violet ({purple})"}
+        return {"line": f"black ink ({rail})", "blobs": f"the brand accent ({accent}) and cool accent ({cyan})"}
     if b == "nxt":
         if c == "dark":
             return {"line": f"the brand accent colour ({accent})", "blobs": f"the cool accent ({cyan}) and deep teal ({teal})"}
@@ -20069,7 +21380,7 @@ def _illus_palette(brand: str, canvas: str) -> dict:
     return {"line": f"deep navy ink ({rail})", "blobs": f"the brand accent ({accent}) and warm gold ({gold})"}
 
 
-def _photo_prompt(concept: str, slot: str) -> str:
+def _photo_prompt(concept: str, slot: str, brand: str = "nxt") -> str:
     """PHOTOGRAPHIC slot style (2026-07-03, owner-directed slides-imagery uplift): editorial
     photography for cover/agenda BACKGROUNDS and persona/theme THUMBNAILS, mirroring the
     approved reference deck (full-bleed subject scene under a dark scrim; environmental
@@ -20096,11 +21407,30 @@ def _photo_prompt(concept: str, slot: str) -> str:
     else:
         comp = ("Documentary detail scene of the subject in its real context, one clear focal "
                 "point, uncluttered composition. ")
+    # Brand-specific photographic grade (2026-10-01). NXT and NU keep the approved editorial
+    # documentary grade. DECIEM follows its template's product-photography manner: high-key studio
+    # light, seamless white ground on paper slides, pure black ground under the cover, matte neutral
+    # textures, no warm cinematic grade, generous negative space (The Ordinary / NIOD / Hylamide
+    # layouts 11/27/28/29 of the template).
+    if _norm_brand(brand) == "deciem":
+        if slot == "background":
+            grade = ("Studio photograph on a PURE BLACK seamless ground: one subject lit by a single hard-edged "
+                     "soft box from the side, deep black negative space over most of the frame (a white title "
+                     "will sit in the lower-left), crisp focus, matte neutral textures, no warm grade, no haze. ")
+        elif slot == "portrait":
+            grade = ("Clean studio portrait on a plain white or pale grey seamless background, even soft "
+                     "frontal light, natural un-retouched skin texture, neutral color, crisp focus, calm "
+                     "expression, generous headroom; no environment clutter, no warm grade. ")
+        else:
+            grade = ("High-key studio photograph on a PURE WHITE seamless ground, even soft light, crisp focus, "
+                     "matte neutral textures, clinical and minimal, generous white negative space around one "
+                     "subject; no props beyond the subject, no warm grade, no film grain. ")
+    else:
+        grade = ("Natural golden-hour or soft overcast light, shallow-to-medium depth of field, muted "
+                 "cinematic color grade, realistic textures. ")
     return (
         f"Professional editorial photograph depicting: {concept.strip()}. "
-        + comp +
-        "Natural golden-hour or soft overcast light, shallow-to-medium depth of field, muted "
-        "cinematic color grade, realistic textures. "
+        + comp + grade +
         "ABSOLUTELY NO text, NO words, NO letters, NO numbers, NO logos, NO watermarks, NO UI, "
         "NO charts anywhere in the image. No illustration, no 3D render, no collage - a single "
         "coherent photograph."
@@ -20108,7 +21438,7 @@ def _photo_prompt(concept: str, slot: str) -> str:
 
 
 def _illustration_prompt(concept: str, brand: str, canvas: str) -> str:
-    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    brand = _norm_brand(brand)
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
     la = _illus_palette(brand, canvas)
     # HOUSE STYLE (user-locked 2026-06-17): fluid CONTINUOUS single-line art + bold flat color shapes
@@ -20335,7 +21665,8 @@ def _illus_registry_append(entry: dict) -> None:
 
 
 async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
-                              literal: bool = False, style: str = "line", reference: str = "") -> dict:
+                              literal: bool = False, style: str = "line", reference: str = "",
+                              brand_hint: str = "") -> dict:
     """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
     library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
 
@@ -20349,7 +21680,7 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     as-is. VS rewards non-obvious metaphors, which is exactly wrong for content-anchored step art
     (it turned 'AI scores probability' into an eagle and 'climate scan' into a houseplant leaf)."""
     import base64
-    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    brand = _norm_brand(brand)
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
     slot = slot if slot in _ILLUS_SLOT_NOTE else "side"
     try:
@@ -20392,7 +21723,12 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
             logger.warning(f"[illustration] reference unusable (continuing without): {_re}")
             ref_b64 = ""
     ref_salt = hashlib.sha1(ref_b64[:4096].encode()).hexdigest()[:8] if ref_b64 else ""
-    iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}")
+    # `brand_hint` (2026-10-01): the SPA's per-brand imagery wording (artifactIllustrator.brandImageryHint;
+    # DECIEM names its black-and-white + pink/cyan/purple line-art language). Salted into the id so a
+    # change of wording never serves an image generated under the old wording.
+    brand_hint = str(brand_hint or "").strip()
+    hint_salt = ("-h" + hashlib.sha1(brand_hint.encode("utf-8")).hexdigest()[:6]) if brand_hint else ""
+    iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}{hint_salt}")
     os.makedirs(_ILLUS_DIR, exist_ok=True)
     out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
     url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
@@ -20416,8 +21752,10 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         visual_concept = concept
     else:
         visual_concept = await _vs_select_concept(concept, brand, canvas, slot)
-    prompt = (_photo_prompt(visual_concept, style.split("-", 1)[1]) if is_photo
+    prompt = (_photo_prompt(visual_concept, style.split("-", 1)[1], brand) if is_photo
               else _illustration_prompt(visual_concept, brand, canvas))
+    if brand_hint:
+        prompt = prompt + " Brand visual language: " + brand_hint
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
     parts_out = []
     if ref_b64:
@@ -20479,7 +21817,8 @@ async def ai_illustration(payload: dict):
                                     payload.get("slot", "side"), payload.get("variant", 0),
                                     literal=bool(payload.get("literal")),
                                     style=str(payload.get("style") or "line"),
-                                    reference=str(payload.get("reference") or ""))
+                                    reference=str(payload.get("reference") or ""),
+                                    brand_hint=str(payload.get("brandHint") or ""))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res
 
@@ -20525,7 +21864,7 @@ async def ai_brand_image(payload: dict):
 # diagram keeps its canvas). Brand colours come from the Figma token mirror (never-hardcode);
 # content-hash cached for determinism + reuse.
 def _diagram_palette(brand: str, canvas: str) -> dict:
-    b = "nu" if str(brand).lower() == "nu" else "nxt"
+    b = _norm_brand(brand)
     c = "dark" if str(canvas).lower() == "dark" else "light"
     bt = (_load_figma_tokens() or {}).get(b.upper(), {}) or {}
     toks = bt.get("color", {}) or {}
@@ -20549,16 +21888,61 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
             "body_face": fonts.get("body") or ("Archivo" if b == "nxt" else "Lato"),
             "mono_face": fonts.get("mono") or ("IBM Plex Mono" if b == "nxt" else "Lato"),
             "disp_face": fonts.get("display") or ("Saira Condensed" if b == "nxt" else "Lato"),
-            "bg": rail if c == "dark" else paper, "fg": paper if c == "dark" else ink}
+            "bg": rail if c == "dark" else paper, "fg": paper if c == "dark" else ink,
+            # CSS font-family stacks for nxt_diagram_render (2026-10-01). Absent keys mean the
+            # renderer's NXT defaults ('Archivo' / 'Saira Condensed' / 'NXT Mono'), so NXT and NU
+            # exhibits render exactly as before; DECIEM binds the @font-face slots from
+            # brand_fonts.DIAGRAM_FONT_FACES (Poppins display + label / Josefin Sans body / Nunito mono).
+            # kickers / row labels / tags ride the mono slot in the diagram CSS; the DECIEM
+            # template sets every label in Poppins Bold, so the slot resolves to the Label face.
+            **({"css_body": "'DECIEM Body'", "css_title": "'DECIEM Display'",
+                "css_disp": "'DECIEM Display'", "css_mono": "'DECIEM Label'",
+                "label_weight": "700", "label_transform": "uppercase",
+                "rail_chrome": False,
+                "title_transform": fonts.get("title-transform") or "none"} if b == "deciem" else {})}
 
 
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v21-content-first-scenes"
+_DIAGRAM_STYLE_VERSION = "v23-deciem-railless-label-slot"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)
+
+
+_PROCESS_PREFIX_RE = re.compile(
+    r"\b(?:As (?:the )?research (?:indicates|shows|suggests),?\s*|Based on (?:the|our) (?:research|analysis|data),?\s*|"
+    r"(?:The|Our) (?:research|data|analysis|corpus) (?:indicates|shows|reveals|suggests) (?:that )?|According to our analysis,?\s*)",
+    re.I,
+)
+_HTML_TEXT_NODE_RE = re.compile(r">([^<>]+)<")
+
+
+def _scrub_html_text_nodes(html: str) -> str:
+    """2026-10-01 (plan Stage 2.2, audit E7): the Journey Mapper HTML was the ONE surface that
+    bypassed every scrub (57 persisted files with em-dashes, emoji nav glyphs, 89 banned phrases,
+    "As research indicates," and a literal "[CHUNK_XXX]"). Run each TEXT NODE (never tag names or
+    attributes) through the same chokepoint the diagram renderer uses, plus the process-prefix
+    strip and the raw chunk-marker strip. Text is re-escaped so a scrubbed node cannot inject markup."""
+    if not html or "<" not in html:
+        return html
+    def _fix(m):
+        raw = m.group(1)
+        if not raw.strip():
+            return m.group(0)
+        t = _scrub_diag_text(raw)
+        t = _PROCESS_PREFIX_RE.sub("", t)
+        t = re.sub(r"\[\s*CHUNK_[A-Z0-9_]+(?:\s*,\s*CHUNK_[A-Z0-9_]+)*\s*\]", "", t)
+        t = re.sub(r"\bCHUNK_[A-Z0-9_]+\b", "", t)
+        t = t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        # preserve the original leading/trailing whitespace so inline layout does not shift
+        lead = len(raw) - len(raw.lstrip()); trail = len(raw) - len(raw.rstrip())
+        return ">" + raw[:lead] + t + (raw[len(raw) - trail:] if trail else "") + "<"
+    try:
+        return _HTML_TEXT_NODE_RE.sub(_fix, html)
+    except Exception:
+        return html
 
 
 def _scrub_diag_text(s) -> str:
@@ -20601,7 +21985,7 @@ def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
     kicker_txt = str(spec.get("kicker") or _kick_fallback.get(kind, "")).strip()
     fmt = (
         f"Render ONE image, 16:9 aspect ratio, FULL-BLEED edge-to-edge with NO outer margin or border. It is a premium "
-        f"management-consulting exhibit for the {'Northeastern' if brand=='nu' else 'NXT Humans'} brand with this exact look "
+        f"management-consulting exhibit for the {_BRAND_DISPLAY_NAME.get(brand, 'NXT Humans')} brand with this exact look "
         f"(these are STYLING directions - do NOT write any of these direction words into the picture):\n"
         f"- Background is solid {p['paper']} paper white, perfectly flat, no gradients, no drop-shadows.\n"
         f"- A solid {p['rail']} vertical bar runs down the far LEFT edge (about 5% of the width, full height); at its bottom sits "
@@ -20749,7 +22133,7 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
     """Generate (or REUSE) one brand-locked, labeled structural diagram image. Returns
     {url, dataUri, id, reused}. No knockout (a diagram keeps its ground). Fail-open."""
     import base64
-    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    brand = _norm_brand(brand)
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
     iid = _diagram_id(spec, brand, canvas)
     os.makedirs(_ILLUS_DIR, exist_ok=True)
@@ -20884,7 +22268,7 @@ async def journey_map_generate(req: Request):
     # user flagged depth regression, so Sonnet is the right default.
     # Caller can override to claude-haiku-4-5-20251001 for speed-critical
     # path, or claude-opus-4-8 for maximum depth at higher cost.
-    llm_model = body.get("llm_model") or "claude-sonnet-4-6"
+    llm_model = body.get("llm_model") or _CLAUDE_STRUCTURED_MODEL
 
     if not goal:
         return JSONResponse({"error": "goal is required"}, status_code=400)
@@ -20946,6 +22330,8 @@ async def journey_map_generate(req: Request):
     # the NU/NXT color+font tokens (the user-requested one-line injection).
     # This makes JM produce an on-brand journey from the start instead of
     # the proxy recoloring a generic blue output after the fact.
+    # The Journey Mapper service knows only nu/nxt; DECIEM (or any other brand) is
+    # generated on the nxt structure and re-branded by _apply_brand_and_anti_slop below.
     brand_for_jm = (body.get("brand") or "nxt").lower()
     if brand_for_jm not in ("nu", "nxt"):
         brand_for_jm = "nxt"
@@ -20996,9 +22382,7 @@ async def journey_map_generate(req: Request):
                 # ─── Brand + anti-slop post-processing ─────────────────
                 # Apply HiC's brand tokens + slop substitution + em-dash strip
                 # so the JM output matches the rest of the deliverable suite.
-                brand = (body.get("brand") or "nxt").lower()
-                if brand not in ("nu", "nxt"):
-                    brand = "nxt"
+                brand = _norm_brand(body.get("brand"))
                 html = _apply_brand_and_anti_slop(html, brand)
                 # ─── Persona situational imagery ───────────────────────
                 # For persona artifacts, fill the per-card photo slots
@@ -21030,6 +22414,7 @@ async def journey_map_generate(req: Request):
                 try:
                     os.makedirs(JOURNEY_MAPPER_PERSIST_DIR, exist_ok=True)
                     persist_path = os.path.join(JOURNEY_MAPPER_PERSIST_DIR, f"{journey_id}.html")
+                    html = _scrub_html_text_nodes(html)   # 2026-10-01 (plan 2.2 / E7): never persist unscrubbed prose
                     with open(persist_path, "w", encoding="utf-8") as f:
                         f.write(html)
                     launcher_url = f"/api/journey-map/view/{journey_id}"
@@ -21201,106 +22586,12 @@ async def journey_map_list():
 import re as _re_artifact
 ARTIFACT_PERSIST_DIR = "/hic-workspace/sessions/_artifact-html"
 ARTIFACT_ROLLOUTS_DIR = "/hic-workspace/sessions/_artifact-rollouts"
-# 2026-05-25 — Auto-trigger SkillOpt training every N artifacts generated per
-# kind. The weekly cron is still the canonical training cycle, but this
-# in-process trigger keeps skills fresh during active use without forcing
-# the user to wait until Sunday morning.
-SKILLOPT_AUTOTRIGGER_INTERVAL = int(os.environ.get("SKILLOPT_AUTOTRIGGER_INTERVAL", "5"))
-_artifact_count_per_kind: Dict[str, int] = {}
+# 2026-10-01 (plan Stage 5 / C2): the in-memory per-kind SkillOpt auto-trigger that lived here
+# is DELETED. It reset on every restart, fed the optimizer rollouts scored 0.5 with no failures,
+# and competed with the epoch scheduler. ONE scheduler remains: POST /api/epochs/jobs counts
+# runs on disk -> an epoch_due proposal -> POST /api/epochs/run-batch -> proposal files ->
+# APPROVE verdict -> promotion.
 
-
-async def _maybe_trigger_skillopt(kind: str) -> None:
-    """Auto-trigger SkillOpt training for `kind` when N artifacts have been
-    generated since the last training. Runs as a fire-and-forget background
-    task. Skips on error (training failure shouldn't fail the user request)."""
-    _artifact_count_per_kind[kind] = _artifact_count_per_kind.get(kind, 0) + 1
-    if _artifact_count_per_kind[kind] < SKILLOPT_AUTOTRIGGER_INTERVAL:
-        return
-    # Reset counter immediately so a slow training doesn't queue duplicates
-    _artifact_count_per_kind[kind] = 0
-    logger.info(f"[skillopt-autotrigger] {kind}: {SKILLOPT_AUTOTRIGGER_INTERVAL} artifacts generated, queuing background training")
-
-    async def _run_training():
-        try:
-            # Map kind -> rollout file + skill path that scripts/run-skillopt.py expects
-            kind_to_skill_path = {
-                "journey": "/skills/diagrams/journey-illustrator/SKILL.md",
-                "blueprint": "/skills/service-blueprint-mapper/SKILL.md",
-                "persona": "/skills/persona-architect/SKILL.md",
-                "gap-analysis": "/skills/gap-analysis-evaluator/SKILL.md",
-                "roadmap": "/skills/roadmap-builder/SKILL.md",
-                "recommendation": "/skills/recommendation-architect/SKILL.md",
-                "strategy": "/skills/strategy-author/SKILL.md",
-                "strategy-slide": "/skills/strategy-author/SKILL.md",
-            }
-            skill_path = kind_to_skill_path.get(kind)
-            if not skill_path or not os.path.exists(skill_path):
-                logger.info(f"[skillopt-autotrigger] {kind}: skill path missing, skipping")
-                return
-            # Build a per-kind rollout JSON from recent artifact-rollouts
-            recent_rollouts = []
-            if os.path.isdir(ARTIFACT_ROLLOUTS_DIR):
-                for fn in sorted(os.listdir(ARTIFACT_ROLLOUTS_DIR), reverse=True)[:20]:
-                    if not fn.endswith(".json"):
-                        continue
-                    try:
-                        with open(os.path.join(ARTIFACT_ROLLOUTS_DIR, fn), "r", encoding="utf-8") as f:
-                            r = json.load(f)
-                        if r.get("kind") == kind:
-                            # score is computed by score-rollouts; for autotrigger we use
-                            # a neutral 0.5 so the optimizer treats them as borderline
-                            # cases that benefit from edits.
-                            recent_rollouts.append({
-                                "id": r.get("id"),
-                                "task_summary": r.get("task_summary", ""),
-                                "output": r.get("output", ""),
-                                "score": 0.5,
-                                "sub_scores": {},
-                                "failures": [],
-                            })
-                    except Exception:
-                        continue
-            if len(recent_rollouts) < 2:
-                logger.info(f"[skillopt-autotrigger] {kind}: only {len(recent_rollouts)} rollouts available; need >=2")
-                return
-            rollouts_path = f"/tmp/skillopt-auto-{kind}-{int(time.time())}.json"
-            with open(rollouts_path, "w", encoding="utf-8") as f:
-                json.dump(recent_rollouts, f)
-            # Fire-and-forget subprocess
-            import subprocess
-            cmd = [
-                "python", "/app/../scripts/run-skillopt.py" if os.path.exists("/app/../scripts/run-skillopt.py") else "/app/scripts/run-skillopt.py",
-                "--skill", skill_path,
-                "--rollouts", rollouts_path,
-                "--kind", kind,
-                "--epochs", "1",
-                "--budget", "3",
-                "--out-dir", "/tmp/skillopt-auto-out",
-            ]
-            # The script lives outside the proxy container — actual cmd path
-            # depends on volume mount. We try a few candidates.
-            candidate_scripts = [
-                "/app/../scripts/run-skillopt.py",
-                "/scripts/run-skillopt.py",
-                "/app/scripts/run-skillopt.py",
-            ]
-            script = next((p for p in candidate_scripts if os.path.exists(p)), None)
-            if not script:
-                logger.info(f"[skillopt-autotrigger] {kind}: run-skillopt.py not reachable inside proxy container")
-                return
-            cmd[1] = script
-            logger.info(f"[skillopt-autotrigger] {kind}: launching {' '.join(cmd[:4])}...")
-            subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                             env={**os.environ, "PYTHONIOENCODING": "utf-8"})
-        except Exception as e:
-            logger.warning(f"[skillopt-autotrigger] {kind} failed (non-fatal): {e}")
-
-    asyncio.create_task(_run_training())
-
-# Per-kind dimensions: width x height of the artifact's natural HTML report
-# canvas. Journey defaults to JM's 1920x1080 slide; persona/PRD are
-# document-shaped (taller); presentation is widescreen; org chart is
-# horizontal landscape.
 KIND_DIMENSIONS = {
     "journey":      (1920, 1080),
     "blueprint":    (1920, 1080),
@@ -21340,7 +22631,7 @@ KIND_TO_SKILL_PATH = {
     "gap-analysis":   "/skills/gap-analysis-evaluator/SKILL.md",
     "tech-audit":     "/skills/tech-audit-inspector/SKILL.md",
     "competitive":    "/skills/competitive-analyst/SKILL.md",
-    "presentation":   "/skills/deck-narrative-composer/SKILL.md",
+    "presentation":   "/skills/deck-composer/SKILL.md",
     "mindmap":        "/skills/mind-map-architect/SKILL.md",
     "brief-dialog":   "/skills/brief-dialog/SKILL.md",
     "meta-themes":    "/skills/meta-themes/SKILL.md",
@@ -21650,7 +22941,9 @@ def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, s
     # must NOT write its own theme; it emits semantic HTML using the nxt- classes.
     # This mirrors the JM service _brand_style_block so JM-routed and proxy-routed
     # artifacts share one design language.
-    if not is_nu:
+    # DECIEM shares the token-grounded legacy prompt below (the NXT design-system
+    # injection does not run on a DECIEM artifact), so only NXT takes this branch.
+    if _norm_brand(brand) == "nxt":
         return f"""**INSTRUCTION**: You are a MASTER {kind.upper().replace('-', ' ')} ANALYST. Activate extended thinking. Produce the most detailed, evidence-grounded {kind} possible as ONE complete HTML document.
 
 PRIMARY DIRECTIVE: build a {kind.upper().replace('-', ' ')}, the specific artifact type, using the module defined in KIND-SPECIFIC STRUCTURE below. That structure is the layout spec; the domain skill further down is REFERENCE for depth/quality, NOT a license to produce a generic strategy narrative. The research goal supplies the SUBJECT MATTER, not the artifact format. A {kind} that comes out as a strategy essay is WRONG.
@@ -21896,24 +23189,11 @@ Return ONLY the revised HTML document. Start with <!DOCTYPE html>, end with </ht
 # so a provider-wide rate limit can never kill a deliverable. Both providers are
 # funded/healthy on this platform; OpenAI is billing-dry so it is omitted.
 #
-# Per-kind chains (the pre-determined "best model for each hashtag deliverable"):
-#   PREMIUM (deep reasoning): Opus 4.8 -> Gemini 3.1 Pro -> Sonnet 4.6
-#   STRUCTURED (HTML/diagram/visual): Sonnet 4.6 -> Gemini 3.1 Pro -> Opus 4.8
-_ARTIFACT_PREMIUM_CHAIN = ["claude-opus-4-8", "gemini-3.1-pro-preview", "claude-sonnet-4-6"]
-_ARTIFACT_STRUCTURED_CHAIN = ["claude-sonnet-4-6", "gemini-3.1-pro-preview", "claude-opus-4-8"]
-_ARTIFACT_MODEL_CHAINS = {
-    # Premium reasoning
-    "strategy": _ARTIFACT_PREMIUM_CHAIN, "strategy-slide": _ARTIFACT_PREMIUM_CHAIN,
-    "recommendation": _ARTIFACT_PREMIUM_CHAIN, "gap-analysis": _ARTIFACT_PREMIUM_CHAIN,
-    "competitive": _ARTIFACT_PREMIUM_CHAIN, "prd": _ARTIFACT_PREMIUM_CHAIN,
-    "tech-audit": _ARTIFACT_PREMIUM_CHAIN, "meta-themes": _ARTIFACT_PREMIUM_CHAIN,
-    "brief": _ARTIFACT_PREMIUM_CHAIN, "research-plan": _ARTIFACT_PREMIUM_CHAIN,
-    # Structured HTML / diagram / visual
-    "org": _ARTIFACT_STRUCTURED_CHAIN, "arch": _ARTIFACT_STRUCTURED_CHAIN,
-    "roadmap": _ARTIFACT_STRUCTURED_CHAIN, "blueprint": _ARTIFACT_STRUCTURED_CHAIN,
-    "persona": _ARTIFACT_STRUCTURED_CHAIN, "presentation": _ARTIFACT_STRUCTURED_CHAIN,
-    "mindmap": _ARTIFACT_STRUCTURED_CHAIN, "brief-dialog": _ARTIFACT_STRUCTURED_CHAIN,
-}
+# 2026-10-01 (plan Stage 4.3 / D6): the per-kind chain tables that lived here are DELETED. The
+# routing authority is the SPA's aiRouter.chooseArtifactModel; the request carries `model_chain`
+# (the authority's pick + alternatives) and this engine walks it. When a caller sends no chain the
+# registry default below applies, so the proxy never again decides per kind on its own.
+_ARTIFACT_DEFAULT_CHAIN = [_CLAUDE_REASONING_MODEL, _CLAUDE_STRUCTURED_MODEL, "gemini-3.1-pro-preview"]
 _ARTIFACT_PROVIDER_COOLDOWN: Dict[str, float] = {}   # provider -> epoch until cooled down
 _ARTIFACT_COOLDOWN_SECS = 60.0
 
@@ -21938,10 +23218,12 @@ def _artifact_provider_reachable(provider: str) -> bool:
     return False
 
 
-def _resolve_artifact_chain(kind: str, preferred: str | None = None) -> list:
-    """Per-kind model chain, optimal-first, preferred model promoted to head,
-    unreachable providers dropped, cooling-down providers pushed to the back."""
-    base = list(_ARTIFACT_MODEL_CHAINS.get(kind, _ARTIFACT_STRUCTURED_CHAIN))
+def _resolve_artifact_chain(kind: str, preferred: str | None = None, client_chain: list | None = None) -> list:
+    """The chain the SPA's routing authority sent (`model_chain`), preferred model promoted to head,
+    unreachable providers dropped, cooling-down providers pushed to the back. `kind` is kept for
+    logging only; the proxy no longer picks per kind."""
+    sent = [str(m) for m in (client_chain or []) if isinstance(m, str) and m.strip()]
+    base = sent if sent else list(_ARTIFACT_DEFAULT_CHAIN)
     if preferred:
         base = [preferred] + [m for m in base if m != preferred]
     chain = [m for m in base if _artifact_provider_reachable(_artifact_model_provider(m))]
@@ -22053,7 +23335,7 @@ def _assess_evidence_density(prompt: str, kind: str) -> dict:
 
 
 async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: int = 64000,
-                                           preferred: str | None = None):
+                                           preferred: str | None = None, model_chain: list | None = None):
     """Walk the per-kind cross-provider model chain until one model returns
     AND passes the structural auditor. Records provider cooldown on transient
     failures so the NEXT call routes around the throttled provider. Returns
@@ -22099,7 +23381,7 @@ async def _generate_artifact_with_fallback(kind: str, prompt: str, max_tokens: i
         except Exception:
             pass
 
-    chain = _resolve_artifact_chain(kind, preferred)
+    chain = _resolve_artifact_chain(kind, preferred, model_chain)
     if not chain:
         raise RuntimeError("no reachable artifact models (check ANTHROPIC_API_KEY / GEMINI_API_KEY)")
     last_err = None
@@ -22171,34 +23453,55 @@ def _log_artifact_audit_verdict(kind: str, model: str, prompt_excerpt: str, audi
         pass
 
 
-async def _call_claude_for_artifact(prompt: str, model: str = "claude-sonnet-4-6", max_tokens: int = 32000) -> str:
-    """Call Anthropic via the existing proxy logic. Returns HTML text."""
+async def _call_claude_for_artifact(prompt: str, model: str = None, max_tokens: int = 32000) -> str:
+    """Call Anthropic directly for the proxy artifact engine. Returns HTML text.
+    2026-09-30 (plan Stage 0.5): model defaults to the structured tier from
+    model_registry; the body goes through the shared normalizer (adaptive thinking,
+    effort=high for a full HTML artifact, no sampling params); outputs above the
+    streaming threshold are streamed and aggregated; refusals raise loudly."""
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not anthropic_key:
         raise RuntimeError("ANTHROPIC_API_KEY missing — cannot generate artifact")
-    # opus-4-7/4-8/4-9 REJECT the `temperature` param with a 400 ("temperature is
-    # deprecated for this model"); only send it for models that accept it.
+    model = model or _CLAUDE_STRUCTURED_MODEL
     payload = {
         "model": model,
         "max_tokens": max_tokens,
         "messages": [{"role": "user", "content": prompt}],
     }
-    if not re.search(r"opus-4-[789]", model or ""):
-        payload["temperature"] = 0.3
+    if not _claude_adaptive(model):
+        payload["temperature"] = 0.3   # pre-4.6 Claude only
+    _claude_normalize_body(payload, default_effort="high")
+    headers = {
+        "x-api-key": anthropic_key,
+        "anthropic-version": "2023-06-01",
+        "Content-Type": "application/json",
+    }
+    _betas = []
+    if _ANTHROPIC_SERVER_FALLBACKS and _CLAUDE_SERVER_FALLBACK_RE.search(model):
+        payload["fallbacks"] = "default"
+        _betas.append(_ANTHROPIC_BETA_SERVER_FALLBACK)
+    if _betas:
+        headers["anthropic-beta"] = ",".join(_betas)
     async with httpx.AsyncClient(timeout=900.0) as client:
-        resp = await client.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": anthropic_key,
-                "anthropic-version": "2023-06-01",
-                "Content-Type": "application/json",
-            },
-            json=payload,
-        )
+        if int(max_tokens or 0) > _ANTHROPIC_STREAM_THRESHOLD:
+            resp = await _anthropic_stream_collect(client, payload, headers, timeout=900.0)
+        else:
+            resp = await client.post("https://api.anthropic.com/v1/messages", headers=headers, json=payload)
         if resp.status_code != 200:
             raise RuntimeError(f"Anthropic returned {resp.status_code}: {resp.text[:300]}")
         data = resp.json()
-        text = data.get("content", [{}])[0].get("text", "")
+        try:
+            _u = data.get("usage") or {}
+            _usage_ledger_append("_artifact-engine", "anthropic", model, {
+                "input_tokens": _u.get("input_tokens") or 0, "output_tokens": _u.get("output_tokens") or 0,
+                "cache_read_tokens": _u.get("cache_read_input_tokens") or 0, "cache_write_tokens": _u.get("cache_creation_input_tokens") or 0,
+            })
+        except Exception:
+            pass
+        if data.get("stop_reason") == "refusal":
+            _sd = data.get("stop_details") or {}
+            raise RuntimeError(f"Anthropic declined the artifact request ({_sd.get('category') or 'refusal'})")
+        text = "".join(b.get("text", "") for b in (data.get("content") or []) if isinstance(b, dict) and b.get("type") == "text")
         return text
 
 
@@ -22255,7 +23558,7 @@ async def journey_map_revise(req: Request):
 
     Body:
       { current_html: str, revision_instruction: str, brand: 'nu'|'nxt',
-        llm_model?: str (default claude-sonnet-4-6) }
+        llm_model?: str (default: the structured Claude tier from model_registry) }
 
     Returns: { ok, html, launcher_url, journey_id }
     """
@@ -22266,7 +23569,7 @@ async def journey_map_revise(req: Request):
     current_html = body.get("current_html") or ""
     instruction = (body.get("revision_instruction") or "").strip()
     brand = (body.get("brand") or "nxt").lower()
-    model = body.get("llm_model") or "claude-sonnet-4-6"
+    model = body.get("llm_model") or _CLAUDE_STRUCTURED_MODEL
     if not current_html or not instruction:
         return JSONResponse({"error": "current_html and revision_instruction are required"}, status_code=400)
     prompt = _artifact_revision_prompt("journey", brand, current_html, instruction)
@@ -22340,7 +23643,7 @@ def _render_insufficient_corpus_html(kind: str, brand: str, goal: str, corpus_le
     }
     label = _friendly.get(kind, kind.replace("-", " ").replace("_", " ").title())
     safe_goal = _html.escape((goal or "").strip()[:240])
-    wordmark = "NORTHEASTERN" if brand == "nu" else "NXT HUMANS"
+    wordmark = {"nu": "NORTHEASTERN", "deciem": "DECIEM"}.get(_norm_brand(brand), "NXT HUMANS")
     return (
         "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
         f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>{label}</title></head>"
@@ -22419,6 +23722,110 @@ async def artifact_audit(payload: dict):
 
 
 
+
+# =============================================================================
+# 2026-10-01 (plan Stage 4.5 / D10): JOB + POLL for the server fan-out endpoints. The SPA used to
+# hold one POST open for minutes against /api/artifact/generate, /api/artifact/revise and
+# /api/journey-map/generate; a dropped socket lost a finished artifact. A job runs the SAME handler
+# (a synthetic request carrying the body) in the background and persists its state to disk, so any
+# uvicorn worker can answer the poll.
+# =============================================================================
+_JOBS_DIR = "/hic-workspace/sessions/_jobs"
+_JOB_OPS = {
+    "/api/artifact/generate": "artifact_generate",
+    "/api/artifact/revise": "artifact_revise",
+    "/api/journey-map/generate": "journey_map_generate",
+    # D10 second half (2026-10-01): the chat deck path's long Anthropic calls (64K-token decks at xhigh
+    # effort) ride the same job store instead of one socket held for up to ten minutes.
+    "/api/ai/anthropic": "proxy_anthropic",
+}
+
+
+def _job_path(job_id: str) -> str:
+    safe = re.sub(r"[^A-Za-z0-9_-]", "", job_id)[:80]
+    return os.path.join(_JOBS_DIR, f"{safe}.json")
+
+
+def _job_write(job_id: str, state: dict) -> None:
+    os.makedirs(_JOBS_DIR, exist_ok=True)
+    tmp = _job_path(job_id) + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=True)
+    os.replace(tmp, _job_path(job_id))
+
+
+def _job_read(job_id: str) -> Optional[dict]:
+    try:
+        with open(_job_path(job_id), "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _synthetic_request(path: str, body: dict) -> Request:
+    raw = json.dumps(body).encode("utf-8")
+    scope = {"type": "http", "method": "POST", "path": path, "raw_path": path.encode(), "query_string": b"",
+             "headers": [(b"content-type", b"application/json"), (b"content-length", str(len(raw)).encode())],
+             "client": ("127.0.0.1", 0), "server": ("127.0.0.1", 5012), "scheme": "http", "http_version": "1.1"}
+    sent = {"done": False}
+
+    async def receive():
+        if sent["done"]:
+            return {"type": "http.disconnect"}
+        sent["done"] = True
+        return {"type": "http.request", "body": raw, "more_body": False}
+    return Request(scope, receive)
+
+
+async def _run_job(job_id: str, op: str, body: dict) -> None:
+    from datetime import datetime as _dt
+    handler = globals().get(_JOB_OPS[op])
+    try:
+        resp = await handler(_synthetic_request(op, body))
+        if isinstance(resp, JSONResponse):
+            status = int(resp.status_code)
+            try:
+                result = json.loads(resp.body.decode("utf-8"))
+            except Exception:
+                result = {"raw": resp.body.decode("utf-8", errors="replace")[:20000]}
+        else:
+            status = 200
+            result = resp
+        _job_write(job_id, {"job_id": job_id, "op": op, "status": "done" if 200 <= status < 300 else "error",
+                            "http_status": status, "result": result, "finished_at": _dt.utcnow().isoformat() + "Z"})
+    except Exception as e:
+        logger.exception(f"[jobs] {job_id} ({op}) failed: {e}")
+        _job_write(job_id, {"job_id": job_id, "op": op, "status": "error", "http_status": 500,
+                            "error": str(e)[:500], "result": {"error": str(e)[:500]}, "finished_at": _dt.utcnow().isoformat() + "Z"})
+
+
+@app.post("/api/jobs")
+async def jobs_create(req: Request):
+    """Queue one of the fan-out operations. Body `{op: '/api/artifact/generate'|'/api/artifact/revise'|
+    '/api/journey-map/generate', body: {...the op's normal body...}}`. Returns `{job_id, status: 'queued'}`."""
+    try:
+        payload = await req.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    op = str(payload.get("op") or "")
+    body = payload.get("body") if isinstance(payload.get("body"), dict) else None
+    if op not in _JOB_OPS or body is None:
+        return JSONResponse({"error": f"op must be one of {sorted(_JOB_OPS)} and body an object"}, status_code=400)
+    from datetime import datetime as _dt
+    job_id = f"job_{int(time.time() * 1000)}_{uuid.uuid4().hex[:8]}"
+    _job_write(job_id, {"job_id": job_id, "op": op, "status": "running", "started_at": _dt.utcnow().isoformat() + "Z"})
+    asyncio.create_task(_run_job(job_id, op, body))
+    return {"job_id": job_id, "status": "queued", "op": op}
+
+
+@app.get("/api/jobs/{job_id}")
+async def jobs_status(job_id: str = Path(...)):
+    st = _job_read(job_id)
+    if not st:
+        return JSONResponse({"error": "unknown job"}, status_code=404)
+    return st
+
+
 @app.post("/api/artifact/generate")
 async def artifact_generate(req: Request):
     """Generic kind-aware HTML report generator. Mirrors JM's depth pattern
@@ -22439,7 +23846,7 @@ async def artifact_generate(req: Request):
     brand = (body.get("brand") or "nxt").lower()
     goal = (body.get("goal") or "").strip()
     corpus = (body.get("corpus") or "").strip()
-    model = body.get("llm_model") or "claude-sonnet-4-6"
+    model = body.get("llm_model") or _CLAUDE_STRUCTURED_MODEL
     # 2026-05-30 — slide-mode summarization. render_mode: 'document' (default),
     # 'slide' (#slide: a tight 3-5 frame executive summary), or 'slides'
     # (#slides: a full summarized deck). slide_count optionally caps the deck
@@ -22549,7 +23956,7 @@ async def artifact_generate(req: Request):
         # fallback (Anthropic <-> Gemini). `model` is reassigned to whichever
         # model actually answered so the rollout + response report it truthfully.
         html, model = await _generate_artifact_with_fallback(
-            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"))
+            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"), model_chain=body.get("model_chain"))
         html = _ensure_complete_html(html)
         html = _apply_brand_and_anti_slop(html, brand)
         try:
@@ -22598,12 +24005,6 @@ async def artifact_generate(req: Request):
     except Exception as e:
         logger.warning(f"[artifact/{kind}] persist failed: {e}")
 
-    # Self-improvement: trigger SkillOpt training every N artifacts per kind
-    try:
-        await _maybe_trigger_skillopt(kind)
-    except Exception as st_err:
-        logger.warning(f"[skillopt-autotrigger] non-fatal: {st_err}")
-
     # ─── AUTOMATED VISUAL-QA GATE (2026-06-02; made non-blocking 2026-06-02) ──
     # CRITICAL FIX: this previously ran headless Chromium INLINE (awaited) on every
     # generation. With the proxy already saturated by concurrent source collection,
@@ -22650,7 +24051,7 @@ async def artifact_revise(req: Request):
     brand = (body.get("brand") or "nxt").lower()
     current_html = body.get("current_html") or ""
     instruction = (body.get("revision_instruction") or "").strip()
-    model = body.get("llm_model") or "claude-sonnet-4-6"
+    model = body.get("llm_model") or _CLAUDE_STRUCTURED_MODEL
 
     if not kind:
         return JSONResponse({"error": "kind is required"}, status_code=400)
@@ -22662,7 +24063,7 @@ async def artifact_revise(req: Request):
         # 2026-05-25 — Bumped to 64000. Revisions on 187KB JM HTML routinely
         # blew through 32K. 2026-05-29 — cross-provider fallback router.
         revised, model = await _generate_artifact_with_fallback(
-            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"))
+            kind, prompt, max_tokens=64000, preferred=body.get("llm_model"), model_chain=body.get("model_chain"))
         revised = _ensure_complete_html(revised)
         revised = _apply_brand_and_anti_slop(revised, brand)
     except Exception as e:
@@ -22976,7 +24377,8 @@ async def audit_render_proposed(payload: dict):
     sections = payload.get("sections")
     if not isinstance(sections, list) or not sections:
         return JSONResponse({"error": "sections[] required"}, status_code=400)
-    brand = "NU" if str(payload.get("brand") or "NXT").upper() == "NU" else "NXT"
+    _bu = str(payload.get("brand") or "NXT").upper()
+    brand = _bu if _bu in _TOKEN_BRANDS else "NXT"
     try:
         import asyncio as _aio
         import base64 as _b64p

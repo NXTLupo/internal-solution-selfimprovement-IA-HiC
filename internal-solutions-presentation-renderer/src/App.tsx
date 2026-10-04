@@ -225,7 +225,7 @@ export const App: React.FC = () => {
             marginTop: 16,
             fontSize: 11,
             color: exportStatus.error ? '#CC6644' : 'var(--text-tertiary)',
-            fontFamily: 'JetBrains Mono, monospace',
+            fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace",
             maxWidth: 760,
             margin: '16px auto 0',
             wordBreak: 'break-word' as const,
@@ -233,7 +233,7 @@ export const App: React.FC = () => {
             {exportStatus.error ? `Export failed: ${exportStatus.error}` : exportStatus.label}
           </div>
         )}
-        <div style={{ marginTop: '24px', fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace' }}>
+        <div style={{ marginTop: '24px', fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace" }}>
           Composed by {payload.meta.composerModel} · {payload.meta.composerToolCalls} tool calls · {payload.meta.citationCount} citations · {payload.meta.sourceCount.total} sources
         </div>
       </footer>
@@ -433,7 +433,7 @@ const LoadingScreen: React.FC = () => (
 const ErrorScreen: React.FC<{ message: string; slug: string | null }> = ({ message, slug }) => (
   <div style={loadingStyle}>
     <h1 style={{ fontSize: '32px', fontWeight: 900, marginBottom: '16px' }}>Could not load presentation</h1>
-    <pre style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '13px', opacity: 0.7 }}>
+    <pre style={{ fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace", fontSize: '13px', opacity: 0.7 }}>
       slug: {slug ?? '(none)'}{'\n'}error: {message}
     </pre>
   </div>
@@ -444,7 +444,7 @@ const PlaceholderSection: React.FC<{ data: unknown; index: number; total: number
     <div style={{ fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent-primary)', marginBottom: '16px' }}>
       Section {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')} · (no renderer registered)
     </div>
-    <pre style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-tertiary)', whiteSpace: 'pre-wrap' }}>
+    <pre style={{ fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace", fontSize: '11px', color: 'var(--text-tertiary)', whiteSpace: 'pre-wrap' }}>
       {JSON.stringify(data, null, 2)}
     </pre>
   </div>

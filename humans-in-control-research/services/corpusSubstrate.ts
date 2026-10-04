@@ -160,13 +160,10 @@ export function recordYieldEvent(evt: Omit<YieldLedgerEvent, 'ts'>): void {
     } catch { /* non-fatal */ }
 }
 
-export function getYieldEvents(): YieldLedgerEvent[] {
+function getYieldEvents(): YieldLedgerEvent[] {
     return _ring.slice();
 }
 
-export function clearYieldEvents(): void {
-    _ring.length = 0;
-}
 
 // ----------------------------------------------------------------------------
 // API: scope + retrieve.
@@ -177,7 +174,7 @@ export function clearYieldEvents(): void {
  * other arbitrary per-source caps with budget-aware relevance ranking over
  * the whole corpus. Same inputs -> same returned set.
  */
-export async function scopeCorpus(req: CorpusScopeRequest): Promise<CorpusScopeResponse> {
+async function scopeCorpus(req: CorpusScopeRequest): Promise<CorpusScopeResponse> {
     const resp = await fetch(`${PROXY_BASE}/api/corpus/scope`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,0 +1,135 @@
+{
+  "rubric_id": "strategy-rubric",
+  "kind": "strategy",
+  "version": "1.0.0",
+  "title": "strategy deliverable rubric",
+  "absorbed_from": ".claude/agents/strategy-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #strategy output. Audits Rumelt's Kernel discipline (diagnosis names THE central challenge with specific evidence; guiding policy is a DECISION not a goal; 5-7 coherent actions reinforce each other), pre-mortem coverage (every recommendation has a named failure mode + likelihood/severity), and second-order-thinker depth (consequences mapped 3 moves ahead). Returns a structured verdict the orchestrator must respond to before strategy ships.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "diagnosis_specificity",
+      "n": 1,
+      "label": "Diagnosis specificity",
+      "five": "Names THE central challenge in 1-2 sentences with named-source evidence; not a list of 5 challenges",
+      "one": "Vague \"challenges include...\" list",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": null
+    },
+    {
+      "id": "guiding_policy_is_a_decision",
+      "n": 2,
+      "label": "Guiding policy is a decision",
+      "five": "A DECISION (committed direction), not a goal (\"improve X\") or a value (\"be customer-centric\")",
+      "one": "Reads like a mission statement",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": null
+    },
+    {
+      "id": "coherent_actions_count",
+      "n": 3,
+      "label": "Coherent actions count",
+      "five": "5-7 actions (Rumelt's range); not 12 (too many) or 2 (too few)",
+      "one": "Outside the range",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "actions_reinforce_each_other",
+      "n": 4,
+      "label": "Actions reinforce each other",
+      "five": "The actions form a coherent system: action A enables action B which protects action C",
+      "one": "Disconnected initiatives that could each stand alone",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "pre_mortem_coverage",
+      "n": 5,
+      "label": "Pre-mortem coverage",
+      "five": "Every recommendation carries a named failure mode + likelihood (1-5) + severity (1-5) + early-warning indicator + pre-commitment",
+      "one": "Missing or generic \"things might not go as planned\"",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "second_order_depth",
+      "n": 6,
+      "label": "Second-order depth",
+      "five": "Each action maps consequences 3 moves ahead; names 1 unintended consequence per action; surfaces 1 feedback loop",
+      "one": "Stops at first-order (\"if we do X, Y happens\"); never reaches Z and W",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "evidence_anchoring",
+      "n": 7,
+      "label": "Evidence anchoring",
+      "five": "Every section opens with external research evidence (per .claude/CLAUDE.md Evidence Hierarchy); ≥60% citations external",
+      "one": "Opens with \"The CLR Project Charter states...\" (forbidden per CLAUDE.md)",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "evidence_anchoring"
+    },
+    {
+      "id": "action_title_slides",
+      "n": 8,
+      "label": "Action-title slides (if #slides)",
+      "five": "Every slide title is a complete-sentence judgment (\"Northeastern's co-op model is operationally bottlenecked at the advisor tier\" not \"The Co-op Model\")",
+      "one": "Topic-label titles",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "action_titles"
+    },
+    {
+      "id": "stakeholder_lens_coverage",
+      "n": 9,
+      "label": "Stakeholder-lens coverage",
+      "five": "The deliverable engages 3+ named stakeholder perspectives (per stakeholder-lens-auditor); not single-perspective",
+      "one": "Single voice / single audience",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "anti_slop_hygiene",
+      "n": 10,
+      "label": "Anti-slop hygiene",
+      "five": "No meta-commentary, no metaphors, no hyperbole, no em-dashes, no \"in conclusion\" wraps",
+      "one": "Multiple slop tells",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    }
+  ],
+  "blocking": [
+    "diagnosis_specificity",
+    "guiding_policy_is_a_decision",
+    "evidence_anchoring"
+  ],
+  "decision": {
+    "approve": "Rumelt's Kernel discipline ≥4 across all 4 sub-dimensions AND pre-mortem coverage ≥80% AND second-order depth ≥3",
+    "revise": "Coherent actions count outside 5-7 (sequence orchestrator to retry with bounded count) OR pre-mortem coverage 50-79% OR 1-2 dimensions below floor",
+    "reject": "Diagnosis is a list (not THE single central challenge) OR guiding policy is a goal (not a decision) OR pre-mortem coverage <50% OR any fabricated evidence"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

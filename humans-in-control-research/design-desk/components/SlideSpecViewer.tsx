@@ -15,6 +15,7 @@
 import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import type { SlideSpec, SlideObject } from '../schemas/slideSpec';
 import type { BrandHashtag } from '../services/hashtagParser';
+import { getBrand, normalizeBrandId } from '../../components/slideTemplates/brands';
 
 interface Props {
     spec: SlideSpec;
@@ -76,8 +77,35 @@ const NXT_TOKENS: BrandTokens = {
     atmosphere2: 'radial-gradient(circle at center, rgba(0,183,195,0.08) 0%, transparent 55%)',
 };
 
+// 2026-10-01 - DECIEM chrome is built from the brands.ts token set (black ink, pink accent,
+// cyan secondary, boxed wordmark seal). Soft pink / purple atmosphere on white paper; the dark
+// canvases of the DECIEM template belong to the slide spec itself, not to this preview chrome.
+const DECIEM_TOKENS: BrandTokens = (() => {
+    const b = getBrand('deciem');
+    const hex = (v: string) => (v.startsWith('#') ? v : `#${v}`);
+    return {
+        paper: hex(b.WHITE),
+        primary: hex(b.INK),
+        accent: hex(b.CHARTREUSE),
+        secondary: hex(b.CYAN),
+        muted: hex(b.GREY),
+        sealLetter: 'D',
+        sealBg: hex(b.INK),
+        sealColor: hex(b.WHITE),
+        atmosphere1: 'radial-gradient(circle at center, rgba(251,72,196,0.10) 0%, transparent 60%)',
+        atmosphere2: 'radial-gradient(circle at center, rgba(138,105,212,0.08) 0%, transparent 55%)',
+    };
+})();
+
+const TOKENS_BY_BRAND: Record<'nxt' | 'nu' | 'deciem', BrandTokens> = {
+    nxt: NXT_TOKENS,
+    nu: NU_TOKENS,
+    deciem: DECIEM_TOKENS,
+};
+
 function tokensFor(brand: BrandHashtag): BrandTokens {
-    return brand === 'nu' ? NU_TOKENS : NXT_TOKENS;
+    // Keyed by the ONE normalizer so 'deciem' (or any alias) never falls to NXT by accident.
+    return TOKENS_BY_BRAND[normalizeBrandId(brand)];
 }
 
 // ---------------------------------------------------------------------------

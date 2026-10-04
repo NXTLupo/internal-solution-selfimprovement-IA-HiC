@@ -15,6 +15,12 @@ describe('parseHashtags', () => {
         expect(parseHashtags('#persona #NU').brand).toBe('nu');
     });
 
+    it('honors explicit DECIEM brand (third brand mode, 2026-10-01)', () => {
+        expect(parseHashtags('#persona #DECIEM').brand).toBe('deciem');
+        expect(parseHashtags('#journey #deciem checkout to reorder').brand).toBe('deciem');
+        expect(parseHashtags('#persona #DECIEM #slide make her a dev').cleanPrompt).toBe('make her a dev');
+    });
+
     it('detects single-slide view modifier', () => {
         const r = parseHashtags('#persona #NXT #slide');
         expect(r.view).toBe('slide');

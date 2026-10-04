@@ -32,7 +32,7 @@ function bigCorpus(targetChars = 700_000) {
 
 const corpus = bigCorpus();
 const userMsg = `CORPUS:\n\n${corpus}\n\nIn 3 sentences, name the single most-cited theme across these sources.`;
-const bodyChars = JSON.stringify({ model: 'claude-opus-4-8', max_tokens: 600, messages: [{ role: 'user', content: userMsg }] }).length;
+const bodyChars = JSON.stringify({ model: 'claude-opus-5-5', max_tokens: 600, messages: [{ role: 'user', content: userMsg }] }).length;
 console.log(`Firing ${N} CONCURRENT requests, each ~${Math.round(bodyChars / 1000)}KB, at ${PROXY}/api/ai/anthropic ...`);
 
 async function fire(i) {
@@ -40,7 +40,7 @@ async function fire(i) {
   try {
     const r = await fetch(`${PROXY}/api/ai/anthropic`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-opus-4-8', max_tokens: 600, messages: [{ role: 'user', content: userMsg }] }),
+      body: JSON.stringify({ model: 'claude-opus-5-5', max_tokens: 600, messages: [{ role: 'user', content: userMsg }] }),
       signal: AbortSignal.timeout(300_000),
     });
     const ms = Date.now() - t0;

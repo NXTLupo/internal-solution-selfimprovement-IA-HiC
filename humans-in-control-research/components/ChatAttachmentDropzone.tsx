@@ -61,7 +61,10 @@ interface Props {
     accentColor?: string;
 }
 
-const ACCEPTED_EXTS = '.pdf,.docx,.doc,.xlsx,.xls,.pptx,.ppt,.txt,.md,.csv,.json,.xml,.png,.jpg,.jpeg,.gif,.webp,.bmp';
+/** ONE accepted-type list for every upload entry point (research-start FileUpload
+ *  imports it too, 2026-10-02): both paths feed the same /api/parse-upload extraction
+ *  and the same wikiService.ingestUploadedDocuments ingestion. */
+export const ACCEPTED_EXTS = '.pdf,.docx,.doc,.xlsx,.xls,.pptx,.ppt,.txt,.md,.csv,.json,.xml,.png,.jpg,.jpeg,.gif,.webp,.bmp';
 
 function fileToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {

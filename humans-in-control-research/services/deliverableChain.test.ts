@@ -103,8 +103,9 @@ describe('running the chain over deliverables', () => {
         const outcome = await runDeliverableChain([persona('d1')], { runId: 'r1' });
         const skipped = outcome.result.envelopes.filter(e => (e.meta as any)?.skipped);
         expect(skipped.map(e => e.stepId)).toContain('chain:deckQuality');
+        expect(skipped.map(e => e.stepId)).toContain('chain:titles');   // a persona's name is not a slide title
         expect(outcome.result.deckQualityReport).toBeNull();
-        expect(DELIVERABLE_SKIP).toEqual(['deckQuality']);
+        expect(DELIVERABLE_SKIP).toEqual(['deckQuality', 'titles']);
     });
 
     it('runs every OTHER stage, so the gates finally see these artifacts', async () => {

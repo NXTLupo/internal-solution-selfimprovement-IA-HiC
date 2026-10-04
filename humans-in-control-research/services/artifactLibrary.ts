@@ -1,3 +1,4 @@
+import type { BrandVariantId } from '../components/slideTemplates/brands';
 // artifactLibrary.ts - 2026-05-12 (Sprint H1)
 //
 // CRUD client for the proxy's /api/artifacts family. Mirrors
@@ -11,7 +12,7 @@ export interface ArtifactSummary {
     title: string;
     generator: string;            // '#brief' | '#explainer' | '#report' | ...
     topic?: string;
-    brand?: 'NXT' | 'NU';
+    brand?: BrandVariantId;
     html_chars?: number;
     variants_count?: number;
     created_at?: string;
@@ -65,7 +66,7 @@ export interface SaveArtifactInput {
     generator: string;
     html_source: string;
     slug?: string;
-    brand?: 'NXT' | 'NU';
+    brand?: BrandVariantId;
     topic?: string;
     engagement_context?: any;
     vs_commitment?: any;
@@ -107,7 +108,7 @@ export async function saveArtifact(input: SaveArtifactInput): Promise<ArtifactSu
     return resp.json();
 }
 
-export async function promoteVariant(slug: string, variantIndex: number): Promise<boolean> {
+async function promoteVariant(slug: string, variantIndex: number): Promise<boolean> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/artifacts/${encodeURIComponent(slug)}/promote-variant`, {
             method: 'POST',

@@ -74,7 +74,7 @@ export function getSessionConstraints(slug: string): SessionConstraints {
     return _mem[key];
 }
 
-export function setSessionConstraints(slug: string, c: SessionConstraints): void {
+function setSessionConstraints(slug: string, c: SessionConstraints): void {
     const key = slug || '_unassigned';
     _mem[key] = c;
     try {
@@ -221,7 +221,7 @@ export function compileDirectives(userText: string, slug: string): CompileResult
 // ---------------------------------------------------------------------------
 
 /** Loose containment match: "transcript" matches "Interview transcript - Rich.docx". */
-export function _fuzzyEq(a: string, b: string): boolean {
+function _fuzzyEq(a: string, b: string): boolean {
     const na = a.toLowerCase().trim();
     const nb = b.toLowerCase().trim();
     if (!na || !nb) return false;

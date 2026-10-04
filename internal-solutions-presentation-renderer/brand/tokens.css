@@ -1,12 +1,15 @@
 /* brand/tokens.css
  *
- * Brand-resolved CSS variables. App.tsx sets [data-brand="NXT"|"NU"] on <html>
+ * Brand-resolved CSS variables. App.tsx sets [data-brand="NXT"|"NU"|"DECIEM"] on <html>
  * once at mount, and theme via [data-theme="dark"|"light"]. Geometry,
  * typography, density rules are shared across brands — only colors swap.
  *
  * NXT default = dark (chartreuse + cyan + teal on near-black).
  * NU default  = STARK WHITE (Huskies red on white per brand spec; minimal,
  *                            editorial, gallery-style).
+ * DECIEM default = PURE BLACK (white Poppins Bold uppercase type, pink / cyan /
+ *                            purple pops; added 2026-10-01 from the DECIEM PowerPoint template).
+ * Fonts ride on --font-display / --font-body / --font-mono so a brand can swap faces.
  *
  * Single source of truth in TS lives at
  * humans-in-control-research/services/presentationTypes.ts (BRAND_TOKENS map).
@@ -45,6 +48,10 @@
 
   /* Hero subtitle, footer, side-nav-label color (low contrast on bg) */
   --muted-on-bg: #6B7280;
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* ============================================================================
@@ -80,6 +87,61 @@
   --parallax-l3: rgba(107, 107, 107, 0.025);
 
   --muted-on-bg: #6B6B6B;
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================================
+   DECIEM - The Abnormal Beauty Company (added 2026-10-01)
+   PURE BLACK canvas, white type, pink / cyan / purple pops, thin line-art.
+   Poppins Bold UPPERCASE headlines and labels, Josefin Sans body, Nunito for tables and data (the label slot below is --font-mono).
+   Mirrors BRAND_TOKENS.DECIEM in presentationTypes.ts; live values at
+   /api/design-tokens?brand=DECIEM.
+   ============================================================================ */
+[data-brand="DECIEM"] {
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E6E6E6;
+  --text-tertiary: #B3B3B3;
+  --text-quaternary: #8A8A8A;
+
+  --accent-primary: #FB48C4;     /* pink pop - the primary accent */
+  --accent-secondary: #00FACC;   /* cyan pop */
+  --accent-tertiary: #8A69D4;    /* purple pop */
+
+  --gradient-start: #FB48C4;
+  --gradient-end: #8A69D4;
+
+  --border-primary: #FFFFFF;     /* thin white rules on black */
+  --border-secondary: #2A2A2A;
+  --card-bg: rgba(255, 255, 255, 0.06);
+
+  --nav-dot: #2A2A2A;
+  --nav-dot-active: #FB48C4;
+
+  /* Parallax on black: soft pops, low opacity */
+  --parallax-l1: rgba(251, 72, 196, 0.10);
+  --parallax-l2: rgba(0, 250, 204, 0.07);
+  --parallax-l3: rgba(138, 105, 212, 0.08);
+
+  --muted-on-bg: #8A8A8A;
+
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Josefin Sans', sans-serif;
+  --font-mono: 'Poppins', sans-serif;
+}
+
+/* DECIEM headlines are Poppins Bold UPPERCASE. The section primitives set weight 900 and tight
+   tracking inline for NXT / NU, so this brand rule has to outrank the inline style. */
+[data-brand="DECIEM"] h1,
+[data-brand="DECIEM"] h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em !important;
 }
 
 /* ============================================================================
@@ -120,4 +182,23 @@
   --parallax-l1: rgba(184, 184, 0, 0.06);
   --parallax-l2: rgba(0, 183, 195, 0.04);
   --parallax-l3: rgba(17, 80, 84, 0.04);
+}
+
+/* Force light over DECIEM: the template's white body surface, black type, same pops.
+   Placed last so it outranks the generic :root[data-theme="light"] rule above. */
+[data-brand="DECIEM"][data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F4F4F4;
+  --text-primary: #000000;
+  --text-secondary: #1A1A1A;
+  --text-tertiary: #5A5A5A;
+  --text-quaternary: #8A8A8A;
+  --border-primary: #000000;
+  --border-secondary: #E3E3E3;
+  --card-bg: #F4F4F4;
+  --nav-dot: #D4D4D4;
+  --parallax-l1: rgba(251, 72, 196, 0.06);
+  --parallax-l2: rgba(0, 250, 204, 0.04);
+  --parallax-l3: rgba(138, 105, 212, 0.05);
+  --muted-on-bg: #6B6B6B;
 }

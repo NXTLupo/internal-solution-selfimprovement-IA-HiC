@@ -642,7 +642,7 @@ export function decide(
 // Formatter for Reasoning Stream + ledger output.
 // ---------------------------------------------------------------------------
 
-export function formatVector(v: QualityVector): string {
+function formatVector(v: QualityVector): string {
     const lines: string[] = [];
     if (v.label) lines.push(`# ${v.label}`);
     for (const [name, value] of Object.entries(v.dimensions)) {
@@ -656,7 +656,7 @@ export function formatVector(v: QualityVector): string {
     return lines.join('\n');
 }
 
-export function formatVerdict(verdict: EpochGateVerdict): string {
+function formatVerdict(verdict: EpochGateVerdict): string {
     const icon = verdict.decision === 'apply' ? ' APPLY' : ' REJECT';
     const lines: string[] = [`${icon}: ${verdict.reason}`];
     if (verdict.regressions.length > 0) {

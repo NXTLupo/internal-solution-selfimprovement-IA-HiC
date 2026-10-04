@@ -60,9 +60,6 @@ export function recordProviderSuccess(provider: Provider): void {
 }
 
 
-export function getProviderHealthSnapshot(): Record<Provider, ProviderHealth> {
-    return JSON.parse(JSON.stringify(_providerHealth));
-}
 
 
 /**
@@ -85,19 +82,6 @@ export function stableHash(...parts: string[]): string {
 }
 
 
-/**
- * Derive a deterministic seed for naming-class LLM calls.
- * Same purpose + identity_keys → same seed → reproducible output.
- */
-export function deriveSeed(purpose: string, ...identityKeys: (string | number)[]): number {
-    const input = [purpose, ...identityKeys.map(String)].join('|');
-    let hash = 5381;
-    for (let i = 0; i < input.length; i++) {
-        hash = ((hash << 5) + hash) + input.charCodeAt(i);
-        hash = hash >>> 0;
-    }
-    return hash;
-}
 
 
 export type DegradationEventKind =

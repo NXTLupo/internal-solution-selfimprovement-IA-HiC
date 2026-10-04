@@ -4,6 +4,7 @@ import dagre from '@dagrejs/dagre';
 import 'reactflow/dist/style.css';
 import type { OrgChartArtifact } from '../schemas/orgChartArtifact';
 import type { DesignTokens } from '../services/designMdLoader';
+import { paletteFor } from '../services/brandPalette';
 import { OrgChartNode, type OrgChartNodeData } from './OrgChartNode';
 
 const NODE_TYPES: NodeTypes = { orgNode: OrgChartNode };
@@ -130,7 +131,7 @@ export const OrgChartCanvas: React.FC<Props> = ({ artifact, tokens, onLayoutChan
         const out: Edge[] = [];
         for (const n of artifact.nodes) {
             for (const c of n.directReports) {
-                const palette = tokens.brands[artifact.brand] as Record<string, string>;
+                const palette = paletteFor(tokens, artifact.brand);
                 out.push({
                     id: `${n.id}->${c}`,
                     source: n.id,

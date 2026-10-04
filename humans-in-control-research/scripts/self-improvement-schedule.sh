@@ -62,9 +62,12 @@ run_nightly() {
 # ─── WEEKLY: nightly jobs + SkillOpt retrain (its own runner + gate) ───────
 run_weekly() {
   run_nightly
-  note "[weekly] SkillOpt retrain (delegates to skillopt-weekly.sh; has its own held-out validate-candidate.py gate)"
-  bash "$HIC_DIR/scripts/skillopt-weekly.sh" >> "$LOG" 2>&1 \
-    && note "[weekly] skillopt-weekly OK" || note "[weekly] skillopt-weekly failed (see log)"
+  # 2026-10-01 (plan Stage 5 / C6): skillopt-weekly.sh is deleted. ONE scheduler remains: the
+  # proxy's epoch job counter decides when an epoch is due; this weekly tick only asks it to run
+  # a batch (proposal files only; promotion needs an APPROVE verdict file).
+  note "[weekly] SkillOpt batch via POST /api/epochs/run-batch (proposal files only, APPROVE-gated promotion)"
+  curl -sS -X POST "http://127.0.0.1:5012/api/epochs/run-batch" -H "Content-Type: application/json" -d '{}' >> "$LOG" 2>&1 \
+    && note "[weekly] run-batch queued" || note "[weekly] run-batch request failed (proxy down or scripts not mounted; see log)"
 
   # E6.3 (2026-07-02, artifact-total-elevation): #proto manifest <-> Figma parity, weekly.
   # HEADLESS TIER: audits the proto component manifest the pipeline actually composes from

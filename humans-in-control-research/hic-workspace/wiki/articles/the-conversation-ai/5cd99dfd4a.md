@@ -8,12 +8,15 @@ title: "How Maison Schiaparelli pioneered a new form of fashion currency"
 author: ""
 date: "2026-06-11T12:01:25Z"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:19:47.668630+00:00"
+method: "source-native"
+extracted_at: "2026-08-26T19:21:16.298081+00:00"
 chars: 5874
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:19:45+00:00"
+engagement: "deliver-a-technical-architecture-and-implementation-blueprin"
+collected_at: "2026-08-26T19:21:16.180Z"
+relevance: 5
+engagement_goal: "Deliver a technical architecture and implementation blueprint for Deciem's marketing and design teams to automate the email production workflow from Figma design to validated, sendable HTML using a multi-agent AI system, specifying agent roles, skills, and Model Context Protocol configurations that connect Figma libraries, brand guidelines, and design patterns while preserving creative flexibility and brand compliance, based on state of the art evidence current as of August 2026 and no earlier than January 2026. Define the reusable email component approach (including MJML), sending-platform and personalization-token integration, and the QA and validation criteria that qualify automated output as sendable."
 content_hash: "db20065331fb0579"
+relevance_by_goal: {"8429cfd39d4f":20,"d21cb50b17ba":5}
 chunks:
   - id: "articles/the-conversation-ai/5cd99dfd4a.md#c0"
     char_span: [0, 199]

@@ -165,7 +165,7 @@ const DELIVERABLE_KINDS = ['themes', 'personas', 'journey', 'gap', 'recs', 'comp
  * Reads from wiki/engagements/<slug>/<kind>.json which the Phase B WRITE
  * side populates after each generate*() call in the auto-synthesis chain.
  */
-export async function loadEngagementBundle(slug: string): Promise<CachedEngagementBundle> {
+async function loadEngagementBundle(slug: string): Promise<CachedEngagementBundle> {
     if (!slug) return { slug: '', loaded_count: 0 };
     const t0 = Date.now();
     const results = await Promise.all(DELIVERABLE_KINDS.map(async (kind) => {
@@ -195,10 +195,6 @@ export async function loadEngagementBundle(slug: string): Promise<CachedEngageme
     return bundle;
 }
 
-/** Convenience: load multiple engagement bundles in parallel. */
-export async function loadEngagementBundles(slugs: string[]): Promise<CachedEngagementBundle[]> {
-    return Promise.all(slugs.map(loadEngagementBundle));
-}
 
 // =============================================================================
 // WS-C (2026-06-30): AUTO-REUSE the Karpathy second brain by objective.
@@ -216,57 +212,63 @@ export async function loadCachedItemsByGoal(
     goal: string,
     opts: { minScore?: number; maxItems?: number; maxBodyChars?: number } = {},
 ): Promise<DataSourceItem[]> {
-    // 2026-07-01 (live agricultural-insurance run): 0.2 folded four HIGHER-ED marketing archives
-    // (scores 0.29-0.38) into an agriculture corpus while the real match scored 0.67. Raised to 0.45:
-    // genuinely adjacent objectives still reuse; keyword-coincidence archives no longer contaminate.
+    // 2026-10-01 (plan Stage 1.8 / B7): reuse by MANIFEST QUERY, not a summary scan. The prior
+    // version read all 99 `sources/` archive bodies serially for one frontmatter field and lexically
+    // scored them. Now /api/manifest/chunks-by-goal ranks the whole chunk store by objective
+    // similarity; chunks at or above the floor are resolved, grouped by page, and folded in as
+    // `source:'cached'` items whose provenance carries the per-chunk pointers. The 0.45 floor is the
+    // same bar the old path used (the 2026-07-01 agriculture run set it) applied to the record's
+    // objective similarity.
     const minScore = opts.minScore ?? 0.45;
-    const maxItems = opts.maxItems ?? 8;      // bounded so auto-reuse never floods the corpus
+    const maxItems = opts.maxItems ?? 8;
     const maxBody = opts.maxBodyChars ?? 12000;
     if (!goal || goal.trim().length < 8) return [];
     try {
-        const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/sources`);
-        if (!listResp.ok) return [];
-        const listData = await listResp.json();
-        const files: string[] = Array.isArray(listData?.files) ? listData.files : [];
-        const mdFiles = files.filter(f => typeof f === 'string' && f.endsWith('.md'));
-        if (mdFiles.length === 0) return [];
-
-        const scored: Array<{ path: string; score: number; body: string; title: string }> = [];
-        for (const file of mdFiles) {
-            const body = await loadSourceArchiveBody(`sources/${file}`);
-            if (!body || body.length < 200) continue;
-            const archiveGoal = readFrontmatterField(body, 'research_goal')
-                || readFrontmatterField(body, 'title') || '';
-            const score = scoreGoalSimilarity(goal, archiveGoal);
-            if (score >= minScore) {
-                scored.push({ path: `sources/${file}`, score, body, title: archiveGoal || file.replace(/\.md$/i, '') });
-            }
-        }
-        if (scored.length === 0) {
-            console.log(`[CacheLoader] AUTO-REUSE: scanned ${mdFiles.length} source archives, 0 matched objective (minScore=${minScore}) - cache miss, fresh collection only.`);
+        const qs = new URLSearchParams({ goal, limit: '400', types: 'social-post,article,upload,documentation' });
+        const resp = await fetch(`${PROXY_BASE}/api/manifest/chunks-by-goal?${qs.toString()}`);
+        if (!resp.ok) return [];
+        const data = await resp.json();
+        const ids: string[] = Array.isArray(data?.chunk_ids) ? data.chunk_ids : [];
+        const scores: Record<string, number> = (data && typeof data.scores === 'object' && data.scores) ? data.scores : {};
+        const pages: Record<string, { title?: string; relevance?: number }> = (data && typeof data.pages === 'object' && data.pages) ? data.pages : {};
+        // Scores arrive 0-100 or 0-1 depending on the proxy build; normalize to 0-1.
+        const norm = (v: number) => (v > 1 ? v / 100 : v);
+        const admitted = ids.filter(id => Number.isFinite(scores[id]) && norm(scores[id]) >= minScore);
+        if (!admitted.length) {
+            console.log(`[CacheLoader] AUTO-REUSE by manifest: ${ids.length} candidate chunk(s), 0 at or above the objective-similarity floor ${minScore} - cache miss, fresh collection only.`);
             return [];
         }
-        scored.sort((a, b) => b.score - a.score);
-        const top = scored.slice(0, maxItems);
-        const items: DataSourceItem[] = top.map((s) => {
+        const { resolveChunks } = await import('./wikiPointerResolver');
+        const resolved = await resolveChunks(admitted.slice(0, 400));
+        const byPage = new Map<string, { chunks: Array<{ id: string; text: string; score: number }>; title: string }>();
+        for (const c of resolved.chunks) {
+            const page = c.id.split('#')[0];
+            const entry = byPage.get(page) || { chunks: [], title: pages[page]?.title || c.pageMeta?.title || page.split('/').pop()?.replace(/\.md$/i, '') || page };
+            entry.chunks.push({ id: c.id, text: String(c.text || ''), score: norm(scores[c.id] || 0) });
+            byPage.set(page, entry);
+        }
+        const ranked = Array.from(byPage.entries())
+            .map(([page, e]) => ({ page, ...e, best: Math.max(...e.chunks.map(x => x.score)) }))
+            .sort((a, b) => b.best - a.best)
+            .slice(0, maxItems);
+        const items: DataSourceItem[] = ranked.map(r => {
+            const body = r.chunks.sort((a, b) => b.score - a.score).map(x => x.text).join('\n\n').slice(0, maxBody);
             const it: DataSourceItem = {
-                id: `cached_${s.path.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`,
-                title: s.title.slice(0, 140),
-                content: s.body.slice(0, maxBody),
-                url: `wiki://${s.path}`,
+                id: `cached_${r.page.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`,
+                title: String(r.title).slice(0, 140),
+                content: body,
+                url: `wiki://${r.page}`,
                 date: '',
                 sourceType: 'web',
-                sourceName: `Cached reuse: ${s.title.slice(0, 80)}`,
-                relevanceScore: Math.round(s.score * 100),
+                sourceName: `Cached reuse: ${String(r.title).slice(0, 80)}`,
+                relevanceScore: Math.round(r.best * 100),
             };
-            // fold-in marker read by mergeResultsToCorpus (source !== 'cached' => real upload);
-            // provenance for the run manifest + the corpus_reuse_provenance gate.
             (it as any).source = 'cached';
-            (it as any).cachedProvenance = { path: s.path, goalSimilarity: Math.round(s.score * 1000) / 1000 };
+            (it as any).cachedProvenance = { path: r.page, goalSimilarity: Math.round(r.best * 1000) / 1000, chunkIds: r.chunks.map(x => x.id).slice(0, 50) };
             return it;
         });
-        console.info(`[CacheLoader] AUTO-REUSE by objective: folded ${items.length}/${scored.length} goal-matched cached archives (minScore=${minScore}); ` +
-            top.map(t => `${t.path.replace('sources/', '')}=${t.score.toFixed(2)}`).join(', '));
+        console.info(`[CacheLoader] AUTO-REUSE by manifest query: ${admitted.length} chunk(s) at or above ${minScore} across ${byPage.size} page(s); folded ${items.length}: ` +
+            ranked.map(r => `${r.page.split('/').pop()}=${r.best.toFixed(2)}`).join(', '));
         return items;
     } catch (e: any) {
         console.warn('[CacheLoader] loadCachedItemsByGoal failed (non-fatal, fresh collection continues):', e?.message || e);
@@ -281,7 +283,7 @@ export async function loadCachedItemsByGoal(
 // =============================================================================
 
 /** Read a source archive markdown body (wiki/sources/<path>.md). */
-export async function loadSourceArchiveBody(archivePath: string): Promise<string | null> {
+async function loadSourceArchiveBody(archivePath: string): Promise<string | null> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/read/${archivePath}`);
         if (!resp.ok) return null;
@@ -341,7 +343,7 @@ export function scoreGoalSimilarity(a: string, b: string): number {
  * with the engagement's goal. Returns the matched body + the path so
  * the caller can log the resolution for debugging.
  */
-export async function resolveEngagementSourceArchive(engagementSlug: string, engagementGoal: string): Promise<{ body: string; path: string } | null> {
+async function resolveEngagementSourceArchive(engagementSlug: string, engagementGoal: string): Promise<{ body: string; path: string } | null> {
     // Try the expected path first (Phase B engagements live here).
     const directPath = `sources/${engagementSlug}.md`;
     const direct = await loadSourceArchiveBody(directPath);
@@ -389,7 +391,7 @@ export async function resolveEngagementSourceArchive(engagementSlug: string, eng
  * top terms + sample post titles. The shape mirrors what the
  * generateThemes() prompt expects to see in the corpus.
  */
-export async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promise<{ text: string; clusterCount: number; filesScanned: number }> {
+async function loadSynthesisClustersAsCorpus(clusterIds: string[]): Promise<{ text: string; clusterCount: number; filesScanned: number }> {
     if (!Array.isArray(clusterIds) || clusterIds.length === 0) {
         return { text: '', clusterCount: 0, filesScanned: 0 };
     }
@@ -533,7 +535,7 @@ export interface AssembledCachedCorpus {
  * Fails safe - any individual loader error is logged and that section is
  * skipped; the rest of the corpus still assembles.
  */
-export async function assembleCachedCorpus(selection: {
+async function assembleCachedCorpus(selection: {
     engagementSlugs: string[];
     themeClusterIds: string[];
     sourceArchivePaths: string[];

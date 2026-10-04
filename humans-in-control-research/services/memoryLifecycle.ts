@@ -433,7 +433,7 @@ export function applyConsolidation(
  * deliberately ABSENT: they appear inside ordinary sentences and would confirm
  * facts the user never endorsed.
  */
-export const REINFORCEMENT_PATTERNS: RegExp[] = [
+const REINFORCEMENT_PATTERNS: RegExp[] = [
     /\byes[,.]?\s+(?:exactly|perfect|that(?:'s| is) (?:right|correct|it))\b/i,
     /\bperfect(?:[.!?]|$)/i,
     /\bexactly\s+(?:right|correct|what i (?:wanted|needed|meant))\b/i,

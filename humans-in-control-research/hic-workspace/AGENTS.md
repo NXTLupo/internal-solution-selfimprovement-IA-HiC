@@ -737,13 +737,47 @@ chunks:
     related_chunks: ["articles/openalex/2024-smith.md#c5"]   # WS-G: intra-doc concept-adjacent chunks
     section: "Findings"
     token_count: 512
-    sources: [{"n":"Higher Ed Dive","u":"https://..."}]   # WS-A: REAL per-chunk source(s); the citation
-                                                           # resolver reads THIS at cite time, not the page title
+    sources: [{"n":"Higher Ed Dive","u":"https://...","kind":"article","date":"2026-08-25"}]
+                                                  # WS-A + 1.5: REAL per-chunk source(s); the citation
+                                                  # resolver reads THIS at cite time, not the page title
 ```
 
 - `sources` (WS-A) is the per-chunk source LINEAGE: a quote from this chunk resolves to these named sources,
-  never the page title or a provider bucket. Written from Gemini grounding (`attribute_chunks_to_grounding`).
+  never the page title or a provider bucket. Three producers, most specific wins:
+  1. Gemini grounding (`attribute_chunks_to_grounding`) for deep-research pages, per matched chunk;
+  2. an inline `Source: [Name](url)` line in the chunk body (`_extract_inline_sources`);
+  3. **1.5 (2026-10-01, plan 2026-09-30 B4): the PAGE's own provenance, on EVERY chunk that has neither.**
+     `chunk_for_manifest` reads the flat page frontmatter (`parse_page_frontmatter`) and writes
+     `page_source_from_frontmatter(...)` as the default. An inline entry that IS the page source (same URL,
+     or same name with no URL) inherits the page's `u` / `kind` / `date`. Before 1.5 `sources` existed on
+     ~23.5% of chunks; now a chunk without `sources` is one whose page has no citable identity.
+  Per-entry schema (compact JSON, one object per source):
+  | key | meaning | from |
+  |---|---|---|
+  | `n` | source NAME as cited (`source` frontmatter; a client upload's document `title`; else `author`, else the URL publisher) | required |
+  | `u` | http(s) URL only (`upload://`, `deepresearch://`, wiki paths are dropped: a reader cannot open them) | required, may be `""` |
+  | `kind` | lowercase page `kind` / `type` / `source_type` (`article`, `social`, `transcript`, `documentation`, ...) | optional |
+  | `date` | publication date as ISO 8601 `YYYY-MM-DD`, parsed by `iso_date` from RSS ("Tue, 25 Aug 2026 00:57:21 GMT"), ISO datetimes, `YYYY/MM/DD`, "August 25, 2026", "25 August 2026", epoch s/ms; the STATED calendar date, no timezone shift | optional |
+  | `date_raw` | the original string when `iso_date` cannot parse it (never both `date` and `date_raw`) | optional |
+  | `author` | page `author` when present and distinct from `n` | optional |
+  | `subreddit` | page `subreddit`, or the `r/<name>` inside a Reddit `source` string | optional |
+  A page gets NO default (its chunks stay unattributed unless grounding/inline attributes them) when
+  `method: deep-research`, when `source` is a model/provider bucket (`gemini`, `gemini (focused research)`,
+  `openai`, ...), or when it has neither a source name nor an http URL. `reddit-deep: r/gemini` is a real
+  source, not a bucket. The TS twin (`wikiPointerResolver._parseChunksFrontmatter`) parses the JSON as-is,
+  so the new keys ride through without a parser change; consumers that only read `n`/`u` are unaffected.
 - `concepts` + `related_chunks` (WS-G) are the manifest CONCEPT GRAPH: dominant concepts per chunk, and
   intra-doc edges between chunks sharing >=2 concepts. WS-G(traversal)/Stage 2 walks these (plus cross-doc
   edges) to seed retrieval before keyword/MMR ranking. Objective-alignment scoring is added at RETRIEVAL time
   (WS-F), not at chunk time (chunking has no objective).
+  **1.7 chunker half (2026-10-01, plan 2026-09-30 B2):** `related_chunks` written at chunk time are
+  intra-document only (one page in hand). `wiki_chunker.build_cross_document_edges(records_or_pages,
+  max_per_chunk=5, *, jaccard_threshold=0.25, min_shared_concepts=2, neighbors=None)` proposes CROSS-document
+  edges for the backfill job from the per-chunk `concepts` already in frontmatter plus caller-supplied named
+  entities (`entities` / `named_entities` / `key_entities` / `named_institutions` / `tags`, at page or chunk
+  level; no wiki page type carries such a field today, so the backfill passes them in). Edge rule: different
+  document AND (>= 2 shared concepts with Jaccard >= 0.25, OR >= 1 exact shared entity); ranked by
+  jaccard + 0.5 x shared entities, deterministic, capped. `neighbors` ({chunk_id: [ids]} from the vector
+  store) merges in as a lower tier that fills the remaining slots. Pure: it returns `{chunk_id: [ids]}` and
+  writes nothing; the proxy backfill owns the write (and may append the result to each chunk's
+  `related_chunks` or keep it in a separate manifest field).

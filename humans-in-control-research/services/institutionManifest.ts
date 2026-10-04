@@ -198,7 +198,7 @@ function normalize(s: string): string {
  * University" would be wrong (could be Boston College). We prefer
  * precision over recall at this layer.
  */
-export function resolveInstitution(
+function resolveInstitution(
     query: string,
     manifest: InstitutionManifest,
 ): InstitutionRecord | null {
@@ -250,7 +250,7 @@ export function resolveInstitution(
  * list of named entities; this returns the set of unique institutions they
  * resolve to. Preserves order of first appearance.
  */
-export function resolveInstitutions(
+function resolveInstitutions(
     queries: string[],
     manifest: InstitutionManifest,
 ): InstitutionRecord[] {
@@ -271,7 +271,7 @@ export function resolveInstitutions(
  * "vs peers" expansion - when a brief says "Northeastern vs its peers",
  * this returns Northeastern plus its boston_private peer set.
  */
-export function expandWithPeers(
+function expandWithPeers(
     inst: InstitutionRecord,
     manifest: InstitutionManifest,
 ): InstitutionRecord[] {

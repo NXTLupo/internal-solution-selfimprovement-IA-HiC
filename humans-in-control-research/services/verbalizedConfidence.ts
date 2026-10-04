@@ -232,7 +232,7 @@ const QA_ANNOTATION_PATTERNS = [
     /\bpending\s+additional\s+research\b/gi,
 ];
 
-export function sanitizeRationale(rationale: string | undefined): string {
+function sanitizeRationale(rationale: string | undefined): string {
     if (!rationale || typeof rationale !== 'string') return '';
     let out = rationale;
     for (const pat of QA_ANNOTATION_PATTERNS) {

@@ -90,7 +90,7 @@ const MIN_CONSTRAINT_CHARS = 40;
 
 /** Strip the "- CONSTRAINT [scope]:" prefix and trailing "(source: ...)" so we
  *  test the rule body itself. Accepts a raw line OR a bare rule. */
-export function extractRuleBody(line: string): string {
+function extractRuleBody(line: string): string {
     let s = line.trim();
     s = s.replace(/^[-*]\s*/, '');
     s = s.replace(/^CONSTRAINT\s*(\[[^\]]*\])?\s*:\s*/i, '');
@@ -203,7 +203,3 @@ export function gateConstraints(lines: string[]): GateResult {
     return { kept, rejected, deduped };
 }
 
-/** Filter+dedupe convenience that returns only the kept lines. */
-export function filterAndDedupeConstraints(lines: string[]): string[] {
-    return gateConstraints(lines).kept;
-}

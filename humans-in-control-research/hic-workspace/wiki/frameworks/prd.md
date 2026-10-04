@@ -102,7 +102,7 @@ A PRD generated under this framework is not a feature specification. It is a pro
 
 ### Section 1: Problem Statement (Data-Backed)
 
-State the problem in one to three paragraphs. The problem must be grounded in evidence: customer research data, support ticket analysis, behavioral analytics, competitive intelligence, or direct user quotes. Avoid stating the problem as the absence of a solution ("users don't have a dashboard" is a solution statement masquerading as a problem; "users cannot identify which of their 200+ accounts require immediate attention, resulting in an average 4.2-hour daily triage process" is a problem statement).
+State the problem in one to three paragraphs. The problem must be grounded in evidence: customer research data, support ticket analysis, behavioral analytics, competitive intelligence, or direct user quotes. Avoid stating the problem as the absence of a solution ("users don't have a dashboard" is a solution statement masquerading as a problem; "account managers cannot tell which of their accounts need attention today, so they triage by hand every morning" is a problem statement). A figure belongs here only inside a verbatim cited quote.
 
 Include: Who has this problem? How many of them? How often? What is the cost of the problem persisting (in revenue, retention, operational cost, or customer effort)?
 
@@ -121,7 +121,7 @@ Every user story must have at least one acceptance criterion in Gherkin syntax:
 - **When** [action/trigger]
 - **Then** [expected outcome/observable result]
 
-Acceptance criteria define the boundary between "done" and "not done." They must be specific enough for automated testing. Avoid criteria that require subjective judgment ("the page loads quickly") -- quantify instead ("the page reaches First Contentful Paint within 1.5 seconds on a 4G connection").
+Acceptance criteria define the boundary between "done" and "not done." They must be specific enough for automated testing. Avoid criteria that require subjective judgment ("the page loads quickly"); state the bound as a typed requirement_target instead (metric "first contentful paint on a mobile connection", a value and unit the team sets, a qualitative rationale). The bound never appears as prose.
 
 Include both happy-path and edge-case criteria. For each story, define at minimum: one happy path, one error/edge case, and one boundary condition.
 
@@ -129,11 +129,11 @@ Include both happy-path and edge-case criteria. For each story, define at minimu
 
 Define primary success metrics using the SMART framework: Specific, Measurable, Achievable, Relevant, Time-bound. For each metric, specify: Metric Name, Current Baseline, Target Value, Measurement Method, Measurement Frequency, Target Date.
 
-Critically, define **guardrail metrics** -- things that must NOT degrade as a result of pursuing the primary metrics. Example: if the primary metric is "increase conversion rate by 15%," a guardrail might be "customer support contact rate must not increase by more than 5%." This prevents local optimization that damages the broader experience.
+Critically, define **guardrail metrics** -- things that must NOT degrade as a result of pursuing the primary metrics. Example: if the primary signal is "checkout completed" moving up, a guardrail might be "support contact rate does not rise," with a named rollback authority. This prevents local optimization that damages the broader experience. Baselines are a status ("to be measured by [owner] by [date]"), never a bare figure.
 
 Include a Driver/Guardrail/Learning taxonomy:
-- **Driver metrics:** The metrics you are trying to move (1-3 maximum)
-- **Guardrail metrics:** The metrics you are protecting (2-5)
+- **Driver metrics:** The metrics you are trying to move (one to three at most)
+- **Guardrail metrics:** The metrics you are protecting (two to five)
 - **Learning metrics:** The metrics you are observing to build understanding (unlimited)
 
 ### Section 5: Personas
@@ -144,15 +144,15 @@ For CX-specific PRDs, include both customer personas and internal user personas 
 
 ### Section 6: Functional Requirements (Outcomes, Not Implementations)
 
-State requirements as outcomes the system must achieve, not as implementation instructions. Wrong: "Add a dropdown menu with filter options." Right: "Users must be able to narrow the display to items matching specific criteria; the system must support at least 5 concurrent filter dimensions with results updating within 500ms."
+State requirements as outcomes the system must achieve, not as implementation instructions. Wrong: "Add a dropdown menu with filter options." Right: "Users must be able to narrow the display to items matching several criteria at once; the refresh bound is a typed requirement_target."
 
 Organize requirements by capability area, not by UI screen. Each requirement must have: ID, Description, Priority (from the prioritization framework), Acceptance Criteria Reference, Dependency References.
 
 ### Section 7: Non-Functional Requirements
 
-Address: Performance (response times, throughput), Scalability (user/data volume growth), Availability (uptime SLA), Security (authentication, authorization, data protection), Accessibility (WCAG 2.1 AA minimum), Internationalization, Browser/Device support matrix, Data retention and archival.
+Address: Performance (response times, throughput), Scalability (user/data volume growth), Availability (uptime SLA), Security (authentication, authorization, data protection), Accessibility (WCAG 2.2 AA minimum), Internationalization, Browser/Device support matrix, Data retention and archival.
 
-Each NFR must be quantified. "The system must be fast" is not a requirement. "API response time must be under 200ms at p95 under a load of 1,000 concurrent users" is a requirement.
+Each NFR carries a typed requirement_target. "The system must be fast" is not a requirement. "API response time at p95 under peak load" with a value, a unit and a qualitative rationale in the typed target is a requirement; the same bound written as prose is a violation of the number rule.
 
 ### Section 8: Technical Constraints and Dependencies
 
@@ -192,9 +192,9 @@ Explicitly state what this PRD does NOT address. This is as important as the sco
 
 ### Section 15: Timeline
 
-Apply the Shape Up appetite model: define the time budget (typically 2, 4, or 6 weeks) and shape the scope to fit within it. If the scope cannot fit within the appetite, reshape (reduce scope) rather than extend the timeline.
+Apply the Shape Up appetite model: define the time budget as a typed requirement_target in weeks and shape the scope to fit within it. If the scope cannot fit within the appetite, reshape (reduce scope) rather than extend the timeline.
 
-Include: Phase (Discovery/Alpha/Beta/GA), Duration, Key Milestones, Dependencies, Confidence Level. Longer-term items should have lower confidence and wider ranges. Never present a single-point estimate beyond a 4-week horizon without an explicit confidence interval.
+Include: Phase (Discovery/Alpha/Beta/GA), Duration, Key Milestones, Dependencies, Confidence Level. Longer-term items should have lower confidence and wider ranges. Never present a single-point estimate beyond the appetite without an explicit confidence statement.
 
 ### Section 16: Stakeholder Sign-Off
 
@@ -213,17 +213,9 @@ All features and requirements MUST be prioritized using one of the following met
 - **Could Have:** Desirable. Included only if time and resources permit after Must and Should are delivered.
 - **Won't Have (this time):** Explicitly deferred. Documented for future consideration.
 
-### RICE Scoring
+### Evidence-derived tiers (replaces typed MoSCoW and RICE scoring)
 
-For more granular prioritization, apply RICE:
-- **Reach:** How many users/customers will this affect in a defined time period? (Number)
-- **Impact:** How much will this move the success metric per user? (3 = massive, 2 = high, 1 = medium, 0.5 = low, 0.25 = minimal)
-- **Confidence:** How confident are you in the Reach and Impact estimates? (100% = high, 80% = medium, 50% = low)
-- **Effort:** How many person-weeks will this require? (Number)
-
-RICE Score = (Reach x Impact x Confidence) / Effort
-
-Every requirement at the epic level must have either a MoSCoW classification or a RICE score. Individual user stories within a Must Have epic do not require separate RICE scoring.
+Tier assignment is derived from evidence columns, not typed by the author. Must-have requires all of: maps to the thesis; must-be or one-dimensional Kano type read from the corpus; at least two independent origins; a primary persona; Cagan's bar. Should-have: one origin or a secondary persona. Could-have: single-source or inferred. Won't-have: named with its reason. RICE or WSJF only when Reach and Effort come from real data; otherwise print the evidence columns, never a score. The derivation lives in `services/prdAir.ts` (deriveTier) and the skill of record is `.claude/skills/prd-compiler/SKILL.md`.
 
 ---
 
@@ -239,7 +231,7 @@ The PRD reads as a list of features with no connecting narrative about user prob
 Success metrics are vague ("improve user satisfaction") or absent. Detection: no baseline values, no target values, no measurement method. Fix: apply SMART framework rigorously; if you cannot measure it, you cannot ship it.
 
 ### Everything is P1
-All requirements are marked as highest priority, rendering the prioritization meaningless. Detection: more than 40% of requirements are Must Have or P1. Fix: apply MoSCoW with a strict budget -- Must Haves should be 30-40% of total scope maximum.
+All requirements are marked as highest priority, rendering the prioritization meaningless. Detection: most requirements are must-have, or a must-have has one origin. Fix: derive tiers from the evidence columns; a must-have needs two independent origins and a primary persona, so must-have is rare by construction.
 
 ### Ivory Tower PRD
 Written without customer input, based entirely on stakeholder opinions or competitor copying. Detection: no research citations, no user quotes, no behavioral data. Fix: halt and conduct discovery research before proceeding.
@@ -260,13 +252,13 @@ A PRD must pass ALL of the following gates before development begins:
 | QG-P3 | Success metrics have baselines and targets | Metrics table completeness |
 | QG-P4 | Guardrail metrics defined alongside driver metrics | Metrics taxonomy review |
 | QG-P5 | All requirements prioritized (MoSCoW or RICE) | Priority field completeness |
-| QG-P6 | Must Haves represent no more than 40% of total scope | Priority distribution check |
+| QG-P6 | Every must-have carries two independent origins and a primary persona | Trace-integrity check (services/prdAir.ts) |
 | QG-P7 | Personas grounded in cited research | Persona source audit |
 | QG-P8 | Out of scope section contains minimum 3 items | Section 14 count |
 | QG-P9 | Data privacy requirements addressed | Section 10 completeness |
 | QG-P10 | Stakeholder sign-off matrix defined | Section 16 presence |
 | QG-P11 | No anti-patterns detected | Anti-pattern checklist scan |
-| QG-P12 | Timeline uses confidence intervals for items beyond 4 weeks | Timeline review |
+| QG-P12 | Timeline states confidence for items beyond the appetite | Timeline review |
 
 ---
 
@@ -285,6 +277,10 @@ When generating a PRD:
 9. **Maintain as a living document.** The PRD is not a contract carved in stone. Assumptions should be updated as they are validated or invalidated. Open questions should be resolved and their answers incorporated. The PRD evolves through discovery, delivery, and post-launch learning.
 
 ---
+
+## Generation contract (2026-10-01)
+
+The sixteen sections above are the framework reference. The GENERATION contract is the one PRD shape `PrdAir` (two tiers, twelve sections, the Source to Signal traceability graph, evidence-derived tiers, seven-field success signals, the typed requirement_target number rule): `.claude/skills/prd-compiler/SKILL.md`, `services/prdAir.ts`, `schemas/prd_air.schema.json`. Where this page and that skill disagree, the skill wins.
 
 ## Cross-References
 

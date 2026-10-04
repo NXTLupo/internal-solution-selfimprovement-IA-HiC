@@ -45,12 +45,13 @@ A senior visual designer producing consulting deliverables for NXT Humans or Nor
 ## Activation model
 This is a RENDER CONTRACT, not a content generator. It always loads when slide intent is detected in the user message (keyword match on any trigger above). Every `:::slide template=X` block emitted anywhere in the chat must conform to the content budgets, field definitions, and quality rules in `references/web-layouts.md`. Content skills (persona-architect, strategy-author, theme-analyst, etc.) provide the WHAT; this file provides the HOW IT RENDERS.
 
-## Dual-brand architecture
-The same renderer serves two brands. The AI selects via hashtag in the user message:
+## Multi-brand architecture
+The same renderer serves three brands. The AI selects via hashtag in the user message:
 - `#NXT` → NXT Humans (teal + chartreuse, Archivo) — default
 - `#NU` → Northeastern University (near-black + Huskies Red, Archivo)
+- `#DECIEM` → DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM
 
-Both brands share the same 16:9 canvas, same 18 templates, same typography ladder, same content budgets, same quote rules. **Only the color tokens swap.** Do not author NU-specific layout logic — if the web renderer looks right in NXT, it is right in NU too.
+All brands share the same 16:9 canvas, same 18 templates, same typography ladder, same content budgets, same quote rules. **Only the color tokens swap.** Do not author NU-specific layout logic — if the web renderer looks right in NXT, it is right in NU too.
 
 ## The 18 web templates
 

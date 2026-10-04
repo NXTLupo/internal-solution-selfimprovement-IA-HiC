@@ -264,7 +264,7 @@ export interface ThemeLike {
     insight?: string;
 }
 
-export function extractQuotesForTheme(
+function extractQuotesForTheme(
     theme: ThemeLike,
     graph: KnowledgeGraph,
     opts: { count?: number; excludeSources?: Set<string> } = {},

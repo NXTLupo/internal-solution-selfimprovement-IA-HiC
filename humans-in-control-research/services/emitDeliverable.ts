@@ -119,7 +119,19 @@ export interface EmitDeliverableOpts<T> {
         uncertainty?: number;
         /** Threshold the trigger was checking against. */
         threshold?: number;
+        /** R-M4 (2026-10-01): the repair record (RepairResult.ri) when the artifact chain
+         *  re-asked. Per-family finding counts before and after, resolved, survived. Mirrored
+         *  onto AIR qualityReport.ri so goldenSetRunner measures the fire rate from records. */
+        before?: Record<string, number>;
+        after?: Record<string, number>;
+        resolved?: number;
+        survived?: number;
     };
+
+    /** R-M4 (2026-10-01): verbalized-sampling candidates the gate chose among (titles, theses,
+     *  theme names). Mirrored onto AIR qualityReport.vsCandidates; the golden-set runner reads
+     *  the distinct ratio as vs_candidate_spread. */
+    vsCandidates?: string[];
 
     /** 2026-06-06 - INSIGHT-AS-CHUNK persistence. When provided, the wrapper
      *  iterates the emitted items after persistence and writes each as its
@@ -253,7 +265,8 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
 
         const traceOpts: RecordTurnOpts = {
             step_label: opts.step_label,
-            model_id: opts.model_id,
+            // The model that SERVED the call (a fallback after a 504 is not the requested model; 2026-10-03 live).
+            model_id: String((result as any)?.modelUsed || opts.model_id),
             prompt: opts.prompt,
             response: text,
             started_at: t0,
@@ -388,6 +401,21 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                 runId, artifactId, trigger: opts.air.trigger, objective,
                 evidenceLedger: evidence, artifactPayload: payload, trace: airTrace,
                 shadowMode: opts.air.blocking !== true,
+                // R-M4 (2026-10-01): qualityReport mirror of the mechanism signals. `ri` is
+                // normalized to the full record shape (empty maps when the caller only knew
+                // whether it fired) so readers never branch on a partial object.
+                ...(opts.ri ? {
+                    ri: {
+                        fired: opts.ri.fired === true,
+                        before: opts.ri.before ?? {},
+                        after: opts.ri.after ?? {},
+                        resolved: typeof opts.ri.resolved === 'number' ? opts.ri.resolved : 0,
+                        survived: typeof opts.ri.survived === 'number' ? opts.ri.survived : 0,
+                    },
+                } : {}),
+                ...(Array.isArray(opts.vsCandidates) && opts.vsCandidates.length
+                    ? { vsCandidates: opts.vsCandidates.filter((c): c is string => typeof c === 'string' && c.trim().length > 0).slice(0, 32) }
+                    : {}),
             });
             if (!entry) {
                 console.warn(`[emitDeliverable/${opts.deliverable}] AIR: trigger '${opts.air.trigger}' not in artifact catalog - add it to services/artifactCatalog.ts`);
@@ -397,6 +425,20 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
         } catch (e: any) {
             console.warn(`[emitDeliverable/${opts.deliverable}] AIR emission failed (non-fatal):`, e?.message || e);
         }
+
+        // 2026-10-01 (plan Stage 5.1, audit C2) - END-OF-RUN EPOCH READER. The job counter was computed by
+        // /api/epochs/status and discarded (zero SPA callers; `due` had been true since inception). After an
+        // AIR is emitted this run is a completed job: count it once, log the status line once per run, and
+        // when the epoch is due write ONE pending proposal to the propose-only ledger. Fire-and-forget; the
+        // emission result is never affected. The AIR construction above is untouched.
+        try {
+            const { recordJobCompletion } = await import('./epochTrigger');
+            const epochRunId = opts.air.runId
+                || (typeof window !== 'undefined' ? ((window as any).__hicCurrentEngagementSlug as string) : '')
+                || 'run';
+            void recordJobCompletion(epochRunId, { deliverable: opts.deliverable })
+                .catch((e: any) => console.warn(`[emitDeliverable/${opts.deliverable}] epoch reader failed (non-fatal):`, e?.message || e));
+        } catch { /* trigger not loaded - no-op */ }
     }
 
     // 2026-06-06 - INSIGHT-AS-CHUNK persistence. Close the second-brain
@@ -422,7 +464,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                         insightId: it.insightId,
                         text: it.text,
                         sourceChunks: it.sourceChunks || [],
-                        model: opts.model_id,
+                        model: String((result as any)?.modelUsed || opts.model_id),
                         reproducibilityHash: opts.insightPersist!.reproducibilityHash,
                         researchGoal: opts.insightPersist!.researchGoal,
                         title: it.title,
@@ -447,7 +489,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
  * titles / citations). Equivalent to calling emitDeliverable with
  * extractText: (r) => r.text and buildScoreInput: (text) => ({text}).
  */
-export async function emitDeliverableSimple<T extends { text?: string }>(
+async function emitDeliverableSimple<T extends { text?: string }>(
     deliverable: string,
     step_label: string,
     model_id: string,

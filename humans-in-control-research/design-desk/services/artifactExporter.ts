@@ -19,6 +19,7 @@ import { jsPDF } from 'jspdf';
 import { toPng } from 'html-to-image';
 import type { Artifact } from '../types';
 import type { DesignTokens } from './designMdLoader';
+import { normalizeBrandId } from '../../components/slideTemplates/brands';
 import { OrgChartCanvas } from '../components/OrgChartCanvas';
 import { NxtDocViewer } from '../components/NxtDocViewer';
 import {
@@ -682,9 +683,14 @@ const NXT_PRIMARY = '#0D0D0D';
 const NU_PRIMARY = '#141414';
 const NXT_ACCENT = '#B8B800';
 const NU_ACCENT = '#C8102E';
+// 2026-10-01 - DECIEM (third brand mode): pure black ink, pink pop accent (brands.ts deciemBrand).
+const DECIEM_PRIMARY = '#000000';
+const DECIEM_ACCENT = '#FB48C4';
 
 function brandColors(brand: string): { primary: string; accent: string } {
-    if (brand === 'nu') return { primary: NU_PRIMARY, accent: NU_ACCENT };
+    const id = normalizeBrandId(brand);
+    if (id === 'nu') return { primary: NU_PRIMARY, accent: NU_ACCENT };
+    if (id === 'deciem') return { primary: DECIEM_PRIMARY, accent: DECIEM_ACCENT };
     return { primary: NXT_PRIMARY, accent: NXT_ACCENT };
 }
 

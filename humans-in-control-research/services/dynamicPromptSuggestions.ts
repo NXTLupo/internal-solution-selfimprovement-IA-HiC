@@ -63,7 +63,7 @@ export interface SuggestionState {
 
 const UUID_FILENAME_RX = /(transcript[_-])?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}([_-]transcript)?/i;
 
-export function describeUploadedFile(f: { name: string; parsedText?: string }): string {
+function describeUploadedFile(f: { name: string; parsedText?: string }): string {
     const body = (f.parsedText || '').slice(0, 800);
     // Match our transcriber's header block: looks for `Title:` and `Channel:`
     // on separate lines within the first ~800 chars.

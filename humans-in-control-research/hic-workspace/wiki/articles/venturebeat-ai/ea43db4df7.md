@@ -8,12 +8,15 @@ title: "Nous Research's NousCoder-14B is an open-source coding model landing rig
 author: ""
 date: "Wed, 07 Jan 2026 20:00:00 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:08:23.160457+00:00"
+method: "source-native"
+extracted_at: "2026-08-13T17:15:47.001568+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:08:21+00:00"
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
+collected_at: "2026-08-13T17:15:47.247Z"
+relevance: 0
+engagement_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
 content_hash: "9ce529a17f3fb9b5"
+relevance_by_goal: {"bb7e192171b3":0}
 chunks:
   - id: "articles/venturebeat-ai/ea43db4df7.md#c0"
     char_span: [0, 242]

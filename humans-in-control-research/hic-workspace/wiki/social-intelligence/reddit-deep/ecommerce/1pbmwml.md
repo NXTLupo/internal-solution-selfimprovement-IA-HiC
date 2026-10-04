@@ -11,10 +11,10 @@ score: 23
 upvote_ratio: 1
 num_comments: 12
 flair: "📰 News"
-extracted_at: "2026-06-24T22:13:57.311Z"
+extracted_at: "2026-08-25T23:08:27.674Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1pbmwml.md#c0"
     char_span: [0, 253]
@@ -54,7 +54,7 @@ chunks:
     concepts: [visibility, labels, tiktok, platform, sales]
     token_count: 265
   - id: "social-intelligence/reddit-deep/ecommerce/1pbmwml.md#c6"
-    char_span: [10268, 11569]
+    char_span: [10269, 11570]
     sentence_count: 10
     key_terms: [trust, buyerpsychsequence, automated, shopper, moment, brand, feels, human]
     concepts: [buyerpsychsequence, trust, automated, shopper, moment]

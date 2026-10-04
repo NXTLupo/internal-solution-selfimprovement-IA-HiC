@@ -1,0 +1,144 @@
+{
+  "rubric_id": "themes-rubric",
+  "kind": "themes",
+  "version": "1.0.0",
+  "title": "themes deliverable rubric",
+  "absorbed_from": ".claude/agents/themes-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #themes output. Audits the theme-yield-guarantee (BREADTH_FLOOR ≥20), theme deduplication/distinctiveness (no near-duplicate clusters), evidence anchoring (every theme carries verbatim quotes with named-source attribution), and the cluster-grounding from BERTopic. Returns a structured verdict that drives the critic-revise loop for thin theme runs.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "yield",
+      "n": 1,
+      "label": "Yield",
+      "five": "≥20 themes (BREADTH_FLOOR honored); ≥28 if substrate-augmented",
+      "one": "<15 themes",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": "theme_yield"
+    },
+    {
+      "id": "evidence_anchoring",
+      "n": 2,
+      "label": "Evidence anchoring",
+      "five": "Every theme has ≥1 verbatim quote with named-source attribution",
+      "one": "Themes without quotes or with paraphrased \"evidence\"",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": "evidence_anchoring"
+    },
+    {
+      "id": "distinctiveness",
+      "n": 3,
+      "label": "Distinctiveness",
+      "five": "No 2 themes are near-duplicates of each other (>70% topic overlap)",
+      "one": "3+ themes saying the same thing with different framings",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "distinct_items"
+    },
+    {
+      "id": "citation_diversity",
+      "n": 4,
+      "label": "Citation diversity",
+      "five": "Across all themes, ≥50% citations are external (not client-upload PDFs)",
+      "one": "Citations cluster around 1-2 uploads",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "citation_diversity"
+    },
+    {
+      "id": "naming_determinism",
+      "n": 5,
+      "label": "Naming determinism",
+      "five": "If this is a re-run on cached corpus, theme NAMES match the prior run",
+      "one": "Theme names drift between identical-input runs",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cluster_grounding",
+      "n": 6,
+      "label": "Cluster grounding",
+      "five": "Themes correlate to BERTopic cluster_ids (cluster_id field present + populated for ≥80% of themes)",
+      "one": "All themes have cluster_id=null",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "cluster_id_presence"
+    },
+    {
+      "id": "iscrossdocument_accuracy",
+      "n": 7,
+      "label": "isCrossDocument accuracy",
+      "five": "Themes flagged isCrossDocument=true actually cite 2+ distinct source documents",
+      "one": "Flag mislabeled",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "anti_slop_in_theme_names",
+      "n": 8,
+      "label": "Anti-slop in theme names",
+      "five": "No metaphor names (\"The Building Blocks of X\", \"Navigating the Y Landscape\"); plain descriptive names",
+      "one": "Multiple metaphor-named themes",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "anti_slop_in_insights",
+      "n": 9,
+      "label": "Anti-slop in insights",
+      "five": "No meta-commentary, no anthropomorphism, no hyperbole",
+      "one": "\"The data demands...\", hyperbole from the banned list",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "source_stratification_flag",
+      "n": 10,
+      "label": "Source-stratification flag",
+      "five": "If themes are mostly internal-corpus-only, the substrate flag is raised honestly (not hidden)",
+      "one": "Substrate origin obscured",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cached_selection_coverage",
+      "n": 11,
+      "label": "Cached-selection coverage",
+      "five": "≥80% of the user's KL-curated items appear in the emission as source: cached or source: extended; new items have source: new; coverage is reported as cached_selection_coverage_pct in the verdict",
+      "one": "<60% coverage (auto Stop-hook reject via validate_cached_selection_honored.py); model regenerated from scratch and ignored the user's curation",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "cached_selection_coverage"
+    }
+  ],
+  "blocking": [
+    "yield",
+    "evidence_anchoring"
+  ],
+  "decision": {
+    "approve": "yield ≥20 AND evidence anchoring ≥4 AND distinctiveness ≥3",
+    "revise": "yield 15-19 (trigger upstream substrate augmentation via wiki-query-expander + analog-finder per evidence-density-pre-checker SKILL) OR distinctiveness 2 (merge candidates)",
+    "reject": "yield <15 OR evidence anchoring ≤2 OR any fabricated quotes"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

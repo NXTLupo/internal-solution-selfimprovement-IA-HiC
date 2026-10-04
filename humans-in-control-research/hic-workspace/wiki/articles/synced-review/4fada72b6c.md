@@ -8,12 +8,15 @@ title: "MIT Researchers Unveil “SEAL”: A New Step Towards Self-Improving AI"
 author: ""
 date: "Mon, 16 Jun 2025 12:58:37 +0000"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:10:58.899696+00:00"
+method: "source-native"
+extracted_at: "2026-08-13T17:16:19.552221+00:00"
 chars: 6509
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:10:56+00:00"
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
+collected_at: "2026-08-13T17:16:19.852Z"
+relevance: 0
+engagement_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
 content_hash: "0cec1aa821b927ac"
+relevance_by_goal: {"bb7e192171b3":0}
 chunks:
   - id: "articles/synced-review/4fada72b6c.md#c0"
     char_span: [0, 198]

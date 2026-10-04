@@ -209,8 +209,16 @@ def embed_brand_fonts(pptx_path: str, base_rel_id: int = 1000) -> None:
                 continue
             ttf_path = os.path.join(FONTS_DIR, ttf_name)
             if not os.path.exists(ttf_path):
-                logger.warning("font missing, skipping: %s", ttf_path)
-                continue
+                # E9 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, Stage 2.5):
+                # gold_pptx_export._embed_gold_fonts promises "Embed failure is LOUD". A missing
+                # face used to be skipped with a warning, which is exactly how Saira Condensed
+                # went missing for weeks while every title substituted Calibri. Raise, naming
+                # the file the manifest expects, so the export fails instead of shipping drift.
+                raise FileNotFoundError(
+                    f"brand font file missing: {ttf_path} (typeface '{fam.get('typeface')}', slot '{slot}'). "
+                    f"Add the TTF to {FONTS_DIR} or remove the entry from the font manifest; "
+                    "the editable-export contract embeds every declared face."
+                )
             with open(ttf_path, "rb") as f:
                 ttf_bytes = f.read()
             eot_bytes = ttf_to_eot(ttf_bytes)
@@ -225,8 +233,7 @@ def embed_brand_fonts(pptx_path: str, base_rel_id: int = 1000) -> None:
             font_index += 1
 
     if not plan:
-        logger.warning("no brand fonts found in %s — skipping embedding", FONTS_DIR)
-        return
+        raise RuntimeError(f"no brand fonts declared for embedding (FONTS_DIR={FONTS_DIR}); the editable-export contract requires the brand faces")
 
     # 1) [Content_Types].xml
     ct_root = etree.fromstring(parts["[Content_Types].xml"])

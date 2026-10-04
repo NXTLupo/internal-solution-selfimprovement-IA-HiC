@@ -8,12 +8,15 @@ title: "How flat is replacing fat in AWS data center networks"
 author: ""
 date: "Thu, 28 May 2026 10:30:00 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:23:22.441828+00:00"
+method: "source-native"
+extracted_at: "2026-09-10T17:35:46.126843+00:00"
 chars: 7726
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:23:20+00:00"
+engagement: "as-of-august-september-2026-no-earlier-what-are-the-capabili"
+collected_at: "2026-09-10T17:35:45.687Z"
+relevance: 0
+engagement_goal: "As of August-September 2026 (no earlier), what are the capabilities, limitations, and extensibility points of Figma's (the design tool) agents and extensions for connecting agentic workflows, skills, critics, hooks, and visual UI cards? Scour Figma's own documentation and press releases, plus AI/design and marketing sources, and produce a comprehensive, technical white paper detailing all possible use cases for extending Figma's agentic capabilities across: design, approvals, design-system integration, deterministic hooks, and harnessed execution, organized and detailed enough for implementation, covering design, approvals, skills, critics, hooks, AI extensions, and notifications.  "
 content_hash: "2eaff3b0424d4525"
+relevance_by_goal: {"5a163910d68e":0}
 chunks:
   - id: "articles/amazon-science/39cd4dfd7c.md#c0"
     char_span: [0, 169]

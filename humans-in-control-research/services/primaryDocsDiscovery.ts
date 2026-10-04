@@ -96,4 +96,4 @@ export async function ensurePrimaryDocs(opts: {
     }
 }
 
-export function resetPrimaryDocsCache(): void { _done.clear(); }
+function resetPrimaryDocsCache(): void { _done.clear(); }

@@ -9,6 +9,7 @@
 
 import { imageSpecFor, type ArtifactImageSpec } from './artifactImageSlots';
 import { ICONS, compositeIcon, renderIconForBrand, iconToDataUri, isContentTrueIcon } from './iconLibrary';
+import { normalizeBrandId } from '../components/slideTemplates/brands';
 
 /** A short concept seed from a live payload element (string passes through; objects yield a title). */
 function conceptFromElement(el: unknown): string {
@@ -69,7 +70,9 @@ export function resolveArtifactIcons(
 ): number {
     const spec: ArtifactImageSpec | undefined = imageSpecFor(artifact);
     if (!spec || spec.mode === 'none' || spec.branch !== 'icon' || !payload) return 0;
-    const brand = String(brandRaw || 'NXT').toLowerCase() === 'nu' ? 'nu' : 'nxt';
+    // ONE normalizer for every brand spelling (#NXT / #NU / #deciem); the icon library resolves the
+    // glyph color from that brand's token mirror (DECIEM: pink accent, cyan cool, black ink).
+    const brand = normalizeBrandId(brandRaw);
     const ground: 'dark' | 'light' = (spec.ground || (groundRaw === 'light' ? 'light' : 'dark')) === 'light' ? 'light' : 'dark';
     let attached = 0;
 

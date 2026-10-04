@@ -1,7 +1,7 @@
 // 2026-05-26 - Static ESM import for the hashtag registry. Replaces the
 import { THESIS_OPTIONS_CONTRACT, parseThesisOptions, buildThesisAirRecord, stripThesisOptions, proposeAlternativeTheses } from './thesisOptions';
 import { callAIWithRetry } from './aiRetryClient';
-import { DEFAULT_MODELS } from './aiRouter';
+import { DEFAULT_MODELS, CLAUDE_REASONING_MODEL, CLAUDE_STRUCTURED_MODEL, effortForArtifact, effortFromSkillHint, maxEffort, type ClaudeEffort } from './aiRouter';
 import { readObjectivePlan, toAirDecomposedQuestions } from './objectivePlan';
 // Node-style `require('./hashtagRegistry')` call that broke at runtime
 // in the Vite browser bundle. `hashtagRegistry.ts` has no dependencies
@@ -18,7 +18,11 @@ import { beginGenerationLedger, noteGenerationStep, enrich, buildEnrichmentRecor
 import { buildExhibitCatalogBlock } from './exhibitCatalog';
 import { ok, fail } from './stepEnvelope';
 import { artifactModelFor, HIC_CACHE_BREAK } from './aiRouter';
-import { catalogEntryFor } from './artifactCatalog';
+// 2026-10-01 - Three-brand contract (NXT / NU / DECIEM): the brand variant type and the normalizer
+// come from the brands token mirror; brandVariantOf is the ONE hashtag resolver (hashtagParser).
+import { normalizeBrandId, type BrandVariantId } from '../components/slideTemplates/brands';
+import { brandVariantOf } from './hashtagParser';
+import { catalogEntryFor, CATALOG_TEMPLATE_RULES, CATALOG_HASHTAG_TO_SKILL_ID, CATALOG_HASHTAG_ALIASES, CATALOG_MODIFIER_TOKENS, isCatalogModifier, primaryCatalogHit, catalogDirectiveRegex } from './artifactCatalog';
 import { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions } from './chunkRetrieval';
 import { resolveChunks, currentEngagementSlug } from './wikiPointerResolver';
 // 2026-06-02 - Single canonical shaper for run intelligence + corpus manifest.
@@ -57,7 +61,7 @@ import {
 // The legacy DeepSeek IDs remain in the type so prior localStorage values
 // don't reject at parse-time - the resolver in sendChatMessage maps any
 // unrecognized model to gemini-3.1-pro-preview.
-export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-3.5-flash' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'claude-opus-4-8' | 'council';
+export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-3.5-flash' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'claude-opus-5-5' | 'claude-opus-4-8' | 'council';
 
 export interface ChatMessage {
     id: string;
@@ -107,7 +111,7 @@ export interface ChatMessage {
     presentationUrl?: string;
     presentationMeta?: {
         title?: string;
-        brand?: 'NXT' | 'NU';
+        brand?: BrandVariantId;
         sectionCount?: number;
         citationCount?: number;
         sourceCount?: { external: number; uploaded: number; analysis: number; total: number };
@@ -117,7 +121,7 @@ export interface ChatMessage {
     journeyMapUrl?: string;
     journeyMapMeta?: {
         title?: string;
-        brand?: 'NXT' | 'NU';
+        brand?: BrandVariantId;
         journey_id?: string;
         model?: string;
         source?: string;
@@ -132,7 +136,7 @@ export interface ChatMessage {
     artifactLaunchUrl?: string;
     artifactLaunchMeta?: {
         title?: string;
-        brand?: 'NXT' | 'NU';
+        brand?: BrandVariantId;
         kind?: string;
         artifact_id?: string;
         model?: string;
@@ -146,7 +150,7 @@ export interface ChatMessage {
     prototypeMeta?: {
         slug?: string;
         title?: string;
-        brand?: 'NXT' | 'NU';
+        brand?: BrandVariantId;
         based_on?: string;
         verdict?: 'ship' | 'refine' | 'rebuild';
         code_chars?: number;
@@ -160,7 +164,7 @@ export interface ChatMessage {
      *  and a BUILD THIS button that fires the build with the chosen brief. */
     prototypeBriefs?: any[];        // ProductBrief[] - typed loose to avoid circular import
     prototypeBriefsMeta?: {
-        brand: 'NXT' | 'NU';
+        brand: BrandVariantId;
         basedOn?: string;
         researchGoal?: string;
         originalConcept: string;     // the rich concept text the user submitted; passed to buildPrototype later
@@ -276,7 +280,7 @@ export interface ChatMessage {
         slug?: string;
         title?: string;
         generator?: string;        // '#brief' | '#explainer' | ...
-        brand?: 'NXT' | 'NU';
+        brand?: BrandVariantId;
         html_chars?: number;
         topic?: string;
         variants_count?: number;
@@ -515,25 +519,23 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         maxCorpusChars: 1_400_000,
     },
     {
-        // 2026-06-13 - Claude Opus 4.8: the deliverable-generation model for
-        // every artifact hashtag (#slides, #journey, #personas, ...). TEMPORARY
-        // stand-in for Claude Fable 5, which Anthropic has temporarily banned;
-        // swap back to claude-fable-5 once the ban lifts (see plans/
-        // fable-to-opus-swap-2026-06-13.md for the one-line reverse). Opus 4.8
-        // has a verified 1M-token context window and 64K max output on the
-        // Anthropic Messages API. Force-routed by sendChatMessage when an
+        // 2026-09-30 (owner directive, plan Stage 0.5) - Claude Opus 5.5: THE
+        // deliverable-generation model for every artifact hashtag (#slides,
+        // #journey, #personas, #prd, ...). Force-routed by sendChatMessage when an
         // artifact hashtag is present; also selectable directly in the picker.
-        id: 'claude-opus-4-8',
-        name: 'Claude Opus 4.8',
+        // 1M context, 128K output, $4/$20 per 1M. Thinking always on (adaptive),
+        // depth via output_config.effort (services/claudeModelPolicy.ts).
+        id: CLAUDE_REASONING_MODEL as ChatModel,
+        name: 'Claude Opus 5.5',
         provider: 'anthropic',
-        description: 'Anthropic\'s Opus 4.8. Deliverable-generation default for artifact hashtags (slides, journeys, personas...). 1M context, $5/$25 per 1M tokens.',
+        description: "Anthropic's Opus 5.5. Deliverable-generation default for artifact hashtags (slides, journeys, personas...). 1M context, adaptive thinking always on, $4/$20 per 1M tokens.",
         contextWindow: '1M tokens',
         strengths: 'Instruction-following, structured slide JSON, consulting-grade prose, low slop',
         color: '#CC785C',
         available: !!(process.env.ANTHROPIC_API_KEY),
-        // 600K chars ~= 150K tokens, well within Opus 4.8's 1M window, leaving
-        // ample headroom for system prompt + history + output. Kept conservative
-        // (not raised to the full window) to preserve prior corpus-packing behavior.
+        // 600K chars ~= 150K tokens, well within the 1M window, leaving ample
+        // headroom for system prompt + history + output. Kept conservative (not
+        // raised to the full window) to preserve prior corpus-packing behavior.
         maxCorpusChars: 600_000,
     },
     {
@@ -573,32 +575,10 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
 // 2026-06-12 - Hoisted to module scope: consumed by BOTH the early Fable
 // force-route (before grounding-context budgeting) and the slide-mode
 // prompt gate inside sendChatMessage. One table, no twin-drift.
-const ARTIFACT_TPL: Array<[RegExp, string]> = [
-    [/#journeys?\b/i, 'journey-map'],
-    [/#blueprints?\b/i, 'service-blueprint'],
-    [/#case-?stud/i, 'case-study'],
-    [/#compet/i, 'competitive-matrix'],
-    [/#gap\b/i, 'gap-matrix'],
-    [/#personas?\b/i, 'persona-card'],
-    // 2026-07-01 - regexes broadened to honor the catalog's own plural/compound ALIASES (was: \b-anchored
-    // singular-only, so #themecluster/#prds/#audits/#techaudit/#architecture/#orgs resolved via catalogEntryFor
-    // but were NOT caught here -> skipped the force-route + chat-path AIR). Same slide templates, still
-    // \b-anchored (no over-match). Keeps isArtifactGenerationMessage aligned with services/artifactCatalog.ts.
-    [/#themes?(-?clusters?)?\b/i, 'theme-overview'],
-    [/#(recommendations?|recs?)\b/i, 'recommendation'],
-    [/#road(map)?s?\b/i, 'timeline'],
-    [/#prds?\b/i, 'prd-feature'],
-    [/#(tech-?)?audits?\b/i, 'systems-inventory'],
-    [/#arch(itecture)?\b/i, 'architecture-map'],
-    [/#orgs?(-?charts?)?\b/i, 'org-chart'],
-    // 2026-06-13 - #brief/#explainer/#report GOLD slide twins (executive-brief,
-    // one template / three variants). These resolve the template when #slide is
-    // present; bare directives keep their HTML-document form (panel HTML gate).
-    // #brief excludes #brief-dialog via the negative lookahead.
-    [/#briefs?\b(?!-)/i, 'executive-brief'],
-    [/#explainers?\b/i, 'executive-brief'],
-    [/#reports?\b/i, 'executive-brief'],
-];
+// 2026-10-01 (plan Stage 6.1 / A7): the template rules are GENERATED from ARTIFACT_CATALOG (one
+// vocabulary); the hand-written regex table that lived here is gone. Word-boundary regexes,
+// every alias from the catalog.
+const ARTIFACT_TPL: Array<[RegExp, string]> = CATALOG_TEMPLATE_RULES;
 
 // --- Per-deliverable model TIER OVERRIDE (bake-off-validated) ---
 // 2026-06-28 - EVIDENCE-VALIDATED downgrade, scoped to TWO deliverables.
@@ -653,8 +633,9 @@ function deliverableModelOverride(userMessage: string): ChatModel | null {
         id && AVAILABLE_MODELS.find(m => m.id === id)?.available ? id : null;
     // WS-E: delegate to the ONE routing authority. Pass the ARTIFACT_TPL template id when present
     // (gap-matrix/...), else the raw message (artifactModelFor normalizes hashtags + a bare #slides).
-    const hit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
-    return avail(artifactModelFor(hit ? hit[1] : userMessage) as ChatModel);
+    // A2 (2026-10-01): multi-hit routing; the highest routing tier among the named deliverables wins.
+    const hit = primaryCatalogHit(userMessage);
+    return avail(artifactModelFor(hit?.entry.templateId || userMessage) as ChatModel);
 }
 
 /** True when the message carries #slide/#slides or any artifact hashtag -
@@ -702,8 +683,8 @@ export function extractAuthoritativePaste(userMessage: string): string | null {
 }
 
 /** The model that sendChatMessage will actually run for this message.
- *  Mirrors the force-route logic exactly: artifact hashtags -> Fable 5
- *  (when the Anthropic key is configured), everything else -> the caller's
+ *  Mirrors the force-route logic exactly: artifact hashtags -> the Claude
+ *  reasoning model (when the Anthropic key is configured), everything else -> the caller's
  *  model. Single source of truth for in-flight UI labels. */
 export function routedModelFor(userMessage: string, fallback: ChatModel): ChatModel {
     if (fallback !== 'council' && isArtifactGenerationMessage(userMessage)) {
@@ -712,8 +693,8 @@ export function routedModelFor(userMessage: string, fallback: ChatModel): ChatMo
         // force-route order exactly so the in-flight UI labels the ACTUAL model.
         const tier = deliverableModelOverride(userMessage);
         if (tier) return tier;
-        const fable = AVAILABLE_MODELS.find(m => m.id === 'claude-opus-4-8');
-        if (fable?.available) return 'claude-opus-4-8';
+        const claude = AVAILABLE_MODELS.find(m => m.id === CLAUDE_REASONING_MODEL);
+        if (claude?.available) return CLAUDE_REASONING_MODEL as ChatModel;
     }
     return fallback;
 }
@@ -781,7 +762,7 @@ If the user's message contains "#slide" OR "#slides" (case-insensitive - "#slide
   - "8 #themes ... #slides"          → emit :::slide template=theme-overview blocks (max 4 themes per block → 2 blocks for 8); a single dominant theme deserving a full slide → theme-detail
   - "#recommendations ... #slide"    → emit :::slide template=recommendation blocks
   - "#competitive ... #slides"       → emit :::slide template=competitive-matrix blocks
-  Optional brand hashtag: #NU → the client organization (near-black + Huskies Red); #NXT → NXT Humans (teal + chartreuse, default).
+  Optional brand hashtag: #NU → the client organization (near-black + Huskies Red); #DECIEM → DECIEM (The Abnormal Beauty Company: black and white canvases, Poppins Bold uppercase headlines and labels, Josefin Sans body, Nunito for tables and data, pink / cyan / purple pops from the DECIEM PowerPoint template); #NXT → NXT Humans (teal + chartreuse, default).
 
 CRITICAL: when #slide/#slides is present you MUST emit :::slide fences. NEVER answer a #slides request in markdown prose (no ###, no >, no * bullets) - that is a hard failure. The renderer only draws cards from :::slide blocks.
 
@@ -790,6 +771,7 @@ Examples:
   "5 #personas designer archetypes #slides #NXT"    → emit 5 :::slide template=persona-card brand=nxt
   "#slide show the top 3 themes"                    → emit ONE :::slide template=theme-overview block (3 columns in the grid)
   "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
+  "#slide #DECIEM give me a persona for Jordan Ellis" → emit one :::slide template=persona-card brand=deciem
 
 VIZ (content-true diagram in a slide's image slot) — AUTHOR THE MEANING, never decoration:
   A slide may carry a "viz" object. The diagram is drawn by the engine from YOUR authored data +
@@ -857,7 +839,6 @@ Supported types and their required JSON fields:
 - :::deliverable:persona - {name, role, demographics?, quote, bio, jtbd, goals: {lifeGoal, experienceGoal, functionalGoal}, painPoints: [{label, quote, source}], motivations: [{label, quote, source}]}
 - :::deliverable:recommendation - {title, description, impactLevel: "critical"|"high"|"medium"|"low", evidenceBasis, citations: [string], effort?, timeline?}
 - :::deliverable:journey_stage - {phase, touchpoint, customerAction, frontstage, backstage, support, painPoint, emotion, fail_point?, citations: [string]}
-- :::deliverable:prd_feature - {name, description, priority: "must"|"should"|"could"|"won't", userStory, acceptanceCriteria: [string], citations: [string]}
 - :::deliverable:roadmap_item - {title, description, horizon: "now"|"next"|"later", effort, impact, dependencies: [string], citations: [string]}
 - :::deliverable:gap - {capability, currentMaturity: 1-5, targetMaturity: 1-5, gap: number, severity: "critical"|"high"|"medium"|"low", impact, citations: [string]}
 - :::deliverable:competitive_peer - {name, position, strengths: [string], weaknesses: [string], citations: [string]}
@@ -902,11 +883,13 @@ VISUAL BRAND (chosen via hashtag in the user's prompt):
   live from Figma via MCP). Do NOT hardcode or invent any hex code or font name. If the FIGMA DESIGN
   TOKENS block is absent, state that brand tokens are unavailable rather than guessing a value.
   #NXT = NXT Humans (DEFAULT).  #NU = the client organization - use only when the client organization is requested.
+  #DECIEM = DECIEM (The Abnormal Beauty Company: black and white canvases, Poppins Bold uppercase headlines and labels, Josefin Sans body, Nunito for tables and data, pink / cyan / purple pops from the DECIEM PowerPoint template) - use only when #DECIEM is present.
 
 If the user's prompt contains #NU (or "the client organization"), you MAY echo brand=nu on the fence:
   :::slide template=persona-card brand=nu
     {...}
   :::
+If the user's prompt contains #DECIEM, you MAY echo brand=deciem on the fence the same way.
 Otherwise omit brand= on the fence and the renderer defaults to NXT.
 The hashtag in the user's prompt is authoritative - the parser will auto-apply the brand to every
 slide in your response even if you forget to set brand=. Do NOT mention the hashtag in the slide
@@ -1416,49 +1399,6 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 }
 :::
 
-:::slide template=prd-feature
-{
-  "title": "Three MUST-have features unblock the unified customer view in Q3",
-  "sources": ["NXT Stakeholder Interviews","Peer A Operations Annual Report 2025"],
-  "prdFeature": {
-    "features": [
-      {
-        "name":"Unified Customer Profile API",
-        "priority":"must",
-        "storyId":"US-1",
-        "userStory":"As a high-value-deals officer, I want to see every touchpoint a customer has had across all 3 Salesforce orgs on one screen so I can reference them in a prospect call without switching systems.",
-        "acceptanceCriteria":[
-          "Given a customer with records in multiple orgs, when the officer opens the profile, then spend history, event attendance, email opens, and volunteer hours render on one screen.",
-          "Given records that share a Segment anonymous_id, when the profile loads, then identity resolves across all 3 Salesforce orgs without a manual merge.",
-          "Given an officer-initiated note, when it is saved, then the owning org receives the synced note before the officer leaves the page."
-        ],
-        "successMetric":"Officers stop switching systems during prospect calls; the profile screen is the single reference surface.",
-        "traces":"THE OFFICER - fragmented-record gap"
-      },
-      {
-        "name":"Predictive Propensity Score",
-        "priority":"must",
-        "userStory":"As a gift officer, I want a 0-100 propensity score on each prospect list so I can prioritize the 200 contacts most likely to give this quarter.",
-        "acceptanceCriteria":[
-          "Model retrains weekly on last 5 years of gifts",
-          "Score surfaces in Lightning side-panel",
-          "AUC-ROC > 0.78 on held-out Q4 2025 data"
-        ]
-      },
-      {
-        "name":"One-Click Retention Flow",
-        "priority":"must",
-        "userStory":"As a gift officer, I want to trigger a personalized thank-you within 24 hours of any gift over $1k without copying data between systems.",
-        "acceptanceCriteria":[
-          "Auto-draft email + hand-written note queue",
-          "Mobile-signable on iPad from customer event",
-          "Confirmation logged in Salesforce Activity"
-        ]
-      }
-    ]
-  }
-}
-:::
 
 :::slide template=systems-inventory
 {
@@ -1614,7 +1554,6 @@ DENSE PAYLOAD FIELDS (W2 dense layouts - emit these when the corpus carries them
   - recommendation, 4-6 supportingActions (or 3 + impactGrid + 2 evidence): routes to full-width action rows + impact band + evidence cards. Emit every evidenced action; the layout absorbs them.
   - persona-card carrying goals + painPoints + behaviors:["<observed behavior>", x3] + winConditions:["<what wins them>", x3] (optionally descriptors as an uppercase trait strip, stakes as a relationship-stakes line): routes to the identity column + 2x2 evidence quadrants.
   - prd-feature, userStory + 3-5 acceptanceCriteria per feature: max 2 such features per slide (decomposition recipe above); routes to the two-deep-card layout with technicalDetails/stakeholders in the footer.
-  - prd-feature DEPTH CONTRACT (2026-07-02, HARD): every acceptanceCriteria item is a COMPLETE Given/When/Then sentence ("Given a returning customer with an open ticket, when they submit the contact form, then the matching help article renders before the queue position"), never a bare assertion fragment. Every feature carries storyId ("US-1", "US-2", ... sequential across the whole PRD), successMetric (ONE observable signal, qualitative language per the Quantitative Claim Rule), and traces (the persona name + the gap it closes, e.g. "THE REPEATER - routing gap").
   - prd REQUIREMENTS LEDGER (2026-07-02): every #prd response ALSO emits ONE closing prd-feature slide whose prdFeature carries ONLY "requirements": { "functional": [{"id":"FR-1","text":"..."}], "nonFunctional": [{"id":"NFR-1","text":"..."}], "outOfScope": [{"id":"OOS-1","text":"..."}] } (no features array on that slide). 4-6 rows per column, each a complete evidenced sentence; out-of-scope rows state what is deliberately NOT built and why in a clause. Title states the boundary judgment (e.g. "The requirements draw a hard line between the answer surface we build and the queue we refuse to rebuild"). Renders as the three-column FR/NFR/OOS ledger; ids are sequential and stable.
 These fields are evidence carriers: behaviors, winConditions, additionalQuotes and synthesis come from the corpus (verbatim quotes keep inline named-source attribution), never invented to fill a layout.
 
@@ -1636,6 +1575,69 @@ SERVICE BLUEPRINT (#blueprint) - frontstage/backstage Bitner model, maximum 4 st
 `;
 
 // --- Foundational Consulting Mandates ---
+
+// ============================================================================
+// 2026-10-01 (plan R-T2 / Stage 4.1, audit A5): PER-TURN PROTOCOL INJECTION.
+// DELIVERABLE_PROTOCOL carries the full 18-template SLIDE OUTPUT PROTOCOL (~63K chars of
+// per-template JSON examples). It used to ride EVERY call: plain chat on Flash, a
+// single-template #prd, and DECK MODE (which then declared the whole catalog superseded).
+// This builder returns only what the turn needs:
+//   'none'      -> the response-mode rules only (plain chat)
+//   'deck'      -> the response-mode rules only (DECK MODE injects its own archetype catalog)
+//   {templates} -> rules + the template catalog list + ONLY the requested templates' example
+//                  blocks + the shared decomposition / dense-field / variant rules
+// The stable core stays byte-identical PER TEMPLATE KIND, so the Anthropic prefix cache keys on
+// (kind), not on a 63K blob that was identical but mostly irrelevant.
+// ============================================================================
+const _SLIDE_PROTOCOL_HEADER = 'SLIDE OUTPUT PROTOCOL - 18 TEMPLATES x 2 VISUAL BRANDS:';
+const _EXAMPLE_FENCE = '\n:::slide template=';
+const _EXAMPLES_END_MARKER = '\nDECOMPOSITION RULE (UNBOUNDED DENSITY - MANDATORY)';
+
+export type ProtocolMode = 'all' | 'none' | 'deck' | { templates: string[] };
+
+/** Template families: asking for one member includes its siblings' examples. */
+const _TEMPLATE_FAMILIES: Record<string, string[]> = {
+    'theme-overview': ['theme-overview', 'theme-detail', 'theme-arc', 'theme-mosaic', 'theme-cluster', 'theme-spotlight'],
+    'theme-cluster': ['theme-overview', 'theme-detail', 'theme-arc', 'theme-mosaic', 'theme-cluster', 'theme-spotlight'],
+    'executive-brief': ['executive-brief'],
+};
+
+export function deliverableProtocolFor(mode: ProtocolMode): string {
+    const full = DELIVERABLE_PROTOCOL;
+    if (mode === 'all') return full;
+    const headerIdx = full.indexOf(_SLIDE_PROTOCOL_HEADER);
+    if (headerIdx < 0) return full;   // structure changed; fail open to the full protocol
+    const head = full.slice(0, headerIdx);
+    if (mode === 'none' || mode === 'deck') return head.trimEnd() + '\n';
+    const exStart = full.indexOf(_EXAMPLE_FENCE, headerIdx);
+    const exEnd = full.indexOf(_EXAMPLES_END_MARKER, headerIdx);
+    if (exStart < 0 || exEnd < 0 || exEnd < exStart) return full;
+    const catalog = full.slice(headerIdx, exStart);
+    const examples = full.slice(exStart, exEnd);
+    const tail = full.slice(exEnd);
+    const want = new Set<string>();
+    for (const t of mode.templates) {
+        const k = String(t || '').toLowerCase().trim();
+        if (!k) continue;
+        for (const member of (_TEMPLATE_FAMILIES[k] || [k])) want.add(member);
+    }
+    const blocks = examples.split(_EXAMPLE_FENCE).slice(1);   // each begins with "<name>\n{ ... }\n:::"
+    const kept = blocks.filter(b => {
+        const name = b.split(/[\s\n]/, 1)[0].toLowerCase();
+        return want.has(name);
+    });
+    const examplesOut = kept.length ? _EXAMPLE_FENCE + kept.join(_EXAMPLE_FENCE) : '\n';
+    return head + catalog + examplesOut + tail;
+}
+
+/** The templates a message asks for (ALL catalog hits, not only the first; audit A2). */
+export function requestedSlideTemplates(userMessage: string): string[] {
+    const out: string[] = [];
+    for (const [re, tpl] of ARTIFACT_TPL) {
+        if (re.test(userMessage) && !out.includes(tpl)) out.push(tpl);
+    }
+    return out;
+}
 
 const CONSULTING_MANDATES = `
 FOUNDATIONAL CONSULTING MANDATES (apply to ALL responses):
@@ -1970,7 +1972,9 @@ export function buildGroundingContext(ctx: ChatContext, model: ChatModel): strin
     // Fall back to in-memory sourceReferences if wiki archive not loaded
     if (ctx.wikiSourceArchive && ctx.wikiSourceArchive.length > 100) {
         parts.push(`=== VERIFIED SOURCE ARCHIVE (ONLY use URLs from this archive - NEVER fabricate URLs) ===`);
-        parts.push(ctx.wikiSourceArchive);
+        // Capped (2026-10-03): a 278KB archive pushed one #recs prompt to ~460K tokens and two timeouts.
+        parts.push(ctx.wikiSourceArchive.length > 60_000 ? `${ctx.wikiSourceArchive.slice(0, 60_000)}
+[archive truncated]` : ctx.wikiSourceArchive);
         parts.push(`=== END VERIFIED SOURCE ARCHIVE ===`);
     } else if (ctx.sourceReferences?.length) {
         parts.push(`=== SOURCE ARTICLE INDEX (${ctx.sourceReferences.length} articles - ONLY use URLs listed here) ===`);
@@ -2066,10 +2070,16 @@ export function buildGroundingContext(ctx: ChatContext, model: ChatModel): strin
     // WITHOUT setting the deliverable's structure. This is why #org could not name the
     // team heads: the roster lived only in these bodies, and they were suppressed for
     // artifacts. Now injected for artifacts too, but supplementary, so the manifest leads.
-    if (ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200) {
-        parts.push(`=== SUPPLEMENTARY ARTICLE BODIES (factual reference for THIS question - real names, titles, dates, figures. The PRIMARY EVIDENCE above LEADS and drives structure/insights; use these ONLY to resolve specific facts, e.g. the actual person who heads a team) ===`);
+    // 2026-10-01 (plan Stage 1.1, audit B1, UNIFIED_VISION phase 5): bulk article bodies are
+    // injected ONLY when the manifest produced no grounding at all (the explicit empty-manifest
+    // fallback the vision allows). When the manifest pack is present it is the one evidence
+    // producer; named documents reach it through the by-name tier, so the "roster facts" case
+    // that justified the supplementary block is served with pointers and provenance instead.
+    const _manifestLeads = !!(ctx.manifestChunkCorpus && ctx.manifestChunkCorpus.length > 80);
+    if (!_manifestLeads && ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200) {
+        parts.push(`=== ARTICLE BODIES (empty-manifest fallback: the manifest returned no grounding for this question) ===`);
         parts.push(ctx.prefetchedArticlesBlock);
-        parts.push(`=== END SUPPLEMENTARY ARTICLES ===`);
+        parts.push(`=== END ARTICLE BODIES ===`);
     }
 
     // Raw corpus - model-specific cap.
@@ -2081,9 +2091,10 @@ export function buildGroundingContext(ctx: ChatContext, model: ChatModel): strin
     // do we fall back to the full corpus, so the chat is never starved.
     // 2026-06-09 - manifest-chunk corpus ALSO triggers demotion (it is the new
     // primary evidence; the bulk corpus must not drown it).
-    if (ctx.corpusText) {
-        const haveRetrieval = !!(ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200)
-            || !!(ctx.manifestChunkCorpus && ctx.manifestChunkCorpus.length > 80);
+    if (ctx.corpusText && !_manifestLeads) {
+        // Stage 1.1: the raw corpus tail is the empty-manifest fallback only; with manifest grounding
+        // present it no longer rides along (it was 40KB of un-pointered text on every artifact).
+        const haveRetrieval = !!(ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200);
         const cap = haveRetrieval ? Math.min(maxCorpus, 40000) : maxCorpus;
         const corpus = ctx.corpusText.length > cap
             ? ctx.corpusText.substring(0, cap) + `\n[CORPUS ${haveRetrieval ? 'DEMOTED - objective-matched articles pre-fetched above are the primary evidence' : 'TRUNCATED'} AT ${Math.round(cap / 1000)}KB FOR ${model}]`
@@ -2269,83 +2280,17 @@ function expandQuery(query: string): { expanded: string; original: string } {
 // here intentionally to keep the dispatcher dependency-free and synchronous;
 // any new directive added to the registry MUST add an entry here OR get a
 // safety-net warning emitted (see HASHTAG_REGISTERED_BUT_UNMAPPED below).
-const HASHTAG_TO_SKILL_ID: Record<string, string> = {
-    // experience-builder / consulting-deliverable
-    '#proto': 'experience-prototype-composer',
-    '#presentation': 'deck-narrative-composer',
-    '#recommendations': 'recommendation-architect',
-    '#journey': 'service-blueprint-mapper',
-    '#blueprint': 'service-blueprint-mapper',
-    '#arch': 'tech-arch-generator',
-    '#roadmap': 'roadmap-builder',
-    '#org': 'org-chart',
-    '#persona': 'persona-architect',
-    '#prd': 'prd-compiler',
-    '#gap': 'gap-analysis-evaluator',
-    '#audit': 'tech-audit-inspector',
-    '#compete': 'competitive-analyst',
-    '#strategy': 'strategy-author',
-    '#case-study': 'case-study-analyst',
-    '#themes': 'theme-analyst',
-    '#brief': 'html-deliverable-composer',
-    '#explainer': 'html-deliverable-composer',
-    '#report': 'strategic-report-writer',
-    '#playground': 'html-deliverable-composer',
-    '#approaches': 'html-deliverable-composer',
-    '#questionnaire': 'questionnaire-author',
-    '#mindmap': 'mind-map-architect',
-    '#brief-dialog': 'brief-dialog',
-    '#meta-themes': 'meta-themes',
-    '#deep-research': 'research-planner',
-};
+// 2026-10-01 (Stage 6.1): generated from the catalog (ownerSkill per entry); `#presentation` now
+// resolves to deck-composer (deck-narrative-composer is deleted).
+const HASHTAG_TO_SKILL_ID: Record<string, string> = CATALOG_HASHTAG_TO_SKILL_ID;
 
 // Aliases the user may type (registry .aliases + common plurals). These
 // resolve to the SAME owning skill as the canonical hashtag.
-const HASHTAG_ALIASES: Record<string, string> = {
-    '#prototypes': '#proto',
-    '#presentations': '#presentation',
-    '#journeys': '#journey',
-    '#blueprints': '#blueprint',
-    '#architecture': '#arch',
-    '#roadmaps': '#roadmap',
-    '#orgs': '#org',
-    '#orgchart': '#org',
-    '#orgcharts': '#org',
-    '#personas': '#persona',
-    '#prds': '#prd',
-    '#audits': '#audit',
-    '#techaudit': '#audit',
-    '#tech-audit': '#audit',
-    '#competitive': '#compete',
-    '#competitives': '#compete',
-    '#competitors': '#compete',
-    '#strategies': '#strategy',
-    '#case-studies': '#case-study',
-    '#casestudy': '#case-study',
-    '#casestudies': '#case-study',
-    '#theme': '#themes',
-    '#themecluster': '#themes',
-    '#theme-cluster': '#themes',
-    '#recs': '#recommendations',
-    '#briefs': '#brief',
-    '#explainers': '#explainer',
-    '#reports': '#report',
-    '#questions': '#questionnaire',
-    '#mind-map': '#mindmap',
-    '#mindmaps': '#mindmap',
-    '#dialog': '#brief-dialog',
-    '#brief-dialogue': '#brief-dialog',
-    '#meta-theme': '#meta-themes',
-    '#metathemes': '#meta-themes',
-    '#research-plan': '#deep-research',
-};
+const HASHTAG_ALIASES: Record<string, string> = CATALOG_HASHTAG_ALIASES;
 
 // Hashtags that are MODIFIERS, not directives. Their presence does NOT
 // select a skill - they decorate whichever directive was chosen.
-const HASHTAG_MODIFIERS = new Set([
-    '#nxt', '#nu', '#slide', '#slides', '#preview', '#export-pptx',
-    '#auto-open', '#dark', '#light', '#help', '#artifacts',
-]);
+const HASHTAG_MODIFIERS: ReadonlySet<string> = CATALOG_MODIFIER_TOKENS;
 
 /**
  * Extract registered hashtag directives from a user message. Returns the
@@ -2356,7 +2301,7 @@ const HASHTAG_MODIFIERS = new Set([
  * still routes correctly. Borderline matches (score < 80) stay in the
  * unknown list with a "did you mean" suggestion.
  */
-export function extractHashtagDirectives(userMessage: string): {
+function extractHashtagDirectives(userMessage: string): {
     skillIds: string[];
     unknownHashtags: string[];
     fuzzyPromoted: Array<{ typed: string; resolved: string }>;
@@ -2379,7 +2324,7 @@ export function extractHashtagDirectives(userMessage: string): {
     const matches = userMessage.matchAll(/#([a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z])(?:=[^\s]*)?/g);
     for (const m of matches) {
         const raw = '#' + m[1].toLowerCase();
-        if (HASHTAG_MODIFIERS.has(raw)) continue;
+        if (HASHTAG_MODIFIERS.has(raw) || isCatalogModifier(raw) || isCatalogModifier(m[0].toLowerCase())) continue;
         const canonical = HASHTAG_ALIASES[raw] ?? raw;
         let skillId = HASHTAG_TO_SKILL_ID[canonical];
 
@@ -2532,74 +2477,9 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
  */
 const _skillContextCache = new Map<string, SkillContext>();
 
-// 2026-05-26 - Inline skill templates. The skill-manifest registers some
-// skills with `path: "inline://<template-name>"` instead of a file path
-// (case-study-analyst, block-quote-template, benchmark-reporter,
-// stat-row-template, principles-template, section-divider-template).
-// These bodies live here so loadSkillContext can resolve them without a
-// fetch - browsers reject `fetch("inline://...")` as an unsupported
-// URL scheme. When a new inline-path skill is added to the manifest,
-// add its body here. Falls back to a minimal stub if missing.
-const INLINE_SKILL_TEMPLATES: Record<string, string> = {
-    'case-study-template': [
-        '# Case Study Analyst',
-        '',
-        'Generate named, evidence-grounded case studies from the corpus. Each case study MUST include:',
-        '',
-        '- **Subject**: a named organization, institution, or person from the corpus (no synthetic / composite names)',
-        '- **Context**: the situation that motivated the case (1-2 sentences, corpus-cited)',
-        '- **Intervention**: what was done - named program, tool, framework, or decision',
-        '- **Outcome**: quantified delta with a baseline and timeframe; cite the source by name',
-        '- **Applicability**: a 1-sentence "how this maps to the user\'s situation" tied to the research goal',
-        '- **Evidence**: 2-3 verbatim quotes from corpus with [CHUNK_XXX] markers AND named-source attribution',
-        '',
-        'BAN: composite subjects, unsourced numbers, "many universities" generic claims, vague outcomes like "improved engagement".',
-        '',
-        'STRUCTURE: when #slide / #slides modifier is present, emit each case study as a `:::slide template=case-study` block with the schema declared in components/slideTemplates/types.ts.',
-        '',
-        'COMPOSES with: source-ranker (validates case-study sources meet the >=60% external floor), evidence-density-pre-checker (predicts whether the corpus can support the requested case count).',
-    ].join('\n'),
-
-    'block-quote-template': [
-        '# Block Quote Renderer',
-        '',
-        'Emit a `:::slide template=block-quote` with the schema:',
-        '- `quote`: verbatim corpus text, max 250 chars',
-        '- `attribution`: the named source (publication, person, role)',
-        '- `context`: 1 sentence framing why this quote matters here',
-        '',
-        'BAN: fabricated quotes, generic "users said" framing, quotes >250 chars (truncate or pick a sharper passage).',
-    ].join('\n'),
-
-    'stat-row-template': [
-        '# Stat Row Renderer',
-        '',
-        'Emit a `:::slide template=stat-row` with 3-4 stat tiles:',
-        '- `value`: the headline number (with unit if non-obvious)',
-        '- `label`: uppercase tracked, <=20 chars',
-        '- `support`: 1 sentence naming the source + timeframe',
-        '',
-        'BAN: invented stats (use stat-callout text "MULTIPLE" / "FRAGMENTED" if no real number); >4 tiles; missing source attribution.',
-    ].join('\n'),
-
-    'principles-template': [
-        '# Principles Renderer',
-        '',
-        'Emit `:::slide template=principles` with 3-5 numbered principle blocks. Each block:',
-        '- `title`: a complete action-title sentence (>=8 words, no topic labels)',
-        '- `description`: 1-2 sentences expanding what + why',
-        '- `application`: 1 sentence on the concrete first move',
-    ].join('\n'),
-
-    'section-divider-template': [
-        '# Section Divider Renderer',
-        '',
-        'Emit `:::slide template=section-divider` with:',
-        '- `kicker`: 2-3 word uppercase tag',
-        '- `title`: section title (complete action sentence)',
-        '- `subtitle`: 1 sentence framing what the section will demonstrate',
-    ].join('\n'),
-};
+// 2026-10-01 (Stage 6.3 / A9): INLINE_SKILL_TEMPLATES is deleted. Skill bodies live on disk under
+// .claude/skills (served at /skills/); the manifest's remaining inline:// entries resolve to the
+// minimal stub below, and case-study-analyst points at its disk SKILL.md.
 
 export async function loadSkillContext(skill: SkillManifestEntry): Promise<SkillContext> {
     const cached = _skillContextCache.get(skill.id);
@@ -2610,11 +2490,11 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     // skills whose body is embedded in the dispatcher (case-study-analyst,
     // block-quote, benchmark-reporter etc.). Calling fetch() on a custom
     // URL scheme throws "Fetch API cannot load inline://..." in browsers.
-    // Resolve to the inline body via INLINE_SKILL_TEMPLATES, or fall back
+    // Resolve inline:// manifest entries to the minimal stub body (Stage 6.3), or fall back
     // to a minimal stub keyed on the skill id. Either way, NEVER fetch.
     if (skill.path?.startsWith('inline://')) {
         const templateName = skill.path.slice('inline://'.length);
-        const inlineBody = INLINE_SKILL_TEMPLATES[templateName] || `# ${skill.name}\n\n${skill.description || ''}\n\nTriggers: ${(skill.triggers || []).join(', ')}\n`;
+        const inlineBody = `# ${skill.name}\n\n${skill.description || ''}\n\nTriggers: ${(skill.triggers || []).join(', ')}\n`;
         const ctx: SkillContext = { skill, skillContent: inlineBody, companionContent: '' };
         _skillContextCache.set(skill.id, ctx);
         return ctx;
@@ -2825,7 +2705,7 @@ function _deliverableJsonToMarkdown(root: any): string {
     return out.join('\n\n');
 }
 
-export function renderDeliverableJsonReply(text: string): string {
+function renderDeliverableJsonReply(text: string): string {
     if (!text) return text;
     // Never touch fenced structured output - those have dedicated renderers.
     if (/:::(deliverable|slide|nxt)/.test(text)) return text;
@@ -3380,7 +3260,11 @@ export async function sendChatMessage(
     // Designer Chat prompt. Additive + non-fatal: on any failure the model still
     // has its inline brand guidance. This replaces reliance on hardcoded hex.
     if (!context.nxtDesignSystemRules) {
-        const brandTag = (/#nu\b/i.test(userMessage) || /northeastern/i.test(userMessage)) ? 'NU' : 'NXT';
+        // 2026-10-01 - ONE brand resolver (hashtagParser.brandVariantOf) so #NXT / #NU / #DECIEM all
+        // reach the same /api/design-tokens?brand= feed. The bare "northeastern" alias stays NU.
+        const brandTag: BrandVariantId = brandVariantOf(userMessage) === 'NXT' && /northeastern/i.test(userMessage)
+            ? 'NU'
+            : brandVariantOf(userMessage);
         const TOKENS_UNAVAILABLE = `=== FIGMA DESIGN TOKENS (${brandTag}) UNAVAILABLE ===\nThe live Figma token source could not be reached. Do NOT invent or hardcode any hex code, font, or spacing value. State that brand tokens are unavailable.`;
         try {
             const tokResp = await fetch(`${PROXY_BASE}/api/design-tokens?brand=${brandTag}&format=prompt`);
@@ -3507,7 +3391,12 @@ export async function sendChatMessage(
                         // evidence ledger. Never let the filter empty the corpus - if all were junk, keep the raw set.
                         const { isNonEvidenceChunk } = await import('./evidenceLedgerService');
                         const _clean = _resolved.chunks.filter((c: any) => !isNonEvidenceChunk(c?.text));
-                        const _grounding = _clean.length > 0 ? _clean : _resolved.chunks;
+                        // 2026-10-01 (plan Stage 1.2, audit F2): carry the pre-rank's normalized objective
+                        // relevance (0-100) onto each resolved chunk so the AIR evidence ledger records a
+                        // real objectiveScore instead of 0 on every row (the stored PRD runs read 0/55).
+                        const _scoreOf = (id: string) => (_picked.scores && Number.isFinite(_picked.scores[id])) ? _picked.scores[id] : undefined;
+                        const _grounding = (_clean.length > 0 ? _clean : _resolved.chunks)
+                            .map((c: any) => (_scoreOf(c.id) === undefined ? c : { ...c, retrievalScore: _scoreOf(c.id) }));
                         if (_clean.length < _resolved.chunks.length) {
                             console.log(`[chat] quality: dropped ${_resolved.chunks.length - _clean.length} non-evidence (bot/mod) chunk(s) from grounding`);
                         }
@@ -3564,13 +3453,17 @@ export async function sendChatMessage(
         if (tierOverride && model !== tierOverride) {
             console.info(`[chat][route] Bake-off-validated tier override: ${model} -> ${tierOverride} (deliverable)`);
             model = tierOverride;
-        } else if (!tierOverride && model !== 'claude-opus-4-8') {
-            const fableCfg = AVAILABLE_MODELS.find(m => m.id === 'claude-opus-4-8');
-            if (fableCfg?.available) {
-                console.info(`[chat][route] Artifact hashtag detected - force-routing deliverable generation: ${model} -> claude-opus-4-8`);
-                model = 'claude-opus-4-8';
-            } else {
-                console.warn(`[chat][route] Artifact hashtag detected but ANTHROPIC_API_KEY unavailable - keeping ${model} for this generation`);
+        } else if (!tierOverride && model !== CLAUDE_REASONING_MODEL) {
+            // 2026-10-01 (plan Stage 4.3 / A8, D6): the fallback is the AUTHORITY's, not a local
+            // literal. chooseArtifactModel reads live provider health and the key inventory
+            // (quotaExhausted) and returns the model that should run plus its alternatives.
+            const claudeCfg = AVAILABLE_MODELS.find(m => m.id === CLAUDE_REASONING_MODEL);
+            const { chooseArtifactModel } = await import('./aiRouter');
+            const _kind = primaryCatalogHit(userMessage)?.entry.templateId || 'slides';
+            const decision = chooseArtifactModel(String(_kind), claudeCfg?.available ? {} : { quotaExhausted: [CLAUDE_REASONING_MODEL] });
+            if (decision.selectedModel !== model) {
+                console.info(`[chat][route] Artifact hashtag detected - routing authority: ${model} -> ${decision.selectedModel} (${decision.reason})`);
+                model = decision.selectedModel as ChatModel;
             }
         }
     }
@@ -3603,6 +3496,17 @@ export async function sendChatMessage(
     const provenanceIndex = (context.sourceReferences || []).map(s =>
         `[${s.id}] ${s.sourceName}: "${s.title}"${s.url ? ` URL: ${s.url}` : ''}${s.date ? ` (${s.date})` : ''}`
     ).join('\n');
+
+    // 2026-10-01 (plan R-T2): protocol for THIS turn. Deck mode (#presentation / #strategy / bare
+    // #slides) injects its own archetype catalog later; a template hashtag gets only its examples;
+    // plain chat gets the response-mode rules alone.
+    const _tplRequested = requestedSlideTemplates(userMessage);
+    const _deckModeEarly = /#presentation|#strateg/i.test(userMessage) || (/#slides?\b/i.test(userMessage) && _tplRequested.length === 0);
+    const _protocolForThisTurn = _deckModeEarly
+        ? deliverableProtocolFor('deck')
+        : (_tplRequested.length > 0
+            ? deliverableProtocolFor({ templates: _tplRequested })
+            : (isArtifactGenerationMessage(userMessage) ? deliverableProtocolFor('all') : deliverableProtocolFor('none')));
 
     // Build skill-aware system prompt.
     // Render contracts come FIRST so the AI internalizes the layout rules
@@ -3800,7 +3704,7 @@ When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds - not 
 If your draft answer cites only uploads, that is a violation of source-mix discipline - make additional retrievals with kind="article" and kind="transcript" before responding.
 
 When tool results return empty or error, the archive genuinely doesn't have evidence for that claim - narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user - not a QA dashboard.
-${DELIVERABLE_PROTOCOL}
+${_protocolForThisTurn}
 
 === LENGTH & DEPTH DISCIPLINE (re-read before responding) ===
 Match the OUTPUT SIZE to what the user actually requested. Common signals:
@@ -3845,8 +3749,8 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
 
   1. Contains "#slide" (case-insensitive)?
        → SLIDE MODE: follow the SLIDE OUTPUT PROTOCOL. One :::slide block per slide.
-         Respect optional brand: #NU = the client organization, #NXT = NXT Humans (also default).
-         Mark the template on the fence: :::slide template=NAME [brand=nu|nxt]
+         Respect optional brand: #NU = the client organization, #DECIEM = DECIEM (black and white, Poppins Bold uppercase headlines and labels, Josefin Sans body, Nunito for tables and data, pink / cyan / purple pops), #NXT = NXT Humans (also default).
+         Mark the template on the fence: :::slide template=NAME [brand=nu|deciem|nxt]
 
   2. Contains explicit approvable-card phrasing ("card I can approve", "approvable personas",
      "pin-able deliverables", "deliverable cards to add to the knowledge graph")?
@@ -3930,6 +3834,16 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
         // Determine thinking effort from skill or default
         const thinkingEffort: ThinkingEffort = skillContext?.skill.thinkingEffort || 'medium';
+        // 2026-09-30 (plan 0.5.3): the effort that callClaude will send as
+        // output_config.effort. Policy floor for the artifact kind (prd/strategy/recs/
+        // report -> xhigh; other evidence artifacts -> high), raised by a skill's own
+        // thinkingEffort hint, never lowered by it. Plain chat on Claude gets 'medium'.
+        {
+            const _tplHit = primaryCatalogHit(userMessage);
+            const _kind = _tplHit?.entry.templateId ? _tplHit.entry.templateId : (isArtifactGenerationMessage(userMessage) ? 'slides' : null);
+            _chatEffortHint = _kind ? maxEffort(effortForArtifact(_kind), effortFromSkillHint(thinkingEffort)) : 'medium';
+            _chatArtifactKind = _kind;
+        }
 
         // 2026-05-11 (HiC-Active-Loop #3) - PreCompact mid-session.
         // Before dispatching the new message, check if the history is large
@@ -4006,7 +3920,10 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // applied; the artifact never rendered. An artifact hashtag IS the
         // request for the artifact. (ARTIFACT_TPL is module-scope - shared
         // with the early Fable force-route.)
-        const artifactTplHit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
+        const _primaryHit = primaryCatalogHit(userMessage);
+        const artifactTplHit: [RegExp, string] | undefined = _primaryHit?.entry.templateId
+            ? [catalogDirectiveRegex(_primaryHit.entry.aliases), _primaryHit.entry.templateId]
+            : ARTIFACT_TPL.find(([re]) => re.test(userMessage));
         const slideModeActive = /#slides?\b/i.test(userMessage) || !!artifactTplHit;
         let slideModeTpl = '(pick the template that best matches the content)';
         if (slideModeActive) {
@@ -4019,7 +3936,8 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
               : /#road/i.test(userMessage) ? 'timeline'
               : '(pick the template that best matches the content)';
             slideModeTpl = tplHint;
-            const brandHint = /#nu\b/i.test(userMessage) ? 'nu' : 'nxt';
+            // 2026-10-01 - brand id on the fence comes from the ONE resolver: nxt | nu | deciem
+            const brandHint = normalizeBrandId(brandVariantOf(userMessage));
             systemPrompt += `\n\n========================================================================\nSLIDE MODE IS ACTIVE - the user's message contains #slide/#slides or an artifact hashtag. You MUST respond with one or more :::slide fenced blocks per the SLIDE OUTPUT PROTOCOL above. Default template for THIS request: ${tplHint}; brand=${brandHint}. HARD RULES: (1) NEVER answer in markdown prose - no ###, no >, no * bullets; the renderer only draws cards from :::slide fences, so prose renders as raw markdown slop. (2) If the user named a count ("5 #personas", "8 #themes"), produce that many items - theme-cluster packs up to 4 themes per block, so 8 themes = 2 blocks. (3) Every slide's JSON must be valid and match the declared template schema. (4) Citations inside slide JSON use NAMED source names, never raw file paths or .md#cNN pointers. (5) Numbers appear only inside verbatim quotes with inline attribution, never as bare assertions in titles/keyInsight/painPoints.\n========================================================================`;
 
             // DECK MODE (SLIDES archetype system, Figma 609). A multi-slide narrative deck
@@ -4030,6 +3948,11 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             // spec (no per-archetype code). Specific artifact hashtags (#personas/#themes/#journey/...)
             // keep their GOLD templates - they are not decks.
             const deckMode = /#presentation|#strateg/i.test(userMessage) || (/#slides?\b/i.test(userMessage) && !artifactTplHit);
+            // 2026-10-01 (plan D5 / Stage 4.1): remember where the deck block starts so it can be HOISTED
+            // into the stable core (before the first cache breakpoint) instead of riding the dynamic
+            // tail. The deck-composer skill + infographic skill + archetype manifest (~64K chars) are
+            // identical for every deck of a brand; appended after the grounding they were never cached.
+            const _spBeforeDeck = systemPrompt.length;
             console.info(`[chat][deck] DECK MODE ${deckMode ? 'ACTIVE - SLIDES archetype registry injected (model must vary archetypes)' : 'OFF (single artifact template: ' + slideModeTpl + ')'}`);
             if (deckMode) {
                 const slidesManifest = await fetchSlidesArchetypeManifest();
@@ -4043,6 +3966,11 @@ NARRATIVE ARC - PLAN THE BUSINESS ARGUMENT FIRST (MANDATORY; this GOVERNS the wh
 ${deckComposerSkill}
 ` : ''}${infographicSkill ? `\n--- INFOGRAPHIC COMPOSER SKILL (binding depth contract for slides:infographic-exhibit) ---\n${infographicSkill}\n` : ''}========================================================================`;
                 }
+            }
+            if (deckMode && systemPrompt.length > _spBeforeDeck && systemPrompt.includes(HIC_CACHE_BREAK)) {
+                const _deckBlock = systemPrompt.slice(_spBeforeDeck);
+                systemPrompt = systemPrompt.slice(0, _spBeforeDeck).replace(HIC_CACHE_BREAK, `${_deckBlock}\n${HIC_CACHE_BREAK}`);
+                console.info(`[chat][deck] deck block (${_deckBlock.length} chars) hoisted into the stable cached core`);
             }
 
             // PROVENANCE LOCK (2026-08-17, plans/citation-integrity-provenance-lock-2026-08-17.md).
@@ -4134,7 +4062,7 @@ ${deckComposerSkill}
         // re-ask with the violations named; the better plan wins (never worse).
         if (/#presentation|#strateg|#slides?\b/i.test(userMessage)) {
             try {
-                const { evaluateDeckPlan, buildDeckRepairInstruction } = await import('./deckPlanGate');
+                const { evaluateDeckPlan, buildDeckRepairInstruction, remapSurplusArchetypes, noteDeckPlanVerdict, verdictOf } = await import('./deckPlanGate');
                 // V2 (2026-08-07): the session-constraint visual floor ("more
                 // graphics") parameterizes the gate - the user's ask is enforced
                 // by code, not left to the model's discretion.
@@ -4147,14 +4075,40 @@ ${deckComposerSkill}
                         ? await callClaude(systemPrompt, repairMsg, [], activeModelId)
                         : await callGemini(systemPrompt, repairMsg, [], activeModelId);
                     const rePlan = evaluateDeckPlan(repaired, _gateOpts);
+                    let finalPlan = plan;
+                    let resolution: 'model_repair' | 'deterministic_remap' | 'unrepaired' = 'unrepaired';
                     if (rePlan.isDeck && rePlan.violations.length < plan.violations.length) {
                         console.log(`[chat][deck-gate] repair accepted: ${plan.violations.length} -> ${rePlan.violations.length} violations, visual ratio ${Math.round(plan.visualRatio * 100)}% -> ${Math.round(rePlan.visualRatio * 100)}%`);
                         responseText = repaired;
+                        finalPlan = rePlan;
+                        resolution = 'model_repair';
                     } else {
                         console.warn('[chat][deck-gate] repair did not improve the plan; keeping the original deck');
                     }
+                    // 2026-10-01 (plan Stage 2.1): the numbered-themes clamp is the one violation
+                    // with a payload-to-payload answer, so when the model's re-ask leaves it
+                    // standing the runtime REMAPS the surplus fences to evidence-table itself.
+                    // Deterministic, lossless (every item becomes a named row), recorded.
+                    let remapped: Array<{ index: number; from: string; to: string }> = [];
+                    if (finalPlan.violations.some(v => v.startsWith('slides:numbered-themes used'))) {
+                        const r = remapSurplusArchetypes(responseText);
+                        if (r.remapped.length) {
+                            const afterRemap = evaluateDeckPlan(r.text, _gateOpts);
+                            if (afterRemap.violations.length < finalPlan.violations.length) {
+                                responseText = r.text;
+                                finalPlan = afterRemap;
+                                remapped = r.remapped;
+                                resolution = 'deterministic_remap';
+                                console.log(`[chat][deck-gate] remapped ${r.remapped.length} surplus numbered-themes fence(s) to evidence-table; ${afterRemap.violations.length} violation(s) remain`);
+                            }
+                        }
+                    }
+                    noteDeckPlanVerdict(verdictOf(finalPlan, finalPlan.pass ? (resolution === 'unrepaired' ? 'pass' : resolution) : resolution, remapped));
                 } else if (plan.isDeck) {
                     console.log(`[chat][deck-gate] pass: ${plan.templates.length} slides, ${new Set(plan.templates).size} archetypes, visual ratio ${Math.round(plan.visualRatio * 100)}%`);
+                    noteDeckPlanVerdict(verdictOf(plan, 'pass'));
+                } else {
+                    noteDeckPlanVerdict(null);
                 }
             } catch (gateErr) {
                 console.warn('[chat][deck-gate] gate errored (fail-open, deck ships ungated):', gateErr);
@@ -4208,7 +4162,7 @@ ${deckComposerSkill}
                 const reask = `=== REINFORCEMENT INFERENCE RE-ASK ===\n`
                     + `You previously answered the task below, but the response violated the output contract:\n`
                     + ` - SLIDE MODE was active (artifact hashtag present) and your answer contained NO :::slide fenced block. Markdown prose is a hard failure for this request.\n\n`
-                    + `Your prior response is included verbatim. Convert it into the required :::slide output. KEEP the content, evidence, and quotes you produced - do not regenerate from scratch. Emit ONLY :::slide fenced blocks (template=${slideModeTpl}${/#nu\b/i.test(userMessage) ? ' brand=nu' : ''}), valid JSON, per the SLIDE OUTPUT PROTOCOL. No preamble, no prose outside the fences.\n\n`
+                    + `Your prior response is included verbatim. Convert it into the required :::slide output. KEEP the content, evidence, and quotes you produced - do not regenerate from scratch. Emit ONLY :::slide fenced blocks (template=${slideModeTpl}${normalizeBrandId(brandVariantOf(userMessage)) === 'nxt' ? '' : ` brand=${normalizeBrandId(brandVariantOf(userMessage))}`}), valid JSON, per the SLIDE OUTPUT PROTOCOL. No preamble, no prose outside the fences.\n\n`
                     + `PRIOR RESPONSE:\n"""\n${responseText.slice(0, 24000)}\n"""\n\n`
                     + `ORIGINAL TASK:\n"""\n${userMessage}\n"""`;
                 let retried: string;
@@ -4261,7 +4215,10 @@ ${deckComposerSkill}
         // additive, never touches the chat reply or its return. Completes the third artifact emission path.
         if (messageTargetsArtifact(userMessage)) {
             try {
-                const _tplHit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
+                const _tplHit = ((): [RegExp, string] | undefined => {
+                    const h = primaryCatalogHit(userMessage);
+                    return h?.entry.templateId ? [catalogDirectiveRegex(h.entry.aliases), h.entry.templateId] : ARTIFACT_TPL.find(([re]) => re.test(userMessage));
+                })();
                 // D18: derive the trigger for catalog artifacts NOT in ARTIFACT_TPL (#strategy/#playground/...)
                 // from the catalog directive so the AIR carries the real trigger, not a generic '#artifact'.
                 const _catHit = !_tplHit ? (userMessage.match(/#[a-z][a-z-]*/gi) || []).map(t => catalogEntryFor(t)).find(e => e && (e.modality === 'slides' || e.modality === 'html')) : null;
@@ -4323,9 +4280,9 @@ ${deckComposerSkill}
                 recordModelStep(_airTrace, {
                     step: `chat-artifact:${_trigger.replace(/^#/, '')}`,
                     selectedModel: String(model),
-                    routingReason: deliverableModelOverride(userMessage)
-                        ? 'bake-off-validated schema tier (aiRouter.artifactModelFor)'
-                        : 'artifact force-route (aiRouter.artifactModelFor default tier)',
+                    routingReason: (String(model).startsWith('claude')
+                        ? `evidence tier (aiRouter.artifactModelFor), effort=${_chatEffortHint}`
+                        : 'bake-off-validated schema tier (aiRouter.artifactModelFor)'),
                     provider: String(model).startsWith('claude') ? 'anthropic' : (String(model).startsWith('gpt') ? 'openai' : 'gemini'),
                     costEstimateUsd: 0,
                     quotaState: 'healthy',
@@ -4478,7 +4435,7 @@ const MAX_TOOL_ITER = 5;
 // surfaced verbatim to the user (observed: a chat reply that was just "}").
 // _isJunkAnswer() detects those degenerate fragments so the finalize paths
 // fall through to a forced no-tools synthesis call instead of returning junk.
-export function _isJunkAnswer(s: string | null | undefined): boolean {
+function _isJunkAnswer(s: string | null | undefined): boolean {
     const t = (s || '').trim();
     if (!t) return true;
     // Strip a leading ```lang fence and a trailing ``` fence.
@@ -4774,6 +4731,36 @@ async function executeFetchWikiResourceTool(input: any): Promise<string> {
  *  Timeouts and fetch errors surface as `(error: ...)` inside the
  *  returned string; the caller decides whether to mark is_error. */
 async function executeFetchWikiArticlesTool(input: any): Promise<string> {
+    // 2026-10-01 (plan Stage 1.1, phase 5): the tool is the model's retrieval surface, so it must
+    // return the SAME manifest-chunk evidence (pointer + provenance line) the grounding pack uses,
+    // never bulk article bodies. Falls back to article bodies only when the manifest catalog is
+    // empty for this engagement (the explicit fallback the vision permits).
+    try {
+        const _slug = currentEngagementSlug();
+        if (_slug) {
+            const q = String(input?.query || input?.q || '').trim();
+            const budgetTokens = Math.max(2_000, Math.min(12_000, Number(input?.max_results || input?.limit || 0) > 0 ? Number(input.max_results || input.limit) * 400 : 8_000));
+            const picked = await pickChunksForPrompt(q || (globalThis as any).__hicResearchGoal || '', _slug, {
+                tokenBudget: budgetTokens,
+                extraContext: (globalThis as any).__hicResearchGoal || '',
+                researchObjective: [q, (globalThis as any).__hicResearchGoal || ''].filter(Boolean).join('\n').slice(0, 800),
+                skipRerank: true,
+            });
+            if (picked.chunkIds.length > 0) {
+                const resolved = await resolveChunks(picked.chunkIds);
+                if (resolved.chunks.length > 0) {
+                    const kindFilter = String(input?.kind || '').trim().toLowerCase();
+                    const chunks = kindFilter
+                        ? resolved.chunks.filter((c: any) => !kindFilter || String((c as any).pageMeta?.kind || '').toLowerCase().includes(kindFilter) || String(c.sourcePath || '').includes(kindFilter))
+                        : resolved.chunks;
+                    const block = assembleChunkCorpus(chunks.length ? chunks : resolved.chunks);
+                    return `${block}\n\n(${resolved.chunks.length} manifest chunks from ${resolved.sourcesRead} pages; cite by [wikiPath#cN].)`;
+                }
+            }
+        }
+    } catch (err: any) {
+        console.warn('[chat][tool] manifest retrieval failed; falling back to article bodies:', err?.message || err);
+    }
     try {
         const { fetchWikiArticles } = await import('./wikiIndexService');
         const abort = new AbortController();
@@ -4867,8 +4854,8 @@ async function _finalizeChatViaClaude(
     primaryProviderLabel: string,
 ): Promise<string> {
     const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
-    _prog?.(`${primaryProviderLabel} exhausted - switching to Claude Sonnet 4.6...`);
-    console.warn(`[chat.failover] ${primaryProviderLabel} exhausted; finalizing via Claude Sonnet 4.6 with ${messagesSoFar.length} accumulated messages`);
+    _prog?.(`${primaryProviderLabel} exhausted - switching to ${CLAUDE_STRUCTURED_MODEL}...`);
+    console.warn(`[chat.failover] ${primaryProviderLabel} exhausted; finalizing via ${CLAUDE_STRUCTURED_MODEL} with ${messagesSoFar.length} accumulated messages`);
 
     // Translate OpenAI-shape messages -> Anthropic Messages API shape.
     // System goes in the top-level `system` field (NOT a role). Tool calls +
@@ -4932,8 +4919,8 @@ async function _finalizeChatViaClaude(
     }
 
     const { callAIWithRetry } = await import('./aiRetryClient');
-    const data: any = await callAIWithRetry('anthropic', {
-        model: 'claude-sonnet-4-6',
+    let data: any = await callAIWithRetry('anthropic', {
+        model: CLAUDE_STRUCTURED_MODEL,
         max_tokens: 8192,
         system,
         messages: merged,
@@ -4963,33 +4950,64 @@ async function _finalizeChatViaClaude(
 // top-level `system` field; history merges into alternating user/assistant
 // turns; first message must be 'user'. Posts via callAIWithRetry ->
 // /api/ai/anthropic (the proxy attaches the key server-side).
+// 2026-09-30 (plan 0.5.3 / 0.5.5): per-turn effort hint + artifact kind set by
+// sendChatMessage; and the per-session store of the raw content blocks Claude
+// returned for each assistant turn (keyed by the visible text), so the SAME
+// conversation on the SAME model echoes its thinking blocks back unchanged
+// (preserved thinking: a text-only reconstruction of an assistant turn is a
+// history edit the 5.x binding check can reject).
+let _chatEffortHint: ClaudeEffort = 'high';
+let _chatArtifactKind: string | null = null;
+const _claudeTurnBlocks = new Map<string, { model: string; blocks: any[] }>();
+const _CLAUDE_TURN_BLOCKS_MAX = 64;
+function _rememberClaudeTurn(model: string, text: string, blocks: any[]): void {
+    if (!text || !Array.isArray(blocks) || blocks.length === 0) return;
+    if (_claudeTurnBlocks.size >= _CLAUDE_TURN_BLOCKS_MAX) {
+        const first = _claudeTurnBlocks.keys().next().value;
+        if (first !== undefined) _claudeTurnBlocks.delete(first);
+    }
+    _claudeTurnBlocks.set(text, { model, blocks });
+}
+
 async function callClaude(
     system: string,
     userMsg: string,
     history: ChatMessage[],
-    model: string = 'claude-opus-4-8',
+    model: string = CLAUDE_REASONING_MODEL,
 ): Promise<string> {
     const abortSignal = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
     if (abortSignal?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
     const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
     _prog?.(`Generating via Claude (${model})...`);
 
-    type _AnthMsg = { role: 'user' | 'assistant'; content: string };
+    type _AnthMsg = { role: 'user' | 'assistant'; content: string | any[] };
     const anthMessages: _AnthMsg[] = [];
     for (const m of history) {
         if (m.role === 'system') continue; // system content lives in the top-level field
         if (!m.content || !m.content.trim()) continue;
-        anthMessages.push({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content });
+        if (m.role === 'assistant') {
+            // Preserved thinking (0.5.5): echo the exact blocks this model returned for
+            // this turn; fall back to text for turns produced by another model or path.
+            const kept = _claudeTurnBlocks.get(m.content);
+            anthMessages.push({ role: 'assistant', content: kept && kept.model === model ? kept.blocks : m.content });
+            continue;
+        }
+        anthMessages.push({ role: 'user', content: m.content });
     }
     anthMessages.push({ role: 'user', content: userMsg });
 
     // Anthropic requires strictly alternating user/assistant with a leading
-    // 'user' turn. Merge consecutive same-role turns.
+    // 'user' turn. Merge consecutive same-role turns (block arrays concatenate).
+    const _asBlocks = (c: string | any[]): any[] => (Array.isArray(c) ? c : [{ type: 'text', text: c }]);
     const merged: _AnthMsg[] = [];
     for (const am of anthMessages) {
         const prev = merged[merged.length - 1];
         if (prev && prev.role === am.role) {
-            prev.content = `${prev.content}\n\n${am.content}`;
+            if (typeof prev.content === 'string' && typeof am.content === 'string') {
+                prev.content = `${prev.content}\n\n${am.content}`;
+            } else {
+                prev.content = [..._asBlocks(prev.content), ..._asBlocks(am.content)];
+            }
         } else {
             merged.push({ role: am.role, content: am.content });
         }
@@ -4997,35 +5015,69 @@ async function callClaude(
     if (merged.length === 0 || merged[0].role !== 'user') {
         merged.unshift({ role: 'user', content: '(conversation resumes)' });
     }
+    // No Claude 4.6+ model accepts an assistant prefill: the last turn must be 'user'.
+    if (merged[merged.length - 1].role !== 'user') {
+        merged.push({ role: 'user', content: '(continue)' });
+    }
 
     const { callAIWithRetry } = await import('./aiRetryClient');
-    // NOTE: no `temperature` — claude-opus-4-8 rejects it with a 400
-    // ("temperature is deprecated for this model"). The proxy also strips it
-    // defensively at /api/ai/anthropic.
-    const data: any = await callAIWithRetry('anthropic', {
+    // No sampling params: Claude 4.6+/5.x reject them with a 400. aiRetryClient applies
+    // the request contract (adaptive thinking, output_config.effort from _hicEffort,
+    // sampling strip) and the proxy repeats it defensively at /api/ai/anthropic.
+    let data: any = await callAIWithRetry('anthropic', {
         model,
-        // 32K output covers a 10-slide deck of :::slide JSON blocks; well within
-        // Opus 4.8's 64K max-output cap. Raise toward 64K only if a dense deck
-        // truncates.
-        max_tokens: 32000,
+        // 2026-10-01 live `#prd` on Opus 5.5 at xhigh hit the 32K cap mid-fence; the
+        // model's cap is 128K and the proxy streams upstream above 16K, so artifact
+        // kinds get 64K. Plain chat on Claude keeps 32K.
+        max_tokens: _chatArtifactKind ? 64000 : 32000,
         system,
         messages: merged,
+        _hicKind: _chatArtifactKind,
+        _hicEffort: _chatEffortHint,
     }, {
         label: `Chat (Claude ${model})`,
         maxAttempts: 3,
+        // 2026-10-01 live run: the default 300s client budget expired at attempt 1 while
+        // the proxy (600s ceiling) finished the call, so the deck was billed twice and
+        // retried. The client budget must never be shorter than the proxy's upstream
+        // ceiling; the durable answer is the SSE relay (plan R-L2), this is the contract.
+        requestTimeoutMs: 600_000,
     });
+
+    // 2026-10-03 live (#recs #slides, a second project): adaptive thinking spent the whole output budget and the reply
+    // carried NO text (stop_reason=max_tokens), twice. One retry with the model's full output ceiling and a lower
+    // reasoning effort leaves room for the deliverable itself.
+    const _textOf = (d: any) => (Array.isArray(d?.content) ? d.content : []).map((b: any) => (b?.type === 'text' && typeof b?.text === 'string' ? b.text : '')).join('').trim();
+    if (!_textOf(data) && data?.stop_reason === 'max_tokens') {
+        console.warn(`[chat][claude] ${model} spent the output budget on reasoning with no text; retrying once at 128K tokens, medium effort`);
+        _prog?.('The model spent its output budget reasoning; retrying with room for the deliverable');
+        data = await callAIWithRetry('anthropic', { model, max_tokens: 128000, system, messages: merged, _hicKind: _chatArtifactKind, _hicEffort: 'medium' }, {
+            label: `Chat (Claude ${model}) budget retry`, maxAttempts: 2, requestTimeoutMs: 600_000,
+        });
+    }
 
     const blocks = Array.isArray(data?.content) ? data.content : [];
     const text = blocks
-        .map((b: any) => (typeof b?.text === 'string' ? b.text : ''))
+        .map((b: any) => (b?.type === 'text' && typeof b?.text === 'string' ? b.text : ''))
         .join('')
         .trim();
+    if (data?.stop_reason === 'refusal') {
+        const sd = data?.stop_details || {};
+        throw new Error(`Claude (${model}) declined this request (${sd.category || 'refusal'}${sd.explanation ? `: ${String(sd.explanation).slice(0, 160)}` : ''})`);
+    }
     if (!text) {
         throw new Error(`Claude (${model}) returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
     }
     if (data?.stop_reason === 'max_tokens') {
-        console.warn(`[chat][claude] ${model} hit max_tokens (32000) - output may be truncated mid-fence`);
+        console.warn(`[chat][claude] ${model} hit max_tokens (${_chatArtifactKind ? 64000 : 32000}) - output may be truncated mid-fence`);
     }
+    // Live Thinking: surface the summarized reasoning the 5.x response carries.
+    try {
+        const { extractThinkingSummary } = await import('./claudeModelPolicy');
+        const summary = extractThinkingSummary(data);
+        if (summary) _prog?.(`Reasoning summary: ${summary.slice(0, 400)}`);
+    } catch { /* non-fatal */ }
+    _rememberClaudeTurn(model, text, blocks);
     return text;
 }
 

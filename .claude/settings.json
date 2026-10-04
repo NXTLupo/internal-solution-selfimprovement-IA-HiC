@@ -62,7 +62,7 @@
       "Edit(/.claude/skills/strategy-author/**)",
       "Edit(/.claude/skills/nxt-visual-renderer/**)",
       "Edit(/.claude/skills/wiki-synthesizer/**)",
-      "Edit(/.claude/skills/deck-narrative-composer/**)",
+      "Edit(/.claude/skills/deck-composer/**)",
       "PowerShell(docker compose -f d:\\\\NXT-HUMANS_AI_CX_WORKBENCH\\\\docker-compose-all.yml restart research-proxy 2>&1)",
       "Bash(git -C \"d:\\\\NXT-HUMANS_AI_CX_WORKBENCH\" ls-files humans-in-control-research/DESIGN.md)",
       "Bash(git -C \"d:/NXT-HUMANS_AI_CX_WORKBENCH\" log --oneline -15)",
@@ -230,6 +230,17 @@
             "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/scripts/stop_chat_antislop.py",
             "timeout": 10,
             "statusMessage": "Checking reply for slop language"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/.claude/hooks/quality_gate.py --stop-hook --scope citations --scope editorial",
+            "timeout": 15,
+            "statusMessage": "HiC unified quality gate (citations, editorial)"
           }
         ]
       }

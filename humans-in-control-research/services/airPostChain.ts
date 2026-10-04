@@ -33,6 +33,7 @@
 import type { ChainResult } from './artifactChain';
 import { buildEnrichmentRecord } from './generationLedger';
 import type { RepairResult } from './artifactRepair';
+import { readLastDeckPlanVerdict } from './deckPlanGate';
 
 const PROXY_BASE = (import.meta as any)?.env?.VITE_PROXY_BASE || 'http://127.0.0.1:5012';
 
@@ -137,6 +138,16 @@ export interface PostChainRecord {
         groundingIntact: boolean;
         losses: Array<{ stepId: string; weight: string; errorType: string | null; empty: boolean }>;
     } | null;
+    /** 2026-10-01 (Stage 2.1): the Partner Test verdict after the final pass. */
+    titles: { checked: number; findings: Array<{ slideId: string; kinds: string[]; title: string }> } | null;
+    /** Banned-phrase sites that SURVIVED the final pass. */
+    slop: { sites: number; phrases: string[] } | null;
+    /** The DECK MODE composition gate's verdict for the turn (recorded by the chat service). */
+    deckPlan: { pass: boolean; violations: string[]; visualRatio: number; resolution: string; remapped: number } | null;
+    /** R-M1: per-family before/after counts from the repair pass. */
+    ri: { before: Record<string, number>; after: Record<string, number>; resolved: number; survived: number; improved: boolean } | null;
+    /** Slides withheld from the shipped deck (a naked-number title repair could not clear). */
+    withheld: Array<{ slideId: string; reason: string }>;
     /** The fences the user actually received, when the chain changed them. */
     shippedPayload?: unknown;
 }
@@ -146,9 +157,11 @@ export function buildPostChainRecord<T>(
     chain: ChainResult<T>,
     repair?: RepairResult<T> | null,
     shippedPayload?: unknown,
+    withheld: Array<{ slideId: string; reason: string }> = [],
 ): PostChainRecord {
     const enrichmentRecord = buildEnrichmentRecord();
     const final = repair?.finalChain || chain;
+    const deckPlan = readLastDeckPlanVerdict();
     // The initial pass is where binding happens; fall back to the final pass when
     // there was no repair (in which case they are the same object).
     const bindingSource = (chain.bindReport && chain.bindReport.bound.length)
@@ -206,6 +219,20 @@ export function buildPostChainRecord<T>(
             fitted: final.exhibitReport.fitted,
             findings: final.exhibitReport.findings.map(f => ({ kind: f.kind, template: f.template, detail: f.detail })),
         } : null,
+        titles: final.titleReport ? {
+            checked: final.titleReport.checked,
+            findings: final.titleReport.findings.map(f => ({ slideId: f.slideId, kinds: f.kinds.slice(), title: f.title.slice(0, 120) })),
+        } : null,
+        slop: (final.slopFindings || []).length ? {
+            sites: final.slopFindings.length,
+            phrases: Array.from(new Set(final.slopFindings.map(s => s.phrase))).slice(0, 20),
+        } : null,
+        deckPlan: deckPlan ? {
+            pass: deckPlan.pass, violations: deckPlan.violations.slice(0, 12), visualRatio: deckPlan.visualRatio,
+            resolution: deckPlan.resolution, remapped: deckPlan.remapped.length,
+        } : null,
+        ri: repair?.ri ?? null,
+        withheld,
         enrichment: enrichmentRecord.total ? {
             total: enrichmentRecord.total,
             degraded: enrichmentRecord.degraded,
@@ -249,11 +276,16 @@ export async function patchAirWithPostChain(
                     // consumer that never learns about `postChain` still stops
                     // seeing a clean report on a refused artifact.
                     qualityReport: {
+                        chainRan: true,
                         deterministicFailures: [
                             ...(record.evidence?.violations || []).map(v => `evidence:${v.kind}@${v.sectionId}`),
                             ...(record.prose?.concerns || []).map(c => `prose:${c.id}`),
                             ...(record.grade?.superficial ? [`grade:superficial=${record.grade.superficial}`] : []),
                             ...(record.deckQuality?.findings || []).map(f => `layout:${f.kind}${f.template ? `@${f.template}` : ''}`),
+                            ...(record.titles?.findings || []).filter(f => f.kinds.some(k => k !== 'no_verb')).map(f => `title:${f.kinds.filter(k => k !== 'no_verb').join('+')}@${f.slideId}`),
+                            ...(record.slop?.phrases || []).map(p => `slop:${p}`),
+                            ...(record.deckPlan && !record.deckPlan.pass ? [`deckplan:${record.deckPlan.violations.length}`] : []),
+                            ...record.withheld.map(w => `withheld:${w.slideId}`),
                         ],
                         reviewScores: {
                             p0_coverage: record.evidence?.p0Coverage ?? 1,
@@ -262,8 +294,14 @@ export async function patchAirWithPostChain(
                             pointers_bound: record.binding?.bound ?? 0,
                             distinct_archetypes: record.deckQuality?.distinctArchetypes ?? 0,
                             content_ratio: record.deckQuality?.contentRatio ?? 1,
+                            deck_plan_violations: record.deckPlan?.violations.length ?? 0,
+                            title_findings: record.titles?.findings.filter(f => f.kinds.some(k => k !== 'no_verb')).length ?? 0,
+                            slop_sites: record.slop?.sites ?? 0,
+                            withheld_slides: record.withheld.length,
                         },
                         chainPass: record.chainPass,
+                        // R-M4 (2026-10-01): the mechanism signals the golden-set runner reads.
+                        ...(record.ri ? { ri: { fired: record.ri.resolved > 0 || record.ri.survived > 0, before: record.ri.before, after: record.ri.after, resolved: record.ri.resolved, survived: record.ri.survived } } : {}),
                     },
                 },
             }),

@@ -248,7 +248,8 @@ section kinds; \`data\` follows the per-kind shape described above).`;
 // Skills are fetched at runtime - /skills/ is volume-mounted into the
 // research-generator nginx container and serves correctly.
 const NXT_VISUAL_RENDERER_SKILL_PATH = '/skills/nxt-visual-renderer/SKILL.md';
-const DECK_NARRATIVE_COMPOSER_SKILL_PATH = '/skills/deck-narrative-composer/SKILL.md';
+// Stage 6.3 (2026-10-01): deck-narrative-composer was folded into deck-composer (section 8) and deleted.
+const DECK_NARRATIVE_COMPOSER_SKILL_PATH = '/skills/deck-composer/SKILL.md';
 
 // ============================================================================
 // MODE DETECTION + TOPIC ANCHORING
@@ -347,7 +348,7 @@ async function buildSystemPrompt(
   const template = NARRATIVE_COMPOSER_PROMPT;
   const [visualRenderer, deckNarrative] = await Promise.all([
     fetchText(NXT_VISUAL_RENDERER_SKILL_PATH).catch(() => '(visual-renderer skill unavailable)'),
-    fetchText(DECK_NARRATIVE_COMPOSER_SKILL_PATH).catch(() => '(deck-narrative skill unavailable)'),
+    fetchText(DECK_NARRATIVE_COMPOSER_SKILL_PATH).catch(() => '(deck-composer skill unavailable)'),
   ]);
 
   const tokens = resolveBrandTokens(request.brand);
@@ -360,7 +361,7 @@ async function buildSystemPrompt(
   const filled = template
     .replace(/{{MODE_HEADER}}/g, modeHeader)
     .replace(/{{TOPIC_ANCHOR_BLOCK}}/g, topicAnchorBlock)
-    .replace(/{{BRAND_NAME}}/g, request.brand === 'NU' ? 'Northeastern University Advancement' : 'NXT Humans')
+    .replace(/{{BRAND_NAME}}/g, brandName(request.brand))
     .replace(/{{BRAND_DESCRIPTION}}/g, brandDescription(request.brand))
     .replace(/{{BRAND_TOKENS_SUMMARY}}/g, tokensSummary)
     .replace(/{{ENGAGEMENT_GOAL}}/g, request.engagementContext.engagementGoal || '(not set)')
@@ -474,9 +475,22 @@ function formatPriorConversation(
   return lines.join('\n\n---\n\n');
 }
 
+// 2026-10-01 - three brands resolve through ONE switch (NXT default, NU, DECIEM). DECIEM is the
+// third brand mode; its default theme is dark (hashtagParser: only NU defaults to light).
+function brandName(brand: BrandVariant): string {
+  if (brand === 'NU') return 'Northeastern University Advancement';
+  if (brand === 'DECIEM') return 'DECIEM';
+  return 'NXT Humans';
+}
+
 function brandDescription(brand: BrandVariant): string {
   if (brand === 'NU') {
     return 'Northeastern University. Advancement, alumni engagement, donor relations. Brand voice: institutional gravitas, Huskies pride, modern but grounded. Visual: near-black + Huskies red, Archivo display.';
+  }
+  if (brand === 'DECIEM') {
+    // CSS variables resolve from BRAND_TOKENS.DECIEM (presentationTypes.ts), never from literals here.
+    const t = resolveBrandTokens('DECIEM');
+    return `DECIEM, The Abnormal Beauty Company. Skincare and beauty retail, ingredient-literal, direct-to-customer. Brand voice: plain-spoken, product-literal, no marketing gloss. Visual: pure black canvas (--bg-primary ${t.bgPrimary}) with white type (--text-primary ${t.textPrimary}), pink accent (--accent-primary ${t.accentPrimary}), cyan (--accent-secondary ${t.accentSecondary}) and purple (--accent-tertiary ${t.accentTertiary}) pops, thin line-art, no gradients; ${t.fontDisplay} Bold UPPERCASE headlines, ${t.fontBody} body, ${t.fontMono} labels. Dark theme by default.`;
   }
   return 'NXT Humans. AI-native consulting that disrupts traditional discovery and strategy with intelligence augmentation. Brand voice: rigorous, anti-slop, evidence-first. Visual: near-black + chartreuse + cyan + teal, Archivo display.';
 }

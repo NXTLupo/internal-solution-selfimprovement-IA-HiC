@@ -16,6 +16,8 @@
 // re-running a presentation costs nothing for unchanged scenes.
 
 import type { PresentationPayload } from './presentationTypes';
+import { normalizeBrandId } from '../components/slideTemplates/brands';
+import { brandImageryHint } from './artifactIllustrator';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -50,7 +52,10 @@ export async function resolvePresentationIllustrations(
   payload: PresentationPayload,
   onLog?: (msg: string) => void,
 ): Promise<number> {
-  const brand = String((payload?.meta as any)?.brand || 'NXT').toLowerCase() === 'nu' ? 'nu' : 'nxt';
+  // ONE normalizer for every brand spelling (NXT / NU / DECIEM); the proxy illustration prompt reads
+  // the brand palette from this id (DECIEM = black and white, pink / cyan / purple pops, line-art).
+  const brand = normalizeBrandId((payload?.meta as any)?.brand);
+  const brandHint = brandImageryHint(brand);
   const deckTheme: 'dark' | 'light' = String((payload?.meta as any)?.theme || 'dark') === 'light' ? 'light' : 'dark';
   const sections = Array.isArray(payload?.sections) ? payload.sections : [];
 
@@ -79,7 +84,7 @@ export async function resolvePresentationIllustrations(
         const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ concept, brand, canvas, slot, variant }),
+          body: JSON.stringify({ concept, brand, canvas, slot, variant, brandHint: brandHint || undefined }),
         });
         if (!resp.ok) { onLog?.(`illustration HTTP ${resp.status} for "${concept.slice(0, 48)}"`); break; }
         const res = await resp.json();

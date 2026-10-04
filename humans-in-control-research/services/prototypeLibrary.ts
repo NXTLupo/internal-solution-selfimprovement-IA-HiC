@@ -107,17 +107,9 @@ export async function savePrototype(artifact: PrototypeArtifact): Promise<Protot
     };
 }
 
-export function getPrototypeLaunchUrl(slug: string): string {
+function getPrototypeLaunchUrl(slug: string): string {
     return `${PROXY_BASE}/api/prototypes/${encodeURIComponent(slug)}/view`;
 }
 
-export function formatPrototypeDate(iso?: string): string {
-    if (!iso) return '-';
-    try {
-        const d = new Date(iso);
-        if (isNaN(d.getTime())) return iso;
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    } catch { return iso; }
-}
 
 export type { Brand };

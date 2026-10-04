@@ -31,7 +31,7 @@
 // memory feedback_multi_model_resilience_pattern.
 
 import { callAIWithRetry, type AIEndpointId } from './aiRetryClient';
-import { MODEL_REGISTRY, MODELS_FOR_CATEGORY, getAvailableProviders, type TaskCategory } from './aiRouter';
+import { MODEL_REGISTRY, MODELS_FOR_CATEGORY, getAvailableProviders, type TaskCategory, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
 import { stripFormatTells } from './slidePostProcessor';
 import {
     isProviderHealthy,
@@ -102,7 +102,7 @@ function modelEndpoint(modelId: string): AIEndpointId | null {
 // then Claude. ANTHROPIC is the funded escape on this platform (ANTHROPIC_API_KEY
 // is the primary required key); GPT is included but currently dry
 // (insufficient_quota) and will simply be skipped/advanced-past at runtime.
-const CROSS_PROVIDER_FALLBACKS = ['gpt-5.5', 'claude-sonnet-4-6'];
+const CROSS_PROVIDER_FALLBACKS = ['gpt-5.5', CLAUDE_STRUCTURED_MODEL];
 
 /**
  * Resolve the ordered, health-aware, availability-filtered model chain for a
@@ -130,7 +130,7 @@ export function resolveModelChain(deliverable: DeliverableKind, preferModel?: st
         chain = [preferModel, ...chain.filter(m => m !== preferModel)];
     } else if (
         // 2026-06-12 - honor an explicit preference OUTSIDE the category
-        // chain (the Opus 4.8 deliverable-routing directive: claude-opus-4-8
+        // chain (the Claude deliverable-routing directive: CLAUDE_REASONING_MODEL
         // is not in any MODELS_FOR_CATEGORY list). A reachable registry
         // model becomes the chain head; the category chain remains the
         // fallback tail, so an Opus outage still completes on Gemini/GPT.

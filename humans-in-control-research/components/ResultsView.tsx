@@ -3,9 +3,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnalysisResult, ScriptScene, Theme, Slide, SlideLayout, SlideMetric, BentoCell, Citation, OutputOption, AnalysisStage, StrategicRoadmap, PRD, ServiceBlueprintStage, TechnicalArchitecture, RoadmapItem, PRDFeature, TechNode, Persona } from '../types';
 import { generateSceneVideo, generateImage, rewriteSlideContent, setActiveVisualizationStyle, getActiveVisualizationStyle } from '../services/geminiService';
 // Design system: single unified NXT Humans visual language (no style selector)
-import { exportPPTX, exportJSON, exportStrategicReportHTML } from '../services/exportService';
+import { exportPPTX, exportJSON, exportStrategicReportHTML } from '../services/resultExports';
 import { stripMarkdown, resolveCitations } from '../services/slidePostProcessor';
 import { getChunkSourceMap } from '../services/researchFabricOrchestrator';
+import { isPrdAir } from '../services/prdAir';
+import { projectPrdAirToHtml } from '../services/prdProjection';
 import PptxGenJS from 'pptxgenjs';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -1645,34 +1647,50 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       </div>
                   )}
                   {activeTab === 'prd' && prdData && (
+                      // Stage 3.8 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, finding F1 shape 1):
+                      // the pipeline PRD tab reads DESIGN TOKENS (never literal hex or a dropped display face)
+                      // and, when the result carries the one PRD contract (PrdAir), renders the SAME
+                      // two-tier document projection the chat path ships. The legacy sixteen-section
+                      // face stays only as the fallback for records produced before PrdAir existed.
                       <div className="space-y-8">
-                          <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">PRODUCT REQUIREMENTS DOCUMENT</h2>
-                          <div style={{border:'1px solid #E0E0E0',padding:'28px',background:'#FFFFFF'}}>
-                              <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1.75rem',color:'#0D0D0D',letterSpacing:'0.02em'}}>{prdData.title}</h3>
-                              {/* Problem Statement - the most important section per Cagan */}
-                              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'0',marginTop:'24px'}}>
-                                  <div style={{paddingRight:'24px',borderRight:'1px solid #E0E0E0'}}>
-                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>PURPOSE & OBJECTIVES</div>
-                                      <p style={{fontSize:'14px',color:'#333',lineHeight:'1.65'}}>{prdData.purposeAndObjectives}</p>
+                          {isPrdAir((prdData as any).prdAir) ? (
+                              <iframe
+                                  title="Product requirements document"
+                                  srcDoc={projectPrdAirToHtml((prdData as any).prdAir)}
+                                  style={{ width: '100%', minHeight: '82vh', border: '1px solid var(--color-border-primary)', background: 'var(--card-bg)' }}
+                              />
+                          ) : (
+                          <>
+                          <h2 style={{ fontFamily: 'var(--font-primary)', fontWeight: 700, fontSize: '1.5rem', letterSpacing: '0.02em', textTransform: 'uppercase', color: 'var(--color-text-primary)' }} className="mb-4 border-b pb-4 border-[var(--color-border-primary)]">Product requirements document</h2>
+                          <div style={{ border: '1px solid var(--color-border-primary)', padding: '28px', background: 'var(--card-bg)' }}>
+                              <h3 style={{ fontFamily: 'var(--font-primary)', fontWeight: 700, fontSize: '1.5rem', color: 'var(--color-text-primary)', letterSpacing: '0.01em' }}>{prdData.title}</h3>
+                              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0', marginTop: '24px' }}>
+                                  <div style={{ paddingRight: '24px', borderRight: '1px solid var(--color-border-primary)' }}>
+                                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '2px', color: 'var(--color-text-tertiary)', marginBottom: '6px', textTransform: 'uppercase' }}>Purpose and objectives</div>
+                                      <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>{prdData.purposeAndObjectives}</p>
                                   </div>
-                                  <div style={{paddingLeft:'24px'}}>
-                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>TARGET AUDIENCE</div>
-                                      <p style={{fontSize:'14px',color:'#333',lineHeight:'1.65'}}>{prdData.targetAudience || 'See Personas tab for detailed archetype analysis.'}</p>
+                                  <div style={{ paddingLeft: '24px' }}>
+                                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '2px', color: 'var(--color-text-tertiary)', marginBottom: '6px', textTransform: 'uppercase' }}>Target audience</div>
+                                      <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>{prdData.targetAudience || 'See the Personas tab for the archetypes this document serves.'}</p>
                                   </div>
                               </div>
                               <div className="mt-8">
                                   <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-4">Features</h4>
                                   <div className="space-y-4">
-                                      {(prdData.features || []).map((feature, idx) => (
-                                          <div key={idx} style={{border:'1px solid #E0E0E0',padding:'16px',borderLeft: feature.priority === 'Must-have' ? '4px solid #B8B800' : feature.priority === 'Should-have' ? '4px solid #00B7C3' : '4px solid #E0E0E0'}}>
+                                      {(prdData.features || []).map((feature, idx) => {
+                                          const tierRule = feature.priority === 'Must-have' ? 'var(--color-accent-chartreuse)' : feature.priority === 'Should-have' ? 'var(--color-accent-cyan)' : 'var(--color-border-primary)';
+                                          const pillBg = feature.priority === 'Must-have' ? 'var(--color-accent-chartreuse)' : feature.priority === 'Should-have' ? 'var(--color-accent-cyan-bg)' : 'var(--bg-tertiary)';
+                                          const pillFg = feature.priority === 'Must-have' ? 'var(--nxt-black)' : feature.priority === 'Should-have' ? 'var(--nxt-teal)' : 'var(--color-text-tertiary)';
+                                          return (
+                                          <div key={idx} style={{ border: '1px solid var(--color-border-primary)', padding: '16px', borderLeft: `4px solid ${tierRule}` }}>
                                               <div className="flex justify-between items-start mb-2">
-                                                  <input value={feature.name || ''} onChange={(e) => updatePRDFeature(idx, 'name', e.target.value)} style={{fontWeight:700,fontSize:'15px',background:'transparent',outline:'none',width:'100%',color:'#0D0D0D'}} />
-                                                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',padding:'2px 8px',letterSpacing:'1px',whiteSpace:'nowrap',marginLeft:'12px',background: feature.priority === 'Must-have' ? '#B8B800' : feature.priority === 'Should-have' ? '#E8F6F7' : '#F5F5F0', color: feature.priority === 'Must-have' ? '#0D0D0D' : feature.priority === 'Should-have' ? '#00706B' : '#999'}}>{feature.priority?.toUpperCase() || 'UNRANKED'}</span>
+                                                  <input value={feature.name || ''} onChange={(e) => updatePRDFeature(idx, 'name', e.target.value)} style={{ fontWeight: 700, fontSize: '15px', background: 'transparent', outline: 'none', width: '100%', color: 'var(--color-text-primary)' }} />
+                                                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', padding: '2px 8px', letterSpacing: '1px', whiteSpace: 'nowrap', marginLeft: '12px', background: pillBg, color: pillFg }}>{feature.priority?.toUpperCase() || 'UNRANKED'}</span>
                                               </div>
                                               <textarea value={feature.description || ''} onChange={(e) => updatePRDFeature(idx, 'description', e.target.value)} className="w-full bg-transparent text-sm text-[var(--text-secondary)] outline-none resize-none h-16" />
                                               {(feature.userStories && feature.userStories.length > 0) && (
                                               <div className="mt-2">
-                                                  <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">User Stories</h5>
+                                                  <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">User stories</h5>
                                                   <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] mt-1">
                                                       {feature.userStories.map((story, i) => <li key={i}>{story}</li>)}
                                                   </ul>
@@ -1680,52 +1698,52 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               )}
                                               {feature.acceptanceCriteria && feature.acceptanceCriteria.length > 0 && (
                                               <div className="mt-2">
-                                                  <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">Acceptance Criteria</h5>
+                                                  <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">Acceptance criteria</h5>
                                                   <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] mt-1">
                                                       {(feature.acceptanceCriteria as string[]).map((ac, i) => <li key={i}>{ac}</li>)}
                                                   </ul>
                                               </div>
                                               )}
                                               {feature.citation && (
-                                              <div className="mt-2 text-xs text-[var(--text-tertiary)] italic border-t border-[var(--border-secondary)] pt-2">Evidence: {feature.citation}</div>
+                                              <div className="mt-2 text-xs text-[var(--text-tertiary)] italic border-t border-[var(--border-secondary)] pt-2">Source: {feature.citation}</div>
                                               )}
                                               <EvidenceBlock citations={(feature as any).citations} evidenceBasis={(feature as any).evidenceBasis} />
                                           </div>
-                                      ))}
+                                          );
+                                      })}
                                   </div>
                               </div>
-                              {/* PRD-01: Render all 16 sections */}
                               {prdData.sections && prdData.sections.length > 0 && (
                                   <div className="mt-8 space-y-4">
-                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'14px',letterSpacing:'2px',color:'#999',borderTop:'2px solid #E0E0E0',paddingTop:'16px'}}>DOCUMENT SECTIONS ({prdData.sections.length})</div>
+                                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '2px', color: 'var(--color-text-tertiary)', borderTop: '2px solid var(--color-border-primary)', paddingTop: '16px', textTransform: 'uppercase' }}>Document sections</div>
                                       {prdData.sections.map((section: any, si: number) => (
-                                          <div key={si} style={{border:'1px solid #E0E0E0',padding:'16px 20px'}}>
+                                          <div key={si} style={{ border: '1px solid var(--color-border-primary)', padding: '16px 20px' }}>
                                               <div className="flex items-baseline gap-3 mb-2">
-                                                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',color:'#B8B800',fontWeight:700}}>{String(section.sectionNumber || si + 1).padStart(2, '0')}</span>
-                                                  <h5 style={{fontSize:'15px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h5>
+                                                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--color-accent-chartreuse)', fontWeight: 700 }}>{String(section.sectionNumber || si + 1).padStart(2, '0')}</span>
+                                                  <h5 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--color-text-primary)' }}>{section.title}</h5>
                                               </div>
-                                              <p style={{fontSize:'13px',lineHeight:'1.6',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
-                                              {/* evidenceGap badge intentionally suppressed - delivered output must never expose
-                                                  QA-style annotations to the reader (per user directive 2026-05-05). */}
+                                              <p style={{ fontSize: '13px', lineHeight: '1.6', color: 'var(--color-text-secondary)', whiteSpace: 'pre-wrap' }}>{section.content}</p>
                                           </div>
                                       ))}
                                   </div>
                               )}
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                                   <div>
-                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Success Metrics</h4>
+                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Success signals</h4>
                                       <ul className="list-disc list-inside text-[var(--text-secondary)]">
                                           {(prdData.successMetrics || []).map((metric, i) => <li key={i}>{metric}</li>)}
                                       </ul>
                                   </div>
                                   <div>
-                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Risks & Assumptions</h4>
+                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Risks and assumptions</h4>
                                       <ul className="list-disc list-inside text-[var(--text-secondary)]">
                                           {[...(prdData.risks || []), ...(prdData.assumptions || [])].map((item, i) => <li key={i}>{item}</li>)}
                                       </ul>
                                   </div>
                               </div>
                           </div>
+                          </>
+                          )}
                       </div>
                   )}
                   {activeTab === 'journey' && journeyData && (() => {

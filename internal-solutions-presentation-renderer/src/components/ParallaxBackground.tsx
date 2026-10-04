@@ -1,8 +1,9 @@
 import React from 'react';
+import type { BrandVariant } from '../types';
 
 interface Props {
   scrollY: number;
-  brand?: 'NXT' | 'NU';
+  brand?: BrandVariant;
 }
 
 const Wrapper: React.FC<{ scrollY: number; speed: number; className?: string; children: React.ReactNode }> = ({ scrollY, speed, className = '', children }) => (
@@ -20,6 +21,36 @@ export const ParallaxBackground: React.FC<Props> = ({ scrollY, brand }) => {
   // editorial gallery aesthetic, not the maximalist NXT dark-mode look.
   if (brand === 'NU') {
     return null;
+  }
+
+  // DECIEM brand presentation = pure black canvas (2026-10-01). A few low-opacity pink / cyan /
+  // purple soft shapes (the brand pops, via the [data-brand="DECIEM"] parallax tokens) and one
+  // thin white rule. No NXT chartreuse, no gradient diamonds, no accent lines.
+  if (brand === 'DECIEM') {
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+          backgroundColor: 'var(--bg-primary, #000000)',
+        }}
+      >
+        <Wrapper scrollY={scrollY} speed={0.05}>
+          <div style={{ position: 'absolute', top: '30vh', left: '-15vw', width: '45vw', height: '45vw', borderRadius: '50%', filter: 'blur(120px)', backgroundColor: 'var(--parallax-l1, rgba(251,72,196,0.10))' }} />
+          <div style={{ position: 'absolute', top: '150vh', right: '-15vw', width: '40vw', height: '40vw', borderRadius: '50%', filter: 'blur(120px)', backgroundColor: 'var(--parallax-l2, rgba(0,250,204,0.07))' }} />
+          <div style={{ position: 'absolute', top: '320vh', left: '10vw', width: '50vw', height: '50vw', borderRadius: '50%', filter: 'blur(120px)', backgroundColor: 'var(--parallax-l3, rgba(138,105,212,0.08))' }} />
+        </Wrapper>
+        <Wrapper scrollY={scrollY} speed={-0.3}>
+          <div style={{ position: 'absolute', top: '60vh', right: '12vw', width: '1px', height: '220px', backgroundColor: 'var(--border-primary, #FFFFFF)', opacity: 0.18 }} />
+        </Wrapper>
+      </div>
+    );
   }
 
   return (

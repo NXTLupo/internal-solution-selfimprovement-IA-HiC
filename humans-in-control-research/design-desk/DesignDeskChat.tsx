@@ -36,6 +36,7 @@ import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/
 // artifact chat, what changed since the prior generation of this kind. Surfaces
 // the self-improvement loop visibly so users can witness compounding quality.
 import ImprovementLineagePanel from './components/ImprovementLineagePanel';
+import { CLAUDE_REASONING_MODEL } from '../services/aiRouter';
 
 interface ChatMsg {
     id: string;
@@ -374,7 +375,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     currentArtifact: active as any,
                     // 2026-06-12 - Designer-chat revisions route to Claude
                     // Opus 4.8 (Jonathan's directive).
-                    model: 'claude-opus-4-8',
+                    model: CLAUDE_REASONING_MODEL,
                 });
                 if (ss.ok) {
                     replaceArtifact(ss.artifact as any);
@@ -416,7 +417,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     // adherence + output capacity.)
                     // 2026-06-12 - Claude Opus 4.8 per Jonathan's directive:
                     // Designer chat generation + revision both route to Opus 4.8.
-                    model: 'claude-opus-4-8',
+                    model: CLAUDE_REASONING_MODEL,
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -467,7 +468,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     priorUserInstructions,
                     // 2026-06-12 - Designer-chat generation routes to Claude
                     // Opus 4.8 (Jonathan's directive).
-                    model: 'claude-opus-4-8',
+                    model: CLAUDE_REASONING_MODEL,
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);
@@ -541,6 +542,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         Try: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#persona #NU junior dev from first-gen background</code>
                         <br/>or: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#journey #NXT application to enrollment</code>
                         <br/>or: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#org #NU advancement division</code>
+                        <br/>or: <code style={{ fontFamily: "'JetBrains Mono', monospace" }}>#persona #DECIEM skincare-routine builder</code>
                     </div>
                 )}
                 {/* 2026-05-20 - Improvement lineage. Renders whenever the active

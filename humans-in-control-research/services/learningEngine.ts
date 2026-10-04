@@ -5,14 +5,17 @@
  * section_scope, signal_polarity), and routes patterns crossing the
  * threshold to one of five improvement targets:
  *
- *   1. Constraint store    (wiki/synthesis/learned-constraints.md)
- *   2. Skill patch         (.claude/skills/<name>/SKILL.md - via proxy)
+ *   1. Constraint store    (wiki/synthesis/learned-constraints.md + a lifecycle row in
+ *                           synthesis/constraint-records.json; C5 2026-10-01)
+ *   2. Skill patch         PROPOSED to /api/epochs/proposals (kind skill_patch); the live
+ *                           SKILL.md is written ONLY by patchSkillFile with an APPROVE held-out
+ *                           verdict (C4 2026-10-01). The learning pass never writes a skill.
  *   3. Framework page      (wiki/frameworks/<type>.md - diff queued)
- *   4. Anti-pattern entry  (wiki/anti-patterns/<type>.md - auto-applied)
- *   5. Exemplar update     (wiki/exemplars/<type>.md - positive signals)
+ *   4. Anti-pattern entry  (wiki/anti-patterns/<type>.md - auto-applied, ledgered rung 3)
+ *   5. Exemplar update     (wiki/exemplars/<type>.md - positive signals, ledgered rung 3)
  *
- * Also computes constraint effectiveness so under-performing constraints
- * can be retired.
+ * Also computes constraint effectiveness from the lifecycle rows and RETIRES
+ * under-performing constraints by deleting their ledger lines (with a `retired:` line).
  *
  * Created 2026-05-22 as part of the self-improvement loop, Phase 3.
  */
@@ -22,6 +25,12 @@ import { persistChunkOverride, type ArtifactType } from './chunkBudgetCalculator
 import { evaluateConstraint, normalizeConstraintKey } from './constraintQualityGate';
 import { reviewSkillPatch, reviewSummary } from './skillReview';
 import type { LifecyclePassReport } from './memoryLifecycle';
+import {
+    createConstraintRecord,
+    readConstraintRecords,
+    writeConstraintRecords,
+    constraintRecordId,
+} from './promptImprovementEngine';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -123,7 +132,11 @@ export interface LearningPassResult {
     applied: ImprovementCandidate[];
     queuedForReview: ImprovementCandidate[];
     rejected: ImprovementCandidate[];
+    /** Skills whose live SKILL.md was written. ALWAYS empty since 2026-10-01 (C4): the learning pass
+     *  proposes skill patches; only a gated APPROVE verdict writes a skill. Kept for the ChangeStrip. */
     skillsTouched: string[];
+    /** 2026-10-01 (C4): proposal ids written to /api/epochs/proposals for skill patches. */
+    skillPatchProposals: string[];
     constraintsRetired: string[];
     chunkConfigsPromoted: string[];
 }
@@ -339,21 +352,37 @@ async function applyConstraint(candidate: ImprovementCandidate): Promise<boolean
         return false;
     }
     const entry = `- CONSTRAINT [${candidate.cluster.deliverableType}/${candidate.cluster.sectionScope || 'overall'}]: ${candidate.payload} (source: ${candidate.cluster.count} feedback signals, confidence ${candidate.confidence.toFixed(2)})`;
-    return appendToPage('synthesis/learned-constraints.md', entry);
+    const ok = await appendToPage('synthesis/learned-constraints.md', entry);
+    if (ok) {
+        // C5 (2026-10-01): the lifecycle row. Without it reviewConstraintEffectiveness has nothing
+        // to review and the constraint lives forever. applications / negativeSignalsAfter are
+        // incremented by improvementDiscriminator on every scored deliverable.
+        await createConstraintRecord({
+            text: candidate.payload,
+            deliverableType: candidate.cluster.deliverableType,
+            sectionScope: candidate.cluster.sectionScope,
+            confidence: candidate.confidence,
+        });
+    }
+    return ok;
 }
+
+/** Ledger line every rung-3 (LLM-judged) entry carries (anti-patterns, exemplars). A rung-3 signal
+ *  informs; it never promotes a skill or constraint on its own (UNIFIED_VISION gated evolution). */
+const RUNG_3_LINE = '- **Rung**: 3 (LLM-judged feedback cluster; informative only, not a promotion signal)';
 
 async function applyAntiPattern(candidate: ImprovementCandidate): Promise<boolean> {
     let parsed: any = null;
     try { parsed = JSON.parse(candidate.payload); } catch { /* fall through */ }
     if (!parsed || !parsed.name) {
-        const fallback = `\n### AP-LEARNED: from-feedback-${Date.now()}\n- **Description**: ${candidate.payload}\n- **Source**: ${candidate.cluster.count} feedback signals\n- **Added**: ${new Date().toISOString().split('T')[0]}\n`;
+        const fallback = `\n### AP-LEARNED: from-feedback-${Date.now()}\n- **Description**: ${candidate.payload}\n- **Source**: ${candidate.cluster.count} feedback signals\n${RUNG_3_LINE}\n- **Added**: ${new Date().toISOString().split('T')[0]}\n`;
         return appendToPage(`anti-patterns/${candidate.cluster.deliverableType}.md`, fallback);
     }
-    const entry = `\n### AP-LEARNED: ${parsed.name}\n- **Description**: ${parsed.description}\n- **Detection**: ${parsed.detection}\n- **Alternative**: ${parsed.alternative}\n- **Source**: Learned from ${candidate.cluster.count} user feedback signals (confidence ${candidate.confidence.toFixed(2)})\n- **Added**: ${new Date().toISOString().split('T')[0]}\n`;
+    const entry = `\n### AP-LEARNED: ${parsed.name}\n- **Description**: ${parsed.description}\n- **Detection**: ${parsed.detection}\n- **Alternative**: ${parsed.alternative}\n- **Source**: Learned from ${candidate.cluster.count} user feedback signals (confidence ${candidate.confidence.toFixed(2)})\n${RUNG_3_LINE}\n- **Added**: ${new Date().toISOString().split('T')[0]}\n`;
     return appendToPage(`anti-patterns/${candidate.cluster.deliverableType}.md`, entry);
 }
 
-async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: boolean; skillName?: string }> {
+async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: boolean; skillName?: string; proposalId?: string }> {
     // Map deliverable type to the responsible skill. This is a best-effort
     // table - the deliverable-type vocabulary used by feedback widgets is
     // a superset of the skill name vocabulary.
@@ -362,8 +391,8 @@ async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: b
         'persona': 'persona-architect',
         'roadmap': 'roadmap-builder',
         'strategy': 'strategy-author',
-        'deck': 'deck-narrative-composer',
-        'presentations': 'deck-narrative-composer',
+        'deck': 'deck-composer',
+        'presentations': 'deck-composer',
         'prd': 'prd-compiler',
         'blueprint': 'service-blueprint-mapper',
         'recommendations': 'recommendation-architect',
@@ -388,7 +417,7 @@ async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: b
     // writer that bypassed the gate its sibling applyConstraint() has used since
     // 2026-05-29. The Gemini-synthesized "under-80-word" patch lands verbatim in a
     // live SKILL.md, so a truncated/duplicate payload accreted into
-    // deck-narrative-composer/SKILL.md (8 mid-sentence, near-duplicate appends).
+    // the former deck-narrative-composer/SKILL.md (8 mid-sentence, near-duplicate appends; folded into deck-composer 2026-10-01).
     // Gate it identically + add a completeness check (evaluateConstraint cannot
     // catch truncation: a fragment clears the 40-char floor and the stub patterns).
     const verdict = evaluateConstraint(candidate.payload);
@@ -425,8 +454,97 @@ async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: b
         return { ok: false, skillName };
     }
 
-    const success = await patchSkillFile(skillName, candidate);
-    return { ok: success, skillName };
+    // C4 (2026-10-01, plan Stage 5.1): a reviewed patch is a PROPOSAL, never a write. The review
+    // above is a text check (rung 1-2 structural); the skill write needs the held-out golden-set
+    // verdict, which only the gated batch can produce. Route to the proposals store and stop.
+    const proposalId = await proposeSkillPatch(skillName, candidate, {
+        readiness: report.readiness,
+        assurance: report.assurance,
+    });
+    return { ok: !!proposalId, skillName, proposalId: proposalId || undefined };
+}
+
+/**
+ * Held-out gate verdict required to write a skill (C4). Produced by the epoch batch
+ * (goldenSetRunner.compareReports before/after) or the skillopt verdict file; never by the
+ * learning pass itself. Mirrors proxy SkillWriteRequest.gate_verdict.
+ */
+export interface SkillGateVerdict {
+    verdict: 'APPROVE' | 'REJECT' | 'HUMAN-REVIEW';
+    discrimination_before: number;
+    discrimination_after: number;
+    golden_set_version: number;
+    source_rollouts?: string[];
+}
+
+/** Throws unless `v` is a complete APPROVE verdict. */
+export function assertApproveVerdict(v: unknown): asserts v is SkillGateVerdict & { verdict: 'APPROVE' } {
+    const g = v as Partial<SkillGateVerdict> | null | undefined;
+    if (!g || typeof g !== 'object') throw new Error('skill write refused: no gate verdict');
+    if (g.verdict !== 'APPROVE') throw new Error(`skill write refused: gate verdict is ${String(g.verdict ?? 'missing')}, not APPROVE`);
+    for (const k of ['discrimination_before', 'discrimination_after', 'golden_set_version'] as const) {
+        if (typeof g[k] !== 'number' || !Number.isFinite(g[k])) {
+            throw new Error(`skill write refused: gate verdict missing numeric ${k}`);
+        }
+    }
+}
+
+/**
+ * Write the skill-patch PROPOSAL to the propose-only ledger (/api/epochs/proposals).
+ * Dedupes against pending proposals for the same skill + normalized patch text.
+ * Returns the proposal id (existing or new), or null when the ledger is unreachable.
+ */
+async function proposeSkillPatch(
+    skillName: string,
+    candidate: ImprovementCandidate,
+    review?: { readiness: string; assurance: string },
+): Promise<string | null> {
+    const targetPath = `.claude/skills/${skillName}/SKILL.md`;
+    const key = normalizeConstraintKey(candidate.payload);
+    try {
+        const listResp = await fetch(`${PROXY_BASE}/api/epochs/proposals?status=pending`);
+        if (listResp.ok) {
+            const data = await listResp.json();
+            const items: any[] = Array.isArray(data?.proposals) ? data.proposals : [];
+            const dupe = items.find(p => p?.target_path === targetPath
+                && typeof p?.proposed_edit === 'string'
+                && normalizeConstraintKey(p.proposed_edit) === key);
+            if (dupe?.id) {
+                console.log(`[LearningEngine] Skill patch already proposed for ${skillName} (${dupe.id}); not re-proposing`);
+                return String(dupe.id);
+            }
+        }
+        const sourceRolloutIds = candidate.cluster.representativeEvents
+            .map(e => e.id)
+            .filter((id): id is string => typeof id === 'string' && id.length > 0);
+        const body = {
+            kind: 'skill_patch',
+            target_layer: 'skill',
+            target_path: targetPath,
+            summary: `skill_patch ${skillName}: ${candidate.payload.slice(0, 140)}`,
+            proposed_edit: candidate.payload,
+            source_rollout_ids: sourceRolloutIds,
+            confidence: candidate.confidence,
+            signal_count: candidate.cluster.count,
+            deliverable_type: candidate.cluster.deliverableType,
+            review: review || null,
+            gate_verdict: null,
+            risk_class: 'low_risk',
+        };
+        const resp = await fetch(`${PROXY_BASE}/api/epochs/proposals`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        const id = data?.id ? String(data.id) : null;
+        if (id) console.log(`[LearningEngine] Skill patch PROPOSED for ${skillName} (${id}) - pending held-out gate + owner review, NOT written`);
+        return id;
+    } catch (e: any) {
+        console.warn('[LearningEngine] skill patch proposal failed:', e?.message || e);
+        return null;
+    }
 }
 
 /**
@@ -467,7 +585,18 @@ export function patchAlreadyPresent(oldContent: string, patch: string): boolean 
     return false;
 }
 
-async function patchSkillFile(skillName: string, candidate: ImprovementCandidate): Promise<boolean> {
+/**
+ * Write a reviewed + GATED patch into a live SKILL.md. C4 (2026-10-01): callable ONLY with an
+ * APPROVE held-out verdict; throws otherwise. The learning pass never calls this - the gated
+ * batch (or the owner applying an approved proposal) does. The verdict rides to the proxy as
+ * `gate_verdict` so /api/skill/write can enforce the same rule server-side.
+ */
+export async function patchSkillFile(
+    skillName: string,
+    candidate: ImprovementCandidate,
+    gateVerdict: SkillGateVerdict,
+): Promise<boolean> {
+    assertApproveVerdict(gateVerdict);
     // Read the existing SKILL.md, archive it under _versions/, write the new
     // version with incremented version field, and append the patch to the
     // skill body under a "## Learned behaviors" section.
@@ -498,6 +627,7 @@ async function patchSkillFile(skillName: string, candidate: ImprovementCandidate
                 name: skillName,
                 content: updated,
                 archive_version: oldVersion,
+                gate_verdict: gateVerdict,
             }),
         });
         return writeResp.ok;
@@ -635,7 +765,7 @@ async function applyChunkConfigPromotion(candidate: ImprovementCandidate): Promi
 async function applyExemplar(candidate: ImprovementCandidate): Promise<boolean> {
     const today = new Date().toISOString().split('T')[0];
     const sample = candidate.cluster.distinctTextFragments[0] || '(positive vote/star-only signal)';
-    const entry = `\n## EXEMPLAR (${today}) - from ${candidate.cluster.count} positive signals\n${candidate.payload}\n\nUser-cited praise: "${sample.slice(0, 200)}"\n`;
+    const entry = `\n## EXEMPLAR (${today}) - from ${candidate.cluster.count} positive signals\n${candidate.payload}\n\nUser-cited praise: "${sample.slice(0, 200)}"\n${RUNG_3_LINE}\n`;
     return appendToPage(`exemplars/${candidate.cluster.deliverableType}.md`, entry);
 }
 
@@ -700,6 +830,7 @@ export interface ConstraintRecord {
 
 export interface EffectivenessReport {
     constraints: Array<{
+        id: string;
         text: string;
         applications: number;
         effectiveness: number;
@@ -709,25 +840,18 @@ export interface EffectivenessReport {
 }
 
 /**
- * Compute effectiveness as: 1 - (repeated_negative_signals_after / applications).
- * High effectiveness = few repeated negatives after the constraint was added.
+ * Compute effectiveness as: 1 - (negative_signals_after / applications).
+ * High effectiveness = few regressions while the constraint was active.
+ * C5 (2026-10-01): reads the lifecycle rows that applyConstraint now CREATES and
+ * improvementDiscriminator now INCREMENTS (synthesis/constraint-records.json). Retired rows
+ * are skipped so a retirement is never re-proposed.
  */
 export async function reviewConstraintEffectiveness(): Promise<EffectivenessReport> {
-    let records: ConstraintRecord[] = [];
-    try {
-        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/constraint-records.json`);
-        if (resp.ok) {
-            const data = await resp.json();
-            const parsed = JSON.parse(data.content || '[]');
-            if (Array.isArray(parsed)) records = parsed;
-        }
-    } catch {
-        // First run; no records yet
-    }
+    const records = (await readConstraintRecords()).filter(r => !r.retired);
     const out: EffectivenessReport['constraints'] = [];
     for (const r of records) {
         const effectiveness = r.applications > 0
-            ? Math.max(0, 1 - (r.repeatedNegativeSignalsAfter / r.applications))
+            ? Math.max(0, 1 - (r.negativeSignalsAfter / r.applications))
             : 0.5;
         let decision: 'keep' | 'promote-to-skill-patch' | 'retire' = 'keep';
         let rationale = `Effectiveness ${(effectiveness * 100).toFixed(0)}% over ${r.applications} applications.`;
@@ -739,6 +863,7 @@ export async function reviewConstraintEffectiveness(): Promise<EffectivenessRepo
             rationale += ` Above ${CONSTRAINT_PROMOTE_CEILING * 100}% promotion ceiling.`;
         }
         out.push({
+            id: r.id,
             text: r.text,
             applications: r.applications,
             effectiveness,
@@ -747,6 +872,69 @@ export async function reviewConstraintEffectiveness(): Promise<EffectivenessRepo
         });
     }
     return { constraints: out };
+}
+
+/**
+ * C5 (2026-10-01): retirement that actually DELETES. Removes every `- CONSTRAINT ...` line in
+ * learned-constraints.md whose rule body matches a retired constraint, appends a `retired:` ledger
+ * line (so the removal is auditable, never silent), stamps the lifecycle row, and drops the rule
+ * from this browser's active-constraint store. Returns the constraint texts actually removed.
+ */
+export async function retireConstraints(
+    retired: Array<{ id: string; text: string; applications: number; effectiveness: number }>,
+): Promise<string[]> {
+    if (retired.length === 0) return [];
+    const byKey = new Map(retired.map(r => [normalizeConstraintKey(r.text), r]));
+    const today = new Date().toISOString().split('T')[0];
+    let content = '';
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/learned-constraints.md`);
+        if (resp.ok) content = (await resp.json())?.content || '';
+    } catch { /* unreachable ledger: nothing to retire from */ }
+    if (!content) return [];
+
+    const kept: string[] = [];
+    const removed = new Map<string, { id: string; text: string; applications: number; effectiveness: number }>();
+    for (const line of content.split('\n')) {
+        if (/^-\s+CONSTRAINT/.test(line)) {
+            const hit = byKey.get(normalizeConstraintKey(line));
+            if (hit) { removed.set(normalizeConstraintKey(hit.text), hit); continue; }
+        }
+        kept.push(line);
+    }
+    if (removed.size === 0) return [];
+
+    const ledgerLines = Array.from(removed.values()).map(r =>
+        `- retired: ${r.text} || effectiveness ${(r.effectiveness * 100).toFixed(0)}% over ${r.applications} applications (${today})`);
+    const next = kept.join('\n').replace(/\s+$/, '') + '\n' + ledgerLines.join('\n') + '\n';
+    const ok = await writeFullPage('synthesis/learned-constraints.md', next);
+    if (!ok) return [];
+
+    // Stamp the lifecycle rows so the review never re-proposes the same retirement.
+    try {
+        const rows = await readConstraintRecords();
+        const ids = new Set(Array.from(removed.values()).map(r => r.id || constraintRecordId(r.text)));
+        let touched = 0;
+        for (const row of rows) {
+            if (ids.has(row.id) && !row.retired) { row.retired = new Date().toISOString(); touched++; }
+        }
+        if (touched > 0) await writeConstraintRecords(rows);
+    } catch { /* ledger line already written; row stamp is best-effort */ }
+
+    // Drop from this browser's active store so the next prompt does not inject it.
+    try {
+        if (typeof localStorage !== 'undefined') {
+            const raw = localStorage.getItem('hic_prompt_improvements');
+            if (raw) {
+                const improvements = JSON.parse(raw);
+                const remaining = (Array.isArray(improvements) ? improvements : [])
+                    .filter((i: any) => !removed.has(normalizeConstraintKey(String(i?.constraint || ''))));
+                localStorage.setItem('hic_prompt_improvements', JSON.stringify(remaining));
+            }
+        }
+    } catch { /* store is per-browser convenience */ }
+
+    return Array.from(removed.values()).map(r => r.text);
 }
 
 // --- ORCHESTRATION ---
@@ -771,6 +959,7 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
     const queuedForReview: ImprovementCandidate[] = [];
     const rejected: ImprovementCandidate[] = [];
     const skillsTouched: string[] = [];
+    const skillPatchProposals: string[] = [];
     const chunkConfigsPromoted: string[] = [];
 
     for (const cluster of clusters) {
@@ -817,10 +1006,16 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
                 success = await applyAntiPattern(candidate);
                 break;
             case 'skill-patch': {
+                // C4: never applied here. A reviewed patch becomes a pending PROPOSAL; the held-out
+                // gate (APPROVE verdict) is the only path to a skill write.
                 const r = await applySkillPatch(candidate);
-                success = r.ok;
-                if (r.ok && r.skillName) skillsTouched.push(r.skillName);
-                break;
+                if (r.ok && r.proposalId) {
+                    skillPatchProposals.push(r.proposalId);
+                    queuedForReview.push(candidate);
+                } else {
+                    rejected.push(candidate);
+                }
+                continue;
             }
             case 'framework-page':
                 success = await queueFrameworkUpdate(candidate);
@@ -840,9 +1035,11 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
     }
 
     const effectiveness = await reviewConstraintEffectiveness();
-    const constraintsRetired = effectiveness.constraints
-        .filter(c => c.decision === 'retire')
-        .map(c => c.text);
+    const retireCandidates = effectiveness.constraints.filter(c => c.decision === 'retire');
+    // C5: a retirement decision now DELETES the ledger line (dry-run only lists it).
+    const constraintsRetired = opts.dryRun
+        ? retireCandidates.map(c => c.text)
+        : await retireConstraints(retireCandidates);
 
     // SECOND-BRAIN PASS (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md).
     // `reviewConstraintEffectiveness` above retires a constraint only after 20
@@ -881,6 +1078,7 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
         queuedForReview,
         rejected,
         skillsTouched,
+        skillPatchProposals,
         constraintsRetired,
         chunkConfigsPromoted,
         secondBrain,
@@ -894,6 +1092,7 @@ export async function runLearningPass(opts: { dryRun?: boolean } = {}): Promise<
             `  - queued: ${queuedForReview.length}\n` +
             `  - rejected: ${rejected.length}\n` +
             `  - skills_touched: ${skillsTouched.join(', ') || 'none'}\n` +
+            `  - skill_patch_proposals: ${skillPatchProposals.join(', ') || 'none'}\n` +
             `  - chunk_configs_promoted: ${chunkConfigsPromoted.join(', ') || 'none'}\n` +
             `  - constraints_retired: ${constraintsRetired.length}\n` +
             `  - duration_ms: ${result.durationMs}\n`;

@@ -32,7 +32,10 @@
 import { ok, fail, refuse, partial, type StepEnvelope, envelopeTrace } from './stepEnvelope';
 import { verifyDeckEvidence, applyVerificationFixes, type LedgerRow, type PageFetcher } from './citationVerifier';
 import { deClicheDeep, stripEmDashes, stripEmoji, stripFormatTells } from './slidePostProcessor';
-import { detectSlopInSlides, buildSlopRepairInstruction } from './slopDetector';
+import { detectSlopInSlides, buildSlopRepairInstruction, type SlopSite } from './slopDetector';
+import { stripQAAnnotationsDeep } from './slidePostProcessor';
+import { evaluateTitles, buildTitleRepairInstruction, type TitleReport } from './titleGate';
+import { evaluateSlideClaims, buildClaimRepairInstruction, type ClaimStageReport } from './claimStage';
 import { enumerateTextFields } from './slideTextEditing';
 import { analyzeProse, buildProseRepairInstruction, type ProseReport } from './proseSignal';
 import {
@@ -51,8 +54,10 @@ import { evaluateExhibits, buildExhibitInstruction, type ExhibitReport } from '.
 export type StageId =
     | 'normalize'
     | 'lexical'
+    | 'titles'
     | 'bindPointers'
     | 'provenance'
+    | 'claims'
     | 'evidenceSlots'
     | 'exhibits'
     | 'prose'
@@ -64,12 +69,20 @@ export type StageId =
 export const STAGE_ORDER: StageId[] = [
     'normalize',
     'lexical',
+    // 2026-10-01 (plan R-B4 / Stage 2.1): the Partner Test runs on the SCRUBBED title,
+    // before binding, so a pointer the binder attaches never counts toward title length.
+    'titles',
     // `bindPointers` runs BEFORE provenance and the evidence gate, because it
     // supplies the pointers those two stages read. Three prompt-level attempts to
     // make the model carry pointers itself were measured and failed; the runtime
     // computes them from the chunk set the model was shown.
     'bindPointers',
     'provenance',
+    // 2026-10-01 (plan Stage 2.4, audit A3/A9): ONE claim gate. The HTML artifact chain runs
+    // `evaluateClaimLedger` directly; this stage is its slide adapter (claimStage.ts). It runs
+    // after provenance (pointers resolved, ledger rows recorded) and before the evidence-slot
+    // gate, so the slot gate judges coverage on claims that already match their evidence.
+    'claims',
     'evidenceSlots',
     // DF-V4, exhibits before prose. deer-flow renders every planned exhibit BEFORE
     // authoring narrative, so a section can never describe a chart that failed to
@@ -100,6 +113,8 @@ export interface ChainContext {
     subjectDomain?: string | null;
     /** Engagement slug, so this deck can be compared to the previous one. */
     engagementSlug?: string;
+    /** The research objective; the claim ledger derives subject entities and the as-of window from it. */
+    researchGoal?: string;
     /** Grounding spans for pointer binding. Defaults to the run's projection. */
     groundingChunks?: BindableChunk[];
     resolveSourceText?: SlotGateOptions['resolveSourceText'];
@@ -120,6 +135,16 @@ export interface ChainResult<T> {
     exhibitReport: ExhibitReport | null;
     bindReport: BindReport | null;
     plan: ArtifactPlan | null;
+    /**
+     * 2026-10-01 (Stage 2.1): the lexical stage's banned-phrase sites and the title
+     * gate's findings, exposed so the REPAIR pass can act on them. Before this the
+     * chain pushed a slop instruction into `repairInstruction` and the repairer's
+     * `needsWork` never looked at it, so a flagged phrase shipped unchanged.
+     */
+    slopFindings: SlopSite[];
+    titleReport: TitleReport | null;
+    /** Stage 2.4: the claim ledger's slide-adapted findings (null when the stage was skipped). */
+    claimReport: ClaimStageReport | null;
     /** Concatenated model-facing repair text. Empty when everything passed. */
     repairInstruction: string;
     /** Compact per-stage record for AIR. */
@@ -197,6 +222,9 @@ export async function runArtifactChain<T extends SlideLike>(
     let exhibitReport: ExhibitReport | null = null;
     let bindReport: BindReport | null = null;
     let plan: ArtifactPlan | null = null;
+    let slopFindings: SlopSite[] = [];
+    let titleReport: TitleReport | null = null;
+    let claimReport: ClaimStageReport | null = null;
     const repairs: string[] = [];
 
     for (const stageId of STAGE_ORDER) {
@@ -216,7 +244,11 @@ export async function runArtifactChain<T extends SlideLike>(
                 }
                 case 'lexical': {
                     slides = slides.map(s => {
-                        const scrubbed = scrubStrings(s);
+                        // stripQAAnnotationsDeep: "[N/A]", "TBD", "EVIDENCE GAP" chrome is deleted
+                        // outright (audit E4: a source line shipped "[N/A]" in a live deck).
+                        // It walks every string, so it runs INSIDE the key-aware scrubber's
+                        // output rather than over media keys; QA tokens never appear in URLs.
+                        const scrubbed = stripQAAnnotationsDeep(scrubStrings(s));
                         return deClicheDeep(scrubbed) as T;
                     });
                     /**
@@ -230,6 +262,7 @@ export async function runArtifactChain<T extends SlideLike>(
                      * gates-bite pass found that it did not.
                      */
                     const slop = detectSlopInSlides(slides);
+                    slopFindings = slop;
                     if (slop.length) {
                         repairs.push(buildSlopRepairInstruction(slop));
                         envelopes.push(refuse('chain:lexical', { slides: slides.length },
@@ -238,6 +271,23 @@ export async function runArtifactChain<T extends SlideLike>(
                         for (const v of slop.slice(0, 6)) console.warn(`[lexical] "${v.phrase}" in ${v.slideId}.${v.field}`);
                     } else {
                         envelopes.push(ok('chain:lexical', { slides: slides.length }));
+                    }
+                    break;
+                }
+                case 'titles': {
+                    titleReport = evaluateTitles(slides);
+                    const failing = titleReport.findings.filter(f => f.failing);
+                    if (!failing.length) {
+                        envelopes.push(ok('chain:titles', { checked: titleReport.checked, detectOnly: titleReport.findings.length }));
+                    } else {
+                        repairs.push(buildTitleRepairInstruction(titleReport));
+                        const naked = failing.filter(f => f.kinds.includes('naked_number')).length;
+                        envelopes.push(refuse('chain:titles', { checked: titleReport.checked, failing: failing.length, naked },
+                            `${failing.length} title(s) fail the Partner Test: ${failing.slice(0, 3).map(f => `${f.slideId}[${f.kinds.join('+')}]`).join(', ')}`,
+                            // A naked number is the one finding the caller WITHHOLDS when repair
+                            // cannot clear it, so it fails the chain; the rest only need a rewrite.
+                            { nextAction: naked ? 'narrow_scope' : 'continue', meta: { kinds: failing.flatMap(f => f.kinds) } }));
+                        for (const f of failing.slice(0, 6)) console.warn(`[titles] ${f.slideId} "${f.title.slice(0, 80)}": ${f.kinds.join(', ')}`);
                     }
                     break;
                 }
@@ -271,6 +321,26 @@ export async function runArtifactChain<T extends SlideLike>(
                             : refuse('chain:provenance', { checked: ledger.length }, `${flagged} claim(s) flagged, ${applied.fixed} relabeled, ${applied.stripped} stripped${unreachable ? `, ${unreachable} unreachable` : ''}`, { nextAction: 'continue' }));
                     } else {
                         envelopes.push(ok('chain:provenance', { checked: 0 }));
+                    }
+                    break;
+                }
+                case 'claims': {
+                    const pool = (ctx.groundingChunks ?? readGroundingChunks()) as any[];
+                    claimReport = await evaluateSlideClaims(slides, {
+                        goalText: ctx.researchGoal || '',
+                        chunks: pool.map(c => ({ id: String(c.id), text: String(c.text || ''), sources: c.sources, pageMeta: c.pageMeta })),
+                        fetchPage: ctx.fetchPage,
+                    });
+                    if (claimReport.pass) {
+                        envelopes.push(claimReport.warnings
+                            ? partial('chain:claims', { rows: claimReport.rowsChecked, warnings: claimReport.warnings }, `${claimReport.warnings} claim warning(s)`, { nextAction: 'continue' })
+                            : ok('chain:claims', { rows: claimReport.rowsChecked }));
+                    } else {
+                        repairs.push(buildClaimRepairInstruction(claimReport));
+                        envelopes.push(refuse('chain:claims', { rows: claimReport.rowsChecked, blocking: claimReport.blocking },
+                            `${claimReport.blocking} claim(s) fail scope-match: ${Array.from(new Set(claimReport.findings.filter(f => f.severity === 'block').map(f => f.code))).join(', ')}`,
+                            { nextAction: 'narrow_scope', meta: { codes: claimReport.findings.map(f => f.code) } }));
+                        for (const f of claimReport.findings.filter(x => x.severity === 'block').slice(0, 6)) console.warn(`[claims] ${f.slideId}.${f.field} ${f.code}: ${f.detail.slice(0, 120)}`);
                     }
                     break;
                 }
@@ -390,6 +460,7 @@ export async function runArtifactChain<T extends SlideLike>(
     const pass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
     return {
         slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, exhibitReport, bindReport, plan,
+        slopFindings, titleReport, claimReport,
         repairInstruction: repairs.filter(Boolean).join('\n\n'),
         trace, pass,
     };

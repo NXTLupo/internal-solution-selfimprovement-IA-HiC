@@ -31,7 +31,7 @@ export interface UncertaintySignal {
 
 const TRIGGER_SCORE = 0.4; // any signal at or above this score triggers reinforcement
 
-export function computeUncertaintyScore(signal: Omit<UncertaintySignal, 'score'>): number {
+function computeUncertaintyScore(signal: Omit<UncertaintySignal, 'score'>): number {
     let score = 0;
     if (signal.overallConfidence === 'LOW') score += 0.4;
     else if (signal.overallConfidence === 'MEDIUM') score += 0.2;
@@ -68,7 +68,7 @@ export interface ReinforceInput<T> {
  * Build the anchored re-ask prompt that keeps the prior answer's correct
  * parts and only revises what the signal flagged.
  */
-export function buildAnchoredReAsk<T>(input: ReinforceInput<T>): string {
+function buildAnchoredReAsk<T>(input: ReinforceInput<T>): string {
     if (input.buildReAsk) return input.buildReAsk(input.basePrompt, input.priorAnswer, input.signal);
 
     const priorAsString = typeof input.priorAnswer === 'string'

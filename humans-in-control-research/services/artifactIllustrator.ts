@@ -13,8 +13,21 @@
 // repeats are broken the same way. Fail-open: a slot that fails generation is left empty.
 
 import { imageSpecFor, type ArtifactImageSpec, type SlotKind } from './artifactImageSlots';
+import { normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
+
+/** 2026-10-01 - Per-brand imagery wording handed to the proxy illustration prompt as `brandHint`
+ *  (optional field; the proxy prompt builder may fold it in). The proxy resolves the palette from
+ *  the brand id itself; this names the visual language in words so #deciem imagery is on-brand
+ *  (black and white, pink / cyan / purple pops, thin line-art) and never NXT chartreuse. NXT / NU
+ *  return '' (their wording already lives in the proxy prompt). */
+export function brandImageryHint(brand: BrandId | string | null | undefined): string {
+    if (normalizeBrandId(brand) === 'deciem') {
+        return 'DECIEM house style: black and white composition with flat pink (#FB48C4), cyan (#00FACC) and purple (#8A69D4) pops, thin black line-art product doodles, white or pure black ground, no gradients, no chartreuse, no teal.';
+    }
+    return '';
+}
 
 /** Derive a short, recognizable concept SEED from a live payload element. Strings pass through;
  *  objects yield their most title-like field. The proxy's VS step turns this into the final
@@ -187,11 +200,12 @@ async function generateOne(concept: string, brand: string, canvas: 'dark' | 'lig
         // with the photographic prompt (opaque, VS skipped, concept = literal content-derived
         // text) - it must NEVER fall into the native infographic lane, whose spec derivation
         // returns null for narrative payloads (that null was why cover panels seldom filled).
+        const brandHint = brandImageryHint(brand) || undefined;
         if (style && style.startsWith('photo-')) {
             const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, style, literal: true }),
+                body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, style, literal: true, brandHint }),
             });
             if (!resp.ok) return null;
             const r = await resp.json();
@@ -222,7 +236,7 @@ async function generateOne(concept: string, brand: string, canvas: 'dark' | 'lig
         const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant }),
+            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, brandHint }),
         });
         if (!resp.ok) return null;
         const r = await resp.json();
@@ -251,7 +265,8 @@ export async function resolveArtifactImages(
     const spec: ArtifactImageSpec | undefined = imageSpecFor(artifact);
     if (!spec || spec.mode === 'none' || !payload) return 0;
 
-    const brand = String(brandRaw || 'NXT').toLowerCase() === 'nu' ? 'nu' : 'nxt';
+    // ONE normalizer for every brand spelling (#NXT / #NU / #deciem).
+    const brand = normalizeBrandId(brandRaw);
     const deckTheme: 'dark' | 'light' = String(deckThemeRaw || 'dark') === 'light' ? 'light' : 'dark';
     const canvas: 'dark' | 'light' = spec.ground || deckTheme;  // registry ground is authoritative per slot
     const kind: SlotKind = spec.kind || 'panel';

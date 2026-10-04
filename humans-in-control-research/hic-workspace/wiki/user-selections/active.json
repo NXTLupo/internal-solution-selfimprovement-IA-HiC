@@ -1,12 +1,14 @@
 {
   "engagement_slugs": [
-    "generate-a-structured-client-ready-introductory-and-capabili"
+    "as-of-august-september-2026-no-earlier-what-are-the-capabili"
   ],
-  "theme_cluster_ids": [],
+  "theme_cluster_ids": [
+    "eng:synthesize-a-strategic-overview-of-genz-s-current-behaviors#6"
+  ],
   "source_archive_paths": [],
   "social_subreddits": [],
   "article_sources": [],
-  "selected_at_ms": 1786322609520,
+  "selected_at_ms": 1789338102042,
   "source_engagement_slug": "",
   "_uncommitted": true
 }

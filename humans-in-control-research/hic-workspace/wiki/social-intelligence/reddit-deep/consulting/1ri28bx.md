@@ -8,13 +8,13 @@ title: "Trying to figure out which role to take..any guidance?"
 author: "iAMFL4SH"
 date: "2026-03-01T16:51:42.000Z"
 score: 13
-upvote_ratio: 0.89
+upvote_ratio: 0.93
 num_comments: 10
 flair: ""
-extracted_at: "2026-06-23T20:31:59.153Z"
+extracted_at: "2026-08-13T16:56:19.258Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
-engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
+research_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
 chunks:
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c0"
     char_span: [0, 2186]
@@ -32,21 +32,21 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/consulting/1ri28bx.md#c0"]
     token_count: 411
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c2"
-    char_span: [4159, 6148]
+    char_span: [4160, 6149]
     sentence_count: 16
     key_terms: [internal, right, yourself, career, either, "you're", maybe, game]
     concepts: [internal, right, yourself, career, either]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c3"
-    char_span: [6153, 8341]
+    char_span: [6154, 8342]
     sentence_count: 26
     key_terms: [years, like, life, unpredictable, deals, interesting, next, time]
     concepts: [years, unpredictable, interesting, deals, optimizing]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c4"
-    char_span: [8343, 9742]
+    char_span: [8344, 9743]
     sentence_count: 10
     key_terms: [vous, plus, les, money, votre, back, dans, par]
     concepts: [money, votre]
@@ -87,7 +87,7 @@ Just wanted to see whatever one else thinks in general and what else I should be
 2. If you are looking to stay in this game short term, take the easier path.
 
 3. If you are looking to stay in this game long term it's a game of sales. You either sell yourself internally to the right partners who support your career, or you sell yourself to the right customers who give you the work which supports your career. You will know which one you are more likely to win at.
-- **minhthemaster** (5↑): > Cons: Unpredictable hours as weeks can be 50-70 hours easily with random firedrills popping up. Vacations are not necessarily guaranteed as it's really dependent based on the staffing team you have. Either way, you're still generally checking your phone during vacation so you can't really turn off. This is also an M&A field so subject to economic conditions, I would also say travel is maybe once a month or once every other month.
+- **minhthemaster** (3↑): > Cons: Unpredictable hours as weeks can be 50-70 hours easily with random firedrills popping up. Vacations are not necessarily guaranteed as it's really dependent based on the staffing team you have. Either way, you're still generally checking your phone during vacation so you can't really turn off. This is also an M&A field so subject to economic conditions, I would also say travel is maybe once a month or once every other month.
 
 sounds like you should definitely leave, but maybe nto for a shitty internal tax role
 - **bradthebuilder7** (4↑): Deals Advisory exit ops are often narrower than people expect. You've identified it yourself, M&A PM, maybe another consultancy. Corporate development is a common goal but 3-statement modeling gaps are a real blocker. The client-facing skillset is valuable but it's not as transferable as you might hope unless you're gunning for a very specific lane.

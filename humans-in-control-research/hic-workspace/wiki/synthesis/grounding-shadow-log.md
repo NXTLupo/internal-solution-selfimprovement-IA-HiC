@@ -47,8 +47,8 @@ chunks:
 
 ### Current Benchmark Status
 
-*   **Maturity Models Benchmark**: The benchmark data is currently marked as a hypothesis. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/cx-maturity.md].
-*   **Technology Adoption Benchmark**: The benchmark data is currently marked as a hypothesis. It requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/digital-transformation.md].
+*   **Maturity Models Benchmark**: The benchmark data is currently speculative and requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/cx-maturity.md].
+*   **Technology Adoption Benchmark**: The benchmark data is currently speculative and requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/digital-transformation.md].
 
 ---
 
@@ -60,6 +60,7 @@ The validation framework utilizes confidence levels—including hypothesis, part
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-To transition benchmarks from hypothesis to evidenced, primary source evidence must be ingested across the following pending categories:
-*   **CX Maturity**: Ingestion of primary sources is required for maturity-to-outcome, maturity-to-revenue, and the correlation of maturity with organizational structures and employee levels [evidence/cx-maturity.md].
-*   **Digital Transformation**: Ingestion of primary sources is required for transformation failure, change management, technology adoption, culture, and primary change [evidence/digital-transformation.md].
+To transition benchmarks from hypothesis to partially evidenced or evidenced, primary source evidence must be ingested across the following pending categories:
+
+*   **CX Maturity**: Maturity-to-revenue correlation, organizational structures, and employee maturity levels [evidence/cx-maturity.md].
+*   **Digital Transformation**: Transformation failure, change management, technology adoption, and culture [evidence/digital-transformation.md].

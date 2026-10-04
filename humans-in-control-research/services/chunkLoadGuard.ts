@@ -238,7 +238,3 @@ export function installChunkLoadGuard(): void {
     console.log('[ChunkLoadGuard] installed - global protection for ~85 dynamic-import sites against stale-bundle 404s');
 }
 
-/** Exposed for testing. Returns true if the input matches a chunk-load error pattern. */
-export function _isChunkLoadError(input: unknown): boolean {
-    return looksLikeChunkLoadError(input);
-}

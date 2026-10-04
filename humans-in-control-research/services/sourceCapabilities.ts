@@ -286,12 +286,6 @@ export function getSourceCapability(sourceId: string): SourceCapabilityManifest 
     return defaultCapabilityFor(type, sourceId, prettyNameFor(sourceId));
 }
 
-/**
- * Get capabilities for a batch of sources. Useful for preview UI rendering.
- */
-export function getCapabilitiesFor(sourceIds: string[]): SourceCapabilityManifest[] {
-    return sourceIds.map(getSourceCapability);
-}
 
 /**
  * Summarize how many sources in a batch can honor a given filter.
@@ -304,22 +298,6 @@ export interface FilterCoverage {
     total: number;
 }
 
-export function summarizeFilterCoverage(manifests: SourceCapabilityManifest[]): FilterCoverage {
-    const out: FilterCoverage = {
-        dateFilter: { supported: 0, bestEffort: 0, unsupported: 0 },
-        domainExclude: { supported: 0, postFilter: 0, unsupported: 0 },
-        total: manifests.length,
-    };
-    for (const m of manifests) {
-        if (m.dateFilter === 'supported') out.dateFilter.supported++;
-        else if (m.dateFilter === 'best-effort') out.dateFilter.bestEffort++;
-        else out.dateFilter.unsupported++;
-        if (m.domainExclude === 'supported') out.domainExclude.supported++;
-        else if (m.domainExclude === 'post-filter') out.domainExclude.postFilter++;
-        else out.domainExclude.unsupported++;
-    }
-    return out;
-}
 
 // --- HELPERS ---
 

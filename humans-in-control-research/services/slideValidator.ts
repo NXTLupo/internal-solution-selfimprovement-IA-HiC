@@ -26,7 +26,7 @@
 // of the subject. Longer phrases check first to avoid false positives on
 // shorter fragments (e.g. "the corpus" alone is fine in a methodology
 // sentence but "within this corpus" is almost always a meta-reveal).
-export const CORPUS_META_PHRASES: string[] = [
+const CORPUS_META_PHRASES: string[] = [
     // Explicit corpus references
     'within this corpus',
     'within the corpus',
@@ -312,19 +312,3 @@ export function validateSlide(slide: any): SlideValidationResult {
     };
 }
 
-/**
- * Convenience: given a slide object, attach a non-serialized `_evidenceGap`
- * field carrying the gap summary + issue list. The renderer can read this
- * to surface a badge. Mutates in place and returns the same slide.
- */
-export function attachValidation(slide: any): any {
-    if (!slide || typeof slide !== 'object') return slide;
-    const result = validateSlide(slide);
-    if (result.evidenceGap) {
-        slide._evidenceGap = {
-            summary: result.gapSummary,
-            issues: result.issues.filter(i => i.severity === 'gap'),
-        };
-    }
-    return slide;
-}

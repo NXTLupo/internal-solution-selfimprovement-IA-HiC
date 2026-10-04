@@ -151,7 +151,7 @@ export function narratePostGeneration(
  * Narrate post-analysis confidence assessment in natural language.
  * Explains WHY the confidence score is what it is, based on actual evidence.
  */
-export function narrateConfidenceAssessment(ingestionResult: any): NarrationEvent[] {
+function narrateConfidenceAssessment(ingestionResult: any): NarrationEvent[] {
     const events: NarrationEvent[] = [];
 
     if (ingestionResult?.confidenceBreakdown) {
@@ -259,7 +259,7 @@ export function narrateQualityAssessment(score: QualityScore): NarrationEvent[] 
 /**
  * Narrate what happened during a source document ingest operation.
  */
-export function narrateIngest(results: {
+function narrateIngest(results: {
     sourceName: string;
     dataPointsExtracted: number;
     pagesUpdated: string[];
@@ -328,7 +328,7 @@ export function narrateKnowledgeCompounding(stats: {
  * Narrate design system enforcement in natural language.
  * Called when the system applies the NXT Humans Design System to visual output.
  */
-export function narrateDesignSystemEnforcement(context: {
+function narrateDesignSystemEnforcement(context: {
     outputType: string;
     violations?: string[];
     appliedPatterns?: string[];
@@ -366,7 +366,7 @@ export function narrateDesignSystemEnforcement(context: {
 /**
  * Narrate when the design system itself is being updated based on learnings.
  */
-export function narrateDesignSystemLearning(insight: string): NarrationEvent[] {
+function narrateDesignSystemLearning(insight: string): NarrationEvent[] {
     return [{
         type: 'IMPROVING',
         content: `Updating the NXT Humans Design System: ${insight}. This visual standard will be applied to all future deliverables.`,

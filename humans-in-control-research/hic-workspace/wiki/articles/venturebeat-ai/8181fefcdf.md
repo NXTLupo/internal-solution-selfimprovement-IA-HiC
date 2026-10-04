@@ -9,14 +9,14 @@ author: ""
 date: "Thu, 22 Jan 2026 14:00:00 GMT"
 tier: 2
 method: "source-native"
-extracted_at: "2026-07-03T01:18:46.081549+00:00"
+extracted_at: "2026-08-25T23:39:43.340939+00:00"
 chars: 10000
-engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-03T01:18:45.990Z"
-relevance: 5
-engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
+collected_at: "2026-08-25T23:39:43.110Z"
+relevance: 0
+engagement_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
 content_hash: "d3e82894754a1af5"
-relevance_by_goal: {"c5a2d58d1be7":5}
+relevance_by_goal: {"c5a2d58d1be7":5,"bb7e192171b3":0,"8429cfd39d4f":0}
 chunks:
   - id: "articles/venturebeat-ai/8181fefcdf.md#c0"
     char_span: [0, 219]

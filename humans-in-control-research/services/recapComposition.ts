@@ -21,6 +21,7 @@
 import { stripFormatTells, deClicheText } from './slidePostProcessor';
 import { extractPointers } from './citationPointerRegistry';
 import { detectSlopInSlides } from './slopDetector';
+import { getBrand, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
 export interface RecapBeat {
     /** Small monospace label, e.g. "01 / Objective". */
@@ -40,8 +41,8 @@ export interface RecapInput {
     sources: string[];
     /** The recommendation or closing judgment. */
     recommendation?: string | null;
-    /** NXT or NU. Brand is a token flip, never a separate design. */
-    brand?: 'nxt' | 'nu';
+    /** NXT, NU or DECIEM. Brand is a token flip, never a separate design. */
+    brand?: BrandId;
 }
 
 export interface RecapComposition {
@@ -52,10 +53,23 @@ export interface RecapComposition {
     refusals: string[];
 }
 
-const BRAND = {
-    nxt: { rail: '#0D0D0D', accent: '#B8B800', onAccent: '#0D0D0D', display: '"Saira Condensed", "Archivo", sans-serif' },
-    nu: { rail: '#0E1626', accent: '#C8102E', onAccent: '#FFFFFF', display: 'Lato, sans-serif' },
-};
+// 2026-10-01 - Every brand (NXT / NU / DECIEM) resolves from the token mirror (getBrand ->
+// /api/design-tokens hydration); no per-brand literal table, so a third brand is one more id.
+function brandTok(id: BrandId): { rail: string; accent: string; onAccent: string; display: string; label: string; labelTransform: string } {
+    const b = getBrand(id);
+    const hx = (v: string) => '#' + String(v || '000000').replace(/^#/, '');
+    const fonts = Array.from(new Set([b.FONT_DISPLAY, b.FONT_BODY].filter(Boolean)));
+    return {
+        rail: hx(b.RAIL),
+        accent: hx(b.CHARTREUSE),
+        // on-accent text: white on NU red, ink on NXT chartreuse and DECIEM pink
+        onAccent: id === 'nu' ? hx(b.WHITE) : hx(b.INK),
+        display: fonts.map(f => `"${f}"`).join(', ') + ', sans-serif',
+        // step label: DECIEM labels are Poppins Bold uppercase (template audit); NXT / NU keep the mono label face
+        label: id === 'deciem' ? `"${String((b as Record<string, unknown>).FONT_LABEL || b.FONT_DISPLAY)}", sans-serif` : '"IBM Plex Mono", monospace',
+        labelTransform: id === 'deciem' ? 'uppercase' : 'none',
+    };
+}
 
 /** One sentence, scrubbed and pointer-free. Returns null when nothing usable survives. */
 function sayable(raw: string | null | undefined): string | null {
@@ -129,7 +143,7 @@ export function buildRecapComposition(input: RecapInput): RecapComposition {
 
     if (refusals.length) return { html: null, beats, refusals };
 
-    const tok = BRAND[input.brand === 'nu' ? 'nu' : 'nxt'];
+    const tok = brandTok(normalizeBrandId(input.brand));
     const perBeat = 5.5;
     const duration = Number((beats.length * perBeat).toFixed(2));
 
@@ -164,7 +178,7 @@ export function buildRecapComposition(input: RecapInput): RecapComposition {
       .scene { position: absolute; inset: 0; opacity: 0; padding: 0 160px; display: flex; flex-direction: column; justify-content: center; }
       #s0 { opacity: 1; }
       .rail { position: absolute; left: 0; top: 0; width: 8px; height: 1080px; background: ${tok.accent}; }
-      .step { font-family: "IBM Plex Mono", monospace; font-size: 24px; letter-spacing: 0.2em; color: ${tok.accent}; margin-bottom: 22px; }
+      .step { font-family: ${tok.label}; font-weight: 700; text-transform: ${tok.labelTransform}; font-size: 24px; letter-spacing: 0.2em; color: ${tok.accent}; margin-bottom: 22px; }
       .line { font-family: ${tok.display}; font-weight: 600; font-size: 74px; line-height: 1.06; max-width: 1500px; }
       .sub { font-size: 26px; color: #A3A3A3; margin-top: 26px; max-width: 1400px; line-height: 1.5; }
     </style>

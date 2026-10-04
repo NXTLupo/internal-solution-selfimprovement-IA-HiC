@@ -20,7 +20,7 @@
     "skills/tech-audit-inspector",
     "skills/competitive-analyst",
     "skills/strategic-report-writer",
-    "skills/deck-narrative-composer"
+    "skills/deck-composer"
   ],
   "agents": [
     "agents/parallel-runner.md"

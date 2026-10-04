@@ -12,12 +12,17 @@
 // iterate a payload array at a fixed pitch. Output is the 1920x1080 stage HTML; the headless render
 // gate verifies it (blank / runtime / nav-screen / collision).
 
-import { TOKENS, TYPO, LINE, SCALE } from '../components/slideTemplates/types';
-import { getBrand } from '../components/slideTemplates/brands';
-import { brandTokens } from './slideToStageHtml';
+import { TYPO, LINE, SCALE } from '../components/slideTemplates/types';
+import { getBrand, getBrandArt, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
+import {
+    brandTokens, brandArtCandidates, brandDividerFill, brandCanvasFor, lockupHtml, brandPops, hasFilledImagery, rectHitsZones, mixHex,
+    type BrandCanvas, type DeckPosition, type BrandArtPick, type StageRect,
+} from './slideToStageHtml';
 import { scrubMetaTitle, deClicheDeep } from './slidePostProcessor';
 
-export type Brand = 'nxt' | 'nu';
+// 2026-10-01 - the brand id set is owned by brands.ts (nxt | nu | deciem); the composer switches
+// on the normalized id only.
+export type Brand = BrandId;
 type TokenColor = 'accent' | 'rail' | 'ink' | 'cyan' | 'body' | 'secondary' | 'hairline' | 'paper' | 'ecru' | 'onAccent' | 'graphite' | 'ruleMid';
 type TokenFont = 'display' | 'heading' | 'body' | 'mono';
 // 2026-06-25 - a spec `size` may be a literal px (brand-identical tiers: label/body/caption) OR a
@@ -44,6 +49,9 @@ interface RegionStyle {
     // else word boundary, NEVER an ellipsis). Deterministic; overrides the prose readable-floor
     // clamp when overflow forces it (overflow beats the floor, same as the tabular exemption).
     fitH?: number;
+    // Round 3 (DECIEM art zones): a per-region type scale the collision resolver may set as its LAST
+    // step (floor 0.9). Absent = 1. Never set by a spec.
+    fontScale?: number;
 }
 interface StaticRegion extends RegionStyle {
     kind?: 'text' | 'hairline' | 'band' | 'rect' | 'image' | 'scrim';
@@ -124,6 +132,10 @@ interface ColumnGroup {
     // entries keep the base card.
     cardOverrides?: Array<Partial<{ y: number; w: number; h: number; bg: TokenColor; rule: number; ruleColor: TokenColor; ruleSide: 'top' | 'left' }> | null>;
     cells: Cell[];
+    // Round 3 (DECIEM art zones): per-ITEM partial cell overrides (item index -> cell index -> patch),
+    // set by the collision resolver so ONE colliding column cell can narrow or scale without touching
+    // its siblings. Never set by a spec.
+    cellOverrides?: Array<Record<number, Partial<Cell>> | null>;
 }
 // role x horizon matrix (aggregate-roadmap): label col + N horizon cols, M role rows.
 interface MatrixRegion {
@@ -167,7 +179,9 @@ interface ArchetypeSpec {
 // normalized BrandTokens shape does not carry.
 function resolved(brand: Brand) {
     const T = brandTokens(brand);                                   // CSS-ready hexes + font-family strings
-    const H: any = brand === 'nu' ? getBrand('nu') : TOKENS;        // raw token object (for the logo brick)
+    // raw token object (for the logo brick + per-brand TYPE_SCALE). index.tsx re-assigns the hydrated
+    // TOKENS onto nxtBrand after the NXT hydrate, so getBrand() is the live object for every brand.
+    const H: any = getBrand(brand);
     const color: Record<TokenColor, string> = {
         accent: T.accent,
         rail: T.rail,
@@ -183,15 +197,21 @@ function resolved(brand: Brand) {
         ruleMid: T.ruleMid,     // on-dark secondary text
     };
     // brandTokens fonts are already full `'Family', fallback` CSS strings - use them verbatim.
+    // heading = the TITLE face: identical to the body face for NXT (Archivo) and NU (Lato), and the
+    // Poppins Bold subhead face for DECIEM (template: Poppins Bold uppercase subheads, Josefin body).
     const font: Record<TokenFont, string> = {
         display: T.displayFont,
-        heading: T.bodyFont,
+        heading: T.titleFont,
         body: T.bodyFont,
         mono: T.monoFont,
     };
     // logo brick - strictly from the registry logo token (never typeset fallback unless absent)
     const logoSvg = String(H.BRAND_LOGO_SVG || '').trim();
     const logoWm = String(H.BRAND_LOGO_WORDMARK || '').trim();
+    // 2026-10-01 - DECIEM lockup + title transform + template art ride the same resolved object.
+    const lockup = String(T.lockup || '').trim();
+    const titleTransform = String(T.titleTransform || 'none');
+    const art = getBrandArt(brand);
     // 2026-06-25 - PER-BRAND deck-display scale. Reads THIS brand's hydrated TYPE_SCALE (set by
     // hydrateTokensFromFigma from the Figma mode feed), falling back to the global SCALE build
     // default per key. So NU resolves a mode-535:0 size where Figma diverges it, and stays == NXT
@@ -205,7 +225,12 @@ function resolved(brand: Brand) {
         kicker: sc('kicker'), deckHeading: sc('deckHeading'), deckTitle: sc('deckTitle'), numeral: sc('numeral'),
         hero: sc('hero'), sectionNumeral: sc('sectionNumeral'), quoteMark: sc('quoteMark'), micro: sc('micro'), nano: sc('nano'),
     } as Record<string, number>;
-    return { color, font, logoSvg, logoWm, scale };
+    // Round 2: pop-color rotation for stat numerals, no italics on brands with template art (the
+    // DECIEM template has none), and a font scale the safe-box narrowing may lower (1 = untouched).
+    const pops = art ? brandPops(T) : null;
+    const noItalic = !!art;
+    const fontScale = 1;
+    return { color, font, logoSvg, logoWm, scale, lockup, titleTransform, art, brand, T, pops, noItalic, fontScale };
 }
 
 /** Token hex -> rgba() at the given alpha (scrims + translucent panels; the color stays a token). */
@@ -267,11 +292,14 @@ export function clauseTrunc(s: string, max: number): string {
 export function fitTextToBox(
     text: string, sizePx: number, boxW: number, boxH: number, leading: number,
     scale: Record<string, number>,
+    // Round 2: average glyph width as a fraction of the size. 0.52 is the body-face estimate (Archivo /
+    // Lato); UPPERCASE Poppins 700 titles run ~0.68, so DECIEM title fits pass the wider factor.
+    glyphEm: number = GLYPH_EM,
 ): { text: string; size: number } {
     const t = String(text ?? '').replace(/\s+/g, ' ').trim();
     if (!t || !sizePx || !boxW || !boxH) return { text: t, size: sizePx };
     const floor = scale.caption;
-    const linesAt = (px: number) => Math.ceil(t.length / Math.max(1, Math.floor(boxW / (px * GLYPH_EM))));
+    const linesAt = (px: number) => Math.ceil(t.length / Math.max(1, Math.floor(boxW / (px * glyphEm))));
     const fits = (px: number) => linesAt(px) * px * leading <= boxH;
     if (fits(sizePx)) return { text: t, size: sizePx };
     const ladder = Array.from(new Set(Object.values(scale)))
@@ -281,7 +309,7 @@ export function fitTextToBox(
     for (const px of ladder) if (fits(px)) return { text: t, size: px };
     // Still over at the 2-tier floor: clause-aware truncate to the box's character capacity.
     const finalPx = ladder.length ? ladder[ladder.length - 1] : Math.max(floor, sizePx);
-    const cpl = Math.max(1, Math.floor(boxW / (finalPx * GLYPH_EM)));
+    const cpl = Math.max(1, Math.floor(boxW / (finalPx * glyphEm)));
     const maxLines = Math.max(1, Math.floor(boxH / (finalPx * leading)));
     return { text: clauseTrunc(t, cpl * maxLines), size: finalPx };
 }
@@ -290,7 +318,11 @@ export function fitTextToBox(
  *  Shared by styleStr and the fitH measured clamp so both start from the same tier. */
 function effectiveSizePx(r: RegionStyle, tk: ReturnType<typeof resolved>): number | undefined {
     const rawSize = typeof r.size === 'string' ? (tk.scale as any)[r.size] : r.size;
-    return r.prose && rawSize ? Math.max(rawSize, TYPO.READABLE_BODY_PX) : rawSize;
+    const base = r.prose && rawSize ? Math.max(rawSize, TYPO.READABLE_BODY_PX) : rawSize;
+    // Round 3: a per-region scale the art-zone resolver may set (floor 0.9), never below the hard floor.
+    const scale = (r.fontScale || 1) * (tk.fontScale || 1);
+    if (base && scale !== 1) return Math.max(TYPO.HARD_MIN_PX, Math.round(base * scale));
+    return base;
 }
 /** Run the WS-1g measured clamp for a text sink that declared fitH. Returns the fitted text and,
  *  when the size stepped down, the override px for styleStr. */
@@ -298,8 +330,317 @@ function applyFit(r: RegionStyle, raw: string, w: number, tk: ReturnType<typeof 
     const base = effectiveSizePx(r, tk);
     if (!r.fitH || !w || !base) return { text: raw };
     const leading = r.leading != null ? r.leading : (r.prose ? LINE.body : 1.25);
-    const f = fitTextToBox(raw, base, w, r.fitH, leading, tk.scale);
+    // uppercase title-face regions (DECIEM) measure with the wider glyph factor so the fit triggers
+    const upperTitle = tk.titleTransform !== 'none' && (r.font === 'display' || (r.font === 'heading' && (r.weight || 0) >= 700));
+    const f = fitTextToBox(raw, base, w, r.fitH, leading, tk.scale, upperTitle ? 0.68 : GLYPH_EM);
     return { text: f.text, sizeOverride: f.size !== base ? f.size : undefined };
+}
+
+/** Round 2 (DECIEM stat numerals): an accent-colored DISPLAY-face cell inside a repeated group takes
+ *  the brand pop colors in rotation (pink, cyan, purple, orange) by item index. Appended after
+ *  styleStr so it wins over the cell's base color. '' for brands without pops (NXT / NU unchanged). */
+function popColorStyle(c: RegionStyle, tk: ReturnType<typeof resolved>, i: number): string {
+    if (!tk.pops || c.color !== 'accent' || c.font !== 'display') return '';
+    return `;color:${tk.pops[i % tk.pops.length]}`;
+}
+
+// ---------------------------------------------------------------------------
+// Round 3 (DECIEM MEASURED ART ZONES). The corner heuristic (64% column) is gone. Every text region
+// keeps the full content width unless ITS box intersects a measured zone; a colliding region is then
+// repaired in the directive's order: (1) SHORTEN its height so it ends above the zone (a column that
+// ends above the bottom-right doodle, template slide 15: for a column group the whole stack of text
+// cells is compacted so it ends above the block, all items alike so columns stay aligned); (2) NARROW
+// only that region to the free span beside the zone (a title shifts right of the top-left blob, a
+// last column cell narrows left of a top-right sliver, per item); (3) scale ITS type, floor 0.9. A
+// repair that would leave a text cell under two lines is infeasible and the slide takes the NEXT
+// background in the rotation instead (skip-on-collision); none feasible -> plain paper, no art.
+// Everything is estimated from the same glyph model fitTextToBox uses, so it is deterministic.
+// ---------------------------------------------------------------------------
+const Z_GAP = 8;            // clearance between text and a zone (stage px)
+const Z_MIN_FREE = 150;     // the narrowest free span a region may be narrowed to
+const Z_FONT_FLOOR = 0.9;   // the lowest per-region type scale the resolver may apply
+const Z_MIN_GAP = 20;        // the tightest vertical gap a shortened column stack closes down to
+
+function _textOf(payload: any, r: { payload?: string; literal?: string }): string {
+    const v = r.payload ? dot(payload, r.payload) : r.literal;
+    return v == null ? '' : (Array.isArray(v) ? v.join(' ') : String(v));
+}
+function _glyphFor(r: RegionStyle, tk: ReturnType<typeof resolved>): number {
+    return (tk.titleTransform !== 'none' && (r.font === 'display' || (r.font === 'heading' && (r.weight || 0) >= 700))) ? 0.68 : GLYPH_EM;
+}
+function _leadingOf(r: RegionStyle): number { return r.leading != null ? r.leading : (r.prose ? LINE.body : 1.25); }
+/** Estimated rendered height of a text box (lines x size x leading), capped by fitH when declared. */
+function _estTextH(text: string, r: RegionStyle, w: number, tk: ReturnType<typeof resolved>): number {
+    const size = effectiveSizePx(r, tk) || 0;
+    if (!size || !text) return 0;
+    const t = text.replace(/\s+/g, ' ').trim();
+    // a single-token display-face cell (a numeral, a WORD figure) is sized to one line by renderColumns
+    const oneLine = r.font === 'display' && !/\s/.test(t);
+    const cpl = Math.max(1, Math.floor(w / (size * _glyphFor(r, tk))));
+    const lines = oneLine ? 1 : Math.max(1, Math.ceil(t.length / cpl));
+    const h = Math.ceil(lines * size * _leadingOf(r));
+    return r.fitH ? Math.min(h, r.fitH) : h;
+}
+function _minTextH(r: RegionStyle, tk: ReturnType<typeof resolved>): number {
+    const size = effectiveSizePx(r, tk) || 0;
+    return Math.ceil(2 * size * _leadingOf(r));   // two lines
+}
+function _hits(rect: StageRect, zones: StageRect[]): StageRect[] { return zones.filter(z => rectHitsZones(rect, [z])); }
+
+/** Static text region repair. Returns the patched region, or null when infeasible. */
+function _repairStatic(r: StaticRegion, zones: StageRect[], payload: any, tk: ReturnType<typeof resolved>): StaticRegion | null {
+    const text = _textOf(payload, r);
+    if (!text) return r;
+    let out: StaticRegion = { ...r };
+    for (let pass = 0; pass < 3; pass++) {
+        const size = effectiveSizePx(out, tk) || 0;
+        const w = out.w ?? Math.min(1848 - out.x, Math.ceil(text.length * size * _glyphFor(out, tk)));
+        const h = _estTextH(text, out, w, tk);
+        const rect: StageRect = { x: out.x, y: out.y, w, h };
+        const hits = _hits(rect, zones);
+        if (!hits.length) return out;
+        let changed = false;
+        for (const z of hits) {
+            // (1) shorten: the box starts above the zone and can end above it with >= 2 lines
+            if (out.y + Z_GAP < z.y && z.y - Z_GAP - out.y >= _minTextH(out, tk) && out.y + h > z.y) {
+                out = { ...out, fitH: Math.min(out.fitH ?? Infinity, z.y - Z_GAP - out.y) }; changed = true; continue;
+            }
+            // (2) narrow to the free span: zone to the right ...
+            if (z.x - Z_GAP - out.x >= Z_MIN_FREE && z.x > out.x) {
+                out = { ...out, w: z.x - Z_GAP - out.x }; changed = true; continue;
+            }
+            // ... or shift right of a zone on the left: a free-flowing line (no declared width) just
+            // moves as long as it still fits the stage; a boxed region narrows to the remaining span
+            const freeL = z.x + z.w + Z_GAP;
+            if (z.x <= out.x && out.w == null && freeL + w <= 1848) {
+                out = { ...out, x: freeL }; changed = true; continue;
+            }
+            if (z.x <= out.x && (out.x + w) - freeL >= Z_MIN_FREE) {
+                out = { ...out, x: freeL, w: (out.x + w) - freeL }; changed = true; continue;
+            }
+            // (3) scale the type, floor 0.9
+            if ((out.fontScale || 1) > Z_FONT_FLOOR) { out = { ...out, fontScale: Z_FONT_FLOOR }; changed = true; continue; }
+            return null;
+        }
+        if (!changed) return null;
+    }
+    // final check
+    const size = effectiveSizePx(out, tk) || 0;
+    const w = out.w ?? Math.min(1848 - out.x, Math.ceil(text.length * size * _glyphFor(out, tk)));
+    return _hits({ x: out.x, y: out.y, w, h: _estTextH(text, out, w, tk) }, zones).length ? null : out;
+}
+
+/** Item origins exactly as renderColumns lays them out (mirrors its fillW / spreadW / cols math). */
+function _itemOrigins(g: ColumnGroup, n: number): Array<{ x: number; y: number; w: number }> {
+    const gap = g.gap ?? 56;
+    const fillOn = !!(g.fillW && n > 0 && !g.xs && !g.cols);
+    const effW = fillOn ? Math.min(Math.floor((g.fillW! - (n - 1) * gap) / n), Math.round(g.w * 2.2)) : g.w;
+    const pitchX = fillOn ? effW + gap : ((g.spreadW && n > 1) ? Math.round((g.spreadW - g.w) / (n - 1)) : g.pitchX);
+    const fillShift = fillOn ? Math.max(0, Math.floor((g.fillW! - (n * effW + (n - 1) * gap)) / 2)) : 0;
+    const gapY = g.gapY ?? 8;
+    const effH = (g.fillH && g.card && n > 0) ? Math.round((g.fillH - (n - 1) * gapY) / n) : (g.card ? g.card.h : 0);
+    const pitchY = (g.fillH && g.card && n > 0) ? effH + gapY : (g.pitchY || 0);
+    const out: Array<{ x: number; y: number; w: number }> = [];
+    for (let i = 0; i < n; i++) {
+        const col = g.cols ? i % g.cols : i, row = g.cols ? Math.floor(i / g.cols) : i;
+        out.push({ x: g.xs ? g.xs[i] : g.baseX + fillShift + col * pitchX, y: (g.baseY || 0) + (g.cols ? row : i) * pitchY, w: effW });
+    }
+    return out;
+}
+
+/** Column-group repair: group-wide vertical compaction above bottom blocks, per-item narrowing beside
+ *  side zones, per-item type scale last. Returns the patched group, or null when infeasible. */
+function _repairColumns(g: ColumnGroup, zones: StageRect[], payload: any, tk: ReturnType<typeof resolved>): ColumnGroup | null {
+    const arr: any[] = dot(payload, g.array) || [];
+    const n = Math.min(arr.length, g.count);
+    if (!n) return g;
+    const origins = _itemOrigins(g, n);
+    const textCells = g.cells.map((c, ci) => ({ c, ci })).filter(({ c }) => !c.kind || c.kind === 'text');
+    const cellText = (c: Cell, item: any): string => {
+        const v = c.autoNumber ? '00' : (c.key ? dot(item, c.key) : (typeof item === 'string' ? item : c.literal));
+        return v == null ? '' : (Array.isArray(v) ? v.join(' ') : String(v));
+    };
+    const cellW = (c: Cell, o: { w: number }) => c.w || o.w;
+    const cellRect = (c: Cell, ci: number, i: number, cells: Cell[]): StageRect | null => {
+        const cc = cells[ci];
+        const text = cellText(cc, arr[i]);
+        if (!text) return null;
+        const o = origins[i];
+        const dy = (i % 2 === 1 && cc.dyOdd != null) ? cc.dyOdd : cc.dy;
+        const w = cellW(cc, o);
+        return { x: o.x + (cc.dx || 0), y: o.y + dy, w, h: Math.max(_estTextH(text, cc, w, tk), Math.ceil((effectiveSizePx(cc, tk) || 0) * _leadingOf(cc))) };
+    };
+    let cells = g.cells.map(c => ({ ...c }));
+    const overrides: Array<Record<number, Partial<Cell>> | null> = origins.map(() => null);
+    const maxTextH = (c: Cell) => Math.max(0, ...origins.map((_, i) => { const t = cellText(c, arr[i]); return t ? _estTextH(t, c, cellW(c, origins[i]), tk) : 0; }));
+    // ---- (0) a TOP-edge zone over the first cells: shift the whole stack down a little (<= 140px),
+    //      all items alike; the bottom compaction below then takes the slack. Card groups do not move.
+    if (!g.card) {
+        let delta = 0;
+        for (let i = 0; i < n; i++) for (const { ci } of textCells) {
+            const rect = cellRect(cells[ci], ci, i, cells); if (!rect) continue;
+            for (const z of _hits(rect, zones)) if (z.y <= 0 && z.y + z.h < 1070) delta = Math.max(delta, z.y + z.h + Z_GAP - rect.y);
+        }
+        if (delta > 140) return null;
+        if (delta > 0) cells = cells.map(c => (!c.kind || c.kind === 'text' || c.kind === 'hairline' || c.kind === 'image') ? { ...c, dy: c.dy + delta, dyOdd: c.dyOdd != null ? c.dyOdd + delta : c.dyOdd } : c);
+    }
+    // ---- (1) vertical compaction: find the lowest bottom-block top any text cell runs into ----
+    let blockTop = Infinity;
+    for (let i = 0; i < n; i++) for (const { ci } of textCells) {
+        const rect = cellRect(cells[ci], ci, i, cells); if (!rect) continue;
+        for (const z of _hits(rect, zones)) if (z.y + z.h >= 1070 && z.y < rect.y + rect.h) blockTop = Math.min(blockTop, z.y);
+    }
+    if (blockTop !== Infinity) {
+        // The stack of text cells must end above blockTop - gap, group-wide so the columns stay
+        // aligned. Shortening takes slack in this order and never touches the type size:
+        //   (a) the spec's vertical gaps between cells close down to Z_MIN_GAP (a label keeps its
+        //       tighter gap to the body under it);
+        //   (b) FLEX cells (fitH or prose) shrink toward their NATURAL height at full size (never
+        //       below two lines), so a fitH box only loses the empty space under its text and the
+        //       measured clamp never steps the face down a tier.
+        // When that is not enough the stack is left as the spec drew it and the per-item narrowing
+        // below gets its turn; a cell still on the art after that makes the background infeasible.
+        const order = textCells.map(({ ci }) => ci).sort((a, b) => cells[a].dy - cells[b].dy);
+        const natural = (c: Cell) => Math.max(0, ...origins.map((_, i) => { const t = cellText(c, arr[i]); return t ? _estTextH(t, { ...c, fitH: undefined }, cellW(c, origins[i]), tk) : 0; }));
+        const h = order.map(ci => { const c = cells[ci]; return c.fitH ? c.fitH : Math.max(maxTextH(c), Math.ceil((effectiveSizePx(c, tk) || 0) * _leadingOf(c))); });
+        const gaps = order.map((ci, k) => k === 0 ? 0 : Math.max(0, cells[ci].dy - (cells[order[k - 1]].dy + h[k - 1])));
+        const end = cells[order[0]].dy + h.reduce((s, v, k) => s + v + gaps[k], 0);
+        const target = blockTop - Z_GAP;
+        let overflow = end - target;
+        if (overflow > 0) {
+            const gapSlack = gaps.map((v, k) => k === 0 ? 0 : Math.max(0, v - Math.min(v, Z_MIN_GAP)));
+            const flex = order.map((ci, k) => { const c = cells[ci]; return (c.fitH || c.prose) ? Math.max(0, h[k] - Math.max(_minTextH(c, tk), natural(c))) : 0; });
+            const gapTotal = gapSlack.reduce((s, v) => s + v, 0);
+            const flexTotal = flex.reduce((s, v) => s + v, 0);
+            if (overflow <= gapTotal + flexTotal) {
+                const g2 = gaps.slice(), h2 = h.slice();
+                // (a) gaps first, proportionally to their slack
+                const fromGaps = Math.min(overflow, gapTotal);
+                if (fromGaps > 0) for (let k = 1; k < order.length; k++) g2[k] -= Math.floor(gapSlack[k] * fromGaps / gapTotal);
+                let left = (cells[order[0]].dy + h2.reduce((s, v, k) => s + v + g2[k], 0)) - target;
+                for (let k = order.length - 1; k >= 1 && left > 0; k--) { const take = Math.min(left, g2[k] - (gaps[k] - gapSlack[k])); if (take > 0) { g2[k] -= take; left -= take; } }
+                // (b) then the flex cells, proportionally to their slack above the natural height
+                if (left > 0 && flexTotal > 0) {
+                    const need = left;
+                    for (let k = 0; k < order.length; k++) if (flex[k]) { const take = Math.min(flex[k], Math.floor(flex[k] * need / flexTotal)); h2[k] -= take; left -= take; }
+                    for (let k = order.length - 1; k >= 0 && left > 0; k--) if (flex[k]) { const floorH = h[k] - flex[k]; const take = Math.min(left, h2[k] - floorH); if (take > 0) { h2[k] -= take; left -= take; } }
+                }
+                if (left <= 0) {
+                    let y = cells[order[0]].dy;
+                    order.forEach((ci, k) => {
+                        y += g2[k];
+                        const c = cells[ci];
+                        cells[ci] = (c.fitH || c.prose) ? { ...c, dy: y, dyOdd: undefined, fitH: h2[k] } : { ...c, dy: y, dyOdd: undefined };
+                        y += h2[k];
+                    });
+                }
+            }
+        }
+    }
+    // ---- (2) side zones: per-item narrowing / shifting; (3) per-item type scale ----
+    for (let i = 0; i < n; i++) for (const { ci } of textCells) {
+        let cur: Cell = { ...cells[ci], ...(overrides[i]?.[ci] || {}) };
+        for (let pass = 0; pass < 3; pass++) {
+            const rect = cellRect(cur, ci, i, Object.assign([...cells], { [ci]: cur }) as Cell[]); if (!rect) break;
+            const hits = _hits(rect, zones); if (!hits.length) break;
+            const z = hits[0];
+            const o = origins[i];
+            const x0 = o.x + (cur.dx || 0), w = cellW(cur, o);
+            // the narrowest acceptable span: a short single token (a numeral "04") needs only its own
+            // width plus clearance; running text keeps the Z_MIN_FREE floor
+            const t = cellText(cur, arr[i]);
+            const size = effectiveSizePx(cur, tk) || 0;
+            const need = /\s/.test(t.trim()) ? Z_MIN_FREE : Math.min(Z_MIN_FREE, Math.ceil(t.trim().length * size * _glyphFor(cur, tk)) + Z_GAP);
+            if (z.x > x0 && z.x - Z_GAP - x0 >= need) { cur = { ...cur, w: z.x - Z_GAP - x0 }; }
+            else if (z.x <= x0 && (x0 + w) - (z.x + z.w + Z_GAP) >= need) { const nx = z.x + z.w + Z_GAP; cur = { ...cur, dx: nx - o.x, w: (x0 + w) - nx }; }
+            else if ((cur.fontScale || 1) > Z_FONT_FLOOR) { cur = { ...cur, fontScale: Z_FONT_FLOOR }; }
+            else return null;
+            overrides[i] = { ...(overrides[i] || {}), [ci]: { ...(overrides[i]?.[ci] || {}), dx: cur.dx, w: cur.w, fontScale: cur.fontScale } };
+        }
+        const finalRect = cellRect(cur, ci, i, Object.assign([...cells], { [ci]: cur }) as Cell[]);
+        if (finalRect && _hits(finalRect, zones).length) return null;
+    }
+    return { ...g, cells, cellOverrides: overrides.some(Boolean) ? overrides : g.cellOverrides };
+}
+
+/** Repair every region against the zones. ok=false when any region cannot be kept out of the art. */
+function resolveArtCollisions(regions: Region[], zones: StageRect[], payload: any, tk: ReturnType<typeof resolved>): { regions: Region[]; ok: boolean } {
+    if (!zones.length) return { regions, ok: true };
+    const out: Region[] = [];
+    for (const r of regions) {
+        const k = (r as any).kind;
+        if (k === 'columns') {
+            const g = _repairColumns(r as ColumnGroup, zones, payload, tk);
+            if (!g) return { regions, ok: false };
+            out.push(g); continue;
+        }
+        if (k === 'matrix' || k === 'chips') {
+            // block regions cannot be reshaped: any zone touching them is a skip
+            const m = r as any;
+            const rect: StageRect = k === 'matrix'
+                ? { x: Math.min(m.labelX, m.baseX), y: m.headerY, w: 1848 - Math.min(m.labelX, m.baseX), h: (m.rowBaseY - m.headerY) + 8 * m.rowPitch }
+                : { x: 196, y: 64, w: 1652, h: 976 };
+            if (_hits(rect, zones).length) return { regions, ok: false };
+            out.push(r); continue;
+        }
+        const s = r as StaticRegion;
+        // a full-width hairline rule stops short of a zone on its right (it never runs through the art);
+        // other non-text regions (rects, bands, images) are left as drawn
+        if (s.kind === 'hairline' && typeof s.w === 'number') {
+            let w = s.w;
+            for (const z of _hits({ x: s.x, y: s.y, w, h: Math.max(1, s.h || 1) }, zones)) if (z.x > s.x) w = Math.min(w, z.x - Z_GAP - s.x);
+            out.push(w >= Z_MIN_FREE && w !== s.w ? ({ ...s, w } as Region) : r); continue;
+        }
+        if (s.kind && s.kind !== 'text') { out.push(r); continue; }   // rules, rects, images: not text
+        const fixed = _repairStatic(s, zones, payload, tk);
+        if (!fixed) return { regions, ok: false };
+        out.push(fixed);
+    }
+    return { regions: out, ok: true };
+}
+
+/** Pick the first background in the slide's rotation whose zones the regions can be kept out of.
+ *  Returns the pick and the repaired regions, or null (no art) when none of the twelve is feasible. */
+function resolveArtForSlide(brand: Brand, title: string, deckIndex: number | undefined, regions: Region[], payload: any, tk: ReturnType<typeof resolved>)
+    : { pick: BrandArtPick; regions: Region[] } | null {
+    for (const pick of brandArtCandidates(brand, title, deckIndex)) {
+        const res = resolveArtCollisions(regions, pick.zones, payload, tk);
+        if (res.ok) return { pick, regions: res.regions };
+    }
+    return null;
+}
+
+/** Round 3 (B): an uppercase DECIEM title region without a height budget gets one: the gap to the
+ *  next region below it, so a two-line title re-fits (tier step or clause trim) instead of running
+ *  into the body. No-op for regions that already declare fitH. */
+function ensureTitleFit(regions: Region[]): Region[] {
+    const tops: number[] = [];
+    for (const r of regions) {
+        const k = (r as any).kind;
+        if (k === 'columns') { const g = r as ColumnGroup; for (const c of g.cells) tops.push((g.baseY || 0) + c.dy); }
+        else if (k === 'matrix') tops.push((r as MatrixRegion).headerY);
+        else if (k === 'chips') { for (const [, oy] of (r as ChipsRegion).origins) tops.push(oy); }
+        else tops.push((r as StaticRegion).y);
+    }
+    return regions.map((r) => {
+        const s = r as StaticRegion;
+        if ((s as any).kind || s.payload !== 'title' || s.font !== 'display' || s.fitH) return r;
+        const below = tops.filter(t => t > s.y + 4);
+        if (!below.length) return r;
+        const budget = Math.min(...below) - s.y - 12;
+        return budget >= 40 ? ({ ...s, fitH: budget } as Region) : r;
+    });
+}
+
+/** Round 3 (C): the block-quote mark sits in the LEFT GUTTER (DECIEM has no rail there), above and
+ *  left of the first quote line, never over the text. */
+function deciemQuoteMark(archetype: string, regions: Region[]): Region[] {
+    if (archetype !== 'block-quote') return regions;
+    return regions.map((r) => {
+        const s = r as StaticRegion;
+        if (!(s as any).kind && s.literal === '“' && s.font === 'display') return { ...s, x: 48, y: 110, w: 140 } as Region;
+        return r;
+    });
 }
 
 function styleStr(r: RegionStyle, tk: ReturnType<typeof resolved>, sizeOverride?: number): string {
@@ -312,15 +653,21 @@ function styleStr(r: RegionStyle, tk: ReturnType<typeof resolved>, sizeOverride?
     // overflow beats the floor, same rationale as the documented tabular exemption.
     const size = sizeOverride ?? effectiveSizePx(r, tk);
     const leading = r.leading != null ? r.leading : (r.prose ? LINE.body : undefined);
+    // A display-face region with no spec weight takes the brand TITLE weight when the brand declares a
+    // title transform (DECIEM: Poppins Bold uppercase hero / numeral type). NXT / NU ('none') unchanged.
+    const weight = r.weight || ((tk.titleTransform !== 'none' && r.font === 'display') ? Number(tk.T.titleWeight) || 0 : 0);
     const parts = [
         r.color ? `color:${tk.color[r.color]}` : '',
         r.font ? `font-family:${tk.font[r.font]}` : '',
         size ? `font-size:${size}px` : '',
-        r.weight ? `font-weight:${r.weight}` : '',
+        weight ? `font-weight:${weight}` : '',
         r.tracking ? `letter-spacing:${r.tracking}px` : '',
         leading != null ? `line-height:${leading}` : '',
-        r.italic ? 'font-style:italic' : '',
-        r.upper ? 'text-transform:uppercase' : '',
+        (r.italic && !tk.noItalic) ? 'font-style:italic' : '',
+        // TITLE_TRANSFORM token: display-face regions (titles, numerals) and bold heading-face regions
+        // (subheads) take the brand transform (DECIEM uppercase). 'none' (NXT / NU) adds nothing.
+        (r.upper || (tk.titleTransform !== 'none' && (r.font === 'display' || (r.font === 'heading' && (r.weight || 0) >= 700))))
+            ? `text-transform:${r.upper ? 'uppercase' : tk.titleTransform}` : '',
     ].filter(Boolean);
     return parts.join(';');
 }
@@ -492,7 +839,9 @@ function renderColumns(g: ColumnGroup, payload: any, tk: ReturnType<typeof resol
                 : '';
             html += `<div style="position:absolute;left:${itemX}px;top:${cy}px;width:${cw}px;height:${ch}px;background:${tk.color[cardSpec.bg || 'paper']}"></div>${ruleBar}`;
         }
-        for (const c of g.cells) {
+        for (let ci = 0; ci < g.cells.length; ci++) {
+            // cellOverrides (round 3): a per-item patch over the shared cell (art-zone resolver only)
+            const c: Cell = g.cellOverrides?.[i]?.[ci] ? { ...g.cells[ci], ...g.cellOverrides[i]![ci] } : g.cells[ci];
             // dyOdd: odd-index items take the alternate vertical position (milestone-timeline
             // above/below-axis alternation, collision-free by construction).
             // dyCenter re-centers cells in a fillH-grown row; dW stretches full-width-ish cells
@@ -543,10 +892,28 @@ function renderColumns(g: ColumnGroup, payload: any, tk: ReturnType<typeof resol
                     const f = applyFit(c, s, w, tk);
                     s = f.text; sizeOverride = f.sizeOverride;
                 }
+                // Round 2 (DECIEM): a WORD figure (hero / numeral / display tier, display face, uppercase
+                // Poppins 700) must fit its column on one line; digits keep the tier. Content-adaptive:
+                // size = min(tier, column width / (0.66em x chars)), never below the hard floor.
+                if (s && tk.art && c.font === 'display' && typeof c.size === 'string' && (c.size === 'hero' || c.size === 'numeral' || c.size === 'display')
+                    && !/^[\d.,%$+\-x\s]+$/i.test(s)) {
+                    const base = sizeOverride ?? effectiveSizePx(c, tk) ?? 0;
+                    const fit = Math.floor(w / (0.66 * s.length));
+                    if (base && fit < base) sizeOverride = Math.max(TYPO.HARD_MIN_PX, fit);
+                }
+                // Round 2 (DECIEM): an UPPERCASED bold heading cell (subjects, names) whose longest single
+                // token is wider than its column sizes down until that token fits, so a long handle like
+                // "R/SKINCAREADDICTION" can never run into the next column (export-faithful: no soft wrap).
+                if (s && tk.art && tk.titleTransform !== 'none' && c.font === 'heading' && (c.weight || 0) >= 700 && c.w) {
+                    const base = sizeOverride ?? effectiveSizePx(c, tk) ?? 0;
+                    const longest = s.split(/\s+/).reduce((m, t) => Math.max(m, t.length), 0);
+                    const fit = Math.floor(c.w / (0.66 * Math.max(1, longest)));
+                    if (base && fit < base) sizeOverride = Math.max(TYPO.HARD_MIN_PX, fit);
+                }
                 content = esc(s);
             }
             if (!content) continue;
-            html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;${styleStr(c, tk, sizeOverride)}">${content}</div>`;
+            html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;${styleStr(c, tk, sizeOverride)}${popColorStyle(c, tk, i)}">${content}</div>`;
         }
     }
     return html;
@@ -594,9 +961,26 @@ function brandLogo(tk: ReturnType<typeof resolved>, onDark: boolean): string {
     // per-variant master layout (defined once, not per slide) and (b) lets the exporter embed the logo
     // as a TRUE VECTOR SVG (svgBlip + PNG fallback) instead of a rasterized screenshot. Same contract
     // as slideToStageHtml's classed chrome, so #slides decks match the GOLD path (owner directive 2026-07-03).
+    // 2026-10-01 - DECIEM: the bordered two-line lockup (template masthead) in place of a mark.
+    if (tk.lockup) return lockupHtml(tk.T, color);
     if (tk.logoSvg) return `<div class="brandlogo" style="${pos};color:${color}">${tk.logoSvg.replace(/currentColor/g, color)}</div>`;
     if (tk.logoWm) return `<div class="brandlogo" style="${pos};font-family:${tk.font.display};font-weight:600;font-size:24px;letter-spacing:1px;color:${color};text-transform:uppercase">${esc(tk.logoWm)}</div>`;
     return '';
+}
+/** Brands with template art (DECIEM): no rail, no dot-mark anywhere. Returns the chrome SPLIT in two:
+ *  `pre` goes under the regions (the corner background on paper body slides), `post` goes on top
+ *  (the lockup on dark / pop canvases, so a cover photo can never bury it). */
+function artChrome(tk: ReturnType<typeof resolved>, canvas: { kind: BrandCanvas; bodyArt: string; lockup?: boolean }): { pre: string; post: string } {
+    if (canvas.kind === 'paper') {
+        return {
+            pre: canvas.bodyArt
+                ? `<img class="bgart" src="${esc(canvas.bodyArt)}" alt="" style="position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;display:block">`
+                : '',
+            post: '',
+        };
+    }
+    // the black BODY canvas (quote slide) is a body slide: no masthead, like every other body slide
+    return { pre: '', post: canvas.lockup === false ? '' : brandLogo(tk, true) };
 }
 function chrome(mode: ArchetypeSpec['chrome'], tk: ReturnType<typeof resolved>): string {
     if (mode === 'full-bleed-dark') {
@@ -606,6 +990,143 @@ function chrome(mode: ArchetypeSpec['chrome'], tk: ReturnType<typeof resolved>):
     // content-rail: 128px rail + dot-mark + real brand mark (ink) top-right
     const rail = `<div class="rail" style="position:absolute;left:0;top:0;width:128px;height:1080px;background:${tk.color.rail}"></div>`;
     return rail + dotMark(tk, false) + brandLogo(tk, false);
+}
+
+// 2026-10-01 - DECIEM canvas FAMILIES per archetype (round 2 directive D, from the template):
+//   cover                                  -> black canvas + lockup (+ photo under a heavy black scrim)
+//   section-divider                        -> solid pop fill by divider ordinal (cyan / purple / pink / orange)
+//   thesis / agenda / scene / diptych      -> black canvas + lockup
+//   block-quote                            -> BLACK (the NIOD dark layout): white Josefin quote, pink mark
+//   tables (evidence-table, roadmaps, comparison, ledgers, org) -> paper, black header row, NO corner art
+//   panel layouts (role-needs, critiques, exhibit) -> paper, text left / panel right, NO corner art
+//   everything else                        -> paper + ONE corner background (unless imagery is present)
+const COVER_ARCHETYPES = new Set(['cover']);
+const SECTION_ARCHETYPES = new Set(['section-divider']);
+const THESIS_ARCHETYPES = new Set(['thesis-interstitial', 'agenda', 'scene', 'problem-diptych']);
+const DARK_BODY_ARCHETYPES = new Set(['block-quote']);
+const TABLE_ARCHETYPES = new Set(['evidence-table', 'aggregate-roadmap', 'comparison-panels', 'role-roadmap', 'prd-ledger', 'prd-trace', 'org-model']);
+const PANEL_ARCHETYPES = new Set(['role-needs', 'role-recommendation', 'screen-critique', 'screen-redesign', 'infographic-exhibit']);
+export type ComposerCanvasFamily = 'cover' | 'section' | 'thesis' | 'dark' | 'table' | 'panel' | 'body';
+export function composerCanvasFamily(archetype: string, spec?: { chrome?: string }): ComposerCanvasFamily {
+    if (COVER_ARCHETYPES.has(archetype)) return 'cover';
+    if (SECTION_ARCHETYPES.has(archetype)) return 'section';
+    if (THESIS_ARCHETYPES.has(archetype) || (spec && spec.chrome === 'full-bleed-dark')) return 'thesis';
+    if (DARK_BODY_ARCHETYPES.has(archetype)) return 'dark';
+    if (TABLE_ARCHETYPES.has(archetype)) return 'table';
+    if (PANEL_ARCHETYPES.has(archetype)) return 'panel';
+    return 'body';
+}
+
+interface CanvasPlan {
+    tk: ReturnType<typeof resolved>; bg: string; family: ComposerCanvasFamily;
+    canvas: { kind: BrandCanvas; bodyArt: string; lockup?: boolean };
+    /** paper body slides: art is resolved AGAINST THE REGIONS later (resolveArtForSlide); this flag says to. */
+    wantsArt: boolean; artFile: string; zones: StageRect[];
+}
+
+/** Resolve the DECIEM canvas for a composed archetype: the derived token set (text/fill colors swapped
+ *  for a dark or pop canvas), the wrapper background, the body-art pick (deck-order rotation) and its
+ *  safe box. Returns null when the brand has no art block, so NXT / NU composition is untouched. */
+function brandCanvasPlan(archetype: string, payload: any, tk: ReturnType<typeof resolved>, spec: ArchetypeSpec, pos?: DeckPosition): CanvasPlan | null {
+    if (!tk.art) return null;
+    const title = String(payload?.title || payload?.thesis || payload?.quote || payload?.number || '');
+    const family = composerCanvasFamily(archetype, spec);
+    const darkSwapContentRail = (color: typeof tk.color, fill: string, text: string) => ({
+        ...color, rail: text, paper: fill, ink: text, body: text, secondary: tk.color.ruleMid, ecru: tk.color.graphite, hairline: mixHex(fill, text, 0.2),
+    });
+    if (family === 'dark') {
+        // NIOD dark layout: black canvas, white type, graphite panels, pink accent kept.
+        const fill = tk.color.rail, text = tk.color.paper;
+        const color = spec.chrome === 'content-rail' ? darkSwapContentRail(tk.color, fill, text) : { ...tk.color };
+        return { tk: { ...tk, color }, bg: fill, family, canvas: { kind: 'dark', bodyArt: '', lockup: false }, wantsArt: false, artFile: '', zones: [] };
+    }
+    if (family === 'table' || family === 'panel') {
+        return { tk, bg: tk.color.paper, family, canvas: { kind: 'paper', bodyArt: '' }, wantsArt: false, artFile: '', zones: [] };
+    }
+    const role: 'cover' | 'section' | 'thesis' | 'body' = family === 'cover' ? 'cover' : family === 'section' ? 'section' : family === 'thesis' ? 'thesis' : 'body';
+    const kind = brandCanvasFor(tk.brand, role);
+    if (kind === 'paper') {
+        // Paper canvas: a content-rail archetype keeps its ink-on-paper colors; a full-bleed-dark
+        // archetype assigned a paper canvas swaps rail <-> paper so its white type turns ink.
+        const swap = spec.chrome === 'full-bleed-dark';
+        const color = swap ? { ...tk.color, rail: tk.color.paper, paper: tk.color.rail, ruleMid: tk.color.secondary } : tk.color;
+        // art-vs-imagery: a slide carrying any filled imagery slot gets no corner art. The actual
+        // background is resolved against the regions in composeSlide (skip-on-collision).
+        return { tk: { ...tk, color }, bg: tk.color.paper, family, canvas: { kind, bodyArt: '' }, wantsArt: !hasFilledImagery(payload), artFile: '', zones: [] };
+    }
+    const divider = kind === 'pop' ? brandDividerFill(tk.brand, title, pos?.dividerOrdinal) : null;
+    const fill = divider ? divider.fill : tk.color.rail;
+    const text = divider ? divider.text : tk.color.paper;
+    // Dark canvas: a content-rail archetype (agenda) swaps rail <-> paper so its ink type turns white;
+    // a full-bleed-dark archetype already types in paper. Pop canvas: every type slot takes the fill's
+    // text color (black on cyan, white on purple / pink / orange); the accent numeral too.
+    const color = { ...tk.color };
+    if (spec.chrome === 'content-rail') { color.rail = text; color.paper = fill; color.ink = text; color.body = text; color.secondary = text; color.ecru = fill; }
+    else { color.paper = text; color.rail = fill; }
+    if (divider) { color.accent = text; color.ruleMid = text; color.cyan = text; color.onAccent = fill; }
+    return { tk: { ...tk, color }, bg: fill, family, canvas: { kind, bodyArt: '' }, wantsArt: false, artFile: '', zones: [] };
+}
+
+/** Round 3: the DECIEM per-archetype region adjustments that run BEFORE art resolution (title height
+ *  budget, quote-mark gutter, table header band, black bands). Shared by composeSlide and the test seam. */
+function deciemPrepareRegions(archetype: string, regions: Region[], plan: CanvasPlan): Region[] {
+    let out = deciemTableHeader(archetype, regions);
+    if (plan.canvas.kind === 'paper') out = deciemBands(out);
+    out = ensureTitleFit(out);
+    out = deciemQuoteMark(archetype, out);
+    return out;
+}
+
+/** Round 2 (DECIEM tables): the evidence-table header row becomes a black band with white Poppins 700
+ *  uppercase column heads (the template's table header). Other archetypes pass through. */
+function deciemTableHeader(archetype: string, regions: Region[]): Region[] {
+    if (archetype !== 'evidence-table') return regions;
+    const out: Region[] = [];
+    for (const r of regions) {
+        if ((r as any).kind === 'columns' && (r as ColumnGroup).array === 'columns') {
+            const g = r as ColumnGroup;
+            const dy = g.cells[0]?.dy ?? 290;
+            out.push({ kind: 'rect', x: 196, y: dy - 12, w: 1622, h: 40, color: 'rail' } as StaticRegion);
+            out.push({ ...g, cells: g.cells.map(c => ({ ...c, color: 'paper', font: 'heading', weight: 700, upper: true })) });
+            continue;
+        }
+        if ((r as any).kind === 'hairline' && (r as StaticRegion).color === 'rail' && (r as StaticRegion).y === 318) continue; // the band replaces the rule
+        out.push(r);
+    }
+    return out;
+}
+
+/** Round 2 (DECIEM bands): the takeaway band is BLACK with white type (round-1 owner rule), never a
+ *  pop fill. A wide accent rect (the composer's band carrier) becomes a rail rect; its onAccent text is
+ *  already the white BAND_TEXT on DECIEM. Narrow accent rects (rules, chips, markers) are untouched. */
+function deciemBands(regions: Region[]): Region[] {
+    return regions.map((r) => {
+        const sr = r as StaticRegion;
+        if (sr.kind === 'rect' && sr.color === 'accent' && (sr.w || 0) >= 1000 && (sr.h || 0) >= 60) return { ...sr, color: 'rail' } as Region;
+        return r;
+    });
+}
+
+/** Round 2 (DECIEM cover photo): the photo lane keeps the cover BLACK-dominant: scrim 0.55 top / 0.92 bottom. */
+function deciemCoverScrim(archetype: string, r: StaticRegion): StaticRegion {
+    if (archetype !== 'cover' || r.kind !== 'scrim') return r;
+    return { ...r, alphaTop: 0.55, alphaBottom: 0.92 };
+}
+
+/** The DECIEM canvas plan for an archetype + payload + deck position, exposed for the deck proof test
+ *  (family, art file, safe box). null for brands without art. */
+export function planCanvasFor(archetype: string, payload: any, brand: Brand, pos?: DeckPosition): { family: ComposerCanvasFamily; kind: BrandCanvas; artFile: string; zones: StageRect[]; bg: string } | null {
+    const spec = ARCHETYPE_SPECS[archetype];
+    if (!spec) return null;
+    const tk = resolved(brand);
+    const plan = brandCanvasPlan(archetype, payload, tk, spec, pos);
+    if (!plan) return null;
+    if (plan.wantsArt) {
+        const regions = deciemPrepareRegions(archetype, spec.regions, plan);
+        const art = resolveArtForSlide(brand, String(payload?.title || ''), pos?.deckIndex, regions, payload, plan.tk);
+        if (art) return { family: plan.family, kind: plan.canvas.kind, artFile: art.pick.file, zones: art.pick.zones, bg: plan.bg };
+    }
+    return { family: plan.family, kind: plan.canvas.kind, artFile: '', zones: [], bg: plan.bg };
 }
 function dotMark(tk: ReturnType<typeof resolved>, dark: boolean): string {
     const cols = [34.7, 59.2, 83.7], rows = [986.4, 1010.9, 1035.4];
@@ -626,7 +1147,7 @@ export const HERO_PANEL: Record<string, [number, number, number, number]> = {
 
 /** Compose a slide from its registry archetype spec + payload + brand. Returns the inner HTML of
  * the 1920x1080 stage (the caller wraps it in the page shell). Unknown archetype -> null. */
-export function composeSlide(archetype: string, payload: any, brand: Brand): string | null {
+export function composeSlide(archetype: string, payload: any, brand: Brand, pos?: DeckPosition): string | null {
     const spec = ARCHETYPE_SPECS[archetype];
     if (!spec) return null;
     // 2026-06-18 (research-run-failure-analysis, Issue 2) - strip self-referential "how this deck is
@@ -666,9 +1187,17 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
         }
         payload = deClicheDeep(payload);
     }
-    const tk = resolved(brand);
-    const bg = spec.chrome === 'full-bleed-dark' ? tk.color.rail : tk.color.paper;
-    let body = chrome(spec.chrome, tk);
+    let tk = resolved(brand);
+    let bg = spec.chrome === 'full-bleed-dark' ? tk.color.rail : tk.color.paper;
+    // DECIEM canvas plan (null for NXT / NU -> the two lines above stand unchanged).
+    const plan = brandCanvasPlan(archetype, payload, tk, spec, pos);
+    if (plan) { tk = plan.tk; bg = plan.bg; }
+    const artParts = plan ? artChrome(tk, plan.canvas) : null;
+    let body = artParts ? artParts.pre : chrome(spec.chrome, tk);
+    // The lockup must sit ABOVE a cover photo / scrim, so the art chrome's `post` is appended after
+    // the regions on every DECIEM return path.
+    const finish = (inner: string, wrapperBg: string) =>
+        `<div style="position:relative;width:1920px;height:1080px;background:${wrapperBg};overflow:hidden">${inner}${artParts ? artParts.post : ''}</div>`;
     // 2026-06-25 - OPTIONAL hero-image panel (P3). The left-anchored interstitials
     // carry a full-bleed RIGHT image panel slot in the Figma canon (cover 659:502,
     // section-divider 661:473, thesis 661:474). When the payload supplies `heroImage`
@@ -694,7 +1223,7 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
                     if (k === 'columns') body += renderColumns(r as ColumnGroup, payload, tk);
                     else if (k === 'matrix') body += renderMatrix(r as MatrixRegion, payload, tk);
                     else if (k === 'chips') body += renderChips(r as ChipsRegion, payload, tk);
-                    else body += renderStatic(r as StaticRegion, payload, tk);
+                    else body += renderStatic(plan ? deciemCoverScrim(archetype, r as StaticRegion) : (r as StaticRegion), payload, tk);
                 }
                 // A variant with a FULL-BLEED background image supplies its own canvas: the
                 // wrapper goes transparent so the exported photo is the true bottom layer
@@ -703,7 +1232,7 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
                     const sr = r as StaticRegion;
                     return sr.kind === 'image' && sr.x === 0 && sr.y === 0 && sr.w === 1920 && sr.h === 1080;
                 });
-                return `<div style="position:relative;width:1920px;height:1080px;background:${fullBleedBg ? 'transparent' : bg};overflow:hidden">${body}</div>`;
+                return finish(body, fullBleedBg ? 'transparent' : bg);
             }
         }
     }
@@ -748,6 +1277,21 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
         });
         regions = regions.concat([{ kind: 'image', x: ix, y: iy, w: iw, h: ih, payload: 'heroImage', fit: 'cover' } as StaticRegion]);
     }
+    if (plan) {
+        // DECIEM: title height budget, quote-mark gutter, black table header band, black bands; then,
+        // on paper body slides, resolve the background AGAINST THESE REGIONS: the first background in
+        // the rotation whose measured zones the text can be kept out of (repairs: shorten, narrow,
+        // type floor 0.9); none -> plain paper. Full content width everywhere no box meets a zone.
+        regions = deciemPrepareRegions(archetype, regions, plan);
+        if (plan.wantsArt) {
+            const art = resolveArtForSlide(brand, String(payload?.title || ''), pos?.deckIndex, regions, payload, tk);
+            if (art) {
+                regions = art.regions;
+                body = artChrome(tk, { kind: 'paper', bodyArt: art.pick.url }).pre + body;
+            }
+        }
+        if (archetype === 'cover') regions = regions.map(r => deciemCoverScrim(archetype, r as StaticRegion));
+    }
     for (const r of regions) {
         const k = (r as any).kind;
         if (k === 'columns') body += renderColumns(r as ColumnGroup, payload, tk);
@@ -783,7 +1327,7 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
         const sr = r as StaticRegion;
         return sr.kind === 'image' && sr.x === 0 && sr.y === 0 && sr.w === 1920 && sr.h === 1080;
     });
-    return `<div style="position:relative;width:1920px;height:1080px;background:${_fullBleedBg ? 'transparent' : bg};overflow:hidden">${body}</div>`;
+    return finish(body, _fullBleedBg ? 'transparent' : bg);
 }
 
 export function archetypeKeys(): string[] { return Object.keys(ARCHETYPE_SPECS); }
@@ -1543,6 +2087,134 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                     { dx: 8, dy: 620, w: 404, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'cells.4', fitH: 112 },
                 ],
             },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
+    // ---- PRD PROJECTION TIER (2026-10-01, Stage 3.3 of plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md) ----
+    // The #prd deck is a PROJECTION of PrdAir (services/prdProjection.ts), never a second source of
+    // truth. Four archetypes replace the `slides:prd-feature` collision (an unregistered key that fell
+    // through to renderGeneric with a developer note printed on the slide, the preview and the PPTX).
+    // Payload rule: any design-decision number rides in a typed `requirement_target` object (the
+    // `target` carrier, read here by dot-path `target.label`); every prose cell stays digit-free.
+    // prd-story: a story column + up to three evidence cards + a band. Carries the problem (cards =
+    // verbatim quotes, band = why now), goals and non-goals (cards = non-goals, band = the typed
+    // appetite target) and risks (cards = failure modes, band = the pre-mortem mitigation).
+    'prd-story': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title', fitH: 150 },
+            { x: 196, y: 254, w: 600, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, payload: 'storyLabel' },
+            { x: 196, y: 286, w: 740, kind: 'hairline', h: 2, color: 'rail' },
+            { x: 196, y: 306, w: 740, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, payload: 'story', fitH: 520 },
+            {
+                kind: 'columns', array: 'cards', count: 3, baseX: 1000, pitchX: 0, baseY: 254, pitchY: 196, fillH: 580, gapY: 12, w: 816,
+                card: { y: 0, w: 816, h: 184, bg: 'ecru', rule: 4, ruleColor: 'accent', ruleSide: 'left' },
+                cells: [
+                    { dx: 28, dy: 20, w: 760, color: 'rail', font: 'heading', size: SCALE.name, weight: 700, leading: 1.15, key: 'heading', fitH: 44 },
+                    { dx: 28, dy: 68, w: 760, color: 'body', font: 'body', size: SCALE.caption, leading: 1.35, key: 'body', fitH: 72 },
+                    { dx: 28, dy: 150, w: 760, color: 'secondary', font: 'mono', size: SCALE.label, tracking: 0.6, key: 'foot', fitH: 22 },
+                ],
+            },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'band.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'band.statement', fitH: 64 },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
+    // prd-ledger: the requirements ledger. ID | TIER | REQUIREMENT | TRACES | ACCEPTANCE TEST, one row
+    // per requirement; a HYPOTHESIS requirement carries the tier label BET and its test in TRACES.
+    'prd-ledger': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 80, w: 1620, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title', fitH: 110 },
+            {
+                kind: 'columns', array: 'columns', count: 5, baseX: 0, pitchX: 0, xs: [212, 300, 440, 960, 1310], w: 240,
+                cells: [{ dy: 236, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.96, upper: true }],
+            },
+            { x: 196, y: 264, w: 1622, kind: 'hairline', h: 2, color: 'rail' },
+            // The ACCEPTANCE TEST column is the widest: a complete Given/When/Then sentence needs three
+            // lines at caption size, and the no-truncation contract would otherwise cut it to its Given.
+            {
+                kind: 'columns', array: 'rows', count: 5, baseX: 196, pitchX: 0, baseY: 278, pitchY: 112, fillH: 560, gapY: 8, w: 1622,
+                card: { y: 0, w: 1622, h: 104, bg: 'paper', rule: 4, ruleColor: 'accent', ruleSide: 'left' },
+                cells: [
+                    { dx: 16, dy: 14, w: 84, color: 'cyan', font: 'mono', size: SCALE.label, weight: 700, key: 'id' },
+                    { dx: 104, dy: 14, w: 130, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'tier' },
+                    { dx: 244, dy: 12, w: 500, color: 'body', font: 'body', size: SCALE.caption, leading: 1.32, key: 'text', fitH: 80 },
+                    { dx: 764, dy: 12, w: 330, color: 'secondary', font: 'body', size: SCALE.caption, leading: 1.32, key: 'traces', fitH: 80 },
+                    { dx: 1114, dy: 12, w: 492, color: 'body', font: 'body', size: SCALE.caption, leading: 1.32, key: 'test', fitH: 80 },
+                    { dx: 1114, dy: 88, w: 492, color: 'cyan', font: 'mono', size: SCALE.label, weight: 700, key: 'target.label' },
+                ],
+            },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement', fitH: 64 },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
+    // prd-signals: the seven-field success-signal table (spec 3.4). SIGNAL | INSTRUMENT | POPULATION |
+    // DIRECTION | BASELINE | TYPE | GUARDRAIL. Baseline status is a sentence, never a bare figure.
+    'prd-signals': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 80, w: 1620, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title', fitH: 110 },
+            {
+                kind: 'columns', array: 'columns', count: 7, baseX: 0, pitchX: 0, xs: [208, 528, 778, 998, 1138, 1378, 1498], w: 200,
+                cells: [{ dy: 236, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.96, upper: true }],
+            },
+            { x: 196, y: 264, w: 1622, kind: 'hairline', h: 2, color: 'rail' },
+            {
+                kind: 'columns', array: 'rows', count: 5, baseX: 196, pitchX: 0, baseY: 278, pitchY: 106, fillH: 560, gapY: 8, w: 1622,
+                card: { y: 0, w: 1622, h: 98, bg: 'paper', rule: 4, ruleColor: 'cyan', ruleSide: 'left' },
+                cells: [
+                    { dx: 12, dy: 12, w: 290, color: 'rail', font: 'heading', size: SCALE.caption, weight: 700, leading: 1.3, key: 'signal', fitH: 74 },
+                    { dx: 332, dy: 12, w: 220, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'instrument', fitH: 74 },
+                    { dx: 582, dy: 12, w: 190, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'population', fitH: 74 },
+                    { dx: 802, dy: 14, w: 110, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'direction' },
+                    { dx: 942, dy: 12, w: 210, color: 'secondary', font: 'body', size: SCALE.caption, leading: 1.3, key: 'baseline', fitH: 74 },
+                    { dx: 1182, dy: 14, w: 90, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'type' },
+                    { dx: 1302, dy: 12, w: 310, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'guardrail', fitH: 74 },
+                ],
+            },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement', fitH: 64 },
+            { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
+        ],
+    },
+    // prd-trace: the derived traceability matrix (spec 3.2), rendered as a table, never as prose.
+    // R | TIER | PAIN | PERSONA | THEME | QUOTE (first eighty characters) | SOURCE | TEST | SIGNAL.
+    'prd-trace': {
+        chrome: 'content-rail',
+        regions: [
+            { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
+            { x: 196, y: 80, w: 1620, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title', fitH: 110 },
+            {
+                kind: 'columns', array: 'columns', count: 9, baseX: 0, pitchX: 0, xs: [208, 288, 388, 638, 808, 978, 1318, 1508, 1668], w: 150,
+                cells: [{ dy: 236, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.96, upper: true }],
+            },
+            { x: 196, y: 264, w: 1622, kind: 'hairline', h: 2, color: 'rail' },
+            {
+                kind: 'columns', array: 'rows', count: 7, baseX: 196, pitchX: 0, baseY: 278, pitchY: 80, fillH: 580, gapY: 6, w: 1622,
+                card: { y: 0, w: 1622, h: 74, bg: 'paper', rule: 4, ruleColor: 'accent', ruleSide: 'left' },
+                cells: [
+                    { dx: 12, dy: 10, w: 70, color: 'cyan', font: 'mono', size: SCALE.label, weight: 700, key: 'id' },
+                    { dx: 92, dy: 10, w: 90, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.6, upper: true, key: 'tier' },
+                    { dx: 192, dy: 10, w: 240, color: 'body', font: 'body', size: SCALE.label, leading: 1.3, key: 'pain', fitH: 54 },
+                    { dx: 442, dy: 10, w: 160, color: 'body', font: 'body', size: SCALE.label, leading: 1.3, key: 'persona', fitH: 54 },
+                    { dx: 612, dy: 10, w: 160, color: 'body', font: 'body', size: SCALE.label, leading: 1.3, key: 'theme', fitH: 54 },
+                    { dx: 782, dy: 10, w: 330, color: 'secondary', font: 'body', size: SCALE.label, leading: 1.3, italic: true, key: 'quote', fitH: 54 },
+                    { dx: 1122, dy: 10, w: 180, color: 'body', font: 'body', size: SCALE.label, leading: 1.3, key: 'source', fitH: 54 },
+                    { dx: 1312, dy: 10, w: 150, color: 'cyan', font: 'mono', size: SCALE.label, key: 'test', fitH: 54 },
+                    { dx: 1472, dy: 10, w: 140, color: 'cyan', font: 'mono', size: SCALE.label, key: 'signal', fitH: 54 },
+                ],
+            },
+            { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
+            { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
+            { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement', fitH: 64 },
             { x: 196, y: 1014, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'sourceLine' },
         ],
     },

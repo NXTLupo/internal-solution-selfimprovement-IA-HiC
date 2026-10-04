@@ -862,22 +862,3 @@ export function addGapAnalysisToGraph(graph: KnowledgeGraph, gaps: any[]): Knowl
     return { nodes, edges, stats: computeStats(nodes, edges) };
 }
 
-/**
- * Get the immediate neighborhood of a node (all directly connected nodes + edges).
- */
-export function getNeighborhood(graph: KnowledgeGraph, nodeId: string): { nodeIds: Set<string>; edgeIndices: number[] } {
-    const nodeIds = new Set<string>([nodeId]);
-    const edgeIndices: number[] = [];
-
-    graph.edges.forEach((edge, idx) => {
-        const srcId = typeof edge.source === 'string' ? edge.source : (edge.source as any).id;
-        const tgtId = typeof edge.target === 'string' ? edge.target : (edge.target as any).id;
-        if (srcId === nodeId || tgtId === nodeId) {
-            nodeIds.add(srcId);
-            nodeIds.add(tgtId);
-            edgeIndices.push(idx);
-        }
-    });
-
-    return { nodeIds, edgeIndices };
-}

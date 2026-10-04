@@ -7,15 +7,14 @@ subreddit: "humanresources"
 title: "Being honest, have any of you felt like you weren’t taken seriously in the workplace because…. Of your height? [N/A]"
 author: "No_Design_465"
 date: "2026-04-23T13:21:11.000Z"
-score: 41
-upvote_ratio: 0.94
+score: 40
+upvote_ratio: 0.92
 num_comments: 25
 flair: "Off-Topic / Other"
-extracted_at: "2026-05-23T12:15:41.522Z"
+extracted_at: "2026-08-13T16:56:19.273Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
-industries: [workforce]
-industry_method: deterministic
+research_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
 chunks:
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c0"
     char_span: [0, 1955]
@@ -29,64 +28,64 @@ chunks:
     sentence_count: 9
     key_terms: [people, experience, like, because, maybe, feel, height, though]
     concepts: [experience, people, because, maybe, height]
-    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
     token_count: 276
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c2"
-    char_span: [3171, 4826]
+    char_span: [3172, 4827]
     sentence_count: 14
     key_terms: [men, working, shorter, people, worked, "i've", role, labourers]
     concepts: [working, shorter, people, worked, labourers]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3"
-    char_span: [4829, 6509]
+    char_span: [4830, 6508]
     sentence_count: 16
     key_terms: [people, because, don, like, anything, advice, height, being]
     concepts: [people, because, anything, advice, height]
-    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
     section: Comments
-    token_count: 384
+    token_count: 382
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c4"
-    char_span: [6511, 8574]
-    sentence_count: 18
-    key_terms: [work, person, seriously, worked, taken, teams, get, meet]
-    concepts: [person, seriously, worked, taken, teams]
+    char_span: [6510, 8648]
+    sentence_count: 17
+    key_terms: [work, person, teams, get, meet, confident, seriously, meetings]
+    concepts: [person, teams, confident, seriously, meetings]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"
-    char_span: [8342, 9602]
-    sentence_count: 9
-    key_terms: [height, because, always, people, strategyancient6770, being, advertisingkey1675, hard]
-    concepts: [height, because, always, people, being]
-    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"]
+    char_span: [8369, 8852]
+    sentence_count: 5
+    key_terms: [height, advertisingkey1675, contributing, experiencing, subconscious, correlation, definitely, psychology]
+    concepts: [height]
     section: Comments
-    token_count: 287
+    token_count: 105
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c6"
-    char_span: [9604, 11874]
+    char_span: [8854, 11124]
     sentence_count: 28
     key_terms: [company, understanding, experience, believe, reasons, ideas, tried, get]
     concepts: [company, understanding, experience, believe, reasons]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"
-    char_span: [11876, 14035]
+    char_span: [11126, 13285]
     sentence_count: 17
     key_terms: [people, height, "i'm", like, maybe, did, "it's", internship]
     concepts: [people, height, internship, maybe, seriously]
-    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"]
+    related_chunks: ["social-intelligence/reddit-deep/humanresources/1stim9y.md#c1", "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c8"
-    char_span: [14037, 14192]
-    sentence_count: 4
-    key_terms: [lifetime, talented, maybe, taken, been, fail, good, list]
+    char_span: [13287, 14304]
+    sentence_count: 13
+    key_terms: [department, respect, today, here, need, time, effectivelow5675, immediately]
+    concepts: [department, respect, today]
     section: Comments
-    token_count: 40
+    token_count: 249
 ---
 # Being honest, have any of you felt like you weren’t taken seriously in the workplace because…. Of your height? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1stim9y/being_honest_have_any_of_you_felt_like_you_werent/)
-Posted by **No_Design_465** · **41↑** · **25 comments**
+Posted by **No_Design_465** · **40↑** · **25 comments**
 
 First of all, I really, really apologize if this post isn’t appropriate for this subreddit, please feel free to report it / delete it if so. I just thought I might get some support or honest responses here. 
 
@@ -105,7 +104,7 @@ Idk, has anyone else here who’s short experienced this? Do you feel like peopl
 ## Comments
 
 - **lifeaintfairduh** (22↑): I just feel like the workplace is full of people who think they know better than anybody else. Just try to come as prepared as possible when able, and do things as per policy and as “right” as possible. The hope is over time people can give you the respect you truly deserve. Perhaps being younger has something to do with it, or if you never worked in the industry, and of course the negative stigma around HR still prevails unfortunately.
-- **Accomplished-Can-467** (13↑): Working as a labourer I've witnessed other labourers crank up animosity toward shorter males working in HR. 
+- **Accomplished-Can-467** (14↑): Working as a labourer I've witnessed other labourers crank up animosity toward shorter males working in HR. 
 
 
 I've also recieved an HR support role in a security company, which after the fact I was told because I was (a) tall/male.
@@ -139,19 +138,16 @@ There are a lot of things you can do to “speak softly and carry a big stick”
 
 Obviously there are some jackasses out there, but genuinely the only people I’ve seen really care about height as adults are usually taller guys who don’t have anything else going on. Think about how many dudes round their 5’11 up to 6’.
   - **EffectiveLow5675** (2↑): I like your best advice.  That is the only language people understand well in work place
-- **_Notebook_** (11↑): People aren’t taking you as seriously because you have what sounds like 3 yrs of experience. 
+- **[deleted]** (8↑): People aren’t taking you as seriously because you have what sounds like 3 yrs of experience. 
 
 Keep working hard and continue being thoughtful and you’ll be fine. You’re stuck in your own head. 
 
 Be confident.
-  - **Recent-Tomato-3776** (3↑): absolutely!
   - **Perfect_TAS** (1↑): Both can be true.  I am married to a short Sr VP.  Work on executive presence.  Run meetings as a confidant collaborator- not the loudest person in the room. When dismissed, privately seek those who are negative for specifics on why your ideas didn’t work in the past.  When problems are presented ask “What didn’t work in the past to address this issue and why “ so you gain institutional knowledge and don’t waste time.  Above all work hard at being effective at your craft and show results to decision makers who matter.
-- **tinygramz** (8↑): I’m a 35F and 4’11, I’ve worked in corporate for over a decade now first in finance and transitioned to HR in 2021. I get taken very seriously at work, but there are unfortunate awkward moments and comments when I first meet certain* people in person. I have been told I seem like i would actually be tall in person over zoom, which is problematic in it of itself, so there may be some truth to what you’re feeling and if you’re feeling it strongly, that might make you come off less confident than you should be given the level of preparation you say you typically have. I’ve worked for a CEO of a $4B manufacturing company, he was maybe 5’2, 5’3? He was CEO for over a decade and highly regarded by employees. I had a manager at the same company, at the same time, who was maybe 5’5-5’6 and he did not get taken seriously. It had nothing to do with his height as far as I could tell. Just my experience
+- **tinygramz** (5↑): I’m a 35F and 4’11, I’ve worked in corporate for over a decade now first in finance and transitioned to HR in 2021. I get taken very seriously at work, but there are unfortunate awkward moments and comments when I first meet certain* people in person. I have been told I seem like i would actually be tall in person over zoom, which is problematic in it of itself, so there may be some truth to what you’re feeling and if you’re feeling it strongly, that might make you come off less confident than you should be given the level of preparation you say you typically have. I’ve worked for a CEO of a $4B manufacturing company, he was maybe 5’2, 5’3? He was CEO for over a decade and highly regarded by employees. I had a manager at the same company, at the same time, who was maybe 5’5-5’6 and he did not get taken seriously. It had nothing to do with his height as far as I could tell. Just my experience
   - **ValiumSpinach** (4↑): Small side note but I’ve had kind of the opposite happen about mostly teams meetings and when I meet someone in person a comment I often get is that I’m much taller than they thought I was from Teams calls. I also wonder how Teams gives them any sense of that. I’m 6’4 tho so I think it’s because generally I’m taller than most folks I meet.
-- **StrategyAncient6770** (7↑): I worked with a lady who was 4’10” and she had to fight to be taken seriously. I hated it for her. She was badass and so good at her job, but her height was something she always had to “overcome.” She ended up taking the route of being terrifying lol. No one messed with her because she would just put her foot down and stare through your soul until everyone realized she meant business.
-  - **EffectiveLow5675** (1↑): Sometimes , in this life if you want to leave everything for time,  people will destroy you in order to stay in top. You have to force your way hard to demand proper respect.if you are a victim of inferiority complex,it is only hard approach that save.
 - **Bravely_Default** (5↑): It could be but I would guess your age and being newer are higher contributing factors. Could also say more about the other people than it does about you.
-- **AdvertisingKey1675** (4↑): Very possible that you are experiencing a subconscious bias due to your height. It’s been heavily studied in the social psychology realm. There is definitely a correlation between height and perceived authority. It’s not *always* true, but the pattern is recognized. 
+- **AdvertisingKey1675** (3↑): Very possible that you are experiencing a subconscious bias due to your height. It’s been heavily studied in the social psychology realm. There is definitely a correlation between height and perceived authority. It’s not *always* true, but the pattern is recognized. 
 
 I believe I experience the other end of that. I am a 6’1 woman. And I believe I benefit from my height. 
 
@@ -189,3 +185,9 @@ That said we'll see if it happens when i'm full time after grad school and in an
 You can fail on one of these. Maybe two, if you’re very talented. But not three or more.
 
 The good news: “male” has been taken off the list in my lifetime.
+- **EffectiveLow5675** (2↑): It can be your height but I think it is because you are new and your age are two factors. Normally it is not supposed to be the case but that is workplace politics and realities. As human being, know that it is not everytime things will go your way , you need to demand for it. Here  are two ways :
+1. Do leave everything to the time , they will know your value with time. 
+2. Look at your department,  get loopholes in how hr department works and see how to create solutions , immediately they will accord the respect you are demanding.  Scan your department and see what need to be worked on and drop it  here, and we will add our comments so that you claim respect. 
+
+
+NOTE: TODAY YOU ARE THE VICTIM,  IN FUTURE DO NOT TREAT SOMEONE LIKE THEY ARE DOING TO YOU TODAY. BE RATHER THE VOICE TO  THE VOICELESS.  TABLE CAN TURN QUICKLY

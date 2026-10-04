@@ -183,7 +183,7 @@ export async function submitFeedback(input: {
  * Read all feedback events for a single deliverable.
  * Returns an empty array if no feedback exists yet.
  */
-export async function readDeliverableFeedback(
+async function readDeliverableFeedback(
     engagement_slug: string,
     deliverable_id: string,
 ): Promise<FeedbackEvent[]> {
@@ -338,45 +338,4 @@ export async function triggerLearningPassAfterFeedback(opts: {
         // Best-effort
     }
     return evidence;
-}
-
-/**
- * Compute a quick polarity summary for a deliverable's feedback history.
- * Used by the learning engine and the per-deliverable receipt.
- */
-export function summarizeFeedback(events: FeedbackEvent[]): {
-    total: number;
-    thumbsUp: number;
-    thumbsDown: number;
-    avgStars: number | null;
-    textCount: number;
-    appliedNow: number;
-    latest?: FeedbackEvent;
-} {
-    let thumbsUp = 0;
-    let thumbsDown = 0;
-    let starSum = 0;
-    let starCount = 0;
-    let textCount = 0;
-    let appliedNow = 0;
-    for (const e of events) {
-        if (e.vote_value === 'up') thumbsUp++;
-        if (e.vote_value === 'down') thumbsDown++;
-        if (typeof e.stars_value === 'number') {
-            starSum += e.stars_value;
-            starCount++;
-        }
-        if (e.text_value) textCount++;
-        if (e.applied_immediately) appliedNow++;
-    }
-    const latest = events[events.length - 1];
-    return {
-        total: events.length,
-        thumbsUp,
-        thumbsDown,
-        avgStars: starCount > 0 ? starSum / starCount : null,
-        textCount,
-        appliedNow,
-        latest,
-    };
 }

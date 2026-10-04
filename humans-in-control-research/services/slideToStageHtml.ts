@@ -34,15 +34,17 @@
 // Permissive type alias - we read by-shape, not by-import. types.ts is a
 // pure-data module (no React), so importing the shared density spec is light.
 import { densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, clampMin, TOKENS } from '../components/slideTemplates/types';
-import { getBrand } from '../components/slideTemplates/brands';
+import { getBrand, getBrandArt, normalizeBrandId, deciemBrand, type BrandId } from '../components/slideTemplates/brands';
 import { composeSlide } from './slideComposer';
 import { attachViz } from './vizSlot';
 import { compositeIcon } from './iconLibrary';
+import { extractPointers, formatCitationLabel } from './citationPointerRegistry';
 
 export interface SlideDataLike {
     id?: string;
     template?: string;
-    brand?: 'nxt' | 'nu';
+    /** Brand id ('nxt' | 'nu' | 'deciem'); any hashtag/variant spelling is accepted and normalized. */
+    brand?: BrandId | string;
     /** Run industry (drives the viz glyph + domain-form). Authored by the generator. */
     industry?: string;
     /** Model-AUTHORED viz block (#13): the diagram's real meaning — family + labels + relationships,
@@ -95,9 +97,13 @@ export interface SlideDataLike {
 // Mirrors components/slideTemplates/brands.ts - keep both in sync.
 // ---------------------------------------------------------------------------
 
-type Brand = 'nxt' | 'nu';
+// 2026-10-01 - third brand mode DECIEM: the id set lives in brands.ts (BrandId); every branch in
+// this module switches on the normalized id, never on a font or hex.
+type Brand = BrandId;
 
 interface BrandTokens {
+    /** The normalized brand id this token set was resolved for. */
+    brandId: BrandId;
     rail: string;
     paper: string;
     ink: string;
@@ -110,7 +116,12 @@ interface BrandTokens {
     callout: string;
     displayFont: string;
     bodyFont: string;
+    /** Data / source / meta / table-cell face (FONT_MONO): IBM Plex Mono NXT, Lato NU, Nunito DECIEM. */
     monoFont: string;
+    /** 2026-10-01 - LABEL face for kickers / eyebrows / small-cap labels (FONT_LABEL, else FONT_MONO).
+     *  DECIEM template audit: every label is Poppins 700 uppercase, while Nunito carries data and
+     *  source lines. NXT / NU carry no FONT_LABEL, so labelFont === monoFont there (byte-identical). */
+    labelFont: string;
     /** GOLD action-title face (h1 + takeaway band) + weight. */
     titleFont: string;
     titleWeight: number;
@@ -138,9 +149,16 @@ interface BrandTokens {
     graphite: string;
     /** SLIDES on-dark secondary text (color/rule-mid; lighter than `grey` which is on-light). */
     ruleMid: string;
+    /** 2026-10-01 - action-title text-transform from TITLE_TRANSFORM ('none' | 'uppercase'). DECIEM
+     *  headlines are Poppins Bold UPPERCASE; NXT/NU keep sentence case. */
+    titleTransform: string;
+    /** 2026-10-01 - multi-line typeset lockup (BRAND_LOGO_LOCKUP, lines joined by '\n'). Empty for
+     *  brands with no lockup; DECIEM = "THE ABNORMAL BEAUTY COMPANY." over "DECIEM" in a bordered box. */
+    lockup: string;
 }
 
 const NXT: BrandTokens = {
+    brandId: 'nxt',
     rail: '#0D0D0D',
     paper: '#FFFFFF',
     ink: '#141414',
@@ -154,6 +172,7 @@ const NXT: BrandTokens = {
     displayFont: "'Saira Condensed', sans-serif",
     bodyFont: "'Archivo', sans-serif",
     monoFont: "'IBM Plex Mono', monospace",
+    labelFont: "'IBM Plex Mono', monospace",
     titleFont: "'Archivo', sans-serif",
     titleWeight: 600,
     kicker: '#00B7C3',
@@ -167,9 +186,12 @@ const NXT: BrandTokens = {
     gold: '#B8B800',
     graphite: '#262626',
     ruleMid: '#CCCCCC',
+    titleTransform: 'none',
+    lockup: '',
 };
 
 const NU: BrandTokens = {
+    brandId: 'nu',
     rail: '#0E1626',
     paper: '#FFFFFF',
     ink: '#16233C',
@@ -184,6 +206,7 @@ const NU: BrandTokens = {
     displayFont: "'Lato', sans-serif",
     bodyFont: "'Lato', sans-serif",
     monoFont: "'Lato', sans-serif",
+    labelFont: "'Lato', sans-serif",
     titleFont: "'Lato', sans-serif",
     titleWeight: 700,
     kicker: '#C8102E',
@@ -197,6 +220,50 @@ const NU: BrandTokens = {
     gold: '#A4804A',
     graphite: '#262626',
     ruleMid: '#B9BEC7',
+    titleTransform: 'none',
+    lockup: '',
+};
+
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company). Per-field FALLBACKS mirroring brands.ts
+// deciemBrand; the live values hydrate from /api/design-tokens?brand=DECIEM. Pure black dark
+// surface, white paper, pink primary accent, cyan cool accent, purple premium slot, orange warn,
+// Poppins Bold uppercase titles, Josefin Sans body, Questrial meta. No rail, no dot-mark, black band.
+// The DECIEM fallbacks are READ from brands.ts deciemBrand (one source, no second hex table here).
+// ruleMid (the on-dark secondary grey) has no brands.ts slot yet and stays the one literal.
+const _dx = (v: unknown): string => '#' + String(v || '').replace(/^#/, '');
+const DECIEM: BrandTokens = {
+    brandId: 'deciem',
+    rail: _dx(deciemBrand.RAIL),
+    paper: _dx(deciemBrand.WHITE),
+    ink: _dx(deciemBrand.INK),
+    accent: _dx(deciemBrand.CHARTREUSE),  // pink pop
+    accent2: _dx(deciemBrand.CYAN),       // cyan pop
+    muted: _dx(deciemBrand.MUTED),
+    hair: _dx(deciemBrand.HAIRLINE),
+    band: _dx(deciemBrand.BAND),
+    bandText: _dx(deciemBrand.BAND_TEXT),
+    callout: _dx(deciemBrand.PANEL),
+    displayFont: "'Poppins', sans-serif",
+    bodyFont: "'Josefin Sans', sans-serif",
+    // Template audit (slides 11-51): Nunito is the table / data / source face; Poppins Bold is every
+    // title AND label; Questrial appears once (a product label) and is not a role.
+    monoFont: "'Nunito', sans-serif",
+    labelFont: "'Poppins', sans-serif",
+    titleFont: "'Poppins', sans-serif",
+    titleWeight: 700,
+    kicker: _dx(deciemBrand.KICKER),
+    accentWarn: _dx(deciemBrand.ACCENT_WARN),
+    accentCool: _dx(deciemBrand.ACCENT_COOL),
+    washWarn: _dx(deciemBrand.WASH_WARN),
+    washCool: _dx(deciemBrand.WASH_COOL),
+    grey: _dx(deciemBrand.GREY),
+    bodyText: _dx(deciemBrand.BODY),
+    secondaryText: _dx(deciemBrand.SECONDARY),
+    gold: _dx(deciemBrand.GOLD_ACCENT),
+    graphite: _dx(deciemBrand.BODY),   // the template's near-black panel = its body ink
+    ruleMid: '#BDBDBD',
+    titleTransform: 'uppercase',
+    lockup: 'THE ABNORMAL BEAUTY COMPANY.\nDECIEM',
 };
 
 // 2026-06-15 - the export twin now reads the HYDRATED Figma tokens (the same feed
@@ -208,12 +275,16 @@ const NU: BrandTokens = {
 // value, so this can never render worse than before. (Was: brandTokens returned the
 // hardcoded const wholesale, the deepest layer of "new Figma components aren't deployed".)
 export function brandTokens(b?: Brand | string): BrandTokens {
-    const id = (typeof b === 'string' ? b : (b as any)?.BRAND_ID) === 'nu' ? 'nu' : 'nxt';
-    const fb: BrandTokens = id === 'nu' ? NU : NXT;
-    const H: any = id === 'nu' ? getBrand('nu') : TOKENS;
+    // ONE normalizer (brands.ts) for every spelling: 'nu' / '#NU' / 'DECIEM' / a token object's BRAND_ID.
+    const id: BrandId = normalizeBrandId(typeof b === 'string' ? b : (b as any)?.BRAND_ID);
+    const fb: BrandTokens = id === 'nu' ? NU : id === 'deciem' ? DECIEM : NXT;
+    // NXT reads the hydrated global TOKENS (the object hydrateTokensFromFigma mutates); NU and
+    // DECIEM read their own hydration targets via getBrand().
+    const H: any = id === 'nxt' ? TOKENS : getBrand(id);
     const hx = (v: any, f: string) => (typeof v === 'string' && v) ? '#' + String(v).replace(/^#/, '') : f;
     const ff = (v: any, f: string) => (typeof v === 'string' && v) ? `'${v}', sans-serif` : f;
     return {
+        brandId: id,
         rail: hx(H.RAIL, fb.rail),
         paper: hx(H.WHITE, fb.paper),
         ink: hx(H.INK, fb.ink),
@@ -227,6 +298,13 @@ export function brandTokens(b?: Brand | string): BrandTokens {
         displayFont: ff(H.FONT_DISPLAY, fb.displayFont),
         bodyFont: ff(H.FONT_BODY, fb.bodyFont),
         monoFont: (typeof H.FONT_MONO === 'string' && H.FONT_MONO) ? `'${H.FONT_MONO}', monospace` : fb.monoFont,
+        // FONT_LABEL (lead-owned token, DECIEM 'Poppins') wins; absent -> the SAME string as monoFont so
+        // NXT / NU kickers render exactly as before.
+        labelFont: (typeof H.FONT_LABEL === 'string' && H.FONT_LABEL)
+            ? ff(H.FONT_LABEL, fb.labelFont)
+            : id === 'deciem'
+                ? fb.labelFont   // DECIEM fallback literal (Poppins) until the FONT_LABEL token hydrates
+                : ((typeof H.FONT_MONO === 'string' && H.FONT_MONO) ? `'${H.FONT_MONO}', monospace` : fb.monoFont),
         titleFont: ff(H.FONT_TITLE, fb.titleFont),
         titleWeight: Number(H.TITLE_WEIGHT) || fb.titleWeight,
         kicker: hx(H.KICKER, fb.kicker),
@@ -241,9 +319,306 @@ export function brandTokens(b?: Brand | string): BrandTokens {
         graphite: hx(H.GRAPHITE, fb.graphite),
         ruleMid: hx(H.RULE_MID, fb.ruleMid),
         // brand-derived (not a hydrated key, no literal): small accent text on a dark ground.
-        // NU red fails contrast on navy -> use paper (white); NXT chartreuse reads on black -> accent.
+        // NU red fails contrast on navy -> use paper (white); NXT chartreuse and DECIEM pink read
+        // on black -> accent.
         accentOnDark: id === 'nu' ? hx(H.WHITE, fb.paper) : hx(H.CHARTREUSE, fb.accent),
+        titleTransform: (typeof H.TITLE_TRANSFORM === 'string' && H.TITLE_TRANSFORM) ? H.TITLE_TRANSFORM : fb.titleTransform,
+        lockup: (typeof H.BRAND_LOGO_LOCKUP === 'string' && H.BRAND_LOGO_LOCKUP) ? H.BRAND_LOGO_LOCKUP : fb.lockup,
     };
+}
+
+// ---------------------------------------------------------------------------
+// 2026-10-01 - BRAND ART (template-sourced canvases). DECIEM carries corner line-art body
+// backgrounds, solid pop divider fills and a black cover with the boxed lockup; NXT and NU carry
+// none (getBrandArt returns null) so every branch below is a no-op for them. The picks are
+// DETERMINISTIC on the slide title so the preview twin (web.tsx), this stage twin and the PPTX
+// export agree on which background / fill a given slide gets, and consecutive slides differ.
+// ---------------------------------------------------------------------------
+
+/** Proxy base for the design-asset route (the PPTX exporter fetches http URLs itself). */
+const DESIGN_ASSETS_PROXY = 'http://127.0.0.1:5012';
+
+/** Stable, order-free string hash (djb2) folded into [0, n). Same input, same index, every runtime. */
+export function stableIndex(seed: string, n: number): number {
+    if (!n || n < 1) return 0;
+    let h = 5381;
+    const s = String(seed || '');
+    for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    return Math.abs(h) % n;
+}
+
+export type BrandCanvas = 'paper' | 'dark' | 'pop';
+
+// ---------------------------------------------------------------------------
+// 2026-10-01 round 2 - DECK-ORDER ROTATION + ART SAFE ZONES.
+// A slide's position in its deck (deckIndex, 0-based) drives the body-art pick with stride 5 over
+// the 12 backgrounds (5 is coprime with 12: all twelve appear before any repeats and consecutive
+// slides differ in art AND pop color); the divider ordinal (count of dividers before this slide)
+// rotates the four pop fills (black is reserved for thesis / agenda / quote canvases). Without a
+// deck position both fall back to the title hash. The preview (SlideCanvas iframe) and the export
+// loop (CorpusChatPanel) hand the SAME positions in, so both twins pick identical art.
+// ---------------------------------------------------------------------------
+export interface DeckPosition { deckIndex?: number; dividerOrdinal?: number }
+
+const _DIVIDER_TEMPLATE_RE = /^(slides:)?section-divider$/i;
+/** Positions for an ordered deck: deckIndex = array index, dividerOrdinal = dividers seen before it. */
+export function deckPositions(slides: ReadonlyArray<{ template?: string } | null | undefined>): DeckPosition[] {
+    let dividers = 0;
+    return (slides || []).map((s, i) => {
+        const pos: DeckPosition = { deckIndex: i, dividerOrdinal: dividers };
+        if (s && _DIVIDER_TEMPLATE_RE.test(String(s.template || ''))) dividers++;
+        return pos;
+    });
+}
+
+const ART_STRIDE = 5;
+
+/** Deck-order rotation over the backgrounds: the stride-5 walk (coprime with 12, so every file appears
+ *  once per cycle), then a deterministic adjacency repair: wherever two consecutive picks share a pop
+ *  color, the later one swaps with the next pick whose pop differs from both neighbors. The bare
+ *  stride is not enough on the real list (orange follows orange at positions 10 and 11). Pure
+ *  function of the list, so preview and export agree. */
+function artRotationOrder(bgs: ReadonlyArray<{ pop?: string }>): number[] {
+    const n = bgs.length;
+    if (n === 0) return [];
+    const seq: number[] = [];
+    for (let k = 0; k < n; k++) seq.push((k * ART_STRIDE) % n);
+    const pop = (i: number) => String(bgs[i]?.pop || '');
+    for (let k = 1; k < n; k++) {
+        if (pop(seq[k]) !== pop(seq[k - 1])) continue;
+        // candidate swap partners: later positions first, then earlier ones (never the neighbor k-1)
+        const candidates: number[] = [];
+        for (let j = k + 1; j < n; j++) candidates.push(j);
+        for (let j = 1; j < k - 1; j++) candidates.push(j);
+        for (const j of candidates) {
+            const a = seq[k], b = seq[j];
+            // after the swap, position k holds b and position j holds a: both must differ from their neighbors
+            const okK = pop(b) !== pop(seq[k - 1]) && (k + 1 >= n || k + 1 === j || pop(b) !== pop(seq[k + 1]));
+            const okJ = (j - 1 === k || pop(a) !== pop(seq[j - 1])) && (j + 1 >= n || j + 1 === k || pop(a) !== pop(seq[j + 1]));
+            if (okK && okJ) { seq[k] = b; seq[j] = a; break; }
+        }
+    }
+    return seq;
+}
+
+export interface BrandArtPick { url: string; file: string; pop: string; corners: string[]; zones: StageRect[] }
+
+/** Round 3: the art occupancy rectangles for a background: the MEASURED `zones` (12x8 grid, cells
+ *  with >1.5% non-white pixels, merged, stage space) when the token feed carries them, else the old
+ *  corner heuristic. Text must stay out of these. */
+export function brandArtZones(bg: { zones?: StageRect[]; corners?: string[] } | null | undefined): StageRect[] {
+    if (!bg) return [];
+    if (Array.isArray(bg.zones) && bg.zones.length) return bg.zones.map(z => ({ x: z.x, y: z.y, w: z.w, h: z.h }));
+    return artCornerZones(bg.corners || []);
+}
+
+function _toPick(art: NonNullable<ReturnType<typeof getBrandArt>>, idx: number): BrandArtPick | null {
+    const pick = art.bodyBackgrounds[idx];
+    if (!pick || !pick.file) return null;
+    return { url: `${DESIGN_ASSETS_PROXY}${art.assetsRoute}${pick.file}`, file: pick.file, pop: pick.pop, corners: Array.isArray(pick.corners) ? pick.corners : [], zones: brandArtZones(pick) };
+}
+
+/** The ordered candidate backgrounds for a slide: the deck-order rotation starting at this slide's
+ *  slot (or at the title-hash slot without a deck position), one full cycle. A renderer takes the
+ *  FIRST candidate whose zones it can keep its text out of (skip-on-collision), so a background that
+ *  cannot host an archetype is passed over instead of forcing text onto a doodle. */
+export function brandArtCandidates(brand: BrandId | string | null | undefined, title: string, deckIndex?: number): BrandArtPick[] {
+    const art = getBrandArt(brand);
+    if (!art || !Array.isArray(art.bodyBackgrounds) || art.bodyBackgrounds.length === 0) return [];
+    const n = art.bodyBackgrounds.length;
+    const order = artRotationOrder(art.bodyBackgrounds);
+    const hasPos = typeof deckIndex === 'number' && isFinite(deckIndex) && deckIndex >= 0;
+    const start = hasPos ? Math.floor(deckIndex as number) % n : order.indexOf(stableIndex(title, n));
+    const out: BrandArtPick[] = [];
+    for (let k = 0; k < n; k++) {
+        const p = _toPick(art, order[(start + k) % n]);
+        if (p) out.push(p);
+    }
+    return out;
+}
+
+/** The DECIEM body background for a slide (deck-order rotation when deckIndex is given, else the
+ *  title hash), with its measured zones, or null for brands without art. */
+export function brandBodyArtPick(brand: BrandId | string | null | undefined, title: string, deckIndex?: number): BrandArtPick | null {
+    const c = brandArtCandidates(brand, title, deckIndex);
+    return c.length ? c[0] : null;
+}
+
+/** Round 3 (GOLD twins): canvas insets that keep a flex/grid GOLD body out of the measured zones.
+ *  Every zone touches a stage edge; per zone the renderer takes the single inset (top, bottom, left
+ *  or right) that costs the least content area, so a top-left blob costs 150px of height while a
+ *  bottom-right block costs a right inset (the column ends short of the doodle, template slide 15).
+ *  An opaque takeaway band already covers y944+, so a bottom block only reserves what the band does
+ *  not. Returns stage-px insets {top,right,bottom,left}; the defaults are the DECIEM paper insets. */
+export interface CanvasInsets { top: number; right: number; bottom: number; left: number }
+export function goldArtInsets(zones: StageRect[], hasTakeaway: boolean): CanvasInsets {
+    const ins: CanvasInsets = { top: 110, right: 160, bottom: hasTakeaway ? 152 : 96, left: 196 };
+    const W = () => 1920 - ins.left - ins.right, H = () => 1080 - ins.top - ins.bottom;
+    for (const z of zones || []) {
+        const touchesTop = z.y <= 0, touchesBottom = z.y + z.h >= 1070, touchesLeft = z.x <= 0, touchesRight = z.x + z.w >= 1910;
+        const cands: Array<{ k: keyof CanvasInsets; v: number; loss: number }> = [];
+        if (touchesTop) { const v = z.y + z.h + 16; if (v > ins.top) cands.push({ k: 'top', v, loss: (v - ins.top) * W() }); }
+        if (touchesBottom) { const v = 1080 - z.y + 16; if (v > ins.bottom) cands.push({ k: 'bottom', v, loss: (v - ins.bottom) * W() }); }
+        if (touchesLeft) { const v = z.x + z.w + 16; if (v > ins.left) cands.push({ k: 'left', v, loss: (v - ins.left) * H() }); }
+        if (touchesRight) { const v = 1920 - z.x + 16; if (v > ins.right) cands.push({ k: 'right', v, loss: (v - ins.right) * H() }); }
+        if (!cands.length) continue;
+        // already clear of this zone?
+        const cx0 = ins.left, cx1 = 1920 - ins.right, cy0 = ins.top, cy1 = 1080 - ins.bottom;
+        if (!(z.x < cx1 && z.x + z.w > cx0 && z.y < cy1 && z.y + z.h > cy0)) continue;
+        cands.sort((a, b) => a.loss - b.loss);
+        ins[cands[0].k] = cands[0].v;
+    }
+    return ins;
+}
+
+/** The DECIEM body background `<img>` URL for a slide title, or '' for brands without art. */
+export function brandBodyArtUrl(brand: BrandId | string | null | undefined, title: string, deckIndex?: number): string {
+    const p = brandBodyArtPick(brand, title, deckIndex);
+    return p ? p.url : '';
+}
+
+const _isBlackFill = (hex: string) => /^#?0{6}$/i.test(String(hex || '').trim());
+
+/** The DECIEM section-divider fill + text pair: the POP fills (cyan, purple, pink, orange) by divider
+ *  ordinal when given, else by title hash. Black is excluded from the divider pool (reserved for the
+ *  thesis / agenda / quote canvases). null for brands without art. */
+export function brandDividerFill(brand: BrandId | string | null | undefined, title: string, dividerOrdinal?: number): { fill: string; text: string } | null {
+    const art = getBrandArt(brand);
+    if (!art || !Array.isArray(art.dividerFills) || art.dividerFills.length === 0) return null;
+    const pool = art.dividerFills.filter(f => f && !_isBlackFill(f.fill));
+    const fills = pool.length ? pool : art.dividerFills;
+    const idx = (typeof dividerOrdinal === 'number' && isFinite(dividerOrdinal) && dividerOrdinal >= 0)
+        ? Math.floor(dividerOrdinal) % fills.length
+        : stableIndex(title, fills.length);
+    const pick = fills[idx];
+    return pick ? { fill: pick.fill, text: pick.text } : null;
+}
+
+/** Corner art exclusion zones in stage px (1920x1080) for a background's `corners` metadata. The
+ *  zones are deliberately generous: the pink / cyan blobs run ~580px along the top or bottom edge
+ *  and ~150px deep; the right-side doodle clusters occupy the right third from mid-height down. */
+export interface StageRect { x: number; y: number; w: number; h: number }
+function artCornerZones(corners: string[]): StageRect[] {
+    const z: StageRect[] = [];
+    for (const c of corners || []) {
+        if (c === 'top-left') z.push({ x: 0, y: 0, w: 640, h: 150 });
+        else if (c === 'bottom-left') z.push({ x: 0, y: 880, w: 600, h: 200 });
+        else if (c === 'top-right') z.push({ x: 1228, y: 0, w: 692, h: 360 });
+        else if (c === 'bottom-right') z.push({ x: 1228, y: 520, w: 692, h: 560 });
+    }
+    return z;
+}
+
+/** True when a rect overlaps any of the zones (shared by the renderers' guards and the proof test). */
+export function rectHitsZones(r: StageRect, zones: StageRect[]): boolean {
+    return zones.some(z => r.x < z.x + z.w && r.x + r.w > z.x && r.y < z.y + z.h && r.y + r.h > z.y);
+}
+
+/** Per-brand TYPE SYSTEM read (addendum 2026-10-01): sizes / weights / tracking come from the brand
+ *  object's TYPE_SCALE / TYPE_WEIGHT / TYPE_TRACK stash (only the NXT feed mutates the globals), with
+ *  the global SCALE / WEIGHT / TYPO as the build-time fallback. NXT resolves to the globals exactly. */
+export function brandType(brand: BrandId | string | null | undefined): {
+    scale: Record<string, number>; weight: { body: number; label: number; title: number }; track: { kicker: number; label: number; title: number };
+} {
+    const id = normalizeBrandId(brand);
+    const H: any = id === 'nxt' ? TOKENS : getBrand(id);
+    const ts: any = (H && H.TYPE_SCALE) || {};
+    const tw: any = (H && H.TYPE_WEIGHT) || {};
+    const tt: any = (H && H.TYPE_TRACK) || {};
+    const scale: Record<string, number> = {};
+    for (const k of Object.keys(SCALE)) scale[k] = typeof ts[k] === 'number' ? ts[k] : (SCALE as any)[k];
+    return {
+        scale,
+        weight: {
+            body: typeof tw.body === 'number' ? tw.body : WEIGHT.body,
+            label: typeof tw.label === 'number' ? tw.label : WEIGHT.label,
+            title: typeof tw.title === 'number' ? tw.title : WEIGHT.title,
+        },
+        track: {
+            kicker: typeof tt.kicker === 'number' ? tt.kicker : TYPO.KICKER_TRACK_PX,
+            label: typeof tt.label === 'number' ? tt.label : TYPO.LABEL_TRACK_PX,
+            title: typeof tt.title === 'number' ? tt.title : TYPO.TITLE_TRACK_PX,
+        },
+    };
+}
+
+/** The four DECIEM pop colors in rotation order (pink, cyan, purple, orange), from the brand tokens. */
+export function brandPops(T: BrandTokens): string[] {
+    return [T.accent, T.accent2, T.accentCool, T.accentWarn];
+}
+
+/** Does a GOLD slide carry any filled imagery slot? Such slides get NO corner art (the template never
+ *  stacks art on art). Carrier keys mirror the registry carriers both twins read. */
+const _IMAGERY_KEYS = ['imageUrl', 'brandImage', 'diagramImage', 'exhibitImage', 'panelImage', 'heroImage', 'sceneImage', 'backgroundImage', 'portraitImage', 'illustration', 'themeImages', 'phaseImages', 'peerImages', 'featureImages', 'itemImages', 'columnIcons'];
+export function hasFilledImagery(o: any, depth = 0): boolean {
+    if (!o || typeof o !== 'object' || depth > 2) return false;
+    for (const k of _IMAGERY_KEYS) {
+        const v = (o as any)[k];
+        if (typeof v === 'string' && v.trim()) return true;
+        if (Array.isArray(v) && v.some(x => typeof x === 'string' ? x.trim().length > 0 : !!x)) return true;
+    }
+    // one level into the GOLD data blocks (slide.caseStudy.panelImage, slide.themeCluster.themeImages ...)
+    for (const v of Object.values(o)) {
+        if (v && typeof v === 'object' && !Array.isArray(v) && hasFilledImagery(v, depth + 1)) return true;
+    }
+    return false;
+}
+
+/** DECIEM canvas FAMILY for a GOLD template (round 2 directive D): quote / callout -> black (NIOD
+ *  dark layout); tables -> paper with black header rows and NO corner art; everything else -> paper +
+ *  one corner background (unless the slide carries imagery). */
+export type GoldCanvasFamily = 'body' | 'dark' | 'table' | 'section' | 'thesis';
+const _GOLD_DARK = new Set(['block-quote']);
+const _GOLD_TABLE = new Set(['competitive-matrix', 'gap-matrix', 'systems-inventory', 'journey-map', 'service-blueprint', 'architecture-map', 'org-chart', 'prd-feature', 'timeline']);
+function goldCanvasFamily(template: string, slide?: any): GoldCanvasFamily {
+    const t = String(template || '').toLowerCase();
+    if (t === 'section-divider') return (slide && slide.sectionDivider && slide.sectionDivider.variant === 'thesis') ? 'thesis' : 'section';
+    if (_GOLD_DARK.has(t)) return 'dark';
+    if (_GOLD_TABLE.has(t)) return 'table';
+    return 'body';
+}
+
+/** Blend two token colors (a toward b by t in [0,1]) into a '#RRGGBB' string. A derived shade (the
+ *  dark-canvas hairline = 20% of the canvas text over the canvas fill) stays a token function, never a
+ *  literal. Non-hex inputs return `a` unchanged. */
+export function mixHex(a: string, b: string, t: number): string {
+    const p = (h: string) => { const x = String(h || '').replace('#', ''); return /^[0-9a-fA-F]{6}$/.test(x) ? [0, 2, 4].map(i => parseInt(x.slice(i, i + 2), 16)) : null; };
+    const A = p(a), B = p(b);
+    if (!A || !B) return a;
+    return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, '0')).join('').toUpperCase();
+}
+
+/** Dark-canvas token derivation for a GOLD renderer painted on black (DECIEM quote slides): paper and
+ *  rail swap, ink and body text turn white, greys lift, washes and callouts turn graphite, hairlines
+ *  darken, the accent stays (pink reads on black). */
+function darkCanvasTokens(T: BrandTokens): BrandTokens {
+    return {
+        ...T,
+        paper: T.rail, rail: T.paper, ink: T.paper, bodyText: T.paper, secondaryText: T.ruleMid,
+        muted: T.ruleMid, grey: T.ruleMid, hair: mixHex(T.rail, T.paper, 0.2), callout: T.graphite, washWarn: T.graphite, washCool: T.graphite,
+        band: T.accent, bandText: T.rail, kicker: T.accent, accentOnDark: T.accent, gold: T.accent,
+    };
+}
+
+/** Canvas kind a brand's art block assigns to a slide role (cover / section / thesis / body). */
+export function brandCanvasFor(brand: BrandId | string | null | undefined, role: 'cover' | 'section' | 'thesis' | 'body'): BrandCanvas {
+    const art = getBrandArt(brand);
+    if (!art) return 'paper';
+    return (art.canvas && art.canvas[role]) || 'paper';
+}
+
+/** The bordered two-line lockup box (DECIEM). Line 1 bold, line 2 lighter; 1px border in the text color.
+ *  class="brandlogo lockup" so the PPTX GEO walker treats it as masthead chrome. Empty string when the
+ *  brand has no lockup token. */
+export function lockupHtml(T: BrandTokens, color: string): string {
+    const lines = String(T.lockup || '').split('\n').map(s => s.trim()).filter(Boolean);
+    if (lines.length === 0) return '';
+    const first = lines[0];
+    const rest = lines.slice(1);
+    return `<div class="brandlogo lockup" style="position:absolute;top:72px;right:72px;width:216px;padding:22px 20px 20px;border:1px solid ${color};color:${color};font-family:${T.titleFont};text-transform:uppercase;display:block;height:auto">`
+        + `<div style="font-weight:700;font-size:23px;line-height:1.1;letter-spacing:0.2px">${esc(first)}</div>`
+        + rest.map(l => `<div style="font-weight:400;font-size:19px;line-height:1.1;margin-top:14px;letter-spacing:0.6px">${esc(l)}</div>`).join('')
+        + `</div>`;
 }
 
 // Per-render density ceilings, set once at the top of slideDataToStageHtml
@@ -374,17 +749,28 @@ function stripInlineSource(s: string): string {
 
 // Google-fonts href covering BOTH brands' hydrated faces (+ legacy/quote faces). Shared by
 // buildShell and the SLIDES-archetype bare-stage doc so the composed deck loads the same faces.
-function computeFontsHref(): string {
+// DECIEM faces load only on a DECIEM doc, so NXT / NU documents keep their exact prior head.
+function computeFontsHref(brand?: Brand | string): string {
+    const _deciem = normalizeBrandId(brand) === 'deciem';
     const _famName = (f: any) => String(f || '').replace(/['"]/g, '').split(',')[0].trim();
     const _fams = new Set<string>();
-    for (const B of [TOKENS as any, getBrand('nu') as any]) {
+    for (const B of (_deciem ? [TOKENS as any, getBrand('nu') as any, getBrand('deciem') as any] : [TOKENS as any, getBrand('nu') as any])) {
         for (const k of ['FONT_DISPLAY', 'FONT_TITLE', 'FONT_BODY', 'FONT_MONO']) {
             const n = _famName(B[k]); if (n) _fams.add(n);
         }
     }
-    ['Archivo', 'IBM Plex Mono', 'Bebas Neue', 'Lora', 'Saira Condensed', 'Lato'].forEach(n => _fams.add(n));
+    ['Archivo', 'IBM Plex Mono', 'Bebas Neue', 'Lora', 'Saira Condensed', 'Lato'].concat(_deciem ? ['Poppins', 'Josefin Sans', 'Nunito', 'Questrial'] : []).forEach(n => _fams.add(n));
+    // 2026-10-01 - DECIEM faces carry their own weight axes (Questrial ships a single weight and
+    // has no wght axis at all; it stays loaded for legacy decks but is not a role). The legacy
+    // families keep the shared list they always requested.
+    const _axis: Record<string, string> = {
+        'Poppins': ':wght@400;600;700',
+        'Josefin Sans': ':wght@400;600;700',
+        'Nunito': ':wght@400;700',
+        'Questrial': '',
+    };
     return 'https://fonts.googleapis.com/css2?'
-        + [..._fams].map(n => `family=${n.replace(/\s+/g, '+')}:wght@300;400;500;600;700;800`).join('&')
+        + [..._fams].map(n => `family=${n.replace(/\s+/g, '+')}${_axis[n] !== undefined ? _axis[n] : ':wght@300;400;500;600;700;800'}`).join('&')
         + '&display=swap';
 }
 
@@ -399,7 +785,7 @@ function composeArchetypeDoc(brand: Brand, title: string, stageInner: string): s
 <title>${esc(title || 'Slide')}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${computeFontsHref()}">
+<link rel="stylesheet" href="${computeFontsHref(brand)}">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#080808;overflow:hidden}
@@ -425,15 +811,47 @@ function buildShell(opts: {
      *  (classes defined below) inside the body when they need the GOLD meta
      *  row, because the h1 sits between the kicker and the meta. */
     takeaway?: string;
+    /** 2026-10-01 - canvas role for brands with template art (DECIEM): 'section' / 'thesis' pick the
+     *  dark or pop canvas (+ lockup) from the brand art block; 'dark' = the black NIOD layout for
+     *  quote / callout slides; 'table' = paper, black header rows, no corner art; 'body' (default) is
+     *  paper + one corner line-art background. Ignored for brands without an art block (NXT / NU:
+     *  byte-identical). */
+    canvasRole?: GoldCanvasFamily;
+    /** Deck position (round 2): drives the body-art rotation and the divider pop-fill ordinal. */
+    deckIndex?: number;
+    dividerOrdinal?: number;
+    /** The slide carries filled imagery (portrait / panel / exhibit / thumbnails): no corner art. */
+    noArt?: boolean;
 }): string {
     const T = brandTokens(opts.brand);
+    const BT = brandType(opts.brand);
+    // DECIEM canvas resolution (null art -> every `art*` value is falsy and the shell is unchanged).
+    const _art = getBrandArt(opts.brand);
+    const _role: GoldCanvasFamily = opts.canvasRole || 'body';
+    const _canvasKind: BrandCanvas = !_art ? 'paper'
+        : _role === 'dark' ? 'dark'
+        : _role === 'table' ? 'paper'
+        : brandCanvasFor(opts.brand, _role === 'body' ? 'body' : _role);
+    const _divider = _art && _canvasKind === 'pop' ? brandDividerFill(opts.brand, opts.title || '', opts.dividerOrdinal) : null;
+    const _canvasFill = !_art ? '' : _canvasKind === 'pop' && _divider ? _divider.fill : _canvasKind === 'dark' || _canvasKind === 'pop' ? T.rail : '';
+    const _canvasText = !_art ? '' : _canvasKind === 'pop' && _divider ? _divider.text : _canvasKind === 'dark' || _canvasKind === 'pop' ? T.paper : '';
+    const _onNonPaper = !!_canvasFill;
+    // Body art: paper body slides only; never on tables, never over imagery (art-vs-imagery rule).
+    const _pick = (_art && !_onNonPaper && _role === 'body' && !opts.noArt) ? brandBodyArtPick(opts.brand, opts.title || '', opts.deckIndex) : null;
+    const _bodyArt = _pick ? _pick.url : '';
+    const _bodyArtHtml = _bodyArt ? `<img class="bgart" src="${esc(_bodyArt)}" alt="" style="position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;display:block;z-index:0">` : '';
+    // Round 3: insets from the MEASURED zones (least-area inset per zone), not the corner heuristic.
+    const _ins: CanvasInsets | null = _pick ? goldArtInsets(_pick.zones, !!opts.takeaway) : null;
+    const _bottomZoneLeft = _pick ? _pick.zones.filter(z => z.y + z.h >= 1070 && z.x <= 0).reduce((m, z) => Math.max(m, z.x + z.w), 0) : 0;
+    // Title transform (TITLE_TRANSFORM token): emitted only when a brand asks for one so NXT/NU CSS is unchanged.
+    const _titleXform = (T.titleTransform && T.titleTransform !== 'none') ? `h1,h2,h3,.sdtitle,.thesis{text-transform:${T.titleTransform}}\n` : '';
     // 2026-06-15 - DERIVE the font href from the HYDRATED brand fonts of BOTH brands,
     // not a static family list. The old hardcoded list omitted Saira Condensed (NXT
     // display) and Lato (NU single-typeface), so after the token migration the CSS
     // referenced faces the page never LOADED -> silent serif fallback (the Saira/Lato
     // bug). Whatever Figma deploys into font/* now loads automatically. Legacy faces
     // some saved decks still reference are kept so older artifacts don't regress.
-    const fontsHref = computeFontsHref();
+    const fontsHref = computeFontsHref(opts.brand);
     const sourcesStrip = (opts.sources && opts.sources.length > 0 && !opts.takeaway)
         ? `<div class="srcs">Sources: ${opts.sources.map(s => esc(s)).join('  ·  ')}</div>`
         : '';
@@ -469,11 +887,58 @@ function buildShell(opts: {
     // text via color:transparent) cannot blank the logo SVG. NU monogram carries its own red fill.
     const _logoSvg = String(_lt.BRAND_LOGO_SVG || '').trim().replace(/currentColor/g, T.ink);
     const _logoWm = String(_lt.BRAND_LOGO_WORDMARK || '').trim();
-    const brandLogoHtml = _logoSvg
-        ? `<div class="brandlogo">${_logoSvg}</div>`
-        : _logoWm
-            ? `<div class="brandlogo"><span class="wm">${esc(_logoWm)}</span></div>`
-            : `<div class="brandlogo"><span class="wm">${esc(opts.brand === 'nu' ? 'Northeastern' : 'NXT Humans')}</span></div>`;
+    // 2026-10-01 - DECIEM masthead rule (from the template): the boxed lockup on dark / pop canvases,
+    // NO masthead on paper body slides. Brands without an art block keep the registry logo path.
+    const brandLogoHtml = _art
+        ? (_onNonPaper ? lockupHtml(T, _canvasText) : '')
+        : _logoSvg
+            ? `<div class="brandlogo">${_logoSvg}</div>`
+            : _logoWm
+                ? `<div class="brandlogo"><span class="wm">${esc(_logoWm)}</span></div>`
+                : `<div class="brandlogo"><span class="wm">${esc(opts.brand === 'nu' ? 'Northeastern' : 'NXT Humans')}</span></div>`;
+    // DECIEM has no rail and no dot-mark anywhere (template chrome is the lockup box only).
+    const railHtml = _art ? '' : `<div class="rail"></div>`;
+    const dotMarkHtml = _art ? '' : dotMark;
+    // DECIEM: canvas inset follows the chosen art's SAFE BOX (right-side corner -> text in the left 64%;
+    // top-left blob -> 150px top; bottom-left blob -> bottom 200px reserved) with no rail to offset
+    // from; slides without art (tables, imagery, dark) use the plain inset. A dark/pop canvas recolors
+    // the ink/muted text to the canvas text color.
+    const stageBg = _onNonPaper ? _canvasFill : T.paper;
+    const stageInk = _onNonPaper ? _canvasText : T.ink;
+    const _insetRight = _ins ? _ins.right : 160;
+    const _insetTop = _ins ? _ins.top : 110;
+    const _insetBottom = _ins ? _ins.bottom : (opts.takeaway ? 152 : 96);
+    const _insetLeft = _ins ? _ins.left : 196;
+    const canvasCss = _art
+        ? `.canvas{position:absolute;left:${_insetLeft}px;top:0;right:${_insetRight}px;bottom:${_insetBottom}px;padding:${_insetTop}px 0 12px 0;display:flex;flex-direction:column;overflow:hidden;z-index:1}`
+        : `.canvas{position:absolute;left:172px;top:0;right:80px;bottom:${opts.takeaway ? '152px' : '96px'};padding:58px 0 12px 0;display:flex;flex-direction:column;overflow:hidden}`;
+    // DECIEM type: trimmed per-brand sizes / weights (TYPE_SCALE / TYPE_WEIGHT on the brand object);
+    // no italics anywhere (the template has none); photos sit on the paper in a 1px hairline frame,
+    // radius 0, no shadow; tables take a black Poppins 700 uppercase header row, Nunito cells,
+    // hairline rules and no zebra; stat numerals rotate the four pop colors.
+    const _pops = brandPops(T);
+    const _tableCss = _role === 'table'
+        ? `#stage th,#stage .ethead,#stage .jmh,#stage .sbphase,#stage .jmh.crit{background:${T.rail};color:${T.paper};font-family:${T.labelFont};font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-color:${T.rail}}`
+        + `#stage th .hcell,#stage .ethead>div,#stage .jmh .nm,#stage .jmh .ktl{color:${T.paper}}`
+        + `#stage td,#stage .jmc,#stage .jmv,#stage .sbc,#stage .sbv,#stage .etrow .etp,#stage .etrow .eti,#stage .etrow .ete{font-family:${T.monoFont}}`
+        + `#stage tr:nth-child(even) td,#stage tr:nth-child(2n) td,#stage .etrow.top{background:transparent}`
+        + `#stage td,#stage .jmgrid>div,#stage .etrow{border-color:${T.hair}}\n`
+        : '';
+    const _statCss = `${_pops.map((c, i) => `#stage .stat:nth-child(4n+${i + 1}) .sv,#stage .stat:nth-child(4n+${i + 1}){color:${c};border-top-color:${c}}`).join('')}#stage .stat .sv{font-family:${T.titleFont};font-weight:${BT.weight.title}}\n`;
+    const _photoCss = `#stage img[src^="data:image/png"],#stage img[src^="data:image/jpeg"],#stage img[src^="http"]:not(.bgart){border:1px solid ${T.hair};border-radius:0;box-shadow:none}\n`;
+    const _personaCss = `#stage .pdw{direction:rtl}#stage .pdw>*{direction:ltr}\n`;
+    // DECIEM takeaway / pattern bands are BLACK with white type (round-1 owner rule), never a pop fill.
+    const _bandCss = `#stage .toband,#stage .tdband,#stage .toc .pill.dom,#stage .tdpill.dom{background:${T.band};color:${T.bandText}}\n`;
+    // a bottom-left blob: the sources strip (bottom 34px) starts right of the measured zone
+    const _srcsCss = _bottomZoneLeft > 0 ? `#stage .srcs{left:${Math.max(_insetLeft, _bottomZoneLeft + 16)}px}\n` : '';
+    const artCss = _art
+        // #stage-prefixed so these win over the per-renderer <style> blocks emitted later in the body.
+        ? `.takeaway,.srcs,.brandlogo{z-index:1}\n#stage .srcs{left:${_insetLeft}px;right:${_insetRight}px}#stage .takeaway{left:${_insetLeft}px;width:${1920 - _insetLeft - _insetRight}px}\n`
+        + `#stage *{font-style:normal!important}\n`
+        + `#stage .sdnum,#stage .sdtitle,#stage .thesis{font-weight:${BT.weight.title};font-size:${BT.scale.display}px}#stage .sdtitle{line-height:1.1}\n`
+        + _tableCss + _statCss + _photoCss + _personaCss + _bandCss + _srcsCss
+        + `${_onNonPaper ? `#stage .sdnum{color:${_canvasKind === 'dark' ? T.accent : _canvasText}}#stage .sdtitle,#stage .thesis,#stage h1{color:${_canvasText}}#stage .sdsub,#stage .metarow,#stage .srcs{color:${_canvasText};opacity:.78}#stage .kicker{color:${_canvasKind === 'dark' ? T.accent : _canvasText}}#stage .hairline{background:${_canvasKind === 'dark' ? mixHex(_canvasFill, _canvasText, 0.2) : _canvasText}}\n` : ''}`
+        : '';
     return `<!DOCTYPE html>
 <html lang="en" data-brand="${opts.brand}">
 <head>
@@ -485,27 +950,27 @@ function buildShell(opts: {
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#080808;overflow:hidden}
-#stage{position:absolute;width:1920px;height:1080px;background:${T.paper};font-family:${T.bodyFont};color:${T.ink};transform-origin:top left}
-.rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
+#stage{position:absolute;width:1920px;height:1080px;background:${stageBg};font-family:${T.bodyFont};color:${stageInk};transform-origin:top left}
+${_art ? '' : `.rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
 .dotmark{position:absolute;left:30px;top:990px;display:grid;grid-template-columns:repeat(3,12px);gap:6px}
 .dotmark span{width:12px;height:12px;background:${T.accent};display:block}
-.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px;height:34px;color:${T.ink}}
+`}.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px;height:34px;color:${T.ink}}
 .brandlogo svg{display:block;height:34px;width:auto}
 /* Masthead wordmark uses the brand DISPLAY face (NXT = Saira Condensed SemiBold
  * per Figma node 22:2; NU = Lato), hydrated via FONT_DISPLAY - NOT bodyFont.
  * The 2026-06-13 Saira swap never reached this rule, so NXT mastheads rendered
  * the wordmark in Archivo. displayFont===bodyFont for NU, so this is a no-op there. */
 .brandlogo .wm{font-family:${T.displayFont};font-weight:${opts.brand === 'nu' ? 800 : 600};font-size:${opts.brand === 'nu' ? '22px' : '26px'};letter-spacing:${opts.brand === 'nu' ? '3px' : '1px'};color:${T.ink};text-transform:uppercase}
-.canvas{position:absolute;left:172px;top:0;right:80px;bottom:${opts.takeaway ? '152px' : '96px'};padding:58px 0 12px 0;display:flex;flex-direction:column;overflow:hidden}
+${canvasCss}
 /* Chrome painted from the hydrated Figma type system (SCALE/WEIGHT/TYPO), not
  * hardcoded - the 2026-06-14 typographic redesign. Kicker recedes to the label
  * tier; the action title governs at SCALE.title; the takeaway band is the payoff
  * line so it carries the TITLE weight (was 400, lighter than the h1 - audited). */
-.kicker{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.KICKER_TRACK_PX}px;color:${T.kicker};text-transform:uppercase;margin-bottom:16px;font-weight:${WEIGHT.label}}
-h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts.brand === 'nu' ? '0' : '-0.5px'};font-size:${SCALE.title}px;line-height:${opts.brand === 'nu' ? '1.12' : '1.08'};color:${T.ink};margin-bottom:24px;max-width:1400px}
-.metarow{font-family:${T.monoFont};font-weight:${WEIGHT.label};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;line-height:1.6;color:${T.grey};text-transform:uppercase;margin-bottom:16px;white-space:pre-wrap}
+.kicker{font-family:${T.labelFont};font-size:${BT.scale.label}px;letter-spacing:${T.brandId === 'deciem' ? 1 : BT.track.kicker}px;color:${T.kicker};text-transform:uppercase;margin-bottom:16px;font-weight:${T.brandId === 'deciem' ? BT.weight.label : WEIGHT.label}}
+h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts.brand === 'nu' ? '0' : _art ? '0.2px' : '-0.5px'};font-size:${BT.scale.title}px;line-height:${opts.brand === 'nu' ? '1.12' : _art ? '1.1' : '1.08'};color:${T.ink};margin-bottom:24px;max-width:${_ins ? Math.min(1400, 1920 - _insetLeft - _insetRight) : 1400}px}
+${_titleXform}${artCss}.metarow{font-family:${T.monoFont};font-weight:${WEIGHT.label};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;line-height:1.6;color:${T.grey};text-transform:uppercase;margin-bottom:16px;white-space:pre-wrap}
 .hairline{height:1px;background:${T.hair};width:100%;margin-bottom:17px}
-.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:${T.band};color:${T.bandText};padding:28px 48px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.4}
+.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:${T.band};color:${T.bandText};padding:28px 48px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${BT.scale.lead}px;line-height:1.4}
 .srcs{position:absolute;left:172px;right:80px;bottom:34px;font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};border-top:2px solid ${T.hair};padding-top:18px;text-transform:uppercase}
 /* 2026-06-05 - UNIVERSAL grid-overflow guards. Applies to every grid
  * container + every direct grid-item across all 18 templates so a long
@@ -532,8 +997,8 @@ h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts
 </head>
 <body>
 <div id="stage">
-  <div class="rail"></div>
-  ${dotMark}
+  ${_bodyArtHtml}${railHtml}
+  ${dotMarkHtml}
   ${brandLogoHtml}
   <div class="canvas">
 ${kickerHtml}
@@ -590,11 +1055,11 @@ function renderStatRow(slide: SlideDataLike, T: BrandTokens): string {
 .stat .sv{font-family:${T.displayFont};font-weight:${WEIGHT.body};font-size:${TYPO.HERO_CAP_PX}px;line-height:1.2;color:${T.ink}}
 .stat .sl{font-family:${T.bodyFont};font-size:${SCALE.lead}px;line-height:1.28;color:${T.ink}}
 .stat .sd{display:flex;flex-direction:column;gap:6px;margin-top:6px}
-.stat .sd .lbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};text-transform:uppercase}
+.stat .sd .lbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};text-transform:uppercase}
 .stat .sd .pp{font-size:${SCALE.body}px;line-height:1.38;color:${T.ink}}
 .stat .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};margin-top:auto;text-transform:uppercase}
 .insight{background:${T.callout};padding:16px 24px;border-left:4px solid ${T.accent};flex-shrink:0}
-.insight .ilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.accent2};text-transform:uppercase;margin-bottom:8px;font-weight:${WEIGHT.label}}
+.insight .ilbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.accent2};text-transform:uppercase;margin-bottom:8px;font-weight:${WEIGHT.label}}
 .insight .itxt{font-size:${SCALE.lead}px;line-height:1.38;color:${T.ink}}
 .insight .iptn{margin-top:6px;font-size:${SCALE.body}px;line-height:1.36;color:${T.ink};border-top:1px solid ${T.hair};padding-top:6px}
 .insight .iptn span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:${WEIGHT.label}}
@@ -628,10 +1093,10 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 .dq .dqm{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
 .dq .dqs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.accentCool};margin-top:auto;text-transform:uppercase}
 .dins{background:${T.ink};color:${T.paper};padding:34px 36px;display:flex;flex-direction:column;gap:20px;min-height:0;overflow:hidden}
-.dins .dlbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.accentOnDark};font-weight:${WEIGHT.label}}
+.dins .dlbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.accentOnDark};font-weight:${WEIGHT.label}}
 .dins .ditxt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.42;color:${T.paper}}
 .dins .dhair{height:1px;background:${T.grey};width:100%}
-.dins .dplbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.gold};font-weight:${WEIGHT.label}}
+.dins .dplbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.gold};font-weight:${WEIGHT.label}}
 .dins .dptxt{font-size:${SCALE.body}px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
 </style>
 <div class="dwrap">
@@ -661,6 +1126,18 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 // per-element/emotive). Reads the index-aligned carrier themeCluster.themeImages[i] first
 // (the illustrator's per-element string[]), then falls back to themes[i].brandImage
 // (string url or {url}). Returns '' when no per-theme image exists - NO PURE DECORATION.
+/** E10 twin parity (2026-10-01): the multi-quote block (`quotes[]`: text / attribution / source /
+ *  date) the web QuoteStack renders under a theme; falls back to the singular `evidence`. Every
+ *  quote keeps its own attribution so the footer sources strip stays redundant-free. */
+function themeQuotesHtml(t: any, cls: string, max = 2): string {
+    const quotes: any[] = Array.isArray(t?.quotes) ? t.quotes.filter((q: any) => q && q.text).slice(0, max) : [];
+    if (quotes.length === 0) return t?.evidence ? `<div class="${cls}">&ldquo;${esc(t.evidence)}&rdquo;</div>` : '';
+    return quotes.map((q: any) => {
+        const attr = [q.attribution, q.source].filter(Boolean).join(' · ') + (q.date ? `, ${q.date}` : '');
+        return `<div class="${cls}">&ldquo;${esc(q.text)}&rdquo;${attr ? `<div class="${cls}a">${esc(attr)}</div>` : ''}</div>`;
+    }).join('');
+}
+
 function themeThumb(data: any, t: any, i: number): string {
     const arr = data && Array.isArray(data.themeImages) ? data.themeImages : null;
     let ti = arr && typeof arr[i] === 'string' ? arr[i] : '';
@@ -684,6 +1161,7 @@ function renderThemeArc(slide: SlideDataLike, T: BrandTokens): string {
 .ta .nm{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.name}px;line-height:1.12;color:${T.ink}}
 .ta .ins{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
 .ta .ev{font-size:${SCALE.caption}px;line-height:1.35;font-style:italic;color:${T.grey}}
+.ta .eva{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.grey};text-transform:uppercase;font-style:normal;margin-top:3px}
 .ta .ft{margin-top:auto;border-top:1px solid ${T.hair};padding-top:8px}
 .ta .sig{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.accent2};text-transform:uppercase;line-height:1.4}
 .ta .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.grey};text-transform:uppercase}
@@ -697,7 +1175,7 @@ ${themes.map((t, i) => `
     <div class="hd"><span class="num">${String(i + 1).padStart(2, '0')}</span>${i < n - 1 ? '<span class="arr">&rarr;</span>' : ''}</div>
     <div class="nm">${esc(t.name)}</div>
     <div class="ins">${esc(t.insight)}</div>
-    ${t.evidence ? `<div class="ev">&ldquo;${esc(t.evidence)}&rdquo;</div>` : ''}
+    ${themeQuotesHtml(t, 'ev')}
     <div class="ft">
       ${t.signal ? `<div class="sig">Signal · ${esc(t.signal)}</div>` : ''}
       <div class="src">${esc(t.source)}</div>
@@ -730,8 +1208,13 @@ function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
 .tm.inv .ins{color:${T.bandText};opacity:0.92} .tm.std .ins{color:${T.ink}}
 .tm .ev{font-size:${SCALE.caption}px;line-height:1.35;font-style:italic}
 .tm.inv .ev{color:${T.bandText};opacity:0.8} .tm.std .ev{color:${T.grey}}
+.tm .eva{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;font-style:normal;margin-top:3px;opacity:0.9}
+.tm .sig{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.4}
+.tm.inv .sig{color:${T.accentOnDark}} .tm.std .sig{color:${T.accent2}}
 .tm .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;margin-top:auto}
 .tm.inv .src{color:${T.accentOnDark}} .tm.std .src{color:${T.grey}}
+.tmptn{margin-top:12px;font-size:${SCALE.body}px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2};flex-shrink:0}
+.tmptn span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <div class="tmgrid">
 ${themes.map((t, i) => `
@@ -740,10 +1223,12 @@ ${themes.map((t, i) => `
     <div class="idx">${String(i + 1).padStart(2, '0')}</div>
     <div class="nm">${esc(t.name)}</div>
     <div class="ins">${esc(t.insight)}</div>
-    ${t.evidence ? `<div class="ev">&ldquo;${esc(t.evidence)}&rdquo;</div>` : ''}
+    ${themeQuotesHtml(t, 'ev')}
+    ${t.signal ? `<div class="sig">Signal · ${esc(t.signal)}</div>` : ''}
     <div class="src">${esc(t.source)}</div>
   </div>`).join('')}
-</div>`;
+</div>
+${data.patternSignal ? `<div class="tmptn"><span>Pattern signal</span> ${esc(data.patternSignal)}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -827,7 +1312,7 @@ function renderThemeDetail(slide: SlideDataLike, T: BrandTokens): string {
 .tdpill.conv{border:1.5px solid ${T.hair};color:${T.grey}}
 .tdmood{font-family:${T.monoFont};font-size:${SCALE.nano}px;letter-spacing:0.5px;color:${T.grey}}
 .tdgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:60px;flex:1;min-height:0;align-items:start}
-.tdlbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.micro}px;letter-spacing:2.5px;text-transform:uppercase;color:${T.ink};margin-bottom:14px}
+.tdlbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.micro}px;letter-spacing:2.5px;text-transform:uppercase;color:${T.ink};margin-bottom:14px}
 .tdq{display:flex;flex-direction:column;gap:8px;border-left:4px solid ${T.accentWarn};padding:6px 0 6px 18px;margin-bottom:26px}
 .tdq.alt{border-left-color:${T.accent2}}
 .tdq .qt{font-family:${T.bodyFont};font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink}}
@@ -941,7 +1426,7 @@ function renderBlockQuoteDense(q: any, extra: any[], T: BrandTokens): string {
 .bvc .bvs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
 .bvc .bvr{font-size:${SCALE.label}px;line-height:1.35;color:${T.grey}}
 .bsyn{display:grid;grid-template-columns:330px 1fr;gap:28px;align-items:center;background:${T.callout};padding:22px 32px;flex-shrink:0}
-.bsyn .bsl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
+.bsyn .bsl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
 .bsyn .bst{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.46;color:${T.ink}}
 </style>
 <div class="bvrow">${cards}</div>
@@ -964,6 +1449,17 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
     // fintech decks (slides 8/14). Routing reads the RAW arrays - capping
     // first would mask the >=4 predicate and drop the 4th evidenced action.
     const hasGridPanel = !!(r.impactGrid && (r.impactGrid.baseline || r.impactGrid.target || r.impactGrid.timeframe || r.impactGrid.owner));
+    // E10 twin parity (2026-10-01): the web twin renders personaContext as a mono eyebrow under
+    // the title and falls back to whyMatters ("Why it matters") when no implication is supplied;
+    // the export twin dropped both. Rendered once here and carried into every layout branch.
+    const eyebrowHtml = r.personaContext ? `<div class="rctx">${esc(trunc(r.personaContext, 110))}</div>` : '';
+    const whyFooterHtml = (!r.implication && r.whyMatters)
+        ? `<div class="impl"><span>Why it matters</span> ${esc(trunc(r.whyMatters, 200))}</div>`
+        : '';
+    const sharedCss = `
+.rctx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.grey};text-transform:uppercase;margin:-10px 0 14px;flex-shrink:0}
+.impl{margin-top:14px;font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink};flex-shrink:0}
+.impl span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}`;
     // SLIDE-SYSTEM VARIANT (NU_Giving role-block G2): impact CARD STACK on
     // the right rail, numbered actions on the left.
     const impactCards: any[] = Array.isArray(r.impactCards) ? r.impactCards : [];
@@ -984,19 +1480,21 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
 .rbwrap{display:grid;grid-template-columns:1.62fr 1fr;gap:40px;flex:1 1 auto;min-height:0}
 .rbleft{display:flex;flex-direction:column;min-height:0;overflow:hidden}
 .rbrat{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink};margin-bottom:18px}
-.rblbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px;margin-bottom:6px}
+.rblbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px;margin-bottom:6px}
 .rba{display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;padding:16px 0;border-bottom:1px solid ${T.hair}}
 .rba .rbn{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
 .rba .rbt{font-family:${T.bodyFont};font-weight:600;font-size:${SCALE.lead}px;color:${T.ink};margin-bottom:5px}
 .rba .rbd{font-size:${SCALE.body}px;line-height:1.36;color:${T.ink}}
 .rbright{display:flex;flex-direction:column;gap:20px;min-height:0;overflow:hidden}
-.rbplbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px}
+.rbplbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px}
 .rbc{position:relative;background:${T.paper === '#FFFFFF' ? T.callout : '#FFFFFF'};padding:22px 26px;overflow:hidden}
 .rbc::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:${T.accent}}
-.rbc .rbcl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2.5px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
+.rbc .rbcl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:2.5px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
 .rbc .rbch{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.18;color:${T.ink};margin-top:8px}
 .rbc .rbcb{font-size:${SCALE.caption}px;line-height:1.36;color:${T.ink};margin-top:9px}
+${sharedCss}
 </style>
+${eyebrowHtml}
 <div class="rbwrap">
   <div class="rbleft">
     ${r.rationale ? `<div class="rbrat">${esc(trunc(r.rationale, 190))}</div>` : ''}
@@ -1004,10 +1502,11 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
     ${rows}
   </div>
   <div class="rbright"><div class="rbplbl">Projected impact</div>${cards}</div>
-</div>`;
+</div>
+${whyFooterHtml}`;
     }
     if (rawSupporting.length >= 4 || (rawSupporting.length >= 3 && rawEvidence.length >= 2 && hasGridPanel)) {
-        return renderRecommendationDense(r, rawSupporting, rawEvidence, T);
+        return `<style>${sharedCss}</style>${eyebrowHtml}` + renderRecommendationDense(r, rawSupporting, rawEvidence, T) + whyFooterHtml;
     }
     const supporting = rawSupporting.slice(0, _caps.items);
     const evidence = rawEvidence.slice(0, _caps.sub);
@@ -1023,6 +1522,23 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
     // server-side trunc, NEVER CSS clamp/overflow (the export MEASURE reads
     // layout rects, so paint clipping cannot bound the exported geometry).
     const fullStack = hasGridPanel && !!r.impactMetric && evidence.length > 0 && !!r.implication && !!r.rationale;
+    // E10 twin parity (2026-10-01): tile-sourced recommendations carry heroImage {src, alt, caption}
+    // and impactStrip {effort, risk, outcome}; the web twin renders both (panelImage wins over
+    // heroImage as the image source, as there). The export twin dropped both.
+    const recImageSrc = String(r.panelImage || (r.heroImage && r.heroImage.src) || '').trim();
+    const recImageAlt = String((r.heroImage && r.heroImage.alt) || r.actionTitle || '');
+    const recCaption = r.heroImage && r.heroImage.caption ? String(r.heroImage.caption) : '';
+    const strip = r.impactStrip || {};
+    const stripCells: Array<[string, string]> = ([['Effort', strip.effort], ['Risk', strip.risk], ['Outcome', strip.outcome]] as Array<[string, any]>)
+        .filter(([, v]) => !!v).map(([k, v]) => [k, String(v)]);
+    const imageHtml = recImageSrc
+        ? `<img class="recimg${r.panelImage ? '' : ' rechero'}" src="${esc(recImageSrc)}" alt="${esc(recImageAlt)}">${recCaption ? `<div class="reccap">${esc(trunc(recCaption, 60))}</div>` : ''}`
+        : '';
+    const stripHtml = stripCells.length > 0 ? `
+      <div class="strip">
+        <div class="glbl">Impact</div>
+        <div class="scells">${stripCells.map(([k, v]) => `<div class="gc"><div class="gh">${k}</div><div class="gp">${esc(trunc(v, 60))}</div></div>`).join('')}</div>
+      </div>` : '';
     const denseSa = supporting.length >= 4 || evidence.length >= 3 || fullStack;
     const ratBudget = fullStack ? 185 : 230;
     const evTextBudget = fullStack ? 150 : 170;
@@ -1062,10 +1578,13 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .action{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.15;color:${T.ink};margin-bottom:${fullStack ? 9 : 12}px;max-width:1620px;border-left:4px solid ${T.accent};padding-left:18px;flex-shrink:0}
 .rationale{font-size:${fullStack ? SCALE.lead : SCALE.lead}px;line-height:1.42;color:${T.ink};margin-bottom:${fullStack ? 8 : 16}px;max-width:1620px;flex-shrink:0}
-.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;flex:1 0 auto}
-.rcol{display:flex;flex-direction:column;gap:18px;min-width:0}
+/* E10 (2026-10-01): the column grid yields to the footer. With a hero image + strip + evidence the
+   right rail can exceed the canvas; the grid now shrinks (image last, so the picture is what gets
+   clipped, never the implication / why-it-matters line, which must stay inside the 1080 stage). */
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;flex:1 1 auto;min-height:0;overflow:hidden}
+.rcol{display:flex;flex-direction:column;gap:18px;min-width:0;min-height:0;overflow:hidden}
 .sup,.evi{display:flex;flex-direction:column;gap:10px}
-.splbl,.elbl,.glbl{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:6px;font-weight:600}
+.splbl,.elbl,.glbl{font-family:${T.labelFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:6px;font-weight:600}
 .sa{display:grid;grid-template-columns:42px 1fr;gap:12px;margin-top:${denseSa ? 4 : 8}px}
 .sa .idx{font-family:${T.displayFont};font-size:${denseSa ? SCALE.name : SCALE.subhead}px;color:${T.accent}}
 .sa .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSa ? SCALE.lead : SCALE.name}px;color:${T.ink};margin-bottom:3px}
@@ -1081,13 +1600,18 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
 .metric{margin-top:${fullStack ? 8 : 12}px;display:flex;align-items:baseline;gap:14px;border-top:1px solid ${T.hair};padding-top:${fullStack ? 7 : 10}px}
 .metric .mv{font-family:${T.displayFont};font-size:${fullStack ? SCALE.subhead : SCALE.subhead}px;color:${T.accent}}
 .metric .ml{font-size:${SCALE.lead}px;color:${T.ink}}
-.impl{margin-top:${fullStack ? 4 : 14}px;font-size:${fullStack ? SCALE.lead : SCALE.lead}px;line-height:1.4;color:${T.ink}}
-.impl span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+${sharedCss}
+.impl{margin-top:${fullStack ? 4 : 14}px}
 /* USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-recommendation EMOTIVE scene in the
    right column (Figma slot 678:5526 on detail 597:4, 560x140 banner; NU twin 625:1841 inherits).
    Non-dense branch only; the dense GOLD twin (614:5) is content-packed and stays image-free. */
 .recimg{width:100%;aspect-ratio:560/140;object-fit:cover;display:block;border-radius:3px;border:1px solid ${T.hair};margin-top:4px}
+.recimg.rechero{aspect-ratio:4/3;max-height:240px}
+.reccap{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.grey};text-transform:uppercase;margin-top:6px}
+.strip{background:${T.callout};padding:14px 20px;border-left:4px solid ${T.accent2};flex-shrink:0}
+.scells{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
 </style>
+${eyebrowHtml}
 ${r.actionTitle ? `<div class="action">${esc(trunc(r.actionTitle, 120))}</div>` : ''}
 ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</div>` : ''}
 <div class="cols">
@@ -1095,10 +1619,11 @@ ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</d
   <div class="rcol">
     ${evidenceHtml}
     ${gridHtml}
-    ${r.panelImage ? `<img class="recimg" src="${esc(r.panelImage)}" alt="">` : ''}
+    ${stripHtml}
+    ${imageHtml}
   </div>
 </div>
-${r.implication ? `<div class="impl"><span>Implication</span> ${esc(trunc(r.implication, fullStack ? 170 : 200))}</div>` : ''}`;
+${r.implication ? `<div class="impl"><span>Implication</span> ${esc(trunc(r.implication, fullStack ? 170 : 200))}</div>` : whyFooterHtml}`;
 }
 
 /** recommendation DENSE twin of the GOLD exemplar (NU 194:3 / NXT 319:3):
@@ -1141,7 +1666,7 @@ function renderRecommendationDense(r: any, supporting: any[], evidence: any[], T
 .dra .dname{font-family:${T.bodyFont};font-weight:600;font-size:${SCALE.lead}px;line-height:1.25;color:${T.ink}}
 .dra .ddesc{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
 .dband{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;background:${T.callout};padding:12px 24px;margin-top:10px;flex-shrink:0}
-.dbc .dbh{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
+.dbc .dbh{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
 .dbc .dbp{font-size:${SCALE.body}px;line-height:1.34;color:${T.ink};margin-top:4px}
 .devi{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px;flex-shrink:0}
 .dec{border-left:3px solid ${T.accentCool};padding:10px 18px;background:${T.paper}}
@@ -1232,8 +1757,14 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
     // slide.imageUrl). §3c keeps the generator's style; the renderer just paints it as a figure
     // panel atop the identity column. Absent -> nothing (no decorative placeholder).
     const portrait = String((slide as any).imageUrl || '').trim();
-    if (quadArrays >= 3 && p.quote) return renderPersonaCardDense(p, pains, goals, T, portrait);
-    const densePp = pains.length >= 4;
+    // 2026-10-02: the dense layout no longer needs a defining quote (a quote that fails the clean
+    // verbatim budget is dropped upstream rather than cut); the evidence board carries the proof.
+    // Art-inset brands (DECIEM) keep the compact quadrant edition: their safe box cannot hold the 24px board.
+    if (quadArrays >= 3) return (getBrandArt(T.brandId) ? renderPersonaCardDenseCompact : renderPersonaCardDense)(p, pains, goals, T, portrait) + pptxNotes(slide);
+    // E10 twin parity (2026-10-01): the web twin renders `motivations` (label / quote / source)
+    // beside the pain points; the export twin dropped them. Same anatomy as a pain point, cool rule.
+    const motivations: any[] = Array.isArray(p.motivations) ? p.motivations.slice(0, _caps.items) : [];
+    const densePp = pains.length >= 4 || (pains.length + motivations.length) >= 5;
     return `<style>
 .pcols{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;flex:1}
 .pleft{display:flex;flex-direction:column;gap:18px}
@@ -1255,6 +1786,7 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
 .pp .ppn{font-family:${T.bodyFont};font-weight:${WEIGHT.title};font-size:${SCALE.lead}px;color:${T.ink}}
 .pp .ppq{font-size:${SCALE.body}px;line-height:1.45;color:${T.ink};font-style:italic;margin-top:4px}
 .pp .pps{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:4px}
+.pp.pm{border-left-color:${T.accentCool}}
 </style>
 <div class="pcols">
   <div class="pleft">
@@ -1288,47 +1820,70 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
             </div>`).join('')}
         </div>
       </div>` : ''}
+    ${motivations.length > 0 ? `
+      <div class="sect"><h2>Motivations</h2>
+        <div class="pains">
+          ${motivations.map(m => `
+            <div class="pp pm">
+              <div class="ppn">${esc(m.label)}</div>
+              ${m.quote ? `<div class="ppq">&ldquo;${esc(m.quote)}&rdquo;</div>` : ''}
+              ${m.source ? `<div class="pps">${esc(m.source)}</div>` : ''}
+            </div>`).join('')}
+        </div>
+      </div>` : ''}
   </div>
 </div>`;
 }
 
-/** persona-card DENSE twin of the GOLD exemplar (NU 199:124 / NXT 322:124):
- *  dark identity column (name / descriptors / defining quote / stakes) +
- *  2x2 evidence quadrant grid (GOALS cool / PAIN POINTS warn / BEHAVIORS
- *  cool / WHAT WINS THEM accent). */
-function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens, portrait = ''): string {
-    const item = (txt: string, color: string) =>
-        `<div class="pqi"><span style="background:${color}"></span><p>${esc(trunc(txt, 92))}</p></div>`;
-    const quads: Array<{ label: string; color: string; items: string[] }> = [];
+/** 12 pt PPTX floor in stage px (1920 stage = 13.333 in, so 1 px = 0.5 pt). The legible GOLD
+ *  layouts (persona dense, journey <= 5 x 3, gap matrix <= 5 rows) never set text below it; they
+ *  fit by content budget (generators + the trunc guards here), never by shrinking type. */
+const LEGIBLE_PX = 24;
+
+/** Speaker-notes carrier: a <template> is inert (no layout, no textContent in the MEASURE / GEO
+ *  walks), and the GOLD exporter copies its text into the PPTX notes page. */
+function pptxNotes(slide: SlideDataLike): string {
+    const n = String((slide as any).speakerNotes || '').trim();
+    return n ? `<template class="pptx-notes">${esc(n)}</template>` : '';
+}
+
+/** persona-card DENSE, COMPACT edition: the pre-2026-10-02 2x2 quadrant anatomy, kept for brands whose
+ *  canvas is inset by body art (DECIEM: the art safe box leaves ~1230 x 650 px, too small for the
+ *  24px legible board). NXT / NU render the legible edition above. */
+function renderPersonaCardDenseCompact(p: any, pains: any[], goals: any, T: BrandTokens, portrait = ''): string {
+    const item = (txt: string, color: string, quote = '') =>
+        `<div class="pqi"><span style="background:${color}"></span><p>${esc(trunc(txt, 92))}${quote ? `<span class="pqq">${esc(quote)}</span>` : ''}</p></div>`;
+    const quads: Array<{ label: string; color: string; items: string[]; quotes?: string[] }> = [];
     const goalItems = [goals.functionalGoal, goals.experienceGoal, goals.lifeGoal].filter(Boolean) as string[];
     if (goalItems.length) quads.push({ label: 'Goals', color: T.accentCool, items: goalItems });
-    if (pains.length) quads.push({ label: 'Pain points', color: T.accentWarn, items: pains.slice(0, 3).map((pp: any) => pp.label || pp.quote || '') });
+    if (pains.length) quads.push({ label: 'Pain points', color: T.accentWarn, items: pains.slice(0, 3).map((pp: any) => pp.label || pp.quote || ''), quotes: pains.slice(0, 3).map((pp: any) => (pp.label && pp.quote) ? `"${trunc(String(pp.quote), 90)}"${pp.source ? ` (${trunc(String(pp.source), 30)})` : ''}` : '') } as any);
     if (Array.isArray(p.behaviors) && p.behaviors.length) quads.push({ label: 'Behaviors', color: T.accentCool, items: p.behaviors.slice(0, 3) });
     if (Array.isArray(p.winConditions) && p.winConditions.length) quads.push({ label: 'What wins them', color: T.accent, items: p.winConditions.slice(0, 3) });
+    if (Array.isArray(p.motivations) && p.motivations.length) quads.push({ label: 'Motivations', color: T.accentCool, items: p.motivations.slice(0, 3).map((m: any) => m.label || m.quote || '') });
     const quadHtml = quads.slice(0, 4).map(qd => `
       <div class="pq" style="border-top-color:${qd.color}">
         <div class="pql">${esc(qd.label)}</div>
-        ${qd.items.map(it => item(it, qd.color)).join('')}
+        ${qd.items.map((it, qi) => item(it, qd.color, qd.quotes?.[qi] || '')).join('')}
       </div>`).join('');
     return `<style>
 .pdw{display:grid;grid-template-columns:520px 1fr;gap:32px;flex:1 1 auto;min-height:0}
 .pid{background:${T.ink};color:${T.paper};padding:34px;display:flex;flex-direction:column;gap:17px;min-height:0;overflow:hidden}
 .pidportrait{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;display:block;border-radius:2px;border:1px solid ${T.grey}}
-/* 2026-06-14 type system: name capped at subhead (below the 46px title so the title
- * governs - was 52px out-ranking it); roles snap to scale; quad body at the floor. */
 .pid .pin{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.06;color:${T.paper};text-transform:uppercase}
 .pid .pirole{font-size:${SCALE.body}px;line-height:1.35;color:${washHex(T.paper, 0.16)}}
 .pid .pidesc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;line-height:1.6;color:${T.gold};text-transform:uppercase}
 .pid .pihair{height:1px;background:${T.grey};width:100%}
-.pid .pilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentOnDark};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.pid .pilbl{font-family:${T.labelFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentOnDark};text-transform:uppercase;font-weight:${WEIGHT.label}}
 .pid .piq{font-family:${T.titleFont};font-weight:${WEIGHT.body};font-size:${SCALE.lead}px;line-height:1.5;color:${T.paper}}
 .pid .pisrc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
+.pid .pijt{font-size:${SCALE.body}px;line-height:1.45;color:${washHex(T.paper, 0.08)}}
+.pqi p .pqq{display:block;margin-top:4px;font-size:${SCALE.caption}px;line-height:1.35;color:${T.muted}}
 .pid .pist{margin-top:auto;font-size:${SCALE.caption}px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
 .pgrid2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:24px;min-height:0}
 .pq{border-top:3px solid ${T.accent};padding:18px 22px 14px 0;display:flex;flex-direction:column;gap:11px;min-height:0;overflow:hidden}
 .pq .pql{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.ink};text-transform:uppercase;font-weight:${WEIGHT.label}}
 .pqi{display:grid;grid-template-columns:12px 1fr;gap:11px;align-items:start}
-.pqi span{width:8px;height:8px;margin-top:8px;display:block}
+.pqi>span{width:8px;height:8px;margin-top:8px;display:block}
 .pqi p{font-size:${SCALE.body}px;line-height:1.42;color:${T.ink}}
 </style>
 <div class="pdw">
@@ -1338,12 +1893,98 @@ function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens
     ${p.role ? `<div class="pirole">${esc(trunc(p.role, 70))}</div>` : ''}
     ${(p.descriptors || p.demographics) ? `<div class="pidesc">${esc(trunc(p.descriptors || p.demographics, 84))}</div>` : ''}
     <div class="pihair"></div>
-    <div class="pilbl">Defining quote</div>
+    ${p.quote ? `<div class="pilbl">Defining quote</div>
     <div class="piq">&ldquo;${esc(trunc(p.quote, 170))}&rdquo;</div>
-    ${p.quoteSource ? `<div class="pisrc">${esc(trunc(p.quoteSource, 44))}</div>` : ''}
+    ${p.quoteSource ? `<div class="pisrc">${esc(trunc(p.quoteSource, 44))}</div>` : ''}` : ''}
+    ${p.jtbd ? `<div class="pilbl">Job to be done</div><div class="pijt">${esc(trunc(String(p.jtbd), 190))}</div>` : ''}
     ${p.stakes ? `<div class="pist">${esc(trunc(p.stakes, 130))}</div>` : ''}
   </div>
   <div class="pgrid2">${quadHtml}</div>
+</div>`;
+}
+
+/** persona-card DENSE twin of the GOLD exemplar (NU 199:124 / NXT 322:124), LEGIBLE edition
+ *  (2026-10-02, owner: "colliding text fields ... unreadable"). Dark identity column (name, role,
+ *  defining quote + source, job to be done) beside an evidence board: PAIN POINTS across the top
+ *  (one column per pain: the pain, then ONE verbatim evidence line with its source), then GOALS /
+ *  BEHAVIORS / WHAT WINS THEM across the bottom. Every text node renders at >= 24px (12 pt). The
+ *  previous 2x2 quadrants clipped their overflow with overflow:hidden; the PPTX walk paints the
+ *  full text, so hidden lines landed on the next quadrant. Nothing here relies on clipping: each
+ *  sink carries a hard budget (trunc, clause boundary, no ellipsis) sized to its column. */
+function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens, portrait = ''): string {
+    const F = LEGIBLE_PX;
+    const bullet = (txt: string, color: string, max = 96) =>
+        `<div class="pqi"><span style="background:${color}"></span><p>${esc(trunc(String(txt || ''), max))}</p></div>`;
+    const section = (label: string, color: string, inner: string) =>
+        `<div class="pq" style="border-top-color:${color}"><div class="pql">${esc(label)}</div>${inner}</div>`;
+    // bottom row: goals, behaviors, what wins them (motivations stand in for a missing one)
+    const bottom: string[] = [];
+    const goalItems = [goals.functionalGoal, goals.experienceGoal, goals.lifeGoal].filter(Boolean) as string[];
+    if (goalItems.length) bottom.push(section('Goals', T.accentCool, goalItems.slice(0, 3).map(g => bullet(g, T.accentCool)).join('')));
+    if (Array.isArray(p.behaviors) && p.behaviors.length) bottom.push(section('Behaviors', T.accentCool, p.behaviors.slice(0, 3).map((b: string) => bullet(b, T.accentCool)).join('')));
+    if (Array.isArray(p.winConditions) && p.winConditions.length) bottom.push(section('What wins them', T.accent, p.winConditions.slice(0, 3).map((w: string) => bullet(w, T.accent)).join('')));
+    if (bottom.length < 3 && Array.isArray(p.motivations) && p.motivations.length) {
+        bottom.push(section('Motivations', T.accentCool, p.motivations.slice(0, 3).map((m: any) => bullet(m.label || m.quote || '', T.accentCool)).join('')));
+    }
+    // top row: one column per pain point, each with its verbatim evidence line
+    const painCols = pains.slice(0, 3).map((pp: any) => {
+        const label = String(pp.label || pp.quote || '');
+        const quote = (pp.label && pp.quote) ? String(pp.quote) : '';
+        return `<div class="ppc"><div class="ppl">${esc(trunc(label, 86))}</div>${quote ? `<div class="ppq">&ldquo;${esc(trunc(quote, 100))}&rdquo;${pp.source ? ` <span class="pps">${esc(trunc(String(pp.source), 48))}</span>` : ''}</div>` : ''}</div>`;
+    }).join('');
+    const jtbd = String(p.jtbd || '').trim();
+    // E10 twin parity: the preview paints the descriptor strip and the stakes line; the export keeps
+    // them when the identity column has room at 24px (quote + JTBD + stakes under ~330 chars).
+    const descriptors = String(p.descriptors || p.demographics || '').trim();
+    const stakes = String(p.stakes || '').trim();
+    const idLoad = String(p.quote || '').length + (jtbd.length <= 130 ? jtbd.length : 0) + Math.min(stakes.length, 110) + Math.min(descriptors.length, 60);
+    const showDescriptors = !!descriptors && idLoad <= 330;
+    const showStakes = !!stakes && idLoad <= 330;
+    return `<style>
+.pdw{display:grid;grid-template-columns:470px 1fr;gap:36px;flex:1 1 auto;min-height:0}
+.pid{background:${T.ink};color:${T.paper};padding:30px 32px;display:flex;flex-direction:column;gap:14px;min-height:0}
+.pidportrait{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;display:block;border-radius:2px;border:1px solid ${T.grey}}
+.pid .pin{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.08;color:${T.paper};text-transform:uppercase;padding-right:24px}
+.pid .pirole{font-size:${F}px;line-height:1.3;color:${washHex(T.paper, 0.16)};padding-right:16px}
+.pid .pihair{height:1px;background:${T.grey};width:100%;flex-shrink:0}
+.pid .pilbl{font-family:${T.labelFont};font-size:${F}px;letter-spacing:2px;line-height:1.2;color:${T.accentOnDark || T.accent};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.pid .piq{font-family:${T.titleFont};font-weight:${WEIGHT.body};font-size:${SCALE.lead}px;line-height:1.38;color:${T.paper};padding-right:16px}
+.pid .pisrc{font-size:${F}px;line-height:1.3;color:${T.accentCool}}
+.pid .pijt{font-size:${F}px;line-height:1.36;color:${washHex(T.paper, 0.08)};padding-right:16px}
+.pid .pidesc{font-family:${T.labelFont};font-size:${F}px;letter-spacing:1px;line-height:1.3;color:${T.gold};text-transform:uppercase;padding-right:16px}
+.pid .pist{margin-top:auto;font-size:${F}px;line-height:1.36;color:${washHex(T.paper, 0.12)};padding-right:16px}
+.pgrid2{display:flex;flex-direction:column;gap:30px;min-height:0}
+.prow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.pq{border-top:4px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.pq .pql{font-family:${T.labelFont};font-size:${F}px;letter-spacing:2px;line-height:1.2;color:${T.ink};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.pqi{display:grid;grid-template-columns:12px 1fr;gap:12px;align-items:start}
+.pqi>span{width:9px;height:9px;margin-top:11px;display:block}
+.pqi p{font-size:${F}px;line-height:1.32;color:${T.ink};padding-right:18px}
+.ppw{border-top:4px solid ${T.accentWarn};padding-top:14px;display:flex;flex-direction:column;gap:14px}
+.ppw .pql{font-family:${T.labelFont};font-size:${F}px;letter-spacing:2px;line-height:1.2;color:${T.ink};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.ppcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.ppc{display:flex;flex-direction:column;gap:10px;border-left:4px solid ${T.accentWarn};padding-left:14px;min-width:0}
+.ppc .ppl{font-size:${F}px;line-height:1.3;font-weight:${WEIGHT.title};color:${T.ink};padding-right:18px}
+.ppc .ppq{font-size:${F}px;line-height:1.32;font-style:italic;color:${T.ink};padding-right:18px}
+.ppc .ppq .pps{font-style:normal;color:${T.muted}}
+</style>
+<div class="pdw">
+  <div class="pid">
+    ${portrait ? `<img class="pidportrait" src="${esc(portrait)}" alt="">` : ''}
+    <div class="pin">${esc(trunc(p.name, 34))}</div>
+    ${p.role ? `<div class="pirole">${esc(trunc(p.role, 86))}</div>` : ''}
+    ${showDescriptors ? `<div class="pidesc">${esc(trunc(descriptors, 60))}</div>` : ''}
+    <div class="pihair"></div>
+    ${p.quote ? `<div class="pilbl">Defining quote</div>
+    <div class="piq">&ldquo;${esc(trunc(p.quote, 120))}&rdquo;</div>
+    ${p.quoteSource ? `<div class="pisrc">${esc(trunc(p.quoteSource, 48))}</div>` : ''}` : ''}
+    ${jtbd && jtbd.length <= 130 ? `<div class="pilbl">Job to be done</div><div class="pijt">${esc(jtbd)}</div>` : ''}
+    ${showStakes ? `<div class="pist">${esc(trunc(stakes, 110))}</div>` : ''}
+  </div>
+  <div class="pgrid2">
+    ${painCols ? `<div class="ppw"><div class="pql">Pain points</div><div class="ppcols" style="grid-template-columns:repeat(${Math.min(3, pains.length)},minmax(0,1fr))">${painCols}</div></div>` : ''}
+    ${bottom.length ? `<div class="prow" style="grid-template-columns:repeat(${Math.min(3, bottom.length)},minmax(0,1fr))">${bottom.slice(0, 3).join('')}</div>` : ''}
+  </div>
 </div>`;
 }
 
@@ -1407,7 +2048,7 @@ function renderCaseStudy(slide: SlideDataLike, T: BrandTokens): string {
 .cssrc{font-family:${T.monoFont};font-weight:500;font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:8px}
 .barow{display:flex;gap:26px;flex:1;min-height:0;margin-bottom:17px}
 .bap{flex:1;min-width:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}
-.balbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
+.balbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
 .bahead{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.15;color:${T.ink}}
 .bapts{flex:1;display:flex;flex-direction:column;justify-content:space-between;min-height:0}
 .bapt{display:flex;gap:12px;align-items:flex-start}
@@ -1416,7 +2057,7 @@ function renderCaseStudy(slide: SlideDataLike, T: BrandTokens): string {
 .baarrow{align-self:center;font-family:${T.bodyFont};font-size:${SCALE.subhead}px;color:${T.grey};width:44px;text-align:center;flex-shrink:0}
 .bares{display:flex;gap:48px}
 .bares .col{flex:1;min-width:0}
-.bares .rlbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:10px}
+.bares .rlbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:10px}
 .bares .rtxt{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};font-family:${T.bodyFont}}
 .baq{display:flex;gap:14px}
 .baq .bar{width:4px;background:${T.accentCool};flex-shrink:0}
@@ -1447,14 +2088,14 @@ ${metaHtml}
         const qFs = rows.length >= 4 ? 21 : 24;   // 4 rows = slightly smaller quotes
         return `<style>
 .cssrc{font-family:${T.monoFont};font-weight:500;font-size:12.5px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:10px}
-.eslbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:16px}
+.eslbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:16px}
 .esstack{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
 .esrow{display:flex;gap:28px;align-items:stretch}
 .esrow .bar{width:4px;background:${T.accentCool};flex-shrink:0}
 .esrow .qcol{flex:1;min-width:0}
 .esrow .qt{font-size:${qFs}px;line-height:1.34;color:${T.ink};font-family:${T.bodyFont}}
 .esrow .scol{width:440px;flex-shrink:0}
-.esrow .slbl{font-family:${T.monoFont};font-weight:600;font-size:11.5px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:8px}
+.esrow .slbl{font-family:${T.labelFont};font-weight:600;font-size:11.5px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:8px}
 .esrow .stxt{font-size:16.5px;line-height:1.42;color:${T.ink};font-family:${T.bodyFont}}
 </style>
 ${metaHtml}
@@ -1493,13 +2134,13 @@ ${rows.map((e: any) => `
 .fbgrid{display:grid;grid-template-columns:${hasPanel ? '1.9fr 1fr' : '1fr'};gap:26px;flex:1;min-height:0}
 .fbcol{display:flex;flex-direction:column;gap:12px;min-width:0}
 .fbblk{flex:1;display:grid;grid-template-columns:152px 1fr;gap:20px;padding:16px 24px;border-left:6px solid;min-width:0}
-.fbblk .lbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
+.fbblk .lbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
 .fbblk .txt{font-size:${SCALE.caption}px;line-height:1.45;color:${T.ink};font-family:${T.bodyFont}}
 .fbpanel{background:${T.ink === '#16233C' ? '#16233C' : '#115054'};padding:24px 28px;display:flex;flex-direction:column;gap:18px;min-width:0;overflow:hidden}
 /* USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-case EMOTIVE scene crowning the
    four-block right panel (Figma slot 890:357, 544x300; NU twin 625:314 inherits). */
 .fbpanel .csimg{width:100%;aspect-ratio:544/300;object-fit:cover;object-position:center top;display:block;border-radius:4px}
-.fbpanel .plbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2.4px;text-transform:uppercase;color:${T.accent}}
+.fbpanel .plbl{font-family:${T.labelFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2.4px;text-transform:uppercase;color:${T.accent}}
 .fbpanel .hero{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.14;color:#FFFFFF}
 .fbpanel .herol{font-size:${SCALE.label}px;color:rgba(255,255,255,0.82);line-height:1.4;font-family:${T.bodyFont}}
 .fbpanel .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,0.18);padding-top:16px}
@@ -1689,6 +2330,14 @@ ${m.patternLine ? `<div class="etband"><div class="ebl">Pattern</div><div class=
     const rows: any[] = Array.isArray(m.rows) ? m.rows.slice(0, _caps.items) : [];
     const colDefs: string[] = Array.isArray(m.columnDefs) ? m.columnDefs : [];
     const denseCm = rows.length >= 9;
+    // E10 twin parity (2026-10-01): the web twin reads scaleMax (score denominator), subjectRow
+    // (the highlighted subject), scaleLabels (the maturity legend) and insight (the closing line);
+    // the export twin dropped all four.
+    const scaleMax = Number(m.scaleMax) || 5;
+    const subjectLower = String(m.subjectRow || '').toLowerCase().trim();
+    const isSubject = (r: any) => !!subjectLower && String(r?.name || '').toLowerCase().includes(subjectLower);
+    const scaleLabels: string[] = Array.isArray(m.scaleLabels) && m.scaleLabels.length === scaleMax ? m.scaleLabels : [];
+    const cmInsight = String(m.insight || '').trim();
     const dotForScore = (s: number) => {
         if (s >= 4) return `<span class="dot full"></span>`;
         if (s >= 3) return `<span class="dot strong"></span>`;
@@ -1715,6 +2364,12 @@ ${m.patternLine ? `<div class="etband"><div class="ebl">Pattern</div><div class=
 .dot.strong{background:${T.accent}}
 .dot.med{background:${T.accent2};opacity:0.6}
 .dot.low{background:${T.hair}}
+.cmtbl tr.subj td{background:${T.washWarn}}
+.cmtbl tr.subj td.name{border-left:3px solid ${T.accentWarn}}
+.cmtbl td .sc{display:block;font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.muted};margin-top:4px}
+.cmlegend{display:flex;justify-content:space-between;gap:12px;margin-top:10px;padding-left:200px;font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
+.cmlegend span{flex:1;text-align:center}
+.cmins{margin-top:14px;border-left:4px solid ${T.accentWarn};padding:10px 18px;background:${T.callout};font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink};flex-shrink:0}
 </style>
 <table class="cmtbl">
   <thead>
@@ -1725,12 +2380,14 @@ ${m.patternLine ? `<div class="etband"><div class="ebl">Pattern</div><div class=
   </thead>
   <tbody>
     ${rows.map(r => `
-      <tr>
+      <tr${isSubject(r) ? ' class="subj"' : ''}>
         <td class="name"><div class="ncell">${esc(trunc(r.name, 36))}${r.note ? '\n' + esc(trunc(r.note, 70)) : ''}</div></td>
-        ${(r.scores || []).slice(0, cols.length).map((s: number) => `<td>${dotForScore(s)}</td>`).join('')}
+        ${(r.scores || []).slice(0, cols.length).map((s: number) => `<td>${dotForScore(s)}<span class="sc">${esc(String(s))}/${scaleMax}</span></td>`).join('')}
       </tr>`).join('')}
   </tbody>
-</table>`;
+</table>
+${scaleLabels.length ? `<div class="cmlegend">${scaleLabels.map((l, i) => `<span>L${i + 1} · ${esc(trunc(l, 16))}</span>`).join('')}</div>` : ''}
+${cmInsight ? `<div class="cmins">${esc(trunc(cmInsight, 280))}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -1770,21 +2427,43 @@ function renderServiceBlueprint(slide: SlideDataLike, T: BrandTokens): string {
     const laneRow = (lane: { key: string; label: string; hero?: boolean }) =>
         laneLabel(lane.label, lane.hero)
         + stages.map(s => `<div class="sbc">${esc(s[lane.key] || '-')}</div>`).join('');
+    // E10 twin parity (2026-10-01): the VOICE row (verbatim voiceQuote + sourceAttribution per
+    // stage) the web GoldFrame twin renders under the fail points; the export twin dropped both.
+    const hasVoice = stages.some(s => s.voiceQuote);
+    // E10 twin parity: the JTBD personas (name / role) ride a mono meta line above the grid, the
+    // same dashboard field the web twin folds into its meta row.
+    const sbPersonas: any[] = Array.isArray(slide.serviceBlueprint?.personas) ? slide.serviceBlueprint.personas.slice(0, 4) : [];
+    const personaLine = sbPersonas.length
+        ? `<div class="sbmeta"><span>Personas</span>${sbPersonas.map((p: any) => esc(trunc([p.name, p.role].filter(Boolean).join(', '), 40))).join(' · ')}</div>`
+        : '';
+    const voiceRow = hasVoice
+        ? `<div class="sblbl voice sbvoicerule">Voice</div>`
+          + stages.map(s => `<div class="sbv sbvoicerule">${s.voiceQuote
+              ? `&ldquo;${esc(trunc(String(s.voiceQuote), 110))}&rdquo;${s.sourceAttribution ? `<div class="sbcite">${esc(trunc(String(s.sourceAttribution), 60))}</div>` : ''}`
+              : '-'}</div>`).join('')
+        : '';
     return `<style>
-.sbgold{display:grid;grid-template-columns:${cols};grid-template-rows:56px 40px ${lanes.map(() => 'minmax(80px,1fr)').join(' ')} minmax(96px,auto);flex:1;border:1px solid ${T.hair};overflow:hidden;color:${T.ink}}
+.sbgold{display:grid;grid-template-columns:${cols};grid-template-rows:56px 40px ${lanes.map(() => 'minmax(80px,1fr)').join(' ')} minmax(96px,auto)${hasVoice ? ' minmax(84px,auto)' : ''};flex:1;border:1px solid ${T.hair};overflow:hidden;color:${T.ink}}
+.sblbl.voice{color:${T.accentWarn}}
+.sbvoicerule{border-top:1px dashed ${T.hair}!important}
+.sbv{padding:10px 14px;font-size:${cellFs}px;line-height:1.42;font-style:italic;color:${T.ink};background:${T.paper};overflow:hidden}
+.sbcite{font-family:${T.monoFont};font-size:${labelFs}px;letter-spacing:0.4px;color:${T.grey};font-style:normal;margin-top:4px}
+.sbmeta{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.ink};margin-bottom:10px;flex-shrink:0}
+.sbmeta span{color:${T.grey};text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-right:10px}
 .sbgold>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair}}
 .sbphase{background:${T.ink};color:${T.paper};font-family:${T.bodyFont};font-weight:700;font-size:${cellFs + 3}px;padding:8px 14px;display:flex;align-items:center;border-top:none!important}
-.sbphase.lbl{font-family:${T.monoFont};font-weight:600;font-size:${labelFs}px;letter-spacing:2px;text-transform:uppercase}
+.sbphase.lbl{font-family:${T.labelFont};font-weight:600;font-size:${labelFs}px;letter-spacing:2px;text-transform:uppercase}
 .sbmood{background:${T.callout};font-family:${T.monoFont};font-size:${labelFs}px;letter-spacing:0.5px;color:${T.ink};padding:4px 14px;display:flex;align-items:center;gap:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sbmood.lbl{color:${T.grey};font-weight:600;letter-spacing:2px;text-transform:uppercase}
 .sbdot{width:13px;height:13px;border-radius:7px;flex:0 0 auto}
-.sblbl{font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;color:${T.grey};text-transform:uppercase;padding:10px 14px;display:flex;align-items:center;line-height:1.3;background:${T.paper}}
+.sblbl{font-family:${T.labelFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;color:${T.grey};text-transform:uppercase;padding:10px 14px;display:flex;align-items:center;line-height:1.3;background:${T.paper}}
 .sblbl.hero{background:${T.washWarn};border-left:4px solid ${T.accentWarn}!important;color:${T.accentWarn}}
 .sblbl.warn{background:${T.washWarn};color:${T.accentWarn}}
 .sbc{padding:10px 14px;font-size:${cellFs}px;line-height:1.42;background:${T.paper};overflow:hidden}
 .sbfail{padding:10px 14px;font-size:${cellFs}px;line-height:1.42;overflow:hidden}
 .sbfailrule{border-top:3px solid ${T.accentWarn}!important}
 </style>
+${personaLine}
 <div class="sbgold">
   <div class="sbphase lbl">Phase</div>
   ${stages.map(s => `<div class="sbphase">${esc(s.phase || '')}</div>`).join('')}
@@ -1793,6 +2472,7 @@ function renderServiceBlueprint(slide: SlideDataLike, T: BrandTokens): string {
   ${lanes.map(laneRow).join('')}
   <div class="sblbl warn sbfailrule">Fail Points</div>
   ${stages.map(s => `<div class="sbfail sbfailrule" style="background:${s.failPoint ? T.washWarn : T.paper};color:${s.failPoint ? T.accentWarn : T.ink};font-weight:${s.failPoint ? 600 : 400}">${esc(s.painPoint || s.pain || '-')}</div>`).join('')}
+  ${voiceRow}
 </div>`;
 }
 
@@ -1960,14 +2640,21 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const lanes: any[] = (Array.isArray(d.lanes) ? d.lanes : []).slice(0, capLanes);
     if (stages.length === 0 || lanes.length === 0) return `<p style="font-size:${SCALE.name}px">No journey stages.</p>`;
     const n = stages.length;
-    const brand = (slide as any).brand === 'nu' ? 'nu' : 'nxt';
+    const brand = normalizeBrandId((slide as any).brand);
     const dense = n >= 6;
-    const cellFs = clampMin(dense ? SCALE.label : SCALE.caption);
-    const labelFs = dense ? 13 : 15;
+    // 2026-10-02 LEGIBLE mode (owner: the exported journey was blank, the matrices unreadable): a
+    // journey of <= 5 stages x <= 3 lanes with no thumbnails / KPI tiles renders every cell at the
+    // 24px (12 pt) floor. It drops the meta row, the persona-voice row and the lane role lines (that
+    // detail rides in the speaker notes) so the lanes, pains and opportunities hold the space.
+    const _thumbsEarly = (Array.isArray((d as any).phaseImages) && (d as any).phaseImages.some(Boolean)) || stages.some((s: any) => s && s.image);
+    // art-inset brands (DECIEM) keep the dense matrix: their safe box is too small for the 24px edition
+    const legible = n <= 5 && lanes.length <= 3 && !_thumbsEarly && !(Array.isArray(d.kpiTiles) && d.kpiTiles.length) && !getBrandArt(brand);
+    const cellFs = legible ? LEGIBLE_PX : clampMin(dense ? SCALE.label : SCALE.caption);
+    const labelFs = legible ? LEGIBLE_PX : dense ? 13 : 15;
     // 240px anchor column: mono role text at the 17px floor gets ~17 chars/line
     // (200px gave 13 - "Provides proactive scoring" wrapped to 3 lines and
     // clipped against the row boundary).
-    const laneColW = dense ? 200 : 240;
+    const laneColW = legible ? 250 : dense ? 200 : 240;
     const gridCols = `${laneColW}px repeat(${n}, 1fr)`;
     const ghost = (txt: string) => /^not engaged$/i.test((txt || '').trim()) || !(txt || '').trim();
 
@@ -1992,11 +2679,11 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const hasPains = painCols.some(c => c.length > 0);
 
     // Personas -> JTBD voice row; opportunities -> OPPORTUNITIES row (cool accent).
-    const personas: string[] = (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String).slice(0, 4);
+    const personas: string[] = legible ? [] : (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String).slice(0, 4);
     const voiceCols: string[][] = stages.map(() => []);
     spread(personas.length).forEach((col, i) => voiceCols[col].push(personas[i]));
     const hasVoice = personas.length > 0;
-    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, 4);
+    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, legible ? n : 4);
     const oppCols: string[][] = stages.map(() => []);
     spread(opps.length).forEach((col, i) => oppCols[col].push(opps[i]));
     const hasOpps = opps.length > 0;
@@ -2042,7 +2729,9 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
         return '';
     };
 
-    const matrixRows = [
+    const matrixRows = legible ? [
+        'auto', ...lanes.map(() => 'auto'), ...(hasPains ? ['auto'] : []), ...(hasOpps ? ['auto'] : []),
+    ].join(' ') : [
         hasTiles ? 'minmax(72px,auto)' : 'minmax(46px,auto)',   // phase header (+embedded KPI)
         ...(hasThumbs ? ['minmax(60px,96px)'] : []),            // per-phase illustration row
         ...(hasVoice ? ['minmax(48px,auto)'] : []),             // personas JTBD voice row
@@ -2051,8 +2740,12 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
         ...(hasOpps ? ['minmax(48px,auto)'] : []),              // strategic opportunities row
     ].join(' ');
 
-    const painFs = clampMin(cellFs - 1);
-    const painBudget = Math.min(96, Math.max(48, 2 * Math.floor(colTextW / (painFs * 0.5)) - 16));
+    const painFs = legible ? LEGIBLE_PX : clampMin(cellFs - 1);
+    const legibleCpl = Math.max(16, Math.floor(colTextW / (LEGIBLE_PX * 0.47)));
+    const legibleBudget = 3 * legibleCpl + 6;
+    const painBudget = legible ? legibleBudget : Math.min(96, Math.max(48, 2 * Math.floor(colTextW / (painFs * 0.5)) - 16));
+    const cellBudget = legible ? legibleBudget : fitBudget;
+    const painsPerCol = legible ? 2 : 3;
     const voiceBudget = Math.min(120, Math.max(56, 2 * charsPerLine - 4));
 
     return `<style>
@@ -2060,45 +2753,46 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
 .jmmeta{display:flex;gap:52px;flex-wrap:wrap}
 .jmmeta .mi .l{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
 .jmmeta .mi .v{font-family:${T.bodyFont};font-size:${SCALE.caption}px;color:${T.ink};margin-top:2px}
-.jmgrid{flex:1;min-height:0;display:grid;grid-template-columns:${gridCols};grid-template-rows:${matrixRows};border:1px solid ${T.hair};overflow:hidden}
+.jmgrid{flex:${legible ? '0 0 auto;align-content:start' : '1'};min-height:0;display:grid;grid-template-columns:${gridCols};grid-template-rows:${matrixRows};border:1px solid ${T.hair};overflow:hidden}
 .jmgrid>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair};overflow:hidden}
 .jmh{background:${T.ink};color:${T.paper};font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;flex-direction:column;justify-content:center;gap:4px;border-top:none!important}
 .jmh.crit{background:${T.accentWarn}}
 .jmh .hrow{display:flex;align-items:center;gap:11px}
-.jmh .step{flex:0 0 auto;width:25px;height:25px;display:flex;align-items:center;justify-content:center;background:${T.accent};color:${T.ink};font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px}
+.jmh .step{flex:0 0 auto;width:${legible ? 46 : 25}px;height:${legible ? 36 : 25}px;display:flex;align-items:center;justify-content:center;background:${T.accent};color:${T.ink};font-family:${T.monoFont};font-weight:700;font-size:${legible ? LEGIBLE_PX : SCALE.label}px}
 .jmh.crit .step{background:${T.ink};color:#FFFFFF}
-.jmh .nm{flex:1;min-width:0;line-height:1.15}
+.jmh .nm{flex:1;min-width:0;line-height:1.15${legible ? `;font-family:${T.bodyFont};letter-spacing:0;text-transform:none` : ''}}
 .jmh .ktl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accent};text-transform:uppercase}
 .jmh.crit .ktl{color:${T.paper}}
 .jmh .ktv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;letter-spacing:0;color:${T.paper};line-height:1.05;text-transform:none}
 .jmh.corner{color:${T.grey};font-weight:600;letter-spacing:2px;flex-direction:row;align-items:center}
-.jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:96px}
-.jmthumb .jmti{width:100%;height:100%;max-height:96px;object-fit:cover;display:block}
+.jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:96px;padding:8px;box-sizing:border-box}
+.jmthumb .jmti{width:auto;height:auto;max-width:72px;max-height:72px;object-fit:contain;display:block}
 .jmanchor{padding:8px 14px;background:${T.paper};display:flex;align-items:center;gap:10px;overflow:hidden}
 .jmanchor .ic{flex:0 0 auto;width:26px;height:26px;object-fit:contain}
 .jmanchor .txt{min-width:0;display:flex;flex-direction:column;gap:2px;overflow:hidden}
-.jmanchor .actor{font-family:${T.bodyFont};font-weight:700;font-size:${labelFs + 1}px;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;line-height:1.2}
+.jmanchor .actor{font-family:${T.bodyFont};font-weight:700;font-size:${labelFs + 1}px;color:${T.ink};text-transform:${legible ? 'none' : 'uppercase'};letter-spacing:${legible ? 0 : 0.5}px;line-height:1.2}
 .jmanchor .role{font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.grey};line-height:1.3}
 .jmanchor.pain{align-items:flex-start;border-top:3px solid ${T.accentWarn}!important}
 .jmanchor.pain .actor{color:${T.accentWarn}}
 .jmanchor.cool{align-items:flex-start;border-top:3px solid ${T.accentCool}!important}
 .jmanchor.cool .actor{color:${T.accentCool}}
 .jmv{padding:6px 14px;font-family:${T.bodyFont};font-size:${clampMin(cellFs - 1)}px;font-style:italic;line-height:1.32;color:${T.ink};background:${washHex(T.callout, 0.5)}}
-.jmc{padding:${dense ? 7 : 9}px 14px;font-family:${T.bodyFont};font-size:${cellFs}px;line-height:1.38;color:${T.ink};background:${washHex(T.callout, 0.33)}}
+.jmc{padding:${dense ? 7 : legible ? 12 : 9}px 14px;font-family:${T.bodyFont};font-size:${cellFs}px;line-height:${legible ? 1.28 : 1.38};color:${T.ink};background:${washHex(T.callout, 0.33)}}
 .jmc.ghost{color:${T.grey};font-style:italic}
 .jmp{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentWarn}!important;background:${T.paper};display:flex;flex-direction:column;gap:4px}
 .jmp .pi{font-family:${T.bodyFont};font-size:${painFs}px;line-height:1.3;color:${T.accentWarn};padding-left:12px;position:relative}
-.jmp .pi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentWarn}}
+.jmp .pi::before{content:'';position:absolute;left:0;top:${legible ? 11 : 6}px;width:${legible ? 8 : 6}px;height:${legible ? 8 : 6}px;background:${T.accentWarn}}
 .jmo{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentCool}!important;background:${washHex(T.callout, 0.33)};display:flex;flex-direction:column;gap:4px}
 .jmo .oi{font-family:${T.bodyFont};font-size:${painFs}px;line-height:1.3;color:${T.ink};padding-left:12px;position:relative}
-.jmo .oi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentCool}}
+.jmo .oi::before{content:'';position:absolute;left:0;top:${legible ? 11 : 6}px;width:${legible ? 8 : 6}px;height:${legible ? 8 : 6}px;background:${T.accentCool}}
+${legible ? `.jmp .pi,.jmo .oi{padding-left:18px;padding-right:12px}.jmp,.jmo{gap:8px}.jmp .pi::before,.jmo .oi::before{content:none}.jmp .jb,.jmo .jb{position:absolute;left:0;top:11px;width:8px;height:8px;display:block}.jmp .jb{background:${T.accentWarn}}.jmo .jb{background:${T.accentCool}}` : ''}
 </style>
 <div class="jmwrap">
-  <div class="jmmeta">
-    <div class="mi"><div class="l">Actors</div><div class="v">${esc(String(lanes.length))}</div></div>
-    <div class="mi"><div class="l">Phases</div><div class="v">${esc(String(n))}</div></div>
+  ${legible ? '' : `<div class="jmmeta">
     ${d.scope ? `<div class="mi"><div class="l">Scope</div><div class="v">${esc(trunc(String(d.scope), 40))}</div></div>` : ''}
-  </div>
+    <div class="mi"><div class="l">Actors</div><div class="v">${esc(trunc(String(d.actors || lanes.map((l: any) => l.actor).filter(Boolean).join(', ')), 60))}</div></div>
+    <div class="mi"><div class="l">Phases</div><div class="v">${esc(trunc(String(d.phasesLabel || stages.map((s: any) => s.name).filter(Boolean).join(' > ')), 60))}</div></div>
+  </div>`}
   <div class="jmgrid">
     <div class="jmh corner">JOURNEY &rarr;</div>
     ${stages.map((st: any, si: number) => {
@@ -2120,20 +2814,20 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     ${lanes.map((lane: any) => {
         const ic = laneIcon(lane.actor || '');
         return `
-    <div class="jmanchor">${ic ? `<img class="ic" src="${ic}" alt=""/>` : ''}<div class="txt"><div class="actor">${esc(trunc(lane.actor, 24))}</div>${lane.role ? `<div class="role">${esc(trunc(lane.role, 34))}</div>` : ''}</div></div>
+    <div class="jmanchor">${ic ? `<img class="ic" src="${ic}" alt=""/>` : ''}<div class="txt"><div class="actor">${esc(trunc(lane.actor, legible ? 32 : 24))}</div>${lane.role && !legible ? `<div class="role">${esc(trunc(lane.role, 34))}</div>` : ''}</div></div>
     ${stages.map((_: any, si: number) => {
             const txt = (lane.cells || [])[si] || '';
-            return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', fitBudget))}</div>`;
+            return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', cellBudget))}</div>`;
         }).join('')}`;
     }).join('')}
     ${hasPains ? `
     <div class="jmanchor pain"><div class="txt"><div class="actor">Pain points</div></div></div>
-    ${painCols.map(items => `<div class="jmp">${items.slice(0, 3).map(p => `<div class="pi">${esc(trunc(p, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
+    ${painCols.map(items => `<div class="jmp">${items.slice(0, painsPerCol).map(p => `<div class="pi">${legible ? '<i class="jb"></i>' : ''}${esc(trunc(p, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
     ${hasOpps ? `
     <div class="jmanchor cool"><div class="txt"><div class="actor">Opportunities</div></div></div>
-    ${oppCols.map(items => `<div class="jmo">${items.map(o => `<div class="oi">${esc(trunc(o, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
+    ${oppCols.map(items => `<div class="jmo">${items.map(o => `<div class="oi">${legible ? '<i class="jb"></i>' : ''}${esc(trunc(o, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
   </div>
-</div>`;
+</div>${pptxNotes(slide)}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -2144,6 +2838,10 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
 function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
     const gaps: any[] = Array.isArray(slide.gapMatrix?.gaps) ? slide.gapMatrix.gaps.slice(0, _caps.items) : [];
     const scaleMax: number = slide.gapMatrix?.scaleMax || 5;
+    // E10 twin parity (2026-10-01): the web twin closes the matrix with `insight`; the export
+    // twin dropped it. Rendered as an in-flow labelled line (never the absolute takeaway band,
+    // which a nine-row dense matrix would collide with).
+    const insight: string = String(slide.gapMatrix?.insight || '').trim();
     const denseGm = gaps.length >= 9;
     const sevColor: Record<string, string> = {
         critical: T.accentWarn, high: T.accentWarn, medium: T.gold, low: T.muted,
@@ -2152,6 +2850,7 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
         const pct = Math.round((lvl / scaleMax) * 100);
         return `<div class="bar"><div class="fill" style="width:${pct}%"></div></div>`;
     };
+    if (gaps.length > 0 && gaps.length <= 5 && !getBrandArt(T.brandId)) return renderGapMatrixLegible(gaps, scaleMax, insight, sevColor, T) + pptxNotes(slide);
     return `<style>
 .gmtbl{width:100%;border-collapse:collapse;flex:1}
 .gmtbl th,.gmtbl td{padding:${denseGm ? '7px 8px' : '12px 10px'};border-bottom:1px solid ${T.hair};vertical-align:top;text-align:left}
@@ -2161,6 +2860,12 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
 .bar .fill{height:100%;background:${T.accent}}
 .gmtbl td.sev{font-family:${T.monoFont};font-size:${denseGm ? SCALE.label : SCALE.body}px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
 .gmtbl td.imp{font-size:${denseGm ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink}}
+/* 2026-10-01 consulting grade: the gap carries its named comparator and the verbatim evidence that grounds it. */
+.gmcomp{margin-top:6px;font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:1px;text-transform:uppercase;color:${T.muted}}
+.gmev{margin-top:6px;border-left:3px solid ${T.accentCool};padding-left:10px;font-size:${denseGm ? SCALE.caption : SCALE.body}px;line-height:1.35;color:${T.ink}}
+.gmev span{font-family:${T.monoFont};font-size:${SCALE.caption}px;color:${T.muted}}
+.gmins{margin-top:14px;border-top:1px solid ${T.hair};padding-top:12px;font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink};flex-shrink:0}
+.gmins span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <table class="gmtbl">
   <thead><tr><th>Capability</th><th>Current</th><th>Target</th><th>Severity</th><th>Impact</th></tr></thead>
@@ -2171,10 +2876,71 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
         <td>${bar(g.currentMaturity)}<div style="font-family:${T.monoFont};font-size:${SCALE.caption}px;color:${T.muted};margin-top:3px">L${g.currentMaturity}/${scaleMax}</div></td>
         <td>${bar(g.targetMaturity)}<div style="font-family:${T.monoFont};font-size:${SCALE.caption}px;color:${T.muted};margin-top:3px">L${g.targetMaturity}/${scaleMax}</div></td>
         <td class="sev" style="color:${sevColor[g.severity] || T.ink}">${esc(g.severity)}</td>
-        <td class="imp">${esc(g.impact)}</td>
+        <td class="imp">${esc(g.impact)}${g.competitor ? `<div class="gmcomp">${esc(trunc(String(g.competitor), 60))}</div>` : ''}${g.evidence ? `<div class="gmev">&ldquo;${esc(trunc(String(g.evidence), 140))}&rdquo;${g.source ? ` <span>${esc(trunc(String(g.source), 50))}</span>` : ''}</div>` : ''}</td>
       </tr>`).join('')}
   </tbody>
-</table>`;
+</table>
+${insight ? `<div class="gmins"><span>Insight</span> ${esc(trunc(insight, 200))}</div>` : ''}`;
+}
+
+/** gap-matrix LEGIBLE edition (2026-10-02, owner: the exported matrix was 39 text boxes at
+ *  8.5-10.5 pt, its last row below the slide). Up to five gaps render as a CSS grid at the 24px
+ *  (12 pt) floor: CAPABILITY (name + what serves it today) | MATURITY (now vs target bars) |
+ *  SEVERITY | IMPACT (the consequence, then ONE verbatim evidence line with its source). Rows size
+ *  to content; nothing is clipped, so the PPTX walk paints exactly what the browser shows. */
+function renderGapMatrixLegible(gaps: any[], scaleMax: number, insight: string, sevColor: Record<string, string>, T: BrandTokens): string {
+    const F = LEGIBLE_PX;
+    const lvl = (v: unknown) => Math.max(0, Math.min(scaleMax, Number(v) || 0));
+    const bar = (v: number, color: string) => `<div class="gbar"><div style="width:${Math.round((v / scaleMax) * 100)}%;background:${color}"></div></div>`;
+    // FIT MODEL: estimate each row's line count from the column widths and drop the least
+    // load-bearing detail until the matrix fits the canvas body (~740px under a two-line title).
+    // Drop order: the pattern line (it also rides in the speaker notes), then the "Today:" lines,
+    // then evidence lines from the last row up. Type never shrinks.
+    const LINE = 30, ROW_PAD = 25, HEAD = 52, BODY = 750;
+    const cpl = (w: number, px: number, k: number) => Math.max(10, Math.floor(w / (px * k)));
+    const nLines = (t: string, w: number, px: number, k: number) => (t ? Math.ceil(t.length / cpl(w, px, k)) : 0);
+    const rows = gaps.map(g => ({
+        cap: trunc(String(g.capability || ''), 44), today: g.competitor ? `Today: ${trunc(String(g.competitor), 44)}` : '',
+        impact: trunc(String(g.impact || ''), 110), evidence: g.evidence ? trunc(String(g.evidence), 120) : '', source: g.source ? trunc(String(g.source), 48) : '',
+    }));
+    let showInsight = !!insight;
+    const rowLines = (r: typeof rows[number]) => Math.max(2,
+        nLines(r.cap, 360, SCALE.lead, 0.5) + nLines(r.today, 360, F, 0.46),
+        nLines(r.impact, 763, F, 0.47) + (r.evidence ? nLines(`"${r.evidence}" ${r.source}`, 750, F, 0.45) : 0));
+    const total = () => HEAD + rows.reduce((a, r) => a + rowLines(r) * LINE + ROW_PAD, 0) + (showInsight ? nLines(`Pattern ${insight}`, 1668, F, 0.46) * 33 + 30 : 0);
+    if (total() > BODY) showInsight = false;
+    for (let i = rows.length - 1; i >= 0 && total() > BODY; i--) rows[i].today = '';
+    for (let i = rows.length - 1; i >= 0 && total() > BODY; i--) { rows[i].evidence = ''; rows[i].source = ''; }
+    return `<style>
+.glg{display:grid;grid-template-columns:400px 210px 132px minmax(0,1fr);column-gap:26px;align-content:start;flex:0 0 auto}
+.glg>.gh{font-family:${T.labelFont};font-size:${F}px;letter-spacing:2px;line-height:1.2;color:${T.muted};text-transform:uppercase;font-weight:600;padding-bottom:10px;border-bottom:2px solid ${T.ink}}
+.glg>.gc{padding:12px 0;border-bottom:1px solid ${T.hair};min-width:0}
+.glg .gcap{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.22;color:${T.ink}}
+.glg .gcap,.glg .gtoday,.glg .gimp,.glg .gev{max-width:90%;padding-right:16px}
+.glg .gtoday{margin-top:4px;font-size:${F}px;line-height:1.25;color:${T.muted}}
+.glg .gm{display:grid;grid-template-columns:90px 1fr;column-gap:10px;row-gap:6px;align-items:center;font-family:${T.monoFont};font-size:${F}px;line-height:1.2;color:${T.ink}}
+.glg .gbar{height:12px;background:${T.hair};position:relative}
+.glg .gbar>div{height:100%}
+.glg .gsev{font-family:${T.labelFont};font-size:${F}px;letter-spacing:1.5px;line-height:1.2;text-transform:uppercase;font-weight:700}
+.glg .gimp{font-size:${F}px;line-height:1.25;font-weight:600;color:${T.ink}}
+.glg .gev{margin-top:4px;border-left:4px solid ${T.accentCool};padding-left:12px;font-size:${F}px;line-height:1.25;font-style:italic;color:${T.ink}}
+.glg .gev span{font-style:normal;color:${T.muted}}
+.gmins{margin-top:16px;border-top:1px solid ${T.hair};padding-top:12px;font-size:${F}px;line-height:1.36;color:${T.ink};flex-shrink:0}
+.gmins span{font-family:${T.labelFont};font-size:${F}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:10px;font-weight:600}
+</style>
+<div class="glg">
+  <div class="gh">Capability</div><div class="gh">Maturity</div><div class="gh">Severity</div><div class="gh">Impact and evidence</div>
+  ${gaps.map((g, gi) => {
+        const cur = lvl(g.currentMaturity), tgt = lvl(g.targetMaturity);
+        const r = rows[gi];
+        return `
+  <div class="gc"><div class="gcap">${esc(r.cap)}</div>${r.today ? `<div class="gtoday">${esc(r.today)}</div>` : ''}</div>
+  <div class="gc"><div class="gm"><span>Now L${cur}</span>${bar(cur, T.accentWarn)}<span>Goal L${tgt}</span>${bar(tgt, T.accent)}</div></div>
+  <div class="gc"><div class="gsev" style="color:${sevColor[String(g.severity || '').toLowerCase()] || T.ink}">${esc(String(g.severity || ''))}</div></div>
+  <div class="gc"><div class="gimp">${esc(r.impact)}</div>${r.evidence ? `<div class="gev">&ldquo;${esc(r.evidence)}&rdquo;${r.source ? ` <span>${esc(r.source)}</span>` : ''}</div>` : ''}</div>`;
+    }).join('')}
+</div>
+${showInsight ? `<div class="gmins"><span>Pattern</span>${esc(trunc(insight, 160))}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -2272,7 +3038,11 @@ function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
     // already splits deep payloads at 2/slide, so this branch IS the deep
     // rendering path.
     const isDeep = (f: any) => !!f.userStory && Array.isArray(f.acceptanceCriteria) && f.acceptanceCriteria.length >= 3;
-    if (features.length > 0 && features.length <= 2 && features.some(isDeep)) {
+    // E10 twin parity (2026-10-01): the web twin treats a SINGLE feature carrying any deep field
+    // (technicalDetails / problemSolved / stakeholders / evidence[]) as the full-depth layout; the
+    // export twin only looked at story + criteria, so a single evidenced feature lost its evidence.
+    const hasDeepFields = (f: any) => !!(f.technicalDetails || f.problemSolved || f.stakeholders || (Array.isArray(f.evidence) && f.evidence.length > 0));
+    if (features.length > 0 && features.length <= 2 && (features.some(isDeep) || (features.length === 1 && hasDeepFields(features[0])))) {
         return renderPrdFeatureDense(features, T, featureImages);
     }
     const priColor: Record<string, string> = {
@@ -2288,7 +3058,7 @@ function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
 .feat .fpri{font-family:${T.monoFont};font-size:${denseFt ? SCALE.label : SCALE.body}px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:4px 10px;color:${T.ink};border:2px solid currentColor}
 .feat .fps{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.5;color:${T.ink}}
 .feat .fst{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.5;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
-.feat .faclbl{font-family:${T.monoFont};font-size:${denseFt ? SCALE.label : SCALE.caption}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;font-weight:600;margin-top:4px}
+.feat .faclbl{font-family:${T.labelFont};font-size:${denseFt ? SCALE.label : SCALE.caption}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;font-weight:600;margin-top:4px}
 .feat ul{list-style:none;display:flex;flex-direction:column;gap:${denseFt ? 4 : 6}px}
 .feat li{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
 .feat li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;background:${T.accent}}
@@ -2327,6 +3097,11 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: s
         if (f.technicalDetails) footer.push(trunc(f.technicalDetails, 76));
         if (f.stakeholders) footer.push(trunc(`Stakeholders: ${f.stakeholders}`, 76));
         if (f.traces) footer.push(trunc(`Traces: ${f.traces}`, 76));
+        // E10 twin parity (2026-10-01): verbatim evidence quotes (text / attribution / source) that
+        // the web deep layout renders; the export twin dropped them. Two quotes per card at most.
+        const evidence: any[] = Array.isArray(f.evidence) ? f.evidence.slice(0, 2) : [];
+        const evidenceHtml = evidence.length > 0 ? `<div class="pdl">Evidence</div>
+        <div class="pdev">${evidence.map((e: any) => `<div class="pdeq"><div class="pdet">&ldquo;${esc(trunc(e.text, 140))}&rdquo;</div><div class="pdea">${esc(trunc([e.attribution, e.source].filter(Boolean).join(' · '), 64))}</div></div>`).join('')}</div>` : '';
         return `
       <div class="pdc">
         <div class="pdh">
@@ -2340,6 +3115,7 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: s
         ${crit.length > 0 ? `<div class="pdl">Acceptance criteria</div>
         <div class="pdac">${crit.map(c => `<div class="pdai"><span></span><p>${esc(trunc(c, critBudget))}</p></div>`).join('')}</div>` : ''}
         ${f.successMetric ? `<div class="pdl">Success metric</div><div class="pdsm">${esc(trunc(f.successMetric, 120))}</div>` : ''}
+        ${evidenceHtml}
         ${footer.length > 0 ? `<div class="pdf">${footer.map(t => `<div>${esc(t)}</div>`).join('')}</div>` : ''}
       </div>`;
     }).join('');
@@ -2359,6 +3135,10 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: s
 .pdai span{width:9px;height:9px;background:${T.accentCool};margin-top:8px;display:block}
 .pdai p{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink}}
 .pdsm{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};border-left:3px solid ${T.accent};padding-left:12px}
+.pdev{display:flex;flex-direction:column;gap:8px}
+.pdeq{border-left:3px solid ${T.accentCool};padding:6px 12px;background:${T.callout}}
+.pdeq .pdet{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};font-style:italic}
+.pdeq .pdea{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:4px}
 .pdf{margin-top:auto;border-top:1px solid ${T.hair};padding-top:11px;display:flex;flex-direction:column;gap:4px;font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
 </style>
 <div class="pdg">${cards}</div>`;
@@ -2432,6 +3212,11 @@ ${dump.join('\n')}
 <div class="note">Template &lt;${esc(slide.template || 'unknown')}&gt; rendered via the generic fallback. For full fidelity, add a dedicated renderer to slideToStageHtml.ts.</div>`;
 }
 
+/** The four `slides:` archetypes services/prdProjection.ts emits for the #prd deck (Stage 3.3). Both
+ *  twins render them through composeSlide: this file for the 1920x1080 export, web.tsx
+ *  PrdArchetypeSlide for the preview. */
+export const PRD_PROJECTION_ARCHETYPES: ReadonlySet<string> = new Set(['prd-story', 'prd-ledger', 'prd-signals', 'prd-trace']);
+
 // ---------------------------------------------------------------------------
 // Public entry: SlideData -> #stage 1920×1080 HTML doc.
 // ---------------------------------------------------------------------------
@@ -2456,15 +3241,99 @@ html,body{width:100%;height:100%;background:${T.rail};overflow:hidden}
 
 const _DIAGRAM_IMAGE_TEMPLATES = new Set(['journey-map', 'architecture-map', 'mindmap', 'service-blueprint']);
 
-export function slideDataToStageHtml(slide: SlideDataLike): string {
-    const brand: Brand = slide.brand === 'nu' ? 'nu' : 'nxt';
-    const T = brandTokens(brand);
+/** 2026-10-02 (owner: "blank slides"; vision phase 9, every PPTX native + editable): a journey map
+ *  whose payload carries a real matrix (>= 3 stages, >= 1 actor lane) exports as the NATIVE swimlane
+ *  (editable text, native shapes), never as the full-bleed exhibit picture. The picture path shipped
+ *  a blank slide (the exporter re-drew the paper canvas over it) and, even when visible, was one
+ *  uneditable raster. Payloads without a matrix keep the D17 exhibit image. */
+function journeyHasNativeMatrix(slide: SlideDataLike, template: string): boolean {
+    if (template !== 'journey-map') return false;
+    const d: any = (slide as any).journeyMap || {};
+    return Array.isArray(d.stages) && d.stages.length >= 3 && Array.isArray(d.lanes) && d.lanes.length >= 1;
+}
+
+// ---------------------------------------------------------------------------
+// E1 (plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, Stage 2.2; vision phases 3 + 9):
+// ONE citation-pointer chokepoint for the whole export surface. Shipped `slides:quadrant`
+// payloads carried "[articles/exs-clockwork/5af374bb9c.md#c3]" in `sourceLine` and trailing
+// pointers inside quotes, and this module handed them to composeSlide untouched, so the
+// PPTX showed file paths. Every slide now passes through scrubCitationPointersDeep BEFORE
+// dispatch, GOLD templates and slides:* archetypes alike:
+//   - source-type fields (sourceLine / source / sources / attribution / citation ...) get each
+//     pointer REPLACED by the named, dated label the registry already resolves
+//     (formatCitationLabel -> resolveOne + page provenance); resolution logic lives there only.
+//   - every other string field (prose) gets bracket groups and bare path.md#cN tokens STRIPPED,
+//     including the commentary tail some models write inside the bracket
+//     ("[..#c2, paraphrased from theme]"); extractPointers repairs the whitespace it leaves.
+//   - image / data-URI carriers are never touched (key name or data:/svg prefix).
+// The walk is depth-limited and clone-on-write: the caller's slide object is never mutated.
+// ---------------------------------------------------------------------------
+const _SOURCE_FIELD_RE = /^(sourceLine|source|sources|attribution|attributionName|citation|citations|evidenceTag|quoteSource|sourceName)$/i;
+const _CARRIER_FIELD_RE = /(image|img|src|uri|url|href|portrait|icon|glyph|logo|svg|thumb)/i;
+const _POINTER_WALK_MAX_DEPTH = 10;
+
+/** A source-type field with pointers -> the prose it carried plus the registry labels, deduped.
+ *  "Sources: [a.md#c3], [b.md#c5]" -> "Sources: A (Mar 2026); B (Feb 2026)". Unresolvable
+ *  pointers are dropped: a file path never reaches the reader. */
+function pointerFreeSourceText(value: string): string {
+    const { text, pointers } = extractPointers(value);
+    const trimmed = text.trim();
+    const lead = trimmed.replace(/^[\s,;:]+|[\s,;:]+$/g, '').replace(/\(\s*\)/g, '').trim();
+    const labels: string[] = [];
+    for (const p of pointers) {
+        const label = formatCitationLabel(p);
+        if (!label) continue;
+        const lc = label.toLowerCase();
+        if (labels.some(l => l.toLowerCase() === lc)) continue;
+        // The prose already names this source ("Source: Clockwork [..clockwork..md#c3]"): no echo.
+        if (lead && (lead.toLowerCase().includes(lc) || lc.includes(lead.toLowerCase()))) continue;
+        labels.push(label);
+    }
+    if (labels.length === 0) return lead;
+    if (!lead) return labels.join('; ');
+    return /:$/.test(trimmed) ? `${lead}: ${labels.join('; ')}` : `${lead}; ${labels.join('; ')}`;
+}
+
+export function scrubCitationPointersDeep<T>(value: T, key = '', depth = 0): T {
+    if (typeof value === 'string') {
+        // Fast path: no ".md" anywhere -> nothing a pointer regex could match.
+        if (value.indexOf('.md') === -1) return value;
+        if (_CARRIER_FIELD_RE.test(key) || /^\s*(data:|<svg\b)/i.test(value)) return value;
+        const out = _SOURCE_FIELD_RE.test(key) ? pointerFreeSourceText(value) : extractPointers(value).text;
+        return out as unknown as T;
+    }
+    if (!value || typeof value !== 'object' || depth >= _POINTER_WALK_MAX_DEPTH) return value;
+    if (Array.isArray(value)) {
+        // Array elements inherit the parent key so `sources: string[]` items resolve as sources.
+        return (value as unknown[]).map(v => scrubCitationPointersDeep(v, key, depth + 1)) as unknown as T;
+    }
+    const proto = Object.getPrototypeOf(value);
+    if (proto !== Object.prototype && proto !== null) return value;
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+        out[k] = scrubCitationPointersDeep(v, k, depth + 1);
+    }
+    return out as T;
+}
+
+export function slideDataToStageHtml(slide: SlideDataLike, position?: DeckPosition): string {
+    // E1 chokepoint: runs on EVERY slide before any dispatch (see scrubCitationPointersDeep).
+    slide = scrubCitationPointersDeep(slide);
+    const brand: Brand = normalizeBrandId(slide.brand);
+    // Deck position (round 2): explicit opts win, else the slide may carry its own position.
+    const pos: DeckPosition = {
+        deckIndex: typeof position?.deckIndex === 'number' ? position.deckIndex : (typeof (slide as any).deckIndex === 'number' ? (slide as any).deckIndex : undefined),
+        dividerOrdinal: typeof position?.dividerOrdinal === 'number' ? position.dividerOrdinal : (typeof (slide as any).dividerOrdinal === 'number' ? (slide as any).dividerOrdinal : undefined),
+    };
     const template = (slide.template || '').toLowerCase();
+    // DECIEM canvas family for GOLD templates (quote -> black canvas tokens; tables -> no art).
+    const _family: GoldCanvasFamily = getBrandArt(brand) ? goldCanvasFamily(template, slide) : 'body';
+    const T = _family === 'dark' ? darkCanvasTokens(brandTokens(brand)) : brandTokens(brand);
 
     // Full-bleed native diagram exhibit (see fullBleedImageDoc). When present, it replaces the GOLD
     // shell entirely for the diagram templates. Absent -> the native matrix/tree renderers below.
     const _diagImg = String((slide as any).diagramImage || '').trim();
-    if (_diagImg && _DIAGRAM_IMAGE_TEMPLATES.has(template)) {
+    if (_diagImg && _DIAGRAM_IMAGE_TEMPLATES.has(template) && !journeyHasNativeMatrix(slide, template)) {
         return fullBleedImageDoc(brand, slide.title || '', _diagImg);
     }
 
@@ -2488,8 +3357,14 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
                 { archetype, brand, ground: vz.ground || 'dark', industry: vz.industry || slide.industry, heading: slide.title, explicitFamily: vz.family },
             );
         }
-        const composed = composeSlide(archetype, payload, brand);
+        const composed = composeSlide(archetype, payload, brand, pos);
         if (composed) return composeArchetypeDoc(brand, slide.title || '', composed);
+        // Stage 3.3 (2026-10-01): the PRD projection archetypes are REGISTERED composer specs. A null
+        // here means the registry and this dispatch drifted; say so loudly instead of shipping the
+        // generic developer-note slide the F1 audit found in the preview and the PPTX alike.
+        if (PRD_PROJECTION_ARCHETYPES.has(archetype)) {
+            console.error(`[slideToStageHtml] slides:${archetype} is a PRD projection archetype but composeSlide returned null; check ARCHETYPE_SPECS`);
+        }
     }
     // Universal density axis: resolve this slide's item ceilings before dispatch.
     _caps = densityCaps(template, slide.density);
@@ -2615,6 +3490,11 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
             bodyInnerHtml: body,
             sources: slide.sources,
             kicker: undefined,
+            // DECIEM: a GOLD section-divider rides the brand's section canvas (pop fill by divider
+            // ordinal) and the thesis variant the dark canvas; both carry the lockup. No-op for NXT / NU.
+            canvasRole: (slide.sectionDivider || {}).variant === 'thesis' ? 'thesis' : 'section',
+            deckIndex: pos.deckIndex,
+            dividerOrdinal: pos.dividerOrdinal,
         });
     }
 
@@ -2632,6 +3512,12 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
         // implication; before-after / evidence-stack keep the lesson fallback.
         const isFourBlock = !c.beforeAfter && !(Array.isArray(c.evidence) && c.evidence.length > 0) && (!c.variant || c.variant === 'four-block');
         takeaway = c.takeaway || (isFourBlock ? c.implication : (c.lesson || c.implication)) || undefined;
+    }
+    // E10 twin parity (2026-10-01): a tile-sourced recommendation carries its framing tag
+    // ("DEFENSIBLE CONSENSUS" / "NON-OBVIOUS BET") as the kicker, exactly as the web twin does.
+    if (template === 'recommendation') {
+        const rc: any = slide.recommendation || {};
+        if (rc.framingTag) kicker = String(rc.framingTag);
     }
     // GOLD service-blueprint chrome: journeyType rides in the kicker and the
     // takeaway band carries keyInsight (same slot the web GoldFrame twin uses).
@@ -2682,5 +3568,10 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
         sources: shellSources,
         kicker,
         takeaway,
+        // DECIEM canvas family + deck position + art-vs-imagery (all no-ops for NXT / NU).
+        canvasRole: _family,
+        deckIndex: pos.deckIndex,
+        dividerOrdinal: pos.dividerOrdinal,
+        noArt: _family === 'body' && hasFilledImagery(slide),
     });
 }

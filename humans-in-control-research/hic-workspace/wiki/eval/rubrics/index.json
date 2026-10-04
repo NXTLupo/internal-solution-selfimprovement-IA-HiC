@@ -1,0 +1,248 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-10-01",
+  "rubrics": {
+    "blueprint": {
+      "path": "eval/rubrics/blueprint-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "brief": {
+      "path": "eval/rubrics/brief-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "case-study": {
+      "path": "eval/rubrics/case-study-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "competitive": {
+      "path": "eval/rubrics/competitive-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "deep-research": {
+      "path": "eval/rubrics/deep-research-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "explainer": {
+      "path": "eval/rubrics/explainer-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "gap": {
+      "path": "eval/rubrics/gap-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "journey": {
+      "path": "eval/rubrics/journey-rubric.json",
+      "version": "1.0.0",
+      "criteria": 10,
+      "blocking": [
+        "cell_anatomy",
+        "anti_slop_hygiene"
+      ]
+    },
+    "meta-themes": {
+      "path": "eval/rubrics/meta-themes-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "mindmap": {
+      "path": "eval/rubrics/mindmap-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "org": {
+      "path": "eval/rubrics/org-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "personas": {
+      "path": "eval/rubrics/personas-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "persona_quote_authenticity",
+        "persona_elasticity",
+        "demographics_first_thinking"
+      ]
+    },
+    "presentation": {
+      "path": "eval/rubrics/presentation-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "proto": {
+      "path": "eval/rubrics/proto-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "recommendations": {
+      "path": "eval/rubrics/recommendations-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "engagement_context_coherence",
+        "evidence_diversity"
+      ]
+    },
+    "report": {
+      "path": "eval/rubrics/report-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "roadmap": {
+      "path": "eval/rubrics/roadmap-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "strategy": {
+      "path": "eval/rubrics/strategy-rubric.json",
+      "version": "1.0.0",
+      "criteria": 10,
+      "blocking": [
+        "diagnosis_specificity",
+        "guiding_policy_is_a_decision",
+        "evidence_anchoring"
+      ]
+    },
+    "tech-arch": {
+      "path": "eval/rubrics/tech-arch-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "tech-audit": {
+      "path": "eval/rubrics/tech-audit-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "evidence_anchoring",
+        "cached_selection_coverage"
+      ]
+    },
+    "themes": {
+      "path": "eval/rubrics/themes-rubric.json",
+      "version": "1.0.0",
+      "criteria": 11,
+      "blocking": [
+        "yield",
+        "evidence_anchoring"
+      ]
+    },
+    "prd": {
+      "path": "eval/rubrics/prd-rubric.json",
+      "version": "2026.1",
+      "criteria": 10,
+      "blocking": [
+        "problem_story",
+        "requirements_trace",
+        "success_signals"
+      ]
+    }
+  },
+  "aliases": {
+    "persona": "personas",
+    "arch": "tech-arch",
+    "gap-analysis": "gap",
+    "brief-dialog": "brief",
+    "research-plan": "deep-research",
+    "strategy-slide": "strategy",
+    "heuristic-ux": "proto",
+    "strategy_deck": "strategy",
+    "recs": "recommendations",
+    "case_study": "case-study"
+  },
+  "critics": {
+    "journey-illustrator": {
+      "path": "/skills/diagrams/journey-illustrator/SKILL.md"
+    },
+    "org-illustrator": {
+      "path": "/skills/diagrams/org-illustrator/SKILL.md"
+    },
+    "arch-illustrator": {
+      "path": "/skills/diagrams/arch-illustrator/SKILL.md"
+    },
+    "blueprint-illustrator": {
+      "path": "/skills/diagrams/blueprint-illustrator/SKILL.md"
+    },
+    "roadmap-illustrator": {
+      "path": "/skills/diagrams/roadmap-illustrator/SKILL.md"
+    },
+    "verbatim-quote-auditor": {
+      "deterministic": "quote_attribution"
+    },
+    "evidence-quality-auditor": {
+      "deterministic": "citation_diversity"
+    },
+    "anti-slop-auditor": {
+      "deterministic": "anti_slop"
+    },
+    "structural-conformance": {
+      "deterministic": "structural"
+    }
+  }
+}

@@ -40,7 +40,7 @@ MAP = {
         "5-lane Bitner grid x phases (TOUCHPOINTS/STUDENT ACTIONS/FRONTSTAGE/BACKSTAGE/SUPPORT lanes KEPT, "
         "lines of interaction/visibility as dark bands); SVG emotion curve row with named emotions; fail cells "
         "(fail tint + accent why with square marker). Journey: per-phase goal + 2 pains + throughline."),
-    "deck-narrative-composer": (["presentation"],
+    "deck-composer": (["presentation"],
         "Deck cover + narrative-arc agenda: column/grid of the 8-move story, each a finding-title block. "
         "Every slide in the deck is itself a GOLD slide; the deck reads from titles alone."),
     "tech-audit-inspector": (["audit"],

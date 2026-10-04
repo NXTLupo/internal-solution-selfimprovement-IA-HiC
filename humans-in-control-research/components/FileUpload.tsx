@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import mammoth from 'mammoth';
 import { FileUpload as FileUploadType } from '../types';
+import { ACCEPTED_EXTS } from './ChatAttachmentDropzone';
 
 /**
  * Background pass that POSTs every uploaded file to /api/parse-upload and
@@ -53,6 +54,11 @@ async function parseFilesInBackground(
     // (chat context, wiki archive, corpus ingestion) see parsedText.
     onFilesSelected(results);
 }
+
+/** Accepted research-start upload types: the SAME list the analyst-chat attach
+ *  button uses (2026-10-02: adds .pptx/.ppt/.xlsx/.xls/.xml and images, which the
+ *  proxy OCRs through the vision extractor). */
+export const UPLOAD_ACCEPT = ACCEPTED_EXTS;
 
 interface Props {
   onFilesSelected: (files: FileUploadType[]) => void;
@@ -165,7 +171,12 @@ const FileUpload: React.FC<Props> = ({ onFilesSelected, isLoading }) => {
           ref={fileInputRef}
           type="file"
           multiple
-          accept=".pdf,.txt,.json,.md,.csv,.doc,.docx"
+          // 2026-10-02: decks and workbooks are first-class uploads. A live 2026-10-01 run
+          // lost three PowerPoints because this list stopped at .docx; the proxy's
+          // /api/parse-upload extracts .pptx (python-pptx: titles, body, groups, tables,
+          // speaker notes) and .xlsx (openpyxl: every sheet and row). Keep in step with
+          // ChatAttachmentDropzone.ACCEPTED_EXTS so both entry points accept the same set.
+          accept={UPLOAD_ACCEPT}
           className="hidden"
           onChange={(e) => handleFiles(e.target.files)}
         />
@@ -180,13 +191,15 @@ const FileUpload: React.FC<Props> = ({ onFilesSelected, isLoading }) => {
             {isLoading ? "Processing files..." : "Upload Research Data"}
           </p>
           <p className="text-sm text-[var(--text-tertiary)] max-w-sm">
-            Drag & drop PDF, TXT, JSON, DOC or CSV files here.
+            Drag & drop PDF, Word, PowerPoint, Excel, TXT, JSON, Markdown, CSV or image files here.
           </p>
           <div className="mt-4 flex gap-2">
             <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.PDF</span>
             <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.TXT</span>
             <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.JSON</span>
             <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.DOCX</span>
+            <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.PPTX</span>
+            <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded text-xs text-[var(--text-tertiary)] uppercase tracking-wide">.XLSX</span>
           </div>
         </div>
       </div>

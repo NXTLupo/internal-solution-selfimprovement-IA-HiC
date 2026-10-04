@@ -17,11 +17,12 @@
  */
 
 import JSZip from 'jszip';
+import type { BrandVariant } from './presentationTypes';
 
 export interface PrototypeExportInput {
     title: string;
     slug: string;
-    brand?: 'NXT' | 'NU' | string;
+    brand?: BrandVariant | string;      // 'NXT' | 'NU' | 'DECIEM'
     code: string;                       // the generated React component (default-exports App)
     based_on?: string;                  // recommendation slug or "free-form: ..."
     research_goal?: string;
@@ -68,13 +69,33 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 `;
 }
 
+// 2026-10-01 - brand switch with all three members. DECIEM exports a black canvas with white
+// type, pink accent and Poppins / Josefin Sans faces (brands.ts deciemBrand fallback values).
+function brandCssVars(brand: string): { bg: string; text: string; accent: string; accent2: string; fontDisplay: string; fontBody: string; fontImport: string } {
+    const key = String(brand || 'NXT').toUpperCase();
+    switch (key) {
+        case 'NU':
+            return { bg: '#FFFFFF', text: '#0D0D0D', accent: '#C8102E', accent2: '#000000', fontDisplay: 'Lato', fontBody: 'Lato',
+                fontImport: "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');" };
+        case 'DECIEM':
+            return { bg: '#000000', text: '#FFFFFF', accent: '#FB48C4', accent2: '#00FACC', fontDisplay: 'Poppins', fontBody: 'Josefin Sans',
+                fontImport: "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Josefin+Sans:wght@400;600&family=Nunito:wght@400;700&display=swap');" };
+        default:
+            return { bg: '#FFFFFF', text: '#0D0D0D', accent: '#B8B800', accent2: '#115054', fontDisplay: 'Saira Condensed', fontBody: 'Archivo',
+                fontImport: "@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600&family=Archivo:wght@400;600;700&display=swap');" };
+    }
+}
+
 function buildIndexCss(brand: string): string {
-    const isNu = brand === 'NU';
-    return `:root {
-  --bg: #FFFFFF;
-  --text: #0D0D0D;
-  --accent: ${isNu ? '#C8102E' : '#B8B800'};
-  --accent-2: ${isNu ? '#000000' : '#115054'};
+    const v = brandCssVars(brand);
+    return `${v.fontImport}
+:root {
+  --bg: ${v.bg};
+  --text: ${v.text};
+  --accent: ${v.accent};
+  --accent-2: ${v.accent2};
+  --font-display: '${v.fontDisplay}', sans-serif;
+  --font-body: '${v.fontBody}', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; }

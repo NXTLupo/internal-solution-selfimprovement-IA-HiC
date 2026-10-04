@@ -268,7 +268,7 @@ function generateConstraint(field: string, editType: string, avgDelta: number, e
 /**
  * Approve a suggested constraint. It will be injected into future prompts.
  */
-export function approveConstraint(patternIndex: number): void {
+function approveConstraint(patternIndex: number): void {
     const patterns = getPatterns();
     if (patterns[patternIndex]) {
         patterns[patternIndex].status = 'approved';
@@ -287,16 +287,6 @@ export function approveConstraint(patternIndex: number): void {
     }
 }
 
-/**
- * Dismiss a suggested constraint.
- */
-export function dismissConstraint(patternIndex: number): void {
-    const patterns = getPatterns();
-    if (patterns[patternIndex]) {
-        patterns[patternIndex].status = 'dismissed';
-        localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
-    }
-}
 
 /**
  * Get all approved constraints as a prompt injection string.
@@ -308,6 +298,55 @@ export function dismissConstraint(patternIndex: number): void {
  * constraints (legacy behavior - used by the Analyst chat path that handles
  * many artifact types in one session).
  */
+// 2026-10-01 (plan Stage 5.2, audit C5): INJECTION CAP. All 48 wiki constraints used to be injected
+// into every prompt with no ceiling. The Claude Code hook (.claude/hooks/scripts/
+// inject_active_constraints_and_patterns.py) caps at 12 constraints / 6 KB; the SPA now mirrors
+// that budget. Ordering: highest confidence first (parsed from the "(... confidence 0.85)" suffix
+// the ledger lines carry), then newest first, so a fresh high-confidence correction is never
+// crowded out by an old low-confidence one.
+export const MAX_INJECTED_CONSTRAINTS = 12;
+export const MAX_INJECTED_CONSTRAINT_CHARS = 6000;
+
+/** Confidence parsed from a constraint line's "(source: ..., confidence 0.85)" suffix; 0.5 when absent. */
+function constraintConfidence(text: string): number {
+    const m = /confidence\s+([0-9]*\.?[0-9]+)/i.exec(text || '');
+    if (!m) return 0.5;
+    const v = Number(m[1]);
+    return Number.isFinite(v) ? Math.max(0, Math.min(1, v)) : 0.5;
+}
+
+/**
+ * Order + cap the constraint lines that reach a prompt. Pure; exported for the test.
+ * `meta` supplies appliedAt per constraint text (missing = 0, i.e. oldest).
+ */
+export function capConstraintsForInjection(
+    lines: string[],
+    meta: Record<string, { appliedAt?: number; confidence?: number }> = {},
+    limits: { maxCount?: number; maxChars?: number } = {},
+): string[] {
+    const maxCount = limits.maxCount ?? MAX_INJECTED_CONSTRAINTS;
+    const maxChars = limits.maxChars ?? MAX_INJECTED_CONSTRAINT_CHARS;
+    const ranked = lines
+        .map((text, idx) => ({
+            text,
+            idx,
+            confidence: meta[text]?.confidence ?? constraintConfidence(text),
+            appliedAt: meta[text]?.appliedAt ?? 0,
+        }))
+        .sort((a, b) => (b.confidence - a.confidence) || (b.appliedAt - a.appliedAt) || (a.idx - b.idx))
+        .map(r => r.text);
+    const out: string[] = [];
+    let chars = 0;
+    for (const line of ranked) {
+        if (out.length >= maxCount) break;
+        const cost = line.length + 3; // "- " + newline
+        if (chars + cost > maxChars) continue; // skip the one that does not fit; a shorter later line still may
+        out.push(line);
+        chars += cost;
+    }
+    return out;
+}
+
 export function getActiveConstraints(kind?: string): string {
     const improvements = getImprovements();
     if (improvements.length === 0) return '';
@@ -335,26 +374,34 @@ export function getActiveConstraints(kind?: string): string {
     const kept = gateConstraints(candidateLines).kept;
     if (kept.length === 0) return '';
 
-    const constraints = kept.map(c => `- ${c}`).join('\n');
+    // C5 cap: at most MAX_INJECTED_CONSTRAINTS / MAX_INJECTED_CONSTRAINT_CHARS, best first.
+    const meta: Record<string, { appliedAt?: number; confidence?: number }> = {};
+    for (const imp of filtered) {
+        if (!meta[imp.constraint]) meta[imp.constraint] = { appliedAt: imp.appliedAt };
+    }
+    const capped = capConstraintsForInjection(kept, meta);
+    if (capped.length === 0) return '';
+
+    const constraints = capped.map(c => `- ${c}`).join('\n');
     const scope = kind ? `for "${kind}" artifacts` : 'across all artifacts';
     return `\n\nLEARNED CONSTRAINTS (from user feedback patterns, ${scope}):\n${constraints}`;
 }
 
 // --- DATA ACCESS ---
 
-export function getEditLog(): EditSignal[] {
+function getEditLog(): EditSignal[] {
     try {
         return JSON.parse(localStorage.getItem(EDIT_LOG_KEY) || '[]');
     } catch { return []; }
 }
 
-export function getPatterns(): EditPattern[] {
+function getPatterns(): EditPattern[] {
     try {
         return JSON.parse(localStorage.getItem(PATTERNS_KEY) || '[]');
     } catch { return []; }
 }
 
-export function getImprovements(): PromptImprovement[] {
+function getImprovements(): PromptImprovement[] {
     try {
         return JSON.parse(localStorage.getItem(IMPROVEMENTS_KEY) || '[]');
     } catch { return []; }
@@ -397,14 +444,6 @@ export function getStats(): PromptIntelligenceStats {
     };
 }
 
-/**
- * Clear all improvement data (full reset).
- */
-export function resetAll(): void {
-    localStorage.removeItem(EDIT_LOG_KEY);
-    localStorage.removeItem(PATTERNS_KEY);
-    localStorage.removeItem(IMPROVEMENTS_KEY);
-}
 
 /**
  * P6-06: Cross-session knowledge compounding.
@@ -606,7 +645,7 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
  * detectPatterns when the stage starts with "chat:" so we use the
  * LLM-extracted rule instead of generateConstraint's boilerplate.
  */
-export function lookupChatRule(stage: string, field: string): string | null {
+function lookupChatRule(stage: string, field: string): string | null {
     const rules = getCorrectionRules();
     for (let i = rules.length - 1; i >= 0; i--) {
         if (rules[i].stage === stage && rules[i].field === field) return rules[i].rule;
@@ -646,4 +685,132 @@ export async function exportConstraintsToWiki(): Promise<boolean> {
     } catch {
         return false;
     }
+}
+
+// ============================================================================
+// CONSTRAINT LIFECYCLE RECORDS (2026-10-01, plan Stage 5.2, audit C5)
+// ============================================================================
+// `reviewConstraintEffectiveness` read synthesis/constraint-records.json which
+// NOTHING wrote, so no constraint could ever retire. The store lives here (the
+// constraint engine) so learningEngine (creates rows, retires) and
+// improvementDiscriminator (counts applications + negative outcomes) share one
+// reader/writer without an import cycle. Rows ride the existing wiki read/write
+// path; the compiler never regenerates JSON.
+
+export const CONSTRAINT_RECORDS_PATH = 'synthesis/constraint-records.json';
+
+export interface ConstraintLifecycleRecord {
+    /** Stable id derived from the normalized rule text. */
+    id: string;
+    /** The rule text (the constraint body as it appears in learned-constraints.md). */
+    text: string;
+    deliverableType?: string;
+    sectionScope?: string | null;
+    /** ISO timestamp the row was created (constraint promoted). */
+    created: string;
+    /** Times the constraint was active on a scored deliverable. */
+    applications: number;
+    /** Scored deliverables that REGRESSED while the constraint was active. */
+    negativeSignalsAfter: number;
+    confidence?: number;
+    /** ISO timestamp when runLearningPass removed it from the ledger. */
+    retired?: string;
+}
+
+/** Deterministic id for a constraint row (djb2 over the normalized key). */
+export function constraintRecordId(text: string): string {
+    const key = normalizeConstraintKey(text);
+    let h = 5381;
+    for (let i = 0; i < key.length; i++) h = ((h << 5) + h + key.charCodeAt(i)) >>> 0;
+    return `cr_${h.toString(16).padStart(8, '0')}`;
+}
+
+const PROXY_BASE_FOR_RECORDS = 'http://127.0.0.1:5012';
+
+export async function readConstraintRecords(): Promise<ConstraintLifecycleRecord[]> {
+    try {
+        const r = await fetch(`${PROXY_BASE_FOR_RECORDS}/api/wiki/read/${CONSTRAINT_RECORDS_PATH}`);
+        if (!r.ok) return [];
+        const data = await r.json();
+        if (!data?.content) return [];
+        const parsed = JSON.parse(data.content);
+        if (!Array.isArray(parsed)) return [];
+        return parsed
+            .filter((row: any) => row && typeof row.text === 'string')
+            .map((row: any) => ({
+                id: typeof row.id === 'string' ? row.id : constraintRecordId(row.text),
+                text: row.text,
+                deliverableType: row.deliverableType,
+                sectionScope: row.sectionScope ?? null,
+                created: typeof row.created === 'string' ? row.created : (typeof row.addedAt === 'string' ? row.addedAt : ''),
+                applications: Number(row.applications) || 0,
+                // legacy field name from the pre-C5 ConstraintRecord interface
+                negativeSignalsAfter: Number(row.negativeSignalsAfter ?? row.repeatedNegativeSignalsAfter) || 0,
+                confidence: typeof row.confidence === 'number' ? row.confidence : undefined,
+                retired: typeof row.retired === 'string' ? row.retired : undefined,
+            }));
+    } catch {
+        return [];
+    }
+}
+
+export async function writeConstraintRecords(rows: ConstraintLifecycleRecord[]): Promise<boolean> {
+    try {
+        const r = await fetch(`${PROXY_BASE_FOR_RECORDS}/api/wiki/write`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: CONSTRAINT_RECORDS_PATH, content: JSON.stringify(rows, null, 2) }),
+        });
+        return r.ok;
+    } catch {
+        return false;
+    }
+}
+
+/** Create the lifecycle row for a newly promoted constraint (no-op when a row exists). */
+export async function createConstraintRecord(input: {
+    text: string;
+    deliverableType?: string;
+    sectionScope?: string | null;
+    confidence?: number;
+}): Promise<ConstraintLifecycleRecord | null> {
+    const rows = await readConstraintRecords();
+    const id = constraintRecordId(input.text);
+    const existing = rows.find(r => r.id === id);
+    if (existing) return existing;
+    const row: ConstraintLifecycleRecord = {
+        id,
+        text: input.text,
+        deliverableType: input.deliverableType,
+        sectionScope: input.sectionScope ?? null,
+        created: new Date().toISOString(),
+        applications: 0,
+        negativeSignalsAfter: 0,
+        confidence: input.confidence,
+    };
+    rows.push(row);
+    const ok = await writeConstraintRecords(rows);
+    return ok ? row : null;
+}
+
+/**
+ * Count an application for every constraint that was active on a scored
+ * deliverable; when the deliverable regressed, count a negative signal too.
+ * Constraints with no row are ignored (rows are created at promotion time).
+ * Returns the number of rows touched.
+ */
+export async function recordConstraintApplications(activeConstraints: string[], regressed: boolean): Promise<number> {
+    if (!activeConstraints || activeConstraints.length === 0) return 0;
+    const rows = await readConstraintRecords();
+    if (rows.length === 0) return 0;
+    const activeIds = new Set(activeConstraints.map(constraintRecordId));
+    let touched = 0;
+    for (const row of rows) {
+        if (row.retired || !activeIds.has(row.id)) continue;
+        row.applications += 1;
+        if (regressed) row.negativeSignalsAfter += 1;
+        touched++;
+    }
+    if (touched > 0) await writeConstraintRecords(rows);
+    return touched;
 }

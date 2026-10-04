@@ -2,17 +2,18 @@
 name: experience-prototype-composer
 invocation: model
 version: 1.0
-description: STRICT-RULE skill that mandates every Stage 4 prototype be composed exclusively from the AI Experience Patterns catalog at /hic-workspace/wiki/inspiration-hub/ai-patterns/ — no invented UI shapes, no generic Copilot shells, no "clean modern" placeholders. Parses the user hashtag (`#proto (experience name) #NU` or `#proto (experience name) #NXT`) and forces the Stage 4 Prototype Coder to render every region of its output as a NAMED pattern from the catalog in the requested brand. Loaded by `prototypeBuilder.ts` Stage 4 alongside the design-exemplar-curator injection. Replaces ad-hoc UI invention with disciplined composition from a curated, brand-vetted catalog.
+description: STRICT-RULE skill that mandates every Stage 4 prototype be composed exclusively from the AI Experience Patterns catalog at /hic-workspace/wiki/inspiration-hub/ai-patterns/ — no invented UI shapes, no generic Copilot shells, no "clean modern" placeholders. Parses the user hashtag (`#proto (experience name) #NU`, `#proto (experience name) #NXT` or `#proto (experience name) #DECIEM`) and forces the Stage 4 Prototype Coder to render every region of its output as a NAMED pattern from the catalog in the requested brand. Loaded by `prototypeBuilder.ts` Stage 4 alongside the design-exemplar-curator injection. Replaces ad-hoc UI invention with disciplined composition from a curated, brand-vetted catalog.
 trigger: ALWAYS load at Stage 4 (Prototype Coder) when brand hashtag is present; OVERRIDES any other "build whatever feels right" instructions
-inputs: brief.concept, brief.interaction_pattern, brief.experience_name (parsed from #proto hashtag), brief.brand (parsed from #NU or #NXT)
+inputs: brief.concept, brief.interaction_pattern, brief.experience_name (parsed from #proto hashtag), brief.brand (parsed from #NU, #NXT or #DECIEM)
 outputs: Stage 4 system-prompt rule block; pattern manifest the coder must reference by ID; output validation gate that fails the build if any region is not a catalog pattern
 catalog_url: /hic-workspace/wiki/inspiration-hub/ai-patterns/
 catalog_json: /hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json
-hashtag_grammar: "#proto <experience-name> #NU | #NXT"
+hashtag_grammar: "#proto <experience-name> #NU | #NXT | #DECIEM"
 example_hashtags:
   - "#proto trailblazer-match #NU"
   - "#proto cohort-pulse-dashboard #NXT"
   - "#proto co-op-readiness-coach #NU"
+  - "#proto routine-builder #DECIEM"
 ---
 
 # Experience Prototype Composer (STRICT)
@@ -42,12 +43,14 @@ Users invoke the composer with the hashtag pattern:
 ```
 #proto <experience-name> #NU
 #proto <experience-name> #NXT
+#proto <experience-name> #DECIEM
 ```
 
 Examples:
 - `#proto trailblazer-match #NU` → builds the Trailblazer Match experience in Northeastern University brand
 - `#proto cohort-pulse-dashboard #NXT` → builds the Cohort Pulse Dashboard in NXT Humans brand
 - `#proto co-op-readiness-coach #NU` → builds the Co-op Readiness Coach in NU brand
+- `#proto routine-builder #DECIEM` → builds the Routine Builder in DECIEM brand. DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM
 
 If the brand hashtag is omitted, **NXT is the default**. If `#proto` is omitted, the composer skill does NOT activate (allow free-form prototyping for non-production explorations).
 
@@ -67,7 +70,7 @@ The composer references patterns by their CSS class root (`p-chat`, `p-stream`, 
 2. Decompose the requested experience into a sequence of interaction primitives
 3. For each primitive, select the catalog pattern whose `best_for` matches
 4. Compose the prototype using only those patterns
-5. Honor the brand hashtag — NXT tokens for `#NXT`, NU tokens for `#NU`
+5. Honor the brand hashtag — NXT tokens for `#NXT`, NU tokens for `#NU`, DECIEM tokens for `#DECIEM` (root `data-brand="deciem"`)
 
 ---
 

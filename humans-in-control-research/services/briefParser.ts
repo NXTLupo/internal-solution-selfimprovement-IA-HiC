@@ -53,52 +53,6 @@ export type Vertical = typeof KNOWN_VERTICALS[number];
 
 // --- Parse function ---
 
-/**
- * Parse a research brief into structured form.
- * Returns the extracted ParsedBrief. On any AI failure, returns a minimal
- * fallback object so collection can still proceed.
- */
-export async function parseBrief(rawBrief: string): Promise<ParsedBrief> {
-    const trimmed = (rawBrief || '').trim();
-    if (trimmed.length === 0) {
-        return fallbackBrief('');
-    }
-
-    // Cheap parse for very short briefs - no AI call needed
-    if (trimmed.length < 80) {
-        return fallbackBrief(trimmed);
-    }
-
-    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-    if (!apiKey) {
-        console.warn('[briefParser] GEMINI_API_KEY missing, returning fallback brief');
-        return fallbackBrief(trimmed);
-    }
-
-    const prompt = buildPrompt(trimmed);
-
-    try {
-        const ai = new GoogleGenAI({ apiKey });
-        const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
-            contents: prompt,
-            config: {
-                temperature: 0.1,
-                responseMimeType: 'application/json',
-                responseSchema: buildSchema(),
-            },
-        });
-        let text = response.text || '{}';
-        if (text.includes('```json')) text = text.split('```json')[1].split('```')[0].trim();
-        else if (text.includes('```')) text = text.split('```')[1].split('```')[0].trim();
-
-        const parsed = JSON.parse(text);
-        return normalize(parsed, trimmed);
-    } catch (e: any) {
-        console.warn('[briefParser] parse failed, returning fallback:', e?.message);
-        return fallbackBrief(trimmed);
-    }
-}
 
 // --- PROMPT ---
 
@@ -264,7 +218,7 @@ function clampNumber(val: any, min: number, max: number, fallback: number): numb
 
 // --- FALLBACK ---
 
-export function fallbackBrief(rawBrief: string): ParsedBrief {
+function fallbackBrief(rawBrief: string): ParsedBrief {
     const trimmed = rawBrief.trim();
     return {
         mission: trimmed.substring(0, 200) || 'Untitled research',
@@ -292,7 +246,7 @@ export function fallbackBrief(rawBrief: string): ParsedBrief {
 
 // --- HUMAN-READABLE SUMMARY (for UI display) ---
 
-export function summarizeBrief(brief: ParsedBrief): string {
+function summarizeBrief(brief: ParsedBrief): string {
     const parts: string[] = [];
     parts.push(`Mission: ${brief.mission}`);
     if (brief.verticals.length > 0) parts.push(`Verticals: ${brief.verticals.join(', ')}`);

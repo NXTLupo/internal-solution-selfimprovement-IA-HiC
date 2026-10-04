@@ -102,7 +102,8 @@ If a concept would otherwise violate `hard_non_starters`:
       "image_prompt": "string",
       "variants": [
         { "label": "NXT brand — default", "command": "#proto #name=<slug> #NXT" },
-        { "label": "NU brand — institutional", "command": "#proto #name=<slug> #NU" }
+        { "label": "NU brand — institutional", "command": "#proto #name=<slug> #NU" },
+        { "label": "DECIEM brand - abnormal beauty", "command": "#proto #name=<slug> #DECIEM" }
       ]
     }
   ],
@@ -111,6 +112,8 @@ If a concept would otherwise violate `hard_non_starters`:
   "suggested_next_steps_for_proposal": ["string"]
 }
 ```
+
+Brand variants: `#NXT` (default), `#NU`, `#DECIEM`. DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM.
 
 ## Per-Concept Depth Rules — CONSULTING BRIEF MINIMUMS
 

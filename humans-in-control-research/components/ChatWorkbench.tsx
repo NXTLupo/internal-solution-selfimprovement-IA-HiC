@@ -826,10 +826,12 @@ export const ChatWorkbench: React.FC<Props> = ({
                                 {/* Slide canvases - rendered from :::slide blocks */}
                                 {msg.role === 'assistant' && (() => {
                                     const msgSlides = slides.filter(s => s.timestamp >= msg.timestamp - 1000 && s.timestamp <= msg.timestamp + 5000 && s.model === msg.model);
-                                    return msgSlides.map(slide => (
+                                    return msgSlides.map((slide, slideIdx) => (
                                         <SlideCanvas
                                             key={slide.id}
                                             slide={slide}
+                                            deckIndex={slideIdx}
+                                            dividerOrdinal={msgSlides.slice(0, slideIdx).filter(x => /^(slides:)?section-divider$/i.test(String(x.template || ''))).length}
                                             onApprove={handleApproveSlide}
                                             onReject={handleRejectSlide}
                                             onGenerateVisual={handleSlideGenerateVisual}

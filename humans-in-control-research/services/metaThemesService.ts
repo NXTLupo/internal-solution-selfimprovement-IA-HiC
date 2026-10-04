@@ -17,10 +17,10 @@
 // tokenized glyph (compositeIcon, deterministic + $0) - the live Figma slots
 // 683:5501-5504 on component 613:2.
 
-import { getBrand } from '../components/slideTemplates/brands';
+import { getBrand, type BrandId } from '../components/slideTemplates/brands';
 import { compositeIcon, isContentTrueIcon } from './iconLibrary';
 
-type Brand = 'nxt' | 'nu';
+type Brand = BrandId;   // nxt | nu | deciem, all resolved through getBrand()
 
 /** Prefix a token hex (stored without '#') for CSS. */
 const hx = (v: string): string => (v && v.startsWith('#')) ? v : `#${v || '000000'}`;
@@ -28,6 +28,7 @@ const hx = (v: string): string => (v && v.startsWith('#')) ? v : `#${v || '00000
 interface MtPalette {
     bg: string; ink: string; grey: string; hair: string; accent: string; cool: string;
     panel: string; warmPanel: string; titleFont: string; bodyFont: string; monoFont: string; titleWeight: string;
+    labelFont: string;   // full stack for kickers / stat labels / flags: DECIEM = Poppins Bold (template audit), else the mono face
 }
 /** Resolve the meta-themes palette from the brand token mirror - NEVER a literal. */
 function mtPalette(brandId: Brand): MtPalette {
@@ -37,6 +38,7 @@ function mtPalette(brandId: Brand): MtPalette {
         accent: hx(b.CHARTREUSE), cool: hx(b.CYAN), panel: hx(b.PANEL),
         warmPanel: hx(b.CHARTREUSE_PALE), titleFont: b.FONT_DISPLAY, bodyFont: b.FONT_BODY,
         monoFont: b.FONT_MONO, titleWeight: b.TITLE_WEIGHT,
+        labelFont: brandId === 'deciem' ? `'${String((b as Record<string, unknown>).FONT_LABEL || b.FONT_DISPLAY)}', sans-serif` : `${b.FONT_MONO}, monospace`,
     };
 }
 
@@ -277,12 +279,12 @@ function mtStyle(p: MtPalette): string {
   html, body { width: 1920px; min-height: 1080px; background: ${p.bg}; color: ${p.ink}; }
   body { font-family: ${p.bodyFont}, sans-serif; }
   .mt-frame { width: 1920px; padding: 60px 80px; }
-  .mt-kicker { font-family: ${p.monoFont}, monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: ${p.grey}; margin-bottom: 8px; }
+  .mt-kicker { font-family: ${p.labelFont}; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: ${p.grey}; margin-bottom: 8px; }
   .mt-title { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 48px; line-height: 1; color: ${p.ink}; margin-bottom: 14px; }
   .mt-subtitle { font-size: 14px; color: ${p.accent}; margin-bottom: 32px; letter-spacing: 0.02em; }
   .mt-rail { width: 56px; height: 4px; background: ${p.accent}; margin-bottom: 28px; }
   .mt-stats { display: flex; gap: 48px; margin-bottom: 36px; padding: 16px 0; border-top: 1px solid ${p.hair}; border-bottom: 1px solid ${p.hair}; }
-  .mt-stat-label { font-family: ${p.monoFont}, monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: ${p.grey}; }
+  .mt-stat-label { font-family: ${p.labelFont}; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: ${p.grey}; }
   .mt-stat-value { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 32px; color: ${p.accent}; line-height: 1; }
   .mt-themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .mt-theme { padding: 18px 22px; background: ${p.panel}; border-left: 3px solid ${p.cool}; }
@@ -291,7 +293,7 @@ function mtStyle(p: MtPalette): string {
   .mt-theme-id { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .mt-glyph { width: 40px; height: 40px; flex-shrink: 0; object-fit: contain; display: block; }
   .mt-theme-name { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 22px; color: ${p.ink}; letter-spacing: 0.02em; line-height: 1.1; }
-  .mt-flag { display: inline-block; flex-shrink: 0; padding: 2px 6px; font-family: ${p.monoFont}, monospace; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: ${p.accent}; color: ${p.bg}; border-radius: 1px; }
+  .mt-flag { display: inline-block; flex-shrink: 0; padding: 2px 6px; font-family: ${p.labelFont}; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: ${p.accent}; color: ${p.bg}; border-radius: 1px; }
   .mt-flag.portfolio { background: ${p.cool}; color: ${p.bg}; }
   .mt-summary { font-size: 13px; line-height: 1.5; color: ${p.ink}; opacity: 0.85; margin-bottom: 10px; }
   .mt-engagements { font-family: ${p.monoFont}, monospace; font-size: 9px; letter-spacing: 0.5px; color: ${p.grey}; line-height: 1.6; }

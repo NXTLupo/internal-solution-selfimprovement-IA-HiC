@@ -377,6 +377,3 @@ export function scoreDeliverable(output: string, kind: DeliverableKind): Deliver
     };
 }
 
-export function scoreFreeformArtifact(artifact: FreeformArtifact): DeliverableScore {
-    return scoreDeliverable(artifact.html, artifact.kind as DeliverableKind);
-}

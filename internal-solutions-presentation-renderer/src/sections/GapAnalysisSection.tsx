@@ -129,7 +129,7 @@ const GapRow: React.FC<{ gap: NormalizedGap; num: number }> = ({ gap, num }) => 
       <div style={{ paddingLeft: '20px', minWidth: '60px' }}>
         <div style={{
           fontSize: '11px',
-          fontFamily: 'JetBrains Mono, monospace',
+          fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace",
           color: 'var(--text-tertiary)',
           fontWeight: 600,
           marginBottom: '4px',

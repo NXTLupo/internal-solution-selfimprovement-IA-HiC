@@ -82,33 +82,3 @@ export async function safeDynamicImport<T>(
     }
 }
 
-/**
- * Probe whether the currently-loaded index.html is still the latest one the
- * server is serving. Useful for proactively warning the user BEFORE they hit
- * a stale-chunk 404. Cheap (single HEAD request) and safe (no side effects).
- *
- * Returns:
- *   - true  → page is current (or check failed for an unrelated reason)
- *   - false → server's index.html has a different content-hash than what
- *             the browser has loaded; user should reload to avoid stale-chunk
- *             failures on next dynamic import
- */
-export async function isPageCurrent(): Promise<boolean> {
-    if (typeof window === 'undefined' || !document?.querySelector) return true;
-    try {
-        // Find the main bundle script in the live document
-        const liveScript = document.querySelector('script[type="module"][src*="/assets/index-"]') as HTMLScriptElement | null;
-        if (!liveScript?.src) return true;
-        // HEAD-fetch the current index.html (nginx cache-control: no-store
-        // means we always get fresh) and extract its main-bundle script src
-        const indexResp = await fetch('/index.html', { cache: 'no-store' });
-        if (!indexResp.ok) return true;
-        const indexHtml = await indexResp.text();
-        const m = indexHtml.match(/\/assets\/index-[A-Za-z0-9_-]+\.js/);
-        if (!m) return true;
-        const liveSrc = liveScript.src.replace(/^.*\/assets\//, '/assets/');
-        return liveSrc === m[0];
-    } catch {
-        return true;
-    }
-}

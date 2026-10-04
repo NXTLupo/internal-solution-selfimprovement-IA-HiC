@@ -87,6 +87,12 @@ describe('buildRecapComposition', () => {
         expect(nu).toContain('#C8102E');
         // Same structure either way: one composition, two token sets.
         expect(nu).toContain('data-composition-id="hic-recap"');
+        // 2026-10-01 - third brand: DECIEM pink accent + Poppins, never the NXT fallback
+        const deciem = buildRecapComposition({ ...CLEAN, brand: 'deciem' }).html!;
+        expect(deciem).toContain('#FB48C4');
+        expect(deciem).toContain('Poppins');
+        expect(deciem).not.toContain('#B8B800');
+        expect(deciem).toContain('data-composition-id="hic-recap"');
     });
 
     it('carries no em-dash anywhere in the emitted composition', () => {

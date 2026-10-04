@@ -23,6 +23,8 @@ const VISUAL = new Set([
     'slides:infographic-exhibit', 'slides:quadrant', 'slides:flow-arc',
     'slides:milestone-timeline', 'slides:means-matters', 'slides:ranked-bars',
     'slides:comparison-panels', 'slides:screen-critique', 'slides:screen-redesign',
+    // Stage 3 (2026-10-01): the PRD projections are ledgers, signal tables and a trace matrix.
+    'slides:prd-ledger', 'slides:prd-signals', 'slides:prd-trace',
 ]);
 
 export interface DeckPlanReport {
@@ -121,4 +123,93 @@ export function buildDeckRepairInstruction(report: DeckPlanReport): string {
 ${report.violations.map(v => `- ${v}`).join('\n')}
 
 Re-emit the COMPLETE deck (every fence), keeping every slide that already serves the argument and its evidence EXACTLY as written, and restructuring only what the violations name. Honor the original request, the narrative arc, and every payload contract. Do not mention this instruction or the gate.`;
+}
+
+// ============================================================================
+// 2026-10-01 (plan Stage 2.1 / R-M1): the verdict is RECORDED, and the surplus
+// numbered-themes clamp is REPAIRED DETERMINISTICALLY when the model's re-ask does not.
+// ============================================================================
+
+export interface DeckPlanVerdict {
+    pass: boolean;
+    violations: string[];
+    visualRatio: number;
+    templates: number;
+    /** Fences the deterministic remap rewrote (index, from -> to). */
+    remapped: Array<{ index: number; from: string; to: string }>;
+    /** 'pass' | 'model_repair' | 'deterministic_remap' | 'unrepaired' */
+    resolution: 'pass' | 'model_repair' | 'deterministic_remap' | 'unrepaired';
+}
+
+let _lastVerdict: DeckPlanVerdict | null = null;
+
+/** One slot per turn: the chat service records the deck-plan verdict, the AIR patch reads it. */
+export function noteDeckPlanVerdict(v: DeckPlanVerdict | null): void { _lastVerdict = v; }
+export function readLastDeckPlanVerdict(): DeckPlanVerdict | null { return _lastVerdict; }
+
+export function verdictOf(report: DeckPlanReport, resolution: DeckPlanVerdict['resolution'], remapped: DeckPlanVerdict['remapped'] = []): DeckPlanVerdict {
+    return { pass: report.pass, violations: report.violations.slice(), visualRatio: Number(report.visualRatio.toFixed(2)), templates: report.templates.length, remapped, resolution };
+}
+
+const FENCE_RE = /:::slide\s+template=(slides:[a-z0-9-]+)([^\n]*)\n([\s\S]*?)\n:::/g;
+
+/**
+ * numbered-themes -> evidence-table, payload to payload, using the two archetypes'
+ * documented contracts (deck-composer skill table):
+ *   numbered-themes  { kicker, title, items: [{ number, name, body, quote }], sourceLine }
+ *   evidence-table   { kicker, title, intro, columns (4), rows: [{ subject, prove, implication, evidenceGrade }], takeaway: { label, statement }, sourceLine }
+ * Every row is a named subject; `prove` carries the item's verbatim quote (the evidence),
+ * `implication` the item's body (what it means), and the grade says whether a verbatim
+ * quote backs the row. Nothing is invented: a missing quote is an empty cell, never text.
+ */
+export function numberedThemesToEvidenceTable(payload: any): any | null {
+    const items = Array.isArray(payload?.items) ? payload.items : null;
+    if (!items || items.length < 2) return null;
+    const rows = items.slice(0, 6).map((it: any) => {
+        const quote = String(it?.quote || '').trim();
+        return {
+            subject: String(it?.name || it?.title || '').trim(),
+            prove: quote,
+            implication: String(it?.body || it?.description || '').trim(),
+            evidenceGrade: quote ? 'Verbatim' : '',
+        };
+    }).filter((r: any) => r.subject);
+    if (rows.length < 2) return null;
+    const firstBody = rows.find((r: any) => r.implication)?.implication || '';
+    return {
+        kicker: payload.kicker || '',
+        title: payload.title || '',
+        intro: firstBody ? '' : String(payload.intro || ''),
+        columns: ['Subject', 'Evidence', 'What it means', 'Grade'],
+        rows,
+        takeaway: payload.takeaway && typeof payload.takeaway === 'object'
+            ? payload.takeaway
+            : { label: 'Pattern', statement: String(payload.takeaway || payload.title || '') },
+        sourceLine: payload.sourceLine || '',
+    };
+}
+
+export interface RemapResult { text: string; remapped: Array<{ index: number; from: string; to: string }>; }
+
+/**
+ * Rewrite every numbered-themes fence beyond the second into an evidence-table fence.
+ * Pure text transform on the reply; a fence whose JSON does not parse is left alone.
+ */
+export function remapSurplusArchetypes(replyText: string, maxNumbered = 2): RemapResult {
+    const remapped: RemapResult['remapped'] = [];
+    let seenNumbered = 0;
+    let index = -1;
+    const text = String(replyText || '').replace(FENCE_RE, (whole, template: string, attrs: string, body: string) => {
+        index++;
+        if (template !== 'slides:numbered-themes') return whole;
+        seenNumbered++;
+        if (seenNumbered <= maxNumbered) return whole;
+        let payload: any;
+        try { payload = JSON.parse(body); } catch { return whole; }
+        const next = numberedThemesToEvidenceTable(payload);
+        if (!next) return whole;
+        remapped.push({ index, from: template, to: 'slides:evidence-table' });
+        return `:::slide template=slides:evidence-table${attrs}\n${JSON.stringify(next, null, 2)}\n:::`;
+    });
+    return { text, remapped };
 }

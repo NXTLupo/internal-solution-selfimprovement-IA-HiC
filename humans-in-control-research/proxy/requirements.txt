@@ -23,6 +23,8 @@ yt-dlp>=2025.5.22
 openai>=1.14.0
 # PPTX export pipeline (RenderSpec → native editable PowerPoint with embedded fonts)
 python-pptx==1.0.2
+# 2026-10-02 - #prd requirements workbook (.xlsx) built by prd_xlsx.py for /api/prd/export-xlsx
+openpyxl==3.1.5
 fonttools==4.62.1
 lxml>=5.0.0
 # Wiki chunked-embedding store (Phase 2): per-chunk vectors in sqlite-vec,

@@ -624,7 +624,7 @@ export interface BlueprintInput extends CommonChunkerInputs {
     journeyStages?: any[];
 }
 
-export async function chunkedGenerateBlueprint(input: BlueprintInput): Promise<any> {
+async function chunkedGenerateBlueprint(input: BlueprintInput): Promise<any> {
     await _enrichInputFromWiki(input);
     const personas = (input.personas || []).slice(0, 6);
     if (personas.length === 0) {

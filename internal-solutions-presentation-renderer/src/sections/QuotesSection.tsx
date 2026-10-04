@@ -41,7 +41,7 @@ export const QuotesSection: React.FC<SectionProps> = ({ data, headlineScale, ind
             <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 700 }}>
               {q.attribution}{q.role ? <span style={{ fontWeight: 400, color: 'var(--text-tertiary)' }}> · {q.role}</span> : null}
             </div>
-            <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace', marginTop: '4px' }}>{q.source}</div>
+            <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace", marginTop: '4px' }}>{q.source}</div>
           </div>
         ))}
       </div>

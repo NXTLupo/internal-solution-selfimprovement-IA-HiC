@@ -187,7 +187,7 @@ export async function expandQuery(
 
 export type RetrievalFn = (query: string, k: number) => Promise<RetrievedChunk[]>;
 
-export async function retrievePerSubQuery(
+async function retrievePerSubQuery(
     plan: QueryPlan,
     retrieve: RetrievalFn,
     kPerQuery: number = 8,
@@ -249,7 +249,7 @@ CHUNKS TO SCORE:
 `;
 
 
-export async function rerankChunks(
+async function rerankChunks(
     userMessage: string,
     chunks: RetrievedChunk[],
     proxyBase: string = 'http://localhost:5012',

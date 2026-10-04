@@ -33,7 +33,23 @@ FONT_MANIFEST = [
      "regular": "Inter-Regular.ttf", "bold": "Inter-Bold.ttf"},
     {"typeface": "JetBrains Mono", "pitchFamily": 49, "charset": 0,
      "regular": "JetBrainsMono-Regular.ttf", "bold": "JetBrainsMono-Medium.ttf"},
+    # DECIEM brand (2026-10-01, PPTX-template-sourced third brand mode): display/title
+    # Poppins (also every label), body Josefin Sans, tables / data / mono slot Nunito; Questrial ships in the template.
+    # The variable TTFs fill both the regular and bold slots (one file, weight axis).
+    {"typeface": "Poppins", "pitchFamily": 34, "charset": 0,
+     "regular": "Poppins-Regular.ttf", "bold": "Poppins-Bold.ttf"},
+    {"typeface": "Josefin Sans", "pitchFamily": 34, "charset": 0,
+     "regular": "JosefinSans-Variable.ttf", "bold": "JosefinSans-Variable.ttf"},
+    {"typeface": "Questrial", "pitchFamily": 34, "charset": 0,
+     "regular": "Questrial-Regular.ttf"},
+    {"typeface": "Nunito", "pitchFamily": 34, "charset": 0,
+     "regular": "Nunito-Variable.ttf"},
 ]
+
+# Typefaces that belong to the DECIEM brand only. gold_pptx_export embeds these
+# when the exported deck is DECIEM (or a measured run uses one of them); NXT and
+# NU decks keep their existing embed set unchanged.
+DECIEM_TYPEFACES = ("Poppins", "Josefin Sans", "Questrial", "Nunito")
 
 # @font-face slots for the diagram/exhibit renderer: (css family, file, weight).
 # The NXT mono slot is IBM PLEX MONO (token font/mono) - never JetBrains.
@@ -47,13 +63,24 @@ DIAGRAM_FONT_FACES = [
     ("NXT Mono", "IBMPlexMono-Regular.ttf", 400),
     ("NXT Mono", "IBMPlexMono-SemiBold.ttf", 600),
     ("NU Single", "Lato.ttf", 400),
+    # DECIEM faces (2026-10-01, measured on the template): Poppins Bold = every title and
+    # label, Josefin Sans = body, Nunito = tables / data / meta. Questrial is embedded in the
+    # template but used once, so it is available (FONT_MANIFEST) and not a role.
+    ("DECIEM Display", "Poppins-Bold.ttf", 700),
+    ("DECIEM Display", "Poppins-Regular.ttf", 400),
+    ("DECIEM Label", "Poppins-Bold.ttf", 700),
+    ("DECIEM Label", "Poppins-SemiBold.ttf", 600),
+    ("DECIEM Body", "JosefinSans-Variable.ttf", 400),
+    ("DECIEM Mono", "Nunito-Variable.ttf", 400),
 ]
 
 
-def export_fallbacks() -> dict:
+def export_fallbacks(brand: str = "NXT") -> dict:
     """Token-derived export fallbacks (ink color / body face) for runs the GEO walk
     could not attribute - replaces the hardcoded 141414/Archivo constants. Reads the
-    live token mirror; falls back to the NXT canon values if the mirror is missing."""
+    live token mirror; falls back to the NXT canon values if the mirror is missing.
+    `brand` selects the token block (NXT default, unchanged; DECIEM for template decks)."""
+    bn = (brand or "NXT").strip().upper()
     try:
         import json
         import os
@@ -64,10 +91,10 @@ def export_fallbacks() -> dict:
             if os.path.exists(c):
                 with open(c, "r", encoding="utf-8") as f:
                     t = json.load(f)
-                nxt = t.get("NXT", {})
+                blk = t.get(bn) or t.get("NXT", {})
                 return {
-                    "ink": (nxt.get("color", {}).get("ink") or "#141414").lstrip("#"),
-                    "body_font": nxt.get("font", {}).get("body") or "Archivo",
+                    "ink": (blk.get("color", {}).get("ink") or "#141414").lstrip("#"),
+                    "body_font": blk.get("font", {}).get("body") or "Archivo",
                 }
     except Exception:
         pass

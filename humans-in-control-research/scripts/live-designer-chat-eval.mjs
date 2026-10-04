@@ -21,7 +21,7 @@ const FIXTURE = path.join(ROOT, 'hic-workspace', 'wiki', 'engagements', 'identif
 const LEXICON = path.join(ROOT, 'hic-workspace', 'wiki', 'frameworks', 'anti-slop-lexicon.json');
 const OUT = path.join(ROOT, 'hic-workspace', 'eval', 'designer-chat-eval.json');
 const PROXY = process.env.HIC_PROXY || 'http://127.0.0.1:5012';
-const MODEL = 'claude-opus-4-8';
+const MODEL = 'claude-opus-5-5';
 
 const goal = JSON.parse(fs.readFileSync(path.join(FIXTURE, 'manifest.json'), 'utf8')).research_goal.trim();
 

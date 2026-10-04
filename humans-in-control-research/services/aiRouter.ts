@@ -19,6 +19,16 @@
 // the repaired output is returned. Net: every JSON.parse(tryRepairJson(...))
 // site in the codebase now has the 9-rung ladder underneath it.
 import { repairAIOutput } from './aiOutputRepair';
+// 2026-09-30 (plan Stage 0.5): the Claude model + request contract live in ONE
+// dependency-free module so aiRetryClient can import it without a cycle. Re-exported
+// here so routing callers keep a single import.
+import { CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, CLAUDE_STRUCTURED_MODEL, effortForArtifact, type ClaudeEffort } from './claudeModelPolicy';
+import { isProviderHealthy } from './multiModelResilience';
+export {
+    CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, CLAUDE_STRUCTURED_MODEL, effortForArtifact, effortFromSkillHint, maxEffort,
+    applyAnthropicRequestDefaults, claudeUsesAdaptiveThinking, claudeThinkingAlwaysOn,
+    extractThinkingSummary, extractClaudeText, type ClaudeEffort,
+} from './claudeModelPolicy';
 
 function tryRepairJsonDeep(cleaned: string): string {
     // After bracket-balance, if it still won't parse, try the ladder.
@@ -420,8 +430,7 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
     // required key (the journey-mapper now runs claude-opus-4-8 on it), so this is
     // the real "survive even if Gemini is fully down" fallback now that the
     // OpenAI account is insufficient_quota. Sonnet 4.6 balances quality + speed
-    // for an escape path. NOTE: Sonnet 4.6 does NOT support assistant prefill;
-    // do not use a prefilled-continuation pattern with it.
+    // for an escape path. NOTE: no Claude 4.6+ model supports assistant prefill.
     'claude-sonnet-4-6': {
         id: 'claude-sonnet-4-6', provider: 'anthropic', displayName: 'Claude Sonnet 4.6',
         vision: true, maxContext: 200_000, maxOutput: 64_000, costTier: 'premium'
@@ -435,9 +444,27 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
     // Claude Fable 5 (Anthropic temporarily banned Fable 5). Swap back to a
     // 'claude-fable-5' entry + repoint the routing strings once the ban lifts;
     // see plans/fable-to-opus-swap-2026-06-13.md.
+    // 2026-09-30 - SUNSET (plan Stage 0.5): kept for back-compat of stored session
+    // model ids and the cost meter; no routing path returns it.
     'claude-opus-4-8': {
         id: 'claude-opus-4-8', provider: 'anthropic', displayName: 'Claude Opus 4.8',
         vision: true, maxContext: 1_000_000, maxOutput: 64_000, costTier: 'premium'
+    },
+    // 2026-09-30 (owner directive, plan Stage 0.5) - Claude Opus 5.5 is THE Claude
+    // research/reasoning model for every evidence/imagery/narrative artifact, theme
+    // breadth, #proto, Designer Desk and planning. $4/$20 per 1M (cache read 0.05x),
+    // 1M context, 128K output (stream large outputs). Thinking is ALWAYS on
+    // (adaptive only; budgets/disabled are 400s); depth = output_config.effort via
+    // effortForArtifact(); temperature/top_p/top_k and forced tool_choice are 400s;
+    // no prefill. Request shaping lives in services/claudeModelPolicy.ts.
+    [CLAUDE_REASONING_MODEL]: {
+        id: CLAUDE_REASONING_MODEL, provider: 'anthropic', displayName: CLAUDE_REASONING_LABEL,
+        vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
+    },
+    // Sonnet 5.5: structured / fallback tier ($2/$10). Same request contract as Opus 5.5.
+    [CLAUDE_STRUCTURED_MODEL]: {
+        id: CLAUDE_STRUCTURED_MODEL, provider: 'anthropic', displayName: 'Claude Sonnet 5.5',
+        vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
     },
 };
 
@@ -491,7 +518,7 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 //
 // ENFORCEMENT POINTS (keep in lockstep — no parallel routing logic / no debt):
 //   • services/corpusChatService.ts routedModelFor() + the artifact force-route
-//     (plain → gemini-3.5-flash; hashtag → claude-opus-4-8).
+//     (plain → gemini-3.5-flash; hashtag → CLAUDE_REASONING_MODEL, Claude Opus 5.5 since 2026-09-30).
 //   • services/prototypeBuilder.ts callOpusJsonStage + callClaudeStage (Opus
 //     primary; Gemini 3.1 Pro resilience fallback).
 //   • The DEFAULT_MODELS table below feeds non-deliverable agentic tasks only;
@@ -502,7 +529,7 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 // ============================================================================
 // OPUS CAP — SINGLE SOURCE OF TRUTH for the temporary Anthropic-quota workaround
 // (Opus 4.8 hit its monthly cap; it returns HTTP 400 until access is regained).
-// While `true`, NO generation path may route to claude-opus-4-8 — every site that
+// While `true`, NO generation path may route to the Claude reasoning model — every site that
 // would otherwise pick Opus must fall to its Gemini stand-in. This consolidates a
 // workaround that previously lived in three places (corpusChatService
 // ARTIFACT_DEFAULT_DURING_CAP, prototypeBuilder CODE_MODEL, and — unguarded until
@@ -527,8 +554,8 @@ export const OPUS_CAP_ACTIVE = false;
 //     Flash matched Gemini 3.1 Pro on completeness + 0 fabricated citations at
 //     ~18x lower cost. Flash is the cost/quality winner REGARDLESS of the cap.
 //   • EVIDENCE / IMAGERY / NARRATIVE deliverables — need the strongest model:
-//     Gemini 3.1 Pro while the Opus cap is active, Claude Opus 4.8 after it lifts.
-// NEVER returns claude-opus-4-8 while OPUS_CAP_ACTIVE (the legacy hardcoded-Opus
+//     Gemini 3.1 Pro while the Opus cap is active, Claude Opus 5.5 (CLAUDE_REASONING_MODEL) after it lifts.
+// NEVER returns the Claude reasoning model while OPUS_CAP_ACTIVE (the legacy hardcoded-Opus
 // sites that ignored this were the #proto hard-fail + #approaches 400 burns).
 // Accepts a template id (gap-matrix), a hashtag (#gap), or a generator/kind name.
 // ============================================================================
@@ -539,12 +566,19 @@ const SCHEMA_FLASH_ARTIFACTS = new Set<string>([
     // hashtag / generator aliases for the same schema deliverables
     'gap', 'journey', 'blueprint', 'competitive', 'compete', 'org',
     'audit', 'arch', 'tech-arch', 'roadmap',
+    // 2026-10-01 bake-off (plan Stage 4.5 / D9, scripts/bakeoff-themes.mjs, results in
+    // plans/audit-2026-09-30/bakeoff-themes-2026-10-01.*): theme BREADTH shards are schema-bound
+    // extraction. Independent samples: Flash quality 0.957 vs the reasoning model's 1.0 (rule: at
+    // least 0.90 with zero failed runs), at about one twenty-fifth of the cost per shard. The chain's
+    // `claims` stage and the theme evidence gate catch the residual unverified quotes. The chat
+    // `#themes` artifact and theme depth/synthesis stay on the reasoning model.
+    'theme-breadth',
 ]);
 
 export function artifactModelFor(kind?: string | null): string {
     // WS-E/D13: delegate to the eval-backed policy engine (single authority). Behavior-preserving vs the
     // former tier switch (schema->flash; evidence/imagery/narrative->gemini-3.1-pro-preview capped /
-    // claude-opus-4-8 after), now with a scored rationale + quota/health-awareness available via chooseArtifactModel.
+    // CLAUDE_REASONING_MODEL after), now with a scored rationale + quota/health-awareness available via chooseArtifactModel.
     return chooseArtifactModel(kind).selectedModel;
 }
 
@@ -564,22 +598,30 @@ const ARTIFACT_EVAL_REGISTRY: Record<string, Record<string, ModelEval>> = {
     _schema: {
         'gemini-3.5-flash': { quality: 1.0, note: 'bakeoff: matched Pro, ~18x cheaper' },
         'gemini-3.1-pro-preview': { quality: 1.0 },
-        'claude-opus-4-8': { quality: 1.0 },
+        [CLAUDE_REASONING_MODEL]: { quality: 1.0 },
     },
     _evidence: {
         'gemini-3.5-flash': { quality: 0.5, note: 'thin quotes/concepts on evidence-heavy work' },
         'gemini-3.1-pro-preview': { quality: 0.9 },
-        'claude-opus-4-8': { quality: 1.0 },
+        // 2026-09-30: Opus 5.5 inherits the Opus 4.8 eval seat (successor model, same tokenizer).
+        // Refresh this row from the plan Stage 4.5 bake-offs.
+        [CLAUDE_REASONING_MODEL]: { quality: 1.0, note: 'owner directive 2026-09-30; inherits Opus 4.8 eval seat' },
+    },
+    'theme-breadth': {
+        'gemini-3.5-flash': { quality: 0.957, note: 'bakeoff 2026-10-01: 9.5 themes, all multi-origin, quote verbatim 0.947, $0.005/shard' },
+        [CLAUDE_STRUCTURED_MODEL]: { quality: 0.861, note: 'bakeoff 2026-10-01: 8.5 themes, half multi-origin' },
+        [CLAUDE_REASONING_MODEL]: { quality: 1.0, note: 'bakeoff 2026-10-01: 10.5 themes, all multi-origin, quotes verbatim, $0.144/shard' },
     },
     // bake-off Part B: Flash FAILED personas (1/3, truncated); Pro passed.
-    personas: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
-    persona: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
-    'persona-card': { 'gemini-3.5-flash': { quality: 0.3 }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
+    personas: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, [CLAUDE_REASONING_MODEL]: { quality: 1.0 } },
+    persona: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, [CLAUDE_REASONING_MODEL]: { quality: 1.0 } },
+    'persona-card': { 'gemini-3.5-flash': { quality: 0.3 }, 'gemini-3.1-pro-preview': { quality: 0.95 }, [CLAUDE_REASONING_MODEL]: { quality: 1.0 } },
 };
 
 // Relative per-1M output-token $ (ordering is what the cost tilt uses, not absolute precision).
 const MODEL_COST_REL: Record<string, number> = {
-    'gemini-3.5-flash': 1, 'gemini-3.1-pro-preview': 10, 'claude-opus-4-8': 25, 'gpt-5.5': 30, 'gpt-5.4-mini': 4.5,
+    'gemini-3.5-flash': 1, 'gemini-3.1-pro-preview': 10, [CLAUDE_REASONING_MODEL]: 20, [CLAUDE_STRUCTURED_MODEL]: 10,
+    'claude-opus-4-8': 25, 'gpt-5.5': 30, 'gpt-5.4-mini': 4.5,
 };
 
 export interface RoutingDecision {
@@ -587,6 +629,10 @@ export interface RoutingDecision {
     reason: string;
     alternatives: string[];
     evalBasis: string;
+    /** 2026-09-30 (plan 0.5.3): the Claude effort level for this deliverable class.
+     *  Meaningful when selectedModel is a Claude 4.6+/5.x model; callers send it as
+     *  output_config.effort (aiRetryClient does so automatically from _hicKind). */
+    effort: ClaudeEffort;
 }
 
 export interface RoutingOpts {
@@ -596,15 +642,52 @@ export interface RoutingOpts {
     healthDegraded?: string[];
 }
 
-export function chooseArtifactModel(kind?: string | null, opts: RoutingOpts = {}): RoutingDecision {
+/**
+ * 2026-10-01 (plan Stage 4.3 / D6): the authority reads LIVE provider health itself. Every caller
+ * used to pass no opts, so the health/quota branches below were dead code; now a degraded Anthropic
+ * (recent 429s recorded by multiModelResilience) demotes the Claude candidates for the caller that
+ * forgot to ask, and an explicit `opts` still wins.
+ */
+function liveRoutingOpts(opts: RoutingOpts): RoutingOpts {
+    if (opts.healthDegraded) return opts;
+    const degraded: string[] = [];
+    try {
+        if (!isProviderHealthy('anthropic')) degraded.push(CLAUDE_REASONING_MODEL, CLAUDE_STRUCTURED_MODEL);
+        if (!isProviderHealthy('gemini')) degraded.push('gemini-3.5-flash', 'gemini-3.1-pro-preview');
+        if (!isProviderHealthy('openai')) degraded.push('gpt-5.5', 'gpt-5.4-mini');
+    } catch { /* health tracker unavailable: no demotion */ }
+    return { ...opts, healthDegraded: degraded };
+}
+
+/** The ordered chain the proxy artifact engine walks: the authority's pick, then its alternatives. */
+export function artifactModelChain(kind?: string | null, opts: RoutingOpts = {}): string[] {
+    const d = chooseArtifactModel(kind, opts);
+    return [d.selectedModel, ...d.alternatives.filter(m => m !== d.selectedModel)];
+}
+
+/**
+ * Stage 4.3 / D7: the `_utility` class. Compile, reflect, rename, summarize-a-feedback-line work is
+ * structured rewriting with a tight budget; it runs on Flash, and on the Claude structured model
+ * only when Gemini is unhealthy. Never the reasoning model.
+ */
+export interface UtilityDecision { model: string; endpoint: 'gemini' | 'anthropic'; reason: string; }
+export function chooseUtilityModel(label = 'utility'): UtilityDecision {
+    let geminiOk = true;
+    try { geminiOk = isProviderHealthy('gemini'); } catch { geminiOk = true; }
+    if (geminiOk) return { model: 'gemini-3.5-flash', endpoint: 'gemini', reason: `_utility(${label}): flash tier` };
+    return { model: CLAUDE_STRUCTURED_MODEL, endpoint: 'anthropic', reason: `_utility(${label}): gemini degraded, structured Claude` };
+}
+
+export function chooseArtifactModel(kind?: string | null, rawOpts: RoutingOpts = {}): RoutingDecision {
+    const opts = liveRoutingOpts(rawOpts);
     const k = String(kind || '').toLowerCase().replace(/^#/, '').trim();
     const isSchema = SCHEMA_FLASH_ARTIFACTS.has(k);
     const candidates = isSchema
         ? ['gemini-3.5-flash', 'gemini-3.1-pro-preview']
-        : (OPUS_CAP_ACTIVE ? ['gemini-3.1-pro-preview', 'gemini-3.5-flash'] : ['claude-opus-4-8', 'gemini-3.1-pro-preview']);
+        : (OPUS_CAP_ACTIVE ? ['gemini-3.1-pro-preview', 'gemini-3.5-flash'] : [CLAUDE_REASONING_MODEL, 'gemini-3.1-pro-preview']);
     const cls = isSchema ? '_schema' : '_evidence';
     const evalMap: Record<string, ModelEval> = { ...(ARTIFACT_EVAL_REGISTRY[cls] || {}), ...(ARTIFACT_EVAL_REGISTRY[k] || {}) };
-    const exhausted = new Set(opts.quotaExhausted || (OPUS_CAP_ACTIVE ? ['claude-opus-4-8'] : []));
+    const exhausted = new Set(opts.quotaExhausted || (OPUS_CAP_ACTIVE ? [CLAUDE_REASONING_MODEL] : []));
     const degraded = new Set(opts.healthDegraded || []);
     const costWeight = isSchema ? 0.04 : 0.01;   // schema: cheaper matters more (quality is a wash)
     let eligible = candidates.filter(m => !exhausted.has(m));
@@ -621,15 +704,17 @@ export function chooseArtifactModel(kind?: string | null, opts: RoutingOpts = {}
         })
         .sort((a, b) => b.score - a.score);
     if (scored.length === 0) {
-        const fallback = isSchema ? 'gemini-3.5-flash' : (OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8');
-        return { selectedModel: fallback, reason: 'all candidates exhausted/degraded; tier default', alternatives: [], evalBasis: cls };
+        const fallback = isSchema ? 'gemini-3.5-flash' : (OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : CLAUDE_REASONING_MODEL);
+        return { selectedModel: fallback, reason: 'all candidates exhausted/degraded; tier default', alternatives: [], evalBasis: cls, effort: effortForArtifact(k) };
     }
     const win = scored[0];
+    const effort = effortForArtifact(k);
     return {
         selectedModel: win.m,
-        reason: `eval q=${win.q.toFixed(2)}${win.note ? ` (${win.note})` : ''}, cost~${win.cost}, ${isSchema ? 'schema' : 'evidence'} tier${degraded.size ? ', health-adjusted' : ''}`,
+        reason: `eval q=${win.q.toFixed(2)}${win.note ? ` (${win.note})` : ''}, cost~${win.cost}, ${isSchema ? 'schema' : 'evidence'} tier${degraded.size ? ', health-adjusted' : ''}, effort=${effort}`,
         alternatives: scored.slice(1).map(s => s.m),
         evalBasis: ARTIFACT_EVAL_REGISTRY[k] ? k : cls,
+        effort,
     };
 }
 
@@ -654,13 +739,16 @@ export function endpointForModel(modelId: string): 'gemini' | 'anthropic' | 'ope
     return 'gemini';
 }
 
+// 2026-10-01 (owner decision 8, plan Stage 0.5): `research` and `narrative_composition` move
+// to the Claude reasoning model. One reasoning model across research, narrative and artifacts,
+// one cache namespace. The Stage 4 bake-offs may re-tier individual kinds on measured quality.
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
-    research: 'gemini-3.1-pro-preview',
+    research: CLAUDE_REASONING_MODEL,
     fast_generation: 'gemini-3.5-flash',
     vision: 'gemini-3.5-flash',
     image: 'gemini-3.1-flash-image-preview',
     video: 'gemini-3.1-flash-image-preview',   // HiC has no video; kept off 2.5-flash for hygiene
-    narrative_composition: 'gemini-3.1-pro-preview',
+    narrative_composition: CLAUDE_REASONING_MODEL,
     fast_agentic: 'gemini-3.5-flash',
 };
 
@@ -668,12 +756,12 @@ export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
+    research: [CLAUDE_REASONING_MODEL, 'gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
     fast_generation: ['gemini-3.5-flash', 'gemini-3.1-pro-preview', 'deepseek-v4-flash'],
     vision: ['gemini-3.1-pro-preview', 'gemini-3.5-flash'],
     image: ['gemini-3.1-flash-image-preview'],
     video: ['gemini-3.1-flash-image-preview'],
-    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
+    narrative_composition: [CLAUDE_REASONING_MODEL, 'gemini-3.1-pro-preview', 'gemini-3.5-flash', 'deepseek-v4-flash'],
     fast_agentic: ['gemini-3.5-flash', 'gemini-3.1-pro-preview'],
 };
 
@@ -708,7 +796,7 @@ import * as openaiService from './openaiService';
  * are supported on this branch. Google text routing uses GenAISession
  * directly (see geminiService.ts), so this router only handles OpenAI.
  */
-export async function routeTextAnalysis<T>(
+async function routeTextAnalysis<T>(
     systemPrompt: string,
     userPrompt: string,
     preferences: ModelPreferences,
@@ -726,6 +814,24 @@ export async function routeTextAnalysis<T>(
     switch (model.provider) {
         case 'openai':
             return openaiService.analyzeTextJSON<T>(systemPrompt, userPrompt, modelId, maxTokens, temperature);
+        case 'anthropic': {
+            // 2026-10-01 (owner decision 8): the research / narrative categories now default to the
+            // Claude reasoning model. No temperature (a 400 on Claude 4.6+/5.x); the retry client
+            // applies adaptive thinking + the effort policy for the category.
+            const { callAnthropic } = await import('./aiRetryClient');
+            const { parseJSONWithRepair } = await import('./aiOutputRepair');
+            const data: any = await callAnthropic({
+                model: modelId,
+                max_tokens: Math.max(1024, Math.min(maxTokens, 64_000)),
+                system: systemPrompt,
+                messages: [{ role: 'user', content: userPrompt }],
+                _hicKind: category === 'research' ? 'research' : 'narrative',
+            }, { label: `Text analysis (${modelId})`, maxAttempts: 3, requestTimeoutMs: 600_000 });
+            const text = (Array.isArray(data?.content) ? data.content : [])
+                .map((b: any) => (b?.type === 'text' && typeof b?.text === 'string' ? b.text : '')).join('').trim();
+            if (!text) throw new Error(`Text analysis (${modelId}) returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
+            return parseJSONWithRepair<T>(text, { calling_context: `routeTextAnalysis:${modelId}` });
+        }
         case 'google':
             // Delegate to existing Gemini service (import dynamically to avoid circular deps)
             throw new Error('Google text routing should use existing GenAISession. Use routeTextAnalysis only for OpenAI tasks.');
@@ -882,19 +988,3 @@ async function geminiVisionJSON<T>(
     return parseJSONWithRepair<T>(text, { calling_context: `vision:${modelId}` });
 }
 
-/**
- * Get a human-readable summary of which models will be used.
- * Displayed at the MODEL_SELECTION checkpoint.
- */
-export function getModelSummary(preferences: ModelPreferences): { category: string; model: string; provider: string; costTier: string }[] {
-    return (Object.keys(preferences) as TaskCategory[]).map(category => {
-        const modelId = preferences[category];
-        const model = MODEL_REGISTRY[modelId];
-        return {
-            category: category.replace('_', ' '),
-            model: model?.displayName || modelId,
-            provider: model?.provider || 'unknown',
-            costTier: model?.costTier || 'unknown',
-        };
-    });
-}

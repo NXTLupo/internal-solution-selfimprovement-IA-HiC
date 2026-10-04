@@ -1,0 +1,574 @@
+{
+ "prdAirVersion": "hic-prd-air-2026-10-01",
+ "artifactId": "prd-fixture",
+ "runId": "run-fixture",
+ "objective": "Decide whether to build a mid-season coverage review for small-scale growers before the next renewal cycle",
+ "title": "Growers decide coverage from a static plan the agent never revisits",
+ "brand": "nxt",
+ "graph": {
+  "sources": [
+   {
+    "id": "S-1",
+    "name": "Agriculture Weekly",
+    "kind": "article",
+    "pointer": "articles/agriculture-weekly/ab12cd34ef.md",
+    "date": "2026-03-04"
+   },
+   {
+    "id": "S-2",
+    "name": "Reddit r/farming",
+    "kind": "social-post",
+    "pointer": "social/reddit/r-farming/9f8e7d6c5b.md"
+   },
+   {
+    "id": "S-3",
+    "name": "Coverage review notes",
+    "kind": "upload",
+    "pointer": "uploads/coverage-review-notes.md"
+   }
+  ],
+  "quotes": [
+   {
+    "id": "Q-1",
+    "text": "We renew the same thing every year because nobody asks what changed.",
+    "sourceId": "S-1",
+    "pointer": "articles/agriculture-weekly/ab12cd34ef.md#c3",
+    "attribution": "Grower interview"
+   },
+   {
+    "id": "Q-2",
+    "text": "My agent has not called since the hail claim.",
+    "sourceId": "S-2",
+    "pointer": "social/reddit/r-farming/9f8e7d6c5b.md#c1"
+   },
+   {
+    "id": "Q-3",
+    "text": "Growers told us the plan review happens once, at signing, and never again.",
+    "sourceId": "S-3",
+    "pointer": "uploads/coverage-review-notes.md#c2"
+   },
+   {
+    "id": "Q-4",
+    "text": "Carriers are re-pricing mid-season for the first time in a decade.",
+    "sourceId": "S-1",
+    "pointer": "articles/agriculture-weekly/ab12cd34ef.md#c5"
+   }
+  ],
+  "pains": [
+   {
+    "id": "P-1",
+    "text": "Static plan never revisited",
+    "kind": "pain",
+    "quoteIds": [
+     "Q-1",
+     "Q-3"
+    ],
+    "personaIds": [
+     "PE-1"
+    ],
+    "themeIds": [
+     "T-1"
+    ],
+    "journeyStage": "renewal"
+   },
+   {
+    "id": "P-2",
+    "text": "Silence after the claim",
+    "kind": "pain",
+    "quoteIds": [
+     "Q-2"
+    ],
+    "personaIds": [
+     "PE-1",
+     "PE-2"
+    ],
+    "themeIds": [
+     "T-2"
+    ],
+    "journeyStage": "claim"
+   }
+  ],
+  "themes": [
+   {
+    "id": "T-1",
+    "name": "Coverage drifts from risk",
+    "insight": "The plan is written once and the farm changes every season."
+   },
+   {
+    "id": "T-2",
+    "name": "Silence after the claim",
+    "insight": "Contact stops when the claim closes."
+   }
+  ],
+  "personas": [
+   {
+    "id": "PE-1",
+    "name": "The deciding grower",
+    "role": "owner-operator",
+    "primary": true,
+    "stageOfStruggle": "renewal"
+   },
+   {
+    "id": "PE-2",
+    "name": "The field agent",
+    "role": "carrier agent",
+    "primary": false
+   }
+  ],
+  "competitiveGaps": [
+   {
+    "id": "CG-1",
+    "text": "Peer carriers offer a mid-season review call",
+    "competitor": "Peer carrier",
+    "quoteIds": [
+     "Q-4"
+    ]
+   }
+  ],
+  "requirements": [
+   {
+    "id": "R-1",
+    "text": "The grower sees the plan re-read against the season that just ended before renewal.",
+    "kind": "functional",
+    "tier": "must",
+    "proposedTier": "must",
+    "tierRationale": "maps to thesis; two independent origins; primary persona",
+    "claimType": "SUPPORTED_FACT",
+    "mapsToThesis": true,
+    "kano": "must-be",
+    "cagansBar": true,
+    "painIds": [
+     "P-1"
+    ],
+    "competitiveGapIds": [],
+    "personaIds": [
+     "PE-1"
+    ],
+    "themeIds": [
+     "T-1"
+    ],
+    "acceptanceTestIds": [
+     "AT-1"
+    ],
+    "signalIds": [
+     "M-1",
+     "M-2"
+    ]
+   },
+   {
+    "id": "R-2",
+    "text": "The agent receives a prompt when a claim closes without a follow-up call.",
+    "kind": "functional",
+    "tier": "should",
+    "proposedTier": "should",
+    "tierRationale": "one origin",
+    "claimType": "DEFENSIBLE_INFERENCE",
+    "mapsToThesis": true,
+    "kano": "one-dimensional",
+    "cagansBar": false,
+    "painIds": [
+     "P-2"
+    ],
+    "competitiveGapIds": [],
+    "personaIds": [
+     "PE-1",
+     "PE-2"
+    ],
+    "themeIds": [
+     "T-2"
+    ],
+    "acceptanceTestIds": [
+     "AT-2"
+    ],
+    "signalIds": [
+     "M-2"
+    ]
+   },
+   {
+    "id": "R-3",
+    "text": "The grower compares two coverage options side by side.",
+    "kind": "functional",
+    "tier": "could",
+    "proposedTier": "should",
+    "tierRationale": "typed HYPOTHESIS: carried as a bet",
+    "claimType": "HYPOTHESIS",
+    "mapsToThesis": false,
+    "kano": "attractive",
+    "cagansBar": false,
+    "painIds": [],
+    "competitiveGapIds": [],
+    "personaIds": [
+     "PE-1"
+    ],
+    "themeIds": [],
+    "acceptanceTestIds": [
+     "AT-3"
+    ],
+    "signalIds": [],
+    "bet": {
+     "statement": "A side-by-side comparison changes the renewal decision.",
+     "test": "Show two quotes to five growers before build and record the decision.",
+     "conditionWhereAlternativeWins": "A single recommended option wins if the growers ignore the second column."
+    }
+   },
+   {
+    "id": "R-4",
+    "text": "The plan review renders before the quote on a rural mobile connection.",
+    "kind": "non-functional",
+    "tier": "must",
+    "proposedTier": "must",
+    "tierRationale": "maps to thesis; two independent origins; primary persona",
+    "claimType": "DERIVATION",
+    "mapsToThesis": true,
+    "kano": "one-dimensional",
+    "cagansBar": true,
+    "painIds": [
+     "P-1"
+    ],
+    "competitiveGapIds": [
+     "CG-1"
+    ],
+    "personaIds": [
+     "PE-1"
+    ],
+    "themeIds": [
+     "T-1"
+    ],
+    "acceptanceTestIds": [
+     "AT-4"
+    ],
+    "signalIds": [
+     "M-1"
+    ],
+    "target": {
+     "kind": "requirement_target",
+     "metric": "review latency",
+     "value": 2,
+     "unit": "s p95",
+     "rationale": "rural connections are slow in the grower interviews"
+    }
+   }
+  ],
+  "acceptanceTests": [
+   {
+    "id": "AT-1",
+    "requirementId": "R-1",
+    "given": "a renewal is due",
+    "when": "the grower opens the plan",
+    "then": "the prior season review appears before the quote"
+   },
+   {
+    "id": "AT-2",
+    "requirementId": "R-2",
+    "given": "a claim closed",
+    "when": "a week passes without contact",
+    "then": "the agent sees the grower in the follow-up queue"
+   },
+   {
+    "id": "AT-3",
+    "requirementId": "R-3",
+    "given": "two quotes exist",
+    "when": "the grower opens either",
+    "then": "both render on one screen"
+   },
+   {
+    "id": "AT-4",
+    "requirementId": "R-4",
+    "given": "a rural mobile connection",
+    "when": "the grower opens the review",
+    "then": "the review renders before the quote",
+    "target": {
+     "kind": "requirement_target",
+     "metric": "review latency",
+     "value": 2,
+     "unit": "s p95"
+    }
+   }
+  ],
+  "signals": [
+   {
+    "id": "M-1",
+    "signal": "plan_review_opened",
+    "instrument": "product analytics event",
+    "population": {
+     "personaId": "PE-1",
+     "stage": "renewal"
+    },
+    "direction": "up",
+    "baselineStatus": "to be measured by the product analyst by the first renewal cycle",
+    "type": "leading",
+    "guardrail": {
+     "statement": "renewal abandonment does not rise",
+     "rollbackAuthority": "head of product"
+    },
+    "requirementIds": [
+     "R-1",
+     "R-4"
+    ]
+   },
+   {
+    "id": "M-2",
+    "signal": "renewal_completed_with_change",
+    "instrument": "policy admin system",
+    "population": {
+     "personaId": "PE-1",
+     "stage": "renewal"
+    },
+    "direction": "up",
+    "baselineStatus": "to be measured by the actuarial lead by the first renewal cycle",
+    "type": "lagging",
+    "guardrail": {
+     "statement": "loss ratio holds",
+     "rollbackAuthority": "chief underwriter"
+    },
+    "requirementIds": [
+     "R-1",
+     "R-2"
+    ]
+   }
+  ]
+ },
+ "sections": {
+  "thesis": {
+   "statement": "The deciding grower renews a plan nobody re-reads, so the product re-reads it for her before renewal. Approve a mid-season coverage review for the next renewal cycle.",
+   "user": "The deciding grower",
+   "pain": "Static plan never revisited",
+   "decisionRequested": "Approve the mid-season coverage review for the next renewal cycle",
+   "whatItDoes": "Re-reads the plan against the season that just ended and surfaces the change before the quote",
+   "governingThemeId": "T-1"
+  },
+  "problem": {
+   "story": {
+    "user": "A small-scale grower renews the same policy every year.",
+    "need": "She needs the plan to change when her risk changes.",
+    "insight": "Growers decide coverage from a static plan the agent never revisits."
+   },
+   "quoteIds": [
+    "Q-1",
+    "Q-2",
+    "Q-3"
+   ]
+  },
+  "whyNow": {
+   "statement": "Carriers now re-price mid-season, so a static plan leaves the grower exposed between renewals.",
+   "change": "Mid-season re-pricing by carriers",
+   "quoteIds": [
+    "Q-4"
+   ]
+  },
+  "usersAndJobs": {
+   "primaryPersonaIds": [
+    "PE-1"
+   ],
+   "jobStories": [
+    {
+     "id": "JS-1",
+     "personaId": "PE-1",
+     "when": "my renewal notice arrives",
+     "iWantTo": "see what changed on my farm since last season",
+     "soICan": "decide coverage from this year, not last year",
+     "journeyStage": "renewal",
+     "quoteIds": [
+      "Q-1"
+     ]
+    },
+    {
+     "id": "JS-2",
+     "personaId": "PE-2",
+     "when": "a claim closes",
+     "iWantTo": "know which growers I have not called",
+     "soICan": "reach them before the renewal notice does",
+     "journeyStage": "claim",
+     "quoteIds": [
+      "Q-2"
+     ]
+    }
+   ]
+  },
+  "goalsNonGoalsAppetite": {
+   "goals": [
+    {
+     "text": "The grower sees a season-aware plan before every renewal.",
+     "measurable": true
+    },
+    {
+     "text": "The agent feels like the first call, not the last.",
+     "measurable": false
+    }
+   ],
+   "nonGoals": [
+    {
+     "text": "Rebuilding the quoting engine",
+     "reason": "the quote is correct; the review around it is missing"
+    },
+    {
+     "text": "Automated policy changes without an agent",
+     "reason": "the agent approves every change in this release"
+    }
+   ],
+   "appetite": {
+    "kind": "requirement_target",
+    "metric": "appetite",
+    "value": 6,
+    "unit": "weeks",
+    "rationale": "one renewal cycle"
+   }
+  },
+  "successSignals": {
+   "signalIds": [
+    "M-1",
+    "M-2"
+   ]
+  },
+  "hypotheses": {
+   "assumptions": [
+    {
+     "id": "A-1",
+     "text": "Growers will open a review they did not ask for.",
+     "quadrant": "test-now",
+     "test": "Send the review to a pilot group and record opens before build.",
+     "owner": "product lead",
+     "supportingQuoteIds": [
+      "Q-1"
+     ]
+    }
+   ]
+  },
+  "solutionFlows": {
+   "flows": [
+    {
+     "jobStoryId": "JS-1",
+     "name": "Renewal review",
+     "steps": [
+      "The system assembles the season summary from claims and weather records.",
+      "The agent approves the draft.",
+      "The grower opens the review before the quote."
+     ]
+    }
+   ],
+   "screenStates": [
+    {
+     "screen": "Plan review",
+     "states": [
+      "empty",
+      "loading",
+      "partial",
+      "error",
+      "conflict",
+      "permission",
+      "degraded provider"
+     ]
+    }
+   ],
+   "businessRules": [
+    "The assistant drafts the review; the agent approves before the grower sees it."
+   ]
+  },
+  "requirements": {
+   "requirementIds": [
+    "R-1",
+    "R-2",
+    "R-3",
+    "R-4"
+   ]
+  },
+  "quality": {
+   "characteristics": [
+    {
+     "characteristic": "performance efficiency",
+     "statement": "The plan review renders before the quote on a rural mobile connection.",
+     "target": {
+      "kind": "requirement_target",
+      "metric": "review latency",
+      "value": 2,
+      "unit": "s p95"
+     }
+    }
+   ],
+   "accessibility": {
+    "level": "WCAG 2.2 AA",
+    "exposedCriteria": [
+     "focus visible",
+     "target size"
+    ]
+   },
+   "privacy": {
+    "dataMinimization": "The review reads claims and weather records already held for the policy; nothing new is collected.",
+    "dpiaTrigger": {
+     "triggered": false,
+     "reason": "no new processing purpose"
+    }
+   }
+  },
+  "risks": {
+   "register": [
+    {
+     "id": "RK-1",
+     "failureMode": "Agents ignore the follow-up queue",
+     "likelihood": "medium",
+     "severity": "high",
+     "earlySignal": "queue items age past a week",
+     "owner": "agency operations lead",
+     "mitigation": "route aged items to the agency manager"
+    }
+   ],
+   "alternatives": [
+    {
+     "option": "a renewal reminder email",
+     "rejectedBecause": "it repeats the static plan",
+     "tradeoff": "cheaper to ship, no change in the decision"
+    }
+   ]
+  },
+  "delivery": {
+   "releaseCriteria": [
+    "Every must-have acceptance test passes in the pilot agency."
+   ],
+   "rollout": [
+    {
+     "phase": "Pilot agency",
+     "gate": "agents approve the draft review for every pilot grower",
+     "killCriteria": "renewal abandonment rises in the pilot",
+     "rollbackAuthority": "head of product"
+    },
+    {
+     "phase": "Region",
+     "gate": "the pilot guardrails hold for one renewal cycle",
+     "killCriteria": "loss ratio moves against the guardrail",
+     "rollbackAuthority": "chief underwriter"
+    }
+   ],
+   "trackingPlan": [
+    {
+     "event": "plan_review_opened",
+     "properties": [
+      "persona",
+      "stage",
+      "agency"
+     ],
+     "owner": "product analyst"
+    }
+   ],
+   "dependencies": [
+    {
+     "name": "Claims history API",
+     "kind": "api",
+     "owner": "claims platform team"
+    },
+    {
+     "name": "Weather records feed",
+     "kind": "data",
+     "owner": "data engineering"
+    }
+   ],
+   "openQuestions": [
+    {
+     "question": "Which agencies join the pilot?",
+     "owner": "agency operations lead",
+     "due": "before the first renewal cycle"
+    }
+   ],
+   "accountableApprover": "Head of product"
+  }
+ }
+}

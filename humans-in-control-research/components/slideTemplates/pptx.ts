@@ -39,7 +39,7 @@
  */
 
 import { TOKENS } from './types';
-import { nxtBrand, fontForRole, type Brand } from './brands';
+import { nxtBrand, fontForRole, normalizeBrandId, type Brand } from './brands';
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
@@ -2226,7 +2226,8 @@ async function tryDiagramImageExport(
     }
     labels = labels.slice(0, 8);
     if (labels.length < 2) return false;
-    const brandId = ((T as any)?.ACCENT === '#C8102E' || (T as any)?.id === 'nu') ? 'nu' : 'nxt';
+    // 2026-10-01 - brand from the explicit BRAND_ID discriminator (never a hex equality): nxt | nu | deciem.
+    const brandId = normalizeBrandId((T as any)?.BRAND_ID);
     let dataUri = '';
     try {
         const resp = await fetch('http://127.0.0.1:5012/api/ai/diagram', {

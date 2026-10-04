@@ -12,7 +12,7 @@
  * - Maximize toggle (sidebar ↔ full-width)
  */
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, startTransition } from 'react';
 import { readObjectivePlan, toAirDecomposedQuestions } from '../services/objectivePlan';
 import {
     sendChatMessage, AVAILABLE_MODELS, loadSkillManifest, matchSkills,
@@ -23,7 +23,7 @@ import { NxtBlockRenderer, parseNxtBlocks, type NxtBlock } from './NxtOutputRend
 import { ChatProse } from './ChatProse';
 import { DeliverableBatch, type DeliverableItem, type DeliverableType } from './DeliverableCard';
 import SlideCanvas, { type SlideData } from './SlideCanvas';
-import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/brands';
+import { detectBrandFromText, getBrand, normalizeBrandId, brandVariantOfId, type BrandId, type BrandVariantId } from './slideTemplates/brands';
 import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
 import { validateSlide } from '../services/slideValidator';
@@ -32,7 +32,7 @@ import { validateSlide } from '../services/slideValidator';
 // balance + 9-rung repair ladder) before falling back to per-array salvage.
 // Static import (over async dynamic import) lets the sync parseSlideBlocks /
 // parseDeliverableBlocks callbacks use these helpers without a refactor.
-import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel, DEFAULT_MODELS } from '../services/aiRouter';
+import { tryRepairJson, salvageJsonArray, artifactModelFor, chooseArtifactModel, DEFAULT_MODELS, CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL } from '../services/aiRouter';
 // WS-6 FLUID CHAT (2026-08-14 v2 program): natural-language intent routing so
 // common asks (deck edits, client email, slide narrative) need no hashtags.
 // Static imports - dynamic import() chunks 404 on stale bundles (2026-08-14 lesson).
@@ -64,7 +64,7 @@ import FeedbackWidget from './FeedbackWidget';
 // import FeedbackReceipt from './FeedbackReceipt';
 import GenerationReceipt from './GenerationReceipt';
 import { regenerateWithFeedback, type TextDiff } from '../services/feedbackRegeneration';
-import { resolveDeliverableBodies, currentEngagementSlug, manifestPointerBlock, resolveChunks } from '../services/wikiPointerResolver';
+import { currentEngagementSlug, resolveChunks } from '../services/wikiPointerResolver';
 // 2026-06-09 - MANIFEST-CHUNK grounding for the deliverable corpus (intent A.1),
 // so #journey/#blueprint/#org/#gap/#competitive/#prd ground from wiki+MANIFEST
 // (pointer-addressed chunks) as PRIMARY evidence, not bulk-RAG.
@@ -75,15 +75,14 @@ import { generateChunkedSlideDeck, shouldChunkSlideRequest } from '../services/s
 import { parseHashtags } from '../design-desk/services/hashtagParser';
 import { useDesignDeskStore } from '../design-desk/store/designDeskStore';
 import { loadDesignMd, type DesignTokens } from '../design-desk/services/designMdLoader';
-import { generateArtifact } from '../design-desk/services/chatToArtifact';
-import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
 import type { FreeformKind, FreeformArtifact } from '../design-desk/schemas/freeformArtifact';
 // 2026-05-24 - NotebookLM uplift Phase 4-6 backing services + renderers.
 import { buildMindMap, type BertTopicCluster } from '../services/mindMapArchitect';
 import { renderMindMapHtml } from '../services/mindMapRenderer';
 import { generateBriefDialog, renderBriefDialogHtml } from '../services/briefDialogService';
 import { buildMetaThemes, renderMetaThemesHtml } from '../services/metaThemesService';
-import { buildResearchPlan } from '../services/researchPlanner';
+import { ensureObjectiveDecomposition } from '../services/researchPlanner';
+import { publishObjectivePlan, recordDecompositionStatus } from '../services/objectivePlan';
 import { renderResearchPlanHtml } from '../services/researchPlanRenderer';
 // 2026-05-25 - Expert-panel pre-emit system. Every freeform artifact passes
 // through the domain-expert critique panel before reaching the design desk.
@@ -92,17 +91,19 @@ import { runExpertPanel, type ArtifactKind, stripEmDashesInPlace } from '../serv
 import {
     parsePresentationDirective,
     parsePrototypeDirective,
-    parseBriefDirective,
-    parseExplainerDirective,
-    parseReportDirective,
-    parseWhitepaperDirective,
-    parsePlaygroundDirective,
-    parseApproachesDirective,
     parseHelpDirective,
     parseArtifactsLibraryDirective,
     parseRefineDirective,
+    parseHtmlArtifactDirective,
+    HTML_ARTIFACT_PARSERS,
+    hasModifier,
+    brandVariantOf,
+    type ArtifactDirective,
+    type ArtifactGenerator,
     type ComposerModelChoice,
 } from '../services/hashtagParser';
+import { UPLIFT_CATALOG_IDS, catalogEntryFor, designDeskKindFor, type ArtifactCatalogEntry } from '../services/artifactCatalog';
+import { visibleWordCount } from '../services/htmlDepthDelta';
 import { DIRECTIVES, searchDirectives, directivesByCategory, CATEGORY_LABELS } from '../services/hashtagRegistry';
 import { saveArtifact, listArtifacts, getArtifact, deleteArtifact, getArtifactViewUrl } from '../services/artifactLibrary';
 import { callAIWithRetry } from '../services/aiRetryClient';
@@ -113,7 +114,7 @@ import { SourceCoverage } from './SourceCoverage';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './PromptEnhancer';
 // --- Mid-chat upload dropzone (2026-05-08) ---
 import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
-import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
+import { ingestUploadedDocuments, buildEngagementSlug, UPLOAD_ANALYSIS_EVENT, type UploadAnalysisEventDetail, takeUndeliveredUploadAnalyses, markUploadAnalysisDelivered, formatUploadAnalysisLine } from '../services/wikiService';
 // --- Presentation library (#presentations bare-hashtag - 2026-05-09) ---
 import {
     listPresentations,
@@ -136,36 +137,123 @@ import { resolveRoutedSlotImages } from '../services/visualRouter';
 import { resolveUserImageryForPayload } from '../services/userImagery';
 import { parseImgDirective } from '../services/hashtagParser';
 
-// Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
-// inheritance, iframe-isolated render). All other kinds remain on the legacy
-// structured pipeline.
-//
-// 2026-05-26 - `journey` and `blueprint` were REMOVED from this set. Those
-// two kinds now route through `/api/journey-map/generate` to the dedicated
-// `internal-solutions-journeymapper` service (Docker container `journey-mapper`,
-// port 8080), preserving JM's two-pass Claude Sonnet depth. The inline
-// chatToFreeform path was a 2026-05-25 port of JM's depth that created
-// drift risk. The new branch sits ABOVE the FREEFORM_KINDS check below.
-// See: memory/feedback_journey_must_route_to_journey_mapper.md
-const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
-    'org', 'arch', 'roadmap',
-    // 2026-05-24 - NotebookLM uplift Phase 4-6 deliverables. These don't use
-    // the exemplar-driven generateFreeformArtifact() path; they're produced
-    // by dedicated services + renderers. The set membership keeps them in
-    // the freeform artifact ecosystem (IDB persistence, ArtifactViewer
-    // dispatch on type === 'freeform').
-    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
-    // 2026-05-25 - Unified artifact-engine kinds. Every kind now flows through
-    // /api/artifact/generate (and /api/artifact/revise on revisions) which
-    // produces a JM-style HTML report with brand override + anti-slop +
-    // launcher card. Persona stays on the legacy structured pipeline by
-    // default but #persona on a freeform-engine path is supported.
-    'persona', 'prd', 'recommendation', 'strategy-slide', 'strategy', 'brief',
-    'gap-analysis', 'tech-audit', 'competitive', 'presentation',
-] as FreeformKind[]);
-const UPLIFT_KINDS: ReadonlySet<FreeformKind> = new Set([
-    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
-]);
+// Stage 6.2 (2026-10-01, finding A1): the NotebookLM kinds dispatch from ONE table keyed on the
+// artifact catalog id (services/artifactCatalog.ts UPLIFT_CATALOG_IDS = every `analysis`-modality
+// entry). Each handler builds the artifact body; the send path wraps it in the expert panel, the
+// Design Desk store, and the chat reply. Adding a kind = one catalog entry + one handler here; the
+// coverage test asserts the two sets agree.
+const UPLIFT_PROXY_BASE = 'http://127.0.0.1:5012';
+// 2026-10-01 - THREE-BRAND UI chrome (NXT / NU / DECIEM). Every brand-conditional color in this
+// panel resolves through these helpers from the token mirror (components/slideTemplates/brands,
+// hydrated from /api/design-tokens), never through a per-brand hex ternary.
+const brandAccentHex = (brand?: string | null): string => '#' + getBrand(normalizeBrandId(brand)).CHARTREUSE;
+/** Text on the accent fill: white on NU red; ink on NXT chartreuse and on DECIEM pink. */
+const brandOnAccentHex = (brand?: string | null): string => {
+    const id = normalizeBrandId(brand);
+    return id === 'nu' ? '#' + getBrand(id).WHITE : '#' + getBrand(id).INK;
+};
+/** diagramSpec.fetchDiagramImage still declares the two-brand union; the VALUE passed is the real
+ *  brand id (deciem included) so the proxy paints the right skin once that signature widens. */
+const diagramBrand = (brand?: string | null) => normalizeBrandId(brand) as Parameters<typeof import('../services/diagramSpec').fetchDiagramImage>[1];
+interface UpliftArgs { ctx: ChatContext; cleanPrompt: string; brand: BrandId; corpusText: string }
+interface UpliftBuilt { title: string; html: string; citations: Array<{ label: string; source: string }> }
+const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> = {
+    mindmap: async ({ ctx, cleanPrompt, brand }) => {
+        // ChatContext themes -> BertTopicCluster shape. Real BERTopic output has numeric ids +
+        // post_ids + top_terms; ChatContext themes carry name/summary/citations, so the missing
+        // fields are synthesized.
+        const themesIn = Array.isArray((ctx as any).themes) ? (ctx as any).themes : [];
+        if (themesIn.length < 3) {
+            throw new Error('Mind map needs at least 3 themes - run analysis first or load a session with theme output.');
+        }
+        const clusters: BertTopicCluster[] = themesIn.map((t: any, idx: number) => ({
+            id: idx,
+            name: String(t.name || t.title || `Theme ${idx + 1}`).slice(0, 80),
+            summary: String(t.summary || t.description || '').slice(0, 400),
+            post_count: Array.isArray(t.citations) ? t.citations.length : (t.post_count ?? 1),
+            top_terms: Array.isArray(t.top_terms) ? t.top_terms : [],
+            post_ids: Array.isArray(t.citations) ? t.citations : (t.post_ids || []),
+            centroid: [0, 0],
+            convergent_evidence: !!t.convergent_evidence,
+            source_types: Array.isArray(t.source_types) ? t.source_types : [],
+            distinct_source_count: t.distinct_source_count ?? (Array.isArray(t.source_types) ? t.source_types.length : 1),
+        }));
+        const goal = ctx.researchGoal || cleanPrompt || 'Research';
+        const mm = await buildMindMap({ topics: clusters, research_goal: goal, proxy_base: UPLIFT_PROXY_BASE });
+        // Native, token-grounded radial renderer (renderMindMapHtml), per the locked native-composition decision.
+        return { title: `Mind Map: ${goal.slice(0, 60)}`, html: renderMindMapHtml({ output: mm, brand, researchGoal: goal }), citations: [] };
+    },
+    'brief-dialog': async ({ ctx, cleanPrompt, brand, corpusText }) => {
+        const transcript = await generateBriefDialog({
+            topic: cleanPrompt || ctx.researchGoal || 'Research finding',
+            corpus: corpusText.slice(0, 24000),
+            proxy_base: UPLIFT_PROXY_BASE,
+        });
+        const allCites = transcript.turns.flatMap(t => t.citations || []);
+        const citations = Array.from(new Set(allCites)).slice(0, 12).map(c => ({ label: c, source: c }));
+        return { title: `Brief Dialog: ${transcript.topic.slice(0, 60)}`, html: renderBriefDialogHtml({ transcript, brand }), citations };
+    },
+    'meta-themes': async ({ cleanPrompt, brand }) => {
+        const mt = await buildMetaThemes({ proxy_base: UPLIFT_PROXY_BASE });
+        return {
+            title: `Portfolio Patterns: ${mt.portfolio_pattern_count} recurring themes`,
+            html: renderMetaThemesHtml({ output: mt, brand, title: cleanPrompt ? `Portfolio Patterns: ${cleanPrompt}` : 'Portfolio Patterns' }),
+            citations: [],
+        };
+    },
+    'deep-research': async ({ ctx, cleanPrompt, brand }) => {
+        // Plan Stage 1.6 (B8): the chat plan path records its decomposition like the run path does,
+        // so every chat artifact that follows can measure coverage against it.
+        const outcome = await ensureObjectiveDecomposition({
+            research_goal: cleanPrompt || ctx.researchGoal || 'Research',
+            proxy_base: UPLIFT_PROXY_BASE,
+        });
+        if (outcome.status === 'decomposed') {
+            publishObjectivePlan(outcome.subQuestions, outcome.attempts);
+        } else {
+            recordDecompositionStatus({ decomposition: 'unavailable', reason: outcome.reason, attempts: outcome.attempts });
+        }
+        const plan = outcome.plan;
+        if (!plan) throw new Error(`research plan unavailable: ${outcome.status === 'unavailable' ? outcome.reason : 'no plan'}`);
+        return { title: `Research Plan: ${plan.goal.slice(0, 60)}`, html: renderResearchPlanHtml({ plan, brand }), citations: [] };
+    },
+};
+
+/** Evidence for the dialogue kind: manifest-selected chunks first (cite by pointer), then the user's
+ *  mid-chat uploads and client documents, then the raw session corpus only when nothing else exists. */
+async function assembleUpliftCorpus(ctx: ChatContext, cleanPrompt: string, attachments: ChatAttachment[]): Promise<string> {
+    const parts: string[] = [];
+    if (attachments.length > 0) {
+        parts.push('=== USER MID-CHAT UPLOADS (highest priority) ===\n' + attachments
+            .map(att => `--- AD-HOC UPLOAD: ${att.filename} (${att.charCount} chars) ---\n${att.parsedText}\n--- END ${att.filename} ---`)
+            .join('\n\n'));
+    }
+    const goal = `${cleanPrompt || ''}. ${ctx?.researchGoal || ''}`.replace(/^\.\s*/, '').trim();
+    try {
+        const slug = currentEngagementSlug();
+        if (slug && goal) {
+            const picked = await pickChunksForPrompt(goal, slug, {
+                extraContext: ctx?.researchGoal || '',
+                researchObjective: ctx?.researchGoal || goal,
+                tokenBudget: 12_000,
+            });
+            if (picked.chunkIds.length > 0) {
+                const res = await resolveChunks(picked.chunkIds);
+                if (res.chunks.length > 0) {
+                    parts.push('=== PRIMARY EVIDENCE (manifest-selected, cite by pointer) ===\n' + chunkCitationInstructions() + '\n\n' + assembleChunkCorpus(res.chunks));
+                }
+            }
+        }
+    } catch (e: any) {
+        console.warn('[Uplift] manifest-chunk grounding failed (non-fatal):', e?.message || e);
+    }
+    if (typeof ctx?.uploadedFileContents === 'string' && ctx.uploadedFileContents.length > 40) {
+        parts.push('=== CLIENT UPLOADS ===\n' + ctx.uploadedFileContents);
+    }
+    if (parts.length === 0 && ctx?.corpusText) parts.push(ctx.corpusText);
+    if (parts.length === 0 && ctx?.researchGoal) parts.push(`=== RESEARCH GOAL ===\n${ctx.researchGoal}`);
+    return parts.join('\n\n').trim();
+}
 /** D18 (2026-07-01): emit an AIR for the narrativeComposer deck path (#presentation), which previously
  *  produced a deck but emitted NO AIR (neither the sendChatMessage chat chokepoint nor emitDeliverable.air
  *  covers composeNarrative). Resolves the objective's manifest chunks for a REAL evidence ledger (manifest-
@@ -213,6 +301,7 @@ import { OrgChartCanvas } from '../design-desk/components/OrgChartCanvas';
 import type { PersonaArtifact } from '../design-desk/schemas/personaArtifact';
 import type { JourneyArtifact } from '../design-desk/schemas/journeyArtifact';
 import type { OrgChartArtifact } from '../design-desk/schemas/orgChartArtifact';
+import { PrdWorkbookCard, type PrdWorkbookMeta } from './PrdWorkbookCard';
 
 interface Props {
     context: ChatContext;
@@ -243,7 +332,7 @@ interface Props {
      *  collection + Pass 1/2 brief generation. */
     initialCachedBriefs?: {
         briefs: any[];
-        meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string };
+        meta: { brand: BrandVariantId; basedOn?: string; researchGoal?: string; originalConcept: string };
         sourceSlug: string;
         mode: 't4-build-only' | 't3-briefs';
     };
@@ -727,7 +816,7 @@ const DeliverableLaunchCard: React.FC<{
     meta?: ChatMessage['artifactLaunchMeta'];
 }> = ({ url, meta }) => {
     const brand = meta?.brand || 'NXT';
-    const accentColor = brand === 'NU' ? '#C8102E' : '#B8B800';
+    const accentColor = brandAccentHex(brand);
     const kindLabel = (meta?.kind || 'artifact').replace(/-/g, ' ');
     const handleLaunch = () => {
         // 2026-05-26 - Guard: a relative "/api/..." URL would resolve against
@@ -778,7 +867,7 @@ const DeliverableLaunchCard: React.FC<{
                 style={{
                     padding: '10px 18px',
                     background: accentColor,
-                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    color: brandOnAccentHex(brand),
                     border: 'none',
                     fontSize: 11,
                     fontWeight: 700,
@@ -816,7 +905,7 @@ const PresentationLaunchCard: React.FC<{
     meta?: ChatMessage['presentationMeta'];
 }> = ({ url, meta }) => {
     const brand = meta?.brand || 'NXT';
-    const accentColor = brand === 'NU' ? '#CC0000' : '#B8B800';
+    const accentColor = brandAccentHex(brand);
     const handleLaunch = () => {
         // 2026-05-26 - Guard: a relative "/api/..." URL would resolve against
         // the SPA origin (:5011) and SPA-fall-back to the landing page. All
@@ -864,7 +953,7 @@ const PresentationLaunchCard: React.FC<{
                 style={{
                     padding: '10px 18px',
                     background: accentColor,
-                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    color: brandOnAccentHex(brand),
                     border: 'none',
                     fontSize: 11,
                     fontWeight: 700,
@@ -955,7 +1044,7 @@ const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items
                 const isConfirmingDelete = confirmingDelete === item.slug;
                 const isEditing = editingSlug === item.slug;
                 const isBusy = busySlug === item.slug;
-                const brandAccent = item.brand === 'NU' ? '#C8102E' : '#B8B800';
+                const brandAccent = brandAccentHex(item.brand);
                 return (
                     <div key={item.slug} style={{
                         background: '#FFFFFF',
@@ -1315,9 +1404,9 @@ function renderProtoChips(text: string, onPickCommand: (cmd: string) => void): R
         const start = match.index;
         if (start > lastIdx) out.push(text.slice(lastIdx, start));
         // Detect brand from the command for chip accent
-        const isNU = /#NU\b/i.test(command);
-        const accent = isNU ? '#C00000' : '#B8B800';
-        const accentText = isNU ? '#FFFFFF' : '#0D0D0D';
+        const chipBrand = brandVariantOf(command);   // NXT | NU | DECIEM
+        const accent = brandAccentHex(chipBrand);
+        const accentText = brandOnAccentHex(chipBrand);
         const cleanLabel = (label || '').trim() || 'Build this prototype';
         out.push(
             <button
@@ -1350,7 +1439,7 @@ function renderProtoChips(text: string, onPickCommand: (cmd: string) => void): R
                     fontSize: 9,
                     opacity: 0.7,
                     textTransform: 'none',
-                }}>{isNU ? '⟶ NU' : '⟶ NXT'}</span>
+                }}>{`⟶ ${chipBrand}`}</span>
                 <span style={{ flex: 1 }}>{cleanLabel}</span>
             </button>
         );
@@ -1367,7 +1456,7 @@ const PrototypeLaunchCard: React.FC<{
     meta?: ChatMessage['prototypeMeta'];
 }> = ({ url, meta }) => {
     const brand = meta?.brand || 'NXT';
-    const accentColor = brand === 'NU' ? '#C00000' : '#B8B800';
+    const accentColor = brandAccentHex(brand);
     const verdict = meta?.verdict;
     const verdictColor = verdict === 'ship' ? '#0CCE6B' : verdict === 'refine' ? '#FD8E2E' : verdict === 'rebuild' ? '#CC6644' : '#525252';
     const [exporting, setExporting] = useState(false);
@@ -1473,7 +1562,7 @@ const PrototypeLaunchCard: React.FC<{
                     style={{
                         padding: '10px 18px',
                         background: accentColor,
-                        color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                        color: brandOnAccentHex(brand),
                         border: 'none',
                         fontSize: 11,
                         fontWeight: 700,
@@ -1500,8 +1589,12 @@ const HashtagAutocomplete: React.FC<{
     input: string;
     inputRef: React.RefObject<HTMLTextAreaElement | null>;
     onPickDirective: (suffix: string) => void;
-}> = ({ input, inputRef, onPickDirective }) => {
+}> = ({ input, inputRef, onPickDirective: pickDirective }) => {
     const [open, setOpen] = useState(false);
+    // A pick rewrites the text before the cursor moves, so the next text change still sees the old "#pr" token at
+    // the old cursor and would reopen the menu. The first text change after a pick is skipped.
+    const justPickedRef = useRef(false);
+    const onPickDirective = useCallback((id: string) => { justPickedRef.current = true; pickDirective(id); }, [pickDirective]);
     const [partial, setPartial] = useState('');
     const [selectedIdx, setSelectedIdx] = useState(0);
     const [matches, setMatches] = useState<typeof DIRECTIVES>([]);
@@ -1509,6 +1602,7 @@ const HashtagAutocomplete: React.FC<{
     useEffect(() => {
         const el = inputRef.current;
         if (!el) { setOpen(false); return; }
+        if (justPickedRef.current) { justPickedRef.current = false; setOpen(false); setPartial(''); return; }
         const cursor = el.selectionStart ?? input.length;
         const before = input.slice(0, cursor);
         // Match the last #word the cursor is touching. The token starts at
@@ -1649,7 +1743,7 @@ const ArtifactLaunchCard: React.FC<{
     meta?: ChatMessage['artifactMeta'];
 }> = ({ url, meta }) => {
     const brand = meta?.brand || 'NXT';
-    const accentColor = brand === 'NU' ? '#C8102E' : '#B8B800';
+    const accentColor = brandAccentHex(brand);
     const gen = meta?.generator || '#artifact';
     const genLabel = ({
         '#brief': 'Stakeholder Brief',
@@ -1689,7 +1783,7 @@ const ArtifactLaunchCard: React.FC<{
                 style={{
                     padding: '10px 18px',
                     background: accentColor,
-                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    color: brandOnAccentHex(brand),
                     border: 'none',
                     fontSize: 11,
                     fontWeight: 700,
@@ -1717,7 +1811,7 @@ const ArtifactLibraryGrid: React.FC<ArtifactLibraryGridProps> = ({ items, onItem
     return (
         <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
             {items.map(a => {
-                const accent = a.brand === 'NU' ? '#C8102E' : '#B8B800';
+                const accent = brandAccentHex(a.brand);
                 return (
                     <div key={a.slug} style={{
                         border: `1px solid #E5E5E5`,
@@ -2215,18 +2309,26 @@ function briefSlug(b: ProductBriefForCard): string {
 /** 2026-05-13 v2 - Render a ProductBrief as a standalone HTML document and
  *  open it in a real popup window. Gives the user a dedicated review surface
  *  rather than cramping the brief inside the chat thread. */
-function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): void {
+function openBriefInWindow(brief: ProductBriefForCard, brand: BrandVariantId): void {
     const win = window.open('', '_blank', 'width=1200,height=900,scrollbars=yes,resizable=yes');
     if (!win) {
         alert('Popup blocked. Allow popups for localhost:5011 to open the brief in a dedicated window.');
         return;
     }
-    const isNU = brand === 'NU';
-    const accent = isNU ? '#C8102E' : '#B8B800';
-    const accentDark = isNU ? '#9E0A24' : '#8A8A00';
-    const display = isNU ? "'Roboto Condensed', sans-serif" : "'Bebas Neue', 'Archivo', sans-serif";
-    const body = isNU ? "'Open Sans', sans-serif" : "'Archivo', sans-serif";
-    const ink = isNU ? '#141D30' : '#0D0D0D';
+    // 2026-10-01 - brand-id driven (nxt | nu | deciem) from the token mirror; no per-brand font literals.
+    const brandId = normalizeBrandId(brand);
+    const B = getBrand(brandId);
+    const accent = brandAccentHex(brandId);
+    const onAccent = brandOnAccentHex(brandId);
+    const accentDark = brandId === 'nu' ? '#9E0A24' : brandId === 'deciem' ? '#' + B.ACCENT_COOL : '#8A8A00';
+    const display = `'${B.FONT_DISPLAY}', sans-serif`;
+    const body = `'${B.FONT_BODY}', sans-serif`;
+    const ink = '#' + B.INK;
+    const titleTransform = B.TITLE_TRANSFORM || 'none';
+    // Font roles: DECIEM labels / chips / numerals are Poppins Bold uppercase and its meta lines take FONT_MONO
+    // (Nunito) per the template audit; NXT and NU keep the mono label face.
+    const label = brandId === 'deciem' ? `'${String((B as Record<string, unknown>).FONT_LABEL || B.FONT_DISPLAY)}', sans-serif` : "'JetBrains Mono', monospace";
+    const meta = brandId === 'deciem' ? `'${B.FONT_MONO}', sans-serif` : "'JetBrains Mono', monospace";
     const probPct = Math.round((brief.probability || 0) * 100);
 
     const escapeHtml = (s: string): string => s
@@ -2376,9 +2478,9 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
   body { margin: 0; padding: 0; font-family: ${body}; color: ${ink}; background: #FAFAFA; line-height: 1.5; }
   .wrap { max-width: 980px; margin: 0 auto; padding: 48px 56px 96px; background: #FFFFFF; min-height: 100vh; }
   .hero { padding-bottom: 32px; border-bottom: 3px solid ${accent}; margin-bottom: 40px; }
-  .frame-chip { display: inline-block; padding: 6px 12px; background: ${accent}; color: ${isNU ? '#FFFFFF' : ink}; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-  .prob { display: inline-block; margin-left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #525252; }
-  h1 { font-family: ${display}; font-size: 44px; font-weight: 700; margin: 14px 0 12px; letter-spacing: -0.01em; line-height: 1.1; }
+  .frame-chip { display: inline-block; padding: 6px 12px; background: ${accent}; color: ${onAccent}; font-family: ${label}; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .prob { display: inline-block; margin-left: 12px; font-family: ${meta}; font-size: 11px; color: #525252; }
+  h1 { font-family: ${display}; font-size: 44px; font-weight: 700; text-transform: ${titleTransform}; margin: 14px 0 12px; letter-spacing: -0.01em; line-height: 1.1; }
   .thesis { font-size: 18px; color: #404040; line-height: 1.5; max-width: 760px; }
   .why-frame { margin-top: 12px; font-style: italic; color: #525252; font-size: 14px; max-width: 760px; }
   h2 { font-family: ${display}; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin: 56px 0 18px; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; }
@@ -2387,17 +2489,17 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
   .persona-name { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
   .persona-role { font-weight: 400; color: #525252; }
   .emotion { color: #525252; font-style: italic; }
-  .subhead { margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #525252; }
+  .subhead { margin-top: 14px; font-family: ${label}; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #525252; }
   ul, ol { padding-left: 22px; }
   ul li, ol li { margin-bottom: 6px; }
   .card { display: flex; gap: 16px; padding: 14px 18px; border: 1px solid #E5E5E5; margin-bottom: 10px; background: #FFFFFF; }
-  .card-num { flex-shrink: 0; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: ${accent}; width: 36px; }
+  .card-num { flex-shrink: 0; font-family: ${label}; font-size: 22px; font-weight: 700; color: ${accent}; width: 36px; }
   .card-body { flex: 1; font-size: 14px; }
   .card-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
   .seed-row { padding: 10px 14px; border-left: 3px solid ${accent}; background: #F8F8F4; margin-bottom: 8px; }
   .seed-row.secondary { border-left-color: #C5C5C5; background: #F4F4F4; }
   .seed-name { font-size: 14px; margin-bottom: 4px; }
-  .seed-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #737373; }
+  .seed-meta { font-family: ${meta}; font-size: 11px; color: #737373; }
   .seed-summary { font-size: 13px; color: #404040; margin: 4px 0; }
   pre.json { background: #0D0D0D; color: #B8B800; padding: 12px 14px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.4; margin: 8px 0; max-height: 360px; }
   .phase { padding: 16px 20px; border: 1px solid #E5E5E5; margin-bottom: 12px; background: #FFFFFF; }
@@ -2405,7 +2507,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
   .phase-label { color: ${accent}; }
   .phase-success { margin-top: 8px; font-style: italic; color: #525252; font-size: 13px; }
   .beat { display: flex; gap: 16px; padding: 12px 16px; border-left: 2px solid ${accent}; background: #F8F8F4; margin-bottom: 8px; }
-  .beat-time { flex-shrink: 0; width: 110px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: ${accentDark}; }
+  .beat-time { flex-shrink: 0; width: 110px; font-family: ${label}; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: ${accentDark}; }
   .beat-body { flex: 1; font-size: 14px; }
   .choreo li { margin-bottom: 12px; padding: 10px 14px; background: #F8F8F4; border-left: 2px solid ${accent}; list-style-position: outside; }
   .choreo-action { font-weight: 700; margin-bottom: 4px; }
@@ -2433,7 +2535,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
   ${choreoHtml ? sectionHtml('Interaction choreography', choreoHtml) : ''}
   ${visualHtml ? sectionHtml('Visual direction', visualHtml) : ''}
   ${brief.success_criteria && brief.success_criteria.length > 0 ? sectionHtml(`Success criteria (${brief.success_criteria.length})`, listHtml(brief.success_criteria)) : ''}
-  <div class="footer">Brief ID: ${escapeHtml(brief.id || '')} · Brand: ${brand} · Generated by HiC Research · Claude Opus 4.8</div>
+  <div class="footer">Brief ID: ${escapeHtml(brief.id || '')} · Brand: ${brand} · Generated by HiC Research · ${CLAUDE_REASONING_LABEL}</div>
 </div>
 </body></html>`;
 
@@ -2443,7 +2545,7 @@ function openBriefInWindow(brief: ProductBriefForCard, brand: 'NXT' | 'NU'): voi
     win.document.title = `${brief.title} · Product Brief`;
 }
 
-const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard, customization?: string) => void; isBuilding: boolean; brand: 'NXT' | 'NU'; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
+const ProductBriefCard: React.FC<{ brief: ProductBriefForCard; idx: number; onApprove: (b: ProductBriefForCard, customization?: string) => void; isBuilding: boolean; brand: BrandVariantId; }> = ({ brief, idx, onApprove, isBuilding, brand }) => {
     const [expanded, setExpanded] = useState(false); // collapsed by default; popup window is the primary deep-dive surface
     // 2026-05-14 - Brief-customization slot. Last-mile tweaks the user wants
     // applied BEFORE the 7-stage pipeline runs. The text gets prepended to
@@ -2739,7 +2841,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 
 const ProductBriefsGrid: React.FC<{
     briefs: ProductBriefForCard[];
-    meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string };
+    meta: { brand: BrandVariantId; basedOn?: string; researchGoal?: string; originalConcept: string };
     onApprove: (brief: ProductBriefForCard, customization?: string) => void;
 }> = ({ briefs, meta, onApprove }) => {
     const [building, setBuilding] = useState<string | null>(null);
@@ -2780,7 +2882,7 @@ const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; 
     // both brands (cyan + red has strong contrast and cyan + chartreuse stays
     // the visual signature of NXT non-obvious bets).
     const isBet = tile.frame === 'non_obvious_bet';
-    const consensusAccent = brand === 'nu' ? '#C8102E' : '#B8B800';
+    const consensusAccent = brandAccentHex(brand);
     const frameAccent = isBet ? '#00B7C3' : consensusAccent;
     // Resolve generic field names with legacy fallback so older saved
     // sessions still render and so the new context-aware schema works
@@ -3454,7 +3556,7 @@ const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles
                 const slideData = {
                     id: `rec-tile-${t.slug || `idx-${i}`}`,
                     template: 'recommendation' as const,
-                    brand: (resolvedBrandId === 'nu' ? 'nu' : 'nxt') as ('nxt' | 'nu'),
+                    brand: resolvedBrandId,
                     title: t.title || 'Recommendation',
                     sources: ((t as any).sources || []) as string[],
                     recommendation: {
@@ -3906,6 +4008,32 @@ function isProcessingPlaceholder(content: string): boolean {
     );
 }
 
+/**
+ * The analyst chat composer (2026-10-04, owner report: typing lagged so badly the text field was unusable). Every
+ * keystroke used to set the panel's `input` state and re-render the whole 8,700-line panel: every message, every
+ * verification ledger and 100+ slide cards. The textarea now owns its value; the panel's copy is updated as a
+ * low-priority transition (React drops stale renders while the user types), and external writes (chips, enhance,
+ * clear after send) flow back in through `value`. Send reads the live DOM value, never a stale state copy.
+ */
+const ComposerTextarea: React.FC<{
+    inputRef: React.RefObject<HTMLTextAreaElement>;
+    value: string;
+    /** Bumped by every external write; the composer then adopts `value` (even when it equals a stale copy). */
+    sync: number;
+    onValueChange: (v: string) => void;
+    onKeyDown: (e: React.KeyboardEvent) => void;
+}> = React.memo(({ inputRef, value, sync, onValueChange, onKeyDown }) => {
+    const [local, setLocal] = useState(value);
+    useEffect(() => { if (sync > 0) setLocal(value); }, [sync]); // eslint-disable-line react-hooks/exhaustive-deps
+    return (
+        <textarea ref={inputRef} value={local}
+            onChange={e => { const v = e.target.value; setLocal(v); startTransition(() => onValueChange(v)); }}
+            onKeyDown={onKeyDown}
+            placeholder="Ask about your research data... Try #help for all hashtag directives."
+            rows={4} style={{ width: '100%', padding: '10px 12px', border: '1px solid #E0E0E0', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box', minHeight: 88 }} />
+    );
+});
+
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive, auditReviseHandler }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 - Mirror messages up to the App so a session-save can
@@ -3926,7 +4054,18 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
         onMessagesChange?.(messages);
     }, [messages, onMessagesChange]);
-    const [input, setInput] = useState('');
+    const [input, setInputState] = useState('');
+    // Every EXTERNAL write to the composer (chips, #refine prefill, enhance, clear after send) goes through setInput: it
+    // computes from the composer's LIVE text (the panel copy lags typing by design) and bumps composerSync so the
+    // composer adopts the value. The composer's own typing path uses setInputState directly.
+    const [composerSync, setComposerSync] = useState(0);
+    const setInput = useCallback((v: string | ((prev: string) => string)) => {
+        setInputState(prev => {
+            const base = (inputRef.current?.value ?? prev) as string;
+            return typeof v === 'function' ? (v as (p: string) => string)(base) : v;
+        });
+        setComposerSync(n => n + 1);
+    }, []);
 
     // UX-merger (2026-06-06) - Listen for 'hic:prefill-chat' events from the
     // Research Browser's "Chat about this →" CTA. Pre-fills the chat input
@@ -4036,7 +4175,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             for (const s of pending) {
                 diagramFetchedRef.current.add(s.id);
                 try {
-                    const img = await fetchDiagramImage(s, (s.brand === 'nu' ? 'nu' : 'nxt'));
+                    const img = await fetchDiagramImage(s, diagramBrand(s.brand));
                     if (img && !cancelled) setSlides(prev => prev.map(x => x.id === s.id && !x.diagramImage ? { ...x, diagramImage: img } as any : x));
                 } catch { /* fail-open: native matrix */ }
             }
@@ -4052,6 +4191,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // here, regardless of whether the handler explicitly called the parsers.
     // No more silent "content shown as text, never rendered" failures.
     const liftedArtifactMsgIdsRef = useRef<Set<string>>(new Set());
+    /** Coverage universe per deck generation (keyed by the generation's slide timestamp) for the export re-check. */
+    const coverageUniverseByTsRef = useRef<Map<number, any>>(new Map());
     // 2026-05-26 - Abort controller for the in-flight chat send. The X
     // button on LiveProcessingIndicator calls abort(); the chat tool-loop
     // checks the signal at each iteration boundary and throws AbortError.
@@ -4125,21 +4266,36 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (!items?.length) return;
         try {
             const liveCtx = getContext ? getContext() : context;
-            const { runDeliverableChain, deliverableChainSummary } = await import('../services/deliverableChain');
+            // 2026-10-01 (plan Stage 2.1): the deliverable path now REPAIRS as well as inspects,
+            // through the same narrow-never-source contract the deck path uses, and records
+            // its verdicts on the AIR like the deck path does.
+            const { runGatedDeliverables, deliverableChainSummary } = await import('../services/deliverableChain');
             const { engagementSlugFor } = await import('../services/engagementSlug');
-            const outcome = await runDeliverableChain(items as any[], {
+            const outcome = await runGatedDeliverables(items as any[], {
                 runId: `del_${msgId}`,
                 subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
                 engagementSlug: engagementSlugFor(String(liveCtx?.researchGoal || '')),
+                // Stage 2.4: the claims stage derives subject entities and the as-of window from the objective.
+                researchGoal: String(liveCtx?.researchGoal || ''),
             });
             console.info(`[deliverable-chain] ${deliverableChainSummary(outcome)}`, outcome.result.trace);
             if (outcome.result.slotReport && !outcome.result.slotReport.pass) {
                 console.warn(`[deliverable-chain] evidence: ${outcome.result.slotReport.violations
                     .map(v => `${v.kind} ${v.sectionId}.${v.field}`).join(', ')}`);
             }
+            if (outcome.repair?.rounds.length) {
+                console.info(`[deliverable-repair] ${outcome.repair.rounds.length} round(s), ${outcome.repair.ri.resolved} finding(s) resolved, ${outcome.repair.ri.survived} survived${outcome.repair.stopReason ? ` (${outcome.repair.stopReason})` : ''}`);
+            }
             if (outcome.changedIds.length) {
                 const byId = new Map(outcome.items.map(i => [String(i.id), i]));
                 setDeliverables(prev => prev.map(d => (byId.get(String(d.id)) as any) || d));
+            }
+            try {
+                const record = buildPostChainRecord(outcome.result as any, outcome.repair as any, undefined);
+                const patched = await patchAirWithPostChain(record);
+                if (patched.patched) console.info(`[air-postchain] deliverable verdicts recorded on ${patched.path}`);
+            } catch (e: any) {
+                console.warn('[air-postchain] deliverable record failed (non-fatal):', e?.message || e);
             }
         } catch (e: any) {
             // Non-fatal by design: the deliverable the user is already looking at
@@ -4147,6 +4303,97 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             console.warn('[deliverable-chain] skipped (non-fatal):', e?.message || e);
         }
     }, [getContext, context, setDeliverables]);
+
+    // 2026-10-02 (owner rules: "these rules should also be enforced with ALL other hashtag outputs, not just PRD";
+    // "Consulting grade deliverables must be comprehensive"). The coverage contract of the request's hashtag runs
+    // in-path on the generated artifact: every client item and research theme its universe names is bound to the
+    // unit that carries it, the rest is added from the ledger itself (verbatim quote + attribution), the universal
+    // rules run, and the receipt is appended to the reply. Never blocks: on any failure the artifact ships as is.
+    const coverageInputsFor = useCallback(async (requestText: string, onProgress?: (m: string) => void) => {
+        const liveCtx = getContext ? getContext() : context;
+        const { engagementSlugFor } = await import('../services/engagementSlug');
+        const { loadCoverageInputs } = await import('../services/deliverableCoverage');
+        const goal = String(liveCtx?.researchGoal || '');
+        const rawThemes: any = (liveCtx as any)?.themes;
+        const contextThemes = Array.isArray(rawThemes?.themes) ? rawThemes.themes : rawThemes;
+        return loadCoverageInputs({ engagement: engagementSlugFor(goal), objective: goal, requestText: [String(requestText || '').replace(/#[\w-]+/g, ' ').replace(/\s+/g, ' ').trim(), goal].filter(Boolean).join(' '), contextThemes, onProgress });
+    }, [getContext, context]);
+
+    const enforceDeckCoverage = useCallback(async (deckSlides: SlideData[], query: string, msgId: string): Promise<SlideData[]> => {
+        try {
+            const C = await import('../services/deliverableCoverage');
+            const kind = C.coverageKindForQuery(query) || C.coverageKindForTemplates(deckSlides.map(s => String(s.template)));
+            if (!kind || !deckSlides.length) return deckSlides;
+            const inputs = await coverageInputsFor(query);
+            if (!inputs) return deckSlides;
+            const copies = deckSlides.map(s => ({ ...s })) as any[];
+            const doc = C.deckCoverageDoc(kind, copies, { idPrefix: msgId, brand: deckSlides[0]?.brand, timestamp: deckSlides[deckSlides.length - 1]?.timestamp });
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            // The chat attaches slide cards to a reply by model + timestamp: the fill slides carry the batch's model,
+            // or they exist in state but never render (2026-10-03 live: 8 appendix slides invisible in the chat).
+            const _batchModel = (deckSlides[deckSlides.length - 1] as any)?.model;
+            for (const sl of doc.added as any[]) if (_batchModel && !sl.model) sl.model = _batchModel;
+            const lines = C.formatCoverageSummary(r);
+            const _genTs = Number(deckSlides[deckSlides.length - 1]?.timestamp || 0);
+            if (_genTs) coverageUniverseByTsRef.current.set(_genTs, r.universeRecord);
+            console.info(`[coverage] ${kind}: ${r.boundByModel}/${r.universe} carried by the model's slides, ${r.filled.length} filled into ${doc.added.length} slide(s); receipt ${r.receipt.pass ? 'pass' : 'open'}`);
+            const byId = new Map(copies.map(s => [s.id, s] as const));
+            const added = doc.added as any[];
+            setSlides(prev => {
+                const next = prev.map(s => byId.get(s.id) || s);
+                if (!added.length) return next;
+                let at = -1;
+                next.forEach((s, i) => { if (byId.has(s.id)) at = i; });
+                return at < 0 ? [...next, ...added] : [...next.slice(0, at + 1), ...added, ...next.slice(at + 1)];
+            });
+            // The fill slides ride on the reply itself (saved with the transcript): a restore re-lifts slides from the
+            // reply's fences, which never held them, so they vanished after a reload (2026-10-03 smoke).
+            setMessages(prev => prev.map(m => m.id === msgId ? { ...m, content: [String(m.content || ''), lines.join('\n')].filter(Boolean).join('\n\n'), coverageSlides: added } as any : m));
+            return [...copies, ...added];
+        } catch (e: any) {
+            console.warn('[coverage] deck contract skipped (non-fatal):', e?.message || e);
+            return deckSlides;
+        }
+    }, [coverageInputsFor]);
+
+    /** HTML deliverables (#report family, #questionnaire, uplift kinds): returns the html with the appendix, plus the receipt lines. */
+    const enforceHtmlCoverage = useCallback(async (html: string, query: string, onProgress?: (m: string) => void): Promise<{ html: string; lines: string[] }> => {
+        try {
+            const C = await import('../services/deliverableCoverage');
+            const kind = C.coverageKindForQuery(query);
+            if (!kind || !html) return { html, lines: [] };
+            const inputs = await coverageInputsFor(query, onProgress);
+            if (!inputs) return { html, lines: [] };
+            const doc = C.htmlCoverageDoc(kind, html);
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            console.info(`[coverage] ${kind} (html): ${r.boundByModel}/${r.universe} carried by the document, ${r.filled.length} added to the appendix; receipt ${r.receipt.pass ? 'pass' : 'open'}`);
+            // A document whose own body is unreadable (a reply cut off inside its stylesheet) is said so, never passed.
+            const _bodyWords = String(html).replace(/<style[\s\S]*?(<\/style>|$)/gi, ' ').replace(/<script[\s\S]*?(<\/script>|$)/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(w => /[a-z]{2,}/i.test(w)).length;
+            const _lines = C.formatCoverageSummary(r);
+            if (_bodyWords < 60) _lines.unshift(`The generated document carried almost no readable text (${_bodyWords} words before the appendix); run the request again or use #refine to regenerate the body.`);
+            return { html: doc.html(), lines: _lines };
+        } catch (e: any) {
+            console.warn('[coverage] html contract skipped (non-fatal):', e?.message || e);
+            return { html, lines: [] };
+        }
+    }, [coverageInputsFor]);
+
+    /** #presentation: the composed payload gains native theme sections for anything it does not carry. Mutates in place. */
+    const enforcePresentationCoverage = useCallback(async (payload: any, query: string): Promise<string[]> => {
+        try {
+            const C = await import('../services/deliverableCoverage');
+            if (!payload?.sections) return [];
+            const inputs = await coverageInputsFor(query);
+            if (!inputs) return [];
+            const doc = C.presentationCoverageDoc(payload, 'deck');
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            console.info(`[coverage] presentation: ${r.boundByModel}/${r.universe} carried by the composed sections, ${r.filled.length} added as theme sections; receipt ${r.receipt.pass ? 'pass' : 'open'}`);
+            return C.formatCoverageSummary(r);
+        } catch (e: any) {
+            console.warn('[coverage] presentation contract skipped (non-fatal):', e?.message || e);
+            return [];
+        }
+    }, [coverageInputsFor]);
 
     const verifyAndAttachLedger = useCallback(async (deckSlides: SlideData[], msgId: string) => {
         if (!deckSlides?.length) return;
@@ -4159,6 +4406,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             artifactType: 'slides',
             subjectDomain: detectDomain(String(liveCtx?.researchGoal || '')),
             engagementSlug,
+            // Stage 2.4: the claims stage derives subject entities and the as-of window from the objective.
+            researchGoal: String(liveCtx?.researchGoal || ''),
         });
 
         const changed = new Map<string, SlideData>();
@@ -4212,6 +4461,34 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             repairForAir = repaired as any;
         }
 
+        // 2026-10-01 (plan Stage 2.1, "repair or withhold"): a title that still carries a
+        // bare figure after repair is the one defect that is never shipped. The Quantitative
+        // Claim Rule is the project's #1 slop tell, and a deterministic rewrite would mean the
+        // runtime inventing a judgment. The slide is withheld from the deck and the AIR
+        // records which one and why, so the loop learns from it rather than the reader.
+        const withheld: Array<{ slideId: string; reason: string }> = [];
+        try {
+            // 2026-10-01 (owner directive "NO BLOCKERS WHEN THE USER ASKS FOR AN OUTPUT"): the slide is no
+            // longer dropped from the deck. The bare figure is removed from the title deterministically and
+            // the slide ships; the AIR still records which title needed it so the loop learns from it.
+            const { withheldSlideIds, stripNakedFigures } = await import('../services/titleGate');
+            const finalChain = repairForAir?.finalChain ?? result;
+            const ids = withheldSlideIds(finalChain.titleReport);
+            if (ids.length) {
+                for (const id of ids) withheld.push({ slideId: id, reason: 'bare figure removed from the title after repair (slide shipped)' });
+                const fix = new Set(ids);
+                setSlides(prev => prev.map(s => !fix.has(s.id) ? s : {
+                    ...s,
+                    title: stripNakedFigures(String(s.title || '')),
+                    ...((s as any).composerPayload && typeof (s as any).composerPayload.title === 'string'
+                        ? { composerPayload: { ...(s as any).composerPayload, title: stripNakedFigures((s as any).composerPayload.title) } } : {}),
+                } as any));
+                console.warn(`[titles] neutralized the bare figure in ${ids.length} slide title(s) and kept the slides: ${ids.join(', ')}`);
+            }
+        } catch (e: any) {
+            console.warn('[titles] withhold check failed (non-fatal):', e?.message || e);
+        }
+
         // 2026-08-21: fold the chain verdicts into the DURABLE record. AIR is
         // written at generation time, so without this it holds the model's raw
         // output plus a clean quality report, even when the chain refused the
@@ -4225,7 +4502,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // pre-repair violation count. Handing it the post-repair chain made a
             // run that bound 11 pointers record `bound: 0` and a repair that
             // rewrote 2 fields record `violations 0 -> 0`.
-            const record = buildPostChainRecord(result as any, repairForAir as any, (repairForAir?.slides ?? result.slides) as any);
+            const record = buildPostChainRecord(result as any, repairForAir as any, (repairForAir?.slides ?? result.slides) as any, withheld);
             const patched = await patchAirWithPostChain(record);
             if (patched.patched) console.info(`[air-postchain] chain verdicts recorded on ${patched.path}`);
             else console.warn(`[air-postchain] not recorded: ${patched.error}`);
@@ -4239,6 +4516,29 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // automatically after handleSend prepends them to the corpus and fires
     // the wiki write-back. Multi-file capable.
     const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
+    // 2026-10-02 - announce completed upload analysis (research-start uploads AND chat
+    // attachments both fire this from wikiService.ingestUploadedDocuments) as an
+    // in-chat line naming the documents and how many items were extracted.
+    useEffect(() => {
+        const render = (d: UploadAnalysisEventDetail) => {
+            if (!d || !Array.isArray(d.documents) || d.documents.length === 0) return;
+            markUploadAnalysisDelivered(d);
+            // One line per batch with the per-upload ingestion receipt (document, type,
+            // chunks registered, chunks read for analysis, duplicates collapsed, items).
+            const content = formatUploadAnalysisLine(d);
+            setMessages(prev => [...prev, {
+                id: `msg_${Date.now()}_${Math.random().toString(36).slice(2, 7)}_upload_analysis`,
+                role: 'assistant',
+                content,
+                timestamp: Date.now(),
+            } as ChatMessage]);
+        };
+        const onAnalysis = (ev: Event) => render((ev as CustomEvent<UploadAnalysisEventDetail>).detail);
+        // Analyses that finished before this panel mounted (research-start uploads).
+        for (const d of takeUndeliveredUploadAnalyses()) render(d);
+        window.addEventListener(UPLOAD_ANALYSIS_EVENT, onAnalysis);
+        return () => window.removeEventListener(UPLOAD_ANALYSIS_EVENT, onAnalysis);
+    }, []);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     // 2026-05-14 - sticky-bottom autoscroll. Track whether the user is currently
     // pinned to the bottom of the messages list; only auto-scroll when they are.
@@ -4313,7 +4613,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 }
                 if (hasSlides) {
                     const originatingQuery = ((m as any).originatingQuery as string) || '';
-                    const newSlides = parseSlideBlocks(m.content, m.model || 'unknown', originatingQuery);
+                    // Coverage fill slides saved on the reply (deliverableCoverage) are restored with it.
+                    const savedFills = Array.isArray((m as any).coverageSlides) ? ((m as any).coverageSlides as any[]) : [];
+                    const newSlides = [...parseSlideBlocks(m.content, m.model || 'unknown', originatingQuery), ...savedFills];
                     if (newSlides.length > 0) {
                         const stamped = newSlides.map(s => ({ ...s, model: m.model || s.model, timestamp: m.timestamp }));
                         setSlides(prev => {
@@ -4338,44 +4640,45 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
     }, [messages]);
 
-    // Load the latest wiki source archive (verified URLs from actual data collection)
+    // Load THIS engagement's wiki source archive (verified URLs from its own data collection).
+    // 2026-10-03 live: the loader took the newest archive file of ANY engagement and injected all of it into every
+    // chat prompt, so an insurance session carried a 278KB university-advancement archive (the #recs prompt reached
+    // ~460K tokens and timed out, and fundraising sources leaked across engagements). Only an archive whose file name
+    // matches this engagement's slug is loaded; none means the manifest grounding supplies the URLs. Capped at 60KB.
+    const _archiveGoal = String(((getContext ? getContext() : context) as any)?.researchGoal || (context as any)?.researchGoal || '');
     useEffect(() => {
         (async () => {
+            setWikiSourceArchive('');
             try {
-                // Find the latest source archive in wiki/sources/
-                const today = new Date().toISOString().split('T')[0];
-                // Try today's archive first, then fall back to fetching from proxy
-                for (const datePrefix of [today, '']) {
-                    const path = datePrefix
-                        ? `/hic-workspace/wiki/sources/${datePrefix}`
-                        : '/hic-workspace/wiki/sources/';
-                    try {
-                        // Try to fetch a directory listing or known archive patterns
-                        const resp = await fetch(`http://127.0.0.1:5012/api/wiki/list/sources`).catch(() => null);
-                        if (resp?.ok) {
-                            const files = await resp.json();
-                            // Find the latest source-archive file (not curation files)
-                            const archives = (files.files || [])
-                                .filter((f: string) => f.endsWith('.md') && !f.includes('curation') && !f.includes('uploads'))
-                                .sort()
-                                .reverse();
-                            if (archives.length > 0) {
-                                const archiveResp = await fetch(`http://127.0.0.1:5012/api/wiki/read/sources/${archives[0]}`);
-                                if (archiveResp.ok) {
-                                    const data = await archiveResp.json();
-                                    if (data.content && data.content.length > 100) {
-                                        setWikiSourceArchive(data.content);
-                                        console.log(`[Chat] Loaded wiki source archive: sources/${archives[0]} (${Math.round(data.content.length / 1024)}KB)`);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                    } catch {}
+                const { engagementSlugFor } = await import('../services/engagementSlug');
+                const slug = engagementSlugFor(_archiveGoal);
+                if (slug.length < 20) { if (_archiveGoal) console.log('[Chat] no wiki source archive: the engagement slug is too short to match one'); return; }
+                const resp = await fetch(`http://127.0.0.1:5012/api/wiki/list/sources`).catch(() => null);
+                if (!resp?.ok) return;
+                const files = await resp.json();
+                const mine = (files.files || [])
+                    .filter((f: string) => f.endsWith('.md') && !f.includes('curation') && !f.startsWith('uploads'))
+                    .filter((f: string) => {
+                        const stem = f.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
+                        const [shorter, longer] = stem.length <= slug.length ? [stem, slug] : [slug, stem];
+                        return shorter.length >= 20 && longer.startsWith(shorter);
+                    })
+                    .sort()
+                    .reverse();
+                if (!mine.length) { console.log(`[Chat] no wiki source archive for this engagement; manifest grounding supplies source URLs`); return; }
+                const archiveResp = await fetch(`http://127.0.0.1:5012/api/wiki/read/sources/${mine[0]}`);
+                if (!archiveResp.ok) return;
+                const data = await archiveResp.json();
+                const content = String(data.content || '');
+                if (content.length > 100) {
+                    const capped = content.length > 60_000 ? `${content.slice(0, 60_000)}
+[archive truncated at 60KB]` : content;
+                    setWikiSourceArchive(capped);
+                    console.log(`[Chat] Loaded wiki source archive: sources/${mine[0]} (${Math.round(content.length / 1024)}KB, ${Math.round(capped.length / 1024)}KB injected)`);
                 }
-            } catch {}
+            } catch { /* no archive: manifest grounding supplies URLs */ }
         })();
-    }, [context.articleCount]); // Reload when article count changes (new collection)
+    }, [context.articleCount, _archiveGoal]); // Reload on a new collection or a different engagement
 
     // Track scroll position to know whether the user is reading older
     // messages above. As soon as they scroll up >120px from the bottom we stop
@@ -4473,7 +4776,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             try {
                 const attrs = match[1] || '';
                 const fenceTemplate = (attrs.match(/\btemplate=([a-z:-]+)/i)?.[1] || '').toLowerCase();
-                const fenceBrand = (attrs.match(/\bbrand=(nxt|nu|northeastern)/i)?.[1] || '').toLowerCase();
+                const fenceBrand = (attrs.match(/\bbrand=(nxt|nu|northeastern|deciem)/i)?.[1] || '').toLowerCase();
                 // Universal density axis: fence attr density=dense, JSON "density",
                 // or a #dense hashtag anywhere in the user's request.
                 const fenceDensity = (attrs.match(/\bdensity=(base|dense)/i)?.[1] || '').toLowerCase();
@@ -4482,7 +4785,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // commas + bracket-balance so a single bad slide doesn't drop
                 // every subsequent slide in the same response.
                 const parsed = JSON.parse(tryRepairJson(match[2].trim()));
-                const brand: BrandId = (parsed.brand as BrandId) || (fenceBrand === 'nu' || fenceBrand === 'northeastern' ? 'nu' : fenceBrand === 'nxt' ? 'nxt' : defaultBrand);
+                const brand: BrandId = parsed.brand ? normalizeBrandId(parsed.brand) : fenceBrand ? normalizeBrandId(fenceBrand) : defaultBrand;
                 // Resolve template: prefer fence label, then JSON `template`, then auto-detect by field
                 let template: any = fenceTemplate || parsed.template;
                 if (!template) {
@@ -4725,7 +5028,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const { fetchDiagramImage } = await import('../services/diagramSpec');
                 for (const s of exportSlides as any[]) {
                     if (s.diagramImage) continue;
-                    const img = await fetchDiagramImage(s, (s.brand === 'nu' ? 'nu' : 'nxt'));
+                    const img = await fetchDiagramImage(s, diagramBrand(s.brand));
                     if (img) s.diagramImage = img;
                     else if (['journey-map', 'architecture-map', 'mindmap', 'service-blueprint'].includes(String(s.template))) {
                         imageryDegradations.push(`${s.template}: diagram exhibit unavailable; the slide ships with its native matrix`);
@@ -4761,9 +5064,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 }
             }
             const stageHtmlList: string[] = [];
-            for (const s of exportSlides) {
+            // Round 2 (2026-10-01): deck positions (index + divider ordinal) ride into the export so the
+            // DECIEM art rotation / divider fills match the SlideCanvas preview slide for slide.
+            const { deckPositions } = await import('../services/slideToStageHtml');
+            const exportPositions = deckPositions(exportSlides as any[]);
+            for (let si = 0; si < exportSlides.length; si++) {
+                const s = exportSlides[si];
                 try {
-                    const stageHtml = slideDataToStageHtml(s as any);
+                    const stageHtml = slideDataToStageHtml(s as any, exportPositions[si]);
                     stageHtmlList.push(stageHtml);
                 } catch (renderErr: any) {
                     console.warn(`[deck-export] render failed for slide ${s.id} (${s.template}):`, renderErr?.message || renderErr);
@@ -4773,6 +5081,17 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 console.error('[deck-export] no slides rendered - nothing to export');
                 return;
             }
+            // Independent export-time coverage re-check (services/coverageRecheck.ts): every item the generation's
+            // contract accounted for must still be carried by a slide that is actually exported.
+            try {
+                const { recheckExportedCoverage, formatExportCoverageCheck } = await import('../services/coverageRecheck');
+                const gens = Array.from(new Set(exportSlides.map(sl => Number(sl.timestamp || 0))));
+                const notes = gens.map(ts => formatExportCoverageCheck(recheckExportedCoverage(coverageUniverseByTsRef.current.get(ts), exportSlides.filter(sl => Number(sl.timestamp || 0) === ts) as any[]))).filter(Boolean);
+                if (notes.length) {
+                    console.info(`[deck-export] ${notes.join(' | ')}`);
+                    setMessages(prev => [...prev, { id: `coverage_export_${Date.now()}`, role: 'assistant', content: notes.join('\n'), timestamp: Date.now() }]);
+                }
+            } catch (e: any) { console.warn('[deck-export] coverage re-check skipped (non-fatal):', e?.message || e); }
             if (imageryDegradations.length) {
                 setMessages(prev => [...prev, {
                     id: `imagery_notice_${Date.now()}`, role: 'assistant',
@@ -5114,11 +5433,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             try { await resolvePresentationIllustrations(p); } catch (illoErr) {
                 console.warn('[Library] illustration pass failed (non-blocking):', illoErr);
             }
+            // Coverage contract on the revision too: a revision never drops a theme or a client feature area.
+            const _revCoverage = await enforcePresentationCoverage(p, `#presentation ${revisionThesis || ''}`);
             const saved = await savePresentation(p);
 
             setMessages(prev => prev.map(m => m.id === editingMsgId ? {
                 ...m,
-                content: `Revised "${saved.title}" (slug ${slug}). The library card below reflects the update.`,
+                content: `Revised "${saved.title}" (slug ${slug}). The library card below reflects the update.${_revCoverage.length ? `\n\n${_revCoverage.join('\n')}` : ''}`,
                 presentationUrl: saved.url,
                 presentationMeta: { title: saved.title, brand: saved.brand, sectionCount: saved.sectionCount },
             } : m));
@@ -5146,7 +5467,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // `concept` (flows through Stages 2-4 as additional grounding).
     const handleApproveBrief = async (
         brief: any,
-        meta: { brand: 'NXT' | 'NU'; basedOn?: string; researchGoal?: string; originalConcept: string },
+        meta: { brand: BrandVariantId; basedOn?: string; researchGoal?: string; originalConcept: string },
         sourceMsgId: string,
         customization?: string,
     ) => {
@@ -5291,7 +5612,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const clarificationAnsweredRef = useRef<Set<string>>(new Set());
 
     const handleSend = async (queryOverride?: string) => {
-        let query = queryOverride || input.trim();
+        // The composer's live DOM value: the panel's `input` lags behind typing by design (ComposerTextarea).
+        let query = queryOverride || String(inputRef.current?.value ?? input).trim();
         // 2026-05-08 - Allow send with attachments only (no text). When the
         // user drops a file with no prompt, synthesize a "summarize this"
         // default so the assistant gets a non-empty user turn.
@@ -5410,18 +5732,24 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     timestamp: Date.now(),
                 } as ChatMessage]);
             }
-            for (const att of pendingAttachments) {
-                writeAdHocUpload({
-                    filename: att.filename,
-                    parsedText: att.parsedText,
-                    mimeType: att.mimeType,
-                    pageCount: att.pageCount,
-                    slideCount: att.slideCount,
-                    isImage: att.isImage,
-                    chatSurface: 'analyst',
-                }, sessionSlug)
-                    .then(path => { if (path) console.log(`[Chat] Persisted ad-hoc upload: ${path}`); })
-                    .catch(e => console.warn('[Chat] Ad-hoc upload wiki write failed:', e));
+            // 2026-10-02 (owner rule: uploads are ALWAYS thoroughly analyzed, at research start
+            // AND in the analyst chat). Chat attachments now go through the SAME ingestion as
+            // research-start uploads: a Client Uploads article via /api/wiki/write-article
+            // (chunked, manifest type "article" so later turns and deliverables can ground on
+            // it, embedded, mojibake-repaired, engagement-tagged), the name recorded into the
+            // session's file_names, and the document analysis run in the background with an
+            // in-chat line when it completes. Previously writeAdHocUpload wrote
+            // uploads/ad-hoc/<slug>/<date>/<file>.md with `kind: ad-hoc-upload`, a manifest type
+            // no evidence admission list includes, so an attachment grounded only the ONE turn
+            // it was inlined into. Fire-and-forget: never blocks the reply.
+            const _ingestBatch = pendingAttachments
+                .filter(a => (a.parsedText || '').trim().length >= 40 && !/^\s*\[Image upload:/.test(a.parsedText || ''))
+                .map(a => ({ name: a.filename, parsedText: a.parsedText, type: a.mimeType }));
+            if (_ingestBatch.length > 0) {
+                const _goalForIngest = liveCtxForSlug?.researchGoal || 'session';
+                ingestUploadedDocuments(_ingestBatch, _goalForIngest, { surface: 'analyst-chat' })
+                    .then(r => console.log(`[Chat] Ingested ${r.archived}/${_ingestBatch.length} chat attachment(s) for ${sessionSlug}: ${r.pages.map(p => p.wikiPath).join(', ')}`))
+                    .catch(e => console.warn('[Chat] chat attachment ingestion failed:', e));
             }
         }
 
@@ -5587,33 +5915,52 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             return;
         }
 
-        // --- #brief / #explainer / #report / #playground / #approaches ---
-        // All five share one handler. Differ only in the directive token
-        // and the html-deliverable-composer subsection invoked.
-        const artifactParsers = [
-            { parser: parseBriefDirective, label: 'stakeholder brief' },
-            { parser: parseExplainerDirective, label: 'concept explainer' },
-            { parser: parseReportDirective, label: 'strategic report' },
-            { parser: parsePlaygroundDirective, label: 'interactive playground' },
-            { parser: parseApproachesDirective, label: 'approaches picker' },
-            // 2026-05-23 - P1.5 (Sprint H3): #whitepaper produces a consulting-grade
-            // HTML whitepaper from the strategic-report pipeline output. Sprint H3
-            // promised this would ship as a #html modifier on strategic reports;
-            // implementation is a separate directive instead because that keeps the
-            // route deterministic (modifier-on-modifier is brittle).
-            { parser: parseWhitepaperDirective, label: 'consulting whitepaper' },
-        ];
-        let firstHit: { directive: ReturnType<typeof parseBriefDirective>; label: string } | null = null;
-        for (const ap of artifactParsers) {
-            const d = ap.parser(query);
-            if (d.triggered) { firstHit = { directive: d, label: ap.label }; break; }
+        // --- #refine <slug>: <instruction> ---------------------------------------
+        // Stage 6.2 (2026-10-01, finding A1): parseRefineDirective was imported and never called
+        // while the "Artifact ready" reply advertised `#refine <slug>: <tweak>`. A refine is an
+        // ANCHORED re-ask (the reinforcement-inference contract): the saved artifact's generator,
+        // brand, and topic are reused, the prior HTML rides verbatim in the payload as the anchor,
+        // the instruction names what changes, and the save keeps the slug so the update is in place.
+        let refineTarget: { slug: string; instruction: string; priorHtml: string } | null = null;
+        let firstHit: { directive: ArtifactDirective; label: string } | null = null;
+        const refineAsk = parseRefineDirective(query);
+        if (refineAsk.triggered) {
+            const prior = await getArtifact(refineAsk.slug).catch(() => null);
+            if (!prior || !prior.html_source) {
+                setMessages(prev => [...prev, {
+                    id: `msg_${Date.now()}_refine`,
+                    role: 'assistant',
+                    content: `No saved artifact has the slug "${refineAsk.slug}". Run #artifacts to list the library, then \`#refine <slug>: <your tweak>\`.`,
+                    timestamp: Date.now(),
+                }]);
+                setIsLoading(false);
+                return;
+            }
+            refineTarget = { slug: prior.slug, instruction: refineAsk.instruction, priorHtml: prior.html_source };
+            const knownGen = HTML_ARTIFACT_PARSERS.find(ap => ap.generator === prior.generator);
+            firstHit = {
+                directive: {
+                    triggered: true,
+                    generator: (knownGen?.generator || '#brief') as ArtifactGenerator,
+                    topic: prior.topic || prior.title || '',
+                    brand: brandVariantOfId(prior.brand),
+                    variants: 1,
+                },
+                label: `${knownGen?.label || 'HTML artifact'} (refine ${prior.slug})`,
+            };
         }
+
+        // --- #brief / #explainer / #report / #whitepaper / #playground / #approaches / #questionnaire ---
+        // One handler for every HTML-modality catalog directive. The parser list is GENERATED from
+        // services/artifactCatalog.ts (HTML_ARTIFACT_PARSERS), so a directive added to the catalog
+        // reaches this pipeline without a panel edit (finding A7: #questionnaire had no dispatcher).
+        if (!firstHit) firstHit = parseHtmlArtifactDirective(query);
         // 2026-08-13 (owner): a SUMMARY ask is a chat answer, not an HTML artifact.
         // "#report Summarize what the data shows..." routed a fast synthesis question
         // through the 41KB-skill HTML pipeline. When the #report topic is a
         // summarize-class verb, fall through to the normal grounded chat path
         // (ChatProse renders it structured; Flash routes it).
-        if (firstHit && firstHit.directive.generator === '#report'
+        if (firstHit && !refineTarget && firstHit.directive.generator === '#report'
             && /^(summari[sz]e|summary(\s+of)?|recap|tl;?dr)\b/i.test((firstHit.directive.topic || '').trim())) {
             console.log('[#report] summarize-class topic -> grounded CHAT summary (HTML pipeline skipped)');
             firstHit = null;
@@ -5622,10 +5969,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // When the user adds #slide/#slides, DEFER to sendChatMessage slide-mode (the GOLD
         // slide) instead of the HTML document; the bare directive keeps the HTML one-pager.
         // #playground/#approaches/#whitepaper have no slide twin, so they always take the
-        // HTML path even with #slide.
-        const _wantsSlideTwin = /(?:^|\s)#slides?\b/i.test(query);
+        // HTML path even with #slide. The modifier check comes from the catalog (word-boundary).
+        const _wantsSlideTwin = hasModifier(query, '#slides') || hasModifier(query, '#slide');
         const _twinGenerators = ['#brief', '#explainer', '#report'];
-        if (firstHit && _wantsSlideTwin && _twinGenerators.includes(firstHit.directive.generator)) {
+        if (firstHit && !refineTarget && _wantsSlideTwin && _twinGenerators.includes(firstHit.directive.generator)) {
             firstHit = null; // fall through to the canonical slide engine below
         }
         if (firstHit) {
@@ -5638,7 +5985,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             setMessages(prev => [...prev, {
                 id: buildMsgId,
                 role: 'assistant',
-                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})...\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Claude Opus 4.8 (max thinking budget).`,
+                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})...\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via ${CLAUDE_REASONING_LABEL} (adaptive thinking, high effort).`,
                 timestamp: Date.now(),
             }]);
             try {
@@ -5744,6 +6091,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     '#report': 'Produce a LONG-FORM strategic report. Length 3000-8000 words. Tabbed or anchored sections (default Exec Summary / Findings / Recommendations / Next Steps - but VS-pick alternative section IAs). Embedded charts per section. Evidence panels with verbatim corpus quotes. Summary table at the top. Optimized for navigation, not sequential read. Primary VS layer: section IA + diagram type per chart.',
                     '#whitepaper': 'Produce a CONSULTING-GRADE STRATEGIC WHITEPAPER, deep and fully framed. Length 2500-6000 words of visible prose. MANDATORY structure: (1) a diagnostic action-title + 500-800 word executive summary in SCQA; (2) FRAME THE SPACE - a substantial section on where this domain is now, the forces shaping it, and where it is heading; (3) 4-6 KEY FINDINGS, each a claim + 3-5 sentences of analysis + at least one VERBATIM cited quote from a NAMED external source + a 2-4 sentence case study where the evidence supports one; (4) OPPORTUNITIES tied to named findings; (5) CHALLENGES / RISKS with why each bites; (6) RECOMMENDED MOVES that reinforce each other (Rumelt coherence). Weave 2-3 named sources per paragraph showing convergent evidence. EVIDENCE FLOOR: >=8 verbatim cited quotes from >=5 distinct external sources. If any section is a stub or the space is not framed, EXPAND before returning. A thin whitepaper is a failure. Primary VS layer: section IA.',
                     '#playground': 'Produce a SELF-CONTAINED INTERACTIVE HTML playground. Primary VS layer: INTERACTION PATTERN - enumerate 5+ patterns (sliders, before/after swap, drag-to-position, easing-curve picker / Bezier, code-with-live-preview, motion timeline, scrubber) and commit to the pattern that actually visualizes the parameter shape. Avoid the slider-only default. Include a live preview area + a "Copy as prompt" button that serializes the user\'s settings as a prompt string to paste back into HiC.',
+                    '#questionnaire': 'Produce a STAKEHOLDER QUESTIONNAIRE for the decisions the corpus cannot settle. Length 600-1500 words. Open with the decision at stake (one sentence judgment about the subject). Then 8-15 numbered questions grouped by theme; every question names the person or role who holds the answer, states why the corpus cannot answer it (cite the nearest evidence by pointer), and offers the answer format (scale, choice, free text). Close with how the answers change the recommendation. Never write that evidence is limited; ask the question instead.',
                     '#approaches': `Produce a NATIVE VS-MULTI approach picker. Generate exactly 6 distinct approaches in a 2×3 HTML grid: row 1 = 3 Defensible Consensus approaches (probabilities in full distribution), row 2 = 3 Non-Obvious Bets (probability < 0.05, explicitly distinct from row 1 by named axis: persona, mechanism, data source, temporal scope, or metaphor). Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. The two rows are visually differentiated (chartreuse-bordered consensus, cyan-bordered bets).`,
                 };
 
@@ -5804,14 +6152,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     htmlResp ? htmlResp + '\n\n---\n\n' : '',
                     (vsResp || htmlResp) ? _cacheBreak : '',
                     genContextBlock ? genContextBlock + '\n\n---\n\n' : '',
-                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.
+                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). ${({ NU: 'Brand is NU: use the NU token set (var(--nu-red), Lato) only.', DECIEM: 'Brand is DECIEM: use the DECIEM token set only (var(--deciem-pink), var(--deciem-cyan), var(--deciem-purple), var(--deciem-orange); Poppins Bold uppercase titles, Josefin Sans body, Nunito for tables); never NU or NXT tokens.' } as Record<string, string>)[String(directive.brand || '').toUpperCase()] || 'Brand is NXT: use the NXT token set only (never NU or DECIEM tokens).'} Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.
 
 SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUBJECT, never about the research apparatus. The corpus, the evidence, the data, and the sources are NEVER the grammatical subject of the <h1> or any heading ("The evidence tells one clear story", "the corpus can name X but cannot substantiate Y" are instant failures). Never describe corpus coverage, adequacy, or gaps anywhere in the artifact. When the available material is thin (e.g. only client uploads so far), NARROW THE SCOPE: write a shorter artifact about what the material DOES establish about the subject, titled with a judgment about the SUBJECT. The <h1> is a complete-sentence judgment about the subject, 12 words or fewer.`,
                 ].join('');
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
-                    content: `Generating ${firstHit!.label} (${directive.generator})...\n\n Loaded verbalized-sampling skill (${vsResp.length} chars)\n Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Claude Opus 4.8 (max thinking)...`,
+                    content: `Generating ${firstHit!.label} (${directive.generator})...\n\n Loaded verbalized-sampling skill (${vsResp.length} chars)\n Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling ${CLAUDE_REASONING_LABEL} (adaptive thinking)...`,
                 } : m));
 
                 // 2026-05-27 - Route the html-deliverable-composer family
@@ -5829,7 +6177,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     '#audit': 'tech-arch', '#techaudit': 'tech-arch',
                     '#case-study': 'strategy', '#casestudy': 'strategy',
                 };
-                const _htmlKind = (_genToKind[directive.generator] || 'strategy') as any;
+                // Stage 3 (2026-10-01): #prd routes as its own kind (evidence tier, the reasoning model).
+                const _htmlKind = (directive.generator === '#prd' ? 'prd' : (_genToKind[directive.generator] || 'strategy')) as any;
                 // 2026-06-30 - cap-aware cost/quality model via the canonical SSOT
                 // (aiRouter.artifactModelFor). Was hardcoded 'claude-opus-4-8', which
                 // burned an HTTP 400 on every HTML deliverable during the Opus cap
@@ -5850,12 +6199,39 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // #playground). Each one was previously invisible to the epoch
                 // proposer because the chat-side emission bypassed both
                 // recordTurn and evaluatePareto.
-                const _runGen = async (extra: string): Promise<string> => {
-                    const _payload = userPayload + extra;
+                // #refine: the prior artifact is the anchor; the instruction names what changes.
+                const refineBlock = refineTarget
+                    ? `\n\n=== REFINE (anchored re-ask; preserve everything the instruction does not name) ===\nInstruction: ${refineTarget.instruction || 'tighten the argument and deepen the evidence without changing the thesis'}\n\nPRIOR ARTIFACT (verbatim HTML; the anchor - modify in place, keep its headings and order):\n${refineTarget.priorHtml.slice(0, 120_000)}`
+                    : '';
+                // D8 / Stage 4.4: `opts.userContent` replaces the user turn for a DELTA call (same system
+                // prompt, so the cached prefix hits); the default is the full first-turn payload.
+                // 2026-10-01 (live #prd audit): the PrdAir compile hit `stop_reason: max_tokens` at 32K
+                // (9.8K of it adaptive thinking) and the truncated JSON surfaced as "model output is not a
+                // JSON object". Two fixes, both here so EVERY HTML artifact inherits them: `maxTokens` lets a
+                // contract reply ask for the model's real ceiling (Opus 5.5: 128K), and `continueOnTruncation`
+                // detects a length stop on any provider and asks for the remainder as a CONTINUATION TURN
+                // (the partial reply becomes the prior assistant turn; a user turn follows, so no prefill,
+                // which Claude 4.6+/5.x rejects). The pieces concatenate inside ONE emitDeliverable call, so
+                // the trace + AIR carry the whole document, not a fragment.
+                // The model that actually served the last generation call (a fallback after a timeout differs from _artModel).
+                let _lastServedModel: string = _artModel;
+                const _runGen = async (extra: string, opts?: { userContent?: string; stepLabel?: string; systemOverride?: string; raw?: boolean; maxTokens?: number; continueOnTruncation?: boolean }): Promise<string> => {
+                    const _payload = opts?.userContent ?? (userPayload + refineBlock + extra);
+                    const _system = opts?.systemOverride ?? systemPrompt;
                     const _t0 = Date.now();
+                    const _maxTok = Math.max(4000, Math.min(128000, Number(opts?.maxTokens) || 32000));
+                    const _maxRounds = opts?.continueOnTruncation ? 3 : 1;
+                    const _CONTINUE_TURN = 'Your previous reply stopped at the output limit before the document was complete. Continue EXACTLY from the final character of your previous reply: emit only the remaining characters, with no preamble, no repetition of anything already written and no code fence, so that your previous reply followed by this one is the complete, valid document.';
+                    const _stoppedForLength = (raw: any): boolean => {
+                        if (!raw || typeof raw !== 'object') return false;
+                        if (raw.stop_reason === 'max_tokens') return true;                                        // Anthropic
+                        if (String(raw?.candidates?.[0]?.finishReason || '').toUpperCase() === 'MAX_TOKENS') return true; // Gemini
+                        if (raw?.choices?.[0]?.finish_reason === 'length') return true;                            // OpenAI
+                        return false;
+                    };
                     const _emit = await emitDeliverable({
                         deliverable: directive.generator,
-                        step_label: `${directive.generator} artifact`,
+                        step_label: opts?.stepLabel || `${directive.generator} artifact`,
                         // cap-aware cost/quality model (aiRouter SSOT); trace label matches the real routed model.
                         model_id: _artModel,
                         prompt: _payload,
@@ -5865,23 +6241,39 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         // verbalized-sampling SKILL.md inside the generation
                         // (k=5 layout candidates). Annotate the trace.
                         vs: { k: 5, frames: ['visual_layout', 'information_architecture', 'diagram_type', 'interaction_pattern', 'iconography'] },
-                        emit: () => callWithModelChain({
-                        deliverable: _htmlKind,
-                        preferModel: _artModel,
-                        label: `${directive.generator} artifact`,
-                        buildBody: (modelId: string) => {
-                            if (modelId.startsWith('claude-')) {
-                                return { endpoint: 'anthropic', body: { model: modelId, max_tokens: 32000, system: systemPrompt, messages: [{ role: 'user', content: _payload }] } };
+                        emit: async () => {
+                            const turns: Array<{ role: 'user' | 'assistant'; content: string }> = [{ role: 'user', content: _payload }];
+                            let acc = '';
+                            let last: any = null;
+                            for (let round = 0; round < _maxRounds; round++) {
+                                const r = await callWithModelChain({
+                                    deliverable: _htmlKind,
+                                    preferModel: _artModel,
+                                    label: `${directive.generator} artifact${round ? ` (continuation ${round})` : ''}`,
+                                    buildBody: (modelId: string) => {
+                                        if (modelId.startsWith('claude-')) {
+                                            return { endpoint: 'anthropic', body: { model: modelId, max_tokens: _maxTok, system: _system, messages: turns.map(t => ({ role: t.role, content: t.content })) } };
+                                        }
+                                        if (modelId.startsWith('gemini-')) {
+                                            return { endpoint: 'gemini', body: { model: modelId, systemInstruction: { parts: [{ text: _system }] }, contents: turns.map(t => ({ role: t.role === 'assistant' ? 'model' : 'user', parts: [{ text: t.content }] })), config: { temperature: 0.85, maxOutputTokens: 65536, thinkingBudget: modelId === 'gemini-3.1-pro-preview' ? 'high' : 'low' } } };
+                                        }
+                                        return { endpoint: 'openai', headers: { 'x-openai-endpoint': 'chat' }, body: { model: modelId, messages: [{ role: 'system', content: _system }, ...turns.map(t => ({ role: t.role, content: t.content }))], max_completion_tokens: _maxTok, temperature: 0.85 } };
+                                    },
+                                    onProgress: (msg: string) => {
+                                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${round ? `continuing the document (${round}) ` : ''}${msg}` } : m));
+                                    },
+                                });
+                                last = r;
+                                acc += r.text || '';
+                                if (!_stoppedForLength(r.raw) || round === _maxRounds - 1) {
+                                    if (_stoppedForLength(r.raw)) console.warn(`[${directive.generator}] output still truncated after ${_maxRounds} round(s) at max_tokens=${_maxTok}; the compiler/parse step reports the defect`);
+                                    break;
+                                }
+                                console.info(`[${directive.generator}] length stop after ${acc.length} chars (round ${round + 1}); requesting a continuation turn`);
+                                turns.push({ role: 'assistant', content: acc }, { role: 'user', content: _CONTINUE_TURN });
                             }
-                            if (modelId.startsWith('gemini-')) {
-                                return { endpoint: 'gemini', body: { model: modelId, systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ role: 'user', parts: [{ text: _payload }] }], config: { temperature: 0.85, maxOutputTokens: 65536, thinkingBudget: modelId === 'gemini-3.1-pro-preview' ? 'high' : 'low' } } };
-                            }
-                            return { endpoint: 'openai', headers: { 'x-openai-endpoint': 'chat' }, body: { model: modelId, messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: _payload }], max_completion_tokens: 32000, temperature: 0.85 } };
+                            return { ...(last || {}), text: acc, modelUsed: last?.modelUsed || _artModel, raw: last?.raw };
                         },
-                        onProgress: (msg: string) => {
-                            setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m));
-                        },
-                        }),
                         extractText: (r) => (r && typeof r === 'object' && 'text' in r ? String((r as any).text || '') : ''),
                         buildScoreInput: (text) => ({ text, label: directive.generator }),
                         // Stage-3 AIR emission (SHADOW): the strategy/HTML-artifact path is the first real
@@ -5896,6 +6288,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         },
                     });
                     const text = _emit.result.text;
+                    _lastServedModel = String((_emit.result as any)?.modelUsed || _artModel);
+                    if (opts?.raw) return text || '';   // a JSON contract reply (PRD compile) is not HTML; no meta scrub
                     let cleaned = (text || '').replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
                     // 2026-06-24 - HTML-safe meta/process scrub. This client artifact
                     // path previously ran NO meta strip (only the fence strip above),
@@ -5909,22 +6303,171 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 };
                 // Visible-word floor per directive (#brief is intentionally short;
                 // #playground/#approaches are interactive, not prose-graded).
-                const _wordFloor: Record<string, number> = { '#brief': 450, '#explainer': 1200, '#report': 1800, '#whitepaper': 1800, '#playground': 0, '#approaches': 0 };
+                const _wordFloor: Record<string, number> = { '#brief': 450, '#explainer': 1200, '#report': 1800, '#whitepaper': 1800, '#questionnaire': 600, '#playground': 0, '#approaches': 0, '#prd': 0 };
                 const _floor = _wordFloor[directive.generator] ?? 800;
-                const _visibleWords = (h: string) => h
-                    .replace(/<vs_thinking>[\s\S]*?<\/vs_thinking>/i, '')
-                    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, '')
-                    .replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-                let htmlBody = await _runGen('');
+                // ONE word counter for the floor and the delta turn (services/htmlDepthDelta.ts).
+                const _visibleWords = visibleWordCount;
+                let htmlBody: string;
+                // #prd (2026-10-02, owner directive): the compiled PrdAir record also builds the requirements
+                // workbook (.xlsx), which is the PRIMARY #prd output; the HTML document below is the brief.
+                let _prdWorkbookAir: any = null;
+                // Scope and feedback coverage block for the #prd reply (computed over the final record).
+                let _prdCoverageText = '';
+                if (directive.generator === '#prd') {
+                    // Stage 3 (2026-10-01, owner decision 2): DOCUMENT-FIRST PRD on ONE contract. The model
+                    // fills the PrdAir shape from TYPED evidence roots (approved personas, themes, journey
+                    // pains, competitive gaps, the grounding chunks); the compiler verifies every quote
+                    // verbatim, types untraceable requirements as HYPOTHESIS, derives tiers and validates;
+                    // the two-tier HTML document is a PROJECTION of that record and runs through the same
+                    // claim chain as #report below. `#prd #slides` adds the slides:prd-* deck projection.
+                    const { compilePrdFromLedger } = await import('../services/prdCompiler');
+                    const { buildScopeLedger, ledgerCounts, themeLedgerItems, loadBoardThemes, mergeBoardThemes, assignAreas } = await import('../services/prdScopeLedger');
+                    const { themesFromContext } = await import('../services/prdInputs');
+                    const { projectPrdAirToHtml, projectPrdAirToDeck } = await import('../services/prdProjection');
+                    const { buildPrdInputsFromContext } = await import('../services/prdInputs');
+                    const { engagementSlugFor } = await import('../services/engagementSlug');
+                    // Chat deliverables (persona / theme / gap / competitive cards from this session) are roots too.
+                    // A RESTORED session shows its persona cards from the chat transcript (the fences live in the
+                    // assistant messages) while `slides` may not carry them, so the transcript is parsed as well
+                    // (the 2026-10-01 live gate run refused on "approved personas" with three cards on screen).
+                    const _fenceSlides: any[] = [];
+                    try {
+                        for (const m of messages) {
+                            if (m.role !== 'assistant' || typeof m.content !== 'string' || !/template=(persona-card|theme-|gap-matrix|competitive-matrix|journey-map)/.test(m.content)) continue;
+                            for (const sl of parseSlideBlocks(m.content, (m as any).model, query)) _fenceSlides.push(sl);
+                        }
+                    } catch { /* roots from the transcript are best-effort */ }
+                    const _seenRootIds = new Set(slides.map(s => s.id));
+                    const _rootSlides = [...slides, ..._fenceSlides.filter(sl => !_seenRootIds.has(sl.id))];
+                    let _prdInputs = buildPrdInputsFromContext(liveCtx, _airChunks, {
+                        artifactId: buildMsgId,
+                        runId: engagementSlugFor(String(liveCtx?.researchGoal || '')),
+                        objective: String(liveCtx?.researchGoal || ''),
+                        decisionToSupport: directive.topic || undefined,
+                        brand: normalizeBrandId(directive.brand),
+                    }, deliverables, _rootSlides);
+                    const _prdBrand: BrandId = normalizeBrandId(directive.brand);
+                    // 2026-10-01 (owner directive: "NO BLOCKERS WHEN THE USER ASKS FOR AN OUTPUT"). The compiler
+                    // needs typed roots (personas with pains, journey pains, themes or competitive gaps). When the
+                    // session has not produced them, they are SYNTHESIZED from the same grounding chunks inside this
+                    // run (provenance-locked: every quote verified verbatim against the item it cites), shown to the
+                    // user as persona cards, and the PRD compiles on them. The old refusal message is deleted.
+                    const { prdMissingRoots, buildPrdRootSynthesisPrompt, applySynthesizedRoots, rootDeliverableSlides } = await import('../services/prdRootSynthesis');
+                    let _prdMissing = prdMissingRoots(_prdInputs);
+                    const _hasEvidence = !_prdMissing.some(m => m.startsWith('evidence'));
+                    // Consulting grade: the PRD stands on personas, a journey map and a gap analysis. Any of the three the
+                    // session lacks is produced in this run (only the missing kinds are requested), not just the
+                    // strict compile minimum.
+                    const _lacksDeliverable = !(_prdInputs.personas || []).length || !(_prdInputs.journeyPains || []).length || !(_prdInputs.competitiveGaps || []).length;
+                    if ((_prdMissing.length || _lacksDeliverable) && _hasEvidence) {
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... building the ${[!(_prdInputs.personas || []).length ? 'personas' : '', !(_prdInputs.journeyPains || []).length ? 'journey map' : '', !(_prdInputs.competitiveGaps || []).length ? 'gap analysis' : ''].filter(Boolean).join(', ')} the PRD stands on, from ${_airChunks.length} grounding sources` } : m));
+                        const _rsp = buildPrdRootSynthesisPrompt(_prdInputs);
+                        const _rootsRaw = await _runGen('', { userContent: _rsp.user, systemOverride: _rsp.system, stepLabel: '#prd roots (personas, journey map, gap matrix)', raw: true, maxTokens: 48000, continueOnTruncation: true });
+                        const _roots = applySynthesizedRoots(_prdInputs, _rootsRaw);
+                        _prdInputs = _roots.inputs;
+                        const _sy = _roots.synthesized;
+                        console.info(`[#prd] synthesized roots: ${_sy.personas.length} persona(s), ${_sy.journeyPains.length} journey pain(s), ${_sy.competitiveGaps.length} competitive gap(s), journey map ${_sy.journey ? 'yes' : 'no'}, gap matrix ${_sy.gapMatrix ? 'yes' : 'no'}; ${_roots.droppedQuotes} unverifiable quote(s) dropped`);
+                        const _rootSlidesOut = rootDeliverableSlides(_roots, _prdBrand);
+                        if (_rootSlidesOut.length) {
+                            const _stamp = Date.now();
+                            const _personaSlides = _rootSlidesOut.map(sl => ({ ...sl, status: 'draft', timestamp: _stamp, model: _artModel })) as any[];
+                            setSlides(prev => [...prev, ..._personaSlides]);
+                            // The synthesized persona / journey / gap slides take the same artifact chain as every deck (2026-10-03:
+                            // they skipped it, so their titles never got the scrub and narrowing the chat preview of other decks had).
+                            verifyAndAttachLedger(_personaSlides as any, buildMsgId);
+                            setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, timestamp: _stamp, model: _artModel } : m));
+                        }
+                        _prdMissing = prdMissingRoots(_prdInputs);
+                    }
+                    // 2026-10-02 (owner directive: "there should be requirements documented against every articulated
+                    // feature and piece of feedback"). The SCOPE AND FEEDBACK LEDGER reads every client-upload page of
+                    // the engagement IN FULL (the persisted upload-time analysis is reused; missing or changed documents
+                    // are analyzed now), then requirements are written per feature area with a deterministic coverage
+                    // check, so every stated feature and every piece of feedback has a requirement.
+                    const _prdProgress = (msg: string) => setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m));
+                    const _prdGen = (c: { system: string; user: string; label: string; maxTokens?: number }) => _runGen('', { userContent: c.user, systemOverride: c.system, stepLabel: c.label, raw: true, maxTokens: c.maxTokens || 48000, continueOnTruncation: true });
+                    _prdProgress('reading every client document in full for the scope and feedback ledger');
+                    const _prdRequest = [String(directive.topic || query || '').replace(/#[\w-]+/g, ' ').replace(/\s+/g, ' ').trim(), String(liveCtx?.researchGoal || '')].filter(Boolean).join(' ');
+                    const _engSlug = engagementSlugFor(String(liveCtx?.researchGoal || ''));
+                    const _ledger = await buildScopeLedger({ engagement: _engSlug, requestText: _prdRequest, gen: _prdGen, onProgress: _prdProgress });
+                    // Owner rule 2026-10-02: EVERY Research Assembly Board theme generates requirements. The board's full
+                    // theme set (context) is unioned with the engagement's persisted themes; near-duplicates collapse into
+                    // THEME groups that keep every original theme id. Nothing is dropped here.
+                    const { scopeThemeQuotesToEngagement } = await import('../services/engagementLedger');
+                    // Theme quotes that point at ANOTHER engagement's synthesis pages are removed before the themes
+                    // become ledger roots (the theme itself is kept; handoff 2026-10-02 step 6).
+                    const _scoped = await scopeThemeQuotesToEngagement(mergeBoardThemes(_prdInputs.themes || [], themesFromContext(await loadBoardThemes(_engSlug))) as any, _engSlug);
+                    if (_scoped.dropped) console.info(`[#prd] engagement scope: ${_scoped.dropped} board theme quote(s) dropped from ${_scoped.foreignPages.length} other-engagement synthesis page(s)`);
+                    // Board-admission relevance gate (2026-10-03): off-topic themes from other engagements do not generate
+                    // requirements (verdicts cached per engagement; a theme is judged once; failures keep the theme).
+                    const { gateForeignThemes } = await import('../services/themeRelevanceGate');
+                    const _gated = await gateForeignThemes(_scoped.themes as any[], { engagement: _engSlug, objective: String(liveCtx?.researchGoal || ''), scope: _ledger.items.map((i: any) => i.item).slice(0, 40) });
+                    if (_gated.held.length) console.info(`[#prd] board relevance gate: ${_gated.held.length} off-topic theme(s) from other engagements set aside (${_gated.judgedNow} judged now): ${_gated.held.slice(0, 6).map((t: any) => t.name).join('; ')}`);
+                    const _boardThemes = _gated.kept as any[];
+                    _prdInputs = { ..._prdInputs, themes: _boardThemes };
+                    const _themeItems = themeLedgerItems(_boardThemes);
+                    const _allLedger = [..._ledger.items, ..._themeItems];
+                    // Feature areas are derived from this project's own ledger text, never a fixed list.
+                    const _areas = assignAreas(_allLedger);
+                    const _lc = ledgerCounts(_allLedger);
+                    console.info(`[#prd] board themes: ${_boardThemes.length} theme(s) in ${_themeItems.length} group(s); derived areas: ${_areas.map(a => `${a.label} (${a.items})`).join(', ')}`);
+                    console.info(`[#prd] scope and feedback ledger: ${_ledger.items.length} item(s) (${_lc.stated} stated, ${_lc.feedback} feedback) from ${_ledger.documents.length} document(s), ${_ledger.chunksRead} chunk(s) read in full; analyzed now: ${_ledger.analyzedNow.join(', ') || 'none'}; reused: ${_ledger.reused.join(', ') || 'none'}; duplicates collapsed ${_ledger.duplicatesCollapsed.length}; by area ${JSON.stringify(_lc.byArea)}; by document ${JSON.stringify(_lc.byDocument)}`);
+                    _prdInputs = { ..._prdInputs, ledger: _allLedger, areas: _areas, ledgerStats: { engagement: _engSlug, documents: _ledger.documentStats, foreignPages: _scoped.foreignPages } };
+                    if (_prdMissing.length && !_allLedger.length) {
+                        // Nothing typed could be derived (no grounding evidence and no client document): still produce
+                        // the PRD, from the full chat context on the standard artifact path. Never a refusal.
+                        console.warn(`[#prd] typed roots unavailable (${_prdMissing.join('; ')}); generating on the standard artifact path`);
+                        htmlBody = await _runGen('');
+                    } else {
+                        const _compiled = await compilePrdFromLedger(_prdInputs, _prdGen, { onProgress: _prdProgress });
+                        const _rep: any = _compiled.report || {};
+                        const _cov: any = _rep.coverage || {};
+                        console.info(`[#prd] compiled PrdAir: ${_compiled.air.graph.requirements.length} requirement(s) by root ${JSON.stringify(_cov.requirementsByRootType || {})}; ledger coverage ${_cov.covered ?? 0}/${_cov.items ?? 0} (${_cov.coveragePct ?? 100}%), ${(_cov.uncoveredByModel || []).length} by deterministic fallback; passes ${JSON.stringify(_rep.passes || {})}; ${_rep.droppedQuotes?.length ?? 0} unverifiable quote(s) dropped, ${_rep.hypothesisRequirementIds?.length ?? 0} requirement(s) typed HYPOTHESIS, validation ${_rep.validation?.ok ? 'ok' : `${(_rep.validation?.errors || []).length} error(s)`}`);
+                        if (_rep.validation && !_rep.validation.ok) {
+                            const _byKind: Record<string, number> = {};
+                            for (const e of (_rep.validation.errors || []) as string[]) { const k = String(e).replace(/"[^"]*"/g, '"X"').replace(/\b[A-Z]{1,3}\d*[-.]?\d+(?:\.\w+)*\b/g, 'ID').replace(/ at \S+$/, ' at PATH'); _byKind[k] = (_byKind[k] || 0) + 1; }
+                            console.warn('[#prd] PrdAir validation errors by kind:', JSON.stringify(_byKind), (_rep.validation.errors || []).slice(0, 8));
+                        }
+                        htmlBody = projectPrdAirToHtml(_compiled.air, { brand: _prdBrand });
+                        _prdWorkbookAir = _compiled.air;
+                    if (_wantsSlideTwin) {
+                        const _deck = projectPrdAirToDeck(_compiled.air, _prdBrand);
+                        const _msgModel = _artModel;
+                        const _stampTs = Date.now();
+                        const stamped = _deck.map((sl, i) => ({
+                            ...sl, status: 'draft', timestamp: _stampTs, model: _msgModel, id: sl.id || `${buildMsgId}_prd_${i + 1}`,
+                        })) as any[];
+                        setSlides(prev => [...prev, ...stamped]);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, timestamp: _stampTs, model: _msgModel } : m));
+                        verifyAndAttachLedger(stamped as any, buildMsgId);
+                        console.info(`[#prd] deck projection: ${stamped.length} slide(s) (${Array.from(new Set(stamped.map(x => x.template))).join(', ')})`);
+                    }
+                    }
+                } else {
+                    // 2026-10-02 live #report #deciem: the reply stopped at the length limit inside a <style> block and the
+                    // page rendered blank. Every HTML artifact now gets the ceiling and continuation turns the #prd path has.
+                    htmlBody = await _runGen('', { maxTokens: 64000, continueOnTruncation: true });
+                }
                 if (directive.variants <= 1 && _floor > 0) {
                     const w0 = _visibleWords(htmlBody);
                     if (w0 < _floor) {
-                        console.warn(`[${directive.generator}] thin output (${w0}w < ${_floor}) - expanding`);
-                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... expanding to full depth...` } : m));
+                        // D8 / Stage 4.4 (2026-10-01): a DELTA turn, never a regeneration. The old retry
+                        // re-sent the whole ~137K payload and asked for a new artifact. Now the same
+                        // system prompt is kept (cached prefix hits), the prior HTML is anchored verbatim,
+                        // the thin sections are named by heading + word count, and only those sections
+                        // come back, extended in place; mergeExtendedSections splices them into the draft.
+                        console.warn(`[${directive.generator}] thin output (${w0}w < ${_floor}) - delta turn to extend thin sections in place`);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... extending the thin sections in place...` } : m));
                         try {
-                            const expanded = await _runGen(`\n\n=== EXPAND (CRITICAL) ===\nYour previous draft was TOO THIN (${w0} words; target ${_floor}+). Regenerate the FULL artifact substantially deeper: every section expanded with more evidence, named-source verbatim quotes, case studies, and convergent sources. FRAME THE SPACE (where the field is now, the forces shaping it, where it is heading, the biggest opportunities and challenges). Do NOT summarize, do NOT drop sections, ADD substance.`);
-                            if (_visibleWords(expanded) > w0) htmlBody = expanded;
-                        } catch (e: any) { console.warn(`[${directive.generator}] expand retry failed:`, e?.message || e); }
+                            const { planHtmlExtension, mergeExtendedSections } = await import('../services/htmlDepthDelta');
+                            const plan = planHtmlExtension(htmlBody, _floor);
+                            const thinNames = plan.thinSections.map(sx => `${sx.heading} (${sx.words}w)`).join('; ');
+                            const extendedReply = await _runGen('', { userContent: plan.deltaPrompt, stepLabel: `${directive.generator} depth delta turn` });
+                            const merged = mergeExtendedSections(htmlBody, extendedReply, plan);
+                            const w1 = _visibleWords(merged.html);
+                            console.info(`[${directive.generator}] depth DELTA TURN: ${w0}w -> ${w1}w (floor ${_floor}; ${merged.replaced} section(s) extended in place, ${merged.appended} appended; thin: ${thinNames || 'none named'})`);
+                            if (w1 > w0) htmlBody = merged.html;
+                        } catch (e: any) { console.warn(`[${directive.generator}] depth delta turn failed:`, e?.message || e); }
                     }
                 }
                 if (htmlBody.length < 100) throw new Error('Model returned empty/short HTML body');
@@ -5933,6 +6476,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // claim ledger gate, the bounded narrowing repair, and linked dated citations BEFORE anything
                 // is saved. Until now #report/#whitepaper/#brief/#explainer met no gate at all.
                 let _htmlChainSummary = 'claim verification did not run';
+                let _htmlCoverageLines: string[] = [];
                 try {
                     const { runHtmlArtifactChain } = await import('../services/htmlArtifactChain');
                     setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... verifying every claim against its cited source...` } : m));
@@ -5946,6 +6490,13 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     console.log(`[${directive.generator}] html artifact chain: ${_chain.summaryLine}${_chain.airPatched ? ' (AIR patched)' : ''}`);
                 } catch (e: any) {
                     console.warn(`[${directive.generator}] html artifact chain failed; artifact saved without verification:`, e?.message || e);
+                }
+                // Coverage contract (not #prd: its workbook carries its own). The appendix is added AFTER the claim
+                // chain: its quotes are provenance-locked ledger spans, not claims the chain should narrow.
+                if (directive.generator !== '#prd') {
+                    const _cov = await enforceHtmlCoverage(htmlBody, `${directive.generator} ${query}`, (msg: string) => setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, content: `Generating ${firstHit!.label} (${directive.generator})... ${msg}` } : m)));
+                    htmlBody = _cov.html;
+                    _htmlCoverageLines = _cov.lines;
                 }
 
                 // Derive a slug + title. Title = first <h1> if present, else the topic.
@@ -5974,8 +6525,10 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // guardArtifactTitle rejects corpus-as-subject meta titles (falls back to
                 // the user's topic), strips meta-narration + cliches, and trims the dangling
                 // function word truncation can leave.
-                const _rawTitle = h1Match ? tidyTitle(h1Match[1], 120) : tidyTitle(directive.topic || `${directive.generator} artifact`, 80);
-                const title = guardArtifactTitle(_rawTitle, tidyTitle(directive.topic || `${directive.generator} artifact`, 80));
+                // A topic carries the request's hashtags (#deciem, #slides); a title never does.
+                const _topicText = String(directive.topic || '').replace(/#[\w-]+/g, ' ').replace(/\s+/g, ' ').trim();
+                const _rawTitle = h1Match ? tidyTitle(h1Match[1], 120) : tidyTitle(_topicText || `${directive.generator} artifact`, 80);
+                const title = guardArtifactTitle(_rawTitle, tidyTitle(_topicText || `${directive.generator} artifact`, 80));
 
                 const saved = await saveArtifact({
                     title,
@@ -5983,11 +6536,14 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     html_source: htmlBody,
                     brand: directive.brand,
                     topic: directive.topic,
+                    // #refine keeps the slug so the library entry updates in place.
+                    ...(refineTarget ? { slug: refineTarget.slug } : {}),
                 });
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
-                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Claim check: ${_htmlChainSummary}. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.`,
+                    model: _lastServedModel as any,
+                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Claim check: ${_htmlChainSummary}. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.${_htmlCoverageLines.length ? `\n\n${_htmlCoverageLines.join('\n')}` : ''}`,
                     artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,
@@ -5999,6 +6555,63 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     },
                 } : m));
 
+                // #prd (2026-10-02, owner directive "the #PRD needs to produce a structured set of requirements as
+                // an XLS (spreadsheet), not an HTML document"): POST the compiled PrdAir to /api/prd/export-xlsx,
+                // download the workbook, and lead the reply with it. The HTML PRD stays saved as the secondary
+                // "Open the PRD brief" link. Fail-open: a failed export is one line, the summary and brief still show.
+                if (directive.generator === '#prd') {
+                    const _briefUrl = `http://127.0.0.1:5012${saved.view_url}`;
+                    if (!_prdWorkbookAir) {
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: `PRD brief ready: **${title}**. This session holds no client documents, research themes or grounding sources, so there were no stated features, feedback items or themes to write workbook requirements against; the brief is drafted from the conversation (click LAUNCH). Attach the client documents in this chat and they are read in full and become the workbook's requirement rows.`,
+                        } : m));
+                    } else {
+                        const { exportPrdWorkbook, downloadBlob, summarizePrdRequirements, formatPrdWorkbookReply, rememberPrdWorkbook, prdWorkbookFilename } = await import('../services/prdXlsx');
+                        // Coverage over the FINAL record the workbook is built from (requirements x ledger); every item
+                        // only the deterministic fallback documented is named with the requirement it was given.
+                        try {
+                            const { ledgerCoverage } = await import('../services/prdAir');
+                            const { formatCoverageReply } = await import('../services/prdCompiler');
+                            _prdCoverageText = formatCoverageReply(ledgerCoverage(_prdWorkbookAir), _prdWorkbookAir?.receipt);
+                        } catch { /* coverage text is additive */ }
+                        const _wbTitle = String(_prdWorkbookAir.title || title);
+                        const _wbBrand = String(directive.brand || 'NXT');
+                        const _summary = summarizePrdRequirements(_prdWorkbookAir);
+                        rememberPrdWorkbook(buildMsgId, { air: _prdWorkbookAir, brand: _wbBrand, title: _wbTitle, slug: saved.slug });
+                        let _wbFilename = prdWorkbookFilename(_wbTitle, _wbBrand);
+                        let _wbError = '';
+                        let _wbBlob: Blob | null = null;
+                        try {
+                            const _wb = await exportPrdWorkbook(_prdWorkbookAir, { brand: _wbBrand, title: _wbTitle, slug: saved.slug });
+                            rememberPrdWorkbook(buildMsgId, { air: _prdWorkbookAir, brand: _wbBrand, title: _wbTitle, slug: saved.slug, result: _wb });
+                            _wbFilename = _wb.filename;
+                            _wbBlob = _wb.blob;
+                            console.info(`[#prd] requirements workbook: ${_wb.requirementCount} requirement(s) -> ${_wb.filename}; independent export check: ${_wb.checks || 'not reported'}`);
+                            if (_wb.checks && _wb.checks !== 'pass') _prdCoverageText = [_prdCoverageText, `Independent export check on the workbook: ${_wb.checks} (listed on its Checks sheet).`].filter(Boolean).join('\n');
+                        } catch (e: any) {
+                            _wbError = e?.message || 'unknown error';
+                            console.warn('[#prd] requirements workbook export failed (fail-open):', _wbError);
+                        }
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: [formatPrdWorkbookReply({ title: _wbTitle, summary: _summary, filename: _wbFilename, exportError: _wbError || undefined, claimCheck: _htmlChainSummary }), _prdCoverageText].filter(Boolean).join('\n\n'),
+                            // The workbook card carries the brief link, so the generic launch card is not repeated.
+                            artifactUrl: undefined,
+                            prdWorkbook: { key: buildMsgId, filename: _wbFilename, title: _wbTitle, brand: _wbBrand, ok: !_wbError, requirementCount: _summary.total, briefUrl: _briefUrl },
+                        } as any : m));
+                        // The reply (coverage block, receipt, workbook card) is in the transcript BEFORE the download fires:
+                        // twice in the 2026-10-02 live runs the window closed on the download and the reply was lost.
+                        // 2026-10-03 live: the 1.5s head start lost to the 4s chat-save debounce. The session is saved NOW
+                        // (App listens for this event), and the download fires once that save has gone out.
+                        if (_wbBlob) {
+                            const _b = _wbBlob, _f = _wbFilename;
+                            setTimeout(() => { try { window.dispatchEvent(new CustomEvent('hic:flush-session-save')); } catch { /* no window */ } }, 300);
+                            setTimeout(() => downloadBlob(_b, _f), 3000);
+                        }
+                    }
+                }
+
                 // 2026-06-05 - PREVIEW/EXPORT PARITY FIX. When the user typed
                 // `#slides` (or `#slide`) alongside the HTML-artifact directive
                 // (#brief / #explainer / #report / #whitepaper / #approaches /
@@ -6009,7 +6622,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // the broken twin (squashed titles, MEAN/S line break, missing
                 // hierarchy). The gold pipeline is the only path that yields
                 // visual parity with the chat preview.
-                const wantsSlidesExport = /(?:^|\s)#slides?\b/i.test(query);
+                const wantsSlidesExport = hasModifier(query, '#slides') || hasModifier(query, '#slide');
                 if (wantsSlidesExport) {
                     try {
                         const { exportGoldPptx } = await import('../services/goldArtifact');
@@ -6359,9 +6972,24 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 } finally {
                     setInFlightModelId(null);
                 }
+                // Coverage contract (#proto): every stated feature in scope and every prototype feedback item lands on
+                // each brief, as the brief's own text or in its `client_scope` list the build stages read.
+                let _protoCoverage = '';
+                try {
+                    const C = await import('../services/deliverableCoverage');
+                    const _inp = await coverageInputsFor(`#proto ${conceptText || ''}`);
+                    if (_inp && briefs?.length) {
+                        let filled = 0, universe = 0;
+                        for (const b of briefs) {
+                            const r = await C.runCoverageContract(C.protoBriefCoverageDoc(b, _inp.ledger), _inp.ledger, _inp.areas, _inp.stats);
+                            filled += r.filled.length; universe = r.universe;
+                        }
+                        if (universe) _protoCoverage = `\n\nCoverage: each brief accounts for all ${universe} stated features and feedback items from the client documents; ${filled} were added to the briefs' client scope lists (with the reviewers' keep, change or remove disposition) for the build to honor.`;
+                    }
+                } catch (e: any) { console.warn('[coverage] proto contract skipped (non-fatal):', e?.message || e); }
                 setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
-                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" - review them and click BUILD THIS on the one you want shipped. The chosen brief flows through spec → design → multi-agent pod build (orchestrator contract → parallel screen pods → integration reviewer), all on Opus 4.8.`,
+                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" - review them and click BUILD THIS on the one you want shipped. The chosen brief flows through spec → design → multi-agent pod build (orchestrator contract → parallel screen pods → integration reviewer), all on ${CLAUDE_REASONING_LABEL}.${_protoCoverage}`,
                     prototypeBriefs: briefs,
                     prototypeBriefsMeta: {
                         brand: protoDirective.brand,
@@ -6613,6 +7241,9 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // pass is disabled (the prompt also no longer emits imageConcept).
                 // (was: resolvePresentationIllustrations(composeResult.payload, ...))
 
+                // Coverage contract: every board theme and client feature area appears in the presentation.
+                const _presCoverage = await enforcePresentationCoverage(composeResult.payload, query);
+
                 // D18: emit AIR for this deck (composeNarrative path was outside AIR emission).
                 void emitComposeNarrativeAir('#presentation', liveCtx?.researchGoal || presDirective.narrativeRequest || '', composeResult.payload);
 
@@ -6639,6 +7270,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     `${sectionCount} sections · ${composeResult.payload.meta.citationCount} citations across ${stats.total} sources (${stats.external} external research, ${stats.uploaded} from your uploads, ${stats.analysis} from prior analysis).`,
                     ``,
                     `Composed in ${(composeResult.durationMs / 1000).toFixed(1)}s with ${composeResult.toolCallCount} tool calls.`,
+                    ...(_presCoverage.length ? ['', ..._presCoverage] : []),
                 ].join('\n');
 
                 setMessages(prev => prev.map(m => m.id === composingMsgId ? {
@@ -6713,810 +7345,93 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
             return;
         }
 
-        // --- Design Desk artifact delivery interception ---
-        // If the message contains ONLY content hashtags in {persona, journey, org},
-        // short-circuit the LLM call and deliver the matching pre-made artifact
-        // from useDesignDeskStore. Other hashtags (#slide, #gap, #strategy, etc.)
-        // continue to sendChatMessage unchanged.
+        // Stage 6.2 (2026-10-01, plan finding A1). The 2026-06-13 hashtag unification left an
+        // ~830-line dispatch block here gated on `DELIVERABLE_TAGS = []`, so `allDeliverable` was
+        // always false and its handlers for #mindmap / #brief-dialog / #meta-themes / #deep-research
+        // (plus a Journey Mapper :8080 branch and the exemplar freeform path) could never run; those
+        // four directives fell through to prose chat. The block is deleted. The four NotebookLM kinds
+        // now dispatch from ONE table keyed on the artifact catalog id (UPLIFT_HANDLERS, module scope);
+        // every other directive continues to sendChatMessage, the one engine.
         const parsed = parseHashtags(query);
-        // Persona is INTENTIONALLY EXCLUDED from this routing - user explicitly
-        // wants persona slides to render through the original AI chat path
-        // (SlideCanvas + persona-card template + Export Deck PPTX/PDF), exactly
-        // as they did before the Design Desk integration. The 5 diagram kinds
-        // (org, journey, arch, roadmap, blueprint) route through the freeform-HTML
-        // pipeline so they inherit the user's NU/NXT exemplar treatment.
-        // 2026-05-31 - Added prd/gap/compete so #prd, #gap, #competitive route
-        // through this objective-keyed + anti-slop + depth-contract block instead
-        // of falling through to generic chat (where they produced shallow,
-        // off-objective output). Parser emits gap/compete; the artifact engine
-        // keys gap-analysis/competitive, so FREEFORM_KIND_ALIAS bridges the fork.
-        // 2026-06-10 - ONE-ENGINE ROUTING (standing rule, NO EXCEPTIONS, NO DRIFT:
-        // feedback_all_deliverables_one_engine). 'journey' and 'blueprint' were REMOVED
-        // from this gate so they NO LONGER divert to the Journey Mapper microservice
-        // (:8080) / freeform-HTML detour. With them gone, any request containing #journey
-        // or #blueprint makes `allDeliverable` false, so it falls through to
-        // sendChatMessage (the ONE engine) where #slides + the service-blueprint template
-        // (HASHTAG_TO_SKILL_ID '#journey'/'#blueprint' -> service-blueprint-mapper) renders
-        // them as GOLD nxt-slide frames (rail/masthead/dot-mark), grounded by skill +
-        // manifest-chunk + live Figma tokens. The old journey/blueprint branch below is now
-        // unreachable (kept temporarily; slated for deletion once verified).
-        // 2026-06-13 - UNIFICATION COMPLETE (extends the journey/blueprint migration above):
-        // EVERY artifact hashtag now routes through the ONE canonical engine (sendChatMessage
-        // slide-mode -> manifest grounding -> GOLD slide template -> Opus 4.8). 'arch',
-        // 'roadmap', 'prd', 'gap', 'compete' AND 'org' were all removed from this gate. Each
-        // has a HASHTAG_TO_SKILL_ID entry AND an ARTIFACT_TPL slide template
-        // (architecture-map / timeline / prd-feature / gap-matrix / competitive-matrix /
-        // org-chart - the org-chart template was built 2026-06-13 from Figma NU 178:3). With
-        // DELIVERABLE_TAGS empty, `allDeliverable` is ALWAYS false, so this entire proxy
-        // artifact-engine gate (and the unreachable journey-mapper branch below) is now dead
-        // code, slated for deletion once verified. See
-        // plans/hashtag-pipeline-unification-2026-06-13.md.
-        const DELIVERABLE_TAGS = [] as const;
-        const FREEFORM_KIND_ALIAS: Record<string, string> = {
-            gap: 'gap-analysis',
-            compete: 'competitive',
-            audit: 'tech-audit',
-        };
-        const LABEL_MAP: Record<string, string> = {
-            journey: 'JOURNEY_MAP',
-            org: 'ORG_CHART',
-            arch: 'ARCHITECTURE',
-            roadmap: 'ROADMAP',
-            blueprint: 'SERVICE_BLUEPRINT',
-            prd: 'PRD',
-            gap: 'GAP_ANALYSIS',
-            compete: 'COMPETITIVE_ANALYSIS',
-        };
-        const allDeliverable = parsed.content.length > 0 &&
-            parsed.content.every(c => (DELIVERABLE_TAGS as readonly string[]).includes(c));
-
-        if (allDeliverable) {
-            const artifacts = useDesignDeskStore.getState().artifacts;
-            const brand = parsed.brand; // 'nxt' | 'nu'
-            const deliveryMessages: ChatMessage[] = [];
-
-            // Lazy-load DESIGN.md once per send (no-op if already cached at the module level via loadDesignMd's fetch cache).
-            let designMdRaw = '';
-            try {
-                const dm = await loadDesignMd('/DESIGN.md');
-                designMdRaw = dm.rawMarkdown;
-            } catch { /* design md optional; generators will run with empty grounding if needed */ }
-
-            const liveCtx = getContext ? getContext() : context;
-            // Combine ALL evidence the chat has access to, not just the search-source corpus.
-            // Uploaded file contents (client PDFs/docs) often hold the names and reporting-line
-            // detail the model needs for deliverables like #org. Building the combined text
-            // here ensures the generator sees everything the chat itself sees.
-            const combinedCorpusParts: string[] = [];
-            // 2026-05-08 - Mid-chat ad-hoc attachments take HIGHEST priority. The
-            // user just dropped these in, so they're the immediate source for any
-            // hashtag deliverable that follows in the same turn.
-            if (pendingAttachments.length > 0) {
-                const adHocBlock = pendingAttachments.map(att => {
-                    const meta = [
-                        att.slideCount ? `${att.slideCount} slides` : null,
-                        att.pageCount ? `${att.pageCount} pages` : null,
-                        `${att.charCount} chars`,
-                        att.isImage ? 'IMAGE' : null,
-                    ].filter(Boolean).join(', ');
-                    return `--- AD-HOC UPLOAD: ${att.filename} (${meta}) ---\n${att.parsedText}\n--- END ${att.filename} ---`;
-                }).join('\n\n');
-                combinedCorpusParts.push('=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY - JUST UPLOADED) ===\n' + adHocBlock);
-            }
-            if (liveCtx?.uploadedFileContents && typeof liveCtx.uploadedFileContents === 'string' && liveCtx.uploadedFileContents.length > 40) {
-                combinedCorpusParts.push('=== CLIENT UPLOADS ===\n' + liveCtx.uploadedFileContents);
-            }
-            // 2026-05-31 - PHASE 1: OBJECTIVE-KEYED RETRIEVAL as the PRIMARY external
-            // evidence for every artifact. Previously this path dumped the raw
-            // session corpus (liveCtx.corpusText), which carries the tri-model
-            // synthesis preamble + off-objective content and gets head-truncated to
-            // 60KB downstream, so artifacts were grounded in synthesis + noise rather
-            // than the on-objective slice. Now we pull the objective-relevant article
-            // bodies from the fixed chunk-store retrieval (the same path themes use),
-            // and only fall back to the raw session corpus if retrieval is empty
-            // (e.g. mid-collection before anything is embedded).
-            const _retrievalGoal = (parsed.cleanPrompt && parsed.cleanPrompt.trim().length >= 4
-                ? `${parsed.cleanPrompt}. ${liveCtx?.researchGoal || ''}`
-                : (liveCtx?.researchGoal || parsed.cleanPrompt || '')).trim();
-            let _retrievedExternal = '';
-            if (_retrievalGoal) {
-                try {
-                    const { fetchWikiArticles, formatArticlesAsCorpusBlock } = await import('../services/wikiIndexService');
-                    const arts = await fetchWikiArticles({
-                        query: _retrievalGoal,
-                        engagementGoal: liveCtx?.researchGoal || _retrievalGoal,
-                        goalBlendWeight: 0.35,
-                        limit: 40,
-                        maxCharsPerArticle: 7000,
-                        minChars: 400,
-                        includeSynthesis: false, // never ground an artifact in prior synthesis
-                    } as any);
-                    if (Array.isArray(arts) && arts.length > 0) {
-                        _retrievedExternal = formatArticlesAsCorpusBlock(arts as any, 160_000);
-                        console.log(`[Artifact] objective-keyed retrieval: ${arts.length} on-objective articles for "${_retrievalGoal.slice(0,60)}"`);
-                    } else {
-                        console.warn('[Artifact] objective-keyed retrieval returned 0 articles; falling back to session corpus');
-                    }
-                } catch (e: any) {
-                    console.warn('[Artifact] objective-keyed retrieval failed (non-fatal), falling back to session corpus:', e?.message || e);
-                }
-            }
-            // 2026-06-09 - MANIFEST-CHUNK grounding (the new engine, intent A.1).
-            // Lead the deliverable corpus with manifest-selected, pointer-addressed
-            // chunk spans so #journey/#blueprint/#org/#gap/#competitive/#prd assemble
-            // from wiki+MANIFEST, not bulk RAG. The objective-keyed retrieval + raw
-            // corpus become supplementary below. Non-fatal + fail-LOUD: on empty/err
-            // we log and the objective-keyed/bulk path stands (never silently claim
-            // manifest grounding that did not happen).
-            let _mfGrounded = false;
-            try {
-                const _mfSlug = currentEngagementSlug();
-                if (_mfSlug && (_retrievalGoal || parsed.cleanPrompt)) {
-                    const _mfPicked = await pickChunksForPrompt(_retrievalGoal || parsed.cleanPrompt || '', _mfSlug, {
-                        extraContext: liveCtx?.researchGoal || '',
-                        // tier-1.5: admit on-objective corpus by relevance to the research goal
-                        researchObjective: liveCtx?.researchGoal || _retrievalGoal || '',
-                        tokenBudget: 30_000,
-                    });
-                    if (_mfPicked.chunkIds.length > 0) {
-                        const _mfRes = await resolveChunks(_mfPicked.chunkIds);
-                        if (_mfRes.chunks.length > 0) {
-                            combinedCorpusParts.push(
-                                '=== PRIMARY EVIDENCE (manifest-selected, cite by pointer) ===\n' +
-                                chunkCitationInstructions() + '\n\n' +
-                                assembleChunkCorpus(_mfRes.chunks)
-                            );
-                            _mfGrounded = true;
-                            console.log(`[Artifact] MANIFEST-CHUNK grounding: ${_mfRes.chunks.length} chunks from ${_mfRes.sourcesRead} wiki pages (catalog=${_mfPicked.catalogSize}) - PRIMARY evidence`);
-                        }
-                    }
-                    if (!_mfGrounded) console.warn(`[Artifact] MANIFEST-CHUNK grounding empty for "${_mfSlug}" (mid-collection?); using objective-keyed/bulk corpus`);
-                }
-            } catch (e: any) {
-                console.warn('[Artifact] manifest-chunk grounding failed (non-fatal), using objective-keyed/bulk corpus:', e?.message || e);
-            }
-            // Objective-keyed retrieval + raw corpus: PRIMARY when manifest chunks
-            // were unavailable, else clearly-labeled SUPPLEMENTARY (do not drown the
-            // pointer-addressed chunks above).
-            if (_retrievedExternal) {
-                combinedCorpusParts.push((_mfGrounded
-                    ? '=== EXTERNAL RESEARCH EVIDENCE (supplementary; lead with the manifest chunks above) ===\n'
-                    : '=== EXTERNAL RESEARCH EVIDENCE (objective-matched, cite these) ===\n') + _retrievedExternal);
-            } else if (liveCtx?.corpusText && !_mfGrounded) {
-                // Fallback only: raw session corpus (retrieval + manifest unavailable).
-                combinedCorpusParts.push('=== EXTERNAL RESEARCH CORPUS ===\n' + liveCtx.corpusText);
-            }
-            // 2026-05-31 - PHASE 2: prior deliverables are SYNTHESIS, not evidence.
-            // Pass them as clearly-labeled context the artifact may use for
-            // orientation but MUST NOT cite as a source (the deterministic
-            // post-processors also strip any "Source: Themes/Personas/Synthesis"
-            // citation). This stops the synthesis-citing-synthesis loop.
-            //
-            // 2026-06-06 - MANIFEST -> WIKI resolution. Prefer wiki bodies
-            // (single source of truth at engagements/<slug>/<kind>.json) over
-            // the in-memory liveCtx state. Falls back to in-memory when wiki
-            // is empty (the deliverable was generated in this session and not
-            // yet persisted). The resolver caches per-engagement so multiple
-            // generations in one cascade share the wiki read.
-            const _chatSlug = currentEngagementSlug();
-            let _chatResolved: Awaited<ReturnType<typeof resolveDeliverableBodies>> | null = null;
-            if (_chatSlug) {
-                try {
-                    _chatResolved = await resolveDeliverableBodies(_chatSlug, ['themes', 'personas', 'journey']);
-                } catch (_e) { /* non-fatal - fall back to in-memory */ }
-            }
-
-            // C2 (2026-06-06) - UPSTREAM CACHED-SELECTION CONSUMPTION.
-            // Pull the user-curated KL selection NOW (at corpus assembly
-            // time) and inject it as a load-bearing block BEFORE the
-            // PRIOR FINDINGS block. The model sees the selection
-            // BEFORE generation, not after. The Stop hook
-            // validate_cached_selection_honored.py remains the safety
-            // net; this is the upstream wiring that makes the model
-            // honor the selection BY CONSTRUCTION instead of having to
-            // retry on hook rejection.
-            try {
-                const _sel = await fetch('http://127.0.0.1:5012/api/user-selection/active');
-                if (_sel.ok) {
-                    const _selData = await _sel.json();
-                    if (_selData && !_selData._uncommitted) {
-                        const _themeIds: string[] = Array.isArray(_selData.theme_cluster_ids) ? _selData.theme_cluster_ids : [];
-                        const _artSrc: string[] = Array.isArray(_selData.article_sources) ? _selData.article_sources : [];
-                        const _subs: string[] = Array.isArray(_selData.social_subreddits) ? _selData.social_subreddits : [];
-                        const _engSlugs: string[] = Array.isArray(_selData.engagement_slugs) ? _selData.engagement_slugs : [];
-                        const _selTotal = _themeIds.length + _artSrc.length + _subs.length + _engSlugs.length;
-                        if (_selTotal > 0) {
-                            const _idLines = _themeIds.slice(0, 200).map(id => `  - ${id}`).join('\n');
-                            const _idTail = _themeIds.length > 200 ? `\n  ... ${_themeIds.length - 200} more` : '';
-                            combinedCorpusParts.push(
-                                '=== USER CURATED SELECTION (must inherit; never regenerate from scratch) ===\n' +
-                                'The user explicitly selected the following items from the Knowledge Library.\n' +
-                                'You MUST honor 100% of these (NO FLOORS, NO OMISSIONS). For each emitted\n' +
-                                'theme/persona/recommendation, tag source="cached" (carried forward) or\n' +
-                                '"extended" (refined). Items not in the selection that you discover from\n' +
-                                'the corpus go in as source="new". Stop hook validate_cached_selection_honored.py\n' +
-                                'REJECTS any silent omission.\n\n' +
-                                `Selection (selected_at_ms=${_selData.selected_at_ms || 0}):\n` +
-                                `  - ${_themeIds.length} theme cluster ids (must all appear as cached/extended)\n` +
-                                `  - ${_artSrc.length} article source folders\n` +
-                                `  - ${_engSlugs.length} prior engagement slugs\n` +
-                                `  - ${_subs.length} subreddits\n` +
-                                (_themeIds.length > 0 ? `\nTheme cluster ids:\n${_idLines}${_idTail}\n` : '')
-                            );
-                            console.info(`[CorpusChatPanel] injected USER CURATED SELECTION block upstream of generation (${_selTotal} items)`);
-                        }
-                    }
-                }
-            } catch (e: any) {
-                console.warn('[CorpusChatPanel] cached-selection upstream fetch failed (non-fatal):', e?.message || e);
-            }
-
-            const _chatThemes = (_chatResolved?.bodies as any)?.themes?.themes || (_chatResolved?.bodies as any)?.themes || liveCtx?.themes;
-            const _chatPersonas = (_chatResolved?.bodies as any)?.personas?.personas || (_chatResolved?.bodies as any)?.personas || liveCtx?.personas;
-            const _chatJourney = (_chatResolved?.bodies as any)?.journey?.stages || (_chatResolved?.bodies as any)?.journey || liveCtx?.journeyStages;
-            if (_chatResolved && _chatResolved.readCount > 0) {
-                combinedCorpusParts.push(manifestPointerBlock(_chatResolved));
-            }
-            const _themesPtr = _chatResolved?.pointers?.themes || '(in-memory)';
-            const _personasPtr = _chatResolved?.pointers?.personas || '(in-memory)';
-            const _journeyPtr = _chatResolved?.pointers?.journey || '(in-memory)';
-            if (_chatThemes) combinedCorpusParts.push(`=== PRIOR FINDINGS: THEMES [pointer: ${_themesPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatThemes).slice(0, 20000));
-            if (_chatPersonas) combinedCorpusParts.push(`=== PRIOR FINDINGS: PERSONAS [pointer: ${_personasPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatPersonas).slice(0, 20000));
-            if (_chatJourney) combinedCorpusParts.push(`=== PRIOR FINDINGS: JOURNEY [pointer: ${_journeyPtr}] (context only - do NOT cite as a source) ===\n` + JSON.stringify(_chatJourney).slice(0, 20000));
-            // 2026-05-29 - Chat is now unlocked DURING collection, so corpusText
-            // may be thin/empty mid-run. Build the corpus from WHATEVER is cached
-            // and collected so far (the green-chip liveSourceResults), complete or
-            // not - and fall back to the research goal - so artifact-engine kinds
-            // (#journey/#blueprint/etc.) never hit the service's "corpus is
-            // required" 400. (Root cause of the journey-map 400 during collection.)
-            if (Array.isArray(liveCtx?.liveSourceResults) && liveCtx.liveSourceResults.length) {
-                const collected = liveCtx.liveSourceResults.flatMap((r: any) =>
-                    (r.items || []).map((it: any) => {
-                        const t = (it.title || '').toString();
-                        const b = (it.content || it.body || it.text || it.summary || it.snippet || '').toString();
-                        return (t || b) ? `[${r.source || r.id || 'source'}] ${t}\n${b.slice(0, 1500)}` : '';
-                    })
-                ).filter(Boolean).slice(0, 80).join('\n\n');
-                if (collected && !liveCtx?.corpusText) {
-                    combinedCorpusParts.push('=== SOURCES COLLECTED SO FAR (current run) ===\n' + collected);
-                }
-            }
-            let corpusText = combinedCorpusParts.join('\n\n').trim();
-            if (!corpusText && liveCtx?.researchGoal) {
-                // Never send an empty corpus - seed with the goal so generation proceeds.
-                corpusText = `=== RESEARCH GOAL ===\n${liveCtx.researchGoal}`;
-            }
-
-            // Honor #slide / #slides view modifier. When present, every delivered
-            // artifact in this turn is rendered inside a 16:9 NXT slide frame.
+        const upliftEntries = parsed.content
+            .map(tag => catalogEntryFor(tag))
+            .filter((e): e is ArtifactCatalogEntry => !!e && UPLIFT_CATALOG_IDS.has(e.id));
+        if (upliftEntries.length > 0) {
+            const onlyUplift = upliftEntries.length === parsed.content.length;
+            const brand = parsed.brand;
             const asSlide = parsed.view === 'slide' || parsed.composition === 'slides';
-            const slideTag = asSlide ? ' #slide' : '';
-
-            // Pre-made artifact lookup is ONLY appropriate when the user typed a bare
-            // hashtag request with no qualifying context (e.g., "#persona #NU"). The
-            // moment the user adds prompt text - a source filter, a topic narrowing,
-            // a "from chronicle_higher_ed not from northeasterndocs", or anything else -
-            // we MUST re-generate so the new context shapes the artifact. Otherwise the
-            // chat silently serves a stale cached artifact that ignores the new ask.
-            const userHasSpecificContext = !!parsed.cleanPrompt && parsed.cleanPrompt.trim().length >= 4;
-
-            for (const tag of parsed.content) {
-                // 2026-05-31 - Bridge the parser-tag -> artifact-engine-kind fork
-                // (gap->gap-analysis, compete->competitive, audit->tech-audit) so
-                // these route to the correct freeform/contract path. Other tags
-                // pass through unchanged.
-                const ffKind = (FREEFORM_KIND_ALIAS[tag] || tag) as FreeformKind;
-                // 1) Check for pre-made matching artifact. Prefer brand match; fall back to any brand.
-                //    Only short-circuit to the cached artifact when the request is a BARE hashtag
-                //    delivery - any prompt text means the user wants a fresh generation against
-                //    that prompt + the current corpus.
-                const matches = artifacts.filter(a => a.type === tag);
-                const brandMatch = matches.filter(a => a.brand === brand);
-                const picked = !userHasSpecificContext
-                    ? (brandMatch.length > 0 ? brandMatch : matches).slice(-1)[0]
-                    : undefined;
-
-                if (picked) {
-                    const label = (picked as any).title ?? (picked as any).name ?? 'Untitled';
+            const liveCtx = getContext ? getContext() : context;
+            const deliveryMessages: ChatMessage[] = [];
+            let upliftCorpus = '';
+            for (const entry of upliftEntries) {
+                const kind = designDeskKindFor(entry) as FreeformKind;
+                const handler = UPLIFT_HANDLERS[entry.id];
+                if (!handler) continue;
+                const upliftStart = Date.now();
+                try {
+                    if (entry.id === 'brief-dialog' && !upliftCorpus) {
+                        upliftCorpus = await assembleUpliftCorpus(liveCtx, parsed.cleanPrompt, pendingAttachments);
+                    }
+                    const built = await handler({ ctx: liveCtx, cleanPrompt: parsed.cleanPrompt, brand, corpusText: upliftCorpus });
+                    let artifact: FreeformArtifact = {
+                        id: `uplift_${kind}_${Date.now()}`,
+                        type: 'freeform',
+                        kind,
+                        brand,
+                        title: built.title,
+                        html: built.html,
+                        citations: built.citations,
+                        createdAt: Date.now(),
+                        updatedAt: Date.now(),
+                    };
+                    // The expert panel runs BEFORE the artifact lands in the Design Desk: domain critics
+                    // for this kind plus the universal anti-slop + structural hygiene critics. Failure is
+                    // non-fatal; the artifact ships after the minimum em-dash strip.
+                    try {
+                        const panelResult = await runExpertPanel({ deliverable: artifact, kind: kind as ArtifactKind, proxy_base: UPLIFT_PROXY_BASE });
+                        artifact = panelResult.result as FreeformArtifact;
+                        console.log(`[ExpertPanel/${kind}] em-dashes ${panelResult.panel_summary.em_dash_count_before} -> ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits, $${panelResult.total_cost_usd.toFixed(3)} spend`);
+                    } catch (panelErr: any) {
+                        console.warn(`[ExpertPanel/${kind}] failed (non-fatal):`, panelErr?.message || panelErr);
+                        artifact = stripEmDashesInPlace(artifact);
+                    }
+                    // Coverage contract for the uplift kind (mind map, meta-themes, research plan, brief dialog).
+                    let _upliftCoverage: string[] = [];
+                    try {
+                        const _cov = await enforceHtmlCoverage(artifact.html, `#${entry.id} ${parsed.cleanPrompt || ''}`);
+                        if (_cov.html !== artifact.html) artifact = { ...artifact, html: _cov.html, updatedAt: Date.now() };
+                        _upliftCoverage = _cov.lines;
+                    } catch { /* non-fatal */ }
+                    useDesignDeskStore.getState().addArtifact(artifact);
+                    useDesignDeskStore.getState().setActiveArtifact(artifact.id);
+                    const elapsedMs = Date.now() - upliftStart;
                     deliveryMessages.push({
-                        id: `msg_${Date.now()}_${tag}`,
+                        id: `msg_${Date.now()}_${kind}_gen`,
                         role: 'assistant',
                         content: asSlide
-                            ? `Delivering your pre-made #${tag}${slideTag} as a slide: "${label}".`
-                            : `Delivering your pre-made #${tag} artifact: "${label}". Open the Design Desk to edit it on the canvas.`,
+                            ? `Generated #${kind} #slide: "${artifact.title}". Rendered as a 1920x1080 slide in the Design Desk (${(elapsedMs / 1000).toFixed(1)}s).`
+                            : `Generated #${kind}: "${artifact.title}". Open the Design Desk to view (${(elapsedMs / 1000).toFixed(1)}s).${_upliftCoverage.length ? `\n\n${_upliftCoverage.join('\n')}` : ''}`,
                         timestamp: Date.now(),
-                        deliveredArtifactId: picked.id,
-                        deliveredArtifactType: tag as 'persona' | 'journey' | 'org',
+                        deliveredArtifactId: artifact.id,
+                        deliveredArtifactType: kind as any,
                         deliveredAsSlide: asSlide,
                     });
-                    useDesignDeskStore.getState().setActiveArtifact(picked.id);
-                } else {
-                    // 2) No pre-made artifact → generate on demand inline.
-                    //    2a) NotebookLM-uplift Phase 4-6 kinds (#mindmap, #brief-dialog,
-                    //        #meta-themes, #deep-research/#research-plan) go through
-                    //        dedicated backing services + renderers - NOT the
-                    //        exemplar-driven generateFreeformArtifact pipeline.
-                    if (UPLIFT_KINDS.has(tag as FreeformKind)) {
-                        try {
-                            const upliftStart = Date.now();
-                            let upliftHtml = '';
-                            let upliftTitle = '';
-                            const upliftCitations: Array<{ label: string; source: string }> = [];
-
-                            if (tag === 'mindmap') {
-                                // Convert ChatContext themes → BertTopicCluster shape that
-                                // mindMapArchitect understands. Real BERTopic output has
-                                // numeric ids + post_ids + top_terms; ChatContext themes
-                                // carry name/summary/citations only, so we synthesize the
-                                // missing fields.
-                                const themesIn = Array.isArray((context as any).themes) ? (context as any).themes : [];
-                                if (themesIn.length < 3) {
-                                    throw new Error('Mind map needs at least 3 themes - run analysis first or load a session with theme output.');
-                                }
-                                const clusters: BertTopicCluster[] = themesIn.map((t: any, idx: number) => ({
-                                    id: idx,
-                                    name: String(t.name || t.title || `Theme ${idx + 1}`).slice(0, 80),
-                                    summary: String(t.summary || t.description || '').slice(0, 400),
-                                    post_count: Array.isArray(t.citations) ? t.citations.length : (t.post_count ?? 1),
-                                    top_terms: Array.isArray(t.top_terms) ? t.top_terms : [],
-                                    post_ids: Array.isArray(t.citations) ? t.citations : (t.post_ids || []),
-                                    centroid: [0, 0],
-                                    convergent_evidence: !!t.convergent_evidence,
-                                    source_types: Array.isArray(t.source_types) ? t.source_types : [],
-                                    distinct_source_count: t.distinct_source_count ?? (Array.isArray(t.source_types) ? t.source_types.length : 1),
-                                }));
-                                const mm = await buildMindMap({
-                                    topics: clusters,
-                                    research_goal: context.researchGoal || parsed.cleanPrompt || 'Research',
-                                    proxy_base: 'http://127.0.0.1:5012',
-                                });
-                                upliftTitle = `Mind Map · ${(context.researchGoal || 'Research').slice(0, 60)}`;
-                                const _mmGoal = context.researchGoal || parsed.cleanPrompt || 'Research';
-                                // 2026-06-27 - MINDMAP renders NATIVE via the token-grounded radial renderer
-                                // (renderMindMapHtml), per the locked native-composition decision. The interim
-                                // flat-image /api/ai/diagram swap is retired; diagrams compose from native shapes
-                                // + content-true icons + brand tokens, not a rasterized picture.
-                                upliftHtml = renderMindMapHtml({ output: mm, brand, researchGoal: _mmGoal });
-                            } else if (tag === 'brief-dialog') {
-                                const transcript = await generateBriefDialog({
-                                    topic: parsed.cleanPrompt || context.researchGoal || 'Research finding',
-                                    corpus: corpusText.slice(0, 24000),
-                                    proxy_base: 'http://127.0.0.1:5012',
-                                });
-                                upliftTitle = `Brief Dialog · ${transcript.topic.slice(0, 60)}`;
-                                upliftHtml = renderBriefDialogHtml({ transcript, brand });
-                                // Collect citation chunks for the artifact metadata
-                                const allCites = transcript.turns.flatMap(t => t.citations || []);
-                                for (const c of Array.from(new Set(allCites)).slice(0, 12)) {
-                                    upliftCitations.push({ label: c, source: c });
-                                }
-                            } else if (tag === 'meta-themes') {
-                                const mt = await buildMetaThemes({ proxy_base: 'http://127.0.0.1:5012' });
-                                upliftTitle = `Portfolio Patterns · ${mt.portfolio_pattern_count} recurring themes`;
-                                upliftHtml = renderMetaThemesHtml({
-                                    output: mt,
-                                    brand,
-                                    title: parsed.cleanPrompt
-                                        ? `Portfolio Patterns · ${parsed.cleanPrompt}`
-                                        : 'Portfolio Patterns',
-                                });
-                            } else if (tag === 'research-plan') {
-                                const plan = await buildResearchPlan({
-                                    research_goal: parsed.cleanPrompt || context.researchGoal || 'Research',
-                                    proxy_base: 'http://127.0.0.1:5012',
-                                });
-                                upliftTitle = `Research Plan · ${plan.goal.slice(0, 60)}`;
-                                upliftHtml = renderResearchPlanHtml({ plan, brand });
-                            }
-
-                            let artifact: FreeformArtifact = {
-                                id: `uplift_${tag}_${Date.now()}`,
-                                type: 'freeform',
-                                kind: tag as FreeformKind,
-                                brand,
-                                title: upliftTitle,
-                                html: upliftHtml,
-                                citations: upliftCitations,
-                                createdAt: Date.now(),
-                                updatedAt: Date.now(),
-                            };
-
-                            // 2026-05-25 - Run the expert panel BEFORE the
-                            // artifact lands in the design desk. The panel
-                            // routes to the appropriate domain expert(s) for
-                            // this kind plus runs the universal anti-slop +
-                            // structural hygiene critics. Em-dash auto-strip,
-                            // debug-bracket removal, persona-name suffix
-                            // strip, all fire here deterministically. Failure
-                            // is non-fatal: the artifact still ships with a
-                            // warning so the user is not blocked on critic
-                            // pipeline issues.
-                            try {
-                                const panelKind: ArtifactKind = (tag === 'mindmap' ? 'mindmap'
-                                    : tag === 'brief-dialog' ? 'brief-dialog'
-                                    : tag === 'meta-themes' ? 'meta-themes'
-                                    : tag === 'research-plan' ? 'research-plan'
-                                    : 'mindmap') as ArtifactKind;
-                                const panelResult = await runExpertPanel({
-                                    deliverable: artifact,
-                                    kind: panelKind,
-                                    proxy_base: 'http://127.0.0.1:5012',
-                                });
-                                artifact = panelResult.result as FreeformArtifact;
-                                console.log(`[ExpertPanel/${tag}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits, $${panelResult.total_cost_usd.toFixed(3)} spend`);
-                            } catch (panelErr: any) {
-                                console.warn(`[ExpertPanel/${tag}] failed (non-fatal):`, panelErr?.message || panelErr);
-                                // Fall back to a minimum-viable em-dash strip
-                                artifact = stripEmDashesInPlace(artifact);
-                            }
-
-                            useDesignDeskStore.getState().addArtifact(artifact);
-                            useDesignDeskStore.getState().setActiveArtifact(artifact.id);
-                            const elapsedMs = Date.now() - upliftStart;
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_gen`,
-                                role: 'assistant',
-                                content: asSlide
-                                    ? `Generated #${tag}${slideTag}: "${artifact.title}". Rendered as a 1920x1080 slide in the Design Desk (${(elapsedMs / 1000).toFixed(1)}s).`
-                                    : `Generated #${tag}: "${artifact.title}". Open the Design Desk to view (${(elapsedMs / 1000).toFixed(1)}s).`,
-                                timestamp: Date.now(),
-                                deliveredArtifactId: artifact.id,
-                                deliveredArtifactType: tag as any,
-                                deliveredAsSlide: asSlide,
-                            });
-                        } catch (e: any) {
-                            console.warn(`[Uplift/${tag}] generation failed:`, e?.message || e);
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_err`,
-                                role: 'assistant',
-                                content: `#${tag} generation failed: ${e?.message || e}`,
-                                timestamp: Date.now(),
-                            });
-                        }
-                        continue; // skip the legacy chatToArtifact / freeform path
-                    }
-
-                    // 2026-05-26 - Journey + Blueprint route to the dedicated
-                    // Journey Mapper service (internal-solutions-journeymapper,
-                    // container `journey-mapper` :8080) via proxy
-                    // /api/journey-map/generate. The inline chatToFreeform path
-                    // was a 2026-05-25 depth-port of JM into HiC that created
-                    // drift risk. Bypassed permanently. See
-                    // memory/feedback_journey_must_route_to_journey_mapper.md.
-                    if (tag === 'journey' || tag === 'blueprint') {
-                        const jmStart = Date.now();
-                        // 2026-05-26 - Immediate "in-flight" message so the user
-                        // knows the (multi-minute) Journey Mapper IA service
-                        // is running and the chat hasn't silently failed. The
-                        // service does a two-pass Claude generation that can
-                        // run 30-180 seconds even on haiku. Without this notice
-                        // the user assumed "Failed to fetch" meant total
-                        // failure when the service was actually still working.
-                        deliveryMessages.push({
-                            id: `msg_${Date.now()}_${tag}_inflight`,
-                            role: 'assistant',
-                            content: `Generating #${tag} via Journey Mapper IA service (${selectedModel}, single deep pass)... typically 2-4 min for a rich journey. The artifact lands in the Design Desk when ready.`,
-                            timestamp: Date.now(),
-                        });
-                        try {
-                            // Heuristic journey_type detection from the corpus + cleanPrompt.
-                            // JM's prompt branches on type (coop / educational / customer / etc.).
-                            const promptForType = `${parsed.cleanPrompt} ${context.researchGoal || ''} ${corpusText.slice(0, 4000)}`.toLowerCase();
-                            let journeyType = 'general';
-                            if (/co.?op|internship|placement/.test(promptForType)) journeyType = 'coop';
-                            else if (/student|enrollment|education|advisor|academic/.test(promptForType)) journeyType = 'educational';
-                            else if (/patient|clinical|treatment|healthcare/.test(promptForType)) journeyType = 'healthcare';
-                            else if (/employee|onboarding|retention|hire/.test(promptForType)) journeyType = 'employee';
-                            else if (/subscriber|feature.adoption|saas|software user/.test(promptForType)) journeyType = 'software-user';
-                            else if (/donor|purchase|cultivation|customer|buyer/.test(promptForType)) journeyType = 'customer';
-
-                            // 2026-05-26 - Opus 4.7, SINGLE pass. The user
-                            // assessed the Flash single-pass as too minimal.
-                            // Opus 4.7 produces the depth (many phases,
-                            // activities, pains, verbatim evidence quotes) the
-                            // DEPTH CONTRACT in the JM prompt now demands, in
-                            // ONE pass (JOURNEY_TWO_PASS stays off so there is
-                            // no second full-generation latency hit). Opus
-                            // single-pass runs ~2-4 min on a 60KB corpus, so
-                            // the fetch ceiling is 6 min.
-                            // 2026-06-06 - C2 emission-wrapper integration for
-                            // the #journey/#blueprint paths. Wraps the JM
-                            // service fetch with traceRecorder + Pareto scoring
-                            // so the epoch-proposer sees these emissions just
-                            // like the other deliverables. JM service does its
-                            // own internal logging; this trace is the SPA-side
-                            // view (model_id, prompt, response text, elapsed).
-                            const { emitDeliverable } = await import('../services/emitDeliverable');
-                            const _jmT0 = Date.now();
-                            const _jmEmit = await emitDeliverable<{ text: string; data: any }>({
-                                deliverable: tag === 'blueprint' ? '#blueprint' : '#journey',
-                                step_label: `${tag} via journey-mapper-ia`,
-                                // 2026-06-09 — use the Analyst-Desk-selected model, never a
-                                // hardcoded one (§E rule 10). The JM service maps this; if it
-                                // does not support the selection it falls back to its default.
-                                model_id: selectedModel,
-                                prompt: parsed.cleanPrompt || context.researchGoal || 'Journey',
-                                started_at: _jmT0,
-                                // 2026-06-06 - Fix 2: JM service runs Opus 4.8
-                                // single-pass with extended thinking - that IS
-                                // the RI mechanism (uncertainty-triggered deep
-                                // reasoning baked into the model). Annotate so
-                                // the auditor + epoch proposer can grep.
-                                ri: { fired: true, threshold: 0.0 },
-                                // Stage-3 AIR emission (SHADOW) for the journey/blueprint path. Grounding is
-                                // server-side in the JM service, so no resolvedChunks here; payload = the JM data.
-                                air: {
-                                    trigger: tag === 'blueprint' ? '#blueprint' : '#journey',
-                                    objective: ((getContext ? getContext() : context)?.researchGoal) || '',
-                                    buildPayload: (r) => (r && typeof r === 'object' && 'data' in r ? (r as any).data : r),
-                                    // W2: JM service runs the Analyst-Desk-selected model server-side; record it + why.
-                                    routing: { model: selectedModel, reason: 'Analyst-Desk selection via journey-mapper service (server-side generation)' },
-                                },
-                                emit: async () => {
-                                    const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({
-                                            goal: parsed.cleanPrompt || context.researchGoal || 'Journey',
-                                            description: parsed.cleanPrompt || '',
-                                            journey_type: tag === 'blueprint' ? 'general' : journeyType,
-                                            corpus: corpusText,
-                                            brand: brand === 'nu' ? 'nu' : 'nxt',
-                                            framing: tag === 'blueprint' ? 'future-state' : 'current-state',
-                                            artifact_type: tag === 'blueprint' ? 'blueprint' : 'journey',
-                                            render_mode: asSlide ? 'slides' : 'document',
-                                            llm_model: selectedModel,
-                                        }),
-                                        signal: AbortSignal.timeout(360000),
-                                    });
-                                    if (!resp.ok) {
-                                        const errText = await resp.text().catch(() => '');
-                                        throw new Error(`journey-map service ${resp.status}: ${errText.slice(0, 200)}`);
-                                    }
-                                    const data = await resp.json();
-                                    return { text: String(data.html || ''), data };
-                                },
-                                extractText: (r) => r.text,
-                                buildScoreInput: (text) => ({ text, label: tag === 'blueprint' ? '#blueprint' : '#journey' }),
-                            });
-                            const data = _jmEmit.result.data;
-                            // Build a FreeformArtifact wrapper so the design-desk
-                            // store + viewer + launcher card all work unchanged.
-                            const jmArtifact: FreeformArtifact = {
-                                id: `journey_${data.journey_id || Date.now()}`,
-                                type: 'freeform',
-                                kind: tag as FreeformKind,
-                                brand,
-                                title: (parsed.cleanPrompt || context.researchGoal || 'Journey').slice(0, 200),
-                                html: data.html || '',
-                                citations: data.launcher_url
-                                    ? [{ label: 'Launcher', source: data.launcher_url }]
-                                    : [],
-                                createdAt: Date.now(),
-                                updatedAt: Date.now(),
-                            };
-                            // Em-dash strip + post-processing - JM service applies
-                            // brand+anti-slop already (proxy line ~11518), but we
-                            // still pass through the in-HiC normalizer for parity.
-                            let finalJm = stripEmDashesInPlace(jmArtifact);
-                            try {
-                                const panelResult = await runExpertPanel({
-                                    deliverable: finalJm,
-                                    kind: (tag === 'blueprint' ? 'blueprint' : 'journey') as ArtifactKind,
-                                    proxy_base: 'http://127.0.0.1:5012',
-                                });
-                                finalJm = panelResult.result as FreeformArtifact;
-                            } catch (pErr: any) {
-                                console.warn(`[ExpertPanel/${tag}-jm] failed (non-fatal):`, pErr?.message || pErr);
-                            }
-                            useDesignDeskStore.getState().addArtifact(finalJm);
-                            useDesignDeskStore.getState().setActiveArtifact(finalJm.id);
-                            const elapsedMs = Date.now() - jmStart;
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_jm`,
-                                role: 'assistant',
-                                content: `Generated #${tag} via Journey Mapper IA service (${data.model || 'sonnet'}): "${finalJm.title}". Rendered below (${(elapsedMs / 1000).toFixed(1)}s).`,
-                                model: `journey-mapper-ia/${data.model || 'sonnet'}`,
-                                timestamp: Date.now(),
-                                deliveredArtifactId: finalJm.id,
-                                deliveredArtifactType: tag as any,
-                                deliveredAsSlide: asSlide,
-                                // 2026-05-26 - Absolute-ize the launcher URL.
-                                // data.launcher_url is "/api/journey-map/view/{id}"
-                                // (relative). window.open() resolves a relative
-                                // path against the SPA origin (:5011), which
-                                // SPA-falls-back to index.html = the LANDING PAGE.
-                                // The view endpoint lives on the proxy at :5012,
-                                // so prefix the proxy origin.
-                                artifactLaunchUrl: data.launcher_url
-                                    ? (data.launcher_url.startsWith('http') ? data.launcher_url : `http://127.0.0.1:5012${data.launcher_url}`)
-                                    : undefined,
-                                artifactLaunchMeta: data.launcher_url ? {
-                                    title: finalJm.title,
-                                    brand: (finalJm.brand as any) === 'nu' ? 'NU' : 'NXT',
-                                    kind: tag,
-                                    source: 'Journey Mapper IA service',
-                                    model: String(data.model || 'sonnet'),
-                                } : undefined,
-                            });
-                        } catch (e: any) {
-                            console.error(`[journey-map/${tag}] generation failed:`, e?.message || e);
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_err`,
-                                role: 'assistant',
-                                content: `#${tag} generation failed via Journey Mapper IA service: ${e?.message || e}`,
-                                timestamp: Date.now(),
-                            });
-                        }
-                        continue; // bypass the freeform/chatToArtifact paths entirely
-                    }
-
-                    //    Diagram kinds (org, arch, roadmap) go through the freeform-HTML
-                    //    pipeline using the user's NU/NXT exemplars. Journey + blueprint
-                    //    were removed 2026-05-26 - they now route to the Journey Mapper
-                    //    service above. Persona stays on the legacy structured pipeline.
-                    if (FREEFORM_KINDS.has(ffKind)) {
-                        const ff = await generateFreeformArtifact({
-                            kind: ffKind,
-                            brand,
-                            userPrompt: parsed.cleanPrompt || query,
-                            corpus: corpusText,
-                            currentArtifact: null,
-                            // cap-aware cost/quality model (aiRouter SSOT). chatToFreeform
-                            // has gemini + anthropic branches; while the Opus cap is active
-                            // this is Gemini 3.1 Pro, restoring Opus after the cap lifts.
-                            model: artifactModelFor(ffKind) as any,
-                        });
-                        if (ff.ok) {
-                            // 2026-05-25 - Expert panel: domain critic + universal
-                            // anti-slop + structural hygiene BEFORE the artifact reaches
-                            // the design desk. Em-dashes auto-stripped, debug brackets
-                            // removed, name-suffix slop cleaned. Non-fatal on failure.
-                            let finalArtifact = ff.artifact;
-                            try {
-                                const kindMap: Record<string, ArtifactKind> = {
-                                    journey: 'journey', blueprint: 'blueprint',
-                                    org: 'org', arch: 'arch', roadmap: 'roadmap',
-                                };
-                                const panelKind = kindMap[tag as string];
-                                if (panelKind) {
-                                    const panelResult = await runExpertPanel({
-                                        deliverable: ff.artifact,
-                                        kind: panelKind,
-                                        proxy_base: 'http://127.0.0.1:5012',
-                                    });
-                                    finalArtifact = panelResult.result as typeof ff.artifact;
-                                    console.log(`[ExpertPanel/${tag}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits, $${panelResult.total_cost_usd.toFixed(3)}`);
-                                }
-                            } catch (panelErr: any) {
-                                console.warn(`[ExpertPanel/${tag}] failed (non-fatal):`, panelErr?.message || panelErr);
-                                finalArtifact = stripEmDashesInPlace(ff.artifact);
-                            }
-
-                            useDesignDeskStore.getState().addArtifact(finalArtifact);
-                            useDesignDeskStore.getState().setActiveArtifact(finalArtifact.id);
-                            const _afterAdd = useDesignDeskStore.getState();
-                            console.info(`[Freeform/store] added ${(finalArtifact as any).kind}/${finalArtifact.brand} id=${finalArtifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
-                                _afterAdd.artifacts.find(a => a.id === finalArtifact.id) ? 'YES' : 'NO',
-                                'Active id:', _afterAdd.activeArtifactId);
-                            // 2026-05-25 - Every artifact-engine-routed kind gets a
-                            // launcher card. The artifact-engine sets citations[0].source
-                            // to the launcher URL when the proxy returned one. Surface
-                            // it on the chat message so the user can open the interactive
-                            // HTML in a new browser window (the chat-side iframe sandbox
-                            // blocks scripts so interactive widgets are non-functional in
-                            // the Design Desk preview).
-                            const isArtifactEngineRoute = typeof ff.modelUsed === 'string' && (ff.modelUsed.includes('artifact-engine') || ff.modelUsed.includes('journey-mapper-ia'));
-                            const launcherUrl = isArtifactEngineRoute
-                                ? (ff.artifact.citations?.[0]?.source || '')
-                                : '';
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_gen`,
-                                role: 'assistant',
-                                content: asSlide
-                                    ? `Generated #${tag}${slideTag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered as a 1920x1080 slide below using the ${brand.toUpperCase()} exemplar.`
-                                    : launcherUrl
-                                        ? `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Open the launcher below for the full interactive experience.`
-                                        : `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered below. Open the Design Desk to edit it on the canvas.`,
-                                model: ff.modelUsed,
-                                timestamp: Date.now(),
-                                deliveredArtifactId: ff.artifact.id,
-                                deliveredArtifactType: tag as any,
-                                deliveredAsSlide: asSlide,
-                                artifactLaunchUrl: launcherUrl || undefined,
-                                artifactLaunchMeta: launcherUrl ? {
-                                    title: ff.artifact.title,
-                                    brand: (ff.artifact.brand as any) === 'nu' ? 'NU' : 'NXT',
-                                    kind: tag,
-                                    source: String(ff.modelUsed).includes('journey-mapper-ia') ? 'Journey Mapper IA service' : 'Artifact engine',
-                                    model: String(ff.modelUsed),
-                                } : undefined,
-                            });
-                        } else {
-                            const ffErr = ff as { ok: false; error: string; rawResponse?: string; modelUsed?: any };
-                            if (ffErr.rawResponse) console.warn(`[Freeform] ${tag} generation failed:`, ffErr.error, '\nRaw:', ffErr.rawResponse);
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_err`,
-                                role: 'assistant',
-                                content: `Freeform generation failed for #${tag}${ffErr.modelUsed ? ` via ${ffErr.modelUsed}` : ''}: ${ffErr.error}\n(See browser console for raw output.)`,
-                                model: ffErr.modelUsed,
-                                timestamp: Date.now(),
-                            });
-                        }
-                        continue; // skip the legacy chatToArtifact path
-                    }
-                    // Legacy structured pipeline (persona only now)
-                    const genResult = await generateArtifact({
-                        content: tag,
-                        brand,
-                        userPrompt: parsed.cleanPrompt || query,
-                        designMdRaw,
-                        corpusText,
-                        currentArtifact: null,
-                        model: selectedModel as any, // user-selected chat model drives generation
+                } catch (e: any) {
+                    console.warn(`[Uplift/${kind}] generation failed:`, e?.message || e);
+                    deliveryMessages.push({
+                        id: `msg_${Date.now()}_${kind}_err`,
+                        role: 'assistant',
+                        content: `#${kind} generation failed: ${e?.message || e}`,
+                        timestamp: Date.now(),
                     });
-
-                    if (genResult.ok) {
-                        // Multi-artifact case: model emitted a JSON array (e.g., "generate 5 personas").
-                        // chatToArtifact normalized + validated each - we just iterate and add all.
-                        const all = (genResult as any).artifacts as any[] | undefined;
-                        const list = (all && all.length > 0) ? all : [genResult.artifact];
-                        // 2026-05-25 - Run the expert panel on EVERY persona before
-                        // it lands in the store. The persona panel catches debug
-                        // tier-brackets, "(composite)" name suffixes, em-dashes,
-                        // and any synthesized quotes that should have been omitted.
-                        const reviewedList = await Promise.all(list.map(async (created: any) => {
-                            if (tag === 'persona') {
-                                try {
-                                    const panelResult = await runExpertPanel({
-                                        deliverable: created,
-                                        kind: 'persona',
-                                        proxy_base: 'http://127.0.0.1:5012',
-                                    });
-                                    console.log(`[ExpertPanel/persona ${created.name || created.id}] em-dashes ${panelResult.panel_summary.em_dash_count_before} → ${panelResult.panel_summary.em_dash_count_after}, ${panelResult.panel_summary.critics_with_edits.length} critic(s) applied edits`);
-                                    return panelResult.result;
-                                } catch (panelErr: any) {
-                                    console.warn(`[ExpertPanel/persona] failed (non-fatal):`, panelErr?.message || panelErr);
-                                    return stripEmDashesInPlace(created);
-                                }
-                            }
-                            return created;
-                        }));
-                        reviewedList.forEach((created: any, idx: number) => {
-                            useDesignDeskStore.getState().addArtifact(created);
-                            // Last one becomes active so the canvas opens to it
-                            if (idx === reviewedList.length - 1) useDesignDeskStore.getState().setActiveArtifact(created.id);
-                            const label = created.title ?? created.name ?? 'Untitled';
-                            const countLabel = reviewedList.length > 1 ? ` (${idx + 1} of ${reviewedList.length})` : '';
-                            deliveryMessages.push({
-                                id: `msg_${Date.now()}_${tag}_gen_${idx}`,
-                                role: 'assistant',
-                                content: asSlide
-                                    ? `Generated #${tag}${slideTag}${countLabel} via ${genResult.modelUsed}: "${label}". Rendered as a slide below.`
-                                    : `Generated #${tag}${countLabel} via ${genResult.modelUsed}: "${label}". Rendered below. Open the Design Desk to edit it on the canvas.`,
-                                model: genResult.modelUsed,
-                                timestamp: Date.now(),
-                                deliveredArtifactId: created.id,
-                                deliveredArtifactType: tag as 'persona' | 'journey' | 'org',
-                                deliveredAsSlide: asSlide,
-                            });
-                        });
-                    } else {
-                        deliveryMessages.push({
-                            id: `msg_${Date.now()}_${tag}_err`,
-                            role: 'assistant',
-                            content: `Generation failed for #${tag}${genResult.modelUsed ? ` via ${genResult.modelUsed}` : ''}: ${'error' in genResult ? genResult.error : 'unknown error'}${'rawResponse' in genResult && genResult.rawResponse ? `\n\nModel output: ${String(genResult.rawResponse).slice(0, 200)}...` : ''}`,
-                            model: genResult.modelUsed,
-                            timestamp: Date.now(),
-                        });
-                    }
                 }
             }
-
             setMessages(prev => [...prev, ...deliveryMessages]);
-            setIsLoading(false);
-            if (pendingAttachments.length > 0) setPendingAttachments([]);
-            return;
+            if (onlyUplift) {
+                setIsLoading(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
+                return;
+            }
         }
 
         if (isImageRequest(query)) {
@@ -7605,7 +7520,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 const liveCtx = getContext ? getContext() : context;
                 const result = await generateChunkedSlideDeck({
                     prompt: query,
-                    brand: /#NU\b/i.test(query) ? 'NU' : 'NXT',
+                    brand: brandVariantOf(query),
                     template: 'case-study',
                     engagementSlug: (liveCtx?.researchGoal || 'default-engagement').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80),
                     corpusContext: (liveCtx?.corpusText || '').slice(0, 100000),
@@ -7820,6 +7735,9 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     // PROVENANCE LOCK: verify AFTER the backfill settles so the two
                     // passes never race (the backfill previously replaced slides from
                     // pre-fix clones, silently restoring fabricated labels).
+                    // Coverage contract of the request's hashtag (every client item and board theme accounted for),
+                    // BEFORE the chain so filled slides are verified and scrubbed like the model's own.
+                    baseForVerify = (await enforceDeckCoverage(baseForVerify, query, response.id)) as typeof baseForVerify;
                     verifyAndAttachLedger(baseForVerify, response.id);
                 })();
                 // ILLUSTRATOR (2026-06-17): slides:scene scenes carry an imageConcept; generate a
@@ -7968,6 +7886,9 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
+        // The hashtag menu's native Enter handler runs first and cancels the key when it picks a directive; that Enter
+        // must not also send the message.
+        if (e.defaultPrevented || e.nativeEvent.defaultPrevented) return;
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
     };
 
@@ -8053,7 +7974,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     Chat · Gemini 3.5 Flash
                 </span>
                 <span style={{ fontSize: 9, fontWeight: 600, color: '#333', background: '#CC785C15', border: '1px solid #CC785C', padding: '2px 8px' }}>
-                    # Artifacts · Claude Opus 4.8
+                    # Artifacts · {CLAUDE_REASONING_LABEL}
                 </span>
             </div>
 
@@ -8119,7 +8040,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     }
 
                     return (
-                        <div key={msg.id} style={{ alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: msg.role === 'user' ? '80%' : '100%' }}>
+                        <div key={msg.id} style={{ alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: msg.role === 'user' ? '80%' : '100%', ...(hasCards ? { width: '100%' } : {}) }}>
                             {msg.role === 'assistant' && (
                                 <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 3 }}>
                                     <span style={{ fontSize: 7, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: AVAILABLE_MODELS.find(m => m.id === msg.model)?.color || '#888' }}>
@@ -8309,6 +8230,18 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     />
                                 )}
 
+                                {/* 2026-10-02 - #prd requirements workbook card (primary #prd output) */}
+                                {(msg as any).prdWorkbook && (
+                                    <PrdWorkbookCard
+                                        meta={(msg as any).prdWorkbook as PrdWorkbookMeta}
+                                        accent={brandAccentHex((msg as any).prdWorkbook.brand)}
+                                        onAccent={brandOnAccentHex((msg as any).prdWorkbook.brand)}
+                                        ink={'#' + getBrand(normalizeBrandId((msg as any).prdWorkbook.brand)).INK}
+                                        muted={'#' + getBrand(normalizeBrandId((msg as any).prdWorkbook.brand)).MUTED}
+                                        paper={'#' + getBrand(normalizeBrandId((msg as any).prdWorkbook.brand)).WHITE}
+                                    />
+                                )}
+
                                 {/* 2026-05-12 - HTML Artifact launcher card */}
                                 {msg.artifactUrl && (
                                     <ArtifactLaunchCard
@@ -8437,9 +8370,11 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                             })()}
 
                             {/* Slide canvases */}
-                            {msg.role === 'assistant' && msgSlides.map(slide => (
+                            {msg.role === 'assistant' && msgSlides.map((slide, slideIdx) => (
                                 <div key={slide.id} id={`slide-capture-${slide.id}`}>
                                     <SlideCanvas slide={slide}
+                                        deckIndex={slideIdx}
+                                        dividerOrdinal={msgSlides.slice(0, slideIdx).filter(x => /^(slides:)?section-divider$/i.test(String(x.template || ''))).length}
                                         onApprove={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'approved' as const } : x))}
                                         onReject={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'rejected' as const } : x))}
                                         isGeneratingVisual={generatingVisualId === slide.id}
@@ -8465,7 +8400,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                             const key = `${s.id}:${slotField}`;
                                             setGeneratingSlotKeys(prev => [...prev, key]);
                                             try {
-                                                const res = await resolveUserImageryForPayload(String(s.template), payload, s.brand === 'nu' ? 'nu' : 'nxt', slotField);
+                                                const res = await resolveUserImageryForPayload(String(s.template), payload, normalizeBrandId(s.brand), slotField);
                                                 if (res.rendered > 0) {
                                                     setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...payload } } : x));
                                                 } else {
@@ -8609,7 +8544,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                                         for (const s of msgSlides) {
                                                             if (!s.composerPayload?._userImagery) continue;
                                                             try {
-                                                                const res = await resolveUserImageryForPayload(String(s.template), s.composerPayload, s.brand === 'nu' ? 'nu' : 'nxt');
+                                                                const res = await resolveUserImageryForPayload(String(s.template), s.composerPayload, normalizeBrandId(s.brand));
                                                                 rendered += res.rendered; failed.push(...res.failed);
                                                                 if (res.rendered > 0) {
                                                                     setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...s.composerPayload } } : x));
@@ -8681,7 +8616,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                                         // effect stamps slides with msg.model, and the renderer's
                                                         // association filter requires an EXACT model match - a deck
                                                         // without model displays as raw fence text (live 2026-07-08).
-                                                        const deckModel = msg.model || 'claude-opus-4-8';
+                                                        const deckModel = msg.model || CLAUDE_REASONING_MODEL;
                                                         setMessages(prev => [...prev,
                                                             { id: `u_${Date.now()}`, role: 'user', content: `Revise the proposed designs: ${text}`, timestamp: Date.now() },
                                                             { id: pendingId, role: 'assistant', model: deckModel, content: 'Revising the proposed designs and re-rendering every screen through the design system. About a minute.', timestamp: Date.now() },
@@ -8905,9 +8840,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                         accentColor="#B8B800"
                     />
                     <div style={{ flex: 1, position: 'relative' }}>
-                        <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}
-                            placeholder="Ask about your research data... Try #help for all hashtag directives."
-                            rows={4} style={{ width: '100%', padding: '10px 12px', border: '1px solid #E0E0E0', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box', minHeight: 88 }} />
+                        <ComposerTextarea inputRef={inputRef} value={input} sync={composerSync} onValueChange={setInputState} onKeyDown={handleKeyDown} />
                         <HashtagAutocomplete
                             input={input}
                             inputRef={inputRef}
@@ -8916,8 +8849,9 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                                 const el = inputRef.current;
                                 if (!el) return;
                                 const cursor = el.selectionStart;
-                                const before = input.slice(0, cursor);
-                                const after = input.slice(cursor);
+                                const live = el.value;   // the composer's live text (the panel copy lags typing)
+                                const before = live.slice(0, cursor);
+                                const after = live.slice(cursor);
                                 const m = before.match(/#[a-zA-Z0-9_-]*$/);
                                 const replacedBefore = m ? before.slice(0, m.index) : before;
                                 const newVal = replacedBefore + suffix + ' ' + after;
@@ -8962,7 +8896,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                     )}
                 </div>
                 <div style={{ fontSize: 8, color: '#AAA', marginTop: 4 }}>
-                    Shift+Enter for new line | Enhance rewrites your prompt via Gemini Flash | Auto: Flash for chat, Opus 4.8 for # artifacts
+                    Shift+Enter for new line | Enhance rewrites your prompt via Gemini Flash | Auto: Flash for chat, {CLAUDE_REASONING_LABEL} for # artifacts
                     {skillManifest.length > 0 && ` | ${skillManifest.filter(s => s.category === 'research-deliverable').length} skills`}
                     {' | '}
                     <span

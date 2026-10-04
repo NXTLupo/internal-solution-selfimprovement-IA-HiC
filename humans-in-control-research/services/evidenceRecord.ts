@@ -293,24 +293,12 @@ export interface EvidenceProjection {
     confidence: number;
 }
 
-export function toProjection(record: EvidenceRecord): EvidenceProjection {
-    return {
-        id: record.id,
-        source: record.source,
-        title: record.title,
-        excerpt: record.excerpt,
-        url: record.url,
-        publishedDate: record.publishedDate,
-        questionIds: record.questionIds,
-        confidence: record.extractionConfidence,
-    };
-}
 
 /**
  * Freshness decay - returns 0-1 score from a publication date.
  * Default half-life 180 days (reasonable for trade-press; vertical skills can override).
  */
-export function computeFreshness(publishedDate: string | undefined, halfLifeDays = 180): number {
+function computeFreshness(publishedDate: string | undefined, halfLifeDays = 180): number {
     if (!publishedDate) return 0.5;  // unknown date
     const pub = new Date(publishedDate).getTime();
     const now = Date.now();

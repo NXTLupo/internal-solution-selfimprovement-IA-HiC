@@ -68,6 +68,10 @@ export interface TraceTurn {
     /** How many retries the turn went through before either succeeding or
      *  giving up. 0 = first-attempt success. */
     attempts: number;
+    /** 2026-10-01 (plan Stage 0.2): provider usage for the FINAL attempt, when the caller has
+     *  the raw response. Anthropic: input/output/cache_read/cache_creation tokens; Gemini:
+     *  promptTokenCount/candidatesTokenCount/thoughtsTokenCount; OpenAI: prompt/completion. */
+    usage?: Record<string, number>;
     /** Temperature used on the final attempt. Optional; some endpoints don't honor temp. */
     temperature?: number;
     /** Seed used (if the call was deterministic-mode). */
@@ -107,10 +111,6 @@ export function getTraces(): TraceTurn[] {
     return _ring.slice();
 }
 
-export function clearTraces(): void {
-    _ring.length = 0;
-    _turn_counter = 0;
-}
 
 // ----------------------------------------------------------------------------
 // Public API - record a turn.
@@ -121,6 +121,7 @@ export function clearTraces(): void {
 // ----------------------------------------------------------------------------
 
 export interface RecordTurnOpts {
+    usage?: Record<string, number> | null;
     step_label: string;
     model_id: string;
     prompt: string;
@@ -135,6 +136,18 @@ export interface RecordTurnOpts {
     failed?: boolean;
     error?: string;
     note?: string;
+}
+
+/** Keep only numeric leaves (one level of nesting for Anthropic cache_creation / Gemini details). */
+function flattenUsage(u: Record<string, any>): Record<string, number> {
+    const out: Record<string, number> = {};
+    for (const [k, v] of Object.entries(u || {})) {
+        if (typeof v === 'number' && Number.isFinite(v)) out[k] = v;
+        else if (v && typeof v === 'object' && !Array.isArray(v)) {
+            for (const [k2, v2] of Object.entries(v)) if (typeof v2 === 'number' && Number.isFinite(v2)) out[`${k}.${k2}`] = v2;
+        }
+    }
+    return out;
 }
 
 export function recordTurn(opts: RecordTurnOpts): TraceTurn {
@@ -157,6 +170,7 @@ export function recordTurn(opts: RecordTurnOpts): TraceTurn {
         prompt: opts.prompt,
         response: opts.response,
         attempts: opts.attempts ?? 1,
+        usage: opts.usage && typeof opts.usage === 'object' ? flattenUsage(opts.usage) : undefined,
         temperature: opts.temperature,
         seed: opts.seed,
         validator_scores: opts.validator_scores,
@@ -240,7 +254,7 @@ export interface RecordedStepEnvelope {
     deliverable?: string;
 }
 
-export async function recordedStep<T>(
+async function recordedStep<T>(
     env: RecordedStepEnvelope,
     fn: () => Promise<T>,
     extractResponseText: (result: T) => string,

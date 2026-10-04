@@ -5,7 +5,7 @@
 // know how to turn App-level state into the JSON the proxy expects (and
 // back). Use this from App.tsx for auto-save and Continue-Session flows.
 
-import { readObjectivePlan } from './objectivePlan';
+import { readObjectivePlan, readDecompositionStatus, recordDecompositionStatus } from './objectivePlan';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -121,7 +121,7 @@ export function projectDurableArtifacts(patch: Partial<DurableArtifacts>): void 
     }
 }
 
-export function readDurableArtifacts(): DurableArtifacts {
+function readDurableArtifacts(): DurableArtifacts {
     return _durableArtifacts;
 }
 
@@ -131,13 +131,6 @@ export function subscribeDurableArtifacts(cb: (d: DurableArtifacts) => void): ()
     return () => { _durableSubs.delete(cb); };
 }
 
-/** Clear on a new engagement so one run's deck cannot leak into the next. */
-export function resetDurableArtifacts(): void {
-    _durableArtifacts = {};
-    for (const cb of Array.from(_durableSubs)) {
-        try { cb(_durableArtifacts); } catch { /* ignore */ }
-    }
-}
 
 export async function saveSession(snapshot: SessionSnapshot, slug?: string): Promise<{
     ok: boolean; slug: string; title: string; saved_at: string; error?: string;
@@ -158,6 +151,10 @@ export async function saveSession(snapshot: SessionSnapshot, slug?: string): Pro
                     corpus: snapshot.corpus,
                     reddit_deep: snapshot.reddit_deep,
                     learned_constraints: snapshot.learned_constraints,
+                    // 2026-10-01 (plan Stage 1.6): the decomposition travels with the session.
+                    // Before this the snapshot carried it and the POST dropped it.
+                    research_plan_sub_questions: snapshot.research_plan_sub_questions,
+                    decomposition_status: (snapshot as any).decomposition_status ?? readDecompositionStatus(),
                 },
             }),
         });
@@ -204,7 +201,9 @@ export async function loadSession(slug: string): Promise<SessionSnapshot | null>
             corpus: sections.corpus,
             reddit_deep: Array.isArray(sections.reddit_deep) ? sections.reddit_deep : undefined,
             learned_constraints: typeof sections.learned_constraints === 'string' ? sections.learned_constraints : undefined,
-        };
+            research_plan_sub_questions: Array.isArray(sections.research_plan_sub_questions) ? sections.research_plan_sub_questions : undefined,
+            ...(sections.decomposition_status && typeof sections.decomposition_status === 'object' ? { decomposition_status: sections.decomposition_status } : {}),
+        } as SessionSnapshot;
     } catch {
         return null;
     }
@@ -217,6 +216,48 @@ export async function deleteSession(slug: string): Promise<boolean> {
     } catch {
         return false;
     }
+}
+
+// ---------------------------------------------------------------------------
+// Uploaded-file-name registry (2026-10-02). The App's `files` state holds File
+// objects only for uploads made in THIS page load, and analyst-chat attachments
+// never reached it at all, so a restored session saved `file_names: []` and the
+// live 2026-10-01 session lost the record of its 12 uploads. Every ingestion entry
+// point (research-start upload, analyst-chat attach) notes its names here; a
+// restore seeds it from the saved state; buildSessionSnapshot unions it in. Keyed
+// by research goal so a new engagement never inherits a previous one's names.
+// ---------------------------------------------------------------------------
+let _uploadNameRegistry: { goal: string; names: string[] } = { goal: '', names: [] };
+
+function _goalKey(goal: string | undefined | null): string {
+    return String(goal || '').trim().toLowerCase();
+}
+
+/** Record uploaded document names for the engagement identified by `researchGoal`. */
+export function noteUploadedFileNames(researchGoal: string, names: Array<string | undefined | null>): void {
+    const key = _goalKey(researchGoal);
+    if (!key) return;
+    if (_uploadNameRegistry.goal !== key) _uploadNameRegistry = { goal: key, names: [] };
+    for (const n of names) {
+        const s = String(n || '').trim();
+        if (s && !_uploadNameRegistry.names.includes(s)) _uploadNameRegistry.names.push(s);
+    }
+}
+
+/** Names noted for this goal (empty for any other goal). */
+function notedUploadedFileNames(researchGoal: string): string[] {
+    return _uploadNameRegistry.goal && _uploadNameRegistry.goal === _goalKey(researchGoal)
+        ? [..._uploadNameRegistry.names] : [];
+}
+
+/** Ordered, de-duplicated union of the caller's names and the registry's. */
+export function mergeUploadedFileNames(researchGoal: string, fromCaller?: string[]): string[] {
+    const out: string[] = [];
+    for (const n of [...(fromCaller || []), ...notedUploadedFileNames(researchGoal)]) {
+        const s = String(n || '').trim();
+        if (s && !out.includes(s)) out.push(s);
+    }
+    return out;
 }
 
 /** Build a snapshot from the App's current state. The shape mirrors the
@@ -306,7 +347,7 @@ export function buildSessionSnapshot(input: {
             subreddits_input: input.subredditsInput,
             analysis_approach: input.analysisApproach,
             source_toggles: input.sourceToggles,
-            file_names: input.fileNames,
+            file_names: mergeUploadedFileNames(input.researchGoal, input.fileNames),
             // DF-I1: fall back to the durable projection so a deck generated in
             // the chat panel is saved even when the caller never saw it.
             slides: input.slides ?? readDurableArtifacts().slides,
@@ -334,6 +375,11 @@ export function buildSessionSnapshot(input: {
  *  buildSessionSnapshot - the shape mirrors what App.tsx already
  *  manages, so the receiving side just spreads the keys. */
 export function restoreSessionSnapshot(snap: SessionSnapshot) {
+    // 2026-10-02: seed the upload-name registry so the next save keeps them.
+    try {
+        const names = snap?.state?.file_names;
+        if (Array.isArray(names) && names.length) noteUploadedFileNames(snap.metadata?.research_goal || '', names);
+    } catch { /* a restore must never fail on file names */ }
     /**
      * E1.1 follow-up (2026-08-24). Rehydrate the objective plan BEFORE anything reads it.
      * The plan used to exist only in a window global set during a live collection phase,
@@ -345,6 +391,10 @@ export function restoreSessionSnapshot(snap: SessionSnapshot) {
         const sqs = (snap as any)?.research_plan_sub_questions;
         if (Array.isArray(sqs) && sqs.length && typeof window !== 'undefined') {
             (window as any).__hicResearchPlanSubQuestions = sqs;
+        }
+        const ds = (snap as any)?.decomposition_status;
+        if (ds && typeof ds === 'object' && ds.decomposition) {
+            recordDecompositionStatus({ decomposition: ds.decomposition, reason: ds.reason, attempts: ds.attempts, recordedAt: ds.recordedAt });
         }
     } catch { /* a restore must never fail on the plan */ }
 
@@ -387,7 +437,7 @@ export function restoreSessionSnapshot(snap: SessionSnapshot) {
 }
 
 /** Format a saved_at ISO string into a relative-time hint for the UI. */
-export function formatSessionTimestamp(iso?: string): string {
+function formatSessionTimestamp(iso?: string): string {
     if (!iso) return '-';
     try {
         const d = new Date(iso);

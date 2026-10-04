@@ -35,6 +35,11 @@ const NXT = {
     SECONDARY: '00B7C3',       // cyan
     NEGATIVE: 'CC6644',        // rust
     TEAL: '115054',
+    // 2026-10-01 - fonts ride on the palette so the third brand (DECIEM) can swap faces.
+    // NXT / NU keep the exporter's existing Archivo + JetBrains Mono.
+    FONT_DISPLAY: 'Archivo',
+    FONT_BODY: 'Archivo',
+    FONT_MONO: 'JetBrains Mono',
 };
 
 // 2026-05-29 - Corrected to the canonical NU design-system tokens (see
@@ -54,10 +59,36 @@ const NU = {
     SECONDARY: '64748B',       // slate-500 (NU has no violet secondary)
     NEGATIVE: 'D8132D',        // nu error-solid
     TEAL: '141D30',            // dark-surface slot = ink navy
+    FONT_DISPLAY: 'Archivo',
+    FONT_BODY: 'Archivo',
+    FONT_MONO: 'JetBrains Mono',
 };
 
-function palette(brand: BrandVariant) {
-    return brand === 'NU' ? NU : NXT;
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company), the third brand mode. Mirrors
+// BRAND_TOKENS.DECIEM in presentationTypes.ts + brands.ts deciemBrand (PPTX-template sourced):
+// black canvas, white type, pink / cyan / purple pops, Poppins display, Josefin Sans body,
+// Labels ride the mono slot in this exporter and the template sets every label in Poppins Bold uppercase; tables use Nunito. The dark surface is pure black; there is no rail and no dot mark.
+const DECIEM = {
+    INK: 'FFFFFF',             // type on the black canvas
+    PAPER: '000000',           // slide background = black canvas
+    PALE: '0A0A0A',            // secondary surface
+    BODY: 'E6E6E6',            // paragraph body
+    BODY_SOFT: 'B3B3B3',       // secondary text
+    MUTED: '8A8A8A',           // muted / meta
+    RULE: '2A2A2A',            // hairline on black
+    ACCENT: 'FB48C4',          // pink pop - primary accent
+    SECONDARY: '00FACC',       // cyan pop
+    NEGATIVE: 'FF6C2F',        // orange pop - warn
+    TEAL: '8A69D4',            // dark-panel slot = purple pop
+    FONT_DISPLAY: 'Poppins',
+    FONT_BODY: 'Josefin Sans',
+    FONT_MONO: 'Poppins',
+};
+
+const PALETTES: Record<BrandVariant, typeof NXT> = { NXT, NU, DECIEM };
+
+function palette(brand: BrandVariant): typeof NXT {
+    return PALETTES[brand] || NXT;
 }
 
 // --- Slide geometry constants ---
@@ -65,8 +96,6 @@ const SLIDE_W = 13.333;
 const SLIDE_H = 7.5;
 const MARGIN = 0.55;
 const CONTENT_W = SLIDE_W - MARGIN * 2;
-const FONT = 'Archivo';
-const MONO = 'JetBrains Mono';
 
 // --- Text helpers ---
 /** Clip text without ever appending an ellipsis. Looks forward 2× for next
@@ -134,7 +163,7 @@ function buildSectionShell(ctx: SectionCtx, headlineText: string, headlinePeriod
     const eyebrow = `SECTION ${String(sectionNumber).padStart(2, '0')}  ·  ${eyebrowLabel.toUpperCase()}`;
     slide.addText(eyebrow, {
         x: MARGIN, y: 0.45, w: CONTENT_W, h: 0.28,
-        fontSize: 10, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 4,
+        fontSize: 10, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 4,
     });
 
     // Section title with optional brand-period accent
@@ -147,12 +176,12 @@ function buildSectionShell(ctx: SectionCtx, headlineText: string, headlinePeriod
             { text: period, options: { color: P.ACCENT, bold: true } },
         ], {
             x: MARGIN, y: 0.78, w: CONTENT_W, h: 1.4,
-            fontSize: 56, fontFace: FONT, charSpacing: -1.5, valign: 'top', lineSpacingMultiple: 1.0,
+            fontSize: 56, fontFace: P.FONT_DISPLAY, charSpacing: -1.5, valign: 'top', lineSpacingMultiple: 1.0,
         });
     } else {
         slide.addText(clip(main, 220), {
             x: MARGIN, y: 0.78, w: CONTENT_W, h: 1.4,
-            fontSize: 56, color: P.INK, fontFace: FONT, bold: true,
+            fontSize: 56, color: P.INK, fontFace: P.FONT_DISPLAY, bold: true,
             charSpacing: -1.5, valign: 'top', lineSpacingMultiple: 1.0,
         });
     }
@@ -165,7 +194,7 @@ function addSourceFooter(slide: any, P: typeof NXT, sources: string[]) {
     if (unique.length === 0) return;
     slide.addText(`Sources:  ${unique.join('  ·  ')}`, {
         x: MARGIN, y: SLIDE_H - 0.42, w: CONTENT_W, h: 0.28,
-        fontSize: 9, color: P.MUTED, fontFace: MONO,
+        fontSize: 9, color: P.MUTED, fontFace: P.FONT_MONO,
     });
 }
 
@@ -193,7 +222,7 @@ function addPill(slide: any, P: typeof NXT, x: number, y: number, w: number, h: 
     }
     slide.addText(label.toUpperCase(), {
         x, y, w, h,
-        fontSize: 9, color: textColor, fontFace: FONT, bold: true,
+        fontSize: 9, color: textColor, fontFace: P.FONT_BODY, bold: true,
         charSpacing: 2, align: 'center', valign: 'middle',
     });
 }
@@ -209,7 +238,7 @@ function buildHero(pres: any, section: any, P: typeof NXT, payloadTitle: string)
     // Tiny brand label top-left
     slide.addText('PRESENTATION', {
         x: MARGIN, y: 0.55, w: 4, h: 0.3,
-        fontSize: 11, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 4,
+        fontSize: 11, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 4,
     });
 
     const title = meaningful(section?.data?.title) || meaningful(payloadTitle) || 'Untitled';
@@ -223,12 +252,12 @@ function buildHero(pres: any, section: any, P: typeof NXT, payloadTitle: string)
             { text: period, options: { color: P.ACCENT, bold: true } },
         ], {
             x: MARGIN, y: 1.5, w: CONTENT_W, h: 4.0,
-            fontSize: 64, fontFace: FONT, charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05,
+            fontSize: 64, fontFace: P.FONT_BODY, charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05,
         });
     } else {
         slide.addText(clip(main, 240), {
             x: MARGIN, y: 1.5, w: CONTENT_W, h: 4.0,
-            fontSize: 64, color: P.PAPER, fontFace: FONT, bold: true,
+            fontSize: 64, color: P.PAPER, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05,
         });
     }
@@ -237,7 +266,7 @@ function buildHero(pres: any, section: any, P: typeof NXT, payloadTitle: string)
     if (subs.length > 0) {
         slide.addText(subs.join('   /   '), {
             x: MARGIN, y: 5.7, w: CONTENT_W, h: 1.2,
-            fontSize: 18, color: P.PAPER, fontFace: FONT,
+            fontSize: 18, color: P.PAPER, fontFace: P.FONT_BODY,
             valign: 'top', lineSpacingMultiple: 1.4,
         });
     }
@@ -268,11 +297,11 @@ function buildContext(pres: any, section: any, P: typeof NXT, sectionNumber: num
         const insetL = isAccent ? 0.28 : 0.22;
         slide.addText(label, {
             x: x + insetL, y: colY + 0.25, w: colW - insetL - 0.15, h: 0.25,
-            fontSize: 9, color: isAccent ? P.ACCENT : P.MUTED, fontFace: FONT, bold: true, charSpacing: 3,
+            fontSize: 9, color: isAccent ? P.ACCENT : P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 3,
         });
         slide.addText(clip(body, 600) || '-', {
             x: x + insetL, y: colY + 0.6, w: colW - insetL - 0.15, h: colH - 0.8,
-            fontSize: 13, color: body ? P.BODY : P.MUTED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45,
+            fontSize: 13, color: body ? P.BODY : P.MUTED, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.45,
         });
     });
 
@@ -297,11 +326,11 @@ function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
         slide.addShape('rect' as any, { x: MARGIN, y: topY, w: 0.06, h: 0.7, fill: { color: P.ACCENT } });
         slide.addText('CROSS-THEME PATTERN', {
             x: MARGIN + 0.18, y: topY + 0.08, w: CONTENT_W - 0.3, h: 0.2,
-            fontSize: 8, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 2,
+            fontSize: 8, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 2,
         });
         slide.addText(clip(patternSignal, 280), {
             x: MARGIN + 0.18, y: topY + 0.3, w: CONTENT_W - 0.3, h: 0.4,
-            fontSize: 12, color: P.INK, fontFace: FONT, italic: true, valign: 'top',
+            fontSize: 12, color: P.INK, fontFace: P.FONT_BODY, italic: true, valign: 'top',
         });
         topY += 0.9;
     }
@@ -325,7 +354,7 @@ function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
         const nameY = status ? topY + 0.6 : topY + 0.3;
         slide.addText(clip(meaningful(t.name), 110), {
             x: x + 0.2, y: nameY, w: colW - 0.4, h: 0.85,
-            fontSize: 17, color: P.INK, fontFace: FONT, bold: true,
+            fontSize: 17, color: P.INK, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -0.5, valign: 'top', lineSpacingMultiple: 1.2,
         });
 
@@ -333,7 +362,7 @@ function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
         const descY = nameY + 0.95;
         slide.addText(clip(meaningful(t.description), 380), {
             x: x + 0.2, y: descY, w: colW - 0.4, h: cardH - (descY - topY) - 0.7,
-            fontSize: 11, color: P.BODY_SOFT, fontFace: FONT,
+            fontSize: 11, color: P.BODY_SOFT, fontFace: P.FONT_BODY,
             valign: 'top', lineSpacingMultiple: 1.45,
         });
 
@@ -342,7 +371,7 @@ function buildThemes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
         if (signal) {
             slide.addText(`→  ${clip(signal, 180)}`, {
                 x: x + 0.2, y: topY + cardH - 0.55, w: colW - 0.4, h: 0.4,
-                fontSize: 10, color: P.SECONDARY, fontFace: FONT, italic: true, valign: 'top',
+                fontSize: 10, color: P.SECONDARY, fontFace: P.FONT_BODY, italic: true, valign: 'top',
             });
         }
 
@@ -393,7 +422,7 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         const typo = valueTypography(valueText);
         slide.addText(valueText, {
             x: x + 0.2, y: cardY + 0.3, w: colW - 0.4, h: 1.5,
-            fontSize: typo.fontSize, color: accent, fontFace: FONT, bold: true,
+            fontSize: typo.fontSize, color: accent, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -1.5, valign: 'top', lineSpacingMultiple: typo.lineHeight,
         });
 
@@ -401,7 +430,7 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         const labelY = cardY + 1.85;
         slide.addText(clip(meaningful(s.label), 140), {
             x: x + 0.2, y: labelY, w: colW - 0.4, h: 0.7,
-            fontSize: 12, color: P.INK, fontFace: FONT, bold: true,
+            fontSize: 12, color: P.INK, fontFace: P.FONT_BODY, bold: true,
             valign: 'top', lineSpacingMultiple: 1.3,
         });
 
@@ -410,14 +439,14 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         if (ctxText) {
             slide.addText(clip(ctxText, 200), {
                 x: x + 0.2, y: labelY + 0.75, w: colW - 0.4, h: 0.6,
-                fontSize: 9.5, color: P.MUTED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45,
+                fontSize: 9.5, color: P.MUTED, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.45,
             });
         }
 
         // Source (mono, small)
         slide.addText(clip(meaningful(s.source), 80), {
             x: x + 0.2, y: cardY + cardH - 0.35, w: colW - 0.4, h: 0.25,
-            fontSize: 8, color: P.MUTED, fontFace: MONO,
+            fontSize: 8, color: P.MUTED, fontFace: P.FONT_MONO,
         });
 
         if (s.source) sources.push(meaningful(s.source));
@@ -429,11 +458,11 @@ function buildEvidence(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         slide.addShape('rect' as any, { x: MARGIN, y: insightY, w: 0.06, h: 0.85, fill: { color: P.ACCENT } });
         slide.addText('WHAT THIS MEANS', {
             x: MARGIN + 0.18, y: insightY + 0.1, w: CONTENT_W - 0.3, h: 0.2,
-            fontSize: 9, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 2.5,
+            fontSize: 9, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 2.5,
         });
         slide.addText(clip(insight, 320), {
             x: MARGIN + 0.18, y: insightY + 0.32, w: CONTENT_W - 0.3, h: 0.5,
-            fontSize: 13, color: P.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4,
+            fontSize: 13, color: P.INK, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.4,
         });
     }
 
@@ -463,7 +492,7 @@ function buildQuotes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
         const text = meaningful(q.text);
         slide.addText(`"${clip(text, 380)}"`, {
             x: MARGIN + 0.3, y: y + 0.25, w: CONTENT_W - 0.5, h: cardH - 0.85,
-            fontSize: 18, color: P.INK, fontFace: FONT, italic: true,
+            fontSize: 18, color: P.INK, fontFace: P.FONT_BODY, italic: true,
             charSpacing: -0.3, valign: 'top', lineSpacingMultiple: 1.4,
         });
 
@@ -475,11 +504,11 @@ function buildQuotes(pres: any, section: any, P: typeof NXT, sectionNumber: numb
             ...(role ? [{ text: `   ·  ${role}`, options: { color: P.MUTED } }] : []),
         ], {
             x: MARGIN + 0.3, y: y + cardH - 0.55, w: CONTENT_W - 0.5, h: 0.25,
-            fontSize: 12, fontFace: FONT,
+            fontSize: 12, fontFace: P.FONT_BODY,
         });
         slide.addText(clip(meaningful(q.source), 100), {
             x: MARGIN + 0.3, y: y + cardH - 0.3, w: CONTENT_W - 0.5, h: 0.22,
-            fontSize: 9, color: P.MUTED, fontFace: MONO,
+            fontSize: 9, color: P.MUTED, fontFace: P.FONT_MONO,
         });
 
         if (q.source) sources.push(meaningful(q.source));
@@ -511,13 +540,13 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         // Name
         slide.addText(clip(meaningful(p.name), 60), {
             x: x + insetL, y: cardY + 0.25, w: colW - insetL - 0.15, h: 0.5,
-            fontSize: 22, color: P.INK, fontFace: FONT, bold: true, charSpacing: -1, valign: 'top',
+            fontSize: 22, color: P.INK, fontFace: P.FONT_BODY, bold: true, charSpacing: -1, valign: 'top',
         });
 
         // Role
         slide.addText(clip(meaningful(p.role), 80), {
             x: x + insetL, y: cardY + 0.78, w: colW - insetL - 0.15, h: 0.3,
-            fontSize: 11, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 0.5,
+            fontSize: 11, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 0.5,
         });
 
         // Demographics (small)
@@ -526,7 +555,7 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         if (demo) {
             slide.addText(clip(demo, 100), {
                 x: x + insetL, y: yy, w: colW - insetL - 0.15, h: 0.22,
-                fontSize: 9, color: P.MUTED, fontFace: FONT,
+                fontSize: 9, color: P.MUTED, fontFace: P.FONT_BODY,
             });
             yy += 0.28;
         }
@@ -537,7 +566,7 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
             slide.addShape('rect' as any, { x: x + insetL, y: yy, w: 0.04, h: 0.95, fill: { color: P.SECONDARY } });
             slide.addText(`"${clip(quote, 200)}"`, {
                 x: x + insetL + 0.15, y: yy, w: colW - insetL - 0.3, h: 0.95,
-                fontSize: 11, color: P.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4,
+                fontSize: 11, color: P.INK, fontFace: P.FONT_BODY, italic: true, valign: 'top', lineSpacingMultiple: 1.4,
             });
             yy += 1.05;
         }
@@ -547,7 +576,7 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         if (bio && yy < cardY + cardH - 1.5) {
             slide.addText(clip(bio, 200), {
                 x: x + insetL, y: yy, w: colW - insetL - 0.15, h: 0.7,
-                fontSize: 10, color: P.BODY_SOFT, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4,
+                fontSize: 10, color: P.BODY_SOFT, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.4,
             });
             yy += 0.8;
         }
@@ -563,12 +592,12 @@ function buildPersonas(pres: any, section: any, P: typeof NXT, sectionNumber: nu
             if (yy > cardY + cardH - 0.5) break;
             slide.addText(k, {
                 x: x + insetL, y: yy, w: colW - insetL - 0.15, h: 0.18,
-                fontSize: 7.5, color: P.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5,
+                fontSize: 7.5, color: P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5,
             });
             yy += 0.18;
             slide.addText(clip(v, 200), {
                 x: x + insetL, y: yy, w: colW - insetL - 0.15, h: 0.45,
-                fontSize: 10, color: P.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35,
+                fontSize: 10, color: P.INK, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.35,
             });
             yy += 0.5;
         }
@@ -605,14 +634,14 @@ function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: num
         // Step number eyebrow
         slide.addText(`STEP ${String(i + 1).padStart(2, '0')}`, {
             x: x + 0.18, y: cardY + 0.22, w: colW - 0.36, h: 0.22,
-            fontSize: 8, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 2,
+            fontSize: 8, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 2,
         });
 
         // Phase name
         const phase = meaningful(s.phase) || meaningful(s.customerAction) || `Stage ${i + 1}`;
         slide.addText(clip(phase, 90), {
             x: x + 0.18, y: cardY + 0.5, w: colW - 0.36, h: 0.6,
-            fontSize: 13, color: P.INK, fontFace: FONT, bold: true,
+            fontSize: 13, color: P.INK, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -0.3, valign: 'top', lineSpacingMultiple: 1.2,
         });
 
@@ -626,7 +655,7 @@ function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: num
         if (subBits.length > 0) {
             slide.addText(subBits.join('  ·  '), {
                 x: x + 0.18, y: yy, w: colW - 0.36, h: 0.22,
-                fontSize: 9, color: P.SECONDARY, fontFace: FONT, italic: true,
+                fontSize: 9, color: P.SECONDARY, fontFace: P.FONT_BODY, italic: true,
             });
             yy += 0.3;
         }
@@ -642,11 +671,11 @@ function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: num
             if (yy > cardY + cardH - 0.7) break;
             slide.addText(k, {
                 x: x + 0.18, y: yy, w: colW - 0.36, h: 0.18,
-                fontSize: 7.5, color: P.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5,
+                fontSize: 7.5, color: P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5,
             });
             slide.addText(clip(v, 130), {
                 x: x + 0.18, y: yy + 0.18, w: colW - 0.36, h: 0.52,
-                fontSize: 9, color: P.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3,
+                fontSize: 9, color: P.BODY, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.3,
             });
             yy += 0.74;
         }
@@ -656,7 +685,7 @@ function buildJourney(pres: any, section: any, P: typeof NXT, sectionNumber: num
             slide.addShape('rect' as any, { x: x + 0.12, y: ftrY, w: colW - 0.24, h: 0.42, fill: { color: 'FFF4EA' } });
             slide.addText(fail ? `Fail: ${clip(fail, 110)}` : `Pain: ${clip(pain, 110)}`, {
                 x: x + 0.18, y: ftrY + 0.04, w: colW - 0.36, h: 0.38,
-                fontSize: 8.5, color: P.NEGATIVE, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3,
+                fontSize: 8.5, color: P.NEGATIVE, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.3,
             });
         }
     });
@@ -685,14 +714,14 @@ function buildRecommendations(pres: any, section: any, P: typeof NXT, sectionNum
         const num = `ACTION ${String(i + 1).padStart(2, '0')}`;
         slide.addText(num, {
             x: MARGIN + 0.25, y: y + 0.18, w: 1.4, h: 0.22,
-            fontSize: 8, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 2.5,
+            fontSize: 8, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 2.5,
         });
 
         // Title
         const title = meaningful(r.actionTitle) || `Action ${i + 1}`;
         slide.addText(clip(title, 200), {
             x: MARGIN + 0.25, y: y + 0.4, w: CONTENT_W - 0.5 - 2.4, h: 0.55,
-            fontSize: 16, color: P.INK, fontFace: FONT, bold: true,
+            fontSize: 16, color: P.INK, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -0.5, valign: 'top', lineSpacingMultiple: 1.2,
         });
 
@@ -701,7 +730,7 @@ function buildRecommendations(pres: any, section: any, P: typeof NXT, sectionNum
         if (rationale) {
             slide.addText(clip(rationale, 380), {
                 x: MARGIN + 0.25, y: y + 1.0, w: CONTENT_W - 0.5 - 2.4, h: cardH - 1.15,
-                fontSize: 11, color: P.BODY_SOFT, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5,
+                fontSize: 11, color: P.BODY_SOFT, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.5,
             });
         }
 
@@ -717,11 +746,11 @@ function buildRecommendations(pres: any, section: any, P: typeof NXT, sectionNum
             const my = y + 0.22 + mi * 0.6;
             slide.addText(k, {
                 x: mx, y: my, w: 2.2, h: 0.2,
-                fontSize: 7.5, color: P.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5,
+                fontSize: 7.5, color: P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5,
             });
             slide.addText(clip(v, 90), {
                 x: mx, y: my + 0.2, w: 2.2, h: 0.35,
-                fontSize: 11, color: P.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3,
+                fontSize: 11, color: P.INK, fontFace: P.FONT_BODY, bold: true, valign: 'top', lineSpacingMultiple: 1.3,
             });
         });
 
@@ -760,13 +789,13 @@ function buildRoadmap(pres: any, section: any, P: typeof NXT, sectionNumber: num
         // Header row: label left, duration right
         slide.addText(label, {
             x: x + 0.2, y: cardY + 0.22, w: colW * 0.55, h: 0.45,
-            fontSize: 18, color: accent, fontFace: FONT, bold: true, charSpacing: 3, valign: 'middle',
+            fontSize: 18, color: accent, fontFace: P.FONT_BODY, bold: true, charSpacing: 3, valign: 'middle',
         });
         const duration = meaningful(h.duration) || meaningful(h.timeframe);
         if (duration) {
             slide.addText(duration, {
                 x: x + colW * 0.5, y: cardY + 0.28, w: colW * 0.4, h: 0.35,
-                fontSize: 10, color: P.MUTED, fontFace: MONO, align: 'right', valign: 'middle',
+                fontSize: 10, color: P.MUTED, fontFace: P.FONT_MONO, align: 'right', valign: 'middle',
             });
         }
 
@@ -783,12 +812,12 @@ function buildRoadmap(pres: any, section: any, P: typeof NXT, sectionNumber: num
             slide.addShape('rect' as any, { x: x + 0.18, y: yy, w: 0.04, h: meta ? 0.7 : 0.45, fill: { color: barColor } });
             slide.addText(clip(name, 85), {
                 x: x + 0.3, y: yy, w: colW - 0.45, h: 0.4,
-                fontSize: 11, color: P.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.25,
+                fontSize: 11, color: P.INK, fontFace: P.FONT_BODY, bold: true, valign: 'top', lineSpacingMultiple: 1.25,
             });
             if (meta) {
                 slide.addText(clip(meta, 130), {
                     x: x + 0.3, y: yy + 0.4, w: colW - 0.45, h: 0.32,
-                    fontSize: 8.5, color: P.MUTED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3,
+                    fontSize: 8.5, color: P.MUTED, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.3,
                 });
                 yy += 0.78;
             } else {
@@ -826,7 +855,7 @@ function buildGapAnalysis(pres: any, section: any, P: typeof NXT, sectionNumber:
         // Capability + severity pill
         slide.addText(clip(meaningful(g.capability), 120), {
             x: MARGIN + 0.2, y: y + 0.15, w: CONTENT_W - 4.5, h: 0.4,
-            fontSize: 14, color: P.INK, fontFace: FONT, bold: true, valign: 'top',
+            fontSize: 14, color: P.INK, fontFace: P.FONT_BODY, bold: true, valign: 'top',
         });
         addPill(slide, P, MARGIN + 0.2, y + rowH - 0.55, 1.1, 0.26, sev, sev === 'critical' || sev === 'high' ? 'accent' : 'muted');
 
@@ -835,7 +864,7 @@ function buildGapAnalysis(pres: any, section: any, P: typeof NXT, sectionNumber:
         if (impact) {
             slide.addText(clip(impact, 280), {
                 x: MARGIN + 0.2, y: y + 0.55, w: CONTENT_W - 4.5, h: rowH - 1.1,
-                fontSize: 10, color: P.BODY_SOFT, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4,
+                fontSize: 10, color: P.BODY_SOFT, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.4,
             });
         }
 
@@ -846,14 +875,14 @@ function buildGapAnalysis(pres: any, section: any, P: typeof NXT, sectionNumber:
         const barW = 3.8;
         const dotW = barW / scaleMax;
 
-        slide.addText('CURRENT', { x: barX, y: y + 0.15, w: 0.9, h: 0.18, fontSize: 7.5, color: P.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
+        slide.addText('CURRENT', { x: barX, y: y + 0.15, w: 0.9, h: 0.18, fontSize: 7.5, color: P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5 });
         for (let k = 0; k < scaleMax; k++) {
             slide.addShape('rect' as any, {
                 x: barX + 0.95 + k * dotW * 0.6, y: y + 0.18, w: dotW * 0.55, h: 0.16,
                 fill: { color: k < cur ? accent : P.RULE },
             });
         }
-        slide.addText('TARGET', { x: barX, y: y + 0.45, w: 0.9, h: 0.18, fontSize: 7.5, color: P.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
+        slide.addText('TARGET', { x: barX, y: y + 0.45, w: 0.9, h: 0.18, fontSize: 7.5, color: P.MUTED, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5 });
         for (let k = 0; k < scaleMax; k++) {
             slide.addShape('rect' as any, {
                 x: barX + 0.95 + k * dotW * 0.6, y: y + 0.48, w: dotW * 0.55, h: 0.16,
@@ -880,7 +909,7 @@ function buildTechArch(pres: any, section: any, P: typeof NXT, sectionNumber: nu
         slide.addShape('rect' as any, { x: MARGIN, y, w: CONTENT_W, h: layerH - 0.12, fill: { color: P.PALE } });
         slide.addText(clip(meaningful(l.name) || `Layer ${i + 1}`, 60), {
             x: MARGIN + 0.2, y: y + 0.15, w: 2.5, h: 0.4,
-            fontSize: 13, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 1.5,
+            fontSize: 13, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 1.5,
         });
         const nodes = asArray<any>(l.nodes).slice(0, 5);
         const nodeStartX = MARGIN + 2.9;
@@ -890,13 +919,13 @@ function buildTechArch(pres: any, section: any, P: typeof NXT, sectionNumber: nu
             slide.addShape('rect' as any, { x: nx, y: y + 0.15, w: nodeW, h: layerH - 0.42, line: { color: P.RULE, width: 0.5 }, fill: { color: P.PAPER } });
             slide.addText(clip(meaningful(n.name) || 'Node', 60), {
                 x: nx + 0.1, y: y + 0.2, w: nodeW - 0.2, h: 0.32,
-                fontSize: 10.5, color: P.INK, fontFace: FONT, bold: true, valign: 'top',
+                fontSize: 10.5, color: P.INK, fontFace: P.FONT_BODY, bold: true, valign: 'top',
             });
             const desc = meaningful(n.description);
             if (desc) {
                 slide.addText(clip(desc, 120), {
                     x: nx + 0.1, y: y + 0.55, w: nodeW - 0.2, h: layerH - 0.85,
-                    fontSize: 9, color: P.BODY_SOFT, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35,
+                    fontSize: 9, color: P.BODY_SOFT, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.35,
                 });
             }
         });
@@ -916,7 +945,7 @@ function buildList(pres: any, section: any, P: typeof NXT, sectionNumber: number
         if (narrative) {
             slide.addText(narrative, {
                 x: MARGIN, y: 2.5, w: CONTENT_W, h: 4.2, fontSize: 14, color: P.BODY,
-                fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55,
+                fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.55,
             });
         }
         return;
@@ -928,13 +957,13 @@ function buildList(pres: any, section: any, P: typeof NXT, sectionNumber: number
         const title = meaningful(it[titleField]) || meaningful(it.name) || meaningful(it.title) || 'Item';
         slide.addText(clip(title, 140), {
             x: MARGIN + 0.2, y: startY, w: CONTENT_W - 0.2, h: 0.38,
-            fontSize: 14, color: P.INK, fontFace: FONT, bold: true, valign: 'top',
+            fontSize: 14, color: P.INK, fontFace: P.FONT_BODY, bold: true, valign: 'top',
         });
         const body = meaningful(it[bodyField]) || meaningful(it.summary) || meaningful(it.position);
         if (body) {
             slide.addText(clip(body, 350), {
                 x: MARGIN + 0.2, y: startY + 0.42, w: CONTENT_W - 0.2, h: itemH - 0.6,
-                fontSize: 11, color: P.BODY_SOFT, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45,
+                fontSize: 11, color: P.BODY_SOFT, fontFace: P.FONT_BODY, valign: 'top', lineSpacingMultiple: 1.45,
             });
         }
     });
@@ -950,7 +979,7 @@ function buildCta(pres: any, section: any, P: typeof NXT) {
 
     slide.addText('NEXT STEPS', {
         x: MARGIN, y: 0.55, w: 4, h: 0.3,
-        fontSize: 11, color: P.ACCENT, fontFace: FONT, bold: true, charSpacing: 4,
+        fontSize: 11, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true, charSpacing: 4,
     });
 
     const titleStr = meaningful(section?.data?.title) || 'Get in touch.';
@@ -963,12 +992,12 @@ function buildCta(pres: any, section: any, P: typeof NXT) {
             { text: period, options: { color: P.ACCENT, bold: true } },
         ], {
             x: MARGIN, y: 1.8, w: CONTENT_W, h: 3.2,
-            fontSize: 64, fontFace: FONT, charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05, align: 'center',
+            fontSize: 64, fontFace: P.FONT_BODY, charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05, align: 'center',
         });
     } else {
         slide.addText(main, {
             x: MARGIN, y: 1.8, w: CONTENT_W, h: 3.2,
-            fontSize: 64, color: P.PAPER, fontFace: FONT, bold: true,
+            fontSize: 64, color: P.PAPER, fontFace: P.FONT_BODY, bold: true,
             charSpacing: -2, valign: 'middle', lineSpacingMultiple: 1.05, align: 'center',
         });
     }
@@ -977,7 +1006,7 @@ function buildCta(pres: any, section: any, P: typeof NXT) {
     if (desc) {
         slide.addText(clip(desc, 360), {
             x: MARGIN + 1.5, y: 5.3, w: CONTENT_W - 3, h: 1.0,
-            fontSize: 16, color: P.PAPER, fontFace: FONT, valign: 'top',
+            fontSize: 16, color: P.PAPER, fontFace: P.FONT_BODY, valign: 'top',
             align: 'center', lineSpacingMultiple: 1.45,
         });
     }
@@ -988,7 +1017,7 @@ function buildCta(pres: any, section: any, P: typeof NXT) {
     if (cta) {
         slide.addText(cta, {
             x: MARGIN + 1.5, y: 6.4, w: CONTENT_W - 3, h: 0.5,
-            fontSize: 18, color: P.ACCENT, fontFace: FONT, bold: true,
+            fontSize: 18, color: P.ACCENT, fontFace: P.FONT_BODY, bold: true,
             align: 'center', valign: 'middle',
         });
     }
@@ -1016,7 +1045,7 @@ export async function exportPresentationToPptx(payload: PresentationPayload): Pr
         slide.background = { color: P.PAPER };
         slide.addText(deckTitle, {
             x: MARGIN, y: 3, w: CONTENT_W, h: 1.5,
-            fontSize: 40, color: P.INK, fontFace: FONT, bold: true, align: 'center',
+            fontSize: 40, color: P.INK, fontFace: P.FONT_BODY, bold: true, align: 'center',
         });
     }
 
@@ -1046,13 +1075,13 @@ export async function exportPresentationToPptx(payload: PresentationPayload): Pr
             const slide = pres.addSlide();
             slide.background = { color: P.PAPER };
             slide.addText(`Section ${sectionNumber++}: ${kind}`, {
-                x: MARGIN, y: 3, w: CONTENT_W, h: 1, fontSize: 24, color: P.MUTED, fontFace: FONT, align: 'center',
+                x: MARGIN, y: 3, w: CONTENT_W, h: 1, fontSize: 24, color: P.MUTED, fontFace: P.FONT_BODY, align: 'center',
             });
         }
     }
 
     const safeName = deckTitle.replace(/[^a-z0-9]+/gi, '-').toLowerCase().substring(0, 60);
     const date = new Date().toISOString().split('T')[0];
-    const brandSuffix = brand === 'NU' ? 'nu' : 'nxt';
+    const brandSuffix = brand === 'NU' ? 'nu' : brand === 'DECIEM' ? 'deciem' : 'nxt';
     await pres.writeFile({ fileName: `${date}_${safeName}_${brandSuffix}.pptx` });
 }

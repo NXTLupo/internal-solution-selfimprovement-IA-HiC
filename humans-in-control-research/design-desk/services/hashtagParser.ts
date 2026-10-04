@@ -1,3 +1,11 @@
+import { designDeskVocabulary } from '../../services/artifactCatalog';
+
+// Stage 6.1 (2026-10-01, finding A7): the CONTENT set and every plural / alternate alias below are
+// GENERATED from services/artifactCatalog.ts (designDeskVocabulary). The ContentHashtag union stays
+// explicit so consumers keep their literal types; services/artifactCatalog.coverage.test.ts asserts the
+// union, the catalog, and the generated set agree. Only the two non-artifact system tags (`refine`,
+// `help`) and the legacy `plan` shorthand are added locally.
+
 export type ContentHashtag =
     | 'persona' | 'journey' | 'blueprint' | 'arch'
     | 'prd' | 'roadmap' | 'strategy' | 'gap'
@@ -10,7 +18,8 @@ export type ContentHashtag =
     | 'case-study' | 'presentation' | 'recommendations' | 'brief'
     | 'explainer' | 'report' | 'playground' | 'approaches' | 'refine' | 'help';
 
-export type BrandHashtag = 'nxt' | 'nu';
+// 2026-10-01 - third brand mode DECIEM (`#deciem`), same contract as #NXT / #NU: a token-set flip.
+export type BrandHashtag = 'nxt' | 'nu' | 'deciem';
 export type ViewHashtag = 'slide';
 export type CompositionHashtag = 'slides';
 
@@ -23,17 +32,10 @@ export interface ParsedHashtags {
     cleanPrompt: string;
 }
 
-const CONTENT: Set<string> = new Set([
-    'persona', 'journey', 'blueprint', 'arch',
-    'prd', 'roadmap', 'strategy', 'gap', 'audit', 'compete', 'org',
-    // 2026-05-24 - NotebookLM uplift Phase 4-6
-    'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
-    // 2026-05-26 - case-study + remaining registry directives so the parser
-    // recognizes everything hashtagRegistry.ts publishes. Prevents the silent
-    // synonym-expansion misroute (#case study #slides → tech-audit-inspector).
-    'case-study', 'presentation', 'recommendations', 'brief',
-    'explainer', 'report', 'playground', 'approaches', 'refine', 'help',
-]);
+const _vocab = designDeskVocabulary();
+/** Non-artifact system tags the Design Desk still treats as content directives. */
+const LOCAL_CONTENT = ['refine', 'help'];
+const CONTENT: Set<string> = new Set([..._vocab.content, ...LOCAL_CONTENT]);
 
 /**
  * Plural-form aliases - users naturally type `#journeys`, `#personas`, `#orgs`
@@ -45,55 +47,11 @@ const CONTENT: Set<string> = new Set([
  * say "the orgs" or "org chart" interchangeably.
  */
 const CONTENT_PLURAL_ALIASES: Record<string, string> = {
-    personas: 'persona',
-    journeys: 'journey',
-    blueprints: 'blueprint',
-    arches: 'arch',
-    architecture: 'arch',
-    prds: 'prd',
-    roadmaps: 'roadmap',
-    strategies: 'strategy',
-    audits: 'audit',
-    techaudit: 'audit',
-    'tech-audit': 'audit',
-    competitives: 'compete',
-    competes: 'compete',
-    competitors: 'compete',
-    competitive: 'compete',
-    orgs: 'org',
-    orgcharts: 'org',
-    orgchart: 'org',
-    // 2026-05-24 - NotebookLM uplift Phase 4-6
-    mindmaps: 'mindmap',
-    'mind-map': 'mindmap',
-    'mind-maps': 'mindmap',
-    dialog: 'brief-dialog',
-    dialogue: 'brief-dialog',
-    'brief-dialogue': 'brief-dialog',
-    metathemes: 'meta-themes',
-    'meta-theme': 'meta-themes',
-    'platform-patterns': 'meta-themes',
-    deepresearch: 'research-plan',
-    'deep-research': 'research-plan',
+    ..._vocab.aliases,
+    // legacy Design Desk shorthand kept for the chips that still emit it
     plan: 'research-plan',
-    // 2026-05-26 - case-study, presentation, recommendation aliases.
-    // `case` is intentionally NOT aliased to `case-study` here - it is a
-    // common English word ("case in point", "edge case") that would
-    // false-positive. Users get a "Unknown directive - did you mean
-    // #case-study?" suggestion via searchDirectives() in the dispatcher.
-    casestudy: 'case-study',
-    'case-studies': 'case-study',
-    casestudies: 'case-study',
-    presentations: 'presentation',
-    recs: 'recommendations',
-    recommendation: 'recommendations',
-    briefs: 'brief',
-    explainers: 'explainer',
-    reports: 'report',
-    playgrounds: 'playground',
-    approach: 'approaches',
 };
-const BRANDS: Set<string> = new Set(['nxt', 'nu']);
+const BRANDS: Set<string> = new Set(['nxt', 'nu', 'deciem']);
 const VIEW_SINGLE = 'slide';
 const VIEW_MULTI = 'slides';
 

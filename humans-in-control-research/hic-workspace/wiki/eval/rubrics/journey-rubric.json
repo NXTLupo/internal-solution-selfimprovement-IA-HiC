@@ -1,0 +1,134 @@
+{
+  "rubric_id": "journey-rubric",
+  "kind": "journey",
+  "version": "1.0.0",
+  "title": "journey deliverable rubric",
+  "absorbed_from": ".claude/agents/journey-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #journey output. Wraps the journey-illustrator SKILL + the journey-overview-slide Stop hook + evidence-quality-auditor + hic-output-qa into a single parallel-invocable audit. Returns a structured verdict the parent orchestrator must respond to before the journey deliverable ships. Use whenever a #journey or #journey #slides deliverable has been emitted and needs end-to-end quality verification.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "phase_coverage",
+      "n": 1,
+      "label": "Phase coverage",
+      "five": "All phases that appear in the corpus are present; named, ordered, evidenced",
+      "one": "Phases invented or missing",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cell_anatomy",
+      "n": 2,
+      "label": "Cell anatomy",
+      "five": "Each phase cell carries activity + touchpoint + emotion+intensity + 1+ verbatim quote with Source: citation",
+      "one": "Cells empty, generic, or unevidenced",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": "quote_attribution"
+    },
+    {
+      "id": "overview_slide",
+      "n": 3,
+      "label": "Overview slide (slides-mode only)",
+      "five": "Slide 2 or 3 is a horizontal phase strip naming all phases, the reader's map",
+      "one": "Missing or fragmented across multiple slides",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "action_titles",
+      "n": 4,
+      "label": "Action titles",
+      "five": "Every section/slide title is a complete-sentence judgment",
+      "one": "Topic labels (\"The Application Phase\")",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "action_titles"
+    },
+    {
+      "id": "evidence_diversity",
+      "n": 5,
+      "label": "Evidence diversity",
+      "five": "≥3 named external sources cited across the artifact; ≥50% external (non-client-upload)",
+      "one": "Citations dominated by 1-2 uploads",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "citation_diversity"
+    },
+    {
+      "id": "quantitative_discipline",
+      "n": 6,
+      "label": "Quantitative discipline",
+      "five": "Numbers appear ONLY inside verbatim cited quotes; titles + body prose have no standalone figures",
+      "one": "Bare percentages in titles",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "naked_numbers"
+    },
+    {
+      "id": "anti_slop_hygiene",
+      "n": 7,
+      "label": "Anti-slop hygiene",
+      "five": "No meta-narration (\"HOW TO READ THIS\"); no metaphor titles (clock/journey/war/anthropomorphism); no em-dashes",
+      "one": "Multiple slop tells",
+      "floor": 4,
+      "blocking": true,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "brand_consistency",
+      "n": 8,
+      "label": "Brand consistency",
+      "five": "Stark-white background, brand-correct tokens (NXT chartreuse + cyan / NU red + Spectral), sharp 2px corners",
+      "one": "Off-brand colors, decorative shadows, rounded cards",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "citation_resolution",
+      "n": 9,
+      "label": "Citation resolution",
+      "five": "Every [CHUNK_XXX] resolved to SourceName: ArticleTitle format; no raw chunk markers visible to reader",
+      "one": "Raw markers leaked",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "raw_chunk_markers"
+    },
+    {
+      "id": "future_state_opportunity_boundary",
+      "n": 10,
+      "label": "Future-state / opportunity boundary",
+      "five": "Opportunities live in journey-level KPI dashboard or a separate synthesis section; pain points stay in body cells",
+      "one": "Opportunities mixed into descriptive cells",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    }
+  ],
+  "blocking": [
+    "cell_anatomy",
+    "anti_slop_hygiene"
+  ],
+  "decision": {
+    "approve": "if all dimensions ≥3 AND no dimension below floor:; phase_coverage ≥4; cell_anatomy ≥4; evidence_diversity ≥3; anti_slop ≥4",
+    "revise": "if 1-2 dimensions below floor or 1 critical failure (anti-slop or evidence)",
+    "reject": "if 3+ dimensions below floor OR multiple anti-slop violations OR fabricated quotes"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

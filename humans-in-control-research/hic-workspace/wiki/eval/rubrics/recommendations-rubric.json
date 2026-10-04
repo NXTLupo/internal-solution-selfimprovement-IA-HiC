@@ -1,0 +1,144 @@
+{
+  "rubric_id": "recommendations-rubric",
+  "kind": "recommendations",
+  "version": "1.0.0",
+  "title": "recommendations deliverable rubric",
+  "absorbed_from": ".claude/agents/recommendations-deliverable-auditor.md",
+  "absorbed_on": "2026-10-01",
+  "description": "Per-deliverable expert subagent for #recommendations output. Audits the verbalized-sampling consensus + non-obvious bet split, the per-tile execution depth (clr_dependent, execution_path, existing_stack_reuse, non_starter_check, key_stakeholders, implementation_steps, risks_constraints, expected_impact), and the four-tuple quantification per the quantification-architect skill. Returns a structured verdict the orchestrator must respond to before recommendations ship.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "fully meets the criterion as the five column states",
+      "3": "present but partially met or partially traced",
+      "1": "absent, fabricated, or as the one column states"
+    }
+  },
+  "criteria": [
+    {
+      "id": "vs_framing",
+      "n": 1,
+      "label": "VS framing",
+      "five": "Both concepts_defensible_consensus (3-6) AND concepts_non_obvious_bets (2-5) populated; each tile carries frame + probability + (bets only) diverges_from",
+      "one": "Single flat concepts array; no VS-discipline",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "tile_execution_depth",
+      "n": 2,
+      "label": "Tile execution depth",
+      "five": "Every tile has clr_dependent (boolean OR null with justification), execution_path (named systems), existing_stack_reuse (named tools), non_starter_check (explicit), key_stakeholders (named roles), implementation_steps (3+ owner+effort), risks_constraints (3+ with severity+mitigation), expected_impact, verbatim_quote_evidence",
+      "one": "Many fields blank or generic",
+      "floor": 4,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "four_tuple_quantification",
+      "n": 3,
+      "label": "Four-tuple quantification",
+      "five": "Every tile's expected_impact carries: baseline (sourced), target (committed delta with date), measurement instrument named, refresh cadence",
+      "one": "Vague \"improves X\" claims",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "engagement_context_coherence",
+      "n": 4,
+      "label": "Engagement_context coherence",
+      "five": "Every non-starter from the prompt is honored in every tile; preferred stack used by default; deviations justified",
+      "one": "Tiles violate a stated non-starter",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": null
+    },
+    {
+      "id": "evidence_diversity",
+      "n": 5,
+      "label": "Evidence diversity",
+      "five": "Every tile cites ≥2 evidence_sources by name; cross-tile diversity (not all 12 tiles citing the same 4 sources)",
+      "one": "Citation cluster around 1-2 sources",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "citation_diversity"
+    },
+    {
+      "id": "quantitative_discipline",
+      "n": 6,
+      "label": "Quantitative discipline (titles)",
+      "five": "Numbers in titles only appear inside cited quotes; standalone \"%/X-times\" banned",
+      "one": "Bare percentages in tile titles",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "naked_numbers"
+    },
+    {
+      "id": "anti_slop",
+      "n": 7,
+      "label": "Anti-slop",
+      "five": "No meta-commentary; no metaphors; no hyperbole (hyperbole from the banned list, hyperbole from the banned list); no \"as we'll see\"; no em-dashes",
+      "one": "Multiple slop tells",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "anti_slop"
+    },
+    {
+      "id": "persona_moment_specificity",
+      "n": 8,
+      "label": "Persona + moment specificity",
+      "five": "persona references a named persona from the personas deliverable (or a named role); moment is a specific time/event in that persona's workflow, not \"when they need help\"",
+      "one": "Generic persona/moment",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "aha_interaction_concreteness",
+      "n": 9,
+      "label": "aha_interaction concreteness",
+      "five": "The aha_interaction describes what the user SEES, CLICKS, or HEARS, a concrete UI moment",
+      "one": "Abstract \"the system surfaces insights\"",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "build_variant_viability",
+      "n": 10,
+      "label": "Build-variant viability",
+      "five": "Each tile has 2-3 variants (e.g., #proto, #brief, #blueprint) with a real one-line command that would actually build something downstream",
+      "one": "Variants missing or non-functional",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": null
+    },
+    {
+      "id": "cached_selection_coverage",
+      "n": 11,
+      "label": "Cached-selection coverage",
+      "five": "≥80% of the user's KL-curated items appear in the emission as source: cached or source: extended; new items have source: new; coverage is reported as cached_selection_coverage_pct in the verdict",
+      "one": "<60% coverage (auto Stop-hook reject via validate_cached_selection_honored.py); model regenerated from scratch and ignored the user's curation",
+      "floor": 3,
+      "blocking": false,
+      "deterministic_check": "cached_selection_coverage"
+    }
+  ],
+  "blocking": [
+    "engagement_context_coherence",
+    "evidence_diversity"
+  ],
+  "decision": {
+    "approve": "all dimensions ≥3 AND VS framing ≥4 AND tile execution depth ≥4 AND four-tuple quantification ≥3",
+    "revise": "1-2 dimensions below floor; orchestrator regenerates via critic-revise-loop",
+    "reject": "3+ dimensions below floor OR engagement_context non-starter violated OR fabricated quotes"
+  },
+  "verdict_rule": {
+    "withhold": "any blocking criterion scored 1",
+    "refine": "any criterion scored below its floor",
+    "pass": "every scored criterion at or above its floor"
+  }
+}

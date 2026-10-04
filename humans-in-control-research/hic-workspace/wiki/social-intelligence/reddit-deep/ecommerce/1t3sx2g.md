@@ -11,44 +11,44 @@ score: 19
 upvote_ratio: 1
 num_comments: 6
 flair: "📰 News"
-extracted_at: "2026-06-24T22:13:57.308Z"
+extracted_at: "2026-08-25T23:08:27.673Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c0"
-    char_span: [0, 529]
+    char_span: [0, 530]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, comments, industry, posted, recap, week, adventurepaul]
     concepts: [e-commerce, ecommerce, comments, industry, posted]
-    token_count: 150
+    token_count: 151
     sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1t3sx2g/ecommerce_industry_news_recap_week_of_may_4th_2026/"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c1"
-    char_span: [531, 2882]
+    char_span: [532, 2883]
     sentence_count: 6
     key_terms: [commerce, ebay, gamestop, offer, unsolicited, investment, anthropic, companies]
     concepts: [commerce, gamestop, unsolicited, investment, offer]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c2"
-    char_span: [2610, 5091]
+    char_span: [2611, 5092]
     sentence_count: 11
     key_terms: [like, original, new, app, creators, licenses, merchant, payment]
     concepts: [original, creators, licenses, merchant, payment]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c3"
-    char_span: [4794, 7439]
+    char_span: [4795, 7440]
     sentence_count: 9
     key_terms: [stripe, advertisers, ids, data, original, content, updated, cookie]
     concepts: [stripe, advertisers, original, content, updated]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c4"
-    char_span: [7098, 9616]
+    char_span: [7099, 9617]
     sentence_count: 11
     key_terms: [tracking, "china's", china, leaving, altman, openai, manus, commission]
     concepts: [tracking, "china's", china, leaving, altman]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1t3sx2g.md#c5"
-    char_span: [9311, 10255]
+    char_span: [9312, 10256]
     sentence_count: 3
     key_terms: [openai, altman, for-profit, brockman, museum, price, lead, musk]
     concepts: [openai, altman, for-profit, brockman, museum]

@@ -17,7 +17,7 @@ const pageWith = (text: string) => async () => text;
 
 describe('STAGE_ORDER', () => {
     it('is the declared contract', () => {
-        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'bindPointers', 'provenance', 'evidenceSlots', 'exhibits', 'prose', 'grade', 'renderPlan', 'deckQuality']);
+        expect(STAGE_ORDER).toEqual(['normalize', 'lexical', 'titles', 'bindPointers', 'provenance', 'claims', 'evidenceSlots', 'exhibits', 'prose', 'grade', 'renderPlan', 'deckQuality']);
     });
 
     it('scrubs before verifying, and counts slots after verification settles', () => {
@@ -25,7 +25,14 @@ describe('STAGE_ORDER', () => {
         // Binding supplies the pointers provenance and the evidence gate read.
         expect(STAGE_ORDER.indexOf('bindPointers')).toBeLessThan(STAGE_ORDER.indexOf('provenance'));
         expect(STAGE_ORDER.indexOf('bindPointers')).toBeLessThan(STAGE_ORDER.indexOf('evidenceSlots'));
+        // The Partner Test judges the SCRUBBED title and runs before pointers are attached.
+        expect(STAGE_ORDER.indexOf('lexical')).toBeLessThan(STAGE_ORDER.indexOf('titles'));
+        expect(STAGE_ORDER.indexOf('titles')).toBeLessThan(STAGE_ORDER.indexOf('bindPointers'));
         expect(STAGE_ORDER.indexOf('provenance')).toBeLessThan(STAGE_ORDER.indexOf('evidenceSlots'));
+        // The claim ledger judges wording against resolved evidence, so it runs after provenance
+        // and before the slot gate counts coverage.
+        expect(STAGE_ORDER.indexOf('provenance')).toBeLessThan(STAGE_ORDER.indexOf('claims'));
+        expect(STAGE_ORDER.indexOf('claims')).toBeLessThan(STAGE_ORDER.indexOf('evidenceSlots'));
         expect(STAGE_ORDER.indexOf('evidenceSlots')).toBeLessThan(STAGE_ORDER.indexOf('prose'));
         // The grader grades the other gates, so it can only run after them.
         expect(STAGE_ORDER.indexOf('prose')).toBeLessThan(STAGE_ORDER.indexOf('grade'));
@@ -169,5 +176,69 @@ describe('bindPointers stage', () => {
         const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(''), groundingChunks: [] });
         const env = res.envelopes.find(e => e.stepId === 'chain:bindPointers')!;
         expect(env.message).toMatch(/no grounding spans/);
+    });
+});
+
+describe('Stage 2.1 (2026-10-01): findings the repair pass can act on', () => {
+    it('exposes banned-phrase sites and strips QA chrome in the lexical stage', async () => {
+        const slides = [slide('s1', {
+            title: 'Advisors lose students between the first two visits',
+            items: [{ heading: 'Firms utilize a comprehensive approach to intake' }],
+            sourceLine: 'Source: Executive 360 Assessment [N/A]',
+        })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith('') });
+        expect(res.slopFindings.length).toBeGreaterThan(0);
+        expect(res.slopFindings.map(f => f.phrase)).toContain('utilize');
+        expect(res.slides[0].composerPayload.sourceLine).toBe('Source: Executive 360 Assessment');
+        expect(res.repairInstruction).toContain('BANNED PHRASING');
+    });
+
+    it('runs the Partner Test and fails the chain on a naked-number title', async () => {
+        const slides = [slide('s1', { title: 'Conversion rose 40% after launch', items: [{ heading: 'Buyers ask the assistant first' }] })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith('') });
+        expect(res.titleReport?.findings[0]?.kinds).toContain('naked_number');
+        expect(res.pass).toBe(false);
+        expect(res.repairInstruction).toContain('Partner Test');
+        expect(res.envelopes.find(e => e.stepId === 'chain:titles')?.nextAction).toBe('narrow_scope');
+    });
+
+    it('a topic-label title asks for a rewrite without failing the chain outright', async () => {
+        const slides = [slide('s1', { title: 'Key Findings', items: [{ heading: 'The registrar exports enrollment weekly' }] })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith('') });
+        expect(res.titleReport?.pass).toBe(false);
+        expect(res.envelopes.find(e => e.stepId === 'chain:titles')?.nextAction).toBe('continue');
+        expect(res.repairInstruction).toContain('Key Findings');
+    });
+
+    it('connective templates are exempt from the Partner Test', async () => {
+        const slides = [{ id: 'c', template: 'slides:cover', status: 'draft', timestamp: 1, title: 'Retention', composerPayload: { title: 'Retention' } }];
+        const res = await runArtifactChain(slides as any, { runId: 'r1', fetchPage: pageWith('') });
+        expect(res.titleReport?.checked).toBe(0);
+        expect(res.titleReport?.pass).toBe(true);
+    });
+});
+
+describe('Stage 2.4 (2026-10-01): the claim ledger is a chain stage', () => {
+    it('blocks a quoted span that is not verbatim in any grounding chunk and hands it to repair', async () => {
+        const chunks = [{ id: 'articles/hed/aa11.md#c1', text: 'The registrar exports enrollment to advancement every Friday afternoon.', sources: [{ n: 'Higher Ed Dive' }] }];
+        const slides = [slide('s1', {
+            title: 'Advancement receives enrollment data a week late',
+            quote: '"The registrar sends enrollment to advancement every Monday morning without fail" [articles/hed/aa11.md#c1]',
+        })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(''), groundingChunks: chunks as any });
+        expect(res.claimReport).not.toBeNull();
+        expect(res.claimReport!.findings.some(f => f.code === 'UNVERIFIED_QUOTE')).toBe(true);
+        expect(res.envelopes.find(e => e.stepId === 'chain:claims')?.nextAction).toBe('narrow_scope');
+        expect(res.repairInstruction).toContain('CLAIM LEDGER');
+    });
+
+    it('passes a slide whose quote is verbatim in the cited chunk', async () => {
+        const chunks = [{ id: 'articles/hed/aa11.md#c1', text: 'The registrar exports enrollment to advancement every Friday afternoon.', sources: [{ n: 'Higher Ed Dive' }] }];
+        const slides = [slide('s1', {
+            title: 'Advancement receives enrollment data a week late',
+            quote: '"The registrar exports enrollment to advancement every Friday afternoon" [articles/hed/aa11.md#c1]',
+        })];
+        const res = await runArtifactChain(slides, { runId: 'r1', fetchPage: pageWith(''), groundingChunks: chunks as any });
+        expect(res.claimReport?.findings.filter(f => f.code === 'UNVERIFIED_QUOTE')).toHaveLength(0);
     });
 });

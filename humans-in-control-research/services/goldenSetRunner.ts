@@ -83,6 +83,17 @@ export interface GoldenSetCaseReport {
     vector: QualityVector;
     /** Single-scalar collapse for discrimination: mean of {completeness, depth, evidence_density, specificity, visual_quality} on 0-5 scale. Used for discrimination delta only; the FULL vector is what the epoch gate consumes. */
     scalar: number;
+    /** R-M4 (2026-10-01): runtime-mechanism signals read from an AIR qualityReport when the
+     *  scored file carries one (`ri`, `vsCandidates`). Absent on HTML twins. */
+    mechanism?: MechanismSignals;
+}
+
+/** R-M4: the two runtime mechanisms measured per artifact. */
+export interface MechanismSignals {
+    /** Reinforcement inference: did the anchored re-ask fire? null = no `ri` field. */
+    riFired: boolean | null;
+    /** Verbalized sampling: distinct-candidate ratio (0..1). null = no `vsCandidates` field. */
+    vsSpread: number | null;
 }
 
 export interface GoldenSetReport {
@@ -102,6 +113,12 @@ export interface GoldenSetReport {
         discrimination: number;
         /** Any exemplar that hit a floor violation. The gate rejects edits that introduce floor violations on the EXEMPLAR side. */
         exemplar_floor_violations: Array<{ case_id: string; dims: string[] }>;
+        /** R-M4: share of scored AIRs whose reinforcement-inference re-ask fired (0 when no AIR carried `ri`). */
+        ri_fire_rate: number;
+        /** R-M4: mean verbalized-sampling distinct-candidate ratio across scored AIRs (0 when none carried `vsCandidates`). */
+        vs_candidate_spread: number;
+        /** R-M4: how many scored records carried each signal, so a 0 is distinguishable from "never measured". */
+        mechanism_samples: { ri: number; vs: number };
     };
     /** Anything that failed to score (file missing, parse error, etc.). */
     errors: Array<{ case_id: string; reason: string }>;
@@ -113,7 +130,7 @@ export interface GoldenSetReport {
 
 const GOLDEN_SET_URL = '/hic-workspace/wiki/eval/golden-set.json';
 
-export async function loadGoldenSet(): Promise<GoldenSet> {
+async function loadGoldenSet(): Promise<GoldenSet> {
     const resp = await fetch(GOLDEN_SET_URL);
     if (!resp.ok) throw new Error(`loadGoldenSet: HTTP ${resp.status} on ${GOLDEN_SET_URL}`);
     return resp.json();
@@ -131,7 +148,7 @@ interface FailureCorpusListing {
     }>;
 }
 
-export async function listFailureCorpusSample(
+async function listFailureCorpusSample(
     n: number = 10,
     kinds?: string[],
 ): Promise<FailureCorpusListing> {
@@ -277,6 +294,7 @@ async function scoreFailureCase(
         id: `failure:${member.engagement}/${member.kind}`,
     };
     const vector = evaluatePareto(input);
+    const mechanism = extractMechanismSignals(parsed);
     return {
         id: input.id!,
         tier: 'failure_corpus_sample',
@@ -284,6 +302,7 @@ async function scoreFailureCase(
         source_path: member.path,
         vector,
         scalar: collapseToScalar(vector),
+        ...(mechanism.riFired !== null || mechanism.vsSpread !== null ? { mechanism } : {}),
     };
 }
 
@@ -335,6 +354,52 @@ function collapseToScalar(v: QualityVector): number {
 }
 
 // ---------------------------------------------------------------------------
+// R-M4 (2026-10-01, plan 9.6): runtime mechanisms as NUMBERS, not claims.
+// Reads AIR qualityReport.ri ({fired} or boolean) and qualityReport.vsCandidates
+// (array of candidates, or a count). Discrimination math is untouched.
+// ---------------------------------------------------------------------------
+
+/** Extract RI / VS signals from anything AIR-shaped. Missing fields -> nulls. */
+export function extractMechanismSignals(record: unknown): MechanismSignals {
+    const out: MechanismSignals = { riFired: null, vsSpread: null };
+    if (!record || typeof record !== 'object') return out;
+    const qr = (record as any).qualityReport;
+    if (!qr || typeof qr !== 'object') return out;
+    const ri = qr.ri;
+    if (typeof ri === 'boolean') out.riFired = ri;
+    else if (ri && typeof ri === 'object' && typeof ri.fired === 'boolean') out.riFired = ri.fired;
+    const vs = qr.vsCandidates;
+    if (Array.isArray(vs)) {
+        if (vs.length === 0) out.vsSpread = 0;
+        else {
+            const norm = (c: unknown): string => {
+                const t = typeof c === 'string' ? c
+                    : (c && typeof c === 'object' && typeof (c as any).text === 'string') ? (c as any).text
+                        : JSON.stringify(c);
+                return String(t).toLowerCase().replace(/\s+/g, ' ').trim();
+            };
+            const distinct = new Set(vs.map(norm)).size;
+            out.vsSpread = distinct / vs.length;
+        }
+    } else if (typeof vs === 'number' && Number.isFinite(vs)) {
+        // a bare count means k candidates were generated; spread is unknown -> treat as fully distinct
+        out.vsSpread = vs > 0 ? 1 : 0;
+    }
+    return out;
+}
+
+/** Aggregate per-record signals into the report numbers. Zero when nothing carried a signal. */
+export function summarizeMechanismSignals(
+    signals: MechanismSignals[],
+): { ri_fire_rate: number; vs_candidate_spread: number; mechanism_samples: { ri: number; vs: number } } {
+    const ri = signals.filter(s => s.riFired !== null);
+    const vs = signals.filter(s => s.vsSpread !== null);
+    const riRate = ri.length > 0 ? ri.filter(s => s.riFired === true).length / ri.length : 0;
+    const vsMean = vs.length > 0 ? vs.reduce((a, s) => a + (s.vsSpread as number), 0) / vs.length : 0;
+    return { ri_fire_rate: riRate, vs_candidate_spread: vsMean, mechanism_samples: { ri: ri.length, vs: vs.length } };
+}
+
+// ---------------------------------------------------------------------------
 // runGate - the entry point used by Step-7 epoch and the Step-6 surface.
 // ---------------------------------------------------------------------------
 
@@ -345,6 +410,10 @@ export interface RunGateOpts {
     failureKinds?: string[];
     /** Limit to specific exemplar deliverables (e.g. ['journey']). Empty = all registered. */
     exemplarDeliverables?: string[];
+    /** R-M4: AIR records (or anything carrying `qualityReport`) from the run window, so the
+     *  benchmark can carry ri_fire_rate / vs_candidate_spread. Failure-corpus JSON members that
+     *  are themselves AIRs contribute automatically. */
+    airRecords?: unknown[];
 }
 
 export async function runGate(opts: RunGateOpts = {}): Promise<GoldenSetReport> {
@@ -391,6 +460,12 @@ export async function runGate(opts: RunGateOpts = {}): Promise<GoldenSetReport> 
         .filter(r => r.vector.floor_violations.length > 0)
         .map(r => ({ case_id: r.id, dims: r.vector.floor_violations }));
 
+    // R-M4: mechanism numbers from scored AIR-shaped cases + any AIR records the caller passed.
+    const mechanism = summarizeMechanismSignals([
+        ...exemplarReports.concat(failureReports).map(r => r.mechanism).filter((m): m is MechanismSignals => !!m),
+        ...(opts.airRecords || []).map(extractMechanismSignals),
+    ]);
+
     return {
         ran_at,
         golden_set_version: gs.version,
@@ -401,6 +476,7 @@ export async function runGate(opts: RunGateOpts = {}): Promise<GoldenSetReport> 
             failure_mean_scalar: fMean,
             discrimination: exMean - fMean,
             exemplar_floor_violations: exFloorViolations,
+            ...mechanism,
         },
         errors,
     };
@@ -505,6 +581,7 @@ export function formatReport(report: GoldenSetReport): string {
     lines.push(`  exemplars: ${report.exemplars.length}, mean=${report.aggregate.exemplar_mean_scalar.toFixed(3)}`);
     lines.push(`  failure sample: ${report.failure_sample.length}, mean=${report.aggregate.failure_mean_scalar.toFixed(3)}`);
     lines.push(`  DISCRIMINATION: ${report.aggregate.discrimination.toFixed(3)}`);
+    lines.push(`  ri_fire_rate: ${(report.aggregate.ri_fire_rate ?? 0).toFixed(3)} (n=${report.aggregate.mechanism_samples?.ri ?? 0}), vs_candidate_spread: ${(report.aggregate.vs_candidate_spread ?? 0).toFixed(3)} (n=${report.aggregate.mechanism_samples?.vs ?? 0})`);
     if (report.aggregate.exemplar_floor_violations.length > 0) {
         lines.push(`   exemplar floor violations:`);
         for (const v of report.aggregate.exemplar_floor_violations) {

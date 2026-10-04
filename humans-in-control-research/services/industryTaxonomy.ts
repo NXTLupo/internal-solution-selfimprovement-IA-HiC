@@ -12,7 +12,7 @@
  * here) and in AGENTS.md PART III "The Industry Dimension".
  */
 
-export const INDUSTRY_VERTICALS = [
+const INDUSTRY_VERTICALS = [
     'higher_ed', 'fundraising', 'healthcare', 'life_sciences', 'saas',
     'enterprise_it', 'retail', 'dtc', 'cpg', 'financial_services', 'insurance',
     'nonprofit', 'government', 'policy', 'media', 'education', 'manufacturing',
@@ -22,43 +22,11 @@ export const INDUSTRY_VERTICALS = [
 export type IndustryVertical = typeof INDUSTRY_VERTICALS[number];
 
 /** Used when content is genuinely vertical-agnostic (pure methodology). */
-export const CROSS_INDUSTRY = 'cross_industry';
+const CROSS_INDUSTRY = 'cross_industry';
 
 const VERTICAL_SET = new Set<string>(INDUSTRY_VERTICALS as readonly string[]);
 
-export function isKnownVertical(v: string): v is IndustryVertical {
-    return VERTICAL_SET.has(v);
-}
 
-/** Human label for display. */
-export function industryLabel(v: string): string {
-    const map: Record<string, string> = {
-        higher_ed: 'Higher Education',
-        fundraising: 'Fundraising / Advancement',
-        healthcare: 'Healthcare',
-        life_sciences: 'Life Sciences',
-        saas: 'B2B SaaS',
-        enterprise_it: 'Enterprise IT',
-        retail: 'Retail',
-        dtc: 'DTC / E-commerce',
-        cpg: 'CPG',
-        financial_services: 'Financial Services',
-        insurance: 'Insurance',
-        nonprofit: 'Nonprofit',
-        government: 'Government',
-        policy: 'Policy',
-        media: 'Media',
-        education: 'Education (K-12)',
-        manufacturing: 'Manufacturing',
-        energy: 'Energy',
-        real_estate: 'Real Estate',
-        ai_research: 'AI Research',
-        workforce: 'Workforce / HR / Talent',
-        sustainability: 'Sustainability / ESG',
-        [CROSS_INDUSTRY]: 'Cross-Industry',
-    };
-    return map[v] || v;
-}
 
 /**
  * Deterministic source/subreddit/title -> industries classifier.
@@ -108,7 +76,7 @@ const SIGNAL_MAP: Array<{ re: RegExp; verticals: IndustryVertical[] }> = [
     { re: /\b(k-?12|school district|edtech|primary education|secondary education|teacher)\b/i, verticals: ['education'] },
 ];
 
-export function classifyIndustries(input: {
+function classifyIndustries(input: {
     source?: string | null;
     title?: string | null;
     url?: string | null;

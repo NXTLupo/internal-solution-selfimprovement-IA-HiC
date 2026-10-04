@@ -69,7 +69,7 @@ export const EvidenceSection: React.FC<SectionProps> = ({ data, headlineScale, i
               }}>{s.value}</div>
               <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.3 }}>{s.label}</div>
               {s.context && <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', lineHeight: 1.5 }}>{s.context}</div>}
-              <div style={{ marginTop: '12px', fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-tertiary)' }}>{s.source}</div>
+              <div style={{ marginTop: '12px', fontSize: '10px', fontFamily: "var(--font-mono, 'JetBrains Mono'), monospace", color: 'var(--text-tertiary)' }}>{s.source}</div>
             </div>
           );
         })}

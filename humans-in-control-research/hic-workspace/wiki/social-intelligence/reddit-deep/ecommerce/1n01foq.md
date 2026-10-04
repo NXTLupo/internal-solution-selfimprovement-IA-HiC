@@ -7,14 +7,14 @@ subreddit: "ecommerce"
 title: "E-commerce Industry News Recap 🔥 Week of Aug 25th, 2025"
 author: "adventurepaul"
 date: "2025-08-25T20:18:54.000Z"
-score: 16
+score: 17
 upvote_ratio: 0.91
 num_comments: 5
 flair: ""
-extracted_at: "2026-06-24T22:13:57.305Z"
+extracted_at: "2026-08-25T23:08:27.677Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z."
+engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1n01foq.md#c0"
     char_span: [0, 1943]
@@ -48,7 +48,7 @@ chunks:
     concepts: [amazon, companies, merchants, conversations, google]
     token_count: 512
   - id: "social-intelligence/reddit-deep/ecommerce/1n01foq.md#c5"
-    char_span: [9192, 10370]
+    char_span: [9192, 10371]
     sentence_count: 4
     key_terms: [description, ebay, offering, sellers, lower-than-expected, ai-generated, howamanflies, increasingly]
     concepts: [description, offering, sellers]
@@ -57,7 +57,7 @@ chunks:
 # E-commerce Industry News Recap 🔥 Week of Aug 25th, 2025
 
 Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1n01foq/ecommerce_industry_news_recap_week_of_aug_25th/)
-Posted by **adventurepaul** · **16↑** · **5 comments**
+Posted by **adventurepaul** · **17↑** · **5 comments**
 
 Hi r/ecommerce - I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 4 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
 ___

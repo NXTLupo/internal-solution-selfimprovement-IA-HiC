@@ -44,7 +44,7 @@ export interface EngagementSnapshot {
  * tokens to produce. The optional LLM enrichment pass (`enrichWithInsights`)
  * adds a narrative summary if the caller wants one.
  */
-export function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
+function buildRetrospectiveMarkdown(snap: EngagementSnapshot): string {
     const slug = slugifyGoal(snap.researchGoal);
     const lines: string[] = [];
 

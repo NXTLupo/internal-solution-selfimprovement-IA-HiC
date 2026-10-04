@@ -11,7 +11,7 @@
 //
 // Each stage is a single LLM call with a tightly scoped system prompt and
 // structured output. The output of stage N is the input to stage N+1.
-// Honors #NXT (default) and #NU brand modifiers in the Visual Designer stage.
+// Honors #NXT (default), #NU and #DECIEM brand modifiers in the Visual Designer stage.
 //
 // Routes through HiC's existing Gemini proxy at /api/ai/gemini-compat (OpenAI-
 // compatible wire format the Gemini 3.1 Pro endpoint accepts).
@@ -160,12 +160,11 @@ const STAGE_MODEL = 'gemini-3.1-pro-preview';
 // (concept, interaction, visual, recipe) stay on STAGE_MODEL (Gemini 3.1 Pro) since they
 // reason/plan rather than emit the shipping React file. Opus has a Gemini fallback at each
 // code call so a single-provider outage never kills a build.
-// 2026-06-28 - TEMPORARY: Opus 4.8 is at its Anthropic monthly quota cap (until
-// 2026-07-01). Route the code stage to Gemini 3.1 Pro (off-quota, strongest available
-// code model; matches the proto planning stages which already use STAGE_MODEL=Pro), so
-// #proto builds work at good quality without Opus. REVERSIBLE: restore 'claude-opus-4-8'
-// after the cap lifts.
-const CODE_MODEL = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8';
+// 2026-06-28 - the Opus quota cap workaround now lives in aiRouter (OPUS_CAP_ACTIVE);
+// this file only asks the authority for the code-stage model.
+// 2026-09-30 (plan Stage 0.5): resolved through the ONE routing authority (cap-aware there);
+// Claude Opus 5.5 when the cap is lifted, Gemini 3.1 Pro while OPUS_CAP_ACTIVE.
+const CODE_MODEL = artifactModelFor('proto');
 
 // 2026-05-14 - Design exemplar curator (Behance reference library). Pulls
 // matching exemplars by concept/interaction-pattern/brand-hashtag and
@@ -173,7 +172,7 @@ const CODE_MODEL = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8
 // system prompt. Replaces vague "clean modern" aesthetic placeholders with
 // named, evidence-backed visual references the coder must visually pass
 // against. See: .claude/skills/design-exemplar-curator/SKILL.md
-import { OPUS_CAP_ACTIVE, HIC_CACHE_BREAK as PROTO_CACHE_BREAK } from './aiRouter';
+import { OPUS_CAP_ACTIVE, HIC_CACHE_BREAK as PROTO_CACHE_BREAK, artifactModelFor, CLAUDE_REASONING_LABEL } from './aiRouter';
 import { curateExemplarsForBrief, buildStage4InjectionBlock } from './designExemplarCurator';
 // 2026-05-14 - Experience Prototype Composer (STRICT-RULE). Mandates that
 // Stage 4 compose every region from the AI Experience Patterns catalog at
@@ -183,8 +182,13 @@ import { curateExemplarsForBrief, buildStage4InjectionBlock } from './designExem
 // non-prototyping flows are unaffected. See:
 // .claude/skills/experience-prototype-composer/SKILL.md
 import { buildComposerInjection } from './experiencePrototypeComposer';
+import type { BrandVariant } from './presentationTypes';
 
-export type Brand = 'NXT' | 'NU';
+// 2026-10-01 - the brand type is the shared BrandVariant ('NXT' | 'NU' | 'DECIEM'); the three
+// brand switches below (hashtag, composer override) resolve every member, none omitted.
+export type Brand = BrandVariant;
+const BRAND_HASHTAG: Record<Brand, '#NXT' | '#NU' | '#DECIEM'> = { NXT: '#NXT', NU: '#NU', DECIEM: '#DECIEM' };
+const BRAND_OVERRIDE: Record<Brand, 'nxt' | 'nu' | 'deciem'> = { NXT: 'nxt', NU: 'nu', DECIEM: 'deciem' };
 
 export interface ExperienceBrief {
     concept_title: string;
@@ -801,7 +805,7 @@ async function callClaudeStage(
     // 600s ceiling (matches the proxy) and DON'T retry a true timeout — fail once
     // so the caller's Gemini fallback fires fast. Transient 5xx/429 still retry.
     const data = await callAIWithRetry('anthropic', body, {
-        label: 'Prototype Stage (Opus 4.8)',
+        label: `Prototype Stage (${CLAUDE_REASONING_LABEL})`,
         requestTimeoutMs: 600_000,
         retryOnTimeout: false,
     });
@@ -840,17 +844,17 @@ async function callOpusJsonStage<T>(
         let parsed = await tryOpus();
         const missing = validate(parsed);
         if (missing.length === 0) return parsed;
-        console.warn(`[${stageName}] (Opus 4.8) missing required keys: ${missing.join(', ')} - one repair retry`);
+        console.warn(`[${stageName}] (${CLAUDE_REASONING_LABEL}) missing required keys: ${missing.join(', ')} - one repair retry`);
         parsed = await tryOpus(
             `IMPORTANT - your previous response was missing these required keys: ${missing.join(', ')}. ` +
             `Re-emit valid JSON with EVERY required field present and matching the schema exactly. Output JSON only.`,
         );
         if (validate(parsed).length === 0) return parsed;
-        throw new Error(`${stageName} (Opus 4.8) still missing required keys after retry`);
+        throw new Error(`${stageName} (${CLAUDE_REASONING_LABEL}) still missing required keys after retry`);
     } catch (opusErr: any) {
         // RESILIENCE fallback (NOT a model downgrade by choice): Gemini 3.1 Pro only when
         // Opus fails / returns invalid JSON, so a single-provider outage never kills a build.
-        console.warn(`[${stageName}] Opus 4.8 failed (${opusErr?.message || opusErr}) - resilience fallback to Gemini 3.1 Pro.`);
+        console.warn(`[${stageName}] ${CLAUDE_REASONING_LABEL} failed (${opusErr?.message || opusErr}) - resilience fallback to Gemini 3.1 Pro.`);
         return callGeminiJsonStage<T>(systemPrompt, userContent, requiredKeys, stageName, thinkingBudget, maxOutputTokens);
     }
 }
@@ -1123,7 +1127,7 @@ const SCREEN_MARKER = '/*__SCREENS__*/';
 // from the rich concept text (proper-noun phrases). The model fills gaps but NEVER invents a name
 // where a corpus value exists; the reviewer audits seed-vs-session distribution (every bucket must
 // find data it can exercise). Pure + deterministic - no model call.
-export function deriveSeedGrounding(
+function deriveSeedGrounding(
     brief: ExperienceBrief,
     sessions: SimulatedUserSession[],
     richConcept: string,
@@ -1456,10 +1460,10 @@ async function buildAppViaPods(args: {
             interactionPattern: specAny?.primary_interaction_pattern || briefAny.interaction_pattern,
             aestheticKeywords: designAny?.aesthetic_keywords || briefAny.visual_direction?.aesthetic_keywords || [],
             committedFrame,
-            brandHashtag: brand === 'NU' ? '#NU' : '#NXT',
+            brandHashtag: BRAND_HASHTAG[brand] || '#NXT',
         });
         if (exemplarRefs.length > 0) {
-            exemplarBlock = buildStage4InjectionBlock(exemplarRefs, brand === 'NU' ? '#NU' : '#NXT') + '\n\n';
+            exemplarBlock = buildStage4InjectionBlock(exemplarRefs, BRAND_HASHTAG[brand] || '#NXT') + '\n\n';
             console.log(`[Orchestrator] ${exemplarRefs.length} design exemplars injected (framing=${exemplarRefs[0].framing_letter}/${exemplarRefs[0].framing_name})`);
         }
     } catch (exErr: any) {
@@ -1503,7 +1507,7 @@ async function buildAppViaPods(args: {
         const sliced = sliceManifestForCategories(componentManifest, screen.component_categories || []);
         const podSystem = buildPodSystem(brand, sliced, contract.shared_code, contract);
         const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPROTO COMPONENTS TO COMPOSE FROM (exact manifest proto/<Name> ids - build each region from one of these, following its documented anatomy): ${(screen.component_ids || []).join(', ') || '(none specified - choose the closest proto/<Name> components from the manifest categories above)'}\n\nSCREEN SPEC:\n${screen.spec}${corrective ? `\n\n${corrective}` : ''}`;
-        let engine = 'Opus 4.8';
+        let engine = CODE_MODEL;
         try {
             let text: string;
             try {
@@ -1628,12 +1632,37 @@ async function buildAppViaPods(args: {
     // shipped as the entire prototype (420-char comment -> blank window). Guard: accept
     // corrected_code only if it actually looks like the app (defines `App`, mentions a Screen,
     // and is within a sane size band of the assembled file). Otherwise keep `assembled`.
-    const cc = critique.corrected_code ? stripCodeFences(critique.corrected_code) : '';
-    const correctedIsSubstantive =
-        cc.length > 0 &&
-        cc.includes('function App') &&
-        /Screen_\w+/.test(cc) &&
-        cc.length >= assembled.length * 0.5; // a real correction is the whole file, not a stub
+    let cc = critique.corrected_code ? stripCodeFences(critique.corrected_code) : '';
+    const _isSubstantive = (code: string) => code.length > 0 && code.includes('function App') && /Screen_\w+/.test(code) && code.length >= assembled.length * 0.5;
+    // 2026-10-01 (plan 2.6 / C8): a `refine` verdict used to be recorded and shipped unchanged. Now
+    // ONE bounded rebuild runs: the reviewer is re-asked with its own issues anchored (the RI
+    // contract) to emit the corrected file. A second refine stops (progress guard pattern); the
+    // verdict and the rebuild count ride on the critique so the receipt and the AIR tell the truth.
+    (critique as any).rebuilds = 0;
+    if (critique.verdict === 'refine' && !_isSubstantive(cc) && (critique.issues || []).length) {
+        try {
+            fire(5, 'Integration Reviewer', 'running', `refine verdict: one bounded rebuild from ${critique.issues!.length} issue(s)`);
+            const refineUser = `${reviewerUser}\n\nYOUR PREVIOUS VERDICT WAS "refine" WITH THESE ISSUES (apply EVERY fix below to the merged code and return the COMPLETE corrected file in corrected_code; keep everything else exactly as it is):\n${(critique.issues || []).map((i: any, n: number) => `${n + 1}. [${i.category}/${i.severity}] ${i.description} FIX: ${i.fix}`).join('\n')}`;
+            let second: string;
+            try { second = await callClaudeStage(POD_REVIEWER_SYSTEM, refineUser, 64000); }
+            catch { second = await callGeminiStage(POD_REVIEWER_SYSTEM, refineUser, true, 'high', 64000); }
+            const re2 = tryParseJson<CritiqueReport>(second, 'Integration Reviewer (refine)');
+            const cc2 = re2?.corrected_code ? stripCodeFences(re2.corrected_code) : '';
+            (critique as any).rebuilds = 1;
+            if (_isSubstantive(cc2)) {
+                cc = cc2;
+                critique.corrected_code = cc2;
+                critique.verdict = (re2.verdict === 'ship' || re2.verdict === 'rebuild') ? re2.verdict : 'refine';
+                critique.issues = Array.isArray(re2.issues) ? re2.issues : critique.issues;
+                fire(5, 'Integration Reviewer', 'running', `rebuild produced a corrected file (${cc2.length}c); verdict ${critique.verdict}`);
+            } else {
+                fire(5, 'Integration Reviewer', 'running', 'rebuild returned no substantive correction; the deterministic assembled file ships with the refine verdict recorded');
+            }
+        } catch (refineErr: any) {
+            console.warn('[Reviewer] refine rebuild failed (non-fatal):', refineErr?.message || refineErr);
+        }
+    }
+    const correctedIsSubstantive = _isSubstantive(cc);
     if (critique.corrected_code && !correctedIsSubstantive) {
         console.warn(`[Reviewer] corrected_code rejected as non-substantive (${cc.length}c vs assembled ${assembled.length}c) - shipping deterministic assembled file.`);
     }
@@ -1850,7 +1879,7 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         const composerEarly = await buildComposerInjection({
             prompt: String(opts.concept || briefAnyEarly.user_prompt || briefAnyEarly.concept_title || ''),
             concept: briefAnyEarly.concept_title || briefAnyEarly.one_line_thesis || briefAnyEarly.demonstrated_moment || opts.concept || '',
-            brand_override: brand === 'NU' ? 'nu' : 'nxt',
+            brand_override: BRAND_OVERRIDE[brand] || 'nxt',
         });
         if (composerEarly.active && composerEarly.injection) {
             composerPreface = composerEarly.injection + '\n\n';

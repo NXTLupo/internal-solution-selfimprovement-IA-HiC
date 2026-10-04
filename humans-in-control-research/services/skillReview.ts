@@ -7,7 +7,7 @@
  * SAFE, whether it CONTRADICTS the skill it is editing, or whether anyone has
  * ever run the skill afterwards. Ungated patch drift is a confirmed defect on
  * this repo: eight mid-sentence near-duplicate appends accreted into
- * deck-narrative-composer/SKILL.md before the 2026-06-23 fix.
+ * the former deck-narrative-composer/SKILL.md (now deck-composer) before the 2026-06-23 fix.
  *
  * Ported from deer-flow's `contracts/skill_review/review_report.v1.schema.json`
  * plus `skills/public/skill-reviewer/references/{review-rubric,effect-verification}.md`.

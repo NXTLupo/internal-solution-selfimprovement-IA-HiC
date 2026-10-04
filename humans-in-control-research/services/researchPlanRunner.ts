@@ -208,7 +208,7 @@ async function persistTrace(
     }
 }
 
-export async function runResearchPlan(input: RunnerInput): Promise<RunnerResult> {
+async function runResearchPlan(input: RunnerInput): Promise<RunnerResult> {
     const { plan, engagementSlug, signal } = input;
     const proxyBase = input.proxyBase || PROXY_BASE;
     const trace: ReflectionTraceEntry[] = [];

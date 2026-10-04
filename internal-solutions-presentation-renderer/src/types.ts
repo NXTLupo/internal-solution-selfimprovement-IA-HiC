@@ -9,7 +9,9 @@
 // schema changes, update both files. Iteration 2 will replace this with a
 // proper monorepo `packages/presentation-types/` shared package.
 
-export type BrandVariant = 'NXT' | 'NU';
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company) is the third brand mode; mirrors the canonical
+// BrandVariant in humans-in-control-research/services/presentationTypes.ts.
+export type BrandVariant = 'NXT' | 'NU' | 'DECIEM';
 export type ThemeMode = 'dark' | 'light';
 
 export type SectionKind =

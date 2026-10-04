@@ -75,6 +75,23 @@ export interface AirQualityReport {
     deterministicFailures: string[];
     reviewScores: Record<string, number>;
     promotedToSkillOpt: boolean;
+    /** true once a deliverable chain patched this report; false = never gate-checked */
+    chainRan?: boolean;
+    /** R-M4 (2026-10-01): reinforcement-inference record for this artifact. Mirrors
+     *  RepairResult.ri (services/artifactRepair.ts): per-family finding counts before and
+     *  after the anchored re-ask, how many resolved, how many survived. `fired` false with
+     *  empty maps means the chain never had to re-ask. goldenSetRunner.extractMechanismSignals
+     *  reads `ri.fired`. */
+    ri?: {
+        fired: boolean;
+        before: Record<string, number>;
+        after: Record<string, number>;
+        resolved: number;
+        survived: number;
+    };
+    /** R-M4 (2026-10-01): verbalized-sampling candidates the gate chose among (titles, theses,
+     *  names). goldenSetRunner reads the distinct ratio as `vs_candidate_spread`. */
+    vsCandidates?: string[];
 }
 
 export interface ArtifactAIR {
@@ -105,6 +122,9 @@ export interface BuildAirInput {
     renderPlan?: Partial<RenderPlan>;
     trace?: RunTrace;
     shadowMode?: boolean;
+    /** R-M4: copied onto qualityReport.ri / qualityReport.vsCandidates when present. */
+    ri?: AirQualityReport['ri'];
+    vsCandidates?: string[];
 }
 
 const EMPTY_HIERARCHY: InsightHierarchy = {
@@ -185,9 +205,17 @@ export function buildAir(input: BuildAirInput): { air: ArtifactAIR; entry: Artif
         toolTrace: trace.toolSteps,
         qualityReport: {
             shadowMode: input.shadowMode !== false,
-            deterministicFailures: [],
+            // 2026-10-01 (plan Stage 0.5, audit E3): 77 of 93 stored AIRs were never chain-checked
+            // yet read `deterministicFailures: []`. A record now says UNCHECKED until a chain
+            // (airPostChain / htmlArtifactChain) patches it; a clean empty list is earned, never default.
+            chainRan: false,
+            deterministicFailures: ['unchecked'],
             reviewScores: {},
             promotedToSkillOpt: false,
+            // R-M4 (2026-10-01): the mechanism signals ride on the AIR so the golden-set runner
+            // measures ri fire rate and vs candidate spread from records, not from claims.
+            ...(input.ri ? { ri: input.ri } : {}),
+            ...(Array.isArray(input.vsCandidates) && input.vsCandidates.length ? { vsCandidates: input.vsCandidates.slice(0, 32) } : {}),
         },
     };
     return { air, entry };

@@ -227,3 +227,40 @@ describe('the record reports the pass that did the work', () => {
         expect(rec.repair).toBeNull();
     });
 });
+
+describe('Stage 2.1 (2026-10-01): titles, slop, deck plan, RI and withheld slides reach the record', () => {
+    it('records the new verdict families and mirrors them into qualityReport', async () => {
+        const { noteDeckPlanVerdict } = await import('./deckPlanGate');
+        noteDeckPlanVerdict({ pass: false, violations: ['slides:numbered-themes used 4 times (max 2)'], visualRatio: 0.3, templates: 9, remapped: [{ index: 5, from: 'slides:numbered-themes', to: 'slides:evidence-table' }], resolution: 'deterministic_remap' });
+        const c = chain({
+            slopFindings: [{ slideId: 's1', field: 'items[0].heading', phrase: 'utilize', severity: 'high', sentence: 'x' }],
+            titleReport: { checked: 3, pass: false, findings: [
+                { slideId: 's1', template: 'slides:stat-row', title: 'Conversion rose 40%', kinds: ['naked_number'], detail: 'd', failing: true },
+                { slideId: 's2', template: 'slides:block-quote', title: 'Advancement data silos', kinds: ['no_verb'], detail: 'd', failing: false },
+            ] },
+        });
+        const repair = {
+            slides: [{ id: 's1' }], rounds: [{ round: 1, slidesTouched: 1, fieldsEdited: 2, skippedLocked: 0, failed: 0, pass: false, violations: 1 }],
+            finalChain: c, envelope: { status: 'partial' }, stopReason: 'no_progress',
+            ri: { before: { slop: 1, titles: 1 }, after: { slop: 1, titles: 1 }, resolved: 0, survived: 2, improved: false },
+        } as any;
+        const r = buildPostChainRecord(c, repair, undefined, [{ slideId: 's1', reason: 'title carries a bare figure after repair' }]);
+        expect(r.titles?.findings.map(f => f.slideId)).toEqual(['s1', 's2']);
+        expect(r.slop).toEqual({ sites: 1, phrases: ['utilize'] });
+        expect(r.deckPlan).toMatchObject({ pass: false, resolution: 'deterministic_remap', remapped: 1 });
+        expect(r.ri?.improved).toBe(false);
+        expect(r.withheld).toHaveLength(1);
+
+        fetchMock.mockResolvedValue({ ok: true, json: async () => ({ path: 'p' }) });
+        await patchAirWithPostChain(r);
+        const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+        const failures: string[] = body.patch.qualityReport.deterministicFailures;
+        expect(failures).toContain('title:naked_number@s1');
+        expect(failures).not.toContain('title:no_verb@s2');      // detect-only never reads as a failure
+        expect(failures).toContain('slop:utilize');
+        expect(failures).toContain('deckplan:1');
+        expect(failures).toContain('withheld:s1');
+        expect(body.patch.qualityReport.reviewScores).toMatchObject({ deck_plan_violations: 1, title_findings: 1, slop_sites: 1, withheld_slides: 1 });
+        noteDeckPlanVerdict(null);
+    });
+});

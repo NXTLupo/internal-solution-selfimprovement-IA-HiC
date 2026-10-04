@@ -482,6 +482,10 @@ services:
       # + institution-manifest.json AND write scheduler-state.json. Previously
       # only wiki/ was exposed; the wiki path stays reachable at /hic-workspace/wiki.
       - ./humans-in-control-research/hic-workspace:/hic-workspace
+      # 2026-10-01 (plan Stage 5 / C2): POST /api/epochs/run-batch runs scripts/skillopt-batch.sh
+      # from inside the proxy; the scripts dir was never mounted (the old autotrigger probed
+      # /app/scripts and silently found nothing).
+      - ./humans-in-control-research/scripts:/app/scripts:ro
       # 2026-05-22 — self-improvement loop, Phase 3. Skills are mounted RW
       # so the learningEngine can patch SKILL.md files in response to feedback
       # clusters. Versioned archives go under each skill's _versions/ subdir.

@@ -494,7 +494,7 @@ const SECTION_ITEM_SCHEMA_FLAT = {
 };
 
 // Exposed for runtime validation in narrativeComposer.validateAndFinalize.
-export const SECTION_DATA_SHAPES_EXPORT: Readonly<Record<string, { required: readonly string[]; arrayFields: readonly string[] }>> = {
+const SECTION_DATA_SHAPES_EXPORT: Readonly<Record<string, { required: readonly string[]; arrayFields: readonly string[] }>> = {
   hero: { required: ['title'], arrayFields: [] },
   context: { required: ['situation', 'complication', 'resolution'], arrayFields: [] },
   themes: { required: [], arrayFields: ['themes'] },
@@ -511,7 +511,7 @@ export const SECTION_DATA_SHAPES_EXPORT: Readonly<Record<string, { required: rea
   cta: { required: ['title'], arrayFields: [] },
 } as const;
 
-export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
+const PRESENTATION_PAYLOAD_JSONSCHEMA = {
   type: 'object',
   required: ['schemaVersion', 'meta', 'narrativeArc', 'sections'],
   properties: {

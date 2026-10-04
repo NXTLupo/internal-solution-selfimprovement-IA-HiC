@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PersonaArtifact } from '../schemas/personaArtifact';
 import type { DesignTokens } from '../services/designMdLoader';
+import { paletteFor } from '../services/brandPalette';
 
 interface Props {
     artifact: PersonaArtifact;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export const NxtDocViewer: React.FC<Props> = ({ artifact, tokens, onFieldEdit }) => {
-    const palette = tokens.brands[artifact.brand] as Record<string, string>;
+    const palette = paletteFor(tokens, artifact.brand);
     const primary = palette.primary;
     const accent = palette.accent;
     const panel = palette.panel ?? '#FAFAFA';

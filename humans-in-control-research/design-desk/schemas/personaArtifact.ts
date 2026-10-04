@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-export const BrandSchema = z.enum(['nxt', 'nu']);
+// 2026-10-01 - DECIEM is the third brand mode (components/slideTemplates/brands.ts BrandId).
+export const BrandSchema = z.enum(['nxt', 'nu', 'deciem']);
 
 export const PersonaArtifactSchema = z.object({
     id: z.string().min(1),

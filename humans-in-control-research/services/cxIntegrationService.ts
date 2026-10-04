@@ -75,7 +75,7 @@ async function safeFetch(url: string, options?: RequestInit): Promise<Response> 
 
 // --- SERVICE HEALTH CHECKS ---
 
-export async function checkServiceHealth(): Promise<ServiceStatus[]> {
+async function checkServiceHealth(): Promise<ServiceStatus[]> {
     const checks = [
         { name: 'Reddit Ripper', url: CX_PROXY_URL },
         { name: 'Social Research', url: SOCIAL_RESEARCH_URL },
@@ -102,7 +102,7 @@ export async function checkServiceHealth(): Promise<ServiceStatus[]> {
  * Start a social data collection job.
  * Returns a job ID for polling.
  */
-export async function startCollection(config: SocialCollectionConfig): Promise<string> {
+async function startCollection(config: SocialCollectionConfig): Promise<string> {
     const body: any = {
         source: config.source,
         target: config.target,
@@ -131,7 +131,7 @@ export async function startCollection(config: SocialCollectionConfig): Promise<s
  * Poll job status until completion.
  * Returns the final job state.
  */
-export async function pollCollectionJob(jobId: string, onProgress?: (job: CollectionJob) => void): Promise<CollectionJob> {
+async function pollCollectionJob(jobId: string, onProgress?: (job: CollectionJob) => void): Promise<CollectionJob> {
     let attempts = 0;
     const maxAttempts = 120; // 10 minutes at 5s intervals
 
@@ -157,7 +157,7 @@ export async function pollCollectionJob(jobId: string, onProgress?: (job: Collec
 /**
  * Download collected data as JSON.
  */
-export async function downloadCollectionData(jobId: string, filename: string): Promise<any> {
+async function downloadCollectionData(jobId: string, filename: string): Promise<any> {
     const resp = await safeFetch(`${REDDIT_RIPPER_URL}/download/${jobId}/${filename}`);
     if (!resp.ok) throw new Error(`Download failed: ${resp.status}`);
     return resp.json();
@@ -206,7 +206,7 @@ export async function collectSocialData(
  * Start topic modeling analysis.
  * Returns a job ID for polling.
  */
-export async function startTopicModeling(subreddit: string, numPosts: number = 200): Promise<string> {
+async function startTopicModeling(subreddit: string, numPosts: number = 200): Promise<string> {
     const resp = await safeFetch(`${SOCIAL_RESEARCH_URL}/api/topic-model/analyze-async`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -228,7 +228,7 @@ export async function startTopicModeling(subreddit: string, numPosts: number = 2
 /**
  * Poll topic modeling job.
  */
-export async function pollTopicModelingJob(jobId: string, onProgress?: (status: TopicModelJob) => void): Promise<any> {
+async function pollTopicModelingJob(jobId: string, onProgress?: (status: TopicModelJob) => void): Promise<any> {
     let attempts = 0;
     const maxAttempts = 120;
 
@@ -251,7 +251,7 @@ export async function pollTopicModelingJob(jobId: string, onProgress?: (status: 
 /**
  * Start sentiment analysis.
  */
-export async function startSentimentAnalysis(subreddit: string, query: string, limit: number = 50): Promise<string> {
+async function startSentimentAnalysis(subreddit: string, query: string, limit: number = 50): Promise<string> {
     const resp = await safeFetch(`${SOCIAL_RESEARCH_URL}/api/llm-analyzer/analyze-sentiment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -274,7 +274,7 @@ export async function startSentimentAnalysis(subreddit: string, query: string, l
 /**
  * Query the RAG system with a question about indexed social data.
  */
-export async function queryRAG(prompt: string, subreddit: string): Promise<{ answer: string; sources: any[] }> {
+async function queryRAG(prompt: string, subreddit: string): Promise<{ answer: string; sources: any[] }> {
     const resp = await safeFetch(`${SOCIAL_RESEARCH_URL}/api/rag/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -323,7 +323,7 @@ export async function generateJourneyMap(
 /**
  * Convert analysis data to a text file blob for Journey Mapper ingestion.
  */
-export function prepareJourneyData(themes: any[], personas: any[], researchGoal: string): Blob {
+function prepareJourneyData(themes: any[], personas: any[], researchGoal: string): Blob {
     const content = [
         `Research Goal: ${researchGoal}`,
         '',

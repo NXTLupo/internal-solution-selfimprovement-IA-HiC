@@ -18,7 +18,7 @@ triggers:
 
 ## You Are
 
-The discipline that prevents `html2canvas` from firing before React has finished painting. Right now `exportService.ts` calls `html2canvas(element)` and the function returns a canvas. Often the canvas is blank because React was still mid-effect-flush when capture happened. The user opens a 12.8 MB PPTX and finds 27 of 30 slides empty.
+The discipline that prevents `html2canvas` from firing before React has finished painting. Right now the html2canvas sites call `html2canvas(element)` and the function returns a canvas. Often the canvas is blank because React was still mid-effect-flush when capture happened. The user opens a 12.8 MB PPTX and finds 27 of 30 slides empty.
 
 You are not html2canvas. You are the wrapper around html2canvas. You guarantee that by the time the canvas-capture call fires, every prerequisite is met:
 
@@ -33,7 +33,7 @@ You emit a single async function that resolves to the capture-ready DOM element,
 
 ## When to activate
 
-- Before every call to `html2canvas()` in `services/exportService.ts`
+- Before every call to `html2canvas()` in the html2canvas sites (`components/CorpusChatPanel.tsx` handleExportDeckPDF, `components/SlideCanvas.tsx`, `components/DeliverableCard.tsx`, `components/OutputBoard.tsx`, `components/ResultsView.tsx`; the legacy exportService.ts was deleted, and the PPTX path is the gold stage-HTML exporter, which does not use html2canvas)
 - Before every PPTX export that snapshots interactive slides
 - Before every PDF export that builds pages from rendered HTML
 - Before every PNG export
@@ -229,5 +229,5 @@ try {
 - **Proactive partner**: `pre_export_dom_audit.py` hook — verifies the export-mode CSS class is wired before exports run
 - **Reactive partner**: `export-render-verifier` subagent — catches what slips past this skill
 - **Surfaces via**: `fallback-event-surfacing` skill — paint-sync failures become visible degradation events
-- **Implementation site**: `humans-in-control-research/services/exportService.ts` — the paintSync function lives here, called from every existing html2canvas site
+- **Implementation site**: `humans-in-control-research/components/CorpusChatPanel.tsx` — the paintSync function lives here, called from every existing html2canvas site
 - **Pairs with** the recovery story in `services/aiOutputRepair.ts` (from the `ai-output-syntax-repair` skill) — together they cover the two largest classes of HiC silent failures

@@ -16,7 +16,7 @@
  * the proto/<Name> fidelity check, and violated never-hardcode. Both removed.
  *
  * This module:
- *   1. Parses the user's hashtag - `#proto <experience-name> #NU | #NXT`
+ *   1. Parses the user's hashtag - `#proto <experience-name> #NU | #NXT | #DECIEM`
  *   2. Loads the catalog at runtime (cached for the session)
  *   3. Returns an advisory injection block: experience-moment names (by
  *      human-readable label, NOT class roots) + the deep-synthetic-data contract
@@ -30,7 +30,8 @@
 const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://127.0.0.1:5012';
 const CATALOG_URL = `${PROXY_BASE}/hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json`;
 
-export type ComposerBrand = 'nxt' | 'nu';
+// 2026-10-01 - DECIEM (The Abnormal Beauty Company) is the third brand mode.
+export type ComposerBrand = 'nxt' | 'nu' | 'deciem';
 
 export interface PatternEntry {
     id: string;
@@ -68,7 +69,7 @@ export interface HashtagParsed {
 // Hashtag parsing
 // ─────────────────────────────────────────────────────────
 /**
- * Parse `#proto <experience-name> #NU | #NXT` from a user prompt.
+ * Parse `#proto <experience-name> #NU | #NXT | #DECIEM` from a user prompt.
  *
  * Examples:
  *   "#proto talent-match #NU build the candidate match experience"
@@ -83,7 +84,7 @@ export interface HashtagParsed {
  *   "just build me something"
  *     → { has_proto: false, experience_name: null, brand: "nxt" }     (skill does NOT activate)
  */
-export function parseProtoHashtag(prompt: string): HashtagParsed {
+function parseProtoHashtag(prompt: string): HashtagParsed {
     if (!prompt || typeof prompt !== 'string') {
         return { has_proto: false, experience_name: null, brand: 'nxt', raw: prompt || '' };
     }
@@ -92,19 +93,17 @@ export function parseProtoHashtag(prompt: string): HashtagParsed {
     const has_proto = !!protoMatch;
     const experience_name = protoMatch ? protoMatch[1].toLowerCase() : null;
 
-    // Brand hashtag - last #NU or #NXT wins. Case-insensitive, may include suffix like #NU-institutional.
+    // Brand hashtag - the LAST of #NU / #NXT / #DECIEM wins. Case-insensitive, may include a
+    // suffix like #NU-institutional. Default to NXT if no brand hashtag is found.
+    const candidates: Array<{ brand: ComposerBrand; index: number }> = [];
     const nuMatch = prompt.match(/#nu(?:[-_a-z0-9]*)?\b/i);
     const nxtMatch = prompt.match(/#nxt(?:[-_a-z0-9]*)?\b/i);
-    let brand: ComposerBrand = 'nxt';
-    if (nuMatch && nxtMatch) {
-        // Use whichever appears LATER in the prompt
-        brand = (nuMatch.index! > nxtMatch.index!) ? 'nu' : 'nxt';
-    } else if (nuMatch) {
-        brand = 'nu';
-    } else if (nxtMatch) {
-        brand = 'nxt';
-    }
-    // Default to NXT if no brand hashtag found
+    const deciemMatch = prompt.match(/#deciem(?:[-_a-z0-9]*)?\b/i);
+    if (nuMatch) candidates.push({ brand: 'nu', index: nuMatch.index! });
+    if (nxtMatch) candidates.push({ brand: 'nxt', index: nxtMatch.index! });
+    if (deciemMatch) candidates.push({ brand: 'deciem', index: deciemMatch.index! });
+    candidates.sort((a, b) => b.index - a.index);
+    const brand: ComposerBrand = candidates[0]?.brand ?? 'nxt';
     return { has_proto, experience_name, brand, raw: prompt };
 }
 
@@ -126,14 +125,14 @@ const EVERGREEN_CATALOG_FALLBACK: CatalogShape = {
         min_patterns_per_prototype: 8,
         max_patterns_per_prototype: 18,
         must_annotate_with: 'pattern-id comment per region',
-        must_set_brand_attribute: 'data-brand="nxt" or data-brand="nu" on root',
+        must_set_brand_attribute: 'data-brand="nxt", data-brand="nu" or data-brand="deciem" on root',
         forbidden_when_catalog_pattern_exists: [
             'generic SaaS modal as primary surface',
             'tone slider + regenerate button as entire UX',
             'centered chat input bar with nothing else',
             'skeleton loaders without bound fetch + state',
             'clean modern aesthetic without brand commitment',
-            'mixing NXT and NU tokens in single output',
+            'mixing NXT, NU and DECIEM tokens in single output',
             'thin tri-column bullet lists labeled "three people, three paths" instead of p-vignette-trio',
             'generic "pick a path" UX instead of p-portfolio-mix with live forecast readout',
             'abstract personas like "the student" instead of named protagonist with backstory',
@@ -141,7 +140,7 @@ const EVERGREEN_CATALOG_FALLBACK: CatalogShape = {
     },
 };
 
-export async function loadCatalog(): Promise<CatalogShape> {
+async function loadCatalog(): Promise<CatalogShape> {
     if (cachedCatalog && (Date.now() - cachedAt) < CACHE_TTL_MS) return cachedCatalog;
     try {
         const resp = await fetch(CATALOG_URL, { cache: 'no-store' });
@@ -178,6 +177,17 @@ function brandCharacter(brand: ComposerBrand): string {
             '  Single-typeface system: weight + size carry hierarchy (token font/*). Soft institutional geometry.',
             '  N monogram: /hic-workspace/wiki/brand/northeastern-n.svg.',
             '  Root attribute: data-brand="nu".',
+        ].join('\n');
+    }
+    if (brand === 'deciem') {
+        return [
+            'DECIEM brand character (resolve ALL color / font / size / radius from the FIGMA DESIGN TOKENS block - never a literal):',
+            '  Voice: plain-spoken, product-literal, ingredient-first; short uppercase headlines that state a judgment.',
+            '  Canvases: black title / section surfaces with white type, white body surfaces with black type (token color/ink, color/paper).',
+            '  Pops (token color/accent pink, color/cyan, color/purple, color/warn orange) used as single accents per block; never a rainbow, never a gradient.',
+            '  Display + headlines (token font/display) Bold UPPERCASE; body (token font/body); labels and meta (token font/mono). Thin 1px line-art, radius 0, no rail, no dot mark, no shadows.',
+            '  Lockup: a thin-bordered box, "THE ABNORMAL BEAUTY COMPANY." over "DECIEM".',
+            '  Root attribute: data-brand="deciem".',
         ].join('\n');
     }
     return [
@@ -365,8 +375,3 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
     };
 }
 
-/** Clear cached catalog (testing / forced refresh) */
-export function clearComposerCache(): void {
-    cachedCatalog = null;
-    cachedAt = 0;
-}

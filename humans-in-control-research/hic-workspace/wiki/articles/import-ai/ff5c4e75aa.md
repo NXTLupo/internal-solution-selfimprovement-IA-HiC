@@ -8,12 +8,15 @@ title: "Import AI 457: AI stuxnet; cursed Muon optimizer; and positive alignment
 author: ""
 date: "Mon, 18 May 2026 13:31:17 GMT"
 tier: 2
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:21:56.449851+00:00"
+method: "source-native"
+extracted_at: "2026-08-13T17:14:01.102068+00:00"
 chars: 10000
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:21:54+00:00"
+engagement: "analyze-the-executive-search-industry-to-map-current-trends"
+collected_at: "2026-08-13T17:14:00.749Z"
+relevance: 5
+engagement_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
 content_hash: "18f7ce61a412121c"
+relevance_by_goal: {"bb7e192171b3":5}
 chunks:
   - id: "articles/import-ai/ff5c4e75aa.md#c0"
     char_span: [0, 166]

@@ -1,0 +1,272 @@
+{
+ "Title Slide": [
+  {
+   "file": "layout11-title-slide-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 41149,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "Section Header": [
+  {
+   "kind": "solid-background",
+   "hex": "000000"
+  }
+ ],
+ "1_Custom Layout": [
+  {
+   "file": "layout13-1-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": -0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 52562,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "24_Custom Layout": [
+  {
+   "file": "layout14-24-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 40548,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "13_Custom Layout": [
+  {
+   "file": "layout15-13-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": -0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 32640,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "20_Custom Layout": [
+  {
+   "file": "layout16-20-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 58409,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "4_Custom Layout": [
+  {
+   "file": "layout17-4-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 43531,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "21_Custom Layout": [
+  {
+   "file": "layout18-21-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 43174,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "2_Custom Layout": [
+  {
+   "file": "layout19-2-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 39120,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "3_Custom Layout": [
+  {
+   "file": "layout20-3-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 34359,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "25_Custom Layout": [
+  {
+   "file": "layout21-25-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 35479,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "22_Custom Layout": [
+  {
+   "file": "layout22-22-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 64716,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "23_Custom Layout": [
+  {
+   "file": "layout23-23-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 55647,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "6_Custom Layout": [
+  {
+   "kind": "solid-background",
+   "hex": "00FACC"
+  }
+ ],
+ "5_Custom Layout": [
+  {
+   "file": "layout25-5-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 57766,
+   "content_type": "image/jpeg"
+  }
+ ],
+ "7_Custom Layout": [
+  {
+   "kind": "solid-background",
+   "hex": "8A69D4"
+  }
+ ],
+ "11_Custom Layout": [
+  {
+   "file": "layout27-11-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 60939,
+   "content_type": "image/jpeg"
+  },
+  {
+   "file": "layout27-11-custom-layout-logo.png",
+   "kind": "logo",
+   "x_in": 0.81,
+   "y_in": 0.73,
+   "w_in": 1.86,
+   "h_in": 0.67,
+   "bytes": 13918,
+   "content_type": "image/png"
+  }
+ ],
+ "10_Custom Layout": [
+  {
+   "file": "layout28-10-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 425055,
+   "content_type": "image/jpeg"
+  },
+  {
+   "file": "layout28-10-custom-layout-logo.png",
+   "kind": "logo",
+   "x_in": 0.81,
+   "y_in": 0.73,
+   "w_in": 1.29,
+   "h_in": 0.68,
+   "bytes": 9502,
+   "content_type": "image/png"
+  }
+ ],
+ "12_Custom Layout": [
+  {
+   "file": "layout29-12-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 66465,
+   "content_type": "image/jpeg"
+  },
+  {
+   "file": "layout29-12-custom-layout-logo.png",
+   "kind": "logo",
+   "x_in": 0.81,
+   "y_in": 0.97,
+   "w_in": 1.93,
+   "h_in": 0.42,
+   "bytes": 31315,
+   "content_type": "image/png"
+  }
+ ],
+ "8_Custom Layout": [
+  {
+   "kind": "solid-background",
+   "hex": "FB48C4"
+  }
+ ],
+ "9_Custom Layout": [
+  {
+   "kind": "solid-background",
+   "hex": "FF6C2F"
+  }
+ ],
+ "14_Custom Layout": [
+  {
+   "kind": "solid-background",
+   "hex": "FFE900"
+  }
+ ],
+ "Custom Layout": [
+  {
+   "file": "layout33-custom-layout-background.jpg",
+   "kind": "background",
+   "x_in": 0.0,
+   "y_in": 0.0,
+   "w_in": 13.33,
+   "h_in": 7.5,
+   "bytes": 34818,
+   "content_type": "image/jpeg"
+  }
+ ]
+}

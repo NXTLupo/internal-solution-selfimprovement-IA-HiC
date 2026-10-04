@@ -6,7 +6,7 @@
 // score". This is that live run. For each goal-derived golden question it:
 //   1. retrieves the REAL grounded corpus via POST /api/corpus/retrieve {goal: question}
 //      (the same manifest-grounded retrieval the analyst chat uses),
-//   2. answers via the REAL engine (claude-opus-4-8 through /api/ai/anthropic) under the REAL
+//   2. answers via the REAL engine (claude-opus-5-5 through /api/ai/anthropic) under the REAL
 //      citation protocol (.claude/CLAUDE.md: evidence-first, cite by NAMED source, never generic),
 //   3. scores the OUTPUT on the dimensions the condition names — accuracy/grounding (cited sources
 //      MUST exist in the retrieved corpus = anti-hallucination), breadth (distinct sources per
@@ -23,7 +23,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURE = path.join(ROOT, 'hic-workspace', 'wiki', 'engagements', 'identify-a-comprehensive-new-strategy-for-co-op-based-on-the');
 const OUT = path.join(ROOT, 'hic-workspace', 'eval', 'analyst-chat-eval.json');
 const PROXY = process.env.HIC_PROXY || 'http://127.0.0.1:5012';
-const MODEL = 'claude-opus-4-8';
+const MODEL = 'claude-opus-5-5';
 
 const goal = JSON.parse(fs.readFileSync(path.join(FIXTURE, 'manifest.json'), 'utf8')).research_goal.trim();
 

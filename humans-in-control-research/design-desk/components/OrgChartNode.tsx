@@ -1,6 +1,8 @@
 import React from 'react';
 import { Handle, Position } from 'reactflow';
 import type { DesignTokens } from '../services/designMdLoader';
+import type { BrandHashtag } from '../services/hashtagParser';
+import { paletteFor } from '../services/brandPalette';
 
 // Minimalistic flat NXT iconography - inline SVGs, NO external icon library.
 const icons = {
@@ -38,11 +40,13 @@ export interface OrgChartNodeData {
     department?: string;
     iconKey: 'person' | 'vacant' | 'team' | 'external';
     tokens: DesignTokens;
-    brand: 'nxt' | 'nu';
+    brand: BrandHashtag;
 }
 
 export const OrgChartNode: React.FC<{ data: OrgChartNodeData }> = ({ data }) => {
-    const palette = data.tokens.brands[data.brand] as Record<string, string>;
+    // 2026-10-01 - paletteFor resolves DESIGN.md first, then the brands.ts token set, so the
+    // DECIEM brand (absent from DESIGN.md) paints its own ink + pink accent instead of NXT's.
+    const palette = paletteFor(data.tokens, data.brand);
     const primary = palette.primary ?? '#0D0D0D';
     const accent = palette.accent ?? '#B8B800';
     const iconColor = data.iconKey === 'vacant' ? '#999' : primary;

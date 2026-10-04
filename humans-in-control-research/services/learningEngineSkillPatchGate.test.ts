@@ -4,7 +4,7 @@ import { isCompleteSkillPatch, patchAlreadyPresent } from './learningEngine';
 // 2026-06-23 — guards the fix for the ungated skill-patch loop. applySkillPatch
 // previously wrote a Gemini-synthesized "under-80-word" patch verbatim into a
 // live SKILL.md with no gate, so truncated fragments + near-duplicates accreted
-// into deck-narrative-composer/SKILL.md. These tests lock the two new guards
+// into the former deck-narrative-composer/SKILL.md (now deck-composer). These tests lock the two new guards
 // (the evaluateConstraint gate is already covered by constraintQualityGate).
 
 describe('isCompleteSkillPatch — rejects truncated LLM output', () => {

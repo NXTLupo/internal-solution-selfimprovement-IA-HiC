@@ -165,7 +165,7 @@ function buildEvidence(t: RecommendationTileInput): RecommendationData['evidence
  * Returns the OVERVIEW slide only - for the full multi-slide expansion
  * (case, execution, stakeholders, plan, risks) use tileToExportSlidesMulti.
  */
-export function tileToExportSlideArgs(
+function tileToExportSlideArgs(
     tile: RecommendationTileInput,
     isBet: boolean,
     brand?: Brand,
@@ -553,7 +553,7 @@ export function tileToExportSlidesMulti(
  *                              typically pass both arrays in order.
  * @param deckTitle             Optional override for the section-divider header.
  */
-export function tilesToDeckExportArgs(args: {
+function tilesToDeckExportArgs(args: {
     consensusTiles: RecommendationTileInput[];
     betTiles: RecommendationTileInput[];
     brand?: Brand;

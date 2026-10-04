@@ -79,10 +79,6 @@ export function lookupPageMeta(pointerOrPage: string): PointerPageMeta | null {
     return _pageMeta.get(key) || null;
 }
 
-/** Every page path with registered provenance (for source indexes). */
-export function listPageMeta(): Array<{ pagePath: string; meta: PointerPageMeta }> {
-    return Array.from(_pageMeta.entries()).map(([pagePath, meta]) => ({ pagePath, meta }));
-}
 
 /** "Mar 2026" from an ISO-ish or RFC date string; '' when unparseable. Deterministic, locale-free. */
 export function formatCitationDate(raw: string): string {
@@ -225,13 +221,6 @@ export function registerPointerSource(pagePath: string, name: string): void {
     if (!existing || existing === key) _pointerSources.set(key, safe);
 }
 
-/** Bulk-register from resolved chunks ({ id: 'path.md#cN', sourceTitle }). */
-export function registerResolvedChunks(chunks: Array<{ id?: string; sourceTitle?: string }>): void {
-    for (const c of chunks || []) {
-        if (c && c.id && c.sourceTitle) registerPointerSource(c.id, c.sourceTitle);
-    }
-}
-
 const HEXISH = /^[0-9a-f]{8,}$/i;
 
 /** PROVENANCE LOCK: the citationVerifier needs the same honest page-derived
@@ -261,7 +250,21 @@ function prettifyPath(pagePath: string): string | null {
     return label.replace(/\b\w/g, ch => ch.toUpperCase());
 }
 
+/** A source NAME, never a file name: an upload registered under its file name ("Meeting Summary - 09302026.txt",
+ *  "SOW014_Vendor_Final_REDACTED.txt") reads as the document title (2026-10-03 live: every citation surface showed it). */
+function readableName(name: string | null): string | null {
+    if (!name) return name;
+    const n = String(name).trim();
+    if (!/\.(pdf|docx?|xlsx?|pptx?|csv|txt|md|rtf)$/i.test(n) && !(/_/.test(n) && !/\s/.test(n))) return n;
+    return n.replace(/\.(pdf|docx?|xlsx?|pptx?|csv|txt|md|rtf)$/i, '').replace(/\s*\(\d+\)\s*$/, '').replace(/\s*-\s*Copy$/i, '')
+        .replace(/_/g, ' ').replace(/\s+(?:final|redacted|clean|draft)(?=\s|$)/gi, '').replace(/\s+/g, ' ').trim() || n;
+}
+
 function resolveOne(pointer: string): string | null {
+    return readableName(resolveOneRaw(pointer));
+}
+
+function resolveOneRaw(pointer: string): string | null {
     const clean = pointer.trim();
     // Tier 1 (WS-A): per-chunk REAL sources from the chunk's frontmatter `sources:`. A single real source
     // resolves to its name; a synthesis span backed by several resolves to an HONEST multi-source label
@@ -493,5 +496,5 @@ export function lookupChunkAttribution(pointer: string): ChunkAttribution {
 }
 
 /** Test/diagnostic surface. */
-export function pointerRegistrySize(): number { return _pointerSources.size; }
-export function chunkSourceRegistrySize(): number { return _chunkSources.size; }
+function pointerRegistrySize(): number { return _pointerSources.size; }
+function chunkSourceRegistrySize(): number { return _chunkSources.size; }

@@ -1,0 +1,1476 @@
+# SLOP SCAN SUMMARY (files scanned per kind)
+  air:architecture-map         files=   2 text_units=77
+  air:brief                    files=   1 text_units=0
+  air:competitive-matrix       files=   1 text_units=31
+  air:explainer                files=   2 text_units=0
+  air:gap-matrix               files=   3 text_units=63
+  air:journey-map              files=  12 text_units=806
+  air:persona-card             files=   1 text_units=90
+  air:persona-card/shipped     files=   1 text_units=3
+  air:prd-feature              files=   2 text_units=308
+  air:presentation             files=   2 text_units=2
+  air:recommendations          files=   1 text_units=78
+  air:report                   files=   4 text_units=0
+  air:report/shipped           files=   1 text_units=1
+  air:slides                   files=  59 text_units=8599
+  air:slides/shipped           files=  14 text_units=1374
+  air:strategy                 files=   2 text_units=2
+  air:theme-overview           files=   1 text_units=38
+  artifact-html                files=  11 text_units=11
+  artifact-rollouts            files=   3 text_units=12
+  chat                         files=   8 text_units=0
+  journey-html                 files=  57 text_units=57
+  wiki-eval                    files=   2 text_units=31
+  wiki-exemplars               files=   7 text_units=7
+
+kind                              em_dash      en_dash banned_phras       copula       colloc meta_narrati process_lang subject_disc naked_number naked_number qa_annotatio  raw_pointer chrome_metad metaphor_tel   antithesis   title_gt70  title_gt120  topic_title        emoji provider_tag fence_json_p
+air:architecture-map                    0            0            1            0            0            0            0            0            0            2            0            0            0            0            0            1            1            0            0            0            0
+air:competitive-matrix                  0            0            1            0            0            0            0            0            0            3            0            0            0            0            0            1            0            0            0            0            0
+air:gap-matrix                          0            0            0            0            0            0            0            0            0            8            0            0            0            0            0            2            1            0            0            0            0
+air:journey-map                         0            0            6            4            0            0            0            0            0           17            0            0            0            0            0           10            1            0            0            0            0
+air:persona-card                        0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            3            0            0            0            0            0
+air:persona-card/shipped                0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            3            0            0            0            0            0
+air:prd-feature                         0            0            5            1            0            0            0            0            1            2            0            0            0            0            1            7            3           10            0            0            1
+air:presentation                        0            0            8            0            0            0            1            0            0            0            0            0            0            1            0            0            0            0            0            0            0
+air:recommendations                     0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            2            0            0            0            0            0
+air:report/shipped                      0            0            4            0            0            0            0            0            0            0            0            0            0            0            0            7            0            6            0            0            0
+air:slides                              1            6          126            4            0            2            1           28            1           12           11            0            0            9            0          178           85           95            0            0            1
+air:slides/shipped                      0            0           17            0            0            0            0            5            0            0            6           95            0            0            0           28           11           25            0            0            0
+air:strategy                            0            0            4            0            0            0            0            0            0            2            0            0            0            1            0            0            0            0            0            0            0
+air:theme-overview                      0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            1            0            0            0            0            0
+artifact-html                           1            0            4            2            0            0            0            0            0            0            0            0            0            0            1           32            1            8            0            0            0
+artifact-rollouts                       1            0            4            2            0            0            0            0            0            0            0            0            0            0            1            0            0            0            0            0            0
+chat:prose                              0            0           12            1            0            0            0            0            0            4            0            1            0            0            0            0            0            0            0            0            0
+chat:slide-fences                       0            4           40            3            0            0            0            5            0            3            4            0            0            0            0           66           24           22            0            0            0
+journey-html                            2            5           89            6            0            0            4            3            4           24            2            1            0           10            4          119           22          455            6            0            0
+wiki-exemplars                          4            1            6            0            0            0            2            0            0            3            0            3            0            0            0            0            0          109            0            0            0
+
+TOTALS: em_dash=9, en_dash=16, banned_phrase=327, copula=23, colloc=0, meta_narration=2, process_language=8, subject_discipline=41, naked_number_title=6, naked_number=80, qa_annotation=23, raw_pointer=100, chrome_metadata=0, metaphor_tell=21, antithesis=7, title_gt70=460, title_gt120=149, topic_title=730, emoji=6, provider_tag=0, fence_json_parse_fail=2
+fence_json_parse_fail by kind: {'air:slides': 1, 'air:prd-feature': 1}
+
+TOP BANNED PHRASES ACTUALLY SHIPPING: ai-powered=40, enhanced=25, next-gen=23, ai-enabled=20, utilization=18, placeholder=16, ai-driven=15, best practices=14, ecosystem=12, foundational=11, in the corpus=11, deep dive=11, acts as=10, value proposition=10, enhances=8, state of the art=6, north star=6, speaks to=6, represents a=6, utilizing=5, potentially=4, power of=4, sweet spot=4, in terms of=4, transformative=4, market-leading=3, enhancing=3, the research corpus=3, comprehensive=2, cannot yet substantiate=2, state-of-the-art=2, actionable insights=2, serves as=2, serves as a=2, unprecedented=2, path to value=2, double down=2, functions as=2, unmatched=2, represents the=2
+
+# WORST EXAMPLES (severity-ranked, deduped by file+check)
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json @ shipped:slides:numbered-themes.items[2].quote
+    chmark criteria for rating and scoring candidates [articles/exs-clockwork/63e5475889.md#c1]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787338365595.air.json @ shipped:slides:flow-arc.sourceLine
+    ecruiterflow; Clockwork executive search platform [articles/exs-recruiterflow/26b00acd34.md#c2] [articles/exs-
+[em_dash] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json @ content:slides:block-quote.corroborating[2].label
+    and the cost of a bad one (Source: US Labor Market Snapshot — June 2026)
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json @ shipped:slides:evidence-table.rows[2].implication
+    (Source: Best Executive Search Software for 2026) [articles/exs-clockwork/8ad772998f.md#c3]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787349655134.air.json @ shipped:slides:evidence-table.sourceLine
+    cruiterflow 2026-27 Recruitment Industry Report.) [articles/exs-clockwork/63e5475889.md#c1] [articles/exs-recr
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787577788440.air.json @ shipped:slides:quadrant.sourceLine
+    ecruit CRM Alternatives for Search Firms in 2026) [articles/exs-clockwork/5af374bb9c.md#c3] [articles/exs-recr
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787579556386.air.json @ shipped:slides:evidence-table.sourceLine
+    ecruit CRM Alternatives for Search Firms in 2026) [articles/exs-clockwork/63e5475889.md#c1] [articles/exs-recr
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787580978928.air.json @ shipped:slides:numbered-themes.items[0].body
+     Accelerates Your Research and Outreach Process). [articles/exs-clockwork/c8fe68039f.md#c1]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json @ shipped:slides:stat-row.stats[1].means
+     and scroll past them (Source: reddit: marketing) [articles/reddit-marketing/5db295e6a8.md#c0]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787762412765.air.json @ shipped:slides:stat-row.stats[1].means
+     and scroll past them (Source: reddit: marketing) [articles/reddit-marketing/5db295e6a8.md#c0]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787778719081.air.json @ shipped:slides:comparison-panels.sourceLine
+    ligence/reddit-deep/graphic_design/1pha869.md#c5] [articles/figma-blog/8b49ccb5d0.md#c4]
+[raw_pointer] (air:slides/shipped) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787848685138.air.json @ shipped:slides:comparison-panels.sourceLine
+    ce: Workflow Runbook, The Design Sprint directive [articles/yanko-design/201e3cae91.md#c2]
+[em_dash] (artifact-html) hic-workspace\sessions\_artifact-html\05552fdc0a1949fa85892827afb040a7.html @ html
+    tern University Co-op Program Research Strategic Brief 2025 — Research Cycle Brief · Co-op Readiness Brand-Name Fixation
+[em_dash] (artifact-rollouts) hic-workspace\sessions\_artifact-rollouts\05552fdc0a1949fa85892827afb040a7.json @ .output
+    tern University Co-op Program Research Strategic Brief 2025 — Research Cycle Brief · Co-op Readiness Brand-Name Fixation
+[em_dash] (journey-html) hic-workspace\sessions\_journey-html\2100caaf-ee72-4235-a2cd-73e12aeb4c49.html @ html
+    tting: Security, Equity & Governance Rail Touches layers 01 — 04 FERPA & PII Controls Governs resume, major, advising no
+[raw_pointer] (journey-html) hic-workspace\sessions\_journey-html\27aa00bb-2dc2-4d35-bacd-b64bcc46318b.html @ html
+    escription The CITATION RULE noted in the corpus ([CHUNK_XXX] references trace to original corpus items) indic
+[em_dash] (journey-html) hic-workspace\sessions\_journey-html\b80e2324-66ee-46e9-b90b-9658ec8df9cb.html @ html
+    01 Encountering the hype Emotion: Energized but overwhelmed — the pace outruns any plan Touchpoints: Reddit (r/productde
+[raw_pointer] (chat:prose) hic-workspace\sessions\deliver-a-technical-architecture-and-implementation-blueprint-for-deciems-market\chat.json @ msg[1]
+    ts, spacing, and logos) before utilizing AI tools [articles/nxt-insight/5c5
+[raw_pointer] (wiki-exemplars) hic-workspace\wiki\exemplars\chat-reply.md @ file
+    hat-reply.md chunks:   - id: "exemplars/chat-reply.md#c0"     char_span: [51, 3134]     sentence_count: 5 
+[em_dash] (wiki-exemplars) hic-workspace\wiki\exemplars\persona-card-spec.html @ file
+     NXT HUMANS — Persona Visualization System NXT HUMANS — PERSONA VISUALIZ
+[raw_pointer] (wiki-exemplars) hic-workspace\wiki\exemplars\presentations.md @ file
+    ations.md chunks:   - id: "exemplars/presentations.md#c0"     char_span: [51, 433]     sentence_count: 3  
+[em_dash] (wiki-exemplars) hic-workspace\wiki\exemplars\behance\_raw_index.json @ file
+    g_searches": [       "tags (returned mostly snack packaging — true 'tag UI' search not viable on Behance)",       "check
+[em_dash] (wiki-exemplars) hic-workspace\wiki\exemplars\behance\ai-chatbot\niva-ai-family-assistant.html @ file
+     Niva | AI Family Assistant — Pattern Translation Inspiration Hub / ai-chatbot / Niva NX
+[em_dash] (wiki-exemplars) hic-workspace\wiki\exemplars\behance\ai-chatbot\niva-ai-family-assistant.md @ file
+    lar_id: behance-241915081 type: design-exemplar title: Niva — AI Family Assistant designer: Multiple Owners source: beha
+[raw_pointer] (wiki-exemplars) hic-workspace\wiki\exemplars\behance\ai-chatbot\niva-ai-family-assistant.md @ file
+    mplars/behance/ai-chatbot/niva-ai-family-assistant.md#c0"     char_span: [0, 622]     sentence_count: 1   
+[qa_annotation] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786978910368.air.json @ content:slides:comparison-panels.sourceLine
+    umanresources) (Source: Executive 360 Assessment [N/A])
+[qa_annotation] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786980403765.air.json @ content:slides:block-quote.corroborating[2].source
+    Reddit r/humanresources (Source: [N/A] Have you ever worked for a company who hired a b
+[qa_annotation] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982111802.air.json @ content:slides:stat-row.sourceLine
+    humanresources (Source: Executive 360 Assessment [N/A])
+[qa_annotation] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json @ content:slides:block-quote.corroborating[1].label
+    executive fits until the damage is done (Source: [N/A] Have you ever worked for a company who hired a b
+[qa_annotation] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787577788440.air.json @ content:slides:evidence-table.rows[4].prove
+    for automation (Source: Executive 360 Assessment [N/A])
+[qa_annotation] (air:slides) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787848685138.air.json @ content:slides:section-divider.supporting
+    sks for a fact you already gave, and you can type placeholder to keep moving
+[qa_annotation] (journey-html) hic-workspace\sessions\_journey-html\1959e353-9e40-4183-b7f4-53bc22cae50c.html @ html
+     starting from a blank page. ChatGPT covers quick placeholder text, UX copy drafts, and screen naming when a de
+[qa_annotation] (journey-html) hic-workspace\sessions\_journey-html\2db70a4f-20fc-4e57-b5c1-f9033ee67c79.html @ html
+    d `#name=banner-predictive-risk-alerter` (a label placeholder, not content); journey type "educational" - **Vec
+[qa_annotation] (chat:slide-fences) hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-marketing-trends-for\chat.json @ msg[13]:slides:section-divider.supporting
+    sks for a fact you already gave, and you can type placeholder to keep moving
+[fence_json_parse_fail] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content
+    { "kicker": "TREND 05 · THE GATING CONSTRAINT", "title": "Confidential data governance decides which AI workflows can scale", "criteria": ["Data handling", "Too
+[meta_narration] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json @ content:slides:evidence-table.rows[5].prove
+    <to summarize> sponses automatically collated and easy to summarize.
+[process_language] (air:presentation) hic-workspace\sessions\define-the-2026-state-of-the-art-operational-and-technologic\artifacts\presentation_1782921436894.air.json @ content:text
+    <this section> ing generative models.","arcRationale":"This section sequence establishes the 2026 state of the art in asset management 
+[fence_json_parse_fail] (air:prd-feature) hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1784174306596.air.json @ content
+    { "prdFeature": { "requirements": { "functional": [ { "id": "FR-1", "text": "Pre-fill farm profiles from public USDA, satellite, and prior-plan data for farmer 
+[meta_narration] (air:slides) hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783004855072.air.json @ content:slides:agenda.title
+    <this analysis covers> What this analysis covers
+[process_language] (air:slides) hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783004855072.air.json @ content:slides:agenda.title
+    <this analysis> What this analysis covers
+[process_language] (journey-html) hic-workspace\sessions\_journey-html\1e1d07a4-07be-4876-a471-c0fd06ad1968.html @ html
+    <research indicates> Points Fragmented Digital Ecosystem: As research indicates, "Students face challenges navigating Northeastern's complex 
+[process_language] (journey-html) hic-workspace\sessions\_journey-html\27aa00bb-2dc2-4d35-bacd-b64bcc46318b.html @ html
+    <this analysis> de Effect The most important insight in this analysis is that the pain points are not independent, they cascade. Each un
+[process_language] (journey-html) hic-workspace\sessions\_journey-html\2c87454c-a2a6-4f0f-a38b-5aa561924db0.html @ html
+    <in the absence of> earch, and workplace quality assessment in the absence of institutional data. HiC Corpus Research corpus on the current 
+[process_language] (journey-html) hic-workspace\sessions\_journey-html\b60ed9bd-06a1-4616-af45-939b7ef45c13.html @ html
+    <in the absence of> stions and evaluating practice answers. In the absence of available advisor time, this is the primary preparation tool f
+[process_language] (wiki-exemplars) hic-workspace\wiki\exemplars\chat-reply.md @ file
+    <in the absence of> t consistently earns high ratings, even in the absence of written feedback.  User-cited praise: "(positive vote/star-onl
+[process_language] (wiki-exemplars) hic-workspace\wiki\exemplars\presentations.md @ file
+    <this presentation>  (2026-07-03) - from 5 positive signals This presentation output works exceptionally well because it translates complex 
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786647176343.air.json @ content:slides:role-recommendation.title
+    <lead with> Lead with outcomes, sequence AI into research and reporting, defend the human cl
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content:slides:agenda.groups[1].items[1]
+    <lead with> 06: Lead with outcomes, defend senior judgment
+[naked_number_title] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:thesis-interstitial.thesis
+    g to jobs and the quits rate has held at or below 2% for almost a year, every executive placement carr
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:role-recommendation.title
+    <lead with> Lead with outcomes: put AI on the front of the search, keep judgment senior-led
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json @ content:slides:role-recommendation.title
+    <lead with> Connect AI to live CRM data and lead with outcomes, not AI features
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786728602796.air.json @ content:slides:problem-diptych.title
+    <lead with> Lead with the outcome, not the AI
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786741487875.air.json @ content:slides:thesis-interstitial.kicker
+    <the through-line> THE THROUGH-LINE
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786743347310.air.json @ content:slides:numbered-themes.items[3].body
+    <lead with> s distrust AI-first messaging, so firms lead with outcomes and treat the tools as a footnote rather than the headline.
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786978910368.air.json @ content:slides:role-needs.persona.needs[2].body
+    <lead with> A way to lead with outcomes and accountability, positioning senior-led judgment as the di
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786980403765.air.json @ content:slides:role-recommendation.actions[2].heading
+    <lead with> Lead with outcomes, gate on governance
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982111802.air.json @ content:slides:problem-diptych.subhead
+    <lead with> mmoditizes expertise; the evidence says lead with outcomes and protect the human call.
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982932657.air.json @ content:slides:role-recommendation.thesis
+    <lead with> uyers distrust AI-first positioning, so lead with outcomes: use AI to reclaim officer time on retrieval and reporting, a
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787245702306.air.json @ content:slides:role-recommendation.actions[2].heading
+    <lead with> Lead with outcomes, keep judgment human
+[subject_discipline] (air:slides) hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787247448891.air.json @ content:slides:role-recommendation.actions[2].heading
+    <lead with> Lead with outcomes, hold the close
+
+# PER-CHECK SAMPLES (3 each, non-eval)
+[em_dash] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json @ content:slides:block-quote.corroborating[2].label
+    and the cost of a bad one (Source: US Labor Market Snapshot — June 2026)
+[em_dash] hic-workspace\sessions\_artifact-html\05552fdc0a1949fa85892827afb040a7.html @ html
+    tern University Co-op Program Research Strategic Brief 2025 — Research Cycle Brief · Co-op Readiness Brand-Name Fixation
+[em_dash] hic-workspace\sessions\_artifact-rollouts\05552fdc0a1949fa85892827afb040a7.json @ .output
+    tern University Co-op Program Research Strategic Brief 2025 — Research Cycle Brief · Co-op Readiness Brand-Name Fixation
+[en_dash] hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json @ content:slides:evidence-table.rows[1].prove
+     the web are designed to manipulate you – why aren’t they all illegal?)
+[en_dash] hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json @ content:slides:evidence-table.rows[1].implication
+     the web are designed to manipulate you – why aren’t they all illegal?)
+[en_dash] hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json @ content:slides:evidence-table.sourceLine
+     the web are designed to manipulate you – why aren’t they all illegal?); Marketi
+[banned_phrase] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\presentation_1786643686974.air.json @ content:text
+    <comprehensive> ce"],"implication":"Enables DSG Global to present comprehensive, highly professional briefs to clients within 48 
+[banned_phrase] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\presentation_1786643686974.air.json @ content:text
+    <foundational> n roadmap minimizes deployment risk by sequencing foundational API integrations before advanced algorithmic scor
+[banned_phrase] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\presentation_1786643686974.air.json @ content:text
+    <leveraging> :"roadmap"},{"thesis":"Market leaders are already leveraging enterprise-grade AI platforms to widen the compet
+[copula] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\journey-map_1783005711108.air.json @ content:journey-map.journeyMap.overallPainPoints[2]
+    <acts as> Low financial literacy acts as a barrier to risk perception (NXT-Insight)
+[copula] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\journey-map_1783005848243.air.json @ content:journey-map.journeyMap.overallPainPoints[2]
+    <acts as> Low financial literacy acts as a barrier to risk perception (NXT-Insight)
+[copula] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\journey-map_1783114659083.air.json @ content:journey-map.journeyMap.lanes[2].role
+    <acts as> Acts as the trusted risk advisor
+[meta_narration] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json @ content:slides:evidence-table.rows[5].prove
+    <to summarize> sponses automatically collated and easy to summarize.
+[meta_narration] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783004855072.air.json @ content:slides:agenda.title
+    <this analysis covers> What this analysis covers
+[process_language] hic-workspace\sessions\define-the-2026-state-of-the-art-operational-and-technologic\artifacts\presentation_1782921436894.air.json @ content:text
+    <this section> ing generative models.","arcRationale":"This section sequence establishes the 2026 state of the art in asset management 
+[process_language] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783004855072.air.json @ content:slides:agenda.title
+    <this analysis> What this analysis covers
+[process_language] hic-workspace\sessions\_journey-html\1e1d07a4-07be-4876-a471-c0fd06ad1968.html @ html
+    <research indicates> Points Fragmented Digital Ecosystem: As research indicates, "Students face challenges navigating Northeastern's complex 
+[subject_discipline] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786647176343.air.json @ content:slides:role-recommendation.title
+    <lead with> Lead with outcomes, sequence AI into research and reporting, defend the human cl
+[subject_discipline] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content:slides:agenda.groups[1].items[1]
+    <lead with> 06: Lead with outcomes, defend senior judgment
+[subject_discipline] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content:slides:section-divider.supporting
+    <lead with> tches, so the market rewards firms that lead with outcomes and use AI to defend senior-led judgment.
+[naked_number_title] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:thesis-interstitial.thesis
+    g to jobs and the quits rate has held at or below 2% for almost a year, every executive placement carr
+[naked_number_title] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1784174306596.air.json @ content:slides:thesis-interstitial.thesis
+     the knowledge gap, mitigation guidance meets the 90% facing rising premiums, and agent triggers honor 
+[naked_number_title] hic-workspace\sessions\_journey-html\277ee281-f1ef-4faa-9ab3-d94e00f056c4.html @ html:heading
+    Four first-year students. One ratio of 200 : 1. 68% walk into the co-op search feeling unprepared, an
+[naked_number] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:ranked-bars.bars[1].note
+    Reference checks changed 70% of employers' minds on a candidate (CareerBuilder
+[naked_number] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json @ content:slides:ranked-bars.bars[0].note
+    Recruiterflow ties repetitive admin to 45% of recruiter burnout; auto-capture saves 10-15 hr
+[naked_number] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786741487875.air.json @ content:slides:problem-diptych.cards[0].numeral
+    46%
+[qa_annotation] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786978910368.air.json @ content:slides:comparison-panels.sourceLine
+    umanresources) (Source: Executive 360 Assessment [N/A])
+[qa_annotation] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786980403765.air.json @ content:slides:block-quote.corroborating[2].source
+    Reddit r/humanresources (Source: [N/A] Have you ever worked for a company who hired a b
+[qa_annotation] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982111802.air.json @ content:slides:stat-row.sourceLine
+    humanresources (Source: Executive 360 Assessment [N/A])
+[raw_pointer] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json @ shipped:slides:numbered-themes.items[2].quote
+    chmark criteria for rating and scoring candidates [articles/exs-clockwork/63e5475889.md#c1]
+[raw_pointer] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json @ shipped:slides:numbered-themes.sourceLine
+    lockwork executive search platform; Recruiterflow [articles/exs-chief-executive/8e5464b62a.md#c1] [articles/ex
+[raw_pointer] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json @ shipped:slides:comparison-panels.sourceLine
+    ntelligence/reddit-deep/consulting/1rlukge.md#c2] [articles/exs-chief-executive/8e5464b62a.md#c1]
+[metaphor_tell] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\presentation_1786643686974.air.json @ content:text
+    <unlock> ile enrichment, and client reporting to unlock immediate capacity.","index":4},{"index":5,"thesis":"A thre
+[metaphor_tell] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786978910368.air.json @ content:slides:role-recommendation.actions[2].body
+    <leaks> removing the manual reconciliation that leaks margin per placement.
+[metaphor_tell] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783699030836.air.json @ content:slides:flow-arc.steps[3].description
+    <unlock> e affordable control and guarantees can unlock the credit to act.
+[antithesis] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1784174306596.air.json @ content:slides:comparison-panels.subhead
+    The study shows the barrier is not indifference to risk; it is not knowing that a plan helps or how to build one
+[antithesis] hic-workspace\sessions\_artifact-html\38edcea06a704503b4dd8c387c255397.html @ html
+    rect unrealistic targeting never closes. Ghosting is not a minor friction; it is the mechanism by which trust in the process erode
+[antithesis] hic-workspace\sessions\_artifact-rollouts\38edcea06a704503b4dd8c387c255397.json @ .output
+    rect unrealistic targeting never closes. Ghosting is not a minor friction; it is the mechanism by which trust in the process erode
+[title_gt70] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\persona-card_1787340378005.air.json @ content:persona-card.title
+    The Search Principal owns the engagement but loses hours to fragmented, manual client reporting
+[title_gt70] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\persona-card_1787340378005.air.json @ content:persona-card.title
+    The Research Associate carries sourcing and data hygiene, where duplicative entry slows every search
+[title_gt70] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\persona-card_1787340378005.air.json @ content:persona-card.title
+    The Client Talent Leader is hiring in a low-hire market where each bad executive placement carries more weight
+[title_gt120] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786647176343.air.json @ content:slides:thesis-interstitial.thesis
+    Proven high-volume recruiting AI does not transfer cleanly to retained search, so DSG must select use cases for the outbound, relationship-based model rather th
+[title_gt120] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786647176343.air.json @ content:slides:role-recommendation.thesis
+    Buyers distrust AI-first positioning, so DSG should deploy AI where feasibility is proven and market it on outcomes, not on the tooling.
+[title_gt120] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content:slides:thesis-interstitial.thesis
+    Proven high-volume recruiting AI does not port to retained search, so DSG should target the outbound, relationship-driven stages where feasibility is highest an
+[topic_title] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:agenda.title
+    What the market data covers
+[topic_title] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json @ content:slides:section-divider.title
+    The 2026 trends that answer the pain
+[topic_title] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json @ content:slides:agenda.title
+    What the evidence covers
+[emoji] hic-workspace\sessions\_journey-html\27aa00bb-2dc2-4d35-bacd-b64bcc46318b.html @ html
+     intervention opportunities. Skip to main content 📊 Overview 💬 Sentiment 🗺️ Journey Stages 📈 Emotion 
+[emoji] hic-workspace\sessions\_journey-html\35f986f9-fa63-4dfe-8578-cdfa67e5eded.html @ html
+    " Source: Northeastern_CoOp_CLR_Executive_Summary 😐 Emotion: Neutral / Anxious Stage 2 Academic & Ski
+[emoji] hic-workspace\sessions\_journey-html\6b46f839-c336-4010-9e5e-f98f735d9c5e.html @ html
+    le co-op remains a distant concept. Months 1 to 4 🙂 Stage 02 Preparation Curriculum Students enroll i
+[fence_json_parse_fail] hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json @ content
+    { "kicker": "TREND 05 · THE GATING CONSTRAINT", "title": "Confidential data governance decides which AI workflows can scale", "criteria": ["Data handling", "Too
+[fence_json_parse_fail] hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1784174306596.air.json @ content
+    { "prdFeature": { "requirements": { "functional": [ { "id": "FR-1", "text": "Pre-fill farm profiles from public USDA, satellite, and prior-plan data for farmer 
+
+# DECK-LEVEL REPORTS
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\persona-card_1787340378005.air.json [content] n=3 distinct=1 body=3 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=False agenda=False thesis=False numbered_themes=0 max_same=3 consecutive=[(1, 'persona-card'), (2, 'persona-card')] legacy=['persona-card', 'persona-card', 'persona-card'] budget={} empty_img=[]
+   seq: persona-card > persona-card > persona-card
+    1. The Search Principal owns the engagement but loses hours to fragmented, manual client reporting
+    2. The Research Associate carries sourcing and data hygiene, where duplicative entry slows every search
+    3. The Client Talent Leader is hiring in a low-hire market where each bad executive placement carries more weight
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\persona-card_1787340378005.air.json [shipped] n=3 distinct=1 body=3 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=False agenda=False thesis=False numbered_themes=0 max_same=3 consecutive=[(1, 'persona-card'), (2, 'persona-card')] legacy=['persona-card', 'persona-card', 'persona-card'] budget={} empty_img=[]
+   seq: persona-card > persona-card > persona-card
+    1. The Search Principal owns the engagement but loses hours to fragmented, manual client reporting
+    2. The Research Associate manages sourcing and data hygiene, where manual entry slows down searches
+    3. The Client Talent Leader is hiring in a low-hire market where each bad executive placement carries more weight
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786647176343.air.json [content] n=9 distinct=9 body=6 visual=3 visual_ratio=0.5 evidence_ratio=0.33 cover=True agenda=True thesis=True numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'title>120': 1, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > thesis-interstitial > problem-diptych > flow-arc > block-quote > evidence-table > means-matters > role-recommendation
+    1. AI belongs in the research and reporting half of retained search, not the final assessment
+    2. Where AI earns its place across the retained-search lifecycle
+    3. Proven high-volume recruiting AI does not transfer cleanly to retained search, so DSG must select use cases for the outbound, relationship-b
+    4. Two different machines: high-volume inbound versus retained outbound
+    5. Retained search breaks into eight stages AI can target unevenly
+    6. 
+    7. Where AI fits, how hard it is, and what it returns for a retained firm
+    8. The efficiency gain lands where manual work is heaviest and judgment is lowest
+    9. Lead with outcomes, sequence AI into research and reporting, defend the human close
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786721463169.air.json [content] n=12 distinct=11 body=7 visual=5 visual_ratio=0.71 evidence_ratio=0.25 cover=True agenda=True thesis=True numbered_themes=0 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > thesis-interstitial > evidence-table > block-quote > flow-arc > means-matters > comparison-panels > section-divider > role-recommendation > aggregate-roadmap > thesis-interstitial
+    1. AI in Executive Search 2026: Where DSG Should Place Its Bets
+    2. What the market data says DSG should act on
+    3. Proven high-volume recruiting AI does not port to retained search, so DSG should target the outbound, relationship-driven stages where feasi
+    4. Search firms want AI built into the ATS and CRM, not added as a separate layer
+    5. 
+    6. The retained search process breaks into stages AI can target unevenly
+    7. Screening still fails to catch bad executive hires in a low-fire market
+    8. <unparsed>
+    9. How DSG should position and sequence the response
+   10. Lead with outcomes and defend senior judgment as the differentiator
+   11. A feasibility-sequenced AI path for DSG
+   12. Approve governance-first sequencing: fund enrichment, re-surfacing, and reporting now, connect AI to the CRM next, and reserve finalist asse
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786723192065.air.json [content] n=19 distinct=12 body=10 visual=5 visual_ratio=0.5 evidence_ratio=0.26 cover=True agenda=True thesis=True numbered_themes=1 max_same=5 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (15, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > section-divider > means-matters > evidence-table > section-divider > block-quote > ranked-bars > thesis-interstitial > section-divider > comparison-panels > block-quote > section-divider > numbered-themes > flow-arc > section-divider > block-quote > role-recommendation
+    1. AI in executive search: five 2026 trends that answer DSG Global's operating pain
+    2. What the market data covers
+    3. High-volume recruiting AI is mature, but retained search needs a different translation layer that targets sourcing, research, and reporting 
+    4. The operating problem DSG lives with today
+    5. Manual client updates pull from disconnected sources and generate errors
+    6. Volume recruiting AI does not port cleanly to retained search
+    7. Where screening breaks and AI can raise signal
+    8. 
+    9. Interview and assessment scores rank below the signals that predict executive fit
+   10. In a low-hire, low-fire market where workers cling to jobs and the quits rate has held at or below 2% for almost a year, every executive pla
+   11. Confidential data is the gate on every AI tool
+   12. How small firms let AI reach data without a confidentiality breach
+   13. 
+   14. The 2026 trends that answer the pain
+   15. Four trends where the market data says AI already earns its place
+   16. Sequence AI investment where feasibility is highest, not where features are loudest
+   17. What DSG should protect, not automate
+   18. 
+   19. Lead with outcomes: put AI on the front of the search, keep judgment senior-led
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786725510048.air.json [content] n=14 distinct=12 body=8 visual=6 visual_ratio=0.75 evidence_ratio=0.21 cover=True agenda=True thesis=True numbered_themes=0 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > section-divider > flow-arc > thesis-interstitial > comparison-panels > block-quote > evidence-table > ranked-bars > section-divider > means-matters > role-recommendation > milestone-timeline > thesis-interstitial
+    1. AI is becoming delivery infrastructure in executive search, not a bolt-on feature
+    2. What the evidence covers
+    3. The market has moved from AI features to AI delivery models
+    4. AI in recruiting evolved through three phases into delivery infrastructure
+    5. Proven high-volume recruiting AI does not port cleanly to retained executive search, so DSG must select use cases built for the outbound rel
+    6. High-volume ATS platforms and retained-search platforms solve different problems
+    7. 
+    8. Where AI already delivers measurable gains in adjacent recruiting cases
+    9. AI targets the manual work that drains recruiter capacity
+   10. The recommended response for DSG Global
+   11. The search team needs AI that removes admin, not judgment
+   12. Connect AI to live CRM data and lead with outcomes, not AI features
+   13. A sequenced rollout that clears the data-governance gate first
+   14. DSG should treat AI as delivery infrastructure grounded in its own CRM data, target the proven research and admin use cases first, and prote
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786727570571.air.json [content] n=10 distinct=9 body=6 visual=4 visual_ratio=0.67 evidence_ratio=0.2 cover=True agenda=True thesis=True numbered_themes=0 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > thesis-interstitial > flow-arc > comparison-panels > ranked-bars > evidence-table > block-quote > problem-diptych > thesis-interstitial
+    1. Executive search runs on manual work AI can now target
+    2. What the executive search evidence covers
+    3. AI is proven in high-volume recruiting, but retained search needs a different translation layer that targets sourcing, research, and reporti
+    4. Clockwork frames retained search as eight stages AI can target unevenly
+    5. Two recruiting models run on two different platforms
+    6. Four frictions 
+    7. Where AI attaches to the search process, and how firms judge it
+    8. 
+    9. AI supports the process; consultants own the decision
+   10. The highest-confidence AI moves for a retained firm are data enrichment, database re-surfacing, and automated reporting, deployed on a gover
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786728602796.air.json [content] n=17 distinct=11 body=10 visual=5 visual_ratio=0.5 evidence_ratio=0.24 cover=True agenda=True thesis=True numbered_themes=1 max_same=4 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (17, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > block-quote > flow-arc > section-divider > flow-arc > comparison-panels > section-divider > block-quote > means-matters > ranked-bars > thesis-interstitial > problem-diptych > block-quote > section-divider > numbered-themes
+    1. Ten forces reshaping executive search in 2026
+    2. Where the industry is moving
+    3. AI enters the search workflow
+    4. 
+    5. Confidential data gates every AI decision before a model is chosen
+    6. Data enrichment becomes the accelerant
+    7. Enrichment removes the manual research that slows every search
+    8. The platform now owns the search lifecycle, not just the records
+    9. Screening still fails to catch bad executive fits
+   10. 
+   11. A low-hire, low-fire market makes every executive hire higher-stakes
+   12. Larger firms need reporting manual tracking cannot supply
+   13. The firms that win in 2026 use AI to defend senior-led judgment as the differentiator, not to compete on commoditized throughput.
+   14. Lead with the outcome, not the AI
+   15. 
+   16. A talent-intelligence data market forms
+   17. People data is now bought and sold, with governance as the cost
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786741487875.air.json [content] n=14 distinct=13 body=10 visual=6 visual_ratio=0.6 evidence_ratio=0.36 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (12, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > stat-row > flow-arc > block-quote > means-matters > ranked-bars > problem-diptych > comparison-panels > block-quote > numbered-themes > evidence-table > section-divider
+    1. Twelve AI adoption trends reshaping executive search in 2026-27
+    2. Where AI is entering the executive search workflow
+    3. AI adoption in executive search concentrates in sourcing, research, and reporting, while the industry itself doubts AI can assess finalists 
+    4. Recruiting revenue conversion is falling faster than revenue itself
+    5. AI moved from task tool to core delivery infrastructure in three phases
+    6. 
+    7. Real-time data enrichment is the highest-feasibility AI lever for search
+    8. Larger firms demand reporting that manual tracking cannot supply
+    9. AI adoption concentrates in evaluation, not relationship-building
+   10. Confidential client data decides the deployment architecture, not the model
+   11. 
+   12. Four further shifts define how AI enters the search process
+   13. The industry itself doubts AI in the final stages of a search
+   14. The recommended response for DSG Global
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786743347310.air.json [content] n=13 distinct=12 body=10 visual=7 visual_ratio=0.7 evidence_ratio=0.31 cover=True agenda=True thesis=True numbered_themes=2 max_same=2 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (3, 'slides:numbered-themes'), (10, 'slides:numbered-themes')]
+   seq: cover > agenda > numbered-themes > flow-arc > means-matters > ranked-bars > evidence-table > block-quote > quadrant > numbered-themes > comparison-panels > stat-row > thesis-interstitial
+    1. Twelve AI adoption trends reshaping executive search in 2026-27
+    2. Where AI is landing across the retained search lifecycle
+    3. Firms want AI built into the workflow, not bolted onto it
+    4. AI moved through three phases to reach delivery infrastructure
+    5. Most firms have not moved past basic AI experimentation
+    6. Profit conversion, not demand, separates the recovering firms
+    7. Confidential data restricts which AI workflows can scale
+    8. 
+    9. AI feasibility is highest in sourcing and reporting, lowest at close
+   10. Four more trends shaping how firms deploy and position AI
+   11. Firms choose between AI-forward and judgment-forward positioning
+   12. A low-hire, low-fire market raises the cost of every bad placement
+   13. The winning firms are not those with the most AI features, but those that fixed their delivery economics and preserved human judgment where 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786745099315.air.json [content] n=15 distinct=13 body=10 visual=5 visual_ratio=0.5 evidence_ratio=0.33 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 1, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (9, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > stat-row > comparison-panels > block-quote > problem-diptych > section-divider > numbered-themes > flow-arc > evidence-table > block-quote > means-matters > section-divider > role-recommendation
+    1. Twelve AI Trends Reshaping Executive Search in 2026
+    2. Where AI is landing across the retained search lifecycle
+    3. High-volume recruiting AI is proven, but retained search needs a different translation layer that automates research and reporting while lea
+    4. Executive search AI adoption is bifurcated, and the top tier posts steadier revenue
+    5. Firms want AI built into the workflow, not bolted on beside it
+    6. 
+    7. Advisory firms fear AI drives fees down, but clients still buy outcomes
+    8. From market shift to targeted use cases
+    9. Four AI use cases carry the strongest feasibility for retained search
+   10. MCP servers connect AI reasoning to live CRM data without copying the database
+   11. The industry draws a hard line between AI-assisted and human-only stages
+   12. 
+   13. AI compresses front-end research time while a case study shows the downstream payoff
+   14. The recommended response for DSG Global
+   15. Target secure, CRM-integrated AI where the efficiency gains are measurable
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786978910368.air.json [content] n=14 distinct=13 body=11 visual=7 visual_ratio=0.64 evidence_ratio=0.36 cover=True agenda=True thesis=True numbered_themes=0 max_same=2 consecutive=[] legacy=[] budget={'title>120': 1, 'content>200': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (10, 'slides:role-needs')]
+   seq: cover > agenda > means-matters > stat-row > thesis-interstitial > problem-diptych > flow-arc > block-quote > comparison-panels > role-needs > evidence-table > means-matters > role-recommendation > aggregate-roadmap
+    1. The state of executive search in 2026
+    2. What the 2026 search landscape actually shows
+    3. Workers are clinging to jobs, so each executive placement is higher-stakes
+    4. Revenue slipped modestly, but profit fell far faster across the largest staffing firms
+    5. Proven high-volume recruiting AI does not transfer cleanly to retained executive search, so use cases must be chosen for the outbound, relat
+    6. Contingency ATS tooling and retained-search platforms solve different problems
+    7. AI fits unevenly across the retained-search lifecycle, so DSG can sequence investment by feasibility
+    8. 
+    9. Interviews and assessments keep passing candidates who fail at the actual work
+   10. The partner needs AI that defends senior judgment, not commoditized throughput
+   11. Named firms show what AI-native delivery looks like versus AI bolted onto legacy
+   12. Confidential data makes deployment architecture, not model choice, the question that gates every use case
+   13. Point AI at the high-feasibility stages behind a governed data layer
+   14. Sequence adoption by feasibility across the search lifecycle
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786980403765.air.json [content] n=5 distinct=5 body=4 visual=2 visual_ratio=0.5 evidence_ratio=0.6 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > stat-row > evidence-table > block-quote > role-recommendation
+    1. AI in executive search: where the evidence points for DSG Global
+    2. Manual workflows leak margin, and each senior placement now carries more weight
+    3. Search firms want AI inside the workflow, not bolted on as point tools
+    4. 
+    5. Sequence AI where feasibility is highest and protect senior judgment as the differentiator
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982111802.air.json [content] n=5 distinct=5 body=4 visual=2 visual_ratio=0.5 evidence_ratio=0.6 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > stat-row > evidence-table > block-quote > problem-diptych
+    1. AI belongs in the sourcing and reporting half of executive search, not the finalist call
+    2. Manual reporting, higher-stakes placements, and screening gaps define the pressure
+    3. Feasibility is highest upstream and lowest at the finalist decision
+    4. 
+    5. Defend senior judgment while automating the manual layer
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1786982932657.air.json [content] n=5 distinct=5 body=4 visual=2 visual_ratio=0.5 evidence_ratio=0.4 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 7} empty_img=[(1, 'slides:cover')]
+   seq: cover > problem-diptych > evidence-table > means-matters > role-recommendation
+    1. AI in executive search: where the feasible wins actually sit for DSG Global
+    2. Proven volume-recruiting AI does not port to retained search
+    3. AI attaches cleanly to four search stages and stays out of two
+    4. Data governance and integration, not model choice, gate every use case
+    5. Sequence AI where feasibility is highest and defend senior judgment as the moat
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787245702306.air.json [content] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > comparison-panels > role-recommendation
+    1. AI is moving from a task tool to core executive search delivery infrastructure
+    2. AI reaches the search process in three phases, task to workflow to infrastructure
+    3. Retained search needs a different AI translation layer than high-volume recruiting
+    4. Sequence AI where feasibility is highest and defend senior judgment where it is not
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787247448891.air.json [content] n=7 distinct=7 body=5 visual=1 visual_ratio=0.2 evidence_ratio=0.14 cover=True agenda=True thesis=False numbered_themes=1 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes')]
+   seq: cover > agenda > problem-diptych > block-quote > comparison-panels > numbered-themes > role-recommendation
+    1. AI adoption in executive search stalls on data access, trust, and the gap between volume tools and retained work
+    2. Where AI implementation breaks down in executive search
+    3. Most firms have not moved past experimentation, and the ones that have pulled ahead
+    4. 
+    5. Disconnected LLMs hallucinate, and volume-recruiting AI does not transfer to retained search
+    6. Four challenges sit beyond a data connection and shape where AI can and cannot help
+    7. Fix the data layer first, then automate the low-risk stages and keep judgment human
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787250156334.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.33 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > role-recommendation
+    1. AI fits the retained search workflow unevenly across eight stages
+    2. AI feasibility is highest early in the search and lowest at the finalist stages
+    3. Attach AI to the front of the search and connect it to live CRM data
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787326965204.air.json [content] n=3 distinct=3 body=2 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=1 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:numbered-themes')]
+   seq: cover > numbered-themes > role-recommendation
+    1. Confidential data and thin process fit block AI adoption in retained search
+    2. Four barriers keep AI adoption stalled inside retained search firms
+    3. Treat data-governance architecture as the gate on every AI use case
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787327521322.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > role-recommendation
+    1. Retained search firms should sequence AI where feasibility is highest, not everywhere at once
+    2. Adopt AI in four stages, from data hygiene to defended judgment
+    3. Attach AI to the workflow, connect it to live data, and lead clients with outcomes
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787327521322.air.json [shipped] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > role-recommendation
+    1. Retained search firms should sequence AI where feasibility is highest, not everywhere at once
+    2. Adopt AI in four stages, from data hygiene to defended judgment
+    3. Attach AI to the workflow, connect it to live data, and lead clients with outcomes
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787330202072.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.67 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote
+    1. The corpus shows AI in sourcing works best on candidates the firm already has
+    2. AI sourcing evidence is strongest for database intelligence and enrichment
+    3. 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787330202072.air.json [shipped] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.67 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote
+    1. AI sourcing tools show stronger evidence of effectiveness when applied to existing talent databases
+    2. AI sourcing evidence is strongest for database intelligence and enrichment
+    3. Untitled Slide
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787330877082.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.67 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote
+    1. The evidence puts AI in search research and reporting, and holds it back from screening
+    2. AI is proven in research and reporting; screening still fails to catch bad executives
+    3. 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787330877082.air.json [shipped] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.67 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote
+    1. The evidence puts AI in search research and reporting, and holds it back from screening
+    2. AI is proven in research and reporting; screening still fails to catch bad executives
+    3. Untitled Slide
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787334804981.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.67 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > stat-row > block-quote
+    1. AI stops short of final candidate assessment in executive search
+    2. Screening and interviews keep passing candidates who fail at the actual work
+    3. 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=1 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:numbered-themes')]
+   seq: cover > numbered-themes > comparison-panels
+    1. Retained search firms apply AI first to research and sourcing, where the gains are measurable
+    2. Four AI use cases retained search firms run in research and sourcing today
+    3. Data governance decides which research and sourcing workflows can scale
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787335697290.air.json [shipped] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=1 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:numbered-themes')]
+   seq: cover > numbered-themes > comparison-panels
+    1. Retained search firms focus initial AI adoption on research and sourcing
+    2. AI use cases retained search firms run in research and sourcing today
+    3. Data governance decides which research and sourcing workflows can scale
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787338365595.air.json [content] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > evidence-table > block-quote
+    1. AI moves candidate research and shortlisting from manual sourcing to database intelligence
+    2. AI compresses four steps between search kickoff and a client-ready shortlist
+    3. Executive search platforms differ by how AI attaches to the research workflow
+    4. 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787338365595.air.json [shipped] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > evidence-table > block-quote
+    1. AI moves candidate research and shortlisting from manual sourcing to database intelligence
+    2. AI accelerates the workflow between search kickoff and a client-ready shortlist
+    3. Executive search platforms differ by how AI attaches to the research workflow
+    4. Untitled Slide
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json [content] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > flow-arc > block-quote
+    1. AI changes sourcing and assessment first, but retained search holds judgment at the finalist stages
+    2. Executive search platforms differ by structure, not AI feature count (Source: Best Executive Search Software for 2026)
+    3. AI targets the early stages of the search; human judgment holds the finalist stages
+    4. 
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787339035123.air.json [shipped] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > flow-arc > block-quote
+    1. AI assists with initial sourcing and assessment while recruiters maintain final candidate evaluation
+    2. Executive search platforms differ by structure, not AI feature count (Source: Best Executive Search Software for 2026)
+    3. AI targets the early stages of the search; human judgment holds the finalist stages
+    4. Untitled Slide
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787349655134.air.json [content] n=4 distinct=4 body=3 visual=1 visual_ratio=0.33 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 4} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote > role-recommendation
+    1. AI already changes retained search delivery, and DSG can adopt the research and reporting stages first
+    2. AI is landing on the research and reporting stages, not the finalist assessment or close
+    3. 
+    4. DSG should start with enrichment, re-surfacing and reporting on a governed data layer
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787349655134.air.json [shipped] n=4 distinct=4 body=3 visual=1 visual_ratio=0.33 evidence_ratio=0.5 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 4} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > block-quote > role-recommendation
+    1. AI tools assist with specific stages of retained search delivery
+    2. AI is landing on the research and reporting stages, not the finalist assessment or close
+    3. Untitled Slide
+    4. DSG should start with enrichment, re-surfacing and reporting on a governed data layer
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787577788440.air.json [content] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.25 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > quadrant > evidence-table > role-recommendation
+    1. DSG should adopt AI upstream in the search and hold it back at the finalist and close stages
+    2. Feasibility is highest where work is research-heavy and lowest where judgment decides
+    3. Four upstream use cases carry the strongest corpus evidence for DSG
+    4. Gate every AI use case behind confidential data and keep judgment stages human
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787577788440.air.json [shipped] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.25 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > quadrant > evidence-table > role-recommendation
+    1. DSG should adopt AI upstream in the search and hold it back at the finalist and close stages
+    2. Feasibility is highest where work is research-heavy and lowest where judgment decides
+    3. Selected upstream use cases show strong alignment with DSG capabilities
+    4. Protect confidential data and keep judgment stages human
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787579556386.air.json [content] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.33 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > role-recommendation
+    1. AI already changes the back-end of retained search; DSG Global should automate research and reporting first
+    2. AI reaches the research and reporting stages first; finalist judgment stays human
+    3. Automate research and reporting first, then connect AI to live CRM data
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends\artifacts\slides_1787579556386.air.json [shipped] n=3 distinct=3 body=2 visual=1 visual_ratio=0.5 evidence_ratio=0.33 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover')]
+   seq: cover > evidence-table > role-recommendation
+    1. AI already changes the back-end of retained search; DSG Global should automate research and reporting first
+    2. AI adoption focuses on research and reporting while human judgment remains central to finalist selection
+    3. Focus on research and reporting automation before connecting AI to live CRM data
+-- hic-workspace\sessions\define-the-2026-state-of-the-art-operational-and-technologic\artifacts\slides_1782907982158.air.json [content] n=9 distinct=9 body=6 visual=2 visual_ratio=0.33 evidence_ratio=0.22 cover=True agenda=True thesis=True numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > thesis-interstitial > problem-diptych > stat-row > block-quote > org-model > role-recommendation > aggregate-roadmap
+    1. Enterprise wealth management requires proprietary data infrastructure before scaling artificial intelligence
+    2. The 2026 artificial intelligence operating model
+    3. Wealth management firms cannot achieve net margin improvements from artificial intelligence until they standardize semantic data and govern 
+    4. High investment intent conflicts with legacy maintenance and unverified profitability
+    5. Agentic models increase gross capacity but require strict financial controls
+    6. 
+    7. Three layers define the 2026 artificial intelligence architecture
+    8. Chief Operating Officers must tie compensation to data hygiene
+    9. A phased approach to data standardization and agentic deployment
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\journey-map_1783005848243.air.json [content] n=3 distinct=3 body=2 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=['journey-map', 'theme-overview'] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > journey-map > theme-overview
+    1. Farmers assessing risk in 2026: a multi-generational journey
+    2. Sustained risk planning requires moving from static documents to living digital platforms
+    3. Friction points dictate whether farmers adopt formal risk plans
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1783034545148.air.json [content] n=14 distinct=5 body=5 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=True agenda=True thesis=True numbered_themes=0 max_same=5 consecutive=[] legacy=['prd-feature', 'prd-feature', 'prd-feature', 'prd-feature', 'prd-feature'] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > thesis-interstitial > section-divider > prd-feature > section-divider > prd-feature > section-divider > prd-feature > section-divider > prd-feature > section-divider > prd-feature > thesis-interstitial
+    1. Enhanced Farm Risk Ready: Product Concept Blueprint
+    2. What this blueprint covers
+    3. Most farmers never build a formal risk plan, and those who do let it go stale, yet planners recover faster from disruption. The enhanced too
+    4. Dimension one: the AI risk assessment engine
+    5. The assessment engine identifies climate and macro risks from the farm's own data
+    6. Dimension two: prioritization and mitigation
+    7. Dynamic prioritization ranks threats and drafts mitigation the farmer controls
+    8. Dimension three: the education and engagement loop
+    9. The engagement loop builds risk literacy and earns trust over time
+   10. Dimension four: plan maintenance
+   11. Continuous maintenance keeps the plan current as the farm evolves
+   12. Requirements ledger
+   13. The requirements draw a hard line between an assistant that drafts and a farmer who decides
+   14. Across all four dimensions, the enhanced Farm Risk Ready tool follows one rule: AI does the heavy lifting of finding, ranking, and maintaini
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\prd-feature_1784174306596.air.json [content] n=18 distinct=9 body=8 visual=5 visual_ratio=0.62 evidence_ratio=0.06 cover=True agenda=True thesis=True numbered_themes=0 max_same=7 consecutive=[] legacy=[] budget={'content>200': 3, 'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > section-divider > ranked-bars > section-divider > comparison-panels > section-divider > means-matters > section-divider > prd-feature > flow-arc > section-divider > prd-feature > section-divider > comparison-panels > section-divider > prd-feature > thesis-interstitial
+    1. Product requirements: Farm Risk Ready℠ AI features mapped to farmer behavior
+    2. From behavioral finding to specified feature
+    3. What the study found about farmer behavior
+    4. Four behavioral findings define what the AI features must overcome
+    5. The wait-and-see problem
+    6. Farmers default to waiting because planning feels both futile and unfamiliar
+    7. The knowledge and premium-pressure gaps
+    8. The study quantifies who plans, who does not, and how they prefer to learn
+    9. Features for the passive planner
+   10. 
+   11. AI scoring turns a manual worksheet into a plan that keeps itself current
+   12. Features for the cost-pressured buyer
+   13. 
+   14. Features for the channel and trust gap
+   15. AI must feed the trusted agent and the printed plan, not replace them
+   16. Requirements ledger and success metrics
+   17. <unparsed>
+   18. Every specified feature answers a documented behavior: guided intake defeats wait-and-see, dynamic scoring closes the knowledge gap, mitigat
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\recommendation_1786634627958.air.json [content] n=3 distinct=1 body=3 visual=0 visual_ratio=0.0 evidence_ratio=0.0 cover=False agenda=False thesis=False numbered_themes=0 max_same=3 consecutive=[(1, 'recommendation'), (2, 'recommendation')] legacy=['recommendation', 'recommendation', 'recommendation'] budget={'content>200': 1} empty_img=[]
+   seq: recommendation > recommendation > recommendation
+    1. Reprice the equipment schedule around connectivity dependency and silent degradation
+    2. Re-score climate threats within the season instead of once a year
+    3. Reward verified physical hardening with visible pricing or coverage credit
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1782956050219.air.json [content] n=12 distinct=9 body=8 visual=2 visual_ratio=0.25 evidence_ratio=0.25 cover=True agenda=True thesis=True numbered_themes=3 max_same=3 consecutive=[(6, 'slides:numbered-themes')] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (7, 'slides:numbered-themes'), (9, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > block-quote > org-model > numbered-themes > numbered-themes > evidence-table > numbered-themes > role-roadmap > stat-row > thesis-interstitial
+    1. Farm Risk Ready as a living AI planning platform
+    2. What this plan covers
+    3. Farms with a plan recover from disruption faster, yet most farmers still have no formal plan and a static worksheet does nothing to close th
+    4. 
+    5. A contextual intelligence layer, not a single-purpose tool
+    6. What the experience is asked to deliver for farmers
+    7. The capabilities the platform learns to run
+    8. The build starts from what Nationwide already owns
+    9. The data the intelligence layer needs to ingest
+   10. Phase one earns the right to the advanced capabilities
+   11. How the business knows the platform is working
+   12. Build the smallest credible version first: ingest farm characteristics, prioritize risks, match content, and keep a living plan; the monitor
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783004855072.air.json [content] n=13 distinct=10 body=9 visual=3 visual_ratio=0.33 evidence_ratio=0.31 cover=True agenda=True thesis=True numbered_themes=2 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:numbered-themes'), (11, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > stat-row > problem-diptych > block-quote > numbered-themes > evidence-table > block-quote > org-model > numbered-themes > aggregate-roadmap > thesis-interstitial
+    1. Agricultural underwriting at the viability frontier: a 2026 risk analysis
+    2. What this analysis covers
+    3. The threat to agricultural underwriting in 2026 is not one new peril but three compounding at once: climate loss, elevated rates, and a tech
+    4. Three numbers frame why underwriting math is breaking
+    5. Climate risk and technology risk now sit on the same register
+    6. 
+    7. Inflation and rates reach the farm through four channels
+    8. Adoption barriers and needs differ sharply by segment
+    9. 
+   10. Underwriting shifts from single instrument to layered risk-stack engineering
+   11. What already moves adoption in the field
+   12. A phased path from data foundation to adaptive underwriting
+   13. Insurers that reduce underlying risk, layer the transfer, and educate distinct personas will keep the most exposed farms insurable; those th
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783011530644.air.json [content] n=15 distinct=13 body=9 visual=3 visual_ratio=0.33 evidence_ratio=0.13 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (4, 'slides:numbered-themes'), (8, 'slides:infographic-exhibit'), (12, 'slides:role-needs')]
+   seq: cover > agenda > thesis-interstitial > numbered-themes > section-divider > evidence-table > block-quote > infographic-exhibit > section-divider > problem-diptych > org-model > role-needs > role-recommendation > aggregate-roadmap > thesis-interstitial
+    1. The 2026 Farmer Facing the Risk Register
+    2. What we cover
+    3. The Plan Builder's probability-times-severity method fits every operator, but each persona reaches it through a different door of scale, lit
+    4. Four operators approach the same risk register from four positions
+    5. The risk profiles diverge
+    6. Climate and macro exposure by operator
+    7. 
+    8. The Plan Builder scores every threat the same way
+    9. The barriers differ too
+   10. The sophisticated skip it; the vulnerable cannot reach it
+   11. Three engagement tracks meet operators where they stand
+   12. The small-scale deciding grower needs the tool most
+   13. The precision farmer needs new risk made legible
+   14. One tool, four sequenced engagement paths
+   15. The probability-times-severity method is universal; winning adoption means engineering the door each operator walks through, from proving ov
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783011876391.air.json [content] n=15 distinct=13 body=9 visual=3 visual_ratio=0.33 evidence_ratio=0.13 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (4, 'slides:numbered-themes'), (8, 'slides:infographic-exhibit'), (12, 'slides:role-needs')]
+   seq: cover > agenda > thesis-interstitial > numbered-themes > section-divider > evidence-table > block-quote > infographic-exhibit > section-divider > problem-diptych > org-model > role-needs > role-recommendation > aggregate-roadmap > thesis-interstitial
+    1. Four 2026 Farmer Personas and the Farm Risk Ready Plan Builder
+    2. What we cover
+    3. The Plan Builder scores every farm the same way, but each operator reaches it through a different obstacle of scale, literacy, and trust.
+    4. Four operators approach the same risk tool from four starting points
+    5. The risk profiles diverge
+    6. Climate and economic exposure by operator
+    7. 
+    8. The Plan Builder scores every threat the same way
+    9. The barriers differ too
+   10. The prepared skip it, and the exposed cannot reach it
+   11. Three tracks meet operators where they stand
+   12. The small-scale grower needs the tool most
+   13. The precision farmer needs new risk made clear
+   14. One tool, four engagement paths
+   15. The scoring method works for every farm. Winning adoption means building the right path for each operator, from showing a missed gap to earn
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783012250803.air.json [content] n=15 distinct=13 body=9 visual=3 visual_ratio=0.33 evidence_ratio=0.13 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (4, 'slides:numbered-themes'), (8, 'slides:infographic-exhibit'), (12, 'slides:role-needs')]
+   seq: cover > agenda > thesis-interstitial > numbered-themes > section-divider > evidence-table > block-quote > infographic-exhibit > section-divider > problem-diptych > org-model > role-needs > role-recommendation > aggregate-roadmap > thesis-interstitial
+    1. The 2026 Farmer and the Risk Register
+    2. What we cover
+    3. The Plan Builder scores every threat the same way, but each operator reaches it through a different barrier of scale, literacy, and trust.
+    4. Four operators face the same risk register from four starting points
+    5. The risk profiles diverge
+    6. Climate and macroeconomic exposure by operator
+    7. 
+    8. The Plan Builder scores every threat the same way
+    9. The barriers differ too
+   10. The prepared skip it; the exposed cannot reach it
+   11. Three tracks meet operators where they stand
+   12. The small-scale deciding grower needs the tool most
+   13. The precision farmer needs new risk made visible
+   14. One tool, four sequenced paths to adoption
+   15. The scoring method is universal. Winning adoption means designing the door each operator walks through, from showing a missed gap to earning
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783018939110.air.json [content] n=22 distinct=13 body=11 visual=2 visual_ratio=0.18 evidence_ratio=0.18 cover=True agenda=True thesis=True numbered_themes=2 max_same=6 consecutive=[] legacy=[] budget={'title>120': 3} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (11, 'slides:numbered-themes'), (15, 'slides:numbered-themes'), (16, 'slides:role-needs')]
+   seq: cover > agenda > thesis-interstitial > section-divider > stat-row > block-quote > section-divider > problem-diptych > block-quote > section-divider > numbered-themes > section-divider > evidence-table > section-divider > numbered-themes > role-needs > role-recommendation > section-divider > thesis-interstitial > org-model > role-roadmap > thesis-interstitial
+    1. Agricultural Risk Readiness in 2026
+    2. What we cover
+    3. Farm risk is rising on every axis at once, yet most operators still work without a formal plan, and the operators who plan recover faster fr
+    4. The macroeconomic drivers
+    5. Three forces squeeze the 2026 operating margin
+    6. 
+    7. Generational and behavioral shifts
+    8. A clear split separates those who adopt from those who cannot
+    9. 
+   10. Technology adoption barriers
+   11. Four barriers slow technology uptake more than price does
+   12. Agricultural research dimensions
+   13. Four research findings shape what a risk tool can deliver
+   14. The farmer personas
+   15. Four operators carry four different risk profiles
+   16. The small-scale grower struggles at every step of readiness
+   17. The precision farmer needs digital risk made visible
+   18. The FarmGuard concept
+   19. FarmGuard turns the Farm Risk Ready Plan Builder from a one-time document into an ongoing platform that identifies risks, ranks them, builds
+   20. FarmGuard solves three problems the static builder leaves open
+   21. FarmGuard rolls out AI capability in four phases
+   22. Farm risk keeps rising, but readiness lags behind. FarmGuard closes that gap by making a living risk plan the default, not the exception.
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783019350131.air.json [content] n=22 distinct=13 body=12 visual=2 visual_ratio=0.17 evidence_ratio=0.23 cover=True agenda=True thesis=True numbered_themes=2 max_same=6 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (11, 'slides:numbered-themes'), (15, 'slides:numbered-themes'), (16, 'slides:role-needs')]
+   seq: cover > agenda > thesis-interstitial > section-divider > stat-row > block-quote > section-divider > problem-diptych > block-quote > section-divider > numbered-themes > section-divider > evidence-table > section-divider > numbered-themes > role-needs > role-recommendation > section-divider > block-quote > org-model > role-roadmap > thesis-interstitial
+    1. Agricultural Risk Readiness in 2026
+    2. What we cover
+    3. Farm risk is rising on every axis at once, most operators still work without a plan, and Nationwide's Farm Risk Ready Plan Builder is the to
+    4. The macroeconomic drivers
+    5. Three forces squeeze the 2026 operating margin
+    6. 
+    7. Generational and behavioral shifts
+    8. A clear split separates those who adopt from those who cannot
+    9. 
+   10. Technology adoption barriers
+   11. Four barriers slow technology uptake more than price does
+   12. Agricultural research dimensions
+   13. Four research findings shape what a Nationwide tool can deliver
+   14. The farmer personas
+   15. Four operators carry four different risk profiles
+   16. The small-scale grower struggles at every step of readiness
+   17. The precision farmer needs digital risk made visible
+   18. Farm Risk Ready, taken further
+   19. 
+   20. AI automation solves three problems the static builder leaves open
+   21. The automated Farm Risk Ready tool rolls out in four phases
+   22. Farm risk keeps rising while readiness lags. Nationwide's Farm Risk Ready Plan Builder, automated with AI, makes a living risk plan the defa
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783024284167.air.json [content] n=24 distinct=13 body=12 visual=3 visual_ratio=0.25 evidence_ratio=0.17 cover=True agenda=True thesis=True numbered_themes=2 max_same=8 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (8, 'slides:numbered-themes'), (9, 'slides:role-needs'), (12, 'slides:infographic-exhibit'), (15, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > section-divider > stat-row > block-quote > section-divider > numbered-themes > role-needs > role-recommendation > section-divider > infographic-exhibit > block-quote > section-divider > numbered-themes > section-divider > org-model > section-divider > evidence-table > section-divider > role-roadmap > section-divider > org-model > thesis-interstitial
+    1. Nationwide Enhances Farm Risk Ready to Be Even More Proactive for Farmers
+    2. What we cover
+    3. Farm risk is rising on every axis in 2026, most operators still work without a plan, and Nationwide's Farm Risk Ready Plan Builder can becom
+    4. Market conditions, climate, and other risk factors in 2026
+    5. Three pressures define the farmer's risk landscape
+    6. 
+    7. Different concerns for different grower segments
+    8. Four segments carry four different risk profiles
+    9. The small-scale grower struggles at every step of readiness
+   10. The precision farmer needs digital risk made visible
+   11. Nationwide resources and tools for farmer readiness
+   12. Farm Risk Ready scores every threat the same way
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Four barriers slow tool uptake more than price does
+   16. A new AI-powered planning companion for a new generation of farmers
+   17. The AI companion solves three problems the static builder leaves open
+   18. AI features and benefits of the new Farm Risk Ready
+   19. Four AI capabilities, each with a farmer benefit and a constraint
+   20. A roadmap for the future
+   21. The enhanced Farm Risk Ready tool rolls out in four phases
+   22. Business drivers, farmer education, and industry benefits
+   23. The enhanced tool creates value on three fronts
+   24. Farm risk keeps rising while readiness lags. By enhancing Farm Risk Ready with AI, Nationwide makes a living risk plan the default, helping 
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783044408691.air.json [content] n=23 distinct=13 body=12 visual=3 visual_ratio=0.25 evidence_ratio=0.13 cover=True agenda=True thesis=True numbered_themes=3 max_same=7 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit > section-divider
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. Farm risk is no longer a single peril farmers can wait out; climate, cost, labor, and financing shocks now arrive together, and most farms m
+    5. Climate losses now push whole lending and insurance models past the point of viability
+    6. Beyond weather, four cost and operating pressures are squeezing farm solvency
+    7. Two forces make readiness harder just as it becomes more necessary
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments carry different risk, planning, and engagement needs
+   10. The Squeezed Survivor needs readiness that costs time and money it doesn't have
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into three deliberate moves
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep readiness tools from getting used and revisited
+   16. Keep everything farmers already trust about Farm Risk Ready℠, and use AI to remove the friction and make the plan a living companion rather 
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the plan behaves, not what farmers trust
+   19. Build the companion on the FarmGuard automation pattern, branded as Farm Risk Ready℠
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the worksheet into a continuous readiness engine
+   22. One risk flows from intake to a maintained, agent-supported plan
+   23. a Roadmap for the Future
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783046401285.air.json [content] n=23 distinct=13 body=12 visual=3 visual_ratio=0.25 evidence_ratio=0.13 cover=True agenda=True thesis=True numbered_themes=3 max_same=7 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit > section-divider
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. Farm risk is no longer a single peril farmers can wait out; climate, cost, labor, and financing shocks now arrive together, and most farms m
+    5. Climate losses now push whole lending and insurance models past the point of viability
+    6. Beyond weather, four cost and operating pressures are squeezing farm solvency
+    7. Two forces make readiness harder just as it becomes more necessary
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments carry different risk, planning, and engagement needs
+   10. The Squeezed Survivor needs readiness that costs time and money it doesn't have
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into three deliberate moves
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep readiness tools from getting used and revisited
+   16. Keep everything farmers already trust about Farm Risk Ready℠, and use AI to remove the friction and make the plan a living companion rather 
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the plan behaves, not what farmers trust
+   19. AI guidance and continuous updates layer onto the trusted Farm Risk Ready℠ structure
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the worksheet into a continuous readiness engine
+   22. One risk flows from intake to a maintained, agent-supported plan
+   23. a Roadmap for the Future
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783085423855.air.json [content] n=22 distinct=13 body=12 visual=3 visual_ratio=0.25 evidence_ratio=0.14 cover=True agenda=True thesis=True numbered_themes=3 max_same=6 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 3} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. The Farm Risk Ready℠ questionnaire already asks farmers to rank facility, natural, operational, personnel, social, and technology threats; i
+    5. The natural-threat category the questionnaire scores is now the dominant loss driver
+    6. Operational and facility threats now carry cost pressures the worksheet cannot weigh
+    7. Personnel and social threats sit on the worksheet but grow faster than a yearly score can track
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments score the same threats but need different readiness support
+   10. The Squeezed Survivor needs the questionnaire's top risks surfaced with little time or money
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into identify, mitigate, and sustain
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep the questionnaire from getting completed and revisited
+   16. Keep the six-threat scoring, four mitigation strategies, and Plan A/B/C structure farmers already trust, and use AI to remove the friction s
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the questionnaire behaves, not what farmers trust
+   19. AI guidance and continuous scoring layer onto the trusted Farm Risk Ready℠ questionnaire
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the five-step worksheet into a continuous readiness engine
+   22. One threat flows from intake to a maintained, agent-supported plan
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783115171976.air.json [content] n=20 distinct=10 body=8 visual=2 visual_ratio=0.25 evidence_ratio=0.1 cover=True agenda=True thesis=True numbered_themes=3 max_same=8 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:role-needs'), (9, 'slides:numbered-themes'), (11, 'slides:numbered-themes'), (13, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > thesis-interstitial > problem-diptych > section-divider > role-needs > section-divider > numbered-themes > section-divider > numbered-themes > section-divider > numbered-themes > section-divider > evidence-table > section-divider > role-roadmap > section-divider > stat-row > thesis-interstitial
+    1. Product requirements brief: the AI-powered Farm Risk Ready℠ Planning Companion
+    2. What this brief specifies, from problem to phased build
+    3. The problem the companion must solve
+    4. Farmers score six threat classes once on a static worksheet, but climate and market conditions shift within a season, so the plan goes stale
+    5. The worksheet captures a moment; farm risk moves continuously
+    6. Farmer segments it must serve
+    7. The Squeezed Survivor sets the friction ceiling every feature must clear
+    8. Guided intake and threat scoring
+    9. Four intake features cut the worksheet to minutes while preserving the scoring logic
+   10. Climate and macro risk scanning
+   11. Four scanning features re-score threats as real conditions change for this farm
+   12. Mitigation, scenarios, and engagement
+   13. Four features convert scores into mitigation, contingencies, and agent engagement
+   14. Non-functional and trust requirements
+   15. Six requirements make the companion trustworthy and usable where farms actually operate
+   16. A phased delivery roadmap
+   17. Four phases move the companion from guided intake to continuous learning
+   18. Success metrics and guardrails
+   19. The companion succeeds when plans get completed, stay current, and speed recovery
+   20. Specified this way, the companion keeps everything farmers trust about the six-threat questionnaire and adds only what makes it proactive: p
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783698311645.air.json [content] n=18 distinct=9 body=7 visual=3 visual_ratio=0.43 evidence_ratio=0.11 cover=True agenda=True thesis=True numbered_themes=0 max_same=8 consecutive=[] legacy=['journey-map'] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:role-needs'), (8, 'slides:role-needs'), (10, 'slides:role-needs')]
+   seq: cover > agenda > section-divider > stat-row > section-divider > role-needs > section-divider > role-needs > section-divider > role-needs > section-divider > evidence-table > section-divider > comparison-panels > section-divider > journey-map > section-divider > thesis-interstitial
+    1. The 2026 agribusiness insurance guide: three farmer personas, three readiness paths
+    2. How three grower segments experience and buy protection differently
+    3. The 2026 risk backdrop all farmers share
+    4. Three forces compound on the same balance sheet before any persona differences appear
+    5. The Capitalized Scaler
+    6. The Capitalized Scaler manages risk as a portfolio and needs depth, not basics
+    7. The Squeezed Survivor
+    8. The Squeezed Survivor buys protection only when payoff is proven and friction is low
+    9. The Next-Gen Successor
+   10. The Next-Gen Successor is digital-first but demands proof a tool works in the field
+   11. Risk exposure compared across personas
+   12. Climate, technology, and macro pressure rank differently for each persona
+   13. Adoption barriers and education channels
+   14. Match the education channel to each persona's specific adoption barrier
+   15. The journey from awareness to renewal
+   16. Each persona stalls at a different stage on the path from awareness to renewal
+   17. What this means for how we serve them
+   18. The Scaler needs depth, the Survivor needs proven low-friction payoff, and the Successor needs integrated proof; serving all three from one 
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1783699030836.air.json [content] n=20 distinct=11 body=9 visual=6 visual_ratio=0.67 evidence_ratio=0.15 cover=True agenda=True thesis=True numbered_themes=0 max_same=8 consecutive=[] legacy=[] budget={'content>200': 1, 'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > section-divider > flow-arc > section-divider > comparison-panels > block-quote > section-divider > problem-diptych > section-divider > means-matters > section-divider > flow-arc > section-divider > evidence-table > section-divider > comparison-panels > section-divider > role-recommendation > thesis-interstitial
+    1. Eight questions on the Farm Risk Ready℠ diagnosis and companion, answered from the research
+    2. The eight questions, grouped by diagnosis and implementation
+    3. Actionability for the Squeezed Survivor
+    4. For a capital-constrained farmer, the companion triages toward zero-cost and financed mitigations
+    5. Persona data-privacy thresholds
+    6. Privacy posture tracks trust and control, not a single farmer threshold
+    7. 
+    8. The proving-field-value paradox
+    9. Field payoff is defined as a better decision today, not a payout after a disaster
+   10. Agent channel friction
+   11. The agent stays the trusted advisor because automation triggers them, it does not replace them
+   12. Offline AI capabilities
+   13. Split the work: on-device guidance offline, cloud scanning on reconnect
+   14. Underwriting and liability implications
+   15. Position the companion as planning guidance, with affirmative language and human sign-off
+   16. Premium expectations
+   17. Dynamic pricing is the credible prize, but the gain must actually reach the farmer
+   18. Non-customer acquisition
+   19. Lead with free value and bundled credit, not a data request, to earn the non-customer
+   20. Across all eight questions the same principle holds: the companion earns its place by driving a valuable decision today, keeping a trusted h
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1784057069437.air.json [content] n=10 distinct=9 body=7 visual=7 visual_ratio=1.0 evidence_ratio=0.4 cover=True agenda=True thesis=True numbered_themes=0 max_same=2 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > means-matters > ranked-bars > stat-row > flow-arc > means-matters > aggregate-roadmap > evidence-table > thesis-interstitial
+    1. The metrics that prove Farm Risk Ready℠ readiness works
+    2. The measurable case, from exposure to outcome
+    3. Climate loss, input-cost pressure, and a growing data surface raise the value of a live plan
+    4. Value skepticism and time scarcity outrank every other reason plans go unused
+    5. Completion, freshness, and agent contact are the three engagement metrics to instrument
+    6. Engagement is a loop from intake to agent contact, not a one-time worksheet
+    7. Engaged, protected farmers invest more, default less, and recover faster
+    8. Each phase carries one primary metric from adoption to solvency
+    9. Three things must hold steady or the readiness gains are not real
+   10. The exposure is structural, the barriers are completion and trust, and the payoff is measurable in investment, delinquency, and recovery, so
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1784057434545.air.json [content] n=19 distinct=10 body=8 visual=8 visual_ratio=1.0 evidence_ratio=0.26 cover=True agenda=True thesis=True numbered_themes=0 max_same=8 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda')]
+   seq: cover > agenda > section-divider > evidence-table > section-divider > means-matters > section-divider > means-matters > section-divider > comparison-panels > section-divider > flow-arc > section-divider > stat-row > section-divider > milestone-timeline > section-divider > evidence-table > thesis-interstitial
+    1. Measuring the ROI of an AI-powered Farm Risk Ready℠ across Premier Farm Certified agents
+    2. From ROI drivers to the reporting that proves them
+    3. Seven ROI drivers to instrument
+    4. Seven drivers connect agent tool usage to measurable financial impact
+    5. Revenue drivers: policies and cross-sell
+    6. Bankability and engagement evidence explain how the tool lifts policies and cross-sell
+    7. Retention and loss-ratio drivers
+    8. A live plan is the leading indicator of both retention and lower loss severity
+    9. Efficiency drivers: productivity and cost
+   10. AI-guided intake reworks the agent's planning time and the cost to support it
+   11. The agent-managed data model
+   12. Agents own the farmer data while Nationwide reads the utilization and outcome signal
+   13. The Nationwide ROI reporting layer
+   14. Three reporting views turn agent utilization into a defensible ROI story
+   15. A phased measurement roadmap
+   16. Measurement matures from utilization to loss-ratio impact over four phases
+   17. The guardrails that keep it credible
+   18. Three guardrails keep the ROI numbers trustworthy
+   19. When Premier Farm Certified agents manage the farmer data and Nationwide reads the utilization on top of it, the tool's financial impact bec
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1784571436277.air.json [content] n=21 distinct=15 body=11 visual=5 visual_ratio=0.45 evidence_ratio=0.14 cover=True agenda=True thesis=True numbered_themes=1 max_same=6 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > ranked-bars > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > comparison-panels > role-recommendation > section-divider > flow-arc
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. Farm risk is no longer a single peril farmers can wait out; climate, cost, labor, and financing shocks now arrive together, and most farms s
+    5. The natural-threat category the questionnaire scores is now the dominant loss driver
+    6. Input costs now outrank weather as the leading operational constraint farmers name
+    7. Personnel and social threats grow faster than a yearly score can track
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments score the same threats but need different readiness support
+   10. The Squeezed Survivor needs the top risks surfaced with little time or money
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into identify, mitigate, and sustain
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep the questionnaire from getting completed and revisited
+   16. Keep the six-threat scoring, four mitigation strategies, and Plan A/B/C structure farmers already trust, and use AI to remove the friction s
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the questionnaire behaves, not what farmers trust
+   19. AI guidance and continuous scoring layer onto the trusted Farm Risk Ready℠ questionnaire
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. One threat flows from intake to a maintained, agent-supported plan
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1786147712357.air.json [content] n=7 distinct=6 body=4 visual=2 visual_ratio=0.5 evidence_ratio=0.14 cover=True agenda=False thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (4, 'slides:numbered-themes'), (5, 'slides:role-needs')]
+   seq: cover > thesis-interstitial > flow-arc > numbered-themes > role-needs > stat-row > thesis-interstitial
+    1. How farmers use the AI-powered Farm Risk Ready℠ companion across a season
+    2. Farmers stop treating risk planning as a one-time worksheet and start using the companion as a season-long habit, because it drafts the plan
+    3. Five stages carry a farmer from onboarding to a plan that stays current
+    4. The farmer stays in control while the companion removes the manual work
+    5. The time-poor farmer only uses the tool if it fits into a working day
+    6. Continued use is what converts a plan into recovery, retention, and solvency
+    7. The companion earns repeat usage by doing the work farmers dread and surfacing something new each visit, so risk planning becomes a habit th
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-ho\artifacts\slides_1786149038787.air.json [content] n=16 distinct=10 body=7 visual=4 visual_ratio=0.57 evidence_ratio=0.12 cover=True agenda=True thesis=True numbered_themes=1 max_same=6 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > flow-arc > section-divider > numbered-themes > section-divider > flow-arc > section-divider > comparison-panels > block-quote > section-divider > role-recommendation > section-divider > means-matters > thesis-interstitial
+    1. How farmers use the AI-powered Farm Risk Ready℠ Planning Companion
+    2. The farmer's path through the companion, stage by stage
+    3. Guided onboarding and pre-filled intake
+    4. First use moves from a pre-filled draft to a scored, agent-connected plan in one session
+    5. Validating the six threat scores
+    6. Farmers adjust four things the AI drafts to match their own operation
+    7. Structuring mitigations and contingencies
+    8. Farmers convert top threats into a defensible plan in four moves
+    9. Responding to proactive alerts
+   10. The plan reaches out when conditions change instead of waiting to be opened
+   11. 
+   12. Reviewing plan health with the agent
+   13. The farmer and agent use the live plan to align coverage with current break-even costs
+   14. What sustained usage delivers
+   15. Ongoing usage protects the farm and the Nationwide relationship at once
+   16. Used as intended, the companion changes the farmer's habit from filling out a worksheet once to working a living plan all season, and that h
+-- hic-workspace\sessions\generate-a-structured-client-ready-introductory-and-capabili\artifacts\slides_1783612900167.air.json [content] n=14 distinct=11 body=8 visual=3 visual_ratio=0.38 evidence_ratio=0.29 cover=True agenda=True thesis=True numbered_themes=1 max_same=3 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (8, 'slides:infographic-exhibit'), (9, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > stat-row > thesis-interstitial > problem-diptych > org-model > infographic-exhibit > numbered-themes > block-quote > evidence-table > section-divider > block-quote > thesis-interstitial
+    1. AI value without the multi-year transformation price tag
+    2. What we do, how we work, and the proof behind it
+    3. The machine does the labor of collection, synthesis, design, and quality control; the person sets direction and approves the work.
+    4. Three founders convert a 25-year track record into enterprise credibility
+    5. Buyers face a crowded, noisy AI market where getting real ROI is difficult and clarity on how to move forward is scarce.
+    6. The gap between strategy that stops at slideware and AI that never ships
+    7. Three service lines carry a client from assessment to shipped AI
+    8. Plan, Activate, Measure, Iterate is the delivery method
+    9. The Enablement Blueprint gets the plan right in three weeks
+   10. 
+   11. Named engagements across four regulated, high-complexity verticals
+   12. Why us, and why now
+   13. 
+   14. Start with a six-to-eight week assessment; leave with a prioritized AI roadmap your stakeholders can fund with confidence.
+-- hic-workspace\sessions\generate-a-structured-client-ready-introductory-and-capabili\artifacts\slides_1783613180525.air.json [content] n=12 distinct=11 body=8 visual=3 visual_ratio=0.38 evidence_ratio=0.33 cover=True agenda=True thesis=True numbered_themes=1 max_same=2 consecutive=[] legacy=[] budget={'content>200': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:infographic-exhibit'), (9, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > problem-diptych > block-quote > org-model > infographic-exhibit > section-divider > numbered-themes > evidence-table > block-quote > thesis-interstitial
+    1. We help companies find real value from AI in weeks, not years
+    2. Who we are, what we build, and the work we have delivered
+    3. Three founders who have built and sold a company before
+    4. Two reasons companies get stuck trying to use AI
+    5. 
+    6. Three services: assess, build, and get teams using AI
+    7. A four-step method, refined over decades of digital work
+    8. The work we have delivered
+    9. Strategy and Build: from a startup roadmap to a live insurance product
+   10. Named engagements across five industries
+   11. 
+   12. Begin with a six-to-eight week assessment and leave with a clear AI roadmap your team can fund with confidence.
+-- hic-workspace\sessions\generate-a-structured-client-ready-introductory-and-capabili\artifacts\slides_1783613523815.air.json [content] n=16 distinct=11 body=11 visual=4 visual_ratio=0.36 evidence_ratio=0.25 cover=True agenda=True thesis=True numbered_themes=3 max_same=3 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:infographic-exhibit'), (8, 'slides:numbered-themes'), (10, 'slides:infographic-exhibit'), (11, 'slides:numbered-themes'), (13, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > problem-diptych > section-divider > block-quote > infographic-exhibit > numbered-themes > org-model > infographic-exhibit > numbered-themes > section-divider > numbered-themes > evidence-table > block-quote > thesis-interstitial
+    1. We help companies find real value from AI in weeks, not years
+    2. Who we are, what we build, and the work we have delivered
+    3. Three founders who have built and sold a company before
+    4. Two reasons companies get stuck trying to use AI
+    5. Intelligence Augmentation
+    6. 
+    7. The machine does the labor; the person keeps control
+    8. The technical proof behind the workflow
+    9. Three services: assess, build, and get teams using AI
+   10. A four-step method, refined over decades of digital work
+   11. The Enablement Blueprint gets the plan right in three weeks
+   12. The work we have delivered
+   13. From a startup roadmap to a live insurance product
+   14. Named engagements across five industries
+   15. 
+   16. Begin with a six-to-eight week assessment and leave with a clear AI roadmap your team can fund with confidence.
+-- hic-workspace\sessions\generate-a-structured-client-ready-introductory-and-capabili\artifacts\slides_1783613834512.air.json [content] n=19 distinct=11 body=11 visual=4 visual_ratio=0.36 evidence_ratio=0.21 cover=True agenda=True thesis=True numbered_themes=3 max_same=4 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (9, 'slides:infographic-exhibit'), (10, 'slides:numbered-themes'), (13, 'slides:infographic-exhibit'), (14, 'slides:numbered-themes'), (16, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > stat-row > problem-diptych > thesis-interstitial > section-divider > block-quote > infographic-exhibit > numbered-themes > section-divider > org-model > infographic-exhibit > numbered-themes > section-divider > numbered-themes > evidence-table > block-quote > thesis-interstitial
+    1. We help companies find real value from AI in weeks, not years
+    2. Our positioning, our services, our method, and how we engage
+    3. Market positioning
+    4. Three founders who have built and sold a company before
+    5. Two reasons legacy operators get stuck trying to use AI
+    6. We sell a roadmap of opportunities for exponential growth, not cost-cutting; the bridge that lets a legacy operator say yes to AI-native wor
+    7. Intelligence Augmentation
+    8. 
+    9. The machine does the labor; the person keeps control
+   10. The technical proof behind the workflow
+   11. Services and method
+   12. Three services: assess, build, and get teams using AI
+   13. A four-step method, refined over decades of digital work
+   14. The Enablement Blueprint gets the plan right in three weeks
+   15. The work and how we engage
+   16. From a startup roadmap to a live insurance product
+   17. Named engagements across five industries
+   18. 
+   19. Begin with a six-to-eight week assessment and leave with a clear AI roadmap your team can fund with confidence.
+-- hic-workspace\sessions\generate-a-structured-client-ready-introductory-and-capabili\artifacts\slides_1783657138511.air.json [content] n=17 distinct=14 body=11 visual=7 visual_ratio=0.64 evidence_ratio=0.24 cover=True agenda=True thesis=True numbered_themes=1 max_same=3 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (3, 'slides:agenda'), (6, 'slides:numbered-themes')]
+   seq: cover > thesis-interstitial > agenda > section-divider > means-matters > numbered-themes > problem-diptych > section-divider > flow-arc > org-model > stat-row > evidence-table > comparison-panels > block-quote > flow-arc > milestone-timeline > section-divider
+    1. Immediate AI value, without the multi-year transformation price tag
+    2. AI optimizes data analysis and automates workflows, freeing human teams to focus on high-level curation, strategic control, and creative exe
+    3. What we will cover
+    4. Who we are
+    5. Three founders with a proven track record before the first project
+    6. Three co-founders leading growth, delivery, and innovation
+    7. A crowded AI market where real ROI stays out of reach
+    8. How we work
+    9. A simple, fast, and effective three-step approach
+   10. One end-to-end platform, three jobs, nine products
+   11. Grounded, on-brand, and human-controlled by design
+   12. Four engagements from strategy to enablement
+   13. Strategy turns an idea into a fundable, sequenced roadmap
+   14. 
+   15. Engage builds branded AI experiences beyond a chatbot
+   16. Activate turns platform investments into KPI-tied use cases
+   17. Ready to work on what's NXT?
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json [content] n=17 distinct=10 body=10 visual=6 visual_ratio=0.6 evidence_ratio=0.35 cover=True agenda=True thesis=False numbered_themes=2 max_same=5 consecutive=[] legacy=[] budget={'content>200': 5} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (5, 'slides:numbered-themes'), (8, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > section-divider > numbered-themes > block-quote > section-divider > numbered-themes > flow-arc > section-divider > evidence-table > block-quote > section-divider > ranked-bars > means-matters > section-divider > evidence-table
+    1. The 25 email patterns that convert Gen Z skincare buyers
+    2. What decides whether a skincare email converts
+    3. Three signals expose why polished, AI-perfect skincare email underperforms
+    4. The authenticity patterns that convert
+    5. Four patterns that trade polish for human evidence
+    6. 
+    7. Layout and visual identity patterns
+    8. Four layout patterns that read premium and natural
+    9. A sequenced drop cadence beats one-shot promotional blasts
+   10. Segmentation, trust, and the AI reader
+   11. Five patterns that protect trust and target the right reader
+   12. 
+   13. Deliverability and retention flows
+   14. Four infrastructure patterns rank ahead of visual design for revenue
+   15. Discount depth decides whether a welcome email builds a subscriber
+   16. The remaining conversion patterns
+   17. The final patterns that lift engagement and completion
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787702950649.air.json [shipped] n=18 distinct=11 body=11 visual=6 visual_ratio=0.55 evidence_ratio=0.33 cover=True agenda=True thesis=False numbered_themes=2 max_same=5 consecutive=[] legacy=[] budget={'content>200': 5} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (5, 'slides:numbered-themes'), (8, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > section-divider > numbered-themes > block-quote > section-divider > numbered-themes > flow-arc > section-divider > evidence-table > block-quote > section-divider > ranked-bars > means-matters > section-divider > evidence-table > role-recommendation
+    1. Email design patterns that engage Gen Z skincare buyers
+    2. What decides whether a skincare email converts
+    3. Signals suggest why polished, AI-generated skincare email underperforms
+    4. The authenticity patterns that convert
+    5. Patterns that trade polish for human evidence
+    6. Untitled Slide
+    7. Layout and visual identity patterns
+    8. Layout patterns that support a natural brand identity
+    9. A sequenced drop cadence structures customer communication
+   10. Segmentation, trust, and the AI reader
+   11. Patterns that protect trust and target the right reader
+   12. Untitled Slide
+   13. Deliverability and retention flows
+   14. Infrastructure and targeting patterns drive email deliverability and revenue
+   15. Discount depth decides whether a welcome email builds a subscriber
+   16. The remaining conversion patterns
+   17. The final patterns that lift engagement and completion
+   18. Rebuild the skincare template around human evidence, not AI polish
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787762412765.air.json [content] n=17 distinct=10 body=10 visual=6 visual_ratio=0.6 evidence_ratio=0.35 cover=True agenda=True thesis=False numbered_themes=2 max_same=5 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (5, 'slides:numbered-themes'), (8, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > section-divider > numbered-themes > block-quote > section-divider > numbered-themes > flow-arc > section-divider > evidence-table > block-quote > section-divider > ranked-bars > means-matters > section-divider > evidence-table
+    1. The 25 email patterns that convert Gen Z skincare buyers
+    2. What decides whether a skincare email converts
+    3. Three signals expose why AI-perfect skincare email underperforms
+    4. The authenticity patterns that convert
+    5. Four patterns that trade polish for human evidence
+    6. 
+    7. Layout and visual identity patterns
+    8. Four layout patterns that read premium and natural
+    9. A sequenced drop cadence beats one-shot promotional blasts
+   10. Segmentation, trust, and the AI reader
+   11. Five patterns that protect trust and target the right reader
+   12. 
+   13. Deliverability and retention flows
+   14. Four infrastructure patterns rank ahead of visual design for revenue
+   15. Discount depth decides whether a welcome email builds a subscriber
+   16. The remaining conversion patterns
+   17. The final patterns that lift engagement and completion
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787762412765.air.json [shipped] n=18 distinct=11 body=11 visual=6 visual_ratio=0.55 evidence_ratio=0.33 cover=True agenda=True thesis=False numbered_themes=2 max_same=5 consecutive=[] legacy=[] budget={'content>200': 3} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (5, 'slides:numbered-themes'), (8, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > section-divider > numbered-themes > block-quote > section-divider > numbered-themes > flow-arc > section-divider > evidence-table > block-quote > section-divider > ranked-bars > means-matters > section-divider > evidence-table > role-recommendation
+    1. Email patterns that engage Gen Z skincare buyers
+    2. What decides whether a skincare email converts
+    3. Signals suggest why AI-generated skincare email underperforms
+    4. The authenticity patterns that convert
+    5. Patterns that prioritize human evidence over polish
+    6. Untitled Slide
+    7. Layout and visual identity patterns
+    8. Layout patterns that support brand positioning
+    9. A sequenced drop cadence structures promotional campaigns
+   10. Segmentation, trust, and the AI reader
+   11. Patterns that protect trust and target the right reader
+   12. Untitled Slide
+   13. Deliverability and retention flows
+   14. Infrastructure and targeting patterns drive email marketing performance
+   15. Discount depth decides whether a welcome email builds a subscriber
+   16. The remaining conversion patterns
+   17. The final patterns that lift engagement and completion
+   18. Rebuild the skincare template around human evidence, not AI polish
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787778719081.air.json [content] n=12 distinct=10 body=9 visual=4 visual_ratio=0.44 evidence_ratio=0.17 cover=True agenda=True thesis=True numbered_themes=2 max_same=2 consecutive=[] legacy=[] budget={'content>200': 20, 'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:role-needs'), (7, 'slides:numbered-themes'), (10, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > org-model > comparison-panels > role-needs > numbered-themes > flow-arc > evidence-table > numbered-themes > block-quote > flow-arc
+    1. Onboarding to the Brand Design Agent Operating System
+    2. The five dimensions you onboard through
+    3. Determinism comes from the executable contract surrounding the model, not from the prompt, the model, or a skill [The Brand Design Agent Ope
+    4. The system separates visual truth, executable rules, and audit into distinct authorities
+    5. Figma owns what the design system is; Git owns how machines act on it
+    6. What a designer needs to operate the system
+    7. Four independent critics judge what deterministic validators cannot
+    8. A fixed precedence hierarchy means no agent reasons around a hard failure
+    9. The agents hold asymmetric authority, so no builder can publish alone
+   10. Three integration mechanisms plus the mapping that grounds code
+   11. 
+   12. Your first email moves through a gated dependency workflow
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787778719081.air.json [shipped] n=14 distinct=10 body=10 visual=5 visual_ratio=0.5 evidence_ratio=0.14 cover=True agenda=True thesis=True numbered_themes=2 max_same=2 consecutive=[] legacy=[] budget={'content>200': 9} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:role-needs'), (7, 'slides:numbered-themes'), (10, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > org-model > comparison-panels > role-needs > numbered-themes > flow-arc > evidence-table > numbered-themes > block-quote > flow-arc > comparison-panels > thesis-interstitial
+    1. Onboarding to the Brand Design Agent Operating System
+    2. Key areas of the onboarding process
+    3. Untitled Slide
+    4. The system separates visual truth, executable rules, and audit into distinct authorities
+    5. Figma owns what the design system is; Git owns how machines act on it
+    6. What a designer needs to operate the system
+    7. Independent critics evaluate qualitative aspects of the design
+    8. A fixed precedence hierarchy means no agent reasons around a hard failure
+    9. The agents hold asymmetric authority, so no builder can publish alone
+   10. Integration mechanisms and the mapping that grounds code
+   11. Untitled Slide
+   12. Emails move through a structured dependency workflow
+   13. You do not ship a file; you ship an evidence-backed proposal
+   14. Untitled Slide
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787848685138.air.json [content] n=17 distinct=9 body=9 visual=7 visual_ratio=0.78 evidence_ratio=0.12 cover=True agenda=True thesis=True numbered_themes=1 max_same=4 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > comparison-panels > flow-arc > section-divider > numbered-themes > comparison-panels > flow-arc > section-divider > block-quote > section-divider > evidence-table > flow-arc > section-divider > comparison-panels > thesis-interstitial
+    1. How the email system builds your campaign, step by step
+    2. What happens between your brief and a finished email
+    3. The system sprints to a real design you can see and click, then runs its quality reviews after you have looked, not before
+    4. Old way: reviews before you see anything. New way: design first, reviews right after
+    5. You will see five stops from brief to finished email
+    6. Telling the system what you want
+    7. Four short interactions capture everything the build needs
+    8. Two shortcuts keep you moving without guessing
+    9. Four build steps turn your approved brief into a Figma design
+   10. How it builds and shows you the design
+   11. 
+   12. The quality checks and safety rules
+   13. Validators guard the facts, critics judge the craft
+   14. The reviews run in one batch and only surface what needs you
+   15. The preview and your final sign-off
+   16. The default finish is a verified design, not an automatic send
+   17. You brief it, it builds a real design you can see and click, you inspect, the checks run, and nothing goes live without you
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-m\artifacts\slides_1787848685138.air.json [shipped] n=17 distinct=9 body=9 visual=7 visual_ratio=0.78 evidence_ratio=0.12 cover=True agenda=True thesis=True numbered_themes=1 max_same=4 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > comparison-panels > flow-arc > section-divider > numbered-themes > comparison-panels > flow-arc > section-divider > block-quote > section-divider > evidence-table > flow-arc > section-divider > comparison-panels > thesis-interstitial
+    1. How the email system builds your campaign, step by step
+    2. What happens between your brief and a finished email
+    3. Untitled Slide
+    4. Comparing review timing and feedback delivery
+    5. The workflow guides you from the initial brief to the finished email
+    6. Telling the system what you want
+    7. A brief series of interactions captures the build requirements
+    8. Shortcuts keep you moving without guessing
+    9. The build process translates your approved brief into a Figma design
+   10. How it builds and shows you the design
+   11. Untitled Slide
+   12. The quality checks and safety rules
+   13. Validators guard the facts, critics judge the craft
+   14. Reviews run together and highlight items requiring attention
+   15. The preview and your final sign-off
+   16. The default finish is a verified design, not an automatic send
+   17. Untitled Slide
+-- hic-workspace\sessions\analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals\chat.json [chat msg[3]] n=4 distinct=4 body=3 visual=2 visual_ratio=0.67 evidence_ratio=0.0 cover=True agenda=False thesis=False numbered_themes=0 max_same=1 consecutive=[] legacy=[] budget={} empty_img=[(1, 'slides:cover')]
+   seq: cover > flow-arc > comparison-panels > role-recommendation
+    1. AI is moving from a task tool to core executive search delivery infrastructure
+    2. AI reaches the search process in three phases, task to workflow to infrastructure
+    3. Retained search needs a different AI translation layer than high-volume recruiting
+    4. Sequence AI where feasibility is highest and defend senior judgment where it is not
+-- hic-workspace\sessions\define-the-2026-state-of-the-art-operational-and-technological-benchmarks-for-th\chat.json [chat msg[1]] n=12 distinct=10 body=6 visual=2 visual_ratio=0.33 evidence_ratio=0.25 cover=True agenda=True thesis=True numbered_themes=1 max_same=3 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (11, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > section-divider > problem-diptych > stat-row > section-divider > block-quote > evidence-table > section-divider > numbered-themes > role-recommendation
+    1. Asset management distribution requires proprietary data plumbing before artificial intelligence deployment
+    2. Three dimensions define the modern distribution operating model
+    3. The firms winning distribution are not the ones with the best artificial intelligence models, but the ones fixing the proprietary data plumb
+    4. Building the data infrastructure behind distribution
+    5. Legacy customer relationship management systems fail to capture unstructured private market workflows
+    6. Data capture and coverage dictate the ceiling for artificial intelligence capabilities
+    7. Artificial intelligence readiness and governance
+    8. 
+    9. Leading firms tie compensation to data hygiene and map manual processes before automating
+   10. Distribution enablement and channel strategy
+   11. Independent advisors and alternative assets dictate the distribution technology roadmap
+   12. Chief Distribution Officers must integrate sales talent inside data operations
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property\chat.json [chat msg[1]] n=27 distinct=14 body=14 visual=4 visual_ratio=0.29 evidence_ratio=0.15 cover=True agenda=True thesis=True numbered_themes=3 max_same=8 consecutive=[] legacy=[] budget={'title>120': 3, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit > section-divider > role-roadmap > section-divider > stat-row > thesis-interstitial
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. Farm risk is no longer a single peril farmers can wait out; climate, cost, labor, and financing shocks now arrive together, and most farms m
+    5. Climate losses now push whole lending and insurance models past the point of viability
+    6. Beyond weather, four cost and operating pressures are squeezing farm solvency
+    7. Two forces make readiness harder just as it becomes more necessary
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments carry different risk, planning, and engagement needs
+   10. The Squeezed Survivor needs readiness that costs time and money it doesn't have
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into three deliberate moves
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep readiness tools from getting used and revisited
+   16. Keep everything farmers already trust about Farm Risk Ready℠, and use AI to remove the friction and make the plan a living companion rather 
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the plan behaves, not what farmers trust
+   19. Build the companion on the FarmGuard automation pattern, branded as Farm Risk Ready℠
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the worksheet into a continuous readiness engine
+   22. One risk flows from intake to a maintained, agent-supported plan
+   23. a Roadmap for the Future
+   24. A four-phase roadmap from guided intake to continuous, benchmarked learning
+   25. Business Drivers, Farmer Education, and Agricultural Industry Benefits
+   26. Readiness improves recovery, retention, and the resilience of the whole book
+   27. Farm Risk Ready℠ already earns farmers' trust; making it proactive with AI turns a worksheet into an ongoing relationship that helps farmers
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property\chat.json [chat msg[3]] n=27 distinct=14 body=14 visual=4 visual_ratio=0.29 evidence_ratio=0.15 cover=True agenda=True thesis=True numbered_themes=3 max_same=8 consecutive=[] legacy=[] budget={'title>120': 3, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit > section-divider > role-roadmap > section-divider > stat-row > thesis-interstitial
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. Farm risk is no longer a single peril farmers can wait out; climate, cost, labor, and financing shocks now arrive together, and most farms m
+    5. Climate losses now push whole lending and insurance models past the point of viability
+    6. Beyond weather, four cost and operating pressures are squeezing farm solvency
+    7. Two forces make readiness harder just as it becomes more necessary
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments carry different risk, planning, and engagement needs
+   10. The Squeezed Survivor needs readiness that costs time and money it doesn't have
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into three deliberate moves
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep readiness tools from getting used and revisited
+   16. Keep everything farmers already trust about Farm Risk Ready℠, and use AI to remove the friction and make the plan a living companion rather 
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the plan behaves, not what farmers trust
+   19. AI guidance and continuous updates layer onto the trusted Farm Risk Ready℠ structure
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the worksheet into a continuous readiness engine
+   22. One risk flows from intake to a maintained, agent-supported plan
+   23. a Roadmap for the Future
+   24. A four-phase roadmap from guided intake to continuous, benchmarked learning
+   25. Business Drivers, Farmer Education, and Agricultural Industry Benefits
+   26. Readiness improves recovery, retention, and the resilience of the whole book
+   27. Farm Risk Ready℠ already earns farmers' trust; making it proactive with AI turns a worksheet into an ongoing relationship that helps farmers
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property\chat.json [chat msg[7]] n=27 distinct=14 body=14 visual=4 visual_ratio=0.29 evidence_ratio=0.15 cover=True agenda=True thesis=True numbered_themes=3 max_same=8 consecutive=[] legacy=[] budget={'title>120': 3, 'content>200': 3} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes'), (9, 'slides:numbered-themes'), (10, 'slides:role-needs'), (21, 'slides:numbered-themes'), (22, 'slides:infographic-exhibit')]
+   seq: cover > agenda > section-divider > thesis-interstitial > stat-row > numbered-themes > problem-diptych > section-divider > numbered-themes > role-needs > section-divider > org-model > block-quote > section-divider > evidence-table > thesis-interstitial > section-divider > problem-diptych > role-recommendation > section-divider > numbered-themes > infographic-exhibit > section-divider > role-roadmap > section-divider > stat-row > thesis-interstitial
+    1. Nationwide enhances Farm Risk Ready℠ to be even more proactive for Farmers
+    2. From today's risk landscape to a proactive readiness companion
+    3. Market Conditions, Climate, and other Risk Factors in 2026
+    4. The Farm Risk Ready℠ questionnaire already asks farmers to rank facility, natural, operational, personnel, social, and technology threats; i
+    5. The natural-threat category the questionnaire scores is now the dominant loss driver
+    6. Operational and facility threats now carry cost pressures the worksheet cannot weigh
+    7. Personnel and social threats sit on the worksheet but grow faster than a yearly score can track
+    8. Different Concerns for Different Grower Segments
+    9. Four grower segments score the same threats but need different readiness support
+   10. The Squeezed Survivor needs the questionnaire's top risks surfaced with little time or money
+   11. Nationwide resources and tools for Farmer Readiness
+   12. Farm Risk Ready℠ already structures readiness into identify, mitigate, and sustain
+   13. 
+   14. Barriers to adoption of new tools and technologies
+   15. Six barriers keep the questionnaire from getting completed and revisited
+   16. Keep the six-threat scoring, four mitigation strategies, and Plan A/B/C structure farmers already trust, and use AI to remove the friction s
+   17. A new Farm Risk Ready℠ AI-Powered Planning Companion for a new generation of Farmers
+   18. The enhancement changes how the questionnaire behaves, not what farmers trust
+   19. AI guidance and continuous scoring layer onto the trusted Farm Risk Ready℠ questionnaire
+   20. AI Features and Benefits of the New Farm Risk Ready℠
+   21. Four AI capabilities turn the five-step worksheet into a continuous readiness engine
+   22. One threat flows from intake to a maintained, agent-supported plan
+   23. a Roadmap for the Future
+   24. A four-phase roadmap from guided intake to continuous, benchmarked learning
+   25. Business Drivers, Farmer Education, and Agricultural Industry Benefits
+   26. Readiness improves recovery, retention, and the resilience of the whole book
+   27. The six-threat Farm Risk Ready℠ questionnaire already earns farmers' trust; making it proactive with AI turns a scored worksheet into an ong
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property\chat.json [chat msg[15]] n=20 distinct=10 body=8 visual=2 visual_ratio=0.25 evidence_ratio=0.1 cover=True agenda=True thesis=True numbered_themes=3 max_same=8 consecutive=[] legacy=[] budget={'title>120': 2, 'content>200': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:role-needs'), (9, 'slides:numbered-themes'), (11, 'slides:numbered-themes'), (13, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > thesis-interstitial > problem-diptych > section-divider > role-needs > section-divider > numbered-themes > section-divider > numbered-themes > section-divider > numbered-themes > section-divider > evidence-table > section-divider > role-roadmap > section-divider > stat-row > thesis-interstitial
+    1. Product requirements brief: the AI-powered Farm Risk Ready℠ Planning Companion
+    2. What this brief specifies, from problem to phased build
+    3. The problem the companion must solve
+    4. Farmers score six threat classes once on a static worksheet, but climate and market conditions shift within a season, so the plan goes stale
+    5. The worksheet captures a moment; farm risk moves continuously
+    6. Farmer segments it must serve
+    7. The Squeezed Survivor sets the friction ceiling every feature must clear
+    8. Guided intake and threat scoring
+    9. Four intake features cut the worksheet to minutes while preserving the scoring logic
+   10. Climate and macro risk scanning
+   11. Four scanning features re-score threats as real conditions change for this farm
+   12. Mitigation, scenarios, and engagement
+   13. Four features convert scores into mitigation, contingencies, and agent engagement
+   14. Non-functional and trust requirements
+   15. Six requirements make the companion trustworthy and usable where farms actually operate
+   16. A phased delivery roadmap
+   17. Four phases move the companion from guided intake to continuous learning
+   18. Success metrics and guardrails
+   19. The companion succeeds when plans get completed, stay current, and speed recovery
+   20. Specified this way, the companion keeps everything farmers trust about the six-threat questionnaire and adds only what makes it proactive: p
+-- hic-workspace\sessions\deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property\chat.json [chat msg[21]] n=16 distinct=10 body=7 visual=4 visual_ratio=0.57 evidence_ratio=0.12 cover=True agenda=True thesis=True numbered_themes=1 max_same=6 consecutive=[] legacy=[] budget={'title>120': 1} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:numbered-themes')]
+   seq: cover > agenda > section-divider > flow-arc > section-divider > numbered-themes > section-divider > flow-arc > section-divider > comparison-panels > block-quote > section-divider > role-recommendation > section-divider > means-matters > thesis-interstitial
+    1. How farmers use the AI-powered Farm Risk Ready℠ Planning Companion
+    2. The farmer's path through the companion, stage by stage
+    3. Guided onboarding and pre-filled intake
+    4. First use moves from a pre-filled draft to a scored, agent-connected plan in one session
+    5. Validating the six threat scores
+    6. Farmers adjust four things the AI drafts to match their own operation
+    7. Structuring mitigations and contingencies
+    8. Farmers convert top threats into a defensible plan in four moves
+    9. Responding to proactive alerts
+   10. The plan reaches out when conditions change instead of waiting to be opened
+   11. 
+   12. Reviewing plan health with the agent
+   13. The farmer and agent use the live plan to align coverage with current break-even costs
+   14. What sustained usage delivers
+   15. Ongoing usage protects the farm and the Nationwide relationship at once
+   16. Used as intended, the companion changes the farmer's habit from filling out a worksheet once to working a living plan all season, and that h
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-marketing-trends-for\chat.json [chat msg[7]] n=18 distinct=11 body=11 visual=6 visual_ratio=0.55 evidence_ratio=0.33 cover=True agenda=True thesis=False numbered_themes=2 max_same=5 consecutive=[] legacy=[] budget={'content>200': 5} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (5, 'slides:numbered-themes'), (8, 'slides:numbered-themes')]
+   seq: cover > agenda > stat-row > section-divider > numbered-themes > block-quote > section-divider > numbered-themes > flow-arc > section-divider > evidence-table > block-quote > section-divider > ranked-bars > means-matters > section-divider > evidence-table > role-recommendation
+    1. The 25 email patterns that convert Gen Z skincare buyers
+    2. What decides whether a skincare email converts
+    3. Three signals expose why polished, AI-perfect skincare email underperforms
+    4. The authenticity patterns that convert
+    5. Four patterns that trade polish for human evidence
+    6. 
+    7. Layout and visual identity patterns
+    8. Four layout patterns that read premium and natural
+    9. A sequenced drop cadence beats one-shot promotional blasts
+   10. Segmentation, trust, and the AI reader
+   11. Five patterns that protect trust and target the right reader
+   12. 
+   13. Deliverability and retention flows
+   14. Four infrastructure patterns rank ahead of visual design for revenue
+   15. Discount depth decides whether a welcome email builds a subscriber
+   16. The remaining conversion patterns
+   17. The final patterns that lift engagement and completion
+   18. Rebuild the skincare template around human evidence, not AI polish
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-marketing-trends-for\chat.json [chat msg[11]] n=14 distinct=10 body=10 visual=5 visual_ratio=0.5 evidence_ratio=0.14 cover=True agenda=True thesis=True numbered_themes=2 max_same=2 consecutive=[] legacy=[] budget={'content>200': 20, 'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (6, 'slides:role-needs'), (7, 'slides:numbered-themes'), (10, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > org-model > comparison-panels > role-needs > numbered-themes > flow-arc > evidence-table > numbered-themes > block-quote > flow-arc > comparison-panels > thesis-interstitial
+    1. Onboarding to the Brand Design Agent Operating System
+    2. The five dimensions you onboard through
+    3. Determinism comes from the executable contract surrounding the model, not from the prompt, the model, or a skill [The Brand Design Agent Ope
+    4. The system separates visual truth, executable rules, and audit into distinct authorities
+    5. Figma owns what the design system is; Git owns how machines act on it
+    6. What a designer needs to operate the system
+    7. Four independent critics judge what deterministic validators cannot
+    8. A fixed precedence hierarchy means no agent reasons around a hard failure
+    9. The agents hold asymmetric authority, so no builder can publish alone
+   10. Three integration mechanisms plus the mapping that grounds code
+   11. 
+   12. Your first email moves through a gated dependency workflow
+   13. You do not ship a file; you ship an evidence-backed proposal
+   14. Every email you approve makes the system smarter only because it also makes the system more constrained [The Brand Design Agent Operating Sy
+-- hic-workspace\sessions\identify-high-converting-email-design-patterns-and-product-marketing-trends-for\chat.json [chat msg[13]] n=17 distinct=9 body=9 visual=7 visual_ratio=0.78 evidence_ratio=0.12 cover=True agenda=True thesis=True numbered_themes=1 max_same=4 consecutive=[] legacy=[] budget={'title>120': 2} empty_img=[(1, 'slides:cover'), (2, 'slides:agenda'), (7, 'slides:numbered-themes')]
+   seq: cover > agenda > thesis-interstitial > comparison-panels > flow-arc > section-divider > numbered-themes > comparison-panels > flow-arc > section-divider > block-quote > section-divider > evidence-table > flow-arc > section-divider > comparison-panels > thesis-interstitial
+    1. How the email system builds your campaign, step by step
+    2. What happens between your brief and a finished email
+    3. The system sprints to a real design you can see and click, then runs its quality reviews after you have looked, not before
+    4. Old way: reviews before you see anything. New way: design first, reviews right after
+    5. You will see five stops from brief to finished email
+    6. Telling the system what you want
+    7. Four short interactions capture everything the build needs
+    8. Two shortcuts keep you moving without guessing
+    9. Four build steps turn your approved brief into a Figma design
+   10. How it builds and shows you the design
+   11. 
+   12. The quality checks and safety rules
+   13. Validators guard the facts, critics judge the craft
+   14. The reviews run in one batch and only surface what needs you
+   15. The preview and your final sign-off
+   16. The default finish is a verified design, not an automatic send
+   17. You brief it, it builds a real design you can see and click, you inspect, the checks run, and nothing goes live without you
+
+# CLAUDE.md vs slidePostProcessor.ts BANNED LIST GAP
+CLAUDE.md phrases parsed: 120; TS SLOP_PHRASES: 361
+In CLAUDE.md but NOT in SLOP_PHRASES array (20): at the present time, at this point in time, conceivably, disruptive, ecosystem, embodies, fundamental shift, in the current climate, in this ever-changing, in today's rapidly evolving landscape, innovative solution, it could be said, it's important to note, it's possible, it's worth noting, potentially, seismic shift, synergy, the landscape of, trailblazing
+Of those, not matched ANYWHERE in slidePostProcessor.ts text (13): at the present time, at this point in time, conceivably, disruptive, fundamental shift, in the current climate, in this ever-changing, innovative solution, it could be said, potentially, seismic shift, the landscape of, trailblazing
+In SLOP_PHRASES but not in CLAUDE.md (261): a deep dive into, a key role, a powerful tool, a rich history, a treasure trove, a wealth of, actionable insight, actionable intelligence, additionally,, ai-driven, ai-enabled, ai-powered, aligns with our goals, amid a year of, amid growing, amid rising, and that matters, as an ai, as illustrated, as of my knowledge cutoff, as of my last update, as technology continues to evolve, as we look to the future, as you can see, based on our collection, best in class, best practices, bleeding edge, boil the ocean, boost productivity, boosts productivity, cannot yet substantiate, certainly, commitment to excellence, commitment to innovation, commitment to quality, conceptual buckets, core competencies, corpus cluster shows, corpus contains very few, create value, crucial, crucial role, crucial step, cutting edge, deliver value, digital transformation journey, dogfood, double down, drink from the fire hose, drinking from the fire hose, drive efficiency, drive growth, drives growth, dynamic, adaptive, and responsive, eat your own dog food, ecosystem play, embodies the, end-to-end solution, enhance engagement, enhanced, enormous opportunity, essentially, evangelist, ever changing landscape, ever-evolving landscape, evidence is scarce in this, falls into buckets, fast, efficient, and reliable, fast, efficient, reliable, flywheel, force multiplier, fundamentally, furthermore,, future-proof, game changer, great question, greater flexibility, guru, huge opportunity, i am an ai, i cannot provide, i should note, iceberg, improve efficiency, improves efficiency, improving efficiency, in a world where, in essence, in line with our, in our increasingly complex, in our increasingly connected, in our increasingly digital, in some sense, in the corpus, in the digital age, in the heart of, in the modern era, in their wheelhouse, in this corpus, in this deck, in this paper we, in this presentation, in this report we, industry leading, industry-leading, innovative, scalable, and sustainable, innovative, scalable, sustainable, insight-driven, intelligence-driven, intelligent insights, intelligent relationship insights, is scarce in this corpus, key takeaways, level the playing field, level up, leverage synergy, leveraged, leverages, lift and shift, low hanging fruit, market-leading, marks the beginning, massive impact, massive opportunity, mission critical, mission-critical, moreover,, most vendor evidence, most vendor material is, moved the needle, moves the needle, my training data, navigate the complexities, navigate the landscape, navigating the landscape, nestled amid, network activation, next generation, next level, next-gen, next-level, ninja, north star, offer greater flexibility, on the same page, one clear story, our dataset shows, overarching, paradigm-shifting, paramount importance, path to value, pivotal, pivotal point, placeholder, plant a flag, platform play, plays a significant role, plays an important role, please note that, point it at a problem, point them at a problem, power of, powered intelligence, powerful framework, powerful insights, profound impact, profound implications, purpose-driven, put a stake in the ground, quietly amid, quietly becoming, quietly reshaping, quietly transforming, really great question, rip and replace, rising tide lifts, robust framework, rockstar, sea change, seamless experience, serves as a, serves as the, showcases, simple, fast, and powerful, speaks to, speaks volumes, stands as a, stands as the, state of the art, state-of-the-art, strategic imperative, streamline operations, streamline processes, streamlined, efficient, and effective, streamlines operations, supporting evidence in the same vendor cluster, sure thing, sweet spot, synergies, tbd, tells a clear story, the available corpus, the broader corpus, the clearest named, the clearest vendor source, the collected corpus, the corpus can, the corpus cannot, the corpus contains, the data cannot yet, the dataset contains, the evidence tells, the external corpus, the move here is, the only named case, the research corpus, the strongest named, the strongest quantified outcome available, the vendor corpus, this section will, this slide shows, thought leader, three buckets, tip of the iceberg, tipping point, toolkit, toolkits, transformational, turnkey solution, two buckets, ultimately, undergird, undergirding, undergirds, underscore, underscores, underscoring, undoubtedly, unleash the power, unleashes the power, unlock potential, unlock the potential, unlock value, unmatched, unparalleled, utilization, valuable insight, value add, value-add, value-driven, we are committed to, we are dedicated to, we are excited to, we are thrilled to, what it buys you, what they buy you, wheelhouse, why this matters, within this corpus, world class
+META_NARR phrases parsed from CLAUDE.md: 41; PROCESS phrases: 28
+META_NARR=['good morning', 'good afternoon', 'good evening', 'welcome to', 'thank you for being here', 'thank you for joining', 'today we will', "today we'll", 'we will present', 'we are going to', 'we now move to', 'we are now entering', 'let us now examine', 'this is where we', 'in this section', 'in this presentation', 'in this deck', 'as you can see', 'this slide shows', 'the next slide', 'our objective is to', 'allow me to', 'before we begin', "i'd like to start by", "let's dive into", "let's explore", 'as shown above', 'as shown below', "as we'll see", 'as we will see', 'as discussed', 'as noted earlier', 'as mentioned', 'as previously noted', 'in conclusion', 'to summarize', 'in summary', 'to conclude', 'this report aims to', 'this analysis covers', 'this deck frames']
+PROCESS=['this presentation', 'this deck', 'this slide', 'this section', 'this report', 'this analysis', 'based on the research', 'based on the available data', 'according to our analysis', 'the research shows', 'the data indicates', 'the corpus reveals', 'from the sources reviewed', 'drawing on the evidence', 'this report finds', 'our findings suggest', 'research indicates', 'studies show', 'sources indicate', 'evidence is limited', 'data is limited', 'more research is needed', 'further investigation required', 'additional research needed', 'due to limited data', 'while data was unavailable', 'in the absence of', 'pending additional research']
+Meta-narration phrases absent (literal) from TS: ['good morning', 'good afternoon', 'good evening', 'thank you for being here', 'thank you for joining', 'today we will', "today we'll", 'we will present', 'we are going to', 'we are now entering', 'let us now examine', 'this is where we', 'in this section', 'the next slide', 'our objective is to', 'before we begin', "i'd like to start by", "let's dive into", "let's explore", 'as shown below', "as we'll see", 'as we will see', 'as noted earlier', 'as mentioned', 'as previously noted', 'this report aims to', 'this analysis covers', 'this deck frames']
+Process phrases absent (literal) from TS: ['this analysis', 'based on the available data', 'according to our analysis', 'the data indicates', 'the corpus reveals', 'from the sources reviewed', 'drawing on the evidence', 'this report finds', 'our findings suggest', 'research indicates', 'studies show', 'sources indicate', 'evidence is limited', 'data is limited', 'more research is needed', 'further investigation required', 'additional research needed', 'due to limited data', 'while data was unavailable', 'pending additional research']

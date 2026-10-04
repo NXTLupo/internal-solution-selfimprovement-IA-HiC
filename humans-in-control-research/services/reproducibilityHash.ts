@@ -19,7 +19,7 @@ export type ReproducibilityInputs = {
 };
 
 
-export function computeReproducibilityHash(inputs: ReproducibilityInputs): string {
+function computeReproducibilityHash(inputs: ReproducibilityInputs): string {
     const corpusFingerprint = (inputs.corpus_items || [])
         .map(it => `${it.id ?? ''}|${(it.title ?? '').slice(0, 80)}|${(it.body ?? '').slice(0, 200)}`)
         .sort()

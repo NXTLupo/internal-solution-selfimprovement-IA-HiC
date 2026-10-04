@@ -76,16 +76,20 @@ describe('#prd deep card carries storyId / successMetric / traces', () => {
     });
 });
 
-describe('protocol depth contract (source asserts)', () => {
+describe('PRD v2 contract (source asserts)', () => {
+    // 2026-10-01 (plan Stage 3): #prd is document-first on the PrdAir contract; the prd-feature slide
+    // protocol block is retired from the chat service. The depth contract now lives in the compiler
+    // prompt (Given / When / Then acceptance tests, typed targets) and the ledger is a projected slide.
+    const compiler = src('services/prdCompiler.ts');
+    const projection = src('services/prdProjection.ts');
     const chat = src('services/corpusChatService.ts');
-    it('demands Given/When/Then criteria + storyId/successMetric/traces', () => {
-        expect(chat).toContain('prd-feature DEPTH CONTRACT');
-        expect(chat).toMatch(/Given\/When\/Then sentence/);
-        expect(chat).toContain('storyId ("US-1"');
+    it('the compiler demands Given / When / Then acceptance tests on every requirement', () => {
+        expect(compiler).toMatch(/Given \/ When \/ Then/);
+        expect(compiler).toContain('acceptanceTests');
     });
-    it('demands the closing FR/NFR/OOS requirements ledger slide', () => {
-        expect(chat).toContain('prd REQUIREMENTS LEDGER');
-        expect(chat).toContain('"functional"');
-        expect(chat).toContain('"outOfScope"');
+    it('the requirements ledger is a projected slides:prd-ledger archetype, and the retired block is gone from the chat protocol', () => {
+        expect(projection).toContain('prd-ledger');
+        expect(chat).not.toContain('template=prd-feature');
+        expect(chat).not.toContain('prd-feature DEPTH CONTRACT');
     });
 });

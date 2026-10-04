@@ -49,6 +49,29 @@ import { isNonEvidenceChunk } from './evidenceLedgerService';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
+/** R-S1: cross-document edge index, per engagement, cached for the session (the index only
+ *  changes at manifest backfill). Unreachable proxy = empty map, never a thrown pick. */
+const CROSS_DOC_RESOLVE_CAP = 40;
+const _crossDocEdgeCache = new Map<string, { at: number; edges: Record<string, string[]> }>();
+const _CROSS_DOC_TTL_MS = 10 * 60 * 1000;
+async function _crossDocEdgesFor(engagementSlug: string): Promise<Record<string, string[]>> {
+    const key = String(engagementSlug || '');
+    const hit = _crossDocEdgeCache.get(key);
+    if (hit && Date.now() - hit.at < _CROSS_DOC_TTL_MS) return hit.edges;
+    let edges: Record<string, string[]> = {};
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/manifest/cross-doc-edges?engagement=${encodeURIComponent(key)}`);
+        if (resp.ok) {
+            const data = await resp.json();
+            if (data && typeof data.edges === 'object' && data.edges) edges = data.edges;
+        }
+    } catch { /* offline: no cross-document tier this pick */ }
+    _crossDocEdgeCache.set(key, { at: Date.now(), edges });
+    return edges;
+}
+/** Test seam: drop the cached edge index. */
+function _resetCrossDocEdgeCache(): void { _crossDocEdgeCache.clear(); }
+
 // ---------------------------------------------------------------------------
 // Tunables
 // ---------------------------------------------------------------------------
@@ -96,6 +119,9 @@ export interface ManifestChunkRecord {
      *  never-dropped priority as userSelected: an explicitly named document must
      *  reach the prompt, not lose to embedding/objective ranking. */
     namedRef?: boolean;
+    /** 2026-10-01 (plan Stage 1.2): objective similarity from /api/manifest/chunks-by-goal (the
+     *  embedding score the proxy used to admit this pointer; previously discarded at the boundary). */
+    objectiveSimilarity?: number;
     sourcePath: string;
     chunkIndex: number;
     /** Manifest-declared key_terms for this source page (the page-level
@@ -135,7 +161,7 @@ interface SelectionCatalog { ids: string[]; pages: Record<string, { key_terms: s
  *  (non-dormant) selection is NEVER gated - user selections trump auto-ranking remains absolute
  *  for deliberate, current choices. */
 const DORMANT_SELECTION_MIN_GOAL_SIM = 0.2;
-async function _fetchSelectionCatalogIds(researchObjective = ''): Promise<SelectionCatalog> {
+async function _fetchSelectionCatalogIds(researchObjective = '', engagementSlug = ''): Promise<SelectionCatalog> {
     const empty: SelectionCatalog = { ids: [], pages: {} };
     try {
         const selResp = await fetch(`${PROXY_BASE}/api/user-selection/active`);
@@ -179,6 +205,11 @@ async function _fetchSelectionCatalogIds(researchObjective = ''): Promise<Select
             social_subreddits: Array.isArray(sel.social_subreddits) ? sel.social_subreddits : [],
             article_sources: Array.isArray(sel.article_sources) ? sel.article_sources : [],
             source_archive_paths: Array.isArray(sel.source_archive_paths) ? sel.source_archive_paths : [],
+            // 2026-10-02: name the engagement so the proxy keeps generated theme synthesis
+            // only for THIS engagement and collapses duplicate document copies. A dormant
+            // selection naming the whole `hic-theme-synthesis` folder put 251 synthesis pages
+            // from every engagement (NXT's own product runs included) into an unrelated client's PRD.
+            engagement: engagementSlug || '',
         };
         if (!body.social_subreddits.length && !body.article_sources.length && !body.source_archive_paths.length) return empty;
         const resp = await fetch(`${PROXY_BASE}/api/manifest/chunks-from-selection`, {
@@ -222,7 +253,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // so title+relevance pre-ranking works; types scoped to the two the theme/persona
         // pipelines consume. This is what fresh runs now resolve through, the SAME clean-
         // chunk path cached runs use - no more raw-blob fallback.
-        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload,insight')}&include_pages=true`;
+        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent(EVIDENCE_ADMISSION_TYPES)}&include_pages=true`;
         const resp = await fetch(url);
         if (!resp.ok) return [];
         const data = await resp.json();
@@ -237,7 +268,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         //   BLEND       -> both, deduped    -> this run's fresh corpus + chosen cached corpus
         // _fetchSelectionCatalogIds already returns empty for an _uncommitted (dormant)
         // selection, honoring the no-auto-arm rule, so a fresh page load never injects it.
-        const sel = await _fetchSelectionCatalogIds(_obj);
+        const sel = await _fetchSelectionCatalogIds(_obj, engagementSlug);
         // 2026-06-16 - the user's COMMITTED KL selection. These chunk ids TRUMP
         // auto-ranking: tagged userSelected on the record below so they are never
         // dropped by the keyword gates and rank above non-selected chunks.
@@ -263,14 +294,20 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // W6 (2026-07-01): track which pointers were admitted by a CROSS-ENGAGEMENT tier (tier-1.5 /
         // tier-3) so pickChunksForPrompt can hold them to a stricter bar (no zero-overlap backfill).
         const _offEngagementIds = new Set<string>();
+        const _goalScores = new Map<string, number>();   // Stage 1.2: per-chunk objective similarity
         if (_obj) {
             try {
-                const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload,insight')}&limit=600`;
+                const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent(EVIDENCE_ADMISSION_TYPES)}&limit=600`;
                 const gResp = await fetch(goalUrl);
                 if (gResp.ok) {
                     const gData = await gResp.json();
                     const gIds: string[] = Array.isArray(gData?.chunk_ids) ? gData.chunk_ids : [];
                     const gPages = (gData && typeof gData.pages === 'object' && gData.pages) ? gData.pages : {};
+                    if (gData && typeof gData.scores === 'object' && gData.scores) {
+                        for (const [cid, sc] of Object.entries(gData.scores as Record<string, number>)) {
+                            if (Number.isFinite(sc)) _goalScores.set(cid, sc as number);
+                        }
+                    }
                     if (gIds.length) {
                         const have = new Set(ids);
                         let added = 0;
@@ -298,7 +335,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // the on-goal slice. Grounding stays manifest-pointer-based with
         // verbatim chunk citations; bulk-RAG never carries a deliverable.
         if (ids.length === 0) {
-            const wholeUrl = `${PROXY_BASE}/api/manifest/chunks?engagement=&types=${encodeURIComponent('social-post,article,upload,insight')}&include_pages=true`;
+            const wholeUrl = `${PROXY_BASE}/api/manifest/chunks?engagement=&types=${encodeURIComponent(EVIDENCE_ADMISSION_TYPES)}&include_pages=true`;
             const wResp = await fetch(wholeUrl);
             if (wResp.ok) {
                 const wData = await wResp.json();
@@ -306,6 +343,17 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
                 pages = (wData && typeof wData.pages === 'object' && wData.pages) ? wData.pages : {};
                 for (const id of ids) _offEngagementIds.add(id);   // W6: whole-wiki fallback = all cross-engagement
                 console.warn(`[chunkRetrieval] tier-1 (engagement "${engagementSlug}") + tier-2 (KL selection) catalogs EMPTY - tier-3 WHOLE-WIKI manifest fallback: ${ids.length} chunk pointers, ${Object.keys(pages).length} pages (pre-rank narrows to the on-goal slice; grounding stays manifest-based, never bulk RAG)`);
+            }
+        }
+        // 2026-10-02 evidence hygiene (client half; the proxy applies the same rules per
+        // route). The tiers are unioned here, so a duplicate can still arrive from two
+        // different tiers (tier-1 admitted both the client-uploads page and its
+        // cached-reuse alias for two documents in a live 2026-10-01 run).
+        {
+            const hyg = applyEvidenceHygiene(ids, pages, engagementSlug);
+            if (hyg.dropped.length) {
+                console.log(`[chunkRetrieval] evidence hygiene: dropped ${hyg.droppedChunks} chunk pointer(s) from ${hyg.dropped.length} page(s) (duplicate copies or other-engagement synthesis): ${hyg.dropped.slice(0, 6).map(d => `${d.path} (${d.reason})`).join('; ')}`);
+                ids = hyg.ids;
             }
         }
         const records: ManifestChunkRecord[] = ids.map((id) => {
@@ -327,6 +375,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
                 sourceTitle: pm && pm.title ? pm.title : '',
                 sourceSubreddit: '',
                 sourceRelevance: pm ? (pm.relevance || 0) : 0,
+                objectiveSimilarity: _goalScores.get(id),
                 userSelected: _userSelectedIds.has(id),
                 offEngagement: _offEngagementIds.has(id) && !_userSelectedIds.has(id),
             };
@@ -338,8 +387,11 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // rendered artifacts was the 2026-06-11 #journey failure.
         try {
             const { registerPointerSource } = await import('./citationPointerRegistry');
+            const { readableSourceName } = await import('./prdCompiler');
             for (const [src, pm] of Object.entries(pages)) {
-                if (pm && pm.title) registerPointerSource(src, pm.title);
+                // 2026-10-03 live: a client upload's manifest title is its FILE NAME ("Meeting Summary - 09302026.txt"),
+                // which shipped verbatim as "(Source: ....txt)" in deck text. The reader-facing name is registered.
+                if (pm && pm.title) registerPointerSource(src, readableSourceName(String(pm.title), src));
             }
         } catch { /* non-blocking */ }
         return records;
@@ -350,6 +402,92 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
 }
 
 // ---------------------------------------------------------------------------
+// 2026-10-02 evidence hygiene: duplicate-document collapse + engagement scoping of
+// generated synthesis, applied to the UNION of the catalog tiers. Pure; exported for tests.
+// ---------------------------------------------------------------------------
+const _UPLOAD_FAMILY = /^(?:articles\/client-uploads\/|articles\/cached-reuse[^/]*\/|uploads\/|sources\/uploads)/i;
+const _THEME_SYNTH = /^articles\/hic-theme-synthesis\//i;
+const _INSIGHT_PATH = /^synthesis\/insights\/([^/]+)\//i;
+
+/** Stem equal across copies of one uploaded document (mirrors proxy evidence_hygiene.doc_stem). */
+export function uploadDocStem(titleOrPath: string): string {
+    let t = String(titleOrPath || '').trim().split(/[\\/]/).pop()!.toLowerCase();
+    for (let i = 0; i < 2; i++) t = t.replace(/\.(pdf|txt|md|docx?|pptx?|xlsx?|csv|json)$/, '');
+    t = t.replace(/\s*\(\d+\)$/, '').replace(/[^a-z0-9]+/g, ' ').trim();
+    t = t.replace(/(?:\s+(?:redacted|final|copy|v\d+))+$/, '').trim();
+    return t;
+}
+
+function _slugMatches(a: string, b: string): boolean {
+    const x = String(a || '').trim().toLowerCase();
+    const y = String(b || '').trim().toLowerCase();
+    if (!x || !y) return false;
+    if (x === y) return true;
+    const [s, l] = x.length <= y.length ? [x, y] : [y, x];
+    return s.length >= 30 && l.startsWith(s);
+}
+
+export interface HygienePageMeta { title?: string; relevance?: number; synthesis_engagement?: string; chunk_count?: number }
+
+export function applyEvidenceHygiene(
+    ids: string[],
+    pages: Record<string, HygienePageMeta | any>,
+    engagementSlug: string,
+): { ids: string[]; dropped: Array<{ path: string; reason: string }>; droppedChunks: number } {
+    const byPage = new Map<string, number>();
+    for (const id of ids) {
+        const p = id.split('#')[0];
+        byPage.set(p, (byPage.get(p) || 0) + 1);
+    }
+    const drop = new Map<string, string>();
+    // (1) generated synthesis from another engagement (or of unknown owner) never grounds this one.
+    for (const p of byPage.keys()) {
+        const insight = _INSIGHT_PATH.exec(p);
+        if (insight) {
+            if (!_slugMatches(insight[1], engagementSlug)) drop.set(p, `synthesis of ${insight[1]}`);
+            continue;
+        }
+        if (_THEME_SYNTH.test(p)) {
+            const owner = String(pages?.[p]?.synthesis_engagement || '');
+            if (!_slugMatches(owner, engagementSlug)) drop.set(p, owner ? `synthesis of ${owner}` : 'synthesis of unknown engagement');
+        }
+    }
+    // (2) duplicate copies of one uploaded document: keep the original upload page over a
+    // cached-reuse alias, then the copy with more admitted chunks.
+    const groups = new Map<string, string[]>();
+    for (const p of byPage.keys()) {
+        if (drop.has(p) || !_UPLOAD_FAMILY.test(p)) continue;
+        const stem = uploadDocStem(String(pages?.[p]?.title || '') || p);
+        if (stem.length < 6) continue;
+        const g = groups.get(stem) || [];
+        g.push(p);
+        groups.set(stem, g);
+    }
+    for (const [, members] of groups) {
+        if (members.length < 2) continue;
+        const rank = (p: string) => [/\/cached-reuse/i.test('/' + p) ? 0 : 1, byPage.get(p) || 0];
+        const keep = members.slice().sort((a, b) => {
+            const ra = rank(a), rb = rank(b);
+            return (rb[0] - ra[0]) || (rb[1] - ra[1]) || a.localeCompare(b);
+        })[0];
+        for (const m of members) if (m !== keep) drop.set(m, `duplicate of ${keep}`);
+    }
+    if (!drop.size) return { ids, dropped: [], droppedChunks: 0 };
+    const kept = ids.filter(id => !drop.has(id.split('#')[0]));
+    return {
+        ids: kept,
+        dropped: Array.from(drop.entries()).map(([path, reason]) => ({ path, reason })),
+        droppedChunks: ids.length - kept.length,
+    };
+}
+
+// ---------------------------------------------------------------------------
+// 2026-10-01 (owner decision 3, plan Stage 1.3 / R-S4): record types admitted as EVIDENCE.
+// `insight` (a prior run's theme synthesis) and `synthesis` are MEMORY: they prime retrieval
+// and the intake brief but are never citable, so a run cannot "converge" on its own earlier
+// prose. `documentation` (primary docs, 2026-09-11) joins the evidence set.
+const EVIDENCE_ADMISSION_TYPES = 'social-post,article,upload,documentation';
+
 // pickChunksForPrompt - the pre-rank step
 // ---------------------------------------------------------------------------
 
@@ -745,6 +883,41 @@ export async function pickChunksForPrompt(
                 if (!_matched.has(rid)) _conceptNeighbors.add(rid);
             }
         }
+        // 2026-10-01 (plan R-S1 / Stage 1.7): CROSS-document edges. The page frontmatter only
+        // carries intra-document adjacency; the proxy builds the cross-document index at manifest
+        // backfill (/api/manifest/cross-doc-edges). A matched chunk's cross-document neighbours
+        // join the concept-neighbour tier; the ones the shortlist never resolved are resolved
+        // here (bounded) and added to the candidate set so the admission below can see them.
+        if (_matched.size) {
+            try {
+                const xEdges = await _crossDocEdgesFor(engagementSlug);
+                const extra = new Set<string>();
+                for (const id of _matched) {
+                    for (const rid of (xEdges[id] || [])) {
+                        if (_matched.has(rid)) continue;
+                        _conceptNeighbors.add(rid);
+                        if (!byId.has(rid)) extra.add(rid);
+                    }
+                }
+                const toResolve = Array.from(extra).slice(0, CROSS_DOC_RESOLVE_CAP);
+                if (toResolve.length) {
+                    const more = await resolveChunks(toResolve);
+                    for (const c of more.chunks) {
+                        if (byId.has(c.id)) continue;
+                        byId.set(c.id, c);
+                        const [src, frag] = c.id.split('#');
+                        const idx = frag && frag.startsWith('c') ? parseInt(frag.slice(1), 10) : 0;
+                        candidateRecs.push({
+                            chunkId: c.id, sourcePath: src || c.sourcePath || '', chunkIndex: Number.isFinite(idx) ? idx : 0,
+                            sourceKeyTerms: [], sourceTitle: c.pageMeta?.title || '', sourceSubreddit: '', sourceRelevance: 0,
+                        } as ManifestChunkRecord);
+                    }
+                    console.log(`[chunkRetrieval] cross-document edges: ${Object.keys(xEdges).length} source chunk(s) indexed; ${extra.size} neighbour(s) off-shortlist, ${more.chunks.length} resolved and admitted to the candidate pool`);
+                }
+            } catch (e: any) {
+                console.warn('[chunkRetrieval] cross-document edges unavailable (non-fatal):', e?.message || e);
+            }
+        }
     }
 
     // Score each resolved chunk on its PRECISE per-chunk key_terms.
@@ -771,6 +944,13 @@ export async function pickChunksForPrompt(
     // (objective-admitted) chunks fill only the budget the selection leaves.
     const USER_SELECTED_TIER = 100000;
     let _droppedNonEvidence = 0;
+    // 2026-10-01 (plan Stage 1.2, phase 1): objective similarity is a RELEVANCE signal, not a
+    // breadth instrument. A zero-keyword-overlap chunk whose embedding similarity to the objective
+    // sits in the top decile of the admitted set is kept at a low positive score (it answers the
+    // objective in different words) instead of being dropped as "zero score".
+    const _sims = candidateRecs.map(r => r.objectiveSimilarity).filter((v): v is number => Number.isFinite(v as number)).sort((a, b) => a - b);
+    const _simTopDecile = _sims.length >= 10 ? _sims[Math.floor(_sims.length * 0.9)] : Number.POSITIVE_INFINITY;
+    let _simAdmitted = 0;
     for (const rec of candidateRecs) {
         const ch = byId.get(rec.chunkId);
         if (!ch) continue;
@@ -789,6 +969,11 @@ export async function pickChunksForPrompt(
         }
         const score = overlap * Math.max(1, ch.sentenceCount);
         if (!isPinned && !isUserSel && score === 0) {
+            if (Number.isFinite(rec.objectiveSimilarity as number) && (rec.objectiveSimilarity as number) >= _simTopDecile) {
+                scored.push({ chunk: ch, score: CONCEPT_ADJ_SCORE + 0.5, charLen: ch.text.length });
+                _simAdmitted++;
+                continue;
+            }
             // WS-G(traversal): concept-graph neighbor of a matched chunk -> admit at a low positive score
             // (below every keyword match) so the concept graph feeds retrieval. Runs in BOTH strict and
             // broaden modes (it is objective-adjacent by construction, not indiscriminate backfill).
@@ -839,6 +1024,7 @@ export async function pickChunksForPrompt(
     }
     if (_conceptAdmitted > 0) {
         console.log(`[chunkRetrieval] concept-graph: admitted ${_conceptAdmitted} concept-adjacent chunk(s) (1-hop related_chunks of keyword-matched chunks) that had zero keyword overlap`);
+    if (_simAdmitted > 0) console.log(`[chunkRetrieval] objective-similarity: admitted ${_simAdmitted} zero-keyword-overlap chunk(s) in the top decile of embedding similarity to the objective (plan Stage 1.2)`);
     }
     if (_droppedNonEvidence > 0) {
         console.log(`[chunkRetrieval] non-evidence filter: dropped ${_droppedNonEvidence} bot/boilerplate/tombstone chunk(s) at retrieval (never ground a generation)`);
@@ -1082,7 +1268,8 @@ export interface CorpusBlockOptions {
  */
 export function describeChunkProvenance(c: {
     id?: string;
-    sources?: Array<{ n?: string; u?: string }>;
+    /** 1.5 (2026-10-01): per-chunk sources now carry kind/date/author/subreddit from the page default. */
+    sources?: Array<{ n?: string; u?: string; kind?: string; date?: string; date_raw?: string; author?: string; subreddit?: string }>;
     pageMeta?: { title?: string; sourceName?: string; url?: string; date?: string; kind?: string; method?: string; extractedAt?: string } | null;
 }): string {
     const meta = c.pageMeta || null;
@@ -1090,8 +1277,10 @@ export function describeChunkProvenance(c: {
     const name = (meta?.sourceName || firstSrc?.n || '').trim();
     const title = (meta?.title || '').trim();
     const url = (meta?.url || firstSrc?.u || '').trim();
-    const kind = (meta?.kind || (String(c.id || '').startsWith('social-intelligence/') ? 'social-post' : '')).trim();
-    const date = (meta?.date || '').trim();
+    const kind = (meta?.kind || firstSrc?.kind || (firstSrc?.subreddit ? 'social-post' : '') || (String(c.id || '').startsWith('social-intelligence/') ? 'social-post' : '')).trim();
+    const date = (meta?.date || firstSrc?.date || firstSrc?.date_raw || '').trim();
+    const author = String(firstSrc?.author || '').trim();
+    const subreddit = String(firstSrc?.subreddit || '').trim();
     const retrieved = (meta?.extractedAt || '').trim();
     if (!name && !title && !url && !date && !kind) return '';
     const iso = (d: string) => {
@@ -1103,6 +1292,8 @@ export function describeChunkProvenance(c: {
     const parts: string[] = [];
     parts.push(`source: ${name || 'unknown'}${title ? ` | title: "${title.replace(/"/g, '\'')}"` : ''}`);
     parts.push(`kind: ${kind || 'article'}`);
+    if (subreddit) parts.push(`subreddit: ${subreddit.startsWith('r/') ? subreddit : `r/${subreddit}`}`);
+    if (author) parts.push(`author: ${author}`);
     parts.push(date ? `published: ${iso(date)}` : (retrieved ? `undated live page, retrieved: ${iso(retrieved)}` : 'published: unknown'));
     if (url) parts.push(`url: ${url}`);
     return `  provenance | ${parts.join(' | ')}`;
@@ -1180,6 +1371,9 @@ export async function buildManifestCorpusForGoal(
     // Stage-3: also return the RESOLVED CHUNKS so callers can build a real AIR evidence ledger
     // (buildEvidenceLedger) from the exact chunks that grounded the generation.
     const empty = { corpus: '', chunkCount: 0, sourcesRead: 0, instructions: '', chunks: [] as ResolvedChunk[] };
+    // Request hashtags (#deciem, #report, #slides) are routing directives, not subject words: they never rank evidence
+    // (2026-10-03 live: "#deciem the co-op readiness path" was the retrieval query).
+    goal = String(goal || '').replace(/#[\w-]+/g, ' ').replace(/\s+/g, ' ').trim();
     try {
         const picked = await pickChunksForPrompt(goal, engagementSlug, {
             tokenBudget: opts?.tokenBudget ?? 30_000,
@@ -1246,7 +1440,7 @@ const _EVIDENCE_TELL_RE = /(\d+(?:\.\d+)?%|\$\d+(?:[.,]\d+)?[KMB]?|\baccording t
  * client-side retries: if validateCitations flags fabricated pointers, the
  * caller can ask the model to re-emit before the Stop event fires.
  */
-export function validateCitations(
+function validateCitations(
     text: string,
     manifestChunkIds: Set<string>,
 ): ValidatedCitations {
@@ -1420,21 +1614,6 @@ export async function persistInsightAsChunk(input: InsightPersistInput): Promise
     }
 }
 
-/**
- * Convenience: dispatch the deliverable-persisted event directly from a
- * call site that wrote to wiki/engagements/<slug>/<kind>.json outside of
- * persistInsightAsChunk (e.g., the freeform-artifact write path in chat).
- * App.tsx's wiki-hydration listener triggers from this event.
- */
-export function notifyDeliverablePersisted(engagementSlug: string, kind: string): void {
-    try {
-        if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('hic:deliverable-persisted', {
-                detail: { engagementSlug, kind },
-            }));
-        }
-    } catch { /* non-fatal */ }
-}
 
 // ---------------------------------------------------------------------------
 // persistDeliverableInsights - UNIVERSAL second-brain loop (Gap C, 2026-06-22)
@@ -1567,14 +1746,6 @@ export async function persistDeliverableInsights(
  * membership checks in validateCitations(). Memoized by engagement slug.
  */
 const _ID_SET_CACHE = new Map<string, { ts: number; set: Set<string> }>();
-export async function getEngagementChunkIdSet(engagementSlug: string): Promise<Set<string>> {
-    const cached = _ID_SET_CACHE.get(engagementSlug);
-    if (cached && Date.now() - cached.ts < _CATALOG_TTL_MS) return cached.set;
-    const ids = await listEngagementChunkIds(engagementSlug);
-    const set = new Set<string>(ids);
-    _ID_SET_CACHE.set(engagementSlug, { ts: Date.now(), set });
-    return set;
-}
 
 // ---------------------------------------------------------------------------
 // SkillOpt trajectory writer (2026-06-06)
@@ -1584,7 +1755,7 @@ export async function getEngagementChunkIdSet(engagementSlug: string): Promise<S
  * Append a structured record to the unified SkillOpt trajectory store
  * (`wiki/synthesis/hook-rejection-log.md`). This is the SAME file that
  * (a) hook validators write rejections to, (b) the artifact-engine
- * auditor writes audit verdicts to, and (c) deliverable-auditor
+ * auditor writes audit verdicts to (now `eval/auditor-verdicts.jsonl`, written by runExpertPanel), and (c) the per-kind rubric
  * subagents log their findings to. The SkillOpt validation gate and
  * the epoch-proposer skill mine this file to propose SKILL.md edits.
  *
@@ -1604,7 +1775,7 @@ export interface SkillOptTrajectoryRecord {
     detail?: Record<string, any>;
 }
 
-export async function logSkillOptTrajectory(rec: SkillOptTrajectoryRecord): Promise<boolean> {
+async function logSkillOptTrajectory(rec: SkillOptTrajectoryRecord): Promise<boolean> {
     const payload = {
         ts_ms: Date.now(),
         ...rec,

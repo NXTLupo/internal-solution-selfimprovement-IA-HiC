@@ -16,6 +16,7 @@ import { sanitizeFreeformHtml } from './freeformSanitizer';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { UNIVERSAL_TONE_RULES } from '../../services/deliverableFrameworks';
 import { GoogleGenAI } from '@google/genai';
+import { CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, artifactModelChain } from '../../services/aiRouter';
 
 // Re-exported as a local alias so the freeform prompt builder doesn't have
 // to thread the long import name through every call site.
@@ -25,7 +26,7 @@ const UNIVERSAL_TONE_RULES_INLINE = UNIVERSAL_TONE_RULES;
 // Gemini/GPT entries kept for backward-compat.
 // 2026-06-12 - claude-opus-4-8 added: Designer-chat generation + revision
 // route to Opus 4.8 per Jonathan's directive (DesignDeskChat call sites).
-export type FreeformGenerationModel = 'deepseek-v4-flash' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4' | 'claude-opus-4-8';
+export type FreeformGenerationModel = 'deepseek-v4-flash' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4' | typeof CLAUDE_REASONING_MODEL;
 
 export interface FreeformGenerateArgs {
     kind: FreeformKind;
@@ -100,7 +101,7 @@ function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
         case 'gpt-5.4':                return 'gpt-5.4';
         case 'gemini-3.5-flash':       return 'gemini-3.5-flash';
         case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
-        case 'claude-opus-4-8':         return 'claude-opus-4-8';
+        case CLAUDE_REASONING_MODEL:    return CLAUDE_REASONING_MODEL;
     }
 }
 
@@ -204,7 +205,7 @@ async function callForModel(prompt: string, model: FreeformGenerationModel): Pro
     // lifts the stable prefix into system). Every other provider gets a marker-free prompt -
     // Gemini's implicit caching keys on the stable-first prefix ordering buildPrompt already
     // guarantees; the marker itself must never reach a model as literal text.
-    if (model === 'claude-opus-4-8') return callClaude(prompt, providerId);
+    if (String(model).startsWith('claude-')) return callClaude(prompt, providerId);
     const { stripCacheMarkers } = await import('../../services/aiRouter');
     const clean = stripCacheMarkers(prompt);
     if (model === 'deepseek-v4-flash') return callDeepSeek(clean, providerId);
@@ -1028,6 +1029,10 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
         // caller believed claude-opus-4-8 was generating. llm_model now rides
         // both generate and revise bodies.
         const llmModel = resolveProviderModelId(args.model);
+        // 2026-10-01 (plan Stage 4.3 / D6): the SPA's routing authority decides the chain the proxy
+        // walks; the proxy's own per-kind chain tables are deleted. The explicit model the user
+        // picked (llm_model) heads the chain; the authority supplies the fallbacks.
+        const modelChain = Array.from(new Set([llmModel, ...artifactModelChain(args.kind)].filter(Boolean)));
         const reqBody = isRevision
             ? {
                   kind: args.kind,
@@ -1035,6 +1040,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
                   current_html: (args.currentArtifact as any).html,
                   revision_instruction: args.userPrompt,
                   llm_model: llmModel,
+                  model_chain: modelChain,
               }
             : {
                   kind: args.kind,
@@ -1044,13 +1050,14 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
                   journey_type: 'general',
                   corpus: args.corpus || '',
                   llm_model: llmModel,
+                  model_chain: modelChain,
               };
         try {
-            const resp = await fetch(`http://127.0.0.1:5012${endpoint}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(reqBody),
-            });
+            // 2026-10-01 (plan Stage 4.5 / D10): job + poll instead of one long-held POST. The proxy
+            // runs the same handler in the background and persists the job to disk (multi-worker
+            // safe); the SPA polls every few seconds with a 15-minute ceiling and an AbortSignal, so a
+            // dropped socket no longer loses a finished artifact.
+            const resp = await runProxyJob(endpoint, reqBody, { timeoutMs: 15 * 60 * 1000 });
             if (resp.ok) {
                 const data = await resp.json();
                 if (data?.ok && data?.html) {
@@ -1139,7 +1146,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
     if (completenessError) {
         return {
             ok: false,
-            error: `Model produced INCOMPLETE BODY CONTENT: ${completenessError}. Re-run with a more capable model (Opus 4.8) or simpler request.`,
+            error: `Model produced INCOMPLETE BODY CONTENT: ${completenessError}. Re-run with a more capable model (${CLAUDE_REASONING_LABEL}) or simpler request.`,
             rawResponse: raw,
             modelUsed: args.model,
         };
@@ -1251,4 +1258,51 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
     }
 
     return { ok: true, artifact: validation.value, modelUsed: args.model };
+}
+
+
+/**
+ * Job + poll against the proxy (D10). POST /api/jobs with {op, body}; poll GET /api/jobs/<id>.
+ * Returns a Response-like object so the existing `resp.ok` / `resp.json()` handling stays unchanged.
+ * Falls back to the direct endpoint when the jobs API is unavailable (older proxy).
+ */
+export async function runProxyJob(
+    endpoint: string,
+    body: unknown,
+    opts: { timeoutMs?: number; pollMs?: number; signal?: AbortSignal } = {},
+): Promise<{ ok: boolean; status: number; json: () => Promise<any>; text: () => Promise<string> }> {
+    const base = 'http://127.0.0.1:5012';
+    const timeoutMs = opts.timeoutMs ?? 15 * 60 * 1000;
+    const pollMs = opts.pollMs ?? 2500;
+    const wrap = (ok: boolean, status: number, data: any) => ({
+        ok, status, json: async () => data, text: async () => (typeof data === 'string' ? data : JSON.stringify(data)),
+    });
+    let start: Response;
+    try {
+        start = await fetch(`${base}/api/jobs`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ op: endpoint, body }), signal: opts.signal,
+        });
+    } catch (e: any) {
+        return wrap(false, 0, { error: e?.message || 'jobs POST failed' });
+    }
+    if (start.status === 404) {
+        // Older proxy without the jobs API: direct call, unchanged behavior.
+        const direct = await fetch(`${base}${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: opts.signal });
+        return direct as any;
+    }
+    if (!start.ok) return wrap(false, start.status, await start.json().catch(() => ({})));
+    const { job_id: jobId } = await start.json();
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+        if (opts.signal?.aborted) return wrap(false, 499, { error: 'aborted' });
+        await new Promise(r => setTimeout(r, pollMs));
+        let poll: Response;
+        try { poll = await fetch(`${base}/api/jobs/${encodeURIComponent(jobId)}`, { signal: opts.signal }); } catch { continue; }
+        if (!poll.ok) continue;
+        const st = await poll.json();
+        if (st.status === 'done') return wrap(st.http_status >= 200 && st.http_status < 300, st.http_status || 200, st.result);
+        if (st.status === 'error') return wrap(false, st.http_status || 500, st.result || { error: st.error || 'job failed' });
+    }
+    return wrap(false, 504, { error: `job ${jobId} did not finish within ${Math.round(timeoutMs / 1000)}s` });
 }

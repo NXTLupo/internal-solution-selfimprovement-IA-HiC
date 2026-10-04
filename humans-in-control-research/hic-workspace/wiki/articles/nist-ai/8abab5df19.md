@@ -9,14 +9,14 @@ author: ""
 date: "Mon, 30 Mar 2026 12:00:00 +0000"
 tier: 1
 method: "source-native"
-extracted_at: "2026-07-03T01:18:15.771192+00:00"
+extracted_at: "2026-09-10T17:38:49.962451+00:00"
 chars: 5194
-engagement: "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
-collected_at: "2026-07-03T01:18:15.630Z"
-relevance: 10
-engagement_goal: "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts."
+engagement: "as-of-august-september-2026-no-earlier-what-are-the-capabili"
+collected_at: "2026-09-10T17:38:49.315Z"
+relevance: 0
+engagement_goal: "As of August-September 2026 (no earlier), what are the capabilities, limitations, and extensibility points of Figma's (the design tool) agents and extensions for connecting agentic workflows, skills, critics, hooks, and visual UI cards? Scour Figma's own documentation and press releases, plus AI/design and marketing sources, and produce a comprehensive, technical white paper detailing all possible use cases for extending Figma's agentic capabilities across: design, approvals, design-system integration, deterministic hooks, and harnessed execution, organized and detailed enough for implementation, covering design, approvals, skills, critics, hooks, AI extensions, and notifications.  "
 content_hash: "cc683b899d3b159d"
-relevance_by_goal: {"c5a2d58d1be7":10}
+relevance_by_goal: {"c5a2d58d1be7":10,"bb7e192171b3":0,"5a163910d68e":0}
 chunks:
   - id: "articles/nist-ai/8abab5df19.md#c0"
     char_span: [0, 228]

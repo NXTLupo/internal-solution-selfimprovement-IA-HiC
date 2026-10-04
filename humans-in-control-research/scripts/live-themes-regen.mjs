@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // LIVE P2 themes regeneration probe. Extracts themes from a SOURCE-DIVERSE slice of the real fixture
-// co-op corpus via the real artifact engine (claude-opus-4-8 through the proxy) with the real
+// co-op corpus via the real artifact engine (claude-opus-5-5 through the proxy) with the real
 // multi-source citation mandate, then measures avg_distinct_sources_per_theme on the OUTPUT vs the
 // stale 2026-05-26 fixture baseline (1). Representative live extraction (not the full BERTopic pipeline)
 // but REAL corpus + REAL mandate + REAL engine -> honest signal on whether multi-source themes are produced.
@@ -60,10 +60,10 @@ HARD REQUIREMENT: every theme's citations array MUST list AT LEAST 2 DIFFERENT s
 Return ONLY a JSON object, no prose, no markdown fences: {"themes":[{"name":"<contestable finding sentence>","description":"<2-3 sentences>","citations":[{"sourceName":"<a source= value>"},{"sourceName":"<a DIFFERENT source= value>"}]}]}`;
 const userMsg = `CORPUS (${corpus.length} excerpts across ${distinctCorpusSources} distinct sources):\n\n${corpusBlock}\n\nExtract 8-12 themes; enforce the >=2-distinct-source rule on EVERY theme. JSON only.`;
 
-console.log(`corpus: ${corpus.length} excerpts, ${distinctCorpusSources} distinct sources. Calling claude-opus-4-8...`);
+console.log(`corpus: ${corpus.length} excerpts, ${distinctCorpusSources} distinct sources. Calling claude-opus-5-5...`);
 const resp = await fetch(`${PROXY}/api/ai/anthropic`, {
   method: 'POST', headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ model: 'claude-opus-4-8', max_tokens: 12000, system, messages: [{ role: 'user', content: userMsg }] }),
+  body: JSON.stringify({ model: 'claude-opus-5-5', max_tokens: 12000, system, messages: [{ role: 'user', content: userMsg }] }),
 });
 const data = await resp.json();
 if (resp.status !== 200) { console.error('proxy error', resp.status, JSON.stringify(data).slice(0, 300)); process.exit(2); }
@@ -79,7 +79,7 @@ for (const t of themes) {
 }
 const avgDistinct = Math.round((distinctSum / n) * 100) / 100;
 const out = {
-  ran: 'live-claude-opus-4-8', corpus_distinct_sources: distinctCorpusSources, theme_count: themes.length,
+  ran: 'live-claude-opus-5-5', corpus_distinct_sources: distinctCorpusSources, theme_count: themes.length,
   avg_distinct_sources_per_theme: avgDistinct, multi_source_theme_pct: Math.round((multi / n) * 1000) / 10,
   fixture_baseline_avg_distinct_sources_per_theme: 1, improved: avgDistinct > 1,
 };

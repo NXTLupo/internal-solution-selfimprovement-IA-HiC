@@ -95,11 +95,30 @@ The Northeastern (NU) brand uses the same 15-template structure but different to
 
 Hard rules 1-10 above apply identically to NU; only the token values change. The geometry, the 70/20/10 color dominance rule, the chart conventions, and the anti-slop checklist transfer wholesale.
 
+## #DECIEM brand variant (added 2026-10-01)
+
+DECIEM (The Abnormal Beauty Company): black and white canvases, Poppins Bold uppercase headlines, Josefin Sans body, pink / cyan / purple / orange pops from the DECIEM PowerPoint template; tokens at /api/design-tokens?brand=DECIEM.
+
+Apply when the user invokes `#DECIEM` (alone or as a modifier on `#presentation` / `#slides`). Same template structure, same hard rules; only tokens change:
+
+| Token | DECIEM |
+|-------|--------|
+| Display / title font | Poppins Bold, UPPERCASE |
+| Body font | Josefin Sans |
+| Label font | Poppins Bold uppercase (every label in the template) |
+| Mono / table / data font | Nunito |
+| Dark canvas (title, section, thesis) | Black `000000`, white type, thin-bordered lockup box ("THE ABNORMAL BEAUTY COMPANY." over "DECIEM") |
+| Body canvas | White `FFFFFF`, black type |
+| Primary accent | Pink `FB48C4` |
+| Secondary accents | Cyan `00FACC`, Purple `8A69D4`, Orange `FF6C2F` (warn) |
+| Rail / dot mark | None |
+| Corner radius | 0 |
+
 ---
 
 ## #presentation hashtag routing (added 2026-06-06)
 
-The `#presentation` hashtag (alone or with `#NU` / `#NXT` brand modifiers) emits a `PresentationPayload` from `services/narrativeComposer.ts` and ships it to the `presentation-renderer:5014` container (NOT to the inline SPA SlideCanvas). The renderer is a separate scroll-driven React 19 + framer-motion service, forked from the Inner Focus codebase, that produces a polished standalone presentation.
+The `#presentation` hashtag (alone or with `#NU` / `#NXT` / `#DECIEM` brand modifiers) emits a `PresentationPayload` from `services/narrativeComposer.ts` and ships it to the `presentation-renderer:5014` container (NOT to the inline SPA SlideCanvas). The renderer is a separate scroll-driven React 19 + framer-motion service, forked from the Inner Focus codebase, that produces a polished standalone presentation.
 
 When `#presentation` is invoked:
 

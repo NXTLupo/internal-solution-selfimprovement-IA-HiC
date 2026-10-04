@@ -264,7 +264,7 @@ def classify_pattern(rollouts: list[dict], signals: list[dict]) -> list[dict]:
         if len(ids) < 5:
             continue
         proposals.append({
-            "skill_id": "deck-narrative-composer",
+            "skill_id": "deck-composer",
             "source_rollouts": [],
             "source_feedback_ids": ids[:6],
             "proposed_diff_summary": (

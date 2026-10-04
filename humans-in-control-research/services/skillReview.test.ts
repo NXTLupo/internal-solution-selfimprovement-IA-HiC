@@ -12,7 +12,7 @@ describe('readiness', () => {
     });
 
     it('blocks a truncated patch (the confirmed drift that motivated this gate)', () => {
-        const r = reviewSkillPatch({ skillName: 'deck-narrative-composer', patch: 'Strictly adhere', completeness: { ok: false, reason: 'no terminal punctuation' } });
+        const r = reviewSkillPatch({ skillName: 'deck-composer', patch: 'Strictly adhere', completeness: { ok: false, reason: 'no terminal punctuation' } });
         expect(r.readiness).toBe('blocked');
         expect(r.issues[0].id).toBe('exec.incomplete');
     });

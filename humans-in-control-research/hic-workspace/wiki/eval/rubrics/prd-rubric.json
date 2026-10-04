@@ -1,0 +1,225 @@
+{
+  "rubric_id": "prd-rubric",
+  "kind": "prd",
+  "version": "2026-10-01",
+  "title": "PRD v2026 ten-item rubric",
+  "absorbed_from": ".claude/agents/prd-deliverable-auditor.md + plan section 3.6",
+  "absorbed_on": "2026-10-01",
+  "description": "Runtime panel critic for the #prd document and its deck projection. Scores the ten items from one to five; a one on items two, six or eight withholds the artifact; every item must score three or higher for the artifact to ship. Deterministic prechecks run before the scored pass and their failures are reported as item scores, never as prose annotations the reader sees.",
+  "contract": "services/prdAir.ts (PrdAir), schemas/prd_air.schema.json",
+  "source": "plans/hic-world-class-uplift-audit-and-plan-2026-09-30.md, section 3.6 (ten-item PRD rubric) and Stage 3.7",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "5": "An engineer and a designer could start without a clarifying meeting, and an auditor could open every cited source.",
+      "3": "Present but partially traced.",
+      "1": "Absent or fabricated."
+    }
+  },
+  "two_pass_order": [
+    "PASS ONE (claims): type every consequential statement per the claim ledger (SUPPORTED_FACT, DERIVATION, DEFENSIBLE_INFERENCE, HYPOTHESIS, EDITORIAL_JUDGMENT, UNKNOWN), scope-match each citation to the sentence it supports, check independence of origins, ignore how the prose sounds.",
+    "PASS TWO (prose): slop families, the actor rule, semantic coherence, structure variety, ignore whether claims are true."
+  ],
+  "deterministic_prechecks": [
+    {
+      "id": "trace-integrity",
+      "fn": "services/prdAir.ts#checkTraceIntegrity",
+      "maps_to_item": 6,
+      "rules": [
+        "every requirement has at least one pain or competitive gap, or is typed HYPOTHESIS and carries a bet",
+        "every pain has at least one quote",
+        "every quote has exactly one source",
+        "every must-have has at least two independent origins",
+        "every requirement has at least one acceptance test",
+        "every acceptance test and every signal points back to a requirement"
+      ],
+      "on_error": "item 6 scores 1"
+    },
+    {
+      "id": "naked-numbers",
+      "fn": "services/prdAir.ts#scanNakedNumbers",
+      "maps_to_item": 8,
+      "rule": "a digit appears only inside verbatim quote text or a typed requirement_target; ids, pointers, standard names and provenance dates are exempt",
+      "on_error": "item 8 scores 1"
+    },
+    {
+      "id": "seven-field-signals",
+      "fn": "services/prdAir.ts#validatePrdAir",
+      "maps_to_item": 8,
+      "rule": "every signal carries signal, instrument, population, direction, baselineStatus, type and a guardrail with rollback authority; at least one leading and one lagging",
+      "on_error": "item 8 scores at most 2"
+    },
+    {
+      "id": "schema",
+      "fn": "schemas/prd_air.schema.json",
+      "maps_to_item": 6,
+      "rule": "the record validates against the PrdAir schema",
+      "on_error": "item 6 scores at most 2"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "thesis",
+      "n": 1,
+      "label": "Thesis",
+      "text": "The thesis carries a judgment and names the decision; the titles alone pass the Partner Test.",
+      "five": "a partner reading only the title, the thesis and the slide titles understands the argument and the decision asked of them",
+      "one": "the thesis is a topic label, names no decision, or the deck titles read as topics",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "title",
+        "sections.thesis.statement",
+        "sections.thesis.decisionRequested"
+      ]
+    },
+    {
+      "id": "problem_story",
+      "n": 2,
+      "label": "Problem",
+      "text": "The problem is a specific story with verbatim named-source quotes from independent origins; no solution appears in the problem.",
+      "five": "the story names the user, the need and the insight, and at least two independent source types carry verbatim quotes with pointers",
+      "one": "a quote is paraphrased, a source is generic or invented, the quotes trace to one original, or the problem names a feature",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "prd_problem_quotes",
+      "evidence_fields": [
+        "sections.problem.story",
+        "sections.problem.quoteIds",
+        "graph.quotes",
+        "graph.sources"
+      ]
+    },
+    {
+      "id": "why_now",
+      "n": 3,
+      "label": "Why-Now",
+      "text": "Why now is stated and cited.",
+      "five": "the named market, regulatory, technology or client change is stated and a cited quote carries it",
+      "one": "absent, or a generic urgency sentence with no named change and no quote",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "sections.whyNow"
+      ]
+    },
+    {
+      "id": "users_and_jobs",
+      "n": 4,
+      "label": "Users-And-Jobs",
+      "text": "Users are bounded to primary personas with job stories traced to quotes.",
+      "five": "one or two primary personas by id with their stage of struggle; every job story is in Klement form and cites its quotes",
+      "one": "no primary persona, or job stories without a persona id or a quote",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "sections.usersAndJobs",
+        "graph.personas"
+      ]
+    },
+    {
+      "id": "non_goals_and_appetite",
+      "n": 5,
+      "label": "Non-Goals-And-Appetite",
+      "text": "Non-goals and appetite are explicit with reasons.",
+      "five": "every non-goal carries its reason; the appetite is a typed requirement_target with a qualitative rationale",
+      "one": "no non-goals, a non-goal without a reason, or an appetite that is not a typed time budget",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "sections.goalsNonGoalsAppetite"
+      ]
+    },
+    {
+      "id": "requirements_trace",
+      "n": 6,
+      "label": "Requirements-And-Trace",
+      "text": "Every requirement is singular, verifiable, declaratively tested, with a complete trace chain; no orphans.",
+      "five": "every requirement resolves to a pain or gap, a persona, a verbatim quote, a named source, a declarative test and a signal; every bet names its test and the condition under which the alternative wins",
+      "one": "the trace-integrity precheck reports an error, a requirement bundles several outcomes, or an acceptance test is not Given/When/Then",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "prd_trace_integrity",
+      "evidence_fields": [
+        "graph.requirements",
+        "graph.acceptanceTests",
+        "traceMatrix"
+      ]
+    },
+    {
+      "id": "tiers_and_alternatives",
+      "n": 7,
+      "label": "Tiers-And-Alternatives",
+      "text": "Tiers follow the evidence rule; must-have is rare and defended; alternatives considered are present.",
+      "five": "every must-have carries two independent origins and a primary persona in its rationale; rejected alternatives name their trade-off",
+      "one": "tiers are typed rather than derived, most requirements are must-have, or no alternative was considered",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "graph.requirements[].tier",
+        "graph.requirements[].tierRationale",
+        "sections.risks.alternatives"
+      ]
+    },
+    {
+      "id": "success_signals",
+      "n": 8,
+      "label": "Success-Signals",
+      "text": "Success signals follow the seven-field rule, include leading and lagging, carry guardrails, and invent no figures.",
+      "five": "every signal is an observable event with instrument, population, direction, baseline status, type and guardrail with rollback authority; numbers appear only in quotes and typed targets",
+      "one": "a signal lacks a field, a baseline is a bare figure, a target is set in the first draft, or any prose carries a naked number",
+      "floor": 3,
+      "blocking": true,
+      "deterministic_check": "prd_signal_figures",
+      "evidence_fields": [
+        "graph.signals",
+        "nakedNumbers"
+      ]
+    },
+    {
+      "id": "quality_accessibility_privacy",
+      "n": 9,
+      "label": "Quality-Accessibility-Privacy",
+      "text": "Quality, accessibility (WCAG 2.2 AA) and privacy (Article 25, DPIA trigger) are stated as verifiable minimums.",
+      "five": "the applicable ISO/IEC 25010 characteristics each carry a verifiable statement (typed target where a bound is needed), the exposed WCAG criteria are named, and the data-minimization statement and DPIA trigger check are present",
+      "one": "absent, or stated as aspirations with no verifiable statement",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "sections.quality"
+      ]
+    },
+    {
+      "id": "delivery",
+      "n": 10,
+      "label": "Delivery",
+      "text": "Delivery is startable and stoppable: states, data touchpoints, dependencies, tracking plan, rollout with kill criteria, open questions with owners and dates, one accountable approver.",
+      "five": "every screen lists its required states, every dependency names its owning team, every rollout phase names its gate, kill criteria and rollback authority, and one person is accountable",
+      "one": "no rollout, a phase without kill criteria, an open question without owner and date, or no accountable approver",
+      "floor": 3,
+      "blocking": false,
+      "evidence_fields": [
+        "sections.solutionFlows.screenStates",
+        "sections.delivery"
+      ]
+    }
+  ],
+  "blocking": [
+    "problem_story",
+    "requirements_trace",
+    "success_signals"
+  ],
+  "decision": "withhold on a 1 for any blocking item; refine when any item is below the floor; pass otherwise",
+  "verdict_rule": {
+    "shape": {
+      "artifactId": "string",
+      "scores": "array of ten { n, score, finding }",
+      "prechecks": "array of { id, ok, detail }",
+      "withheld": "true when any item in fail_artifact_on_one scores 1 or any item scores below pass_floor",
+      "withheld_reason": "string naming the item and the finding"
+    },
+    "sink": "hic-workspace/sessions/<engagement>/auditor-verdicts.jsonl",
+    "reader_visibility": "none: the verdict is a run record, never prose on the artifact"
+  }
+}
