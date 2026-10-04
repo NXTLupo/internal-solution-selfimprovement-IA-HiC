@@ -1594,6 +1594,15 @@ const HashtagAutocomplete: React.FC<{
     // A pick rewrites the text before the cursor moves, so the next text change still sees the old "#pr" token at
     // the old cursor and would reopen the menu. The first text change after a pick is skipped.
     const justPickedRef = useRef(false);
+    const [liveText, setLiveText] = useState(input);
+    useEffect(() => { setLiveText(inputRef.current?.value ?? input); }, [input, inputRef]);
+    useEffect(() => {
+        const el = inputRef.current;
+        if (!el) return;
+        const onInput = () => setLiveText(el.value);
+        el.addEventListener('input', onInput);
+        return () => el.removeEventListener('input', onInput);
+    }, [inputRef]);
     const onPickDirective = useCallback((id: string) => { justPickedRef.current = true; pickDirective(id); }, [pickDirective]);
     const [partial, setPartial] = useState('');
     const [selectedIdx, setSelectedIdx] = useState(0);
@@ -1603,8 +1612,8 @@ const HashtagAutocomplete: React.FC<{
         const el = inputRef.current;
         if (!el) { setOpen(false); return; }
         if (justPickedRef.current) { justPickedRef.current = false; setOpen(false); setPartial(''); return; }
-        const cursor = el.selectionStart ?? input.length;
-        const before = input.slice(0, cursor);
+        const cursor = el.selectionStart ?? liveText.length;
+        const before = liveText.slice(0, cursor);
         // Match the last #word the cursor is touching. The token starts at
         // a non-word boundary (start of string or whitespace) - so we don't
         // false-trigger on a # buried inside another word.
@@ -1622,7 +1631,7 @@ const HashtagAutocomplete: React.FC<{
         setMatches(finalHits);
         setOpen(finalHits.length > 0);
         setSelectedIdx(0);
-    }, [input, inputRef]);
+    }, [liveText, inputRef]);
 
     useEffect(() => {
         const el = inputRef.current;
@@ -4024,10 +4033,17 @@ const ComposerTextarea: React.FC<{
     onKeyDown: (e: React.KeyboardEvent) => void;
 }> = React.memo(({ inputRef, value, sync, onValueChange, onKeyDown }) => {
     const [local, setLocal] = useState(value);
-    useEffect(() => { if (sync > 0) setLocal(value); }, [sync]); // eslint-disable-line react-hooks/exhaustive-deps
+    const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    useEffect(() => { if (sync > 0) { if (pushTimer.current) clearTimeout(pushTimer.current); setLocal(value); } }, [sync]);
+    useEffect(() => () => { if (pushTimer.current) clearTimeout(pushTimer.current); }, []); // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <textarea ref={inputRef} value={local}
-            onChange={e => { const v = e.target.value; setLocal(v); startTransition(() => onValueChange(v)); }}
+            onChange={e => {
+                const v = e.target.value;
+                setLocal(v);
+                if (pushTimer.current) clearTimeout(pushTimer.current);
+                pushTimer.current = setTimeout(() => startTransition(() => onValueChange(v)), v ? 250 : 0);
+            }}
             onKeyDown={onKeyDown}
             placeholder="Ask about your research data... Try #help for all hashtag directives."
             rows={4} style={{ width: '100%', padding: '10px 12px', border: '1px solid #E0E0E0', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box', minHeight: 88 }} />
@@ -4645,7 +4661,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // chat prompt, so an insurance session carried a 278KB university-advancement archive (the #recs prompt reached
     // ~460K tokens and timed out, and fundraising sources leaked across engagements). Only an archive whose file name
     // matches this engagement's slug is loaded; none means the manifest grounding supplies the URLs. Capped at 60KB.
-    const _archiveGoal = String(((getContext ? getContext() : context) as any)?.researchGoal || (context as any)?.researchGoal || '');
+    // ONE context snapshot per render (2026-10-04 typing-latency root cause): getContext() rebuilds the whole research
+    // context (learned-constraint screening, every source reference, upload contents), and the message renderer used
+    // to call it once per prose run of every message, hundreds of calls and about a second of main thread per render.
+    const renderCtx = getContext ? getContext() : context;
+    const _archiveGoal = String((renderCtx as any)?.researchGoal || (context as any)?.researchGoal || '');
     useEffect(() => {
         (async () => {
             setWikiSourceArchive('');
@@ -7937,7 +7957,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         Chat to Your Data
                     </div>
                     <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>
-                        {(getContext ? getContext() : context).sourceCount || 0} sources | {(getContext ? getContext() : context).articleCount || 0} articles
+                        {renderCtx.sourceCount || 0} sources | {renderCtx.articleCount || 0} articles
                     </div>
                 </div>
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
@@ -8002,7 +8022,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     // If we read from `context` directly, state is always empty and
                     // chips render blank forever. Call getContext() to get the real
                     // researchGoal, uploadedFiles, liveSourceResults, and KG.
-                    const live: any = getContext ? getContext() : context;
+                    const live: any = renderCtx;
                     return (
                         <DynamicPromptChips
                             state={{
@@ -8141,7 +8161,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     // links + #proto chips. ChatProse calls this for every prose run so
                                     // structure (headings/bold/lists) AND citations both render.
                                     const renderRun = (runText: string, keyB: string): React.ReactNode => {
-                                        const { segments: cits } = parseChatCitations(runText, (getContext ? getContext() : context).sourceReferences);
+                                        const { segments: cits } = parseChatCitations(runText, renderCtx.sourceReferences);
                                         return cits.map((c, ci) => {
                                             if (c.type === 'citation') {
                                                 return c.url ? (
@@ -8754,7 +8774,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 Acts as a pivot helper: "I'm in a conversation but want to
                 jump to the next high-leverage question." */}
             {messages.length > 0 && (() => {
-                const live: any = getContext ? getContext() : context;
+                const live: any = renderCtx;
                 return (
                     <DynamicPromptChips
                         state={{
@@ -8813,7 +8833,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                     the user edits before sending - nothing fires behind their back. */}
                 {!isLoading && (() => {
                     const hasDeck = slides.some(s => s.status === 'draft');
-                    const live: any = getContext ? getContext() : context;
+                    const live: any = renderCtx;
                     const hasCorpus = !!(live?.corpusText && String(live.corpusText).length > 500);
                     const chips: string[] = [];
                     if (hasCorpus && !hasDeck) chips.push('Draft the slide narrative from this research');
@@ -8916,9 +8936,9 @@ Important: this is a re-attempt of the previous request. Honor every directive i
             <SourceCoverage
                 isOpen={coverageOpen}
                 onClose={() => setCoverageOpen(false)}
-                activeCategories={(getContext ? getContext() : context)?.activeCategories || []}
+                activeCategories={renderCtx?.activeCategories || []}
                 chatMessages={messages}
-                liveSourceResults={(getContext ? getContext() : context)?.liveSourceResults}
+                liveSourceResults={renderCtx?.liveSourceResults}
             />
         </div>
     );

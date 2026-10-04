@@ -362,6 +362,15 @@ could paint. Fix (`components/CorpusChatPanel.tsx`):
   pick a directive ALSO sent the message (`handleKeyDown` now returns when the menu already cancelled the key).
 - Live check (heavy 36-turn session): 40 characters typed with no delay land exactly; keydown-to-paint p50 is about 36-80ms.
   Enter picks without sending; Shift+Enter adds a newline. 0 console errors.
+- THE REAL ROOT CAUSE (found by a CPU profile after the owner reported lag persisting; the first fix only measured an
+  idle panel): 97% of main-thread time while typing sat under `getContext()`. The message renderer's citation linker
+  called the parent's `getContext()` once per prose run of every message, and each call rebuilds the whole research
+  context (learned-constraint screening via `getActiveConstraints` -> `constraintQualityGate`, every source reference,
+  upload contents). In the 29-turn PRD session that was ~1.2s of blocked main thread per panel render, so 20s of
+  typing landed 21 characters. Fix: ONE `renderCtx` snapshot per render, used by every render-time reader; the panel
+  copy of the composer text now updates after a 250ms typing pause, not per keystroke; the hashtag menu follows the
+  live textarea through native input events. Re-measured on the same session: 164/164 characters, keydown-to-paint
+  p50 9ms / p99 64ms, one 50ms long task in 20s; typing with pauses between words shows no long tasks.
 - Leftover: the verifying agent's Enter test (before the fix) sent "#pr" to the saved risk-and-market session, which
   now carries one extra "#pr" turn and a canned clarification reply (no model call). Delete that turn in the UI if wanted.
 
