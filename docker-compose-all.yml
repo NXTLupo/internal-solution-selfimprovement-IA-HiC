@@ -23,6 +23,8 @@ services:
       - AGENT_URL=http://nxt-agency-backend:8000
       - AGENT_WS_URL=ws://nxt-agency-backend:8000
       - AGENT_CLIENT_URL=http://localhost:${NXT_AGENCY_BACKEND_PORT:-8201}
+      # 2026-10-31 (agent-stack plan D1): the platform agent that owns the ONE thread registry
+      - PLATFORM_AGENT_URL=http://agent:8500
       - REDDIT_MCP_URL=http://reddit-mcp:8501
       - SOCIAL_MCP_URL=http://social-mcp:8502
       - JOURNEY_MCP_URL=http://journey-mcp:8503
@@ -41,9 +43,13 @@ services:
     ports:
       - "${AGENT_ORCHESTRATOR_PORT:-8500}:8500"
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      # 2026-10-31 (agent-stack plan WS-D D2): the agent holds no provider key and no model id. Model seats come
+      # from the routing authority (research-proxy /api/models) and every model call goes through the proxy's
+      # provider routes; memory (WS-B) and skills (WS-A A4) come through the same door.
       - PORT=8500
-      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+      - HIC_PROXY_URL=http://research-proxy:5012
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
+      - HIC_AGENT_DIR=/hic-workspace/agent
       - REDDIT_MCP_URL=http://reddit-mcp:8501
       - SOCIAL_MCP_URL=http://social-mcp:8502
       - JOURNEY_MCP_URL=http://journey-mcp:8503
@@ -53,6 +59,9 @@ services:
       - VIDEO_RENDER_MCP_URL=http://video-render-mcp:8508
     volumes:
       - ./mcp-services/agent:/app
+      # the proxy token the proxy publishes, and the thread registry + conversations (WS-D D1: survive a restart)
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+      - ./humans-in-control-research/hic-workspace/agent:/hic-workspace/agent
     working_dir: /app
     container_name: agent
     hostname: agent
@@ -67,6 +76,7 @@ services:
       - video-mcp
       - video-render-mcp
       - research-mcp
+      - research-proxy
 
   # Reddit Ripper MCP Wrapper
   reddit-mcp:
@@ -134,8 +144,13 @@ services:
       - PORT=8507
       - RESEARCH_GENERATOR_URL=http://research-generator:5011
       - RESEARCH_GENERATOR_CLIENT_URL=http://localhost:${RESEARCH_GENERATOR_PORT:-5011}
+      # WS-6 M4 (2026-10-30): the wrapper drives the research proxy (run_deliverable, get_run_state, list_artifacts,
+      # get_run_telemetry). The proxy token comes from the env when set, else from the runtime config the proxy publishes.
+      - RESEARCH_PROXY_URL=http://research-proxy:5012
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
     volumes:
       - ./mcp-services/research-mcp:/app
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
     working_dir: /app
     command: >-
       bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 8507"
@@ -374,10 +389,9 @@ services:
     build:
       context: ./humans-in-control-research
       dockerfile: Dockerfile
-      args:
-        - GEMINI_API_KEY=${GEMINI_API_KEY}
-        - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-        - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # 2026-10-30 (WS-0 S1) - no provider keys as build args: the browser bundle
+      # carries none. research-proxy holds the keys and publishes /config.json
+      # (proxy base + shared token) into hic-workspace/.runtime for nginx to serve.
     # 2026-08-13 — pull_policy: build makes a PLAIN `docker compose up -d`
     # rebuild this image from the working tree every time, so `git pull` +
     # `up -d` (no --build) always serves the pulled code. Docker layer cache
@@ -437,6 +451,26 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      # 2026-11-03 W5 (NotebookLM reverse-engineering): Audio Overview TTS (#audio-overview).
+      # Optional; without it the proxy's /api/tts/dialogue answers 503 and the SPA keeps the text dialogue.
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY:-}
+      # 2026-10-30 (WS-0 S2) — proxy auth is on by default. Leave PROXY_AUTH_TOKEN
+      # unset and the proxy generates one per start and publishes it to the SPA via
+      # hic-workspace/.runtime/config.json (served as /config.json); set it to pin a
+      # stable token. PROXY_CORS_ORIGINS overrides the SPA origin allow-list;
+      # PROXY_PUBLIC_BASE is the base URL the browser should use for the proxy.
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
+      - PROXY_AUTH_DISABLED=${PROXY_AUTH_DISABLED:-}
+      - PROXY_CORS_ORIGINS=${PROXY_CORS_ORIGINS:-}
+      - PROXY_PUBLIC_BASE=${PROXY_PUBLIC_BASE:-http://127.0.0.1:5012}
+      # 2026-10-31 (agent-stack plan D3) — signed inbound webhook POST /api/webhooks/run.
+      # Absent (404) until a source has a secret: "source:secret,..." here, or
+      # scripts/webhook-secret.py create <source> (hic-workspace/.runtime/webhook-secrets.json).
+      # CALLBACK_HOSTS allow-lists internal callback hosts (public hosts are always allowed); the two coordinators
+      # receive their delegated jobs' reports (the agent at /api/webhooks/hic, verified with its own source secret).
+      - HIC_SPA_ROOT=/hic-spa
+      - HIC_WEBHOOK_SECRETS=${HIC_WEBHOOK_SECRETS:-}
+      - HIC_WEBHOOK_CALLBACK_HOSTS=${HIC_WEBHOOK_CALLBACK_HOSTS:-agent,nxt-agency-backend}
       # 2026-05-25 — Journey Mapper IA service URL (internal Docker network).
       # HiC #journey requests proxy through to JM's /api/analyze and return
       # the rendered HTML directly to the Design Desk. Matches the pattern
@@ -478,6 +512,8 @@ services:
       - VISION_CACHE_TTL_SEC=${VISION_CACHE_TTL_SEC:-2592000}
     volumes:
       - ./humans-in-control-research/proxy:/app
+      # 2026-10-30 (WS-2 E1): the version-controlled eval suite (cases, judges, labels, results)
+      - ./humans-in-control-research/evals:/evals
       # S8: mount full hic-workspace so the scheduler can read youtube-channels.json
       # + institution-manifest.json AND write scheduler-state.json. Previously
       # only wiki/ was exposed; the wiki path stays reachable at /hic-workspace/wiki.
@@ -486,6 +522,10 @@ services:
       # from inside the proxy; the scripts dir was never mounted (the old autotrigger probed
       # /app/scripts and silently found nothing).
       - ./humans-in-control-research/scripts:/app/scripts:ro
+      # 2026-10-31: the two SPA directories proxy/tests/test_ingestion_generic_engagement.py compares the proxy's
+      # ingestion against (read-only; the proxy never serves them). Located through HIC_SPA_ROOT.
+      - ./humans-in-control-research/components:/hic-spa/components:ro
+      - ./humans-in-control-research/services:/hic-spa/services:ro
       # 2026-05-22 — self-improvement loop, Phase 3. Skills are mounted RW
       # so the learningEngine can patch SKILL.md files in response to feedback
       # clusters. Versioned archives go under each skill's _versions/ subdir.
@@ -624,9 +664,18 @@ services:
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
       - COPILOT_RECIPE_GENERATOR_CLIENT_URL=http://localhost:${COPILOT_RECIPE_GENERATOR_PORT:-5013}
       - CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL=http://localhost:${CONSISTENT_CHARACTER_GENERATOR_PORT:-5010}
+      # 2026-10-31 (agent-stack plan): the shared memory door and event sink (research proxy), the coordinator's
+      # thread registry (platform agent), and the conversation store that survives a restart.
+      - HIC_PROXY_URL=http://research-proxy:5012
+      - HIC_AGENT_URL=http://agent:8500
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
+      - NXT_AGENCY_CONV_DIR=/hic-workspace/agent/nxt-agency
+      - REVIEW_TIMEOUT_S=${REVIEW_TIMEOUT_S:-600}
     volumes:
       - ./NXT-Agency/agent-prompts:/app/agent-prompts:ro
       - ./NXT-Agency/backend/app:/app/app
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+      - ./humans-in-control-research/hic-workspace/agent/nxt-agency:/hic-workspace/agent/nxt-agency
     networks:
       - nxt-humans-network
     depends_on:

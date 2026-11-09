@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
 """
-UserPromptSubmit Hook — Inject Active Constraints and Cross-Engagement Patterns.
+UserPromptSubmit Hook - Inject the learned context RELEVANT to this prompt.
 
-Fires on every user prompt to Claude Code in this repo. Loads:
-  1. wiki/synthesis/cross-engagement-patterns.md (produced by
-     cross-engagement-pattern-miner skill)
-  2. wiki/synthesis/learned-constraints.md (raw constraint log; we compact
-     it inline before injection so the 50+ duplicate entries don't drown
-     the signal)
+2026-10-30 (WS-6 M1, plan harness-capability-curve-uplift): the hook used to inject the first three
+entries of every section of wiki/synthesis/cross-engagement-patterns.md plus the deduped
+learned-constraints ledger on EVERY prompt, whatever the prompt was about. It now:
 
-Then emits a <learned_context> JSON block on stdout that Claude Code merges
-into the system prompt for the current session.
+  1. reads the prompt from stdin (Claude Code hands UserPromptSubmit hooks `{"prompt": ...}` JSON),
+  2. splits the patterns page into `## ` sections and keeps only the sections that share salient
+     terms with the prompt (the Python twin of services/memoryRetrieval.ts rankSectionsByRelevance),
+  3. injects ONLY constraints that WON on the held-out split: rows with status "active" and
+     heldout_win true in wiki/synthesis/constraint-records.json, falling back to the ledger's
+     CONSTRAINT lines (which, since WS-5 R7, list winners only),
+  4. emits a <learned_context> block on stdout, at most 6 KB.
 
-If neither file exists or both are stale (>30 days), the hook emits nothing
-and exits 0 — never blocks the user.
+A prompt with no salient overlap with any pattern section injects no patterns; an empty winner set
+injects no constraints; an empty payload emits nothing and exits 0.
 
-Stays small. Never reaches the network. Strict byte budget: emits at most
-6 KB into the system prompt; trims if over.
+2026-10-31 (agent-stack plan WS-B B2): the hook is on the ONE memory door too. When the research proxy is up it
+recalls the long-term facts relevant to the prompt through /api/memory/recall (the same ranking the SPA, the
+platform agent and NXT-Agency get; 1.5 s budget, loopback only). When the proxy is down it ranks
+wiki/synthesis/memory-facts.json itself with the same salient-term overlap. Claude Code's own memory directory
+stays separate (plan B5: a different owner and contract); this injects HiC's facts, it does not merge the stores.
 """
 import sys
 import os
@@ -28,10 +33,48 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.p
 WIKI_DIR = os.path.join(REPO_ROOT, 'humans-in-control-research', 'hic-workspace', 'wiki', 'synthesis')
 PATTERNS_FILE = os.path.join(WIKI_DIR, 'cross-engagement-patterns.md')
 CONSTRAINTS_FILE = os.path.join(WIKI_DIR, 'learned-constraints.md')
+RECORDS_FILE = os.path.join(WIKI_DIR, 'constraint-records.json')
+FACTS_FILE = os.path.join(WIKI_DIR, 'memory-facts.json')
+RUNTIME_CONFIG = os.path.join(REPO_ROOT, 'humans-in-control-research', 'hic-workspace', '.runtime', 'config.json')
+PROXY_URL = os.environ.get('HIC_PROXY_URL', 'http://127.0.0.1:5012')
+MAX_FACTS = 6
 
 MAX_BYTES = 6 * 1024  # 6 KB budget for the injection
 MAX_CONSTRAINTS = 12  # cap distinct constraints injected
+MAX_SECTIONS = 4
+MIN_SHARED_TERMS = 2
 STALE_DAYS = 30
+
+_STOP = set(('a an the and or of to in for on with by from as at is are be was were this that these those it its into over under '
+             'how what which who whom when where why can could should would will shall may might must do does did done not no yes vs versus '
+             'about across after against along among around before behind below beneath beside between beyond but down during except inside '
+             'near off out outside through toward up upon within without analyze analysis analyse deliver define identify evaluate assess '
+             'report strategy strategic recommendations recommendation outlook comprehensive state current trends trend key insights insight '
+             'research findings finding deliverable deck slides patterns pattern engagement engagements prior runs run industry industries '
+             'organization organisation organizations business businesses company companies market markets data based using use new 2025 2026 2027 '
+             'implement fix please make code file files function test tests plan').split())
+
+
+def _stem(w):
+    w2 = re.sub(r'(ations?|izations?|isations?)$', 'at', w)
+    w2 = re.sub(r'(ies)$', 'y', w2)
+    m = re.search(r'(ing|ers?|ed|es|s)$', w2)
+    if m and len(w2) - len(m.group(1)) >= 4:
+        w2 = w2[:-len(m.group(1))]
+    return w2
+
+
+def salient_terms(text):
+    out = set()
+    for raw in re.findall(r'[A-Za-z][A-Za-z0-9-]{2,}', text or ''):
+        acronym = len(raw) >= 3 and raw == raw.upper()
+        w = raw.lower()
+        if w in _STOP:
+            continue
+        if not acronym and len(w) < 4:
+            continue
+        out.add(_stem(w))
+    return out
 
 
 def is_fresh(path):
@@ -53,43 +96,88 @@ def read_or_empty(path):
         return ''
 
 
-# Constraints that contradict the master Quantitative Claim Rule in
-# .claude/CLAUDE.md (numbers ride inside cited quotes, never as mandated dollar
-# assertions). Mirrors services/constraintQualityGate.ts so the agent session
-# and the SPA enforce the SAME bar. A deduped duplicate is still a violation;
-# dedup alone was letting "quantify in dollars" reach the prompt.
+def read_prompt():
+    """The prompt Claude Code hands the hook on stdin; empty when run by hand."""
+    try:
+        if sys.stdin is None or sys.stdin.isatty():
+            return ''
+        raw = sys.stdin.read()
+    except Exception:
+        return ''
+    raw = (raw or '').strip()
+    if not raw:
+        return ''
+    try:
+        d = json.loads(raw)
+        if isinstance(d, dict):
+            return str(d.get('prompt') or d.get('user_prompt') or d.get('text') or '')
+    except Exception:
+        pass
+    return raw
+
+
+def split_sections(markdown):
+    body = re.sub(r'^---[\s\S]*?\n---\s*\n', '', markdown or '', count=1)
+    sections = []
+    cur = None
+    for line in body.splitlines():
+        m = re.match(r'^##\s+(.+)$', line)
+        if m:
+            heading = m.group(1).strip()
+            if cur and cur[0] == heading:
+                continue  # the duplicated heading the miner emits
+            if cur:
+                sections.append((cur[0], '\n'.join(cur[1]).strip()))
+            cur = (heading, [])
+            continue
+        if line.startswith('# '):
+            continue
+        if cur:
+            cur[1].append(line.rstrip())
+    if cur:
+        sections.append((cur[0], '\n'.join(cur[1]).strip()))
+    return [s for s in sections if s[1]]
+
+
+def relevant_sections(markdown, prompt):
+    obj = salient_terms(prompt)
+    if not obj:
+        return []
+    ranked = []
+    for heading, body in split_sections(markdown):
+        terms = salient_terms(heading + ' ' + body)
+        shared = sorted(t for t in terms if t in obj)
+        if len(shared) < MIN_SHARED_TERMS:
+            continue
+        head_hit = 0.15 if any(t in obj for t in salient_terms(heading)) else 0.0
+        score = min(1.0, len(shared) / max(3, len(obj)) + head_hit)
+        ranked.append((score, len(shared), heading, body, shared))
+    ranked.sort(key=lambda r: (-r[0], -r[1]))
+    out = []
+    used = 0
+    for score, _n, heading, body, shared in ranked:
+        cost = len(heading) + len(body) + 4
+        if len(out) >= MAX_SECTIONS or used + cost > 3000:
+            continue
+        out.append((heading, body, shared))
+        used += cost
+    return out
+
+
+# Constraints that contradict the master Quantitative Claim Rule in .claude/CLAUDE.md. Mirrors
+# services/constraintQualityGate.ts so the agent session and the SPA enforce the SAME bar.
 _MASTER_RULE_PATTERNS = [
     re.compile(r'quantif\w*.{0,60}(dollar|financial|monetary|\$)', re.I),
     re.compile(r'\b(in|with|using|provide|state|give|express)\s+(precise\s+|concrete\s+|specific\s+)?(dollar|financial|monetary)\b', re.I),
     re.compile(r'(concrete|precise|specific|hard)\s+financial\s+metric', re.I),
     re.compile(r'\bdollar\s+(figure|amount|value|impact|metric)', re.I),
-    re.compile(r'(include|add|put|place|state|use|insert|lead with).{0,40}(percentage|percent|statistic|number|figure|metric|dollar).{0,40}(title|heading|headline|kpi|tile|label)', re.I),
+    re.compile(r'(include|add|put|place|state|use|insert|lead with).{0,40}(percentage|percent|statistic|number|figure|metric|dollar).{0,40}(title|heading|headline)', re.I),
 ]
-
-# Low-signal boilerplate (generateConstraint output + vague user mutterings).
 _GENERIC_STUB_PATTERNS = [
-    re.compile(r'needs attention', re.I),
-    re.compile(r'user edits detected', re.I),
-    re.compile(r'requires more accuracy', re.I),
-    re.compile(r'review factual claims and specificity', re.I),
-    re.compile(r'\badd more detail', re.I),
-    re.compile(r'clean up the output', re.I),
-    re.compile(r'\bmake it clear(er)?\b', re.I),
-    re.compile(r'free of jargon', re.I),
-    re.compile(r'structure needs revision', re.I),
+    re.compile(r'needs attention', re.I), re.compile(r'user edits detected', re.I), re.compile(r'requires more accuracy', re.I),
+    re.compile(r'review factual claims and specificity', re.I), re.compile(r'\badd more detail', re.I), re.compile(r'clean up the output', re.I),
+    re.compile(r'\bmake it clear(er)?\b', re.I), re.compile(r'free of jargon', re.I), re.compile(r'structure needs revision', re.I),
 ]
-
-
-def _rule_body(line):
-    """Strip the '- CONSTRAINT [scope]:' prefix and trailing '(source: ...)'."""
-    s = re.sub(r'^[-*]\s*', '', line.strip())
-    s = re.sub(r'^CONSTRAINT\s*(\[[^\]]*\])?\s*:\s*', '', s, flags=re.I)
-    s = re.sub(r'\(source:.*?\)\s*$', '', s, flags=re.I)
-    return s.strip()
-
-
-# 2026-06-14 - lexicon-feedback rules are legitimately terse; exempt from the 40-char
-# floor so a writing-voice correction injects (mirrors constraintQualityGate.ts).
 _LEXICON_RULE_PATTERNS = [
     re.compile(r"\b(never|don'?t|do not|stop|avoid|ban)\s+(use|using|say|saying|write|writing|reword|rephrase)\b", re.I),
     re.compile(r"\bis (slop|fine|acceptable|allowed|banned|forbidden|the correct term)\b", re.I),
@@ -97,125 +185,139 @@ _LEXICON_RULE_PATTERNS = [
 ]
 
 
-def _is_acceptable(line):
-    body = _rule_body(line)
+def _rule_body(line):
+    s = re.sub(r'^[-*]\s*', '', line.strip())
+    s = re.sub(r'^CONSTRAINT\s*(\[[^\]]*\])?\s*:\s*', '', s, flags=re.I)
+    s = re.sub(r'\(source:.*?\)\s*$', '', s, flags=re.I)
+    return s.strip()
+
+
+def _is_acceptable(body):
     is_lexicon = any(rx.search(body) for rx in _LEXICON_RULE_PATTERNS)
     if not is_lexicon and len(body) < 40:
         return False
-    for rx in _MASTER_RULE_PATTERNS:
-        if rx.search(body):
-            return False
-    for rx in _GENERIC_STUB_PATTERNS:
-        if rx.search(body):
-            return False
+    if any(rx.search(body) for rx in _MASTER_RULE_PATTERNS):
+        return False
+    if any(rx.search(body) for rx in _GENERIC_STUB_PATTERNS):
+        return False
     return True
 
 
-def dedupe_constraints(raw_text):
-    """The current learned-constraints.md is dominated by duplicates of the
-    persona-quote and gap-impact constraints. First REJECT master-rule
-    violations and generic stubs, then group by the normalized rule head and
-    keep the longest variant per group."""
-    if not raw_text:
-        return []
+def winning_constraints():
+    """Rules that won on the held-out split (WS-5 R7); the ledger's CONSTRAINT lines as the fallback."""
+    rules = []
+    try:
+        if os.path.exists(RECORDS_FILE):
+            with open(RECORDS_FILE, 'r', encoding='utf-8') as f:
+                rows = json.load(f)
+            for r in rows if isinstance(rows, list) else []:
+                if not isinstance(r, dict) or r.get('retired'):
+                    continue
+                if r.get('status') == 'active' and r.get('heldout_win') is True:
+                    rules.append((str(r.get('deliverableType') or (r.get('scope') or {}).get('kind') or ''), str(r.get('text') or '')))
+    except Exception:
+        rules = []
+    if not rules and is_fresh(CONSTRAINTS_FILE):
+        for line in read_or_empty(CONSTRAINTS_FILE).splitlines():
+            if not line.strip().startswith('- CONSTRAINT'):
+                continue
+            m = re.match(r'^-\s*CONSTRAINT(?:\s*\[([^\]]+)\])?:\s*(.+)$', line.strip())
+            if m:
+                rules.append((str(m.group(1) or '').split('/')[0], m.group(2).strip()))
+    seen = set()
+    out = []
+    for scope, text in rules:
+        body = _rule_body(text)
+        key = re.sub(r'\s+', ' ', body).lower()[:80]
+        if not body or key in seen or not _is_acceptable(body):
+            continue
+        seen.add(key)
+        out.append(f'- CONSTRAINT{" [" + scope + "]" if scope else ""}: {body}')
+        if len(out) >= MAX_CONSTRAINTS:
+            break
+    return out
 
-    # Constraint lines start with "- CONSTRAINT" (with optional bracket tag)
-    lines = [l.rstrip() for l in raw_text.splitlines() if l.strip().startswith('- CONSTRAINT')]
-    # QUALITY GATE: drop violations + stubs before dedup.
-    lines = [l for l in lines if _is_acceptable(l)]
 
-    groups = {}
-    for line in lines:
-        # Normalize: strip tag, source counts, confidence; keep the rule
-        rule_part = re.sub(r'\(source:.*?\)', '', line)
-        rule_part = re.sub(r'\[.*?\]', '', rule_part)
-        rule_part = re.sub(r'\s+', ' ', rule_part).strip().lower()
-        # Use the first 80 chars of the normalized rule as the dedup key
-        key = rule_part[:80]
-        existing = groups.get(key)
-        if not existing or len(line) > len(existing):
-            groups[key] = line
-
-    # Stable order: longest constraints (richest detail) first
-    result = sorted(groups.values(), key=lambda x: -len(x))
-    return result[:MAX_CONSTRAINTS]
-
-
-def compact_patterns(raw_text):
-    """Take the cross-engagement-patterns.md body and return the top entries
-    from each of the 5 pattern sections. If the file is missing or empty,
-    return an empty string."""
-    if not raw_text:
+def _proxy_token():
+    tok = os.environ.get('PROXY_AUTH_TOKEN', '').strip()
+    if tok:
+        return tok
+    try:
+        with open(RUNTIME_CONFIG, 'r', encoding='utf-8') as f:
+            return str((json.load(f) or {}).get('proxyToken') or '')
+    except Exception:
         return ''
 
-    # Strip frontmatter
-    body = re.sub(r'^---[\s\S]*?---\n', '', raw_text, count=1)
 
-    # Keep section headings + their first 3 bullet/entry lines each
-    out_lines = []
-    current_section = None
-    section_entries = 0
-    for line in body.splitlines():
-        stripped = line.rstrip()
-        if stripped.startswith('## '):
-            current_section = stripped
-            section_entries = 0
-            out_lines.append(stripped)
+def recall_facts(prompt):
+    """(lines, source): the facts relevant to the prompt, from the proxy's memory door, else from the store file."""
+    obj = salient_terms(prompt)
+    if not obj:
+        return [], ''
+    try:
+        import urllib.parse
+        import urllib.request
+        q = urllib.parse.urlencode({'objective': prompt[:1500], 'limit': MAX_FACTS, 'surface': 'claude-code', 'max_chars': 1800})
+        req = urllib.request.Request(f'{PROXY_URL}/api/memory/recall?{q}', headers={'x-proxy-token': _proxy_token()})
+        with urllib.request.urlopen(req, timeout=1.5) as r:
+            d = json.loads(r.read().decode('utf-8'))
+        lines = [f"- [{f.get('category')}] {f.get('content')}" for f in (d.get('facts') or [])][:MAX_FACTS]
+        return lines, 'proxy'
+    except Exception:
+        pass
+    try:
+        with open(FACTS_FILE, 'r', encoding='utf-8') as f:
+            facts = json.load(f)
+    except Exception:
+        return [], ''
+    ranked = []
+    for fct in facts if isinstance(facts, list) else []:
+        if not isinstance(fct, dict):
             continue
-        if current_section and stripped and section_entries < 3:
-            if stripped.startswith(('- ', '* ', 'RECURRENT', 'REJECTED_FRAMING',
-                                     'SOURCE_GOLD', 'SHORTFALL', 'QUALITY_ANCHOR')):
-                out_lines.append(stripped)
-                section_entries += 1
-        # ignore other lines
-
-    return '\n'.join(out_lines).strip()
+        shared = len([t for t in salient_terms(fct.get('content', '')) if t in obj])
+        rel = min(1.0, shared / max(2, min(len(obj), 6)))
+        if rel >= 0.2:
+            ranked.append((rel * (0.6 + 0.4 * float(fct.get('confidence') or 0)), fct))
+    ranked.sort(key=lambda r: -r[0])
+    return [f"- [{f.get('category')}] {f.get('content')}" for _s, f in ranked[:MAX_FACTS]], 'file'
 
 
-def build_payload():
-    payload_parts = []
-    have_signal = False
-
-    # Patterns block
+def build_payload(prompt):
+    parts = []
     if is_fresh(PATTERNS_FILE):
-        patterns_compact = compact_patterns(read_or_empty(PATTERNS_FILE))
-        if patterns_compact:
-            payload_parts.append('CROSS-ENGAGEMENT PATTERNS (from prior runs):')
-            payload_parts.append(patterns_compact)
-            have_signal = True
-
-    # Constraints block
-    if is_fresh(CONSTRAINTS_FILE):
-        constraints = dedupe_constraints(read_or_empty(CONSTRAINTS_FILE))
-        if constraints:
-            if payload_parts:
-                payload_parts.append('')
-            payload_parts.append('LEARNED CONSTRAINTS (deduped from user edit history):')
-            payload_parts.extend(constraints)
-            have_signal = True
-
-    if not have_signal:
+        sections = relevant_sections(read_or_empty(PATTERNS_FILE), prompt)
+        if sections:
+            parts.append('CROSS-ENGAGEMENT PATTERNS (prior runs; only the sections that share this prompt\'s terms):')
+            for heading, body, shared in sections:
+                parts.append(f'## {heading}  (shared: {", ".join(shared[:6])})')
+                parts.append(body)
+    facts, source = recall_facts(prompt)
+    if facts:
+        if parts:
+            parts.append('')
+        parts.append(f'HIC MEMORY (facts every HiC agent shares, relevant to this prompt; recalled via {source}):')
+        parts.extend(facts)
+    constraints = winning_constraints()
+    if constraints:
+        if parts:
+            parts.append('')
+        parts.append('LEARNED CONSTRAINTS (rules that beat the incumbent on the held-out split):')
+        parts.extend(constraints)
+    if not parts:
         return None
-
-    text = '\n'.join(payload_parts)
-    # Enforce byte budget
+    text = '\n'.join(parts)
     encoded = text.encode('utf-8')
     if len(encoded) > MAX_BYTES:
-        # Trim from the bottom (lowest-signal entries)
-        trimmed = encoded[:MAX_BYTES]
-        # Avoid cutting mid-character
-        text = trimmed.decode('utf-8', errors='ignore').rstrip() + '\n[truncated]'
-
+        text = encoded[:MAX_BYTES].decode('utf-8', errors='ignore').rstrip() + '\n[truncated]'
     return text
 
 
 def main():
-    payload = build_payload()
+    prompt = read_prompt()
+    payload = build_payload(prompt)
     if not payload:
         sys.exit(0)
-
-    # Claude Code UserPromptSubmit hook contract: stdout content is added to
-    # the assistant's system context for the prompt that triggered the hook.
+    # Claude Code UserPromptSubmit hook contract: additionalContext joins the prompt's system context.
     output = {
         "hookSpecificOutput": {
             "hookEventName": "UserPromptSubmit",
@@ -223,9 +325,8 @@ def main():
                 "<learned_context>\n"
                 f"{payload}\n"
                 "</learned_context>\n"
-                "Apply the constraints and patterns above to any HiC research-generation "
-                "work in this session. These reflect deduped lessons from prior engagements "
-                "and edit-history corrections; they are not optional preferences."
+                "Apply the constraints and patterns above to any HiC research-generation work in this session. "
+                "The patterns were selected for THIS prompt's subject; the constraints beat the incumbent on the held-out split."
             )
         }
     }

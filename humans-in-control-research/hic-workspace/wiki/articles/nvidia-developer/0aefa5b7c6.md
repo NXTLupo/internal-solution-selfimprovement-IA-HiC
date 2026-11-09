@@ -16,38 +16,42 @@ collected_at: "2026-07-02T18:16:31+00:00"
 content_hash: "d41b34dc76d9d934"
 chunks:
   - id: "articles/nvidia-developer/0aefa5b7c6.md#c0"
-    char_span: [0, 226]
+    char_span: [0, 225]
     sentence_count: 1
     key_terms: [advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security, nvidia, developer, infrastructure, in-silicon, advancing, security, agentic]
     concepts: [nvidia, developer]
-    token_count: 57
-    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/"}]
+    token_count: 56
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/0aefa5b7c6.md#c1"
-    char_span: [228, 3239]
+    char_span: [227, 3238]
     sentence_count: 18
     key_terms: [infrastructure, security, bluefield, nvidia, traditional, compute, system, factories]
     concepts: [infrastructure, security, bluefield, nvidia, traditional]
     related_chunks: ["articles/nvidia-developer/0aefa5b7c6.md#c2"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/0aefa5b7c6.md#c2"
-    char_span: [2893, 5710]
+    char_span: [2892, 5709]
     sentence_count: 19
     key_terms: [security, doca, factory, across, nvidia, argus, bluefield-4, runtime]
     concepts: [security, factory, across, nvidia, bluefield-4]
     related_chunks: ["articles/nvidia-developer/0aefa5b7c6.md#c1"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/0aefa5b7c6.md#c3"
-    char_span: [5302, 8559]
+    char_span: [5301, 8558]
     sentence_count: 17
     key_terms: [memory, behavior, monitoring, runtime, system, activity, continuously, argus]
     concepts: [memory, behavior, monitoring, runtime, continuously]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/0aefa5b7c6.md#c4"
-    char_span: [8181, 10229]
+    char_span: [8180, 10228]
     sentence_count: 11
     key_terms: [execution, argus, doca, management, visibility, workloads, activity, network]
     concepts: [execution, argus, management, visibility, workloads]
     token_count: 341
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/advancing-ai-infrastructure-for-agentic-ai-with-nvidia-doca-in-silicon-security/","kind":"article","date":"2026-06-01"}]
 ---
 # Advancing AI Infrastructure for Agentic AI with NVIDIA DOCA In-Silicon Security
 

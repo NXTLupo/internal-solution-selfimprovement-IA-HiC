@@ -267,6 +267,46 @@ async function rerankArticles(
 
 // ============================================================================
 
+/**
+ * 2026-10-05 anti-RAG: the engagement manifest's objective-ranked chunks for this query, as composer chunks. The
+ * chunk's own `sources:` frontmatter names the real source (never the wiki page title); the chunk id is the manifest
+ * pointer, so a citation resolves through the same registry as every other deliverable. Empty on any failure.
+ */
+async function manifestChunksFor(query: string, goal: string, max: number): Promise<SearchCorpusResult['chunks']> {
+  if (!goal || max <= 0) return [];
+  try {
+    const [{ engagementSlugFor }, { pickChunksForPrompt }, { resolveChunks }, { readableSourceName }] = await Promise.all([
+      import('./engagementSlug'), import('./chunkRetrieval'), import('./wikiPointerResolver'), import('./prdCompiler'),
+    ]);
+    const picked = await pickChunksForPrompt(`${query}\n${goal}`, engagementSlugFor(goal), { tokenBudget: 6000 });
+    const ids = (picked.chunkIds || []).slice(0, max);
+    if (!ids.length) return [];
+    const resolved: any = await resolveChunks(ids);
+    const list: any[] = Array.isArray(resolved?.chunks) ? resolved.chunks : Array.isArray(resolved) ? resolved : [];
+    return list.filter(c => c && c.text).slice(0, max).map((c: any) => {
+      const src = (c.sources || [])[0] || {};
+      const score = (picked.scores?.[c.id] ?? 80) / 100;
+      return {
+        chunk_id: c.id,
+        text: String(c.text).slice(0, CHUNK_TEXT_CHARS),
+        score,
+        chunk_relevance: score,
+        article_relevance: null,
+        source: {
+          name: readableSourceName(String(src.n || ''), c.sourcePath),
+          url: src.u || undefined,
+          author: src.author || undefined,
+          publicationDate: src.date || undefined,
+          scope: /client-uploads|uploads?\//i.test(String(c.sourcePath || '')) ? 'uploaded' : 'external',
+          wikiPath: c.sourcePath,
+        },
+      };
+    });
+  } catch {
+    return [];
+  }
+}
+
 function articleToChunk(
   article: WikiArticleBody,
   score: number,
@@ -540,9 +580,16 @@ export function createNarrativeComposerExecutor(
           /* modelId */ undefined, // proxy default = deepseek-v4-flash (2026-05-08; composer schema not yet Gemini-compatible)
         );
 
-        const finalArticles = rerankOutcome.articles.slice(0, limit);
-        const finalScores = rerankOutcome.scores.slice(0, limit);
-        const chunks = finalArticles.map((a, i) => {
+        // 2026-10-05 anti-RAG (phase 5): the engagement MANIFEST leads. Its objective-ranked chunks carry the real
+        // per-chunk source (name + url from the chunk's `sources:` frontmatter), so the deck cites the same evidence
+        // every other deliverable cites. The ranked wiki articles only fill the remaining slots. Not for a
+        // source-restricted query (the user named a source; the article filter enforces that).
+        const manifestChunks = input.source_name ? [] : await manifestChunksFor(input.query, goal, Math.ceil(limit / 2));
+        const seen = new Set(manifestChunks.map(c => c.source.name.toLowerCase()));
+        const ragRoom = Math.max(0, limit - manifestChunks.length);
+        const finalArticles = rerankOutcome.articles.filter(a => !seen.has(String((a as any).title || (a as any).source || '').toLowerCase())).slice(0, ragRoom);
+        const finalScores = rerankOutcome.scores.slice(0, ragRoom);
+        const chunks = [...manifestChunks, ...finalArticles.map((a, i) => {
           // Composite display score: prefer the rerank cross-encoder score
           // when available (most informative for ordering); otherwise keep
           // the legacy positional fallback so back-compat consumers still
@@ -550,7 +597,7 @@ export function createNarrativeComposerExecutor(
           const chunkRel = finalScores[i] ?? null;
           const composite = chunkRel ?? (1.0 - i * 0.05);
           return articleToChunk(a, composite, i, chunkRel);
-        });
+        })];
         return {
           chunks,
           total_returned: chunks.length,

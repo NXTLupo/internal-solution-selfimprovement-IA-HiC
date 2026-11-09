@@ -16,46 +16,51 @@ collected_at: "2026-07-02T18:16:25+00:00"
 content_hash: "0c51100d2bb217f7"
 chunks:
   - id: "articles/nvidia-developer/fc9f535cee.md#c0"
-    char_span: [0, 236]
+    char_span: [0, 235]
     sentence_count: 1
     key_terms: [run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark, nvidia, developer, clustering, multi-node, agents, faster, models]
     concepts: [nvidia, developer]
-    token_count: 59
-    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/"}]
+    token_count: 58
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/fc9f535cee.md#c1"
-    char_span: [238, 2881]
+    char_span: [237, 2880]
     sentence_count: 18
     key_terms: [agents, agent, running, autonomous, developers, nvidia, nemoclaw, streamlined]
     concepts: [agents, agent, autonomous, developers, running]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/fc9f535cee.md#c2"
-    char_span: [2536, 4759]
+    char_span: [2535, 4758]
     sentence_count: 11
     key_terms: [nemoclaw, install, agent, spark, local, dgx, confirm, running]
     concepts: [nemoclaw, install, agent, spark, local]
     related_chunks: ["articles/nvidia-developer/fc9f535cee.md#c3", "articles/nvidia-developer/fc9f535cee.md#c5"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/fc9f535cee.md#c3"
-    char_span: [4411, 6869]
+    char_span: [4410, 6868]
     sentence_count: 14
     key_terms: [agent, permissions, local, sandbox, model, different, nvidia, instructions]
     concepts: [agent, permissions, local, sandbox, different]
     related_chunks: ["articles/nvidia-developer/fc9f535cee.md#c2"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/fc9f535cee.md#c4"
-    char_span: [6604, 8932]
+    char_span: [6603, 8931]
     sentence_count: 11
     key_terms: [cluster, assistant, sync, nvidia, spark, using, dgx, minimum]
     concepts: [cluster, assistant, nvidia, spark, using]
     related_chunks: ["articles/nvidia-developer/fc9f535cee.md#c5"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
   - id: "articles/nvidia-developer/fc9f535cee.md#c5"
-    char_span: [8679, 9761]
+    char_span: [8678, 9760]
     sentence_count: 5
     key_terms: [nemoclaw, spark, dgx, nvidia, building, cluster, documentation, start]
     concepts: [nemoclaw, spark, nvidia, building, documentation]
     related_chunks: ["articles/nvidia-developer/fc9f535cee.md#c2", "articles/nvidia-developer/fc9f535cee.md#c4"]
     token_count: 252
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/","kind":"article","date":"2026-06-01"}]
 ---
 # Run Local AI Agents with Faster Models and Multi-Node Clustering on NVIDIA DGX Spark
 

@@ -8,7 +8,8 @@
 // See .claude/skills/brief-dialog/SKILL.md for the contract.
 
 import { parseJSONWithRepair } from './aiOutputRepair';
-import { withResilience, isThrottleError } from './multiModelResilience';
+import { withResilience, isProviderUnavailableError } from './multiModelResilience';
+import { CLAUDE_REASONING_MODEL } from './claudeModelPolicy';
 import { getBrand, normalizeBrandId, type BrandId } from '../components/slideTemplates/brands';
 
 type Brand = BrandId;
@@ -26,6 +27,58 @@ export interface BriefDialogTranscript {
     turns: BriefDialogTurn[];
     final_stance: 'stronger' | 'qualified' | 'rejected';
     word_count: number;
+    /** 2026-11-08 verification record: how many turns the deterministic gate removed and why
+     *  (for the chat receipt; never rendered inside the artifact body). */
+    verification?: { removed: number; reasons: string[]; reasked: boolean };
+}
+
+// ---------------------------------------------------------------------------------------------
+// DETERMINISTIC TURN VERIFICATION (2026-11-08, live hallucination: an audio overview asserted a
+// 2018 student-AI statistic against an October-2026-windowed objective, and nothing checked it:
+// the dialogue path had no gate at all, unlike the HTML chain's claim ledger).
+// A turn's citation is VALID only when its token literally appears in the corpus text. A turn
+// carrying a figure (a year, a percentage, a count, a dollar amount) must have at least one valid
+// citation AND that figure must appear within the cited passage's neighborhood of the corpus.
+// Self-verification is not gate-passing: this check reads the corpus, not the model's opinion.
+// ---------------------------------------------------------------------------------------------
+
+const FIGURE_RE = /\b(?:(?:19|20)\d{2}|\d+(?:\.\d+)?\s*(?:%|percent)|\$\s?\d[\d,.]*)\b/g;
+const CITE_NEIGHBORHOOD = 1600;
+
+export interface TurnViolation { index: number; line: string; reason: string }
+
+export function verifyDialogTurns(turns: BriefDialogTurn[], corpus: string): TurnViolation[] {
+    const violations: TurnViolation[] = [];
+    const body = String(corpus || '');
+    turns.forEach((t, i) => {
+        const line = String(t.line || '');
+        const tokens = (t.citations || []).map(c => String(c || '').trim().replace(/^\[+|\]+$/g, '')).filter(Boolean);
+        const validTokens = tokens.filter(tok => tok.length >= 4 && body.includes(tok));
+        const invented = tokens.filter(tok => !validTokens.includes(tok));
+        if (invented.length) {
+            violations.push({ index: i, line: line.slice(0, 140), reason: `citation token(s) not present in the corpus: ${invented.slice(0, 2).join(', ')}` });
+            return;
+        }
+        const figures = Array.from(new Set((line.match(FIGURE_RE) || []).map(f => f.trim())));
+        if (!figures.length) return;
+        if (!validTokens.length) {
+            violations.push({ index: i, line: line.slice(0, 140), reason: `carries figure(s) ${figures.slice(0, 3).join(', ')} with no corpus citation` });
+            return;
+        }
+        // Every figure must appear near at least one cited passage.
+        const windows = validTokens.map(tok => {
+            const at = body.indexOf(tok);
+            return body.slice(Math.max(0, at - CITE_NEIGHBORHOOD), at + CITE_NEIGHBORHOOD);
+        });
+        const unsupported = figures.filter(f => {
+            const needle = f.replace(/\s+/g, '');
+            return !windows.some(w => w.replace(/\s+/g, '').includes(needle));
+        });
+        if (unsupported.length) {
+            violations.push({ index: i, line: line.slice(0, 140), reason: `figure(s) ${unsupported.slice(0, 3).join(', ')} absent from the cited passage(s)` });
+        }
+    });
+    return violations;
 }
 
 export interface BriefDialogInput {
@@ -33,7 +86,39 @@ export interface BriefDialogInput {
     corpus: string;                         // chunked corpus with [CHUNK_XXX] markers
     finding_under_test?: string;            // the specific claim to pressure-test
     proxy_base?: string;
+    /** 2026-11-09 (NotebookLM S1 parity): dialogue format. Default 'deep-dive'. */
+    format?: BriefDialogFormat;
 }
+
+export type BriefDialogFormat = 'deep-dive' | 'brief' | 'critique' | 'debate';
+
+/** Pull a leading format word off a user topic ("debate the connector bet" -> format debate). */
+export function parseDialogFormat(topic: string): { format: BriefDialogFormat; topic: string } {
+    const m = String(topic || '').match(/^\s*(?:as a |format[:\s]+)?(deep-?dive|brief|critique|debate)\b[:,.\-]?\s+/i);
+    if (!m) return { format: 'deep-dive', topic: String(topic || '').trim() };
+    const w = m[1].toLowerCase();
+    const format = (w.startsWith('deep') ? 'deep-dive' : w) as BriefDialogFormat;
+    return { format, topic: String(topic).slice(m[0].length).trim() || String(topic).trim() };
+}
+
+/** Per-format steering appended to the system prompt. 'deep-dive' keeps the original contract. */
+const FORMAT_BLOCKS: Record<BriefDialogFormat, string> = {
+    'deep-dive': '',
+    'brief': `
+FORMAT: BRIEF. 6-8 turns, 300-450 words total. The Curious Strategist opens with the single
+strongest finding and covers at most three findings; the Skeptical Partner probes each once.
+No digressions: every turn either states a finding or tests one.`,
+    'critique': `
+FORMAT: CRITIQUE. The Skeptical Partner leads and sets the agenda: the dialogue walks the
+WEAKNESSES of the evidence itself - single-origin claims repeated across outlets, hedged or
+anecdotal sources, missing populations, stale dates. The Strategist defends only where the
+corpus genuinely supports a defense and names the weakness plainly where it does not.`,
+    'debate': `
+FORMAT: DEBATE. Two positions argued as equals: the Curious Strategist argues FOR the finding;
+the Skeptical Partner argues a NAMED alternative interpretation of the same evidence (not mere
+doubt - a rival reading). The one-concession rule is LIFTED for this format: neither side
+concedes unless the evidence forces it, and final_stance reflects which argument carried.`,
+};
 
 const SYSTEM_PROMPT = `You are simulating a 3-minute consulting pressure-test in dialogue form.
 
@@ -44,20 +129,31 @@ Two voices, no narration:
 HARD CONSTRAINTS:
 - 8-14 turns total, alternating speakers
 - 600-900 words total
-- Every claim must cite a [CHUNK_XXX] token from the corpus - no hand-waving
+- CITATIONS (2026-11-08, binding; the runtime verifies every one deterministically): a citation is an
+  EXACT bracketed token COPIED from the CORPUS text, character for character. The corpus marks its
+  passages with tokens like [articles/<source>/<hash>.md#c2] or [CHUNK_012]; whatever token style the
+  corpus actually carries is the only valid style. NEVER invent a token. A claim with no matching
+  corpus token is written WITHOUT the statistic: state the qualitative pattern instead.
+- NUMBERS, YEARS AND DATED FACTS exist ONLY where the cited corpus passage carries them. If the
+  corpus does not state a figure, neither does the dialogue. Honor any time window the TOPIC states
+  (e.g. "no earlier than October 2026"): a fact outside that window is used only when the corpus
+  passage carries it AND the line names its date.
+- EMPTY OR THIN CORPUS: when the corpus block is absent or carries no citation tokens, the dialogue
+  is purely qualitative - zero statistics, zero named studies, zero years - and every citations[]
+  array is empty. Argue the topic's logic, not invented evidence.
 - The Skeptical Partner makes EXACTLY ONE concession somewhere in the dialogue ("is_concession": true on that turn)
 - Final stance is one of: "stronger" (the finding holds), "qualified" (holds with caveats), "rejected" (does not hold)
 - No greetings, no narration, no meta-commentary
 - No emoji
 - Voice rules: Partner uses short, blunt sentences. Strategist uses precise, evidence-led sentences.
 
-OUTPUT - return ONLY this JSON shape:
+OUTPUT - return ONLY this JSON shape (citations carry the corpus's own tokens, shown here as examples):
 {
   "topic": "<verbatim topic>",
   "finding_under_test": "<the claim being tested in one sentence>",
   "turns": [
-    {"speaker": "Skeptical Partner", "line": "...", "citations": ["CHUNK_001"], "is_concession": false},
-    {"speaker": "Curious Strategist", "line": "...", "citations": ["CHUNK_004", "CHUNK_017"]},
+    {"speaker": "Skeptical Partner", "line": "...", "citations": ["articles/pew-internet/ab12cd34ef.md#c3"], "is_concession": false},
+    {"speaker": "Curious Strategist", "line": "...", "citations": ["CHUNK_004"]},
     ...
   ],
   "final_stance": "qualified",
@@ -81,30 +177,39 @@ function inlineCitations(line: string): string {
 
 export async function generateBriefDialog(input: BriefDialogInput): Promise<BriefDialogTranscript> {
     const proxyBase = input.proxy_base ?? 'http://localhost:5012';
+    const systemPrompt = SYSTEM_PROMPT + (FORMAT_BLOCKS[input.format || 'deep-dive'] || '');
     const findingClause = input.finding_under_test
         ? `\n\nCLAIM TO PRESSURE-TEST: ${input.finding_under_test}`
         : '';
 
-    const userMsg = `TOPIC: ${input.topic}${findingClause}\n\nCORPUS:\n${input.corpus.slice(0, 18000)}\n\nGenerate the dialogue.`;
+    const corpusSlice = input.corpus.slice(0, 18000);
+    const userMsg = `TOPIC: ${input.topic}${findingClause}\n\nCORPUS:\n${corpusSlice}\n\nGenerate the dialogue.`;
 
     const { result } = await withResilience<BriefDialogTranscript>({
         primary: 'anthropic',
         fallbacks: ['gemini'],
         stage: 'brief_dialog:generate',
-        is429: isThrottleError,
+        // 2026-11-03 (live #audio-overview failure): an UNREPAIRABLE reply from one provider now
+        // falls back too, not only outages. The anthropic leg returned 200 with JSON the repair
+        // ladder could not rescue and the run died with no fallback, although Gemini with
+        // responseMimeType json completes this schema reliably.
+        is429: (e: any) => isProviderUnavailableError(e) || /unrepairable|no rung succeeded/i.test(String(e?.message || '')),
         invoke: async (provider) => {
             const endpoint = provider === 'anthropic' ? '/api/ai/anthropic' : '/api/ai/gemini';
             const body = provider === 'anthropic'
                 ? {
-                    model: 'claude-sonnet-4-6',
-                    max_tokens: 4000,
-                    temperature: 0.3,
-                    system: SYSTEM_PROMPT,
+                    model: CLAUDE_REASONING_MODEL,   // 2026-10-05: reasoning deliverable -> Opus 5.5
+                    // 32K headroom: adaptive thinking spends from the same budget, and a length
+                    // stop mid-JSON is exactly the unrepairable shape that killed the live run.
+                    max_tokens: 32000,
+                    // no temperature: every Claude 4.6+/5.x model 400s on a non-default value
+                    // (the proxy strips it, but the service should not send it at all).
+                    system: systemPrompt,
                     messages: [{ role: 'user', content: userMsg }],
                 }
                 : {
-                    model: 'gemini-3.5-flash',
-                    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                    model: 'gemini-3.1-pro-preview',   // reasoning fallback (flash is for speed)
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
                     contents: [{ role: 'user', parts: [{ text: userMsg }] }],
                     config: { temperature: 0.3, responseMimeType: 'application/json' },
                 };
@@ -118,29 +223,81 @@ export async function generateBriefDialog(input: BriefDialogInput): Promise<Brie
             }
             const data = await resp.json();
             const text = provider === 'anthropic'
-                ? (data.content?.[0]?.text ?? '')
-                : (data.candidates?.[0]?.content?.parts?.[0]?.text ?? '');
+                ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))   // 2026-10-05: content[0] is the thinking block under adaptive thinking
+                // Gemini 3.1 Pro emits thought parts; parts[0] may be a thought, so join every
+                // NON-thought text part instead of reading the first part blind.
+                : ((data.candidates?.[0]?.content?.parts || []).filter((p: any) => !p?.thought).map((p: any) => p?.text || '').join(''));
             return parseJSONWithRepair(text, { calling_context: 'brief_dialog:generate' });
         },
     });
 
     // Defensive normalization - model can drop fields under load
-    const turns = Array.isArray(result.turns) ? result.turns : [];
-    const totalWords = turns.reduce((sum, t) => sum + (t.line || '').split(/\s+/).filter(Boolean).length, 0);
-    return {
-        topic: result.topic || input.topic,
-        finding_under_test: result.finding_under_test || input.finding_under_test || '',
-        turns: turns.map(t => ({
-            speaker: t.speaker === 'Skeptical Partner' ? 'Skeptical Partner' : 'Curious Strategist',
-            line: t.line || '',
-            citations: Array.isArray(t.citations) ? t.citations : [],
-            is_concession: !!t.is_concession,
-        })),
-        final_stance: ['stronger', 'qualified', 'rejected'].includes(result.final_stance as string)
-            ? result.final_stance
-            : 'qualified',
-        word_count: result.word_count || totalWords,
+    const normalize = (r: BriefDialogTranscript): BriefDialogTranscript => {
+        const turns = Array.isArray(r.turns) ? r.turns : [];
+        const totalWords = turns.reduce((sum, t) => sum + (t.line || '').split(/\s+/).filter(Boolean).length, 0);
+        return {
+            topic: r.topic || input.topic,
+            finding_under_test: r.finding_under_test || input.finding_under_test || '',
+            turns: turns.map(t => ({
+                speaker: t.speaker === 'Skeptical Partner' ? 'Skeptical Partner' : 'Curious Strategist',
+                line: t.line || '',
+                citations: Array.isArray(t.citations) ? t.citations : [],
+                is_concession: !!t.is_concession,
+            })),
+            final_stance: ['stronger', 'qualified', 'rejected'].includes(r.final_stance as string)
+                ? r.final_stance
+                : 'qualified',
+            word_count: r.word_count || totalWords,
+        };
     };
+
+    let transcript = normalize(result);
+
+    // 2026-11-08 - the deterministic gate. Verify every turn against the corpus; on violations,
+    // ONE anchored re-ask (the house pattern: prior answer verbatim plus the named violations);
+    // turns still failing after that are DROPPED, never voiced, and the removal is reported in
+    // the chat receipt (never inside the artifact body).
+    let violations = verifyDialogTurns(transcript.turns, corpusSlice);
+    let reasked = false;
+    if (violations.length) {
+        reasked = true;
+        try {
+            const reaskMsg = `${userMsg}\n\nYOUR PRIOR DIALOGUE (verbatim JSON):\n${JSON.stringify({ ...transcript, verification: undefined })}\n\nTHE RUNTIME VERIFIED EVERY LINE AGAINST THE CORPUS AND THESE FAILED:\n${violations.map(v => `- turn ${v.index + 1}: ${v.reason} :: "${v.line}"`).join('\n')}\n\nRewrite the dialogue correcting ONLY the failing lines: keep every passing line verbatim. A failing figure either gains the exact corpus token whose passage carries that figure, or the line is rewritten qualitatively WITHOUT the figure. Same JSON shape, nothing else.`;
+            const { result: second } = await withResilience<BriefDialogTranscript>({
+                primary: 'anthropic',
+                fallbacks: ['gemini'],
+                stage: 'brief_dialog:verify-reask',
+                is429: (e: any) => isProviderUnavailableError(e) || /unrepairable|no rung succeeded/i.test(String(e?.message || '')),
+                invoke: async (provider) => {
+                    const endpoint = provider === 'anthropic' ? '/api/ai/anthropic' : '/api/ai/gemini';
+                    const body = provider === 'anthropic'
+                        ? { model: CLAUDE_REASONING_MODEL, max_tokens: 32000, system: systemPrompt, messages: [{ role: 'user', content: reaskMsg }] }
+                        : { model: 'gemini-3.1-pro-preview', systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ role: 'user', parts: [{ text: reaskMsg }] }], config: { temperature: 0.3, responseMimeType: 'application/json' } };
+                    const resp = await fetch(`${proxyBase}${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+                    if (!resp.ok) throw new Error(`${provider} HTTP ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
+                    const data = await resp.json();
+                    const text = provider === 'anthropic'
+                        ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))
+                        : ((data.candidates?.[0]?.content?.parts || []).filter((p: any) => !p?.thought).map((p: any) => p?.text || '').join(''));
+                    return parseJSONWithRepair(text, { calling_context: 'brief_dialog:verify-reask' });
+                },
+            });
+            transcript = normalize(second);
+            violations = verifyDialogTurns(transcript.turns, corpusSlice);
+        } catch (e: any) {
+            console.warn('[brief-dialog] verification re-ask failed; falling back to dropping the violating turns:', e?.message || e);
+        }
+    }
+
+    const reasons: string[] = [];
+    if (violations.length) {
+        const bad = new Set(violations.map(v => v.index));
+        for (const v of violations) reasons.push(v.reason);
+        transcript.turns = transcript.turns.filter((_, i) => !bad.has(i));
+        console.warn(`[brief-dialog] dropped ${bad.size} turn(s) that failed corpus verification: ${reasons.slice(0, 3).join(' | ')}`);
+    }
+    transcript.verification = { removed: violations.length, reasons: reasons.slice(0, 5), reasked };
+    return transcript;
 }
 
 // ─── HTML renderer ────────────────────────────────────────────────────────────

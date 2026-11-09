@@ -24,6 +24,7 @@
 import { callAIWithRetry, type AIEndpointId } from './aiRetryClient';
 import { DEFAULT_MODELS, artifactModelFor, endpointForModel, salvageJsonObject } from './aiRouter';
 import { enumerateTextFields, applyTextEdits, scrubRewrite, type TextEdit } from './slideTextEditing';
+import { anthropicText } from './claudeModelPolicy';
 
 export type DeckEditOp = 'concise' | 'executive' | 'specific' | 'plainer';
 
@@ -216,7 +217,7 @@ async function callRoutedText(model: string, system: string, user: string, maxTo
             model, max_tokens: maxTokens, system,
             messages: [{ role: 'user', content: user }],
         }, { label, maxAttempts: 2, requestTimeoutMs: 120_000 });
-        return parsed?.content?.[0]?.text ?? '';
+        return anthropicText(parsed) ?? '';
     }
     const parsed = await callAIWithRetry('gemini', {
         model,

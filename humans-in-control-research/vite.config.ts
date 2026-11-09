@@ -68,6 +68,37 @@ function designMdPlugin(): Plugin {
     };
 }
 
+/**
+ * 2026-10-30 (WS-0 S1/S2) - serve /config.json in dev the way nginx serves it in the
+ * image: proxy base + the shared proxy token, read from the environment at request
+ * time. Runtime configuration, never a build-time `define`, so no secret enters the
+ * bundle. The token is read from the root workbench .env (one level up) or the process.
+ */
+function runtimeConfigPlugin(env: Record<string, string>): Plugin {
+    return {
+        name: 'hic-runtime-config',
+        configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+                if (req.url !== '/config.json') return next();
+                // The research-proxy writes the live token here at its startup (proxy/app.py
+                // _write_runtime_config). Fall back to the environment for a pinned token.
+                let fromProxy: { proxyBase?: string; proxyToken?: string } = {};
+                try {
+                    const runtimePath = path.resolve(__dirname, 'hic-workspace', '.runtime', 'config.json');
+                    if (fs.existsSync(runtimePath)) fromProxy = JSON.parse(fs.readFileSync(runtimePath, 'utf-8'));
+                } catch { /* fall through to env */ }
+                const body = {
+                    proxyBase: process.env.VITE_PROXY_BASE || env.VITE_PROXY_BASE || fromProxy.proxyBase || 'http://127.0.0.1:5012',
+                    proxyToken: process.env.PROXY_AUTH_TOKEN || env.PROXY_AUTH_TOKEN || fromProxy.proxyToken || '',
+                };
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader('Cache-Control', 'no-store');
+                res.end(JSON.stringify(body));
+            });
+        },
+    };
+}
+
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
@@ -82,12 +113,12 @@ export default defineConfig(({ mode }) => {
           interval: 500,
         },
       },
-      plugins: [react(), wikiStaticPlugin(), designMdPlugin()],
+      plugins: [react(), wikiStaticPlugin(), designMdPlugin(), runtimeConfigPlugin(env)],
+      // 2026-10-30 (WS-0 S1) - NO provider key is defined into the bundle any more. The
+      // browser reaches every provider through the proxy (services/genaiClient.ts,
+      // services/proxyConfig.ts). `check:bundle-secrets` fails the build if a key-shaped
+      // string ever appears in dist/ again.
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.ANTHROPIC_API_KEY': JSON.stringify(env.ANTHROPIC_API_KEY),
-        'process.env.OPENAI_API_KEY': JSON.stringify(env.OPENAI_API_KEY),
         'process.env.DESIGN_DESK_ENABLED': JSON.stringify(env.VITE_DESIGN_DESK_ENABLED || 'true'),
       },
       resolve: {
@@ -119,14 +150,11 @@ export default defineConfig(({ mode }) => {
       // loads always pull the latest entry. Hashed chunk URLs are safe to
       // cache long-term (nginx /assets/chunks/* policy may be immutable).
       build: {
-        // 2026-06-06 — sourcemaps enabled to diagnose the recurring
-        // "Cannot read properties of undefined (reading '0')" crash in
-        // production-bundled minified code. Successor agent: with
-        // sourcemaps on, the AppErrorBoundary stack will show real
-        // component + source-file names instead of `eWe`/`tWe` minified
-        // symbols. After the crash source is identified and fixed,
-        // consider toggling back to false for smaller bundles.
-        sourcemap: true,
+        // 2026-06-06 — sourcemaps were enabled to diagnose a minified crash.
+        // 2026-10-30 (WS-0 S1) — off for the served image: the 14.7 MB map shipped
+        // the full source to every visitor. Set HIC_SOURCEMAP=1 for a local
+        // diagnostic build.
+        sourcemap: process.env.HIC_SOURCEMAP === '1',
         rollupOptions: {
           output: {
             entryFileNames: 'assets/[name]-[hash].js',

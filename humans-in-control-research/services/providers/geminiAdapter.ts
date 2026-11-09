@@ -7,13 +7,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { ProviderAdapter, ProviderCapabilities, AnalysisRequest, AnalysisResponse, StructuredRequest, StructuredResponse, GroundedSearchRequest } from './ProviderAdapter';
 import { tryRepairJson } from '../aiRouter';
+import { makeGenAI } from '../genaiClient';
+import { providerAvailable } from '../proxyConfig';
 
 const MODEL = 'gemini-3.5-flash';
 
 function getClient(): GoogleGenAI {
-    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
-    return new GoogleGenAI({ apiKey });
+    if (!providerAvailable('gemini')) throw new Error('Gemini is not configured on the proxy');
+    return makeGenAI();
 }
 
 export const geminiAdapter: ProviderAdapter = {

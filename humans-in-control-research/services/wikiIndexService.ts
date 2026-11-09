@@ -1,3 +1,4 @@
+import { currentEngagementSlugOrDerive } from './engagementSlug';
 /**
  * Wiki Index + Retrieval - client wrapper for the RAG endpoints added
  * to the proxy (2026-04-20). These two endpoints are the foundation of
@@ -163,7 +164,8 @@ export async function fetchWikiArticles(params: WikiFetchArticlesParams): Promis
         const resp = await fetch(`${PROXY}/api/wiki/fetch-articles`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(params),
+            // WS-0 S9 (2026-10-30): always name the calling engagement so the proxy refuses other clients' uploads.
+            body: JSON.stringify({ engagement: currentEngagementSlugOrDerive(), ...params }),
             // 120s accommodates large-corpus semantic search (700+ articles)
             // queued behind proxy-saturation windows (parallel wiki embed /
             // regrade-relevance / explore-concepts calls). The proxy itself

@@ -6,6 +6,7 @@
 // back). Use this from App.tsx for auto-save and Continue-Session flows.
 
 import { readObjectivePlan, readDecompositionStatus, recordDecompositionStatus } from './objectivePlan';
+import { setPlanSubQuestions, hydrateRunState } from './runState';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -128,18 +129,56 @@ function readDurableArtifacts(): DurableArtifacts {
 /** Subscribe to projection changes. Returns the unsubscribe function. */
 export function subscribeDurableArtifacts(cb: (d: DurableArtifacts) => void): () => void {
     _durableSubs.add(cb);
+    // 2026-10-25 (audit: a reopened session showed the raw re-lifted deck with no images, flowchart or repair
+    // edits): a restore projects BEFORE the panel mounts, so a new subscriber is handed the current projection.
+    if ((_durableArtifacts.slides && _durableArtifacts.slides.length) || (_durableArtifacts.deliverables && _durableArtifacts.deliverables.length)) {
+        try { cb(_durableArtifacts); } catch { /* a broken subscriber never breaks the projection */ }
+    }
     return () => { _durableSubs.delete(cb); };
 }
 
+/** The key that ties a slide to the reply that produced it (the lifter stamps both from the message). */
+export function slideBatchKey(s: { timestamp?: number; model?: string } | null | undefined): string {
+    return `${Number(s?.timestamp || 0)}|${String(s?.model || '')}`;
+}
+
+/**
+ * Adopt the durable (processed) deck over a raw re-lift: every batch that exists in the durable projection replaces
+ * the re-lifted slides of the same batch (those carry no runtime images, no repaired text, no bound pointers).
+ * Returns `prev` unchanged when nothing needs replacing, so the projection round-trip never loops.
+ */
+export function adoptDurableSlides<T extends { id?: string; timestamp?: number; model?: string }>(prev: T[], durable: T[]): T[] {
+    if (!durable || !durable.length) return prev;
+    if (!prev.length) return durable;
+    const durableKeys = new Set(durable.map(slideBatchKey));
+    const replace = new Set(prev.filter(p => (p as any)._relifted && durableKeys.has(slideBatchKey(p))).map(slideBatchKey));
+    if (!replace.size) return prev;
+    const kept = prev.filter(p => !((p as any)._relifted && replace.has(slideBatchKey(p))));
+    const keptIds = new Set(kept.map(k => k.id));
+    const add = durable.filter(d => replace.has(slideBatchKey(d)) && !keptIds.has(d.id));
+    return [...kept, ...add].sort((a, b) => Number(a.timestamp || 0) - Number(b.timestamp || 0));
+}
+
+
+/** The save request body as a Blob (see saveSession); a plain string where Blob does not exist. */
+export function sessionBody(payload: unknown): Blob | string {
+    const json = JSON.stringify(payload);
+    return typeof Blob !== 'undefined' ? new Blob([json], { type: 'application/json' }) : json;
+}
 
 export async function saveSession(snapshot: SessionSnapshot, slug?: string): Promise<{
     ok: boolean; slug: string; title: string; saved_at: string; error?: string;
 }> {
     try {
+        // 2026-10-31 (agent-stack plan, sixth pass; CPU profile of the 371-turn session): a long session's snapshot is
+        // ~170 M characters (state.slides carries 160 data-URI images). Handed to fetch as a STRING, the browser
+        // encoded and copied it on the main thread: 9-11 s frozen per autosave, so timers (the request plan's 15 s
+        // budget) fired before responses that had already arrived. A Blob body is encoded once (0.4 s measured for
+        // 170 M characters) and fetch takes it in 1 ms.
         const resp = await fetch(`${PROXY_BASE}/api/sessions`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+            body: sessionBody({
                 slug,
                 title: snapshot.metadata.title,
                 sections: {
@@ -191,6 +230,13 @@ export async function loadSession(slug: string): Promise<SessionSnapshot | null>
         if (!resp.ok) return null;
         const data = await resp.json();
         const sections = data.sections || {};
+        // WS-1 T3 (2026-10-30): the newest persisted run comes back with the session, so a restored
+        // engagement resumes its trajectory (turn counter, steps, verdicts, plan) instead of starting
+        // from an empty record.
+        try {
+            const newest = Array.isArray(data.runs) ? data.runs.find((r: any) => r && r.state) : null;
+            if (newest?.state) hydrateRunState(newest.state);
+        } catch { /* a restore never fails on the run record */ }
         // Coerce into the SessionSnapshot shape; missing sections become undefined
         return {
             metadata: sections.metadata || { title: slug, research_goal: '' },
@@ -389,8 +435,8 @@ export function restoreSessionSnapshot(snap: SessionSnapshot) {
      */
     try {
         const sqs = (snap as any)?.research_plan_sub_questions;
-        if (Array.isArray(sqs) && sqs.length && typeof window !== 'undefined') {
-            (window as any).__hicResearchPlanSubQuestions = sqs;
+        if (Array.isArray(sqs) && sqs.length) {
+            setPlanSubQuestions(sqs);
         }
         const ds = (snap as any)?.decomposition_status;
         if (ds && typeof ds === 'object' && ds.decomposition) {

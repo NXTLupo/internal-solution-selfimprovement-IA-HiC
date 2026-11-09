@@ -1,3 +1,4 @@
+import { currentEngagementSlugOrDerive } from './engagementSlug';
 // notebookRetrieval.ts -- 2026-05-19
 //
 // NotebookLM-style retrieval. Instead of sending the entire 1M+ char corpus
@@ -111,6 +112,7 @@ export async function retrieveGoalRelevantEvidence(
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 query: goal,
+                engagement: currentEngagementSlugOrDerive(goal),   // WS-0 S9: never admit another client's uploads
                 engagementGoal: goal,
                 goalBlendWeight,
                 limit,

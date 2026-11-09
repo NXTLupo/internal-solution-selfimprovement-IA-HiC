@@ -56,7 +56,11 @@ class ExecutePythonTool(BaseTool):
         code = params.get("code", "")
         if not code.strip():
             return {"error": "code parameter is required and must be non-empty"}
+        # 2026-10-31 (agent-stack plan D4): code that sends anything outbound waits for review like a computer action
+        from app.tools import review_gate
+        return await review_gate.gate("python", {"code": code}, "", lambda: self._run(code, ctx))
 
+    async def _run(self, code: str, ctx: AgentContext) -> dict[str, Any]:
         sandbox = _sandbox_dir(ctx)
 
         # Write code to a temp file inside the sandbox
@@ -137,7 +141,11 @@ class ExecuteJavaScriptTool(BaseTool):
         code = params.get("code", "")
         if not code.strip():
             return {"error": "code parameter is required and must be non-empty"}
+        # 2026-10-31 (agent-stack plan D4): code that sends anything outbound waits for review like a computer action
+        from app.tools import review_gate
+        return await review_gate.gate("javascript", {"code": code}, "", lambda: self._run(code, ctx))
 
+    async def _run(self, code: str, ctx: AgentContext) -> dict[str, Any]:
         sandbox = _sandbox_dir(ctx)
 
         script_path = sandbox / f"_exec_{os.getpid()}.js"

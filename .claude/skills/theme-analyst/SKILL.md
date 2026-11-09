@@ -1,10 +1,49 @@
 ---
 name: theme-analyst
+description: Extract strategic themes from multi-source research corpus using 6-lens thematic analysis
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Extract strategic themes from multi-source research corpus using 6-lens thematic analysis
+version: "1"
+status: active
 thinking: high
+triggers:
+  - theme
+  - themes
+  - thematic
+  - pattern
+  - patterns
+  - insight
+  - insights
+  - key findings
+  - findings
+  - learnings
+  - key learnings
+  - takeaway
+  - takeaways
+  - thematic analysis
+  - research themes
+  - emerging themes
+  - topics
+  - motifs
+  - commonalities
+  - recurring issues
+  - what's emerging
+  - threads
+composes_with:
+  - source-ranker
+  - contradiction-finder
+  - human-voice-editor
+loader:
+  title: Theme Analyst
+  role: research-deliverable
+  execution_context: subagent
+  benchmarks:
+    - benchmarks/cx-metrics.md
+  output_types:
+    - evidence-block
+    - stat-row
+    - split-panel
+    - color-block-grid
 ---
 
 # Strategic Theme Extraction

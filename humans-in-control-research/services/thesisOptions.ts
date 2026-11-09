@@ -240,7 +240,7 @@ export async function proposeAlternativeTheses(opts: {
         return [];
     }
 
-    const chosen: ThesisCandidate = { id: 1, thesis, implies: 'The argument this deck makes.', chosen: true };
+    const chosen: ThesisCandidate = { id: 1, thesis, implies: 'The governing argument, as generated.', chosen: true };
     const alternatives: ThesisCandidate[] = [];
     parsed.forEach((c: any) => {
         const t = String(c?.thesis || '').trim();

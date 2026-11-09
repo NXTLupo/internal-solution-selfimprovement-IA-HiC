@@ -16,33 +16,36 @@ collected_at: "2026-07-02T18:00:21+00:00"
 content_hash: "a225e75b0a8e1527"
 chunks:
   - id: "articles/agr-seedworld/9e3ee7cb8b.md#c0"
-    char_span: [0, 165]
+    char_span: [0, 164]
     sentence_count: 1
     key_terms: [seed-sector-2045-plant-breeding-europe, europe, seedworld, breeding, future, sector, source, https]
     concepts: [europe]
-    token_count: 51
-    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/25/seed-sector-2045-plant-breeding-europe/"}]
+    token_count: 50
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/25/seed-sector-2045-plant-breeding-europe/","kind":"article","date":"2026-06-25"}]
   - id: "articles/agr-seedworld/9e3ee7cb8b.md#c1"
-    char_span: [167, 2848]
+    char_span: [166, 2847]
     sentence_count: 32
     key_terms: [seed, breeding, sector, climate, future, trends, question, editing]
     concepts: [breeding, sector, climate, future, trends]
     related_chunks: ["articles/agr-seedworld/9e3ee7cb8b.md#c2", "articles/agr-seedworld/9e3ee7cb8b.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/25/seed-sector-2045-plant-breeding-europe/","kind":"article","date":"2026-06-25"}]
   - id: "articles/agr-seedworld/9e3ee7cb8b.md#c2"
-    char_span: [2520, 5094]
+    char_span: [2519, 5093]
     sentence_count: 26
     key_terms: [sector, seed, future, breeding, europe, questions, interconnected, series]
     concepts: [sector, future, breeding, europe, questions]
     related_chunks: ["articles/agr-seedworld/9e3ee7cb8b.md#c1", "articles/agr-seedworld/9e3ee7cb8b.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/25/seed-sector-2045-plant-breeding-europe/","kind":"article","date":"2026-06-25"}]
   - id: "articles/agr-seedworld/9e3ee7cb8b.md#c3"
-    char_span: [4839, 5274]
+    char_span: [4838, 5273]
     sentence_count: 1
     key_terms: [breeding, future, sector, seed, infrastructure, competitive, destination, integration]
     concepts: [breeding, future, sector]
     related_chunks: ["articles/agr-seedworld/9e3ee7cb8b.md#c1", "articles/agr-seedworld/9e3ee7cb8b.md#c2"]
     token_count: 107
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/25/seed-sector-2045-plant-breeding-europe/","kind":"article","date":"2026-06-25"}]
 ---
 # Seed Sector 2045: Future of Plant Breeding in Europe
 

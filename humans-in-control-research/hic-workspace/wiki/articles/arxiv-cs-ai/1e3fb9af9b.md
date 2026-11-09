@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:06:25+00:00"
 content_hash: "d8c1a02753a4561a"
 chunks:
   - id: "articles/arxiv-cs-ai/1e3fb9af9b.md#c0"
-    char_span: [0, 659]
+    char_span: [0, 658]
     sentence_count: 4
     key_terms: [governance, five-layer, regulatory, framework, approach, arxiv, implementation, certification]
     concepts: [governance, five-layer, regulatory, framework, approach]
-    token_count: 125
-    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2509.11332v1"}]
+    token_count: 124
+    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2509.11332v1","kind":"article","date":"2025-09-14"}]
 ---
 # A five-layer framework for AI governance: integrating regulation, standards, and certification
 

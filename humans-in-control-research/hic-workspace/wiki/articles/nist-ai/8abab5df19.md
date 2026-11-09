@@ -19,30 +19,33 @@ content_hash: "cc683b899d3b159d"
 relevance_by_goal: {"c5a2d58d1be7":10,"bb7e192171b3":0,"5a163910d68e":0}
 chunks:
   - id: "articles/nist-ai/8abab5df19.md#c0"
-    char_span: [0, 228]
+    char_span: [0, 227]
     sentence_count: 1
     key_terms: [nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme, nist, environments, news-events, researchers, packaging, withstand, photonic]
-    token_count: 57
-    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme"}]
+    token_count: 56
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme","kind":"article","date":"2026-03-30"}]
   - id: "articles/nist-ai/8abab5df19.md#c1"
-    char_span: [230, 3125]
+    char_span: [229, 3124]
     sentence_count: 17
     key_terms: [environments, chips, photonic, optical, integrated, packaging, chip, extreme]
     concepts: [environments, photonic, chips, optical, integrated]
     related_chunks: ["articles/nist-ai/8abab5df19.md#c2"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme","kind":"article","date":"2026-03-30"}]
   - id: "articles/nist-ai/8abab5df19.md#c2"
-    char_span: [2805, 5417]
+    char_span: [2804, 5416]
     sentence_count: 27
     key_terms: [photonic, optical, chip, fiber, packaging, team, ai-generated, environments]
     concepts: [photonic, optical, packaging, fiber, ai-generated]
     related_chunks: ["articles/nist-ai/8abab5df19.md#c1"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme","kind":"article","date":"2026-03-30"}]
   - id: "articles/nist-ai/8abab5df19.md#c3"
-    char_span: [5215, 5425]
+    char_span: [5214, 5424]
     sentence_count: 10
     key_terms: [environments, packaging, photonics, published, douglass, photonic, research, extreme]
     token_count: 68
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-researchers-develop-photonic-chip-packaging-can-withstand-extreme","kind":"article","date":"2026-03-30"}]
 ---
 # NIST Researchers Develop Photonic Chip Packaging That Can Withstand Extreme Environments
 

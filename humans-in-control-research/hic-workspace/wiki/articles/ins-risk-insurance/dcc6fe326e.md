@@ -16,37 +16,41 @@ collected_at: "2026-07-02T17:47:39+00:00"
 content_hash: "939f737717b444f6"
 chunks:
   - id: "articles/ins-risk-insurance/dcc6fe326e.md#c0"
-    char_span: [0, 206]
+    char_span: [0, 205]
     sentence_count: 1
     key_terms: [content-how-companies-can-better-manage-risk-as-markets-fluctuate, riskandinsurance, companies, fluctuate, sponsored, markets, better, manage]
-    token_count: 53
-    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/"}]
+    token_count: 52
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-risk-insurance/dcc6fe326e.md#c1"
-    char_span: [221, 3153]
+    char_span: [220, 3152]
     sentence_count: 10
     key_terms: [risk, companies, insurance, casualty, alternative, traditional, solutions, significant]
     concepts: [companies, insurance, casualty, alternative, traditional]
     related_chunks: ["articles/ins-risk-insurance/dcc6fe326e.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-risk-insurance/dcc6fe326e.md#c2"
-    char_span: [2771, 5667]
+    char_span: [2770, 5666]
     sentence_count: 18
     key_terms: [risk, captives, captive, carrier, companies, fronting, company, structures]
     concepts: [captives, captive, carrier, companies, fronting]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-risk-insurance/dcc6fe326e.md#c3"
-    char_span: [5279, 8034]
+    char_span: [5278, 8033]
     sentence_count: 16
     key_terms: [million, year, losses, risk, company, experience, structured, years]
     concepts: [million, losses, company, experience, structured]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-risk-insurance/dcc6fe326e.md#c4"
-    char_span: [7689, 10190]
+    char_span: [7688, 10189]
     sentence_count: 10
     key_terms: [risk, solutions, strategic, rather, companies, insurance, clients, market]
     concepts: [solutions, strategic, companies, insurance, rather]
     related_chunks: ["articles/ins-risk-insurance/dcc6fe326e.md#c1"]
     token_count: 447
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-companies-can-better-manage-risk-as-markets-fluctuate/","kind":"article","date":"2026-06-30"}]
 ---
 # How Companies Can Better Manage Risk as Markets Fluctuate
 

@@ -23,7 +23,7 @@
 // from slidePostProcessor.ts so the slop policy stays single-sourced.
 
 import { detectMetaNarration, detectOutputAntiPatterns } from './slidePostProcessor';
-import { getActiveConstraints, recordConstraintApplications } from './promptImprovementEngine';
+import { getActiveConstraints, recordConstraintApplications, removeImprovementsByText } from './promptImprovementEngine';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -414,17 +414,8 @@ function autoDismissBadConstraints(attributions: ConstraintAttribution[]): strin
     // this wiki record is the durable, human-auditable copy. Fire-and-forget.
     void persistDismissedToWiki(toDismiss);
 
-    try {
-        const raw = localStorage.getItem('hic_prompt_improvements');
-        if (raw) {
-            const improvements = JSON.parse(raw);
-            const dismissedSet = new Set(toDismiss.map(d => d.constraint));
-            const remaining = improvements.filter((i: any) => !dismissedSet.has(i.constraint));
-            if (remaining.length !== improvements.length) {
-                localStorage.setItem('hic_prompt_improvements', JSON.stringify(remaining));
-            }
-        }
-    } catch {}
+    // WS-5 R7 (2026-10-30): the active mirror lives in the engine, not in localStorage.
+    try { removeImprovementsByText(toDismiss.map(d => d.constraint)); } catch {}
 
     return toDismiss.map(d => d.constraint);
 }

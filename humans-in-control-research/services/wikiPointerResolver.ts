@@ -27,6 +27,9 @@
  * cleared when the engagement slug changes. Single source of truth: wiki.
  */
 
+import { squashedDomainName } from './citationPointerRegistry';
+import { engagementSlug } from './runState';
+
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export type DeliverableKind =
@@ -248,11 +251,7 @@ function clearResolverCache(slug?: string): void {
  * by returning empty bodies, and the caller falls back to in-memory data.
  */
 export function currentEngagementSlug(): string {
-    if (typeof window !== 'undefined') {
-        const slug = (window as any).__hicCurrentEngagementSlug;
-        if (typeof slug === 'string') return slug;
-    }
-    return '';
+    return engagementSlug() || '';
 }
 
 // ===========================================================================
@@ -393,6 +392,23 @@ async function _readWikiPageRaw(sourcePath: string): Promise<string | null> {
 }
 
 const _FRONTMATTER_RE = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+
+/**
+ * Chunk spans written by the proxy chunker before 2026-10-20 were computed on a body that kept the blank line
+ * after the frontmatter fence, while this resolver (and the frontmatter upsert) drop it. On such a page the
+ * furthest span ends exactly one character past the body; every span on it is read one character earlier.
+ * A page whose spans fit is read as declared (shift 0).
+ */
+export function spanShiftFor(spans: Array<[number, number]>, bodyLength: number): number {
+    let maxEnd = 0;
+    for (const s of spans) if (Array.isArray(s) && s[1] > maxEnd) maxEnd = s[1];
+    return maxEnd === bodyLength + 1 ? 1 : 0;
+}
+
+export function shiftSpan(span: [number, number], shift: number): [number, number] {
+    if (!shift) return span;
+    return [Math.max(0, span[0] - shift), span[1] - shift];
+}
 
 /**
  * Parse the chunks: block from a wiki page's YAML frontmatter. Returns the
@@ -555,7 +571,7 @@ function _parseDocResolvedSources(text: string): string[] {
         if (!Array.isArray(arr)) return [];
         const names: string[] = [];
         for (const s of arr) {
-            const n = s && typeof s === 'object' ? String((s as any).sourceName || '').trim() : '';
+            const n = s && typeof s === 'object' ? squashedDomainName(String((s as any).sourceName || '').trim(), String((s as any).url || '')) : '';
             if (n && !names.includes(n)) names.push(n);
         }
         return names;
@@ -611,13 +627,16 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
         try { if (_cpr?.registerPageMeta) _cpr.registerPageMeta(src, pageMeta); } catch { /* non-fatal */ }
         const byId = new Map<string, typeof declared[0]>();
         for (const d of declared) byId.set(d.id, d);
+        // 2026-10-20: pages chunked before the chunker and this resolver agreed on the body's first character carry
+        // spans shifted by one (see `spanShiftFor`); they are read back in the resolver's coordinates, not dropped.
+        const shift = spanShiftFor(declared.map(d => d.charSpan), body.length);
         for (const id of ids) {
             const d = byId.get(id);
             if (!d) {
                 notFound.push(id);
                 continue;
             }
-            const [a, b] = d.charSpan;
+            const [a, b] = shiftSpan(d.charSpan, shift);
             // WS-A staleness guard: if the char_span is out of bounds or slices empty text (the page body
             // drifted since it was chunked), DROP rather than emit a mis-sliced span that would mis-cite.
             // A missing citation is recoverable; a wrong one is a credibility failure.

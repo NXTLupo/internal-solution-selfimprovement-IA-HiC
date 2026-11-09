@@ -1,10 +1,16 @@
 ---
 name: long-running-service-call
+description: "Wrapper pattern for any HiC browser-to-backend call that can run past ten seconds: an immediate in-flight chat message, an AbortSignal with a bounded timeout and the fast model by default. Use when wiring a chat directive to a slow endpoint."
 invocation: model
-description: Standard wrapper pattern for any HiC browser-to-backend service call that may take longer than ~10 seconds. Codifies the three things that must be true every time: (1) an immediate in-flight chat message so the user knows the call started, (2) an explicit AbortSignal with a bounded timeout (so a wedged service can't tie up the browser indefinitely), (3) a fast-model default (Gemini Flash, Claude Haiku) rather than the service's quality-default model. Use this whenever wiring a new HiC chat directive that posts to /api/journey-map, /api/artifact/generate, /api/bertopic, /api/transcribe-youtube, or any future endpoint that fans out to an LLM provider or a multi-pass pipeline. Closes the "Failed to fetch" UX trap where Chrome closes the connection at ~30s while the backend keeps working invisibly. Composes with the existing fallback-event-surfacing skill and the post_hic_rebuild_reminder hook.
+version: "1.0"
+status: active
 ---
 
 # Long-Running Service Call Wrapper Pattern
+
+## Scope
+
+Standard wrapper pattern for any HiC browser-to-backend service call that may take longer than ~10 seconds. Codifies the three things that must be true every time: (1) an immediate in-flight chat message so the user knows the call started, (2) an explicit AbortSignal with a bounded timeout (so a wedged service can't tie up the browser indefinitely), (3) a fast-model default (Gemini Flash, Claude Haiku) rather than the service's quality-default model. Use this whenever wiring a new HiC chat directive that posts to /api/journey-map, /api/artifact/generate, /api/bertopic, /api/transcribe-youtube, or any future endpoint that fans out to an LLM provider or a multi-pass pipeline. Closes the "Failed to fetch" UX trap where Chrome closes the connection at ~30s while the backend keeps working invisibly. Composes with the existing fallback-event-surfacing skill and the post_hic_rebuild_reminder hook.
 
 A HiC service call can fail in three ways the user experiences as identical:
 
@@ -77,10 +83,10 @@ the body), force the speed tier:
 
 | Service tier | Default vendor model | Force for chat UX |
 |---|---|---|
-| Journey Mapper IA | claude-sonnet-4-6 (10+ min two-pass) | gemini-3.5-flash (30-90s) |
-| Artifact engine | gemini-3.1-pro-preview (60-180s) | gemini-2.5-flash (15-45s) for chat |
+| Journey Mapper IA | the structured Claude model (10+ min two-pass) | gemini-3.5-flash (30-90s) |
+| Artifact engine | gemini-3.1-pro-preview (60-180s) | gemini-3.5-flash (15-45s) for chat |
 | BERTopic clustering | (no LLM in the loop) | n/a |
-| Brief-dialog | claude-sonnet-4-6 (varies) | claude-haiku-4-5-20251001 |
+| Brief-dialog | the structured Claude model (varies) | gemini-3.5-flash |
 
 The user can ALWAYS override with `#model=...` for quality work. The chat
 default should be the speed tier.
@@ -95,7 +101,7 @@ canonical example. It applies all three moves:
    Flash, two-pass)... typically 30-90s" before fetching.
 2. `signal: AbortSignal.timeout(240000)` — 4-min ceiling.
 3. `llm_model: 'gemini-3.5-flash'` in the body — overrides the service's
-   sonnet default.
+   structured-model default.
 
 ## Anti-patterns
 

@@ -16,46 +16,51 @@ collected_at: "2026-07-02T18:22:31+00:00"
 content_hash: "e2a95b9550bdcf52"
 chunks:
   - id: "articles/apple-ml/b5de0fed97.md#c0"
-    char_span: [0, 184]
+    char_span: [0, 183]
     sentence_count: 1
     key_terms: [introducing-third-generation-of-apple-foundation-models, apple, machinelearning, introducing, foundation, generation, research, models]
     concepts: [apple]
-    token_count: 39
-    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models"}]
+    token_count: 38
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
   - id: "articles/apple-ml/b5de0fed97.md#c1"
-    char_span: [186, 2785]
+    char_span: [185, 2784]
     sentence_count: 16
     key_terms: [models, apple, cloud, afm, foundation, generation, on-device, server-based]
     concepts: [models, apple, cloud, foundation, generation]
     related_chunks: ["articles/apple-ml/b5de0fed97.md#c3"]
     token_count: 512
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
   - id: "articles/apple-ml/b5de0fed97.md#c2"
-    char_span: [2394, 5129]
+    char_span: [2393, 5128]
     sentence_count: 19
     key_terms: [model, models, on-device, advanced, architectures, afm, server-side, foundation]
     concepts: [model, models, on-device, architectures, advanced]
     token_count: 512
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
   - id: "articles/apple-ml/b5de0fed97.md#c3"
-    char_span: [4785, 7597]
+    char_span: [4784, 7596]
     sentence_count: 18
     key_terms: [foundation, model, data, training, cloud, image, models, high-quality]
     concepts: [foundation, model, training, cloud, image]
     related_chunks: ["articles/apple-ml/b5de0fed97.md#c1"]
     token_count: 512
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
   - id: "articles/apple-ml/b5de0fed97.md#c4"
-    char_span: [7205, 9882]
+    char_span: [7204, 9881]
     sentence_count: 16
     key_terms: [percent, afm, evaluations, model, improvement, understanding, cloud, relative]
     concepts: [percent, evaluations, improvement, model, understanding]
     related_chunks: ["articles/apple-ml/b5de0fed97.md#c5"]
     token_count: 512
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
   - id: "articles/apple-ml/b5de0fed97.md#c5"
-    char_span: [9570, 10187]
+    char_span: [9569, 10186]
     sentence_count: 5
     key_terms: [improvement, cloud, afm, percent, relative, overall, pro, feature-specific]
     concepts: [improvement, cloud, percent, relative, overall]
     related_chunks: ["articles/apple-ml/b5de0fed97.md#c4"]
     token_count: 126
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models","kind":"article","date":"2026-06-08"}]
 ---
 # Introducing the Third Generation of Apple’s Foundation Models
 

@@ -1,8 +1,10 @@
 ---
 name: infographic-composer
+description: Authoring contract for slides:infographic-exhibit panels - data-dense, evidence-true native infographics composed from the slide's own corpus content. Injected into DECK MODE so every infographic carries real substance, never bare labels in empty frames.
 invocation: runtime
 disable-model-invocation: true
-description: Authoring contract for slides:infographic-exhibit panels - data-dense, evidence-true native infographics composed from the slide's own corpus content. Injected into DECK MODE so every infographic carries real substance, never bare labels in empty frames.
+version: "1.0"
+status: active
 ---
 
 # Infographic Composer - the data-visual authoring contract
@@ -28,10 +30,20 @@ cut the element; if fewer than 3 elements survive, do not emit the infographic a
 | 2-5 hard figures, each carried by a cited quote | `stat-row` | `stats[]` |
 | A ranked set (severity, frequency, priority) | `ranked-bars` | `items[]` |
 | A labeled mix or distribution | `composition` | `segments[]` |
+| A decision tree, system flow, operating model or escalation path with branches | `flowchart` | `nodes[]` + `edges[]` (+ `groups[]`) |
 
 Across one deck, two infographics use two DIFFERENT families.
 
 ## Per-family depth contracts
+
+### flowchart (2026-10-23, native Mermaid layout, brand-themed)
+`nodes: [{ id, label (<=60 chars, a concrete actor / system / decision / outcome), kind: step | decision | system |
+actor | outcome | input }]`, 3-8 nodes (eight is the legible ceiling on one slide: compress an escalation path to its eight decisive steps); `edges: [{ from, to, label? (<=40 chars: the condition, the hand-off, the
+trigger) }]`, 2-24 edges; optional `groups: [{ label, nodes: [ids] }]` for swim-groups (a team, a system boundary,
+a phase) and `direction: "LR" | "TB"` (LR default; TB when the graph is a decision tree). Use it when the
+evidence describes BRANCHING (a decision with two outcomes, a loop back, a hand-off between named systems or
+teams); a straight sequence without branches is `process-flow`. Every node and edge label is drawn from the
+evidence; a graph that needs invented nodes to connect is not a flowchart, it is prose.
 
 ### process-flow
 ```json

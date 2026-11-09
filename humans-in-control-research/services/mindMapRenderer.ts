@@ -282,7 +282,8 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
             ? `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r + 6).toFixed(1)}" fill="none" stroke="${t.cyanRing}" stroke-width="2" opacity="0.55"/>`
             : '';
 
-        const dataChunkIds = (p.node.chunk_ids || []).slice(0, 12).join(',');
+        // 2026-10-05: chunk ids can arrive as objects; the attribute read "[object Object]".
+        const dataChunkIds = (p.node.chunk_ids || []).slice(0, 12).map((c: any) => (typeof c === 'string' ? c : String(c?.id || c?.pointer || c?.chunk_id || ''))).filter(Boolean).join(',');
 
         // Root: light panel disc + thick ACCENT ring + centred ACCENT hub glyph (no text).
         // The glyph must NOT sit on the accent fill (accent-on-accent = invisible); a light
@@ -293,6 +294,13 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
             // The hub GLYPH is rendered as an HTML <img> overlay (see below) so the PPTX GEO walker
             // captures it as a NATIVE picture placeholder; the SVG only draws the disc + accent ring.
             body = `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${t.panelFill}" stroke="${t.accent}" stroke-width="4"/>`;
+            // 2026-10-05 live: with no content-true hub glyph the root was an EMPTY disc. It then carries its label.
+            if (!hubGlyphHref) {
+                const rl = wrapLabel(p.node.label, 14).slice(0, 4);
+                const rh = fontSize * 1.15;
+                body += `<text x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" font-family="${t.bodyFont}" font-size="${fontSize}" font-weight="700" fill="${t.titleColor}" text-anchor="middle" dominant-baseline="middle">` +
+                    rl.map((line, idx) => `<tspan x="${p.x.toFixed(1)}" dy="${idx === 0 ? (-(rl.length * rh) / 2 + 0.7 * rh).toFixed(1) : rh.toFixed(1)}">${escapeHtml(line)}</tspan>`).join('') + `</text>`;
+            }
         } else {
             const textElements = labelLines.map((line, idx) => {
                 const dy = -totalH / 2 + (idx + 0.7) * lineHeight;

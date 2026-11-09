@@ -19,38 +19,42 @@ content_hash: "c8d5305e299cfb95"
 relevance_by_goal: {"8429cfd39d4f":0,"d21cb50b17ba":5}
 chunks:
   - id: "articles/amazon-science/5acb6aef94.md#c0"
-    char_span: [0, 203]
+    char_span: [0, 202]
     sentence_count: 1
     key_terms: [how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration, amazon-vendor, collaboration, mechanism, optimize, science, amazon, design]
-    token_count: 47
-    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration"}]
+    token_count: 46
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration","kind":"article","date":"2026-05-05"}]
   - id: "articles/amazon-science/5acb6aef94.md#c1"
-    char_span: [205, 3007]
+    char_span: [204, 3006]
     sentence_count: 19
     key_terms: [information, vendor, fulfillment, "amazon's", optimization, amazon, economics, resulting]
     concepts: [information, vendor, fulfillment, "amazon's", optimization]
     related_chunks: ["articles/amazon-science/5acb6aef94.md#c3", "articles/amazon-science/5acb6aef94.md#c4"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration","kind":"article","date":"2026-05-05"}]
   - id: "articles/amazon-science/5acb6aef94.md#c2"
-    char_span: [2600, 5440]
+    char_span: [2599, 5439]
     sentence_count: 23
     key_terms: [cpp, plan, vcg, optimization, mechanism, benefits, truthful, misrepresenting]
     concepts: [optimization, mechanism, misrepresenting, benefits, truthful]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration","kind":"article","date":"2026-05-05"}]
   - id: "articles/amazon-science/5acb6aef94.md#c3"
-    char_span: [5086, 7846]
+    char_span: [5085, 7845]
     sentence_count: 20
     key_terms: [cost, mechanism, amazon, vendor, structure, plan, vcg, information]
     concepts: [mechanism, amazon, vendor, structure, information]
     related_chunks: ["articles/amazon-science/5acb6aef94.md#c1", "articles/amazon-science/5acb6aef94.md#c4"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration","kind":"article","date":"2026-05-05"}]
   - id: "articles/amazon-science/5acb6aef94.md#c4"
-    char_span: [7511, 9729]
+    char_span: [7510, 9728]
     sentence_count: 15
     key_terms: [vendor, amazon, menu, approach, supply, information, plan, mechanism]
     concepts: [vendor, amazon, approach, supply, information]
     related_chunks: ["articles/amazon-science/5acb6aef94.md#c1", "articles/amazon-science/5acb6aef94.md#c3"]
     token_count: 400
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-mechanism-design-theory-helps-optimize-amazon-vendor-collaboration","kind":"article","date":"2026-05-05"}]
 ---
 # How mechanism design theory helps optimize Amazon-vendor collaboration
 

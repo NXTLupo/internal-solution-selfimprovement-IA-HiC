@@ -16,25 +16,27 @@ collected_at: "2026-07-02T16:47:58+00:00"
 content_hash: "cc0d9d7cca5fcf5e"
 chunks:
   - id: "articles/ins-insurance-business-uk/cef8bd87a1.md#c0"
-    char_span: [0, 206]
+    char_span: [0, 205]
     sentence_count: 1
     key_terms: [insurers-rethink-policy-wording-as-ai-risks-rise-580280, insurancebusinessmag, technology, insurers, rethink, wording, policy, source]
-    token_count: 54
-    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/technology/insurers-rethink-policy-wording-as-ai-risks-rise-580280.aspx"}]
+    token_count: 53
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/technology/insurers-rethink-policy-wording-as-ai-risks-rise-580280.aspx","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-insurance-business-uk/cef8bd87a1.md#c1"
-    char_span: [208, 3255]
+    char_span: [207, 3254]
     sentence_count: 21
     key_terms: [coverage, insurance, insurers, ai-related, cyber, policies, across, liability]
     concepts: [coverage, insurance, insurers, ai-related, cyber]
     related_chunks: ["articles/ins-insurance-business-uk/cef8bd87a1.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/technology/insurers-rethink-policy-wording-as-ai-risks-rise-580280.aspx","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-insurance-business-uk/cef8bd87a1.md#c2"
-    char_span: [2896, 4393]
+    char_span: [2895, 4392]
     sentence_count: 11
     key_terms: [insurers, ai-related, insurance, approach, business, coverage, brokers, around]
     concepts: [insurers, ai-related, insurance, approach, business]
     related_chunks: ["articles/ins-insurance-business-uk/cef8bd87a1.md#c1"]
     token_count: 238
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/technology/insurers-rethink-policy-wording-as-ai-risks-rise-580280.aspx","kind":"article","date":"2026-06-25"}]
 ---
 # Insurers rethink policy wording as AI risks rise
 

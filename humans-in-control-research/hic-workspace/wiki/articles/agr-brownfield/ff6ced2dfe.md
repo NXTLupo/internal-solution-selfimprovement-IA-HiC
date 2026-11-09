@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:26:17+00:00"
 content_hash: "36b1e45df3e8b856"
 chunks:
   - id: "articles/agr-brownfield/ff6ced2dfe.md#c0"
-    char_span: [0, 965]
+    char_span: [0, 964]
     sentence_count: 3
     key_terms: [politics-complicate-push-for-year-round-e15-iowa-farm-bureau-president-says, e15, president, says, politics, bureau, farm, iowa]
     concepts: [president, politics, bureau, complicate, year-round]
-    token_count: 220
-    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/politics-complicate-push-for-year-round-e15-iowa-farm-bureau-president-says/"}]
+    token_count: 219
+    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/politics-complicate-push-for-year-round-e15-iowa-farm-bureau-president-says/","kind":"article","date":"2026-07-01"}]
 ---
 # Politics complicate push for year-round E15, Iowa Farm Bureau president says
 

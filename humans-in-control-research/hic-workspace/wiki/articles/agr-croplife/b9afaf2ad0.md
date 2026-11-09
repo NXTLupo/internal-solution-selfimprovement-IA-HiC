@@ -16,26 +16,28 @@ collected_at: "2026-07-02T17:54:32+00:00"
 content_hash: "a77f67e977b6c711"
 chunks:
   - id: "articles/agr-croplife/b9afaf2ad0.md#c0"
-    char_span: [0, 893]
+    char_span: [0, 892]
     sentence_count: 3
     key_terms: [agi-fertilizer-systems-6, superior, fertilizer, systems, retail-facilities, years-reinforcing, agi, rss]
     concepts: [agi-fertilizer-systems-6, superior, fertilizer, systems]
     related_chunks: ["articles/agr-croplife/b9afaf2ad0.md#c2"]
-    token_count: 196
-    sources: [{"n":"agr_croplife","u":"https://www.croplife.com/special-reports/retail-facilities/agi-fertilizer-systems-6/?utm_source=rss&utm_medium=rss&utm_campaign=agi-fertilizer-systems-6"}]
+    token_count: 195
+    sources: [{"n":"agr_croplife","u":"https://www.croplife.com/special-reports/retail-facilities/agi-fertilizer-systems-6/?utm_source=rss&utm_medium=rss&utm_campaign=agi-fertilizer-systems-6","kind":"article","date":"2026-07-01"}]
   - id: "articles/agr-croplife/b9afaf2ad0.md#c1"
-    char_span: [915, 3026]
+    char_span: [914, 3025]
     sentence_count: 4
     key_terms: [declining, system, hoppers, tph, weight, blending, ton, loadout]
     concepts: [declining, system, hoppers, weight, blending]
     token_count: 512
+    sources: [{"n":"agr_croplife","u":"https://www.croplife.com/special-reports/retail-facilities/agi-fertilizer-systems-6/?utm_source=rss&utm_medium=rss&utm_campaign=agi-fertilizer-systems-6","kind":"article","date":"2026-07-01"}]
   - id: "articles/agr-croplife/b9afaf2ad0.md#c2"
-    char_span: [2835, 3399]
+    char_span: [2834, 3398]
     sentence_count: 4
     key_terms: [fertilizer, systems, commercial-fertilizer, agi, com, agricultural, conditioning, manufactues]
     concepts: [fertilizer, systems]
     related_chunks: ["articles/agr-croplife/b9afaf2ad0.md#c0"]
     token_count: 135
+    sources: [{"n":"agr_croplife","u":"https://www.croplife.com/special-reports/retail-facilities/agi-fertilizer-systems-6/?utm_source=rss&utm_medium=rss&utm_campaign=agi-fertilizer-systems-6","kind":"article","date":"2026-07-01"}]
 ---
 # AGI FERTILIZER SYSTEMS
 

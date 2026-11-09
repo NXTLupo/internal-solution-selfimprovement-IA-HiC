@@ -16,26 +16,28 @@ relevance: 70
 content_hash: "2237c1103ae6cb11"
 chunks:
   - id: "articles/reddit-deep-r-smallbusiness/1dbffce837.md#c0"
-    char_span: [0, 2321]
+    char_span: [0, 2320]
     sentence_count: 11
     key_terms: [smallbusiness, customers, business, new, questions, removed, reviews, automatically]
     concepts: [smallbusiness, customers, business, questions, automatically]
-    token_count: 511
-    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1r2e5hb/looking_to_hire_someone_to_help_me_find_new/"}]
+    token_count: 510
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1r2e5hb/looking_to_hire_someone_to_help_me_find_new/","kind":"article","date":"2026-02-12","subreddit":"smallbusiness"}]
   - id: "articles/reddit-deep-r-smallbusiness/1dbffce837.md#c1"
-    char_span: [2326, 4431]
+    char_span: [2325, 4430]
     sentence_count: 13
     key_terms: [shopify, outreach, pagespeed, email, linkedin, cold, help, store]
     concepts: [shopify, outreach, pagespeed, linkedin, email]
     related_chunks: ["articles/reddit-deep-r-smallbusiness/1dbffce837.md#c2"]
     token_count: 454
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1r2e5hb/looking_to_hire_someone_to_help_me_find_new/","kind":"article","date":"2026-02-12","subreddit":"smallbusiness"}]
   - id: "articles/reddit-deep-r-smallbusiness/1dbffce837.md#c2"
-    char_span: [4433, 5791]
+    char_span: [4432, 5790]
     sentence_count: 1
     key_terms: [email, cold, "that's", store, pagespeed, outreach, youtube, owners]
     concepts: [email, "that's", store, pagespeed, outreach]
     related_chunks: ["articles/reddit-deep-r-smallbusiness/1dbffce837.md#c1"]
     token_count: 327
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1r2e5hb/looking_to_hire_someone_to_help_me_find_new/","kind":"article","date":"2026-02-12","subreddit":"smallbusiness"}]
 ---
 # Looking to hire someone to help me find new customers for my online service business. Any tips?
 

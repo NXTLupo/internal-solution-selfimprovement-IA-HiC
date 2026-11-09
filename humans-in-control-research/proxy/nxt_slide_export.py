@@ -19,6 +19,7 @@ The PPTX path is the contractual one (text MUST stay editable). PNG/PDF are visu
 from __future__ import annotations
 
 import html as _html
+from render_sandbox import sandboxed_page  # WS-0 S3 (2026-10-30): network-sandboxed renders
 import os
 import re
 from html.parser import HTMLParser
@@ -332,7 +333,7 @@ def measure_frames_playwright(html: str):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": FRAME_W, "height": FRAME_H}, device_scale_factor=1)
+            page = sandboxed_page(browser, viewport={"width": FRAME_W, "height": FRAME_H}, device_scale_factor=1)
             page.goto("file://" + tmp.name, wait_until="networkidle", timeout=30000)
             try:
                 page.wait_for_timeout(400)
@@ -727,7 +728,7 @@ def render_frames_playwright(html: str):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": FRAME_W, "height": FRAME_H},
+            page = sandboxed_page(browser, viewport={"width": FRAME_W, "height": FRAME_H},
                                     device_scale_factor=2)
             page.goto("file://" + tmp.name, wait_until="networkidle", timeout=30000)
             try:

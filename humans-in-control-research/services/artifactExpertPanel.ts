@@ -160,14 +160,13 @@ export const EXPERT_PANELS: Record<ArtifactKind, CriticConfig[]> = {
         { skill_name: 'research-planner',          max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
 
-    // Strategic diagnosis - learned constraint: "quantify gap impact in dollars
-    // instead of qualitative descriptions" (5 feedback signals, confidence 0.85).
-    // The quantification-architect critic enforces the four-tuple (baseline,
-    // target, measurement method, refresh cadence); pre-mortem surfaces risks
-    // that would prevent the dollar-quantified gap from being recovered.
+    // Strategic diagnosis. 2026-10-30 (WS-2 E8): the quantification-architect critic was removed
+    // from this composition. It enforced a learned "quantify gap impact in dollars" constraint
+    // that contradicts the master Quantitative Claim Rule (numbers ride in cited quotes, never as
+    // the model's own assertions); constraintQualityGate rejects that family of rules, and a critic
+    // that mandates them is the same rot one layer up. Pre-mortem surfaces delivery risks.
     'gap-analysis': [
         { skill_name: 'gap-analysis-evaluator',    max_iterations: 1, invocation_model: 'sonnet-4.6' },
-        { skill_name: 'quantification-architect',  max_iterations: 2, invocation_model: 'sonnet-4.6' },
         { skill_name: 'evidence-quality-auditor',  max_iterations: 1, invocation_model: 'sonnet-4.6' },
         { skill_name: 'pre-mortem',                max_iterations: 1, invocation_model: 'sonnet-4.6' },
     ],
@@ -731,56 +730,11 @@ export function stripEmDashesInPlace<T>(obj: T): T {
 }
 
 
-// ─── 2026-05-25 - Slop-phrase substitution for HTML artifacts ────────────────
-// slidePostProcessor's SLOP_BLACKLIST only runs on Slide objects (title/content/
-// narrative/speakerNotes/quote). Freeform HTML artifacts bypass that pipeline.
-// This function applies the same phrase substitutions to ANY string-valued
-// field in a deliverable (including string-typed `html` fields on FreeformArtifact).
-// Word-boundary regex so "facilitates" doesn't match inside larger words.
-const SLOP_SUBSTITUTIONS: Array<[RegExp, string]> = [
-    // High-severity verbal tics - substitute with plain alternatives
-    [/\b(?:leveraging|leverages|leveraged)\b/gi, 'using'],
-    [/\butili(?:z|s)e(?:s|d|ing)?\b/gi, 'use'],
-    [/\bdelve(?:s|d|ing)?\b/gi, 'examine'],
-    [/\btapestry of\b/gi, 'mix of'],
-    [/\b(?:is|stands as) a testament to\b/gi, 'shows'],
-    [/\bmeticulous(?:ly)?\b/gi, 'careful'],
-    [/\bplays? a (?:pivotal|crucial|key|vital|significant|important) role\b/gi, 'matters'],
-    [/\bmarks? a pivotal\b/gi, 'is a key'],
-    [/\brepresents? a paradigm\b/gi, 'is a clear'],
-    [/\bvaluable insights?\b/gi, 'findings'],
-    [/\bcomprehensive\b/gi, 'complete'],
-    [/\bfacilitate(?:s|d|ing)?\b/gi, 'help'],
-    [/\b(?:enhanc|bolster|foster)(?:e|es|ed|ing)\b/gi, 'improve'],
-    [/\bshowcas(?:e|es|ed|ing)\b/gi, 'show'],
-    [/\bboasts? an?\b/gi, 'has'],
-    [/\bnestled\b/gi, 'located'],
-    [/\benduring legacy\b/gi, 'long history'],
-    [/\binterplay\b/gi, 'interaction'],
-    [/\b(?:serves|served) as a\b/gi, 'is a'],
-    [/\b(?:stands|stood) as a\b/gi, 'is a'],
-];
-
-function stripSlopPhrasesInPlace<T>(obj: T): T {
-    if (obj === null || obj === undefined) return obj;
-    if (typeof obj === 'string') {
-        let s = obj as string;
-        for (const [re, repl] of SLOP_SUBSTITUTIONS) s = s.replace(re, repl);
-        return s as unknown as T;
-    }
-    if (Array.isArray(obj)) return obj.map(item => stripSlopPhrasesInPlace(item)) as unknown as T;
-    if (typeof obj === 'object') {
-        const out: any = {};
-        for (const [k, v] of Object.entries(obj as Record<string, unknown>)) out[k] = stripSlopPhrasesInPlace(v);
-        return out as T;
-    }
-    return obj;
-}
-
-
-/** Combined hygiene strip: em-dashes + slop-phrase substitution. Call this
- * on any artifact before it lands in the design desk; the runExpertPanel
- * function applies it automatically via the deterministic universal critic. */
+// 2026-10-30 (WS-2 E8): the mechanical SLOP_SUBSTITUTIONS table that lived here is DELETED. It
+// rewrote `enhanced` to `improve` and `comprehensive` to `complete` inside sentences (breaking
+// grammar) and nobody had ever measured it against a human. Banned phrases are DETECTED by the
+// artifact chain's lexical stage (slopDetector) and rewritten by a model through the fact guard;
+// the panel's hygiene step keeps only the deterministic em-dash strip.
 function applyHygieneStrip<T>(obj: T): T {
-    return stripSlopPhrasesInPlace(stripEmDashesInPlace(obj));
+    return stripEmDashesInPlace(obj);
 }

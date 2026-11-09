@@ -53,6 +53,12 @@ const ABSTRACT_SUBJECTS = [
     'retention', 'conversion', 'demand', 'sentiment', 'awareness', 'personalization',
     'automation', 'integration', 'governance', 'compliance', 'disruption', 'opportunity',
     'investment', 'performance', 'scale', 'quality', 'consistency', 'differentiation',
+    // 2026-11-09 (independent QA): the compliance-manual register in a live report's caption
+    // layer opened sentences with these ("System behaviors transition to automated states...",
+    // "Work is divided across operational lanes...", "The process introduces a handoff packet...",
+    // "Actions are sequenced progressively..."). None of them can act.
+    'behavior', 'behaviors', 'work', 'process', 'processes', 'sequence', 'sequences',
+    'actions', 'parameters', 'functionality', 'implementation', 'coordination',
 ];
 
 /** Verbs used to dodge "is". Banned lexically elsewhere; counted as a rate here. */
@@ -72,6 +78,46 @@ const INTENSIFIERS = [
     'very', 'extremely', 'incredibly', 'highly', 'significantly', 'substantially',
     'dramatically', 'critically', 'massively', 'profoundly', 'truly', 'deeply',
 ];
+
+/**
+ * 2026-11-08 - STRUCTURAL TEMPLATES (the live "#report full of AI slop" defect).
+ * The report that triggered this cleared every lexical ban and still read as
+ * generated, because the tell was syntactic: the contrast template ("X, not Y",
+ * "not X, but Y", "The issue is not X; it is Y", "rather than", the semicolon
+ * pivot "A earns trust; B spends it") carried 10.7% of its sentences, and most
+ * paragraphs closed on a short oracular verdict ("That asymmetry is the core of
+ * the diagnosis."). One instance is rhetoric; saturation is a template.
+ */
+const CONTRAST_TEMPLATES: Array<{ re: RegExp; name: string }> = [
+    { re: /,\s*not\s+(?!only\b)[a-z]/, name: '", not X"' },
+    { re: /\bnot\s+[^,.;:]{2,45},\s*but\b/i, name: '"not X, but Y"' },
+    { re: /\bis not (?:that |a |the |an )?[^.;:]{2,60}[;.]\s*(?:it is|It is)\b/, name: '"is not X; it is Y"' },
+    { re: /\brather than\b/i, name: '"rather than"' },
+    { re: /;\s*(?:it is|it's|so is|so does|so do|so are)\b/i, name: 'semicolon pivot' },
+];
+
+/** Does this sentence carry one of the contrast templates? (row-mapping helper for repair) */
+export function carriesContrastTemplate(sentence: string): boolean {
+    return CONTRAST_TEMPLATES.some(t => t.re.test(sentence));
+}
+
+/** Does this paragraph close on a short oracular verdict? (row-mapping helper for repair) */
+export function endsOnVerdict(paragraph: string): boolean {
+    if (words(paragraph).length < 25) return false;
+    const ps = splitSentences(paragraph);
+    const last = ps[ps.length - 1];
+    return !!last && ps.length >= 2 && isAphoristicCloser(last);
+}
+
+/** A paragraph-closing verdict: short, figure-free, quote-free, judgment-shaped. */
+function isAphoristicCloser(sentence: string): boolean {
+    const w = words(sentence);
+    if (w.length > 12 || w.length < 3) return false;
+    if (/\d/.test(sentence) || /["“”]/.test(sentence)) return false;
+    if (/\[[^\]]*#c\d+[^\]]*\]/.test(sentence)) return false;
+    return /^(That|This|These|Those|It|The|In short|Here)\b/.test(sentence.trim())
+        || /\b(is|are)\b/.test(sentence);
+}
 
 /** Sentence split that survives abbreviations, decimals and quoted periods. */
 export function splitSentences(text: string): string[] {
@@ -211,7 +257,57 @@ export function analyzeProse(text: string, opts: { paragraphs?: string[] } = {})
         offenders: [...hedge.found, ...intense.found].slice(0, 3),
     });
 
-    // 6. PARAGRAPH SHAPE (only when paragraphs are supplied).
+    // 6. STRUCTURAL TEMPLATES. The contrast template is legitimate rhetoric once
+    //    or twice; above ~4% of sentences it is the single strongest machine
+    //    tell left after the lexical bans. Counted per sentence (a sentence with
+    //    two templates is one offender).
+    const templateOffenders: string[] = [];
+    const templateNames = new Set<string>();
+    for (const s of sentences) {
+        for (const t of CONTRAST_TEMPLATES) {
+            if (t.re.test(s)) {
+                templateOffenders.push(s);
+                templateNames.add(t.name);
+                break;
+            }
+        }
+    }
+    const templateRate = sentences.length ? templateOffenders.length / sentences.length : 0;
+    // Two contrasts are free in any document (one or two is rhetoric); beyond that the rate decides.
+    const templateScore = (sentences.length < 5 || templateOffenders.length <= 2) ? 1 : clamp01(1 - (templateRate - 0.04) / 0.08);
+    metrics.push({
+        id: 'templates', label: 'Contrast-template restraint ("X, not Y")',
+        score: templateScore, floor: 0.6, pass: templateScore >= 0.6,
+        detail: `${templateOffenders.length}/${sentences.length} sentence(s) carry a contrast template (${[...templateNames].join(', ') || 'none'}).`,
+        offenders: templateOffenders.slice(0, 3),
+    });
+
+    // 7. APHORISTIC CLOSERS (only when paragraphs are supplied). Ending one
+    //    paragraph on a short verdict is emphasis; ending most of them that way
+    //    is the "insight voice" cadence readers flag as AI.
+    const closerParas = (opts.paragraphs || []).filter(p => words(p).length >= 25);
+    if (closerParas.length >= 4) {
+        let closers = 0;
+        const closerOffenders: string[] = [];
+        for (const p of closerParas) {
+            const ps = splitSentences(p);
+            const last = ps[ps.length - 1];
+            if (last && ps.length >= 2 && isAphoristicCloser(last)) {
+                closers++;
+                if (closerOffenders.length < 3) closerOffenders.push(last);
+            }
+        }
+        const closerRate = closers / closerParas.length;
+        const closerScore = clamp01(1 - (closerRate - 0.2) / 0.3);
+        metrics.push({
+            id: 'enders', label: 'Verdict-ender restraint',
+            score: closerScore, floor: 0.5, pass: closerScore >= 0.5,
+            detail: `${closers}/${closerParas.length} paragraph(s) close on a short oracular verdict.`,
+            offenders: closerOffenders,
+        });
+    }
+
+    // 8. PARAGRAPH SHAPE (only when paragraphs are supplied).
     const paras = (opts.paragraphs || []).filter(p => words(p).length > 12);
     if (paras.length >= 3) {
         const { cv: pcv } = lengthVariation(paras);
@@ -240,9 +336,13 @@ export function buildProseRepairInstruction(report: ProseReport): string {
         const quoted = c.offenders.length ? ` Offending text: ${c.offenders.map(o => `"${o.slice(0, 140)}"`).join('; ')}.` : '';
         return `- ${c.label}: ${c.detail}${quoted}`;
     });
+    const templateFlagged = report.concerns.some(c => c.id === 'templates');
+    const endersFlagged = report.concerns.some(c => c.id === 'enders');
     return [
         'PROSE REVISION REQUIRED. The measured signals below are how machine-written text is identified. Fix them without changing any fact, number, quote, citation or source label.',
         ...lines,
         'Rewrite only the flagged sentences. Vary sentence length deliberately. Give every claim a named actor (a team, a system, a person). Use "is" instead of "serves as". Delete hedges.',
-    ].join('\n');
+        templateFlagged ? 'The contrast template ("X, not Y", "not X, but Y", "is not X; it is Y", "rather than") is saturated. Keep at most one or two in the whole document; everywhere else, state the positive claim directly and let the alternative go unmentioned, or name the alternative in its own plain sentence.' : '',
+        endersFlagged ? 'Too many paragraphs close on a short oracular verdict ("That asymmetry is the core of the diagnosis."). End most paragraphs on the evidence or the mechanism; keep the one-line verdict for the one or two moments that earn it.' : '',
+    ].filter(Boolean).join('\n');
 }

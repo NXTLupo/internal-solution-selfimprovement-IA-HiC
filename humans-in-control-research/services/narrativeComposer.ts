@@ -30,6 +30,7 @@ import { wrapWithTracker } from './narrativeComposerExecutor';
 import { tryRepairJson } from './aiRouter';
 import { NARRATIVE_COMPOSER_PROMPT } from './prompts/narrativeComposerPrompt';
 import { UNIVERSAL_TONE_RULES } from './deliverableFrameworks';
+import { CLAUDE_REASONING_MODEL } from './claudeModelPolicy';
 
 // ============================================================================
 // PUBLIC API
@@ -130,18 +131,24 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
   // it composes the PresentationPayload from training + the conversation
   // context + the systemPrompt's brand/schema/voice rules. Graceful
   // degradation: a deck (less evidence-grounded) instead of an error.
+  // 2026-10-05 (owner rule: flash is for SPEED, Opus 5.5 is for REASONING). The composer's default is the Claude
+  // reasoning model in a NATIVE Anthropic tool loop: same corpus tools, same executor, same citation tracker. When
+  // the primary provider is unreachable or exhausted (network failure, 5xx, quota), the SAME grounded tool loop runs on
+  // the other provider. The old fallback was a tool-less Sonnet 4.6 single shot, and it never fired on a
+  // "Gemini-compat API 502" because its regex only matched "HTTP 50x".
+  const primaryIsClaude = String(model || '').startsWith('claude-');
+  const runPrimary = () => primaryIsClaude ? runAnthropicLoop(loopArgs) : runOpenAILoop(loopArgs);
   let rawPayload: unknown;
   try {
-    rawPayload = await runOpenAILoop(loopArgs);
+    rawPayload = await runPrimary();
   } catch (loopErr) {
-    if (_isComposerExhaustionError(loopErr)) {
-      const msg = String((loopErr as any)?.message || loopErr).slice(0, 200);
-      onProgress?.(`${model} exhausted - falling over to Claude Sonnet 4.6 (single-shot, no corpus search)...`);
-      console.warn(`[composer.failover] ${model} exhausted; falling over to Claude Sonnet 4.6: ${msg}`);
-      rawPayload = await composeViaClaudeSingleShot(loopArgs);
-    } else {
-      throw loopErr;
-    }
+    if (!_isComposerExhaustionError(loopErr)) throw loopErr;
+    const msg = String((loopErr as any)?.message || loopErr).slice(0, 200);
+    const fallbackModel = primaryIsClaude ? 'gemini-3.5-flash' : CLAUDE_REASONING_MODEL;
+    onProgress?.(`${model} unavailable - continuing the same grounded compose on ${fallbackModel}...`);
+    console.warn(`[composer.failover] ${model} failed (${msg}); failing over to ${fallbackModel}`);
+    const fbArgs: LoopArgs = { ...loopArgs, model: fallbackModel };
+    rawPayload = primaryIsClaude ? await runOpenAILoop(fbArgs) : await runAnthropicLoop(fbArgs);
   }
 
   onProgress?.('Validating schema and finalizing...');
@@ -167,76 +174,186 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
 
 function _isComposerExhaustionError(e: unknown): boolean {
   const msg = String((e as any)?.message || e || '');
-  return /insufficient[_ ]?quota|HTTP 429|rate.?limit|resource exhausted|quota exhausted|content[_ ]?filter|ResponsibleAI|block action|HTTP 50[234]|gateway error|temporarily overloaded|after \d+ attempts|all models exhausted/i.test(msg);
+  // Provider unreachable or exhausted. "API 50x" covers the composer's own error text ("Gemini-compat API 502"); the
+  // connection phrases cover a stalled network ("All connection attempts failed", fetch/abort failures).
+  return /insufficient[_ ]?quota|HTTP 429|API 429|rate.?limit|resource exhausted|quota exhausted|overloaded|content[_ ]?filter|ResponsibleAI|block action|HTTP 50[0234]|API 50[0234]|gateway error|timeout|timed out|All connection attempts failed|connection (?:error|refused|reset)|ECONN|ETIMEDOUT|fetch failed|Failed to fetch|NetworkError|AbortError|after \d+ attempts|all models exhausted/i.test(msg);
 }
 
-async function composeViaClaudeSingleShot(args: LoopArgs): Promise<unknown> {
+// ============================================================================
+// ANTHROPIC TOOL-USE LOOP (2026-10-05) - the composer's default (Opus 5.5)
+// ============================================================================
+// Same contract as runOpenAILoop: corpus retrieval tools first, then submit_presentation with the full payload.
+// Opus 5.5 rejects a forced tool_choice (400), so convergence is steered by the TOOL LIST instead: before the
+// retrieval floor the submit tool is withheld; from the force-submit round on, submit_presentation is the ONLY tool
+// offered and the turn carries an explicit instruction to call it.
+
+interface AnthropicBlock {
+  type: string;
+  id?: string;
+  name?: string;
+  input?: unknown;
+  text?: string;
+  [k: string]: unknown;
+}
+
+async function runAnthropicLoop(args: LoopArgs): Promise<unknown> {
   const { callAIWithRetry } = await import('./aiRetryClient');
-
-  // Append an output-format directive to the system prompt. We do NOT modify
-  // the brand / voice / schema rules already baked in - we just tell Claude
-  // it's on the fallback path and how to emit the payload without tools.
-  const fallbackSystem = `${args.systemPrompt}
-
-================================================================
-ANTHROPIC FALLBACK PATH (2026-05-27)
-================================================================
-You are operating as the cross-provider fallback. Corpus-search tools are
-NOT available here. Compose the PresentationPayload using:
-1. The narrative request and any prior conversation context.
-2. Your own knowledge - but ONLY where it is defensible. Where you would
-   normally cite the corpus, prefer naming the institution or framework
-   directly without inventing a chunk id.
-3. All brand, schema, voice, and banned-phrase rules from the system
-   prompt above - they remain in force.
-
-OUTPUT FORMAT:
-Return EXACTLY one JSON object inside a single \`\`\`json code fence. No
-prose before or after the fence. The JSON must validate against the
-PresentationPayload schema (\`meta\` + \`sections\` with 6 to 16 items;
-each section is \`{ kind, data }\`; \`kind\` is one of the documented
-section kinds; \`data\` follows the per-kind shape described above).`;
-
-  const messages = [
-    { role: 'user' as const, content: args.narrativeRequest },
+  const model = args.model && args.model.startsWith('claude-') ? args.model : CLAUDE_REASONING_MODEL;
+  const toolCache: ToolCache = new Map();
+  const allTools = NARRATIVE_TOOLS.map(t => ({ name: t.name, description: t.description, input_schema: t.input_schema }));
+  const RETRIEVAL_TOOL_NAMES = new Set(['search_corpus', 'extract_quotes', 'extract_stats', 'get_themes', 'get_personas', 'get_deliverable']);
+  const MIN_RETRIEVALS_RESEARCH = 2;
+  const MAX_CORRECTIONS = 2;
+  const forceAt = forceSubmitAtIter(args.isPackageMode);
+  const messages: Array<{ role: 'user' | 'assistant'; content: unknown }> = [
+    { role: 'user', content: args.narrativeRequest },
   ];
+  let retrievalCount = 0;
+  let corrections = 0;
+  let externalChunksSeen = 0;
+  let externalSearched = false;
+  let qualityReturns = 0;
 
-  const data: any = await callAIWithRetry('anthropic', {
-    model: 'claude-sonnet-4-6',
-    max_tokens: 16000,
-    system: fallbackSystem,
-    messages,
-    temperature: 0.3,
-  }, {
-    label: 'Composer (Claude fallback)',
-    maxAttempts: 2,
-    requestTimeoutMs: 300_000,
-  });
+  for (let iter = 0; iter < COMPOSER_MAX_ITERATIONS + MAX_CORRECTIONS + 1; iter++) {
+    const mustSubmit = iter >= forceAt;
+    const needRetrieval = !args.isPackageMode && retrievalCount < MIN_RETRIEVALS_RESEARCH;
+    const tools = mustSubmit
+      ? allTools.filter(t => t.name === 'submit_presentation')
+      : needRetrieval ? allTools.filter(t => t.name !== 'submit_presentation') : allTools;
+    if (mustSubmit) {
+      const last = messages[messages.length - 1];
+      const nudge = { type: 'text', text: 'Retrieval is complete. Call submit_presentation NOW with the full PresentationPayload.' };
+      if (last.role === 'user' && Array.isArray(last.content)) (last.content as unknown[]).push(nudge);
+      else if (last.role === 'assistant') messages.push({ role: 'user', content: [nudge] });
+    }
 
-  const blocks = Array.isArray(data?.content) ? data.content : [];
-  const text = blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
-  if (!text) {
-    throw new Error(`Claude composer fallback returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
+    const data: any = await callAIWithRetry('anthropic', {
+      model,
+      max_tokens: 32000,
+      system: args.systemPrompt,
+      messages,
+      tools,
+      tool_choice: { type: 'auto' },
+    }, {
+      label: `Composer (${model})`,
+      maxAttempts: 3,
+      requestTimeoutMs: COMPOSER_REQUEST_TIMEOUT_MS,
+    });
+    const content: AnthropicBlock[] = Array.isArray(data?.content) ? data.content : [];
+    if (!content.length) throw new Error(`${model} composer returned no content (stop_reason=${data?.stop_reason || 'unknown'})`);
+    // The whole assistant turn (thinking blocks included) goes back verbatim: tool use with adaptive thinking
+    // requires the thinking blocks to be re-sent unchanged.
+    messages.push({ role: 'assistant', content });
+
+    const toolUses = content.filter(b => b.type === 'tool_use');
+    const submit = toolUses.find(b => b.name === 'submit_presentation');
+    if (submit) {
+      // QUALITY GATE (2026-10-05, repair not refuse): a deck that never looked at external research, or that puts a
+      // bare figure in a section title, goes back ONCE with the exact problems. The second submission is accepted.
+      const issues = qualityReturns === 0 ? presentationQualityIssues(submit.input, { externalSearched, externalChunksSeen }) : [];
+      if (issues.length) {
+        qualityReturns += 1;
+        messages.push({ role: 'user', content: [{ type: 'tool_result', tool_use_id: submit.id, is_error: true, content: `Not accepted yet. Fix these, then call submit_presentation again with the FULL payload:\n- ${issues.join('\n- ')}` }] });
+        continue;
+      }
+      const cleaned = await finalizeSubmittedPayload(submit.input);
+      args.onTool('submit_presentation', { sections: (cleaned as any)?.sections?.length }, 'final payload submitted');
+      return cleaned;
+    }
+
+    if (toolUses.length) {
+      const results: unknown[] = [];
+      for (const tu of toolUses) {
+        const call: OpenAIToolCall = { id: String(tu.id), type: 'function', function: { name: String(tu.name), arguments: JSON.stringify(tu.input ?? {}) } };
+        const r = await executeToolForOpenAI(args.executor, call, args.onTool, toolCache);
+        results.push({ type: 'tool_result', tool_use_id: tu.id, content: r.serialized, ...(r.isError ? { is_error: true } : {}) });
+        if (RETRIEVAL_TOOL_NAMES.has(String(tu.name))) retrievalCount += 1;
+        if (tu.name === 'search_corpus') {
+          if ((tu.input as any)?.scope === 'external_only') externalSearched = true;
+          try { externalChunksSeen += ((JSON.parse(r.serialized)?.chunks || []) as any[]).filter(c => c?.source?.scope === 'external').length; } catch { /* not JSON */ }
+        }
+      }
+      messages.push({ role: 'user', content: results });
+      continue;
+    }
+
+    // No tool call. A payload written as text is accepted when it parses; otherwise one corrective turn.
+    const text = content.filter(b => b.type === 'text').map(b => String(b.text || '')).join('').trim();
+    if (text) {
+      try {
+        const parsed = parsePayload(text, model);
+        if (parsed && typeof parsed === 'object' && Array.isArray((parsed as any).sections)) {
+          const cleaned = await finalizeSubmittedPayload(parsed);
+          args.onTool('submit_presentation', { sections: (cleaned as any)?.sections?.length }, 'final payload (text)');
+          return cleaned;
+        }
+      } catch { /* fall through to the corrective turn */ }
+    }
+    if (corrections >= MAX_CORRECTIONS) {
+      throw new Error(`${model} ended its turn without calling submit_presentation after ${MAX_CORRECTIONS} corrections.`);
+    }
+    corrections += 1;
+    messages.push({ role: 'user', content: [{ type: 'text', text: 'You did not call a tool. Call submit_presentation now with the full PresentationPayload.' }] });
   }
+  throw new Error(`Composer (${model}) exceeded ${COMPOSER_MAX_ITERATIONS} iterations without calling submit_presentation`);
+}
 
-  // Strip code fence if present; otherwise extract the outermost {...}.
-  let body = text;
-  const fence = body.match(/```(?:json)?\s*([\s\S]*?)```/i);
-  if (fence) {
-    body = fence[1].trim();
-  } else {
-    const fb = body.indexOf('{');
-    const lb = body.lastIndexOf('}');
-    if (fb >= 0 && lb > fb) body = body.slice(fb, lb + 1);
+/**
+ * What a submitted presentation must fix before it is accepted (2026-10-05). Evidence hierarchy: external research
+ * leads, so a compose that never retrieved external chunks is sent to search scope=external_only (when that search
+ * comes back empty the corpus has none, and the deck is accepted). Quantitative-claim rule: a section TITLE carries
+ * the judgment, never a bare figure (a four-digit year is a date, not a claim).
+ */
+export function presentationQualityIssues(payload: any, seen: { externalSearched: boolean; externalChunksSeen: number }): string[] {
+  const issues: string[] = [];
+  if (!seen.externalChunksSeen && !seen.externalSearched) {
+    issues.push("No external research was retrieved. Call search_corpus with scope='external_only' for the thesis, then LEAD the evidence and context sections with named external sources (articles, reports, social posts) and use client documents to contextualize.");
   }
-  const repaired = tryRepairJson(body);
+  const sections: any[] = Array.isArray(payload?.sections) ? payload.sections : [];
+  const numbered = sections
+    .map((sec, i) => ({ i, title: String(sec?.data?.title || sec?.data?.headline || '') }))
+    .filter(x => /\d/.test(x.title.replace(/\b(?:19|20)\d{2}\b/g, '')));
+  if (numbered.length) {
+    issues.push(`Section titles must state the judgment in words, with no figures (figures belong in cited quotes). Rewrite: ${numbered.map(x => `section ${x.i + 1} "${x.title}"`).join('; ')}.`);
+  }
+  // HiC's own generated deliverables in the prior chat are CONTEXT, never sources (2026-10-05 live: "Sources:
+  // Playground brief: ... · Mind Map: ..." and "The playground brief, the mind map and the ... SOWs describe").
+  const blob = JSON.stringify(sections);
+  const selfCites = Array.from(new Set((blob.match(/\b(?:Playground brief|Mind Map|Brief Dialog|Research Plan|Portfolio Patterns|Product brief options|Persona set|Theme set)\b(?::[^"]{0,60})?/g) || []).map(x => x.trim())));
+  if (selfCites.length) {
+    issues.push(`Cite the underlying corpus sources (articles, reports, social posts, client documents), never HiC's own generated deliverables, and do not narrate them as sources: remove ${selfCites.slice(0, 5).map(x => `"${x}"`).join(', ')}.`);
+  }
+  return issues;
+}
+
+/** Deep-strip QA annotations, meta-narration, process references, em dashes and emoji from a submitted payload. */
+async function finalizeSubmittedPayload(raw: any): Promise<any> {
   try {
-    return JSON.parse(repaired);
-  } catch (parseErr: any) {
-    throw new Error(
-      `Claude composer fallback produced unparseable JSON: ${parseErr?.message || parseErr}. ` +
-      `Head: ${repaired.slice(0, 200)}`
-    );
+    const { stripQAAnnotationsDeep, stripEmDashes, stripEmoji, stripPointerBrackets } = await import('./slidePostProcessor');
+    const cleaned = stripQAAnnotationsDeep(raw);
+    // Pointer-carrying fields keep the pointer; every display string loses it (2026-10-05 live source lines read
+    // "Reddit r/engineeringstudents [articles/reddit-deep-r-engineeringstudents/08247fde82.md#c0]").
+    const POINTER_KEYS = /^(?:sourceFile|pointer|pointers|wikiPath|chunk_id|chunkId|url|href)$/;
+    const deepStrip = (v: any, key = ''): any => {
+      if (typeof v === 'string') {
+        if (POINTER_KEYS.test(key)) return v;
+        // A source named after a HiC deliverable in the packaged chat ("Journey map: Reddit r/neu", "Gap matrix: SOW012
+        // ...") keeps only the underlying source; the internal upload bucket reads as a client document.
+        const named = stripPointerBrackets(stripEmoji(stripEmDashes(v)))
+          .replace(/\b(?:Journey map|Gap matrix|Competitive matrix|Persona set|Theme set|Recommendation set|Mind Map|Playground brief|Brief Dialog|Research Plan|Portfolio Patterns):\s*/g, '')
+          .replace(/\bClient Uploads?\b:?/g, 'Client document');
+        return named;
+      }
+      if (Array.isArray(v)) return v.map(x => deepStrip(x, key));
+      if (v && typeof v === 'object') {
+        for (const k of Object.keys(v)) { if (!k.startsWith('_')) v[k] = deepStrip(v[k], k); }
+        return v;
+      }
+      return v;
+    };
+    return deepStrip(cleaned);
+  } catch {
+    return raw;
   }
 }
 
@@ -346,9 +463,13 @@ async function buildSystemPrompt(
   // Skill files are still fetched because /skills/ IS volume-mounted in the
   // Docker container and serves correctly.
   const template = NARRATIVE_COMPOSER_PROMPT;
-  const [visualRenderer, deckNarrative] = await Promise.all([
+  // 2026-11-08 (live "#report full of AI slop" defect, same root cause here): the
+  // human-voice-editor skill (the positive writing contract, SkillOpt-trained) was
+  // never in this composer's prompt; only tone rules + deck-composer were.
+  const [visualRenderer, deckNarrative, humanVoice] = await Promise.all([
     fetchText(NXT_VISUAL_RENDERER_SKILL_PATH).catch(() => '(visual-renderer skill unavailable)'),
     fetchText(DECK_NARRATIVE_COMPOSER_SKILL_PATH).catch(() => '(deck-composer skill unavailable)'),
+    fetchText('/skills/human-voice-editor/SKILL.md').catch(() => ''),
   ]);
 
   const tokens = resolveBrandTokens(request.brand);
@@ -383,7 +504,10 @@ async function buildSystemPrompt(
   // section leads, pragmatic action verbs, and bans catastrophizing
   // metaphors. The composer's existing Rumelt + Minto discipline is
   // preserved underneath.
-  return `${UNIVERSAL_TONE_RULES}\n\n${filled}`;
+  const voiceBlock = humanVoice && !/^\s*<!DOCTYPE|^\s*<html/i.test(humanVoice)
+    ? `\n\n=== HUMAN VOICE (the positive half of the writing contract; apply to every narrative field) ===\n${stripFrontmatter(humanVoice)}\n=== END HUMAN VOICE ===`
+    : '';
+  return `${UNIVERSAL_TONE_RULES}\n\n${filled}${voiceBlock}`;
 }
 
 function buildModeHeader(isPackageMode: boolean, topicAnchor: string | null): string {
@@ -809,26 +933,7 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
         // "TBD" / "[needs baseline]" tokens from every string in the payload
         // before returning it. The composer prompt forbids these tokens; this
         // layer guarantees they never reach the renderer or wiki archive.
-        const finalize = async (raw: any) => {
-          try {
-            const { stripQAAnnotationsDeep, stripEmDashes, stripEmoji } = await import('./slidePostProcessor');
-            // stripQAAnnotationsDeep covers QA-annotations + meta-narration +
-            // process-references, but NOT em-dashes or emoji - which were leaking
-            // into the :5014 renderer + PPTX (2026-05-31). Add a deep pass for
-            // those so #presentation gets the same hard bans as every other path.
-            let cleaned = stripQAAnnotationsDeep(raw);
-            const deepStrip = (v: any): any => {
-              if (typeof v === 'string') return stripEmoji(stripEmDashes(v));
-              if (Array.isArray(v)) return v.map(deepStrip);
-              if (v && typeof v === 'object') {
-                for (const k of Object.keys(v)) { if (!k.startsWith('_')) v[k] = deepStrip(v[k]); }
-                return v;
-              }
-              return v;
-            };
-            return deepStrip(cleaned);
-          } catch (e) { return raw; }
-        };
+        const finalize = finalizeSubmittedPayload;
         try {
           const payload = JSON.parse(submitCall.function.arguments);
           const cleaned = await finalize(payload);
@@ -1356,12 +1461,10 @@ function validateAndFinalize(
       narrativeThesis: p.meta.narrativeThesis || request.narrativeRequest,
       composerModel: request.model,
       composerToolCalls: toolCallCount,
-      sourceCount: {
-        external: summary.external,
-        uploaded: summary.uploaded,
-        analysis: summary.analysis,
-        total: summary.total,
-      },
+      sourceCount: (() => {
+        const carried = payloadSourceCount(sections);
+        return carried.total ? carried : { external: summary.external, uploaded: summary.uploaded, analysis: summary.analysis, total: summary.total };
+      })(),
       citationCount: countCitations(sections),
     },
     narrativeArc: {
@@ -1379,6 +1482,29 @@ function validateAndFinalize(
   };
 
   return finalized;
+}
+
+/**
+ * Distinct cited sources by scope, read from the citations the deck actually CARRIES (2026-10-05 live: a deck with
+ * 40 citations reported "across 0 sources" because the tool tracker only sees retrieval results, and a packaged-chat
+ * compose cites sources the tools never returned).
+ */
+function payloadSourceCount(sections: Array<{ data?: unknown }>): { external: number; uploaded: number; analysis: number; total: number } {
+  const seen = new Map<string, 'external' | 'uploaded' | 'analysis'>();
+  const visit = (v: any, depth: number) => {
+    if (!v || typeof v !== 'object' || depth > 6) return;
+    if (Array.isArray(v)) { for (const x of v) visit(x, depth + 1); return; }
+    const name = typeof v.sourceName === 'string' ? v.sourceName.trim() : '';
+    if (name) {
+      const scope = v.scope === 'external' || v.scope === 'uploaded' || v.scope === 'analysis' ? v.scope
+        : /client document|client upload|uploaded/i.test(name) ? 'uploaded' : /synthesis|theme|analysis/i.test(name) ? 'analysis' : 'external';
+      if (!seen.has(name.toLowerCase())) seen.set(name.toLowerCase(), scope);
+    }
+    for (const x of Object.values(v)) visit(x, depth + 1);
+  };
+  for (const s of sections) visit(s.data, 0);
+  const vals = [...seen.values()];
+  return { external: vals.filter(x => x === 'external').length, uploaded: vals.filter(x => x === 'uploaded').length, analysis: vals.filter(x => x === 'analysis').length, total: vals.length };
 }
 
 function countCitations(sections: Array<{ data?: unknown }>): number {

@@ -1,10 +1,45 @@
 ---
 name: service-blueprint-mapper
+description: Generate persona-driven service blueprints with Bitner 5-component model, fail points, and emotion intensity
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Generate persona-driven service blueprints with Bitner 5-component model, fail points, and emotion intensity
+version: "1"
+status: active
 thinking: high
+triggers:
+  - blueprint
+  - service design
+  - service blueprint
+  - touchpoint
+  - touchpoints
+  - friction point
+  - friction
+  - process flow
+  - workflow
+  - steps
+  - stages
+  - frontstage
+  - backstage
+  - swim lane
+  - swimlane
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: Service Blueprint Mapper
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/blueprint.md
+    - anti-patterns/blueprint.md
+  benchmarks:
+    - benchmarks/cx-metrics.md
+  output_types:
+    - grid-matrix
+    - evidence-block
+    - stat-row
+    - split-panel
+skillopt: trainable
 ---
 
 # Service Blueprint Mapping
@@ -13,6 +48,7 @@ thinking: high
 
 A senior service designer creating an evidence-based, persona-aware service blueprint. You map how EACH persona experiences the service differently across chronological stages, using the Bitner 5-component model (customer actions, frontstage, backstage, support processes, physical evidence) extended with fail points, emotion intensity, technology layers, and actor-specific needs.
 
+<!-- SLOW_UPDATE_START -->
 ## Input Contract
 
 - Research objective (the goal statement for this engagement)
@@ -54,6 +90,7 @@ A senior service designer creating an evidence-based, persona-aware service blue
 ```
 
 All fields in each stage object are required. No optional fields.
+<!-- SLOW_UPDATE_END -->
 
 ## Methodology
 
@@ -106,6 +143,7 @@ Each stage must have an emotion field with: emotion name AND intensity score (1-
 - actorNeeds maps to specific persona pain points
 - actorBehaviors come from research evidence, not assumptions
 
+<!-- SLOW_UPDATE_START -->
 ## Evidence Mandates
 
 - EVERY painPoint, actorBehaviors, and emotion must cite [CHUNK_XXX]
@@ -114,6 +152,7 @@ Each stage must have an emotion field with: emotion name AND intensity score (1-
 - citations: For each stage, list 2-4 source names that evidence this stage
 - evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage -- quote data points, articles, or posts
 - touchpoint must name specific channels (not generic "digital" or "online")
+<!-- SLOW_UPDATE_END -->
 
 ## Anti-Patterns
 
@@ -131,6 +170,7 @@ Each stage must have an emotion field with: emotion name AND intensity score (1-
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## Quality Discipline v2 (2026-05-20) — universal contract
 
 This block is applied identically across every artifact-expert skill. Where a skill needs artifact-specific rules they appear above this block; this block is the floor every artifact must pass.
@@ -317,3 +357,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

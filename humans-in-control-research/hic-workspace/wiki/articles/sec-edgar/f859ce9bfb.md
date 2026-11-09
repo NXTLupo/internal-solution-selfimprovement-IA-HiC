@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:00:26+00:00"
 content_hash: "08b4b419c6d8d156"
 chunks:
   - id: "articles/sec-edgar/f859ce9bfb.md#c0"
-    char_span: [0, 677]
+    char_span: [0, 676]
     sentence_count: 1
     key_terms: [investordaymateria4e, htm, pack-backfill, baltimore, sequence, source, edgar, group]
     concepts: [investordaymateria4e]
-    token_count: 262
-    sources: [{"n":"[SEC EDGAR](hic://pack-backfill/sec_edgar/736957551996331532","u":""}]
+    token_count: 261
+    sources: [{"n":"SEC EDGAR","u":"","kind":"article"}]
 ---
 # {'_index': 'edgar_file', '_id': '0001113169-17-000009:investordaymateria4e.htm', '_score': 19.023157
 

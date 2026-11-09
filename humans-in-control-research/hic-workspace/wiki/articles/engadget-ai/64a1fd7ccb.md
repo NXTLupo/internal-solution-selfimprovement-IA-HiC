@@ -19,12 +19,12 @@ content_hash: "5d6dfc618f738681"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/engadget-ai/64a1fd7ccb.md#c0"
-    char_span: [0, 1892]
+    char_span: [0, 1891]
     sentence_count: 12
     key_terms: [entry-level, apple-is-reportedly-planning-a-visual-refresh-of-the-entry-level-macbook-pro-next-year, macbook, new, apple, reportedly, next, pro]
     concepts: [entry-level, macbook, apple, reportedly, spring]
-    token_count: 392
-    sources: [{"n":"engadget_ai","u":"https://www.engadget.com/2206465/apple-is-reportedly-planning-a-visual-refresh-of-the-entry-level-macbook-pro-next-year/"}]
+    token_count: 391
+    sources: [{"n":"engadget_ai","u":"https://www.engadget.com/2206465/apple-is-reportedly-planning-a-visual-refresh-of-the-entry-level-macbook-pro-next-year/","kind":"article","date":"2026-07-01"}]
 ---
 # Apple is reportedly planning a visual refresh of the entry-level MacBook Pro next year
 

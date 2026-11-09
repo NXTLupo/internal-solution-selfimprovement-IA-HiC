@@ -1,11 +1,17 @@
 ---
 name: skillopt-validation-gate
+description: Audit every SkillOpt-proposed skill edit against the eight-check rubric before it reaches .claude/skills, and emit APPROVE, BLOCK or HUMAN-REVIEW per proposal. Use when a training pass emits proposed edits or any pipeline proposes changing a SKILL.md.
 invocation: human
 disable-model-invocation: true
-description: Validation gate that audits every SkillOpt-proposed skill edit BEFORE it lands in the skill library. Catches compounding bad instructions, blocks iterative drift, and only lets approved deltas pass into .claude/skills/. The validation gate is where optimization actually works — most systems just apply suggestions and compound bad edits into the skill library, producing skills that get worse over time, not better. This gate sits between the SkillOpt trajectory analysis (which scans hic-workspace/sessions/_journey-rollouts/ for user-rejected outputs and proposes skill edits) and the actual skill-library write. Use when the SkillOpt training loop emits a proposed_edits.json file, when running the weekly /loop training pass, or when any pipeline proposes mutating a SKILL.md or its referenced wiki frameworks. Composes with cross-engagement-pattern-miner (provides the corpus of trajectories), validate_ai_slop and validate_ai_output_syntax (apply same banned-phrase + structural checks to skill edits), and the wiki-curator subagent (which the gate flags for human review when it can't auto-decide).
+version: "1.0"
+status: active
 ---
 
 # SkillOpt Validation Gate
+
+## Scope
+
+Validation gate that audits every SkillOpt-proposed skill edit BEFORE it lands in the skill library. Catches compounding bad instructions, blocks iterative drift, and only lets approved deltas pass into .claude/skills/. The validation gate is where optimization actually works — most systems just apply suggestions and compound bad edits into the skill library, producing skills that get worse over time, not better. This gate sits between the SkillOpt trajectory analysis (which scans hic-workspace/sessions/_journey-rollouts/ for user-rejected outputs and proposes skill edits) and the actual skill-library write. Use when the SkillOpt training loop emits a proposed_edits.json file, when running the weekly /loop training pass, or when any pipeline proposes mutating a SKILL.md or its referenced wiki frameworks. Composes with cross-engagement-pattern-miner (provides the corpus of trajectories), validate_ai_slop and validate_ai_output_syntax (apply same banned-phrase + structural checks to skill edits), and the wiki-curator subagent (which the gate flags for human review when it can't auto-decide).
 
 > "The validation gate is where optimization actually works. Most systems
 > just apply suggestions and compound bad instructions into your skill
@@ -151,8 +157,13 @@ claims that exemption, it must say why the positive form is impossible.
 
 ## Output format
 
-The gate emits one verdict file per proposal:
-`hic-workspace/skillopt/proposals/{skill-id}-{timestamp}.verdict.md`
+The gate emits one verdict file per proposal, in the ONE JSON contract
+(`humans-in-control-research/contracts/skillopt_verdict.v1.schema.json`, 2026-10-30 WS-5 R3):
+`hic-workspace/skillopt/proposals/{batch-id}/{skill-id}.verdict.json` with
+`verdict`, `discrimination_before`, `discrimination_after`, `golden_set_version`, `checks[]`,
+`reason`. The markdown below is the REASONING the agent writes into `reason` / `checks[].note`;
+the file on disk is the JSON, because that is what the batch script, the applier and
+`learningEngine.assertApproveVerdict` read.
 
 ```
 # SkillOpt Verdict — {skill-id} — {timestamp}

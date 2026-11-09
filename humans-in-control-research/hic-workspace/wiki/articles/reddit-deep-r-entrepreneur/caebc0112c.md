@@ -16,30 +16,33 @@ relevance: 70
 content_hash: "f812b19ab719d107"
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/caebc0112c.md#c0"
-    char_span: [0, 2045]
+    char_span: [0, 2044]
     sentence_count: 14
     key_terms: [campaigns, ads, successful, paid, business, buttons, through, couple]
     concepts: [campaigns, successful, business, buttons, through]
-    token_count: 459
-    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t4auwa/how_im_generating_6_13_b2b_calls_per_day_with/"}]
+    token_count: 458
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t4auwa/how_im_generating_6_13_b2b_calls_per_day_with/","kind":"article","date":"2026-05-05","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/caebc0112c.md#c1"
-    char_span: [2047, 4204]
+    char_span: [2046, 4203]
     sentence_count: 23
     key_terms: [ads, "you'll", targeting, call, get, page, funnels, double-qualify]
     concepts: ["you'll", targeting, double-qualify, funnels, funnel]
     token_count: 509
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t4auwa/how_im_generating_6_13_b2b_calls_per_day_with/","kind":"article","date":"2026-05-05","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/caebc0112c.md#c2"
-    char_span: [4206, 6180]
+    char_span: [4205, 6179]
     sentence_count: 18
     key_terms: ["it's", funnel, idea, winning, launch, please, entrepreneur, spend]
     concepts: [funnel, winning, entrepreneur, launch, please]
     token_count: 459
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t4auwa/how_im_generating_6_13_b2b_calls_per_day_with/","kind":"article","date":"2026-05-05","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/caebc0112c.md#c3"
-    char_span: [6183, 8213]
+    char_span: [6182, 8212]
     sentence_count: 6
     key_terms: [people, ads, booking, scal3mast3r, call, day, less, part]
     concepts: [people, booking, scal3mast3r, creative, matters]
     token_count: 495
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1t4auwa/how_im_generating_6_13_b2b_calls_per_day_with/","kind":"article","date":"2026-05-05","subreddit":"entrepreneur"}]
 ---
 # How I'm generating 6 - 13 b2b calls per day with paid ads
 

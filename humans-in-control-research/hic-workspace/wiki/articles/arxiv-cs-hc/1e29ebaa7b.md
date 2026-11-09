@@ -16,12 +16,12 @@ relevance: 70
 content_hash: "419162634c7c7687"
 chunks:
   - id: "articles/arxiv-cs-hc/1e29ebaa7b.md#c0"
-    char_span: [0, 624]
+    char_span: [0, 623]
     sentence_count: 3
     key_terms: [systems, generative, behave, rather, large, intelligible, professional, technologies]
     concepts: [systems, generative, behave, rather, large]
-    token_count: 128
-    sources: [{"n":"[arxiv_cs_hc](articles/arxiv-cs-hc/e76ee7e8f2.md","u":""}]
+    token_count: 127
+    sources: [{"n":"arxiv_cs_hc","u":"","kind":"article"}]
 ---
 # Generative AI Technologies, Techniques & Tensions: A Primer
 

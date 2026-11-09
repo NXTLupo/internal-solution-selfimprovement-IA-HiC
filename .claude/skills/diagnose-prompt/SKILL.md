@@ -1,10 +1,13 @@
 ---
 name: diagnose-prompt
-invocation: model
-version: 1.0
 description: Diagnose failure patterns in any prompt and map each failure to a structural fix. Use when a prompt is producing inconsistent, incorrect, or incomplete outputs.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob
-argument-hint: [file-path-or-paste]
+argument-hint:
+  - file-path-or-paste
 ---
 
 Act as a Claude prompt engineer who eliminates the top failure patterns from any existing skill or prompt.

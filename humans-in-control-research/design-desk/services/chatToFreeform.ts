@@ -16,6 +16,7 @@ import { sanitizeFreeformHtml } from './freeformSanitizer';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { UNIVERSAL_TONE_RULES } from '../../services/deliverableFrameworks';
 import { GoogleGenAI } from '@google/genai';
+import { makeGenAI } from '../../services/genaiClient';
 import { CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, artifactModelChain } from '../../services/aiRouter';
 
 // Re-exported as a local alias so the freeform prompt builder doesn't have
@@ -164,7 +165,7 @@ async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
 }
 
 async function callGemini(prompt: string, modelId: string): Promise<string> {
-    const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
+    const ai = makeGenAI();
     const { designerVoiceAddendum } = await import('./voiceAddendum');
     const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
     // Retry-with-backoff (2026-05-29). A single transient Gemini failure (429
@@ -1013,7 +1014,7 @@ const ARTIFACT_ENGINE_KINDS = new Set<string>([
     'journey', 'blueprint', 'persona', 'prd', 'roadmap', 'recommendation',
     'strategy-slide', 'strategy', 'brief', 'org', 'arch', 'gap-analysis',
     'tech-audit', 'competitive', 'presentation', 'mindmap', 'brief-dialog',
-    'meta-themes', 'research-plan',
+    'meta-themes', 'research-plan', 'case-study',
 ]);
 
 export async function generateFreeformArtifact(args: FreeformGenerateArgs): Promise<FreeformGenerateResult> {

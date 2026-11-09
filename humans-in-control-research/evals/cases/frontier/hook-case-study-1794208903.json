@@ -1,0 +1,20 @@
+{
+  "id": "hook-case-study-1794208903",
+  "set": "frontier",
+  "kind": "case-study",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#case-study"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-11-09",
+    "note": "Evidence density 0.72 below floor before generation"
+  }
+}

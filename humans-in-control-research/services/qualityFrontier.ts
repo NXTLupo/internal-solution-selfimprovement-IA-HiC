@@ -26,6 +26,7 @@
  */
 
 import { detectBannedPhrases, scoreOutput, type QualityScore } from './wikiService';
+import { engagementSlug } from './runState';
 
 // ---------------------------------------------------------------------------
 // Dimension catalog - declared in ONE place so the epoch proposer can introspect.
@@ -371,9 +372,7 @@ export function evaluatePareto(input: EvaluatePareto): QualityVector {
         try {
             // eslint-disable-next-line @typescript-eslint/no-require-imports
             const { getTraces } = require('./traceRecorder') as typeof import('./traceRecorder');
-            const slug = (typeof window !== 'undefined'
-                ? (window as any).__hicCurrentEngagementSlug
-                : undefined);
+            const slug = engagementSlug() || undefined;
             const commits = getTraces().filter(t =>
                 t.step_label === 'commitment_change'
                 && (slug ? t.engagement === slug : true)

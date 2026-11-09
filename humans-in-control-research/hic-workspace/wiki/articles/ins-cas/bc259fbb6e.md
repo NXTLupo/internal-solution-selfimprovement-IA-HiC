@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:27:40+00:00"
 content_hash: "cdee719a08511860"
 chunks:
   - id: "articles/ins-cas/bc259fbb6e.md#c0"
-    char_span: [0, 2002]
+    char_span: [0, 2001]
     sentence_count: 14
     key_terms: [research, publications, actuarial, cas, society, membership, committee, casualty]
     concepts: [research, publications, actuarial, society, membership]
-    token_count: 369
-    sources: [{"n":"ins_cas","u":"https://www.casact.org/publications-research"}]
+    token_count: 368
+    sources: [{"n":"ins_cas","u":"https://www.casact.org/publications-research","kind":"article"}]
 ---
 # Casualty Actuarial Society (CAS)
 

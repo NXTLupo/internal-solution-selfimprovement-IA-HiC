@@ -16,39 +16,43 @@ collected_at: "2026-07-02T16:57:28+00:00"
 content_hash: "4e3362544aeb19c8"
 chunks:
   - id: "articles/ins-kff-health-costs/e75da7a6bb.md#c0"
-    char_span: [0, 234]
+    char_span: [0, 233]
     sentence_count: 1
     key_terms: [recent-research-on-how-experiencing-racial-discrimination-impacts-health, racial-equity-and-health-policy, discrimination, experiencing, research, impacts, health, racial]
-    token_count: 57
-    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/"}]
+    token_count: 56
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-kff-health-costs/e75da7a6bb.md#c1"
-    char_span: [236, 3491]
+    char_span: [235, 3490]
     sentence_count: 14
     key_terms: [discrimination, health, racial, outcomes, experiences, research, disparities, across]
     concepts: [discrimination, health, racial, outcomes, experiences]
     related_chunks: ["articles/ins-kff-health-costs/e75da7a6bb.md#c2", "articles/ins-kff-health-costs/e75da7a6bb.md#c3", "articles/ins-kff-health-costs/e75da7a6bb.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-kff-health-costs/e75da7a6bb.md#c2"
-    char_span: [3078, 6112]
+    char_span: [3077, 6111]
     sentence_count: 16
     key_terms: [discrimination, experiences, health, racial, disparities, research, factors, studies]
     concepts: [discrimination, experiences, health, racial, disparities]
     related_chunks: ["articles/ins-kff-health-costs/e75da7a6bb.md#c1", "articles/ins-kff-health-costs/e75da7a6bb.md#c3", "articles/ins-kff-health-costs/e75da7a6bb.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-kff-health-costs/e75da7a6bb.md#c3"
-    char_span: [5755, 8883]
+    char_span: [5754, 8882]
     sentence_count: 17
     key_terms: [discrimination, racial, research, health, studies, outcomes, experiences, including]
     concepts: [discrimination, racial, research, health, studies]
     related_chunks: ["articles/ins-kff-health-costs/e75da7a6bb.md#c1", "articles/ins-kff-health-costs/e75da7a6bb.md#c2", "articles/ins-kff-health-costs/e75da7a6bb.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-kff-health-costs/e75da7a6bb.md#c4"
-    char_span: [8531, 10237]
+    char_span: [8530, 10236]
     sentence_count: 7
     key_terms: [discrimination, racial, cardiovascular, people, risk, disease, studies, associated]
     concepts: [discrimination, racial, cardiovascular, people, disease]
     related_chunks: ["articles/ins-kff-health-costs/e75da7a6bb.md#c1", "articles/ins-kff-health-costs/e75da7a6bb.md#c2", "articles/ins-kff-health-costs/e75da7a6bb.md#c3"]
     token_count: 283
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/racial-equity-and-health-policy/recent-research-on-how-experiencing-racial-discrimination-impacts-health/","kind":"article","date":"2026-06-30"}]
 ---
 # Recent Research on How Experiencing Racial Discrimination Impacts Health
 

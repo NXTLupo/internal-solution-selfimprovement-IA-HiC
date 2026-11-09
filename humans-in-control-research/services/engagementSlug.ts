@@ -1,3 +1,4 @@
+import { engagementSlug, researchGoal } from './runState';
 /**
  * ONE ENGAGEMENT SLUG (2026-08-21)
  *
@@ -39,11 +40,9 @@ export function engagementSlugFor(goal: string): string {
  * `_unassigned/` just because the global has not been set yet.
  */
 export function currentEngagementSlugOrDerive(goalFallback?: string): string {
-    if (typeof window !== 'undefined') {
-        const slug = (window as any).__hicCurrentEngagementSlug;
-        if (typeof slug === 'string' && slug) return slug;
-        const goal = (window as any).__hicResearchGoal || (window as any).__hicCurrentGoal;
-        if (typeof goal === 'string' && goal) return engagementSlugFor(goal);
-    }
+    const slug = engagementSlug();
+    if (slug) return slug;
+    const goal = researchGoal();
+    if (goal) return engagementSlugFor(goal);
     return goalFallback ? engagementSlugFor(goalFallback) : '';
 }

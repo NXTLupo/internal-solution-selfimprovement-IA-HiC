@@ -106,7 +106,12 @@ describe.each(fixtures)('coverage contracts: %s', (name, make) => {
         // Content-free generic clusters ("Cluster 12", no statement, no quote) are outside every universe by design.
         const generic = /^(?:cluster|topic|theme|group)\s*#?\d+\.?$/i;
         const themes = inp.ledger.filter(l => l.type === 'theme' && !(generic.test(l.item.trim()) && (!l.statement || generic.test(l.statement.replace(/[.!?]$/, '').trim())) && !String(l.quote || '').trim()));
-        for (const t of themes) expect(out).toContain(`data-covers="${t.id}`);
+        // 2026-10-05: a report carries at most COVERAGE_SPECS.report.themeCap board themes (the request-relevant ones);
+        // every theme IN that universe must still be accounted for.
+        const inUniverse = new Set(coverageUniverse(COVERAGE_SPECS.report, inp.ledger, inp.areas).map(u => u.id));
+        const expected = themes.filter(t => inUniverse.has(t.id));
+        expect(expected.length).toBe(Math.min(themes.length, COVERAGE_SPECS.report.themeCap!));
+        for (const t of expected) expect(out).toContain(`data-covers="${t.id}`);
         expect(out).not.toMatch(/—/);
         // Deterministic: the same input binds and fills identically.
         const doc2 = htmlCoverageDoc('report', html);

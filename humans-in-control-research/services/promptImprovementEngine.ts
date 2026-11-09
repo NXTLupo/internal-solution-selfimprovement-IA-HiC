@@ -29,7 +29,7 @@ export interface EditPattern {
     occurrences: number;
     averageDelta: number;       // avg character change
     suggestedConstraint: string;
-    status: 'pending' | 'approved' | 'dismissed' | 'applied';
+    status: 'pending' | 'approved' | 'dismissed' | 'applied' | 'candidate';
 }
 
 export interface PromptImprovement {
@@ -61,19 +61,38 @@ import {
     normalizeConstraintKey,
 } from './constraintQualityGate';
 
-// --- STORAGE KEYS ---
-const EDIT_LOG_KEY = 'hic_prompt_edit_log';
-const PATTERNS_KEY = 'hic_prompt_patterns';
-const IMPROVEMENTS_KEY = 'hic_prompt_improvements';
-// Written by improvementDiscriminator (DISMISSED_KEY). Read here so a
-// constraint auto-dismissed for consistently-negative quality impact is NOT
-// resurrected from the wiki at the next boot. Read directly from localStorage
-// to avoid an import cycle with improvementDiscriminator.
+// --- THE STORE (2026-10-30, WS-5 R7) ---
+// The localStorage store (edit log, patterns, improvements, correction rules) is gone. It made
+// a constraint active in ONE browser after any five chat corrections, with the latest rule
+// winning and a single 0.85-confidence message bypassing even that, and nothing measured
+// first. The durable store is now synthesis/constraint-records.json (one row per rule, with a
+// lifecycle: candidate -> active only after the held-out gate E4 records a win -> retired).
+// Feedback and edits become LABELS (evals/labels.jsonl, E6) and FRONTIER CASES (E2); they never
+// write a rule into a prompt. What follows is the in-memory session mirror of that store.
+const _memory: { editLog: EditSignal[]; patterns: EditPattern[]; improvements: PromptImprovement[]; rules: StashedCorrectionRule[] } = {
+    editLog: [], patterns: [], improvements: [], rules: [],
+};
+/** Test seam: the active (held-out winning) improvements. */
+export function __setImprovementsForTests(rows: PromptImprovement[]): void { _memory.improvements = rows.slice(); }
+export function __getImprovementsForTests(): PromptImprovement[] { return _memory.improvements.slice(); }
+export function __resetPromptImprovementForTests(): void { _memory.editLog = []; _memory.patterns = []; _memory.improvements = []; _memory.rules = []; }
+/** Drop rules from the active mirror (retirement, dismissal). Returns how many left. */
+export function removeImprovementsByText(texts: string[]): number {
+    const keys = new Set(texts.map(normalizeConstraintKey));
+    const before = _memory.improvements.length;
+    _memory.improvements = _memory.improvements.filter(i => !keys.has(normalizeConstraintKey(i.constraint)));
+    return before - _memory.improvements.length;
+}
+// Written by improvementDiscriminator (DISMISSED_KEY). Read here so a constraint auto-dismissed for
+// consistently-negative quality impact is NOT resurrected from the wiki at the next boot. The
+// discriminator's own per-browser ledger; read directly to avoid an import cycle.
 const DISMISSED_KEY = 'hic_dismissed_constraints';
+const PROXY_FOR_LABELS = 'http://127.0.0.1:5012';
 
 /** Normalized keys of constraints the discriminator has dismissed. */
 function getDismissedConstraintKeys(): Set<string> {
     try {
+        if (typeof localStorage === 'undefined') return new Set();
         const raw = JSON.parse(localStorage.getItem(DISMISSED_KEY) || '[]');
         return new Set(
             (Array.isArray(raw) ? raw : [])
@@ -108,12 +127,41 @@ export function logEdit(stage: string, field: string, originalValue: string, edi
     log.push(signal);
     // Keep last 500 edits
     if (log.length > 500) log.splice(0, log.length - 500);
-    localStorage.setItem(EDIT_LOG_KEY, JSON.stringify(log));
 
-    // Auto-detect patterns after every 5th edit
+    // WS-5 R7: an edit at a checkpoint is a human LABEL on the field it changed (E6), never a rule.
+    postLabel({ slide_id: `${stage}:${field}`, label: editType === 'deleted' ? 'rejected' : 'rejected', source: 'checkpoint_edit', detail: `${editType}: "${originalValue.slice(0, 120)}" -> "${editedValue.slice(0, 120)}"` });
+
+    // Pattern detection after every 5th edit (patterns become CANDIDATE rows, not active rules)
     if (log.length % 5 === 0) {
         detectPatterns();
     }
+}
+
+/** Fire-and-forget label write (evals/labels.jsonl through the proxy). */
+function postLabel(row: { slide_id: string; label: 'approved' | 'rejected'; source: string; detail?: string; artifact_id?: string }): void {
+    try {
+        if (typeof fetch !== 'function') return;
+        void fetch(`${PROXY_FOR_LABELS}/api/eval/labels`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ts: Date.now(), ...row }),
+        }).catch(() => { /* best-effort */ });
+    } catch { /* never break the caller */ }
+}
+
+/** Fire-and-forget frontier case (E2) from a piece of user feedback: the ask, the reply it corrected, the rule. */
+function postFrontierCase(input: { kind: string; prompt: string; objective: string; aiText: string; rule: string; surface: string }): void {
+    try {
+        if (typeof fetch !== 'function') return;
+        const stamp = Date.now().toString(36);
+        const kind = (input.kind || 'all').replace(/[^a-z0-9-]/gi, '').toLowerCase() || 'all';
+        const body = {
+            id: `feedback-${kind}-${stamp}`.slice(0, 80), set: 'frontier', kind,
+            input: { objective: input.objective || '(objective not recorded)', prompt: input.prompt.slice(0, 2000) },
+            expected: { trajectory: { no_fail_open: true } },
+            origin: { type: 'user_report', ref: `chat:${input.surface}`, added: new Date().toISOString().slice(0, 10), note: `rule: ${input.rule.slice(0, 300)}; corrected reply: ${input.aiText.slice(0, 200)}` },
+        };
+        void fetch(`${PROXY_FOR_LABELS}/api/eval/cases`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).catch(() => { /* best-effort */ });
+    } catch { /* never break the caller */ }
 }
 
 function classifyEdit(original: string, edited: string): EditSignal['editType'] {
@@ -191,55 +239,23 @@ export function detectPatterns(): EditPattern[] {
         });
     }
 
-    localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
+    _memory.patterns = patterns;
 
-    // P6-02: Auto-approve high-confidence patterns (5+ occurrences = strong signal).
-    // This closes the loop: edits are captured -> patterns detected -> constraints auto-approved -> injected into next run.
-    // Without this, getActiveConstraints() always returns '' because no UI calls approveConstraint().
-    const improvements = getImprovements();
-    const existingFields = new Set(improvements.map(imp => `${imp.stage}:${imp.field}`));
-    for (let i = 0; i < patterns.length; i++) {
-        const p = patterns[i];
-        const key = `${p.stage}:${p.field}`;
-        // QUALITY GATE (Phase 1, 2026-05-29): never auto-approve a constraint
-        // that contradicts the master rules or is a generic stub. This is the
-        // primary point where generateConstraint's boilerplate and dollar-
-        // quantification rules used to enter the store.
-        if (p.status === 'pending' && p.occurrences >= 5 && !existingFields.has(key)) {
-            const verdict = evaluateConstraint(p.suggestedConstraint);
-            if (!verdict.accept) {
-                p.status = 'dismissed';
-                console.log(`[PromptImprovement] Rejected constraint (${verdict.reason}): ${p.suggestedConstraint}`);
-                continue;
-            }
-            p.status = 'approved';
-            improvements.push({
-                id: `auto_${Date.now()}_${i}`,
-                field: p.field,
-                stage: p.stage,
-                constraint: p.suggestedConstraint,
-                appliedAt: Date.now(),
-                improvementScore: 0,
-            });
-            existingFields.add(key);
-            console.log(`[PromptImprovement] Auto-approved constraint: ${p.suggestedConstraint}`);
-
-            // P6-04: Also write to wiki anti-pattern page for cross-session persistence
-            try {
-                import('./wikiService').then(wiki => {
-                    wiki.appendLearnedAntiPattern(
-                        p.stage.toLowerCase().replace(/\s+/g, '-'),
-                        `User consistently ${p.direction}s "${p.field}"`,
-                        p.suggestedConstraint,
-                        `${p.occurrences} edits, ${Math.round(p.occurrences)}+ occurrences`
-                    );
-                });
-            } catch (e) { /* wiki write is best-effort */ }
+    // WS-5 R7: a pattern with 5+ occurrences is a CANDIDATE rule, recorded in the lifecycle store with
+    // status 'candidate'. It reaches a prompt only after the held-out gate (E4, `eval-run.mjs --constraint`)
+    // records that it beat the incumbent. The auto-approval that used to happen here is gone.
+    for (const p of patterns) {
+        if (p.status !== 'pending' || p.occurrences < 5) continue;
+        const verdict = evaluateConstraint(p.suggestedConstraint);
+        if (!verdict.accept) {
+            p.status = 'dismissed';
+            console.log(`[PromptImprovement] Rejected constraint (${verdict.reason}): ${p.suggestedConstraint}`);
+            continue;
         }
+        p.status = 'candidate';
+        void createConstraintRecord({ text: p.suggestedConstraint, deliverableType: p.stage.startsWith('chat:') ? undefined : p.stage, status: 'candidate', origin: `pattern:${p.stage}:${p.field} x${p.occurrences}` })
+            .catch(() => { /* best-effort */ });
     }
-    localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
-    localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(improvements));
-
     return patterns;
 }
 
@@ -264,28 +280,7 @@ function generateConstraint(field: string, editType: string, avgDelta: number, e
 }
 
 // --- IMPROVEMENT MANAGEMENT ---
-
-/**
- * Approve a suggested constraint. It will be injected into future prompts.
- */
-function approveConstraint(patternIndex: number): void {
-    const patterns = getPatterns();
-    if (patterns[patternIndex]) {
-        patterns[patternIndex].status = 'approved';
-        localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
-
-        const improvements = getImprovements();
-        improvements.push({
-            id: `imp_${Date.now()}`,
-            field: patterns[patternIndex].field,
-            stage: patterns[patternIndex].stage,
-            constraint: patterns[patternIndex].suggestedConstraint,
-            appliedAt: Date.now(),
-            improvementScore: 0, // will be scored after next run
-        });
-        localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(improvements));
-    }
-}
+// (the manual approveConstraint path is gone with the store: a rule becomes active only through the held-out gate)
 
 
 /**
@@ -389,23 +384,11 @@ export function getActiveConstraints(kind?: string): string {
 
 // --- DATA ACCESS ---
 
-function getEditLog(): EditSignal[] {
-    try {
-        return JSON.parse(localStorage.getItem(EDIT_LOG_KEY) || '[]');
-    } catch { return []; }
-}
+function getEditLog(): EditSignal[] { return _memory.editLog; }
 
-function getPatterns(): EditPattern[] {
-    try {
-        return JSON.parse(localStorage.getItem(PATTERNS_KEY) || '[]');
-    } catch { return []; }
-}
+function getPatterns(): EditPattern[] { return _memory.patterns; }
 
-function getImprovements(): PromptImprovement[] {
-    try {
-        return JSON.parse(localStorage.getItem(IMPROVEMENTS_KEY) || '[]');
-    } catch { return []; }
-}
+function getImprovements(): PromptImprovement[] { return _memory.improvements; }
 
 // --- STATISTICS ---
 
@@ -453,63 +436,50 @@ export function getStats(): PromptIntelligenceStats {
  */
 export async function loadWikiConstraints(): Promise<number> {
     try {
-        const resp = await fetch('http://127.0.0.1:5012/api/wiki/read/synthesis/learned-constraints.md');
-        if (!resp.ok) return 0;
-        const data = await resp.json();
-        const content = data.content || '';
+        // 1. Every ledger line becomes a CANDIDATE row once (the migration of the 48 pre-existing constraints
+        //    through the lifecycle store; `eval-run.mjs --constraint` runs E4 on each and stamps the winners).
+        let rows = await readConstraintRecords();
+        const byId = new Map(rows.map(r => [r.id, r]));
+        let migrated = 0;
+        try {
+            const resp = await fetch('http://127.0.0.1:5012/api/wiki/read/synthesis/learned-constraints.md');
+            if (resp.ok) {
+                const data = await resp.json();
+                const content = String(data?.content || '');
+                for (const line of (content.match(/^- CONSTRAINT[^:]*:\s*.+$/gm) || [])) {
+                    const m = line.match(/^- CONSTRAINT(?:\s*\[([^\]]+)\])?:\s*(.+)$/);
+                    if (!m) continue;
+                    const scopeRaw = m[1] || '';
+                    const text = m[2].trim();
+                    if (!text || !isAcceptableConstraint(text)) continue;
+                    const id = constraintRecordId(text);
+                    if (byId.has(id)) continue;
+                    const row: ConstraintLifecycleRecord = {
+                        id, text, deliverableType: scopeRaw ? scopeRaw.split('/')[0].trim() || undefined : undefined,
+                        sectionScope: scopeRaw.includes('/') ? scopeRaw.split('/').slice(1).join('/') : null,
+                        created: new Date().toISOString(), applications: 0, negativeSignalsAfter: 0,
+                        confidence: (() => { const c = /confidence\s+([0-9.]+)/i.exec(text); return c ? Number(c[1]) : undefined; })(),
+                        status: 'candidate', origin: 'ledger-migration-2026-10-30',
+                    };
+                    rows.push(row); byId.set(id, row); migrated++;
+                }
+            }
+        } catch { /* the ledger is optional once the records exist */ }
+        if (migrated > 0) {
+            await writeConstraintRecords(rows);
+            console.log(`[PromptImprovement] ${migrated} ledger constraint(s) recorded as candidates (not injected until they win on the held-out split)`);
+        }
 
-        // Parse constraint entries from the wiki page.
-        // Formats supported:
-        //   - CONSTRAINT: <text>                          (legacy, kind=undefined)
-        //   - CONSTRAINT [<deliverable>/<section>]: <text> (2026-05-22 scoped form)
-        const constraintLines = content.match(/^- CONSTRAINT[^:]*:\s*.+$/gm) || [];
-        if (constraintLines.length === 0) return 0;
-
-        const existing = getImprovements();
-        const existingTexts = new Set(existing.map(i => i.constraint));
-        const existingKeys = new Set(existing.map(i => normalizeConstraintKey(i.constraint)));
+        // 2. The active mirror holds ONLY rules that won on the held-out split and were not retired or dismissed.
         const dismissed = getDismissedConstraintKeys();
-        let added = 0;
-        let rejected = 0;
-
-        for (const line of constraintLines) {
-            // Capture optional [scope] tag and the constraint text.
-            const m = line.match(/^- CONSTRAINT(?:\s*\[([^\]]+)\])?:\s*(.+)$/);
-            if (!m) continue;
-            const scopeRaw = m[1] || '';
-            const text = m[2].trim();
-            if (!text || existingTexts.has(text)) continue;
-            const normKey = normalizeConstraintKey(text);
-            // QUALITY GATE (Phase 1): do not import constraints that are
-            // dismissed, contradict the master rules, are generic stubs, or
-            // duplicate one already loaded (normalized). This stops a stale or
-            // externally-written wiki file from re-poisoning the prompt.
-            if (dismissed.has(normKey)) { rejected++; continue; }
-            if (existingKeys.has(normKey)) { rejected++; continue; }
-            if (!isAcceptableConstraint(text)) { rejected++; continue; }
-            existingKeys.add(normKey);
-            // scope is "<deliverableType>/<section>" - split into artifactKind
-            const artifactKind = scopeRaw ? scopeRaw.split('/')[0].trim() || 'all' : 'all';
-            existing.push({
-                id: `wiki_${Date.now()}_${added}`,
-                field: scopeRaw || 'wiki-imported',
-                stage: 'cross-session',
-                constraint: text,
-                appliedAt: Date.now(),
-                improvementScore: 0,
-                artifactKind,
-            });
-            existingTexts.add(text);
-            added++;
-        }
-
-        if (added > 0) {
-            localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(existing));
-            console.log(`[PromptImprovement] Loaded ${added} constraints from wiki (cross-session compounding)${rejected ? `; gate rejected ${rejected}` : ''}`);
-        } else if (rejected > 0) {
-            console.log(`[PromptImprovement] Wiki constraints all filtered by quality gate (${rejected} rejected)`);
-        }
-        return added;
+        const active = rows.filter(r => r.status === 'active' && r.heldout_win === true && !r.retired && !dismissed.has(normalizeConstraintKey(r.text)) && isAcceptableConstraint(r.text));
+        _memory.improvements = active.map((r, i) => ({
+            id: `rec_${r.id}_${i}`, field: r.sectionScope || 'held-out', stage: 'cross-session', constraint: r.text,
+            appliedAt: Date.parse(r.heldout?.decided_at || r.created) || Date.now(), improvementScore: r.heldout ? (r.heldout.after - r.heldout.before) : 0,
+            artifactKind: r.scope?.kind || r.deliverableType || 'all',
+        }));
+        if (active.length) console.log(`[PromptImprovement] ${active.length} held-out-winning constraint(s) active; ${rows.length - active.length} candidate/retired`);
+        return active.length;
     } catch (e) {
         // Wiki may not be available (e.g., proxy not running) - non-blocking
         return 0;
@@ -523,8 +493,6 @@ export async function loadWikiConstraints(): Promise<number> {
 // services/chatFeedbackExtractor.ts.
 
 // Keyed by stage::field so the existing pattern detector can group them.
-const CORRECTION_RULES_KEY = 'hic_correction_rules';
-
 interface StashedCorrectionRule {
     stage: string;
     field: string;
@@ -532,11 +500,7 @@ interface StashedCorrectionRule {
     timestamp: number;
 }
 
-function getCorrectionRules(): StashedCorrectionRule[] {
-    try {
-        return JSON.parse(localStorage.getItem(CORRECTION_RULES_KEY) || '[]');
-    } catch { return []; }
-}
+function getCorrectionRules(): StashedCorrectionRule[] { return _memory.rules; }
 
 interface ChatFeedbackInput {
     type: 'correction' | 'rejection' | 'rule';
@@ -589,7 +553,6 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
     const log = getEditLog();
     log.push(editSignal);
     if (log.length > 500) log.splice(0, log.length - 500);
-    localStorage.setItem(EDIT_LOG_KEY, JSON.stringify(log));
 
     // Stash the LLM-extracted rule for use by detectPatterns. Without this,
     // generateConstraint() would only see character deltas and produce its
@@ -598,39 +561,27 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
         const rules = getCorrectionRules();
         rules.push({ stage, field, rule: signal.extractedRule, timestamp: signal.timestamp });
         if (rules.length > 200) rules.splice(0, rules.length - 200);
-        localStorage.setItem(CORRECTION_RULES_KEY, JSON.stringify(rules));
     }
 
-    // High-confidence rules bypass the threshold and write an improvement
-    // immediately. These are explicit user commands -- accumulating them
-    // across repetitions would discard the high-value signal.
-    if (signal.type === 'rule' && signal.confidence >= 0.75 && signal.extractedRule) {
-        // QUALITY GATE (Phase 1): a high-confidence chat rule still must not
-        // contradict the master rules or be a generic stub.
+    // WS-5 R7 (2026-10-30): feedback is a LABEL and a FRONTIER CASE, never an auto-injected rule. The
+    // 0.75/0.85 "high-confidence rule" bypass that wrote a constraint into every later prompt from ONE
+    // message is deleted. A rule the classifier extracted becomes a CANDIDATE lifecycle row; it is injected
+    // only after `eval-run.mjs --constraint` shows it beats the incumbent on the held-out split (E4).
+    postLabel({ slide_id: `chat:${signal.chatSurface}:${signal.type}`, label: 'rejected', source: 'feedback_widget',
+                detail: (signal.extractedRule || signal.userText).slice(0, 300) });
+    if (signal.type !== 'rejection' || signal.extractedRule) {
+        postFrontierCase({ kind: signal.artifactKind || 'all', prompt: signal.userText, objective: _objectiveForCases(), aiText: signal.aiText,
+                           rule: signal.extractedRule || signal.userText, surface: signal.chatSurface });
+    }
+    if (signal.type === 'rule' && signal.extractedRule) {
         const verdict = evaluateConstraint(signal.extractedRule);
         if (!verdict.accept) {
             console.log(`[PromptImprovement] Rejected chat rule (${verdict.reason}): ${signal.extractedRule}`);
         } else {
-        const improvements = getImprovements();
-        const existingTexts = new Set(improvements.map(i => i.constraint));
-        if (!existingTexts.has(signal.extractedRule)) {
-            improvements.push({
-                id: `chatrule_${Date.now()}`,
-                field,
-                stage,
-                constraint: signal.extractedRule,
-                appliedAt: Date.now(),
-                improvementScore: 0,
-                artifactKind: signal.artifactKind || 'all',
-            });
-            localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(improvements));
-            console.log(`[PromptImprovement] Chat rule (direct, kind=${signal.artifactKind || 'all'}): ${signal.extractedRule}`);
-
-            // For 'rule' signals only -- export to wiki immediately so cross-session
-            // compounding works without waiting for an end-of-run trigger.
-            // (Many chat-first sessions never reach the old end-of-run handler.)
-            void exportConstraintsToWiki().catch(() => { /* non-blocking */ });
-        }
+            void createConstraintRecord({ text: signal.extractedRule, deliverableType: signal.artifactKind && signal.artifactKind !== 'all' ? signal.artifactKind : undefined,
+                                          confidence: signal.confidence, status: 'candidate', origin: `chat:${signal.chatSurface}` })
+                .catch(() => { /* best-effort */ });
+            console.log(`[PromptImprovement] Chat rule recorded as a CANDIDATE (kind=${signal.artifactKind || 'all'}); it is injected only after the held-out gate: ${signal.extractedRule}`);
         }
     }
 
@@ -639,6 +590,11 @@ export function logChatFeedback(signal: ChatFeedbackInput): void {
         detectPatterns();
     }
 }
+
+let _objectiveProvider: (() => string) | null = null;
+/** The run objective the frontier cases carry (runState registers this; avoids an import cycle). */
+export function setObjectiveProviderForCases(fn: (() => string) | null): void { _objectiveProvider = fn; }
+function _objectiveForCases(): string { try { return _objectiveProvider ? _objectiveProvider() : ''; } catch { return ''; } }
 
 /**
  * Look up the most recent extracted rule for a given stage+field. Called by
@@ -657,22 +613,18 @@ function lookupChatRule(stage: string, field: string): string | null {
  * P6-06: Export current localStorage constraints to wiki for cross-session persistence.
  */
 export async function exportConstraintsToWiki(): Promise<boolean> {
-    const improvements = getImprovements();
-    if (improvements.length === 0) return false;
-
-    // QUALITY GATE (Phase 1): never write back master-rule violations, generic
-    // stubs, or near-duplicates. This keeps the persisted wiki file clean so it
-    // does not have to be hand-purged again, and so the Python agent-session
-    // injector and the SPA see the same compliant set.
+    // WS-5 R7: the ledger lists the rules that WON on the held-out split (the ones the Claude Code hook and
+    // the SPA inject) and, below them, the candidates still waiting for E4. Nothing else is written there.
+    const rows = await readConstraintRecords();
     const dismissed = getDismissedConstraintKeys();
-    const kept = gateConstraints(
-        improvements
-            .filter(i => !dismissed.has(normalizeConstraintKey(i.constraint)))
-            .map(i => i.constraint)
-    ).kept;
-    if (kept.length === 0) return false;
+    const winners = rows.filter(r => r.status === 'active' && r.heldout_win === true && !r.retired && !dismissed.has(normalizeConstraintKey(r.text)));
+    const candidates = rows.filter(r => (r.status === 'candidate' || (!r.status && !r.heldout_win)) && !r.retired);
+    const kept = gateConstraints(winners.map(w => w.text)).kept;
+    if (kept.length === 0 && candidates.length === 0) return false;
 
-    const lines = kept.map(c => `- CONSTRAINT: ${c}`).join('\n');
+    const scopeOf = (text: string) => { const r = winners.find(w => w.text === text); return r?.scope?.kind || r?.deliverableType ? `[${r?.scope?.kind || r?.deliverableType}${r?.sectionScope ? `/${r.sectionScope}` : ''}]` : ''; };
+    const lines = kept.map(c => `- CONSTRAINT${scopeOf(c) ? ` ${scopeOf(c)}` : ''}: ${c}`).join('\n')
+        + (candidates.length ? `\n\n## Candidates (not injected until they beat the incumbent on the held-out split)\n\n${candidates.map(c => `- candidate: ${c.text}`).join('\n')}` : '');
     const content = `---\ntitle: Learned Constraints\ntype: synthesis\nupdated: ${new Date().toISOString().split('T')[0]}\n---\n\n# Learned Constraints\n\nAuto-generated from user edit patterns across research sessions.\n\n${lines}\n`;
 
     try {
@@ -715,6 +667,14 @@ export interface ConstraintLifecycleRecord {
     confidence?: number;
     /** ISO timestamp when runLearningPass removed it from the ledger. */
     retired?: string;
+    /** WS-5 R7 lifecycle: candidate (recorded, never injected) -> active (held-out win) -> retired. */
+    status?: 'candidate' | 'active' | 'retired';
+    /** True only when E4 (`eval-run.mjs --constraint`) recorded that the rule beat the incumbent. */
+    heldout_win?: boolean;
+    heldout?: { before: number; after: number; cases: number; decided_at: string; decision?: string; reason?: string };
+    /** Scope the win was measured under; injection stays inside it. */
+    scope?: { kind?: string; engagement_type?: string };
+    origin?: string;
 }
 
 /** Deterministic id for a constraint row (djb2 over the normalized key). */
@@ -748,6 +708,11 @@ export async function readConstraintRecords(): Promise<ConstraintLifecycleRecord
                 negativeSignalsAfter: Number(row.negativeSignalsAfter ?? row.repeatedNegativeSignalsAfter) || 0,
                 confidence: typeof row.confidence === 'number' ? row.confidence : undefined,
                 retired: typeof row.retired === 'string' ? row.retired : undefined,
+                status: row.status === 'active' || row.status === 'candidate' || row.status === 'retired' ? row.status : (typeof row.retired === 'string' ? 'retired' : (row.heldout_win === true ? 'active' : 'candidate')),
+                heldout_win: row.heldout_win === true,
+                heldout: row.heldout && typeof row.heldout === 'object' ? row.heldout : undefined,
+                scope: row.scope && typeof row.scope === 'object' ? row.scope : undefined,
+                origin: typeof row.origin === 'string' ? row.origin : undefined,
             }));
     } catch {
         return [];
@@ -773,6 +738,8 @@ export async function createConstraintRecord(input: {
     deliverableType?: string;
     sectionScope?: string | null;
     confidence?: number;
+    status?: 'candidate' | 'active';
+    origin?: string;
 }): Promise<ConstraintLifecycleRecord | null> {
     const rows = await readConstraintRecords();
     const id = constraintRecordId(input.text);
@@ -787,9 +754,36 @@ export async function createConstraintRecord(input: {
         applications: 0,
         negativeSignalsAfter: 0,
         confidence: input.confidence,
+        status: input.status || 'candidate',
+        heldout_win: false,
+        origin: input.origin,
     };
     rows.push(row);
     const ok = await writeConstraintRecords(rows);
+    return ok ? row : null;
+}
+
+/**
+ * WS-5 R7: the held-out verdict for one rule (written by `eval-run.mjs --constraint` through the lane, or by an
+ * owner). A win makes the rule active inside the measured scope; a loss leaves it a candidate with the numbers.
+ */
+export async function recordHeldoutVerdict(text: string, verdict: { before: number; after: number; cases: number; decision: 'accept' | 'reject'; reason?: string; scope?: { kind?: string; engagement_type?: string } }): Promise<ConstraintLifecycleRecord | null> {
+    const rows = await readConstraintRecords();
+    const id = constraintRecordId(text);
+    let row = rows.find(r => r.id === id);
+    if (!row) {
+        row = { id, text, created: new Date().toISOString(), applications: 0, negativeSignalsAfter: 0, status: 'candidate', heldout_win: false, sectionScope: null };
+        rows.push(row);
+    }
+    row.heldout = { before: verdict.before, after: verdict.after, cases: verdict.cases, decided_at: new Date().toISOString(), decision: verdict.decision, reason: verdict.reason };
+    row.heldout_win = verdict.decision === 'accept';
+    row.status = row.heldout_win ? 'active' : 'candidate';
+    if (verdict.scope) row.scope = verdict.scope;
+    const ok = await writeConstraintRecords(rows);
+    if (ok && row.heldout_win && !_memory.improvements.some(i => normalizeConstraintKey(i.constraint) === normalizeConstraintKey(text))) {
+        _memory.improvements.push({ id: `rec_${id}`, field: row.sectionScope || 'held-out', stage: 'cross-session', constraint: text, appliedAt: Date.now(), improvementScore: verdict.after - verdict.before, artifactKind: verdict.scope?.kind || row.deliverableType || 'all' });
+    }
+    if (ok && !row.heldout_win) removeImprovementsByText([text]);
     return ok ? row : null;
 }
 

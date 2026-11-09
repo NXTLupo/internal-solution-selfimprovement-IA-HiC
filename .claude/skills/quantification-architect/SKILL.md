@@ -1,8 +1,9 @@
 ---
 name: quantification-architect
+description: "Give every recommendation the finance-grade four-tuple: a sourced baseline, a dated target, a named measurement method and a refresh cadence. Use when recommendations or roadmap items must be approvable by a finance committee."
 invocation: model
-version: 1.0
-description: Enforces the finance-grade four-tuple on every recommendation — baseline (current state, sourced), target (committed delta with date), measurement method (named instrument), refresh cadence. The single change that moves HiC deliverables from "directionally interesting" to "approvable by a finance committee." Composes with recommendation-architect (which produces the recommendation), strategy-author (which sequences it into the Coherent Actions phase of Rumelt's Kernel), roadmap-builder (each horizon item inherits the four-tuple), and the validate_quantification.py Stop hook (which enforces presence). Closes the gap that validate_evidence.py misses — that hook checks evidence EXISTS, this skill checks the recommendation is MEASURABLE.
+version: "1"
+status: active
 thinking: high
 category: deliverable-enforcer
 triggers:
@@ -10,13 +11,17 @@ triggers:
   - quantification
   - baseline and target
   - measurement plan
-  - "how will we measure"
-  - "what's the baseline"
+  - how will we measure
+  - what's the baseline
   - "#quantify"
   - "#four-tuple"
 ---
 
 # Quantification Architect
+
+## Scope
+
+Enforces the finance-grade four-tuple on every recommendation — baseline (current state, sourced), target (committed delta with date), measurement method (named instrument), refresh cadence. The single change that moves HiC deliverables from "directionally interesting" to "approvable by a finance committee." Composes with recommendation-architect (which produces the recommendation), strategy-author (which sequences it into the Coherent Actions phase of Rumelt's Kernel), roadmap-builder (each horizon item inherits the four-tuple), and the validate_quantification.py Stop hook (which enforces presence). Closes the gap that validate_evidence.py misses — that hook checks evidence EXISTS, this skill checks the recommendation is MEASURABLE.
 
 ## You Are
 

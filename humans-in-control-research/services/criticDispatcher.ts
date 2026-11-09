@@ -168,7 +168,7 @@ async function callAnthropicText(model: string, prompt: string, proxyBase: strin
         throw new Error(`anthropic HTTP ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
     }
     const data = await resp.json();
-    return data.content?.[0]?.text ?? '';
+    return ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''));   // 2026-10-05: content[0] can be a thinking block
 }
 
 interface AnthropicCallOpts {
@@ -182,7 +182,9 @@ interface AnthropicCallOpts {
 
 async function invokeAnthropicCritic(opts: AnthropicCallOpts): Promise<{ verdict: CriticVerdict; cost_usd: number }> {
     const skillMd = await loadSkillMarkdown(opts.skill, opts.proxyBase, opts.index);
-    const prompt = buildCriticPrompt(opts.skill, skillMd, opts.deliverable, opts.evidenceBlock);
+    // 2026-10-30 (WS-2 E9): a per-run nonce so the proxy's exact-match cache never replays an earlier
+    // judgment for the same artifact; calibration needs independent repeat judgments.
+    const prompt = buildCriticPrompt(opts.skill, skillMd, opts.deliverable, opts.evidenceBlock) + `\n\n[judge run ${Date.now().toString(36)}]`;
     const text = await callAnthropicText(opts.model, prompt, opts.proxyBase, 2000);
 
     let parsed: any;

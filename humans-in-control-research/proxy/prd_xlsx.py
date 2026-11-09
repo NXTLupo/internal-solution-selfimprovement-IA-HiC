@@ -964,7 +964,8 @@ _EXEMPT_POINTER_HEADERS = {"Evidence pointer", "Pointer", "Evidence pointers"}
 
 _STANDARD_RE = re.compile(r"\b(?:WCAG\s*\d+(?:\.\d+)?(?:\s*(?:AA|AAA|A))?|ISO(?:/IEC)?(?:/IEEE)?\s*\d+(?::\d{4})?|IEEE\s*\d+|Article\s*\d+|p\d{2})\b", re.I)
 # Suffix in either case, as in the TS twin (its combined protect pattern is case-insensitive): "H-1B", "SF-3a".
-_ID_TOKEN_RE = re.compile(r"\b[A-Z]{1,5}-\d+[A-Za-z]?\b")
+# Case-insensitive like the TypeScript PROTECTED_RE ('gi'): "exhibit a-2" is an id token on both sides (2026-10-20).
+_ID_TOKEN_RE = re.compile(r"\b[A-Z]{1,5}-\d+[A-Za-z]?\b", re.I)
 _POINTER_TOKEN_RE = re.compile(r"\b[A-Za-z][\w.\\-]*/[\w./\\-]+(?:#c\d+)?", re.I)
 _YEAR_RE = re.compile(r"\b(?:19|20)\d{2}(?:-\d{2}(?:-\d{2})?)?\b")
 _UNITS = r"%|percent\b|x\b|k\b|m\b|bn\b|ms\b|seconds?\b|minutes?\b|hours?\b|days?\b|weeks?\b|months?\b|years?\b|terms?\b|times\b|points?\b"
@@ -977,6 +978,9 @@ _NAME_NUMBER_RE = re.compile(r"\b(?!(?:" + _QUANTITY_OPENERS + r")\b)[A-Z][A-Za-
 _MODIFIER_NUMBER_RE = re.compile(r"\b\d{2,}(?:\.\d+)?\s+(?!(?:" + _UNITS + r"))[a-z]*[a-rt-z]\b")
 
 
+_FIXED_TERM_RE = re.compile(r"\b\d+-year(?:-old)?s?\b")
+
+
 def naked_numbers(text: str) -> List[str]:
     """Python twin of services/deliverableRules.ts nakedNumbers: digits that are not an id, a pointer, a standard
     name, a year or part of a name ("Acme 360")."""
@@ -986,6 +990,8 @@ def naked_numbers(text: str) -> List[str]:
     t = _MODIFIER_NUMBER_RE.sub(" ", t)
     t = _ID_TOKEN_RE.sub(" ", t)
     t = _YEAR_RE.sub(" ", t)
+    # 2026-10-20 (root-cause audit P1.9): an "N-year" term is a fixed term, as in deliverableRules.ts FIXED_TERM_RE.
+    t = _FIXED_TERM_RE.sub(" ", t)
     return [m.group(0).strip() for m in _NUMBER_RE.finditer(t) if re.search(r"\d", m.group(0))]
 
 
@@ -1028,16 +1034,14 @@ def export_checks(g: _Graph, wb: Workbook) -> List[Dict[str, Any]]:
     # The number rule, re-checked here on the final rows (2026-10-02 audit: the export check covered coverage, ids,
     # tests, pointers and dashes but not numbers). A figure may appear only inside a quote or a typed target; the
     # requirement sentence and its acceptance test are neither.
+    # 2026-10-20 (root-cause audit P1.9): acceptance criteria are specifications, not claims; their thresholds stay
+    # verifiable. Only the requirement sentence is checked here, matching prdRulesContract.ts.
     nums = []
     for r in reqs:
         for n in naked_numbers(str(r.get("text") or "")):
             nums.append(f"{r.get('id')}: \"{n}\"")
             break
-        for a in g.ats_for(r):
-            hit = next((n for f in ("given", "when", "then") for n in naked_numbers(str(a.get(f) or ""))), None)
-            if hit:
-                nums.append(f"{a.get('id')}: \"{hit}\"")
-    add("Numbers appear only inside quotes or typed targets (requirement and test text)", nums[:200])
+    add("Numbers appear only inside quotes, typed targets or acceptance tests (requirement text)", nums[:200])
 
     ptr, dash = [], []
     for ws in wb.worksheets:

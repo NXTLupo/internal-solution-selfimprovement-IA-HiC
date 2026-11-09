@@ -4,11 +4,12 @@ title: Heuristic Audit Anti-Patterns
 type: anti-pattern
 chunks:
   - id: "anti-patterns/heuristic-audit.md#c0"
-    char_span: [0, 1939]
+    char_span: [0, 1938]
     sentence_count: 1
     key_terms: [findings, without, needs-manual-review, heuristic, severity, finding, invented, proposed]
     concepts: [findings, needs-manual-review, without, heuristic, severity]
-    token_count: 492
+    token_count: 491
+    sources: [{"n":"anti patterns","u":"","kind":"anti-pattern"}]
 ---
 # Heuristic Audit Anti-Patterns (reason codes as named smells)
 

@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:01:49+00:00"
 content_hash: "e3ee7e49dc980c98"
 chunks:
   - id: "articles/agr-thespoon-ag/a1db06faaa.md#c0"
-    char_span: [0, 159]
+    char_span: [0, 158]
     sentence_count: 1
     key_terms: [the-future-of-food-testing-may-be-in-your-brainwaves, brainwaves, thespoon, testing, future, source, https, food]
-    token_count: 43
-    sources: [{"n":"agr_thespoon_ag","u":"https://thespoon.tech/the-future-of-food-testing-may-be-in-your-brainwaves/"}]
+    token_count: 42
+    sources: [{"n":"agr_thespoon_ag","u":"https://thespoon.tech/the-future-of-food-testing-may-be-in-your-brainwaves/","kind":"article","date":"2026-03-13"}]
   - id: "articles/agr-thespoon-ag/a1db06faaa.md#c1"
-    char_span: [161, 2899]
+    char_span: [160, 2898]
     sentence_count: 8
     key_terms: [brain, ubiali, electrical, activity, consumer, food, people, consumers]
     concepts: [brain, ubiali, electrical, activity, consumer]
     related_chunks: ["articles/agr-thespoon-ag/a1db06faaa.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_thespoon_ag","u":"https://thespoon.tech/the-future-of-food-testing-may-be-in-your-brainwaves/","kind":"article","date":"2026-03-13"}]
   - id: "articles/agr-thespoon-ag/a1db06faaa.md#c2"
-    char_span: [2558, 5246]
+    char_span: [2557, 5245]
     sentence_count: 13
     key_terms: [consumers, brain, ubiali, consumer, company, new, feedback, sensory]
     concepts: [consumers, brain, ubiali, consumer, company]
     related_chunks: ["articles/agr-thespoon-ag/a1db06faaa.md#c1"]
     token_count: 473
+    sources: [{"n":"agr_thespoon_ag","u":"https://thespoon.tech/the-future-of-food-testing-may-be-in-your-brainwaves/","kind":"article","date":"2026-03-13"}]
 ---
 # The Future of Food Testing May Be in Your Brainwaves
 

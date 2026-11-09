@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:05:30+00:00"
 content_hash: "711f54cec849adcb"
 chunks:
   - id: "articles/irs-charities-news/d1dcb350bd.md#c0"
-    char_span: [0, 98]
+    char_span: [0, 97]
     sentence_count: 1
     key_terms: [charities-non-profits, irs, charities, newsroom, source, https, gov, www]
-    token_count: 29
-    sources: [{"n":"irs_charities_news","u":"https://www.irs.gov/charities-non-profits"}]
+    token_count: 28
+    sources: [{"n":"irs_charities_news","u":"https://www.irs.gov/charities-non-profits","kind":"article"}]
   - id: "articles/irs-charities-news/d1dcb350bd.md#c1"
-    char_span: [100, 2781]
+    char_span: [99, 2780]
     sentence_count: 13
     key_terms: [organizations, charitable, contributions, tax-exempt, organization, scholarship, tax, section]
     concepts: [organizations, charitable, contributions, tax-exempt, organization]
     related_chunks: ["articles/irs-charities-news/d1dcb350bd.md#c2"]
     token_count: 512
+    sources: [{"n":"irs_charities_news","u":"https://www.irs.gov/charities-non-profits","kind":"article"}]
   - id: "articles/irs-charities-news/d1dcb350bd.md#c2"
-    char_span: [2437, 3073]
+    char_span: [2436, 3072]
     sentence_count: 5
     key_terms: [organizations, exempt, issue, newsletter, tax-exempt, snapshots, guidance, irs]
     concepts: [organizations, exempt, issue, newsletter, tax-exempt]
     related_chunks: ["articles/irs-charities-news/d1dcb350bd.md#c1"]
     token_count: 116
+    sources: [{"n":"irs_charities_news","u":"https://www.irs.gov/charities-non-profits","kind":"article"}]
 ---
 # IRS Charities Newsroom
 

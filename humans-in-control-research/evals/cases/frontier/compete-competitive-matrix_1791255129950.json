@@ -1,0 +1,26 @@
+{
+  "id": "compete-competitive-matrix_1791255129950",
+  "set": "frontier",
+  "kind": "compete",
+  "input": {
+    "objective": "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility.",
+    "prompt": "#compete",
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ/artifacts/competitive-matrix_1791255129950.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "competitive-matrix_1791255129950",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:claims partial (unknown); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); layout:ungrounded_concept x4; layout:archetype_monotony x2; evidence:unsupported_p0 x1; layout:sequence_repeat x1"
+  }
+}

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T15:59:18+00:00"
 content_hash: "1fe3e8e8cc96a9dc"
 chunks:
   - id: "articles/openml/2e2cc9dc3a.md#c0"
-    char_span: [0, 577]
+    char_span: [0, 576]
     sentence_count: 1
     key_terms: [name, value, numberofinstanceswithmissingvalues, maxnominalattdistinctvalues, openml, autos, majorityclasssize, minorityclasssize]
     concepts: [value, openml, autos]
-    token_count: 196
-    sources: [{"n":"[openml](hic://pack-backfill/openml/7598754876555982738","u":""}]
+    token_count: 195
+    sources: [{"n":"openml","u":"","kind":"article"}]
 ---
 # autos
 

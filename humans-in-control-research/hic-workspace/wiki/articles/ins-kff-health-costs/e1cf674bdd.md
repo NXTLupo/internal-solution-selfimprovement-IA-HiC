@@ -16,47 +16,52 @@ collected_at: "2026-07-02T17:42:12+00:00"
 content_hash: "0f04ee341b761f12"
 chunks:
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c0"
-    char_span: [0, 285]
+    char_span: [0, 284]
     sentence_count: 1
     key_terms: [nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge, medicare, beneficiaries, eligibility, criteria, million, bridge, nearly]
     concepts: [medicare]
-    token_count: 80
-    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/"}]
+    token_count: 79
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c1"
-    char_span: [287, 2607]
+    char_span: [286, 2606]
     sentence_count: 7
     key_terms: [medicare, glp-1, part, bridge, beneficiaries, coverage, bmi, program]
     concepts: [medicare, glp-1, beneficiaries, bridge, coverage]
     related_chunks: ["articles/ins-kff-health-costs/e1cf674bdd.md#c2", "articles/ins-kff-health-costs/e1cf674bdd.md#c3", "articles/ins-kff-health-costs/e1cf674bdd.md#c4", "articles/ins-kff-health-costs/e1cf674bdd.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c2"
-    char_span: [2333, 4806]
+    char_span: [2332, 4805]
     sentence_count: 7
     key_terms: [medicare, beneficiaries, glp-1, bridge, part, obesity, overweight, criteria]
     concepts: [medicare, beneficiaries, glp-1, bridge, obesity]
     related_chunks: ["articles/ins-kff-health-costs/e1cf674bdd.md#c1", "articles/ins-kff-health-costs/e1cf674bdd.md#c3", "articles/ins-kff-health-costs/e1cf674bdd.md#c4", "articles/ins-kff-health-costs/e1cf674bdd.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c3"
-    char_span: [4455, 6683]
+    char_span: [4454, 6682]
     sentence_count: 9
     key_terms: [medicare, part, bridge, enrollees, eligible, million, glp-1, beneficiaries]
     concepts: [medicare, bridge, enrollees, eligible, beneficiaries]
     related_chunks: ["articles/ins-kff-health-costs/e1cf674bdd.md#c1", "articles/ins-kff-health-costs/e1cf674bdd.md#c2", "articles/ins-kff-health-costs/e1cf674bdd.md#c4", "articles/ins-kff-health-costs/e1cf674bdd.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c4"
-    char_span: [6415, 8830]
+    char_span: [6414, 8829]
     sentence_count: 11
     key_terms: [medicare, bridge, glp-1, individuals, advantage, analysis, cost, billion]
     concepts: [medicare, bridge, individuals, glp-1, advantage]
     related_chunks: ["articles/ins-kff-health-costs/e1cf674bdd.md#c1", "articles/ins-kff-health-costs/e1cf674bdd.md#c2", "articles/ins-kff-health-costs/e1cf674bdd.md#c3", "articles/ins-kff-health-costs/e1cf674bdd.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-kff-health-costs/e1cf674bdd.md#c5"
-    char_span: [8538, 9312]
+    char_span: [8537, 9311]
     sentence_count: 6
     key_terms: [medicare, glp-1, advantage, condition, bridge, claims, flag, part]
     concepts: [medicare, glp-1, advantage, condition, bridge]
     related_chunks: ["articles/ins-kff-health-costs/e1cf674bdd.md#c1", "articles/ins-kff-health-costs/e1cf674bdd.md#c2", "articles/ins-kff-health-costs/e1cf674bdd.md#c3", "articles/ins-kff-health-costs/e1cf674bdd.md#c4"]
     token_count: 159
+    sources: [{"n":"ins_kff_health_costs","u":"https://www.kff.org/medicare/nearly-four-million-medicare-beneficiaries-met-the-eligibility-criteria-in-2023-for-the-medicare-glp-1-bridge/","kind":"article","date":"2026-06-29"}]
 ---
 # Nearly Four Million Medicare Beneficiaries Met the Eligibility Criteria in 2023 for the Medicare GLP-1 Bridge
 

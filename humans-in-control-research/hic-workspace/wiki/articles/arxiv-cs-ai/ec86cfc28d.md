@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:14:05+00:00"
 content_hash: "aadc8bef2d9710b3"
 chunks:
   - id: "articles/arxiv-cs-ai/ec86cfc28d.md#c0"
-    char_span: [0, 647]
+    char_span: [0, 646]
     sentence_count: 2
     key_terms: [risks, frontier, risk, management, framework, analysis, identify, safework-f1-framework]
     concepts: [risks, frontier, management, framework, analysis]
-    token_count: 132
-    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2507.16534v2"}]
+    token_count: 131
+    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2507.16534v2","kind":"article","date":"2025-07-22"}]
 ---
 # Frontier AI Risk Management Framework in Practice: A Risk Analysis Technical Report
 

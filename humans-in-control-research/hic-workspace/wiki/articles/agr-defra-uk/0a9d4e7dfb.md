@@ -19,29 +19,32 @@ content_hash: "a085238674004a8c"
 relevance_by_goal: {"c5a2d58d1be7":25}
 chunks:
   - id: "articles/agr-defra-uk/0a9d4e7dfb.md#c0"
-    char_span: [0, 181]
+    char_span: [0, 180]
     sentence_count: 1
     key_terms: [environment-secretary-emma-reynolds-groundswell-festival, environment, groundswell, government, secretary, festival, reynolds, speeches]
-    token_count: 45
-    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/speeches/environment-secretary-emma-reynolds-groundswell-festival"}]
+    token_count: 44
+    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/speeches/environment-secretary-emma-reynolds-groundswell-festival","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-defra-uk/0a9d4e7dfb.md#c1"
-    char_span: [183, 2820]
+    char_span: [182, 2819]
     sentence_count: 28
     key_terms: [farming, environment, groundswell, resilience, nature-friendly, secretary, support, nature]
     concepts: [farming, environment, groundswell, nature-friendly, resilience]
     token_count: 512
+    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/speeches/environment-secretary-emma-reynolds-groundswell-festival","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-defra-uk/0a9d4e7dfb.md#c2"
-    char_span: [2468, 5057]
+    char_span: [2467, 5056]
     sentence_count: 23
     key_terms: [environmental, countryside, management, soil, already, scheme, today, stewardship]
     concepts: [environmental, countryside, management, already, scheme]
     token_count: 512
+    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/speeches/environment-secretary-emma-reynolds-groundswell-festival","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-defra-uk/0a9d4e7dfb.md#c3"
-    char_span: [4707, 6082]
+    char_span: [4706, 6081]
     sentence_count: 15
     key_terms: [published, land, environmental, help, agreements, innovation, farmers, backed]
     concepts: [published, environmental, agreements, innovation, farmers]
     token_count: 262
+    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/speeches/environment-secretary-emma-reynolds-groundswell-festival","kind":"article","date":"2026-07-02"}]
 ---
 # Environment Secretary Emma Reynolds: Groundswell Festival
 

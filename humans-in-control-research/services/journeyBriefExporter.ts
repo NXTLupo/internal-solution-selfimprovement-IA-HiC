@@ -23,6 +23,7 @@
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { artifactModelFor, applyAnthropicRequestDefaults } from './aiRouter';
 import type { BrandId } from '../components/slideTemplates/brands';
+import { anthropicText } from './claudeModelPolicy';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -129,7 +130,7 @@ export async function generateJourneyBrief(input: JourneyBriefInput): Promise<Jo
         }
         const data = await resp.json();
         // Anthropic shape: content[0].text
-        return data?.content?.[0]?.text || data?.text || '';
+        return anthropicText(data) || data?.text || '';
     }
 
     let raw = '';

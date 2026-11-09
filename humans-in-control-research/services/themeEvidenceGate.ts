@@ -16,6 +16,7 @@
  * excluded from `withinDeliverableCap`, so a deck or persona never inherits a promoted hedge.
  */
 import { HEDGE_RE } from './claimLedgerGate';
+import { citationOriginKey } from './corpusMergeAuthority';
 
 export type ThemeEvidenceFlag = 'hedged' | 'unverified_identifier' | 'no_quoted_evidence';
 
@@ -42,16 +43,8 @@ const IDENT_RE = /\b(?:[A-Z][a-zA-Z0-9]+(?:[ -][A-Z][a-zA-Z0-9]+)+|[A-Z][a-zA-Z]
 /** Sentence-initial capitals and common title words are not identifiers. */
 const IDENT_STOP = new Set(['The', 'This', 'These', 'Those', 'When', 'Where', 'While', 'Because', 'Students', 'Teams', 'Firms', 'Users', 'Buyers', 'Customers', 'Employees', 'Advisors', 'Alumni', 'Donors']);
 
-function originKeyOf(c: any): string {
-    const url = String(c?.url || c?.sourceUrl || '').trim();
-    if (url) {
-        try {
-            const u = new URL(url);
-            return `${u.hostname.toLowerCase().replace(/^www\./, '')}${u.pathname.replace(/\/+$/, '') || '/'}`;
-        } catch { /* fall through */ }
-    }
-    return String(c?.sourceName || c?.sourceFile || c?.source || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-}
+/** One origin recipe for the gate and the merge authority (2026-10-20): canonical URL, else normalized name. */
+const originKeyOf = citationOriginKey;
 
 function quotedEvidenceOf(theme: any): string {
     const parts: string[] = [];
@@ -144,4 +137,38 @@ export function applyThemeEvidenceGate(themes: any[]): ThemeEvidenceReport {
         }
     }
     return report;
+}
+
+export interface DeliverableCapOptions {
+    /** The relevance lever (objectiveRelevance, else goalAlignment, else the neutral 50). */
+    relevanceOf: (theme: any) => number;
+    /** A theme clears the in-deliverable bar at or above this relevance. */
+    threshold?: number;
+    /** When no theme carries a relevance score, the first `fallbackTopN` by position clear the bar. */
+    fallbackTopN?: number;
+}
+
+/** The neutral relevance an unscored theme carries; also the in-deliverable bar. */
+export const IN_DELIVERABLE_RELEVANCE = 50;
+
+/**
+ * 2026-10-20 (root-cause audit A3): the ONE routine that tags `withinDeliverableCap`. It
+ * recomputes the cap from relevance for every theme (so a retry's additions are tagged
+ * like the originals) and then re-applies the evidence gate, so a hedged or unverified
+ * theme stays held back no matter how many retries re-rank the set. The breadth-floor
+ * retry used to recompute the cap from relevance alone, which silently restored every
+ * theme the gate had blocked.
+ */
+export function applyDeliverableCapWithGate(themes: any[], opts: DeliverableCapOptions): ThemeEvidenceReport {
+    const list = Array.isArray(themes) ? themes : [];
+    const threshold = typeof opts.threshold === 'number' ? opts.threshold : IN_DELIVERABLE_RELEVANCE;
+    const topN = typeof opts.fallbackTopN === 'number' ? opts.fallbackTopN : list.length;
+    const anyScored = list.some((t: any) => typeof t?.objectiveRelevance === 'number');
+    list.forEach((t: any, i: number) => {
+        if (!t || typeof t !== 'object') return;
+        t.rank = i;
+        t.withinDeliverableCap = anyScored ? opts.relevanceOf(t) >= threshold : i < topN;
+        delete t.withinDeliverableCapReason;
+    });
+    return applyThemeEvidenceGate(list);
 }

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:06:44+00:00"
 content_hash: "edc587b4a0076ff8"
 chunks:
   - id: "articles/arxiv-cs-ai/0a6dc1edc4.md#c0"
-    char_span: [0, 638]
+    char_span: [0, 637]
     sentence_count: 5
     key_terms: [architecture, governance, sector-led, approach, policy, whole-of-government, arxiv, india]
     concepts: [architecture, governance, sector-led, approach, policy]
-    token_count: 127
-    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2603.26865v1"}]
+    token_count: 126
+    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2603.26865v1","kind":"article","date":"2026-03-27"}]
 ---
 # A federated architecture for sector-led AI governance: lessons from India
 

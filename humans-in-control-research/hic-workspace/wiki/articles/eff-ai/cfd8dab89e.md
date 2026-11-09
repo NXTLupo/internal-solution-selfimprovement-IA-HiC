@@ -19,25 +19,27 @@ content_hash: "758468fb2f1e798a"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/eff-ai/cfd8dab89e.md#c0"
-    char_span: [0, 176]
+    char_span: [0, 175]
     sentence_count: 1
     key_terms: [primed-malware-stop-selling-compromised-android-devices, compromised, deeplinks, android, devices, malware, selling, primed]
-    token_count: 52
-    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/primed-malware-stop-selling-compromised-android-devices"}]
+    token_count: 51
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/primed-malware-stop-selling-compromised-android-devices","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/cfd8dab89e.md#c1"
-    char_span: [178, 2988]
+    char_span: [177, 2987]
     sentence_count: 20
     key_terms: [devices, android, amazon, retailers, streaming, online, people, large]
     concepts: [devices, android, amazon, retailers, streaming]
     related_chunks: ["articles/eff-ai/cfd8dab89e.md#c2"]
     token_count: 512
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/primed-malware-stop-selling-compromised-android-devices","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/cfd8dab89e.md#c2"
-    char_span: [2649, 3360]
+    char_span: [2648, 3359]
     sentence_count: 5
     key_terms: [devices, streaming, like, need, malware-filled, manufacturers, transparency, accountable]
     concepts: [devices, streaming]
     related_chunks: ["articles/eff-ai/cfd8dab89e.md#c1"]
     token_count: 128
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/primed-malware-stop-selling-compromised-android-devices","kind":"article","date":"2026-06-25"}]
 ---
 # Primed for Malware: Stop Selling Compromised Android Devices
 

@@ -109,6 +109,8 @@ export interface ArtifactAIR {
     toolTrace?: RunTrace['toolSteps'];
     qualityReport?: AirQualityReport;
     createdAtIso?: string;         // stamped by the caller / proxy (Date.* avoided in deterministic paths)
+    /** WS-C C1 (2026-10-31): the record's place in its revision chain; set by emitAirRecord. */
+    lineage?: import('./artifactLineage').ArtifactLineage;
 }
 
 export interface BuildAirInput {
@@ -319,8 +321,23 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
  */
 export async function emitAirRecord(
     air: ArtifactAIR,
-    opts: { label: string; proxyBase?: string } = { label: 'air' },
+    opts: {
+        label: string; proxyBase?: string;
+        /** WS-C C1: this emission revises an earlier artifact (the request plan read an edit, a #refine, a delta turn). */
+        revision?: import('./artifactLineage').RevisionRequest;
+        /** In-turn revisions that never shipped as their own version (parity re-ask, source fill). */
+        steps?: string[];
+    } = { label: 'air' },
 ): Promise<{ persisted: boolean; path?: string; validation: AirValidationResult }> {
+    // WS-C C1 (2026-10-31): lineage attaches HERE, once, like everything else on the record. A caller that
+    // already resolved it (the chat path shows the version label on the reply) keeps its value.
+    if (!air.lineage) {
+        try {
+            const { resolveLineage } = await import('./artifactLineage');
+            air.lineage = await resolveLineage(air, opts.revision);
+        } catch { /* lineage is bookkeeping; the record still persists */ }
+    }
+    if (air.lineage && opts.steps?.length) air.lineage = { ...air.lineage, steps: opts.steps.slice(0, 12) };
     const validation = validateAir(air);
     if (!validation.ok) {
         console.warn(`[${opts.label}] AIR CONTRACT FAIL: ${validation.failures.join('; ')}`);

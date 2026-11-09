@@ -1906,11 +1906,19 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     // Stage 3 (medium thinking - visual design is structurally simpler than logic)
     // Now sees the catalog preface so it pre-commits to specific pattern IDs.
     fire(3, 'Visual Designer', 'running');
+    // WS-E E2 (2026-10-31): the layout direction the owner pinned on the Designer option board for this engagement.
+    const pinnedDirection = await (async () => {
+        try {
+            const [{ loadDesignDirection, directionBlock }, { currentEngagementSlug }] = await Promise.all([import('./designOptions'), import('./wikiPointerResolver')]);
+            return directionBlock(await loadDesignDirection(currentEngagementSlug() || ''));
+        } catch { return ''; }
+    })();
+    if (pinnedDirection) console.log('[proto] Stage 3 composes to the pinned design direction');
     let designSystem: DesignSystem;
     try {
         designSystem = await callOpusJsonStage<DesignSystem>(
             composerPreface + buildStage3System(brand, liveTokens, componentManifest),
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}${sessionsBlock}`,
+            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}${sessionsBlock}${pinnedDirection ? `\n\n${pinnedDirection}` : ''}`,
             ['brand_application', 'type_system', 'color_system', 'spacing_scale', 'motion_tokens', 'components'],
             'Stage 3 Visual Designer',
             'medium',

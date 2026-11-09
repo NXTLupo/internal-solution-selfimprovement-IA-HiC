@@ -5,18 +5,160 @@ import { slideDataToStageHtml } from './slideToStageHtml';
 // Registry-driven composer (Method A): a slide is composed from its archetype SPEC + tokens +
 // payload, NOT a hand-coded renderX. These assert the engine materializes real, token-bound content
 // from the registry spec for both brands.
-describe('slideComposer (registry-driven, Method A)', () => {
-    const ntPayload = {
-        kicker: 'THE INTELLIGENCE AUGMENTATION SUITE',
-        title: 'Nine apps, three jobs, one workflow',
-        items: [
-            { number: '01', name: 'Review Collector', body: 'Pulls voice of customer from three platforms in one batched job.', quote: 'one interface, three sources' },
-            { number: '02', name: 'Video Analyzer', body: 'Turns hours of interviews into timestamped, searchable transcripts.', quote: 'search a two-hour session in seconds' },
-            { number: '03', name: 'Social Research', body: 'Clusters community chatter into named themes with sentiment.', quote: 'the pattern, not the pile' },
-            { number: '04', name: 'Journey Mapper', body: 'Turns uploaded research into a self-contained interactive map.', quote: 'a map that opens in any browser' },
+const ntPayload = {
+    kicker: 'THE INTELLIGENCE AUGMENTATION SUITE',
+    title: 'Nine apps, three jobs, one workflow',
+    items: [
+        { number: '01', name: 'Review Collector', body: 'Pulls voice of customer from three platforms in one batched job.', quote: 'one interface, three sources' },
+        { number: '02', name: 'Video Analyzer', body: 'Turns hours of interviews into timestamped, searchable transcripts.', quote: 'search a two-hour session in seconds' },
+        { number: '03', name: 'Social Research', body: 'Clusters community chatter into named themes with sentiment.', quote: 'the pattern, not the pile' },
+        { number: '04', name: 'Journey Mapper', body: 'Turns uploaded research into a self-contained interactive map.', quote: 'a map that opens in any browser' },
+    ],
+    sourceLine: 'Sources: Intelligence Augmentation positioning guide',
+};
+
+export const SAMPLES: Record<string, any> = {
+    'brief-card': { kicker: '01 CLIENT', title: 'A clearer path into readiness', subtitle: 'One coherent experience for the first year.', blocks: [{ label: 'OBJECTIVE', body: 'Improve readiness and make early support proactive.' }, { label: 'APPROACH', body: 'Define a focused journey and release it in small steps.' }, { label: 'STATUS', body: 'Discovery and requirements work are active.' }, { label: 'BUSINESS VALUE', body: 'A simpler front door and earlier intervention.' }], sourceLine: 'Source: client deck' },
+    'cover': { wordmark: 'NXT HUMANS', title: 'Intelligence Augmentation', subtitle: 'Nine apps, one workflow' },
+    'agenda': { title: 'TABLE OF CONTENTS', groups: [{ label: 'WHAT WE LEARNED', items: ['01: Signal', '02: Pattern'] }, { label: 'WHAT WE RECOMMEND', items: ['03: Move', '04: Roadmap'] }] },
+    'section-divider': { number: '01', title: 'THE LANDSCAPE', supporting: 'Where the suite sits today.' },
+    'thesis-interstitial': { kicker: 'WHAT WE LEARNED', thesis: 'The workflow, not the model, is the product.' },
+    'stat-row': { kicker: 'BY THE NUMBERS', title: 'Three numbers anchor the suite', stats: [{ figure: '9', headline: 'products', means: 'collect to present', matters: 'no re-keying' }, { figure: '1,275', headline: 'sources', means: 'curated', matters: 'defensible' }, { figure: '60%', headline: 'external', means: 'enforced', matters: 'holds up' }], sourceLine: 'Source: positioning guide' },
+    'block-quote': { topicKicker: 'VOICE OF THE ANALYST', quote: 'I stopped re-keying between five tools.', attributionName: 'Research lead', attributionRole: 'CX practice', corroborating: [{ figure: '5', label: 'tools collapsed', source: 'internal' }, { figure: '2h', label: 'saved per run', source: 'internal' }, { figure: '1', label: 'workflow', source: 'positioning guide' }], sourceLine: 'Source: interviews' },
+    'numbered-themes': ntPayload,
+    'evidence-table': { kicker: 'PEERS', title: 'How comparable suites prove it', intro: 'Named subjects, one comparison axis.', columns: ['SUITE', 'WHAT THEY PROVE', 'IMPLICATION', 'EVIDENCE'], rows: [{ subject: 'Zappos', prove: 'service as moat', implication: 'workflow wins', evidenceGrade: 'A', featured: true }, { subject: 'Stripe', prove: 'docs as product', implication: 'clarity sells', evidenceGrade: 'A', featured: true }, { subject: 'Amazon', prove: 'mechanism over goal', implication: 'systematize', evidenceGrade: 'B' }], takeaway: { label: 'PEER PATTERN', statement: 'The workflow is the moat.' }, sourceLine: 'Sources: case files' },
+    'problem-diptych': { eyebrow: 'OUR PERSPECTIVE', title: 'Two forces pull the analyst apart', subhead: 'Speed versus rigor.', cards: [{ numeral: '01', heading: 'Tool sprawl', body: 'Five tools, no shared state.' }, { numeral: '02', heading: 'Re-keying tax', body: 'Every handoff loses context.' }] },
+    'org-model': { eyebrow: 'OPERATING MODEL', title: 'Three roles, one pipeline', columns: [{ name: 'Collect', definition: 'Voice of customer in.', teams: { label: 'TEAMS', items: ['Research', 'Ops'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Coverage', 'Freshness'] } }, { name: 'Synthesize', definition: 'Pattern from pile.', teams: { label: 'TEAMS', items: ['Analysts'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Themes', 'Evidence'] } }, { name: 'Present', definition: 'Decision-ready.', teams: { label: 'TEAMS', items: ['Strategy'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Decks', 'Asks'] } }] },
+    'role-needs': { eyebrow: 'ADVANCEMENT · ANALYST', title: 'The analyst is the bottleneck', role: 'Analyst', challenges: [{ numeral: '01', heading: 'Context loss', body: 'Handoffs drop nuance.' }, { numeral: '02', heading: 'Tool sprawl', body: 'Five interfaces.' }, { numeral: '03', heading: 'Slow synthesis', body: 'Manual clustering.' }], persona: { needsLabel: 'PERSONA NEEDS', name: 'Mid-career analyst', needs: [{ kind: 'EXPERIENCE', body: 'One surface.' }, { kind: 'FUNCTIONAL', body: 'Searchable corpus.' }, { kind: 'PERSONAL', body: 'Credit for rigor.' }] } },
+    'role-recommendation': { eyebrow: 'STRATEGIC RECOMMENDATION · ANALYST', title: 'Collapse the toolchain', role: 'Analyst', thesis: 'One workflow beats five tools.', actions: [{ numeral: '01', heading: 'Unify intake', body: 'Single ingest.' }, { numeral: '02', heading: 'Shared corpus', body: 'One source of truth.' }, { numeral: '03', heading: 'Composed output', body: 'Registry-driven.' }], impact: [{ label: 'REVENUE', headline: 'Faster cycles', body: 'More engagements.' }, { label: 'C-SAT', headline: 'Higher trust', body: 'Defensible decks.' }, { label: 'SERVICE NEEDS', headline: 'Less rework', body: 'No re-keying.' }] },
+    'role-roadmap': { eyebrow: 'ROADMAP · ANALYST', title: 'Six months to one workflow', role: 'Analyst', phases: [{ label: 'PHASE 01 · MONTHS 1-2', name: 'Foundation', items: ['Ingest', 'Corpus'] }, { label: 'PHASE 02 · MONTHS 3-4', name: 'Synthesis', items: ['Themes', 'Evidence'] }, { label: 'PHASE 03 · MONTHS 5', name: 'Compose', items: ['Registry', 'Slides'] }, { label: 'PHASE 04 · MONTH 6', name: 'Launch', items: ['Ship', 'Measure'] }] },
+    'infographic-exhibit': { kicker: 'RISK PRIORITIZATION', title: 'Five moves take a farm from static plan to living coverage', exhibitImage: 'data:image/png;base64,AAAA', takeaway: { label: 'PATTERN', statement: 'The plan survives because review cadence is built into the product.' }, sourceLine: 'Source: client discussion notes' },
+    'aggregate-roadmap': { eyebrow: 'PROGRAM ROADMAP', title: 'Every role on one timeline', horizons: ['FOUNDATION', 'ENGAGE', 'OPTIMIZE', 'LAUNCH · 2028'], roles: [{ name: 'Analysts', cells: ['Ingest', 'Cluster', 'Compose', 'Ship'] }, { name: 'Strategists', cells: ['Frame', 'Draft', 'Refine', 'Present'] }, { name: 'Ops', cells: ['Wire', 'Monitor', 'Tune', 'Scale'] }] },
+    // ---- native diagram tier (2026-07-09, WS-1b) ----
+    'quadrant': {
+        kicker: 'PORTFOLIO POSITIONING',
+        title: 'Advisory work clusters where effort outruns client value',
+        xAxis: 'DELIVERY EFFORT (LOW TO HIGH)', yAxis: 'CLIENT VALUE (LOW TO HIGH)',
+        quadrants: [
+            { title: 'Protect', items: ['High value at low effort', 'Defend pricing'] },
+            { title: 'Systematize', items: ['High value at high effort', 'Turn craft into pipeline'] },
+            { title: 'Automate', items: ['Low value at low effort', 'Self-serve tooling'] },
+            { title: 'Exit', items: ['Low value at high effort', 'Sunset or reprice'] },
         ],
-        sourceLine: 'Sources: Intelligence Augmentation positioning guide',
-    };
+        subjects: [
+            { label: 'Research retainers', quadrant: 1 },
+            { label: 'Strategy sprints', quadrant: 2 },
+            { label: 'Status reporting', quadrant: 3 },
+            { label: 'Custom integrations', quadrant: 4 },
+            { label: 'Deck production', quadrant: 3 },
+        ],
+        sourceLine: 'Sources: engagement ledger review, partner interviews',
+    },
+    'flow-arc': {
+        kicker: 'INTAKE TO DELIVERY',
+        title: 'One pipeline carries a brief from intake to a shipped deck',
+        steps: [
+            { title: 'Ingest', description: 'Client uploads and research packs land in one corpus with per-source provenance.' },
+            { title: 'Ground', description: 'The manifest graph ranks every chunk of evidence against the stated objective.' },
+            { title: 'Compose', description: 'Archetype specs assemble the deck from registered bricks and brand tokens.' },
+            { title: 'Export', description: 'The stage walker emits native, editable PowerPoint shapes and text runs.' },
+        ],
+        outcome: 'A defensible deck in one pass, with every claim traceable to a named source.',
+        sourceLine: 'Source: platform architecture review',
+    },
+    'milestone-timeline': {
+        kicker: 'ROLLOUT',
+        title: 'Four gates take the platform from pilot to firm-wide default',
+        milestones: [
+            { date: 'JAN 2026', title: 'Pilot cohort', detail: 'Two engagement teams run live briefs.' },
+            { date: 'MAR 2026', title: 'Quality gate', detail: 'Deck output clears the partner review bar.' },
+            { date: 'JUN 2026', title: 'Practice rollout', detail: 'Every CX engagement defaults to the pipeline.' },
+            { date: 'OCT 2026', title: 'Firm default', detail: 'Legacy tooling is retired.' },
+        ],
+        sourceLine: 'Source: rollout plan working session',
+    },
+    'means-matters': {
+        kicker: 'WHAT THE FIGURES CARRY',
+        title: 'Three figures explain why the practice reorganized',
+        stats: [
+            { figure: '1 IN 3', caption: 'briefs stall at synthesis', means: 'Analysts spend the middle of every engagement re-keying evidence between tools.', matters: 'Synthesis, not collection, is where engagements lose their margin.' },
+            { figure: '5', caption: 'tools per analyst', means: 'Each handoff between tools drops context the next stage has to rebuild.', matters: 'Tool sprawl is a quality problem before it is a cost problem.' },
+            { figure: '1', caption: 'workflow after the merge', means: 'Collection, synthesis, and composition now share one corpus and one state.', matters: 'The workflow, not any single model, is the durable asset.' },
+        ],
+        sourceLine: 'Source: "One in three briefs stalls before synthesis." (Practice operations review)',
+    },
+    'ranked-bars': {
+        kicker: 'WHERE THE HOURS GO',
+        title: 'Evidence re-keying dominates the analyst week',
+        bars: [
+            { label: 'Re-keying evidence', value: 100, note: '"Most of my week is moving quotes between tools." (Analyst interviews)' },
+            { label: 'Source reading', value: 62, note: 'Concentrated in the opening weeks of the engagement.' },
+            { label: 'Synthesis', value: 45, note: 'The highest-value hour is the scarcest one.' },
+            { label: 'Client sessions', value: 30, note: 'Steady across the engagement arc.' },
+        ],
+        sourceLine: 'Sources: analyst time diaries, practice operations review',
+    },
+    'comparison-panels': {
+        kicker: 'BUILD, BUY, OR ASSEMBLE',
+        title: 'Assembling on the platform beats building or buying outright',
+        criteria: ['TIME TO FIRST DECK', 'EVIDENCE RIGOR', 'BRAND CONTROL', 'OPERATING COST'],
+        panels: [
+            { name: 'Build in-house', cells: ['Quarters of engineering before first value', 'Custom, if the team builds it', 'Total, at a high price', 'Highest, and recurring'] },
+            { name: 'Buy point tools', cells: ['Days, per tool', 'Varies by vendor', 'Limited to vendor themes', 'Per-seat sprawl'] },
+            { name: 'Assemble on platform', cells: ['A brief away', 'Citation-gated by default', 'Token-governed, both brands', 'Marginal per engagement'] },
+        ],
+        sourceLine: 'Sources: vendor evaluations, platform architecture review',
+    },
+    // ---- PRD projection tier (2026-10-01, Stage 3.3): payloads as services/prdProjection.ts emits them ----
+    'prd-story': {
+        kicker: 'PROBLEM WITH EVIDENCE',
+        title: 'Growers decide coverage from a static plan the agent never revisits',
+        storyLabel: 'THE STORY',
+        story: 'A small-scale grower renews the same policy every year because nobody re-reads the plan against the season she just had. She needs the plan to change when her risk changes.',
+        cards: [
+            { heading: 'Agriculture Weekly', body: '"We renew the same thing every year because nobody asks what changed."', foot: 'Grower interview · [articles/agriculture-weekly/ab12cd34ef.md#c3]' },
+            { heading: 'Reddit r/farming', body: '"My agent has not called since the hail claim."', foot: '[social/reddit/r-farming/9f8e7d6c5b.md#c1]' },
+        ],
+        band: { label: 'WHY NOW', statement: 'Carriers now re-price mid-season, so a static plan leaves the grower exposed between renewals.' },
+        sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
+    },
+    'prd-ledger': {
+        kicker: 'REQUIREMENTS LEDGER',
+        title: 'Each requirement traces to a pain, a persona and a declarative test',
+        columns: ['ID', 'TIER', 'REQUIREMENT', 'TRACES', 'ACCEPTANCE TEST'],
+        rows: [
+            { id: 'R-1', tier: 'MUST', text: 'The grower sees the plan re-read against the season that just ended before renewal.', traces: 'Static plan never revisited · The deciding grower', test: 'Given a renewal is due, when the grower opens the plan, then the prior season review appears before the quote.', target: { kind: 'requirement_target', metric: 'review latency', value: 2, unit: 's p95', label: 'review latency: 2 s p95' } },
+            { id: 'R-2', tier: 'SHOULD', text: 'The agent receives a prompt when a claim closes without a follow-up call.', traces: 'Silence after the claim · The deciding grower', test: 'Given a claim closed, when a week passes without contact, then the agent sees the grower in the follow-up queue.' },
+            { id: 'R-3', tier: 'BET', text: 'The grower compares two coverage options side by side.', traces: 'NON-OBVIOUS BET · Test with five growers before build', test: 'Given two quotes exist, when the grower opens either, then both render on one screen.' },
+        ],
+        takeaway: { label: 'MUST-HAVE BAR', statement: 'A must-have maps to the thesis, carries two independent origins and a primary persona, and the product cannot ship without it.' },
+        sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
+    },
+    'prd-signals': {
+        kicker: 'SUCCESS SIGNALS',
+        title: 'Every success signal carries an instrument, a baseline status and a guardrail',
+        columns: ['SIGNAL', 'INSTRUMENT', 'POPULATION', 'DIRECTION', 'BASELINE', 'TYPE', 'GUARDRAIL'],
+        rows: [
+            { signal: 'plan_review_opened', instrument: 'product analytics event', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the product analyst by the first renewal cycle', type: 'leading', guardrail: 'renewal abandonment does not rise · rollback: head of product' },
+            { signal: 'renewal_completed_with_change', instrument: 'policy admin system', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the actuarial lead by the first renewal cycle', type: 'lagging', guardrail: 'loss ratio holds · rollback: chief underwriter' },
+        ],
+        takeaway: { label: 'TARGETS', statement: 'Targets are set at the named post-baseline event; the first draft ships instruments and guardrails, not figures.' },
+        sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
+    },
+    'prd-trace': {
+        kicker: 'TRACEABILITY',
+        title: 'Every requirement resolves to a quote, a named source, a test and a signal',
+        columns: ['R', 'TIER', 'PAIN', 'PERSONA', 'THEME', 'QUOTE', 'SOURCE', 'TEST', 'SIGNAL'],
+        rows: [
+            { id: 'R-1', tier: 'MUST', pain: 'Static plan never revisited', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'We renew the same thing every year because nobody asks what changed.', source: 'Agriculture Weekly', test: 'AT-1', signal: 'M-1, M-2' },
+            { id: 'R-2', tier: 'SHOULD', pain: 'Silence after the claim', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'My agent has not called since the hail claim.', source: 'Reddit r/farming', test: 'AT-2', signal: 'M-1' },
+        ],
+        takeaway: { label: 'TRACE', statement: 'Every requirement resolves to a pain or gap, a verbatim quote and a named source; every test and signal points back to a requirement.' },
+        sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
+    },
+};
+
+describe('slideComposer (registry-driven, Method A)', () => {
 
     it('composes numbered-themes with all 4 items + title + chrome (NXT)', () => {
         const html = composeSlide('numbered-themes', ntPayload, 'nxt')!;
@@ -53,16 +195,21 @@ describe('slideComposer (registry-driven, Method A)', () => {
             { figure: '1,275', headline: 'external sources', means: 'curated base', matters: 'holds up in the room' },
             { figure: '60%', headline: 'external floor', means: 'enforced', matters: 'defensible' },
         ], sourceLine: 'Source: positioning guide' }, 'nxt')!;
-        expect(html).toContain('1,275'); expect(html).toContain('MEANS'); expect(html).toContain('MATTERS');
+        // 2026-10-27 Quantitative Claim Rule: a research slide shows no naked figure; the client's own slide keeps them
+        expect(html).not.toContain('1,275'); expect(html).toContain('MEANS'); expect(html).toContain('MATTERS');
+        const client = composeSlide('stat-row', { kicker: 'BY THE NUMBERS', title: 'Three numbers anchor the suite', _provided: true, stats: [
+            { figure: '1,275', headline: 'external sources', means: 'curated base', matters: 'holds up in the room' },
+        ] }, 'nxt')!;
+        expect(client).toContain('1,275');
     });
 
     it('unknown archetype returns null (fail-safe)', () => {
         expect(composeSlide('does-not-exist', {}, 'nxt')).toBeNull();
     });
 
-    it('registers all 28 SLIDES archetypes (incl. the 2026-07-09 native diagram tier and the 2026-10-01 PRD projection tier)', () => {
+    it('registers all 29 SLIDES archetypes (incl. the 2026-07-09 native diagram tier, the 2026-10-01 PRD projection tier and the 2026-10-21 brief card)', () => {
         expect(archetypeKeys().sort()).toEqual([
-            'agenda', 'aggregate-roadmap', 'block-quote', 'comparison-panels', 'cover', 'evidence-table',
+            'agenda', 'aggregate-roadmap', 'block-quote', 'brief-card', 'comparison-panels', 'cover', 'evidence-table',
             'flow-arc', 'infographic-exhibit', 'means-matters', 'milestone-timeline', 'numbered-themes',
             'org-model', 'prd-ledger', 'prd-signals', 'prd-story', 'prd-trace', 'problem-diptych', 'quadrant', 'ranked-bars',
             'role-needs', 'role-recommendation', 'role-roadmap',
@@ -72,145 +219,6 @@ describe('slideComposer (registry-driven, Method A)', () => {
 
     // Every archetype must compose a non-trivial, branded, non-empty stage for BOTH brands from a
     // representative payload - this is the contract the #slides generation path depends on.
-    const SAMPLES: Record<string, any> = {
-        'cover': { wordmark: 'NXT HUMANS', title: 'Intelligence Augmentation', subtitle: 'Nine apps, one workflow' },
-        'agenda': { title: 'TABLE OF CONTENTS', groups: [{ label: 'WHAT WE LEARNED', items: ['01: Signal', '02: Pattern'] }, { label: 'WHAT WE RECOMMEND', items: ['03: Move', '04: Roadmap'] }] },
-        'section-divider': { number: '01', title: 'THE LANDSCAPE', supporting: 'Where the suite sits today.' },
-        'thesis-interstitial': { kicker: 'WHAT WE LEARNED', thesis: 'The workflow, not the model, is the product.' },
-        'stat-row': { kicker: 'BY THE NUMBERS', title: 'Three numbers anchor the suite', stats: [{ figure: '9', headline: 'products', means: 'collect to present', matters: 'no re-keying' }, { figure: '1,275', headline: 'sources', means: 'curated', matters: 'defensible' }, { figure: '60%', headline: 'external', means: 'enforced', matters: 'holds up' }], sourceLine: 'Source: positioning guide' },
-        'block-quote': { topicKicker: 'VOICE OF THE ANALYST', quote: 'I stopped re-keying between five tools.', attributionName: 'Research lead', attributionRole: 'CX practice', corroborating: [{ figure: '5', label: 'tools collapsed', source: 'internal' }, { figure: '2h', label: 'saved per run', source: 'internal' }, { figure: '1', label: 'workflow', source: 'positioning guide' }], sourceLine: 'Source: interviews' },
-        'numbered-themes': ntPayload,
-        'evidence-table': { kicker: 'PEERS', title: 'How comparable suites prove it', intro: 'Named subjects, one comparison axis.', columns: ['SUITE', 'WHAT THEY PROVE', 'IMPLICATION', 'EVIDENCE'], rows: [{ subject: 'Zappos', prove: 'service as moat', implication: 'workflow wins', evidenceGrade: 'A', featured: true }, { subject: 'Stripe', prove: 'docs as product', implication: 'clarity sells', evidenceGrade: 'A', featured: true }, { subject: 'Amazon', prove: 'mechanism over goal', implication: 'systematize', evidenceGrade: 'B' }], takeaway: { label: 'PEER PATTERN', statement: 'The workflow is the moat.' }, sourceLine: 'Sources: case files' },
-        'problem-diptych': { eyebrow: 'OUR PERSPECTIVE', title: 'Two forces pull the analyst apart', subhead: 'Speed versus rigor.', cards: [{ numeral: '01', heading: 'Tool sprawl', body: 'Five tools, no shared state.' }, { numeral: '02', heading: 'Re-keying tax', body: 'Every handoff loses context.' }] },
-        'org-model': { eyebrow: 'OPERATING MODEL', title: 'Three roles, one pipeline', columns: [{ name: 'Collect', definition: 'Voice of customer in.', teams: { label: 'TEAMS', items: ['Research', 'Ops'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Coverage', 'Freshness'] } }, { name: 'Synthesize', definition: 'Pattern from pile.', teams: { label: 'TEAMS', items: ['Analysts'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Themes', 'Evidence'] } }, { name: 'Present', definition: 'Decision-ready.', teams: { label: 'TEAMS', items: ['Strategy'] }, outcomes: { label: 'OWNED OUTCOMES', lines: ['Decks', 'Asks'] } }] },
-        'role-needs': { eyebrow: 'ADVANCEMENT · ANALYST', title: 'The analyst is the bottleneck', role: 'Analyst', challenges: [{ numeral: '01', heading: 'Context loss', body: 'Handoffs drop nuance.' }, { numeral: '02', heading: 'Tool sprawl', body: 'Five interfaces.' }, { numeral: '03', heading: 'Slow synthesis', body: 'Manual clustering.' }], persona: { needsLabel: 'PERSONA NEEDS', name: 'Mid-career analyst', needs: [{ kind: 'EXPERIENCE', body: 'One surface.' }, { kind: 'FUNCTIONAL', body: 'Searchable corpus.' }, { kind: 'PERSONAL', body: 'Credit for rigor.' }] } },
-        'role-recommendation': { eyebrow: 'STRATEGIC RECOMMENDATION · ANALYST', title: 'Collapse the toolchain', role: 'Analyst', thesis: 'One workflow beats five tools.', actions: [{ numeral: '01', heading: 'Unify intake', body: 'Single ingest.' }, { numeral: '02', heading: 'Shared corpus', body: 'One source of truth.' }, { numeral: '03', heading: 'Composed output', body: 'Registry-driven.' }], impact: [{ label: 'REVENUE', headline: 'Faster cycles', body: 'More engagements.' }, { label: 'C-SAT', headline: 'Higher trust', body: 'Defensible decks.' }, { label: 'SERVICE NEEDS', headline: 'Less rework', body: 'No re-keying.' }] },
-        'role-roadmap': { eyebrow: 'ROADMAP · ANALYST', title: 'Six months to one workflow', role: 'Analyst', phases: [{ label: 'PHASE 01 · MONTHS 1-2', name: 'Foundation', items: ['Ingest', 'Corpus'] }, { label: 'PHASE 02 · MONTHS 3-4', name: 'Synthesis', items: ['Themes', 'Evidence'] }, { label: 'PHASE 03 · MONTHS 5', name: 'Compose', items: ['Registry', 'Slides'] }, { label: 'PHASE 04 · MONTH 6', name: 'Launch', items: ['Ship', 'Measure'] }] },
-        'infographic-exhibit': { kicker: 'RISK PRIORITIZATION', title: 'Five moves take a farm from static plan to living coverage', exhibitImage: 'data:image/png;base64,AAAA', takeaway: { label: 'PATTERN', statement: 'The plan survives because review cadence is built into the product.' }, sourceLine: 'Source: client discussion notes' },
-        'aggregate-roadmap': { eyebrow: 'PROGRAM ROADMAP', title: 'Every role on one timeline', horizons: ['FOUNDATION', 'ENGAGE', 'OPTIMIZE', 'LAUNCH · 2028'], roles: [{ name: 'Analysts', cells: ['Ingest', 'Cluster', 'Compose', 'Ship'] }, { name: 'Strategists', cells: ['Frame', 'Draft', 'Refine', 'Present'] }, { name: 'Ops', cells: ['Wire', 'Monitor', 'Tune', 'Scale'] }] },
-        // ---- native diagram tier (2026-07-09, WS-1b) ----
-        'quadrant': {
-            kicker: 'PORTFOLIO POSITIONING',
-            title: 'Advisory work clusters where effort outruns client value',
-            xAxis: 'DELIVERY EFFORT (LOW TO HIGH)', yAxis: 'CLIENT VALUE (LOW TO HIGH)',
-            quadrants: [
-                { title: 'Protect', items: ['High value at low effort', 'Defend pricing'] },
-                { title: 'Systematize', items: ['High value at high effort', 'Turn craft into pipeline'] },
-                { title: 'Automate', items: ['Low value at low effort', 'Self-serve tooling'] },
-                { title: 'Exit', items: ['Low value at high effort', 'Sunset or reprice'] },
-            ],
-            subjects: [
-                { label: 'Research retainers', quadrant: 1 },
-                { label: 'Strategy sprints', quadrant: 2 },
-                { label: 'Status reporting', quadrant: 3 },
-                { label: 'Custom integrations', quadrant: 4 },
-                { label: 'Deck production', quadrant: 3 },
-            ],
-            sourceLine: 'Sources: engagement ledger review, partner interviews',
-        },
-        'flow-arc': {
-            kicker: 'INTAKE TO DELIVERY',
-            title: 'One pipeline carries a brief from intake to a shipped deck',
-            steps: [
-                { title: 'Ingest', description: 'Client uploads and research packs land in one corpus with per-source provenance.' },
-                { title: 'Ground', description: 'The manifest graph ranks every chunk of evidence against the stated objective.' },
-                { title: 'Compose', description: 'Archetype specs assemble the deck from registered bricks and brand tokens.' },
-                { title: 'Export', description: 'The stage walker emits native, editable PowerPoint shapes and text runs.' },
-            ],
-            outcome: 'A defensible deck in one pass, with every claim traceable to a named source.',
-            sourceLine: 'Source: platform architecture review',
-        },
-        'milestone-timeline': {
-            kicker: 'ROLLOUT',
-            title: 'Four gates take the platform from pilot to firm-wide default',
-            milestones: [
-                { date: 'JAN 2026', title: 'Pilot cohort', detail: 'Two engagement teams run live briefs.' },
-                { date: 'MAR 2026', title: 'Quality gate', detail: 'Deck output clears the partner review bar.' },
-                { date: 'JUN 2026', title: 'Practice rollout', detail: 'Every CX engagement defaults to the pipeline.' },
-                { date: 'OCT 2026', title: 'Firm default', detail: 'Legacy tooling is retired.' },
-            ],
-            sourceLine: 'Source: rollout plan working session',
-        },
-        'means-matters': {
-            kicker: 'WHAT THE FIGURES CARRY',
-            title: 'Three figures explain why the practice reorganized',
-            stats: [
-                { figure: '1 IN 3', caption: 'briefs stall at synthesis', means: 'Analysts spend the middle of every engagement re-keying evidence between tools.', matters: 'Synthesis, not collection, is where engagements lose their margin.' },
-                { figure: '5', caption: 'tools per analyst', means: 'Each handoff between tools drops context the next stage has to rebuild.', matters: 'Tool sprawl is a quality problem before it is a cost problem.' },
-                { figure: '1', caption: 'workflow after the merge', means: 'Collection, synthesis, and composition now share one corpus and one state.', matters: 'The workflow, not any single model, is the durable asset.' },
-            ],
-            sourceLine: 'Source: "One in three briefs stalls before synthesis." (Practice operations review)',
-        },
-        'ranked-bars': {
-            kicker: 'WHERE THE HOURS GO',
-            title: 'Evidence re-keying dominates the analyst week',
-            bars: [
-                { label: 'Re-keying evidence', value: 100, note: '"Most of my week is moving quotes between tools." (Analyst interviews)' },
-                { label: 'Source reading', value: 62, note: 'Concentrated in the opening weeks of the engagement.' },
-                { label: 'Synthesis', value: 45, note: 'The highest-value hour is the scarcest one.' },
-                { label: 'Client sessions', value: 30, note: 'Steady across the engagement arc.' },
-            ],
-            sourceLine: 'Sources: analyst time diaries, practice operations review',
-        },
-        'comparison-panels': {
-            kicker: 'BUILD, BUY, OR ASSEMBLE',
-            title: 'Assembling on the platform beats building or buying outright',
-            criteria: ['TIME TO FIRST DECK', 'EVIDENCE RIGOR', 'BRAND CONTROL', 'OPERATING COST'],
-            panels: [
-                { name: 'Build in-house', cells: ['Quarters of engineering before first value', 'Custom, if the team builds it', 'Total, at a high price', 'Highest, and recurring'] },
-                { name: 'Buy point tools', cells: ['Days, per tool', 'Varies by vendor', 'Limited to vendor themes', 'Per-seat sprawl'] },
-                { name: 'Assemble on platform', cells: ['A brief away', 'Citation-gated by default', 'Token-governed, both brands', 'Marginal per engagement'] },
-            ],
-            sourceLine: 'Sources: vendor evaluations, platform architecture review',
-        },
-        // ---- PRD projection tier (2026-10-01, Stage 3.3): payloads as services/prdProjection.ts emits them ----
-        'prd-story': {
-            kicker: 'PROBLEM WITH EVIDENCE',
-            title: 'Growers decide coverage from a static plan the agent never revisits',
-            storyLabel: 'THE STORY',
-            story: 'A small-scale grower renews the same policy every year because nobody re-reads the plan against the season she just had. She needs the plan to change when her risk changes.',
-            cards: [
-                { heading: 'Agriculture Weekly', body: '"We renew the same thing every year because nobody asks what changed."', foot: 'Grower interview · [articles/agriculture-weekly/ab12cd34ef.md#c3]' },
-                { heading: 'Reddit r/farming', body: '"My agent has not called since the hail claim."', foot: '[social/reddit/r-farming/9f8e7d6c5b.md#c1]' },
-            ],
-            band: { label: 'WHY NOW', statement: 'Carriers now re-price mid-season, so a static plan leaves the grower exposed between renewals.' },
-            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
-        },
-        'prd-ledger': {
-            kicker: 'REQUIREMENTS LEDGER',
-            title: 'Each requirement traces to a pain, a persona and a declarative test',
-            columns: ['ID', 'TIER', 'REQUIREMENT', 'TRACES', 'ACCEPTANCE TEST'],
-            rows: [
-                { id: 'R-1', tier: 'MUST', text: 'The grower sees the plan re-read against the season that just ended before renewal.', traces: 'Static plan never revisited · The deciding grower', test: 'Given a renewal is due, when the grower opens the plan, then the prior season review appears before the quote.', target: { kind: 'requirement_target', metric: 'review latency', value: 2, unit: 's p95', label: 'review latency: 2 s p95' } },
-                { id: 'R-2', tier: 'SHOULD', text: 'The agent receives a prompt when a claim closes without a follow-up call.', traces: 'Silence after the claim · The deciding grower', test: 'Given a claim closed, when a week passes without contact, then the agent sees the grower in the follow-up queue.' },
-                { id: 'R-3', tier: 'BET', text: 'The grower compares two coverage options side by side.', traces: 'NON-OBVIOUS BET · Test with five growers before build', test: 'Given two quotes exist, when the grower opens either, then both render on one screen.' },
-            ],
-            takeaway: { label: 'MUST-HAVE BAR', statement: 'A must-have maps to the thesis, carries two independent origins and a primary persona, and the product cannot ship without it.' },
-            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
-        },
-        'prd-signals': {
-            kicker: 'SUCCESS SIGNALS',
-            title: 'Every success signal carries an instrument, a baseline status and a guardrail',
-            columns: ['SIGNAL', 'INSTRUMENT', 'POPULATION', 'DIRECTION', 'BASELINE', 'TYPE', 'GUARDRAIL'],
-            rows: [
-                { signal: 'plan_review_opened', instrument: 'product analytics event', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the product analyst by the first renewal cycle', type: 'leading', guardrail: 'renewal abandonment does not rise · rollback: head of product' },
-                { signal: 'renewal_completed_with_change', instrument: 'policy admin system', population: 'The deciding grower · renewal', direction: 'Up', baseline: 'to be measured by the actuarial lead by the first renewal cycle', type: 'lagging', guardrail: 'loss ratio holds · rollback: chief underwriter' },
-            ],
-            takeaway: { label: 'TARGETS', statement: 'Targets are set at the named post-baseline event; the first draft ships instruments and guardrails, not figures.' },
-            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]',
-        },
-        'prd-trace': {
-            kicker: 'TRACEABILITY',
-            title: 'Every requirement resolves to a quote, a named source, a test and a signal',
-            columns: ['R', 'TIER', 'PAIN', 'PERSONA', 'THEME', 'QUOTE', 'SOURCE', 'TEST', 'SIGNAL'],
-            rows: [
-                { id: 'R-1', tier: 'MUST', pain: 'Static plan never revisited', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'We renew the same thing every year because nobody asks what changed.', source: 'Agriculture Weekly', test: 'AT-1', signal: 'M-1, M-2' },
-                { id: 'R-2', tier: 'SHOULD', pain: 'Silence after the claim', persona: 'The deciding grower', theme: 'Coverage drifts from risk', quote: 'My agent has not called since the hail claim.', source: 'Reddit r/farming', test: 'AT-2', signal: 'M-1' },
-            ],
-            takeaway: { label: 'TRACE', statement: 'Every requirement resolves to a pain or gap, a verbatim quote and a named source; every test and signal points back to a requirement.' },
-            sourceLine: 'Sources: Agriculture Weekly [articles/agriculture-weekly/ab12cd34ef.md#c3]; Reddit r/farming [social/reddit/r-farming/9f8e7d6c5b.md#c1]',
-        },
-    };
 
     // END-TO-END: the deck render path. `template=slides:<archetype>` must route through
     // slideDataToStageHtml -> composeSlide and return a full, branded HTML document (no circular-import
@@ -343,11 +351,11 @@ describe('slideComposer (registry-driven, Method A)', () => {
                 expect(html).toContain(m.date); expect(html).toContain(m.title); expect(html).toContain(m.detail);
             }
             // the time axis hairline + accent node dots on it
-            expect(html).toContain('top:609px');
-            expect(html).toContain('top:601px');
+            expect(html).toContain('top:539px');
+            expect(html).toContain('top:531px');
             // alternation: even titles at 440, odd titles at 676
-            expect(html).toContain('top:440px');
-            expect(html).toContain('top:676px');
+            expect(html).toContain('top:370px');
+            expect(html).toContain('top:606px');
         });
         it('overflow: 9 milestones clamp to 6; long detail is fitted, never raw-overflowed', () => {
             const payload = {
@@ -368,13 +376,16 @@ describe('slideComposer (registry-driven, Method A)', () => {
     describe('slides:means-matters', () => {
         it('renders figure + caption + MEANS/MATTERS anatomy with the dark MATTERS card (NXT)', () => {
             const html = composeSlide('means-matters', SAMPLES['means-matters'], 'nxt')!;
-            expect(html).toContain('1 IN 3');
+            // Quantitative Claim Rule: the sample's figures are naked on a research slide, so the figure row is withheld;
+            // the same tiles on the client's own slide keep their figures
+            expect(html).not.toContain('1 IN 3');
+            expect(composeSlide('means-matters', { ...SAMPLES['means-matters'], _provided: true }, 'nxt')!).toContain('1 IN 3');
             expect(html).toContain('MEANS');
             expect(html).toContain('MATTERS');
             for (const s of SAMPLES['means-matters'].stats) { expect(html).toContain(s.means); expect(html).toContain(s.matters); }
             // dark card: rail-filled block 240px tall; matters text rides accent on it
             expect(html.toLowerCase()).toContain('height:240px;background:#0d0d0d');
-            expect(html).toContain(SAMPLES['means-matters'].sourceLine);
+            expect(html).toContain('Source: Practice operations review');   // a quote in the footer moves out; the footer names its source (2026-10-27)
         });
         it('two stats FILL the content zone: columns widen to 779px, second at x1039 (balance fix)', () => {
             const payload = { ...SAMPLES['means-matters'], stats: SAMPLES['means-matters'].stats.slice(0, 2) };
@@ -401,8 +412,8 @@ describe('slideComposer (registry-driven, Method A)', () => {
 
     describe('slides:ranked-bars', () => {
         it('scales accent bars proportionally to value over the 800px track', () => {
-            const html = composeSlide('ranked-bars', SAMPLES['ranked-bars'], 'nxt')!;
-            for (const b of SAMPLES['ranked-bars'].bars) { expect(html).toContain(b.label); expect(html).toContain(b.note); }
+            const html = composeSlide('ranked-bars', { ...SAMPLES['ranked-bars'], _provided: true }, 'nxt')!;   // proportional bars: the client's own stated values (research slides show rank, liveRound14)
+            for (const b of SAMPLES['ranked-bars'].bars) { expect(html).toContain(b.label); expect(html).toContain(b.note.replace(/"([^"]+)"/g, '“$1”')); }   // quotes render as typographic pairs
             // value 100 -> 800px, 62 -> 496px, 45 -> 360px, 30 -> 240px (accent fills)
             for (const w of [800, 496, 360, 240]) {
                 expect(html.toLowerCase()).toContain(`width:${w}px;height:28px;background:#b8b800`);
@@ -415,7 +426,7 @@ describe('slideComposer (registry-driven, Method A)', () => {
                 ...SAMPLES['ranked-bars'],
                 bars: Array.from({ length: 9 }, (_, i) => ({ label: `Driver ${i + 1}`, value: i === 0 ? 250 : (i === 1 ? -5 : 40), note: 'Steady.' })),
             };
-            const html = composeSlide('ranked-bars', payload, 'nxt')!;
+            const html = composeSlide('ranked-bars', { ...payload, _provided: true }, 'nxt')!;
             expect(html.toLowerCase()).toContain('width:800px;height:28px;background:#b8b800'); // 250 -> clamp 100
             expect(html.toLowerCase()).toContain('width:6px;height:28px;background:#b8b800');   // -5 -> visible floor
             expect(html).toContain('Driver 6');
@@ -441,17 +452,17 @@ describe('slideComposer (registry-driven, Method A)', () => {
             expect(html).toMatch(/height:64px;background:#666666/i);
             expect((html.match(/height:3px;background:#b8b800/gi) || []).length).toBeGreaterThanOrEqual(1);
         });
-        it('overflow: a 6th criterion and 7 panel cells drop cleanly (5-row ceiling)', () => {
+        it('overflow: six criteria re-pitch into the band and every row is drawn; a cell with no criterion row stays off (2026-10-26)', () => {
+            // the old 5-row ceiling silently dropped criteria ("criteria: 7 given, 5 drawn"); rows now re-pitch up to eight
             const payload = {
                 ...SAMPLES['comparison-panels'],
                 criteria: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX'],
                 panels: [{ name: 'Option A', cells: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7'] }],
             };
             const html = composeSlide('comparison-panels', payload, 'nxt')!;
-            expect(html).toContain('FIVE');
-            expect(html).not.toContain('SIX');  // criteria count cap 5
-            expect(html).toContain('c5');
-            expect(html).not.toContain('c6');   // cells.5+ have no spec slot
+            expect(html).toContain('SIX');
+            expect(html).toContain('c6');
+            expect(html).not.toContain('c7');   // a seventh cell has no criterion row to sit in
         });
     });
 
@@ -463,7 +474,7 @@ describe('slideComposer (registry-driven, Method A)', () => {
             expect(r).toEqual({ text: 'Short line of body copy.', size: 28 });
         });
         it('steps down within 2 scale tiers when that makes the text fit', () => {
-            const text = 'x'.repeat(118) + 'y.'; // 120 chars: overflows at 28 in 380x150, fits at 25
+            const text = Array(24).fill('word').join(' ') + '.'; // 24 words / 120 chars: 5 lines at 28 overflow 380x150, 4 lines at 25 fit (word-aware wrap, 2026-10-23)
             const r = fitTextToBox(text, 28, 380, 150, 1.15, SC);
             expect(r.size).toBe(25);
             expect(r.text).toBe(text);

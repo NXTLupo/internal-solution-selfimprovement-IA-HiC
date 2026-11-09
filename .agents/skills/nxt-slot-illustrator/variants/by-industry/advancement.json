@@ -1,0 +1,2876 @@
+[
+ {
+  "id": "advancement-net-01",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "advancement-operating-model",
+  "title": "Advancement operating model",
+  "subtitle": "How major, annual, and planned giving coordinate",
+  "artifacts": [
+   "strategy",
+   "arch",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4100
+  }
+ },
+ {
+  "id": "advancement-net-02",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "donor-relationship-map",
+  "title": "Donor relationship network",
+  "subtitle": "Who touches each principal-gift prospect",
+  "artifacts": [
+   "org",
+   "strategy",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4101
+  }
+ },
+ {
+  "id": "advancement-net-03",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "prospect-influence-web",
+  "title": "Prospect influence web",
+  "subtitle": "Peers, board links, and affinity connectors",
+  "artifacts": [
+   "competitive",
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 11,
+   "layout": "radial",
+   "seed": 4102
+  }
+ },
+ {
+  "id": "advancement-net-04",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "gift-officer-territory-map",
+  "title": "Gift-officer territory map",
+  "subtitle": "Regional portfolio coverage and overlap",
+  "artifacts": [
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 4103
+  }
+ },
+ {
+  "id": "advancement-net-05",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "campaign-volunteer-structure",
+  "title": "Campaign volunteer structure",
+  "subtitle": "Cabinet, chairs, and committee reporting lines",
+  "artifacts": [
+   "org",
+   "roadmap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4104
+  }
+ },
+ {
+  "id": "advancement-net-06",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "alumni-chapter-network",
+  "title": "Alumni chapter network",
+  "subtitle": "Regional chapters and engagement hubs",
+  "artifacts": [
+   "org",
+   "strategy",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4105
+  }
+ },
+ {
+  "id": "advancement-net-07",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "stewardship-stakeholder-map",
+  "title": "Stewardship stakeholder map",
+  "subtitle": "Who acknowledges, reports, and renews donors",
+  "artifacts": [
+   "blueprint",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 4106
+  }
+ },
+ {
+  "id": "advancement-net-08",
+  "family": "operatingNetwork",
+  "industry": "advancement",
+  "framework": "central-vs-unit-fundraising",
+  "title": "Central vs unit fundraising model",
+  "subtitle": "Shared services against school-based teams",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4107
+  }
+ },
+ {
+  "id": "advancement-cap-01",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "advancement-capability-stack",
+  "title": "Advancement capability stack",
+  "subtitle": "Data, prospecting, cultivation, stewardship layers",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4108
+  }
+ },
+ {
+  "id": "advancement-cap-02",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "donor-data-maturity-stack",
+  "title": "Donor data maturity stack",
+  "subtitle": "From flat records to predictive modeling",
+  "artifacts": [
+   "tech-audit",
+   "gap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 4,
+   "seed": 4109
+  }
+ },
+ {
+  "id": "advancement-cap-03",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "giving-program-tier-stack",
+  "title": "Giving program tier stack",
+  "subtitle": "Annual base, mid-level, major, principal",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4110
+  }
+ },
+ {
+  "id": "advancement-cap-04",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "prospect-research-stack",
+  "title": "Prospect research stack",
+  "subtitle": "Screening, ratings, validation, qualification",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4111
+  }
+ },
+ {
+  "id": "advancement-cap-05",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "stewardship-tier-stack",
+  "title": "Stewardship tier stack",
+  "subtitle": "Receipt, recognition, reporting, engagement",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4112
+  }
+ },
+ {
+  "id": "advancement-cap-06",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "digital-giving-stack",
+  "title": "Digital giving technology stack",
+  "subtitle": "Forms, payments, CRM, analytics layers",
+  "artifacts": [
+   "tech-audit",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 0,
+   "seed": 4113
+  }
+ },
+ {
+  "id": "advancement-cap-07",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "engagement-to-gift-stack",
+  "title": "Engagement-to-gift ladder",
+  "subtitle": "Awareness, affinity, participation, giving",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4114
+  }
+ },
+ {
+  "id": "advancement-cap-08",
+  "family": "capabilityStack",
+  "industry": "advancement",
+  "framework": "analytics-capability-stack",
+  "title": "Advancement analytics stack",
+  "subtitle": "Descriptive, diagnostic, predictive, prescriptive",
+  "artifacts": [
+   "tech-audit",
+   "strategy",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4115
+  }
+ },
+ {
+  "id": "advancement-rad-01",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "advancement-maturity-radar",
+  "title": "Advancement maturity radar",
+  "subtitle": "Current capability against target state",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.55,
+    0.3,
+    0.6,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.7,
+    0.9,
+    0.75,
+    0.8
+   ],
+   "seed": 4116
+  }
+ },
+ {
+  "id": "advancement-rad-02",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "data-readiness-radar",
+  "title": "Donor data readiness radar",
+  "subtitle": "Quality, coverage, governance vs target",
+  "artifacts": [
+   "tech-audit",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.35,
+    0.55,
+    0.45,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.75,
+    0.9,
+    0.8,
+    0.7,
+    0.85
+   ],
+   "seed": 4117
+  }
+ },
+ {
+  "id": "advancement-rad-03",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "moves-management-radar",
+  "title": "Moves management discipline radar",
+  "subtitle": "Process adherence across portfolio stages",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.5,
+    0.4,
+    0.6,
+    0.35
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.75,
+    0.9,
+    0.7
+   ],
+   "seed": 4118
+  }
+ },
+ {
+  "id": "advancement-rad-04",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "stewardship-maturity-radar",
+  "title": "Stewardship maturity radar",
+  "subtitle": "Acknowledgment to impact reporting strength",
+  "artifacts": [
+   "gap",
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.45,
+    0.5,
+    0.35,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.8,
+    0.85,
+    0.7,
+    0.8
+   ],
+   "seed": 4119
+  }
+ },
+ {
+  "id": "advancement-rad-05",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "alumni-engagement-radar",
+  "title": "Alumni engagement radar",
+  "subtitle": "Volunteer, communicate, attend, give, refer",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.55,
+    0.3,
+    0.35
+   ],
+   "target": [
+    0.75,
+    0.8,
+    0.85,
+    0.7,
+    0.7
+   ],
+   "seed": 4120
+  }
+ },
+ {
+  "id": "advancement-rad-06",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "digital-fundraising-radar",
+  "title": "Digital fundraising radar",
+  "subtitle": "Email, social, web, mobile, peer-to-peer",
+  "artifacts": [
+   "gap",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.4,
+    0.5,
+    0.35,
+    0.3,
+    0.45
+   ],
+   "target": [
+    0.85,
+    0.75,
+    0.8,
+    0.7,
+    0.7,
+    0.8
+   ],
+   "seed": 4121
+  }
+ },
+ {
+  "id": "advancement-rad-07",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "prospect-pipeline-radar",
+  "title": "Prospect pipeline health radar",
+  "subtitle": "Identification through solicitation strength",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.45,
+    0.4,
+    0.35,
+    0.5,
+    0.3,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.75,
+    0.7,
+    0.8,
+    0.7,
+    0.8
+   ],
+   "seed": 4122
+  }
+ },
+ {
+  "id": "advancement-rad-08",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "campaign-readiness-radar",
+  "title": "Campaign readiness radar",
+  "subtitle": "Case, leadership, prospects, staff, systems",
+  "artifacts": [
+   "audit",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.55,
+    0.45,
+    0.35
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.85,
+    0.8,
+    0.75
+   ],
+   "seed": 4123
+  }
+ },
+ {
+  "id": "advancement-rad-09",
+  "family": "maturityRadar",
+  "industry": "advancement",
+  "framework": "planned-giving-radar",
+  "title": "Planned giving maturity radar",
+  "subtitle": "Marketing, identification, expertise, tracking",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.35,
+    0.4,
+    0.3,
+    0.45,
+    0.35,
+    0.4
+   ],
+   "target": [
+    0.75,
+    0.8,
+    0.7,
+    0.8,
+    0.7,
+    0.75
+   ],
+   "seed": 4124
+  }
+ },
+ {
+  "id": "advancement-fun-01",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "major-gift-pipeline-funnel",
+  "title": "Major gift pipeline funnel",
+  "subtitle": "Identify, qualify, cultivate, solicit, close",
+  "artifacts": [
+   "strategy",
+   "journey",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    60,
+    38,
+    22,
+    12
+   ],
+   "seed": 4125
+  }
+ },
+ {
+  "id": "advancement-fun-02",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "moves-management-funnel",
+  "title": "Moves-management pipeline by stage",
+  "subtitle": "Prospect movement through qualification",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    45,
+    28,
+    15,
+    8
+   ],
+   "seed": 4126
+  }
+ },
+ {
+  "id": "advancement-fun-03",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "prospect-qualification-funnel",
+  "title": "Prospect qualification funnel",
+  "subtitle": "Screened names to confirmed prospects",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    30,
+    16,
+    9
+   ],
+   "seed": 4127
+  }
+ },
+ {
+  "id": "advancement-fun-04",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "annual-fund-conversion-funnel",
+  "title": "Annual fund conversion funnel",
+  "subtitle": "Solicited, opened, clicked, gave",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    42,
+    18,
+    7
+   ],
+   "seed": 4128
+  }
+ },
+ {
+  "id": "advancement-fun-05",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "planned-giving-funnel",
+  "title": "Planned giving prospect funnel",
+  "subtitle": "Aware, interested, intent, documented",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    48,
+    26,
+    14,
+    6
+   ],
+   "seed": 4129
+  }
+ },
+ {
+  "id": "advancement-fun-06",
+  "family": "adv_giftpyr",
+  "industry": "advancement",
+  "framework": "alumni-to-donor-funnel",
+  "title": "Alumni-to-donor funnel",
+  "subtitle": "Reachable, engaged, first gift, renewed",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    30,
+    15,
+    9
+   ],
+   "seed": 4130
+  }
+ },
+ {
+  "id": "advancement-fun-07",
+  "family": "funnelFlow",
+  "industry": "advancement",
+  "framework": "digital-acquisition-funnel",
+  "title": "Digital acquisition funnel",
+  "subtitle": "Visit, form view, start, complete gift",
+  "artifacts": [
+   "strategy",
+   "journey",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    38,
+    22,
+    11
+   ],
+   "seed": 4131
+  }
+ },
+ {
+  "id": "advancement-fun-08",
+  "family": "funnelFlow",
+  "industry": "advancement",
+  "framework": "campaign-solicitation-funnel",
+  "title": "Campaign solicitation funnel",
+  "subtitle": "Rated, assigned, asked, committed",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    40,
+    20,
+    11
+   ],
+   "seed": 4132
+  }
+ },
+ {
+  "id": "advancement-fun-09",
+  "family": "funnelFlow",
+  "industry": "advancement",
+  "framework": "mid-level-upgrade-funnel",
+  "title": "Mid-level upgrade funnel",
+  "subtitle": "Annual donors moving toward major gifts",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    28,
+    14,
+    6
+   ],
+   "seed": 4133
+  }
+ },
+ {
+  "id": "advancement-jou-01",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "donor-lifecycle-journey",
+  "title": "Donor lifecycle journey",
+  "subtitle": "Acquire, onboard, renew, upgrade, steward",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    5
+   ],
+   "seed": 4134
+  }
+ },
+ {
+  "id": "advancement-jou-02",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "first-gift-journey",
+  "title": "First-time donor journey",
+  "subtitle": "From appeal to confirmed first gift",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4135
+  }
+ },
+ {
+  "id": "advancement-jou-03",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "major-donor-cultivation-journey",
+  "title": "Major donor cultivation journey",
+  "subtitle": "Discovery visits to solicitation close",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4136
+  }
+ },
+ {
+  "id": "advancement-jou-04",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "alumni-engagement-journey",
+  "title": "Alumni engagement journey",
+  "subtitle": "Student to lifelong engaged alumnus",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    1,
+    4,
+    6
+   ],
+   "seed": 4137
+  }
+ },
+ {
+  "id": "advancement-jou-05",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "lapsed-donor-recovery-journey",
+  "title": "Lapsed donor recovery journey",
+  "subtitle": "LYBUNT outreach to reactivation",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4138
+  }
+ },
+ {
+  "id": "advancement-jou-06",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "planned-gift-journey",
+  "title": "Planned gift donor journey",
+  "subtitle": "Awareness through estate documentation",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5,
+    6
+   ],
+   "seed": 4139
+  }
+ },
+ {
+  "id": "advancement-jou-07",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "stewardship-journey",
+  "title": "Donor stewardship journey",
+  "subtitle": "Acknowledgment, impact, recognition, renewal",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4140
+  }
+ },
+ {
+  "id": "advancement-jou-08",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "volunteer-leadership-journey",
+  "title": "Volunteer leadership journey",
+  "subtitle": "From event guest to campaign chair",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4141
+  }
+ },
+ {
+  "id": "advancement-jou-09",
+  "family": "journeyLine",
+  "industry": "advancement",
+  "framework": "recurring-giving-journey",
+  "title": "Recurring giving journey",
+  "subtitle": "One-time gift to sustained monthly support",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4142
+  }
+ },
+ {
+  "id": "advancement-dat-01",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "donor-retention-by-segment",
+  "title": "Donor retention by segment",
+  "subtitle": "Renewal rate across giving tiers",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    5,
+    4,
+    6,
+    9,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4143,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "advancement-dat-02",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "gift-officer-portfolio-yield",
+  "title": "Gift-officer portfolio yield",
+  "subtitle": "Dollars raised per officer portfolio",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    8,
+    4,
+    3,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4144,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "advancement-dat-03",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "channel-response-rates",
+  "title": "Appeal response rate by channel",
+  "subtitle": "Direct mail, email, phone, digital, events",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    4,
+    7,
+    3,
+    5,
+    8
+   ],
+   "sort": "desc",
+   "seed": 4145,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "advancement-dat-04",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "cost-to-raise-a-dollar",
+  "title": "Cost to raise a dollar by program",
+  "subtitle": "Fundraising efficiency across channels",
+  "artifacts": [
+   "strategy",
+   "audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    3,
+    5,
+    7,
+    4,
+    8,
+    6,
+    9
+   ],
+   "sort": "asc",
+   "seed": 4146,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "advancement-dat-05",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "average-gift-by-tier",
+  "title": "Average gift size by tier",
+  "subtitle": "Mean gift across giving levels",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    2,
+    3,
+    4,
+    6,
+    8,
+    10
+   ],
+   "sort": "asc",
+   "seed": 4147,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "advancement-dat-06",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "participation-rate-by-class",
+  "title": "Alumni participation by class year",
+  "subtitle": "Giving rate across graduation cohorts",
+  "artifacts": [
+   "strategy",
+   "themes",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    5,
+    4,
+    3,
+    6,
+    8,
+    9
+   ],
+   "sort": "none",
+   "seed": 4148,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "advancement-dat-07",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "wealth-capacity-distribution",
+  "title": "Wealth capacity distribution",
+  "subtitle": "Rated capacity across screened prospects",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4149,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "advancement-dat-08",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "giving-by-constituency",
+  "title": "Giving by constituency type",
+  "subtitle": "Alumni, parents, friends, corporations",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    5,
+    4,
+    7,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4150,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "advancement-dat-09",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "peer-benchmark-giving",
+  "title": "Peer institution giving benchmark",
+  "subtitle": "Total raised against comparison set",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    5,
+    9,
+    7,
+    4,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4151,
+   "mean": true,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "advancement-dat-10",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "donor-acquisition-cost",
+  "title": "Donor acquisition cost by source",
+  "subtitle": "Cost per new donor across channels",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    4,
+    6,
+    8,
+    5,
+    3,
+    7
+   ],
+   "sort": "asc",
+   "seed": 4152,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "advancement-dat-11",
+  "family": "dataField",
+  "industry": "advancement",
+  "framework": "stewardship-touchpoint-volume",
+  "title": "Stewardship touches by donor tier",
+  "subtitle": "Annual contacts across giving levels",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    3,
+    4,
+    6,
+    8,
+    9
+   ],
+   "sort": "asc",
+   "seed": 4153,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "advancement-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "donor-segmentation-matrix",
+  "title": "Donor segmentation matrix",
+  "subtitle": "Capacity against affinity",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.3
+    ],
+    [
+     0.7,
+     0.5,
+     0.2
+    ],
+    [
+     0.4,
+     0.3,
+     0.1
+    ]
+   ],
+   "seed": 4154
+  }
+ },
+ {
+  "id": "advancement-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "prospect-prioritization-2x2",
+  "title": "Prospect prioritization matrix",
+  "subtitle": "Wealth capacity vs engagement",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.3
+    ],
+    [
+     0.4,
+     0.3,
+     0.2
+    ]
+   ],
+   "seed": 4155
+  }
+ },
+ {
+  "id": "advancement-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "giving-program-scorecard",
+  "title": "Giving program scorecard",
+  "subtitle": "Programs scored on yield and cost",
+  "artifacts": [
+   "strategy",
+   "audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.5,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4156
+  }
+ },
+ {
+  "id": "advancement-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "channel-mix-heatmap",
+  "title": "Channel performance heatmap",
+  "subtitle": "Channels against donor segments",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.3
+    ],
+    [
+     0.4,
+     0.7,
+     0.6
+    ],
+    [
+     0.2,
+     0.4,
+     0.9
+    ],
+    [
+     0.6,
+     0.3,
+     0.5
+    ]
+   ],
+   "seed": 4157
+  }
+ },
+ {
+  "id": "advancement-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "crm-vendor-comparison",
+  "title": "Advancement CRM comparison",
+  "subtitle": "Platforms against requirements",
+  "artifacts": [
+   "competitive",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.7
+    ],
+    [
+     0.7,
+     0.8,
+     0.5
+    ],
+    [
+     0.5,
+     0.7,
+     0.9
+    ],
+    [
+     0.6,
+     0.5,
+     0.6
+    ]
+   ],
+   "seed": 4158
+  }
+ },
+ {
+  "id": "advancement-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "campaign-priority-matrix",
+  "title": "Campaign priority matrix",
+  "subtitle": "Funding need vs donor appetite",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.6,
+     0.5,
+     0.3
+    ],
+    [
+     0.4,
+     0.3,
+     0.2
+    ]
+   ],
+   "seed": 4159
+  }
+ },
+ {
+  "id": "advancement-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "gift-vehicle-comparison",
+  "title": "Gift vehicle comparison",
+  "subtitle": "Vehicles against donor objectives",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.6,
+     0.4,
+     0.8,
+     0.5
+    ]
+   ],
+   "seed": 4160
+  }
+ },
+ {
+  "id": "advancement-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "engagement-investment-2x2",
+  "title": "Engagement investment matrix",
+  "subtitle": "Effort vs giving return",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.6,
+     0.8,
+     0.9
+    ],
+    [
+     0.4,
+     0.6,
+     0.7
+    ],
+    [
+     0.2,
+     0.3,
+     0.5
+    ]
+   ],
+   "seed": 4161
+  }
+ },
+ {
+  "id": "advancement-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "portfolio-balance-matrix",
+  "title": "Portfolio balance matrix",
+  "subtitle": "Officers against pipeline stage coverage",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.5,
+     0.4
+    ],
+    [
+     0.5,
+     0.7,
+     0.6,
+     0.5
+    ],
+    [
+     0.4,
+     0.5,
+     0.8,
+     0.6
+    ]
+   ],
+   "seed": 4162
+  }
+ },
+ {
+  "id": "advancement-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "solicitation-readiness-matrix",
+  "title": "Solicitation readiness matrix",
+  "subtitle": "Relationship depth vs ask clarity",
+  "artifacts": [
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.5
+    ],
+    [
+     0.6,
+     0.5,
+     0.4
+    ],
+    [
+     0.4,
+     0.3,
+     0.2
+    ]
+   ],
+   "seed": 4163
+  }
+ },
+ {
+  "id": "advancement-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "advancement",
+  "framework": "data-source-quality-heatmap",
+  "title": "Data source quality heatmap",
+  "subtitle": "Sources against accuracy dimensions",
+  "artifacts": [
+   "tech-audit",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.4,
+     0.6,
+     0.5
+    ],
+    [
+     0.9,
+     0.7,
+     0.6
+    ],
+    [
+     0.5,
+     0.4,
+     0.7
+    ]
+   ],
+   "seed": 4164
+  }
+ },
+ {
+  "id": "advancement-dia-01",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "campaign-goal-gauge",
+  "title": "Campaign goal progress",
+  "subtitle": "Committed against total target",
+  "artifacts": [
+   "strategy",
+   "roadmap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 68,
+   "segments": 10,
+   "seed": 4165
+  }
+ },
+ {
+  "id": "advancement-dia-02",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "donor-retention-gauge",
+  "title": "Overall donor retention rate",
+  "subtitle": "Renewed donors against prior year",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 45,
+   "segments": 10,
+   "seed": 4166
+  }
+ },
+ {
+  "id": "advancement-dia-03",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "alumni-participation-gauge",
+  "title": "Alumni participation rate",
+  "subtitle": "Giving alumni against total reachable",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 18,
+   "segments": 10,
+   "seed": 4167
+  }
+ },
+ {
+  "id": "advancement-dia-04",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "pipeline-coverage-gauge",
+  "title": "Pipeline coverage ratio",
+  "subtitle": "Identified prospects against goal need",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10,
+   "seed": 4168
+  }
+ },
+ {
+  "id": "advancement-dia-05",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "cost-to-raise-gauge",
+  "title": "Cost to raise a dollar",
+  "subtitle": "Fundraising spend against dollars raised",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 22,
+   "segments": 10,
+   "seed": 4169
+  }
+ },
+ {
+  "id": "advancement-dia-06",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "portfolio-activity-gauge",
+  "title": "Portfolio activity rate",
+  "subtitle": "Prospects with recent moves logged",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 54,
+   "segments": 10,
+   "seed": 4170
+  }
+ },
+ {
+  "id": "advancement-dia-07",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "recurring-giving-gauge",
+  "title": "Recurring gift penetration",
+  "subtitle": "Sustainers against total donor base",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 12,
+   "segments": 10,
+   "seed": 4171
+  }
+ },
+ {
+  "id": "advancement-dia-08",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "new-donor-acquisition-gauge",
+  "title": "New donor acquisition pace",
+  "subtitle": "New donors against annual target",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 61,
+   "segments": 10,
+   "seed": 4172
+  }
+ },
+ {
+  "id": "advancement-dia-09",
+  "family": "instrumentDial",
+  "industry": "advancement",
+  "framework": "stewardship-fulfillment-gauge",
+  "title": "Stewardship fulfillment rate",
+  "subtitle": "Promised reports delivered on time",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 83,
+   "segments": 10,
+   "seed": 4173
+  }
+ },
+ {
+  "id": "advancement-gan-01",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "campaign-phase-roadmap",
+  "title": "Campaign phase roadmap",
+  "subtitle": "Quiet, leadership, public, celebration",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4174
+  }
+ },
+ {
+  "id": "advancement-gan-02",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "major-gift-cultivation-timeline",
+  "title": "Major gift cultivation timeline",
+  "subtitle": "Moves sequenced from qualify to close",
+  "artifacts": [
+   "roadmap",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4175
+  }
+ },
+ {
+  "id": "advancement-gan-03",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "annual-fund-calendar",
+  "title": "Annual fund appeal calendar",
+  "subtitle": "Solicitation waves across fiscal year",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 2,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4176
+  }
+ },
+ {
+  "id": "advancement-gan-04",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "stewardship-cycle-timeline",
+  "title": "Stewardship cycle timeline",
+  "subtitle": "Acknowledge, report, recognize, re-engage",
+  "artifacts": [
+   "blueprint",
+   "roadmap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4177
+  }
+ },
+ {
+  "id": "advancement-gan-05",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "crm-implementation-roadmap",
+  "title": "CRM implementation roadmap",
+  "subtitle": "Migration, configuration, training, launch",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4178
+  }
+ },
+ {
+  "id": "advancement-gan-06",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "engagement-program-roadmap",
+  "title": "Engagement program roadmap",
+  "subtitle": "Events, communications, volunteer waves",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4179
+  }
+ },
+ {
+  "id": "advancement-gan-07",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "planned-giving-rollout",
+  "title": "Planned giving program rollout",
+  "subtitle": "Marketing, training, identification, tracking",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 1
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4180
+  }
+ },
+ {
+  "id": "advancement-gan-08",
+  "family": "timelineGantt",
+  "industry": "advancement",
+  "framework": "fiscal-year-giving-rhythm",
+  "title": "Fiscal year giving rhythm",
+  "subtitle": "Acquisition, renewal, year-end peaks",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 4,
+   "milestone": 5,
+   "seed": 4181
+  }
+ },
+ {
+  "id": "advancement-flo-01",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "gift-processing-flow",
+  "title": "Gift processing flow",
+  "subtitle": "Receipt, entry, acknowledgment, allocation",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4182
+  }
+ },
+ {
+  "id": "advancement-flo-02",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "prospect-assignment-flow",
+  "title": "Prospect assignment flow",
+  "subtitle": "Screening to officer portfolio routing",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4183
+  }
+ },
+ {
+  "id": "advancement-flo-03",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "data-integration-architecture",
+  "title": "Advancement data architecture",
+  "subtitle": "CRM, screening, finance, engagement feeds",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4184
+  }
+ },
+ {
+  "id": "advancement-flo-04",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "gift-qualification-decision-flow",
+  "title": "Gift qualification decision flow",
+  "subtitle": "Branching rules for prospect tiering",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4185
+  }
+ },
+ {
+  "id": "advancement-flo-05",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "acknowledgment-workflow",
+  "title": "Acknowledgment workflow",
+  "subtitle": "Triggered touches by gift size and type",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4186
+  }
+ },
+ {
+  "id": "advancement-flo-06",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "matching-gift-flow",
+  "title": "Matching gift process flow",
+  "subtitle": "Identify, submit, verify, credit",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4187
+  }
+ },
+ {
+  "id": "advancement-flo-07",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "campaign-counting-flow",
+  "title": "Campaign counting decision flow",
+  "subtitle": "Gift type rules for counting policy",
+  "artifacts": [
+   "arch",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4188
+  }
+ },
+ {
+  "id": "advancement-flo-08",
+  "family": "flowSchematic",
+  "industry": "advancement",
+  "framework": "digital-giving-architecture",
+  "title": "Digital giving architecture",
+  "subtitle": "Form, gateway, CRM, receipt, feed",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4189
+  }
+ },
+ {
+  "id": "advancement-pro-01",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "giving-mix-composition",
+  "title": "Giving mix composition",
+  "subtitle": "Annual, major, planned, principal share",
+  "artifacts": [
+   "strategy",
+   "themes",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    30,
+    40,
+    18,
+    12
+   ],
+   "seed": 4190
+  }
+ },
+ {
+  "id": "advancement-pro-02",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "revenue-by-constituency",
+  "title": "Revenue by constituency",
+  "subtitle": "Alumni, parents, friends, corporate share",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    45,
+    20,
+    18,
+    17
+   ],
+   "seed": 4191
+  }
+ },
+ {
+  "id": "advancement-pro-03",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "channel-revenue-share",
+  "title": "Revenue share by channel",
+  "subtitle": "Mail, digital, events, officer-driven",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    28,
+    32,
+    15,
+    25
+   ],
+   "seed": 4192
+  }
+ },
+ {
+  "id": "advancement-pro-04",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "pipeline-stage-composition",
+  "title": "Pipeline value by stage",
+  "subtitle": "Dollars in qualify, cultivate, solicit, close",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    35,
+    30,
+    20,
+    15
+   ],
+   "seed": 4193
+  }
+ },
+ {
+  "id": "advancement-pro-05",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "donor-base-by-tier",
+  "title": "Donor base by giving tier",
+  "subtitle": "Share of donors across gift levels",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    60,
+    25,
+    10,
+    5
+   ],
+   "seed": 4194
+  }
+ },
+ {
+  "id": "advancement-pro-06",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "designation-of-funds",
+  "title": "Gift designation composition",
+  "subtitle": "Scholarships, programs, capital, unrestricted",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    35,
+    25,
+    22,
+    18
+   ],
+   "seed": 4195
+  }
+ },
+ {
+  "id": "advancement-pro-07",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "budget-allocation-mix",
+  "title": "Advancement budget allocation",
+  "subtitle": "Staff, technology, events, marketing",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    55,
+    18,
+    15,
+    12
+   ],
+   "seed": 4196
+  }
+ },
+ {
+  "id": "advancement-pro-08",
+  "family": "proportionStack",
+  "industry": "advancement",
+  "framework": "new-vs-renewed-mix",
+  "title": "New versus renewed giving",
+  "subtitle": "Acquisition against retained donor revenue",
+  "artifacts": [
+   "strategy",
+   "themes"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    35,
+    65
+   ],
+   "seed": 4197
+  }
+ },
+ {
+  "id": "advancement-sec-01",
+  "family": "sectionMark",
+  "industry": "advancement",
+  "framework": "section-divider-pipeline",
+  "title": "Pipeline and prospect strategy",
+  "subtitle": "Section divider",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 4198
+  }
+ },
+ {
+  "id": "advancement-sec-02",
+  "family": "sectionMark",
+  "industry": "advancement",
+  "framework": "section-divider-stewardship",
+  "title": "Stewardship and retention",
+  "subtitle": "Section divider",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4199
+  }
+ }
+]

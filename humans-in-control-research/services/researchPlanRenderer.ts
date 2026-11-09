@@ -157,12 +157,14 @@ export function renderResearchPlanHtml(input: ResearchPlanRenderInput): string {
     const brandId = normalizeBrandId(input.brand);
     const css = brandId === 'deciem' ? deciemRpStyle() : brandId === 'nu' ? NU_RP_STYLE : NXT_RP_STYLE;
 
-    const sqHtml = input.plan.sub_questions.map(sq => {
+    // 2026-10-05 live #deep-research "reading 'join'": every plan array is optional in a model-written plan.
+    const arr = <T,>(v: T[] | undefined | null): T[] => (Array.isArray(v) ? v : []);
+    const sqHtml = arr(input.plan.sub_questions).map(sq => {
         const angleColor = ANGLE_COLORS[sq.angle] || '#888';
-        const entityTags = sq.expected_named_entities.slice(0, 4).map(e =>
+        const entityTags = arr(sq.expected_named_entities).slice(0, 4).map(e =>
             `<span class="rp-tag entity">${escapeHtml(e)}</span>`
         ).join('');
-        const typeTags = sq.expected_evidence_types.slice(0, 4).map(t =>
+        const typeTags = arr(sq.expected_evidence_types).slice(0, 4).map(t =>
             `<span class="rp-tag">${escapeHtml(t)}</span>`
         ).join('');
         return `
@@ -180,12 +182,12 @@ export function renderResearchPlanHtml(input: ResearchPlanRenderInput): string {
         </div>`;
     }).join('');
 
-    const sourceHtml = input.plan.source_strategy.slice(0, 14).map(s => `
-        <li><b>${escapeHtml(s.source_id)}</b> → ${escapeHtml(s.sub_question_ids.join(', '))} · ~${s.expected_yield} items<br/><span style="color:#888">${escapeHtml(s.rationale)}</span></li>
+    const sourceHtml = arr(input.plan.source_strategy).slice(0, 14).map(s => `
+        <li><b>${escapeHtml(String(s.source_id || (s as any).source || (s as any).name || ''))}</b>${arr(s.sub_question_ids).length ? ` → ${escapeHtml(arr(s.sub_question_ids).join(', '))}` : ''}${Number.isFinite(Number(s.expected_yield)) ? ` · about ${Number(s.expected_yield)} items` : ''}${s.rationale ? `<br/><span style="color:#888">${escapeHtml(String(s.rationale))}</span>` : ''}</li>
     `).join('');
 
-    const institutionsHtml = input.plan.named_institutions.length > 0
-        ? input.plan.named_institutions.slice(0, 8).map(i => `<span class="rp-tag entity" style="margin-right:6px;">${escapeHtml(i)}</span>`).join('')
+    const institutionsHtml = arr(input.plan.named_institutions).length > 0
+        ? arr(input.plan.named_institutions).slice(0, 8).map(i => `<span class="rp-tag entity" style="margin-right:6px;">${escapeHtml(i)}</span>`).join('')
         : '<span style="color:#666;">(none specified)</span>';
 
     return `<!DOCTYPE html>
@@ -206,7 +208,7 @@ export function renderResearchPlanHtml(input: ResearchPlanRenderInput): string {
   <div class="rp-rail"></div>
   <div class="rp-grid">
     <div>
-      <div class="rp-section-label">Sub-Questions (${input.plan.sub_questions.length})</div>
+      <div class="rp-section-label">Sub-Questions (${arr(input.plan.sub_questions).length})</div>
       ${sqHtml}
     </div>
     <div>

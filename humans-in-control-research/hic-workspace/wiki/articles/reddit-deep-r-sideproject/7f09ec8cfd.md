@@ -16,12 +16,12 @@ relevance: 70
 content_hash: "ad80d030943aa075"
 chunks:
   - id: "articles/reddit-deep-r-sideproject/7f09ec8cfd.md#c0"
-    char_span: [0, 1894]
+    char_span: [0, 1893]
     sentence_count: 16
     key_terms: [app, old-storage1099, budget-expense-tracker-monee, https, apps, com, thank, tracking]
     concepts: [old-storage1099, budget-expense-tracker-monee, https, thank, tracking]
-    token_count: 501
-    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1n4wzh3/my_completely_free_budget_tracking_app_reached/"}]
+    token_count: 500
+    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1n4wzh3/my_completely_free_budget_tracking_app_reached/","kind":"article","date":"2025-08-31","subreddit":"sideproject"}]
 ---
 # My completely free budget tracking app reached 8000 daily active users
 

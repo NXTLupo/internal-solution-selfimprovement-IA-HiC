@@ -955,6 +955,82 @@ def send_mcp_message():
         logger.error(f"Error processing MCP message: {str(e)}")
         return jsonify({"error": f"Failed to connect to agent service: {str(e)}"}), 500
 
+# =============================================================================
+# 2026-10-31 (agent-stack plan WS-D D1/D4): the coordinator surfaces.
+#   /api/threads            the ONE thread registry (platform agent): every thread with its location marker
+#   /api/agency/history/<id> an NXT-Agency thread's history, to resume it from the thread list
+#   /api/agency/reviews      outbound computer-use actions waiting for a human (and the decision route)
+# In compose AGENT_URL points the chat at NXT-Agency; the platform agent is PLATFORM_AGENT_URL.
+# =============================================================================
+PLATFORM_AGENT_URL = os.environ.get('PLATFORM_AGENT_URL', 'http://agent:8500').rstrip('/')
+AGENCY_URL = os.environ.get('AGENT_URL', 'http://nxt-agency-backend:8000').rstrip('/')
+
+
+def _relay(method, url, **kw):
+    try:
+        r = requests.request(method, url, timeout=kw.pop('timeout', 10), **kw)
+        try:
+            body = r.json()
+        except ValueError:
+            body = {"error": r.text[:300]}
+        return jsonify(body), r.status_code
+    except Exception as e:
+        return jsonify({"error": f"unreachable: {str(e)[:200]}"}), 502
+
+
+@app.route('/api/threads')
+def list_threads():
+    return _relay('GET', f"{PLATFORM_AGENT_URL}/api/threads", params={"limit": request.args.get('limit', 50)})
+
+
+@app.route('/api/threads/<thread_id>')
+def get_thread(thread_id):
+    return _relay('GET', f"{PLATFORM_AGENT_URL}/api/threads/{thread_id}")
+
+
+@app.route('/api/agency/history/<conversation_id>')
+def agency_history(conversation_id):
+    return _relay('GET', f"{AGENCY_URL}/api/chat/history/{conversation_id}")
+
+
+@app.route('/api/agency/reviews')
+def agency_reviews():
+    return _relay('GET', f"{AGENCY_URL}/api/reviews", params={"session_id": request.args.get('session_id', '')})
+
+
+@app.route('/api/agency/reviews/<review_id>/decision', methods=['POST'])
+def agency_review_decision(review_id):
+    return _relay('POST', f"{AGENCY_URL}/api/reviews/{review_id}/decision", json=request.get_json(silent=True) or {})
+
+
+# 2026-10-31 (agent-stack plan WS-E E3): HiC's morning read-out on the Launchpad, through research-mcp get_digest
+# (research-mcp already holds the proxy token; the Launchpad needs none).
+RESEARCH_MCP_URL = os.environ.get('RESEARCH_MCP_URL', 'http://research-mcp:8507').rstrip('/')
+
+
+def _digest_call(mark_seen=False):
+    try:
+        r = requests.post(f"{RESEARCH_MCP_URL}/mcp", json={"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {
+            "name": "get_digest", "arguments": {"surface": "launchpad", "format": "json", "mark_seen": bool(mark_seen)}}}, timeout=30)
+        body = r.json()
+        if body.get("error"):
+            return jsonify({"error": str(body["error"])[:300]}), 502
+        text = (((body.get("result") or {}).get("content") or [{}])[0]).get("text") or "{}"
+        return jsonify(json.loads(text)), 200
+    except Exception as e:
+        return jsonify({"error": f"digest unavailable: {str(e)[:200]}"}), 502
+
+
+@app.route('/api/digest')
+def launchpad_digest():
+    return _digest_call(False)
+
+
+@app.route('/api/digest/seen', methods=['POST'])
+def launchpad_digest_seen():
+    return _digest_call(True)
+
+
 @app.route('/api/mcp/servers')
 def get_mcp_servers():
     """Get MCP server status"""

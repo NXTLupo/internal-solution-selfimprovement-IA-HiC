@@ -1,0 +1,26 @@
+{
+  "id": "prd-prd_1791065630724",
+  "set": "frontier",
+  "kind": "prd",
+  "input": {
+    "objective": "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts.",
+    "prompt": "#prd",
+    "engagement": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property/artifacts/prd_1791065630724.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "prd_1791065630724",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: UNVERIFIED_QUOTE x17; UNSOURCED_FACT x8; UNVERIFIED_IDENTIFIER x2"
+  }
+}

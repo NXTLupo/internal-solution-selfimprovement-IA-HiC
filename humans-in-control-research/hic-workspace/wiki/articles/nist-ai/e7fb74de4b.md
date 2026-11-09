@@ -8,38 +8,44 @@ title: "NIST Helps Fingerprint Examiners With New Data and Software Release"
 author: ""
 date: "Mon, 23 Mar 2026 12:00:00 +0000"
 tier: 1
-method: "pack-search-backfill"
-extracted_at: "2026-07-02T18:05:14.126376+00:00"
+method: "source-native"
+extracted_at: "2026-10-09T16:55:44.029896+00:00"
 chars: 4894
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
-collected_at: "2026-07-02T18:05:12+00:00"
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th 1-understand-emerging-northeastern-university-student-and-other-college-student"
+collected_at: "2026-10-09T16:55:41.410Z"
+relevance: 0
+engagement_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
 content_hash: "41f32270e24af9a5"
+relevance_by_goal: {"aa6916010743":0}
 chunks:
   - id: "articles/nist-ai/e7fb74de4b.md#c0"
-    char_span: [0, 199]
+    char_span: [0, 198]
     sentence_count: 1
     key_terms: [nist-helps-fingerprint-examiners-new-data-and-software-release, nist, fingerprint, news-events, examiners, software, release, source]
-    token_count: 53
-    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-helps-fingerprint-examiners-new-data-and-software-release"}]
+    token_count: 52
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-helps-fingerprint-examiners-new-data-and-software-release","kind":"article","date":"2026-03-23"}]
   - id: "articles/nist-ai/e7fb74de4b.md#c1"
-    char_span: [201, 2835]
+    char_span: [200, 2834]
     sentence_count: 12
     key_terms: [fingerprints, print, annotations, fingerprint, quality, prints, available, data]
     concepts: [fingerprints, annotations, fingerprint, print, quality]
     related_chunks: ["articles/nist-ai/e7fb74de4b.md#c2"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-helps-fingerprint-examiners-new-data-and-software-release","kind":"article","date":"2026-03-23"}]
   - id: "articles/nist-ai/e7fb74de4b.md#c2"
-    char_span: [2530, 5025]
+    char_span: [2529, 5024]
     sentence_count: 19
     key_terms: [software, print, quality, nist, help, fiumara, latent, prints]
     concepts: [software, print, quality, investigation, fiumara]
     related_chunks: ["articles/nist-ai/e7fb74de4b.md#c1"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-helps-fingerprint-examiners-new-data-and-software-release","kind":"article","date":"2026-03-23"}]
   - id: "articles/nist-ai/e7fb74de4b.md#c3"
-    char_span: [4757, 5096]
+    char_span: [4756, 5095]
     sentence_count: 12
     key_terms: [nist, collaboration, practitioners, researchers, innovation, annotated, phalanxes, resources]
     token_count: 97
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/03/nist-helps-fingerprint-examiners-new-data-and-software-release","kind":"article","date":"2026-03-23"}]
 ---
 # NIST Helps Fingerprint Examiners With New Data and Software Release
 

@@ -19,44 +19,49 @@ content_hash: "d7a87cfe0a73075c"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c0"
-    char_span: [0, 162]
+    char_span: [0, 161]
     sentence_count: 1
     key_terms: [sakana-fugu-multi-agent-system-as-a-model, analyticsvidhya, multi-agent, sakana, source, system, https, model]
-    token_count: 46
-    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/"}]
+    token_count: 45
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c1"
-    char_span: [164, 2787]
+    char_span: [163, 2786]
     sentence_count: 25
     key_terms: [fugu, model, orchestration, verification, multi-agent, agents, sakana, system]
     concepts: [model, orchestration, verification, multi-agent, agents]
     related_chunks: ["articles/analytics-vidhya/1bb54c2dcd.md#c2", "articles/analytics-vidhya/1bb54c2dcd.md#c4"]
     token_count: 512
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c2"
-    char_span: [2471, 5092]
+    char_span: [2470, 5091]
     sentence_count: 32
     key_terms: [fugu, agents, model, orchestrator, agent, tasks, ultra, different]
     concepts: [agents, model, orchestrator, different, agent]
     related_chunks: ["articles/analytics-vidhya/1bb54c2dcd.md#c1"]
     token_count: 512
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c3"
-    char_span: [4779, 7273]
+    char_span: [4778, 7272]
     sentence_count: 29
     key_terms: [fugu, sakana, ultra, pricing, pay-as-you-go, subscription, benchmarks, model]
     concepts: [sakana, pricing, ultra, pay-as-you-go, subscription]
     token_count: 512
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c4"
-    char_span: [7017, 9258]
+    char_span: [7016, 9257]
     sentence_count: 17
     key_terms: [sakana, model, openai, api, fugu, multi-agent, https, response]
     concepts: [sakana, model, openai, multi-agent, orchestration]
     related_chunks: ["articles/analytics-vidhya/1bb54c2dcd.md#c1"]
     token_count: 512
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
   - id: "articles/analytics-vidhya/1bb54c2dcd.md#c5"
-    char_span: [8974, 9476]
+    char_span: [8973, 9475]
     sentence_count: 11
     key_terms: [model, models, fugu-ultra-20260615, openai-compatible, use, orchestration, applications, completions]
     concepts: [model, models]
     token_count: 118
+    sources: [{"n":"analytics_vidhya","u":"https://www.analyticsvidhya.com/blog/2026/06/sakana-fugu-multi-agent-system-as-a-model/","kind":"article","date":"2026-06-23"}]
 ---
 # Sakana Fugu: Multi-Agent System as a Model
 

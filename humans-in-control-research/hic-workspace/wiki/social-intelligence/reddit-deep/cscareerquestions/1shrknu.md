@@ -7,15 +7,14 @@ subreddit: "cscareerquestions"
 title: "For those who already have a CS degree did Coursera professional certificates actually help your job search?"
 author: "Ok-Bathroom-3494"
 date: "2026-04-10T16:30:39.000Z"
-score: 5
-upvote_ratio: 0.86
+score: 7
+upvote_ratio: 0.89
 num_comments: 9
 flair: "New Grad"
-extracted_at: "2026-05-23T14:54:48.630Z"
+extracted_at: "2026-10-01T20:49:45.679Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility."
+engagement: "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c0"
     char_span: [0, 2003]
@@ -23,7 +22,7 @@ chunks:
     key_terms: [certifications, google, cscareerquestions, job, meta, degree, architecture, certificates]
     concepts: [certifications, google, cscareerquestions, architecture, certificates]
     token_count: 470
-    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/"}]
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/","kind":"social-post","date":"2026-04-10","author":"Ok-Bathroom-3494","subreddit":"cscareerquestions"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c1"
     char_span: [2005, 2662]
     sentence_count: 9
@@ -31,19 +30,21 @@ chunks:
     concepts: [certificates, experience, projects, hiring]
     related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"]
     token_count: 136
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/","kind":"social-post","date":"2026-04-10","author":"Ok-Bathroom-3494","subreddit":"cscareerquestions"}]
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"
-    char_span: [2676, 3718]
+    char_span: [2677, 3724]
     sentence_count: 6
     key_terms: [certificates, resume, revorian, project, hiring, skills, intelligent-glass840, top-half-of-the-page]
     concepts: [certificates, resume, revorian, project, hiring]
     related_chunks: ["social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c1"]
     section: Comments
-    token_count: 255
+    token_count: 253
+    sources: [{"n":"reddit-deep: r/cscareerquestions","u":"https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/","kind":"social-post","date":"2026-04-10","author":"Ok-Bathroom-3494","subreddit":"cscareerquestions"}]
 ---
 # For those who already have a CS degree did Coursera professional certificates actually help your job search?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/)
-Posted by **Ok-Bathroom-3494** · **5↑** · **9 comments**
+Posted by **Ok-Bathroom-3494** · **7↑** · **9 comments**
 
 I have a degree in Communication & Computer Engineering (GPA 3.66) and experience as a full-stack developer. I've most recently been a technical content writer focusing on AI/ML (especially on RAG pipelines and LLM agents). I've been unemployed for several months and I'm currently looking for a job.
 
@@ -80,10 +81,10 @@ Thank you.
 
 ## Comments
 
-- **lhorie** (3↑): Speaking as someone on the hiring side, I don't really pay attention to certificates. Have a meaty top-half-of-the-page  on your resume instead.
+- **lhorie** (5↑): Speaking as someone on the hiring side, I don't really pay attention to certificates. Have a meaty top-half-of-the-page  on your resume instead.
 - **Intelligent-Glass840** (2↑): having 115 certificates can actually look a bit noisy on a resume. Most hiring managers I know care way more about what you *built* than how many videos you watched. If I were you, I’d pick 2 or 3 of those certs that are most relevant to the jobs you want, and spend the rest of that time building a killer, unique project using those skills. A working RAG pipeline with a clean UI will beat 50 IBM certificates every single time
 - **ioozx** (1↑): No, probably only useful when my resume had nothing. But this doesn't apply for cybersec I believe
-- **p8q8** (0↑): thats pretty nerdy but i bet one weird tip is to organize your courses around a project or goal so you stay motivated
+- **[deleted]** (0↑): thats pretty nerdy but i bet one weird tip is to organize your courses around a project or goal so you stay motivated
 
 
 

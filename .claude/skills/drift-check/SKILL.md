@@ -1,10 +1,12 @@
 ---
 name: drift-check
-invocation: model
-version: 1.0
 description: Compare outputs across multiple runs to detect format drift, quality degradation, or inconsistency. Use to validate prompt stability.
+invocation: model
+version: "1.0"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob, Bash
-argument-hint: [output-file-1] [output-file-2]
+argument-hint: "[output-file-1] [output-file-2]"
 ---
 
 Act as a Claude output consistency auditor who detects drift between outputs from the same prompt.

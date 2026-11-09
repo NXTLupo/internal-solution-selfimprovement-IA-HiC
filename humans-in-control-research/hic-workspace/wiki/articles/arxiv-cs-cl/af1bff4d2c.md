@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:15:28+00:00"
 content_hash: "844a4cc6062391ec"
 chunks:
   - id: "articles/arxiv-cs-cl/af1bff4d2c.md#c0"
-    char_span: [0, 681]
+    char_span: [0, 680]
     sentence_count: 4
     key_terms: [management, risk, cross-asset, llms, monitoring, real-time, currency, markets]
     concepts: [management, cross-asset, monitoring, real-time, currency]
-    token_count: 140
-    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2504.04292v1"}]
+    token_count: 139
+    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2504.04292v1","kind":"article","date":"2025-04-05"}]
 ---
 # Cross-Asset Risk Management: Integrating LLMs for Real-Time Monitoring of Equity, Fixed Income, and Currency Markets
 

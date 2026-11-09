@@ -248,8 +248,20 @@ export function vizAnchors(family: string, data: any, w: number, h: number): Viz
 }
 
 const escX = (s: any) => String(s == null ? '' : s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' } as any)[c]);
-function clip(s: string, max: number) { s = String(s || ''); return s.length > max ? s.slice(0, max).trim() + '.' : s; }
-interface Box { x: number; y: number; w: number; h: number; tx: number; ty: number; anchor: string; txt: string; }
+/** 2026-10-26 (live: "Accountable senior judgm."): a label wraps to two lines at word boundaries; a label longer than
+ *  two lines ends at the last whole word, never mid-word and never with an added period. */
+function wrapLabel(s: string, max: number): string[] {
+    const words = String(s || '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+    const lines: string[] = [];
+    let cur = '';
+    for (const w of words) {
+        if (cur && (cur + ' ' + w).length > max) { lines.push(cur); cur = w; if (lines.length === 2) { cur = ''; break; } }
+        else cur = cur ? cur + ' ' + w : w;
+    }
+    if (cur && lines.length < 2) lines.push(cur);
+    return lines.map(l => l.length > max + 6 ? l.slice(0, max).replace(/\s+\S*$/, '') : l);
+}
+interface Box { x: number; y: number; w: number; h: number; tx: number; ty: number; anchor: string; txt: string; lines?: string[]; }
 function overlaps(a: Box, b: Box) { return a.x < b.x + b.w + 2 && a.x + a.w + 2 > b.x && a.y < b.y + b.h + 2 && a.y + a.h + 2 > b.y; }
 /** Each label = a knockout PLATE (ground fill + hairline) with text, placed by the anchor plan,
  *  clamped inside the frame, then an O(n^2) nudge pass pushes any overlapping plate clear. Column
@@ -267,7 +279,8 @@ function labelLayer(family: string, data: any, w: number, h: number, font: strin
     for (const an of anchors) {
         const raw = an.role === 'hub' && data.hub ? data.hub : labels[an.idx];
         if (raw == null || raw === '') continue;
-        const txt = clip(raw, maxc); const bw = txt.length * cw + padX * 2, bh = fs + padY * 2, nodeR = an.nodeR || 8;
+        const lines = wrapLabel(raw, maxc); const txt = lines.join(' ');
+        const bw = Math.max(...lines.map(l => l.length)) * cw + padX * 2, bh = fs * (1 + 1.15 * (lines.length - 1)) + padY * 2, nodeR = an.nodeR || 8;
         let cx = an.x, cy = an.y, tx = 0, anchor = 'middle';
         if (an.place === 'radial') { const dx = an.dx || 0, dy = an.dy || 0; const off = nodeR + gap + (Math.abs(dx) * bw + Math.abs(dy) * bh) / 2; cx = an.x + dx * off; cy = an.y + dy * off; }
         else if (an.place === 'col') { cx = (an.colX || an.x) + bw / 2; cy = an.y; }           // left edge fixed at colX
@@ -278,14 +291,18 @@ function labelLayer(family: string, data: any, w: number, h: number, font: strin
         cy = Math.max(bh / 2 + 3, Math.min(h - bh / 2 - 3, cy));
         let bx = cx - bw / 2; const by0 = cy - bh / 2;
         if (an.place === 'col') { bx = (an.colX || an.x); cx = bx + bw / 2; }                  // keep column left-aligned (no clamp shift)
-        boxes.push({ x: bx, y: by0, w: bw, h: bh, tx: an.place === 'col' ? bx + padX : cx, ty: by0 + bh / 2 + fs * 0.34, anchor: an.place === 'col' ? 'start' : 'middle', txt });
+        boxes.push({ x: bx, y: by0, w: bw, h: bh, tx: an.place === 'col' ? bx + padX : cx, ty: by0 + padY + fs * 0.84, anchor: an.place === 'col' ? 'start' : 'middle', txt, lines });
     }
     // overlap-nudge pass: push any colliding plate downward until clear (then clamp to frame)
-    for (let i = 1; i < boxes.length; i++) { let guard = 0; while (guard++ < 12 && boxes.slice(0, i).some(b => overlaps(boxes[i], b))) { boxes[i].y += boxes[i].h + 4; if (boxes[i].y + boxes[i].h > h - 3) { boxes[i].y = Math.max(3, boxes[i].y - (boxes[i].h + 4)); break; } boxes[i].ty = boxes[i].y + boxes[i].h / 2 + fs * 0.34; } }
+    for (let i = 1; i < boxes.length; i++) { let guard = 0; while (guard++ < 12 && boxes.slice(0, i).some(b => overlaps(boxes[i], b))) { boxes[i].y += boxes[i].h + 4; if (boxes[i].y + boxes[i].h > h - 3) { boxes[i].y = Math.max(3, boxes[i].y - (boxes[i].h + 4)); break; } boxes[i].ty = boxes[i].y + padY + fs * 0.84; } }
+    // 2026-10-26 (live: labels drawn in a serif): the SVG rides an <img> data URI, which cannot load the page's web
+    // fonts, so the stack always ends on system sans faces.
+    const face = `${String(font || 'Archivo').replace(/"/g, "'")}, Arial, Helvetica, sans-serif`;
     let s = '';
     for (const b of boxes) {
-        s += `<rect x="${b.x.toFixed(0)}" y="${b.y.toFixed(0)}" width="${b.w.toFixed(0)}" height="${b.h.toFixed(0)}" rx="2" fill="${plate}" stroke="${edge}" stroke-width="1" opacity="0.92"/>`;
-        s += `<text x="${b.tx.toFixed(0)}" y="${b.ty.toFixed(0)}" font-family="${font}" font-size="${fs}" fill="${ink}" text-anchor="${b.anchor}">${escX(b.txt)}</text>`;
+        s += `<rect x="${b.x.toFixed(0)}" y="${b.y.toFixed(0)}" width="${b.w.toFixed(0)}" height="${b.h.toFixed(0)}" rx="2" fill="${plate}" stroke="${edge}" stroke-width="1"/>`;   // opaque: a connector never shows through a label (2026-10-27 live hub divider)
+        const lines = b.lines && b.lines.length ? b.lines : [b.txt];
+        s += `<text x="${b.tx.toFixed(0)}" y="${b.ty.toFixed(0)}" font-family="${face}" font-size="${fs}" fill="${ink}" text-anchor="${b.anchor}">${lines.map((l, li) => li === 0 ? `<tspan x="${b.tx.toFixed(0)}">${escX(l)}</tspan>` : `<tspan x="${b.tx.toFixed(0)}" dy="${(fs * 1.15).toFixed(1)}">${escX(l)}</tspan>`).join('')}</text>`;
     }
     return s;
 }

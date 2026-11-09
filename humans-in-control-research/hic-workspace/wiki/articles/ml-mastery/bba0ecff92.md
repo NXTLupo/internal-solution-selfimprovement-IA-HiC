@@ -19,31 +19,34 @@ content_hash: "1a649ebc98cac4d5"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/ml-mastery/bba0ecff92.md#c0"
-    char_span: [0, 212]
+    char_span: [0, 211]
     sentence_count: 1
     key_terms: [context-window-management-for-long-running-agents-strategies-and-tradeoffs, machinelearningmastery, long-running, management, strategies, tradeoffs, context, agents]
-    token_count: 44
-    sources: [{"n":"ml_mastery","u":"https://machinelearningmastery.com/context-window-management-for-long-running-agents-strategies-and-tradeoffs/"}]
+    token_count: 43
+    sources: [{"n":"ml_mastery","u":"https://machinelearningmastery.com/context-window-management-for-long-running-agents-strategies-and-tradeoffs/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ml-mastery/bba0ecff92.md#c1"
-    char_span: [214, 2939]
+    char_span: [213, 2938]
     sentence_count: 15
     key_terms: [context, windows, sliding, summarization, strategies, long-running, bottleneck, agent]
     concepts: [context, windows, summarization, sliding, strategies]
     token_count: 512
+    sources: [{"n":"ml_mastery","u":"https://machinelearningmastery.com/context-window-management-for-long-running-agents-strategies-and-tradeoffs/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ml-mastery/bba0ecff92.md#c2"
-    char_span: [2606, 5305]
+    char_span: [2605, 5304]
     sentence_count: 21
     key_terms: [agent, context, strategy, events, model, past, cheaper, windows]
     concepts: [agent, context, strategy, events, model]
     related_chunks: ["articles/ml-mastery/bba0ecff92.md#c3"]
     token_count: 512
+    sources: [{"n":"ml_mastery","u":"https://machinelearningmastery.com/context-window-management-for-long-running-agents-strategies-and-tradeoffs/","kind":"article","date":"2026-06-30"}]
   - id: "articles/ml-mastery/bba0ecff92.md#c3"
-    char_span: [4967, 5781]
+    char_span: [4966, 5780]
     sentence_count: 4
     key_terms: [applications, model, building, cheaper, agent, cost-effective, architectures, large-context]
     concepts: [applications, model, building, cheaper, agent]
     related_chunks: ["articles/ml-mastery/bba0ecff92.md#c2"]
     token_count: 143
+    sources: [{"n":"ml_mastery","u":"https://machinelearningmastery.com/context-window-management-for-long-running-agents-strategies-and-tradeoffs/","kind":"article","date":"2026-06-30"}]
 ---
 # Context Window Management for Long-Running Agents: Strategies and Tradeoffs
 

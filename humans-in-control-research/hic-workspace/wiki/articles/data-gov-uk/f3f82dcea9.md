@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:17:08+00:00"
 content_hash: "e7a8eab645a04179"
 chunks:
   - id: "articles/data-gov-uk/f3f82dcea9.md#c0"
-    char_span: [0, 610]
+    char_span: [0, 609]
     sentence_count: 4
     key_terms: [data, management, resource-management-system, resource, system, dwp, held, transactional]
     concepts: [management, resource, system]
-    token_count: 129
-    sources: [{"n":"data_gov_uk","u":"https://data.gov.uk/dataset/resource-management-system"}]
+    token_count: 128
+    sources: [{"n":"data_gov_uk","u":"https://data.gov.uk/dataset/resource-management-system","kind":"article","date":"2020-06-25"}]
 ---
 # Resource Management System
 

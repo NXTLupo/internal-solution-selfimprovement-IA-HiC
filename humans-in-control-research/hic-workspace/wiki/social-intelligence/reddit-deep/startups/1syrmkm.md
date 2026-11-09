@@ -7,23 +7,23 @@ subreddit: "startups"
 title: "I built an n8n-first automation/AI agency. Great start, hard middle, exiting now. I will not promote"
 author: "oyodeo"
 date: "2026-04-29T07:21:38.000Z"
-score: 113
+score: 120
 upvote_ratio: 0.95
-num_comments: 89
+num_comments: 91
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.282Z"
+extracted_at: "2026-10-09T16:37:34.771Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c0"
     char_span: [0, 2045]
     sentence_count: 16
     key_terms: [automation, business, no-code, agency, hiring, early, care, n8n]
     concepts: [automation, business, no-code, agency, hiring]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c1"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c1", "social-intelligence/reddit-deep/startups/1syrmkm.md#c6"]
     token_count: 509
-    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/"}]
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c1"
     char_span: [2047, 4000]
     sentence_count: 13
@@ -31,51 +31,51 @@ chunks:
     concepts: [workflows, building, business, agency, competition]
     related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c0"]
     token_count: 465
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c2"
     char_span: [4002, 4385]
     sentence_count: 4
     key_terms: [communication, client-heavy, maintenance, curiosity, different, mandatory, questions, recurring]
     token_count: 87
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c3"
-    char_span: [4399, 5695]
-    sentence_count: 10
-    key_terms: [n8n, never, data, agency, client, strong-yesterday-183, takes, feel]
-    concepts: [never, agency, client, takes]
+    char_span: [4400, 6455]
+    sentence_count: 21
+    key_terms: [n8n, claude, oyodeo, people, data, josueorico, expensive, maintain]
+    concepts: [claude, oyodeo, people, josueorico, expensive]
     section: Comments
-    token_count: 314
+    token_count: 504
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c4"
-    char_span: [5697, 7498]
-    sentence_count: 19
-    key_terms: [oyodeo, people, automating, josueorico, automate, maintain, learned, routing]
-    concepts: [oyodeo, people, automating, josueorico, automate]
+    char_span: [6457, 7841]
+    sentence_count: 12
+    key_terms: [project, build, maintenance, decisions, recurring, transfer, clients, routing]
+    concepts: [project, maintenance, build, decisions, recurring]
     section: Comments
-    token_count: 424
+    token_count: 309
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c5"
-    char_span: [7500, 8583]
-    sentence_count: 9
-    key_terms: [project, build, maintenance, recurring, transfer, clients, better, people]
-    concepts: [project, maintenance, build, recurring, transfer]
-    section: Comments
-    token_count: 253
-  - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c6"
-    char_span: [8586, 9776]
+    char_span: [7844, 9034]
     sentence_count: 8
     key_terms: [experience, building, technical, years, management, understand, something, clients]
     concepts: [experience, building, technical, management, understand]
     section: Comments
     token_count: 260
-  - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c7"
-    char_span: [9778, 11275]
-    sentence_count: 9
-    key_terms: [automation, everything, without, claude, "you're", code, good, like]
-    concepts: [automation, everything, without, claude, "you're"]
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
+  - id: "social-intelligence/reddit-deep/startups/1syrmkm.md#c6"
+    char_span: [9036, 10922]
+    sentence_count: 14
+    key_terms: [automation, money, like, business, without, enough, everything, claude]
+    concepts: [automation, money, business, without, enough]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1syrmkm.md#c0"]
     section: Comments
-    token_count: 340
+    token_count: 431
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/","kind":"social-post","date":"2026-04-29","author":"oyodeo","subreddit":"startups"}]
 ---
 # I built an n8n-first automation/AI agency. Great start, hard middle, exiting now. I will not promote
 
 Source: [reddit-deep: r/startups](https://www.reddit.com/r/startups/comments/1syrmkm/i_built_an_n8nfirst_automationai_agency_great/)
-Posted by **oyodeo** · **113↑** · **89 comments**
+Posted by **oyodeo** · **120↑** · **91 comments**
 
 Hi everyone - I’m the founder of an automation / AI agency in France, launched \~2 years ago (early 2024). We were early on “n8n-first” in our market (maybe among the first locally). End of this month, I’m selling my 50% shares to my business partner and stepping away (Jan26)
 
@@ -192,12 +192,6 @@ Taking questions if anyone has some.
 
 ## Comments
 
-- **Strong-Yesterday-183** (16↑): Genuinely one of the better post-mortems I've read here.
-
-The "we're basically a development agency" line is the part more no-code founders need to hear. The tool was never the moat, just a speed advantage until the market caught up.
-
-Curious, knowing what you know now, would you do the agency model again with the recurring revenue piece fixed? Or has the burnout pushed you fully into product / R&D?
-  - **oyodeo** (5↑): I was never made to satisfy clients; I'm too selfish for that. And considering the efforts it takes to go from zero employees to a team, especially in France, I’d never do that or even advise someone to do that unless you love to be a manager on a daily basis and you like tech a bit.
 - **one_two_three_4_5** (4↑): Had a client ask me if n8n is still the way to go (I had coached him on setting up automations a year ago). He waited so I pointed him at Claude ecosystem. 
 
 I don’t think n8n is obsolete but I feel it takes just as much tech knowledge to custom code something great than to get n8n running for client.
@@ -207,9 +201,9 @@ I do see n8n playing a role to help AI reliably bring in data to ai for analysis
 Your thoughts on this?
   - **oyodeo** (3↑): I wrote that post 4 months ago and what you say is 100% true. Now Claude plugged to N8N can actually do wonders if someone still want the visual aspect. But I havent created a node myself since I sold my shares. Claude does it all.
 - **josueOrico** (3↑): Hey, how did you land your first clients? Even with little to no competition, being early in a market can be tough since most people stick to what they already know. Curious how you got past that.
-  - **oyodeo** (5↑): At a retail trade show. That's where people with checkbooks are. I don't like talking to people, but I'm good at it.
+  - **oyodeo** (4↑): At a retail trade show. That's where people with checkbooks are. I don't like talking to people, but I'm good at it.
     - **josueOrico** (1↑): Yeah, it must have been really challenging. I’m based in Canada and working in the recruitment space, building a platform focused on connecting franchises by sharing top candidates between them. The idea is to turn isolated hiring processes into a connected system, improving efficiency and reducing turnover.
-- **avis1298** (4↑): The recurring revenue lesson is the most expensive one to learn. Every agency founder finds this out too late. The maintenance is where the real value is, not the build. Price it in from proposal one.
+- **avis1298** (3↑): The recurring revenue lesson is the most expensive one to learn. Every agency founder finds this out too late. The maintenance is where the real value is, not the build. Price it in from proposal one.
   - **oyodeo** (3↑): True. But everyone jump into this business line of work to "build" and not to "maintain". Hard learned lesson. 80% of your job is to maintain.
 - **Asipahio** (2↑): The "automate everything" trap is real. I learned the hard way that automating the wrong things just creates faster chaos.
 
@@ -219,7 +213,7 @@ The sweet spot is automating the boring stuff (data entry, formatting, routing) 
 
 What automations did you find clients actually wanted vs what you thought they'd want?
 - **O-Rob** (2↑): Hey, thank you for your insights. A lot of people tend to underestimate hiring decisions. Every team is as good as it’s weakest link, so a bad hire would always drop a teams average output. Also being a CEO is about people’s management (staff and clients), it can only get better from here. I’m wishing you all the best in your next endeavors.
-- **KeyserSoze0103** (2↑): Solid post-mortem. One push-back on the 20% recurring rule though, that anchors maintenance to project size which is the wrong axis. A workflow worth $50k to build can cost $500k of downtime if it breaks - 20% of build doesn't price that risk transfer. 
+- **KeyserSoze0103** (3↑): Solid post-mortem. One push-back on the 20% recurring rule though, that anchors maintenance to project size which is the wrong axis. A workflow worth $50k to build can cost $500k of downtime if it breaks - 20% of build doesn't price that risk transfer. 
 
 Better split: keep build pricing as-is, then price maintenance independently by business-criticality tier and SLA level. Same client, often 2x the recurring revenue you'd get from "20% of project," because you're charging for risk transfer not discounted dev hours.
   - **00Anonymous** (1↑): The original project itself should be value priced already. 
@@ -236,3 +230,11 @@ I think Claude, if you're curious enough and somehow "hungry" will be able to te
   - **jaysonbuilds** (1↑): That’s a really good point and I’m starting to see the same thing. The automation itself is usually the easy part. The harder part is fitting it into how people already work without creating friction or forcing them to change too much. Feels like the real challenge is designing around existing workflows instead of expecting users to adapt to the tool.
 - **AdvisorPlus8451** (1↑): 2 years ago there was a real market for ai automation and so on, but since Claude code/Lovable/... appeared companies can just create their own tool or automation without having to pay that much. Did you feel it with your company ?
   - **oyodeo** (1↑): Not really. For us builder its clear, we can switch to code for almost everything. But for most client they’re still very far from this ai reality
+- **some_user_on_reddit** (1↑): How was the business side of things?
+
+It sounds like you’re stopping for other reasons, with money not being one.
+
+Did you make enough margin? Were you loosing money?
+If you only  cared about money, is the business healthy enough to keep going? (without pivoting to recurring revenues)
+
+Lastly, what is the market like now? Room for more, or too saturated?

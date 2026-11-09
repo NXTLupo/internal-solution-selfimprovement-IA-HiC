@@ -4,6 +4,9 @@ import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, S
 import { tryRepairJson, OPUS_CAP_ACTIVE, HIC_CACHE_BREAK, stripCacheMarkers, artifactModelFor, endpointForModel } from './aiRouter';
 import { engagementSlugFor } from './engagementSlug';
 import { recordAICall } from './costMeter';
+import { makeGenAI, viaGeminiProxy } from './genaiClient';
+import { providerAvailable, proxyBase } from './proxyConfig';
+import { engagementSlug as runEngagementSlug } from './runState';
 
 // 2026-06-20 COST METER FIX. The GoogleGenAI client below talks DIRECT to Google
 // (no proxy baseUrl), so these calls bypass BOTH the proxy and callAIWithRetry -
@@ -25,6 +28,12 @@ import { verifyDeliverableCitations } from './citationGrounding';
 import { discriminate, snapshotActiveConstraints } from './improvementDiscriminator';
 import { scoreDeliverable, type DeliverableKind as ScorerKind } from './deliverableScorer';
 import { resolveDeliverableBodies, manifestPointerBlock, currentEngagementSlug } from './wikiPointerResolver';
+// 2026-10-20 (root-cause audit A1-A3, plan item 10): one shard-merge authority (near-duplicate
+// themes fold their citations into the kept theme), the run's objective sub-questions for
+// calibrated relevance scoring, and the cap-plus-gate routine that survives retries.
+import { mergeShardThemes } from './corpusMergeAuthority';
+import { readObjectivePlan } from './objectivePlan';
+import { applyDeliverableCapWithGate } from './themeEvidenceGate';
 
 // --- CONSTANTS ---
 const DEFAULT_STYLE: SlideStyle = {
@@ -133,7 +142,7 @@ export const generatePortrait = async (prompt: string): Promise<string | undefin
     // Use the SAME model and config that works for all other image generation
     // gemini-3.1-flash-image-preview with imageConfig - the proven working approach
     try {
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const ai = makeGenAI();
         const response = await withRetry<GenerateContentResponse>(() => ai.models.generateContent({
             model: 'gemini-3.1-flash-image-preview',
             contents: { parts: [{ text: prompt }] },
@@ -155,7 +164,7 @@ export const generatePortrait = async (prompt: string): Promise<string | undefin
 
 export const generateImage = async (prompt: string, aspectRatio: string = "16:9", refImageBase64?: string, openPrompt: boolean = false): Promise<string | undefined> => {
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = makeGenAI();
 
     let finalPrompt: string;
 
@@ -223,7 +232,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
         
         // Define call function to wrap the API logic for retries/key switching
         const callVeo = async (apiKey: string | undefined) => {
-             const ai = new GoogleGenAI({ apiKey: apiKey || process.env.API_KEY });
+             const ai = makeGenAI();
              if (cleanBase64) {
                  return await ai.models.generateVideos({
                     model: 'veo-3.1-fast-generate-preview',
@@ -255,7 +264,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
 
         try {
              // Attempt 1: Try with existing key, retry only on transient errors
-             operation = await withRetry(() => callVeo(process.env.API_KEY), 3, 5000, "Veo Video Generation");
+             operation = await withRetry(() => callVeo(undefined), 3, 5000, "Veo Video Generation");
         } catch (e: any) {
             // Handle 403 Permission Denied - requires new Paid API Key
             if (e.status === 403 || e.toString().includes('PERMISSION_DENIED') || e.message?.includes('403')) {
@@ -263,7 +272,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
                 if ((window as any).aistudio) {
                     await (window as any).aistudio.openSelectKey();
                     // Retry with fresh key from environment
-                    operation = await callVeo(process.env.API_KEY);
+                    operation = await callVeo(undefined);
                 } else {
                     throw e;
                 }
@@ -272,7 +281,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
             }
         }
 
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const ai = makeGenAI();
         let retries = 0;
         while (!operation.done && retries < 30) {
             await new Promise(resolve => setTimeout(resolve, 5000));
@@ -282,7 +291,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
 
         const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
         if (downloadLink) {
-             const response = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+             const response = await fetch(viaGeminiProxy(downloadLink));
              const blob = await response.blob();
              return URL.createObjectURL(blob);
         }
@@ -294,7 +303,7 @@ export const generateSceneVideo = async (prompt: string, imageBase64?: string): 
 
 // --- CONTENT REWRITE HELPER ---
 export const rewriteSlideContent = async (slide: Slide, theme: Theme, layout: SlideLayout): Promise<Partial<Slide>> => {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = makeGenAI();
     const prompt = `
         REWRITE TASK:
         Take the following slide content and rewrite it to focus heavily on the Theme: "${theme.name} - ${theme.description}".
@@ -565,7 +574,7 @@ export class GenAISession {
             brandId = detectBrandFromText(`${brandHint || ''} ${this.goal || ''} ${this.approach || ''}`) || 'nxt';
         } catch { /* default nxt */ }
         if (this._designSystemCache[brandId]) return this._designSystemCache[brandId];
-        const PROXY = (process.env.VITE_PROXY_URL as string) || 'http://127.0.0.1:5012';
+        const PROXY = proxyBase();
         try {
             const resp = await fetch(`${PROXY}/api/wiki/read/brand/${brandId}/design-system.md`);
             if (resp.ok) {
@@ -670,9 +679,7 @@ export class GenAISession {
         this.substrateEvidencePromise = (async () => {
             try {
                 const { prefetchSubstrateForDeliverable } = await import('./corpusSubstrate');
-                const engagementSlug = (typeof window !== 'undefined'
-                    ? (window as any).__hicCurrentEngagementSlug
-                    : undefined) || undefined;
+                const engagementSlug = runEngagementSlug() || undefined;
                 const pre = await prefetchSubstrateForDeliverable({
                     consumer: 'session',
                     goal: this.goal,
@@ -700,11 +707,11 @@ export class GenAISession {
     }
 
     constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '', wikiKnowledge: string = '') {
-        if (!process.env.API_KEY) throw new Error("API Key Missing");
+        if (!providerAvailable('gemini')) throw new Error("Gemini is not configured on the proxy");
         this.goal = goal;
         this.approach = approach || "Standard Ethnographic Analysis";
         this.selectedOutputs = selectedOutputs;
-        this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        this.ai = makeGenAI();
 
         // Import consulting frameworks dynamically
         let frameworkInstructions = '';
@@ -1115,20 +1122,14 @@ Output JSON.`;
             // exact-match cache (shared sqlite, keyed on the full deterministic
             // body) HITS on re-run and skips the provider call. Fail-open: any proxy
             // error is caught by the surrounding try/catch and scoring is skipped.
-            const _relevancePrompt = `RESEARCH OBJECTIVE: "${this.goal}"\n\n` +
-                    `Score EACH candidate theme 0-100 on how directly it helps answer this research ` +
-                    `objective. Use the FULL range:\n` +
-                    `  90-100 = squarely on the objective's core subject AND problem.\n` +
-                    `  60-89  = clearly relevant: a sub-aspect, driver, consequence, or affected ` +
-                    `population of the objective.\n` +
-                    `  30-59  = adjacent / transferable: a cross-industry ANALOGUE solving the SAME ` +
-                    `underlying problem, or a related contextual factor. Analogues are VALUABLE evidence; ` +
-                    `score them here, do NOT zero them.\n` +
-                    `  1-29   = weakly related: shares only a buzzword or broad domain, little transferable lesson.\n` +
-                    `  0      = genuinely irrelevant: a different problem in a different domain, no transferable lesson.\n` +
-                    `Judge by SUBJECT and PROBLEM, not a shared buzzword (e.g. "AI"). Relevance is the ONLY ` +
-                    `axis: do NOT penalize a theme for being single-source or thin. When uncertain, score HIGHER.\n\n` +
-                    `THEMES:\n${list}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`;
+            // 2026-10-20 (root-cause audit A2): calibrated scoring. The old instruction
+            // "When uncertain, score HIGHER" pushed every borderline theme over the
+            // in-deliverable bar; uncertainty now lands on the neutral 50 and the run's
+            // objective sub-questions (when the planner published any) give the model
+            // the objective's actual decomposition to score against.
+            let _subQuestions: string[] = [];
+            try { _subQuestions = readObjectivePlan().subQuestions.map(q => q.question); } catch { /* no plan: score against the objective alone */ }
+            const _relevancePrompt = buildObjectiveRelevancePrompt(this.goal, list, _subQuestions);
             const { callAIWithRetry } = await import('./aiRetryClient');
             const resp: any = await callAIWithRetry('gemini', {
                 model: 'gemini-3.5-flash',
@@ -2021,16 +2022,16 @@ Now extract the FULL theme set. Do not under-emit again.`;
             // exposes a sensible default subset rather than all-or-nothing.
             const IN_DELIVERABLE_RELEVANCE = 50;
             const anyScored = sorted.some((t: any) => typeof t.objectiveRelevance === 'number');
-            sorted.forEach((t: any, i: number) => {
-                (t as any).rank = i;
-                (t as any).withinDeliverableCap = anyScored
-                    ? this._relevanceOf(t) >= IN_DELIVERABLE_RELEVANCE   // relevance lever
-                    : i < TOP_N;                                          // fallback only if scoring failed
-            });
             result.themes = sorted;
             try {
-                const { applyThemeEvidenceGate } = await import('./themeEvidenceGate');
-                _themeGateReport = applyThemeEvidenceGate(result.themes);
+                // 2026-10-20 (audit A3): cap tagging (relevance lever, TOP_N fallback only if
+                // scoring failed) and the evidence gate run as ONE routine, the same one the
+                // breadth-floor retry calls, so neither site can drift from the other.
+                _themeGateReport = applyDeliverableCapWithGate(result.themes, {
+                    relevanceOf: (t: any) => this._relevanceOf(t),
+                    threshold: IN_DELIVERABLE_RELEVANCE,
+                    fallbackTopN: TOP_N,
+                });
                 if (_themeGateReport.flagged) {
                     console.warn(`[Themes][evidence-gate] ${_themeGateReport.flagged} theme(s) flagged (hedge promotion / unverified identifier); ${_themeGateReport.excludedFromDeliverables} excluded from downstream deliverables, all still shown`);
                     onStream(`Evidence gate: ${_themeGateReport.flagged} theme(s) flagged, ${_themeGateReport.excludedFromDeliverables} held back from deliverables`);
@@ -2063,6 +2064,7 @@ Now extract the FULL theme set. Do not under-emit again.`;
         const BREADTH_FLOOR = 28;
         const themeCount = result.themes.length;
         let retriedThemes = false;
+        let retryFoldedOnly = false;
         if (themeCount < BREADTH_FLOOR && !feedback) {
             console.warn(
                 `[Themes] BREADTH FLOOR VIOLATION - only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
@@ -2099,18 +2101,20 @@ Now extract the full theme set from the widened evidence.`;
                 // relevance-ranked backfill so the model sees MORE evidence, rather than
                 // re-prompting the same narrow set to manufacture splits.
                 const retry = await this._runBreadthPass(reprompt, schema, onStream, 'Themes-Retry', true);
-                const _norm = (n: any) => String(n || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-                const _have = new Set(result.themes.map((t: any) => _norm(t?.name || t?.title)));
-                const additions = (Array.isArray(retry?.themes) ? retry.themes : [])
-                    .filter((t: any) => t && !isMetaTheme(t))
-                    .filter((t: any) => { const k = _norm(t?.name || t?.title); if (!k || _have.has(k)) return false; _have.add(k); return true; });
-                if (additions.length > 0) {
-                    console.log(`[Themes] Delta retry added ${additions.length} new theme(s) to the ${themeCount} kept (${(retry?.themes || []).length - additions.length} duplicate/meta dropped)`);
-                    result.themes = result.themes.concat(additions);
+                // 2026-10-20 (audit A1): a retry twin of a kept theme (same name, near-same name,
+                // or same summary fingerprint) folds its citations INTO the kept theme instead of
+                // being dropped with its evidence; genuinely new themes are appended.
+                const candidates = (Array.isArray(retry?.themes) ? retry.themes : []).filter((t: any) => t && !isMetaTheme(t));
+                const metaDropped = (retry?.themes?.length ?? 0) - candidates.length;
+                const merge = mergeShardThemes(result.themes, candidates, { scope: 'themes:breadth-floor-retry' });
+                if (merge.added > 0) {
+                    console.log(`[Themes] Delta retry added ${merge.added} new theme(s) to the ${themeCount} kept (${merge.folded} twin(s) folded their citations into kept themes, ${metaDropped} meta dropped)`);
                     retriedThemes = true;
                     if (retry.methodology && !result.methodology) result.methodology = retry.methodology;
                 } else {
-                    console.warn(`[Themes] Delta retry added nothing new (${retry?.themes?.length ?? 0} returned). Keeping original.`);
+                    console.warn(`[Themes] Delta retry added nothing new (${retry?.themes?.length ?? 0} returned, ${merge.folded} folded into kept themes). Keeping original.`);
+                    // Folded citations change distinct_source_count: re-type the evidence without re-ranking.
+                    if (merge.folded > 0) retryFoldedOnly = true;
                 }
             } catch (retryErr: any) {
                 console.warn('[Themes] Retry failed, keeping original count:', retryErr?.message || retryErr);
@@ -2128,12 +2132,25 @@ Now extract the full theme set from the widened evidence.`;
             // by objective relevance and re-rank so depth-enrichment + display use the
             // SAME relevance lever as the main path (not a fresh binary gate).
             result.themes = await this._scoreThemesByObjectiveRelevance(result.themes, onStream);
-            const anyScoredR = result.themes.some((t: any) => typeof t.objectiveRelevance === 'number');
             result.themes.sort((a: any, b: any) => this._relevanceOf(b) - this._relevanceOf(a));
-            result.themes.forEach((t: any, i: number) => {
-                (t as any).rank = i;
-                (t as any).withinDeliverableCap = anyScoredR ? this._relevanceOf(t) >= 50 : i < TOP_N;
-            });
+            // 2026-10-20 (audit A3, VERIFIED): the retry used to recompute the cap from relevance
+            // alone, which restored every hedge-blocked theme. The cap and the evidence gate
+            // now run as one routine, so blocked themes stay blocked and additions are gated.
+            try {
+                const rep = applyDeliverableCapWithGate(result.themes, {
+                    relevanceOf: (t: any) => this._relevanceOf(t),
+                    threshold: 50,
+                    fallbackTopN: TOP_N,
+                });
+                if (rep.flagged) console.warn(`[Themes][evidence-gate] re-applied after breadth-floor retry: ${rep.flagged} flagged, ${rep.excludedFromDeliverables} held back from deliverables`);
+            } catch (gateErr: any) {
+                console.warn('[Themes][evidence-gate] retry re-gate skipped (non-fatal):', gateErr?.message || gateErr);
+            }
+        } else if (retryFoldedOnly) {
+            try {
+                const { applyThemeEvidenceGate } = await import('./themeEvidenceGate');
+                applyThemeEvidenceGate(result.themes);
+            } catch { /* non-fatal */ }
         }
 
         // 2026-04-29 - PASS 2 DEPTH ENRICHMENT.
@@ -2691,7 +2708,7 @@ Now extract the full theme set from the widened evidence.`;
         const SATURATION_NEW = 3;       // a wave adding < this many new themes => saturated
         const SHARD_TOKENS = 30_000;
         const usedChunks = new Set<string>();
-        const seen = new Set<string>();
+        // 2026-10-20: dedupe is mergeShardThemes (identity + near-duplicate name), not an exact-name set.
         const allThemes: any[] = [];
         let methodology = '';
         let shardsRun = 0;
@@ -2729,17 +2746,20 @@ Now extract the full theme set from the widened evidence.`;
                 windows.map((win, i) => this._runBreadthShard(win.contents, win.eff, schema, onStream, `${label}-S${shardsRun + i + 1}`, { stable: win.stable, window: win.window }))
             );
             let waveNew = 0;
+            let waveFolded = 0;
             for (const r of results) {
                 if (!r || !Array.isArray((r as any).themes)) continue;
                 anyShardSucceeded = true;
                 if (!methodology && (r as any).methodology) methodology = (r as any).methodology;
-                for (const t of (r as any).themes) {
-                    const key = String(t?.name || '').trim().toLowerCase();
-                    if (key && !seen.has(key)) { seen.add(key); allThemes.push(t); waveNew++; }
-                }
+                // 2026-10-20 (audit A1): same-identity and near-duplicate-name themes from a later
+                // shard FOLD their citations into the kept theme (distinct_source_count reflects the
+                // union) instead of being dropped with their evidence; only new identities count as new.
+                const shardMerge = mergeShardThemes(allThemes, (r as any).themes, { scope: `${label}:shard-merge` });
+                waveNew += shardMerge.added;
+                waveFolded += shardMerge.folded;
             }
             shardsRun += windows.length;
-            console.log(`[${label}] sharded breadth wave ${wave}: +${waveNew} new themes (total ${allThemes.length}); shards run=${shardsRun}, catalog chunks covered=${usedChunks.size}`);
+            console.log(`[${label}] sharded breadth wave ${wave}: +${waveNew} new themes, ${waveFolded} twin(s) folded (total ${allThemes.length}); shards run=${shardsRun}, catalog chunks covered=${usedChunks.size}`);
             onStream(`[${label}] Wave ${wave}: +${waveNew} new themes (running total ${allThemes.length}).`);
             // 2026-06-08 - Stream this wave's accumulated themes to the live consumer
             // (App.tsx) so the Research Browser, chat context, themes.json corpus, and
@@ -2803,7 +2823,7 @@ Now extract the full theme set from the widened evidence.`;
         // Small corpusFileParts (if any) ride along in every shard - they're the
         // client uploads / file corpus, cheap to include and shouldn't be lost.
         const fileParts = (this.corpusFileParts && this.corpusFileParts.length > 0) ? this.corpusFileParts : [];
-        const seen = new Set<string>();
+        // 2026-10-20: dedupe is mergeShardThemes (identity + near-duplicate name), not an exact-name set.
         const allThemes: any[] = [];
         let methodology = '';
         let anyOk = false;
@@ -2829,16 +2849,19 @@ Now extract the full theme set from the widened evidence.`;
             }));
             shardsRun += waveWindows.length;
             let waveNew = 0;
+            let waveFolded = 0;
             for (const r of results) {
                 if (!r || !Array.isArray((r as any).themes)) continue;
                 anyOk = true;
                 if (!methodology && (r as any).methodology) methodology = (r as any).methodology;
-                for (const t of (r as any).themes) {
-                    const key = String(t?.name || '').trim().toLowerCase();
-                    if (key && !seen.has(key)) { seen.add(key); allThemes.push(t); waveNew++; }
-                }
+                // 2026-10-20 (audit A1): same-identity and near-duplicate-name themes from a later
+                // shard FOLD their citations into the kept theme (distinct_source_count reflects the
+                // union) instead of being dropped with their evidence; only new identities count as new.
+                const shardMerge = mergeShardThemes(allThemes, (r as any).themes, { scope: `${label}:shard-merge` });
+                waveNew += shardMerge.added;
+                waveFolded += shardMerge.folded;
             }
-            console.log(`[${label}] legacy-corpus breadth wave: +${waveNew} new themes (total ${allThemes.length}); shards run=${shardsRun}/${capped.length} of ${windows.length} windows`);
+            console.log(`[${label}] legacy-corpus breadth wave: +${waveNew} new themes, ${waveFolded} twin(s) folded (total ${allThemes.length}); shards run=${shardsRun}/${capped.length} of ${windows.length} windows`);
             onStream(`[${label}] Wave: +${waveNew} new themes (running total ${allThemes.length}).`);
             if (waveNew > 0) { try { this.onThemeProgress?.(allThemes.slice()); } catch { /* non-fatal */ } }
         }
@@ -3040,21 +3063,19 @@ Now extract the full theme set from the widened evidence.`;
     }> {
         const citations = Array.isArray(theme.citations) ? theme.citations : [];
 
-        // Build per-citation context for Opus. Each citation contributes its
-        // verbatim quote, source name, and date - enough for Opus to reason
-        // about temporal arc, contradictions, and dimensional variance without
-        // needing the full chunk body.
-        const citationLines = citations.slice(0, 30).map((c: any, ci: number) => {
-            const src = c.sourceName || c.sourceFile || '(unattributed)';
-            const date = c.publicationDate ? ` · ${c.publicationDate}` : '';
-            const author = c.author ? ` · ${c.author}` : '';
-            const quote = (c.text || '').replace(/\s+/g, ' ').slice(0, 280);
-            return `  [${ci}] ${src}${author}${date}\n      "${quote}"`;
-        }).join('\n');
+        // Build per-citation context for the depth model. 2026-10-20 (root-cause
+        // audit A2): depth used to see 30 citations x 280 chars, a snippet view of
+        // the evidence it was asked to decompose. Each citation now carries its full
+        // quoted span (up to DEPTH_CITATION_CHARS) and, when it points at a manifest
+        // chunk (sourceFile '#cN'), the pointer so the depth fields can cite it. The
+        // per-theme input stays under DEPTH_INPUT_BUDGET by trimming the citation
+        // COUNT, never the text; indices stay aligned with theme.citations[].
+        const depthBlock = buildDepthCitationBlock(citations);
+        const citationLines = depthBlock.text;
 
         const sysPrompt = `You are a senior research analyst at a top-tier consulting firm (McKinsey/BCG/Deloitte caliber) performing DEPTH analysis on a strategic theme that has already been extracted by a separate breadth-extraction model. Your job is to populate the analytical depth fields a senior partner would expect on a polished consulting deliverable: sub-pattern decomposition, organizing axes, named contradictions, temporal arc, and concrete consultant-grade implications.
 
-You will receive ONE theme with its name, description, primary quote, and citations. You will return a JSON object with five depth fields. You DO NOT modify any of the breadth fields. You DO NOT invent citations beyond what was given.
+You will receive ONE theme with its name, description, primary quote, and citations. You will return a JSON object with five depth fields. You DO NOT modify any of the breadth fields. You DO NOT invent citations beyond what was given. A citation that carries a "pointer:" line is a manifest chunk; when a depth sentence rests on that span, you may append its pointer in square brackets exactly as given (for example [articles/x.md#c3]). Never write a pointer that is not in the citation list.
 
 OUTPUT JSON SCHEMA - return EXACTLY this shape:
 {
@@ -3117,7 +3138,7 @@ PRIMARY QUOTE: "${theme.quote || ''}"
 
 GOAL ALIGNMENT (breadth model's score): ${theme.goalAlignment ?? 'unscored'} / 100
 
-CITATIONS (${citations.length} total, indices 0-based):
+CITATIONS (${depthBlock.used} of ${citations.length} shown, indices 0-based into the theme's citations):
 ${citationLines || '  (no citations attached)'}
 
 Now produce the depth JSON object per the schema in your system instructions.`;
@@ -3199,7 +3220,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
      * goal-blended retrieval surfaces it preferentially. */
     private async _persistThemesToWiki(result: StepResult_Themes): Promise<void> {
         if (!result?.themes || result.themes.length === 0) return;
-        const PROXY = (process.env.VITE_PROXY_URL as string) || 'http://127.0.0.1:5012';
+        const PROXY = proxyBase();
         const ts = new Date().toISOString();
         const slug = engagementSlugFor(this.goal);
         const isoDate = ts.slice(0, 10);
@@ -3523,7 +3544,7 @@ REQUIRED JSON FIELDS (populate EVERY field - empty fields are a failure):
                 // Switching to gemini-2.5-flash (stable + accepts the
                 // responseSchema shape). If the 3.5-flash regression is
                 // resolved upstream, this can flip back via aiRouter.
-                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const standaloneAi = makeGenAI();
                 const enrichResponse = await withRetry(() => standaloneAi.models.generateContent({
                     model: 'gemini-3.5-flash',
                     contents: { parts: [{ text: enrichPrompt }] },
@@ -3813,7 +3834,7 @@ Output JSON.`;
         const thinRecs = result.recommendations.filter(r => !r.citations?.length || !r.evidenceBasis);
         if (thinRecs.length > 0) {
             onStream(`Phase 1B: Enriching ${thinRecs.length} recommendations with evidence...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const standaloneAi = makeGenAI();
             for (const rec of thinRecs) {
                 try {
                     const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -3842,9 +3863,7 @@ Output JSON.`;
                 onStream(`Phase 1C: Critique-revise loop (${RECOMMENDATIONS_LOOP.critics.length} critics, budget $${RECOMMENDATIONS_LOOP.budget_usd?.toFixed(2)})...`);
                 // K2 (2026-08-13, WS-K): critics may request fresh corpus evidence for
                 // coverage holes; the fetcher rides the standard retrieval spine.
-                const _k2Slug = (typeof window !== 'undefined'
-                    ? (window as any).__hicCurrentEngagementSlug
-                    : undefined) || '';
+                const _k2Slug = runEngagementSlug() || '';
                 const looped = await criticReviseLoop({
                     deliverable: result,
                     ...RECOMMENDATIONS_LOOP,
@@ -4252,7 +4271,7 @@ Output JSON.`;
         const thinStages = result.stages.filter(s => !s.citations?.length || !s.evidenceBasis || !s.fail_point);
         if (thinStages.length > 0 && result.stages.length > 0) {
             onStream(`Enriching ${thinStages.length} stages with evidence...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const standaloneAi = makeGenAI();
             for (const stage of thinStages) {
                 try {
                     const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -4782,7 +4801,7 @@ Output JSON.`;
             const thinItems = result.roadmap.items.filter(i => !i.citations?.length || !i.evidenceBasis);
             if (thinItems.length > 0) {
                 onStream(`Enriching ${thinItems.length} roadmap items with evidence...`);
-                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const standaloneAi = makeGenAI();
                 for (const item of thinItems) {
                     try {
                         const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -4925,7 +4944,7 @@ Output JSON.`;
         const thinItems = result.roadmap.items.filter(i => !i.citations?.length || !i.evidenceBasis);
         if (thinItems.length > 0) {
             onStream(`Enriching ${thinItems.length} roadmap items with evidence...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const standaloneAi = makeGenAI();
             for (const item of thinItems) {
                 try {
                     const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -5557,7 +5576,7 @@ ${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}`;
         // =====================================================================
         onStream('Generating content blocks per slide...');
         const rawSlides: any[] = [];
-        const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const standaloneAi = makeGenAI();
         const totalSlides = (structure.slides || []).length;
 
         // Build a map of slide -> matched report section for reuse
@@ -5866,10 +5885,9 @@ Output JSON.`;
                 await appendUncertaintyLedger({ deliverableName: 'gap_analysis', timestamp: new Date().toISOString(), triggerScore: shouldReinforce(sig) ? 0.5 : 0.2, overallConfidence: sig.overallConfidence, leastDefensibleClaims: sig.leastDefensibleClaims, validationFailures: sig.validationFailures, resolution: 'reinforced' });
                 return this.generateGapAnalysis(reinforcedFeedback, onStream);
             }
-            // 2026-05-25 - Expert panel: gap-analysis-evaluator + quantification-architect
-            // (2 iterations to enforce dollar-quantified gap-impact per learned constraint:
-            // "stakeholders require concrete financial metrics to assess gap cost") +
-            // evidence-quality-auditor + pre-mortem.
+            // 2026-05-25 - Expert panel: gap-analysis-evaluator + evidence-quality-auditor + pre-mortem.
+            // 2026-10-30 (WS-2 E8): quantification-architect removed from the composition; it mandated the
+            // dollar figures the Quantitative Claim Rule forbids.
             try {
                 const { runExpertPanel } = await import('./artifactExpertPanel');
                 const panelResult = await runExpertPanel({
@@ -5989,7 +6007,7 @@ Output JSON.`;
         const thinGaps = gaps.filter((g: any) => !g.citations?.length || !g.evidenceBasis);
         if (thinGaps.length > 0) {
             onStream(`Enriching ${thinGaps.length} gaps with evidence...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const standaloneAi = makeGenAI();
             for (const gap of thinGaps) {
                 try {
                     const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -6012,7 +6030,7 @@ Output JSON.`;
         if ((analysis.prioritizedActions?.length || 0) < 3 || (analysis.riskRegister?.length || 0) < 2) {
             onStream('Generating prioritized actions and risk register...');
             try {
-                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const standaloneAi = makeGenAI();
                 const actionsResp = await withRetry(() => standaloneAi.models.generateContent({
                     model: 'gemini-3.5-flash',
                     contents: { parts: [{ text: `Based on these capability gaps, generate prioritized actions and a risk register.\n\nGaps: ${gaps.map((g: any) => `[${g.severity}] ${g.capability}: gap ${g.gap}`).join('; ')}\n\nProvide:\n1. prioritizedActions: 4-6 actions (action, priority, timeline, gapReference)\n2. quickWins: 2-3 items (action, impact, effort)\n3. riskRegister: 3-5 risks (risk, likelihood, impact, mitigation)\n\nOutput JSON.` }] },
@@ -6410,7 +6428,7 @@ Output JSON.`;
         const thinPeers = peers.filter((p: any) => !p.citations?.length || !p.evidenceBasis);
         if (thinPeers.length > 0) {
             onStream(`Enriching ${thinPeers.length} competitive peers with evidence...`);
-            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const standaloneAi = makeGenAI();
             for (const peer of thinPeers) {
                 try {
                     const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
@@ -6430,7 +6448,7 @@ Output JSON.`;
         if ((analysis.benchmarkDimensions?.length || 0) < 3 || (analysis.gapSummary?.length || 0) < 3) {
             onStream('Generating benchmark dimensions and gap summary...');
             try {
-                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const standaloneAi = makeGenAI();
                 const dimResp = await withRetry(() => standaloneAi.models.generateContent({
                     model: 'gemini-3.5-flash',
                     contents: { parts: [{ text: `Based on these competitive peers, generate benchmark dimensions, maturity scores, and gap summary.\n\nPeers: ${peers.map((p: any) => p.name).join(', ')}\nIndustry: ${analysis.industryContext || ''}\n\nProvide:\n1. benchmarkDimensions: 5-7 strategic dimensions (dimension, weight 0-1, description)\n2. maturityMatrix: Score each peer on each dimension (1-5)\n3. gapSummary: For each dimension: ourScore, bestInClass, gap, urgency, action\n\nOutput JSON.` }] },
@@ -6978,7 +6996,7 @@ synthesis work HERE on the framing and the kernel.`;
             required: ['title', 'content', 'citations']
         };
 
-        const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const standaloneAi = makeGenAI();
         const WORD_FLOOR = 250;
         const evCat = evidenceCatalog ? 'EVIDENCE CATALOG (cite from this):\n' + evidenceCatalog.substring(0, 30000) : '';
         const noAnnotationRule = 'No QA-style placeholder markers or notes about missing data; leave the evidenceGap field as an empty string.';
@@ -7635,4 +7653,103 @@ function validateDeliverableOutput(
     walkEvidence(deliverable);
 
     return { valid: failures.length === 0, failures };
+}
+
+// ---------------------------------------------------------------------------
+// 2026-10-20 (root-cause audit A2, plan item 10): pure prompt builders for the
+// two theme passes whose inputs the audit found biased or snippet-only. Both are
+// module-level exports so the regression tests pin them without a network.
+// ---------------------------------------------------------------------------
+
+/**
+ * The objective-relevance scoring prompt. Calibrated: the score is the degree to
+ * which a theme answers the objective, a genuinely uncertain judgment lands on 50
+ * (the in-deliverable bar, neither promoted nor demoted), and when the run's plan
+ * decomposed the objective into sub-questions the model scores against those.
+ * The output schema is unchanged: {"scores":[{"i":<index>,"r":<0-100>}]}.
+ */
+export function buildObjectiveRelevancePrompt(goal: string, themeList: string, subQuestions: ReadonlyArray<string> = []): string {
+    const sqs = subQuestions.map(q => String(q || '').trim()).filter(Boolean).slice(0, 12);
+    const subQuestionBlock = sqs.length
+        ? `The objective decomposes into these SUB-QUESTIONS; a theme that answers one of them directly is ` +
+          `clearly relevant (60-89), and a theme that answers the central question is 90-100:\n` +
+          sqs.map((q, i) => `  Q${i + 1}. ${q}`).join('\n') + `\n\n`
+        : '';
+    return `RESEARCH OBJECTIVE: "${goal}"\n\n` +
+        subQuestionBlock +
+        `Score EACH candidate theme 0-100 on the DEGREE to which it answers this research ` +
+        `objective. Use the FULL range:\n` +
+        `  90-100 = squarely on the objective's core subject AND problem.\n` +
+        `  60-89  = clearly relevant: a sub-aspect, driver, consequence, or affected ` +
+        `population of the objective${sqs.length ? ', or a direct answer to one sub-question' : ''}.\n` +
+        `  30-59  = adjacent / transferable: a cross-industry ANALOGUE solving the SAME ` +
+        `underlying problem, or a related contextual factor. Analogues are VALUABLE evidence; ` +
+        `score them here, do NOT zero them.\n` +
+        `  1-29   = weakly related: shares only a buzzword or broad domain, little transferable lesson.\n` +
+        `  0      = genuinely irrelevant: a different problem in a different domain, no transferable lesson.\n` +
+        `Judge by SUBJECT and PROBLEM, not a shared buzzword (e.g. "AI"). Relevance is the ONLY ` +
+        `axis: do NOT penalize a theme for being single-source or thin. CALIBRATION: the score states ` +
+        `how much of the objective the theme answers, nothing else. When the theme's name and description ` +
+        `leave you genuinely unsure, score 50; do not round up or down under uncertainty.\n\n` +
+        `THEMES:\n${themeList}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`;
+}
+
+/** Per-citation quoted span the depth pass sees (was 280 chars). */
+export const DEPTH_CITATION_CHARS = 1200;
+/** Ceiling on the citation block per theme; met by trimming the citation COUNT, never the text. */
+export const DEPTH_INPUT_BUDGET = 40_000;
+
+export interface DepthCitationBlock {
+    /** The rendered citation lines (indices 0-based into the theme's citations array). */
+    text: string;
+    /** Citations rendered (a prefix of the input, so indices stay aligned). */
+    used: number;
+    /** Citations the theme carries. */
+    total: number;
+    /** Characters in `text`. */
+    chars: number;
+    /** Citations that carried a manifest chunk pointer. */
+    withPointer: number;
+}
+
+/** The manifest chunk pointer a citation carries, when it carries one ("articles/x.md#c3"). */
+function citationPointerOf(c: any): string {
+    for (const k of ['pointer', 'chunkId', 'chunk_id', 'sourceFile']) {
+        const v = c?.[k];
+        if (typeof v === 'string' && /#c\d+/.test(v)) return v.trim();
+    }
+    return '';
+}
+
+/**
+ * Render a theme's citations for the depth pass: full quoted span up to
+ * DEPTH_CITATION_CHARS, source / author / date, and the chunk pointer when the
+ * citation carries one. Stops adding citations once the next line would push the
+ * block past DEPTH_INPUT_BUDGET; the text of every rendered citation is intact.
+ */
+export function buildDepthCitationBlock(
+    citations: ReadonlyArray<any>,
+    opts: { perCitationChars?: number; budgetChars?: number } = {},
+): DepthCitationBlock {
+    const perCitation = opts.perCitationChars ?? DEPTH_CITATION_CHARS;
+    const budget = opts.budgetChars ?? DEPTH_INPUT_BUDGET;
+    const list = Array.isArray(citations) ? citations : [];
+    const lines: string[] = [];
+    let chars = 0;
+    let withPointer = 0;
+    for (let ci = 0; ci < list.length; ci++) {
+        const c = list[ci] || {};
+        const src = c.sourceName || c.sourceFile || '(unattributed)';
+        const date = c.publicationDate ? ` · ${c.publicationDate}` : '';
+        const author = c.author ? ` · ${c.author}` : '';
+        const quote = String(c.text ?? c.quote ?? '').replace(/\s+/g, ' ').trim().slice(0, perCitation);
+        const pointer = citationPointerOf(c);
+        const line = `  [${ci}] ${src}${author}${date}\n      "${quote}"` + (pointer ? `\n      pointer: ${pointer}` : '');
+        const next = chars + line.length + (lines.length ? 1 : 0);
+        if (lines.length > 0 && next > budget) break;
+        lines.push(line);
+        chars = next;
+        if (pointer) withPointer++;
+    }
+    return { text: lines.join('\n'), used: lines.length, total: list.length, chars, withPointer };
 }

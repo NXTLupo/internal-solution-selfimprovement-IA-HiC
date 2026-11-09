@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:47:01+00:00"
 content_hash: "a1c7cbe61bc87974"
 chunks:
   - id: "articles/ins-reinsurance-news-carrier-mgmt/afd26ff6dc.md#c0"
-    char_span: [0, 182]
+    char_span: [0, 181]
     sentence_count: 2
     key_terms: [carriermanagement, terrorism, backstop, federal, through, extend, passes, source]
-    token_count: 52
-    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289622.htm"}]
+    token_count: 51
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289622.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-reinsurance-news-carrier-mgmt/afd26ff6dc.md#c1"
-    char_span: [184, 2743]
+    char_span: [183, 2742]
     sentence_count: 10
     key_terms: [insurance, terrorism, federal, association, president, risk, tria, backstop]
     concepts: [insurance, terrorism, association, federal, president]
     token_count: 512
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289622.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-reinsurance-news-carrier-mgmt/afd26ff6dc.md#c2"
-    char_span: [2416, 3239]
+    char_span: [2415, 3238]
     sentence_count: 4
     key_terms: [terrorism, million, losses, congress, coverage, industry, program, event]
     concepts: [terrorism, million, losses, congress, coverage]
     token_count: 164
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289622.htm","kind":"article","date":"2026-06-30"}]
 ---
 # U.S. House Passes Bill to Extend Federal Terrorism Backstop Through 2034
 

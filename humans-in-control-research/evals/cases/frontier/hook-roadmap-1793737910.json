@@ -1,0 +1,20 @@
+{
+  "id": "hook-roadmap-1793737910",
+  "set": "frontier",
+  "kind": "roadmap",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#roadmap"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-11-03",
+    "note": "all required modules present, no slop hits"
+  }
+}

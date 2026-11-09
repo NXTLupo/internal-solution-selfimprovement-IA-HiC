@@ -1,8 +1,9 @@
 ---
 name: critic-revise-loop
+description: "Wrap a deliverable draft in a generator, critic and revisor loop: critics emit structured edits, the revisor applies them, and the loop stops when every critic accepts or the budget runs out. Use to run pre-mortem, stakeholder-lens or contradiction critics over a draft."
 invocation: model
-version: 1.0
-description: The architectural primitive that wraps any deliverable in a generator → critic → revisor loop. Inspired by NotebookLM's Audio Overview pipeline (outline → critique → revise → script → critique → revise). Takes (deliverable_draft, [critic_skills], revisor_model, budget) and runs critics in sequence; each critic emits structured edits which the revisor applies; loop until all critics accept OR iterations/budget exhausted. Makes Phases 4-6 of the NotebookLM uplift plan cheap by providing a composable primitive instead of bespoke per-deliverable pipelines. Composes with pre-mortem, stakeholder-lens-auditor, quantification-architect, contradiction-finder, second-order-thinker as critics; uses Sonnet 4.6 as the default revisor.
+version: "1"
+status: active
 thinking: high
 category: architectural-primitive
 triggers:
@@ -14,6 +15,10 @@ triggers:
 ---
 
 # Critic-Revise Loop
+
+## Scope
+
+The architectural primitive that wraps any deliverable in a generator → critic → revisor loop. Inspired by NotebookLM's Audio Overview pipeline (outline → critique → revise → script → critique → revise). Takes (deliverable_draft, [critic_skills], revisor_model, budget) and runs critics in sequence; each critic emits structured edits which the revisor applies; loop until all critics accept OR iterations/budget exhausted. Makes Phases 4-6 of the NotebookLM uplift plan cheap by providing a composable primitive instead of bespoke per-deliverable pipelines. Composes with pre-mortem, stakeholder-lens-auditor, quantification-architect, contradiction-finder, second-order-thinker as critics; uses the structured Claude model as the default revisor.
 
 ## You Are
 
@@ -64,7 +69,7 @@ type RevisorContract = (
 ) => Promise<any>;  // returns edited deliverable
 ```
 
-The revisor is a Sonnet 4.6 call at `temperature=0.1` whose only instruction is: "Apply these structured edits to the deliverable JSON. Do not improvise. Do not add fields not in the edits list. Output the edited JSON only."
+The revisor is a call to the structured Claude model (`CLAUDE_STRUCTURED_MODEL`; no temperature, which Claude 5.x rejects) whose only instruction is: "Apply these structured edits to the deliverable JSON. Do not improvise. Do not add fields not in the edits list. Output the edited JSON only."
 
 ### Loop control
 
@@ -175,7 +180,7 @@ const STRATEGY_LOOP = {
 
 ## Engineering implementation
 
-TypeScript file at `humans-in-control-research/services/criticReviseLoop.ts`. The function signature is exactly the contract above. Each critic skill's adapter wraps its existing output in a `CriticVerdict`. The revisor is one Sonnet 4.6 call with a fixed prompt template.
+TypeScript file at `humans-in-control-research/services/criticReviseLoop.ts`. The function signature is exactly the contract above. Each critic skill's adapter wraps its existing output in a `CriticVerdict`. The revisor is one call to the structured Claude model with a fixed prompt template.
 
 ## Composition
 

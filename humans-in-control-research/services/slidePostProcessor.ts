@@ -155,6 +155,10 @@ function resolveSlidesCitations(
 // ============================================================
 
 const META_NARRATION_PATTERNS = [
+    // 2026-10-05 live #report: "This report turns that shift into a diagnosis", "This report addresses the first part
+    // only." The deliverable narrating its own structure; the sentence goes.
+    /\bthis (?:report|deck|brief|document|analysis|memo|presentation) (?:turns|addresses|covers|sets out|lays out|focuses|walks|takes|answers|tackles|is organized|is structured|begins|ends|closes)\b/i,
+    /\b(?:direction|structure|scope) set by this (?:report|deck|brief|document)\b/i,
     /\bwe\s+(now|are now)\s+(move|enter|moving|entering|transition)/i,
     /\bthis is (where|the section|the phase|the part)\b/i,
     /\blet['u]s?\s+(now\s+)?(examine|explore|look at|discuss|turn to|move to|dive into|delve into)/i,
@@ -371,19 +375,24 @@ const META_NARRATION_PATTERNS = [
 const METAPHOR_PATTERNS: RegExp[] = [
     // Time/race metaphors (the leaked title's class)
     /\b(the|a|their|its)?\s*clock\s+(is|starts|begins|runs|keeps|will be|has been|was already)\s+(ticking|running|already running|out of time|against (us|them|you))\b/i,
-    /\b(running|ticking|hands of the clock|sands? of (time|the hourglass)|hourglass)\b/i,
+    // 2026-10-30 (WS-2 E8): `running` and `ticking` dropped; they flagged plain prose ("running the pilot").
+    /\b(hands of the clock|sands? of (time|the hourglass)|hourglass)\b/i,
     /\b(against|beat|race|racing|sprint|marathon)\s+(the|a|that|this)?\s*(clock|deadline|calendar)\b/i,
     /\b(time|window|deadline|clock|opportunity)\s+(is|was|has)\s+(running out|closing|slipping|narrowing|tight|short|finite)\b/i,
 
     // Anthropomorphism of abstract nouns ("X feels", "the system wants", "data demands")
     /\b(the\s+)?(prep|preparation|process|system|institution|workflow|pipeline|strategy|approach|model|data|evidence|research|corpus|landscape|gap|tension|challenge|opportunity|culture|brand)\s+(feels|wants|demands|cries out for|begs for|calls for|asks for|knows|understands|believes|expects|hopes|fears|loves|hates)\s+\w+/i,
 
-    // Journey/road metaphors (overused in consulting prose)
-    /\b(the\s+)?(road|path|journey|crossroads|bridge|milestone|chapter|turning point|inflection point|fork in the road|long road|winding road|road ahead|road less travel(l)?ed)\b/i,
+    // Journey/road metaphors. 2026-10-30 (WS-2 E8): the bare-word line (road, path, journey, bridge,
+    // milestone, chapter) is DELETED; those are CX vocabulary and archetype names (slides:milestone-
+    // timeline), and the title gate was refusing literal titles for using them. Only figurative
+    // compounds stay.
+    /\b(crossroads|turning point|inflection point|fork in the road|long road|winding road|road ahead|road less travel(l)?ed)\b/i,
     /\b(walk|navigate)\s+the\s+(path|road|journey|tightrope|maze|labyrinth)\b/i,
 
     // War / sports / battle metaphors
-    /\b(battle|war|fight|skirmish|trench|battlefield|arms race|playbook|game plan|home run|slam dunk|hat trick|moving the goalposts|level the playing field|tip of the spear)\b/i,
+    // 2026-10-30 (WS-2 E8): `fight`, `playbook` and `game plan` dropped; the base prompt itself uses "playbook".
+    /\b(battle|war|skirmish|trench|battlefield|arms race|home run|slam dunk|hat trick|moving the goalposts|level the playing field|tip of the spear)\b/i,
     /\b(weapon(ize|ized|izing|s)?|armed with|in our arsenal|firepower|silver bullet|magic bullet)\b/i,
 
     // Construction / foundation / building metaphors
@@ -460,7 +469,43 @@ export function detectMetaNarration(text: string): string[] {
  * Remove meta-narration sentences from text.
  * Removes the entire sentence containing meta-narration, not just the matched phrase.
  */
-export function removeMetaNarration(text: string): string {
+/** A manifest chunk pointer ("[articles/x.md#c2]"): the sentence that carries one is evidenced. */
+const CHUNK_POINTER_RE = /\[[^\]\n]*#c\d+\]/i;
+/** Pointer(s) at the head of a split chunk belong to the sentence whose full stop preceded them. */
+const LEADING_POINTER_RE = /^((?:\[[^\]\n]*#c\d+\]\s*[,;]?\s*)+)([\s\S]*)$/i;
+/**
+ * Meta openers that have an obvious rewrite: drop the opener clause, keep the claim. "As you can see, retention
+ * did not move" -> "Retention did not move". Process-reference prefixes ("The research shows that ...") are handled
+ * by PROCESS_REFERENCE_REWRITES; this covers the narration openers that list does not.
+ */
+const META_OPENER_PREFIX_RE = /^\s*(?:as (?:you can see|we(?:'ll| will| have| can) see|shown|noted|discussed|mentioned|outlined|described|illustrated|highlighted|demonstrated)(?:\s+(?:above|below|earlier|previously|prior|here))?|in (?:this (?:section|slide|part|phase|deck|report|document|presentation|analysis)|conclusion|summary|closing|short)|to (?:summarize|conclude|sum up|wrap up))\s*[,:]\s*/i;
+/** The offending prefix rewritten where a rewrite exists; the sentence is otherwise returned as it was. */
+function rewriteMetaPrefix(sentence: string): string {
+    let s = stripProcessReferences(sentence);
+    const m = s.match(META_OPENER_PREFIX_RE);
+    if (m) {
+        s = s.slice(m[0].length).trim();
+        s = s.charAt(0).toUpperCase() + s.slice(1);
+    }
+    return s.trim() || sentence;
+}
+
+export interface RemoveMetaNarrationOptions {
+    /**
+     * Never delete a sentence (a quote field holds someone else's words): rewrite the offending prefix where a
+     * rewrite exists, otherwise leave the sentence as it is.
+     */
+    neverDelete?: boolean;
+}
+
+/**
+ * Remove meta-narration sentences from text. Removes the entire sentence containing meta-narration, not just the
+ * matched phrase, EXCEPT (2026-10-20, root-cause audit A7, plan item 9) a sentence that carries a chunk pointer
+ * "[...#cN]" or sits in a quote field (`neverDelete`): an evidenced sentence ("Nothing changed in retention after
+ * the redesign [articles/x.md#c2]") used to vanish on a structural-tell match. Such a sentence keeps its claim; only
+ * the offending prefix is rewritten where a rewrite exists.
+ */
+export function removeMetaNarration(text: string, opts: RemoveMetaNarrationOptions = {}): string {
     if (!text) return text;
 
     // 2026-06-18 (research-run-failure-analysis) - FENCE GUARD. Structured deliverable output
@@ -470,11 +515,23 @@ export function removeMetaNarration(text: string): string {
     // plain prose (chat replies, report/brief HTML body, presentation narrative text).
     if (text.includes(':::slide') || text.includes('```')) return text;
 
-    // Split into sentences
-    const sentences = text.split(/(?<=[.!?])\s+/);
-    const cleaned = sentences.filter(sentence => {
-        return !META_NARRATION_PATTERNS.some(pattern => pattern.test(sentence));
-    });
+    // Split into sentences; a pointer that follows the full stop stays with the sentence it evidences.
+    const sentences: string[] = [];
+    for (const chunk of text.split(/(?<=[.!?])\s+/)) {
+        const m = chunk.match(LEADING_POINTER_RE);
+        if (m && sentences.length) {
+            sentences[sentences.length - 1] += ` ${m[1].trim()}`;
+            if (m[2].trim()) sentences.push(m[2].trim());
+            continue;
+        }
+        sentences.push(chunk);
+    }
+    const cleaned = sentences.map(sentence => {
+        const meta = META_NARRATION_PATTERNS.some(pattern => pattern.test(sentence));
+        if (!meta) return sentence;
+        if (opts.neverDelete || CHUNK_POINTER_RE.test(sentence)) return rewriteMetaPrefix(sentence);
+        return '';
+    }).filter(Boolean);
 
     return cleaned.join(' ').trim();
 }
@@ -849,6 +906,10 @@ const PROCESS_REFERENCE_REWRITES: Array<{ pattern: RegExp; preserveGroup: 1 | 2 
     { pattern: /\b[Oo]ur (?:research|analysis|findings|review|investigation|assessment|study) (?:show|shows|indicate|indicates|reveal|reveals|suggest|suggests|find|finds|demonstrate|demonstrates|confirm|confirms)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
     // "This report (finds|indicates|...) (that )? Y" → Y
     { pattern: /\b[Tt]his (?:report|analysis|document|assessment|review) (?:find|finds|indicate|indicates|reveal|reveals|suggest|suggests|show|shows|conclude|concludes|demonstrate|demonstrates)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // 2026-10-05 live QA: a source DOCUMENT as the subject ("The brief notes that ...", "The memo finds ..."): the claim
+    // is kept, the narration about the document goes. Verbs that take a clause only; "identifies X as Y" is left alone.
+    { pattern: /\b[Tt]he (?:brief|report|document|charter|memo|summary|transcript|workbook|deck|meeting summary|meeting notes|product brief|executive summary|SOW) (?:notes|finds|found|states|stated|shows|indicates|observes|reports|argues|concludes)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    { pattern: /\b[Tt]he (?:brief|report|document|memo|summary|transcript|product brief|executive summary) records that\s+([a-z].*)/g, preserveGroup: 1 },
     // "From the (sources|research|data|evidence) (reviewed|gathered|examined|analyzed), Y" → Y
     { pattern: /\b[Ff]rom the (?:sources|research|data|evidence|literature|corpus)(?:\s+\w+)?,\s*([a-z].*)/g, preserveGroup: 1 },
     // "Drawing on [the/our] X, Y" → Y
@@ -880,6 +941,8 @@ export function stripProcessReferences(text: string): string {
             return kept.charAt(0).toUpperCase() + kept.slice(1);
         });
     }
+    // Nothing rewritten: the text is returned as it was (a verbatim quote keeps its spacing, 2026-10-20 audit A7).
+    if (cleaned === text) return text;
     // Collapse double spaces / orphan punctuation produced by replacements.
     return cleaned.replace(/\s+([.,;!?])/g, '$1').replace(/\s{2,}/g, ' ').trim();
 }
@@ -908,7 +971,23 @@ const ARTIFACT_META_PHRASE_STRIPS: Array<[RegExp, string]> = [
     // Strip the self-referential lead-in, keep the substance that follows (bounded, HTML-safe).
     // Variant 0 (2026-10-03, live #report: "This strategic product requirements document (PRD) synthesizes ..."): a sentence
     // whose only content is what the artifact itself does is removed whole; stripping the lead-in leaves a fragment.
-    [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates)\b[^.<]*\.\s*/g, ''],
+    [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates|turns|addresses|covers|sets out|lays out|focuses|answers|tackles)\b[^.<]*\.\s*/g, ''],
+    // 2026-10-05 live #report: a source document as the subject of a clause ("The brief notes that X") keeps X.
+    [/\b[Tt]he (?:brief|memo|meeting summary|meeting notes|product brief|executive summary|charter|transcript) (?:notes|finds|states|observes|reports|records) that\s+/g, ''],
+    // 2026-11-09 (independent QA of a live #report): three leaks the strips above missed.
+    // 1. Epistemic chrome rendered as body text ("Confidence: medium, with a narrowed claim.").
+    //    The Reporting-Depth hard ban keeps this off the page; data attributes may carry it.
+    [/<(strong|b)>\s*Confidence:\s*[^<]{0,90}<\/\1>\s*\.?\s*/gi, ''],
+    [/\bConfidence:\s*(?:very\s+)?(?:high|medium|low|strong|weak)\b[^.<]{0,70}\.\s*/g, ''],
+    // 2. Pointing the reader at the artifact's own geometry ("see below", "as shown above").
+    [/[,;]?\s*\(?\b(?:as shown|see)\s+(?:above|below)\b\)?(?=[\s,.;:<])/gi, ''],
+    // 3. The artifact narrating itself as "this plan / the plan outlines ..." (whole clause).
+    [/\b[Tt]his plan (?:makes|outlines|proposes|recommends|sets out|lays out)\b[^.<]*\.\s*/g, ''],
+    [/\b[Tt]he plan outlines\b[^.<]*\.\s*/g, ''],
+    // 4. The analyst's cross-domain filing vocabulary surfacing in reader copy ("offers an
+    //    analog", "Family-scheduling analog: ..."). State the pattern, not the method.
+    [/\boffers? an analog\b/gi, 'shows the same pattern'],
+    [/(\w)\s+analog:\s+/g, '$1: '],
     // Variant A: "... defines the X" -> "The X" (the common shape).
     [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?|synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates|documents|offers)\s+the\s+/g, 'The '],
     // Variant B: no "the" after the verb -> drop just the self-referential lead-in.
@@ -921,6 +1000,14 @@ export function scrubArtifactHtmlMeta(html: string): string {
     if (!html || typeof html !== 'string') return html;
     let out = html;
     for (const [re, sub] of ARTIFACT_META_PHRASE_STRIPS) out = out.replace(re, sub);
+    // 2026-11-09 (independent QA): a live #report shipped "front door" three times, one of them a
+    // section title. The cliche-metaphor swaps existed for slide titles and never ran on the HTML
+    // path. Multi-word literal swaps are HTML-safe (none can match inside a tag name or attribute).
+    out = deClicheText(out);
+    // Same review: literal markdown bold in a generated field reaches readers as asterisks (the
+    // Plain Text Only rule). Unwrap paired ** only when it hugs non-space text and is not part of
+    // an exponent or code identifier (no digit-adjacent or word-adjacent matches).
+    out = out.replace(/(?<![\w*])\*\*(?=\S)([^*<>\n]{1,200}?)(?<=\S)\*\*(?![\w*])/g, '$1');
     // W5 (2026-07-01): provider-bucket citations ("(Source: Gemini Focused Research)") are fabricated
     // attribution - strip them on the HTML-artifact path too (previously only chat surfaces ran this).
     out = stripModelNameAsSource(out);
@@ -963,6 +1050,11 @@ const CHAT_FENCE_META_STRIPS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\s*\((?:gemini|claude|gpt|gpt-?\d[\w.-]*|openai|deepseek|chatgpt|llm|ai)\b[^)]*\)/gi, replace: '' },
     // artifact self-label opener "A case study: ", "This playbook - " -> keep the subject that follows
     { pattern: /\b(?:a|this|the following|the present)\s+(?:case\s+study|playbook|report|analysis|brief|deck|deep[\s-]?dive|write[\s-]?up)\s*[:\-]\s*/gi, replace: '' },
+    // 2026-11-09 (QA re-review): a theme tension field shipped "This evidence comes from early
+    // agent users; whether students apply the same rule to co-op records is still untested." -
+    // process reference plus evidence-limitation language in one reader-facing sentence.
+    { pattern: /\b[Tt]h(?:is|e) evidence (?:comes from|is drawn from|derives from)\b[^."}]*[.;]?\s*/g, replace: '' },
+    { pattern: /;?\s*whether\b[^."}]*\bis still (?:untested|unproven|unverified|an open question)\b\.?/gi, replace: '.' },
 ];
 
 // 2026-06-25 - MODEL-NAME-AS-SOURCE fabrication. A reply that cites "(Source: Gemini)"
@@ -979,11 +1071,16 @@ const MODEL_AS_SOURCE_RE = /[([]\s*Sources?:\s*(?:gemini|gpt[\w.-]*|chatgpt|clau
 
 export function stripModelNameAsSource(text: string): string {
     if (!text) return text;
-    return text
-        .replace(MODEL_AS_SOURCE_RE, '')
-        .replace(/\(\s*\)/g, '')      // empty parens left behind
-        .replace(/\[\s*\]/g, '')      // empty brackets left behind
-        .replace(/\s+([,.;:!?])/g, '$1');
+    const stripped = text.replace(MODEL_AS_SOURCE_RE, '');
+    // 2026-10-05: the tidy below used to run on EVERY text, and this runs on raw model output - whole HTML artifacts
+    // with <script> included - so "(function(){" became "(function{" and "var a = []" lost its array (live #playground
+    // "Unexpected token '{'"). It now runs only when a model-name citation was actually removed, and only on prose
+    // parentheses (preceded by whitespace), never on code.
+    if (stripped === text) return text;
+    return stripped
+        .replace(/(\s)\(\s*\)/g, '$1')      // empty parens left behind
+        .replace(/(\s)\[\s*\]/g, '$1')      // empty brackets left behind
+        .replace(/[ \t]+([,.;:!?])(?=\s|$)/g, '$1');
 }
 
 /**
@@ -1006,6 +1103,10 @@ export function scrubChatReplyMeta(text: string): string {
         }
         // 3. BOUNDED in-field deletions (never cross a '"' or '}', so JSON stays valid).
         for (const { pattern, replace } of CHAT_FENCE_META_STRIPS) out = out.replace(pattern, replace);
+        // 3b. 2026-11-09 (independent QA): literal markdown bold inside a fenced slide field
+        // ("**starts read-only**" in a live theme takeaway) reaches the reader as asterisks.
+        // Unwrap paired ** hugging non-space text; JSON structure carries no ** so this is safe.
+        out = out.replace(/(?<![\w*])\*\*(?=\S)([^*\n"]{1,200}?)(?<=\S)\*\*(?![\w*])/g, '$1');
         // 4. Tidy artifacts left inside values (whitespace before punctuation, doubled
         //    separators, leading/trailing space inside a value). All JSON-safe.
         out = out
@@ -1101,7 +1202,7 @@ function resolvePlaceholders(text: string): string {
 // corpusChatService chat reply finalizer, narrativeComposer artifact emitter.
 // Anywhere AI text reaches the user, run it through stripQAAnnotations() first.
 
-const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
+const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string; skipInQuotes?: boolean }> = [
     // Bracketed forms
     { pattern: /\[\s*EVIDENCE\s+GAP[^\]]*\]/gi, replace: '' },
     { pattern: /\[\s*Evidence\s+Gap[^\]]*\]/g, replace: '' },
@@ -1153,14 +1254,81 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\s*[,;]?\s*(?:via|per|from|source:?)?\s*HiC\s+theme\s+synthesis\b/gi, replace: '' },
     // Trailing fragments produced by removing the above
     { pattern: /\s*-\s*$/g, replace: '' },
-    { pattern: /\s*\.\s*\.\s*\./g, replace: '.' },
+    // An ellipsis inside a VERBATIM quote marks an elision the source made; collapsing it rewrites the quote before
+    // provenance compares it (2026-10-20, audit A7). Quote fields skip this entry.
+    { pattern: /\s*\.\s*\.\s*\./g, replace: '.', skipInQuotes: true },
     { pattern: /  +/g, replace: ' ' },
 ];
 
-export function stripQAAnnotations(text: string | undefined | null): string {
+/**
+ * Raw manifest pointers shown as text ("[articles/client-uploads/b4010f8623.md#c1]") are provenance, never display
+ * text (2026-10-05 live #brief-dialog and #presentation source lines). Removes bracketed and bare wiki-page pointers;
+ * the pointer itself stays on the data (pointer / sourceFile fields are never passed through this).
+ */
+export function stripPointerBrackets(text: string): string {
+    if (!text || text.indexOf('.md') === -1) return text;
+    return String(text)
+        .replace(/\s*\[\s*(?:articles|wiki|sources|engagements|hic-workspace|evidence|synthesis)\/[^\]\s]*\.md(?:#c\d+)?(?:\s*[,;]\s*[^\]\s]*\.md(?:#c\d+)?)*\s*\]/gi, '')
+        .replace(/\s*\(\s*(?:articles|wiki|sources|engagements)\/[^)\s]*\.md(?:#c\d+)?\s*\)/gi, '')
+        .replace(/\s+([.,;:])/g, '$1');
+}
+
+/** A raw file name used as a source, made readable: "SOW012_NXT_Humans_NU_Dashboard_Final_REDACTED.txt" ->
+ *  "SOW012 NXT Humans NU Dashboard". Revision words, copy suffixes and the extension go. */
+function readableFileSource(name: string): string {
+    return name
+        .replace(/\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv)$/i, '')
+        .replace(/\s*\(\d+\)$/, '')
+        .replace(/[_]+/g, ' ')
+        .replace(/\b(?:final|redacted|copy|clean|draft|v\d+)\b/gi, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/[\s-]+$/, '')
+        .trim();
+}
+
+/**
+ * Attribution debris (2026-10-05 live QA): an empty "()" where a source should be, the same "(Source: X)" twice in a
+ * row, a "(Source: reddit-deep" cut off mid-name, raw file names and the internal "Client Uploads" bucket as source
+ * names, and empty entries in a " · " source list. Deterministic; idempotent.
+ */
+export function cleanAttributionDebris(text: string): string {
+    if (!text) return text;
+    let t = String(text);
+    // A whole string that is a bare file name (a source-list entry).
+    if (/^[\w .,()&'-]+\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv)$/i.test(t.trim())) return readableFileSource(t.trim());
+    // Only a parenthetical that follows whitespace: "fn()" / "(function(){" in code is never prose (2026-10-05: an
+    // HTML string carrying a <script> lost its "()" and the #playground page threw "Unexpected token '{'").
+    t = t.replace(/(\s)\(\s*(?:Source:\s*)?\)/gi, '$1');
+    t = t.replace(/\(\s*Source:\s*([^()]*)\)/gi, (_m, inner: string) => {
+        let n = String(inner).trim();
+        n = n.replace(/^Client Uploads?:\s*/i, 'Client document: ').replace(/^Client Uploads?$/i, 'Client document');
+        n = n.split(/\s*[;,]\s*/).map(part => /\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv)\b/i.test(part) ? part.replace(/[^:]*$/, f => ' ' + readableFileSource(f.trim())).trim() : part).join('; ');
+        return `(Source: ${n.replace(/\s{2,}/g, ' ').trim()})`;
+    });
+    // Bracketed form: [Client Uploads: "Northeastern_CoOp_CLR_Executive_Summary_Copy.txt"]; an empty one goes.
+    t = t.replace(/\[\s*Client Uploads?\s*:\s*"?\s*"?\s*\]/gi, '');
+    t = t.replace(/\[\s*Client Uploads?\s*:\s*"?([^"\]]+?)"?\s*\]/gi, (_m, f: string) => `[Client document: ${readableFileSource(f.trim())}]`);
+    // "Client Uploads: <file name>" anywhere (source lists, footers, ledgers).
+    // Quotes are consumed only as a PAIR around the file name; a lone quote belongs to the surrounding text.
+    t = t.replace(/Client Uploads?\s*:\s*"([^"]+?\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv))"/gi, (_m, f: string) => `Client document: ${readableFileSource(f)}`);
+    t = t.replace(/Client Uploads?\s*:\s*([\w .,()&'-]+?\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv))\b/gi, (_m, f: string) => `Client document: ${readableFileSource(f)}`);
+    t = t.replace(/Client Uploads?\s*:\s*/gi, 'Client document: ');
+    // A bracketed citation cut off at the end of the field ("[mit_capd", '[Client document: "').
+    t = t.replace(/\s*\[[^\]]*$/, '');
+    // The same parenthetical twice in a row.
+    t = t.replace(/(\(Source: [^()]+\))(?:\s*\1)+/g, '$1');
+    // A parenthetical cut off at the end of the field.
+    t = t.replace(/\s*\(Source:[^()]*$/i, '');
+    // Empty entries in a separator-joined source list.
+    t = t.replace(/(?:\s*·\s*){2,}/g, ' · ').replace(/^\s*·\s*|\s*·\s*$/g, '');
+    return t.replace(/\s+([,.;:])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+}
+
+function stripQA(text: string | undefined | null, quoteField: boolean): string {
     if (!text) return '';
     let cleaned = String(text);
-    for (const { pattern, replace } of QA_ANNOTATION_PATTERNS) {
+    for (const { pattern, replace, skipInQuotes } of QA_ANNOTATION_PATTERNS) {
+        if (quoteField && skipInQuotes) continue;
         cleaned = cleaned.replace(pattern, replace);
     }
     // 2026-05-10 - Also strip process-reference prefixes and remove
@@ -1168,9 +1336,33 @@ export function stripQAAnnotations(text: string | undefined | null): string {
     // Order matters: process-rewrite first (preserves insight), then the
     // sentence-level meta-narration sweep (drops anything left over).
     cleaned = stripProcessReferences(cleaned);
-    cleaned = removeMetaNarration(cleaned);
-    // Trim residual whitespace artifacts and double-comma artifacts
+    // A quote field holds someone else's words: a sentence is never deleted there (2026-10-20, audit A7).
+    cleaned = removeMetaNarration(cleaned, { neverDelete: quoteField });
+    // Trim residual whitespace artifacts and double-comma artifacts (a verbatim quote keeps its spacing).
+    if (quoteField) return cleaned.replace(/,\s*,/g, ',').replace(/\s{2,}/g, ' ').trim();
     return cleaned.replace(/\s+,/g, ',').replace(/,\s*,/g, ',').replace(/\s+\./g, '.').replace(/\s{2,}/g, ' ').trim();
+}
+
+export function stripQAAnnotations(text: string | undefined | null): string {
+    return stripQA(text, false);
+}
+
+/**
+ * The QA sweep for a VERBATIM quote field (2026-10-20, root-cause audit A7, plan item 9): annotation chrome goes,
+ * but an ellipsis the source wrote is kept and no sentence is deleted; a meta prefix is rewritten where a rewrite
+ * exists, otherwise the words stand as quoted.
+ */
+export function stripQAAnnotationsInQuote(text: string | undefined | null): string {
+    return stripQA(text, true);
+}
+
+/** Keys whose string value (or whose children's text) is a verbatim quote. */
+const QUOTE_FIELD_KEY_RE = /^(?:quote|quotes|keyquote|keyquotes|pullquote|pullquotes|verbatim|evidencequote|evidence_quote|evidencequotes|quotetext|quotation|quotations|testimonial|testimonials)$/i;
+/** Inside a quote object, the keys that carry the quoted words themselves (never the attribution). */
+const QUOTE_TEXT_CHILD_RE = /^(?:text|quote|body|content|value|excerpt|snippet)$/i;
+/** True when a string under `key` (with `inQuote` for its ancestors) is quoted words. */
+export function isQuoteTextKey(key: string, inQuote: boolean): boolean {
+    return QUOTE_FIELD_KEY_RE.test(key) || (inQuote && QUOTE_TEXT_CHILD_RE.test(key));
 }
 
 // Recursively walk an object/array and strip QA annotations from every string value.
@@ -1178,17 +1370,26 @@ export function stripQAAnnotations(text: string | undefined | null): string {
 // 2026-05-10 - Now also strips process-references and meta-narration sentences
 // via the enhanced stripQAAnnotations(), so every output path (chat replies,
 // presentation payloads, freeform artifacts) inherits the no-self-reference rule.
-export function stripQAAnnotationsDeep<T>(value: T): T {
+// 2026-10-20 (audit A7): the walk is key-aware. A string under a quote key (quote, keyQuote, pullQuote, verbatim,
+// evidence quotes, the `text` of a quote object) takes the quote-safe sweep: its ellipses and sentences stay.
+export function stripQAAnnotationsDeep<T>(value: T, key = '', inQuote = false): T {
     if (value == null) return value;
-    if (typeof value === 'string') return stripQAAnnotations(value) as any;
+    // Attribution debris is cleaned per FIELD only (2026-10-05): run over a whole raw reply its rules ate the closing
+    // quote of JSON strings inside :::slide fences and the slide failed to parse (live #arch "No architecture layers.").
+    // Markup and code (a whole HTML artifact, a script) are never field prose: the attribution cleaner skips them.
+    if (typeof value === 'string') {
+        const s = /<(?:script|style|html|body|div|section|svg)\b|function\s*\(|=>/i.test(value) ? value : cleanAttributionDebris(value);
+        return (isQuoteTextKey(key, inQuote) ? stripQAAnnotationsInQuote(s) : stripQAAnnotations(s)) as any;
+    }
+    const quoteScope = inQuote || QUOTE_FIELD_KEY_RE.test(key);
     if (Array.isArray(value)) {
-        for (let i = 0; i < value.length; i++) value[i] = stripQAAnnotationsDeep(value[i]);
+        for (let i = 0; i < value.length; i++) value[i] = stripQAAnnotationsDeep(value[i], key, quoteScope);
         return value;
     }
     if (typeof value === 'object') {
         for (const k of Object.keys(value as any)) {
             if (k.startsWith('_')) continue;
-            (value as any)[k] = stripQAAnnotationsDeep((value as any)[k]);
+            (value as any)[k] = stripQAAnnotationsDeep((value as any)[k], k, quoteScope);
         }
         return value;
     }
@@ -2113,7 +2314,7 @@ export function postProcessSlides(
         s.content = (s.content || []).map(stripQAAnnotations).filter(c => c && c.trim().length > 0);
         s.narrative = stripQAAnnotations(s.narrative || '');
         s.speakerNotes = stripQAAnnotations(s.speakerNotes || '');
-        s.quote = stripQAAnnotations(s.quote || '');
+        s.quote = stripQAAnnotationsInQuote(s.quote || '');
         if (Array.isArray(s.sources)) s.sources = s.sources.map(stripQAAnnotations).filter(c => c && c.trim().length > 0);
 
         // --- PROCESS-REFERENCE REWRITE (must run BEFORE removeMetaNarration).
@@ -2180,19 +2381,21 @@ export function postProcessSlides(
         // rendered blueprint AND the PPTX export. Walk every string in every
         // nested payload through the same citation + tells pipeline.
         {
-            const sanitizeStr = (t: string) => stripProviderBucketCitations(stripEmDashes(stripQAAnnotations(
+            // Key-aware (2026-10-20, audit A7): a quote field inside a nested payload takes the quote-safe sweep.
+            const sanitizeStr = (t: string, quoteField = false) => stripProviderBucketCitations(stripEmDashes((quoteField ? stripQAAnnotationsInQuote : stripQAAnnotations)(
                 resolveCitations(t, fileNames, chunkSourceMap)
                     .replace(/\s*\[CHUNK_\d+\]\s*/g, ' ').replace(/\s{2,}/g, ' ').trim()
             )));
-            const deepSanitize = (v: any): any => {
-                if (typeof v === 'string') return sanitizeStr(v);
-                if (Array.isArray(v)) return v.map(deepSanitize);
+            const deepSanitize = (v: any, key = '', inQuote = false): any => {
+                if (typeof v === 'string') return sanitizeStr(v, isQuoteTextKey(key, inQuote));
+                const quoteScope = inQuote || QUOTE_FIELD_KEY_RE.test(key);
+                if (Array.isArray(v)) return v.map(x => deepSanitize(x, key, quoteScope));
                 if (v && typeof v === 'object') {
                     for (const k of Object.keys(v)) {
                         // sources/citations arrays: drop provider-bucket + empty entries
                         // (2026-07-02) BEFORE the per-string sanitize recursion.
                         if ((k === 'sources' || k === 'citations') && Array.isArray(v[k])) v[k] = filterSourceList(v[k]);
-                        v[k] = deepSanitize(v[k]);
+                        v[k] = deepSanitize(v[k], k, quoteScope);
                     }
                     return v;
                 }
@@ -2229,7 +2432,7 @@ export function postProcessSlides(
                 field: 'content', detail: `Meta-narration detected: "${metaNarrationInContent[0]}"`,
                 autoCorrected: true
             });
-            s.content = (s.content || []).map(removeMetaNarration).filter(c => c.length > 0);
+            s.content = (s.content || []).map(c => removeMetaNarration(c)).filter(c => c.length > 0);
         }
 
         const metaInNarrative = detectMetaNarration(s.narrative || '');
@@ -2259,7 +2462,8 @@ export function postProcessSlides(
                 field: 'quote', detail: `Meta-narration in quote: "${metaInQuote[0]}"`,
                 autoCorrected: true
             });
-            s.quote = removeMetaNarration(s.quote || '');
+            // A quote is someone else's words: the prefix is rewritten where a rewrite exists, never the sentence deleted.
+            s.quote = removeMetaNarration(s.quote || '', { neverDelete: true });
         }
 
         // 2026-06-06 - METAPHOR + HYPERBOLE strip. Same pattern as meta-
@@ -2523,7 +2727,11 @@ function sanitizeMetricValue(value: string): string {
  *  Idempotent. Preserves citations, parenthetical attribution, and quote marks. */
 function cleanFieldText(text: string): string {
     if (!text) return text;
-    return removeDeleteSafeFiller(deduplicateText(text));
+    // 2026-11-09 (independent QA): a live theme takeaway shipped literal "**bold**" to the
+    // reader. Plain Text Only is absolute for generated fields; unwrap paired ** that hugs
+    // non-space text (exponents and code identifiers are word-adjacent and never match).
+    const unbolded = text.replace(/(?<![\w*])\*\*(?=\S)([^*\n]{1,200}?)(?<=\S)\*\*(?![\w*])/g, '$1');
+    return removeDeleteSafeFiller(deduplicateText(unbolded));
 }
 
 /** Per-field character ceilings, mirrored from .claude/CLAUDE.md "Content Budgets (Deck

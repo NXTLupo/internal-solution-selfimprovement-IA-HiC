@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:29:36+00:00"
 content_hash: "514f678c36f4fde4"
 chunks:
   - id: "articles/ins-dol-news/d0ee14afa6.md#c0"
-    char_span: [0, 692]
+    char_span: [0, 691]
     sentence_count: 2
     key_terms: [training, department, grants, health, safety, employers, workers, labor]
     concepts: [training, department, grants, health, safety]
-    token_count: 136
-    sources: [{"n":"ins_dol_news","u":"http://www.dol.gov/newsroom/releases/osha/osha20260701"}]
+    token_count: 135
+    sources: [{"n":"ins_dol_news","u":"http://www.dol.gov/newsroom/releases/osha/osha20260701","kind":"article","date":"2026-07-01"}]
 ---
 # US Department of Labor announces nearly $13M available in funding for worker safety, health training grants
 

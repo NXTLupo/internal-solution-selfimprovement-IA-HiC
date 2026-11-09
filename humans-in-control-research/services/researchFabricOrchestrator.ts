@@ -1088,6 +1088,10 @@ export async function executePlan(
                         sourceName: `${researchResult.provider} (${source.config.mode} research)`,
                         enriched: true,
                         extractionMethod: 'deep-research',
+                        // 2026-10-20 (root-cause audit P0.4): model-written research prose is memory, never citable
+                        // evidence. Typed `synthesis` so the manifest admission excludes it (it had shipped as an
+                        // `article` and was quoted "verbatim" with "(Source: gemini (focused research))").
+                        kind: 'synthesis',
                     } as any];
 
                     // RELEVANCE FILTER: Only filter out clearly off-topic results

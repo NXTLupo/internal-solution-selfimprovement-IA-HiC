@@ -19,35 +19,39 @@ content_hash: "e01e9fd85ae0931e"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/eff-ai/bc567cbcd4.md#c0"
-    char_span: [0, 156]
+    char_span: [0, 155]
     sentence_count: 1
     key_terms: [kids-act-would-require-age-checks-get-online, deeplinks, require, checks, online, source, https, act]
-    token_count: 49
-    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online"}]
+    token_count: 48
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/bc567cbcd4.md#c1"
-    char_span: [158, 2661]
+    char_span: [157, 2660]
     sentence_count: 17
     key_terms: [online, bill, kosa, different, act, age, kids, user]
     concepts: [online, different, services, package, require]
     token_count: 512
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/bc567cbcd4.md#c2"
-    char_span: [2380, 4933]
+    char_span: [2379, 4932]
     sentence_count: 23
     key_terms: [kosa, users, act, age, bill, requires, services, content]
     concepts: [users, requires, services, content, systems]
     token_count: 512
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/bc567cbcd4.md#c3"
-    char_span: [4567, 7326]
+    char_span: [4566, 7325]
     sentence_count: 29
     key_terms: [messages, conversations, private, speech, categories, messaging, platforms, bill]
     concepts: [conversations, messages, private, categories, speech]
     token_count: 512
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online","kind":"article","date":"2026-06-25"}]
   - id: "articles/eff-ai/bc567cbcd4.md#c4"
-    char_span: [6989, 7363]
+    char_span: [6988, 7362]
     sentence_count: 4
     key_terms: [online, age, like, conversations, restrictions, checkpoints, provisions, real-world]
     concepts: [online]
     token_count: 71
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online","kind":"article","date":"2026-06-25"}]
 ---
 # The KIDS Act Would Require Age Checks To Get Online
 

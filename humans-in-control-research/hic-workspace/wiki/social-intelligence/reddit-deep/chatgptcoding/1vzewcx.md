@@ -1,0 +1,72 @@
+---
+id: social-intelligence/reddit-deep/chatgptcoding/1vzewcx.md
+url: "https://www.reddit.com/r/ChatGPTCoding/comments/1vzewcx/which_coding_tasks_are_worth_the/"
+kind: "social-post"
+source: "reddit-deep: r/chatgptcoding"
+subreddit: "chatgptcoding"
+title: "Which coding tasks are worth the highest-capability model in your workflow?"
+author: "whereismy1"
+date: "2026-08-27T00:34:07.000Z"
+score: 6
+upvote_ratio: 1
+num_comments: 9
+flair: "Question"
+extracted_at: "2026-10-09T16:37:34.763Z"
+extraction_method: "praw-deep"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgptcoding/1vzewcx.md#c0"
+    char_span: [0, 1404]
+    sentence_count: 11
+    key_terms: [coding, model, chatgptcoding, tasks, comments, stronger, workflow, across]
+    concepts: [coding, model, chatgptcoding, tasks, comments]
+    token_count: 289
+    sources: [{"n":"reddit-deep: r/chatgptcoding","u":"https://www.reddit.com/r/ChatGPTCoding/comments/1vzewcx/which_coding_tasks_are_worth_the/","kind":"social-post","date":"2026-08-27","author":"whereismy1","subreddit":"chatgptcoding"}]
+  - id: "social-intelligence/reddit-deep/chatgptcoding/1vzewcx.md#c1"
+    char_span: [1419, 2547]
+    sentence_count: 12
+    key_terms: [feature, conversation, questions, sometimes, customer, code, get, coordinating]
+    concepts: [feature, conversation, questions, sometimes, customer]
+    section: Comments
+    token_count: 251
+    sources: [{"n":"reddit-deep: r/chatgptcoding","u":"https://www.reddit.com/r/ChatGPTCoding/comments/1vzewcx/which_coding_tasks_are_worth_the/","kind":"social-post","date":"2026-08-27","author":"whereismy1","subreddit":"chatgptcoding"}]
+  - id: "social-intelligence/reddit-deep/chatgptcoding/1vzewcx.md#c2"
+    char_span: [2549, 3813]
+    sentence_count: 7
+    key_terms: [reasoning, escalation, right-performance-93, "don't", "isn't", real-service-8135, get, gpt]
+    concepts: [reasoning, escalation, "don't", "isn't"]
+    section: Comments
+    token_count: 294
+    sources: [{"n":"reddit-deep: r/chatgptcoding","u":"https://www.reddit.com/r/ChatGPTCoding/comments/1vzewcx/which_coding_tasks_are_worth_the/","kind":"social-post","date":"2026-08-27","author":"whereismy1","subreddit":"chatgptcoding"}]
+---
+# Which coding tasks are worth the highest-capability model in your workflow?
+
+Source: [reddit-deep: r/chatgptcoding](https://www.reddit.com/r/ChatGPTCoding/comments/1vzewcx/which_coding_tasks_are_worth_the/)
+Posted by **whereismy1** · **6↑** · **9 comments**
+
+I am trying to separate coding work that needs deep reasoning from work that mainly needs reliable execution. Designing a change across an unfamiliar codebase, diagnosing a subtle regression, and reviewing a risky patch seem worth a stronger model. Formatting, small translations, and clearly specified edits seem better suited to a faster path.
+
+The decision is less obvious for medium-sized tasks: adding more context may be enough, but sometimes the task remains ambiguous even with all the relevant files included. Do you use a fixed escalation rule based on risk and testability, or decide case by case?
+
+Which coding tasks do you consistently send to the most capable model?
+
+I recently came across Flatkey while testing this kind of coding-task split. It is an OpenAI/Anthropic-compatible gateway that can be evaluated by changing the base URL while keeping the existing SDK and request format. That makes it possible to compare routine edits with a stronger path without rewriting the coding workflow. Actual savings depend on the model mix and current supply, so I would measure patch quality, tests, latency, retries, and total cost.
+
+## Comments
+
+- **dvduval** (1↑): Almost all my work involves databases and repose and customer questions and coordinating these three things often through a longer conversation. 
+
+We might be creating a new feature and we need to keep that conversation going for a while and it might go out with another thing we’re building and we have to coordinate that with a different feature. 
+
+I just find using extra high reasoning is simply more accurate.  I know when I’m answering the customer or pushing out the feature that a lot of thought went into it and there’s very little slop.
+- **TikiMagic** (1↑): I haven't figured it out yet. With Claude, I blow a zillion tokens with Opus or Fable and get pretty good results. Sometimes brilliant. Or hideous overthinking and overbuilding and Claudish glossolalia. You pays your money, you takes your chance.
+
+So I step down to Sonnet for what I think are well-defined tasks and get janky brittle code, irrelevant questions, or just broken shit. And sometimes perfectly serviceable code.
+
+Then I glance over at Haiku, but it still has gum in its hair and spit up on its shirt. But it seems so *happy.*
+
+GPT Sol has been pretty good for me. But I don't have as much workflow and structure built up around GPT yet.
+- **AlexanderDoak** (1↑): I only use deep reasoning and or agentic crap for stuff that doesn't matter. Fun, inconsequential side projects. Outside of that, I need more low level evidence that the system isn't taking any shortcuts. Harder problems get LESS automatic reasoning, and MORE directed/custom reasoning.
+- **Real-Service-8135** (1↑): imo the escalation trigger should be "can I verify correctness quickly." If the output is easy to test or lint, use the cheaper path and just validate. If a mistake would be subtle and hard to catch in review, thats when you want deeper reasoning upfront.
+- **Right-Performance-93** (1↑): Worth adding a budget dimension to the risk/testability rule everyone's using here: with Max 20x or Pro 20x, a weekly pool of roughly 500M-2B tokens (cache-inclusive, varies a lot by plan) means burning the top model on a task you could've verified cheaply isn't just wasted spend, it's quota you don't get back until the reset. I keep a running tally of which tasks actually needed the escalation in the post-mortem, and most of the "just in case" escalations turned out unnecessary once I checked the diff against tests.

@@ -141,6 +141,16 @@ describe('claim ledger gate: the reviewer\'s classes', () => {
         expect(applyDeterministicFixes(html, l)).not.toContain('paraphrased');
     });
 
+    it('a quote verbatim in the cited page passes when the pointer names a neighbouring chunk (2026-10-26 live)', async () => {
+        const chunk: GateChunk = { id: 'articles/client-uploads/16802a9c83.md#c2', text: 'Advisors describe the first meeting as intake rather than coaching.' };
+        const page = '---\ntitle: "Northeastern CoOp CLR Executive Summary"\n---\nAdvisors describe the first meeting as intake rather than coaching.\n\nChris was emphatic: "There are only two major problems with why we are not at 100% achieving co-op success right now."';
+        const html = '<blockquote>"There are only two major problems with why we are not at 100% achieving co-op success right now." [articles/client-uploads/16802a9c83.md#c2]</blockquote>';
+        const ok = await evaluateClaimLedger(html, { goalText: '', chunks: [chunk], fetchPage: async () => page });
+        expect(ok.summary.UNVERIFIED_QUOTE).toBe(0);
+        const bad = await evaluateClaimLedger(html.replace('two major', 'three major'), { goalText: '', chunks: [chunk], fetchPage: async () => page });
+        expect(bad.summary.UNVERIFIED_QUOTE).toBe(1);
+    });
+
     it('a verbatim quote passes; a doctored quote is UNVERIFIED_QUOTE', async () => {
         const ok = await gate('<blockquote>"the MCP server can scan your codebase and output a structured rules file" [articles/figma-blog/1e5fd6afb8.md#c3]</blockquote>');
         expect(ok.summary.UNVERIFIED_QUOTE).toBe(0);
@@ -290,5 +300,30 @@ describe('false positives from the live #prd replay', () => {
         // the deliverable's own population claim over one origin is still flagged
         const own = await evaluateClaimLedger(`<p>All advisors report that Salesforce is kind of all over the place in many different versions across the university. [${chunk.id}]</p>`, { goalText: 'x', chunks: [chunk] });
         expect(own.summary.INDEPENDENCE_INFLATED).toBe(1);
+    });
+});
+
+// 2026-11-09 - NAKED_FIGURE: the Quantitative Claim Rule as a blocking check (independent QA
+// found "classified about 38,000 as personal guidance" paraphrasing a figure just outside its
+// quotation marks; the pointer did not cure it).
+describe('NAKED_FIGURE', () => {
+    const chunk: GateChunk = { id: 'articles/vendor-docs/ab12cd34ef.md#c1', text: 'The company sampled conversations. It classified about 38,000 of them as personal guidance, which was 26% of the subset.' };
+
+    it('blocks a hard figure asserted outside quotation marks even when a pointer is present', async () => {
+        const html = `<p>The company sampled conversations and classified about 38,000 as personal guidance. [${chunk.id}]</p>`;
+        const ledger = await evaluateClaimLedger(html, { goalText: 'x', chunks: [chunk] });
+        expect(ledger.summary.NAKED_FIGURE).toBe(1);
+    });
+
+    it('passes the same figure inside a verbatim quote', async () => {
+        const html = `<p>The vendor reported that "It classified about 38,000 of them as personal guidance, which was 26% of the subset." [${chunk.id}]</p>`;
+        const ledger = await evaluateClaimLedger(html, { goalText: 'x', chunks: [chunk] });
+        expect(ledger.summary.NAKED_FIGURE).toBe(0);
+    });
+
+    it('ignores plain small counts and plan durations (review signal, not a block)', async () => {
+        const html = `<p>The pilot runs for 90 days and covers three advising teams. [${chunk.id}]</p>`;
+        const ledger = await evaluateClaimLedger(html, { goalText: 'x', chunks: [chunk] });
+        expect(ledger.summary.NAKED_FIGURE).toBe(0);
     });
 });

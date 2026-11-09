@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:14:25+00:00"
 content_hash: "3987c67e82202e34"
 chunks:
   - id: "articles/eff-ai/c6aadb7dfd.md#c0"
-    char_span: [0, 1661]
+    char_span: [0, 1660]
     sentence_count: 14
     key_terms: [eff, your-privacy-shouldnt-be-corporate-decision, privacy, community, software, watching, company, rights]
     concepts: [privacy, community, software, watching, company]
-    token_count: 348
-    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/05/your-privacy-shouldnt-be-corporate-decision"}]
+    token_count: 347
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/05/your-privacy-shouldnt-be-corporate-decision","kind":"article","date":"2026-05-19"}]
 ---
 # Your Privacy Shouldn't Be A Corporate Decision
 

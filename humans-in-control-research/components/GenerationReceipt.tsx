@@ -10,6 +10,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { sharedJson } from '../services/sharedGet';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -58,27 +59,21 @@ export const GenerationReceipt: React.FC<GenerationReceiptProps> = ({
     useEffect(() => {
         (async () => {
             const next: ReceiptData = { ...data };
+            // 2026-10-31: every receipt on the page shares one request per URL (services/sharedGet.ts); a long
+            // session rendered about a hundred receipts, each fetching both, and starved the chat's own calls.
             // Skill version
             if (skillName) {
-                try {
-                    const resp = await fetch(`${PROXY_BASE}/api/skill/list-versions`);
-                    if (resp.ok) {
-                        const sdata = await resp.json();
-                        const me = (sdata.skills || []).find((s: any) => s.name === skillName);
-                        if (me) {
-                            next.skillVersion = me.version || '1.0';
-                            next.skillLastImproved = me.last_improved || null;
-                        }
-                    }
-                } catch {
-                    /* offline */
+                const sdata = await sharedJson<{ skills?: any[] }>(`${PROXY_BASE}/api/skill/list-versions`);
+                const me = (sdata?.skills || []).find((s: any) => s.name === skillName);
+                if (me) {
+                    next.skillVersion = me.version || '1.0';
+                    next.skillLastImproved = me.last_improved || null;
                 }
             }
             // Quality trailing avg (last 5 of same deliverable type)
             try {
-                const qResp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/quality-scores.md`);
-                if (qResp.ok) {
-                    const qdata = await qResp.json();
+                const qdata = await sharedJson<{ content?: string }>(`${PROXY_BASE}/api/wiki/read/synthesis/quality-scores.md`);
+                if (qdata) {
                     const rows = (qdata.content || '').split('\n');
                     const scores: number[] = [];
                     for (const row of rows) {

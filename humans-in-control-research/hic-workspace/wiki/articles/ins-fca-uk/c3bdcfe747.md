@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:29:58+00:00"
 content_hash: "c733fb8d7b43f88a"
 chunks:
   - id: "articles/ins-fca-uk/c3bdcfe747.md#c0"
-    char_span: [0, 226]
+    char_span: [0, 225]
     sentence_count: 1
     key_terms: [fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds, fca, press-releases, closed-ended, investment, consults, targeted, changes]
-    token_count: 60
-    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds"}]
+    token_count: 59
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-fca-uk/c3bdcfe747.md#c1"
-    char_span: [228, 3162]
+    char_span: [227, 3161]
     sentence_count: 14
     key_terms: [investment, shareholder, changes, manager, conflicts, fca, interest, rules]
     concepts: [investment, shareholder, changes, manager, conflicts]
     token_count: 512
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-fca-uk/c3bdcfe747.md#c2"
-    char_span: [2846, 3419]
+    char_span: [2845, 3418]
     sentence_count: 3
     key_terms: [consultation, shareholder, engagement, practice, balance, whether, strike, voting]
     concepts: [consultation, shareholder, engagement, practice, balance]
     token_count: 108
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds","kind":"article","date":"2026-06-26"}]
 ---
 # FCA consults on targeted changes to listing rules for closed-ended investment funds
 

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:42:29+00:00"
 content_hash: "777a62f7112e8e45"
 chunks:
   - id: "articles/ins-coverager/dccac4dbf8.md#c0"
-    char_span: [0, 1258]
+    char_span: [0, 1257]
     sentence_count: 5
     key_terms: [mlr, world, insurance, world-insurance-associates-acquires-ml-ruberton-agency-and-mlr-risk-management, associates, management, ruberton, agency]
     concepts: [insurance, world, associates, management, ruberton]
-    token_count: 267
-    sources: [{"n":"ins_coverager","u":"https://coverager.com/world-insurance-associates-acquires-ml-ruberton-agency-and-mlr-risk-management/"}]
+    token_count: 266
+    sources: [{"n":"ins_coverager","u":"https://coverager.com/world-insurance-associates-acquires-ml-ruberton-agency-and-mlr-risk-management/","kind":"article","date":"2026-07-01"}]
 ---
 # World Insurance Associates acquires ML Ruberton Agency and MLR Risk Management
 

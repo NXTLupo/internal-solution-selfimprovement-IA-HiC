@@ -16,47 +16,52 @@ relevance: 70
 content_hash: "0df2fe0dfb0b3244"
 chunks:
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c0"
-    char_span: [0, 2340]
+    char_span: [0, 2339]
     sentence_count: 11
     key_terms: [saas, customers, problems, market, outcome, revenue, growth, owners]
     concepts: [customers, problems, market, outcome, revenue]
-    token_count: 509
-    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/"}]
+    token_count: 508
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c1"
-    char_span: [2342, 4413]
+    char_span: [2341, 4412]
     sentence_count: 15
     key_terms: [companies, nrr, retention, customer, saas, revenue, expansion, shrinking]
     concepts: [companies, retention, customer, revenue, expansion]
     related_chunks: ["articles/reddit-deep-r-saas/8cd6b5aec7.md#c2", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c3"]
     token_count: 448
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c2"
-    char_span: [4415, 6718]
+    char_span: [4414, 6717]
     sentence_count: 14
     key_terms: [saas, companies, pricing, problem, revenue, model, ceos, customers]
     concepts: [companies, pricing, problem, revenue, model]
     related_chunks: ["articles/reddit-deep-r-saas/8cd6b5aec7.md#c1", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c3", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c4"]
     token_count: 500
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c3"
-    char_span: [6720, 8938]
+    char_span: [6719, 8937]
     sentence_count: 13
     key_terms: [customer, saas, companies, cac, problem, transition, revenue, growth]
     concepts: [customer, companies, problem, transition, revenue]
     related_chunks: ["articles/reddit-deep-r-saas/8cd6b5aec7.md#c1", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c2", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c4"]
     token_count: 444
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c4"
-    char_span: [8940, 10209]
+    char_span: [8939, 10208]
     sentence_count: 4
     key_terms: [efficiency, customers, cac, problem, onboarding, companies, company, payback]
     concepts: [efficiency, customers, problem, onboarding, companies]
     related_chunks: ["articles/reddit-deep-r-saas/8cd6b5aec7.md#c2", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c3", "articles/reddit-deep-r-saas/8cd6b5aec7.md#c5"]
     token_count: 280
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8cd6b5aec7.md#c5"
-    char_span: [10211, 12210]
+    char_span: [10210, 12209]
     sentence_count: 13
     key_terms: [onboarding, like, retention, problem, audience, founders, problems, usually]
     concepts: [onboarding, retention, problem, audience, founders]
     related_chunks: ["articles/reddit-deep-r-saas/8cd6b5aec7.md#c4"]
     token_count: 439
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rqq1qs/hey_saas_owners_is_that_article_clearly_define/","kind":"article","date":"2026-03-11","subreddit":"saas"}]
 ---
 # Hey SaaS Owners , Is That Article Clearly Define Your Problems In SaaS Model?
 

@@ -16,37 +16,41 @@ collected_at: "2026-07-02T16:08:48+00:00"
 content_hash: "e9de96df368df971"
 chunks:
   - id: "articles/aws-ml-blog/b9cc2c18ae.md#c0"
-    char_span: [0, 215]
+    char_span: [0, 214]
     sentence_count: 1
     key_terms: [huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws, aws, machine-learning, huntington, documents, redacting, sensitive, amazon]
-    token_count: 54
-    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/"}]
+    token_count: 53
+    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/","kind":"article","date":"2026-06-24"}]
   - id: "articles/aws-ml-blog/b9cc2c18ae.md#c1"
-    char_span: [217, 2905]
+    char_span: [216, 2904]
     sentence_count: 16
     key_terms: [huntington, documents, aws, data, amazon, on-premises, sensitive, requirements]
     concepts: [huntington, documents, on-premises, amazon, sensitive]
     related_chunks: ["articles/aws-ml-blog/b9cc2c18ae.md#c2", "articles/aws-ml-blog/b9cc2c18ae.md#c3"]
     token_count: 512
+    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/","kind":"article","date":"2026-06-24"}]
   - id: "articles/aws-ml-blog/b9cc2c18ae.md#c2"
-    char_span: [2579, 5576]
+    char_span: [2578, 5575]
     sentence_count: 23
     key_terms: [amazon, textract, aws, documents, service, huntington, functions, sensitive]
     concepts: [amazon, textract, documents, huntington, service]
     related_chunks: ["articles/aws-ml-blog/b9cc2c18ae.md#c1", "articles/aws-ml-blog/b9cc2c18ae.md#c3"]
     token_count: 512
+    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/","kind":"article","date":"2026-06-24"}]
   - id: "articles/aws-ml-blog/b9cc2c18ae.md#c3"
-    char_span: [5225, 8022]
+    char_span: [5224, 8021]
     sentence_count: 22
     key_terms: [redaction, huntington, processing, amazon, aws, textract, documents, functions]
     concepts: [redaction, huntington, processing, amazon, textract]
     related_chunks: ["articles/aws-ml-blog/b9cc2c18ae.md#c1", "articles/aws-ml-blog/b9cc2c18ae.md#c2"]
     token_count: 512
+    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/","kind":"article","date":"2026-06-24"}]
   - id: "articles/aws-ml-blog/b9cc2c18ae.md#c4"
-    char_span: [7761, 8197]
+    char_span: [7760, 8196]
     sentence_count: 1
     key_terms: [aws, acknowledgements, contributions, individuals, montgomery, womorrow, brenneman, burkhardt]
     token_count: 108
+    sources: [{"n":"aws_ml_blog","u":"https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/","kind":"article","date":"2026-06-24"}]
 ---
 # Huntington Bank: Redacting sensitive data from 400M+ documents with AWS
 

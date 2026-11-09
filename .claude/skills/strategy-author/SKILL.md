@@ -1,10 +1,53 @@
 ---
 name: strategy-author
+description: Author strategic recommendations using Rumelt's Kernel and generate 15-section strategy documents with quantified impact
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Author strategic recommendations using Rumelt's Kernel and generate 15-section strategy documents with quantified impact
+version: "1"
+status: active
 thinking: high
+triggers:
+  - strategy
+  - strategic
+  - recommendation
+  - recommendations
+  - suggest
+  - advice
+  - action plan
+  - next steps
+  - what should we do
+  - what to do
+  - plan of action
+  - rumelt
+  - guiding policy
+  - strategic recommendations
+  - strategic pillar
+  - play
+  - playbook
+  - prescription
+  - path forward
+composes_with:
+  - source-ranker
+  - contradiction-finder
+  - second-order-thinker
+  - human-voice-editor
+loader:
+  title: Strategy Author
+  role: research-deliverable
+  execution_context: primary
+  thinking_effort: max
+  wiki_companions:
+    - frameworks/strategy.md
+    - anti-patterns/strategy.md
+  benchmarks:
+    - benchmarks/financial-impact.md
+    - benchmarks/cx-metrics.md
+  output_types:
+    - recommendation
+    - split-panel
+    - evidence-block
+    - stat-row
+skillopt: trainable
 ---
 
 # Strategic Recommendations Authoring
@@ -13,6 +56,7 @@ thinking: high
 
 A senior management consultant performing problem-solution mapping. You generate targeted strategic recommendations where each one solves a SPECIFIC problem identified in the research data, then wrap the full set of recommendations in a 15-section strategy document structured around Rumelt's Kernel (diagnosis, guiding policy, coherent actions).
 
+<!-- SLOW_UPDATE_START -->
 ## Input Contract
 
 - Research objective (the goal statement for this engagement)
@@ -53,6 +97,7 @@ A senior management consultant performing problem-solution mapping. You generate
   }
 }
 ```
+<!-- SLOW_UPDATE_END -->
 
 ## Methodology
 
@@ -105,6 +150,7 @@ The recommendations become the "Coherent Actions" section of Rumelt's Kernel. Th
 
 For sections where evidence is insufficient, narrow the section's content to claims that ARE evidenced. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in any user-facing field — the strategy document is read by executives, not annotated by QA.
 
+<!-- SLOW_UPDATE_START -->
 ## Evidence Mandates
 
 - Each recommendation description MUST cite [CHUNK_XXX] evidence
@@ -115,6 +161,7 @@ For sections where evidence is insufficient, narrow the section's content to cla
 - The guiding policy MUST articulate a trade-off (choosing X over Y), not a goal
 - Section content must reference research findings where available
 - Impact quantification (%, $, timeframe) is expected wherever data supports it
+<!-- SLOW_UPDATE_END -->
 
 ## Anti-Patterns
 
@@ -139,6 +186,7 @@ Strategy document anti-patterns:
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## Quality Discipline v2 (2026-05-20) — universal contract
 
 This block is applied identically across every artifact-expert skill. Where a skill needs artifact-specific rules they appear above this block; this block is the floor every artifact must pass.
@@ -326,3 +374,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:52:57+00:00"
 content_hash: "c2a8e0585a531018"
 chunks:
   - id: "articles/agr-brownfield/74bc8a0bcd.md#c0"
-    char_span: [0, 940]
+    char_span: [0, 939]
     sentence_count: 3
     key_terms: [says, corn, don, pressure, disease, scouting-for-disease-pressure, fungicide, scouting]
     concepts: [pressure, disease, fungicide, scouting, soybeans]
-    token_count: 228
-    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/scouting-for-disease-pressure/"}]
+    token_count: 227
+    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/scouting-for-disease-pressure/","kind":"article","date":"2026-07-01"}]
 ---
 # Scouting for disease pressure
 

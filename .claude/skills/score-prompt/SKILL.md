@@ -1,10 +1,13 @@
 ---
 name: score-prompt
-invocation: model
-version: 1.0
 description: Score any prompt across 5 reliability dimensions before it goes into production. Flags launch risks. Use before deploying any system prompt.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob
-argument-hint: [file-path-or-paste]
+argument-hint:
+  - file-path-or-paste
 ---
 
 Act as a Claude prompt evaluator who scores any prompt across 5 reliability dimensions before it goes into production.

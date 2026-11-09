@@ -16,37 +16,41 @@ collected_at: "2026-07-02T16:05:59+00:00"
 content_hash: "11180f3ad49a42c5"
 chunks:
   - id: "articles/hugging-face-blog/bfad128ecc.md#c0"
-    char_span: [0, 123]
+    char_span: [0, 122]
     sentence_count: 1
     key_terms: [blog, ml-for-games-4, development, huggingface, generation, hugging, source, asset]
-    token_count: 37
-    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4"}]
+    token_count: 36
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4","kind":"article","date":"2023-01-26"}]
   - id: "articles/hugging-face-blog/bfad128ecc.md#c1"
-    char_span: [125, 2484]
+    char_span: [124, 2483]
     sentence_count: 25
     key_terms: [denoising, image2image, image, diffusion, strength, input, stable, generate]
     concepts: [denoising, image2image, diffusion, image, strength]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4","kind":"article","date":"2023-01-26"}]
   - id: "articles/hugging-face-blog/bfad128ecc.md#c2"
-    char_span: [2223, 4542]
+    char_span: [2222, 4541]
     sentence_count: 21
     key_terms: [prompt, diffusion, going, direction, result, scythe, stable, "you're"]
     concepts: [diffusion, prompt, direction, going, result]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4","kind":"article","date":"2023-01-26"}]
   - id: "articles/hugging-face-blog/bfad128ecc.md#c3"
-    char_span: [4190, 6876]
+    char_span: [4189, 6875]
     sentence_count: 24
     key_terms: [development, game, using, dreambooth, especially, generation, interested, great]
     concepts: [development, using, dreambooth, especially, generation]
     related_chunks: ["articles/hugging-face-blog/bfad128ecc.md#c4"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4","kind":"article","date":"2023-01-26"}]
   - id: "articles/hugging-face-blog/bfad128ecc.md#c4"
-    char_span: [6556, 8512]
+    char_span: [6555, 8511]
     sentence_count: 15
     key_terms: [game, development, interesting, like, experience, generation, procedural, article]
     concepts: [development, interesting, experience, generation, procedural]
     related_chunks: ["articles/hugging-face-blog/bfad128ecc.md#c3"]
     token_count: 344
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ml-for-games-4","kind":"article","date":"2023-01-26"}]
 ---
 # 2D Asset Generation: AI for Game Development #4
 

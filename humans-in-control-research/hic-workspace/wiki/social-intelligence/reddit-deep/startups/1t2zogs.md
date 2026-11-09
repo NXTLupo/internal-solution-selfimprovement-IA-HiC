@@ -11,10 +11,10 @@ score: 0
 upvote_ratio: 0.38
 num_comments: 21
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.311Z"
+extracted_at: "2026-10-09T16:37:34.775Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c0"
     char_span: [0, 2123]
@@ -23,7 +23,7 @@ chunks:
     concepts: [company, people, build, comments, startups]
     related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c1"]
     token_count: 492
-    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/"}]
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c1"
     char_span: [2125, 4311]
     sentence_count: 31
@@ -31,6 +31,7 @@ chunks:
     concepts: [company, transition, already, people, engineering]
     related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c0", "social-intelligence/reddit-deep/startups/1t2zogs.md#c2"]
     token_count: 475
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c2"
     char_span: [4313, 6621]
     sentence_count: 24
@@ -38,22 +39,33 @@ chunks:
     concepts: [already, companies, tools, building, people]
     related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c1"]
     token_count: 496
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c3"
-    char_span: [6635, 8334]
+    char_span: [6636, 8228]
     sentence_count: 11
     key_terms: [team, experiments, week, because, framing, written, claude, months]
     concepts: [experiments, because, framing, written, claude]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c4"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c5"]
     section: Comments
-    token_count: 420
+    token_count: 388
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c4"
-    char_span: [8336, 10498]
-    sentence_count: 18
-    key_terms: [get, claude, experiments, week, bullshit, "doesn't", results, single]
-    concepts: [claude, experiments, bullshit, "doesn't", results]
+    char_span: [8230, 9946]
+    sentence_count: 16
+    key_terms: [get, experiments, bullshit, results, single, been, ceo, "i'm"]
+    concepts: [experiments, bullshit, results, single]
+    section: Comments
+    token_count: 402
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
+  - id: "social-intelligence/reddit-deep/startups/1t2zogs.md#c5"
+    char_span: [9948, 10594]
+    sentence_count: 5
+    key_terms: [experiments, claude, setup, does, part, week, gwenfromcanery, foundation]
+    concepts: [experiments, claude, setup]
     related_chunks: ["social-intelligence/reddit-deep/startups/1t2zogs.md#c3"]
     section: Comments
-    token_count: 510
+    token_count: 160
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t2zogs/ceo_running_400m_arr_told_me_ai_adoption_is/","kind":"social-post","date":"2026-05-03","author":"Monolikma","subreddit":"startups"}]
 ---
 # CEO running $400M ARR told me AI adoption is binary. Soft transitions to AI will lose, you shock the company or you're out (I will not promote)
 
@@ -136,12 +148,8 @@ Curious if anyone here is running this kind of binary shift inside their company
 
 Biggest tell here is “marketing run by AI”. Your team will look identical to every other one of your competitors. People really forget that AI raises the floor but you’re still getting B+ work and generic ideas.
   - **ai_hedge_fund** (0↑): It was, in fact, written by AI
-- **iamaredditboy** (6↑): I would love to audit the books of these companies…….
+- **iamaredditboy** (7↑): I would love to audit the books of these companies…….
 - **blacklig** (6↑): More low effort slop posting wow
-- **IndependenceSad1272** (2↑): Things that never happened for $100. r/thatHappened 
-
-  
-AI generated slop
 - **Legitimate_Key8501** (2↑): The 'shock or die' framing skips what actually changed. Building got cheap. Deciding what's worth shipping stayed hard.22 experiments a week is malpractice if you can't tell which 3 mattered, and no claude code rollout fixes that. The 5% who ship on a Friday already had product instinct before the tools showed up.
   - **Monolikma** (1↑): I do agree that if you have no clue on an industry, using claude code will not make you a genius overnight. Maybe the post framing was not good so my bad. What I was trying to share is insight from a very talented person I've met and also agreeing with his point because this is how we started operating after our pivot 2 months ago. 
 
@@ -164,3 +172,4 @@ What strikes me is nobody will even hint that the experiments yielded *anything 
 
 You are a part of the tulip mania or you are a danger which will bring the hype crashing down.
 - **Legitimate_Key8501** (1↑): Yeah, the foundation piece you mentioned is the actual story. Building the setup that lets you launch fast takes weeks of unsexy plumbing, and that part doesn't travel on LinkedIn. The 22/week headline does.What does your setup look like now? [CLAUDE.md](http://CLAUDE.md), custom skills, eval harness, something else?
+- **GwenFromCanery** (1↑): 22 experiments a week is only great if you're running the right experiments. And most aren't. The old product loop is broken but the new one still needs a brain on top of it.

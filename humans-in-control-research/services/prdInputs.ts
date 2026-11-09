@@ -83,7 +83,12 @@ export function competitiveGapsFromContext(gapAnalysis: unknown, competitiveAnal
     const ga: any = gapAnalysis || {};
     const rows = [...arr(ga?.gaps), ...arr(ga?.rows), ...arr(ga?.items), ...arr(ga?.capabilityGaps)];
     rows.forEach((g: any, i: number) => {
-        const text = str(g?.gap || g?.description || g?.title || g?.capability || g?.name);
+        // 2026-10-06 live #prd: gap-matrix rows carry `gap` as the NUMERIC current-to-target delta; read first, it
+        // made 44 of 114 gaps the bare text "3". A numeric field is a score, never the gap's name.
+        const named = (v: any) => (typeof v === 'string' && !/^\s*[-+]?\d+(?:\.\d+)?\s*$/.test(v) ? v : '');
+        const cap = named(g?.capability) || named(g?.name) || named(g?.dimension);
+        const desc = named(g?.description) || named(g?.gap) || named(g?.title);
+        const text = str(cap && desc && !desc.toLowerCase().startsWith(cap.toLowerCase()) ? `${cap}: ${desc}` : (desc || cap));
         if (!text) return;
         out.push({ id: `CG${i + 1}`, text, quote: str(g?.quote || g?.evidence) || undefined, source: str(g?.source || g?.sourceName) || undefined, pointer: str(g?.pointer || g?.chunkId || g?.sourceFile) || undefined });
     });

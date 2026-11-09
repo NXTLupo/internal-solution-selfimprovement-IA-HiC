@@ -1,10 +1,13 @@
 ---
 name: stress-test
-invocation: model
-version: 1.0
 description: Generate adversarial inputs to break any prompt or code, scoring each failure by severity. Use before deploying prompts or shipping features.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob, Bash
-argument-hint: [file-path-or-component]
+argument-hint:
+  - file-path-or-component
 ---
 
 Act as a Claude skill QA engineer who breaks prompts on purpose to find every hidden failure point.

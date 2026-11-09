@@ -16,32 +16,35 @@ relevance: 70
 content_hash: "6e3f671d2375b3d0"
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c0"
-    char_span: [0, 2455]
+    char_span: [0, 2454]
     sentence_count: 16
     key_terms: [reviews, trustpilot, entrepreneur, customers, real, comments, please, reddit]
     concepts: [trustpilot, reviews, entrepreneur, customers, comments]
     related_chunks: ["articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c1"]
-    token_count: 513
-    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/"}]
+    token_count: 512
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/","kind":"article","date":"2025-12-04","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c1"
-    char_span: [2458, 4843]
+    char_span: [2457, 4842]
     sentence_count: 17
     key_terms: [reviews, trustpilot, platform, reviewer, something, flagging, backend, removal]
     concepts: [reviews, trustpilot, platform, reviewer, something]
     related_chunks: ["articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c0"]
     token_count: 471
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/","kind":"article","date":"2025-12-04","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c2"
-    char_span: [4845, 6357]
+    char_span: [4844, 6356]
     sentence_count: 7
     key_terms: [trustpilot, google, de-tethering, clients, listing, reviews, people, search]
     concepts: [trustpilot, de-tethering, google, clients, listing]
     token_count: 331
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/","kind":"article","date":"2025-12-04","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/a4f9ac9eb9.md#c3"
-    char_span: [6362, 7179]
+    char_span: [6361, 7178]
     sentence_count: 5
     key_terms: [reviews, published, against, "don't", tried, understands, copy-paste, beginning]
     concepts: [reviews, published, against, "don't", tried]
     token_count: 182
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1peads3/trustpilot_isnt_publishing_any_of_the_reviews/","kind":"article","date":"2025-12-04","subreddit":"entrepreneur"}]
 ---
 # Trustpilot isn’t publishing any of the reviews from my real customers. Has anyone experienced this?
 

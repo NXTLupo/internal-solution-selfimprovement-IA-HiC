@@ -1,10 +1,13 @@
 ---
 name: escape-audit
-invocation: model
-version: 1.0
 description: Validate Power Automate escape chains for Claude API HTTP actions. Catches the 4-step escape failures that cause 400 errors in PA flows.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob
-argument-hint: [flow-name-or-paste-concat-expression]
+argument-hint:
+  - flow-name-or-paste-concat-expression
 ---
 
 Act as a Power Automate escape chain specialist who validates every layer of escaping in Claude API HTTP action bodies.

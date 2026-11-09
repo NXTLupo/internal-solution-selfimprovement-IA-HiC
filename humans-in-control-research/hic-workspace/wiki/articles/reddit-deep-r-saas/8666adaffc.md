@@ -16,26 +16,28 @@ relevance: 70
 content_hash: "b828d1ecd61da123"
 chunks:
   - id: "articles/reddit-deep-r-saas/8666adaffc.md#c0"
-    char_span: [0, 1250]
+    char_span: [0, 1249]
     sentence_count: 17
     key_terms: [free, trial, day, tier, users, conversion, potential, tomorrow]
     concepts: [trial, conversion, users, potential, tomorrow]
-    token_count: 281
-    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rxfb0n/shutting_down_our_free_tier_tomorrow/"}]
+    token_count: 280
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rxfb0n/shutting_down_our_free_tier_tomorrow/","kind":"article","date":"2026-03-18","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8666adaffc.md#c1"
-    char_span: [1252, 2478]
+    char_span: [1251, 2477]
     sentence_count: 4
     key_terms: [message, update, com, remindmebot, reddit, days, www, delete]
     concepts: [message, update, remindmebot, reddit, delete]
     related_chunks: ["articles/reddit-deep-r-saas/8666adaffc.md#c2"]
     token_count: 427
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rxfb0n/shutting_down_our_free_tier_tomorrow/","kind":"article","date":"2026-03-18","subreddit":"saas"}]
   - id: "articles/reddit-deep-r-saas/8666adaffc.md#c2"
-    char_span: [2480, 3497]
+    char_span: [2479, 3496]
     sentence_count: 4
     key_terms: [remindmebot, message, reddit, https, com, www, compose, subject]
     concepts: [remindmebot, message, reddit, https, compose]
     related_chunks: ["articles/reddit-deep-r-saas/8666adaffc.md#c1"]
     token_count: 318
+    sources: [{"n":"Reddit Deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1rxfb0n/shutting_down_our_free_tier_tomorrow/","kind":"article","date":"2026-03-18","subreddit":"saas"}]
 ---
 # Shutting down our free tier tomorrow
 

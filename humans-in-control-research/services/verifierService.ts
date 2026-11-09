@@ -14,6 +14,7 @@
  */
 
 import { regenerateWithFeedback } from './feedbackRegeneration';
+import { anthropicText } from './claudeModelPolicy';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -181,7 +182,7 @@ Default to "pass" when checks succeed. Use "weak" for partial issues. Use "fail"
         });
         if (!fbResp.ok) return { findings: [], overall: 'pass' };
         const data = await fbResp.json();
-        const raw: string = data?.content?.[0]?.text || '';
+        const raw: string = anthropicText(data) || '';
         const cleaned = raw.replace(/```json\n?|```/g, '').trim();
         const parsed = JSON.parse(cleaned);
         if (Array.isArray(parsed.findings) && typeof parsed.overall === 'string') {

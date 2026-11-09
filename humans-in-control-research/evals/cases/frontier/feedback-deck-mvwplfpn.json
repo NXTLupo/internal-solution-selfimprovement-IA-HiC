@@ -1,0 +1,20 @@
+{
+  "id": "feedback-deck-mvwplfpn",
+  "set": "frontier",
+  "kind": "deck",
+  "input": {
+    "objective": "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges.",
+    "prompt": "From now on, always put the methodology appendix at the end of every deck for the executive search work."
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "user_report",
+    "ref": "chat:analyst",
+    "added": "2026-10-31",
+    "note": "rule: Always include a methodology appendix at the end of executive search decks.; corrected reply: A synthesis of the corpus and social-intelligence A clear consensus on **where** AI delivers immediate operational efficiency in executive search, alongside sharp disagreements on **how far** algorith"
+  }
+}

@@ -58,6 +58,22 @@ INSIGHTS_DIR = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / "wik
 REJECTION_LOG = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / "wiki" / "synthesis" / "hook-rejection-log.md"
 PROXY_BASE = os.environ.get("HIC_PROXY_BASE", "http://127.0.0.1:5012")
 
+
+def _proxy_headers() -> dict:
+    """2026-10-30 (WS-0 S2): the proxy requires x-proxy-token; read it from the
+    environment or the runtime config the proxy writes at startup."""
+    headers = {"Accept": "application/json"}
+    token = os.environ.get("PROXY_AUTH_TOKEN", "").strip()
+    if not token:
+        try:
+            cfg = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / ".runtime" / "config.json"
+            token = (json.loads(cfg.read_text(encoding="utf-8")).get("proxyToken") or "").strip()
+        except Exception:
+            token = ""
+    if token:
+        headers["x-proxy-token"] = token
+    return headers
+
 # Match the HTML-comment provenance block the persistInsightAsChunk helper
 # embeds: <!-- nxt:provenance {...json...} -->
 _PROVENANCE_RE = re.compile(r"<!--\s*nxt:provenance\s+(\{.*?\})\s*-->", re.DOTALL)
@@ -90,7 +106,7 @@ def _engagement_slug_from_payload(payload: Any) -> str | None:
 def _fetch_manifest_chunk_ids(slug: str) -> set[str] | None:
     try:
         url = f"{PROXY_BASE}/api/manifest/chunks?engagement={slug}"
-        req = urllib.request.Request(url, headers={"Accept": "application/json"})
+        req = urllib.request.Request(url, headers=_proxy_headers())
         with urllib.request.urlopen(req, timeout=5) as resp:
             data = json.loads(resp.read().decode("utf-8"))
             ids = data.get("chunk_ids") or []

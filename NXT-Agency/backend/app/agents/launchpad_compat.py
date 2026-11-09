@@ -592,6 +592,50 @@ def _build_multimodal_content(message: str, file_path: str | None = None) -> str
 
 # --- Endpoints ---
 
+def _conversation(conversation_id: str) -> dict:
+    """The live conversation; after a backend restart it is reloaded from disk (CX Workbench plan WS-D D1)."""
+    conv = _conversations.get(conversation_id)
+    if conv is None:
+        from app import hic_bridge
+        saved = hic_bridge.load_conversation(conversation_id) or {}
+        conv = {"id": conversation_id, "history": saved.get("history") or [], "files": saved.get("files") or []}
+        _conversations[conversation_id] = conv
+        if saved:
+            logger.info("Reloaded conversation %s from disk (%d messages)", conversation_id, len(conv["history"]))
+    conv.setdefault("files", [])
+    return conv
+
+
+@router.get("/api/chat/history/{conversation_id}")
+async def conversation_history(conversation_id: str, limit: int = 40):
+    """D1 (2026-10-31): a thread's text history, so the Launchpad can resume a thread picked from the thread list."""
+    conv = _conversation(conversation_id)
+    rows = [{"role": m.get("role"), "content": m.get("content") if isinstance(m.get("content"), str) else "[attachment]"}
+            for m in conv.get("history", []) if isinstance(m, dict)]
+    return {"conversation_id": conversation_id, "messages": rows[-max(1, min(limit, 200)):]}
+
+
+# 2026-10-31 (CX Workbench plan WS-D D4): the human side of the computer-use review gate.
+@router.get("/api/reviews")
+async def list_reviews(session_id: str = "", include_screenshot: bool = False):
+    from app.tools.review_gate import reviews
+    rows = reviews.pending(session_id)
+    return {"pending": [{k: v for k, v in r.items() if include_screenshot or k != "screenshot"} for r in rows]}
+
+
+@router.post("/api/reviews/{review_id}/decision")
+async def decide_review(review_id: str, payload: dict):
+    from app.tools.review_gate import reviews
+    raw = str((payload or {}).get("decision") or "").lower()
+    decision = {"approve": "approved", "approved": "approved", "reject": "rejected", "rejected": "rejected"}.get(raw)
+    if not decision:
+        raise HTTPException(status_code=400, detail="decision must be approve or reject")
+    rec = reviews.decide(review_id, decision, str((payload or {}).get("reviewer") or "owner"))
+    if not rec:
+        raise HTTPException(status_code=404, detail="no pending review with that id")
+    return {"ok": True, "review_id": review_id, "status": rec["status"]}
+
+
 @router.post("/api/chat/conversation")
 async def create_conversation():
     """Create a new conversation — matches CX Agent API."""
@@ -620,12 +664,8 @@ async def send_message(
     """
     engine = _get_engine()
 
-    # Initialize conversation if needed
-    if conversation_id not in _conversations:
-        _conversations[conversation_id] = {"id": conversation_id, "history": [], "files": []}
-
-    conv = _conversations[conversation_id]
-    conv.setdefault("files", [])  # Ensure files key exists for older conversations
+    # Initialize conversation if needed (reloaded from disk after a restart)
+    conv = _conversation(conversation_id)
 
     # Handle file upload(s)
     file_paths = []
@@ -683,6 +723,15 @@ async def send_message(
         if len(conv["history"]) > 40:
             conv["history"] = conv["history"][-40:]
 
+        # CX Workbench plan WS-D D1 (2026-10-31): persisted and reported like the WebSocket path
+        try:
+            from app import hic_bridge
+            hic_bridge.save_conversation(conversation_id, conv)
+            await hic_bridge.report_thread(conversation_id, user_message=message or "", reply=response_text,
+                                           tools=[tc.get("name", "") for tc in (result.get("tool_calls") or []) if isinstance(tc, dict)])
+        except Exception as _bridge_err:
+            logger.debug("hic bridge after-turn hooks skipped: %s", _bridge_err)
+
         return {
             "reply": response_text,
             "response": response_text,  # Both keys for compatibility
@@ -723,10 +772,7 @@ async def websocket_chat(websocket: WebSocket, conversation_id: str):
     engine = _get_engine()
     agent_slug = _get_agent_slug()
 
-    if conversation_id not in _conversations:
-        _conversations[conversation_id] = {"id": conversation_id, "history": [], "files": []}
-    conv = _conversations[conversation_id]
-    conv.setdefault("files", [])  # Ensure files key exists for conversations created via REST
+    conv = _conversation(conversation_id)   # reloaded from disk after a restart (D1)
 
     # Track active WebSocket so background monitors can deliver results
     conv["_active_ws"] = websocket
@@ -1952,18 +1998,31 @@ async def websocket_chat(websocket: WebSocket, conversation_id: str):
             # Stream the agent execution
             accumulated_text = ""
             tools_used = []
+            tool_errors = 0
             turns = 0
 
             try:
                 await websocket.send_json({"type": "status", "message": "Starting..."})
+
+                # CX Workbench plan WS-B B2 (2026-10-31): the facts every agent shares, recalled for this ask.
+                from app import hic_bridge
+                _memory = await hic_bridge.recall(user_message or "")
+                _extra = (f"WHAT THE TEAM ALREADY ESTABLISHED (shared long-term memory recalled for this ask; build on it):\n{_memory}"
+                          if _memory else "")
 
                 async for event in engine.run_stream(
                     agent_slug=agent_slug,
                     session_id=conversation_id,
                     user_message=user_content,
                     history=conv["history"],
+                    extra_system=_extra,
                 ):
                     evt_type = event.get("type", "")
+
+                    # D4: an outbound computer-use action is waiting for the human; show the review card.
+                    if evt_type == "review_required":
+                        await websocket.send_json(event)
+                        continue
 
                     if evt_type == "tool_start":
                         tool_name = event.get("tool", "")
@@ -2002,6 +2061,7 @@ async def websocket_chat(websocket: WebSocket, conversation_id: str):
                         error = event.get("error")
 
                         if error:
+                            tool_errors += 1
                             await websocket.send_json({
                                 "type": "tool_error",
                                 "tool": tool_name,
@@ -2147,6 +2207,18 @@ async def websocket_chat(websocket: WebSocket, conversation_id: str):
                 conv["history"].append({"role": "assistant", "content": accumulated_text})
                 if len(conv["history"]) > 40:
                     conv["history"] = conv["history"][-40:]
+
+                # WS-B B2 / WS-D D1 (2026-10-31): a clean tool chain is admitted to shared memory; the conversation
+                # persists to disk and is reported into the coordinator's thread registry with its location.
+                try:
+                    hic_bridge.save_conversation(conversation_id, conv)
+                    await hic_bridge.report_thread(conversation_id, user_message=user_message or "", reply=accumulated_text, tools=tools_used)
+                    if tools_used and not tool_errors:
+                        _fact = hic_bridge.chain_fact(user_message or "", accumulated_text, tools_used)
+                        if _fact:
+                            await hic_bridge.admit([_fact], f"nxt_agency_{conversation_id}")
+                except Exception as _bridge_err:
+                    logger.debug("hic bridge after-turn hooks skipped: %s", _bridge_err)
 
             except Exception as e:
                 logger.exception("WS stream error: %s", e)

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2026-10-01",
+  "updated": "2026-10-30",
   "rubrics": {
     "blueprint": {
       "path": "eval/rubrics/blueprint-rubric.json",
@@ -87,10 +87,8 @@
       "path": "eval/rubrics/mindmap-rubric.json",
       "version": "1.0.0",
       "criteria": 11,
-      "blocking": [
-        "evidence_anchoring",
-        "cached_selection_coverage"
-      ]
+      "blocking": [],
+      "note": "2026-10-30 (WS-2 E9): a mind map and a research plan carry no named-source claims; evidence_anchoring and cached_selection_coverage report but never block here."
     },
     "org": {
       "path": "eval/rubrics/org-rubric.json",

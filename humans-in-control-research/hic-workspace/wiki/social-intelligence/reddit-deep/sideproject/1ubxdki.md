@@ -17,12 +17,12 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/sideproject/1ubxdki.md#c0"
-    char_span: [0, 967]
+    char_span: [0, 966]
     sentence_count: 5
     key_terms: [launch, users, video, sideproject, been, querycase, comments, feedback]
     concepts: [launch, sideproject, users, video, querycase]
-    token_count: 210
-    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1ubxdki/looking_for_feedback_on_my_product_hunt_launch/"}]
+    token_count: 209
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1ubxdki/looking_for_feedback_on_my_product_hunt_launch/","kind":"social-post","date":"2026-06-21","author":"conor-robertson","subreddit":"sideproject"}]
 ---
 # Looking for feedback on my Product Hunt launch video (first project, 200 users so far)
 

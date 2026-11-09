@@ -16,24 +16,26 @@ collected_at: "2026-07-02T16:49:08+00:00"
 content_hash: "3bb6ff9f469050f3"
 chunks:
   - id: "articles/ins-insurance-business-us/fb28d8aff6.md#c0"
-    char_span: [0, 274]
+    char_span: [0, 273]
     sentence_count: 1
     key_terms: [north-carolina-tplf-ban-wont-cut-claims-costs-overnight-gallagher-bassett-executive-580919, claims, insurancebusinessmag, executive, gallagher, overnight, carolina, bassett]
     concepts: [claims]
-    token_count: 73
-    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/claims/north-carolina-tplf-ban-wont-cut-claims-costs-overnight-gallagher-bassett-executive-580919.aspx"}]
+    token_count: 72
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/claims/north-carolina-tplf-ban-wont-cut-claims-costs-overnight-gallagher-bassett-executive-580919.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-us/fb28d8aff6.md#c1"
-    char_span: [276, 2996]
+    char_span: [275, 2995]
     sentence_count: 13
     key_terms: [litigation, leonard, severity, claim, state, funding, transparency, costs]
     concepts: [litigation, leonard, severity, claim, state]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/claims/north-carolina-tplf-ban-wont-cut-claims-costs-overnight-gallagher-bassett-executive-580919.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-us/fb28d8aff6.md#c2"
-    char_span: [2686, 4630]
+    char_span: [2685, 4629]
     sentence_count: 9
     key_terms: [legislative, insurance, justice, transparency, north, rims, disclosure, leadership]
     concepts: [legislative, insurance, justice, transparency, disclosure]
     token_count: 348
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/claims/north-carolina-tplf-ban-wont-cut-claims-costs-overnight-gallagher-bassett-executive-580919.aspx","kind":"article","date":"2026-07-01"}]
 ---
 # North Carolina TPLF ban won't cut claims costs overnight: Gallagher Bassett executive
 

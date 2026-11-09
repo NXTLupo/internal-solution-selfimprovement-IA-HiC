@@ -1,0 +1,15 @@
+{
+  "id": "auditor-deep-research-1794158806",
+  "set": "frontier",
+  "kind": "deep-research",
+  "input": {
+    "objective": "(see verdict row)",
+    "prompt": "#deep-research"
+  },
+  "origin": {
+    "type": "auditor_withhold",
+    "ref": "1794158806",
+    "added": "2026-11-08",
+    "note": "[\"evidence_anchoring\"]"
+  }
+}

@@ -31,6 +31,7 @@ import {
     writeConstraintRecords,
     constraintRecordId,
 } from './promptImprovementEngine';
+import { anthropicText } from './claudeModelPolicy';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -327,7 +328,7 @@ async function generatePayload(cluster: FeedbackCluster, target: ImprovementTarg
         });
         if (!fallbackResp.ok) return fallbackPayload(cluster, target);
         const data = await fallbackResp.json();
-        return (data?.content?.[0]?.text || fallbackPayload(cluster, target)).trim();
+        return (anthropicText(data) || fallbackPayload(cluster, target)).trim();
     } catch {
         return fallbackPayload(cluster, target);
     }
@@ -921,18 +922,11 @@ export async function retireConstraints(
         if (touched > 0) await writeConstraintRecords(rows);
     } catch { /* ledger line already written; row stamp is best-effort */ }
 
-    // Drop from this browser's active store so the next prompt does not inject it.
+    // Drop from the engine's active mirror so the next prompt does not inject it (WS-5 R7: no localStorage store).
     try {
-        if (typeof localStorage !== 'undefined') {
-            const raw = localStorage.getItem('hic_prompt_improvements');
-            if (raw) {
-                const improvements = JSON.parse(raw);
-                const remaining = (Array.isArray(improvements) ? improvements : [])
-                    .filter((i: any) => !removed.has(normalizeConstraintKey(String(i?.constraint || ''))));
-                localStorage.setItem('hic_prompt_improvements', JSON.stringify(remaining));
-            }
-        }
-    } catch { /* store is per-browser convenience */ }
+        const { removeImprovementsByText } = await import('./promptImprovementEngine');
+        removeImprovementsByText(Array.from(removed.values()).map(r => r.text));
+    } catch { /* the records are the durable store */ }
 
     return Array.from(removed.values()).map(r => r.text);
 }
@@ -1125,16 +1119,17 @@ export async function getRecentImprovements(since: string): Promise<{
     };
     try {
         const sinceMs = new Date(since).getTime();
-        // Constraints
-        const conResp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/learned-constraints.md`);
+        // Constraints. 2026-10-31 (agent-stack plan handoff 5.5): the banner counted every CONSTRAINT line in the
+        // ledger ("48 constraints active" while 0 were active). An ACTIVE constraint is a record that won on the
+        // held-out split, the same definition the prompt hook injects (constraint-records.json: status active,
+        // heldout_win true, not retired). Candidates are not active.
+        const conResp = await fetch(`${PROXY_BASE}/api/wiki/read/synthesis/constraint-records.json`);
         if (conResp.ok) {
             const data = await conResp.json();
-            const lines = (data.content || '').split('\n');
-            for (const line of lines) {
-                if (/^-\s+CONSTRAINT/.test(line)) {
-                    out.constraintsAdded += 1; // count active constraints; finer date filtering when records persist
-                }
-            }
+            let rows: any[] = [];
+            try { rows = JSON.parse(data.content || '[]'); } catch { rows = []; }
+            out.constraintsAdded = (Array.isArray(rows) ? rows : [])
+                .filter(r => r && !r.retired && r.status === 'active' && r.heldout_win === true).length;
         }
         // Pending framework updates
         const pfResp = await fetch(`${PROXY_BASE}/api/wiki/list/frameworks/_pending`);

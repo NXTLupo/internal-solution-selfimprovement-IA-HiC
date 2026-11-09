@@ -50,6 +50,9 @@ import {
     type DeckQualityReport,
 } from './deckQualityGate';
 import { evaluateExhibits, buildExhibitInstruction, type ExhibitReport } from './exhibitCatalog';
+import { scoreChain } from './chainScores';
+import { recordJudgeVerdict } from './judgeRegistry';
+import { recordFanOut } from './workflowTable';
 
 export type StageId =
     | 'normalize'
@@ -149,8 +152,16 @@ export interface ChainResult<T> {
     repairInstruction: string;
     /** Compact per-stage record for AIR. */
     trace: Record<string, unknown>[];
-    /** True when no stage refused the artifact. */
+    /** True when every BLOCKING stage meets its registered threshold (WS-2 E7). */
     pass: boolean;
+    /** The pre-2026-10-30 rule (no error, no narrow_scope), kept for comparison telemetry. */
+    legacyPass: boolean;
+    /** Per-stage scores, 0..1 (services/chainScores.ts). */
+    scores: Record<string, number>;
+    /** Stages below their registered threshold, with whether each may block. */
+    below: Array<{ stage: string; score: number; threshold: number; blocking: boolean }>;
+    /** WS-6 M3: the DAG the stages ran as (groups in order; the middle group ran in parallel) and its timings. */
+    dag: { groups: Array<string[] | string[][]>; parallelMs: number; wallMs: number };
 }
 
 type SlideLike = { id: string; template: string; title: string; _textHistory?: any[]; composerPayload?: any };
@@ -212,7 +223,6 @@ export async function runArtifactChain<T extends SlideLike>(
     ctx: ChainContext,
 ): Promise<ChainResult<T>> {
     const skip = new Set(ctx.skip || []);
-    const envelopes: StepEnvelope<unknown>[] = [];
     let slides: T[] = Array.isArray(inputSlides) ? inputSlides.slice() : [];
     let ledger: LedgerRow[] = [];
     let slotReport: SlotReport | null = null;
@@ -225,12 +235,21 @@ export async function runArtifactChain<T extends SlideLike>(
     let slopFindings: SlopSite[] = [];
     let titleReport: TitleReport | null = null;
     let claimReport: ClaimStageReport | null = null;
-    const repairs: string[] = [];
 
-    for (const stageId of STAGE_ORDER) {
+    // WS-6 M3 (2026-10-30): the chain is a DAG. Stages that only READ the slides (exhibits, prose) run
+    // alongside the evidence sequence (provenance -> claims -> evidenceSlots) instead of after it; the
+    // envelopes and repair instructions are still emitted in STAGE_ORDER so every reader of the trace
+    // and the AIR sees the pinned contract. Each stage writes into its own slot.
+    const envBy = new Map<StageId, StepEnvelope<unknown>[]>();
+    const repairBy = new Map<StageId, string[]>();
+    const runStage = async (stageId: StageId): Promise<void> => {
+        const envelopes: StepEnvelope<unknown>[] = [];
+        const repairs: string[] = [];
+        envBy.set(stageId, envelopes);
+        repairBy.set(stageId, repairs);
         if (skip.has(stageId)) {
             envelopes.push(ok(`chain:${stageId}`, null, { skipped: true }));
-            continue;
+            return;
         }
         try {
             switch (stageId) {
@@ -454,14 +473,52 @@ export async function runArtifactChain<T extends SlideLike>(
         } catch (e: any) {
             envelopes.push(fail(`chain:${stageId}`, e));
         }
-    }
+    };
+
+    const t0 = Date.now();
+    for (const s of ['normalize', 'lexical', 'titles', 'bindPointers'] as StageId[]) await runStage(s);
+    const tPar = Date.now();
+    await Promise.all([
+        (async () => { for (const s of ['provenance', 'claims', 'evidenceSlots'] as StageId[]) await runStage(s); })(),
+        runStage('exhibits'),
+        runStage('prose'),
+    ]);
+    const parallelMs = Date.now() - tPar;
+    for (const s of ['grade', 'renderPlan', 'deckQuality'] as StageId[]) await runStage(s);
+    const envelopes = STAGE_ORDER.flatMap(s => envBy.get(s) || []);
+    const repairs = STAGE_ORDER.flatMap(s => repairBy.get(s) || []);
+    const dag = {
+        groups: [['normalize', 'lexical', 'titles', 'bindPointers'], [['provenance', 'claims', 'evidenceSlots'], ['exhibits'], ['prose']], ['grade', 'renderPlan', 'deckQuality']],
+        parallelMs, wallMs: Date.now() - t0,
+    };
+    try { recordFanOut('artifact', 'verify', ['provenance>claims>evidenceSlots', 'exhibits', 'prose'], parallelMs); } catch { /* the trajectory is best-effort */ }
 
     const trace = envelopes.map(envelopeTrace);
-    const pass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
-    return {
+    // 2026-10-30 (WS-2 E7): the verdict is a SCORE per stage against a registered threshold
+    // (services/chainScores.ts, evals/judges.json), not the old binary "no stage errored or
+    // narrowed". Provenance, prose, deck-quality and exhibit findings used to return `continue`
+    // and never counted; now each stage's number is compared with its bar and the chain passes
+    // only when every BLOCKING stage clears it. The old rule is kept as `legacyPass` for the
+    // telemetry that compares the two.
+    const legacyPass = !envelopes.some(e => e.status === 'error' || (e.status === 'partial' && e.nextAction === 'narrow_scope'));
+    const chainOut = {
         slides, envelopes, ledger, slotReport, proseReport, gradeReport, deckQualityReport, exhibitReport, bindReport, plan,
         slopFindings, titleReport, claimReport,
         repairInstruction: repairs.filter(Boolean).join('\n\n'),
-        trace, pass,
+        trace, pass: legacyPass, legacyPass, scores: {} as Record<string, number>, below: [] as ChainResult<T>['below'],
+        dag,
     };
+    const scored = scoreChain(chainOut as ChainResult<any>);
+    chainOut.scores = scored.scores;
+    chainOut.below = scored.below;
+    chainOut.pass = scored.pass;
+    if (!scored.pass && !chainOut.repairInstruction) {
+        chainOut.repairInstruction = `Stages below their registered bar: ${scored.below.filter(b => b.blocking).map(b => `${b.stage} ${b.score.toFixed(2)} < ${b.threshold}`).join('; ')}.`;
+    }
+    try {
+        for (const [stage, score] of Object.entries(scored.scores)) {
+            recordJudgeVerdict({ judge_id: `chain:${stage}`, score, pass: !scored.below.some(b => b.stage === stage), artifact_id: ctx.runId });
+        }
+    } catch { /* verdict recording never breaks the chain */ }
+    return chainOut;
 }

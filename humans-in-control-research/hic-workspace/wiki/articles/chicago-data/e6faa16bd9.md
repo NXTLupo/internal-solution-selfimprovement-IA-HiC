@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:16:45+00:00"
 content_hash: "b5457db534b56831"
 chunks:
   - id: "articles/chicago-data/e6faa16bd9.md#c0"
-    char_span: [0, 687]
+    char_span: [0, 686]
     sentence_count: 4
     key_terms: [covid-19-reported-patient-impact-and-hospital-capa, covid-19-hospital-capacity-metrics-historical, data, dataset, covid-19, hospital, chicago, health-human-services]
     concepts: [dataset, covid-19, hospital, chicago, https]
-    token_count: 171
-    sources: [{"n":"chicago_data","u":"https://data.cityofchicago.org/Health-Human-Services/COVID-19-Hospital-Capacity-Metrics-Historical/f3he-c6sv"}]
+    token_count: 170
+    sources: [{"n":"chicago_data","u":"https://data.cityofchicago.org/Health-Human-Services/COVID-19-Hospital-Capacity-Metrics-Historical/f3he-c6sv","kind":"article","date":"2023-05-12"}]
 ---
 # COVID-19 Hospital Capacity Metrics - Historical
 

@@ -30,7 +30,7 @@ import { loadGenerationContext, assembleEnhancedPrompt } from './wikiService';
 const SKILL_DIRECTORY_MAP: Record<string, string> = {
     'PERSONAS': 'persona-architect',
     'STRATEGY_DECK': 'deck-composer',
-    'JOURNEY_MAP': 'service-blueprint-mapper',
+    'JOURNEY_MAP': 'journey-illustrator',   // 2026-10-05: #journey is a journey map, never a Bitner blueprint
     'TECH_ARCH': 'tech-arch-generator',
     'STRATEGIC_RECS': 'strategy-author',
     'PRD': 'prd-compiler',
@@ -160,6 +160,13 @@ const QUALITY_SKILL_COMPOSITION: Record<string, string[]> = {
     'COMPETITIVE_ANALYSIS':['source-ranker', 'contradiction-finder', 'human-voice-editor'],
     'STRATEGIC_REPORT':    ['source-ranker', 'contradiction-finder', 'second-order-thinker', 'slide-title-lab', 'human-voice-editor'],
     'PRD':                 ['source-ranker', 'human-voice-editor'],
+    // 2026-11-08 (live "#report full of AI slop" defect): the chat HTML-artifact family
+    // (#brief/#explainer/#faq/#studyguide/#chronology/#critique/#datatable/#quiz/...)
+    // loaded verbalized-sampling + html-deliverable-composer and NOTHING from this map,
+    // so the writing contract never reached the most prose-heavy surface in the product.
+    // #report/#whitepaper compose as STRATEGIC_REPORT; everything else long-form gets
+    // the voice contract at minimum.
+    'HTML_DOCUMENT':       ['human-voice-editor'],
 };
 
 /** In-session cache so repeated generate*() calls don't re-fetch the same SKILL.md files. */
@@ -205,7 +212,7 @@ async function _fetchQualitySkillMd(skillName: string): Promise<string> {
  *     const qualitySkills = await loadComposedQualitySkills('THEMES');
  *     const systemPrompt = `${baseSystemPrompt}${qualitySkills}`;
  */
-async function loadComposedQualitySkills(deliverableType: string): Promise<string> {
+export async function loadComposedQualitySkills(deliverableType: string): Promise<string> {
     const skills = QUALITY_SKILL_COMPOSITION[deliverableType];
     if (!skills || skills.length === 0) return '';
 

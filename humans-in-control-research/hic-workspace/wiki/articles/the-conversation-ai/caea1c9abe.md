@@ -19,31 +19,34 @@ content_hash: "ec1ba13dfad8bcfc"
 relevance_by_goal: {"c5a2d58d1be7":0,"d21cb50b17ba":0}
 chunks:
   - id: "articles/the-conversation-ai/caea1c9abe.md#c0"
-    char_span: [0, 248]
+    char_span: [0, 247]
     sentence_count: 2
     key_terms: [coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855, theconversation, discounts, hundreds, millions, shoppers, misled, source]
-    token_count: 62
-    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855"}]
+    token_count: 61
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855","kind":"article","date":"2026-05-14"}]
   - id: "articles/the-conversation-ai/caea1c9abe.md#c1"
-    char_span: [250, 2712]
+    char_span: [249, 2711]
     sentence_count: 20
     key_terms: [coles, discounts, down, price, products, case, australian, woolworths]
     concepts: [coles, discounts, products, price, australian]
     related_chunks: ["articles/the-conversation-ai/caea1c9abe.md#c2"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855","kind":"article","date":"2026-05-14"}]
   - id: "articles/the-conversation-ai/caea1c9abe.md#c2"
-    char_span: [2411, 4962]
+    char_span: [2410, 4961]
     sentence_count: 18
     key_terms: [price, discount, coles, woolworths, been, case, prices, court]
     concepts: [price, discount, coles, woolworths, prices]
     related_chunks: ["articles/the-conversation-ai/caea1c9abe.md#c1"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855","kind":"article","date":"2026-05-14"}]
   - id: "articles/the-conversation-ai/caea1c9abe.md#c3"
-    char_span: [4665, 5889]
+    char_span: [4664, 5888]
     sentence_count: 10
     key_terms: [consumer, court, accc, woolworths, retailers, watchdog, federal, petrol]
     concepts: [consumer, court, woolworths, retailers, watchdog]
     token_count: 239
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/coles-discounts-misled-shoppers-court-rules-it-could-face-hundreds-of-millions-in-fines-282855","kind":"article","date":"2026-05-14"}]
 ---
 # Coles’ discounts misled shoppers, court rules. It could face hundreds of millions in fines
 

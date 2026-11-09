@@ -1,3 +1,4 @@
+import { engagementSlug, researchGoal, getRun, currentMessageId, nextTurnIndex as runNextTurnIndex } from './runState';
 /**
  * traceRecorder.ts - Meta-Harness uplift M1 (plans/volume-to-insight-substrate-2026-06-03.md §6.4)
  *
@@ -53,8 +54,11 @@ export interface TraceTurn {
     /** Deliverable-stage label, e.g. 'Themes', 'Personas', 'Recommendations',
      *  'Themes Pass-1 BREADTH (Pro)', 'PRD', etc. Stable across retries. */
     step_label: string;
-    /** Monotonic per-session turn counter. Reset only when a new session starts. */
+    /** Monotonic per-run turn counter (RunState; survives reload). */
     turn_index: number;
+    /** WS-1 T3: the run and chat message this turn belongs to (join key across traces, AIR, receipts). */
+    run_id?: string;
+    message_id?: string;
     /** The model that produced the FINAL response (after any fallbacks). */
     model_id: string;
     /** If the call started on a different model and fell back, list the
@@ -98,11 +102,11 @@ export interface TraceTurn {
 
 const RING_CAP = 1024;
 const _ring: TraceTurn[] = [];
-let _turn_counter = 0;
 
+// WS-1 T4 (2026-10-30): the turn index lives in the RunState (persisted, restored), so a page
+// reload no longer resets it to 0 and the proxy no longer overwrites earlier trace files.
 function nextTurnIndex(): number {
-    _turn_counter += 1;
-    return _turn_counter;
+    return runNextTurnIndex();
 }
 
 /** Read the in-memory ring. Epoch orchestration in the same session can call
@@ -152,12 +156,8 @@ function flattenUsage(u: Record<string, any>): Record<string, number> {
 
 export function recordTurn(opts: RecordTurnOpts): TraceTurn {
     const now = Date.now();
-    const engagement = (typeof window !== 'undefined'
-        ? (window as any).__hicCurrentEngagementSlug
-        : undefined) || undefined;
-    const goal = (typeof window !== 'undefined'
-        ? ((window as any).__hicResearchGoal || (window as any).__hicCurrentGoal)
-        : undefined);
+    const engagement = engagementSlug() || undefined;
+    const goal = researchGoal() || undefined;
 
     const turn: TraceTurn = {
         started_at: opts.started_at,
@@ -165,6 +165,8 @@ export function recordTurn(opts: RecordTurnOpts): TraceTurn {
         elapsed_ms: Math.max(0, now - opts.started_at),
         step_label: opts.step_label,
         turn_index: nextTurnIndex(),
+        run_id: getRun().run_id,
+        message_id: currentMessageId(),
         model_id: opts.model_id,
         fallback_chain: opts.fallback_chain,
         prompt: opts.prompt,

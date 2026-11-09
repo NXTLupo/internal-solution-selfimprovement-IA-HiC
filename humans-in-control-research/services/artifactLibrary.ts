@@ -1,4 +1,5 @@
 import type { BrandVariantId } from '../components/slideTemplates/brands';
+import { tokenizedProxyUrl } from './proxyConfig';
 // artifactLibrary.ts - 2026-05-12 (Sprint H1)
 //
 // CRUD client for the proxy's /api/artifacts family. Mirrors
@@ -122,5 +123,7 @@ async function promoteVariant(slug: string, variantIndex: number): Promise<boole
 }
 
 export function getArtifactViewUrl(slug: string): string {
-    return `${PROXY_BASE}/api/artifacts/${encodeURIComponent(slug)}/view`;
+    // 2026-11-08: a LAUNCH is a browser navigation, which cannot carry the auth header;
+    // the token rides the `t` query parameter instead (services/proxyConfig).
+    return tokenizedProxyUrl(`${PROXY_BASE}/api/artifacts/${encodeURIComponent(slug)}/view`);
 }

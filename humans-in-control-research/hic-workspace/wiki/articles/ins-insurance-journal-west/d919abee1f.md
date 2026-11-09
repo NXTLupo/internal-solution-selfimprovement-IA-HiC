@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:39:08+00:00"
 content_hash: "9803bfcfafb41936"
 chunks:
   - id: "articles/ins-insurance-journal-west/d919abee1f.md#c0"
-    char_span: [0, 178]
+    char_span: [0, 177]
     sentence_count: 1
     key_terms: [insurancejournal, california, government, launches, tracker, layoff, source, fears]
-    token_count: 49
-    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/07/01/875860.htm"}]
+    token_count: 48
+    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/07/01/875860.htm","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-journal-west/d919abee1f.md#c1"
-    char_span: [180, 2974]
+    char_span: [179, 2973]
     sentence_count: 16
     key_terms: [california, state, tracker, ai-driven, data, newsom, policy, system]
     concepts: [california, state, tracker, ai-driven, unemployment]
     related_chunks: ["articles/ins-insurance-journal-west/d919abee1f.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/07/01/875860.htm","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-journal-west/d919abee1f.md#c2"
-    char_span: [2593, 4004]
+    char_span: [2592, 4003]
     sentence_count: 7
     key_terms: [researchers, california, certain, tracker, workers, trends, report, found]
     concepts: [researchers, california, certain, tracker, workers]
     related_chunks: ["articles/ins-insurance-journal-west/d919abee1f.md#c1"]
     token_count: 260
+    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/07/01/875860.htm","kind":"article","date":"2026-07-01"}]
 ---
 # California Government Launches AI Job Loss Tracker as Layoff Fears Grow
 

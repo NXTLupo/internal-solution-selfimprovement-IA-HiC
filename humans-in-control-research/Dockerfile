@@ -4,13 +4,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 COPY . .
-ARG GEMINI_API_KEY=""
-ARG ANTHROPIC_API_KEY=""
-ARG OPENAI_API_KEY=""
-ENV GEMINI_API_KEY=${GEMINI_API_KEY}
-ENV ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-ENV OPENAI_API_KEY=${OPENAI_API_KEY}
-RUN npm run build
+# 2026-10-30 (WS-0 S1) - no provider key enters this image. The browser reaches every
+# provider through research-proxy; the proxy token is runtime config (/config.json).
+RUN npm run build && npm run check:bundle-secrets
 
 # Stage 2: Serve with Nginx (proper MIME types, zero caching)
 FROM nginx:alpine
@@ -23,8 +19,9 @@ COPY DESIGN.md /usr/share/nginx/html/DESIGN.md
 # copy it explicitly to guarantee /logo.png resolves instead of 404-ing to the
 # SPA HTML fallback (which renders as a broken image).
 COPY public/logo.png /usr/share/nginx/html/logo.png
-# Copy wiki knowledge layer so wikiService can fetch pages at runtime
-COPY hic-workspace/wiki /usr/share/nginx/html/hic-workspace/wiki
+# 2026-10-30 (WS-0 S8) - the wiki is NOT baked into the image any more: it holds
+# client uploads and derived client synthesis. docker-compose-all.yml mounts
+# hic-workspace read-only at runtime, and nginx.conf refuses the sensitive paths.
 # Copy manifest JSONs (skill routing, institution registry, YouTube channels).
 # Previously only wiki/ was exposed; these loaders silently fell back to empty
 # results in prod. Now served as application/json via the nginx block below.

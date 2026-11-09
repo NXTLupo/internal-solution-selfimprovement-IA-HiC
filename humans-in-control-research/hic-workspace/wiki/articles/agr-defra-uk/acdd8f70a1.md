@@ -19,12 +19,12 @@ content_hash: "6feb31d962326bcb"
 relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/agr-defra-uk/acdd8f70a1.md#c0"
-    char_span: [0, 1215]
+    char_span: [0, 1214]
     sentence_count: 5
     key_terms: [statistics, historical-national-statistics-notices-on-milk-utilisation-by-dairies-2026, publication, milk, dairies, accredited, published, data]
     concepts: [statistics, publication, dairies, accredited, published]
-    token_count: 234
-    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/statistics/historical-national-statistics-notices-on-milk-utilisation-by-dairies-2026"}]
+    token_count: 233
+    sources: [{"n":"agr_defra_uk","u":"https://www.gov.uk/government/statistics/historical-national-statistics-notices-on-milk-utilisation-by-dairies-2026","kind":"article","date":"2026-07-02"}]
 ---
 # Accredited official statistics: Historical national statistics notices on milk utilisation by dairies, 2026
 

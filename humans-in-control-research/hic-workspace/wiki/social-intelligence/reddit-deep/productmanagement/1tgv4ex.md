@@ -8,13 +8,13 @@ title: "When is moving fast the right product decision?"
 author: "Humble-Pay-8650"
 date: "2026-05-18T18:01:57.000Z"
 score: 15
-upvote_ratio: 0.94
+upvote_ratio: 0.9
 num_comments: 31
 flair: ""
-extracted_at: "2026-06-24T22:14:23.449Z"
+extracted_at: "2026-10-09T16:37:15.729Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c0"
     char_span: [0, 2512]
@@ -22,48 +22,54 @@ chunks:
     key_terms: [mvp, dependency, productmanagement, time, decision, learning, already, instead]
     concepts: [dependency, productmanagement, decision, learning, already]
     token_count: 484
-    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/"}]
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c1"
     char_span: [2514, 3230]
     sentence_count: 5
     key_terms: [stakeholders, product, whether, around, reversibility, underthinking, consequences, second-order]
     concepts: [stakeholders, product, whether, around]
     token_count: 129
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c2"
-    char_span: [3244, 5559]
+    char_span: [3245, 5560]
     sentence_count: 17
     key_terms: [enough, customer, good, stage, years, sometimes, down, mvp]
     concepts: [enough, customer, sometimes, stage, years]
     section: Comments
     token_count: 497
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c3"
-    char_span: [5561, 7674]
+    char_span: [5562, 7675]
     sentence_count: 17
     key_terms: [customers, risk, forgethestamp, speed, get, part, prototypes, deadline]
     concepts: [customers, forgethestamp, prototypes, speed, deadline]
     section: Comments
     token_count: 442
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c4"
-    char_span: [7676, 9921]
+    char_span: [7677, 9922]
     sentence_count: 16
     key_terms: [ship, cake, fast, don, moving, impatience, later, frosted]
     concepts: [impatience, moving, later, frosted, through]
     section: Comments
     token_count: 512
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c5"
-    char_span: [9923, 11638]
+    char_span: [9924, 11639]
     sentence_count: 7
     key_terms: [speed, term, market, "that's", reallocation, fast, real, prioritise]
     concepts: [speed, reallocation, market, "that's", prioritise]
     section: Comments
     token_count: 377
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1tgv4ex.md#c6"
-    char_span: [11640, 12214]
+    char_span: [11641, 12215]
     sentence_count: 3
     key_terms: [quality, right, cost, fast, move, time, ohheyitsgeoffrey, correction]
     concepts: [quality, right]
     section: Comments
     token_count: 138
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1tgv4ex/when_is_moving_fast_the_right_product_decision/","kind":"social-post","date":"2026-05-18","author":"Humble-Pay-8650","subreddit":"productmanagement"}]
 ---
 # When is moving fast the right product decision?
 
@@ -90,7 +96,7 @@ So I’m trying to better understand: is this actually good product judgment aro
 
 ## Comments
 
-- **Conscious-Remote2486** (13↑): As somebody who was on both sides of the coin multiple times in the last 10 years of my product management career, sometimes going slower is the right thing to do.
+- **Conscious-Remote2486** (12↑): As somebody who was on both sides of the coin multiple times in the last 10 years of my product management career, sometimes going slower is the right thing to do.
 
 Especially when I read comment that the customer problem is all good enough for the stage we are in, I interpret it as it is not good enough 2-4 years down the line. Maybe you will need to completely rewrite it or handle a painful migration. 
 

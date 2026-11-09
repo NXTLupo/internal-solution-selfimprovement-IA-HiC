@@ -50,11 +50,16 @@ describe('E2: gate + protocol wiring (source asserts)', () => {
         expect(src).toMatch(/stripAntithesisTitle\(applyMetaphorSubs\(s\.title\)\)/);
         expect(src).toMatch(/sanitizeQuoteField\(applyMetaphorSubs\(_q0\)\)/);
     });
-    it('the protocol demands judgment titles on EVERY content slide + deck-level evidence diversity', () => {
-        const src = read('services/corpusChatService.ts');
+    it('the deck authority demands judgment titles on EVERY content slide + deck-level evidence diversity', () => {
+        // 2026-10-30 (WS-3 P5): these rules used to sit in an unreferenced CONSULTING_MANDATES constant in
+        // corpusChatService (dead text the model never saw). They now live in deck-composer section 6, the
+        // one skill DECK MODE injects whole, so the assertion follows them there.
+        const src = read('../.claude/skills/deck-composer/SKILL.md');
         expect(src).toMatch(/THIS APPLIES TO EVERY CONTENT SLIDE/);
         expect(src).toMatch(/DECK-LEVEL EVIDENCE DIVERSITY \(MANDATORY\)/);
         expect(src).toMatch(/QUOTES ARE COMPLETE SENTENCES/);
+        const chat = read('services/corpusChatService.ts');
+        expect(chat).not.toMatch(/const CONSULTING_MANDATES/);
     });
     it('the unified gate registers the editorial scope', () => {
         const gate = readFileSync(join(__dirname, '..', '..', '.claude', 'hooks', 'quality_gate.py'), 'utf-8');

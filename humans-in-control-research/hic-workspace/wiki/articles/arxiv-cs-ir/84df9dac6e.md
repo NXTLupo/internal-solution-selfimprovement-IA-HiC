@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:22:27+00:00"
 content_hash: "a7b850bacb67f624"
 chunks:
   - id: "articles/arxiv-cs-ir/84df9dac6e.md#c0"
-    char_span: [0, 667]
+    char_span: [0, 666]
     sentence_count: 4
     key_terms: [agricultural, retrieval-augmented, farmers, krishokbondhu, advisory, through, call-centre-integrated, bengali-speaking]
     concepts: [agricultural, retrieval-augmented, krishokbondhu, farmers, advisory]
-    token_count: 140
-    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2510.18355v2"}]
+    token_count: 139
+    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2510.18355v2","kind":"article","date":"2025-10-21"}]
 ---
 # KrishokBondhu: A Retrieval-Augmented Voice-Based Agricultural Advisory Call Center for Bengali Farmers
 

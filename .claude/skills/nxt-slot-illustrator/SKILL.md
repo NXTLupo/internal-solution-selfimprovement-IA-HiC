@@ -1,11 +1,17 @@
 ---
 name: nxt-slot-illustrator
+description: Generate flat, text-free, token-locked SVG data visualizations for NXT and NU deck and artifact image slots (operating model, maturity, funnel, roadmap, KPI gauge). The data-viz lane only; conceptual panels route to the native infographic lane.
 invocation: runtime
 disable-model-invocation: true
-description: Generate flat, anti-slop, content-true SVG VISUALIZATIONS (data viz) for NXT/NU deck and artifact image slots. Use when a slide or artifact needs a diagram of its OWN data in an image placeholder (operating model, capability stack, maturity, funnel, journey, ranked findings, comparison matrix, KPI gauge, roadmap, architecture, composition, divider). Output is token-locked, text-free SVG sized to the slot, themed by brand (NXT|NU) x ground (dark|light). This is the DATA-VIZ lane; conceptual/content slot panels route to the native infographic lane (/api/ai/diagram families) per the `designer` skill.
+version: "1.0"
+status: active
 ---
 
 # NXT Slot Illustrator (data-viz lane)
+
+## Scope
+
+Generate flat, anti-slop, content-true SVG VISUALIZATIONS (data viz) for NXT/NU deck and artifact image slots. Use when a slide or artifact needs a diagram of its OWN data in an image placeholder (operating model, capability stack, maturity, funnel, journey, ranked findings, comparison matrix, KPI gauge, roadmap, architecture, composition, divider). Output is token-locked, text-free SVG sized to the slot, themed by brand (NXT|NU) x ground (dark|light). This is the DATA-VIZ lane; conceptual/content slot panels route to the native infographic lane (/api/ai/diagram families) per the `designer` skill.
 
 Renders visualizations that **represent the deliverable's content** rather than
 decorate it. Grounding the visual in the deliverable's REAL data (the maturity

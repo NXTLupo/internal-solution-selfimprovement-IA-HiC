@@ -25,7 +25,11 @@ import type { LedgerItem } from './engagementLedger';
 // ---- adapter -------------------------------------------------------------------------------------------
 
 const SKIP_KEY_RE = /^(id|ids|quoteIds|supportingQuoteIds|personaId|jobStoryId|governingThemeId|primaryPersonaIds|requirementIds|signalIds|designLink|level|kind|quadrant|likelihood|severity|direction|type|triggered|measurable)$/;
-const NUMBER_EXEMPT_KEY_RE = /^(due|date|regime|exposedCriteria|properties|event)$/;
+// 2026-10-20 (root-cause audit A7, plan item 9): acceptance criteria and targets are SPECIFICATIONS, not claims. The
+// number rule used to turn "the page renders within 2 seconds for 95% of requests" into "the stated threshold"
+// twice over, which leaves a test no one can run. Given / When / Then, a threshold and a target keep their figures;
+// requirement text, pains, theme prose and section prose stay under the rule.
+const NUMBER_EXEMPT_KEY_RE = /^(due|date|regime|exposedCriteria|properties|event|given|when|then|threshold|target)$/;
 
 function sectionUnits(node: any, path: string, out: ClaimUnit[], parentKey = ''): void {
     if (!node || typeof node !== 'object' || isRequirementTarget(node)) return;
@@ -65,7 +69,12 @@ function prdAdapter(evidence: EvidenceRef[], stats?: LedgerReadStats): Deliverab
                 if (r.notes) units.push({ id: `${r.id}.notes`, kind: 'note', text: r.notes, numbersChecked: false, set: t => { r.notes = t; } });
                 if (r.tierRationale) units.push({ id: `${r.id}.tier`, kind: 'rationale', text: r.tierRationale, set: t => { r.tierRationale = t; } });
             }
-            for (const at of g.acceptanceTests) for (const f of ['given', 'when', 'then'] as const) units.push({ id: `${at.id}.${f}`, kind: 'test', text: at[f], set: t => { at[f] = t; } });
+            // Acceptance tests are specifications: the writing scrub reaches them, the number rule does not (A7).
+            for (const at of g.acceptanceTests) {
+                for (const f of ['given', 'when', 'then'] as const) units.push({ id: `${at.id}.${f}`, kind: 'test', text: at[f], numbersChecked: false, set: t => { at[f] = t; } });
+                const thr = (at as any).threshold;
+                if (typeof thr === 'string' && thr.trim()) units.push({ id: `${at.id}.threshold`, kind: 'test', text: thr, numbersChecked: false, set: t => { (at as any).threshold = t; } });
+            }
             for (const p of g.pains) units.push({ id: p.id, kind: 'pain', text: p.text, set: t => { p.text = t; } });
             // Theme records render in the workbook's Themes sheet and the brief: their names and insights are prose
             // the number rule and the writing scrub must reach (2026-10-02: 107 theme names carried naked figures).
@@ -76,6 +85,9 @@ function prdAdapter(evidence: EvidenceRef[], stats?: LedgerReadStats): Deliverab
             for (const m of g.signals) {
                 for (const f of ['signal', 'instrument', 'baselineStatus'] as const) if (m[f]) units.push({ id: `${m.id}.${f}`, kind: 'signal', text: m[f], numbersChecked: f !== 'baselineStatus', set: t => { m[f] = t; } });
                 if (m.guardrail?.statement) units.push({ id: `${m.id}.guardrail`, kind: 'signal', text: m.guardrail.statement, set: t => { m.guardrail.statement = t; } });
+                // A success signal's target is a specification (A7): scrubbed for writing, exempt from the number rule.
+                const tgt = (m as any).target;
+                if (typeof tgt === 'string' && tgt.trim()) units.push({ id: `${m.id}.target`, kind: 'signal', text: tgt, numbersChecked: false, set: t => { (m as any).target = t; } });
             }
             sectionUnits(s, 'sections', units);
             const quotes = g.quotes.map(q => ({ id: q.id, text: q.text, pointer: q.pointer, sourceId: q.sourceId, drop: () => dropQuote(air, q.id) }));

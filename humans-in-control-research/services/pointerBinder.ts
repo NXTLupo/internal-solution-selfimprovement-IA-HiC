@@ -51,7 +51,7 @@ export interface BindingDecision {
     slideId: string;
     field: string;
     pointer: string;
-    strategy: 'label' | 'claim';
+    strategy: 'label' | 'claim' | 'declared';
     score: number;
     /** Why this pointer, in one line, for the log and the durable record. */
     reason: string;
@@ -154,7 +154,9 @@ export function bindPointers<T extends { id: string; template: string; title: st
     // slug is derived from the source at ingest. Matching the label against the
     // slug as well as the recorded names is what makes strategy A fire on real
     // decks rather than only on tidy fixtures.
-    const prepared = pool.map(c => ({
+    // 2026-10-20 (root-cause audit P0.4): a generated synthesis / insight page is never a binding target; binding a
+    // claim to the system's own prior prose is how 633 artifact pointers came to cite hic-theme-synthesis pages.
+    const prepared = pool.filter(c => !/(?:^|\/)(?:hic-theme-synthesis|insights?|synthesis)\//i.test(c.id)).map(c => ({
         id: c.id,
         tokens: tokens(c.text),
         terms: distinctiveTerms(c.text),
@@ -178,9 +180,28 @@ export function bindPointers<T extends { id: string; template: string; title: st
         }
     }
 
+    const preparedById = new Map(prepared.map(c => [c.id, c]));
+
     const out = slides.map(slide => {
         const fields = enumerateTextFields(slide);
         const edits: TextEdit[] = [];
+
+        // 2026-11-03 (NotebookLM reverse-engineering, the deck-grounding fix after a live
+        // 0-of-45 deck): DECK MODE now asks every content slide for a top-level
+        // `evidence: ["<path#cN>", ...]` array SELECTED from the corpus block. Selecting ids
+        // from a menu is a task the model does reliably, unlike interleaving pointer syntax
+        // into prose (the three failed prompt attempts above). A slide's declared chunks are
+        // model-asserted provenance made at generation time, so claim matching against THEM
+        // runs at a proportionate bar; citationVerifier still re-reads every bound span and
+        // strips any binding the chunk does not support. Invented ids never bind: only
+        // pointers present in the grounding pool survive the filter.
+        const declaredIds = Array.from(new Set(
+            ([] as any[])
+                .concat((slide as any).evidence || [], (slide as any).composerPayload?.evidence || [])
+                .map(p => String(p || '').trim().replace(/^\[+|\]+$/g, ''))
+                .filter(p => /\.md#c\d+$/i.test(p)),
+        ));
+        const declared = declaredIds.map(id => preparedById.get(id)).filter(Boolean) as typeof prepared;
 
         for (const f of fields) {
             const value = String(f.value || '');
@@ -238,6 +259,32 @@ export function bindPointers<T extends { id: string; template: string; title: st
             fieldsConsidered++;
             const fTokens = tokens(value);
             const fTerms = distinctiveTerms(value);
+
+            // ---- Strategy B0: the slide DECLARED its chunks; match within them first ----
+            // Proportionate bar (2 shared terms, 3-token run, 0.22): the model asserted at
+            // generation time that these spans are where this slide's facts came from, and
+            // the provenance stage re-verifies every binding against the pointed chunk.
+            if (declared.length && fTerms.size >= 2) {
+                let bestD: { id: string; score: number; shared: number; run: number } | null = null;
+                for (const c of declared) {
+                    let shared = 0;
+                    for (const t of fTerms) if (c.terms.has(t)) shared++;
+                    if (shared < 2) continue;
+                    const run = longestSharedRun(fTokens, c.tokens);
+                    const score = (shared / fTerms.size) * 0.7 + Math.min(run / 12, 1) * 0.3;
+                    if (!bestD || score > bestD.score) bestD = { id: c.id, score, shared, run };
+                }
+                if (bestD && bestD.score >= 0.22 && bestD.run >= 3) {
+                    edits.push({ path: f.path, value: `${value} [${bestD.id}]` });
+                    bound.push({
+                        slideId: slide.id, field: f.path, pointer: bestD.id, strategy: 'declared',
+                        score: Number(bestD.score.toFixed(3)),
+                        reason: `slide-declared evidence: ${bestD.shared} distinctive term(s), ${bestD.run}-token run within the slide's own chunk set`,
+                    });
+                    continue;
+                }
+            }
+
             if (fTerms.size < CLAIM_MIN_TERMS) {
                 unbound.push({ slideId: slide.id, field: f.path, reason: 'claim carries too few distinctive terms to match a span safely' });
                 continue;

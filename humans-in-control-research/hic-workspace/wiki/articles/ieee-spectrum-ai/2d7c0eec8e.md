@@ -19,38 +19,42 @@ content_hash: "18aa85fc6b811347"
 relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c0"
-    char_span: [0, 134]
+    char_span: [0, 133]
     sentence_count: 1
     key_terms: [china-humanoid-robot-marathon, spectrum, ieee, marathon-winning, humanoid, robots, secret, source]
     concepts: [spectrum]
-    token_count: 35
-    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon"}]
+    token_count: 34
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c1"
-    char_span: [136, 2643]
+    char_span: [135, 2642]
     sentence_count: 17
     key_terms: [motor, phase, running, torque, robot, lightning, gear, leg]
     concepts: [motor, phase, running, torque, lightning]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c2"
-    char_span: [2363, 4740]
+    char_span: [2362, 4739]
     sentence_count: 15
     key_terms: [optimal, motor, power, walking-optimized, blue, knee, cooling, gearing]
     concepts: [optimal, walking-optimized, motor, power, liquid-cooling]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c3"
-    char_span: [4469, 7022]
+    char_span: [4468, 7021]
     sentence_count: 17
     key_terms: [robot, running, human, half-marathon, walking, design, power, running-optimized]
     concepts: [robot, running, half-marathon, human, walking]
     related_chunks: ["articles/ieee-spectrum-ai/2d7c0eec8e.md#c4"]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/2d7c0eec8e.md#c4"
-    char_span: [6709, 7796]
+    char_span: [6708, 7795]
     sentence_count: 7
     key_terms: [robotics, human, robot, achievement, academic, received, runner, elbow]
     concepts: [robotics, achievement, human, robot, academic]
     related_chunks: ["articles/ieee-spectrum-ai/2d7c0eec8e.md#c3"]
     token_count: 214
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/china-humanoid-robot-marathon","kind":"article","date":"2026-06-17"}]
 ---
 # The Secret to Marathon-Winning Humanoid Robots
 

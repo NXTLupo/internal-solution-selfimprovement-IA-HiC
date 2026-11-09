@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-11-09T00:06:21.585Z",
+  "finished_at": "2026-11-09T00:06:33.631Z",
+  "trigger": "daily",
+  "stale_candidates": 0,
+  "consolidation_groups": 1,
+  "model_called": true,
+  "model_error": null,
+  "report": {
+    "admitted": 0,
+    "rejected": 0,
+    "rejectedByScopeGate": 0,
+    "removed": 0,
+    "extended": 0,
+    "merged": 0,
+    "confirmed": 0,
+    "evicted": 0,
+    "shadowDisagreement": 0,
+    "refusals": [
+      "consolidation: consolidated fact fails the admission gate"
+    ],
+    "total": 26
+  }
+}

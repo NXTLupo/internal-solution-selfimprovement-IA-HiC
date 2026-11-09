@@ -1,8 +1,9 @@
 ---
 name: contradiction-finder
+description: "Surface where sources in a corpus disagree on a claim: the surface consensus, three contradictions with both sides quoted, the weakest claim and the unresolved debate. Use when a theme or recommendation cites only supporting evidence and needs counter-evidence engaged."
 invocation: model
-version: 1.0
-description: Surfaces where sources in a research corpus actively disagree with each other on a specific claim, theme, or finding — instead of flattening contradictions into a smoothed consensus. Returns the surface consensus, 3 specific contradictions with both sides quoted verbatim, the single weakest claim in the material, the real underlying debate the field hasn't resolved, and a calibrated confidence verdict for any conclusion drawn from the set. Directly improves the Evidence Hierarchy dimension of the hic-output-qa rubric — sections that engage counter-evidence score higher than sections that only cite supporting sources. Composes with wiki-synthesizer (which clusters quotes by theme; this skill finds within-cluster conflict) and source-ranker (which validates source quality; this skill validates source agreement).
+version: "1"
+status: active
 thinking: high
 category: evidence-enhancer
 triggers:
@@ -14,9 +15,18 @@ triggers:
   - counter-evidence
   - is the consensus real
   - "#contradict"
+loader:
+  title: Contradiction Finder
+  role: quality-enhancer
+  execution_context: primary
+skillopt: trainable
 ---
 
 # Contradiction Finder
+
+## Scope
+
+Surfaces where sources in a research corpus actively disagree with each other on a specific claim, theme, or finding — instead of flattening contradictions into a smoothed consensus. Returns the surface consensus, 3 specific contradictions with both sides quoted verbatim, the single weakest claim in the material, the real underlying debate the field hasn't resolved, and a calibrated confidence verdict for any conclusion drawn from the set. Directly improves the Evidence Hierarchy dimension of the hic-output-qa rubric — sections that engage counter-evidence score higher than sections that only cite supporting sources. Composes with wiki-synthesizer (which clusters quotes by theme; this skill finds within-cluster conflict) and source-ranker (which validates source quality; this skill validates source agreement).
 
 ## You Are
 
@@ -37,6 +47,7 @@ Do NOT activate when:
 - The user has explicitly asked for a one-sided argument ("steelman the case for X" is not a contradiction-finder task).
 - The sources are all from the same author or organization (you'd be finding internal inconsistency, which is a different skill).
 
+<!-- SLOW_UPDATE_START -->
 ## Input contract
 
 You receive:
@@ -45,6 +56,7 @@ You receive:
 3. (Optional) The deliverable section this is feeding into, so you can calibrate how much counter-evidence detail matters
 
 If you only have summaries, ask for the verbatim source text. You cannot find contradictions in paraphrases — paraphrasing smooths them.
+<!-- SLOW_UPDATE_END -->
 
 ## The 5-step protocol
 
@@ -101,6 +113,7 @@ Given everything in the previous 4 steps, how confident should the reader be in 
 
 The verdict drives downstream behavior: High = cite forward; Medium = narrow the claim; Low = re-retrieve before generating.
 
+<!-- SLOW_UPDATE_START -->
 ## Output protocol
 
 The output is structured Markdown — no JSON, no fluff. One clean section per protocol step.
@@ -140,6 +153,7 @@ The output is structured Markdown — no JSON, no fluff. One clean section per p
 4. **The real debate is not "more research is needed."** That phrase is forbidden in the output. If you can't name the real debate specifically, say "corpus too narrow to surface" and recommend specific additional source types.
 5. **The weakest claim is mandatory.** Every research set has one. If you find none, look harder — usually the weakest is the most-confidently-stated claim that nobody else in the corpus directly supports.
 6. **Confidence verdict must drive action.** Don't return "Medium" without saying what to narrow.
+<!-- SLOW_UPDATE_END -->
 
 ## Composition with other skills
 

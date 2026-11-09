@@ -16,44 +16,49 @@ collected_at: "2026-07-02T17:33:26+00:00"
 content_hash: "e40194f7e96d2d0c"
 chunks:
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c0"
-    char_span: [0, 234]
+    char_span: [0, 233]
     sentence_count: 1
     key_terms: [new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605, insurancebusinessmag, breaking-news, streeting, research, source, https, shows]
-    token_count: 69
-    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx"}]
+    token_count: 68
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c1"
-    char_span: [236, 2769]
+    char_span: [235, 2768]
     sentence_count: 17
     key_terms: [tax, insurance, income, cgt, investment, streeting, aligning, rather]
     concepts: [insurance, income, investment, streeting, aligning]
     related_chunks: ["articles/ins-insurance-business-uk/f0fd23b6fa.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c2"
-    char_span: [2437, 4986]
+    char_span: [2436, 4985]
     sentence_count: 19
     key_terms: [tax, cgt, iht, market, whole-of-life, announcement, behavioural, investments]
     concepts: [whole-of-life, announcement, market, behavioural, investments]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c3"
-    char_span: [4728, 7048]
+    char_span: [4727, 7047]
     sentence_count: 18
     key_terms: [iht, insurance, streeting, market, "streeting's", according, currently, lifetime]
     concepts: [insurance, streeting, market, "streeting's", according]
     related_chunks: ["articles/ins-insurance-business-uk/f0fd23b6fa.md#c1", "articles/ins-insurance-business-uk/f0fd23b6fa.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c4"
-    char_span: [6782, 9451]
+    char_span: [6781, 9450]
     sentence_count: 17
     key_terms: [policies, annuity, "streeting's", insurance, been, iht, life, demand]
     concepts: [policies, "streeting's", annuity, insurance, demand]
     related_chunks: ["articles/ins-insurance-business-uk/f0fd23b6fa.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-uk/f0fd23b6fa.md#c5"
-    char_span: [9123, 9602]
+    char_span: [9122, 9601]
     sentence_count: 4
     key_terms: ["streeting's", identifiable, addressable, legislative, opportunity, commercial, "industry's", thresholds]
     concepts: ["streeting's"]
     token_count: 91
+    sources: [{"n":"ins_insurance_business_uk","u":"https://www.insurancebusinessmag.com/uk/news/breaking-news/new-research-shows-a-streeting-cgt-hit-could-cost-the-uk-8bn-580605.aspx","kind":"article","date":"2026-06-29"}]
 ---
 # New research shows a Streeting CGT hit could cost the UK £8bn
 

@@ -1,10 +1,16 @@
 ---
 name: hic-unified-vision
+description: "The nine-phase operational contract for HiC: how the eight Unified Vision principles bind at each phase, from objective grounding to native PPTX. Read it before non-trivial pipeline, retrieval, routing, design-system or self-improvement work."
 invocation: model
-description: The definitive nine-phase operational contract for the HiC end-to-end workflow — how the eight Unified Vision principles bind at each phase (objective grounding, all-source collection + second-brain reuse, provenance chunking, concept-graph manifest, anti-RAG themes + both chat desks, one cost/quota/quality routing authority, gated self-improvement, componentized runtime-filled GOLD imagery, globally-native PPTX). Read this before any non-trivial HiC pipeline, retrieval, routing, design-system, or self-improvement work so the change traces to the phase contract it must honor. Operationalizes .claude/UNIFIED_VISION.md; the integrated AIR-first 100% plan lives in humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md (v1 same name is the file:line audit record).
+version: "1.0"
+status: active
 ---
 
 # HiC Unified Vision — the nine-phase operational contract
+
+## Scope
+
+The definitive nine-phase operational contract for the HiC end-to-end workflow — how the eight Unified Vision principles bind at each phase (objective grounding, all-source collection + second-brain reuse, provenance chunking, concept-graph manifest, anti-RAG themes + both chat desks, one cost/quota/quality routing authority, gated self-improvement, componentized runtime-filled GOLD imagery, globally-native PPTX). Read this before any non-trivial HiC pipeline, retrieval, routing, design-system, or self-improvement work so the change traces to the phase contract it must honor. Operationalizes .claude/UNIFIED_VISION.md; the integrated AIR-first 100% plan lives in humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-07-01.md (v1 same name is the file:line audit record).
 
 `.claude/UNIFIED_VISION.md` states the eight principles and the governing doctrines (NO STOPGAPS, CONVERGE/
 DELETE/GATE/SCHEDULE, Lego-brick Method A, quality-first-upstream). This skill states where each principle has

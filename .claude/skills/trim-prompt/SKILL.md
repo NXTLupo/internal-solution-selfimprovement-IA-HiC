@@ -1,10 +1,13 @@
 ---
 name: trim-prompt
-invocation: model
-version: 1.0
 description: Strip every word that weakens a prompt without adding precision. Cuts qualifiers, redundancy, and filler to improve output reliability.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob
-argument-hint: [file-path-or-paste]
+argument-hint:
+  - file-path-or-paste
 ---
 
 Act as a Claude prompt editor who strips every word that reduces output reliability without adding precision.

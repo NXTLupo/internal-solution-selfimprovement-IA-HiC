@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:53:15+00:00"
 content_hash: "ec821c7111b4d7ec"
 chunks:
   - id: "articles/agr-civil-eats/03adc4ec4e.md#c0"
-    char_span: [0, 696]
+    char_span: [0, 695]
     sentence_count: 3
     key_terms: [house-agriculture-chair-introduces-controversial-farm-labor-bill, agriculture, house-agriculture-chair-introduces-controve, bill, civileats, house, https, com]
     concepts: [agriculture, civileats, house, https]
-    token_count: 185
-    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/30/house-agriculture-chair-introduces-controversial-farm-labor-bill/"}]
+    token_count: 184
+    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/30/house-agriculture-chair-introduces-controversial-farm-labor-bill/","kind":"article","date":"2026-06-30"}]
 ---
 # House Agriculture Chair Introduces Controversial Farm Labor Bill
 

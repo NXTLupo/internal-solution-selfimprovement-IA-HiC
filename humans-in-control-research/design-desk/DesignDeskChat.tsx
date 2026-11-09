@@ -12,8 +12,16 @@ const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
     'org', 'journey', 'arch', 'roadmap', 'blueprint',
     'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
     'persona', 'prd', 'recommendation', 'strategy-slide', 'strategy', 'brief',
-    'gap-analysis', 'tech-audit', 'competitive', 'presentation',
+    'gap-analysis', 'tech-audit', 'competitive', 'presentation', 'case-study',
 ] as FreeformKind[]);
+
+// 2026-10-05: the Designer vocabulary (shared with the Analyst catalog) names several deliverables differently from
+// the artifact engine. These tags used to be answered with "out of scope" although the engine has an expert skill
+// for each. Map them to the engine kind.
+const DESIGNER_TAG_TO_KIND: Record<string, FreeformKind> = {
+    gap: 'gap-analysis', audit: 'tech-audit', compete: 'competitive', recommendations: 'recommendation',
+    report: 'brief', explainer: 'brief', 'case-study': 'case-study',
+};
 
 import { useDesignDeskStore } from './store/designDeskStore';
 import FeedbackWidget from '../components/FeedbackWidget';
@@ -37,12 +45,16 @@ import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/
 // the self-improvement loop visibly so users can witness compounding quality.
 import ImprovementLineagePanel from './components/ImprovementLineagePanel';
 import { CLAUDE_REASONING_MODEL } from '../services/aiRouter';
+import { DesignOptionBoard } from './components/DesignOptionBoard';
+import { parseDesignDirective, type DesignOption } from '../services/designOptions';
 
 interface ChatMsg {
     id: string;
     role: 'user' | 'system';
     content: string;
     timestamp: number;
+    /** WS-E E2 (2026-10-31): a #design option board on this message. */
+    designBoard?: { subject: string; options: DesignOption[]; tokenCss: string; chosen?: number };
 }
 
 /**
@@ -353,6 +365,30 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             }
         }
 
+        // WS-E E2 (2026-10-31): `#design options:N <subject>` composes N layout directions side by side; the one the
+        // owner pins becomes the engagement's design direction for the next #slides deck and #proto build.
+        const designAsk = parseDesignDirective(text);
+        if (designAsk) {
+            setBusy(true);
+            const waitId = `s_${Date.now()}_design`;
+            const subject = designAsk.subject || String(ctx.researchGoal || '');
+            setMessages(prev => [...prev, { id: waitId, role: 'system', timestamp: Date.now(), content: `Composing ${designAsk.count} layout directions${subject ? ` for ${subject.slice(0, 120)}` : ''}...` }]);
+            try {
+                const corpus = await buildPromptCorpusGrounded(subject);
+                const { generateDesignOptions } = await import('../services/designOptions');
+                const res = await generateDesignOptions({ ...designAsk, subject }, { brand: parsed.brand, objective: String(ctx.researchGoal || ''), evidence: corpus.slice(0, 6000) });
+                setMessages(prev => prev.map(m => m.id !== waitId ? m : (res.ok
+                    ? { ...m, content: `${res.options.length} layout directions. Each keeps the same headline and evidence; pick the composition to carry into the next #slides deck and #proto build.`, designBoard: { subject, options: res.options, tokenCss: res.tokenCss } }
+                    : { ...m, content: `The option board could not be composed: ${res.error || 'unknown error'}.` })));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === waitId ? { ...m, content: `The option board could not be composed: ${e?.message || e}.` } : m));
+            } finally {
+                setBusy(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
+            }
+            return;
+        }
+
         // No content hashtags -> revise the active artifact (if any)
         if (parsed.content.length === 0) {
             if (!active) {
@@ -446,8 +482,18 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         }
 
         setBusy(true);
+        // 2026-10-06: a case study about PEERS collects the peers' own documentation first (same step as the Analyst
+        // chat), so the corpus below can ground it. Bounded and non-fatal.
+        if (parsed.content.some(c => String(c) === 'case-study')) {
+            try {
+                const { ensurePeerCaseEvidence } = await import('../services/peerCaseEvidence');
+                const { currentEngagementSlug } = await import('../services/wikiPointerResolver');
+                await ensurePeerCaseEvidence({ request: parsed.cleanPrompt, objective: String(ctx.researchGoal || ''), engagement: currentEngagementSlug() || '' });
+            } catch { /* peer evidence is best-effort */ }
+        }
         const corpus = await buildPromptCorpusGrounded(parsed.cleanPrompt);
-        for (const contentTag of parsed.content) {
+        for (const rawTag of parsed.content) {
+            const contentTag = (DESIGNER_TAG_TO_KIND[rawTag] || rawTag) as typeof rawTag;
             // Diagram kinds → freeform pipeline. Persona → legacy structured pipeline.
             if (FREEFORM_KINDS.has(contentTag as FreeformKind)) {
                 // 2026-05-20 - Same priorUserInstructions wiring as the
@@ -484,7 +530,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             }
             if (contentTag !== 'persona') {
                 setMessages(prev => [...prev, { id: `s_${Date.now()}_${contentTag}`, role: 'system', timestamp: Date.now(),
-                    content: `#${contentTag} is out of scope. Supported: #persona, #org, #journey, #arch, #roadmap, #blueprint.` }]);
+                    content: `#${contentTag} is built in the Analyst chat (it is an interactive HTML artifact there). The Designer builds: ${[...FREEFORM_KINDS].map(k => '#' + k).join(', ')}.` }]);
                 continue;
             }
             // Persona via legacy structured pipeline
@@ -590,6 +636,28 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                                 {isAssistant && typeof m.content === 'string'
                                     ? <ChatProse text={m.content} size={13} />
                                     : m.content}
+                                {m.designBoard && (
+                                    <DesignOptionBoard subject={m.designBoard.subject} options={m.designBoard.options} tokenCss={m.designBoard.tokenCss} chosen={m.designBoard.chosen}
+                                        onUse={async (o) => {
+                                            setMessages(prev => prev.map(mm => mm.id === m.id && mm.designBoard ? { ...mm, designBoard: { ...mm.designBoard, chosen: o.id } } : mm));
+                                            try {
+                                                const [{ designDirectionFact }, { admitAt }, { getRun }, { currentEngagementSlug: _slugNow }, { engagementSlugFor }] = await Promise.all([
+                                                    import('../services/designOptions'), import('../services/memoryAdmissions'), import('../services/runState'), import('../services/wikiPointerResolver'),
+                                                    import('../services/engagementSlug'),
+                                                ]);
+                                                const run = getRun();
+                                                // the Designer runs in its own window: the engagement comes from the shared research goal there
+                                                const _eng = _slugNow() || run.engagement || engagementSlugFor(String(ctx.researchGoal || ''));
+                                                const ids = await admitAt('design direction', designDirectionFact(o, m.designBoard!.subject), run.run_id || `designer_${Date.now()}`, _eng);
+                                                setMessages(prev => [...prev, { id: `s_${Date.now()}_pin`, role: 'system', timestamp: Date.now(),
+                                                    content: ids.length
+                                                        ? `Option ${o.id} (${o.name}) is the design direction for this engagement. The next #slides deck and #proto build compose to it.`
+                                                        : `Option ${o.id} is marked, but the memory store did not accept it; the next build will not see it.` }]);
+                                            } catch (e: any) {
+                                                console.warn('[#design] pin failed:', e?.message || e);
+                                            }
+                                        }} />
+                                )}
                             </div>
                             {isAssistant && (
                                 <FeedbackWidget

@@ -1,0 +1,2889 @@
+[
+ {
+  "id": "higher-ed-fun-01",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "enrollment-funnel",
+  "title": "Enrollment funnel by source",
+  "subtitle": "Inquiry to enroll conversion across recruitment channels",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    38,
+    19,
+    11
+   ],
+   "seed": 4000
+  }
+ },
+ {
+  "id": "higher-ed-fun-02",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "admissions-yield-funnel",
+  "title": "Admit-to-enroll yield funnel",
+  "subtitle": "Admit, deposit, melt, matriculate stages",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    71,
+    44,
+    33
+   ],
+   "seed": 4001
+  }
+ },
+ {
+  "id": "higher-ed-fun-03",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "transfer-pipeline",
+  "title": "Transfer student admission funnel",
+  "subtitle": "Inquiry through credit evaluation to enroll",
+  "artifacts": [
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    41,
+    27,
+    16
+   ],
+   "seed": 4002
+  }
+ },
+ {
+  "id": "higher-ed-fun-04",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "graduate-app-funnel",
+  "title": "Graduate application conversion",
+  "subtitle": "Lead, applied, admitted, deposited, enrolled",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    34,
+    21,
+    14
+   ],
+   "seed": 4003
+  }
+ },
+ {
+  "id": "higher-ed-fun-05",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "financial-aid-funnel",
+  "title": "FAFSA to award acceptance funnel",
+  "subtitle": "Filed, verified, packaged, accepted",
+  "artifacts": [
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    73,
+    55,
+    41
+   ],
+   "seed": 4004
+  }
+ },
+ {
+  "id": "higher-ed-fun-06",
+  "family": "he_enrollfunnel",
+  "industry": "higher-ed",
+  "framework": "co-op-placement-funnel",
+  "title": "Co-op placement funnel",
+  "subtitle": "Eligible, applied, interviewed, matched",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    38,
+    22,
+    15
+   ],
+   "seed": 4005
+  }
+ },
+ {
+  "id": "higher-ed-fun-07",
+  "family": "funnelFlow",
+  "industry": "higher-ed",
+  "framework": "orientation-to-first-class",
+  "title": "Melt funnel: deposit to first day",
+  "subtitle": "Summer melt across onboarding checkpoints",
+  "artifacts": [
+   "slides",
+   "gap",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    88,
+    74,
+    61
+   ],
+   "seed": 4006
+  }
+ },
+ {
+  "id": "higher-ed-fun-08",
+  "family": "funnelFlow",
+  "industry": "higher-ed",
+  "framework": "adult-learner-funnel",
+  "title": "Adult learner re-enrollment funnel",
+  "subtitle": "Stop-out outreach to re-enrolled",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    47,
+    29,
+    18,
+    9
+   ],
+   "seed": 4007
+  }
+ },
+ {
+  "id": "higher-ed-dat-01",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "persistence-by-college",
+  "title": "First-year persistence by college",
+  "subtitle": "Fall-to-fall retention across academic units",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    9,
+    6,
+    5,
+    8,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4008,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "higher-ed-dat-02",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "placement-rate-by-college",
+  "title": "Co-op placement rate by college",
+  "subtitle": "Share of students placed within target window",
+  "artifacts": [
+   "slides",
+   "competitive",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    7,
+    5,
+    4,
+    8
+   ],
+   "sort": "desc",
+   "seed": 4009,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "higher-ed-dat-03",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "discount-rate-by-program",
+  "title": "Tuition discount rate by program",
+  "subtitle": "Institutional aid as share of gross tuition",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    5,
+    9,
+    7,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4010,
+   "mean": true
+  }
+ },
+ {
+  "id": "higher-ed-dat-04",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "advising-caseload-by-unit",
+  "title": "Advising caseload by unit",
+  "subtitle": "Students per professional advisor across colleges",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    8,
+    6,
+    5,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4011,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "higher-ed-dat-05",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "cost-per-credit-benchmark",
+  "title": "Net price vs peer benchmark",
+  "subtitle": "Average net price against aspirant set",
+  "artifacts": [
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    8,
+    5,
+    9,
+    6,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4012,
+   "mean": true
+  }
+ },
+ {
+  "id": "higher-ed-dat-06",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "research-expenditure-ranking",
+  "title": "Research expenditure by department",
+  "subtitle": "Sponsored research dollars across departments",
+  "artifacts": [
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    8,
+    4,
+    6,
+    3,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4013
+  }
+ },
+ {
+  "id": "higher-ed-dat-07",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "starting-salary-by-major",
+  "title": "Median starting salary by major",
+  "subtitle": "First-destination earnings across programs",
+  "artifacts": [
+   "slides",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    8,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4014,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "higher-ed-dat-08",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "pell-share-by-college",
+  "title": "Pell-eligible share by college",
+  "subtitle": "Low-income enrollment across academic units",
+  "artifacts": [
+   "slides",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    9,
+    5,
+    6,
+    8,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4015,
+   "mean": true
+  }
+ },
+ {
+  "id": "higher-ed-dat-09",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "classroom-utilization",
+  "title": "Classroom utilization by building",
+  "subtitle": "Seat-hours used against scheduled capacity",
+  "artifacts": [
+   "slides",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    5,
+    9,
+    7,
+    4,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4016,
+   "mean": true
+  }
+ },
+ {
+  "id": "higher-ed-dat-10",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "online-growth-by-program",
+  "title": "Online enrollment growth by program",
+  "subtitle": "Year-over-year change across online offerings",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    7,
+    4,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4017
+  }
+ },
+ {
+  "id": "higher-ed-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "program-portfolio-bcg",
+  "title": "Program portfolio growth-share matrix",
+  "subtitle": "Demand growth vs market share by program",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.7,
+     0.3
+    ],
+    [
+     0.6,
+     0.4,
+     0.9
+    ]
+   ],
+   "seed": 4018
+  }
+ },
+ {
+  "id": "higher-ed-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "program-viability-ge",
+  "title": "Program viability nine-box",
+  "subtitle": "Market attractiveness vs unit strength",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.4,
+     0.6,
+     0.3
+    ],
+    [
+     0.9,
+     0.5,
+     0.6
+    ]
+   ],
+   "seed": 4019
+  }
+ },
+ {
+  "id": "higher-ed-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "competitor-scorecard",
+  "title": "Peer institution scorecard",
+  "subtitle": "Rivals scored across enrollment criteria",
+  "artifacts": [
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.9,
+     0.4,
+     0.7
+    ],
+    [
+     0.5,
+     0.5,
+     0.8,
+     0.6
+    ]
+   ],
+   "seed": 4020
+  }
+ },
+ {
+  "id": "higher-ed-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "effort-impact-initiatives",
+  "title": "Retention initiative effort-impact",
+  "subtitle": "Implementation effort vs persistence lift",
+  "artifacts": [
+   "slides",
+   "recommendations",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.7
+    ],
+    [
+     0.4,
+     0.9,
+     0.3
+    ],
+    [
+     0.6,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4021
+  }
+ },
+ {
+  "id": "higher-ed-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "aid-leverage-matrix",
+  "title": "Aid leverage by ability and yield",
+  "subtitle": "Pay-ability vs enroll-likelihood segments",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ],
+    [
+     0.3,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4022
+  }
+ },
+ {
+  "id": "higher-ed-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "employer-partner-matrix",
+  "title": "Employer partner value matrix",
+  "subtitle": "Hiring volume vs strategic fit by employer",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.5
+    ],
+    [
+     0.5,
+     0.9,
+     0.4
+    ],
+    [
+     0.7,
+     0.4,
+     0.8
+    ]
+   ],
+   "seed": 4023
+  }
+ },
+ {
+  "id": "higher-ed-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "risk-impact-register",
+  "title": "Student risk likelihood-impact",
+  "subtitle": "Attrition risk factors scored by severity",
+  "artifacts": [
+   "slides",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.9,
+     0.5
+    ],
+    [
+     0.4,
+     0.6,
+     0.8
+    ],
+    [
+     0.9,
+     0.3,
+     0.6
+    ]
+   ],
+   "seed": 4024
+  }
+ },
+ {
+  "id": "higher-ed-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "buy-build-partner",
+  "title": "Buy-build-partner decision grid",
+  "subtitle": "Capability options scored against criteria",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8,
+     0.6
+    ],
+    [
+     0.4,
+     0.8,
+     0.5,
+     0.7
+    ],
+    [
+     0.6,
+     0.6,
+     0.4,
+     0.9
+    ]
+   ],
+   "seed": 4025
+  }
+ },
+ {
+  "id": "higher-ed-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "facilities-condition-heatmap",
+  "title": "Facilities condition heatmap",
+  "subtitle": "Building age vs deferred maintenance load",
+  "artifacts": [
+   "slides",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.4,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.3,
+     0.6
+    ],
+    [
+     0.7,
+     0.5,
+     0.8,
+     0.4
+    ]
+   ],
+   "seed": 4026
+  }
+ },
+ {
+  "id": "higher-ed-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "equity-gap-heatmap",
+  "title": "Outcome equity gap heatmap",
+  "subtitle": "Completion gaps across student segments",
+  "artifacts": [
+   "slides",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.3,
+     0.6,
+     0.8,
+     0.5
+    ],
+    [
+     0.7,
+     0.4,
+     0.6,
+     0.9
+    ],
+    [
+     0.5,
+     0.8,
+     0.3,
+     0.6
+    ]
+   ],
+   "seed": 4027
+  }
+ },
+ {
+  "id": "higher-ed-rad-01",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "student-success-maturity",
+  "title": "Student success capability maturity",
+  "subtitle": "Current state vs target across support pillars",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.6,
+    0.3,
+    0.5,
+    0.7,
+    0.4
+   ],
+   "target": [
+    0.8,
+    0.9,
+    0.7,
+    0.8,
+    0.9,
+    0.7
+   ],
+   "seed": 4028
+  }
+ },
+ {
+  "id": "higher-ed-rad-02",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "advising-model-maturity",
+  "title": "Advising model maturity radar",
+  "subtitle": "Proactive advising dimensions vs target",
+  "artifacts": [
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.7,
+    0.8
+   ],
+   "seed": 4029
+  }
+ },
+ {
+  "id": "higher-ed-rad-03",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "data-analytics-maturity",
+  "title": "Enrollment analytics maturity",
+  "subtitle": "Data capability against best-practice target",
+  "artifacts": [
+   "slides",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.3,
+    0.5,
+    0.4,
+    0.6,
+    0.4,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.9,
+    0.8,
+    0.9,
+    0.7,
+    0.8,
+    0.9
+   ],
+   "seed": 4030
+  }
+ },
+ {
+  "id": "higher-ed-rad-04",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "career-services-maturity",
+  "title": "Career services maturity radar",
+  "subtitle": "Placement support dimensions vs benchmark",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.5,
+    0.7,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.8,
+    0.9,
+    0.7,
+    0.8
+   ],
+   "seed": 4031
+  }
+ },
+ {
+  "id": "higher-ed-rad-05",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "dei-capability-radar",
+  "title": "Equity capability assessment",
+  "subtitle": "Access and inclusion dimensions vs target",
+  "artifacts": [
+   "slides",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.3,
+    0.6,
+    0.4,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.7,
+    0.9,
+    0.8,
+    0.8
+   ],
+   "seed": 4032
+  }
+ },
+ {
+  "id": "higher-ed-rad-06",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "digital-learning-maturity",
+  "title": "Digital learning maturity radar",
+  "subtitle": "Online infrastructure dimensions vs target",
+  "artifacts": [
+   "slides",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.6,
+    0.5,
+    0.3,
+    0.5,
+    0.4
+   ],
+   "target": [
+    0.8,
+    0.9,
+    0.8,
+    0.7,
+    0.8,
+    0.7
+   ],
+   "seed": 4033
+  }
+ },
+ {
+  "id": "higher-ed-rad-07",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "research-infrastructure-maturity",
+  "title": "Research enterprise maturity",
+  "subtitle": "Sponsored research support vs target",
+  "artifacts": [
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.5,
+    0.3,
+    0.4,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.7,
+    0.9,
+    0.8,
+    0.7,
+    0.7,
+    0.8
+   ],
+   "seed": 4034
+  }
+ },
+ {
+  "id": "higher-ed-rad-08",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "advancement-maturity",
+  "title": "Advancement capability radar",
+  "subtitle": "Fundraising operations vs aspirant target",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.4,
+    0.6,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.7,
+    0.8,
+    0.8
+   ],
+   "seed": 4035
+  }
+ },
+ {
+  "id": "higher-ed-jou-01",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "student-lifecycle",
+  "title": "Student lifecycle journey",
+  "subtitle": "Prospect to alumnus with friction points",
+  "artifacts": [
+   "slides",
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4036
+  }
+ },
+ {
+  "id": "higher-ed-jou-02",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "first-year-journey",
+  "title": "First-year student journey",
+  "subtitle": "Orientation through first-year persistence",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4037
+  }
+ },
+ {
+  "id": "higher-ed-jou-03",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "co-op-cycle-journey",
+  "title": "Co-op experience cycle",
+  "subtitle": "Search, placement, work term, reflection",
+  "artifacts": [
+   "slides",
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    3
+   ],
+   "seed": 4038
+  }
+ },
+ {
+  "id": "higher-ed-jou-04",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "transfer-journey",
+  "title": "Transfer student journey",
+  "subtitle": "Inquiry through credit articulation to graduation",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    3,
+    4
+   ],
+   "seed": 4039
+  }
+ },
+ {
+  "id": "higher-ed-jou-05",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "advising-touchpoint-journey",
+  "title": "Advising touchpoint journey",
+  "subtitle": "Term-by-term advising interactions",
+  "artifacts": [
+   "slides",
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4040
+  }
+ },
+ {
+  "id": "higher-ed-jou-06",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "financial-aid-journey",
+  "title": "Financial aid applicant journey",
+  "subtitle": "FAFSA filing through award and renewal",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4041
+  }
+ },
+ {
+  "id": "higher-ed-jou-07",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "at-risk-intervention-journey",
+  "title": "At-risk student intervention path",
+  "subtitle": "Early alert to outreach to recovery",
+  "artifacts": [
+   "slides",
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    1,
+    3
+   ],
+   "seed": 4042
+  }
+ },
+ {
+  "id": "higher-ed-jou-08",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "alumni-engagement-journey",
+  "title": "Alumni engagement lifecycle",
+  "subtitle": "Graduation through giving and mentorship",
+  "artifacts": [
+   "slides",
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4043
+  }
+ },
+ {
+  "id": "higher-ed-net-01",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "enrollment-operating-model",
+  "title": "Enrollment operating model",
+  "subtitle": "Recruitment, admissions, aid, and marketing links",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4044
+  }
+ },
+ {
+  "id": "higher-ed-net-02",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "student-support-ecosystem",
+  "title": "Student support service network",
+  "subtitle": "Advising, tutoring, wellness, and career links",
+  "artifacts": [
+   "slides",
+   "org",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "mesh",
+   "seed": 4045
+  }
+ },
+ {
+  "id": "higher-ed-net-03",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "employer-partner-network",
+  "title": "Employer partner ecosystem",
+  "subtitle": "Co-op employer relationships by sector",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4046
+  }
+ },
+ {
+  "id": "higher-ed-net-04",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "shared-services-model",
+  "title": "Academic shared-services model",
+  "subtitle": "Centralized functions serving colleges",
+  "artifacts": [
+   "slides",
+   "org",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4047
+  }
+ },
+ {
+  "id": "higher-ed-net-05",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "research-collaboration-graph",
+  "title": "Research collaboration network",
+  "subtitle": "Cross-department co-authorship ties",
+  "artifacts": [
+   "slides",
+   "org",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 11,
+   "layout": "mesh",
+   "seed": 4048
+  }
+ },
+ {
+  "id": "higher-ed-net-06",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "governance-stakeholder-map",
+  "title": "Governance stakeholder map",
+  "subtitle": "Board, cabinet, senate, and unions",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "spine",
+   "seed": 4049
+  }
+ },
+ {
+  "id": "higher-ed-net-07",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "transfer-articulation-network",
+  "title": "Transfer articulation network",
+  "subtitle": "Feeder community colleges and pathways",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4050
+  }
+ },
+ {
+  "id": "higher-ed-cap-01",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "student-success-stack",
+  "title": "Student success capability stack",
+  "subtitle": "Layered support from data to intervention",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4051
+  }
+ },
+ {
+  "id": "higher-ed-cap-02",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "enrollment-tech-stack",
+  "title": "Enrollment technology stack",
+  "subtitle": "CRM, SIS, aid, and analytics layers",
+  "artifacts": [
+   "slides",
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4052
+  }
+ },
+ {
+  "id": "higher-ed-cap-03",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "learning-platform-stack",
+  "title": "Digital learning platform stack",
+  "subtitle": "LMS, content, proctoring, and analytics",
+  "artifacts": [
+   "slides",
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4053
+  }
+ },
+ {
+  "id": "higher-ed-cap-04",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "career-readiness-stack",
+  "title": "Career readiness capability stack",
+  "subtitle": "Skills, experience, and placement layers",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4054
+  }
+ },
+ {
+  "id": "higher-ed-cap-05",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "advising-tier-model",
+  "title": "Tiered advising service model",
+  "subtitle": "Self-service to specialist intervention tiers",
+  "artifacts": [
+   "slides",
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4055
+  }
+ },
+ {
+  "id": "higher-ed-cap-06",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "research-support-stack",
+  "title": "Research support service stack",
+  "subtitle": "Pre-award, post-award, and compliance layers",
+  "artifacts": [
+   "slides",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 0,
+   "seed": 4056
+  }
+ },
+ {
+  "id": "higher-ed-cap-07",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "financial-aid-leverage-stack",
+  "title": "Aid leverage capability stack",
+  "subtitle": "Need, merit, and yield optimization layers",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4057
+  }
+ },
+ {
+  "id": "higher-ed-dia-01",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "retention-index",
+  "title": "First-year retention index",
+  "subtitle": "Fall-to-fall persistence against target",
+  "artifacts": [
+   "slides",
+   "gap",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 78,
+   "segments": 10,
+   "seed": 4058
+  }
+ },
+ {
+  "id": "higher-ed-dia-02",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "six-year-grad-rate",
+  "title": "Six-year graduation rate",
+  "subtitle": "Completion within 150 percent of time",
+  "artifacts": [
+   "slides",
+   "report",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 64,
+   "segments": 10,
+   "seed": 4059
+  }
+ },
+ {
+  "id": "higher-ed-dia-03",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "discount-rate-dial",
+  "title": "Tuition discount rate",
+  "subtitle": "Institutional aid share of gross tuition",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 52,
+   "segments": 10,
+   "seed": 4060
+  }
+ },
+ {
+  "id": "higher-ed-dia-04",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "placement-rate-dial",
+  "title": "Co-op placement rate",
+  "subtitle": "Share of eligible students placed",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 86,
+   "segments": 10,
+   "seed": 4061
+  }
+ },
+ {
+  "id": "higher-ed-dia-05",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "yield-rate-dial",
+  "title": "Admit-to-enroll yield rate",
+  "subtitle": "Deposited share of admitted students",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 33,
+   "segments": 10,
+   "seed": 4062
+  }
+ },
+ {
+  "id": "higher-ed-dia-06",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "space-utilization-dial",
+  "title": "Classroom utilization rate",
+  "subtitle": "Seat-hours used against capacity",
+  "artifacts": [
+   "slides",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 61,
+   "segments": 10,
+   "seed": 4063
+  }
+ },
+ {
+  "id": "higher-ed-dia-07",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "alumni-participation-dial",
+  "title": "Alumni giving participation",
+  "subtitle": "Share of alumni donating annually",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 18,
+   "segments": 10,
+   "seed": 4064
+  }
+ },
+ {
+  "id": "higher-ed-dia-08",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "net-tuition-revenue-dial",
+  "title": "Net tuition revenue attainment",
+  "subtitle": "Actual against budgeted net tuition",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 94,
+   "segments": 10,
+   "seed": 4065
+  }
+ },
+ {
+  "id": "higher-ed-gan-01",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "enrollment-strategy-roadmap",
+  "title": "Enrollment strategy roadmap",
+  "subtitle": "Phased recruitment and yield initiatives",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4066
+  }
+ },
+ {
+  "id": "higher-ed-gan-02",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "retention-program-rollout",
+  "title": "Retention program rollout plan",
+  "subtitle": "Early alert and advising phased deployment",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "recommendations"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 3,
+   "seed": 4067
+  }
+ },
+ {
+  "id": "higher-ed-gan-03",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "sis-migration-timeline",
+  "title": "SIS migration timeline",
+  "subtitle": "Legacy to modern system implementation",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 4
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4068
+  }
+ },
+ {
+  "id": "higher-ed-gan-04",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "program-launch-roadmap",
+  "title": "New program launch roadmap",
+  "subtitle": "Approval through first cohort enrollment",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 5,
+   "seed": 4069
+  }
+ },
+ {
+  "id": "higher-ed-gan-05",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "capital-project-schedule",
+  "title": "Capital project schedule",
+  "subtitle": "Facilities renovation phased build plan",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4070
+  }
+ },
+ {
+  "id": "higher-ed-gan-06",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "campaign-phases",
+  "title": "Capital campaign phase plan",
+  "subtitle": "Quiet phase through public close",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4071
+  }
+ },
+ {
+  "id": "higher-ed-gan-07",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "online-expansion-roadmap",
+  "title": "Online program expansion roadmap",
+  "subtitle": "Pilot to portfolio scale-up phases",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 4,
+   "seed": 4072
+  }
+ },
+ {
+  "id": "higher-ed-flo-01",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "sis-crm-data-flow",
+  "title": "SIS to CRM data flow",
+  "subtitle": "Student record integration architecture",
+  "artifacts": [
+   "slides",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4073
+  }
+ },
+ {
+  "id": "higher-ed-flo-02",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "early-alert-pipeline",
+  "title": "Early alert data pipeline",
+  "subtitle": "Signals to advisor intervention workflow",
+  "artifacts": [
+   "slides",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4074
+  }
+ },
+ {
+  "id": "higher-ed-flo-03",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "aid-packaging-engine",
+  "title": "Financial aid packaging flow",
+  "subtitle": "Need calc through award disbursement",
+  "artifacts": [
+   "slides",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4075
+  }
+ },
+ {
+  "id": "higher-ed-flo-04",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "co-op-matching-engine",
+  "title": "Co-op matching system flow",
+  "subtitle": "Student and employer matching architecture",
+  "artifacts": [
+   "slides",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4076
+  }
+ },
+ {
+  "id": "higher-ed-flo-05",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "analytics-warehouse-arch",
+  "title": "Institutional data warehouse",
+  "subtitle": "Source systems to BI layer architecture",
+  "artifacts": [
+   "slides",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4077
+  }
+ },
+ {
+  "id": "higher-ed-flo-06",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "admissions-review-workflow",
+  "title": "Admissions review workflow",
+  "subtitle": "Application routing and decision logic",
+  "artifacts": [
+   "slides",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4078
+  }
+ },
+ {
+  "id": "higher-ed-flo-07",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "course-scheduling-engine",
+  "title": "Course scheduling system flow",
+  "subtitle": "Demand, rooms, and section generation",
+  "artifacts": [
+   "slides",
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4079
+  }
+ },
+ {
+  "id": "higher-ed-pro-01",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "revenue-mix",
+  "title": "Operating revenue mix",
+  "subtitle": "Tuition, aid, research, and gifts share",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    42,
+    18,
+    22,
+    18
+   ],
+   "seed": 4080
+  }
+ },
+ {
+  "id": "higher-ed-pro-02",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "enrollment-mix-by-level",
+  "title": "Enrollment mix by level",
+  "subtitle": "Undergrad, graduate, and online share",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    58,
+    27,
+    15
+   ],
+   "seed": 4081
+  }
+ },
+ {
+  "id": "higher-ed-pro-03",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "aid-source-composition",
+  "title": "Financial aid source mix",
+  "subtitle": "Federal, state, institutional, private share",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    34,
+    16,
+    38,
+    12
+   ],
+   "seed": 4082
+  }
+ },
+ {
+  "id": "higher-ed-pro-04",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "expense-allocation",
+  "title": "Operating expense allocation",
+  "subtitle": "Instruction, support, facilities, admin share",
+  "artifacts": [
+   "slides",
+   "report",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    24,
+    18,
+    18
+   ],
+   "seed": 4083
+  }
+ },
+ {
+  "id": "higher-ed-pro-05",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "first-destination-mix",
+  "title": "First-destination outcome mix",
+  "subtitle": "Employed, grad school, seeking share",
+  "artifacts": [
+   "slides",
+   "report",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    62,
+    24,
+    14
+   ],
+   "seed": 4084
+  }
+ },
+ {
+  "id": "higher-ed-pro-06",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "student-demographic-mix",
+  "title": "Undergraduate demographic mix",
+  "subtitle": "Enrollment composition by background",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    22,
+    18,
+    14,
+    8
+   ],
+   "seed": 4085
+  }
+ },
+ {
+  "id": "higher-ed-pro-07",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "modality-mix",
+  "title": "Course delivery modality mix",
+  "subtitle": "On-ground, hybrid, and online share",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    54,
+    21,
+    25
+   ],
+   "seed": 4086
+  }
+ },
+ {
+  "id": "higher-ed-pro-08",
+  "family": "proportionStack",
+  "industry": "higher-ed",
+  "framework": "research-funding-mix",
+  "title": "Research funding source mix",
+  "subtitle": "Federal, industry, foundation, internal share",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    48,
+    20,
+    19,
+    13
+   ],
+   "seed": 4087
+  }
+ },
+ {
+  "id": "higher-ed-sec-01",
+  "family": "sectionMark",
+  "industry": "higher-ed",
+  "framework": "section-divider",
+  "title": "Diagnosis: where the model breaks",
+  "subtitle": "The central enrollment and retention challenge",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 4088
+  }
+ },
+ {
+  "id": "higher-ed-sec-02",
+  "family": "sectionMark",
+  "industry": "higher-ed",
+  "framework": "section-divider",
+  "title": "Guiding policy and coherent actions",
+  "subtitle": "The strategic response across horizons",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4089
+  }
+ },
+ {
+  "id": "higher-ed-dat-11",
+  "family": "dataField",
+  "industry": "higher-ed",
+  "framework": "time-to-degree-by-major",
+  "title": "Time to degree by major",
+  "subtitle": "Average terms to completion across programs",
+  "artifacts": [
+   "slides",
+   "gap",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    7,
+    5,
+    8,
+    9,
+    6,
+    7
+   ],
+   "sort": "asc",
+   "seed": 4090,
+   "mean": true
+  }
+ },
+ {
+  "id": "higher-ed-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "higher-ed",
+  "framework": "course-bottleneck-heatmap",
+  "title": "Gateway course bottleneck heatmap",
+  "subtitle": "DFW rate vs enrollment demand by course",
+  "artifacts": [
+   "slides",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.7,
+     0.6
+    ],
+    [
+     0.4,
+     0.9,
+     0.5,
+     0.8
+    ],
+    [
+     0.6,
+     0.4,
+     0.8,
+     0.5
+    ]
+   ],
+   "seed": 4091
+  }
+ },
+ {
+  "id": "higher-ed-fun-09",
+  "family": "funnelFlow",
+  "industry": "higher-ed",
+  "framework": "prospect-engagement-funnel",
+  "title": "Prospect engagement funnel",
+  "subtitle": "Suspect to applicant nurture conversion",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    31,
+    17
+   ],
+   "seed": 4092
+  }
+ },
+ {
+  "id": "higher-ed-jou-09",
+  "family": "journeyLine",
+  "industry": "higher-ed",
+  "framework": "online-learner-journey",
+  "title": "Online learner experience journey",
+  "subtitle": "Enroll through course completion path",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4093
+  }
+ },
+ {
+  "id": "higher-ed-net-08",
+  "family": "operatingNetwork",
+  "industry": "higher-ed",
+  "framework": "online-program-ecosystem",
+  "title": "Online program operating network",
+  "subtitle": "OPM, faculty, support, and platform links",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4094
+  }
+ },
+ {
+  "id": "higher-ed-cap-08",
+  "family": "capabilityStack",
+  "industry": "higher-ed",
+  "framework": "access-equity-stack",
+  "title": "Access and equity capability stack",
+  "subtitle": "Outreach, aid, and support layers",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4095
+  }
+ },
+ {
+  "id": "higher-ed-rad-09",
+  "family": "maturityRadar",
+  "industry": "higher-ed",
+  "framework": "faculty-development-maturity",
+  "title": "Faculty development maturity radar",
+  "subtitle": "Teaching and research support vs target",
+  "artifacts": [
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.6,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.9,
+    0.7,
+    0.8
+   ],
+   "seed": 4096
+  }
+ },
+ {
+  "id": "higher-ed-dia-09",
+  "family": "instrumentDial",
+  "industry": "higher-ed",
+  "framework": "faculty-student-ratio-dial",
+  "title": "Student-faculty ratio index",
+  "subtitle": "Current ratio against peer benchmark",
+  "artifacts": [
+   "slides",
+   "competitive",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10,
+   "seed": 4097
+  }
+ },
+ {
+  "id": "higher-ed-gan-08",
+  "family": "timelineGantt",
+  "industry": "higher-ed",
+  "framework": "strategic-plan-horizons",
+  "title": "Strategic plan implementation horizons",
+  "subtitle": "Now, next, and later initiative phasing",
+  "artifacts": [
+   "slides",
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 4,
+   "seed": 4098
+  }
+ },
+ {
+  "id": "higher-ed-flo-08",
+  "family": "flowSchematic",
+  "industry": "higher-ed",
+  "framework": "transcript-evaluation-flow",
+  "title": "Transfer credit evaluation flow",
+  "subtitle": "Transcript intake to articulation decision",
+  "artifacts": [
+   "slides",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4099
+  }
+ }
+]

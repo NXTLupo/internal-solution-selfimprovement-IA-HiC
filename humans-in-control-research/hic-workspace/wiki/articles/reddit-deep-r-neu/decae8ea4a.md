@@ -1,0 +1,79 @@
+---
+id: articles/reddit-deep-r-neu/decae8ea4a.md
+url: "articles/reddit-deep-r-neu/b595f38d17.md"
+url_hash: "decae8ea4a"
+kind: "article"
+source: "Reddit Deep: r/neu"
+title: "Northeastern Co-op Chrome Extension"
+author: ""
+date: ""
+tier: 3
+method: "cached"
+extracted_at: "2026-10-01T20:58:10.620270+00:00"
+chars: 2253
+engagement: "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+collected_at: "2026-10-01T20:58:09.974Z"
+relevance: 80
+engagement_goal: "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility."
+content_hash: "f9827e242e1dc409"
+relevance_by_goal: {"3c5a90385ab5":80}
+chunks:
+  - id: "articles/reddit-deep-r-neu/decae8ea4a.md#c0"
+    char_span: [0, 1876]
+    sentence_count: 9
+    key_terms: [co-op, https, co-ops, nucoop, nuworks-co-op-grader, app, tool, chrome-extension]
+    concepts: [co-op, https, nuworks-co-op-grader, co-ops, nucoop]
+    token_count: 477
+    sources: [{"n":"Reddit Deep: r/neu","u":"","kind":"article","subreddit":"neu"}]
+  - id: "articles/reddit-deep-r-neu/decae8ea4a.md#c1"
+    char_span: [1878, 2365]
+    sentence_count: 4
+    key_terms: [turtlecap1324, thank, academicweapon149, cake, day, julianproskillz, northeastern, innovators]
+    concepts: [turtlecap1324, thank]
+    token_count: 133
+    sources: [{"n":"Reddit Deep: r/neu","u":"","kind":"article","subreddit":"neu"}]
+---
+# Northeastern Co-op Chrome Extension
+
+Source: [Reddit Deep: r/neu](articles/reddit-deep-r-neu/b595f38d17.md)
+
+# 🔗 Link: [https://nucoop.app/](https://nucoop.app/)
+
+# NU Co-op Helper Tool
+
+Hey everyone,
+
+I built a co-op tool to help Northeastern students with their co-op search. It lets you:
+
+* **Grade yourself against co-ops**
+* **Identify co-ops with external applications** (e.g., Workday)
+* **Tag co-ops you’re ineligible for** (EX: Only looking for students graduating XYZ...)
+* **Track application status** (active/inactive)
+
+There are also a few quality-of-life features, like an “unfavorite all” button and the ability to grade co-ops directly from the search page.
+
+The tool **does not store your resume**. All processing happens **locally** in your browser, using cosine similarity. (There are no external APIs or requests being sent; you can check the network logs).
+
+I originally made this because I was using a Python script to grade myself against jobs and applying to the highest percent match, but a few friends had asked to use it, and the install was too hard, so I just made it a Chrome extension.
+
+While this tool won’t guarantee you a co-op, it saves a ton of time by helping you avoid postings that aren’t a good fit (wrong graduation year, major mismatch, etc.). It helped me spend far less time on NUWorks and more time on actual classwork, and I hope it helps others too.
+
+If you run into any bugs or issues, my contact info is on the site.
+
+Let me know if this is useful, and good luck with your co-op search!
+
+🔗 Link: [https://nucoop.app/](https://nucoop.app/)
+
+🐙 Github Repo: [https://github.com/Ashwin-Iyer1/NUWorks-Co-op-grader/tree/chrome-extension](https://github.com/Ashwin-Iyer1/NUWorks-Co-op-grader/tree/chrome-extension)
+
+--- TOP COMMENTS ---
+[9↑ dark_stallion_99] Awesome stuff!
+[2↑ turtlecap1324] Thank you!
+[1↑ exclaim_bot] >Thank you!
+
+You're welcome!
+[2↑ JulianProskillz] Bro Ash this is some CRAZY work
+[1↑ turtlecap1324] Thank you, twin🙏🙏
+[1↑ AcademicWeapon149] OP, this looks really good! Happy cake day too 🍰
+[2↑ turtlecap1324] Thank you! Didn’t even realize that today was that day lol
+[-10↑ Yyyapi] This Chrome extension feels like cake and kiwi for your brain—pure knowledge in a turtlecap that smooths workflows so well that when shit happens, the friction just fades. Love northeastern and its little innovators.

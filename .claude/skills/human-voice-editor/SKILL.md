@@ -1,10 +1,22 @@
 ---
 name: human-voice-editor
+description: "The positive half of HiC's writing contract: register, audience calibration (executive, practitioner, mixed) and sentence economy. Load beside any authoring skill and whenever the prose signal flags cadence, openers, actors, copula or dilution."
 invocation: model
-description: Pillar 4, the POSITIVE half of HiC's writing contract. The 350+ banned phrases in .claude/CLAUDE.md say what not to write; this says what to write instead. Three parts only: register (how a knowledgeable colleague actually talks), audience calibration (executive, practitioner, mixed) with a worked sentence per audience, and sentence economy. Load this alongside any authoring skill (deck-narrative-composer, strategy-author, recommendation-architect, case-study-analyst, explainer, report writers) and whenever the deterministic prose signal in services/proseSignal.ts flags cadence, openers, actors, copula or dilution.
+version: "1.0"
+status: active
+surfaces:
+  - platform-agent
+loader:
+  title: Human Voice Editor
+  role: quality-enhancer
+skillopt: trainable
 ---
 
 # Human voice
+
+## Scope
+
+Pillar 4, the POSITIVE half of HiC's writing contract. The 350+ banned phrases in .claude/CLAUDE.md say what not to write; this says what to write instead. Three parts only: register (how a knowledgeable colleague actually talks), audience calibration (executive, practitioner, mixed) with a worked sentence per audience, and sentence economy. Load this alongside any authoring skill (deck-narrative-composer, strategy-author, recommendation-architect, case-study-analyst, explainer, report writers) and whenever the deterministic prose signal in services/proseSignal.ts flags cadence, openers, actors, copula or dilution.
 
 > This skill is the `human-voice-editor` entry that `services/deliverableFrameworks.ts`
 > `QUALITY_SKILL_COMPOSITION` has auto-loaded for EVERY deliverable since 2026-06-14. That
@@ -68,6 +80,27 @@ Every sentence carries a fact, a step, or a judgment. Cut the rest.
 - Prefer the specific noun to the category: "the registrar" over "stakeholders",
   "the Salesforce instance" over "the platform".
 
+## 4. Structural templates
+
+The 2026-11-08 live defect: a report cleared every banned phrase and still read as
+machine-written, because the tells were syntactic, not lexical. Two budgets:
+
+- **The contrast template.** "X, not Y" / "not X, but Y" / "The issue is not X; it
+  is Y" / "rather than" / the semicolon pivot ("A earns trust; B spends it"). One
+  of these is rhetoric. A document where one in ten sentences carries one is a
+  template, and readers hear it. Budget: at most one or two in the whole artifact,
+  and never in the title and a heading at the same time. Everywhere else, state
+  the positive claim and let the alternative go unmentioned, or give the
+  alternative its own plain sentence.
+- **The verdict ender.** Closing a paragraph on a short oracular judgment ("That
+  asymmetry is the core of the diagnosis.") is emphasis the first time and a
+  drumbeat by the fourth. End most paragraphs on the evidence or the mechanism;
+  save the one-line verdict for the one or two moments that earn it.
+
+Both patterns survive every word-level scrub, which is why they are budgeted
+here and measured in `services/proseSignal.ts` (`templates`, `enders`).
+
+<!-- SLOW_UPDATE_START -->
 ## When the prose signal flags you
 
 `services/proseSignal.ts` measures six things and names the offending sentence.
@@ -80,8 +113,11 @@ The metric tells you which section above to apply:
 | `actors` | An abstract noun is acting. Replace it with the team, system or person that does the thing. |
 | `copula` | "serves as", "stands as", "represents a". Write "is". |
 | `dilution` | Hedges and intensifiers. Delete them, or state the condition the hedge was standing in for. |
+| `templates` | Contrast templates ("X, not Y") are saturated. State the positive claim directly; keep at most one or two contrasts per artifact (section 4). |
+| `enders` | Too many paragraphs close on a short verdict line. End on the evidence or the mechanism instead (section 4). |
 | `shape` | Paragraph lengths are too uniform. Let one paragraph be two sentences. |
 
 Fix only the flagged sentences. Do not touch any fact, number, quote, citation,
 source label, or manifest pointer while rewriting: the wording is yours, the
 evidence is not.
+<!-- SLOW_UPDATE_END -->

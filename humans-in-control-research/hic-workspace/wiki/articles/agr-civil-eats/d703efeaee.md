@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:53:26+00:00"
 content_hash: "b4500b6cdd28a7ff"
 chunks:
   - id: "articles/agr-civil-eats/d703efeaee.md#c0"
-    char_span: [0, 650]
+    char_span: [0, 649]
     sentence_count: 7
     key_terms: [how-do-u-s-farmers-vote-its-complicated, farmers, civileats, https, com, vote, farmer-focused, communities]
     concepts: [how-do-u-s-farmers-vote-its-complicated, farmers, civileats, https]
-    token_count: 174
-    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/29/how-do-u-s-farmers-vote-its-complicated/"}]
+    token_count: 173
+    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/29/how-do-u-s-farmers-vote-its-complicated/","kind":"article","date":"2026-06-29"}]
 ---
 # How Do U.S. Farmers Vote? It’s Complicated.
 

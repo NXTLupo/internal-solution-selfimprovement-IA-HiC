@@ -17,27 +17,25 @@ A batch directory at
 `humans-in-control-research/hic-workspace/skillopt/proposals/{batch-id}/`
 that contains:
 
-- A `manifest.json` written by the trajectory miner
-- N proposal files: `{idx}-{skill-id}.md`
-- N verdict files: `{idx}-{skill-id}.verdict.md` (written by the
-  validation-gate subagent)
+- N proposal files: `{skill-id}.proposal.json` (written by `scripts/skillopt-batch.sh`;
+  contract `humans-in-control-research/contracts/skillopt_proposal.v1.schema.json`)
+- N verdict files: `{skill-id}.verdict.json` (written by the validation-gate subagent;
+  contract `contracts/skillopt_verdict.v1.schema.json`, 2026-10-30 WS-5 R3). An older
+  batch may carry a `manifest.json`; it is optional.
 
 ## Your procedure
 
-### Step 1 — Read the manifest
+### Step 1 — Read the proposals
 
-Read `manifest.json`. Confirm:
-- `status: "gate-audited"` (the gate updates this when it finishes)
-- `proposal_count > 0`
-
-If `status: "pending-gate-audit"`, BAIL with the message:
-"Validation gate has not finished auditing this batch yet. Run the
-skillopt-validation-gate subagent first."
+List `*.proposal.json` in the batch directory. Each names its `candidate_path`,
+`target_path` (the live SKILL.md) and `verdict_file`. If the directory holds no
+proposal files, BAIL: there is nothing to apply. (A `manifest.json` from an older
+batch is informational only.)
 
 ### Step 2 — Enumerate verdicts
 
 For each proposal file in the batch, look for its matching
-`.verdict.md` file. Parse the verdict header for the `Verdict:` line.
+`.verdict.json` file. Read its `verdict` field (`APPROVE` | `REJECT` | `HUMAN-REVIEW`).
 
 Sort proposals into three buckets:
 - APPROVE — apply

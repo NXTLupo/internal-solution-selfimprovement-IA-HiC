@@ -19,29 +19,32 @@ content_hash: "91ebb07bda58d248"
 relevance_by_goal: {"c5a2d58d1be7":15}
 chunks:
   - id: "articles/agr-morning-ag-clips/b8fadf403b.md#c0"
-    char_span: [0, 264]
+    char_span: [0, 263]
     sentence_count: 1
     key_terms: [amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans, morningagclips, integrated, growers, helping, soybean, bigger, micros]
-    token_count: 78
-    sources: [{"n":"agr_morning_ag_clips","u":"https://www.morningagclips.com/amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans/"}]
+    token_count: 77
+    sources: [{"n":"agr_morning_ag_clips","u":"https://www.morningagclips.com/amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-morning-ag-clips/b8fadf403b.md#c1"
-    char_span: [266, 2685]
+    char_span: [265, 2684]
     sentence_count: 8
     key_terms: [soybean, phillips, big, iss, yield, potential, bean, says]
     concepts: [soybean, phillips, potential, yield, growers]
     token_count: 512
+    sources: [{"n":"agr_morning_ag_clips","u":"https://www.morningagclips.com/amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-morning-ag-clips/b8fadf403b.md#c2"
-    char_span: [2418, 5079]
+    char_span: [2417, 5078]
     sentence_count: 10
     key_terms: [growers, solutions, help, seed, product, technologies, plants, stress]
     concepts: [growers, solutions, technologies, product, integrated]
     token_count: 512
+    sources: [{"n":"agr_morning_ag_clips","u":"https://www.morningagclips.com/amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-morning-ag-clips/b8fadf403b.md#c3"
-    char_span: [4690, 5266]
+    char_span: [4689, 5265]
     sentence_count: 3
     key_terms: [agronomy, planetearthagronomy, earth, science-based, agricultural, biostimulant, distribution, technologies]
     concepts: [agronomy, earth]
     token_count: 94
+    sources: [{"n":"agr_morning_ag_clips","u":"https://www.morningagclips.com/amino-acids-boron-and-micros-integrated-seed-helping-soybean-growers-gain-more-pods-bigger-beans/","kind":"article","date":"2026-07-02"}]
 ---
 # Amino Acids, Boron and Micros: Integrated Seed Helping Soybean Growers Gain More Pods; Bigger Beans
 

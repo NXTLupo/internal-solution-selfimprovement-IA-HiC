@@ -25,17 +25,103 @@
 
 // ── structured-intelligence shapers ────────────────────────────────────────
 
-export function shapeThemes(themes: any[]): string {
-    if (!Array.isArray(themes) || !themes.length) return '';
-    const lines: string[] = [`=== THEMES (${themes.length}) ===`];
-    for (const t of themes) {
-        const citations = (t.citations || [])
-            .map((c: any) => (typeof c === 'string' ? c : (c.sourceName || c.sourceFile || '')))
-            .filter(Boolean)
-            .join(', ');
-        lines.push(`Theme: ${t.name}\nDescription: ${t.description || ''}\nQuote: "${t.quote || ''}"\nSources: ${citations}\n`);
+// 2026-10-20 (P0.1): `shapeThemes` (name + one quote + source names) retired; `shapeThemesForChat` below is the one shaper.
+
+/** A citation pointer the chat may cite: a chunk pointer on a real source page, never a synthesis / insight page. */
+export function citableThemePointer(c: any): string | null {
+    const p = typeof c === 'string' ? c : String(c?.sourceFile || c?.chunkId || c?.pointer || '');
+    if (!p.includes('#c')) return null;
+    if (/(?:^|\/)(?:hic-theme-synthesis|insights?|synthesis)\//i.test(p) || /^synthesis\//i.test(p)) return null;
+    return p;
+}
+
+/** Chunk pointers carried by this engagement's own top themes (for pinning into the evidence pick). */
+export function themeEvidencePointers(themes: any[], max = 24): string[] {
+    const out: string[] = [];
+    for (const t of ownThemesRanked(themes)) {
+        for (const c of (t?.citations || [])) {
+            const p = citableThemePointer(c);
+            if (p && !out.includes(p)) out.push(p);
+            if (out.length >= max) return out;
+        }
     }
-    return lines.join('\n');
+    return out;
+}
+
+function isCachedTheme(t: any): boolean {
+    return String(t?.source || '') === 'cached' || /^eng:/.test(String(t?.id || ''));
+}
+
+function ownThemesRanked(themes: any[]): any[] {
+    return (Array.isArray(themes) ? themes : []).filter(t => t && !isCachedTheme(t)).sort((a, b) => {
+        const ra = Number.isFinite(Number(a?.rank)) ? Number(a.rank) : 1e9;
+        const rb = Number.isFinite(Number(b?.rank)) ? Number(b.rank) : 1e9;
+        if (ra !== rb) return ra - rb;
+        return (Number(b?.objectiveRelevance) || 0) - (Number(a?.objectiveRelevance) || 0);
+    });
+}
+
+/**
+ * 2026-10-20 (root-cause audit P0.1): the block the Analyst chat sees for themes. The engagement's OWN themes come
+ * first, ranked, each with its evidence quotes and citable chunk pointers; cached themes from other engagements
+ * follow in a separate, capped, reference-only section. Live before this: 405 cached themes were prepended to the
+ * run's 111, every entry carried one quote and no pointer, and the prompt trim left none of the run's own themes.
+ */
+export function shapeThemesForChat(themes: any[], opts: { maxEvidencePerTheme?: number; maxPrior?: number; deep?: boolean } = {}): string {
+    if (!Array.isArray(themes) || !themes.length) return '';
+    const own = ownThemesRanked(themes);
+    const prior = themes.filter(t => t && isCachedTheme(t));
+    // 2026-10-23 (#slides elevation): a generation turn gets five quotes per theme at 420 chars plus the theme's
+    // depth fields, so a deck can be composed from the corpus at consulting density (chat keeps three at 280).
+    const deep = !!opts.deep;
+    const perTheme = opts.maxEvidencePerTheme ?? (deep ? 5 : 3);
+    const quoteChars = deep ? 420 : 280;
+    const parts: string[] = [];
+    if (own.length) {
+        parts.push(`=== THEMES (${own.length}, this engagement, ranked; cite evidence by the pointer in brackets) ===`);
+        own.forEach((t, i) => {
+            const rel = Number.isFinite(Number(t.objectiveRelevance)) ? ` | relevance ${Number(t.objectiveRelevance)}` : '';
+            const srcs = Number(t.distinct_source_count) > 0 ? ` | ${t.distinct_source_count} independent source${Number(t.distinct_source_count) === 1 ? '' : 's'}` : '';
+            const tier = t.evidence_tier ? ` | ${String(t.evidence_tier).replace(/_/g, ' ')}` : '';
+            parts.push(`[T${i + 1}] ${t.name}${rel}${srcs}${tier}`);
+            if (t.description) parts.push(`Description: ${String(t.description).trim()}`);
+            const seen = new Set<string>();
+            let n = 0;
+            for (const c of (t.citations || [])) {
+                const text = String((typeof c === 'string' ? '' : c?.text) || '').trim();
+                const name = typeof c === 'string' ? c : String(c?.sourceName || c?.source || '').trim();
+                if (!text && !name) continue;
+                const key = text || name;
+                if (seen.has(key)) continue;
+                seen.add(key);
+                const ptr = citableThemePointer(c);
+                const label = ptr ? `[${ptr}]` : (name && !/hic theme synthesis|engagement research synthesis/i.test(name) ? `(${name}; no chunk pointer, do not cite as a source)` : '(engagement synthesis; not citable)');
+                parts.push(text ? `Evidence: "${text.slice(0, quoteChars)}" ${label}` : `Evidence source: ${label}`);
+                if (++n >= perTheme) break;
+            }
+            if (!n && t.quote) parts.push(`Evidence: "${String(t.quote).slice(0, quoteChars)}" (no chunk pointer, do not cite as a source)`);
+            if (deep) {
+                for (const [k, label] of [['interpretation', 'Interpretation'], ['implications', 'Implications'], ['strategicImplication', 'Strategic implication'], ['whyItMatters', 'Why it matters']] as const) {
+                    const v = (t as any)[k];
+                    const txt = Array.isArray(v) ? v.map((x: any) => String(x?.text || x)).join(' ') : String(v || '');
+                    if (txt.trim()) parts.push(`${label}: ${txt.trim().slice(0, 360)}`);
+                }
+                const subs = Array.isArray((t as any).subThemes) ? (t as any).subThemes.map((x: any) => String(x?.name || x)).filter(Boolean) : [];
+                if (subs.length) parts.push(`Sub-themes: ${subs.slice(0, 6).join('; ')}`);
+            }
+            if (Array.isArray(t.contradictions) && t.contradictions.length) parts.push(`Contradiction: ${String(t.contradictions[0]?.text || t.contradictions[0]).slice(0, 200)}`);
+            parts.push('');
+        });
+        parts.push('=== END THEMES ===');
+    }
+    if (prior.length) {
+        const maxPrior = opts.maxPrior ?? 40;
+        parts.push(`=== PRIOR-ENGAGEMENT THEMES (${prior.length}, reference only; NOT evidence for this engagement, cite nothing from this list) ===`);
+        for (const t of prior.slice(0, maxPrior)) parts.push(`- ${t.name}${t.summary || t.description ? `: ${String(t.summary || t.description).slice(0, 140)}` : ''}`);
+        if (prior.length > maxPrior) parts.push(`(${prior.length - maxPrior} more not listed)`);
+        parts.push('=== END PRIOR-ENGAGEMENT THEMES ===');
+    }
+    return parts.join('\n');
 }
 
 export function shapePersonas(personas: any[]): string {

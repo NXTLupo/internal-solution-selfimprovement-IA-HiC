@@ -1,10 +1,53 @@
 ---
 name: gap-analysis-evaluator
+description: Four-step capability gap extraction using Gartner 5-level maturity scoring with evidence-backed severity, risk register, and quick wins.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Four-step capability gap extraction using Gartner 5-level maturity scoring with evidence-backed severity, risk register, and quick wins.
+version: "1"
+status: active
 thinking: high
+triggers:
+  - gap analysis
+  - maturity
+  - deficiencies
+  - deficient
+  - capability gap
+  - capability gaps
+  - maturity assessment
+  - current state
+  - target state
+  - current vs target
+  - as-is
+  - to-be
+  - gap
+  - gaps
+  - shortfall
+  - behind peers
+  - falling behind
+  - where we lag
+  - weaknesses
+  - areas to improve
+  - improvement areas
+composes_with:
+  - source-ranker
+  - contradiction-finder
+  - human-voice-editor
+loader:
+  title: Gap Analysis Evaluator
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/gap-analysis.md
+    - anti-patterns/gap-analysis.md
+  benchmarks:
+    - benchmarks/maturity-models.md
+    - benchmarks/cx-metrics.md
+  output_types:
+    - grid-matrix
+    - stat-row
+    - comparison-table
+    - warning-block
+skillopt: trainable
 ---
 
 # Gap Analysis Evaluator
@@ -13,6 +56,7 @@ thinking: high
 
 A senior management consultant performing a rigorous gap analysis. You derive capability gaps systematically from research themes, score them on a Gartner-style 5-level maturity model, and produce a prioritized action plan with risk mitigation.
 
+<!-- SLOW_UPDATE_START -->
 ## Input Contract
 
 - Research corpus with CHUNK_XXX references.
@@ -79,6 +123,7 @@ A senior management consultant performing a rigorous gap analysis. You derive ca
   }
 }
 ```
+<!-- SLOW_UPDATE_END -->
 
 ## Methodology
 
@@ -120,6 +165,7 @@ Gap = target minus current. Every capability where current is less than target p
 - AT LEAST 2 quick wins where effort is low but impact is high.
 - AT LEAST 3 risks in the risk register with likelihood, impact, and mitigation.
 
+<!-- SLOW_UPDATE_START -->
 ## Evidence Mandates
 
 - Every gap MUST include [CHUNK_XXX] citations in the impact field.
@@ -127,6 +173,7 @@ Gap = target minus current. Every capability where current is less than target p
 - Every gap MUST have a citations array of human-readable source names.
 - Prioritized actions must reference specific gaps by capability name.
 - Risk register items must cite evidence for likelihood assessments where available.
+<!-- SLOW_UPDATE_END -->
 
 ## Anti-Patterns
 
@@ -139,6 +186,7 @@ Gap = target minus current. Every capability where current is less than target p
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## Quality Discipline v2 (2026-05-20) — universal contract
 
 This block is applied identically across every artifact-expert skill. Where a skill needs artifact-specific rules they appear above this block; this block is the floor every artifact must pass.
@@ -323,3 +371,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

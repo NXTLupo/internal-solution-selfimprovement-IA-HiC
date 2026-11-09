@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:27:14+00:00"
 content_hash: "bca0408d087594c1"
 chunks:
   - id: "articles/openml/eddb33c9c9.md#c0"
-    char_span: [0, 582]
+    char_span: [0, 581]
     sentence_count: 1
     key_terms: [name, value, numberofinstanceswithmissingvalues, arrhythmia, maxnominalattdistinctvalues, openml, majorityclasssize, minorityclasssize]
     concepts: [value, arrhythmia, openml]
-    token_count: 196
-    sources: [{"n":"[openml](hic://pack-backfill/openml/6863446403192159542","u":""}]
+    token_count: 195
+    sources: [{"n":"openml","u":"","kind":"article"}]
 ---
 # arrhythmia
 

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:53:06+00:00"
 content_hash: "e022dd0fd85486bf"
 chunks:
   - id: "articles/agr-brownfield/6c2bbfeef3.md#c0"
-    char_span: [0, 1042]
+    char_span: [0, 1041]
     sentence_count: 4
     key_terms: [minnesota, agronomist, crops, sw-minnesota-agronomist-gives-crops-an-a, year, recently, enough, foley]
     concepts: [minnesota, agronomist, crops, recently, enough]
-    token_count: 248
-    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/sw-minnesota-agronomist-gives-crops-an-a/"}]
+    token_count: 247
+    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/sw-minnesota-agronomist-gives-crops-an-a/","kind":"article","date":"2026-07-01"}]
 ---
 # SW Minnesota agronomist gives crops an ‘A’
 

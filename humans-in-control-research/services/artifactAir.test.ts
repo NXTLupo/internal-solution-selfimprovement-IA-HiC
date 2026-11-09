@@ -305,10 +305,11 @@ describe('W2: emitDeliverable records the routed model into the AIR modelTrace',
         expect(panel).toMatch(/routing:\s*\{\s*model:\s*_artModel,\s*reason:\s*_artDecision\.reason/);
     });
     it('the research plan sub-questions are published for AIR objective hydration (W3)', () => {
+        // WS-1 T1 (2026-10-30): the plan lives in the typed RunState, not a window global
         const app = read('App.tsx');
-        expect(app).toMatch(/__hicResearchPlanSubQuestions/);
+        expect(app).toMatch(/planSubQuestions\(\)/);
         const emit = read('services/emitDeliverable.ts');
-        expect(emit).toMatch(/__hicResearchPlanSubQuestions/);
+        expect(emit).toMatch(/planSubQuestions\(\)/);
         expect(emit).toMatch(/auditSubQuestionCoverage/);
     });
 });

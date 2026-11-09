@@ -1,10 +1,12 @@
 ---
 name: lock-format
-invocation: model
-version: 1.0
 description: Eliminate output format drift by designing an airtight output specification with locked sections, labels, and length rules. Use when outputs vary in structure between runs.
+invocation: model
+version: "1"
+status: active
 allowed-tools: Read, Grep, Glob
-argument-hint: [file-path-or-paste]
+argument-hint:
+  - file-path-or-paste
 ---
 
 Act as a Claude output architect who eliminates format drift by designing airtight output specifications.

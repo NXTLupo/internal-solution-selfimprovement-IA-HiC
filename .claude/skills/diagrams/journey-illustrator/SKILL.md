@@ -1,11 +1,49 @@
 ---
 name: journey-illustrator
+description: "Current-state journey map illustrator with a draft-then-deepen two-pass method: grid-table HTML with per-cell verbatim evidence and sources, named touchpoints, emotion intensity and a journey-level KPI dashboard. Used for #journey; NXT and NU differ only in color and type."
 invocation: runtime
 disable-model-invocation: true
-description: Journey map (CURRENT-state) illustrator. Two-pass depth pattern ported from the Intelligence Augmentation Journey Mapper - first pass drafts; second pass critiques and deepens. Output is a finished consulting HTML report (grid-table layout, per-cell verbatim evidence quotes with Source: citations, named touchpoints with importance scores, emotion intensity 0-100, journey-level KPI dashboard with overall pain points + overall opportunities). Shares grid layout with the service-blueprint exemplar - they differ ONLY semantically (current/pain vs future/gain). NU and NXT brand exemplars carry only color and typography differences; structural rules are identical for both brands.
+version: "1.0"
+status: active
+triggers:
+  - journey
+  - journeys
+  - journey map
+  - customer journey
+  - user journey
+  - experience flow
+  - end-to-end
+  - end to end
+  - pain points by stage
+  - moments that matter
+  - student journey
+  - employee journey
+  - patient journey
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: Journey Map Illustrator
+  role: research-deliverable
+  execution_context: subagent
+  thinking_effort: high
+  wiki_companions:
+    - frameworks/blueprint.md
+    - anti-patterns/blueprint.md
+  benchmarks:
+    - benchmarks/cx-metrics.md
+  output_types:
+    - grid-matrix
+    - evidence-block
+    - stat-row
+skillopt: trainable
 ---
 
 # Journey map (current-state) illustrator
+
+## Scope
+
+Journey map (CURRENT-state) illustrator. Two-pass depth pattern ported from the Intelligence Augmentation Journey Mapper - first pass drafts; second pass critiques and deepens. Output is a finished consulting HTML report (grid-table layout, per-cell verbatim evidence quotes with Source: citations, named touchpoints with importance scores, emotion intensity 0-100, journey-level KPI dashboard with overall pain points + overall opportunities). Shares grid layout with the service-blueprint exemplar - they differ ONLY semantically (current/pain vs future/gain). NU and NXT brand exemplars carry only color and typography differences; structural rules are identical for both brands.
 
 ## What changed 2026-05-25 (this rewrite)
 
@@ -23,11 +61,13 @@ The journey-map quality incident root cause (collisions whenever cell density ro
 
 This is the **as-is** workflow. Pain points are real, observed, evidenced from the corpus. Opportunities are mentioned only in the journey-level KPI dashboard (NOT inside body cells) or in the deck's *next* slide (a blueprint, recommendations slide, or roadmap). Narrative is descriptive, never prescriptive. The reader of a finished consulting artifact should leave understanding TODAY'S system - the recommendations come next.
 
+<!-- SLOW_UPDATE_START -->
 ## Brand consistency rule
 
 The structural rules below apply IDENTICALLY to #NU and #NXT journeys. The brand exemplar controls ONLY color palette, font family, atmospheric overlays. It does NOT control content layout, cell anatomy, or evidence requirements.
 
 ---
+<!-- SLOW_UPDATE_END -->
 
 ## 0. Journey-type detection (FIRST move)
 
@@ -197,6 +237,7 @@ For inactive (actor × phase) cells: emit `<div class="empty">- not active in th
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## 5. Evidence depth contract (the JM ambition)
 
 A finished journey artifact must score on FIVE depth dimensions. Self-check each before emitting.
@@ -212,6 +253,7 @@ A finished journey artifact must score on FIVE depth dimensions. Self-check each
 The dashboard KPI tiles + overall pain points + overall opportunities must reflect the SAME corpus the cells cite. The journey is internally consistent - what gets evidenced in cells gets summarized in the dashboard.
 
 ---
+<!-- SLOW_UPDATE_END -->
 
 ## 6. Extended-thinking instructions (ported from Journey Mapper)
 
@@ -237,6 +279,7 @@ Before drafting cells, run these analytical moves. These are the JM disciplines 
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## 7. Anti-patterns (auto-reject)
 
 - More than ONE `.pain` element per cell. Concentrate density INTO a single specific, evidenced friction.
@@ -273,6 +316,7 @@ Before drafting cells, run these analytical moves. These are the JM disciplines 
 If any check fails, regenerate with corrected structure. Do not ship.
 
 ---
+<!-- SLOW_UPDATE_END -->
 
 ## 9. Two-pass deepening (uses HiC's existing reinforcement-inference primitive)
 
@@ -332,6 +376,7 @@ The skill markdown alone is not the contract - the contract is the skill + the s
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## 13. #slides emission contract (2026-06-06, MANDATORY)
 
 When the user invokes `#journey` together with `#slides` (any brand), the
@@ -396,3 +441,4 @@ because journey #slides have historically been the highest-slop deliverable:
     (c) NO slide content contains structure-description phrases
 - `services/slidePostProcessor.ts::detectMetaphors` and `::detectAllSlop`
   fire on every text field at runtime; flags + auto-corrects.
+<!-- SLOW_UPDATE_END -->

@@ -29,6 +29,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { setCachedOnlyMode } from '../services/runState';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -102,7 +103,7 @@ export const KnowledgeLibraryClosureBanner: React.FC<Props> = ({
             await fetch(`${PROXY_BASE}/api/user-selection/active`, { method: 'DELETE' });
             setManifestSelected(0);
             try {
-                if (typeof window !== 'undefined') (window as any).__hicCachedOnlyMode = false;
+                setCachedOnlyMode(false);
             } catch { /* non-fatal */ }
         } catch { /* silent */ }
     };

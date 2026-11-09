@@ -527,13 +527,27 @@ async function callOpusJson<T>(systemPrompt: string, userContent: string, label:
             config: { temperature: 1.0, maxOutputTokens: maxTokens, responseMimeType: 'application/json' },
         }, { label, requestTimeoutMs: 300_000 });
     } else {
-        data = await callAIWithRetry('anthropic', {
-            model: BRIEF_MODEL,
-            max_tokens: maxTokens,
-            temperature: 1.0,           // Opus needs >= 1.0 for creative divergence; thinking will handle structure
-            system: systemPrompt,
-            messages: [{ role: 'user', content: userContent }],
-        }, { label, requestTimeoutMs: 300_000 });   // 5 min - Opus with high creativity can take a while
+        try {
+            data = await callAIWithRetry('anthropic', {
+                model: BRIEF_MODEL,
+                max_tokens: maxTokens,
+                system: systemPrompt,
+                messages: [{ role: 'user', content: userContent }],
+            }, { label, requestTimeoutMs: 300_000 });   // 5 min - Opus with high creativity can take a while
+        } catch (e) {
+            // 2026-10-05: Pass 1 had no provider fallback, so an Anthropic outage hard-failed #proto. The fallback
+            // is the strongest non-Anthropic reasoning model, with the same prompt and a Gemini-shaped body.
+            const { isProviderUnavailableError } = await import('./multiModelResilience');
+            if (!isProviderUnavailableError(e)) throw e;
+            console.warn(`[proto-brief] ${BRIEF_MODEL} unavailable (${String((e as any)?.message || e).slice(0, 160)}); falling back to gemini-3.1-pro-preview`);
+            const g: any = await callAIWithRetry('gemini', {
+                model: 'gemini-3.1-pro-preview',
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                contents: [{ role: 'user', parts: [{ text: userContent }] }],
+                config: { temperature: 1.0, maxOutputTokens: maxTokens, responseMimeType: 'application/json' },
+            }, { label: `${label} (fallback)`, requestTimeoutMs: 300_000 });
+            data = { content: [{ type: 'text', text: (g?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('') }] };
+        }
     }
     const text = (endpoint === 'gemini'
         ? (data?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('')

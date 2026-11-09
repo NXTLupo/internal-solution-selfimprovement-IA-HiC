@@ -17,12 +17,12 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/sideproject/1uco46e.md#c0"
-    char_span: [0, 1723]
+    char_span: [0, 1722]
     sentence_count: 10
     key_terms: [telegram-first, calmemo, sideproject, looking, parents, https, com, dev]
     concepts: [telegram-first, sideproject, calmemo, looking, parents]
-    token_count: 394
-    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1uco46e/i_built_a_telegramfirst_child_health_journal_for/"}]
+    token_count: 393
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1uco46e/i_built_a_telegramfirst_child_health_journal_for/","kind":"social-post","date":"2026-06-22","author":"thirudk07","subreddit":"sideproject"}]
 ---
 # I built a Telegram-first child health journal for parents. Looking for product/onboarding feedback.
 

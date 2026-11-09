@@ -16,17 +16,18 @@ collected_at: "2026-07-02T16:42:38+00:00"
 content_hash: "4bfc4d61ba7c60db"
 chunks:
   - id: "articles/ins-coverager/0b0efadc90.md#c0"
-    char_span: [0, 177]
+    char_span: [0, 176]
     sentence_count: 1
     key_terms: [aig-appoints-nancy-bewlay-as-global-chief-underwriting-officer, underwriting, coverager, appoints, officer, bewlay, global, source]
-    token_count: 46
-    sources: [{"n":"ins_coverager","u":"https://coverager.com/aig-appoints-nancy-bewlay-as-global-chief-underwriting-officer/"}]
+    token_count: 45
+    sources: [{"n":"ins_coverager","u":"https://coverager.com/aig-appoints-nancy-bewlay-as-global-chief-underwriting-officer/","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-coverager/0b0efadc90.md#c1"
-    char_span: [179, 2643]
+    char_span: [178, 2642]
     sentence_count: 13
     key_terms: [underwriting, aig, bewlay, executive, global, officer, leadership, management]
     concepts: [underwriting, bewlay, executive, global, leadership]
     token_count: 469
+    sources: [{"n":"ins_coverager","u":"https://coverager.com/aig-appoints-nancy-bewlay-as-global-chief-underwriting-officer/","kind":"article","date":"2026-07-01"}]
 ---
 # AIG appoints Nancy Bewlay as Global Chief Underwriting Officer
 

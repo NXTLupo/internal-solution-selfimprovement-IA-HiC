@@ -1,8 +1,9 @@
 ---
 name: source-yield-scorer
+description: "Score data collection, not output: aggregate the proxy's connector-health ledger into per-source reliability and yield scores and write source-scores.md, which research-planner reads to deprioritize dead connectors. Run on a weekly cadence."
 invocation: model
-version: 1.0
-description: Enhancement F (data-pipeline-bulletproofing-2026-06-08). The collection-side self-improvement loop the architecture audit found missing - the prior loop scored only deliverable OUTPUT, never data COLLECTION. Aggregates the proxy's connector-health ledger (per /api/search call: items_returned, http_status, latency_ms) into per-source reliability + yield scores, and writes source-scores.md. research-planner reads it to deprioritize dead connectors and prefer high-yield ones. Run on a weekly /loop cadence.
+version: "1.0"
+status: active
 thinking: medium
 category: agentic-loop
 triggers:
@@ -12,6 +13,10 @@ triggers:
 ---
 
 # Source Yield Scorer
+
+## Scope
+
+Enhancement F (data-pipeline-bulletproofing-2026-06-08). The collection-side self-improvement loop the architecture audit found missing - the prior loop scored only deliverable OUTPUT, never data COLLECTION. Aggregates the proxy's connector-health ledger (per /api/search call: items_returned, http_status, latency_ms) into per-source reliability + yield scores, and writes source-scores.md. research-planner reads it to deprioritize dead connectors and prefer high-yield ones. Run on a weekly /loop cadence.
 
 ## You Are
 

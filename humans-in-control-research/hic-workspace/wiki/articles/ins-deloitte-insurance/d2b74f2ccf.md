@@ -16,44 +16,49 @@ collected_at: "2026-07-02T17:29:27+00:00"
 content_hash: "ba9114c4a29cebb4"
 chunks:
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c0"
-    char_span: [0, 204]
+    char_span: [0, 203]
     sentence_count: 1
     key_terms: [financial-services-industry-outlooks, insurance-industry-outlook, deloitte, financial-services, insurance, industry, insights, outlook]
     concepts: [deloitte]
-    token_count: 52
-    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html"}]
+    token_count: 51
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c1"
-    char_span: [206, 2921]
+    char_span: [205, 2920]
     sentence_count: 18
     key_terms: [insurers, insurance, growth, market, business, emerging, expected, foundations]
     concepts: [insurers, insurance, growth, market, business]
     related_chunks: ["articles/ins-deloitte-insurance/d2b74f2ccf.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c2"
-    char_span: [2670, 5185]
+    char_span: [2669, 5184]
     sentence_count: 9
     key_terms: [expected, underwriting, united, commercial, increased, insurance, due, insurers]
     concepts: [expected, underwriting, commercial, united, increased]
     token_count: 512
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c3"
-    char_span: [4850, 7666]
+    char_span: [4849, 7665]
     sentence_count: 8
     key_terms: [insurers, risk, capital, markets, growth, united, alternative, reinsurance]
     concepts: [insurers, capital, markets, growth, united]
     related_chunks: ["articles/ins-deloitte-insurance/d2b74f2ccf.md#c1"]
     token_count: 512
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c4"
-    char_span: [7327, 9970]
+    char_span: [7326, 9969]
     sentence_count: 6
     key_terms: [private, life, investment, asset, expected, insurers, capital, markets]
     concepts: [investment, private, expected, insurers, asset]
     token_count: 512
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
   - id: "articles/ins-deloitte-insurance/d2b74f2ccf.md#c5"
-    char_span: [9626, 10207]
+    char_span: [9625, 10206]
     sentence_count: 1
     key_terms: [henderson, guardian, capital, asset, janus, life, investment-grade, fixed-income]
     concepts: [henderson, guardian, capital, asset, janus]
     token_count: 106
+    sources: [{"n":"ins_deloitte_insurance","u":"https://www2.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/insurance-industry-outlook.html","kind":"article"}]
 ---
 # Deloitte — Insurance Outlook
 

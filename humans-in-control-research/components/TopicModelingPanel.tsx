@@ -15,6 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { engagementSlug as runEngagementSlug, cachedOnlyMode } from '../services/runState';
 import {
     type Topic,
     type TopicDocument,
@@ -105,7 +106,7 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
         // manifest can supply scope, even if redditDeepItems is sparse -
         // social-posts are first-class corpus input via /api/corpus/scope.
         const hasItems = (redditDeepItems?.length || 0) >= 10;
-        const engagementSlug = (window as any).__hicCurrentEngagementSlug || undefined;
+        const engagementSlug = runEngagementSlug() || undefined;
         const hasSubstrate = !!engagementSlug || !!researchGoal;
         if (!hasItems && !hasSubstrate) return;
         triggeredRef.current = true;
@@ -125,7 +126,7 @@ const TopicModelingPanel: React.FC<Props> = ({ redditDeepItems, researchGoal, ca
                 // non-empty scope)`. When there are zero live items, broaden
                 // scope to the global manifest so the topic model has corpus
                 // to cluster.
-                const cachedOnly = typeof window !== 'undefined' && !!(window as any).__hicCachedOnlyMode;
+                const cachedOnly = cachedOnlyMode();
                 const noLiveItems = !(redditDeepItems && redditDeepItems.length > 0);
                 const useGlobalScope = cachedOnly || noLiveItems;
                 const { jobId, docCount } = await startTopicModelJob({

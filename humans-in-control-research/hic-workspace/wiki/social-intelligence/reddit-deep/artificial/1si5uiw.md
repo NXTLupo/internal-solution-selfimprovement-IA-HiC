@@ -7,15 +7,14 @@ subreddit: "artificial"
 title: "6 Months Using AI for Actual Work: What's Incredible, What's Overhyped, and What's Quietly Dangerous"
 author: "Typical-Education345"
 date: "2026-04-11T01:47:47.000Z"
-score: 193
+score: 195
 upvote_ratio: 0.8
-num_comments: 126
+num_comments: 139
 flair: "Discussion"
-extracted_at: "2026-05-28T01:32:00.775Z"
+extracted_at: "2026-11-08T23:47:28.699Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
-industries: [ai_research]
-industry_method: deterministic
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c0"
     char_span: [0, 2188]
@@ -23,55 +22,54 @@ chunks:
     key_terms: ["what's", new, model, artificial, automation, everything, incredible, dangerous]
     concepts: ["what's", artificial, automation, everything, incredible]
     token_count: 510
-    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/"}]
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c1"
     char_span: [2190, 3543]
     sentence_count: 19
     key_terms: [without, understanding, tools, enough, honest, models, skill, using]
     concepts: [without, understanding, tools, enough, honest]
     token_count: 288
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c2"
-    char_span: [3557, 4636]
-    sentence_count: 10
-    key_terms: [honestly, honest, points, typical-education345, robmosesdidnthwrong, "it's", like, slop]
-    concepts: [honestly, honest, points]
+    char_span: [3557, 5398]
+    sentence_count: 15
+    key_terms: [typical-education345, content, like, slop, honestly, output, people, points]
+    concepts: [typical-education345, content, honestly, output, people]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c3", "social-intelligence/reddit-deep/artificial/1si5uiw.md#c4"]
     section: Comments
-    token_count: 297
+    token_count: 493
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"
-    char_span: [4638, 6450]
-    sentence_count: 8
-    key_terms: [people, typical-education345, content, accept, great, words, get, need]
-    concepts: [people, typical-education345, content, accept, great]
-    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"]
+    char_span: [5400, 7067]
+    sentence_count: 7
+    key_terms: [typical-education345, robmosesdidnthwrong, people, dash, articles, content, accept, emdash]
+    concepts: [typical-education345, robmosesdidnthwrong, people, articles, content]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c2", "social-intelligence/reddit-deep/artificial/1si5uiw.md#c4"]
     section: Comments
-    token_count: 470
+    token_count: 454
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c4"
-    char_span: [6452, 7140]
-    sentence_count: 4
-    key_terms: [typical-education345, robmosesdidnthwrong, one-elderberry-488, identifying, ai-written, tndrthrowy, hivesteel, low-value]
-    concepts: [typical-education345]
-    section: Comments
-    token_count: 204
-  - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"
-    char_span: [7145, 8719]
+    char_span: [7072, 8646]
     sentence_count: 15
     key_terms: [typical-education345, legitimatepower, content, good, post, experience, written, capitaldiligent1676]
     concepts: [typical-education345, legitimatepower, content, experience, written]
-    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"]
+    related_chunks: ["social-intelligence/reddit-deep/artificial/1si5uiw.md#c2", "social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"]
     section: Comments
     token_count: 472
-  - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c6"
-    char_span: [8721, 9896]
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
+  - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"
+    char_span: [8648, 9823]
     sentence_count: 10
     key_terms: [like, information, typical-education345, question, thinking, lateral, answer, myself]
     concepts: [typical-education345, information, question, thinking, lateral]
     section: Comments
     token_count: 283
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/","kind":"social-post","date":"2026-04-11","author":"Typical-Education345","subreddit":"artificial"}]
 ---
 # 6 Months Using AI for Actual Work: What's Incredible, What's Overhyped, and What's Quietly Dangerous
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1si5uiw/6_months_using_ai_for_actual_work_whats/)
-Posted by **Typical-Education345** · **193↑** · **126 comments**
+Posted by **Typical-Education345** · **195↑** · **139 comments**
 
 Six months ago I committed to using AI tools for everything I possibly could in my work. Every day, every task, every workflow.
 
@@ -133,27 +131,26 @@ What's your honest take after 6+ months of serious AI use? Curious whether other
 
 ## Comments
 
-- **nanobot001** (64↑): “(no one talks about this)”
+- **nanobot001** (67↑): “(no one talks about this)”
 
 this is an AI tell, just like “it’s not X, it’s y”
 
 That being said, good points
-  - **BanD1t** (16↑): More specifically "The Honest Summary" shows that it's Claude written. It likes to add "honestly" to everything to score empathy points.  
+  - **BanD1t** (18↑): More specifically "The Honest Summary" shows that it's Claude written. It likes to add "honestly" to everything to score empathy points.  
 And also engagement farming question at the end.
     - **Typical-Education345** (2↑): Honestly, I’m not sure.
-- **robmosesdidnthwrong** (56↑): Em. Dash. Galore.
-  - **Frigidspinner** (37↑): He had me at "quietly dangerous" - words I have only ever seen in slop
-    - **PowerBall50000** (2↑): Also just the word "honest" all the time.
-    - **stillness_illness** (1↑): It's not really slop if the person producing it curates and reviews. Why does it matter if there are some AI tells?
+- **robmosesdidnthwrong** (58↑): Em. Dash. Galore.
+  - **Frigidspinner** (38↑): He had me at "quietly dangerous" - words I have only ever seen in slop
+    - **stillness_illness** (3↑): It's not really slop if the person producing it curates and reviews. Why does it matter if there are some AI tells?
 
 The next level for humans *is* to not be manually typing out long posts like this. There's no benefit to doing so.
 
 Presumably they had some scratch notes of observations and opinions, copy pasted to AI "present this content clearly for a discussion post" and that's what came out. Seems fine to me.
 
 I've definitely done similar things when I have a long reply I need to give with a lot of nuance and I get sick of chasing my own tail on what I'm trying to say. Feed it to AI with "clean this up" and boom. 30% less "human slop" and clear and to the point content.
-  - **BennyLruce** (9↑): Yeah but the content is still good
+  - **BennyLruce** (12↑): Yeah but the content is still good
     - **Typical-Education345** (-6↑): Thanks! Take my upvote vote!
-  - **Psychological-Ad5390** (10↑): Not a criticism, but my opinion—people need to accept AI writing without trying to get “gotcha” moments. Most people aren’t great writers, which often leads to misunderstandings and confusion. AI really helps with that.
+  - **Psychological-Ad5390** (9↑): Not a criticism, but my opinion—people need to accept AI writing without trying to get “gotcha” moments. Most people aren’t great writers, which often leads to misunderstandings and confusion. AI really helps with that.
     - **Redebo** (8↑): We gotta start looking at it like, “Ok it’s clear the output was from an LLM, but this user prompted it, reviewed the output and adopted them as their own words.”
 
 The user may have even changed a few of the words to be more precise. We don’t know these things, but we do know that they put it out under their username, so they are claiming these thoughts as their own. 
@@ -168,32 +165,32 @@ No we don't
 >Most people aren’t great writers
 
 What's next, gonna accept AI articles because "most people aren't great thinkers"?
-  - **KedMcJenna** (-3↑): But there’s literally not a single emdash in the post. (An emdash being a dash that covers the typographical width of the space between characters—like this.)
+  - **KedMcJenna** (-4↑): But there’s literally not a single emdash in the post. (An emdash being a dash that covers the typographical width of the space between characters—like this.)
 
 There’s a whole load of dashes and it’s still AI-written as hell of course, but there aren’t any emdashes in the copy.
-    - **One-Elderberry-488** (4↑): Fuck me for using em dash even before AI became popular.
+    - **One-Elderberry-488** (5↑): Fuck me for using em dash even before AI became popular.
     - **robmosesdidnthwrong** (1↑): There are 16!!
   - **Typical-Education345** (-2↑): Em, sure
-- **tndrthrowy** (12↑): Wow a balanced handling of genAI. On Reddit no less.
-  - **Typical-Education345** (1↑): It's crazy, I think AI is starting to feel our pain.... Not a bot
-- **hivesteel** (5↑): \> The "publish 100 AI articles and watch traffic pour in" strategy is even more dead in 2026 than it was in 2024. Google has gotten much better at identifying low-value AI content.
+- **tndrthrowy** (13↑): Wow a balanced handling of genAI. On Reddit no less.
+  - **Typical-Education345** (2↑): It's crazy, I think AI is starting to feel our pain.... Not a bot
+- **hivesteel** (7↑): \> The "publish 100 AI articles and watch traffic pour in" strategy is even more dead in 2026 than it was in 2024. Google has gotten much better at identifying low-value AI content.
 
   
 Then why are you doing it? Because Reddit hasn't caught on yet?
-- **DigiHold** (5↑): I used to spend 20 minutes staring at drafts before starting, now I just get an AI to generate something terrible and edit it into shape. Way faster. The hallucination thing is still my biggest concern though. I've seen it confidently make up features that don't exist.
+- **DigiHold** (4↑): I used to spend 20 minutes staring at drafts before starting, now I just get an AI to generate something terrible and edit it into shape. Way faster. The hallucination thing is still my biggest concern though. I've seen it confidently make up features that don't exist.
   - **Typical-Education345** (1↑): We have to be the overlord at all times
-- **LegitimatePower** (22↑): Ai written too
+- **LegitimatePower** (23↑): Ai written too
   - **SkarredGhost** (9↑): He said he is using AI for every part of his workflow now, including writing this post. But he says he still reviews what AI does and in fact the content of this post is still good
     - **Typical-Education345** (1↑): Thank you!
   - **stillness_illness** (3↑): Oooh noooo!! What are we gonna do??? The post was aided with AI to make a content??? Ahhhhh!!! We're all gonna die
     - **Superb_Raccoon** (1↑): https://preview.redd.it/tswmk2q5uwug1.jpeg?width=223&format=pjpg&auto=webp&s=52c6529a82f096e36de8dcefa2741a8ee3a2d4ad
     - **Typical-Education345** (0↑): Haha
-  - **BennyLruce** (3↑): Yeah but the content is good. Seems more like ai edited than written wholecloth
+  - **BennyLruce** (2↑): Yeah but the content is good. Seems more like ai edited than written wholecloth
     - **LegitimatePower** (0↑): This isn’t good. Or new.
   - **trump_hurr_durr** (1↑): And?
-- **jellobend** (4↑): Reads like AI slop. But I liked it overall. Reflects my experience to some extent
+- **jellobend** (3↑): Reads like AI slop. But I liked it overall. Reflects my experience to some extent
   - **Typical-Education345** (2↑): Fair, you must have a very high expectation from humans or low from AI. Either way, thanks for the feedback
-- **CapitalDiligent1676** (5↑): Consistent with my experience.
+- **CapitalDiligent1676** (4↑): Consistent with my experience.
 
 I suspect you did it on purpose, but I'd remove phrases like "nobody's talking about it.", "honest", "Curious whether others have". They stink now.
   - **Typical-Education345** (2↑): Boomer terms I have a hard time unlearning. Working on it and appreciate the feedback

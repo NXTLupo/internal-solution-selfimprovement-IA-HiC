@@ -12,8 +12,18 @@
  * - Maximize toggle (sidebar ↔ full-width)
  */
 
-import React, { useState, useRef, useEffect, useCallback, startTransition } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { setCurrentMessageId, corpusComposition } from '../services/runState';
+import { recordHumanLabel } from '../services/judgeRegistry';
 import { readObjectivePlan, toAirDecomposedQuestions } from '../services/objectivePlan';
+import { lineageLabel } from '../services/artifactLineage';
+import { DictationButton } from './DictationButton';
+import { ComposerTextarea } from './ComposerTextarea';
+import { appendDictated } from '../services/dictation';
+
+/** WS-C C2 (2026-10-31): the AIR a lifted slide came from, so a deck export names its source run. */
+const artifactRefOf = (m: { artifactLineage?: { runId: string; artifactId: string } } | null | undefined) =>
+    m?.artifactLineage ? { artifactRef: { runId: m.artifactLineage.runId, artifactId: m.artifactLineage.artifactId } } : {};
 import {
     sendChatMessage, AVAILABLE_MODELS, loadSkillManifest, matchSkills,
     buildSourceReferences, parseChatCitations, routedModelFor,
@@ -52,7 +62,7 @@ import { repairArtifact } from '../services/artifactRepair';
 import { buildPostChainRecord, patchAirWithPostChain } from '../services/airPostChain';
 import { detectDomain } from '../services/evidenceSlots';
 // DF-I1: project chat-generated artifacts so the autosave can persist them.
-import { projectDurableArtifacts, subscribeDurableArtifacts } from '../services/sessionService';
+import { projectDurableArtifacts, subscribeDurableArtifacts, adoptDurableSlides, slideBatchKey } from '../services/sessionService';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
@@ -79,7 +89,7 @@ import type { FreeformKind, FreeformArtifact } from '../design-desk/schemas/free
 // 2026-05-24 - NotebookLM uplift Phase 4-6 backing services + renderers.
 import { buildMindMap, type BertTopicCluster } from '../services/mindMapArchitect';
 import { renderMindMapHtml } from '../services/mindMapRenderer';
-import { generateBriefDialog, renderBriefDialogHtml } from '../services/briefDialogService';
+import { generateBriefDialog, renderBriefDialogHtml, parseDialogFormat } from '../services/briefDialogService';
 import { buildMetaThemes, renderMetaThemesHtml } from '../services/metaThemesService';
 import { ensureObjectiveDecomposition } from '../services/researchPlanner';
 import { publishObjectivePlan, recordDecompositionStatus } from '../services/objectivePlan';
@@ -106,11 +116,21 @@ import { UPLIFT_CATALOG_IDS, catalogEntryFor, designDeskKindFor, type ArtifactCa
 import { visibleWordCount } from '../services/htmlDepthDelta';
 import { DIRECTIVES, searchDirectives, directivesByCategory, CATEGORY_LABELS } from '../services/hashtagRegistry';
 import { saveArtifact, listArtifacts, getArtifact, deleteArtifact, getArtifactViewUrl } from '../services/artifactLibrary';
+// 2026-11-08: every URL the BROWSER navigates to (launch cards, grid LAUNCH window.open) is
+// tokenized at the point of use, so URLs stored in restored chat messages from before the
+// auth change also pick up the token at click time (services/proxyConfig).
+import { tokenizedProxyUrl } from '../services/proxyConfig';
 import { callAIWithRetry } from '../services/aiRetryClient';
 import { safeDynamicImport } from '../services/safeDynamicImport';
 import { compose as composeNarrative } from '../services/narrativeComposer';
+import { normalizeSlideShape } from '../services/slideShapeNormalizer';
+import { readableSourceName } from '../services/prdCompiler';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
+import StudioPanel from './StudioPanel';
+import { CiteChip } from './CiteChip';
+import { splitProseWithPointers } from '../services/citationPointerRegistry';
+import SourceScopeRail from './SourceScopeRail';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './PromptEnhancer';
 // --- Mid-chat upload dropzone (2026-05-08) ---
 import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
@@ -135,6 +155,7 @@ import { imageSpecFor } from '../services/artifactImageSlots';
 // the section-8 default-off gate. resolveRoutedSlotImages wraps the existing illustrator loop.
 import { resolveRoutedSlotImages } from '../services/visualRouter';
 import { resolveUserImageryForPayload } from '../services/userImagery';
+import { mergeRuntimeImagery, withImageCarriers } from '../services/slideRuntimeCarriers';
 import { parseImgDirective } from '../services/hashtagParser';
 
 // Stage 6.2 (2026-10-01, finding A1): the NotebookLM kinds dispatch from ONE table keyed on the
@@ -156,7 +177,11 @@ const brandOnAccentHex = (brand?: string | null): string => {
  *  brand id (deciem included) so the proxy paints the right skin once that signature widens. */
 const diagramBrand = (brand?: string | null) => normalizeBrandId(brand) as Parameters<typeof import('../services/diagramSpec').fetchDiagramImage>[1];
 interface UpliftArgs { ctx: ChatContext; cleanPrompt: string; brand: BrandId; corpusText: string }
-interface UpliftBuilt { title: string; html: string; citations: Array<{ label: string; source: string }> }
+interface UpliftBuilt {
+    title: string; html: string; citations: Array<{ label: string; source: string }>;
+    /** Degradation/grounding receipt appended to the CHAT reply (never the artifact body). */
+    receipt?: string;
+}
 const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> = {
     mindmap: async ({ ctx, cleanPrompt, brand }) => {
         // ChatContext themes -> BertTopicCluster shape. Real BERTopic output has numeric ids +
@@ -166,7 +191,17 @@ const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> =
         if (themesIn.length < 3) {
             throw new Error('Mind map needs at least 3 themes - run analysis first or load a session with theme output.');
         }
-        const clusters: BertTopicCluster[] = themesIn.map((t: any, idx: number) => ({
+        // 2026-10-05 live: "#mindmap of first-year co-op readiness" came back titled with the SESSION goal and drew
+        // every board theme. The user's prompt is the subject; the board themes most relevant to it feed the map.
+        const _terms = (s: string) => new Set(String(s || '').toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length >= 4));
+        const _focus = _terms(cleanPrompt || '');
+        const _scored = themesIn.map((t: any, i: number) => {
+            const tt = _terms(`${t.name || t.title || ''} ${t.summary || t.description || ''}`);
+            let hit = 0; for (const w of tt) if (_focus.has(w)) hit++;
+            return { t, i, s: _focus.size ? hit / Math.sqrt(Math.max(1, tt.size)) : 0 };
+        });
+        const _picked = _focus.size && themesIn.length > 40 ? _scored.sort((a: any, b: any) => b.s - a.s || a.i - b.i).slice(0, 40).map((x: any) => x.t) : themesIn;
+        const clusters: BertTopicCluster[] = _picked.map((t: any, idx: number) => ({
             id: idx,
             name: String(t.name || t.title || `Theme ${idx + 1}`).slice(0, 80),
             summary: String(t.summary || t.description || '').slice(0, 400),
@@ -178,20 +213,235 @@ const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> =
             source_types: Array.isArray(t.source_types) ? t.source_types : [],
             distinct_source_count: t.distinct_source_count ?? (Array.isArray(t.source_types) ? t.source_types.length : 1),
         }));
-        const goal = ctx.researchGoal || cleanPrompt || 'Research';
+        // "#mindmap of first-year co-op readiness" -> subject "First-year co-op readiness"
+        const _subject = (cleanPrompt || '').trim().replace(/^(?:of|on|for|about|around|covering)\s+/i, '');
+        const goal = (_subject ? _subject.charAt(0).toUpperCase() + _subject.slice(1) : '') || ctx.researchGoal || 'Research';
         const mm = await buildMindMap({ topics: clusters, research_goal: goal, proxy_base: UPLIFT_PROXY_BASE });
         // Native, token-grounded radial renderer (renderMindMapHtml), per the locked native-composition decision.
         return { title: `Mind Map: ${goal.slice(0, 60)}`, html: renderMindMapHtml({ output: mm, brand, researchGoal: goal }), citations: [] };
     },
     'brief-dialog': async ({ ctx, cleanPrompt, brand, corpusText }) => {
+        // 2026-11-08: tight first-line topic (a bare directive used to pass the whole goal), and the
+        // dialogue engine now verifies every figure against the corpus (see briefDialogService).
+        const _rawTopic = (cleanPrompt || ctx.researchGoal || 'Research finding').trim();
+        // 2026-11-09 (NotebookLM S1 parity): a leading format word steers the dialogue
+        // ("#brief-dialog debate the connector bet" / "critique ..." / "brief ...").
+        const _fmt = parseDialogFormat((_rawTopic.split(/\n/)[0] || _rawTopic).trim());
+        const _topicLine = _fmt.topic.slice(0, 140).trim();
         const transcript = await generateBriefDialog({
-            topic: cleanPrompt || ctx.researchGoal || 'Research finding',
+            topic: _topicLine,
             corpus: corpusText.slice(0, 24000),
             proxy_base: UPLIFT_PROXY_BASE,
+            format: _fmt.format,
         });
+        transcript.topic = _topicLine;
         const allCites = transcript.turns.flatMap(t => t.citations || []);
         const citations = Array.from(new Set(allCites)).slice(0, 12).map(c => ({ label: c, source: c }));
-        return { title: `Brief Dialog: ${transcript.topic.slice(0, 60)}`, html: renderBriefDialogHtml({ transcript, brand }), citations };
+        const _v = transcript.verification;
+        const receiptParts: string[] = [];
+        if (corpusText.trim().length < 500) receiptParts.push('No corpus evidence was available for this dialogue, so it argues qualitatively with no figures.');
+        if (_v?.removed) receiptParts.push(`Verification removed ${_v.removed} line(s) whose figures the corpus does not carry${_v.reasked ? ' (after one corrective re-ask)' : ''}.`);
+        return {
+            title: `Brief Dialog: ${transcript.topic.slice(0, 60)}`,
+            html: renderBriefDialogHtml({ transcript, brand }),
+            citations,
+            receipt: receiptParts.length ? receiptParts.join(' ') : undefined,
+        };
+    },
+    // 2026-11-03 W5 (NotebookLM reverse-engineering, spec S1): Audio Overview. The brief-dialog
+    // engine writes the two-voice script; the proxy's /api/tts/dialogue renders it to ONE MP3
+    // (ElevenLabs, alternating voices). Citations stay on the transcript below the player; the
+    // spoken lines have their pointer tokens stripped. Without a TTS key the proxy answers 503
+    // and this handler degrades to the text transcript with a plain notice.
+    'audio-overview': async ({ ctx, cleanPrompt, brand, corpusText }) => {
+        // 2026-11-08: a bare directive used to pass the ENTIRE multi-paragraph research goal as the
+        // topic, which rendered as a giant transcript heading. The topic is the first line, tight.
+        const _rawTopic = (cleanPrompt || ctx.researchGoal || 'Research finding').trim();
+        // 2026-11-09 (NotebookLM S1 parity): the four audio formats ride a leading format word
+        // ("#audio-overview debate ..." / "critique ..." / "brief ..."; default stays the long form).
+        const _fmt = parseDialogFormat((_rawTopic.split(/\n/)[0] || _rawTopic).trim());
+        const _topicLine = _fmt.topic.slice(0, 140).trim();
+        const transcript = await generateBriefDialog({
+            topic: _topicLine,
+            corpus: corpusText.slice(0, 24000),
+            proxy_base: UPLIFT_PROXY_BASE,
+            format: _fmt.format,
+        });
+        transcript.topic = _topicLine;
+        const stripCites = (s: string) => s
+            .replace(/\[CHUNK_\d+(?:\s*,\s*CHUNK_\d+)*\]/gi, '')
+            .replace(/\[[^\]]*\.md#c\d+[^\]]*\]/gi, '')
+            .replace(/\s{2,}/g, ' ').trim();
+        const speechTurns = transcript.turns
+            .map(t => ({ speaker: t.speaker === 'Skeptical Partner' ? 'b' : 'a', text: stripCites(t.line) }))
+            .filter(t => t.text.length > 0);
+        const slug = `audio-${(transcript.topic || 'overview').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60)}-${Date.now().toString(36)}`;
+        const transcriptHtml = renderBriefDialogHtml({ transcript, brand });
+        const allCites = transcript.turns.flatMap(t => t.citations || []);
+        const citations = Array.from(new Set(allCites)).slice(0, 12).map(c => ({ label: c, source: c }));
+        let player = '';
+        try {
+            const resp = await fetch(`${UPLIFT_PROXY_BASE}/api/tts/dialogue`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ slug, turns: speechTurns }),
+            });
+            const data = await resp.json().catch(() => ({} as any));
+            if (resp.ok && data?.url) {
+                // 2026-11-08: an <audio src> is a browser request that carries no auth header;
+                // the token rides the `t` query parameter (services/proxyConfig).
+                const { tokenizedProxyUrl } = await import('../services/proxyConfig');
+                const audioUrl = tokenizedProxyUrl(`${UPLIFT_PROXY_BASE}${data.url}`);
+                player = `<div style="padding:14px 16px;border:1px solid #DDD;background:#FFF;margin-bottom:16px"><div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#115054;margin-bottom:8px">Audio Overview</div><audio controls preload="metadata" src="${audioUrl}" style="width:100%"></audio><div style="font-size:9px;color:#999;margin-top:6px">${speechTurns.length} spoken turns. The cited transcript follows.</div></div>`;
+            } else {
+                const reason = String(data?.error || `voice service ${resp.status}`).replace(/[<>&"]/g, '');
+                player = `<div style="padding:10px 14px;border:1px solid #CC6644;background:#FDF0EC;font-size:12px;margin-bottom:14px">Voice rendering unavailable (${reason}). The dialogue transcript follows.</div>`;
+            }
+        } catch (e: any) {
+            const reason = String(e?.message || 'voice service unreachable').replace(/[<>&"]/g, '');
+            player = `<div style="padding:10px 14px;border:1px solid #CC6644;background:#FDF0EC;font-size:12px;margin-bottom:14px">Voice rendering unavailable (${reason}). The dialogue transcript follows.</div>`;
+        }
+        // Grounding receipt for the CHAT reply (fallback-event-surfacing rule: a degraded or
+        // narrowed path is always named; the artifact body itself stays annotation-free).
+        const _v = transcript.verification;
+        const _corpusEmpty = corpusText.trim().length < 500;
+        const receiptParts: string[] = [];
+        if (_corpusEmpty) receiptParts.push('No corpus evidence was available for this dialogue, so it argues qualitatively with no figures.');
+        if (_v?.removed) receiptParts.push(`Verification removed ${_v.removed} line(s) whose figures the corpus does not carry${_v.reasked ? ' (after one corrective re-ask)' : ''}.`);
+        return {
+            title: `Audio Overview: ${transcript.topic.slice(0, 55)}`,
+            html: player + transcriptHtml,
+            citations,
+            receipt: receiptParts.length ? receiptParts.join(' ') : undefined,
+        };
+    },
+    // 2026-11-09 (NotebookLM S8 parity): standalone infographic. The model writes ONE
+    // content-true element from the grounded corpus (steps, a comparison, or stats that ride
+    // verbatim quotes); infographicSpecFrom builds the native spec; the proxy renderer draws it.
+    // A leading aspect word steers the frame: landscape (default), portrait, square.
+    infographic: async ({ ctx, cleanPrompt, brand, corpusText }) => {
+        const _raw = (cleanPrompt || ctx.researchGoal || 'Research finding').trim();
+        const _am = _raw.match(/^\s*(landscape|portrait|square)\b[:,.\-]?\s*/i);
+        const aspect = (_am ? _am[1].toLowerCase() : 'landscape') as 'landscape' | 'portrait' | 'square';
+        const topic = (_am ? _raw.slice(_am[0].length) : _raw).split(/\n/)[0].slice(0, 140).trim();
+        const frame = aspect === 'portrait' ? { w: 1080, h: 1920 } : aspect === 'square' ? { w: 1350, h: 1350 } : { w: 1920, h: 1080 };
+
+        const { callAIWithRetry } = await import('../services/aiRetryClient');
+        const sys = [
+            'You design ONE infographic element from research evidence. Return ONLY a JSON object:',
+            '{"title": "<complete-sentence judgment about the subject, at most 12 words, no figures>",',
+            ' "steps": [{"title": "<3-6 words>", "description": "<one plain sentence>"}] OR "before"/"after" objects OR "stats": [{"label": "<short>", "value": "<verbatim from a quoted corpus passage>"}],',
+            ' "citations": ["<bracketed corpus token copied character for character>"]}',
+            'Pick the ONE family the corpus best supports (4-6 steps, or a before/after pair, or 3-5 stats).',
+            'A stat value exists ONLY where a corpus passage carries it verbatim; with no such passages, use steps or a comparison instead. Plain business language, named actors, no metaphors.',
+            'SUBJECT DISCIPLINE (HARD): the title and every field are about the SUBJECT, never about the corpus, the evidence, the data or its availability ("The provided corpus contains no evidence..." is an instant failure). When the material is thin, derive general steps the subject itself implies and keep the title a plain judgment about the subject.',
+        ].join('\n');
+        const user = `SUBJECT: ${topic}\n\nCORPUS (cite its bracketed tokens exactly):\n${corpusText.slice(0, 16000)}`;
+        let el: any = null;
+        try {
+            const parsed = await callAIWithRetry('gemini', {
+                model: 'gemini-3.1-pro-preview',
+                systemInstruction: { parts: [{ text: sys }] },
+                contents: [{ role: 'user', parts: [{ text: user }] }],
+                config: { temperature: 0.3, maxOutputTokens: 4000, responseMimeType: 'application/json' },
+            }, { label: '#infographic element', maxAttempts: 2, requestTimeoutMs: 90_000 });
+            const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+            el = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] || text);
+        } catch { el = null; }
+
+        const { infographicSpecFrom } = await import('../services/artifactIllustrator');
+        // Deterministic subject-discipline net: a title about the corpus/evidence never ships;
+        // the user's own subject line stands in (prompt rules can be bypassed; this cannot).
+        const _metaTitle = /\b(corpus|evidence|data|sources?)\b.{0,40}\b(contains?|provides?|lacks?|carries|is (?:thin|limited|unavailable)|no evidence|not (?:carry|contain))|\bno (?:evidence|data|sources?)\b/i;
+        const _rawTitle = String(el?.title || '').trim();
+        const title = (_rawTitle && !_metaTitle.test(_rawTitle) ? _rawTitle : topic).slice(0, 110);
+        let spec = el ? infographicSpecFrom(el, title) : null;
+        let receipt: string | undefined;
+        if (!spec) {
+            // Content-true fallback: the session's own theme names as a process row.
+            const themeNames = (Array.isArray((ctx as any).themes) ? (ctx as any).themes : [])
+                .map((t: any) => String(t?.name || t?.title || '').trim()).filter(Boolean).slice(0, 5);
+            if (themeNames.length >= 3) {
+                spec = infographicSpecFrom({ steps: themeNames.map((n: string) => ({ title: n })) }, title);
+                receipt = 'The corpus gave no structurable element for this subject, so the infographic shows the session themes instead.';
+            }
+        }
+        if (!spec) throw new Error('No structurable substance for an infographic: run after themes exist, or name a process, comparison, or quoted figures in the prompt.');
+        (spec as any)['frame'] = frame;
+
+        const resp = await fetch(`${UPLIFT_PROXY_BASE}/api/ai/diagram`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ spec, brand: String(brand || 'nxt').toUpperCase(), canvas: 'light' }),
+        });
+        if (!resp.ok) throw new Error(`infographic render failed: HTTP ${resp.status}`);
+        const r = await resp.json();
+        const src = (typeof r?.dataUri === 'string' && r.dataUri) ? r.dataUri
+            : (typeof r?.url === 'string' && r.url ? `${UPLIFT_PROXY_BASE}${r.url}` : '');
+        if (!src) throw new Error('infographic render returned no image');
+        const cites: string[] = Array.isArray(el?.citations) ? el.citations.filter((c: any) => typeof c === 'string').slice(0, 10) : [];
+        const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const html = `<div style="max-width:${frame.w / 2}px;margin:0 auto"><h1 style="font-size:20px;margin:0 0 12px">${esc(title)}</h1><img alt="${esc(title)}" src="${src}" style="width:100%;border:1px solid #DDD"/></div>`;
+        return { title: `Infographic: ${title.slice(0, 55)}`, html, citations: cites.map(c => ({ label: c, source: c })), receipt };
+    },
+    // 2026-11-03 W9 (NotebookLM reverse-engineering, spec S2): Video Overview. The recap
+    // composer builds a deterministic, slop-gated, brand-tokened 1920x1080 composition from
+    // the run's own recorded substance (objective, thesis, named sources, recommendation);
+    // the video-renderer sidecar renders it to MP4 behind the proxy passthrough. Everything
+    // spoken on screen is text the run recorded: an absent thesis produces no thesis scene,
+    // never an invented one.
+    'video-overview': async ({ ctx, cleanPrompt, brand }) => {
+        const { buildRecapComposition } = await import('../services/recapComposition');
+        const themesIn: any[] = Array.isArray((ctx as any).themes) ? (ctx as any).themes : [];
+        const thesis = themesIn.length
+            ? String(themesIn[0]?.thesis || themesIn[0]?.summary || themesIn[0]?.description || '').trim() || null
+            : null;
+        const sources = Array.from(new Set(
+            themesIn.flatMap((t: any) => Array.isArray(t?.citations) ? t.citations : [])
+                .map((c: any) => String(c?.sourceName || c?.sourceFile || c || '').trim())
+                .filter((s: string) => s && !/^CHUNK_/i.test(s)),
+        )).slice(0, 6);
+        const recsIn: any[] = Array.isArray((ctx as any).recommendations) ? (ctx as any).recommendations : [];
+        const recommendation = recsIn.length ? String(recsIn[0]?.title || recsIn[0]?.name || '').trim() || null : null;
+        const comp = buildRecapComposition({
+            objective: cleanPrompt || ctx.researchGoal || 'Research recap',
+            thesis,
+            sources,
+            recommendation,
+            brand,
+        });
+        if (!comp.html) {
+            throw new Error(`video recap not composed: ${comp.refusals.join('; ') || 'no usable beats'}`);
+        }
+        const submit = await fetch(`${UPLIFT_PROXY_BASE}/api/video/render`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ html: comp.html }),
+        });
+        const sub = await submit.json().catch(() => ({} as any));
+        if (!submit.ok || !sub?.jobId) {
+            throw new Error(`video renderer refused: ${String(sub?.error || `HTTP ${submit.status}`)}${Array.isArray(sub?.problems) ? ` (${sub.problems.slice(0, 2).join('; ')})` : ''}`);
+        }
+        // Poll to completion: ~5.5s per beat to render plus encoder time; cap at 6 minutes.
+        let videoUrl = '';
+        let lastStatus = 'queued';
+        for (let i = 0; i < 72; i++) {
+            await new Promise(r => setTimeout(r, 5000));
+            const st = await fetch(`${UPLIFT_PROXY_BASE}/api/video/render/${sub.jobId}`).then(r => r.json()).catch(() => null) as any;
+            lastStatus = String(st?.status || lastStatus);
+            if (lastStatus === 'done' && st?.url) {
+                // 2026-11-08: a <video src> carries no auth header; token via `t` query parameter.
+                const { tokenizedProxyUrl } = await import('../services/proxyConfig');
+                videoUrl = tokenizedProxyUrl(`${UPLIFT_PROXY_BASE}/api/video/outputs/${String(st.url).split('/').pop()}`);
+                break;
+            }
+            if (lastStatus === 'error') throw new Error(`video render failed: ${String(st?.error || 'renderer error')}`);
+        }
+        if (!videoUrl) throw new Error(`video render did not finish (last status: ${lastStatus})`);
+        const beatsHtml = comp.beats.map(b => `<div style="margin-bottom:10px"><div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#115054;text-transform:uppercase">${b.step.replace(/[<>&]/g, '')}</div><div style="font-size:13px;color:#222;line-height:1.5">${b.line.replace(/[<>&]/g, '')}</div>${b.sub ? `<div style="font-size:10px;color:#777;margin-top:2px">${b.sub.replace(/[<>&]/g, '')}</div>` : ''}</div>`).join('');
+        const html = `<div style="padding:14px 16px;border:1px solid #DDD;background:#FFF;margin-bottom:16px"><div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#115054;margin-bottom:8px">Video Overview</div><video controls preload="metadata" src="${videoUrl}" style="width:100%;background:#0D0D0D"></video><div style="font-size:9px;color:#999;margin-top:6px">${comp.beats.length} scenes. The narration beats follow.</div></div><div style="padding:4px 2px">${beatsHtml}</div>`;
+        const citations = sources.map(s => ({ label: s, source: s }));
+        return { title: `Video Overview: ${(cleanPrompt || ctx.researchGoal || 'recap').slice(0, 55)}`, html, citations };
     },
     'meta-themes': async ({ cleanPrompt, brand }) => {
         const mt = await buildMetaThemes({ proxy_base: UPLIFT_PROXY_BASE });
@@ -1869,7 +2119,7 @@ const ArtifactLibraryGrid: React.FC<ArtifactLibraryGridProps> = ({ items, onItem
                         ) : (
                             <div style={{ display: 'flex', gap: 4 }}>
                                 <button
-                                    onClick={() => window.open(`http://127.0.0.1:5012${a.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                    onClick={() => window.open(tokenizedProxyUrl(`http://127.0.0.1:5012${a.view_url}`), '_blank', 'noopener,noreferrer,width=1280,height=900')}
                                     style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: accent, border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
                                 >
                                     Launch ↗
@@ -1999,7 +2249,7 @@ const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onIt
                     ) : (
                         <div style={{ display: 'flex', gap: 4 }}>
                             <button
-                                onClick={() => window.open(`http://127.0.0.1:5012${p.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                onClick={() => window.open(tokenizedProxyUrl(`http://127.0.0.1:5012${p.view_url}`), '_blank', 'noopener,noreferrer,width=1280,height=900')}
                                 style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: '#B8B800', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
                             >
                                 Launch ↗
@@ -4017,39 +4267,6 @@ function isProcessingPlaceholder(content: string): boolean {
     );
 }
 
-/**
- * The analyst chat composer (2026-10-04, owner report: typing lagged so badly the text field was unusable). Every
- * keystroke used to set the panel's `input` state and re-render the whole 8,700-line panel: every message, every
- * verification ledger and 100+ slide cards. The textarea now owns its value; the panel's copy is updated as a
- * low-priority transition (React drops stale renders while the user types), and external writes (chips, enhance,
- * clear after send) flow back in through `value`. Send reads the live DOM value, never a stale state copy.
- */
-const ComposerTextarea: React.FC<{
-    inputRef: React.RefObject<HTMLTextAreaElement>;
-    value: string;
-    /** Bumped by every external write; the composer then adopts `value` (even when it equals a stale copy). */
-    sync: number;
-    onValueChange: (v: string) => void;
-    onKeyDown: (e: React.KeyboardEvent) => void;
-}> = React.memo(({ inputRef, value, sync, onValueChange, onKeyDown }) => {
-    const [local, setLocal] = useState(value);
-    const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-    useEffect(() => { if (sync > 0) { if (pushTimer.current) clearTimeout(pushTimer.current); setLocal(value); } }, [sync]);
-    useEffect(() => () => { if (pushTimer.current) clearTimeout(pushTimer.current); }, []); // eslint-disable-line react-hooks/exhaustive-deps
-    return (
-        <textarea ref={inputRef} value={local}
-            onChange={e => {
-                const v = e.target.value;
-                setLocal(v);
-                if (pushTimer.current) clearTimeout(pushTimer.current);
-                pushTimer.current = setTimeout(() => startTransition(() => onValueChange(v)), v ? 250 : 0);
-            }}
-            onKeyDown={onKeyDown}
-            placeholder="Ask about your research data... Try #help for all hashtag directives."
-            rows={4} style={{ width: '100%', padding: '10px 12px', border: '1px solid #E0E0E0', fontSize: 12, fontFamily: "'Archivo', sans-serif", resize: 'vertical', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box', minHeight: 88 }} />
-    );
-});
-
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive, auditReviseHandler }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
     // 2026-05-11 - Mirror messages up to the App so a session-save can
@@ -4091,6 +4308,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     useEffect(() => {
         const onPrefill = (ev: Event) => {
             const detail = (ev as CustomEvent).detail || {};
+            // 2026-11-03 W6: `text` prefills the composer verbatim (upload suggested-question click).
+            const verbatim = String(detail.text || '').trim();
+            if (verbatim) {
+                setInput(prev => (prev.trim() ? prev + '\n\n' + verbatim : verbatim));
+                try {
+                    inputRef.current?.focus();
+                    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } catch { /* non-fatal */ }
+                return;
+            }
             const pointers: string[] = Array.isArray(detail.chunkPointers) ? detail.chunkPointers : [];
             const hint = String(detail.titleHint || '').trim();
             if (!pointers.length && !hint) return;
@@ -4172,9 +4399,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
     const [coverageOpen, setCoverageOpen] = useState(false);
+    // 2026-11-03 - Studio rail (NotebookLM reverse-engineering W4): one-click output launcher over the directives.
+    const [studioOpen, setStudioOpen] = useState(false);
+    // 2026-11-03 - Source scope rail (W2): per-source checkboxes filling sessionConstraints.includeOnly.
+    const [scopeOpen, setScopeOpen] = useState(false);
     const [skillManifest, setSkillManifest] = useState<SkillManifestEntry[]>([]);
     const [deliverables, setDeliverables] = useState<DeliverableItem[]>([]);
     const [slides, setSlides] = useState<SlideData[]>([]);
+    // 2026-10-24: the latest slide state for async passes (the exhibit builder reads the post-repair payload).
+    const slidesRef = useRef<SlideData[]>([]);
+    useEffect(() => { slidesRef.current = slides; }, [slides]);
     // D17 (owner-chosen 2026-07-01): attach the FULL-BLEED native GOLD exhibit image to every
     // journey/architecture/mindmap/blueprint slide so it renders wall-to-wall INLINE in the Analyst Desk
     // preview (and is already present for export). Idempotent + fail-open: guarded by a ref so we fetch
@@ -4259,6 +4493,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // DF-A3: the full chain result per assistant message (slot + prose reports
     // alongside the ledger), so the UI can show WHY an artifact was flagged.
     const [chainReports, setChainReports] = useState<Record<string, ChainResult<any>>>({});
+    // WS-4 L8: the re-score after copy edits compares against the pre-edit chain report without a stale closure.
+    const chainReportsRef = useRef<Record<string, ChainResult<any>>>({});
+    useEffect(() => { chainReportsRef.current = chainReports; }, [chainReports]);
 
     // Verify every claim in a freshly parsed deck against its pointed corpus
     // sources; relabel/strip fabricated attributions; attach the ledger.
@@ -4344,17 +4581,29 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             if (!inputs) return deckSlides;
             const copies = deckSlides.map(s => ({ ...s })) as any[];
             const doc = C.deckCoverageDoc(kind, copies, { idPrefix: msgId, brand: deckSlides[0]?.brand, timestamp: deckSlides[deckSlides.length - 1]?.timestamp });
-            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats, inputs.focus);
             // The chat attaches slide cards to a reply by model + timestamp: the fill slides carry the batch's model,
             // or they exist in state but never render (2026-10-03 live: 8 appendix slides invisible in the chat).
             const _batchModel = (deckSlides[deckSlides.length - 1] as any)?.model;
             for (const sl of doc.added as any[]) if (_batchModel && !sl.model) sl.model = _batchModel;
-            const lines = C.formatCoverageSummary(r);
+            let lines = C.formatCoverageSummary(r);
+            // 2026-10-23 (live out9: nine near-empty 'Appendix: Workflow and Deciem' pages padded a nine-slide deck): a deck is
+            // ONE argument, never an index of the corpus. The receipt still names what the deck does not carry.
+            const padDeck = kind !== 'deck';
+            if (!padDeck) {
+                // 2026-10-26 (live: the receipt said "31 more added as appendix exhibit entries" on a 13-slide deck that
+                // has no appendix): a deck adds nothing, so its receipt never says it did.
+                // 2026-10-27 (run 44: the chat said the deck carried "4 of 33" and listed as missing themes the deck argues in
+                // paraphrase; the binding is word-overlap, so on a deck the receipt misled more than it informed): a deck's
+                // coverage receipt goes to the console only.
+                console.info(`[coverage] deck receipt (console only): ${lines.filter(l => /^Coverage:/.test(l)).join(' ')}${r.filled.length ? ` | not bound by word overlap: ${r.filled.slice(0, 10).map(f => f.heading).join('; ')}` : ''}`);
+                lines = [];
+            }
             const _genTs = Number(deckSlides[deckSlides.length - 1]?.timestamp || 0);
             if (_genTs) coverageUniverseByTsRef.current.set(_genTs, r.universeRecord);
             console.info(`[coverage] ${kind}: ${r.boundByModel}/${r.universe} carried by the model's slides, ${r.filled.length} filled into ${doc.added.length} slide(s); receipt ${r.receipt.pass ? 'pass' : 'open'}`);
             const byId = new Map(copies.map(s => [s.id, s] as const));
-            const added = doc.added as any[];
+            const added = padDeck ? (doc.added as any[]) : [];
             setSlides(prev => {
                 const next = prev.map(s => byId.get(s.id) || s);
                 if (!added.length) return next;
@@ -4381,7 +4630,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const inputs = await coverageInputsFor(query, onProgress);
             if (!inputs) return { html, lines: [] };
             const doc = C.htmlCoverageDoc(kind, html);
-            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats, inputs.focus);
             console.info(`[coverage] ${kind} (html): ${r.boundByModel}/${r.universe} carried by the document, ${r.filled.length} added to the appendix; receipt ${r.receipt.pass ? 'pass' : 'open'}`);
             // A document whose own body is unreadable (a reply cut off inside its stylesheet) is said so, never passed.
             const _bodyWords = String(html).replace(/<style[\s\S]*?(<\/style>|$)/gi, ' ').replace(/<script[\s\S]*?(<\/script>|$)/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(w => /[a-z]{2,}/i.test(w)).length;
@@ -4402,7 +4651,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const inputs = await coverageInputsFor(query);
             if (!inputs) return [];
             const doc = C.presentationCoverageDoc(payload, 'deck');
-            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats);
+            const r = await C.runCoverageContract(doc, inputs.ledger, inputs.areas, inputs.stats, inputs.focus);
             console.info(`[coverage] presentation: ${r.boundByModel}/${r.universe} carried by the composed sections, ${r.filled.length} added as theme sections; receipt ${r.receipt.pass ? 'pass' : 'open'}`);
             return C.formatCoverageSummary(r);
         } catch (e: any) {
@@ -4428,7 +4677,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
         const changed = new Map<string, SlideData>();
         (result.slides as SlideData[]).forEach((f, i) => { if (f !== deckSlides[i]) changed.set(f.id, f); });
-        if (changed.size) setSlides(prev => prev.map(s => changed.get(s.id) || s));
+        // 2026-10-20: the chain's copies come from a pre-imagery snapshot; runtime imagery on the live slide survives.
+        if (changed.size) setSlides(prev => prev.map(s => changed.has(s.id) ? mergeRuntimeImagery(s, changed.get(s.id)!) : s));
 
         if (result.ledger.length) setVerificationLedgers(prev => ({ ...prev, [msgId]: result.ledger }));
         setChainReports(prev => ({ ...prev, [msgId]: result }));
@@ -4467,7 +4717,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             if (repaired.rounds.length) {
                 const changedByRepair = new Map<string, SlideData>();
                 (repaired.slides as SlideData[]).forEach((f, i) => { if (f !== (result.slides as SlideData[])[i]) changedByRepair.set(f.id, f); });
-                if (changedByRepair.size) setSlides(prev => prev.map(s => changedByRepair.get(s.id) || s));
+                if (changedByRepair.size) setSlides(prev => prev.map(s => changedByRepair.has(s.id) ? mergeRuntimeImagery(s, changedByRepair.get(s.id)!) : s));
                 if (repaired.finalChain.ledger.length) setVerificationLedgers(prev => ({ ...prev, [msgId]: repaired.finalChain.ledger }));
                 setChainReports(prev => ({ ...prev, [msgId]: repaired.finalChain }));
                 const before = result.slotReport?.violations.length ?? 0;
@@ -4487,19 +4737,25 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // 2026-10-01 (owner directive "NO BLOCKERS WHEN THE USER ASKS FOR AN OUTPUT"): the slide is no
             // longer dropped from the deck. The bare figure is removed from the title deterministically and
             // the slide ships; the AIR still records which title needed it so the loop learns from it.
-            const { withheldSlideIds, stripNakedFigures } = await import('../services/titleGate');
+            const { withheldSlideIds, rewriteWithheldTitles } = await import('../services/titleGate');
             const finalChain = repairForAir?.finalChain ?? result;
             const ids = withheldSlideIds(finalChain.titleReport);
             if (ids.length) {
-                for (const id of ids) withheld.push({ slideId: id, reason: 'bare figure removed from the title after repair (slide shipped)' });
-                const fix = new Set(ids);
-                setSlides(prev => prev.map(s => !fix.has(s.id) ? s : {
+                for (const id of ids) withheld.push({ slideId: id, reason: 'bare figure restated qualitatively in the title after repair (slide shipped)' });
+                // 2026-10-20 (root-cause audit P1.9): a model rewrite with the slide's evidence in hand (Flash, one
+                // attempt); the deterministic strip ("Many members drive many revenue") is only the fallback.
+                const bodyOf = (id: string) => {
+                    const s: any = ((finalChain as any).slides || result.slides || []).find((x: any) => x?.id === id);
+                    return s ? [s.quote, s.narrative, ...((s.content as any[]) || [])].filter(Boolean).map(String).join(' ') : undefined;
+                };
+                const rewrites = await rewriteWithheldTitles(finalChain.titleReport, { contextFor: bodyOf });
+                setSlides(prev => prev.map(s => !rewrites.has(s.id) ? s : {
                     ...s,
-                    title: stripNakedFigures(String(s.title || '')),
+                    title: rewrites.get(s.id)!,
                     ...((s as any).composerPayload && typeof (s as any).composerPayload.title === 'string'
-                        ? { composerPayload: { ...(s as any).composerPayload, title: stripNakedFigures((s as any).composerPayload.title) } } : {}),
+                        ? { composerPayload: { ...(s as any).composerPayload, title: rewrites.get(s.id)! } } : {}),
                 } as any));
-                console.warn(`[titles] neutralized the bare figure in ${ids.length} slide title(s) and kept the slides: ${ids.join(', ')}`);
+                console.warn(`[titles] restated the bare figure in ${rewrites.size} slide title(s) and kept the slides: ${ids.join(', ')}`);
             }
         } catch (e: any) {
             console.warn('[titles] withhold check failed (non-fatal):', e?.message || e);
@@ -4587,7 +4843,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // panel adopts it ONLY when it has nothing of its own, so a restore can
     // never clobber work in progress.
     useEffect(() => subscribeDurableArtifacts(d => {
-        if (d.slides?.length) setSlides(prev => (prev.length ? prev : d.slides as SlideData[]));
+        // 2026-10-25: the processed deck (images, flowchart, repaired text) replaces a raw re-lift of the same reply.
+        if (d.slides?.length) setSlides(prev => adoptDurableSlides(prev as any[], d.slides as any[]) as SlideData[]);
         if (d.deliverables?.length) setDeliverables(prev => (prev.length ? prev : d.deliverables as any[]));
     }), []);
 
@@ -4633,14 +4890,34 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     const savedFills = Array.isArray((m as any).coverageSlides) ? ((m as any).coverageSlides as any[]) : [];
                     const newSlides = [...parseSlideBlocks(m.content, m.model || 'unknown', originatingQuery), ...savedFills];
                     if (newSlides.length > 0) {
-                        const stamped = newSlides.map(s => ({ ...s, model: m.model || s.model, timestamp: m.timestamp }));
+                        // `_relifted` marks a raw re-lift so the durable (processed) copy of the same reply replaces it.
+                        const stamped = newSlides.map(s => ({ ...s, model: m.model || s.model, timestamp: m.timestamp, _relifted: true, ...artifactRefOf(m as any) }));
                         setSlides(prev => {
+                            // the processed deck of this reply is already present (restored before the lift): keep it
+                            const batch = slideBatchKey({ timestamp: m.timestamp, model: m.model || stamped[0]?.model });
+                            if (prev.some(s => !(s as any)._relifted && slideBatchKey(s as any) === batch)) return prev;
                             const existingIds = new Set(prev.map(s => s.id));
                             const merged = [...prev];
                             for (const s of stamped) if (!existingIds.has(s.id)) merged.push(s);
                             return merged;
                         });
-                        try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
+                        // 2026-10-31 (agent-stack plan, sixth pass): this re-lift runs for every reply with slides on
+                        // every session load, and it used to start a portrait for each persona slide of each raw copy,
+                        // even when the processed deck (portraits included) was already restored and the raw copy was
+                        // dropped: 22 image generations at once per load of the Northeastern session, holding the
+                        // browser's six proxy connections (the request-plan call then timed out unsent). Portraits now
+                        // go only to raw slides that actually entered the deck and still have none, once state settles.
+                        const reliftBatch = slideBatchKey({ timestamp: m.timestamp, model: m.model || stamped[0]?.model });
+                        const reliftIds = new Set(stamped.map(s => String(s.id)));
+                        const portraitsOnceSettled = (tries: number) => {
+                            const live = slidesRef.current;
+                            if (live.some(s => !(s as any)._relifted && slideBatchKey(s as any) === reliftBatch)) return;
+                            const entered = live.filter(s => reliftIds.has(String(s.id)));
+                            if (!entered.length) { if (tries > 0) setTimeout(() => portraitsOnceSettled(tries - 1), 500); return; }
+                            const missing = entered.filter(s => !(s as any).imageUrl);
+                            if (missing.length) { try { generatePersonaSlidePortraits(missing); } catch { /* non-blocking */ } }
+                        };
+                        setTimeout(() => portraitsOnceSettled(10), 0);
                         // NO verification here: this is the session-restore/safety-net
                         // re-lift. The deck was verified at creation; re-verifying with
                         // an empty pointer registry would misreport and could clobber
@@ -4804,7 +5081,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // with internal quotes/newlines. tryRepairJson handles trailing
                 // commas + bracket-balance so a single bad slide doesn't drop
                 // every subsequent slide in the same response.
-                const parsed = JSON.parse(tryRepairJson(match[2].trim()));
+                const parsed = normalizeSlideShape(JSON.parse(tryRepairJson(match[2].trim())), fenceTemplate);
                 const brand: BrandId = parsed.brand ? normalizeBrandId(parsed.brand) : fenceBrand ? normalizeBrandId(fenceBrand) : defaultBrand;
                 // Resolve template: prefer fence label, then JSON `template`, then auto-detect by field
                 let template: any = fenceTemplate || parsed.template;
@@ -4847,6 +5124,22 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const prdFeature = parsed.prdFeature || (Array.isArray(parsed.features) ? { features: parsed.features } : undefined);
                 const systemsInventory = parsed.systemsInventory || (Array.isArray(parsed.systems) ? { systems: parsed.systems } : undefined);
 
+                // 2026-11-09 (owner decision: "keep composites, label them"): a persona that stitches
+                // quotes from several distinct source pages is the genre norm, and its basis is now
+                // AUDITABLE: `persona.compositeOf` counts the distinct source pages behind the card.
+                // It rides the slide object into the chain and the AIR record and surfaces only as a
+                // data attribute on the rendered card, never as visible copy.
+                if (parsed.persona && typeof parsed.persona === 'object') {
+                    const _pageOf = (t: unknown) => String(t || '').replace(/^\[|\]$/g, '').split('#')[0].trim();
+                    const _pages = new Set<string>();
+                    for (const s of (Array.isArray(parsed.sources) ? parsed.sources : [])) { const p = _pageOf(s); if (p.includes('.md')) _pages.add(p); }
+                    for (const pp of (Array.isArray(parsed.persona.painPoints) ? parsed.persona.painPoints : [])) {
+                        const p = _pageOf(pp && typeof pp === 'object' ? (pp as any).source : '');
+                        if (p.includes('.md')) _pages.add(p);
+                    }
+                    if (_pages.size > 1) parsed.persona.compositeOf = _pages.size;
+                }
+
                 // Run post-parse validation to detect corpus meta-commentary,
                 // empty block-quotes, case-study fields that don't mention the
                 // subject, etc. Validator output is used for ops telemetry only;
@@ -4875,6 +5168,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         || (parsed.caseStudy?.subject ? `${parsed.caseStudy.subject}: case study` : '')
                         || parsed.recommendation?.actionTitle
                         || (themeCluster?.takeaway || themeCluster?.patternSignal)
+                        // 2026-10-21: registry archetypes whose statement is the slide (thesis-interstitial.thesis, section
+                        // supporting) name the slide by it instead of "Untitled Slide" (the PPTX slide name).
+                        || parsed.thesis || parsed.statement || parsed.supporting
                         || parsed.quote?.text
                         || parsed.subtitle
                         || 'Untitled Slide',
@@ -5012,6 +5308,27 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // renderers. slideTemplates/pptx.ts is now a legacy fallback only.
     const handleExportDeckPPTX = useCallback(async (opts?: { allGenerations?: boolean }) => {
         if (slides.length === 0) return;
+        // 2026-10-20 (root-cause audit P1.8): verification and repair were not awaited, so a deck could export before
+        // its claims were checked. The export waits for every in-flight chain (bounded).
+        if (chainInFlightRef.current.size) {
+            console.info(`[deck-export] waiting for ${chainInFlightRef.current.size} verification chain(s) to finish`);
+            await Promise.race([Promise.allSettled(Array.from(chainInFlightRef.current.values())), new Promise(r => setTimeout(r, 180_000))]);
+        }
+        // WS-4 L6 (2026-10-30): the export waits for the layout verdict and does not run past an open layout finding.
+        // The findings are shown; the user may still export (that is the human stop), never the code.
+        try {
+            const { readLastLayoutVerdict } = await import('../services/layoutGate');
+            const lv = readLastLayoutVerdict();
+            if (lv && lv.open.length) {
+                const names = lv.open.map(o => `${o.slideId}: ${o.details[0] || 'layout failure'}`).join('\n');
+                setMessages(prev => [...prev, { id: `msg_${Date.now()}_export_block`, role: 'assistant', content: `Export held: ${lv.open.length} slide(s) still fail the layout check.\n${names}`, timestamp: Date.now() } as ChatMessage]);
+                const go = typeof window !== 'undefined' && typeof window.confirm === 'function'
+                    ? window.confirm(`${lv.open.length} slide(s) still fail the layout check:\n\n${names}\n\nExport anyway?`)
+                    : false;
+                if (!go) { console.warn('[deck-export] held on open layout findings'); return; }
+                console.warn('[deck-export] user exported past open layout findings');
+            }
+        } catch (e: any) { console.warn('[deck-export] layout verdict unavailable; the export proceeds with that noted:', e?.message || e); }
         // WS-0a (2026-07-09 slides uplift): a chat can hold MULTIPLE deck generations
         // (re-attempts, revisions). Exporting them all produced a 61-slide file the
         // owner spent hours hand-pruning to 15. Default = the LATEST generation only
@@ -5088,12 +5405,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // DECIEM art rotation / divider fills match the SlideCanvas preview slide for slide.
             const { deckPositions } = await import('../services/slideToStageHtml');
             const exportPositions = deckPositions(exportSlides as any[]);
+            const dropped: string[] = [];
             for (let si = 0; si < exportSlides.length; si++) {
                 const s = exportSlides[si];
                 try {
                     const stageHtml = slideDataToStageHtml(s as any, exportPositions[si]);
                     stageHtmlList.push(stageHtml);
                 } catch (renderErr: any) {
+                    dropped.push(`${s.id} (${s.template}): ${String(renderErr?.message || renderErr).slice(0, 80)}`);
                     console.warn(`[deck-export] render failed for slide ${s.id} (${s.template}):`, renderErr?.message || renderErr);
                 }
             }
@@ -5101,12 +5420,26 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 console.error('[deck-export] no slides rendered - nothing to export');
                 return;
             }
+            // WS-4 L6: a slide dropped at export fails the count check; the export does not ship a shorter deck quietly.
+            if (dropped.length) {
+                setMessages(prev => [...prev, { id: `msg_${Date.now()}_export_drop`, role: 'assistant', content: `Export held: ${dropped.length} of ${exportSlides.length} slide(s) could not be rendered.\n${dropped.join('\n')}`, timestamp: Date.now() } as ChatMessage]);
+                const go = typeof window !== 'undefined' && typeof window.confirm === 'function'
+                    ? window.confirm(`${dropped.length} of ${exportSlides.length} slide(s) could not be rendered:\n\n${dropped.join('\n')}\n\nExport the ${stageHtmlList.length} that rendered?`)
+                    : false;
+                if (!go) { console.warn('[deck-export] held: slides dropped at render'); return; }
+            }
             // Independent export-time coverage re-check (services/coverageRecheck.ts): every item the generation's
             // contract accounted for must still be carried by a slide that is actually exported.
             try {
                 const { recheckExportedCoverage, formatExportCoverageCheck } = await import('../services/coverageRecheck');
                 const gens = Array.from(new Set(exportSlides.map(sl => Number(sl.timestamp || 0))));
-                const notes = gens.map(ts => formatExportCoverageCheck(recheckExportedCoverage(coverageUniverseByTsRef.current.get(ts), exportSlides.filter(sl => Number(sl.timestamp || 0) === ts) as any[]))).filter(Boolean);
+                // Every exported slide counts toward every recorded universe (2026-10-05: grouping by timestamp left
+                // appendix fill slides, stamped separately, out of their own generation's check, so a clean export
+                // reported "35 of 40 items are no longer carried").
+                // The re-check exists to catch items lost because a slide was REJECTED or REMOVED before export; when
+                // nothing was rejected it has nothing to report (live: clean exports announced "28 of 40 no longer carried").
+                const _anyRejected = (exportSlides as any[]).some(sl => sl?.status === 'rejected');
+                const notes = _anyRejected ? gens.map(ts => formatExportCoverageCheck(recheckExportedCoverage(coverageUniverseByTsRef.current.get(ts), exportSlides as any[], slides as any[]))).filter(Boolean) : [];
                 if (notes.length) {
                     console.info(`[deck-export] ${notes.join(' | ')}`);
                     setMessages(prev => [...prev, { id: `coverage_export_${Date.now()}`, role: 'assistant', content: notes.join('\n'), timestamp: Date.now() }]);
@@ -5120,7 +5453,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 }]);
             }
             const deckName = `deck_${new Date().toISOString().split('T')[0]}_${stageHtmlList.length}_slides.pptx`;
-            await exportGoldDeckPptx(stageHtmlList, deckName);
+            // WS-C C2 (2026-10-31): the proxy writes the source run and version into the first slide's notes.
+            const _ref = (exportSlides as any[]).find(sl => sl?.artifactRef?.artifactId)?.artifactRef;
+            await exportGoldDeckPptx(stageHtmlList, deckName, '', _ref ? { runId: _ref.runId, artifactId: _ref.artifactId } : undefined);
         } catch (e: any) {
             console.error('[deck-export] gold deck export failed:', e?.message || e);
         }
@@ -5397,7 +5732,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 selectedModel === 'gemini-3.1-pro-preview' ? 'gemini-3.1-pro-preview'
                 : selectedModel === 'deepseek-v4-pro' ? 'deepseek-v4-pro'
                 : selectedModel === 'deepseek-v4-flash' ? 'deepseek-v4-flash'
-                : 'gemini-3.5-flash';
+                : CLAUDE_REASONING_MODEL;   // 2026-10-05: reasoning deliverable -> Opus 5.5 unless the user picked a model
             const composeResult = await composeNarrative({
                 narrativeRequest: revisionThesis,
                 brand: meta.brand || 'NXT',
@@ -5630,10 +5965,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     // --- Send ---
     /** Requests whose clarification the user already saw or declined. */
     const clarificationAnsweredRef = useRef<Set<string>>(new Set());
+    /** 2026-10-20 (P1.8): verification chains in flight per deck message, awaited by the export. */
+    const chainInFlightRef = useRef<Map<string, Promise<void>>>(new Map());
 
     const handleSend = async (queryOverride?: string) => {
         // The composer's live DOM value: the panel's `input` lags behind typing by design (ComposerTextarea).
         let query = queryOverride || String(inputRef.current?.value ?? input).trim();
+        // 2026-10-20: what the MODEL read the attachment as on this turn (attachmentIntent); downstream passes honor it.
+        let _attachmentRole: 'content-source' | 'evidence' | 'requirements-source' | 'reference' | null = null;
+        // 2026-10-26: whether the model read the request as ALSO wanting research beyond the attachment (null = no model decision)
+        let _attachmentAlsoResearch: boolean | null = null;
         // 2026-05-08 - Allow send with attachments only (no text). When the
         // user drops a file with no prompt, synthesize a "summarize this"
         // default so the assistant gets a non-empty user turn.
@@ -5642,6 +5983,25 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (!query && pendingAttachments.length > 0) {
             query = `Summarize the ${pendingAttachments.length === 1 ? 'attached file' : `${pendingAttachments.length} attached files`} (${pendingAttachments.map(a => a.filename).join(', ')}) and tell me what's most important.`;
         }
+        // 2026-10-20 (root-cause audit P1.7): an answer to the clarification card is MERGED with the request it
+        // clarified. Before, the answer ("recommendations") ran as a new standalone query and the original ask was lost.
+        {
+            const last = messages[messages.length - 1] as any;
+            if (last && last.model === 'clarification' && typeof last.clarificationBypassQuery === 'string' && last.clarificationBypassQuery
+                && !/#[a-z]/i.test(query) && query.length < 400 && query.trim().toLowerCase() !== String(last.clarificationBypassQuery).trim().toLowerCase()) {
+                const merged = `${last.clarificationBypassQuery}\n\nClarification from the user: ${query}`;
+                clarificationAnsweredRef.current.add(merged.trim().toLowerCase());
+                console.info('[clarification] answer merged with the original request');
+                query = merged;
+            }
+        }
+        // 2026-10-20 (P1.6): the model's reading of this request; set after the attachment decision below.
+        let _requestPlan: import('../services/requestPlan').RequestPlan | null = null;
+        let _planPromise: Promise<import('../services/requestPlan').RequestPlan> | null = null;
+        let _sourceDeck: import('../services/sourceParity').SourceDeck | null = null;
+        const _sourceImages: Record<string, string[]> = {};
+        // the attachment's pictures the image critic refused (resolved before any picture is placed)
+        let _sourceScreen: Promise<Set<string>> = Promise.resolve(new Set<string>());
 
         const userMsg: ChatMessage = {
             id: `msg_${Date.now()}`,
@@ -5651,6 +6011,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 : ''),
             timestamp: Date.now(),
         };
+        // WS-1 T3 (2026-10-30): every trace, AI call and verdict this turn produces is keyed to this message.
+        setCurrentMessageId(userMsg.id);
 
         // DF-F2 (2026-08-21) - ASK BEFORE SPENDING THE RUN. Three declared trigger
         // points, and no fourth: the model may not reach for a question whenever it
@@ -5674,9 +6036,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     ? (liveForClarify as any).selectedPackCategories as string[]
                     : [];
                 const request = buildClarificationRequest([
-                    checkObjectiveTrigger(query),
-                    checkPackTrigger(query, packCats),
-                    checkDeliverableTrigger(query),
+                    // 2026-10-05: inside a loaded engagement the engagement objective already names the subject; a bare
+                    // directive ("#meta-themes") is not an underspecified objective.
+                    checkObjectiveTrigger(`${query} ${String((liveForClarify as any)?.researchGoal || '')}`.trim()),
+                    // 2026-10-20 (P1.7): inside a loaded engagement the pack question is about the OBJECTIVE, never
+                    // the chat message ("what can we learn from retail loyalty programs" is an analogy, not a new
+                    // industry); and a message that carries a hashtag has already named its deliverable.
+                    checkPackTrigger(String((liveForClarify as any)?.researchGoal || '').trim() || query, packCats),
+                    ...(/#[a-z]/i.test(query) ? [] : [checkDeliverableTrigger(query)]),
                 ]);
                 if (request) {
                     setMessages(prev => [...prev, userMsg, {
@@ -5762,14 +6129,54 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // uploads/ad-hoc/<slug>/<date>/<file>.md with `kind: ad-hoc-upload`, a manifest type
             // no evidence admission list includes, so an attachment grounded only the ONE turn
             // it was inlined into. Fire-and-forget: never blocks the reply.
+            // 2026-10-23: the request plan starts here, concurrently with the attachment-intent decision below;
+            // the plan block further down awaits it (the two Flash calls ran one after the other, up to 24 s).
+            _planPromise = (async () => {
+                const [{ interpretRequest }, { ARTIFACT_CATALOG }] = await Promise.all([import('../services/requestPlan'), import('../services/artifactCatalog')]);
+                const _ctxForPlan = getContext ? getContext() : context;
+                return interpretRequest({
+                    message: query,
+                    catalogIds: ARTIFACT_CATALOG.map(e => e.id),
+                    objective: String(_ctxForPlan?.researchGoal || ''),
+                    hasAttachment: pendingAttachments.length > 0,
+                    priorDeliverables: deliverables.filter(d => d.status !== 'rejected').map(d => String(d.type)),
+                    timeoutMs: 12_000,
+                });
+            })();
             const _ingestBatch = pendingAttachments
                 .filter(a => (a.parsedText || '').trim().length >= 40 && !/^\s*\[Image upload:/.test(a.parsedText || ''))
                 .map(a => ({ name: a.filename, parsedText: a.parsedText, type: a.mimeType }));
             if (_ingestBatch.length > 0) {
                 const _goalForIngest = liveCtxForSlug?.researchGoal || 'session';
-                ingestUploadedDocuments(_ingestBatch, _goalForIngest, { surface: 'analyst-chat' })
-                    .then(r => console.log(`[Chat] Ingested ${r.archived}/${_ingestBatch.length} chat attachment(s) for ${sessionSlug}: ${r.pages.map(p => p.wikiPath).join(', ')}`))
-                    .catch(e => console.warn('[Chat] chat attachment ingestion failed:', e));
+                // 2026-10-20 (owner directive): the MODEL reads the user's message, hashtags included, and decides
+                // what the attachment is for on this turn. Code only carries that decision out. Live: "#slides from
+                // the attached deck" had run the PRD ledger extractor and written the deck into the corpus because
+                // every attachment was hard-wired to the research-upload path. The attachment is inlined into this
+                // turn's prompt regardless; the decision only governs the corpus write and the ledger extraction.
+                const _queryForIntent = query;
+                // The decision is awaited BEFORE the heavy send path: run concurrently with the grounding build it
+                // timed out behind the blocked main thread (live 2026-10-20: two 46 s timeouts, fallback taken).
+                const { interpretAttachmentIntent } = await import('../services/attachmentIntent');
+                const intent = await interpretAttachmentIntent({
+                    message: _queryForIntent,
+                    attachments: _ingestBatch.map(a => ({ name: a.name, type: a.type, excerpt: String(a.parsedText || '').slice(0, 1800) })),
+                    objective: liveCtxForSlug?.researchGoal || '',
+                    timeoutMs: 12_000,
+                });
+                _attachmentRole = intent.role;
+                if (intent.decidedBy === 'model') _attachmentAlsoResearch = intent.alsoUseResearch;
+                console.info(`[Chat] attachment intent (${intent.decidedBy}): role=${intent.role} persist=${intent.persistToCorpus} extractLedger=${intent.extractLedger} alsoResearch=${intent.alsoUseResearch}; ${intent.note}`);
+                (async () => {
+                    if (!intent.persistToCorpus && !intent.extractLedger) {
+                        setMessages(prev => [...prev, { id: `msg_${Date.now()}_attachment_intent`, role: 'assistant', content: `${intent.note} (${_ingestBatch.map(a => a.name).join(', ')})`, timestamp: Date.now() } as ChatMessage]);
+                        return;
+                    }
+                    const r = await ingestUploadedDocuments(_ingestBatch, _goalForIngest, { surface: 'analyst-chat', analyze: intent.extractLedger });
+                    console.log(`[Chat] Ingested ${r.archived}/${_ingestBatch.length} chat attachment(s) for ${sessionSlug}: ${r.pages.map(p => p.wikiPath).join(', ')}`);
+                    if (!intent.extractLedger) {
+                        setMessages(prev => [...prev, { id: `msg_${Date.now()}_attachment_intent`, role: 'assistant', content: `${intent.note} (${_ingestBatch.map(a => a.name).join(', ')}: ${r.archived} added to the engagement research)`, timestamp: Date.now() } as ChatMessage]);
+                    }
+                })().catch(e => console.warn('[Chat] chat attachment ingestion failed:', e));
             }
         }
 
@@ -5783,6 +6190,64 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // unresolved chunk pointers). See plans/hashtag-pipeline-unification-2026-06-13.md.
 
         // ═══════════════════════════════════════════════════════════════
+        // 2026-10-20 (root-cause audit P1.6): ONE model reading of the request, honored by the prompt (REQUEST PLAN
+        // block), the dispatch below (a question ABOUT an artifact is answered, not regenerated; control hashtags only
+        // when they are the ask), the coverage contract (no padding past a user-limited scope) and the brand.
+        try {
+            const [{ interpretRequest, requestPlanBlock }, { ARTIFACT_CATALOG }, { setCurrentRequestPlanBlock, setCurrentRequestPlan }] = await Promise.all([
+                import('../services/requestPlan'), import('../services/artifactCatalog'), import('../services/corpusChatService'),
+            ]);
+            const _ctxForPlan = getContext ? getContext() : context;
+            _requestPlan = await (_planPromise || interpretRequest({
+                message: query,
+                catalogIds: ARTIFACT_CATALOG.map(e => e.id),
+                objective: String(_ctxForPlan?.researchGoal || ''),
+                hasAttachment: pendingAttachments.length > 0,
+                priorDeliverables: deliverables.filter(d => d.status !== 'rejected').map(d => String(d.type)),
+                timeoutMs: 12_000,
+            }));
+            // 2026-10-26 (live: the attachment model read "The attached slides provide content ... for the Work section of the
+            // new presentation", and this line turned that into "use only the attachment" for the WHOLE deck; the research
+            // corpus, the proof points and the market context the user asked for were all dropped). The attachment is the
+            // only source when nothing beyond it was asked for; when the model read a research ask too, the attachment
+            // supplies its own section and the corpus grounds the rest.
+            if (_attachmentAlsoResearch === true) _requestPlan.useOnlyProvidedContent = false;
+            else if (_attachmentRole === 'content-source') _requestPlan.useOnlyProvidedContent = true;
+            _requestPlan.carryAttachment = _attachmentRole === 'content-source' && !_requestPlan.useOnlyProvidedContent;
+            setCurrentRequestPlanBlock(requestPlanBlock(_requestPlan));
+            setCurrentRequestPlan(_requestPlan);
+            // 2026-10-21 (information parity): the attachment is parsed into a source deck the engine plans against,
+            // checks the reply against, and whose pictures ride onto the mapped output slides.
+            {
+                const { setCurrentSourceDeck } = await import('../services/corpusChatService');
+                if ((_requestPlan.useOnlyProvidedContent || _requestPlan.carryAttachment) && pendingAttachments.length) {
+                    const { parseSourceDeck } = await import('../services/sourceParity');
+                    const text = pendingAttachments.map(a => a.parsedText || '').join('\n\n');
+                    _sourceDeck = parseSourceDeck(text, pendingAttachments[0].filename);
+                    for (const a of pendingAttachments) for (const [k, v] of Object.entries(a.slideImages || {})) _sourceImages[k] = v;
+                    setCurrentSourceDeck(_sourceDeck.slides.length ? _sourceDeck : null);
+                    console.info(`[parity] source deck: ${_sourceDeck.slides.length} slide(s), ${Object.keys(_sourceImages).length} with pictures`);
+                    // 2026-10-26 (owner: "the images are terrible"; the attachment's AI collages rode onto the cover): the
+                    // attachment's pictures are screened while the deck generates; a refused picture is never placed.
+                    const _allPics = Object.values(_sourceImages).flat();
+                    if (_allPics.length) _sourceScreen = import('../services/imageScreen').then(async m => {
+                        const verdicts = await m.screenPictures(_allPics);
+                        const refused = m.refusedPictures(verdicts);
+                        if (refused.size) console.info(`[parity] ${refused.size} of ${_allPics.length} attached picture(s) refused by the image critic: ${Array.from(verdicts.values()).filter(x => !x.accept).map(x => `${x.kind}: ${x.reason}`).slice(0, 4).join(' | ')}`);
+                        return refused;
+                    }).catch(() => new Set<string>());
+                } else setCurrentSourceDeck(null);
+            }
+            console.info(`[request-plan] (${_requestPlan.decidedBy}) mode=${_requestPlan.mode} deliverable=${_requestPlan.deliverable || 'none'} counts=${JSON.stringify(_requestPlan.counts)} limited=${_requestPlan.userLimitedScope} onlyProvided=${_requestPlan.useOnlyProvidedContent} carryAttachment=${!!_requestPlan.carryAttachment} section=${_requestPlan.attachmentSection || '-'} perSlide=${JSON.stringify(_requestPlan.perSlide || [])} brand=${_requestPlan.brand || '-'}; ${_requestPlan.note}`);
+            if (_requestPlan.mode === 'question' && /#[a-z]/i.test(query)) {
+                // The hashtag names what the question is ABOUT; without it the dispatch answers in prose.
+                query = query.replace(/#[a-z][\w-]*/gi, m => m.slice(1)).replace(/\s+/g, ' ').trim();
+                console.info('[request-plan] question about an artifact: answering in prose, not regenerating');
+            }
+        } catch (e: any) {
+            console.warn('[request-plan] skipped (non-fatal):', e?.message || e);
+        }
+
         // 2026-05-12 - HTML ARTIFACT DIRECTIVES (Sprints H1/H2/H4)
         // Five generation directives produce NXT/NU-branded HTML artifacts
         // via /api/artifacts. All compose verbalized-sampling +
@@ -5791,7 +6256,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // ═══════════════════════════════════════════════════════════════
 
         // --- #help (bare) - hashtag reference guide -----------------------
-        if (parseHelpDirective(query).triggered) {
+        if (parseHelpDirective(query).triggered && !_requestPlan?.deliverable) {   // 2026-10-20 (P1.6): only when #help is the ask
             const helpMsgId = `msg_${Date.now()}_help`;
             setMessages(prev => [...prev, {
                 id: helpMsgId,
@@ -5908,7 +6373,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
 
         // --- #artifacts (bare - library list) -----------------------------
-        if (parseArtifactsLibraryDirective(query).triggered) {
+        if (parseArtifactsLibraryDirective(query).triggered && !_requestPlan?.deliverable) {   // 2026-10-20 (P1.6)
             const libMsgId = `msg_${Date.now()}_artifacts_lib`;
             setMessages(prev => [...prev, {
                 id: libMsgId,
@@ -6009,13 +6474,26 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 timestamp: Date.now(),
             }]);
             try {
-                // Load both skills in parallel.
-                const [vsResp, htmlResp] = await Promise.all([
+                // Load the skills in parallel. 2026-11-08 (live "#report full of AI slop"
+                // defect): this path loaded ONLY verbalized-sampling + html-deliverable-
+                // composer; the QUALITY_SKILL_COMPOSITION bundle (human-voice-editor and,
+                // for reports, source-ranker / contradiction-finder / second-order-thinker)
+                // that every structured deliverable auto-loads never reached the most
+                // prose-heavy surface in the product. The bundle is SKILL.md files, stable
+                // across engagements, so it rides the cached system-prompt prefix.
+                const { loadComposedQualitySkills } = await import('../services/deliverableFrameworks');
+                const _qualityType = (directive.generator === '#report' || directive.generator === '#whitepaper')
+                    ? 'STRATEGIC_REPORT'
+                    : (directive.generator === '#prd' ? 'PRD' : 'HTML_DOCUMENT');
+                const [vsResp, htmlResp, qualityResp] = await Promise.all([
                     fetch('/skills/verbalized-sampling/SKILL.md').then(r => r.ok ? r.text() : ''),
                     fetch('/skills/html-deliverable-composer/SKILL.md').then(r => r.ok ? r.text() : ''),
+                    loadComposedQualitySkills(_qualityType).catch(() => ''),
                 ]);
                 if (htmlResp.length > 0) console.log(`[${directive.generator}] Loaded html-deliverable-composer SKILL.md (${htmlResp.length} chars)`);
                 if (vsResp.length > 0) console.log(`[${directive.generator}] Loaded verbalized-sampling SKILL.md (${vsResp.length} chars)`);
+                if (qualityResp.length > 0) console.log(`[${directive.generator}] Loaded quality-skill composition ${_qualityType} (${qualityResp.length} chars)`);
+                else console.warn(`[${directive.generator}] quality-skill composition ${_qualityType} EMPTY - the writing contract is not in this prompt`);
 
                 const liveCtx = getContext ? getContext() : context;
                 const upFiles = (liveCtx?.uploadedFiles as any[]) || [];
@@ -6112,6 +6590,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     '#whitepaper': 'Produce a CONSULTING-GRADE STRATEGIC WHITEPAPER, deep and fully framed. Length 2500-6000 words of visible prose. MANDATORY structure: (1) a diagnostic action-title + 500-800 word executive summary in SCQA; (2) FRAME THE SPACE - a substantial section on where this domain is now, the forces shaping it, and where it is heading; (3) 4-6 KEY FINDINGS, each a claim + 3-5 sentences of analysis + at least one VERBATIM cited quote from a NAMED external source + a 2-4 sentence case study where the evidence supports one; (4) OPPORTUNITIES tied to named findings; (5) CHALLENGES / RISKS with why each bites; (6) RECOMMENDED MOVES that reinforce each other (Rumelt coherence). Weave 2-3 named sources per paragraph showing convergent evidence. EVIDENCE FLOOR: >=8 verbatim cited quotes from >=5 distinct external sources. If any section is a stub or the space is not framed, EXPAND before returning. A thin whitepaper is a failure. Primary VS layer: section IA.',
                     '#playground': 'Produce a SELF-CONTAINED INTERACTIVE HTML playground. Primary VS layer: INTERACTION PATTERN - enumerate 5+ patterns (sliders, before/after swap, drag-to-position, easing-curve picker / Bezier, code-with-live-preview, motion timeline, scrubber) and commit to the pattern that actually visualizes the parameter shape. Avoid the slider-only default. Include a live preview area + a "Copy as prompt" button that serializes the user\'s settings as a prompt string to paste back into HiC.',
                     '#questionnaire': 'Produce a STAKEHOLDER QUESTIONNAIRE for the decisions the corpus cannot settle. Length 600-1500 words. Open with the decision at stake (one sentence judgment about the subject). Then 8-15 numbered questions grouped by theme; every question names the person or role who holds the answer, states why the corpus cannot answer it (cite the nearest evidence by pointer), and offers the answer format (scale, choice, free text). Close with how the answers change the recommendation. Never write that evidence is limited; ask the question instead.',
+                    '#faq': 'Produce an FAQ DOCUMENT answering the questions the corpus can actually settle about the subject. 12-20 question/answer pairs grouped under 3-5 thematic section headings. Each question is a real stakeholder question in plain words (who/what/why/how), never a topic label. Each answer is 2-5 sentences, declarative, grounded: every evidence sentence carries its corpus pointer, and at least half the answers include a verbatim cited quote from a named source. Order sections from orientation questions to decision questions. If the corpus cannot answer a candidate question, omit that question entirely and silently. Primary VS layer: question taxonomy - enumerate 5 grouping schemes (by stakeholder, by lifecycle stage, by decision, by objection, by system) and commit.',
+                    '#studyguide': 'Produce a STUDY GUIDE for someone who must master this corpus. Structure: (1) a one-paragraph orientation stating what the material covers and the single most important judgment it supports; (2) 4-7 topic modules, each with: the core idea in 2-4 sentences, 3-6 key terms each defined in one plain sentence, one verbatim cited quote that anchors the module, and 2-3 self-check questions WITH model answers inside a <details><summary>Answer</summary>...</details> reveal; (3) a closing synthesis module connecting the topics into one argument. Every evidence sentence carries its corpus pointer. Qualitative language only; numbers appear only inside cited quotes. Primary VS layer: module sequence - enumerate 5 orderings (chronological, foundational-to-advanced, problem-to-solution, actor-centered, system-centered) and commit.',
+                    '#chronology': 'Produce a SOURCE CHRONOLOGY: a dated timeline of events drawn FROM the corpus, never a forward-looking plan. 10-25 entries in strict date order, each entry: the date exactly as the cited chunk provenance or chunk text states it (year, month-year, or full date; never invented precision), a one-sentence event statement naming the actor and the action, and the corpus pointer. Where sources disagree on a date, keep both with their citations. Group entries under 3-6 era headings whose titles state what changed in that era. Lay the entries out as a vertical timeline (CSS border-left rail with date markers, no SVG). Entries whose date cannot be established from a cited chunk are omitted. Primary VS layer: era segmentation.',
+                    '#flashcards': 'Produce a FLASHCARD SET for active recall over this corpus. 16-30 cards grouped under 3-5 topic headings. Each card is a <details> element: the <summary> face carries the prompt (a term to define, a question to answer, or a claim to evaluate), the body carries the answer in 1-3 plain sentences plus the corpus pointer that grounds it, and, where a verbatim quote IS the best answer, the quote with its named source. Mix card types: term-definition, question-answer, who-said-this quote attribution, and claim-evaluation. Face text never gives away the answer. Card bodies are grounded; a card the corpus cannot answer is omitted. Style the summary faces as tactile cards (border, radius 2-4px, pointer cursor, generous padding). Primary VS layer: card-type mix.',
+                    '#quiz': 'Produce a KNOWLEDGE QUIZ over this corpus. 10-16 multiple-choice questions grouped under 2-4 section headings, ordered easy to hard. Each question: a plain-words stem about the subject (never "according to the corpus"), four options labeled A-D with exactly one correct, and a <details><summary>Answer</summary>...</details> reveal containing the correct letter, a 1-3 sentence explanation of WHY it is correct, the corpus pointer that grounds it, and one sentence on why the strongest distractor is wrong. Distractors are plausible and drawn from real adjacent facts in the corpus, never absurd. A question the corpus cannot ground is omitted. Primary VS layer: cognitive-level mix (recall / comprehension / application / analysis) - state the mix and commit.',
+                    '#datatable': 'Produce an EVIDENCE DATA TABLE: structured comparison extracted across the corpus. First, VS-enumerate 5 candidate table shapes (entities x attributes) that the corpus can actually populate - e.g. vendors x capabilities, stakeholders x concerns, systems x integration status, initiatives x outcomes - and commit to the one with the densest evidence. Then emit: a one-paragraph lead stating the judgment the table supports; ONE primary HTML table, 4-12 rows x 3-7 columns, header row + row-label column, every cell either a short grounded phrase or a verbatim cited fragment, and a final Sources column carrying the corpus pointer(s) per row; below the table, 3-5 reading notes stating the pattern each notable row or column shows. Cells the corpus cannot fill read "not evidenced" (plain, lowercase), never a guess. No fabricated values; numbers only inside cited quotes.',
+                    '#critique': 'Produce an EVIDENCE CRITIQUE of the corpus material on this subject: where the sources are strong, where they are weak, and what a decision-maker should trust. Structure: (1) a verdict paragraph stating what the body of evidence does and does not establish; (2) STRENGTHS - 3-5 named convergences, each citing at least two INDEPENDENT sources (different authors or organizations) with pointers; (3) WEAKNESSES - 3-6 specific failures, each naming the source and the defect (single-origin claim repeated across outlets, correlation stated as causation, vendor self-report, stale date, population mismatch), each with its pointer; (4) CONTESTED GROUND - claims where sources disagree, both sides quoted with citations; (5) WHAT TO TRUST - a closing ranking of which findings are decision-grade and which need verification. The critique targets the SOURCES, never the research process or the corpus apparatus; name authors, outlets, and documents. Primary VS layer: critique framework.',
                     '#approaches': `Produce a NATIVE VS-MULTI approach picker. Generate exactly 6 distinct approaches in a 2×3 HTML grid: row 1 = 3 Defensible Consensus approaches (probabilities in full distribution), row 2 = 3 Non-Obvious Bets (probability < 0.05, explicitly distinct from row 1 by named axis: persona, mechanism, data source, temporal scope, or metaphor). Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. The two rows are visually differentiated (chartreuse-bordered consensus, cyan-bordered bets).`,
                 };
 
@@ -6132,6 +6617,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     'SCOPE. A chunk about another product, vendor, or organization is used only as a NAMED analogy ("by analogy, <Vendor>\'s ..."), never as a description of the subject. Vendor documentation and primary announcements outrank social posts and commentary for what the subject does; social posts are the evidence for practitioner experience.',
                     'DERIVED SUMMARIES. The THEME OUTLINE block is an outline aid built from the corpus. It is not a source: never cite a theme, never write "via theme" or "paraphrased from theme", never put anything but pointers inside a citation bracket. Cite the CORPUS pointer that carries the fact.',
                     'GUARANTEES. Before writing that a check, gate, tool, or process "is deterministic", "cannot drift", or "makes output correct", name what it checks and what it does not; a passing check proves the checked properties only.',
+                    'TITLES AND CHROME (2026-11-09 QA). A heading carries neither a figure nor a citation: the title states the judgment, the body sentence carries the evidence. Never render a Confidence column, confidence rating, verdict-strength label, or any epistemic bookkeeping as visible content, in tables included. When restating a named study\'s numbers, quote the study\'s sentence verbatim so the figures ride inside the quotation marks; a paraphrase that keeps the numbers is a violation. Never paste a source sentence as your own unquoted prose.',
                 ].join('\n');
 
                 const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== DERIVED THEME OUTLINE (${themesArr.length} themes; an outline aid, NOT citable; cite CORPUS pointers only) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== EVIDENCE CONTRACT (binding on every sentence; checked deterministically after generation) ===\n${evidenceContract}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content: the artifact's <main> content. Do NOT wrap in <html>/<head>/<body>. Do NOT emit any footer, button, "Copy as prompt", "Save as PDF", "Open in chat", export bar, "Generation audit", verbalized-sampling commentary, artifact metadata, JSON script, or run / version chrome: the runtime owns every one of those and strips any you write. Put the <vs_thinking> block FIRST (it is removed before render), then the document, and nothing after the document.`;
@@ -6158,6 +6644,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     if (_gc?.antiPatterns) _parts.push('=== ANTI-PATTERNS TO AVOID (from wiki) ===\n' + String(_gc.antiPatterns).slice(0, 8000));
                     if (_gc?.crossEngagementPatterns) _parts.push('=== CROSS-ENGAGEMENT PORTFOLIO PATTERNS (from PRIOR, possibly DIFFERENT-INDUSTRY engagements) ===\nThese are observations mined from EARLIER runs that may belong to a COMPLETELY DIFFERENT INDUSTRY than the current subject. Use a pattern ONLY if it genuinely fits the user\'s subject and corpus. NEVER import their domain, named entities, or vocabulary (e.g. higher-ed / co-op / donor / advancement / student) into an unrelated subject - if a pattern is off-domain, ignore it entirely.\n' + String(_gc.crossEngagementPatterns).slice(0, 6000));
                     if (_gc?.engagementGoals) _parts.push(String(_gc.engagementGoals));
+                    // WS-6 M1 (2026-10-30): memory facts relevant to the objective (never the whole store)
+                    if (_gc?.memoryFacts) _parts.push('=== REMEMBERED FACTS (admitted memory relevant to this objective; use when they bear on the ask) ===\n' + String(_gc.memoryFacts));
                     genContextBlock = _parts.join('\n\n');
                     if (genContextBlock) console.log(`[${directive.generator}] loadGenerationContext injected (framework=${!!_gc?.framework}, antiPatterns=${!!_gc?.antiPatterns}, patterns=${!!_gc?.crossEngagementPatterns})`);
                 } catch (e: any) {
@@ -6170,7 +6658,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const systemPrompt = [
                     vsResp ? vsResp + '\n\n---\n\n' : '',
                     htmlResp ? htmlResp + '\n\n---\n\n' : '',
-                    (vsResp || htmlResp) ? _cacheBreak : '',
+                    qualityResp ? qualityResp + '\n\n---\n\n' : '',
+                    (vsResp || htmlResp || qualityResp) ? _cacheBreak : '',
                     genContextBlock ? genContextBlock + '\n\n---\n\n' : '',
                     `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). ${({ NU: 'Brand is NU: use the NU token set (var(--nu-red), Lato) only.', DECIEM: 'Brand is DECIEM: use the DECIEM token set only (var(--deciem-pink), var(--deciem-cyan), var(--deciem-purple), var(--deciem-orange); Poppins Bold uppercase titles, Josefin Sans body, Nunito for tables); never NU or NXT tokens.' } as Record<string, string>)[String(directive.brand || '').toUpperCase()] || 'Brand is NXT: use the NXT token set only (never NU or DECIEM tokens).'} Honor the FRAMEWORK SPECIFICATION and ANTI-PATTERNS above. Compose the artifact body. The /view endpoint will inject the wrapper.
 
@@ -6235,7 +6724,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // the trace + AIR carry the whole document, not a fragment.
                 // The model that actually served the last generation call (a fallback after a timeout differs from _artModel).
                 let _lastServedModel: string = _artModel;
-                const _runGen = async (extra: string, opts?: { userContent?: string; stepLabel?: string; systemOverride?: string; raw?: boolean; maxTokens?: number; continueOnTruncation?: boolean }): Promise<string> => {
+                const _runGen = async (extra: string, opts?: { userContent?: string; stepLabel?: string; systemOverride?: string; raw?: boolean; maxTokens?: number; continueOnTruncation?: boolean; revision?: { reason: string } }): Promise<string> => {
                     const _payload = opts?.userContent ?? (userPayload + refineBlock + extra);
                     const _system = opts?.systemOverride ?? systemPrompt;
                     const _t0 = Date.now();
@@ -6305,6 +6794,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                             buildPayload: (_r, t) => ({ kind: _htmlKind, html: t }),
                             // W2: the routing decision (model + scored reason + alternatives) rides into modelTrace.
                             routing: { model: _artModel, reason: _artDecision.reason },
+                            // WS-C C1 (2026-10-31): a #refine revises the saved artifact; a delta turn revises this turn's draft.
+                            revision: opts?.revision || (refineTarget ? { reason: `refine: ${refineTarget.instruction || 'tighten the argument and deepen the evidence'}` } : undefined),
                         },
                     });
                     const text = _emit.result.text;
@@ -6439,7 +6930,12 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         console.warn(`[#prd] typed roots unavailable (${_prdMissing.join('; ')}); generating on the standard artifact path`);
                         htmlBody = await _runGen('');
                     } else {
-                        const _compiled = await compilePrdFromLedger(_prdInputs, _prdGen, { onProgress: _prdProgress });
+                        // Scope partition (2026-10-06): out-of-scope items and meeting admin tasks are accounted for as Won't
+                        // rows without a model batch; only the requested scope is written by the model.
+                        const { prdScopePartition, isProjectWorkRequirement } = await import('../services/deliverableCoverage');
+                        const _part = prdScopePartition(_allLedger as any, String(directive.topic || query || '').replace(/#[\w-]+/g, ' '));
+                        if (_part.outOfScope.size) console.info(`[#prd] scope: ${_part.inScope} item(s) in scope${_part.focus.length ? ` (focus: ${_part.focus.join(', ')})` : ''}; ${_part.outOfScope.size} accounted for as Won't without a model batch`);
+                        const _compiled = await compilePrdFromLedger(_prdInputs, _prdGen, { onProgress: _prdProgress, outOfScope: _part.outOfScope, isProjectWork: (t: string) => isProjectWorkRequirement(t, _part.parties) });
                         const _rep: any = _compiled.report || {};
                         const _cov: any = _rep.coverage || {};
                         console.info(`[#prd] compiled PrdAir: ${_compiled.air.graph.requirements.length} requirement(s) by root ${JSON.stringify(_cov.requirementsByRootType || {})}; ledger coverage ${_cov.covered ?? 0}/${_cov.items ?? 0} (${_cov.coveragePct ?? 100}%), ${(_cov.uncoveredByModel || []).length} by deterministic fallback; passes ${JSON.stringify(_rep.passes || {})}; ${_rep.droppedQuotes?.length ?? 0} unverifiable quote(s) dropped, ${_rep.hypothesisRequirementIds?.length ?? 0} requirement(s) typed HYPOTHESIS, validation ${_rep.validation?.ok ? 'ok' : `${(_rep.validation?.errors || []).length} error(s)`}`);
@@ -6457,6 +6953,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         const stamped = _deck.map((sl, i) => ({
                             ...sl, status: 'draft', timestamp: _stampTs, model: _msgModel, id: sl.id || `${buildMsgId}_prd_${i + 1}`,
                         })) as any[];
+                        try { const { freezeCitationLabels } = await import('../services/slideToStageHtml'); for (const s of stamped as any[]) s._citeLabels = freezeCitationLabels(s, s._citeLabels); } catch { /* labels resolve live */ }
                         setSlides(prev => [...prev, ...stamped]);
                         setMessages(prev => prev.map(m => m.id === buildMsgId ? { ...m, timestamp: _stampTs, model: _msgModel } : m));
                         verifyAndAttachLedger(stamped as any, buildMsgId);
@@ -6482,7 +6979,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                             const { planHtmlExtension, mergeExtendedSections } = await import('../services/htmlDepthDelta');
                             const plan = planHtmlExtension(htmlBody, _floor);
                             const thinNames = plan.thinSections.map(sx => `${sx.heading} (${sx.words}w)`).join('; ');
-                            const extendedReply = await _runGen('', { userContent: plan.deltaPrompt, stepLabel: `${directive.generator} depth delta turn` });
+                            const extendedReply = await _runGen('', { userContent: plan.deltaPrompt, stepLabel: `${directive.generator} depth delta turn`, revision: { reason: `extended thin sections: ${thinNames || 'below the depth floor'}` } });
                             const merged = mergeExtendedSections(htmlBody, extendedReply, plan);
                             const w1 = _visibleWords(merged.html);
                             console.info(`[${directive.generator}] depth DELTA TURN: ${w0}w -> ${w1}w (floor ${_floor}; ${merged.replaced} section(s) extended in place, ${merged.appended} appended; thin: ${thinNames || 'none named'})`);
@@ -7001,10 +7498,13 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     if (_inp && briefs?.length) {
                         let filled = 0, universe = 0;
                         for (const b of briefs) {
-                            const r = await C.runCoverageContract(C.protoBriefCoverageDoc(b, _inp.ledger), _inp.ledger, _inp.areas, _inp.stats);
+                            const r = await C.runCoverageContract(C.protoBriefCoverageDoc(b, _inp.ledger), _inp.ledger, _inp.areas, _inp.stats, _inp.focus);
                             filled += r.filled.length; universe = r.universe;
                         }
-                        if (universe) _protoCoverage = `\n\nCoverage: each brief accounts for all ${universe} stated features and feedback items from the client documents; ${filled} were added to the briefs' client scope lists (with the reviewers' keep, change or remove disposition) for the build to honor.`;
+                        // Per-brief average (2026-10-05: the summed total across five briefs, "2468 were added", read
+                        // as more items than the 908 that exist).
+                        const perBrief = Math.round(filled / briefs.length);
+                        if (universe) _protoCoverage = `\n\nCoverage: each brief accounts for all ${universe} stated features and feedback items from the client documents; on average ${perBrief} per brief are carried in its client scope list (with the reviewers' keep, change or remove disposition) for the build to honor, the rest in the brief's own text.`;
                     }
                 } catch (e: any) { console.warn('[coverage] proto contract skipped (non-fatal):', e?.message || e); }
                 setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
@@ -7194,7 +7694,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 // recall - not just uploads. Set in App.tsx's data-collection
                 // step on window.__hicCorpusComposition.
                 try {
-                    const comp = (window as any).__hicCorpusComposition;
+                    const comp = corpusComposition<any>();
                     if (comp && typeof comp === 'object') {
                         const total = Math.max(1, comp.totalKB || 0);
                         const upPct = Math.round((comp.uploadedKB || 0) / total * 100);
@@ -7389,17 +7889,23 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 if (!handler) continue;
                 const upliftStart = Date.now();
                 try {
-                    if (entry.id === 'brief-dialog' && !upliftCorpus) {
+                    // 2026-11-08 (live hallucination): audio-overview rides the SAME dialogue engine as
+                    // brief-dialog but this gate only fed brief-dialog, so the audio script generated
+                    // against an EMPTY corpus and invented its evidence (a 2018 student-AI statistic
+                    // against an October-2026 objective window). Every dialogue kind gets the corpus.
+                    if ((entry.id === 'brief-dialog' || entry.id === 'audio-overview' || entry.id === 'infographic') && !upliftCorpus) {
                         upliftCorpus = await assembleUpliftCorpus(liveCtx, parsed.cleanPrompt, pendingAttachments);
                     }
                     const built = await handler({ ctx: liveCtx, cleanPrompt: parsed.cleanPrompt, brand, corpusText: upliftCorpus });
+                    const { stripPointerBrackets: _spb } = await import('../services/slidePostProcessor');
                     let artifact: FreeformArtifact = {
                         id: `uplift_${kind}_${Date.now()}`,
                         type: 'freeform',
                         kind,
                         brand,
                         title: built.title,
-                        html: built.html,
+                        // raw manifest pointers are provenance, not reader-facing text (2026-10-05)
+                        html: _spb(built.html),
                         citations: built.citations,
                         createdAt: Date.now(),
                         updatedAt: Date.now(),
@@ -7424,13 +7930,35 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     } catch { /* non-fatal */ }
                     useDesignDeskStore.getState().addArtifact(artifact);
                     useDesignDeskStore.getState().setActiveArtifact(artifact.id);
+                    // 2026-11-09 (NotebookLM U2, unified gallery): the uplift kinds previously lived ONLY
+                    // in browser IndexedDB, invisible to #artifacts and unreachable by LAUNCH on another
+                    // machine. Dual-write the rendered HTML into the artifact store (best-effort: the
+                    // Design Desk copy is the primary surface and a store hiccup never fails the run).
+                    let _galleryLine = '';
+                    try {
+                        const { saveArtifact: _saveToGallery } = await import('../services/artifactLibrary');
+                        const _saved = await _saveToGallery({
+                            title: artifact.title,
+                            generator: `#${kind}`,
+                            html_source: artifact.html,
+                            topic: (parsed.cleanPrompt || '').slice(0, 300),
+                            brand: brandVariantOfId(brand),
+                        });
+                        _galleryLine = `\nSaved to the artifact library as \`${_saved.slug}\` (run #artifacts to relaunch it anytime).`;
+                    } catch (gErr: any) {
+                        console.warn(`[Uplift/${kind}] gallery save failed (non-fatal):`, gErr?.message || gErr);
+                    }
                     const elapsedMs = Date.now() - upliftStart;
                     deliveryMessages.push({
                         id: `msg_${Date.now()}_${kind}_gen`,
                         role: 'assistant',
-                        content: asSlide
+                        content: (asSlide
                             ? `Generated #${kind} #slide: "${artifact.title}". Rendered as a 1920x1080 slide in the Design Desk (${(elapsedMs / 1000).toFixed(1)}s).`
-                            : `Generated #${kind}: "${artifact.title}". Open the Design Desk to view (${(elapsedMs / 1000).toFixed(1)}s).${_upliftCoverage.length ? `\n\n${_upliftCoverage.join('\n')}` : ''}`,
+                            : `Generated #${kind}: "${artifact.title}". Open the Design Desk to view (${(elapsedMs / 1000).toFixed(1)}s).${_upliftCoverage.length ? `\n\n${_upliftCoverage.join('\n')}` : ''}`)
+                            // 2026-11-08: grounding/degradation receipt (verification removals, empty-corpus
+                            // qualitative mode) is named in the CHAT, never inside the artifact body.
+                            + (built.receipt ? `\n\n${built.receipt}` : '')
+                            + _galleryLine,
                         timestamp: Date.now(),
                         deliveredArtifactId: artifact.id,
                         deliveredArtifactType: kind as any,
@@ -7574,7 +8102,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     }
                     const newSlides = parseSlideBlocks(result.deckMarkdown, msgForLift.model, query);
                     if (newSlides.length > 0) {
-                        const stamped = newSlides.map(s => ({ ...s, model: msgForLift.model, timestamp: msgForLift.timestamp }));
+                        const stamped = newSlides.map(s => ({ ...s, model: msgForLift.model, timestamp: msgForLift.timestamp, ...artifactRefOf(msgForLift as any) }));
+                        try { const { freezeCitationLabels } = await import('../services/slideToStageHtml'); for (const s of stamped as any[]) s._citeLabels = freezeCitationLabels(s, s._citeLabels); } catch { /* labels resolve live */ }
                         setSlides(prev => [...prev, ...stamped]);
                         try { generatePersonaSlidePortraits(stamped); } catch { /* non-blocking */ }
                         verifyAndAttachLedger(stamped, chunkMsgId);
@@ -7622,7 +8151,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         if (intent.kind === 'deck_edit') {
                             setMessages(prev => [...prev, { id: noticeId, role: 'assistant', content: `Rewriting ${intent.slideIndex ? `slide ${intent.slideIndex}` : `${draftDeck.length} slides`} (${intent.op})...`, model: DEFAULT_MODELS.fast_generation, timestamp: Date.now() } as ChatMessage]);
                             const res = await applyDeckTextPass(draftDeck as any[], intent.op, query, intent.slideIndex);
-                            if (res.updated.length) setSlides(prev => prev.map(s => (res.updated as any[]).find((u: any) => u.id === s.id) || s));
+                            if (res.updated.length) setSlides(prev => prev.map(s => { const u = (res.updated as any[]).find((u: any) => u.id === s.id); return u ? mergeRuntimeImagery(s, u) : s; }));
                             const summary = [
                                 res.updated.length ? `Rewrote ${res.editedFields} field${res.editedFields === 1 ? '' : 's'} across ${res.updated.length} slide${res.updated.length === 1 ? '' : 's'} (${intent.op}).` : 'The current copy already reads tight; no fields needed rewriting.',
                                 res.skippedLocked ? `${res.skippedLocked} locked slide${res.skippedLocked === 1 ? '' : 's'} untouched.` : '',
@@ -7676,9 +8205,26 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
             model: routedModelId,
             timestamp: Date.now(),
         }]);
+        // 2026-10-06: a #case-study about PEERS needs the peers' own documentation; the engagement corpus was collected
+        // for the client. Named peers are collected first (bounded, non-fatal) and retrieved like every other source.
+        if (/#case-?stud/i.test(enrichedQuery)) {
+            try {
+                const { ensurePeerCaseEvidence } = await import('../services/peerCaseEvidence');
+                const _goal = String((liveContext as any)?.researchGoal || '');
+                const _client = (/(?:for|at)\s+([A-Z][\w&.'-]+(?:\s+[A-Z][\w&.'-]+){0,4})/.exec(_goal)?.[1] || '').replace(/'s$/, '');
+                const _pe = await ensurePeerCaseEvidence({
+                    request: enrichedQuery.replace(/#[\w-]+/g, ' ').replace(/\s+/g, ' ').trim(),
+                    objective: _goal,
+                    engagement: currentEngagementSlug() || '',
+                    clientNames: _client ? [_client, _client.split(' ')[0]] : [],
+                    onProgress: (msg: string) => setMessages(prev => prev.map(m => m.id === progressMsgId ? { ...m, content: msg } : m)),
+                });
+                if (_pe.peers.length) console.info(`[#case-study] peer evidence: ${_pe.pages} page(s) for ${_pe.peers.join(', ')}${_pe.error ? ` (${_pe.error})` : ''}`);
+            } catch (e: any) { console.warn('[#case-study] peer evidence skipped (non-fatal):', e?.message || e); }
+        }
         let response: ChatMessage;
         try {
-            response = await sendChatMessage(selectedModel, enrichedQuery, messages, liveContext, {
+            response = await sendChatMessage(selectedModel, _requestPlan?.useOnlyProvidedContent ? query : enrichedQuery, messages, liveContext, {
                 signal: sendAbort.signal,
                 onProgress: (status: string) => {
                     setMessages(prev => prev.map(m => m.id === progressMsgId ? { ...m, content: status } : m));
@@ -7727,9 +8273,153 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
             // safety-net useEffect doesn't double-lift on the next render.
             liftedArtifactMsgIdsRef.current.add(response.id);
             if (newSlides.length > 0) {
-                const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp }));
+                const stampedSlides = newSlides.map(s => ({ ...s, model: response.model || s.model, timestamp: response.timestamp, ...artifactRefOf(response as any) }));
+                // 2026-10-21 (information parity): each output slide carries the picture of the source slide it maps to
+                // (cover background, hero panel on dividers / interstitials, header scene on content-rail archetypes).
+                if (_requestPlan?.useOnlyProvidedContent) {
+                    // The client's words stay as written: the composer skips its cliche rewrite on these slides.
+                    for (const sl of stampedSlides as any[]) if (sl.composerPayload && typeof sl.composerPayload === 'object') sl.composerPayload._provided = true;
+                } else if (_requestPlan?.carryAttachment && _sourceDeck) {
+                    // 2026-10-26: in a research deck with an attached section, only the slides that carry an attached slide
+                    // are the client's own words; the research slides go through every corpus pass.
+                    try {
+                        const { sourceSlideFor } = await import('../services/sourceParity');
+                        let marked = 0;
+                        for (const sl of stampedSlides as any[]) {
+                            if (!sl.composerPayload || typeof sl.composerPayload !== 'object') continue;
+                            // the cover, agenda and thesis summarize the whole deck (run 39: the agenda listed the Work items and
+                            // was marked as an attached slide, so the Work divider was never found)
+                            if (/^slides:(?:cover|agenda|thesis-interstitial)$/.test(String(sl.template || ''))) continue;
+                            if (sourceSlideFor(_sourceDeck, JSON.stringify(sl.composerPayload)) >= 0) { sl.composerPayload._provided = true; sl.composerPayload._attachedSection = true; marked++; }
+                        }
+                        console.info(`[parity] attached section: ${marked} of ${stampedSlides.length} slide(s) carry the attachment; the rest are research slides`);
+                        // 2026-10-26 (live: the user asked for a "Work" section; no slide said "Work"): the divider that opens
+                        // the attached section carries the name the user gave it.
+                        const name = String(_requestPlan.attachmentSection || '').trim();
+                        // the attached section is the LONGEST run of attached slides; its first slide (or the slide just before
+                        // it) is the divider that opens it
+                        let first = -1;
+                        {
+                            const arr = stampedSlides as any[];
+                            let bestStart = -1, bestLen = 0, runStart = -1;
+                            for (let i = 0; i <= arr.length; i++) {
+                                const on = i < arr.length && !!arr[i]?.composerPayload?._attachedSection;
+                                if (on && runStart < 0) runStart = i;
+                                if (!on && runStart >= 0) { if (i - runStart > bestLen) { bestLen = i - runStart; bestStart = runStart; } runStart = -1; }
+                            }
+                            first = bestStart;
+                        }
+                        if (name && first > 0) {
+                            for (let k = first; k >= Math.max(0, first - 2); k--) {
+                                const d = (stampedSlides as any[])[k];
+                                if (String(d?.template || '') !== 'slides:section-divider' || !d.composerPayload) continue;
+                                // an internal field: the copy edit and the repair never rewrite it (run 38: the model put "Work"
+                                // in the title, the kicker was skipped, and the copy edit then rewrote the word out of the title)
+                                d.composerPayload._sectionKicker = name;
+                                break;
+                            }
+                        }
+                    } catch { /* non-fatal */ }
+                }
+                // 2026-10-27 (run 40 and the reformats: footers read "...Continuity 1", the filename's copy suffix): slides that
+                // carry the attachment know the document's clean name, and the composer writes that name in their footers.
+                if (_sourceDeck) {
+                    try {
+                        const { documentNameOf, documentRawNameOf } = await import('../services/sourceParity');
+                        const clean = documentNameOf(_sourceDeck.filename), raw = documentRawNameOf(_sourceDeck.filename);
+                        if (clean && raw) for (const sl of stampedSlides as any[]) if (sl?.composerPayload?._provided) { sl.composerPayload._sourceDoc = clean; sl.composerPayload._sourceDocRaw = raw; }
+                    } catch { /* non-fatal */ }
+                }
+                if (_sourceDeck) {
+                    try {
+                        const { parityCheck: _pc } = await import('../services/sourceParity');
+                        const _texts = stampedSlides.map(sl => JSON.stringify((sl as any).composerPayload || sl));
+                        const _r = _pc(_sourceDeck, _texts.join('\n'), _texts);
+                        const _line = `Parity: ${_r.covered} of ${_r.total} source slides carried from ${_sourceDeck.filename}${_r.uncovered.length ? `; not carried: ${_r.uncovered.map(u => `slide ${u.index} (${u.title})`).join(', ')}` : ''}.`;
+                        setMessages(prev => [...prev, { id: `msg_${Date.now()}_parity`, role: 'assistant', content: _line, timestamp: Date.now() } as ChatMessage]);
+                    } catch { /* non-fatal */ }
+                }
+                if (_sourceDeck && Object.keys(_sourceImages).length) {
+                    try {
+                        const { pictureAssignments } = await import('../services/sourceParity');
+                        const { HERO_PANEL } = await import('../services/slideComposer');
+                        const texts = stampedSlides.map(sl => JSON.stringify((sl as any).composerPayload || sl));
+                        // each source picture goes to the slide that carries its source slide BEST (2026-10-26 live: the
+                        // bridge picture went to the four-step slide because that slide came first)
+                        const assigned = pictureAssignments(_sourceDeck, texts);
+                        // the image critic's refusals (AI art, renders, collages, futuristic imagery) are never placed
+                        const refused = await _sourceScreen;
+                        const usable = (ims?: string[]) => (ims || []).filter(x => !refused.has(x));
+                        let placed = 0;
+                        // 2026-10-26 (live: 8 pictures placed from a 6-picture source; the cover's picture repeated on the
+                        // interstitial and the bridge picture on the four-step slide): each source picture lands ONCE.
+                        const usedPictures = new Set<string>();
+                        stampedSlides.forEach((sl: any, i: number) => {
+                            if (!sl.composerPayload || typeof sl.composerPayload !== 'object') return;
+                            const arche = String(sl.template || '').replace(/^slides:/, '');
+                            const pay = sl.composerPayload;
+                            // a research slide in a mixed deck never takes an attached picture
+                            if (!_requestPlan?.useOnlyProvidedContent && !pay._provided) return;
+                            if (arche === 'numbered-themes' && Array.isArray(pay.items) && pay.items.length) {
+                                // The overview's items are the source slides themselves: each item takes ITS source slide's picture.
+                                const itemImgs: string[] = pay.items.map((it: any) => {
+                                    const t = `${it?.name || ''} ${it?.body || ''}`.toLowerCase();
+                                    let best: string | undefined; let bestScore = 0;
+                                    for (const ss of _sourceDeck!.slides) {
+                                        const ims = usable(_sourceImages[String(ss.index)]); if (!ims.length) continue;
+                                        const words = `${ss.kicker} ${ss.title}`.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length >= 4);
+                                        const score = words.filter(w => t.includes(w)).length;
+                                        if (score > bestScore) { bestScore = score; best = ims[0]; }
+                                    }
+                                    return best || '';
+                                });
+                                if (itemImgs.some(Boolean) && !(Array.isArray(pay.itemImages) && pay.itemImages.some(Boolean))) { pay.itemImages = itemImgs; placed += itemImgs.filter(Boolean).length; }
+                                return;
+                            }
+                            const srcIdx = assigned.get(i);
+                            const src = srcIdx !== undefined ? _sourceDeck!.slides[srcIdx] : null;
+                            let imgs: string[] | undefined = src ? usable(_sourceImages[String(src.index)]) : undefined;
+                            // A cover or interstitial whose source slide has no picture takes the client's first picture
+                            // rather than a generated scene (the client's own imagery is the content-true choice).
+                            if (!imgs?.length && _requestPlan?.useOnlyProvidedContent && (arche === 'cover' || arche === 'agenda' || HERO_PANEL[arche])) {
+                                const firstKey = Object.keys(_sourceImages).sort((a, b) => Number(a) - Number(b)).find(k => usable(_sourceImages[k]).length);
+                                imgs = firstKey ? usable(_sourceImages[firstKey]) : undefined;
+                            }
+                            if (!imgs?.length) return;
+                            // 2026-10-23: a client photograph is CONTENT, so it rides a boxed panel (contain), never a
+                            // full-bleed crop under the title (live: the cover title sat across the people in the photo).
+                            if (arche === 'agenda') return;
+                            if (usedPictures.has(imgs[0])) return;
+                            if (arche === 'cover' || HERO_PANEL[arche] || arche === 'brief-card') { if (!pay.heroImage) { pay.heroImage = imgs[0]; placed++; usedPictures.add(imgs[0]); } }
+                            else if (!pay.sceneImage) { pay.sceneImage = imgs[0]; placed++; usedPictures.add(imgs[0]); }
+                        });
+                        if (placed) console.info(`[parity] placed ${placed} source picture(s) on the mapped slides`);
+                    } catch (e: any) { console.warn('[parity] picture mapping skipped (non-fatal):', e?.message || e); }
+                }
+                // 2026-10-27 (run 43: the PPTX of a restored session printed slug names and dropped footers): the source
+                // labels each slide's pointers resolve to in THIS tab ride on the slide, so every later render (a reload, a
+                // fresh tab, the export) prints the same footers as the preview.
+                try {
+                    const { freezeCitationLabels } = await import('../services/slideToStageHtml');
+                    for (const s of stampedSlides as any[]) s._citeLabels = freezeCitationLabels(s, s._citeLabels);
+                } catch (e: any) { console.warn('[slides] citation labels not frozen (non-fatal):', e?.message || e); }
+                // 2026-10-27 (run 45: cover and four dividers shipped as bare type once the image critic refused their
+                // photographs): each divider carries a drawn map of its own section, the cover a map of the deck; an
+                // accepted photograph still takes the slot.
+                if (!_requestPlan?.useOnlyProvidedContent) {
+                    try {
+                        const { attachSectionMaps } = await import('../services/sectionMaps');
+                        const maps = attachSectionMaps(stampedSlides as any[]);
+                        if (maps) console.info(`[slides] ${maps} section map(s) drawn for the cover and dividers`);
+                    } catch (e: any) { console.warn('[slides] section maps skipped (non-fatal):', e?.message || e); }
+                }
                 setSlides(prev => [...prev, ...stampedSlides]);
                 generatePersonaSlidePortraits(stampedSlides);
+                // 2026-10-26: ONE promise for "this deck's text is final" (backfill, chain, copy critic), registered before any
+                // async pass starts, so the layout gate, the drawn exhibits and the export never read pre-edit text.
+                let _settleDeck: () => void = () => { /* replaced below */ };
+                const _deckSettled = new Promise<void>(res => { _settleDeck = res; });
+                chainInFlightRef.current.set(response.id, _deckSettled);
                 // Phase 1-retrofit (2026-04-20) - WIKI-BACKED QUOTE BACKFILL.
                 // Walks every theme across the new slides; wherever the AI
                 // emitted a title-shaped evidence string (instead of a real
@@ -7745,7 +8435,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         if (backfilled !== stampedSlides) {
                             setSlides(prev => prev.map(s => {
                                 const match = backfilled.find(b => b.id === s.id);
-                                return match || s;
+                                return match ? mergeRuntimeImagery(s, match) : s;
                             }));
                             baseForVerify = backfilled;
                         }
@@ -7757,9 +8447,87 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     // pre-fix clones, silently restoring fabricated labels).
                     // Coverage contract of the request's hashtag (every client item and board theme accounted for),
                     // BEFORE the chain so filled slides are verified and scrubbed like the model's own.
-                    baseForVerify = (await enforceDeckCoverage(baseForVerify, query, response.id)) as typeof baseForVerify;
-                    verifyAndAttachLedger(baseForVerify, response.id);
-                })();
+                    // 2026-10-20: when the model read the attachment as the CONTENT of this deliverable (a deck to
+                    // reformat), the corpus coverage contract does not pad it (live: 9 appendix slides on a reformat).
+                    if (_requestPlan?.useOnlyProvidedContent) console.info('[coverage] skipped: the attachment is the content for this deliverable (model decision)');
+                    else if (_requestPlan?.userLimitedScope) console.info('[coverage] skipped: the user limited the scope or count (model decision)');
+                    else baseForVerify = (await enforceDeckCoverage(baseForVerify, query, response.id)) as typeof baseForVerify;
+                    // 2026-10-20 (P1.8): the export waits for the chain and repair of this deck to finish.
+                    // 2026-10-21 (information parity): on a provided-content turn the attachment IS the source; the corpus
+                    // claim chain would flag the client's own words UNSOURCED and the repair would rewrite them (live: 11
+                    // fields rewritten, 4 of 4 claims flagged). Neither runs; the parity line below is the receipt.
+                    if (_requestPlan?.useOnlyProvidedContent) {
+                        console.info('[parity] verification chain skipped: the attached document is the source of record');
+                    } else {
+                        // the attached section cites the attachment, not the corpus: only the research slides are verified
+                        const _toVerify = (baseForVerify as any[]).filter(s => !s?.composerPayload?._provided);
+                        try { await verifyAndAttachLedger(_toVerify as typeof baseForVerify, response.id); } catch { /* the chain's own receipt covers it */ }
+                    }
+                    // 2026-10-26 COPY CRITIC (owner: "headlines are fragments ... Don't we have a critic for this?"): every deck,
+                    // reformats included, gets one copy-editor pass after the chain; fragments, actor-less instructions, slop
+                    // and presenter advice are rewritten field by field behind a fact guard.
+                    try {
+                        const ids = new Set((stampedSlides as any[]).map(x => String(x.id)));
+                        const live = slidesRef.current.filter(x => ids.has(String(x.id)));
+                        const { critiqueDeckCopy } = await import('../services/copyCritic');
+                        const { applyTextEdits } = await import('../services/slideTextEditing');
+                        const r = await critiqueDeckCopy((live.length === ids.size ? live : stampedSlides) as any[]);
+                        if (r.edits.size) setSlides(prev => prev.map(x => r.edits.has(String(x.id)) ? applyTextEdits(x as any, r.edits.get(String(x.id))!) as any : x));
+                        console.info(`[copy-critic] ${r.result.line}`);
+                        if (r.result.checked) setMessages(prev => [...prev, { id: `msg_${Date.now()}_copy`, role: 'assistant', content: r.result.line, timestamp: Date.now() } as ChatMessage]);
+                        // WS-4 L8 (2026-10-30): copy edits and title rewrites re-enter the verdict loop. The edited slides are
+                        // re-scored by the chain's deterministic stages (no LLM grade, no exhibit render) and the scores land on
+                        // the AIR beside the pre-edit record; an edit that lowers a score is visible, never silent.
+                        if (r.edits.size && !_requestPlan?.useOnlyProvidedContent) {
+                            try {
+                                await new Promise(res => setTimeout(res, 50));
+                                const edited = slidesRef.current.filter(x => r.edits.has(String(x.id)));
+                                const base = edited.length ? edited : stampedSlides.filter(x => r.edits.has(String(x.id)));
+                                const rescored = await runArtifactChain(base as any[], {
+                                    runId: `deck_${response.id}:rescore`, artifactType: 'slides',
+                                    researchGoal: String((getContext ? getContext() : context)?.researchGoal || ''),
+                                    skip: ['grade', 'exhibits', 'renderPlan', 'deckQuality'],
+                                });
+                                const prior = chainReportsRef.current[response.id];
+                                const dropped = Object.entries(rescored.scores).filter(([k, v]) => prior && typeof prior.scores?.[k] === 'number' && v < prior.scores[k] - 0.05).map(([k, v]) => `${k} ${prior.scores[k].toFixed(2)} -> ${v.toFixed(2)}`);
+                                console.info(`[copy-critic] re-scored ${base.length} edited slide(s): pass=${rescored.pass}${dropped.length ? `; lower after edits: ${dropped.join(', ')}` : ''}`);
+                                try {
+                                    const { patchAirWithPostChain } = await import('../services/airPostChain');
+                                    await patchAirWithPostChain({ ...(buildPostChainRecord(rescored as any, null, undefined)), rescoredAfterEdits: { editedSlides: base.length, pass: rescored.pass, scores: rescored.scores, lower: dropped } } as any);
+                                } catch { /* the console line is the record of last resort */ }
+                            } catch (e: any) { console.warn('[copy-critic] re-score skipped:', e?.message || e); }
+                        }
+                    } catch (e: any) { console.warn('[copy-critic] skipped:', e?.message || e); }
+                    // 2026-10-26 DECK TYPE HARMONY (owner audit: ledes 28 vs 25 px and bodies 23 vs 24 px across sibling account
+                    // slides): slides of one archetype share one size per text region, pinned in the payload from the final text.
+                    try {
+                        const { deckTypePins } = await import('../services/slideComposer');
+                        const ids = new Set((stampedSlides as any[]).map(x => String(x.id)));
+                        let pinned = 0;
+                        setSlides(prev => {
+                            const deck = prev.filter(x => ids.has(String(x.id)) && String((x as any).template || '').startsWith('slides:'));
+                            const pins = deckTypePins(deck.map(x => ({ id: String(x.id), template: (x as any).template, payload: (x as any).composerPayload, brand: (x as any).brand })));
+                            pinned = Object.keys(pins).length;
+                            if (!pinned) return prev;
+                            return prev.map(x => pins[String(x.id)] ? ({ ...x, composerPayload: { ...((x as any).composerPayload || {}), _typePins: pins[String(x.id)] } } as any) : x);
+                        });
+                        await new Promise(res => setTimeout(res, 0));
+                        if (pinned) console.info(`[type-harmony] ${pinned} slide(s) share sizes with their sibling slides`);
+                    } catch (e: any) { console.warn('[type-harmony] skipped:', e?.message || e); }
+                })().catch((e: any) => { console.warn('[slides] post-generation passes stopped:', e?.message || e); }).finally(async () => {
+                    // pointers the backfill, coverage fill and repair added get their labels frozen too
+                    try {
+                        const { freezeCitationLabels } = await import('../services/slideToStageHtml');
+                        const ids = new Set((stampedSlides as any[]).map(x => String(x.id)));
+                        setSlides(prev => prev.map(x => ids.has(String(x.id)) ? ({ ...x, _citeLabels: freezeCitationLabels(x, (x as any)._citeLabels) } as any) : x));
+                    } catch { /* the labels frozen at stamping still stand */ }
+                    // 2026-10-27 (run 43: the preview exhibit showed the pre-edit "$75k to $250k" the copy edit had removed;
+                    // the export, drawn later, was right): slidesRef follows state in an effect, so the deck counts as
+                    // settled only after that effect has run and every waiter reads the final text.
+                    await new Promise(res => setTimeout(res, 800));
+                    _settleDeck();
+                    if (chainInFlightRef.current.get(response.id) === _deckSettled) chainInFlightRef.current.delete(response.id);
+                });
                 // ILLUSTRATOR (2026-06-17): slides:scene scenes carry an imageConcept; generate a
                 // tasteful on-brand TRANSPARENT illustration per scene (proxy /api/ai/illustration ->
                 // Nano Banana 2 + knockout) and inject it. Non-blocking + parallel: scenes render
@@ -7840,6 +8608,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         'slides:agenda': 'composerPayload',
                         'slides:numbered-themes': 'composerPayload',
                         'slides:role-needs': 'composerPayload',
+                        'slides:brief-card': 'composerPayload',
                     };
                     // C2 routing: parse the user's #img override once; the router decides DATA vs
                     // EMOTIVE per slot and enforces the section-8 default-off gate. The deterministic
@@ -7847,13 +8616,25 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     // resolve the EMOTIVE (Nano-Banana) branch when the router selects it.
                     const imgOverride = parseImgDirective(query);
                     const runIndustry = ((getContext ? getContext() : context) as any)?.industry as string | undefined;
+                    const runSubject = String(((getContext ? getContext() : context) as any)?.researchGoal || '').trim().slice(0, 200);
                     // 2026-07-03: the cover's photographic background CONTINUES behind the agenda
                     // (ideal-deck parity, one generation per deck). Track it; agenda never
                     // generates its own scene.
                     let deckBackground = '';
-                    for (const s of stampedSlides as any[]) {
+                    // 2026-10-23: three slides in flight at a time (the quality image tier takes tens of seconds a
+                    // frame; strictly sequential imagery made a ten-slide deck wait minutes for its last picture).
+                    const runOne = async (s0: any) => {
+                        let s: any = s0;
                         const tmpl = String(s.template || '');
-                        if (tmpl === 'slides:agenda') continue;   // filled from deckBackground below
+                        if (tmpl === 'slides:agenda') return;   // filled from deckBackground below
+                        // 2026-10-24 (live run 15: the drawn flowchart and its legend disagreed): a native exhibit is drawn from the
+                        // payload AFTER the verification chain's repair has rewritten it, never from the pre-repair text.
+                        if (tmpl === 'slides:infographic-exhibit') {
+                            const pending = chainInFlightRef.current.get(response.id);
+                            if (pending) { try { await pending; } catch { /* the chain's own receipt covers failures */ } }
+                            const live = slidesRef.current.find(x => x.id === s.id);
+                            if (live) s = live;
+                        }
                         // 2026-06-27 FIX: #themes emits :::slide template=theme-overview|theme-detail|
                         // theme-arc|theme-mosaic (per the SLIDE OUTPUT PROTOCOL), but the image-slot
                         // registry + SUBFIELD key the themes spec under 'theme-cluster'. Without this
@@ -7862,15 +8643,45 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         const aliasKey = /^theme-(overview|detail|arc|mosaic|spotlight|cluster)$/.test(tmpl) ? 'theme-cluster' : tmpl;
                         const artKey = imageSpecFor(tmpl) ? tmpl : (imageSpecFor(aliasKey) ? aliasKey : tmpl);
                         const spec = imageSpecFor(artKey);
-                        if (!spec || spec.mode === 'none') continue;
-                        const field = SUBFIELD[artKey] || SUBFIELD[tmpl];
+                        if (!spec || spec.mode === 'none') return;
+                        const field = SUBFIELD[artKey] || SUBFIELD[tmpl] || (tmpl.startsWith('slides:') ? 'composerPayload' : undefined);
                         const sub = field ? s[field] : s;
-                        if (!sub || typeof sub !== 'object') continue;
+                        if (!sub || typeof sub !== 'object') return;
+                        // 2026-10-26 (run 38: the attachment's pictures were refused and seven generated stand-ins, a storeroom
+                        // behind a revenue bridge among them, filled the attached slides): the attached section shows only the
+                        // attachment's own screened pictures; a native exhibit of the slide's own data is still drawn.
+                        if ((sub as any)._attachedSection && tmpl !== 'slides:infographic-exhibit') { console.log(`[slides:img] ${tmpl}: attached slide, no generated picture`); return; }
+                        // 2026-10-26 (live: five header scenes were generated and then dropped beside long titles): a scene
+                        // the composer will not show is never generated.
+                        if ((spec as any).carrier === 'sceneImage') {
+                            // judged on the FINAL title (2026-10-26 live: a scene was generated beside a 50-char draft title,
+                            // the copy edit lengthened it, and the composer then dropped the scene)
+                            const pendingText = chainInFlightRef.current.get(response.id);
+                            if (pendingText) { try { await pendingText; } catch { /* the chain's own receipt covers it */ } }
+                            const liveNow = slidesRef.current.find(x => x.id === s.id) as any;
+                            const subNow = (liveNow && field ? liveNow[field] : null) || sub;
+                            const { wouldShowHeaderScene } = await import('../services/slideComposer');
+                            if (!wouldShowHeaderScene(tmpl, subNow)) { console.log(`[slides:img] ${tmpl}: header scene skipped (the title keeps the full width)`); return; }
+                        }
+                        // 2026-10-21 (information parity): a picture the SOURCE deck supplied is never replaced by a
+                        // generated scene (live: four source pictures were placed, then overwritten by this pass).
+                        {
+                            const carrier = String((spec as any).carrier || '');
+                            const have = carrier ? (sub as any)[carrier] : undefined;
+                            const filledCarrier = typeof have === 'string' ? have.length > 0 : (Array.isArray(have) && have.some(Boolean));
+                            if (filledCarrier && _sourceDeck) { console.log(`[slides:img] ${tmpl}: kept the source deck's picture`); if (tmpl === 'slides:cover' && typeof sub.backgroundImage === 'string') deckBackground = sub.backgroundImage; return; }
+                        }
                         try {
+                            // 2026-10-23: the deck subject rides into the scene concept of the interstitial photographs.
+                            // every generated scene (interstitials AND header scenes) carries the deck subject (live run 13: an
+                            // industrial site behind a Northeastern timeline, a construction survey behind the roadmap).
+                            if (runSubject && tmpl.startsWith('slides:')) (sub as any)._deckSubject = runSubject;
                             const r = await resolveRoutedSlotImages(artKey, sub, s.brand || 'nxt', s.theme || 'dark',
                                 { override: imgOverride, industry: (s as any).industry || runIndustry, onLog: (msg) => console.log('[slides:img]', msg) });
                             if (r.count > 0 && field) {
-                                setSlides(prev => prev.map(x => x.id === s.id ? { ...x, [field]: { ...sub } } : x));
+                                // Only the carriers go onto the LIVE slide: `sub` is the pre-repair payload and must not
+                                // restore stale text over the chain's edits (2026-10-20 race).
+                                setSlides(prev => prev.map(x => x.id === s.id ? withImageCarriers(x as any, field, sub) : x));
                             }
                             if (tmpl === 'slides:cover' && typeof sub.backgroundImage === 'string' && sub.backgroundImage) {
                                 deckBackground = sub.backgroundImage;
@@ -7878,14 +8689,117 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                         } catch (e: any) {
                             console.warn(`[slides] routed illustration skipped ${s.id} (${tmpl}):`, e?.message || e);
                         }
+                    };
+                    if (_sourceDeck && _requestPlan?.useOnlyProvidedContent) {
+                        console.info('[slides:img] provided-content deck: the source document supplies every picture; nothing is generated');
+                        // 2026-10-26 (live reformat: the contract-status exhibit was empty in the preview and drawn only at
+                        // export): a native exhibit is the slide's OWN data drawn, not generated imagery, so it is drawn here too.
+                        for (const s of stampedSlides as any[]) if (String(s.template || '') === 'slides:infographic-exhibit') await runOne(s);
+                    } else {
+                        const queue = [...(stampedSlides as any[])];
+                        const workers = Array.from({ length: Math.min(3, queue.length) }, async () => {
+                            for (;;) { const next = queue.shift(); if (!next) return; await runOne(next); }
+                        });
+                        await Promise.all(workers);
                     }
+                    // 2026-10-24 LAYOUT GATE (owner: "I never want these issues again on any deck"): every slide is measured in
+                    // its rendered document after the repair chain and the imagery settle; a failure steps the slide's type
+                    // scale down and re-measures; the receipt is a chat line and the console record.
+                    try {
+                        const pending = chainInFlightRef.current.get(response.id);
+                        if (pending) { try { await pending; } catch { /* covered by the chain receipt */ } }
+                        await new Promise(res => setTimeout(res, 1200));
+                        const [{ runLayoutGate, createOffscreenStage, measureViaProxy }, { slideDataToStageHtml, deckPositions }] = await Promise.all([
+                            import('../services/layoutGate'), import('../services/slideToStageHtml'),
+                        ]);
+                        const deckIds = (stampedSlides as any[]).map(x => String(x.id));
+                        const ids = (stampedSlides as any[]).filter(x => String(x.template || '').startsWith('slides:')).map(x => String(x.id));
+                        // every slide is measured from its CURRENT state (repair, imagery and step-downs included)
+                        // 2026-10-25 (live: "0 slides measured" on an 11-slide deck): every skip now names its reason.
+                        const skipped: Record<string, number> = {};
+                        const skip = (why: string) => { skipped[why] = (skipped[why] || 0) + 1; return null; };
+                        // the step-down a slide was given rides into its html directly, so a re-measure never waits on React
+                        const scaleById = new Map<string, number>();
+                        const droppedById = new Set<string>();
+                        const htmlOf = (id: string): string | null => {
+                            const live = slidesRef.current;
+                            const deck = deckIds.map(d => live.find(x => String(x.id) === d) || (stampedSlides as any[]).find(x => String(x.id) === d)).filter(Boolean) as any[];
+                            const i = deck.findIndex(x => String(x.id) === id);
+                            if (i < 0) return skip(`not in the live deck (${deck.length} of ${deckIds.length} found, ${live.length} slides loaded)`);
+                            const sc = scaleById.get(id);
+                            const dropped = droppedById.has(id) ? { sceneImage: '', panelImage: '' } : {};
+                            const s = (sc || droppedById.has(id)) ? { ...deck[i], composerPayload: { ...(deck[i].composerPayload || {}), ...(sc ? { _fontScale: sc } : {}), ...dropped } } : deck[i];
+                            try { return slideDataToStageHtml(s, deckPositions(deck)[i]); } catch (e: any) { return skip(`stage render failed: ${String(e?.message || e).slice(0, 80)}`); }
+                        };
+                        const applyScale = (id: string, scale: number) => {
+                            scaleById.set(id, scale);
+                            setSlides(prev => prev.map(x => x.id === id ? ({ ...x, composerPayload: { ...((x as any).composerPayload || {}), _fontScale: scale } } as any) : x));
+                        };
+                        const log = (m: string) => console.warn('[layout-gate]', m);
+                        // a picture over text: the optional header / panel picture goes, the text stays (2026-10-26 live)
+                        const dropImages = (id: string) => {
+                            droppedById.add(id);
+                            setSlides(prev => prev.map(x => x.id === id ? ({ ...x, composerPayload: { ...((x as any).composerPayload || {}), sceneImage: '', panelImage: '' } } as any) : x));
+                            const s = (stampedSlides as any[]).find(x => String(x.id) === id);
+                            if (s?.composerPayload) { s.composerPayload.sceneImage = ''; s.composerPayload.panelImage = ''; }
+                            console.info(`[layout-gate] ${id}: a picture covered text; the picture was removed`);
+                        };
+                        let receipt;
+                        // WS-4 L5 (2026-10-30): the slide vision critic sees the COMPOSED slide (text and picture together) on the
+                        // first measurement pass; report-only until calibrated (judges.json slideVisionCritic).
+                        const criticById = new Map<string, { accept: boolean; kind: string; reason: string }>();
+                        let _firstPass = true;
+                        const titleOf = (id: string) => String(((stampedSlides as any[]).find(x => String(x.id) === id) || {}).title || '');
+                        try {
+                            // 2026-10-26 (live: the in-page frame never loaded in a 1,000-slide session; three runs measured 0): the
+                            // proxy's Chromium measures the batch, the engine and fonts the PPTX export renders with.
+                            receipt = await runLayoutGate(ids, {
+                                measureMany: async (want) => {
+                                    const critic = _firstPass && !_requestPlan?.useOnlyProvidedContent;
+                                    _firstPass = false;
+                                    const batch = want.map(id => ({ id, html: htmlOf(id) || '' })).filter(s => s.html);
+                                    const context = Object.fromEntries(batch.map(s => [s.id, titleOf(s.id)]));
+                                    const measured = await measureViaProxy(batch, critic ? { critic: true, context } : {});
+                                    for (const [id, m] of Object.entries(measured)) if (m.critic) criticById.set(id, m.critic);
+                                    return measured;
+                                },
+                                applyScale, waitMs: 50, log, dropImages,
+                            });
+                            if (criticById.size) {
+                                const { recordJudgeVerdict } = await import('../services/judgeRegistry');
+                                const rejected: string[] = [];
+                                for (const [id, v] of criticById) {
+                                    recordJudgeVerdict({ judge_id: 'slideVisionCritic', pass: !!v.accept, score: v.accept ? 1 : 0, slide_id: id, artifact_id: response.id, detail: `${v.kind}: ${v.reason}` });
+                                    if (!v.accept) rejected.push(`${titleOf(id).slice(0, 50) || id}: ${v.reason}`);
+                                }
+                                console.info(`[slide-critic] ${criticById.size} slide(s) judged, ${rejected.length} flagged${rejected.length ? `: ${rejected.join(' | ')}` : ''}`);
+                                if (rejected.length) setMessages(prev => [...prev, { id: `msg_${Date.now()}_critic`, role: 'assistant', content: `Slide review flagged ${rejected.length} slide(s) (advisory): ${rejected.join('; ')}.`, timestamp: Date.now() } as ChatMessage]);
+                            }
+                        } catch (proxyErr: any) {
+                            skip(`proxy measurement unavailable (${String(proxyErr?.message || proxyErr).slice(0, 60)}); measured in the page`);
+                            const stage = createOffscreenStage(htmlOf);
+                            const mountedDoc = (id: string): Document | null => {
+                                const f = document.querySelector(`iframe[data-slide-id="${CSS.escape(id)}"]`) as HTMLIFrameElement | null;
+                                return f?.contentDocument && f.contentDocument.body ? f.contentDocument : null;
+                            };
+                            try {
+                                receipt = await runLayoutGate(ids, {
+                                    getDoc: async (id) => (await stage.getDoc(id)) || mountedDoc(id) || skip(`no document (offscreen: ${stage.lastMiss() || 'not built'}; no mounted preview)`),
+                                    applyScale, waitMs: 700, log,
+                                });
+                            } finally { stage.dispose(); }
+                        }
+                        const skipNote = Object.entries(skipped).map(([k, n]) => `${n} x ${k}`).join('; ');
+                        console.info(`[layout-gate] ${receipt.line}${skipNote ? ` Skipped: ${skipNote}` : ''}`);
+                        if (receipt.measured) setMessages(prev => [...prev, { id: `msg_${Date.now()}_layout`, role: 'assistant', content: receipt.line, timestamp: Date.now() } as ChatMessage]);
+                    } catch (e: any) { console.warn('[layout-gate] skipped:', e?.message || e); }
                     if (deckBackground) {
                         for (const s of stampedSlides as any[]) {
                             if (String(s.template || '') !== 'slides:agenda') continue;
                             const sub = s.composerPayload;
                             if (!sub || typeof sub !== 'object' || sub.backgroundImage) continue;
                             sub.backgroundImage = deckBackground;
-                            setSlides(prev => prev.map(x => x.id === s.id ? { ...x, composerPayload: { ...sub } } : x));
+                            setSlides(prev => prev.map(x => x.id === s.id ? withImageCarriers(x as any, 'composerPayload', sub) : x));
                             console.log('[slides:img] slides:agenda: cover background continued (no extra generation)');
                         }
                     }
@@ -7925,6 +8839,9 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
             clean = clean.replace(/:::slide[^\n]*\n[\s\S]*?:::/g, '');
             clean = clean.replace(/```json\s*[\s\S]*?```/g, '');
         }
+        // 2026-10-05 live #journey: a reply cut off inside its last fence showed ":::slide template=principles brand=nu
+        // { ..." as raw text. An unterminated fence (and anything after it) is machine output, never prose.
+        clean = clean.replace(/:::(?:slide|deliverable|nxt)[^\n]*\n(?![\s\S]*?\n?:::)[\s\S]*$/, '');
         // 2026-06-23 - DO NOT flatten markdown anymore. The chat path now renders
         // structured prose through <ChatProse>, which parses headings/bold/lists. The
         // old strip (removing `##` and `**`) is exactly what produced the unreadable
@@ -7962,8 +8879,11 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 </div>
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                     {messages.length > 0 && (
-                        <button onClick={() => {
-                            const text = messages.map(m => `[${m.role.toUpperCase()}${m.model ? ` via ${m.model}` : ''}]\n${m.content}`).join('\n\n---\n\n');
+                        <button onClick={async () => {
+                            // W1: the .txt export is a plain-text egress, so pointer addresses flatten
+                            // to named sources here (the on-screen chat renders them as chips instead).
+                            const { resolveManifestPointers } = await import('../services/citationPointerRegistry');
+                            const text = messages.map(m => `[${m.role.toUpperCase()}${m.model ? ` via ${m.model}` : ''}]\n${resolveManifestPointers(m.content)}`).join('\n\n---\n\n');
                             const blob = new Blob([text], { type: 'text/plain' });
                             const url = URL.createObjectURL(blob);
                             const a = document.createElement('a'); a.href = url; a.download = `chat-${new Date().toISOString().split('T')[0]}.txt`; a.click(); URL.revokeObjectURL(url);
@@ -7971,6 +8891,18 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                             Export
                         </button>
                     )}
+                    <button
+                        onClick={() => setScopeOpen(true)}
+                        title="Scope every answer and output to selected sources (per-upload and per-source checkboxes)"
+                        style={{ fontSize: 8, color: '#B8B800', background: 'none', border: '1px solid #555', padding: '3px 8px', cursor: 'pointer', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700 }}>
+                        Scope
+                    </button>
+                    <button
+                        onClick={() => setStudioOpen(true)}
+                        title="One-click outputs: mind map, FAQ, study guide, chronology, data table, critique, briefing, report, deck, debate, flashcards, quiz"
+                        style={{ fontSize: 8, color: '#0D0D0D', background: '#B8B800', border: '1px solid #B8B800', padding: '3px 8px', cursor: 'pointer', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700 }}>
+                        Studio
+                    </button>
                     <button
                         onClick={() => setCoverageOpen(true)}
                         title="Show which source categories have content + which are being cited in the chat"
@@ -8100,7 +9032,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                             {Array.isArray(msg.thesisOptions) && msg.thesisOptions.length > 1 && (
                                 <div style={{ marginBottom: 8, padding: '7px 9px', background: 'var(--bg-secondary, #F7F7F5)', borderLeft: '2px solid var(--nxt-lime, #B8B800)' }}>
                                     <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373', marginBottom: 5 }}>
-                                        Thesis this deck argues
+                                        Governing thesis
                                     </div>
                                     {msg.thesisOptions.map(opt => (
                                         <div key={opt.id} style={{ display: 'flex', gap: 7, alignItems: 'flex-start', marginBottom: 4 }}>
@@ -8121,6 +9053,113 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                         </div>
                                     ))}
                                 </div>
+                            )}
+                            {/* WS-4 L3 (2026-10-30): the deck loop spent its submission budget. The findings stay open and the
+                                user decides; nothing here is a silent pass. */}
+                            {msg.deckAsk && (
+                                <div style={{ marginBottom: 8, padding: '8px 10px', background: '#FFF8E6', borderLeft: '2px solid #CC6644' }}>
+                                    <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373', marginBottom: 5 }}>
+                                        Deck shipped with open findings after {msg.deckAsk.submissions} submission{msg.deckAsk.submissions === 1 ? '' : 's'} (score {msg.deckAsk.score})
+                                    </div>
+                                    <ul style={{ margin: '0 0 7px 14px', padding: 0, fontSize: 11, color: '#33332E', lineHeight: 1.45 }}>
+                                        {msg.deckAsk.findings.map((f, i) => <li key={i}>{f}</li>)}
+                                    </ul>
+                                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                                        {msg.deckAsk.choices.map(c => (
+                                            <button key={c.id} type="button" title={c.detail}
+                                                onClick={async () => {
+                                                    const { deckAskFollowUp } = await import('../services/deckLoop');
+                                                    const text = deckAskFollowUp(c.id, msg.deckAsk!);
+                                                    // WS-B B3 (2026-10-31): the owner's choice on a deck that shipped with open findings is a settled step (a correction fact).
+                                                    void import('../services/memoryAdmissions').then(async ({ deckAskChoiceFacts, admitAt }) => {
+                                                        const { getRun } = await import('../services/runState');
+                                                        const run = getRun();
+                                                        return admitAt('deckAsk choice', deckAskChoiceFacts('slides', c.label, msg.deckAsk!.findings), run.run_id, run.engagement || '');
+                                                    }).catch(() => { /* best-effort */ });
+                                                    if (c.id === 'accept') {
+                                                        setMessages(prev => prev.map(m => m.id === msg.id ? { ...m, deckAsk: undefined } : m));
+                                                        return;
+                                                    }
+                                                    setInput(text);
+                                                    inputRef.current?.focus();
+                                                }}
+                                                style={{ fontSize: 9, padding: '3px 8px', border: '1px solid #D4D4D4', background: '#FFF', color: '#115054', cursor: 'pointer' }}
+                                            >{c.label}</button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                            {/* WS-4 L7 (2026-10-30): how the harness read the request, as a collapsible card. A wrong reading
+                                is visible and the user corrects it with one click instead of discovering it in the deck. */}
+                            {/* WS-C C1/C2 (2026-10-31): the artifact's place in its revision chain, and a fork that starts a new chain. */}
+                            {msg.artifactLineage && (() => {
+                                const lin = msg.artifactLineage!;
+                                const newest = Math.max(lin.revision, ...messages.filter(m => m.artifactLineage?.rootArtifactId === lin.rootArtifactId).map(m => m.artifactLineage!.revision));
+                                return (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373' }}>
+                                        <span data-testid="artifact-lineage" title={`${lin.artifactType} ${lin.artifactId} in run ${lin.runId}${lin.steps?.length ? `; in-turn: ${lin.steps.join('; ')}` : ''}`}>{lineageLabel(lin, newest)}</span>
+                                        <button type="button" title="Copy this version as the first version of a new chain; its exports name this run as the source"
+                                            onClick={async () => {
+                                                try {
+                                                    const { proxyBase } = await import('../services/proxyConfig');
+                                                    const r = await fetch(`${proxyBase()}/api/air/fork`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ runId: lin.runId, artifactId: lin.artifactId }) });
+                                                    const d = await r.json().catch(() => ({}));
+                                                    setMessages(prev => [...prev, { id: `msg_${Date.now()}_fork`, role: 'assistant', timestamp: Date.now(),
+                                                        content: r.ok ? `Forked ${lin.artifactType} v${lin.revision} as ${d.artifactId}: a new chain whose exports name run ${lin.runId} as the source.` : `Fork failed: ${d.error || r.status}`,
+                                                    } as ChatMessage]);
+                                                } catch (e: any) { console.warn('[fork] failed:', e?.message || e); }
+                                            }}
+                                            style={{ fontSize: 8, padding: '1px 6px', border: '1px solid #D4D4D4', background: '#FFF', color: '#115054', cursor: 'pointer', letterSpacing: 1, textTransform: 'uppercase' }}
+                                        >Fork</button>
+                                    </div>
+                                );
+                            })()}
+                            {msg.requestPlan && msg.requestPlan.mode !== 'chat' && (
+                                <details style={{ marginBottom: 6, fontSize: 10, color: '#525252' }}>
+                                    <summary style={{ cursor: 'pointer', fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373' }}>
+                                        Request read as: {msg.requestPlan.mode}{msg.requestPlan.deliverable ? ` / ${msg.requestPlan.deliverable}` : ''}{msg.requestPlan.useOnlyProvidedContent ? ' / attachment is the content' : msg.requestPlan.carryAttachment ? ' / attachment carried as a section' : ''}
+                                    </summary>
+                                    <div style={{ padding: '5px 0 2px 2px', lineHeight: 1.5 }}>
+                                        {msg.requestPlan.scope && <div>Scope: {msg.requestPlan.scope}</div>}
+                                        {msg.requestPlan.audience && <div>Audience: {msg.requestPlan.audience}</div>}
+                                        {(msg.requestPlan.counts.items || msg.requestPlan.counts.slides) && <div>Counts: {msg.requestPlan.counts.items ? `${msg.requestPlan.counts.items} items` : ''}{msg.requestPlan.counts.items && msg.requestPlan.counts.slides ? ', ' : ''}{msg.requestPlan.counts.slides ? `${msg.requestPlan.counts.slides} slides` : ''}</div>}
+                                        {msg.requestPlan.perSlide?.length ? <div>On each slide: {msg.requestPlan.perSlide.join('; ')}</div> : null}
+                                        {msg.requestPlan.note && <div>{msg.requestPlan.note}</div>}
+                                        {/* WS-C C4 (2026-10-31): the reuse receipt. What the second brain supplied this turn, each
+                                            recalled fact forgettable in one click when the recall was wrong. */}
+                                        {msg.requestPlan.reuse && (
+                                            <div style={{ marginTop: 4, paddingTop: 4, borderTop: '1px dashed #E5E5E5' }}>
+                                                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: '#737373' }}>Second brain supplied</div>
+                                                {msg.requestPlan.reuse.preferences.length > 0 && <div>Standing preferences: {msg.requestPlan.reuse.preferences.map(p => p.content).join('; ')}</div>}
+                                                {msg.requestPlan.reuse.patterns.length > 0 && <div>Pattern sections: {msg.requestPlan.reuse.patterns.join('; ')}</div>}
+                                                {msg.requestPlan.reuse.knownGaps.length > 0 && <div>Known gaps: {msg.requestPlan.reuse.knownGaps.join('; ')}</div>}
+                                                {msg.requestPlan.reuse.facts.map(f => (
+                                                    <div key={f.id} style={{ display: 'flex', gap: 6, alignItems: 'baseline' }}>
+                                                        <span>[{f.category}] {f.content}</span>
+                                                        <button type="button" title="This recall was wrong for this request: remove the fact from memory"
+                                                            onClick={async () => {
+                                                                const { forgetFacts } = await import('../services/chatInsightMemory');
+                                                                const r = await forgetFacts({ ids: [f.id] });
+                                                                if (!r.error) setMessages(prev => prev.map(m => m.id === msg.id && m.requestPlan?.reuse
+                                                                    ? { ...m, requestPlan: { ...m.requestPlan, reuse: { ...m.requestPlan.reuse, facts: m.requestPlan.reuse.facts.filter(x => x.id !== f.id) } } } : m));
+                                                            }}
+                                                            style={{ fontSize: 8, padding: '0 5px', border: '1px solid #D4D4D4', background: '#FFF', color: '#CC6644', cursor: 'pointer', flexShrink: 0 }}
+                                                        >Forget</button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                        <div style={{ color: '#A3A3A3' }}>decided by {msg.requestPlan.decidedBy}</div>
+                                        <button type="button"
+                                            onClick={() => {
+                                                const prior = [...messages].slice(0, messages.findIndex(m => m.id === msg.id)).reverse().find(m => m.role === 'user')?.content || '';
+                                                setInput(`${prior}\n\nRead this request as: `);
+                                                inputRef.current?.focus();
+                                            }}
+                                            style={{ marginTop: 4, fontSize: 9, padding: '2px 6px', border: '1px solid #D4D4D4', background: '#FFF', color: '#115054', cursor: 'pointer' }}
+                                        >Correct the reading and rerun</button>
+                                    </div>
+                                </details>
                             )}
                             <div style={{
                                 // 2026-06-23 - assistant replies get a roomy card (the "spacing is
@@ -8160,7 +9199,26 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     // 2026-06-23 - renderRun: a single inline text fragment -> citation
                                     // links + #proto chips. ChatProse calls this for every prose run so
                                     // structure (headings/bold/lists) AND citations both render.
+                                    // 2026-11-03 W1 (NotebookLM reverse-engineering, spec C1): manifest pointers
+                                    // render as CiteChip controls that open the exact cited passage (the chat
+                                    // service keeps pointer addresses instead of flattening them to text).
                                     const renderRun = (runText: string, keyB: string): React.ReactNode => {
+                                        if (runText.indexOf('.md#c') !== -1) {
+                                            const pSegs = splitProseWithPointers(runText);
+                                            return pSegs.map((sgm, gi) => sgm.kind === 'pointer'
+                                                ? <CiteChip
+                                                    key={`${keyB}-p${gi}`}
+                                                    pointer={sgm.pointer}
+                                                    wikiPath={sgm.wikiPath}
+                                                    onOpen={(wikiPath, pointer) => {
+                                                        try { window.dispatchEvent(new CustomEvent('hic:open-wiki', { detail: { wikiPath, chunkPointer: pointer } })); } catch { /* non-fatal */ }
+                                                    }}
+                                                  />
+                                                : <React.Fragment key={`${keyB}-p${gi}`}>{renderRunInner(sgm.value, `${keyB}-p${gi}`)}</React.Fragment>);
+                                        }
+                                        return renderRunInner(runText, keyB);
+                                    };
+                                    const renderRunInner = (runText: string, keyB: string): React.ReactNode => {
                                         const { segments: cits } = parseChatCitations(runText, renderCtx.sourceReferences);
                                         return cits.map((c, ci) => {
                                             if (c.type === 'citation') {
@@ -8222,9 +9280,10 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     />
                                 )}
                                 {/* Backward-compat: legacy journey launcher (pre-unification artifacts) */}
+                                {/* 2026-11-08: journey map view is a navigation; tokenized below like the other cards. */}
                                 {!msg.artifactLaunchUrl && msg.journeyMapUrl && (
                                     <JourneyLaunchCard
-                                        url={msg.journeyMapUrl}
+                                        url={tokenizedProxyUrl(msg.journeyMapUrl)}
                                         meta={msg.journeyMapMeta as any}
                                     />
                                 )}
@@ -8232,7 +9291,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                 {/* 2026-05-11 - Prototype launcher card */}
                                 {msg.prototypeUrl && (
                                     <PrototypeLaunchCard
-                                        url={msg.prototypeUrl}
+                                        url={tokenizedProxyUrl(msg.prototypeUrl)}
                                         meta={msg.prototypeMeta}
                                     />
                                 )}
@@ -8265,7 +9324,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                 {/* 2026-05-12 - HTML Artifact launcher card */}
                                 {msg.artifactUrl && (
                                     <ArtifactLaunchCard
-                                        url={msg.artifactUrl}
+                                        url={tokenizedProxyUrl(msg.artifactUrl)}
                                         meta={msg.artifactMeta}
                                     />
                                 )}
@@ -8395,8 +9454,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                     <SlideCanvas slide={slide}
                                         deckIndex={slideIdx}
                                         dividerOrdinal={msgSlides.slice(0, slideIdx).filter(x => /^(slides:)?section-divider$/i.test(String(x.template || ''))).length}
-                                        onApprove={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'approved' as const } : x))}
-                                        onReject={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'rejected' as const } : x))}
+                                        onApprove={s => { recordHumanLabel({ slide_id: s.id, label: 'approved', artifact_id: (s as any)._artifactId || (s as any).batchId }); setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'approved' as const } : x)); }}
+                                        onReject={s => { recordHumanLabel({ slide_id: s.id, label: 'rejected', artifact_id: (s as any)._artifactId || (s as any).batchId }); setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'rejected' as const } : x)); }}
                                         isGeneratingVisual={generatingVisualId === slide.id}
                                         onGenerateVisual={async (s, prompt) => {
                                             setGeneratingVisualId(s.id);
@@ -8510,8 +9569,8 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                                                         </div>
                                                         <div style={{ color: '#33332E', marginTop: 2, textDecoration: decision === 'rejected' ? 'line-through' : 'none' }}>"{r.claim.slice(0, 160)}{r.claim.length > 160 ? '...' : ''}"</div>
                                                         <div style={{ color: '#666', fontSize: 10, marginTop: 2 }}>
-                                                            {r.citedAs && <>Cited as: {r.citedAs}{r.realSources.length ? ' ' : ''}</>}
-                                                            {r.realSources.length > 0 && <>Real source: {r.realSources.join('; ')} </>}
+                                                            {r.citedAs && <>Cited as: {String(r.citedAs).replace(/\bClient Uploads?\b:?/gi, 'Client document')}{r.realSources.length ? ' ' : ''}</>}
+                                                            {r.realSources.length > 0 && <>Real source: {Array.from(new Set(r.realSources.map((n: string) => readableSourceName(String(n || '').replace(/^\s*Client Uploads?\s*:?\s*/i, ''))))).join('; ')} </>}
                                                             {r.url && <a href={r.url} target="_blank" rel="noreferrer" style={{ color: '#00B7C3' }}>{r.url.replace(/^https?:\/\//, '').slice(0, 60)}</a>}
                                                             {!r.url && <span style={{ color: '#CC6644', fontStyle: 'italic' }}>No external source on record: not independently verifiable.</span>}
                                                         </div>
@@ -8775,6 +9834,12 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 jump to the next high-leverage question." */}
             {messages.length > 0 && (() => {
                 const live: any = renderCtx;
+                // 2026-11-09 (NotebookLM parity C4): the latest substantial assistant answer feeds the
+                // chips so at least two become follow-up questions to what was just read. Fenced slide
+                // payloads and generation-status messages carry no prose worth following up.
+                const _lastAnswer = [...messages].reverse().find(m =>
+                    m.role === 'assistant' && typeof m.content === 'string' && !m.content.includes(':::slide')
+                    && !/^Generating\b/.test(m.content) && m.content.trim().split(/\s+/).length >= 40)?.content || '';
                 return (
                     <DynamicPromptChips
                         state={{
@@ -8782,6 +9847,7 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                             uploadedFiles: live.uploadedFiles || [],
                             liveSourceResults: live.liveSourceResults || [],
                             knowledgeGraph: live.knowledgeGraph,
+                            lastAnswer: _lastAnswer.replace(/```[\s\S]*?```/g, ' ').slice(0, 1600),
                         }}
                         onSelect={(text) => {
                             setInput(text);
@@ -8861,6 +9927,10 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                     />
                     <div style={{ flex: 1, position: 'relative' }}>
                         <ComposerTextarea inputRef={inputRef} value={input} sync={composerSync} onValueChange={setInputState} onKeyDown={handleKeyDown} />
+                        {/* WS-E E1 (2026-10-31): dictation fills the composer; the user sends it like typed text. */}
+                        <div style={{ position: 'absolute', right: 8, bottom: 10 }}>
+                            <DictationButton onDictated={spoken => setInput(prev => appendDictated(prev, spoken))} />
+                        </div>
                         <HashtagAutocomplete
                             input={input}
                             inputRef={inputRef}
@@ -8939,6 +10009,25 @@ Important: this is a re-attempt of the previous request. Honor every directive i
                 activeCategories={renderCtx?.activeCategories || []}
                 chatMessages={messages}
                 liveSourceResults={renderCtx?.liveSourceResults}
+            />
+
+            {/* Studio rail (2026-11-03, NotebookLM reverse-engineering W4): one-click launcher
+                over the existing directives; every tile submits through handleSend so outputs
+                inherit routing, grounding, the claim gate, and the artifact library. */}
+            <StudioPanel
+                isOpen={studioOpen}
+                onClose={() => setStudioOpen(false)}
+                onRun={(text) => { void handleSend(text); }}
+                themeCount={Array.isArray((renderCtx as any)?.themes) ? (renderCtx as any).themes.length : 0}
+                isLoading={isLoading}
+            />
+
+            {/* Source scope rail (2026-11-03 W2): checkbox allow-list over sessionConstraints.includeOnly,
+                enforced deterministically before ranking in chunkRetrieval.pickChunksForPrompt. */}
+            <SourceScopeRail
+                isOpen={scopeOpen}
+                onClose={() => setScopeOpen(false)}
+                engagement={currentEngagementSlug() || ''}
             />
         </div>
     );

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:07:51+00:00"
 content_hash: "e38c02b705cc4ca7"
 chunks:
   - id: "articles/arxiv-cs-cl/b56eeaf9b0.md#c0"
-    char_span: [0, 668]
+    char_span: [0, 667]
     sentence_count: 5
     key_terms: [science, nlp, computer, outside, arxiv, opportunities, applications, backgrounds]
     concepts: [science, computer, outside, arxiv]
-    token_count: 138
-    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2105.00895v1"}]
+    token_count: 137
+    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2105.00895v1","kind":"article","date":"2021-05-03"}]
 ---
 # Teaching NLP outside Linguistics and Computer Science classrooms: Some challenges and some opportunities
 

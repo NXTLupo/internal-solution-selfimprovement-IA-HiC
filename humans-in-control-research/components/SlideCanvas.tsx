@@ -50,6 +50,9 @@ import type {
     ServiceBlueprintData, JourneyMapData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
     OrgChartData, ExecutiveBriefData,
 } from './slideTemplates/types';
+import { normalizeSlideShape } from '../services/slideShapeNormalizer';
+import { DictationButton } from './DictationButton';
+import { appendDictated } from '../services/dictation';
 
 export interface SlideData {
     id: string;
@@ -182,7 +185,9 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
             return slide.sectionDivider ? <SectionDividerFullBleed data={slide.sectionDivider} brand={brand} /> : null;
         case 'persona-card':
             return slide.persona ? (
-                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                // data-composite-sources: the auditable composite basis (owner decision 2026-11-09),
+                // metadata only, never rendered as visible copy.
+                <div style={{ position: 'relative', width: '100%', height: '100%' }} data-composite-sources={(slide.persona as any).compositeOf || undefined}>
                     <PersonaCardSlide data={slide.persona} sources={sources} hasImage={!!slide.imageUrl} imageUrl={slide.imageUrl} density={slide.density} brand={brand} />
                     {isGenerating && <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.6)', zIndex: 4 }}><GeneratingOverlay /></div>}
                 </div>
@@ -254,7 +259,7 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
         case 'journey-map':
             // GOLD actor-lane journey matrix - renders its own GoldFrame chrome.
             return slide.journeyMap ? (
-                <JourneyMapSlide title={slide.title} density={slide.density} data={slide.journeyMap} sources={sources} brand={brand} />
+                <JourneyMapSlide title={slide.title} density={slide.density} data={(normalizeSlideShape({ ...(slide as any), journeyMap: slide.journeyMap ? { ...slide.journeyMap } : undefined }, 'journey-map').journeyMap || slide.journeyMap) as any} sources={sources} brand={brand} />
             ) : null;
         case 'org-chart':
             // GOLD reporting-tier org matrix - renders its own GoldFrame chrome.
@@ -445,15 +450,18 @@ export const SlideCanvas: React.FC<Props> = ({
         if (document.getElementById('hic-slot-anim')) return;
         const st = document.createElement('style');
         st.id = 'hic-slot-anim';
-        st.textContent = '@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.55}}';
+        // 2026-10-05: image-slot chips are an EDITOR affordance; they appear while the slide is hovered (or a slot is
+        // generating / being authored), never as a permanent dashed box over the slide content and logo.
+        st.textContent = '@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.55}}.hic-slot{opacity:0;transition:opacity .15s}.hic-slide:hover .hic-slot,.hic-slot.hic-slot-busy{opacity:1}';
         document.head.appendChild(st);
     }, []);
 
     const slideInternals = (
-        <div ref={slideRef} style={{ width: SLIDE_W, height: SLIDE_H, position: 'relative', overflow: 'hidden', background: '#FFFFFF' }}>
+        <div ref={slideRef} className="hic-slide" style={{ width: SLIDE_W, height: SLIDE_H, position: 'relative', overflow: 'hidden', background: '#FFFFFF' }}>
             {stageHtml ? (
                 <iframe
                     ref={previewFrameRef}
+                    data-slide-id={slide.id}
                     title={`${slide.template} preview`}
                     srcDoc={stageHtml}
                     scrolling="no"
@@ -479,6 +487,7 @@ export const SlideCanvas: React.FC<Props> = ({
                 // clicks, so text under the region stays inline-editable.
                 return (
                     <div key={slot.field}
+                        className={`hic-slot${generating || authoringSlot === slot.field ? ' hic-slot-busy' : ''}`}
                         style={{
                             position: 'absolute', zIndex: 4, pointerEvents: 'none',
                             left: `${slot.rect.x * 100}%`, top: `${slot.rect.y * 100}%`,
@@ -514,6 +523,7 @@ export const SlideCanvas: React.FC<Props> = ({
                 return (
                     <div style={{ position: 'absolute', left: '8%', right: '8%', bottom: 12, zIndex: 6, background: '#0D0D0D', padding: 10, display: 'flex', gap: 6, alignItems: 'center' }}>
                         <span style={{ color: '#F5F3EA', fontSize: 9, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{slot.label}</span>
+                        <DictationButton dark size={24} onDictated={spoken => setSlotPrompt(prev => appendDictated(prev, spoken))} />
                         <input value={slotPrompt} onChange={e => setSlotPrompt(e.target.value)} autoFocus
                             placeholder={slot.field === 'portraitImage' ? 'e.g. mid-40s research director at her desk, natural light' : 'Describe the visual you want here'}
                             onKeyDown={e => { if (e.key === 'Enter' && slotPrompt.trim()) { onAuthorImagery(slide, slot.field, { prompt: slotPrompt.trim(), style: slotStyle, authoredAt: Date.now() }); setAuthoringSlot(null); setSlotPrompt(''); } }}
@@ -544,6 +554,8 @@ export const SlideCanvas: React.FC<Props> = ({
                         onBlur={() => { onEditTitle(slide, titleDraft); setEditingTitle(false); }}
                         onKeyDown={e => { if (e.key === 'Enter') { onEditTitle(slide, titleDraft); setEditingTitle(false); } }}
                         autoFocus style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 28, color: '#141414', border: 'none', borderBottom: '3px solid #caca20', outline: 'none', background: 'transparent', width: '100%' }} />
+                    {/* WS-E E1 (2026-10-31): dictate the title; the button keeps focus so the overlay does not commit early */}
+                    <span style={{ marginLeft: 10 }}><DictationButton onDictated={spoken => setTitleDraft(prev => appendDictated(prev, spoken))} /></span>
                 </div>
             )}
         </div>

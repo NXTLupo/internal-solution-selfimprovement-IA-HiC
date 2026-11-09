@@ -19,12 +19,12 @@ content_hash: "be56cee753f631ac"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/ai-now-institute/ecd6bda7df.md#c0"
-    char_span: [0, 1193]
+    char_span: [0, 1192]
     sentence_count: 6
     key_terms: [nurses-sound-alarm-as-uber-for-nursing-apps-push-to-deregulate-healthcare, nursing, platforms, billion, report, uber, healthcare, according]
     concepts: [nursing, platforms, billion, report, healthcare]
-    token_count: 253
-    sources: [{"n":"ai_now_institute","u":"https://ainowinstitute.org/news/press/nurses-sound-alarm-as-uber-for-nursing-apps-push-to-deregulate-healthcare"}]
+    token_count: 252
+    sources: [{"n":"ai_now_institute","u":"https://ainowinstitute.org/news/press/nurses-sound-alarm-as-uber-for-nursing-apps-push-to-deregulate-healthcare","kind":"article","date":"2026-04-23"}]
 ---
 # Nurses Sound Alarm as ‘Uber for Nursing’ Apps Push to Deregulate Healthcare
 

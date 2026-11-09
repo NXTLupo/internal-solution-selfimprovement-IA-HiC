@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:52:42+00:00"
 content_hash: "09de4f08df234bc6"
 chunks:
   - id: "articles/agr-brownfield/c8e3c4afa9.md#c0"
-    char_span: [0, 1104]
+    char_span: [0, 1103]
     sentence_count: 5
     key_terms: [market, markets-await-clarity-on-potential-iran-ag-purchases, mccormick, purchases, iran, get, says, potential]
     concepts: [market, mccormick, purchases, potential, clarity]
-    token_count: 249
-    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/markets-await-clarity-on-potential-iran-ag-purchases/"}]
+    token_count: 248
+    sources: [{"n":"agr_brownfield","u":"https://www.brownfieldagnews.com/news/markets-await-clarity-on-potential-iran-ag-purchases/","kind":"article","date":"2026-07-01"}]
 ---
 # Markets await clarity on potential Iran ag purchases
 

@@ -96,8 +96,40 @@ export function formatCitationDate(raw: string): string {
 }
 
 /** The reader-facing citation label for a pointer: "Figma Blog: Agents, meet the Figma canvas (Mar 2026)". */
+/**
+ * 2026-11-09 (independent QA, four reviews running): raw connector-feed slugs shipped as source
+ * names in every version of a live #report ("aws ml blog", "exs recruiterflow", "zdnet_ai",
+ * "arxiv cs ro"), and "reddit-deep:" cased two ways. A citation label is a publication's name.
+ * Known feeds map explicitly; anything still slug-shaped (lowercase, underscores) title-cases.
+ */
+const SOURCE_DISPLAY_NAMES: Record<string, string> = {
+    'aws ml blog': 'AWS Machine Learning Blog',
+    'zdnet ai': 'ZDNet', 'zdnet_ai': 'ZDNet',
+    'eff ai': 'Electronic Frontier Foundation',
+    'arxiv cs ro': 'arXiv (Robotics)', 'arxiv cs ai': 'arXiv (AI)', 'arxiv cs cl': 'arXiv (Computation and Language)',
+    'exs recruiterflow': 'Recruiterflow Blog',
+    'kdnuggets.com': 'KDnuggets',
+    'venturebeat ai': 'VentureBeat', 'ars technica ai': 'Ars Technica',
+    'hacker news (algolia)': 'Hacker News',
+    'nxt-insight': 'NXT Insight synthesis',
+};
+export function displaySourceName(name: string): string {
+    const raw = String(name || '').trim();
+    if (!raw) return raw;
+    const key = raw.toLowerCase().replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
+    if (SOURCE_DISPLAY_NAMES[key]) return SOURCE_DISPLAY_NAMES[key];
+    // One casing for the Reddit Deep connector ("reddit-deep: r/neu" -> "Reddit Deep: r/neu").
+    const reddit = raw.match(/^reddit[\s-]?deep:\s*(r\/\S+)/i);
+    if (reddit) return `Reddit Deep: ${reddit[1]}`;
+    // A name that is all lowercase with separators is a slug, not a publication; title-case it.
+    if (/^[a-z0-9][a-z0-9 _.-]*$/.test(raw) && /[ _-]/.test(raw)) {
+        return raw.replace(/[_-]+/g, ' ').replace(/\b[a-z]/g, c => c.toUpperCase());
+    }
+    return raw;
+}
+
 export function formatCitationLabel(pointer: string): string {
-    const name = resolveOne(String(pointer || '').trim());
+    const name = displaySourceName(resolveOne(String(pointer || '').trim()));
     if (!name) return '';
     const meta = lookupPageMeta(pointer);
     const when = meta ? formatCitationDate(meta.date) : '';
@@ -152,12 +184,27 @@ export function registerChunkSources(pointer: string, names: string[]): void {
     if (clean.length && !_chunkSources.has(key)) _chunkSources.set(key, clean);
 }
 
+/**
+ * 2026-10-27 (slide footers read "Finalroundai", "Bluelinesearch", "Zoomsphere"): older corpora named a publisher
+ * without an og:site_name by title-casing its domain stem. A name that IS that squashed stem reads as the registrable
+ * domain ("finalroundai.com"), the honest and checkable label; real names ("Business Insider") pass through.
+ */
+export function squashedDomainName(name: string, url: string): string {
+    if (!name || !url || /\s/.test(name)) return name;
+    let host = '';
+    try { host = new URL(url).hostname.toLowerCase().replace(/^www\./, ''); } catch { return name; }
+    const parts = host.split('.').filter(Boolean);
+    if (parts.length < 2) return name;
+    const stem = parts.length <= 2 ? parts[0] : parts[parts.length - 2];
+    return name.toLowerCase() === stem ? parts.slice(-2).join('.') : name;
+}
+
 /** Bulk-register per-chunk sources from resolved chunks ({ id: 'path#cN', sources: [{n,u}] }). The bridge
  *  called by assembleChunkCorpus so every model-facing chunk carries its real attribution to cite time. */
 export function registerResolvedChunkSources(chunks: Array<{ id?: string; sources?: Array<{ n?: string; u?: string }> }>): void {
     for (const c of chunks || []) {
         if (c && c.id && Array.isArray(c.sources) && c.sources.length) {
-            const names = c.sources.map(s => (s?.n || '').trim()).filter(Boolean);
+            const names = c.sources.map(s => squashedDomainName((s?.n || '').trim(), (s?.u || '').trim())).filter(Boolean);
             if (names.length) registerChunkSources(c.id, names);
             // WS-C: keep the URLs the pairs already carry (previously dropped).
             for (const s of c.sources) {

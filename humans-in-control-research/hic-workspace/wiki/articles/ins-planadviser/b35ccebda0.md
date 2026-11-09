@@ -16,31 +16,34 @@ collected_at: "2026-07-02T17:43:45+00:00"
 content_hash: "898ee6ceaa855836"
 chunks:
   - id: "articles/ins-planadviser/b35ccebda0.md#c0"
-    char_span: [0, 168]
+    char_span: [0, 167]
     sentence_count: 1
     key_terms: [advisory-ma-news-7-1-2026, news, planadviser, advisory, rss-feed, source, https, com]
-    token_count: 60
-    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/advisory-ma-news-7-1-2026/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed"}]
+    token_count: 59
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/advisory-ma-news-7-1-2026/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-planadviser/b35ccebda0.md#c1"
-    char_span: [170, 2591]
+    char_span: [169, 2590]
     sentence_count: 20
     key_terms: [wealth, management, enhancement, assets, advisory, richard, financial, savant]
     concepts: [wealth, management, enhancement, advisory, assets]
     related_chunks: ["articles/ins-planadviser/b35ccebda0.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/advisory-ma-news-7-1-2026/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-planadviser/b35ccebda0.md#c2"
-    char_span: [2250, 4998]
+    char_span: [2249, 4997]
     sentence_count: 17
     key_terms: [financial, wealth, management, mccormick, advisory, firm, llc, lpl]
     concepts: [financial, wealth, management, mccormick, advisory]
     related_chunks: ["articles/ins-planadviser/b35ccebda0.md#c1"]
     token_count: 512
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/advisory-ma-news-7-1-2026/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-planadviser/b35ccebda0.md#c3"
-    char_span: [4621, 5155]
+    char_span: [4620, 5154]
     sentence_count: 4
     key_terms: [element, wealth, bluespring, advisors, financial-affiliated, firm, llc, headquartered]
     concepts: [element, wealth, bluespring, advisors]
     token_count: 89
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/advisory-ma-news-7-1-2026/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-07-01"}]
 ---
 # Advisory M&A News – 7/1/2026
 

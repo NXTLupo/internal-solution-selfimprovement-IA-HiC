@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:54:37+00:00"
 content_hash: "5535246838fcaafa"
 chunks:
   - id: "articles/agr-croplife-america/3cfedb20b8.md#c0"
-    char_span: [0, 1737]
+    char_span: [0, 1736]
     sentence_count: 6
     key_terms: [america, croplife, comments, press, release, regulatory, submits, endangered]
     concepts: [croplife, america, comments, regulatory, release]
-    token_count: 384
-    sources: [{"n":"agr_croplife_america","u":"https://www.croplifeamerica.org/news/"}]
+    token_count: 383
+    sources: [{"n":"agr_croplife_america","u":"https://www.croplifeamerica.org/news/","kind":"article"}]
 ---
 # CropLife America
 

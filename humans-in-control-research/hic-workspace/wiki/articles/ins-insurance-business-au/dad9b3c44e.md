@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:31:15+00:00"
 content_hash: "06347595168b8a2c"
 chunks:
   - id: "articles/ins-insurance-business-au/dad9b3c44e.md#c0"
-    char_span: [0, 248]
+    char_span: [0, 247]
     sentence_count: 1
     key_terms: [nat-cat-cover-to-stay-profitable-if-industry-keeps-innovating--fitch-580879, insurancebusinessmag, catastrophe, innovating, profitable, industry, source, cover]
-    token_count: 68
-    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/catastrophe/nat-cat-cover-to-stay-profitable-if-industry-keeps-innovating--fitch-580879.aspx"}]
+    token_count: 67
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/catastrophe/nat-cat-cover-to-stay-profitable-if-industry-keeps-innovating--fitch-580879.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-au/dad9b3c44e.md#c1"
-    char_span: [250, 2952]
+    char_span: [249, 2951]
     sentence_count: 11
     key_terms: [coverage, billion, microinsurance, gap, insured, markets, concentrated, catastrophe]
     concepts: [coverage, billion, microinsurance, concentrated, catastrophe]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/catastrophe/nat-cat-cover-to-stay-profitable-if-industry-keeps-innovating--fitch-580879.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-au/dad9b3c44e.md#c2"
-    char_span: [2583, 4428]
+    char_span: [2582, 4427]
     sentence_count: 8
     key_terms: [regulatory, coverage, losses, fitch, conditional, gap, frameworks, population]
     concepts: [regulatory, coverage, losses, conditional, fitch]
     token_count: 322
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/catastrophe/nat-cat-cover-to-stay-profitable-if-industry-keeps-innovating--fitch-580879.aspx","kind":"article","date":"2026-07-01"}]
 ---
 # Nat cat cover to stay profitable if industry keeps innovating – Fitch
 

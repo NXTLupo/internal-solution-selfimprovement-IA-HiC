@@ -1,1277 +1,1231 @@
 [
-  {
-    "id": "verbalized-sampling",
-    "name": "Verbalized Sampling",
-    "description": "Training-free prompting technique to unlock LLM creative diversity by asking the model to verbalize a probability distribution over k candidate responses instead of generating a single answer. Mitigates the mode collapse that RLHF/DPO bakes into aligned LLMs via typicality bias. Recovers up to 66.8% of base-model pretraining diversity at inference time, with 1.6-2.1x diversity gains on creative writing tasks. Apply this skill at every creative/synthesis touchpoint where output reads as predictable or conventional. Bigger models (Gemini 3.1 Pro, Claude Opus, GPT-5.5) benefit more. COMPOSES WITH: recommendation-architect (content diversity), html-deliverable-composer (presentation diversity across the five HTML-generation layers — visual layout, IA, diagram type, interaction pattern, iconography). The five-layer composition is documented in plans/html-as-default-output-uplift.md.",
-    "category": "retrieval-enhancer",
-    "triggers": [
-      "#vs",
-      "#diverse",
-      "#sample",
-      "#explore",
-      "non-obvious",
-      "creative diversity",
-      "verbalized sampling",
-      "mode collapse",
-      "tail sampling"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "composes_with": [
-      "recommendation-architect",
-      "html-deliverable-composer"
-    ],
-    "bestModel": "gemini-3.1-pro-preview",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "path": "/skills/verbalized-sampling/SKILL.md"
-  },
-  {
-    "id": "html-deliverable-composer",
-    "name": "HTML Deliverable Composer",
-    "description": "Generates NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the 'Copy as prompt' round-trip helper. COMPOSES WITH verbalized-sampling (mandatory) at five generation layers: visual layout, information architecture, diagram type per SVG, interaction pattern, iconography vocabulary. Loads `verbalized-sampling/SKILL.md` first then prepends its own content. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts (library). Supports a --variants k modifier (k=1-6) that emits the article's 'show me k' grid-picker pattern inline. PENDING: skill file to be created in Sprint H1 of the HTML-as-default uplift rollout. Plan at humans-in-control-research/plans/html-as-default-output-uplift.md.",
-    "category": "research-deliverable",
-    "triggers": [
-      "#brief",
-      "#explainer",
-      "#report",
-      "#playground",
-      "#approaches",
-      "#artifacts",
-      "html artifact",
-      "html deliverable",
-      "share as html",
-      "export as html"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [
-      "verbalized-sampling"
-    ],
-    "outputTypes": [
-      "html_artifact"
-    ],
-    "composes_with": [
-      "verbalized-sampling",
-      "human-voice-editor"
-    ],
-    "bestModel": "gemini-3.1-pro-preview",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "path": "/skills/html-deliverable-composer/SKILL.md",
-    "status": "active"
-  },
-  {
-    "id": "reinforcement-inference",
-    "name": "Reinforcement Inference",
-    "description": "Anchored re-ask pattern: when a generation's selfAssessment.overallConfidence is LOW/MEDIUM or validation fails, the regen pins the prior answer into the prompt and only revises the flagged claims, instead of starting from scratch. Closes the R3 gap from plans/reinforcement-inference-uplift.md. The wrapper lives in services/reinforcementInference.ts and is invoked at 10 regen sites in geminiService.ts plus the uncertainty ledger at wiki/synthesis/uncertainty-ledger.md.",
-    "category": "self-improvement",
-    "triggers": [
-      "#reinforce",
-      "low confidence",
-      "reinforcement inference",
-      "anchored re-ask",
-      "verbalized confidence trigger"
-    ],
-    "wikiCompanions": [
-      "synthesis/uncertainty-ledger.md"
-    ],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "composes_with": [
-      "verbalized-sampling"
-    ],
-    "bestModel": "claude-opus-4-6",
-    "thinkingEffort": "max",
-    "executionContext": "wrapper",
-    "path": "/skills/reinforcement-inference/SKILL.md",
-    "status": "active"
-  },
-  {
-    "id": "recommendation-architect",
-    "name": "Recommendation Architect",
-    "description": "Generate consulting-grade AI tool recommendations grounded in client-uploaded docs and stakeholder constraints. Extracts named stakeholders, their priorities and non-starters, technology-stack preferences, dependency flags (named initiatives), and existing-system reuse from the user's prompt and uploads — then produces 5-12 distinct recommendations honoring all constraints, with implementation depth a senior consultant would defend in a client meeting. Triggered explicitly by #recommendations. COMPOSES WITH verbalized-sampling (VS-Multi pattern) — emits two concept groups: concepts_defensible_consensus (full distribution, k=5) + concepts_non_obvious_bets (deep-tail p<0.05, k=5). The chat handler loads BOTH skills at runtime: vs-skill + recommendation-architect + topic instructions.",
-    "category": "research-deliverable",
-    "triggers": [
-      "#recommendations",
-      "recommendations",
-      "regenerate recommendations",
-      "propose new ideas",
-      "propose recommendations",
-      "tool concepts",
-      "ai tools for",
-      "ideas for",
-      "concepts for"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [
-      "verbalized-sampling"
-    ],
-    "outputTypes": [
-      "recommendationTiles"
-    ],
-    "composes_with": [
-      "verbalized-sampling",
-      "source-ranker",
-      "second-order-thinker",
-      "human-voice-editor"
-    ],
-    "bestModel": "gemini-3.1-pro-preview",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "path": "/skills/recommendation-architect/SKILL.md"
-  },
-  {
-    "id": "wiki-query-expander",
-    "name": "Wiki Query Expander",
-    "description": "Multiplies semantic-retrieval recall by expanding a single user question into 3-4 conceptually distinct query variants, firing one fetch_wiki_articles call per variant, and merging results by url_hash. Exploits the underlying OpenAI/Gemini embedding layer — each variant hits a different vector-space neighborhood. Use for retrieval-intent messages: 'find', 'search the archive', 'what does the wiki say', 'pull everything on', 'dig through the wiki'.",
-    "category": "retrieval-enhancer",
-    "triggers": [
-      "find",
-      "find articles",
-      "search",
-      "search the archive",
-      "search the wiki",
-      "what does the wiki say",
-      "what's in the archive",
-      "what do we have",
-      "look up",
-      "look for",
-      "pull everything",
-      "dig through",
-      "what evidence"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/wiki-query-expander/SKILL.md"
-  },
-  {
-    "id": "wiki-reranker",
-    "name": "Wiki Reranker",
-    "description": "Cross-encoder reranker: after fetch_wiki_articles returns candidates, Claude re-reads the user's question and scores each article 1-5 on direct intent relevance, citing only articles scoring 4+. Replaces the need for a Cohere rerank API subscription. Essential when retrieval returns near-duplicates, off-topic siblings, or surface-semantic-match-but-wrong-intent results. Emits a transparent rerank table so the user sees Claude's scoring before it's used.",
-    "category": "retrieval-enhancer",
-    "triggers": [
-      "rerank",
-      "top results",
-      "best articles",
-      "most relevant",
-      "direct relevance",
-      "filter results",
-      "narrow down",
-      "which of these",
-      "#rerank"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/wiki-reranker/SKILL.md"
-  },
-  {
-    "id": "wiki-synthesizer",
-    "name": "Wiki Synthesizer",
-    "description": "For broad questions spanning multiple articles: retrieves from 3 distinct angles (root cause, impact, response), extracts verbatim quotes per angle, clusters quotes by cross-angle theme, and emits a Minto-style synthesis (answer first, 3 supporting themes with convergent patterns, evidence gaps named). Pairs with semantic embeddings because each angle hits a different neighborhood — the cross-angle pattern IS the synthesis. Use for 'synthesize', 'tell me everything about', 'build a picture', 'what's the story'. Do not use for narrow fact-check.",
-    "category": "retrieval-enhancer",
-    "triggers": [
-      "synthesize",
-      "synthesis",
-      "tell me everything",
-      "everything about",
-      "build a picture",
-      "what's the story",
-      "overall pattern",
-      "comprehensive view",
-      "cross-source",
-      "pull it together",
-      "make sense of",
-      "big picture"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "path": "/skills/wiki-synthesizer/SKILL.md"
-  },
-  {
-    "id": "nxt-visual-renderer",
-    "name": "NXT Visual Renderer",
-    "description": "NXT Humans Design System v3.0 — canonical layout, density, and quote-handling contract for the 18 web slide templates + PPTX export. Render-contract: always loaded alongside any content skill when slide intent is detected. Covers NXT and NU brand variants — colors resolve per brand, layout geometry is shared. Option B density upgrade: per-template IMPLICATION, full-sentence smart-clipped quotes with role attribution, plus template-specific extensions (PATTERN SIGNAL, per-theme SIGNAL, MEANS/MATTERS, CONVERGENT INSIGHT, LESSON, COMPARABLES, IMPACT GRID, EVIDENCE strip, CONTEXT PARAGRAPH, CORROBORATING DATA).",
-    "category": "render-contract",
-    "triggers": [
-      "slide",
-      "slides",
-      "deck",
-      "presentation",
-      "#slide",
-      "theme-spotlight",
-      "theme-arc",
-      "theme-mosaic",
-      "theme-cluster",
-      "case-study",
-      "case study",
-      "recommendation",
-      "stat-row",
-      "stat row",
-      "by the numbers",
-      "block-quote",
-      "pull quote",
-      "persona-card",
-      "competitive-matrix",
-      "service-blueprint",
-      "gap-matrix",
-      "timeline",
-      "section divider"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [
-      "references/web-layouts.md",
-      "references/anti-slop-rules.md"
-    ],
-    "outputTypes": [
-      "theme-spotlight",
-      "theme-arc",
-      "theme-mosaic",
-      "theme-cluster",
-      "case-study",
-      "recommendation",
-      "stat-row",
-      "block-quote",
-      "persona-card",
-      "competitive-matrix"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/nxt-visual-renderer/SKILL.md"
-  },
-  {
-    "id": "persona-architect",
-    "name": "Persona Architect",
-    "description": "JTBD + Cooper Goal Hierarchy. Reject generic demographics. Synthesize behavioral archetypes exclusively from raw corpus data. Must include verbatim user quotes directly mapped to Pain Points and Motivations.",
-    "category": "research-deliverable",
-    "triggers": [
-      "persona",
-      "personas",
-      "customer segment",
-      "segment",
-      "audience",
-      "audiences",
-      "user",
-      "users",
-      "customer",
-      "customers",
-      "buyer",
-      "stakeholder",
-      "JTBD",
-      "jobs to be done",
-      "user type",
-      "archetype",
-      "archetypes",
-      "user profile",
-      "stakeholder profile",
-      "demographic",
-      "demographics",
-      "target user",
-      "end user",
-      "who is our",
-      "who are our"
-    ],
-    "wikiCompanions": [
-      "frameworks/personas.md",
-      "anti-patterns/personas.md"
-    ],
-    "benchmarks": [
-      "benchmarks/cx-metrics.md"
-    ],
-    "outputTypes": [
-      "split-panel",
-      "comparison-table",
-      "evidence-block",
-      "quote-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/persona-architect/SKILL.md"
-  },
-  {
-    "id": "strategy-author",
-    "name": "Strategy Author",
-    "description": "Rumelt's Kernel (Diagnosis, Guiding Policy, Coherent Actions). 18-section Minto Pyramid narrative. Every strategic pillar linked to measurable economic outcome. Ruthless SCR formatting.",
-    "category": "research-deliverable",
-    "triggers": [
-      "strategy",
-      "strategic",
-      "recommendation",
-      "recommendations",
-      "suggest",
-      "advice",
-      "action plan",
-      "next steps",
-      "what should we do",
-      "what to do",
-      "plan of action",
-      "rumelt",
-      "guiding policy",
-      "strategic recommendations",
-      "strategic pillar",
-      "play",
-      "playbook",
-      "prescription",
-      "path forward"
-    ],
-    "wikiCompanions": [
-      "frameworks/strategy.md",
-      "anti-patterns/strategy.md"
-    ],
-    "benchmarks": [
-      "benchmarks/financial-impact.md",
-      "benchmarks/cx-metrics.md"
-    ],
-    "outputTypes": [
-      "recommendation",
-      "split-panel",
-      "evidence-block",
-      "stat-row"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "composes_with": [
-      "source-ranker",
-      "contradiction-finder",
-      "second-order-thinker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/strategy-author/SKILL.md"
-  },
-  {
-    "id": "competitive-analyst",
-    "name": "Competitive Analyst",
-    "description": "Porter's Forces / Blue Ocean positioning — domain-agnostic, works for any industry where the corpus names peers (SaaS vendors, health systems, retailers, banks, universities, CPG brands, etc.). REQUIRED: extract at least 4 NAMED competitors from the corpus (never 'Industry Average' or 'Peers Collective' — those indicate the corpus didn't actually name any). Each row carries per-capability scoring 1-5 AND a specific evidence note grounded in that industry's language (revenue, ARR, endowment, bed count, GMV, AUM, etc.). Columns MUST include one-line capability definitions. Scale MUST include named maturity levels appropriate to the domain (e.g., Absent/Ad-hoc/Defined/Managed/Optimized for consulting; Basic/Defined/Managed/World-class for SaaS; Manual/Semi-automated/Automated/Real-time for ops). Highlight the subject row. Refuse sparse 3-row matrices.",
-    "category": "research-deliverable",
-    "triggers": [
-      "competitive",
-      "competitor",
-      "competitors",
-      "rival",
-      "peer",
-      "peers",
-      "market position",
-      "peer analysis",
-      "maturity matrix",
-      "competitive landscape",
-      "competition",
-      "market share",
-      "versus",
-      "vs",
-      "comparison",
-      "compared to",
-      "how do we stack up",
-      "stack up",
-      "benchmarking peers"
-    ],
-    "wikiCompanions": [
-      "frameworks/competitive.md",
-      "anti-patterns/competitive.md"
-    ],
-    "benchmarks": [
-      "benchmarks/competitive-intel.md",
-      "benchmarks/maturity-models.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "comparison-table",
-      "stat-row",
-      "color-block-grid"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "contradiction-finder",
-      "human-voice-editor"
-    ],
-    "path": "/skills/competitive-analyst/SKILL.md"
-  },
-  {
-    "id": "service-blueprint-mapper",
-    "name": "Service Blueprint Mapper",
-    "description": "Bitner service blueprint adapted for 16:9 slides — works for any multi-stage journey (enterprise onboarding, patient care, retail purchase, loan origination, donor lifecycle, trial-to-paid, claim filing). REQUIRED structure: 4 stages MAX (5+ overflows), every stage carries duration + emotion + all four lanes (customer / frontstage / backstage / support). Duration units match the domain (days, weeks, sprints, care episodes, quarters). FailPoint flags only on stages where the process genuinely breaks. keyInsight MUST quantify the business cost of the fail points in the domain's native metric (ACV, ARR, readmissions, GMV, retention dollars, claim cycle time). Tie friction to specific numbers from the corpus — never 'customers are frustrated' without the cost attached.",
-    "category": "research-deliverable",
-    "triggers": [
-      "blueprint",
-      "service design",
-      "journey",
-      "journeys",
-      "journey map",
-      "service blueprint",
-      "touchpoint",
-      "touchpoints",
-      "customer journey",
-      "user journey",
-      "friction point",
-      "friction",
-      "experience flow",
-      "end-to-end",
-      "end to end",
-      "process flow",
-      "workflow",
-      "steps",
-      "stages",
-      "frontstage",
-      "backstage",
-      "swim lane",
-      "swimlane"
-    ],
-    "wikiCompanions": [
-      "frameworks/blueprint.md",
-      "anti-patterns/blueprint.md"
-    ],
-    "benchmarks": [
-      "benchmarks/cx-metrics.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "evidence-block",
-      "stat-row",
-      "split-panel"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/service-blueprint-mapper/SKILL.md"
-  },
-  {
-    "id": "tech-arch-generator",
-    "name": "Technology Architecture Generator",
-    "description": "C4 Model (Context & Containers). Generate 10-section node and integration mapping. Explicitly define system constraints, integration payloads, and boundary limits from technical corpus documents.",
-    "category": "research-deliverable",
-    "triggers": [
-      "architecture",
-      "architect",
-      "system design",
-      "tech stack",
-      "technology stack",
-      "technology architecture",
-      "target architecture",
-      "integration",
-      "integrations",
-      "C4 model",
-      "C4",
-      "system diagram",
-      "technical architecture",
-      "platform diagram",
-      "infrastructure diagram",
-      "solution architecture",
-      "data flow",
-      "API layer"
-    ],
-    "wikiCompanions": [
-      "frameworks/architecture.md",
-      "anti-patterns/architecture.md"
-    ],
-    "benchmarks": [
-      "benchmarks/technology-adoption.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "split-panel",
-      "color-block-grid",
-      "evidence-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/tech-arch-generator/SKILL.md"
-  },
-  {
-    "id": "prd-compiler",
-    "name": "PRD Compiler",
-    "description": "SVPG / Cagan Framework: define the Why before the What. Feature-level requirements heavily grounded in cited user quotes and identified market gaps. Epics decomposed using MECE logic.",
-    "category": "research-deliverable",
-    "triggers": [
-      "PRD",
-      "requirements",
-      "feature spec",
-      "feature",
-      "features",
-      "product requirements",
-      "user story",
-      "user stories",
-      "epics",
-      "feature list",
-      "product specification",
-      "spec",
-      "specifications",
-      "acceptance criteria",
-      "must have",
-      "should have",
-      "MoSCoW",
-      "moscow",
-      "backlog",
-      "release plan"
-    ],
-    "wikiCompanions": [
-      "frameworks/prd.md",
-      "anti-patterns/prd.md"
-    ],
-    "benchmarks": [
-      "benchmarks/technology-adoption.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "evidence-block",
-      "split-panel",
-      "comparison-table"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/prd-compiler/SKILL.md"
-  },
-  {
-    "id": "roadmap-builder",
-    "name": "Roadmap Builder",
-    "description": "Now/Next/Later Strategic Sequencing. Avoid rigid Gantt charts; use outcome-based horizons. Prioritization mathematically justified by economic value, feasibility, and risk with specific corpus citations.",
-    "category": "research-deliverable",
-    "triggers": [
-      "roadmap",
-      "roadmaps",
-      "timeline",
-      "timelines",
-      "now next later",
-      "implementation plan",
-      "phasing",
-      "phases",
-      "sequencing",
-      "horizon planning",
-      "prioritization",
-      "schedule",
-      "delivery plan",
-      "rollout plan",
-      "milestones",
-      "program plan",
-      "quarters",
-      "quarterly plan",
-      "sprint plan",
-      "sequence of work",
-      "build order",
-      "what first"
-    ],
-    "wikiCompanions": [
-      "frameworks/roadmap.md",
-      "anti-patterns/roadmap.md"
-    ],
-    "benchmarks": [
-      "benchmarks/financial-impact.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "stat-row",
-      "color-block-grid",
-      "evidence-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "second-order-thinker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/roadmap-builder/SKILL.md"
-  },
-  {
-    "id": "gap-analysis-evaluator",
-    "name": "Gap Analysis Evaluator",
-    "description": "Gartner 1-5 Maturity Assessment across technical and operational vectors. Current-state baselines and target-state goals substantiated by quantitative evidence and cited institutional deficiencies.",
-    "category": "research-deliverable",
-    "triggers": [
-      "gap analysis",
-      "maturity",
-      "deficiencies",
-      "deficient",
-      "capability gap",
-      "capability gaps",
-      "maturity assessment",
-      "current state",
-      "target state",
-      "current vs target",
-      "as-is",
-      "to-be",
-      "gap",
-      "gaps",
-      "shortfall",
-      "behind peers",
-      "falling behind",
-      "where we lag",
-      "weaknesses",
-      "areas to improve",
-      "improvement areas"
-    ],
-    "wikiCompanions": [
-      "frameworks/gap-analysis.md",
-      "anti-patterns/gap-analysis.md"
-    ],
-    "benchmarks": [
-      "benchmarks/maturity-models.md",
-      "benchmarks/cx-metrics.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "stat-row",
-      "comparison-table",
-      "warning-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "contradiction-finder",
-      "human-voice-editor"
-    ],
-    "path": "/skills/gap-analysis-evaluator/SKILL.md"
-  },
-  {
-    "id": "tech-audit-inspector",
-    "name": "Tech Audit Inspector",
-    "description": "COBIT / TEI Audit. Comprehensive systems inventory. Explicitly flag siloed data risks, security vulnerabilities, and redundancy costs backed by evidence.",
-    "category": "research-deliverable",
-    "triggers": [
-      "tech audit",
-      "systems inventory",
-      "inventory",
-      "technical debt",
-      "tech debt",
-      "technology audit",
-      "system assessment",
-      "IT audit",
-      "legacy systems",
-      "legacy",
-      "technology ecosystem",
-      "tech landscape",
-      "tools in use",
-      "what systems",
-      "tooling",
-      "platform inventory",
-      "sunset candidates",
-      "retire",
-      "deprecate"
-    ],
-    "wikiCompanions": [
-      "frameworks/tech-audit.md",
-      "anti-patterns/tech-audit.md"
-    ],
-    "benchmarks": [
-      "benchmarks/technology-adoption.md"
-    ],
-    "outputTypes": [
-      "grid-matrix",
-      "comparison-table",
-      "warning-block",
-      "evidence-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/tech-audit-inspector/SKILL.md"
-  },
-  {
-    "id": "theme-analyst",
-    "name": "Theme Analyst",
-    "description": "6-Lens Thematic Analysis. Extract strategic themes from multi-source research corpus. Each theme grounded in convergent evidence from multiple named sources with verbatim quotes.",
-    "category": "research-deliverable",
-    "triggers": [
-      "theme",
-      "themes",
-      "thematic",
-      "pattern",
-      "patterns",
-      "insight",
-      "insights",
-      "key findings",
-      "findings",
-      "learnings",
-      "key learnings",
-      "takeaway",
-      "takeaways",
-      "thematic analysis",
-      "research themes",
-      "emerging themes",
-      "topics",
-      "motifs",
-      "commonalities",
-      "recurring issues",
-      "what's emerging",
-      "threads"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [
-      "benchmarks/cx-metrics.md"
-    ],
-    "outputTypes": [
-      "evidence-block",
-      "stat-row",
-      "split-panel",
-      "color-block-grid"
-    ],
-    "bestModel": "gemini-2.5-flash",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "composes_with": [
-      "source-ranker",
-      "contradiction-finder",
-      "human-voice-editor"
-    ],
-    "path": "/skills/theme-analyst/SKILL.md"
-  },
-  {
-    "id": "strategic-report-writer",
-    "name": "Strategic Report Writer",
-    "description": "McKinsey-format strategic whitepaper. Rumelt's Kernel + 20 named sources + case studies + social evidence. Full unrestricted narrative layer with no character budgets.",
-    "category": "research-deliverable",
-    "triggers": [
-      "report",
-      "whitepaper",
-      "strategic report",
-      "executive summary",
-      "full report",
-      "comprehensive report",
-      "synthesis report"
-    ],
-    "wikiCompanions": [
-      "frameworks/strategy.md",
-      "anti-patterns/strategy.md"
-    ],
-    "benchmarks": [
-      "benchmarks/cx-metrics.md",
-      "benchmarks/financial-impact.md",
-      "benchmarks/maturity-models.md"
-    ],
-    "outputTypes": [
-      "full-html",
-      "split-panel",
-      "stat-row",
-      "evidence-block",
-      "recommendation"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "composes_with": [
-      "source-ranker",
-      "contradiction-finder",
-      "second-order-thinker",
-      "slide-title-lab",
-      "human-voice-editor"
-    ],
-    "path": "/skills/strategic-report-writer/SKILL.md"
-  },
-  {
-    "id": "evidence-curator",
-    "name": "Evidence Curator",
-    "description": "Surfaces a single powerful verbatim quote with full attribution and source context. Used when ONE piece of testimony carries the argument. Owns the block-quote slide template.",
-    "category": "research-deliverable",
-    "triggers": [
-      "quote",
-      "quotes",
-      "testimony",
-      "testimonial",
-      "verbatim",
-      "in their words",
-      "block quote",
-      "key quote",
-      "pull quote",
-      "what they said",
-      "hero quote",
-      "verbatims",
-      "soundbite",
-      "voice of the",
-      "voice of customer",
-      "VoC"
-    ],
-    "wikiCompanions": [
-      "frameworks/evidence.md"
-    ],
-    "benchmarks": [],
-    "outputTypes": [
-      "block-quote",
-      "quote-block",
-      "evidence-block"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "medium",
-    "executionContext": "subagent",
-    "path": "inline://block-quote-template"
-  },
-  {
-    "id": "case-study-analyst",
-    "name": "Case Study Analyst",
-    "description": "Structures real-world examples with FIVE data vectors (never just one stat) — domain-agnostic, pulls from whatever named entity appears in the corpus (company, vendor, health system, university, agency, bank, retailer, NGO). Required: subject + subjectMeta using that domain's sizing vocabulary (ARR, endowment, headcount, beds, stores, AUM, branches), explicit timeframe in the domain's unit (quarters, academic years, sprints, care episodes), investment (cost + team size / capex / program budget), the full Challenge/Approach/Outcome narrative with at least one quantified detail per block, a hero keyMetric PLUS 3-4 supportingMetrics, and ideally a verbatim pullQuote from someone inside the case. If the corpus only supports a single stat, refuse the case study and use stat-row instead. Pulls from named organizations ONLY — never 'a leading bank' or 'a health system' (those indicate the corpus lacks a real case).",
-    "category": "research-deliverable",
-    "triggers": [
-      "case study",
-      "case studies",
-      "example",
-      "examples",
-      "real world",
-      "real-world",
-      "precedent",
-      "similar organization",
-      "peer example",
-      "success story",
-      "how X did",
-      "proof point",
-      "comparable",
-      "anecdote",
-      "war story",
-      "illustration",
-      "vignette"
-    ],
-    "wikiCompanions": [
-      "frameworks/case-study.md"
-    ],
-    "benchmarks": [],
-    "outputTypes": [
-      "case-study",
-      "evidence-block",
-      "stat-row"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "subagent",
-    "path": "/skills/case-study-analyst/SKILL.md"
-  },
-  {
-    "id": "benchmark-reporter",
-    "name": "Benchmark Reporter",
-    "description": "Extracts 3-4 hero metrics with named sources and renders them as oversized statistics. Every number carries an attribution — no hero stats without citations. Owns the stat-row slide template.",
-    "category": "research-deliverable",
-    "triggers": [
-      "benchmark",
-      "benchmarks",
-      "metric",
-      "metrics",
-      "key numbers",
-      "stat",
-      "stats",
-      "statistic",
-      "statistics",
-      "by the numbers",
-      "kpi",
-      "kpis",
-      "performance numbers",
-      "data points",
-      "figures",
-      "facts and figures",
-      "top numbers",
-      "headline stats",
-      "scoreboard",
-      "scorecard",
-      "top metrics"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [
-      "benchmarks/cx-metrics.md",
-      "benchmarks/financial-impact.md",
-      "benchmarks/technology-adoption.md"
-    ],
-    "outputTypes": [
-      "stat-row",
-      "evidence-block"
-    ],
-    "bestModel": "gemini-2.5-flash",
-    "thinkingEffort": "medium",
-    "executionContext": "subagent",
-    "path": "inline://stat-row-template"
-  },
-  {
-    "id": "deck-composer",
-    "name": "Deck Composer",
-    "description": "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry): archetype selection by content shape, gate-enforced visual floor and variety rules, narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, reference-deck voice; section 8 carries the legacy GOLD Slide-object contract (12 content block types) folded from deck-narrative-composer on 2026-10-01.",
-    "category": "research-deliverable",
-    "triggers": [
-      "deck",
-      "presentation",
-      "slides",
-      "pitch",
-      "strategy deck",
-      "slide deck",
-      "pitch deck"
-    ],
-    "wikiCompanions": [
-      "frameworks/deck.md",
-      "anti-patterns/deck.md",
-      "anti-patterns/deck_structure.md"
-    ],
-    "benchmarks": [],
-    "outputTypes": [
-      "stat-row",
-      "evidence-block",
-      "recommendation",
-      "split-panel",
-      "section-divider",
-      "quote-block",
-      "color-block-grid"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "max",
-    "executionContext": "primary",
-    "composes_with": [
-      "slide-title-lab",
-      "second-order-thinker",
-      "human-voice-editor"
-    ],
-    "path": "/skills/deck-composer/SKILL.md"
-  },
-  {
-    "id": "nxt-visual-renderer",
-    "name": "NXT Visual Renderer",
-    "description": "NXT Design System rendering engine. Stark White Template, anti-slop business flat minimalism. 7 layout patterns, color system, typography, anti-slop checklist. Generates slides and visual components with mandatory delimiters.",
-    "category": "research-deliverable",
-    "triggers": [
-      "slide",
-      "slides",
-      "visual",
-      "render",
-      "design",
-      "chart",
-      "diagram",
-      "layout",
-      "presentation",
-      "stat row",
-      "evidence block",
-      "recommendation callout",
-      "split panel",
-      "grid",
-      "table",
-      "format",
-      "styled"
-    ],
-    "wikiCompanions": [
-      "brand/identity.md",
-      "brand/layout-patterns.md",
-      "brand/anti-slop.md",
-      "brand/chart-standards.md",
-      "brand/illustration-style.md"
-    ],
-    "benchmarks": [],
-    "outputTypes": [
-      "stat-row",
-      "evidence-block",
-      "recommendation",
-      "split-panel",
-      "section-divider",
-      "grid-matrix",
-      "color-block-grid",
-      "quote-block",
-      "comparison-table",
-      "warning-block"
-    ],
-    "bestModel": "gemini-2.5-flash",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/nxt-visual-renderer/SKILL.md"
-  },
-  {
-    "id": "slide-templates",
-    "name": "NXT Humans Slide Templates",
-    "description": "The 10 canonical slide templates, available in two visual brands chosen by hashtag in the user's prompt: #NXT (NXT Humans — teal + chartreuse, default) or #NU (Northeastern University — near-black + Huskies Red). Every slide emitted by the chat picks one of the 10 templates, fills the data shape, and the web preview + PPTX export + PDF export all render from the SAME data for pixel parity. Templates: persona-card (persona-architect), recommendation (strategy-author), theme-cluster (theme-analyst), competitive-matrix (competitive-analyst), block-quote (evidence-curator), case-study (case-study-analyst), principles (strategy-author), stat-row (benchmark-reporter), timeline (roadmap-builder), section-divider (deck-composer). Emit :::slide template=NAME [brand=nxt|nu] blocks — never freelance a layout.",
-    "category": "rendering-system",
-    "triggers": [
-      "slide",
-      "slides",
-      "deck",
-      "pptx",
-      "powerpoint",
-      "presentation",
-      "page",
-      "card",
-      "visual",
-      "show me",
-      "generate slides",
-      "turn this into a deck",
-      "build slides",
-      "export to pptx",
-      "make a presentation",
-      "#NXT",
-      "#NU",
-      "#nxt",
-      "#nu"
-    ],
-    "brands": [
-      {
-        "id": "nxt",
-        "hashtag": "#NXT",
-        "name": "NXT Humans",
-        "primary": "#115054",
-        "accent": "#CACA20",
-        "description": "Teal sidebar + chartreuse accents (default)"
-      },
-      {
-        "id": "nu",
-        "hashtag": "#NU",
-        "name": "Northeastern University",
-        "primary": "#141414",
-        "accent": "#C8102E",
-        "description": "Near-black sidebar + Huskies Red accents"
-      }
-    ],
-    "wikiCompanions": [
-      "brand/identity.md",
-      "brand/layout-patterns.md",
-      "brand/anti-slop.md"
-    ],
-    "benchmarks": [],
-    "templates": [
-      {
-        "id": "persona-card",
-        "owner": "persona-architect",
-        "classicDeliverable": "persona"
-      },
-      {
-        "id": "recommendation",
-        "owner": "strategy-author",
-        "classicDeliverable": "recommendation"
-      },
-      {
-        "id": "theme-cluster",
-        "owner": "theme-analyst",
-        "classicDeliverable": "theme"
-      },
-      {
-        "id": "competitive-matrix",
-        "owner": "competitive-analyst",
-        "classicDeliverable": "competitive_peer"
-      },
-      {
-        "id": "block-quote",
-        "owner": "evidence-curator"
-      },
-      {
-        "id": "case-study",
-        "owner": "case-study-analyst"
-      },
-      {
-        "id": "principles",
-        "owner": "strategy-author"
-      },
-      {
-        "id": "stat-row",
-        "owner": "benchmark-reporter"
-      },
-      {
-        "id": "timeline",
-        "owner": "roadmap-builder",
-        "classicDeliverable": "roadmap_item"
-      },
-      {
-        "id": "section-divider",
-        "owner": "deck-composer"
-      },
-      {
-        "id": "service-blueprint",
-        "owner": "service-blueprint-mapper",
-        "classicDeliverable": "journey_stage"
-      },
-      {
-        "id": "gap-matrix",
-        "owner": "gap-analysis-evaluator",
-        "classicDeliverable": "gap"
-      },
-      {
-        "id": "architecture-map",
-        "owner": "tech-arch-generator",
-        "classicDeliverable": "tech_node"
-      },
-      {
-        "id": "prd-feature",
-        "owner": "prd-compiler",
-        "classicDeliverable": "prd_feature"
-      },
-      {
-        "id": "systems-inventory",
-        "owner": "tech-audit-inspector",
-        "classicDeliverable": "tech_audit_system"
-      }
-    ],
-    "outputTypes": [
-      "persona-card",
-      "recommendation",
-      "theme-cluster",
-      "competitive-matrix",
-      "block-quote",
-      "case-study",
-      "principles",
-      "stat-row",
-      "timeline",
-      "section-divider",
-      "service-blueprint",
-      "gap-matrix",
-      "architecture-map",
-      "prd-feature",
-      "systems-inventory"
-    ],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "inline://DELIVERABLE_PROTOCOL"
-  },
-  {
-    "id": "source-ranker",
-    "name": "Source Ranker",
-    "description": "Ranks any candidate source set by four orthogonal dimensions wiki-reranker doesn't cover — credibility (peer-review / publication editorial standards), recency (current/dated/outdated tuned to topic volatility), argument-relevance (direct/tangential/weak — distinct from intent-relevance), and the binding citation-protocol classification external/client/synthetic. Emits per-source Use/Verify/Cut verdicts, the top 3 to build the argument on, the one to cut, the missing source type that would make the argument stronger, and a final external-ratio diagnostic that gates the deliverable against the 60%-external floor. Auto-loads via composes_with on every research-deliverable skill — the user never has to ask for citation-quality enforcement.",
-    "category": "quality-enhancer",
-    "triggers": [
-      "source rank",
-      "rank sources",
-      "which sources to trust",
-      "credibility check",
-      "external sources",
-      "citation diversity",
-      "source quality",
-      "#source-rank"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/source-ranker/SKILL.md"
-  },
-  {
-    "id": "contradiction-finder",
-    "name": "Contradiction Finder",
-    "description": "Surfaces where sources in the retrieval set actively disagree on a specific claim, theme, or finding — instead of flattening contradictions into smoothed consensus. Returns the surface consensus, 3 specific contradictions with both sides quoted verbatim (paraphrase is forbidden), the single weakest claim in the material, the field's real unresolved debate, and a calibrated confidence verdict (High/Medium/Low) that drives whether the deliverable should cite forward, narrow the claim, or re-retrieve. Directly raises the Evidence Hierarchy dimension of the hic-output-qa rubric. Auto-loaded via composes_with on heavy-synthesis deliverables (theme-analyst, strategy-author, competitive-analyst, gap-analysis-evaluator, strategic-report-writer).",
-    "category": "quality-enhancer",
-    "triggers": [
-      "find contradictions",
-      "where do sources disagree",
-      "source disagreement",
-      "real debate",
-      "weakest claim",
-      "counter-evidence",
-      "is the consensus real",
-      "#contradict"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/contradiction-finder/SKILL.md"
-  },
-  {
-    "id": "second-order-thinker",
-    "name": "Second Order Thinker",
-    "description": "Maps the second-order, third-order, unintended, and feedback-loop consequences of any strategic recommendation or decision. First-order effects are the obvious 'if we do X then Y'. Second-order is what happens after that. Third-order is where unintended consequences emerge. Feedback loops are where the system either amplifies the original move or quietly undoes it. Forces three moves ahead per recommendation. Names one unintended consequence. Surfaces the amplifying-or-undermining loop. Distinguishes a competent recommendation from a partner-grade one. Auto-loaded via composes_with on strategy-author, recommendation-architect, roadmap-builder, and strategic-report-writer — anywhere the deliverable produces ACTIONS (not diagnoses).",
-    "category": "quality-enhancer",
-    "triggers": [
-      "second order",
-      "second-order",
-      "consequences of consequences",
-      "what happens after",
-      "unintended consequences",
-      "feedback loop",
-      "downstream effects",
-      "#second-order",
-      "#consequences"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/second-order-thinker/SKILL.md"
-  },
-  {
-    "id": "slide-title-lab",
-    "name": "Slide Title Lab",
-    "description": "Generates 15 candidate action-titles for every body slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data point AND action verb, no topic labels, no banned slop, complete sentence, under 120 chars), and returns the top 3 plus the weakest pattern across all 15. Replaces one-shot slide-title generation with a generate-many + rank pattern that lifts action-title compliance directly. Auto-loaded via composes_with on deck-composer and strategic-report-writer — every slide title goes through this gate before the deck renders. Section dividers, cover slides, and persona cards are exempt (they follow their own naming convention).",
-    "category": "quality-enhancer",
-    "triggers": [
-      "slide title",
-      "title variants",
-      "title lab",
-      "action title",
-      "rewrite this title",
-      "score this title",
-      "#title-lab"
-    ],
-    "wikiCompanions": [],
-    "benchmarks": [],
-    "skillReferences": [],
-    "outputTypes": [],
-    "bestModel": "claude-opus-4-7",
-    "thinkingEffort": "high",
-    "executionContext": "primary",
-    "path": "/skills/slide-title-lab/SKILL.md"
-  },
-  {
-    "id": "human-voice-editor",
-    "name": "Human Voice Editor",
-    "category": "quality-enhancer",
-    "description": "Positive-voice counterpart to the anti-slop banlists: how good consulting prose reads (active voice, omit needless words, short concrete words, specificity, burstiness, take a position, earn emphasis, trust the reader, reuse precise terms, Orwell rule-6 override). Humanizes themes, headlines, deliverables, and chat replies. SkillOpt-trained.",
-    "keywords": [
-      "voice",
-      "humanize",
-      "prose",
-      "copy",
-      "writing",
-      "tone",
-      "readability",
-      "slop"
-    ],
-    "composes_with": [],
-    "triggers": [],
-    "path": "/skills/human-voice-editor/SKILL.md",
-    "skillReferences": [],
-    "wikiCompanions": [],
-    "benchmarks": []
-  }
+ {
+  "id": "benchmark-reporter",
+  "name": "Benchmark Reporter",
+  "description": "Extract three or four hero metrics with named sources and render them as a stat row; every number travels inside an attributed quote. Used for benchmark, metrics and by-the-numbers requests.",
+  "category": "research-deliverable",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "benchmark",
+   "benchmarks",
+   "metric",
+   "metrics",
+   "key numbers",
+   "stat",
+   "stats",
+   "statistic",
+   "statistics",
+   "by the numbers",
+   "kpi",
+   "kpis",
+   "performance numbers",
+   "data points",
+   "figures",
+   "facts and figures",
+   "top numbers",
+   "headline stats",
+   "scoreboard",
+   "scorecard",
+   "top metrics"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md",
+   "benchmarks/financial-impact.md",
+   "benchmarks/technology-adoption.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "stat-row",
+   "evidence-block"
+  ],
+  "thinkingEffort": "medium",
+  "executionContext": "subagent",
+  "path": "/skills/benchmark-reporter/SKILL.md"
+ },
+ {
+  "id": "case-study-analyst",
+  "name": "Case Study Analyst",
+  "description": "Named, evidence-grounded case studies from the corpus -- subject, context, intervention, outcome, and applicability -- each anchored to verbatim quotes and named external sources.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "case study",
+   "case studies",
+   "example",
+   "examples",
+   "real world",
+   "real-world",
+   "precedent",
+   "similar organization",
+   "peer example",
+   "success story",
+   "how X did",
+   "proof point",
+   "comparable",
+   "anecdote",
+   "war story",
+   "illustration",
+   "vignette"
+  ],
+  "wikiCompanions": [
+   "frameworks/case-study.md"
+  ],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "case-study",
+   "evidence-block",
+   "stat-row"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/case-study-analyst/SKILL.md"
+ },
+ {
+  "id": "competitive-analyst",
+  "name": "Competitive Analyst",
+  "description": "Dual-mode competitive landscape analysis combining named entity extraction with archetype analysis, benchmark scoring, maturity matrix, and gap summary.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "competitive",
+   "competitor",
+   "competitors",
+   "rival",
+   "peer",
+   "peers",
+   "market position",
+   "peer analysis",
+   "maturity matrix",
+   "competitive landscape",
+   "competition",
+   "market share",
+   "versus",
+   "vs",
+   "comparison",
+   "compared to",
+   "how do we stack up",
+   "stack up",
+   "benchmarking peers"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "contradiction-finder",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/competitive.md",
+   "anti-patterns/competitive.md"
+  ],
+  "benchmarks": [
+   "benchmarks/competitive-intel.md",
+   "benchmarks/maturity-models.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "comparison-table",
+   "stat-row",
+   "color-block-grid"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/competitive-analyst/SKILL.md"
+ },
+ {
+  "id": "contradiction-finder",
+  "name": "Contradiction Finder",
+  "description": "Surface where sources in a corpus disagree on a claim: the surface consensus, three contradictions with both sides quoted, the weakest claim and the unresolved debate. Use when a theme or recommendation cites only supporting evidence and needs counter-evidence engaged.",
+  "category": "quality-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "find contradictions",
+   "where do sources disagree",
+   "source disagreement",
+   "real debate",
+   "weakest claim",
+   "counter-evidence",
+   "is the consensus real",
+   "#contradict"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/contradiction-finder/SKILL.md"
+ },
+ {
+  "id": "deck-composer",
+  "name": "Deck Composer",
+  "description": "The authority for #slides, #strategy and #presentation deck composition: archetype choice by content shape, the visual floor and variety rules, the Minto, Rumelt and SCQA arc, title craft and subject discipline. Injected whole into the DECK MODE prompt.",
+  "category": "research-deliverable",
+  "version": "1.1",
+  "status": "active",
+  "triggers": [
+   "deck",
+   "presentation",
+   "slides",
+   "pitch",
+   "strategy deck",
+   "slide deck",
+   "pitch deck"
+  ],
+  "composes_with": [
+   "slide-title-lab",
+   "second-order-thinker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/deck.md",
+   "anti-patterns/deck.md",
+   "anti-patterns/deck_structure.md"
+  ],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "stat-row",
+   "evidence-block",
+   "recommendation",
+   "split-panel",
+   "section-divider",
+   "quote-block",
+   "color-block-grid"
+  ],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/deck-composer/SKILL.md"
+ },
+ {
+  "id": "evidence-curator",
+  "name": "Evidence Curator",
+  "description": "Surface one powerful verbatim quote with full attribution and source context, rendered as a block quote. Used when one piece of testimony carries the argument better than a summary would.",
+  "category": "research-deliverable",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "quote",
+   "quotes",
+   "testimony",
+   "testimonial",
+   "verbatim",
+   "in their words",
+   "block quote",
+   "key quote",
+   "pull quote",
+   "what they said",
+   "hero quote",
+   "verbatims",
+   "soundbite",
+   "voice of the",
+   "voice of customer",
+   "VoC"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "block-quote",
+   "quote-block",
+   "evidence-block"
+  ],
+  "thinkingEffort": "medium",
+  "executionContext": "subagent",
+  "path": "/skills/evidence-curator/SKILL.md"
+ },
+ {
+  "id": "gap-analysis-evaluator",
+  "name": "Gap Analysis Evaluator",
+  "description": "Four-step capability gap extraction using Gartner 5-level maturity scoring with evidence-backed severity, risk register, and quick wins.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "gap analysis",
+   "maturity",
+   "deficiencies",
+   "deficient",
+   "capability gap",
+   "capability gaps",
+   "maturity assessment",
+   "current state",
+   "target state",
+   "current vs target",
+   "as-is",
+   "to-be",
+   "gap",
+   "gaps",
+   "shortfall",
+   "behind peers",
+   "falling behind",
+   "where we lag",
+   "weaknesses",
+   "areas to improve",
+   "improvement areas"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "contradiction-finder",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/gap-analysis.md",
+   "anti-patterns/gap-analysis.md"
+  ],
+  "benchmarks": [
+   "benchmarks/maturity-models.md",
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "stat-row",
+   "comparison-table",
+   "warning-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/gap-analysis-evaluator/SKILL.md"
+ },
+ {
+  "id": "html-deliverable-composer",
+  "name": "HTML Deliverable Composer",
+  "description": "Generate brand-locked, self-contained HTML deliverables (briefs, explainers, reports, playgrounds, approach pickers) for human review, applying verbalized sampling across layout, structure, diagram, interaction and iconography. Used for #brief, #explainer, #report.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "#brief",
+   "#explainer",
+   "#report",
+   "#playground",
+   "#approaches",
+   "#artifacts",
+   "html artifact",
+   "html deliverable",
+   "share as html",
+   "export as html"
+  ],
+  "composes_with": [
+   "verbalized-sampling",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "html_artifact"
+  ],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/html-deliverable-composer/SKILL.md"
+ },
+ {
+  "id": "human-voice-editor",
+  "name": "Human Voice Editor",
+  "description": "The positive half of HiC's writing contract: register, audience calibration (executive, practitioner, mixed) and sentence economy. Load beside any authoring skill and whenever the prose signal flags cadence, openers, actors, copula or dilution.",
+  "category": "quality-enhancer",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "medium",
+  "path": "/skills/human-voice-editor/SKILL.md"
+ },
+ {
+  "id": "journey-illustrator",
+  "name": "Journey Map Illustrator",
+  "description": "Current-state journey map illustrator with a draft-then-deepen two-pass method: grid-table HTML with per-cell verbatim evidence and sources, named touchpoints, emotion intensity and a journey-level KPI dashboard. Used for #journey; NXT and NU differ only in color and type.",
+  "category": "research-deliverable",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "journey",
+   "journeys",
+   "journey map",
+   "customer journey",
+   "user journey",
+   "experience flow",
+   "end-to-end",
+   "end to end",
+   "pain points by stage",
+   "moments that matter",
+   "student journey",
+   "employee journey",
+   "patient journey"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/blueprint.md",
+   "anti-patterns/blueprint.md"
+  ],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "evidence-block",
+   "stat-row"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/diagrams/journey-illustrator/SKILL.md"
+ },
+ {
+  "id": "nxt-visual-renderer",
+  "name": "NXT Visual Renderer",
+  "description": "Layout, density and quote-handling contract for the 18 web slide templates and their PPTX export, shared by the NXT and NU brand variants. Loaded as a render contract when slide or template intent appears; budgets and JSON shapes live in references/web-layouts.md.",
+  "category": "render-contract",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "slide",
+   "slides",
+   "deck",
+   "presentation",
+   "#slide",
+   "theme-overview",
+   "theme-detail",
+   "theme-arc",
+   "theme-mosaic",
+   "case-study",
+   "case study",
+   "recommendation",
+   "stat-row",
+   "stat row",
+   "by the numbers",
+   "block-quote",
+   "pull quote",
+   "persona-card",
+   "competitive-matrix",
+   "service-blueprint",
+   "gap-matrix",
+   "timeline",
+   "section divider",
+   "theme-spotlight",
+   "theme-cluster",
+   "visual",
+   "render",
+   "design",
+   "chart",
+   "diagram",
+   "layout",
+   "evidence block",
+   "recommendation callout",
+   "split panel",
+   "grid",
+   "table",
+   "format",
+   "styled"
+  ],
+  "wikiCompanions": [
+   "brand/identity.md",
+   "brand/layout-patterns.md",
+   "brand/anti-slop.md",
+   "brand/chart-standards.md",
+   "brand/illustration-style.md"
+  ],
+  "benchmarks": [],
+  "skillReferences": [
+   "references/web-layouts.md",
+   "references/anti-slop-rules.md"
+  ],
+  "outputTypes": [
+   "theme-spotlight",
+   "theme-arc",
+   "theme-mosaic",
+   "theme-cluster",
+   "case-study",
+   "recommendation",
+   "stat-row",
+   "block-quote",
+   "persona-card",
+   "competitive-matrix",
+   "evidence-block",
+   "split-panel",
+   "section-divider",
+   "grid-matrix",
+   "color-block-grid",
+   "quote-block",
+   "comparison-table",
+   "warning-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/nxt-visual-renderer/SKILL.md"
+ },
+ {
+  "id": "persona-architect",
+  "name": "Persona Architect",
+  "description": "Generate evidence-grounded CX personas in two phases (a verbalized-sampling roster, then enrichment) on a Cooper goal hierarchy, with three or more named external citations, verbatim quotes and jobs-to-be-done per persona. Used for #personas.",
+  "category": "research-deliverable",
+  "version": "1.1",
+  "status": "active",
+  "triggers": [
+   "persona",
+   "personas",
+   "customer segment",
+   "segment",
+   "audience",
+   "audiences",
+   "user",
+   "users",
+   "customer",
+   "customers",
+   "buyer",
+   "stakeholder",
+   "JTBD",
+   "jobs to be done",
+   "user type",
+   "archetype",
+   "archetypes",
+   "user profile",
+   "stakeholder profile",
+   "demographic",
+   "demographics",
+   "target user",
+   "end user",
+   "who is our",
+   "who are our"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/personas.md",
+   "anti-patterns/personas.md"
+  ],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "split-panel",
+   "comparison-table",
+   "evidence-block",
+   "quote-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/persona-architect/SKILL.md"
+ },
+ {
+  "id": "prd-compiler",
+  "name": "PRD Compiler",
+  "description": "Compile the one PRD contract (PrdAir, spec v2026) from typed AIR references: two tiers, twelve sections, a Source to Signal traceability graph, evidence-derived MoSCoW tiers, seven-field success signals, and the typed requirement_target number rule. Document first; the deck is a projection.",
+  "category": "research-deliverable",
+  "version": "2.0",
+  "status": "active",
+  "triggers": [
+   "PRD",
+   "requirements",
+   "feature spec",
+   "feature",
+   "features",
+   "product requirements",
+   "user story",
+   "user stories",
+   "epics",
+   "feature list",
+   "product specification",
+   "spec",
+   "specifications",
+   "acceptance criteria",
+   "must have",
+   "should have",
+   "MoSCoW",
+   "moscow",
+   "backlog",
+   "release plan"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/prd.md",
+   "anti-patterns/prd.md"
+  ],
+  "benchmarks": [
+   "benchmarks/technology-adoption.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "evidence-block",
+   "split-panel",
+   "comparison-table"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/prd-compiler/SKILL.md"
+ },
+ {
+  "id": "recommendation-architect",
+  "name": "Recommendation Architect",
+  "description": "Generate consulting-grade AI-tool recommendations grounded in client uploads and stakeholder constraints: extract the engagement context, then produce 5 to 12 distinct recommendations that honor every constraint with implementation depth. Used for #recs.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "#recommendations",
+   "recommendations",
+   "regenerate recommendations",
+   "propose new ideas",
+   "propose recommendations",
+   "tool concepts",
+   "ai tools for",
+   "ideas for",
+   "concepts for"
+  ],
+  "composes_with": [
+   "verbalized-sampling",
+   "source-ranker",
+   "second-order-thinker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "recommendationTiles"
+  ],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/recommendation-architect/SKILL.md"
+ },
+ {
+  "id": "reinforcement-inference",
+  "name": "Reinforcement Inference",
+  "description": "Re-ask the model with its prior answer verbatim plus an uncertainty hint when confidence crosses a threshold; anchored re-asking beats a plain think-harder prompt. Use at regeneration sites (recommendations, journey map, PRD, roadmap, gap analysis) and uncertain answers.",
+  "category": "self-improvement",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "#reinforce",
+   "low confidence",
+   "reinforcement inference",
+   "anchored re-ask",
+   "verbalized confidence trigger"
+  ],
+  "composes_with": [
+   "verbalized-sampling"
+  ],
+  "wikiCompanions": [
+   "synthesis/uncertainty-ledger.md"
+  ],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "max",
+  "executionContext": "wrapper",
+  "path": "/skills/reinforcement-inference/SKILL.md"
+ },
+ {
+  "id": "roadmap-builder",
+  "name": "Roadmap Builder",
+  "description": "Build evidence-based implementation roadmaps using NOW/NEXT/LATER horizon framework with problem framing",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "roadmap",
+   "roadmaps",
+   "timeline",
+   "timelines",
+   "now next later",
+   "implementation plan",
+   "phasing",
+   "phases",
+   "sequencing",
+   "horizon planning",
+   "prioritization",
+   "schedule",
+   "delivery plan",
+   "rollout plan",
+   "milestones",
+   "program plan",
+   "quarters",
+   "quarterly plan",
+   "sprint plan",
+   "sequence of work",
+   "build order",
+   "what first"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "second-order-thinker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/roadmap.md",
+   "anti-patterns/roadmap.md"
+  ],
+  "benchmarks": [
+   "benchmarks/financial-impact.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "stat-row",
+   "color-block-grid",
+   "evidence-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/roadmap-builder/SKILL.md"
+ },
+ {
+  "id": "second-order-thinker",
+  "name": "Second Order Thinker",
+  "description": "Map second-order, third-order, unintended and feedback-loop consequences of a recommendation or decision: three moves ahead, one named unintended consequence and the loop that amplifies or undermines the move. Use to deepen strategy actions and roadmap phases.",
+  "category": "quality-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "second order",
+   "second-order",
+   "consequences of consequences",
+   "what happens after",
+   "unintended consequences",
+   "feedback loop",
+   "downstream effects",
+   "#second-order",
+   "#consequences"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/second-order-thinker/SKILL.md"
+ },
+ {
+  "id": "service-blueprint-mapper",
+  "name": "Service Blueprint Mapper",
+  "description": "Generate persona-driven service blueprints with Bitner 5-component model, fail points, and emotion intensity",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "blueprint",
+   "service design",
+   "service blueprint",
+   "touchpoint",
+   "touchpoints",
+   "friction point",
+   "friction",
+   "process flow",
+   "workflow",
+   "steps",
+   "stages",
+   "frontstage",
+   "backstage",
+   "swim lane",
+   "swimlane"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/blueprint.md",
+   "anti-patterns/blueprint.md"
+  ],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "evidence-block",
+   "stat-row",
+   "split-panel"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/service-blueprint-mapper/SKILL.md"
+ },
+ {
+  "id": "slide-templates",
+  "name": "NXT Humans Slide Templates",
+  "description": "The canonical slide template set, rendered in the NXT or NU brand chosen by hashtag, with the deliverable skill that owns each template. Loaded as the rendering system when slide intent appears.",
+  "category": "rendering-system",
+  "version": "1.0",
+  "status": "active",
+  "triggers": [
+   "slide",
+   "slides",
+   "deck",
+   "pptx",
+   "powerpoint",
+   "presentation",
+   "page",
+   "card",
+   "visual",
+   "show me",
+   "generate slides",
+   "turn this into a deck",
+   "build slides",
+   "export to pptx",
+   "make a presentation",
+   "#NXT",
+   "#NU",
+   "#nxt",
+   "#nu"
+  ],
+  "wikiCompanions": [
+   "brand/identity.md",
+   "brand/layout-patterns.md",
+   "brand/anti-slop.md"
+  ],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [
+   "persona-card",
+   "recommendation",
+   "theme-cluster",
+   "competitive-matrix",
+   "block-quote",
+   "case-study",
+   "principles",
+   "stat-row",
+   "timeline",
+   "section-divider",
+   "service-blueprint",
+   "gap-matrix",
+   "architecture-map",
+   "prd-feature",
+   "systems-inventory"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/slide-templates/SKILL.md"
+ },
+ {
+  "id": "slide-title-lab",
+  "name": "Slide Title Lab",
+  "description": "Generate 15 candidate action titles for one slide across eight formats, score them against the title rules and return the top three plus the weakest dimension. Use when a slide title reads as a topic label or one-shot titles keep failing the title gate.",
+  "category": "quality-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "slide title",
+   "title variants",
+   "title lab",
+   "action title",
+   "rewrite this title",
+   "score this title",
+   "#title-lab"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/slide-title-lab/SKILL.md"
+ },
+ {
+  "id": "source-ranker",
+  "name": "Source Ranker",
+  "description": "Rank candidate sources on credibility, recency, relevance to the argument and external, client or synthetic class; emit Use, Verify or Cut per source, the top three, the one to cut and the missing source type. Enforces the external-source floors.",
+  "category": "quality-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "source rank",
+   "rank sources",
+   "which sources to trust",
+   "credibility check",
+   "external sources",
+   "citation diversity",
+   "source quality",
+   "#source-rank"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/source-ranker/SKILL.md"
+ },
+ {
+  "id": "strategic-report-writer",
+  "name": "Strategic Report Writer",
+  "description": "McKinsey-format strategic whitepaper synthesis using Rumelt's Kernel, 20+ named sources, case studies, social evidence, and mandatory section manifest driven by available deliverables.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "report",
+   "whitepaper",
+   "strategic report",
+   "executive summary",
+   "full report",
+   "comprehensive report",
+   "synthesis report"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "contradiction-finder",
+   "second-order-thinker",
+   "slide-title-lab",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/strategy.md",
+   "anti-patterns/strategy.md"
+  ],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md",
+   "benchmarks/financial-impact.md",
+   "benchmarks/maturity-models.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "full-html",
+   "split-panel",
+   "stat-row",
+   "evidence-block",
+   "recommendation"
+  ],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/strategic-report-writer/SKILL.md"
+ },
+ {
+  "id": "strategy-author",
+  "name": "Strategy Author",
+  "description": "Author strategic recommendations using Rumelt's Kernel and generate 15-section strategy documents with quantified impact",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "strategy",
+   "strategic",
+   "recommendation",
+   "recommendations",
+   "suggest",
+   "advice",
+   "action plan",
+   "next steps",
+   "what should we do",
+   "what to do",
+   "plan of action",
+   "rumelt",
+   "guiding policy",
+   "strategic recommendations",
+   "strategic pillar",
+   "play",
+   "playbook",
+   "prescription",
+   "path forward"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "contradiction-finder",
+   "second-order-thinker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/strategy.md",
+   "anti-patterns/strategy.md"
+  ],
+  "benchmarks": [
+   "benchmarks/financial-impact.md",
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "recommendation",
+   "split-panel",
+   "evidence-block",
+   "stat-row"
+  ],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/strategy-author/SKILL.md"
+ },
+ {
+  "id": "tech-arch-generator",
+  "name": "Technology Architecture Generator",
+  "description": "Two-phase technology architecture extraction from research corpus using C4 Model node/flow mapping with citations per component.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "architecture",
+   "architect",
+   "system design",
+   "tech stack",
+   "technology stack",
+   "technology architecture",
+   "target architecture",
+   "integration",
+   "integrations",
+   "C4 model",
+   "C4",
+   "system diagram",
+   "technical architecture",
+   "platform diagram",
+   "infrastructure diagram",
+   "solution architecture",
+   "data flow",
+   "API layer"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/architecture.md",
+   "anti-patterns/architecture.md"
+  ],
+  "benchmarks": [
+   "benchmarks/technology-adoption.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "split-panel",
+   "color-block-grid",
+   "evidence-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/tech-arch-generator/SKILL.md"
+ },
+ {
+  "id": "tech-audit-inspector",
+  "name": "Tech Audit Inspector",
+  "description": "Two-phase technology ecosystem audit producing systems inventory, integration map, capability matrix, and consolidation opportunities.",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "tech audit",
+   "systems inventory",
+   "inventory",
+   "technical debt",
+   "tech debt",
+   "technology audit",
+   "system assessment",
+   "IT audit",
+   "legacy systems",
+   "legacy",
+   "technology ecosystem",
+   "tech landscape",
+   "tools in use",
+   "what systems",
+   "tooling",
+   "platform inventory",
+   "sunset candidates",
+   "retire",
+   "deprecate"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [
+   "frameworks/tech-audit.md",
+   "anti-patterns/tech-audit.md"
+  ],
+  "benchmarks": [
+   "benchmarks/technology-adoption.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "grid-matrix",
+   "comparison-table",
+   "warning-block",
+   "evidence-block"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/tech-audit-inspector/SKILL.md"
+ },
+ {
+  "id": "theme-analyst",
+  "name": "Theme Analyst",
+  "description": "Extract strategic themes from multi-source research corpus using 6-lens thematic analysis",
+  "category": "research-deliverable",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "theme",
+   "themes",
+   "thematic",
+   "pattern",
+   "patterns",
+   "insight",
+   "insights",
+   "key findings",
+   "findings",
+   "learnings",
+   "key learnings",
+   "takeaway",
+   "takeaways",
+   "thematic analysis",
+   "research themes",
+   "emerging themes",
+   "topics",
+   "motifs",
+   "commonalities",
+   "recurring issues",
+   "what's emerging",
+   "threads"
+  ],
+  "composes_with": [
+   "source-ranker",
+   "contradiction-finder",
+   "human-voice-editor"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [
+   "benchmarks/cx-metrics.md"
+  ],
+  "skillReferences": [],
+  "outputTypes": [
+   "evidence-block",
+   "stat-row",
+   "split-panel",
+   "color-block-grid"
+  ],
+  "thinkingEffort": "high",
+  "executionContext": "subagent",
+  "path": "/skills/theme-analyst/SKILL.md"
+ },
+ {
+  "id": "verbalized-sampling",
+  "name": "Verbalized Sampling",
+  "description": "Ask the model for a verbalized probability distribution over k candidates instead of one answer, recovering diversity lost to typicality bias. Apply at creative and synthesis points (themes, recommendations, prototype concepts, personas, slide narrative).",
+  "category": "retrieval-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "#vs",
+   "#diverse",
+   "#sample",
+   "#explore",
+   "non-obvious",
+   "creative diversity",
+   "verbalized sampling",
+   "mode collapse",
+   "tail sampling"
+  ],
+  "composes_with": [
+   "recommendation-architect",
+   "html-deliverable-composer"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/verbalized-sampling/SKILL.md"
+ },
+ {
+  "id": "wiki-query-expander",
+  "name": "Wiki Query Expander",
+  "description": "Expand one question into three or four conceptually distinct query variants, run one fetch_wiki_articles call per variant and merge the results, so each variant reaches a different neighborhood of the embedding space. Use when a single query misses articles.",
+  "category": "retrieval-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "find",
+   "find articles",
+   "search",
+   "search the archive",
+   "search the wiki",
+   "what does the wiki say",
+   "what's in the archive",
+   "what do we have",
+   "look up",
+   "look for",
+   "pull everything",
+   "dig through",
+   "what evidence"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/wiki-query-expander/SKILL.md"
+ },
+ {
+  "id": "wiki-reranker",
+  "name": "Wiki Reranker",
+  "description": "After fetch_wiki_articles returns candidates, re-read the question, score each article 1 to 5 on direct intent relevance and cite only articles scoring 4 or 5. Use when retrieval returns near-duplicates, off-topic siblings or surface matches with the wrong intent.",
+  "category": "retrieval-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "rerank",
+   "top results",
+   "best articles",
+   "most relevant",
+   "direct relevance",
+   "filter results",
+   "narrow down",
+   "which of these",
+   "#rerank"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "high",
+  "executionContext": "primary",
+  "path": "/skills/wiki-reranker/SKILL.md"
+ },
+ {
+  "id": "wiki-synthesizer",
+  "name": "Wiki Synthesizer",
+  "description": "For broad questions spanning many articles: retrieve from three distinct angles, extract verbatim quotes, cluster them by theme and present an answer-first Minto synthesis. Use for synthesize, tell me everything about or build a picture of; not single-fact lookups.",
+  "category": "retrieval-enhancer",
+  "version": "1",
+  "status": "active",
+  "triggers": [
+   "synthesize",
+   "synthesis",
+   "tell me everything",
+   "everything about",
+   "build a picture",
+   "what's the story",
+   "overall pattern",
+   "comprehensive view",
+   "cross-source",
+   "pull it together",
+   "make sense of",
+   "big picture"
+  ],
+  "wikiCompanions": [],
+  "benchmarks": [],
+  "skillReferences": [],
+  "outputTypes": [],
+  "thinkingEffort": "max",
+  "executionContext": "primary",
+  "path": "/skills/wiki-synthesizer/SKILL.md"
+ }
 ]

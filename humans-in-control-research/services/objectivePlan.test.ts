@@ -6,14 +6,17 @@
  *
  * The tests that matter here are the ABSENCE ones: an unplanned run must be visibly
  * unmeasured, never quietly covered.
+ *
+ * WS-1 T1 (2026-10-30): the plan lives in the typed RunState (services/runState.ts),
+ * not in a window global; these tests drive it through the run-state setters.
  */
 import { describe, it, expect, afterEach } from 'vitest';
 import {
     normalizeSubQuestions, readObjectivePlan, toAirDecomposedQuestions, planSummary,
 } from './objectivePlan';
+import { setPlanSubQuestions, _resetRunStateForTests } from './runState';
 
-const WINDOW_KEY = '__hicResearchPlanSubQuestions';
-afterEach(() => { try { delete (globalThis as any).window[WINDOW_KEY]; } catch { /* ignore */ } });
+afterEach(() => _resetRunStateForTests());
 
 const REAL_PLAN = [
     { id: 'sq_1', question: 'Which stages of retained executive search are AI tools already changing?', priority: 'high', expected_evidence_types: ['news', 'social'] },
@@ -53,15 +56,15 @@ describe('readObjectivePlan', () => {
         expect(read.source).toBe('none');
     });
 
-    it('prefers an explicit plan over the global, so a test never depends on window', () => {
-        (globalThis as any).window[WINDOW_KEY] = REAL_PLAN;
+    it('prefers an explicit plan over the run state, so a test never depends on ambient state', () => {
+        setPlanSubQuestions(REAL_PLAN);
         const read = readObjectivePlan([{ id: 'x', question: 'Explicit wins?', priority: 'high' }]);
         expect(read.source).toBe('explicit');
         expect(read.subQuestions).toHaveLength(1);
     });
 
-    it('falls back to the run global App.tsx sets', () => {
-        (globalThis as any).window[WINDOW_KEY] = REAL_PLAN;
+    it('falls back to the plan the run published', () => {
+        setPlanSubQuestions(REAL_PLAN);
         const read = readObjectivePlan();
         expect(read.source).toBe('window');
         expect(read.planAbsent).toBe(false);
@@ -69,7 +72,7 @@ describe('readObjectivePlan', () => {
     });
 
     it('treats a plan of unusable entries as no plan at all', () => {
-        (globalThis as any).window[WINDOW_KEY] = [{ id: 'a' }, { id: 'b' }];
+        setPlanSubQuestions([{ id: 'a' }, { id: 'b' }]);
         expect(readObjectivePlan().planAbsent).toBe(true);
     });
 });
@@ -113,7 +116,7 @@ describe('planSummary', () => {
  * E1.1 follow-up (2026-08-24). The live run reported `decomposedQuestions: 0` on a
  * RESTORED session, and the reason was not the reader: the plan only ever existed in a
  * window global set during a live collection phase, so nothing survived a reload. The
- * snapshot now carries it and the restore rehydrates it.
+ * snapshot now carries it and the restore rehydrates it (into the run state).
  */
 describe('the plan survives save and restore', () => {
     it('buildSessionSnapshot persists the sub-questions the run declared', async () => {
@@ -127,7 +130,6 @@ describe('the plan survives save and restore', () => {
 
     it('restoreSessionSnapshot rehydrates them, so a reloaded session knows its objective', async () => {
         const { restoreSessionSnapshot } = await import('./sessionService');
-        delete (globalThis as any).window[WINDOW_KEY];
         expect(readObjectivePlan().planAbsent).toBe(true);
 
         restoreSessionSnapshot({
@@ -144,7 +146,6 @@ describe('the plan survives save and restore', () => {
 
     it('a restore with no plan leaves the run honestly unmeasured', async () => {
         const { restoreSessionSnapshot } = await import('./sessionService');
-        delete (globalThis as any).window[WINDOW_KEY];
         restoreSessionSnapshot({ metadata: { research_goal: 'g' }, state: {} } as any);
         expect(readObjectivePlan().planAbsent).toBe(true);
     });

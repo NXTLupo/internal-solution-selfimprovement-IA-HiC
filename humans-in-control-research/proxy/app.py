@@ -15,6 +15,7 @@ Connector types:
 """
 
 import os
+import base64
 import json
 import logging
 import time
@@ -51,6 +52,8 @@ import hmac  # A1 auth: constant-time token comparison
 # the reasoning/structured model ids + the body normalizer every Claude call
 # shares (SPA chokepoint, artifact engine, topic-model labels).
 from model_registry import (
+    routing_seats as _routing_seats,
+    KNOWN_MODELS as _KNOWN_MODELS,
     CLAUDE_REASONING_MODEL as _CLAUDE_REASONING_MODEL,
     CLAUDE_STRUCTURED_MODEL as _CLAUDE_STRUCTURED_MODEL,
     CLAUDE_SERVER_FALLBACK_RE as _CLAUDE_SERVER_FALLBACK_RE,
@@ -265,10 +268,18 @@ def _goog_key_headers(api_key: str, extra: dict | None = None) -> dict:
 
 app = FastAPI(title="HiC Research Data Proxy v2")
 
+# 2026-10-30 (WS-0 S2) - CORS is restricted to the SPA origins. The old `*` plus
+# allow_credentials=True let any web page a user visited call this proxy from their
+# browser. Override with PROXY_CORS_ORIGINS (comma-separated) for another host.
+_CORS_DEFAULT_ORIGINS = ("http://localhost:5011,http://127.0.0.1:5011,http://localhost:3000,http://127.0.0.1:3000,"
+                         "http://localhost:5173,http://127.0.0.1:5173")
+# 2026-10-31 (live deploy): docker-compose passes `PROXY_CORS_ORIGINS=${PROXY_CORS_ORIGINS:-}`, i.e. the variable is
+# SET to an empty string when the owner has not pinned it; an empty value means "the defaults", never "no origin".
+_CORS_ORIGINS = [o.strip() for o in (os.environ.get("PROXY_CORS_ORIGINS", "").strip() or _CORS_DEFAULT_ORIGINS).split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=_CORS_ORIGINS,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -288,16 +299,158 @@ app.add_middleware(
 # including future ones, so it can't be forgotten on a new endpoint.
 _PROXY_AUTH_TOKEN = os.environ.get("PROXY_AUTH_TOKEN", "").strip()
 # Paths always allowed without a token (health checks + CORS preflight handled below).
-_AUTH_EXEMPT_PATHS = {"/health", "/favicon.ico", "/api/ai/status"}
-if not _PROXY_AUTH_TOKEN:
-    logger.warning("[A1] PROXY AUTH DISABLED — set PROXY_AUTH_TOKEN to require a bearer token on /api/*. "
-                   "Proxy is currently open to anything that can reach it (host loopback + docker bridge).")
+_AUTH_EXEMPT_PATHS = {"/health", "/favicon.ico", "/api/ai/status", "/api/proto-ai/generate",
+                      # 2026-10-31 (agent-stack plan D3): authenticated by a per-source HMAC signature instead of the
+                      # shared token, and absent (404) until the owner creates a secret.
+                      "/api/webhooks/run"}
+# 2026-10-30 (WS-0 S2) - auth is ON by default. The SPA reads the same token from
+# /config.json (nginx writes it from PROXY_AUTH_TOKEN at container start) and sends it
+# as x-proxy-token on every proxy request. PROXY_AUTH_DISABLED=1 is the explicit,
+# logged opt-out for an isolated dev box; an unset token no longer means "open".
+if os.environ.get("PROXY_AUTH_DISABLED", "").strip() == "1":
+    _PROXY_AUTH_TOKEN = ""
+    logger.warning("[A1] PROXY AUTH DISABLED by PROXY_AUTH_DISABLED=1. Every /api/* route is open to "
+                   "anything that can reach this process.")
 else:
-    logger.info("[A1] Proxy auth ENABLED — /api/* requires a bearer/x-proxy-token.")
+    pass
+
+
+def _runtime_base_dir() -> Optional[str]:
+    # 2026-10-31: HIC_RUNTIME_BASE points a test run (proxy/tests/conftest.py) at its own directory, so importing
+    # this module never rewrites the live .runtime/config.json the running workers and the SPA share.
+    override = os.environ.get("HIC_RUNTIME_BASE", "").strip()
+    if override:
+        os.makedirs(override, exist_ok=True)
+        return override
+    for c in ("/hic-workspace", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "hic-workspace")):
+        if os.path.isdir(c):
+            return c
+    return None
+
+
+def _shared_runtime_token() -> tuple:
+    """ONE token for every worker process (2026-10-31 live deploy: uvicorn runs several workers and each
+    generated its own ephemeral token, so the SPA authenticated against one worker in N and raced the
+    config rename). The token lives in <hic-workspace>/.runtime/config.json: the first worker to take the
+    lock generates and publishes it, every other worker reads it; a token already published by an earlier
+    boot is reused, so the SPA, the MCP wrapper and a restarted proxy keep agreeing. Returns (token, how)."""
+    import secrets as _secrets
+    base = _runtime_base_dir()
+    if not base:
+        return _secrets.token_urlsafe(32), "generated (no workspace to publish to)"
+    rd = os.path.join(base, ".runtime")
+    cfg = os.path.join(rd, "config.json")
+    lock = cfg + ".lock"
+    try:
+        os.makedirs(rd, exist_ok=True)
+    except Exception:
+        return _secrets.token_urlsafe(32), "generated (runtime dir not writable)"
+    for _attempt in range(60):
+        try:
+            with open(cfg, "r", encoding="utf-8") as f:
+                tok = str((json.load(f) or {}).get("proxyToken") or "")
+            if len(tok) >= 32:
+                return tok, "reused from .runtime/config.json"
+        except Exception:
+            pass
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            time.sleep(0.1)
+            continue
+        try:
+            tok = _secrets.token_urlsafe(32)
+            tmp = f"{cfg}.{os.getpid()}.tmp"
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump({"proxyBase": os.environ.get("PROXY_PUBLIC_BASE", "http://127.0.0.1:5012").rstrip("/"), "proxyToken": tok}, f)
+            os.replace(tmp, cfg)
+            return tok, "generated and published to .runtime/config.json"
+        finally:
+            try:
+                os.close(fd)
+                os.remove(lock)
+            except Exception:
+                pass
+    return _secrets.token_urlsafe(32), "generated (lock never released; this worker will not match the others)"
+
+
+if os.environ.get("PROXY_AUTH_DISABLED", "").strip() != "1":
+    if _PROXY_AUTH_TOKEN:
+        logger.info("[A1] Proxy auth ENABLED with PROXY_AUTH_TOKEN from the environment; /api/* requires x-proxy-token.")
+    else:
+        _PROXY_AUTH_TOKEN, _how = _shared_runtime_token()
+        logger.info(f"[A1] Proxy auth ENABLED; token {_how}. The SPA reads it from /config.json (nginx serves "
+                    f"hic-workspace/.runtime/config.json); set PROXY_AUTH_TOKEN in the root .env to pin it.")
+
+
+def _write_runtime_config() -> None:
+    """Publish the SPA's runtime configuration (proxy base + the active token) to
+    `<hic-workspace>/.runtime/config.json`. nginx serves that file as /config.json and
+    the Vite dev server reads it too, so the token is created by the proxy and never
+    typed by a person or baked into a build. The directory is gitignored. Every worker
+    writes the SAME value (see _shared_runtime_token), with a per-process temp file so
+    concurrent writers never race the rename."""
+    base = _runtime_base_dir()
+    if not base:
+        logger.warning("[A1] no hic-workspace directory found; /config.json not written")
+        return
+    if not _PROXY_AUTH_TOKEN:
+        # auth disabled: there is no token to publish, and an empty one written over a live token is what broke
+        # every client on 2026-10-31 (the next authenticated start then minted a token the running workers lacked)
+        logger.info("[A1] auth disabled; .runtime/config.json left as it is")
+        return
+    runtime_dir = os.path.join(base, ".runtime")
+    try:
+        os.makedirs(runtime_dir, exist_ok=True)
+        payload = {
+            "proxyBase": os.environ.get("PROXY_PUBLIC_BASE", "http://127.0.0.1:5012").rstrip("/"),
+            "proxyToken": _PROXY_AUTH_TOKEN,
+        }
+        cfg = os.path.join(runtime_dir, "config.json")
+        try:
+            with open(cfg, "r", encoding="utf-8") as f:
+                if json.load(f) == payload:
+                    return   # another worker already published this exact config
+        except Exception:
+            pass
+        tmp = f"{cfg}.{os.getpid()}.tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(payload, f)
+        os.replace(tmp, cfg)
+        logger.info(f"[A1] runtime config written to {runtime_dir}/config.json")
+    except Exception as e:
+        logger.error(f"[A1] could not write runtime config: {e}")
+
+
+_write_runtime_config()
+
+
+def _self_headers(extra: Optional[dict] = None) -> dict:
+    """Headers for the proxy's OWN loopback calls (wiki rerank, DeepSeek fallback). 2026-10-31 live UI test:
+    with auth on by default, `wiki_rerank` posted to 127.0.0.1:5012/api/ai/gemini with no token and every
+    rerank died with 401 (retrieval silently degraded to the pre-rank order). Every in-process HTTP call to
+    this service carries the shared token; the render sandbox and the SkillOpt batch read the same token
+    from .runtime/config.json."""
+    h = dict(extra or {})
+    if _PROXY_AUTH_TOKEN:
+        h["x-proxy-token"] = _PROXY_AUTH_TOKEN
+    return h
+
+
+import contextvars as _ctxvars_req
+# 2026-10-30 (WS-1 T3 / WS-2 E10): the run and message ids the SPA stamps on every request
+# (x-hic-run-id, x-hic-message-id) travel with the request so the usage ledger and other sinks
+# can join on them.
+_HIC_REQ_CTX: "_ctxvars_req.ContextVar[dict]" = _ctxvars_req.ContextVar("hic_req_ctx", default={})
 
 
 @app.middleware("http")
 async def _proxy_auth_mw(request: Request, call_next):
+    try:
+        _HIC_REQ_CTX.set({"run_id": request.headers.get("x-hic-run-id", ""), "message_id": request.headers.get("x-hic-message-id", ""),
+                          "session": request.headers.get("x-hic-session", "")})
+    except Exception:
+        pass
     if _PROXY_AUTH_TOKEN:
         path = request.url.path
         # Allow CORS preflight (no auth header is sent on OPTIONS) + exempt paths.
@@ -308,8 +461,24 @@ async def _proxy_auth_mw(request: Request, call_next):
                 supplied = authz[7:].strip()
             if not supplied:
                 supplied = request.headers.get("x-proxy-token", "").strip()
+            if not supplied and request.method == "GET":
+                # 2026-11-08 (live defect: artifact LAUNCH windows showed {"error":"unauthorized"}).
+                # Reader and media surfaces open as BROWSER NAVIGATIONS (window.open, <audio>/<video>
+                # src), which cannot attach headers. The SAME shared token may ride a query parameter
+                # on GETs: auth is not weakened (identical secret, identical constant-time compare,
+                # nothing exempted); only the transport gains a channel that navigations can use.
+                # The SPA appends it via services/proxyConfig.tokenizedProxyUrl.
+                supplied = request.query_params.get("t", "").strip()
             if not hmac.compare_digest(supplied, _PROXY_AUTH_TOKEN):
-                return JSONResponse({"error": "unauthorized"}, status_code=401)
+                # 2026-10-31 (live deploy): this middleware is OUTSIDE CORSMiddleware (decorator middleware wraps
+                # later), so a bare 401 reached the browser without CORS headers and surfaced as an opaque CORS
+                # failure instead of "unauthorized". The 401 carries the CORS headers for an allowed origin.
+                resp = JSONResponse({"error": "unauthorized"}, status_code=401)
+                origin = request.headers.get("origin", "")
+                if origin and origin in _CORS_ORIGINS:
+                    resp.headers["access-control-allow-origin"] = origin
+                    resp.headers["vary"] = "Origin"
+                return resp
     return await call_next(request)
 
 
@@ -3670,6 +3839,9 @@ async def air_write(req: Request):
     if not run_id or not artifact_id or not isinstance(air, dict):
         return JSONResponse({"persisted": False, "error": "runId, artifactId, and air object are required"}, status_code=400)
     art_dir = os.path.join(SESSIONS_BASE, run_id, "artifacts")
+    if not air.get("createdAtIso"):
+        # WS-C C1 (2026-10-31): the record's birth time; the lineage lookup orders by it (a patch moves mtime)
+        air["createdAtIso"] = datetime.utcnow().isoformat() + "Z"
     try:
         os.makedirs(art_dir, exist_ok=True)
         out_path = os.path.join(art_dir, f"{artifact_id}.air.json")
@@ -3729,6 +3901,19 @@ async def air_patch(req: Request):
             json.dump(air, f, ensure_ascii=True, separators=(",", ":"))
         rel = out_path.replace("/hic-workspace/", "").replace(os.sep, "/")
         logger.info(f"[air-patch] merged {sorted(patch.keys())} into AIR {run_id}/{artifact_id}")
+        # WS-5 R1: the chain's verdict on this artifact (and any rescore after edits) joins the sink
+        try:
+            pc = patch.get("postChain") if isinstance(patch.get("postChain"), dict) else {}
+            qr = patch.get("qualityReport") if isinstance(patch.get("qualityReport"), dict) else {}
+            if pc or qr or isinstance(patch.get("rescoredAfterEdits"), dict):
+                rep = pc.get("repair") if isinstance(pc.get("repair"), dict) else {}
+                _telemetry_event("post_chain", {"run_id": run_id, "artifact_id": artifact_id, "pass": pc.get("chainPass", qr.get("chainPass")),
+                                                "scores": qr.get("reviewScores"), "failures": len(qr.get("deterministicFailures") or []),
+                                                "repair_rounds": rep.get("rounds") if isinstance(rep, dict) else None,
+                                                "rescored_after_edits": patch.get("rescoredAfterEdits") if isinstance(patch.get("rescoredAfterEdits"), dict) else None,
+                                                "epoch_id": (patch.get("epoch") or {}).get("id") if isinstance(patch.get("epoch"), dict) else air.get("epochId")})
+        except Exception:
+            pass
         return {"patched": True, "path": rel}
     except Exception as e:
         logger.warning(f"[air-patch] failed for {run_id}/{artifact_id}: {e}")
@@ -4163,10 +4348,22 @@ async def session_save(req: Request):
           learned_constraints: "markdown text",
         }
       }
+
+    2026-10-31 (agent-stack plan, fifth pass): a long-lived session posts its whole state on every autosave (the
+    371-turn Northeastern session: a 166 MB body, `state.slides` alone 155 MB). Parsing, merging, serializing and
+    writing it took 4.3 s measured, all on the event loop, so every other request on that worker (chat, AI proxy
+    calls, job polls) stalled behind each autosave. The work now runs in a thread; the loop stays free.
     """
+    raw = await req.body()
+    return await asyncio.to_thread(_session_save_sync, raw)
+
+
+def _session_save_sync(raw: bytes):
     try:
-        body = await req.json()
+        body = json.loads(raw)
     except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+    if not isinstance(body, dict):
         return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
 
     slug = (body.get("slug") or "").strip()
@@ -4239,7 +4436,10 @@ async def session_save(req: Request):
     except Exception:
         pass
 
-    section_keys = ("metadata", "state", "chat", "topic_model", "knowledge_graph", "corpus", "reddit_deep")
+    # 2026-10-30 (WS-1 T5): the plan and its decomposition status were sent by the client and listed
+    # by the loader but never written here, so every restored session lost its objective plan.
+    section_keys = ("metadata", "state", "chat", "topic_model", "knowledge_graph", "corpus", "reddit_deep",
+                    "research_plan_sub_questions", "decomposition_status")
     written = []
     failed = []
     for key in section_keys:
@@ -4350,7 +4550,85 @@ async def session_load(slug: str = Path(...)):
             print(f"[sessions] failed to load {slug}/{fname}: {e}")
             sections[key] = None
 
-    return {"slug": safe_slug, "sections": sections}
+    # 2026-10-30 (WS-1 T3): the session's runs ride along, so a restore sees its trajectory,
+    # not only the chat text. Bounded: state summaries plus manifests, newest first, 50 runs.
+    runs = []
+    runs_dir = os.path.join(folder, "runs")
+    if os.path.isdir(runs_dir):
+        try:
+            names = sorted(os.listdir(runs_dir), key=lambda n: os.path.getmtime(os.path.join(runs_dir, n)), reverse=True)[:50]
+            for rn in names:
+                rd = os.path.join(runs_dir, rn)
+                if not os.path.isdir(rd):
+                    continue
+                entry = {"run_id": rn}
+                for fn, key in (("state.json", "state"), ("manifest.json", "manifest")):
+                    fp = os.path.join(rd, fn)
+                    if os.path.exists(fp):
+                        try:
+                            with open(fp, "r", encoding="utf-8") as f:
+                                entry[key] = json.load(f)
+                        except Exception:
+                            entry[key] = None
+                runs.append(entry)
+        except Exception as e:
+            print(f"[sessions] failed to list runs for {slug}: {e}")
+    return {"slug": safe_slug, "sections": sections, "runs": runs}
+
+
+def _run_dir(slug: str, run_id: str) -> Optional[str]:
+    folder = _resolve_session_folder(slug)
+    if not folder:
+        # a run may start before the session was ever saved; create the folder from the slug
+        safe = _safe_session_slug(slug)
+        if not safe:
+            return None
+        folder = os.path.join(SESSIONS_BASE, safe)
+        os.makedirs(folder, exist_ok=True)
+    rid = re.sub(r"[^A-Za-z0-9_\-]", "_", str(run_id or ""))[:80]
+    if not rid:
+        return None
+    d = os.path.join(folder, "runs", rid)
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+@app.put("/api/sessions/{slug}/runs/{run_id}")
+async def session_run_put(req: Request, slug: str = Path(...), run_id: str = Path(...)):
+    """2026-10-30 (WS-1 T1): persist the typed RunState (services/runState.ts). Atomic write."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    d = _run_dir(slug, run_id)
+    if not d:
+        return JSONResponse({"error": "invalid slug or run id"}, status_code=400)
+    try:
+        _robust_write_text_sync(os.path.join(d, "state.json"), json.dumps(body, ensure_ascii=False, default=str))
+        return {"ok": True, "path": os.path.relpath(os.path.join(d, "state.json"), SESSIONS_BASE)}
+    except Exception as e:
+        return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
+
+
+@app.put("/api/sessions/{slug}/runs/{run_id}/manifest")
+async def session_run_manifest_put(req: Request, slug: str = Path(...), run_id: str = Path(...)):
+    """2026-10-30 (WS-1 T2): the ResearchRunManifest (schemas/research_run_manifest.schema.json),
+    emitted at run end from the RunState. Required keys are checked here; the schema file is the contract."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    missing = [k for k in ("runId", "objective", "corpus", "artifacts") if k not in body]
+    if missing:
+        return JSONResponse({"error": f"manifest missing required keys: {missing}"}, status_code=422)
+    d = _run_dir(slug, run_id)
+    if not d:
+        return JSONResponse({"error": "invalid slug or run id"}, status_code=400)
+    try:
+        _robust_write_text_sync(os.path.join(d, "manifest.json"), json.dumps(body, ensure_ascii=False, indent=2, default=str))
+        return {"ok": True}
+    except Exception as e:
+        return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
 
 
 @app.delete("/api/sessions/{slug}")
@@ -4367,6 +4645,1189 @@ async def session_delete(slug: str = Path(...)):
     try:
         os.rename(folder, dest)
         return {"ok": True, "slug": safe_slug, "moved_to": dest}
+    except Exception as e:
+        return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
+
+
+# ---------------------------------------------------------------------------
+# 2026-10-30 (WS-0 S10) - retention visibility and explicit, confirm-gated deletion.
+# Soft delete moved session folders to .deleted/ forever and nothing ever removed an
+# upload page or the chunks derived from it. Two explicit, single-item operations exist
+# now; each requires the caller to repeat the exact target name in the body so a stray
+# click cannot trigger it. The automatic retention SWEEP (purging on age) is NOT
+# implemented here: it is irreversible client-data destruction and stays an owner
+# decision (plan Part 4, item 7); /api/retention/report shows what such a policy would
+# touch so the decision is informed.
+# ---------------------------------------------------------------------------
+_RETENTION_REPORT_DAYS = int(os.environ.get("HIC_RETENTION_REPORT_DAYS", "180") or 180)
+
+
+def _newest_mtime(path: str) -> float:
+    try:
+        newest = os.path.getmtime(path)
+        for _root, _dirs, files in os.walk(path):
+            for fn in files:
+                try:
+                    newest = max(newest, os.path.getmtime(os.path.join(_root, fn)))
+                except OSError:
+                    pass
+        return newest
+    except OSError:
+        return 0.0
+
+
+def _retention_flag_path(engagement: str) -> Optional[str]:
+    slug = _safe_session_slug(str(engagement or "").strip())
+    if not slug:
+        return None
+    return os.path.join(SESSIONS_BASE, slug, "retention.json")
+
+
+@app.get("/api/retention/flag")
+async def retention_flag_get(engagement: str = ""):
+    """WS-6 M2 (2026-10-30): whether this engagement keeps stakeholder names in long-term memory. Default false:
+    the memory admission redacts person names unless the owner set the flag."""
+    p = _retention_flag_path(engagement)
+    if not p or not os.path.exists(p):
+        return {"engagement": engagement, "retain_names": False, "set_at": None}
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        return {"engagement": engagement, "retain_names": bool(d.get("retain_names")), "set_at": d.get("set_at"), "note": d.get("note")}
+    except Exception as e:
+        return {"engagement": engagement, "retain_names": False, "error": str(e)[:120]}
+
+
+@app.post("/api/retention/flag")
+async def retention_flag_set(payload: dict):
+    """Body {engagement, retain_names: bool, note?}. The owner's explicit choice; nothing sets it automatically."""
+    p = _retention_flag_path(str(payload.get("engagement") or ""))
+    if not p:
+        return JSONResponse({"ok": False, "error": "engagement required"}, status_code=400)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    d = {"retain_names": bool(payload.get("retain_names")), "set_at": datetime.utcnow().isoformat() + "Z", "note": str(payload.get("note") or "")[:300]}
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=True, indent=2)
+    return {"ok": True, **d}
+
+
+# =============================================================================
+# WS-B B1-B3 (2026-10-31, plan agent-stack-shared-memory-skills-uplift): ONE memory door for every agent.
+# The SPA, the platform agent, research-mcp (and through it Claude Code), the Claude Code hook and
+# NXT-Agency admit and recall through these endpoints, which run proxy/memory_store.py (a parity-pinned
+# port of services/memoryLifecycle.ts + memoryRetrieval.ts). The fact store stays
+# wiki/synthesis/memory-facts.json; every write goes through one cross-process lock.
+# =============================================================================
+import memory_store as _mem
+
+# WIKI_BASE is defined further down the module; resolve the same env var here so import order cannot bite.
+_MEMORY_WIKI = os.environ.get("WIKI_PATH", "/hic-workspace/wiki")
+MEMORY_STORE_PATH = os.path.join(_MEMORY_WIKI, "synthesis", "memory-facts.json")
+MEMORY_REPORT_PATH = os.path.join(_MEMORY_WIKI, "synthesis", "memory-lifecycle-report.json")
+_MEMORY_SURFACES = ("spa", "platform-agent", "research-mcp", "claude-code", "nxt-agency", "proxy")
+
+
+def _memory_retains_names(engagement: str) -> bool:
+    p = _retention_flag_path(engagement) if engagement else None
+    if not p or not os.path.exists(p):
+        return False
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            return bool(json.load(f).get("retain_names"))
+    except Exception:
+        return False
+
+
+def _memory_redact(text: str) -> tuple:
+    """redactPeople twin: person names the local extractor finds become [name]; emails and phones always go."""
+    found = _pii_extract_local(text or "")
+    out = text or ""
+    n = 0
+    for person in sorted(found.get("people") or [], key=len, reverse=True):
+        if len(person) < 2:
+            continue
+        out, k = re.subn(r"\b" + re.escape(person) + r"\b", "[name]", out)
+        n += k
+    for e in found.get("emails") or []:
+        if e in out:
+            out = out.replace(e, "[email]"); n += 1
+    for ph in found.get("phones") or []:
+        if ph in out:
+            out = out.replace(ph, "[phone]"); n += 1
+    return out, n
+
+
+def _memory_engagement_match(fact: dict, engagement: str) -> bool:
+    if not engagement:
+        return True
+    if fact.get("scope") == "user":          # user preferences travel across engagements
+        return True
+    if str(fact.get("engagement") or "") == engagement:
+        return True
+    return any(str(r).startswith(engagement) for r in (fact.get("sourceRunIds") or []))
+
+
+def _memory_forget(prefix: str = "", ids=None, contains: str = "") -> dict:
+    ids = set(str(x) for x in (ids or []))
+    contains = (contains or "").strip().lower()
+    prefix = (prefix or "").strip()
+
+    def _match(fct: dict) -> bool:
+        if ids and str(fct.get("id")) in ids:
+            return True
+        if prefix and (str(fct.get("engagement") or "") == prefix or any(str(r).startswith(prefix) for r in (fct.get("sourceRunIds") or []))):
+            return True
+        if contains and contains in str(fct.get("content") or "").lower():
+            return True
+        return False
+
+    def fn(facts):
+        removed = [str(f.get("id")) for f in facts if _match(f)]
+        return [f for f in facts if not _match(f)], removed
+    facts, removed = _mem.mutate_store(MEMORY_STORE_PATH, fn)
+    if removed:
+        logger.info(f"[memory] forgot {len(removed)} fact(s) ({'engagement ' + prefix if prefix else 'by id/text'})")
+    return {"ok": True, "removed": removed, "total": len(facts)}
+
+
+@app.get("/api/memory/recall")
+async def memory_recall(objective: str = "", kind: str = "", scope: str = "", engagement: str = "", limit: int = 8,
+                        min_relevance: float = 0.2, surface: str = "spa", max_chars: int = 2400):
+    """B1: the facts RELEVANT to an objective (selectMemoryFacts twin), best first, plus the rendered block every
+    agent injects. Each returned fact's access heat is updated (the hybrid-eviction shadow reads it)."""
+    if not objective.strip():
+        return JSONResponse({"error": "objective required"}, status_code=400)
+    cats = {c.strip() for c in kind.split(",") if c.strip()}
+    scopes = {s.strip() for s in scope.split(",") if s.strip()}
+    now = _mem.now_iso()
+
+    def fn(facts):
+        pool = [f for f in facts if (not cats or f.get("category") in cats) and (not scopes or f.get("scope") in scopes)
+                and _memory_engagement_match(f, engagement)]
+        picked = _mem.select_memory_facts(pool, objective, max_n=max(1, min(int(limit or 8), 40)), min_relevance=float(min_relevance), now=now)
+        hit = {r["fact"]["id"] for r in picked}
+        updated = [({**f, "lastAccessedAt": now, "accessCount": int(f.get("accessCount") or 0) + 1} if f["id"] in hit else f) for f in facts]
+        return updated, (picked, len(facts))
+    try:
+        _facts, (picked, total) = await asyncio.to_thread(_mem.mutate_store, MEMORY_STORE_PATH, fn)
+    except Exception as e:
+        return JSONResponse({"error": f"memory store unavailable: {e}"}, status_code=503)
+    rows = [{**{k: r["fact"].get(k) for k in ("id", "content", "category", "scope", "confidence", "createdAt", "lastConfirmedAt", "sourceRunIds", "engagement")},
+             "relevance": round(r["relevance"], 4), "score": round(r["score"], 4)} for r in picked]
+    _telemetry_event("memory", {"op": "recall", "surface": surface if surface in _MEMORY_SURFACES else "other", "returned": len(rows),
+                                "total": total, "engagement": engagement})
+    return {"facts": rows, "rendered": _mem.render_facts_for_injection([r["fact"] for r in picked], max(200, int(max_chars))),
+            "total": total, "objective_terms": sorted(_mem.salient_terms(objective))[:24]}
+
+
+@app.post("/api/memory/admit")
+async def memory_admit(payload: dict):
+    """B1: body {facts: ProposedFact[], run_id, engagement?, surface?, retain_names?, reinforce_ids?, user_messages?}.
+    The admission gate (category, scope/durability/authority labels, confidence floor, dedupe with provenance union,
+    capacity eviction) runs under the store lock; person names are redacted unless the engagement's retention flag
+    keeps them. `reinforce_ids` are NOMINATIONS: only a confirmation in `user_messages` (the user's own words)
+    confirms them, the deterministic reinforcement rule."""
+    proposed = payload.get("facts") if isinstance(payload.get("facts"), list) else []
+    run_id = str(payload.get("run_id") or "").strip()
+    reinforce_ids = [str(x) for x in (payload.get("reinforce_ids") or []) if x][:50]
+    user_messages = [str(x)[:2000] for x in (payload.get("user_messages") or []) if x][-6:]
+    if (not proposed and not reinforce_ids) or not run_id:
+        return JSONResponse({"ok": False, "error": "facts[] (or reinforce_ids) and run_id required"}, status_code=400)
+    engagement = str(payload.get("engagement") or "").strip()
+    surface = str(payload.get("surface") or "spa")
+    retain = payload.get("retain_names") is True or _memory_retains_names(engagement)
+    redacted = 0
+    clean = []
+    for p0 in proposed[:50]:
+        if not isinstance(p0, dict):
+            continue
+        p1 = dict(p0)
+        if not retain:
+            p1["content"], n = _memory_redact(str(p1.get("content") or ""))
+            redacted += n
+        clean.append(p1)
+
+    def fn(facts):
+        res = _mem.run_lifecycle_pass(facts, {"runId": run_id, "proposed": clean, "reinforceIds": reinforce_ids,
+                                              "userMessages": user_messages})
+        new_ids = {f["id"] for f in res["facts"]} - {f["id"] for f in facts}
+        out = [({**f, "engagement": engagement, "surface": surface} if f["id"] in new_ids and engagement else
+                ({**f, "surface": surface} if f["id"] in new_ids else f)) for f in res["facts"]]
+        return out, (res["report"], sorted(new_ids))
+    try:
+        facts, (report, new_ids) = await asyncio.to_thread(_mem.mutate_store, MEMORY_STORE_PATH, fn)
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": f"memory store unavailable: {e}"}, status_code=503)
+    _telemetry_event("memory", {"op": "admit", "surface": surface if surface in _MEMORY_SURFACES else "other", "run_id": run_id,
+                                "admitted": report["admitted"], "rejected": report["rejected"], "evicted": report["evicted"],
+                                "engagement": engagement, "redacted": redacted})
+    return {"ok": True, "report": report, "admitted_ids": new_ids, "redacted": redacted, "total": len(facts)}
+
+
+@app.post("/api/memory/forget")
+async def memory_forget(payload: dict):
+    """B1 (the WS-6 forget path, renamed in): body {engagement?: run-id prefix or engagement slug, ids?, contains?}."""
+    prefix = str(payload.get("engagement") or "").strip()
+    ids = payload.get("ids") or []
+    contains = str(payload.get("contains") or "").strip()
+    if not prefix and not ids and not contains:
+        return JSONResponse({"ok": False, "error": "engagement, ids or contains required"}, status_code=400)
+    try:
+        return await asyncio.to_thread(_memory_forget, prefix, ids, contains)
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": str(e)[:160]}, status_code=500)
+
+
+@app.post("/api/retention/forget-memory")
+async def retention_forget_memory(payload: dict):
+    """Kept as an alias of /api/memory/forget (WS-6 callers)."""
+    return await memory_forget(payload)
+
+
+@app.get("/api/memory/facts")
+async def memory_facts(engagement: str = "", category: str = ""):
+    """B1: the whole store (or one engagement's facts), for the second-brain panel and audits."""
+    try:
+        facts = await asyncio.to_thread(_mem.load_store, MEMORY_STORE_PATH)
+    except Exception as e:
+        return JSONResponse({"error": str(e)[:160]}, status_code=503)
+    rows = [f for f in facts if _memory_engagement_match(f, engagement) and (not category or f.get("category") == category)]
+    by_cat: dict = {}
+    for f in rows:
+        by_cat[f.get("category")] = by_cat.get(f.get("category"), 0) + 1
+    return {"total": len(facts), "count": len(rows), "by_category": by_cat, "facts": rows}
+
+
+_MEMORY_REVIEW_SYSTEM = "\n".join([
+    "You maintain a consulting research assistant's long-term memory. You are given aged facts to review and fragmented fact groups to consider merging.",
+    'Return ONLY JSON: {"staleFactsToRemove":[{"id","reason"}],"staleFactsToExtend":[{"id","extend_by_days","reason"}],"factsToConsolidate":[{"sourceIds":[...],"consolidated":{"content","category","confidence","scope","durability","authority"}}]}',
+    "",
+    "STALENESS: each fact shows a valid:Nd annotation, the number of days it was expected to stay true. KEEP means omit it. REMOVE means it is outdated or contradicted. EXTEND means keep it but recalibrate the window.",
+    "Be conservative. When in doubt KEEP: removing a valid fact is worse than keeping a slightly stale one, because the next cycle reviews it again.",
+    "",
+    "CONSOLIDATION: merge only facts describing the same aspect. The merged fact must preserve every key detail, and its confidence cannot exceed the highest source confidence. Classify it: it is eligible only when user-scoped, durable and descriptive.",
+    "",
+    "Never invent a fact id. Never propose a fact that is not in the lists you were given.",
+])
+
+
+def _memory_review_prompt(stale: list, groups: list, store: list) -> str:
+    by_id = {f["id"]: f for f in store}
+    stale_block = "\n".join(f"- id={f['id']} valid:{f.get('expectedValidDays')}d category={f.get('category')} confidence={f.get('confidence')} "
+                            f"created={str(f.get('createdAt') or '')[:10]}\n  {f.get('content')}" for f in stale)
+    group_block = "\n\n".join(f"Category {g['category']} ({len(g['factIds'])} facts):\n" + "\n".join(
+        f"  - id={by_id[i]['id']} confidence={by_id[i].get('confidence')}: {by_id[i].get('content')}" for i in g["factIds"] if i in by_id)
+        for g in groups)
+    parts = []
+    if stale:
+        parts.append(f"<stale_facts>\n{stale_block}\n</stale_facts>")
+    if groups:
+        parts.append(f"<consolidation_groups>\n{group_block}\n</consolidation_groups>")
+    return "\n\n".join(parts)
+
+
+async def _memory_request_decisions(prompt: str) -> dict:
+    """One fast-model call (the same review the SPA's secondBrainPass makes), through the proxy's own Gemini route."""
+    import httpx as _mh
+    body = {"model": "gemini-3.5-flash", "systemInstruction": {"parts": [{"text": _MEMORY_REVIEW_SYSTEM}]},
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0, "maxOutputTokens": 2500, "responseMimeType": "application/json"}}
+    async with _mh.AsyncClient(timeout=90.0) as client:
+        resp = await client.post(f"http://127.0.0.1:{os.getenv('PORT', '5012')}/api/ai/gemini", json=body, headers=_self_headers())
+    if resp.status_code != 200:
+        raise RuntimeError(f"review model {resp.status_code}")
+    data = resp.json()
+    cands = data.get("candidates") or []
+    text = ((cands[0].get("content") or {}).get("parts") or [{}])[0].get("text", "") if cands else (data.get("text") or "")
+    try:
+        return json.loads(text)
+    except Exception:
+        m = re.search(r"\{[\s\S]*\}", text or "")
+        return json.loads(m.group(0)) if m else {}
+
+
+async def _memory_lifecycle_pass(deterministic_only: bool = False, trigger: str = "manual") -> dict:
+    """B3: the scheduled lifecycle pass. Staleness and consolidation are DECIDED by the review model and ENFORCED
+    by the ported guardrails; capacity eviction always runs. Writes wiki/synthesis/memory-lifecycle-report.json."""
+    started = _mem.now_iso()
+    store = await asyncio.to_thread(_mem.load_store, MEMORY_STORE_PATH)
+    cfg = _mem.DEFAULT_CONFIG
+    stale = _mem.select_stale_candidates(store, cfg, started)
+    groups = _mem.select_consolidation_groups(store, cfg)
+    decisions: dict = {}
+    model_called = False
+    model_error = None
+    if not deterministic_only and (len(stale) >= cfg["stalenessMinCandidates"] or groups):
+        try:
+            decisions = await _memory_request_decisions(_memory_review_prompt(stale, groups, store))
+            model_called = True
+        except Exception as e:
+            model_error = str(e)[:160]
+    st_dec = [{"id": str(d.get("id")), "verdict": "REMOVE", "reason": d.get("reason")} for d in (decisions.get("staleFactsToRemove") or []) if isinstance(d, dict)]
+    st_dec += [{"id": str(d.get("id")), "verdict": "EXTEND", "extendByDays": float(d.get("extend_by_days") or cfg["stalenessAgeDays"]),
+                "reason": d.get("reason")} for d in (decisions.get("staleFactsToExtend") or []) if isinstance(d, dict)]
+    proposals = [p for p in (decisions.get("factsToConsolidate") or []) if isinstance(p, dict)]
+
+    def fn(facts):
+        res = _mem.run_lifecycle_pass(facts, {"runId": f"lifecycle_{started[:10]}", "stalenessDecisions": st_dec,
+                                              "consolidationProposals": proposals, "nowIso": started})
+        return res["facts"], res["report"]
+    facts, report = await asyncio.to_thread(_mem.mutate_store, MEMORY_STORE_PATH, fn)
+    out = {"started_at": started, "finished_at": _mem.now_iso(), "trigger": trigger, "stale_candidates": len(stale),
+           "consolidation_groups": len(groups), "model_called": model_called, "model_error": model_error, "report": report}
+    try:
+        _robust_write_text_sync(MEMORY_REPORT_PATH, json.dumps(out, ensure_ascii=False, indent=2))
+    except Exception as e:
+        out["write_error"] = str(e)[:160]
+    _telemetry_event("memory", {"op": "lifecycle", "surface": "proxy", "trigger": trigger, **{k: report.get(k) for k in
+                                ("admitted", "removed", "extended", "merged", "evicted", "total")}})
+    logger.info(f"[memory] lifecycle pass ({trigger}): {report['total']} fact(s), -{report['removed']} stale, {report['extended']} extended, "
+                f"{report['merged']} merged, {report['evicted']} evicted; model {'called' if model_called else 'not called'}")
+    return out
+
+
+@app.post("/api/memory/lifecycle")
+async def memory_lifecycle(payload: dict = None):
+    """B3: run the lifecycle pass now. Body {deterministic_only?: bool}."""
+    return await _memory_lifecycle_pass(bool((payload or {}).get("deterministic_only")), trigger="manual")
+
+
+@app.get("/api/memory/lifecycle/last")
+async def memory_lifecycle_last():
+    try:
+        with open(MEMORY_REPORT_PATH, "r", encoding="utf-8") as f:
+            return {"last": json.load(f)}
+    except Exception:
+        return {"last": None}
+
+
+async def _memory_lifecycle_loop() -> None:
+    """Daily, beside the rescore loop. Every worker runs this loop; a per-day marker file makes exactly one of them
+    do the pass."""
+    try:
+        await asyncio.sleep(900)
+    except asyncio.CancelledError:
+        return
+    while True:
+        day = datetime.utcnow().strftime("%Y-%m-%d")
+        marker = os.path.join(os.path.dirname(MEMORY_REPORT_PATH), f".memory-lifecycle-{day}.done")
+        try:
+            fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.close(fd)
+            await _memory_lifecycle_pass(False, trigger="daily")
+        except FileExistsError:
+            pass
+        except Exception as e:
+            logger.warning(f"[memory] daily lifecycle pass failed (non-fatal): {e}")
+        try:
+            await asyncio.sleep(6 * 3600)
+        except asyncio.CancelledError:
+            return
+
+
+@app.on_event("startup")
+async def _start_memory_lifecycle_loop() -> None:
+    if os.environ.get("HIC_MEMORY_LIFECYCLE", "1") != "0":
+        asyncio.create_task(_memory_lifecycle_loop())
+
+
+# =============================================================================
+# WS-C C3 (2026-10-31, agent-stack plan): the second brain grows on schedule. See proxy/brain_growth.py for the
+# three steps (known-gap pages from the eval frontier set, engagement frontmatter, pattern-due report). Pages are
+# written through wiki_write (chunked, manifest upserted); the report lands in wiki/synthesis/brain-growth-report.json.
+# =============================================================================
+BRAIN_REPORT_PATH = os.path.join(_MEMORY_WIKI, "synthesis", "brain-growth-report.json")
+
+
+async def _brain_growth_pass(dry_run: bool = False, trigger: str = "manual") -> dict:
+    import brain_growth as _bg
+    from industry_taxonomy import classify_deterministic as _classify
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    wiki = WIKI_BASE
+    report: dict = {"ran_at": datetime.utcnow().isoformat() + "Z", "trigger": trigger, "dry_run": dry_run,
+                    "known_gaps": {"cases": 0, "pages": [], "written": [], "unchanged": [], "retired": [], "retired_candidates": []},
+                    "engagements": {"pages": 0, "backfilled": [], "consolidated": []}, "patterns": []}
+    # 1. known gaps from the eval frontier set
+    cases = []
+    frontier = os.path.join(_EVALS_DIR, "cases", "frontier") if _EVALS_DIR else ""
+    if frontier and os.path.isdir(frontier):
+        for fn in sorted(os.listdir(frontier)):
+            if fn.endswith(".json"):
+                try:
+                    with open(os.path.join(frontier, fn), "r", encoding="utf-8") as f:
+                        cases.append(json.load(f))
+                except Exception:
+                    continue
+    report["known_gaps"]["cases"] = len(cases)
+
+    def _air_for(case: dict):
+        ref = str(((case.get("fixture") or {}).get("source_ref")) or "")
+        fp = os.path.normpath(os.path.join(SESSIONS_BASE, ref))
+        if not ref or not fp.startswith(os.path.normpath(SESSIONS_BASE)):
+            return None
+        try:
+            with open(fp, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return None
+
+    pages = _bg.known_gap_pages(cases, _air_for, today)
+    report["known_gaps"]["pages"] = sorted(pages)
+    for path, content in sorted(pages.items()):
+        existing = ""
+        try:
+            with open(os.path.join(wiki, path), "r", encoding="utf-8") as f:
+                existing = f.read()
+        except Exception:
+            pass
+        if existing and _bg.page_source_hash(existing) == _bg.page_source_hash(content):
+            report["known_gaps"]["unchanged"].append(path)
+            continue
+        if not dry_run:
+            await wiki_write(WikiWriteRequest(path=path, content=content, chunk=True))
+        report["known_gaps"]["written"].append(path)
+    # a family that no longer occurs: its page was GENERATED by this pass (source: eval-frontier), so the pass removes
+    # it; any page without that marker is someone else's and is only reported
+    try:
+        for fn in sorted(os.listdir(os.path.join(wiki, "known-gaps"))):
+            rel = f"known-gaps/{fn}"
+            if not (fn.startswith("failure-") and fn.endswith(".md")) or rel in pages:
+                continue
+            fp = os.path.join(wiki, rel)
+            try:
+                with open(fp, "r", encoding="utf-8") as f:
+                    generated = "\nsource: eval-frontier\n" in f.read(2000)
+            except Exception:
+                generated = False
+            if generated and not dry_run:
+                os.remove(fp)
+                try:
+                    _manifest_remove(rel)
+                except Exception:
+                    pass
+            report["known_gaps"]["retired" if generated else "retired_candidates"].append(rel)
+    except Exception:
+        pass
+    # 2a. every engagement folder with real deliverables gets the memory page the pattern step reads (never
+    # overwriting a page, never for a merged folder); then 2b back-fills frontmatter on the pages that exist
+    eng_dir = os.path.join(wiki, "engagements")
+    if os.path.isdir(eng_dir):
+        existing_titles = set()
+        for fn in os.listdir(eng_dir):
+            if fn.endswith(".md"):
+                try:
+                    with open(os.path.join(eng_dir, fn), "r", encoding="utf-8") as f:
+                        m_t = re.search(r'^title:\s*"?(.*?)"?\s*$', f.read(4000), re.M)
+                    if m_t:
+                        existing_titles.add(re.sub(r"\s+", " ", m_t.group(1)).strip().lower()[:300])
+                except Exception:
+                    pass
+
+        def _load(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                return None
+
+        for slug in sorted(os.listdir(eng_dir)):
+            folder = os.path.join(eng_dir, slug)
+            if not os.path.isdir(folder) or os.path.exists(os.path.join(folder, "MERGED_INTO.txt")):
+                continue
+            if os.path.exists(os.path.join(eng_dir, f"{slug}.md")):
+                continue
+            manifest = _load(os.path.join(folder, "manifest.json")) or {}
+            page = _bg.engagement_page_from_folder(manifest, _load(os.path.join(folder, "themes.json")),
+                                                   _load(os.path.join(folder, "personas.json")),
+                                                   _load(os.path.join(folder, "recs.json")), _classify)
+            if not page:
+                continue
+            goal_key = re.sub(r"\s+", " ", str(manifest.get("research_goal") or "")).strip().lower()[:300]
+            if goal_key and goal_key in existing_titles:
+                continue
+            if not dry_run:
+                await wiki_write(WikiWriteRequest(path=f"engagements/{slug}.md", content=page, chunk=True))
+            existing_titles.add(goal_key)
+            report["engagements"]["consolidated"].append(f"engagements/{slug}.md")
+
+    # 2b. engagement frontmatter (top-level engagement pages, the ones saveEngagementMemory writes)
+    eng_pages: dict = {}
+    if os.path.isdir(eng_dir):
+        for root_dir, dirs, files in os.walk(eng_dir):
+            depth = os.path.relpath(root_dir, eng_dir).count(os.sep) + (0 if root_dir == eng_dir else 1)
+            if depth > 1:
+                continue
+            for fn in files:
+                if not fn.endswith(".md"):
+                    continue
+                rel = os.path.relpath(os.path.join(root_dir, fn), wiki).replace(os.sep, "/")
+                try:
+                    with open(os.path.join(root_dir, fn), "r", encoding="utf-8") as f:
+                        text = f.read()
+                except Exception:
+                    continue
+                new = _bg.backfill_engagement_frontmatter(text, _classify)
+                if new is not None:
+                    if not dry_run:
+                        await wiki_write(WikiWriteRequest(path=rel, content=new))
+                    report["engagements"]["backfilled"].append(rel)
+                    text = new
+                eng_pages[rel] = text
+    report["engagements"]["pages"] = len(eng_pages)
+
+    # 3. pattern groups (the SPA's incremental wiki compile writes a due pattern on its next run)
+    def _mt(rel: str):
+        fp = os.path.join(wiki, rel)
+        return os.path.getmtime(fp) if os.path.exists(fp) else None
+    report["patterns"] = _bg.pattern_groups(eng_pages, _mt, lambda rel: _mt(rel) or 0.0)
+    if not dry_run:
+        try:
+            _robust_write_text_sync(BRAIN_REPORT_PATH, json.dumps(report, indent=1))
+        except Exception as e:
+            logger.warning(f"[brain] report not written: {e}")
+    _telemetry_event("brain", {"trigger": trigger, "dry_run": dry_run, "cases": len(cases),
+                               "gap_pages": len(pages), "gap_written": len(report["known_gaps"]["written"]),
+                               "backfilled": len(report["engagements"]["backfilled"]),
+                               "patterns_due": sum(1 for g in report["patterns"] if g.get("due"))})
+    logger.info(f"[brain] {trigger} pass: {len(pages)} known-gap page(s) ({len(report['known_gaps']['written'])} written), "
+                f"{len(report['engagements']['backfilled'])} engagement page(s) back-filled, "
+                f"{sum(1 for g in report['patterns'] if g.get('due'))} pattern(s) due")
+    return report
+
+
+# =============================================================================
+# WS-E E1 (2026-10-31, agent-stack plan, owner decision 6: both voice paths). The recorded-audio fallback for
+# dictation: a browser without the Web Speech API records the microphone and posts the clip here; the proxy hands it
+# to the Video Transcription service's Whisper pipeline (its Gemini fallback included) and returns the text. No
+# provider key reaches the browser. Body: the raw audio bytes; ?ext=webm|ogg|m4a.
+# =============================================================================
+VIDEO_ANALYZER_URL = os.environ.get("VIDEO_ANALYZER_URL", "http://video-analyzer:5000").rstrip("/")
+_DICTATION_MAX_BYTES = 12 * 1024 * 1024
+
+
+def _dictation_text(payload: dict) -> str:
+    tr = payload.get("transcription") if isinstance(payload.get("transcription"), dict) else {}
+    text = str(tr.get("full_text") or "").strip()
+    if not text:
+        # the text file leads with the whole transcript, then a blank line, then timestamped segments
+        text = str(payload.get("transcript") or "").split("\n\n", 1)[0].strip()
+    return re.sub(r"\s+", " ", text)
+
+
+@app.post("/api/transcribe/dictation")
+async def transcribe_dictation(request: Request, ext: str = "webm"):
+    raw = await request.body()
+    if not raw:
+        return JSONResponse({"error": "empty audio"}, status_code=400)
+    if len(raw) > _DICTATION_MAX_BYTES:
+        return JSONResponse({"error": "clip too long for dictation; keep it under a few minutes"}, status_code=413)
+    ext = ext if ext in ("webm", "ogg", "m4a", "wav", "mp3") else "webm"
+    t0 = time.time()
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            up = await client.post(f"{VIDEO_ANALYZER_URL}/upload-video",
+                                   files={"file": (f"dictation.{ext}", raw, request.headers.get("content-type") or "audio/webm")})
+            if up.status_code >= 300:
+                return JSONResponse({"error": f"transcription service refused the clip ({up.status_code})"}, status_code=502)
+            job_id = (up.json() or {}).get("job_id")
+            deadline = time.time() + 120
+            status = "processing"
+            while time.time() < deadline:
+                await asyncio.sleep(1.0)
+                st = await client.get(f"{VIDEO_ANALYZER_URL}/jobs/{job_id}")
+                status = (st.json() or {}).get("status") if st.status_code == 200 else "missing"
+                if status in ("completed", "failed", "error", "missing"):
+                    break
+            if status != "completed":
+                return JSONResponse({"error": f"transcription {status}"}, status_code=502)
+            tr = await client.get(f"{VIDEO_ANALYZER_URL}/transcript/{job_id}")
+            text = _dictation_text(tr.json() if tr.status_code == 200 else {})
+    except httpx.HTTPError as e:
+        return JSONResponse({"error": f"transcription service unreachable: {e}"}, status_code=502)
+    logger.info(f"[dictation] {len(raw)} bytes -> {len(text)} chars in {time.time() - t0:.1f}s")
+    return {"text": text, "seconds": round(time.time() - t0, 1)}
+
+
+# =============================================================================
+# AUDIO OVERVIEW TTS (2026-11-03, W5 - NotebookLM reverse-engineering plan,
+# plans/notebooklm-studio-reverse-engineering-2026-11-03.md spec clause S1).
+# Renders a two-voice dialogue script (the #audio-overview / brief-dialog
+# transcript) to one MP3 via ElevenLabs, alternating voices by speaker. The
+# file persists under the artifact store and serves from this proxy, so the
+# SPA's <audio> element replays it across sessions. Opt-in by key: without
+# ELEVENLABS_API_KEY the endpoint answers 503 and the SPA falls back to the
+# text dialogue.
+# =============================================================================
+_ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
+_ELEVENLABS_VOICE_A = os.environ.get("ELEVENLABS_VOICE_A", "21m00Tcm4TlvDq8ikWAM")
+_ELEVENLABS_VOICE_B = os.environ.get("ELEVENLABS_VOICE_B", "pNInz6obpgDQGcFmaJgB")
+_TTS_MAX_TURNS = 40
+_TTS_MAX_TURN_CHARS = 1400
+
+
+def _audio_dir() -> str:
+    d = os.path.join(ARTIFACTS_DIR, "audio")
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+@app.post("/api/tts/dialogue")
+async def tts_dialogue(request: Request):
+    if not _ELEVENLABS_API_KEY:
+        return JSONResponse({"error": "ELEVENLABS_API_KEY is not configured on the proxy"}, status_code=503)
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON body"}, status_code=400)
+    turns = body.get("turns") if isinstance(body.get("turns"), list) else []
+    turns = [t for t in turns if isinstance(t, dict) and str(t.get("text") or "").strip()][:_TTS_MAX_TURNS]
+    if not turns:
+        return JSONResponse({"error": "turns[] is empty"}, status_code=400)
+    slug = re.sub(r"[^a-z0-9-]+", "-", str(body.get("slug") or "").lower()).strip("-")[:80] or f"audio-{int(time.time())}"
+    t0 = time.time()
+    audio = bytearray()
+    # 2026-11-03 live 402: free/starter ElevenLabs plans block some LIBRARY voices via the API
+    # ("paid_plan_required") while others work. Resolve candidate voices from the ACCOUNT's own
+    # voice list first (env overrides lead), and when a voice is plan-blocked mid-run, substitute
+    # a voice that already worked instead of failing the whole render: a single-voice overview
+    # beats no audio. The response reports how many distinct voices actually spoke.
+    candidates: list[str] = []
+    for v in (_ELEVENLABS_VOICE_A, _ELEVENLABS_VOICE_B):
+        if v and v not in candidates:
+            candidates.append(v)
+    blocked: set = set()
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(90.0, connect=15.0)) as client:
+            try:
+                vl = await client.get("https://api.elevenlabs.io/v1/voices",
+                                      headers={"xi-api-key": _ELEVENLABS_API_KEY})
+                if vl.status_code < 300:
+                    for v in (vl.json() or {}).get("voices", []):
+                        vid = str(v.get("voice_id") or "")
+                        if vid and vid not in candidates:
+                            candidates.append(vid)
+            except httpx.HTTPError:
+                pass  # the hardcoded candidates still apply
+
+            async def _speak(voice: str, text: str):
+                return await client.post(
+                    f"https://api.elevenlabs.io/v1/text-to-speech/{voice}",
+                    headers={"xi-api-key": _ELEVENLABS_API_KEY, "accept": "audio/mpeg", "content-type": "application/json"},
+                    json={"text": text, "model_id": "eleven_multilingual_v2",
+                          "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}},
+                )
+
+            # Speaker 'a' prefers the first usable candidate, 'b' the second; once a voice is
+            # blocked it stays blocked for the run.
+            voices_used: set = set()
+            for t in turns:
+                is_b = str(t.get("speaker") or "").strip().lower() in ("b", "2", "skeptic", "partner")
+                usable = [v for v in candidates if v not in blocked]
+                if not usable:
+                    return JSONResponse({"error": "TTS provider refused every candidate voice (plan limits)",
+                                         "detail": "all candidate voices returned payment/permission errors"}, status_code=502)
+                order = (usable[1:2] + usable[:1]) if is_b and len(usable) > 1 else usable[:1]
+                order += [v for v in usable if v not in order]
+                text = str(t.get("text") or "").strip()[:_TTS_MAX_TURN_CHARS]
+                r = None
+                for voice in order:
+                    r = await _speak(voice, text)
+                    if r.status_code in (401, 402, 403):
+                        detail = (r.text or "")[:160]
+                        logger.warning(f"[tts] voice {voice} blocked ({r.status_code}): {detail}; trying the next candidate")
+                        blocked.add(voice)
+                        continue
+                    break
+                if r is None or r.status_code >= 300:
+                    detail = ((r.text if r is not None else "") or "")[:200]
+                    logger.warning(f"[tts] ElevenLabs refused a turn ({r.status_code if r is not None else 'n/a'}): {detail}")
+                    return JSONResponse({"error": f"TTS provider refused ({r.status_code if r is not None else 'n/a'})",
+                                         "detail": detail}, status_code=502)
+                voices_used.add(order[0] if order[0] not in blocked else next(v for v in order if v not in blocked))
+                audio += r.content
+    except httpx.HTTPError as e:
+        return JSONResponse({"error": f"TTS provider unreachable: {e}"}, status_code=502)
+    out_path = os.path.join(_audio_dir(), f"{slug}.mp3")
+    with open(out_path, "wb") as f:
+        f.write(bytes(audio))
+    logger.info(f"[tts] dialogue '{slug}': {len(turns)} turns, {len(voices_used)} voice(s) -> {len(audio)} bytes in {time.time() - t0:.1f}s"
+                + (f" (blocked: {len(blocked)})" if blocked else ""))
+    return {"url": f"/api/artifacts/audio/{slug}.mp3", "slug": slug, "bytes": len(audio), "turns": len(turns),
+            "voices": len(voices_used), "seconds": round(time.time() - t0, 1)}
+
+
+# =============================================================================
+# VIDEO OVERVIEW passthrough (2026-11-03, W9 - NotebookLM reverse-engineering plan,
+# spec clause S2). The SPA cannot reach the Node video-renderer sidecar directly
+# (different origin/port); these three routes forward to it on the compose network.
+# The sidecar runs its own content gate (inspectComposition) before any render.
+# =============================================================================
+VIDEO_RENDERER_URL = os.environ.get("VIDEO_RENDERER_URL", "http://video-renderer:4600").rstrip("/")
+
+
+@app.post("/api/video/render")
+async def video_render(request: Request):
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON body"}, status_code=400)
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            r = await client.post(f"{VIDEO_RENDERER_URL}/render", json=body)
+            return JSONResponse(r.json() if r.headers.get("content-type", "").startswith("application/json") else {"raw": r.text[:400]}, status_code=r.status_code)
+    except httpx.HTTPError as e:
+        return JSONResponse({"error": f"video renderer unreachable: {e}"}, status_code=502)
+
+
+@app.get("/api/video/render/{job_id}")
+async def video_render_status(job_id: str):
+    safe = re.sub(r"[^a-zA-Z0-9-]", "", str(job_id or ""))
+    if not safe:
+        return JSONResponse({"error": "bad job id"}, status_code=400)
+    try:
+        async with httpx.AsyncClient(timeout=20.0) as client:
+            r = await client.get(f"{VIDEO_RENDERER_URL}/render/{safe}")
+            return JSONResponse(r.json(), status_code=r.status_code)
+    except httpx.HTTPError as e:
+        return JSONResponse({"error": f"video renderer unreachable: {e}"}, status_code=502)
+
+
+@app.get("/api/video/outputs/{name}")
+async def video_output(name: str):
+    safe = re.sub(r"[^a-zA-Z0-9._-]", "", str(name or ""))
+    if not safe or safe != name or ".." in safe or not safe.endswith(".mp4"):
+        return JSONResponse({"error": "bad output name"}, status_code=400)
+    try:
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            r = await client.get(f"{VIDEO_RENDERER_URL}/outputs/{safe}")
+            if r.status_code != 200:
+                return JSONResponse({"error": "not found"}, status_code=r.status_code)
+            return Response(content=r.content, media_type="video/mp4",
+                            headers={"Cache-Control": "public, max-age=86400", "Accept-Ranges": "bytes"})
+    except httpx.HTTPError as e:
+        return JSONResponse({"error": f"video renderer unreachable: {e}"}, status_code=502)
+
+
+@app.get("/api/artifacts/audio/{name}")
+async def get_artifact_audio(name: str):
+    # one path segment only; never a traversal
+    safe = re.sub(r"[^a-zA-Z0-9._-]", "", str(name or ""))
+    if not safe or safe != name or ".." in safe or not safe.endswith(".mp3"):
+        return JSONResponse({"error": "bad audio name"}, status_code=400)
+    path = os.path.join(_audio_dir(), safe)
+    if not os.path.isfile(path):
+        return JSONResponse({"error": "not found"}, status_code=404)
+    with open(path, "rb") as f:
+        data = f.read()
+    return Response(content=data, media_type="audio/mpeg",
+                    headers={"Cache-Control": "public, max-age=86400", "Accept-Ranges": "bytes"})
+
+
+# =============================================================================
+# WS-E E3 (2026-10-31, agent-stack plan): the morning read-out. GET /api/digest?surface=spa|launchpad|agent composes
+# what changed since that surface last marked the digest seen (default: the last 24 hours) from the records the
+# platform keeps; POST /api/digest/seen {surface} moves the marker. research-mcp `get_digest` reads it for the agent.
+# =============================================================================
+DIGEST_SEEN_PATH = os.path.join(_MEMORY_WIKI, "synthesis", "digest-seen.json")
+
+
+def _digest_records(since_ts: float) -> dict:
+    runs, deck_asks = [], []
+    try:
+        for slug in os.listdir(SESSIONS_BASE):
+            sdir = os.path.join(SESSIONS_BASE, slug)
+            if slug.startswith((".", "_")) or not os.path.isdir(sdir):
+                continue
+            rdir = os.path.join(sdir, "runs")
+            if os.path.isdir(rdir):
+                for rid in os.listdir(rdir):
+                    fp = os.path.join(rdir, rid, "state.json")
+                    try:
+                        if os.path.getmtime(fp) < since_ts:
+                            continue
+                        with open(fp, "r", encoding="utf-8") as f:
+                            st = json.load(f)
+                        if isinstance(st, dict):
+                            runs.append({k: st.get(k) for k in ("run_id", "engagement", "objective", "kind", "stage", "updated_at", "artifacts", "verdicts", "goal")})
+                    except Exception:
+                        continue
+            cp = os.path.join(sdir, "chat.json")
+            try:
+                if os.path.getmtime(cp) >= since_ts:
+                    with open(cp, "r", encoding="utf-8") as f:
+                        msgs = json.load(f)
+                    for m in (msgs if isinstance(msgs, list) else (msgs or {}).get("messages") or []):
+                        if isinstance(m, dict) and isinstance(m.get("deckAsk"), dict):
+                            deck_asks.append({"engagement": slug, "message_id": m.get("id"), "findings": len(m["deckAsk"].get("findings") or [])})
+            except Exception:
+                pass
+    except Exception:
+        pass
+    # the sink grows at the end: read its newest rows (the generic reader keeps the first N), ts is ISO
+    import digest as _dg
+    from collections import deque as _deque
+    events = []
+    try:
+        with open(TELEMETRY_PATH, "r", encoding="utf-8") as f:
+            for line in _deque(f, maxlen=200_000):
+                try:
+                    e = json.loads(line)
+                except Exception:
+                    continue
+                if isinstance(e, dict) and _dg._iso_to_ts(e.get("ts") or "") >= since_ts:
+                    events.append(e)
+    except FileNotFoundError:
+        pass
+    rescore = None
+    try:
+        rdir = _evals_path("results")
+        if rdir and os.path.isdir(rdir):
+            files = sorted(f for f in os.listdir(rdir) if f.startswith("_rescore-") and f.endswith(".json"))
+            if files:
+                with open(os.path.join(rdir, files[-1]), "r", encoding="utf-8") as f:
+                    rescore = json.load(f)
+    except Exception:
+        rescore = None
+    if not rescore and _RESCORE_LAST:
+        rescore = dict(_RESCORE_LAST)
+    brain = None
+    try:
+        with open(BRAIN_REPORT_PATH, "r", encoding="utf-8") as f:
+            brain = json.load(f)
+    except Exception:
+        pass
+    return {"runs": runs, "events": events, "rescore": rescore, "proposals": _read_epoch_proposals(),
+            "loop": _loop_state_read(), "deck_asks": deck_asks, "brain": brain}
+
+
+def _digest_seen() -> dict:
+    try:
+        with open(DIGEST_SEEN_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+@app.get("/api/digest")
+async def digest(surface: str = "spa", since: str = "", hours: float = 24.0, format: str = "json"):
+    import digest as _dg
+    from datetime import timezone as _tz
+    surface = re.sub(r"[^a-z0-9_-]", "", (surface or "spa").lower())[:24] or "spa"
+    now = datetime.now(_tz.utc)
+    since_iso = since or _dg.default_since(_digest_seen(), surface, now, hours)
+    since_ts = _dg._iso_to_ts(since_iso)
+    recs = await asyncio.to_thread(_digest_records, since_ts)
+    d = _dg.compose_digest(since_iso, now.isoformat().replace("+00:00", "Z"), **recs)
+    d["surface"] = surface
+    if format == "text":
+        return Response(_dg.render_text(d), media_type="text/plain")
+    return d
+
+
+@app.post("/api/digest/seen")
+async def digest_seen(request: Request):
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    surface = re.sub(r"[^a-z0-9_-]", "", str((body or {}).get("surface") or "spa").lower())[:24] or "spa"
+    seen = _digest_seen()
+    seen[surface] = datetime.utcnow().isoformat() + "Z"
+    _robust_write_text_sync(DIGEST_SEEN_PATH, json.dumps(seen, indent=1))
+    return {"ok": True, "surface": surface, "seen_at": seen[surface]}
+
+
+@app.post("/api/brain/grow")
+async def brain_grow(request: Request):
+    """Run the brain-growth pass now. Body {dry_run?: bool}."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    return await _brain_growth_pass(bool((body or {}).get("dry_run")), trigger="manual")
+
+
+@app.get("/api/brain/report")
+async def brain_report():
+    try:
+        with open(BRAIN_REPORT_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {"ran_at": None}
+
+
+async def _brain_growth_loop() -> None:
+    """Daily; a per-day marker makes exactly one worker do the pass."""
+    try:
+        await asyncio.sleep(1200)
+    except asyncio.CancelledError:
+        return
+    while True:
+        day = datetime.utcnow().strftime("%Y-%m-%d")
+        marker = os.path.join(os.path.dirname(BRAIN_REPORT_PATH), f".brain-growth-{day}.done")
+        try:
+            os.makedirs(os.path.dirname(marker), exist_ok=True)
+            fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.close(fd)
+            await _brain_growth_pass(False, trigger="daily")
+        except FileExistsError:
+            pass
+        except Exception as e:
+            logger.warning(f"[brain] daily pass failed (non-fatal): {e}")
+        try:
+            await asyncio.sleep(6 * 3600)
+        except asyncio.CancelledError:
+            return
+
+
+@app.on_event("startup")
+async def _start_brain_growth_loop() -> None:
+    if os.environ.get("HIC_BRAIN_GROWTH", "1") != "0":
+        asyncio.create_task(_brain_growth_loop())
+
+
+# 2026-10-31 (agent-stack plan, fifth pass): uvicorn's supervisor killed worker [8] at 19:41:25 because its health
+# pong went unanswered for 5 s, with no crash or OOM in the kernel log and nothing in the access log to name the cause.
+# A pong only goes unanswered while something holds the interpreter lock. faulthandler's watchdog is a C thread
+# that needs no lock: re-armed from the event loop every half second, it prints every thread's stack to stderr
+# (the container log, headed "Timeout (0:00:02)!") whenever the loop goes HIC_LOOP_STALL_DUMP_SEC without running,
+# so the next stall names its own line. 0 disables it.
+_LOOP_STALL_DUMP_SEC = float(os.environ.get("HIC_LOOP_STALL_DUMP_SEC", "2") or 0)
+
+
+async def _loop_stall_watchdog() -> None:
+    import faulthandler
+    import sys
+    try:
+        while True:
+            faulthandler.dump_traceback_later(_LOOP_STALL_DUMP_SEC, repeat=False, file=sys.stderr, exit=False)
+            await asyncio.sleep(0.5)
+    finally:
+        faulthandler.cancel_dump_traceback_later()
+
+
+@app.on_event("startup")
+async def _start_loop_stall_watchdog() -> None:
+    if _LOOP_STALL_DUMP_SEC > 0:
+        asyncio.create_task(_loop_stall_watchdog())
+
+
+def _air_run_records(run_id: str) -> list:
+    """(path, air, mtime) for one run's AIR records (the lineage lookups read one folder, not the whole tree)."""
+    out = []
+    art_dir = os.path.join(SESSIONS_BASE, _safe_air_id(run_id), "artifacts")
+    if not os.path.isdir(art_dir):
+        return out
+    for fn in os.listdir(art_dir):
+        if not fn.endswith(".air.json"):
+            continue
+        fp = os.path.join(art_dir, fn)
+        try:
+            with open(fp, "r", encoding="utf-8") as f:
+                air = json.load(f)
+            if isinstance(air, dict):
+                out.append((fp, air, os.path.getmtime(fp)))
+        except Exception:
+            continue
+    return out
+
+
+def _air_row(fp: str, air: dict, mt: float) -> dict:
+    pc = air.get("postChain") if isinstance(air.get("postChain"), dict) else {}
+    qr = air.get("qualityReport") if isinstance(air.get("qualityReport"), dict) else {}
+    rep = pc.get("repair") if isinstance(pc.get("repair"), dict) else {}
+    return {"artifact_id": air.get("artifactId"), "run_id": air.get("runId"), "engagement": os.path.basename(os.path.dirname(os.path.dirname(fp))),
+            "kind": air.get("artifactType"), "trigger": air.get("trigger"), "chain_pass": pc.get("chainPass", qr.get("chainPass")),
+            "repair_rounds": rep.get("rounds"), "epoch_id": air.get("epochId"),
+            "lineage": air.get("lineage") if isinstance(air.get("lineage"), dict) else None,
+            "created": air.get("createdAtIso") or datetime.utcfromtimestamp(mt).isoformat() + "Z",
+            "modified": datetime.utcfromtimestamp(mt).isoformat() + "Z", "path": os.path.relpath(fp, SESSIONS_BASE).replace(os.sep, "/")}
+
+
+def _air_chain(rows: list, artifact_id: str) -> list:
+    """The revision chain that holds `artifact_id`: its root and every descendant, oldest revision first."""
+    by_id = {r["artifact_id"]: r for r in rows if r.get("artifact_id")}
+    hit = by_id.get(artifact_id)
+    if not hit:
+        return []
+    root = (hit.get("lineage") or {}).get("rootArtifactId") or artifact_id
+    seen, cur = set(), hit
+    while cur and (cur.get("lineage") or {}).get("parentArtifactId") and cur["artifact_id"] not in seen:   # walk up when a root id is missing
+        seen.add(cur["artifact_id"])
+        nxt = by_id.get(cur["lineage"]["parentArtifactId"])
+        if not nxt:
+            break
+        cur = nxt
+        root = (cur.get("lineage") or {}).get("rootArtifactId") or cur["artifact_id"]
+    chain = [r for r in rows if r.get("artifact_id") == root or ((r.get("lineage") or {}).get("rootArtifactId") == root)]
+    chain.sort(key=lambda r: (int((r.get("lineage") or {}).get("revision") or 1), r.get("created") or ""))
+    return chain
+
+
+@app.get("/api/air/list")
+async def air_list(engagement: str = "", limit: int = 50, run_id: str = "", kind: str = "", chain_of: str = ""):
+    """WS-6 M4: the AIR records on disk, newest first, for the platform agent (research-mcp list_artifacts).
+    WS-C C1 (2026-10-31): `run_id` and `kind` narrow to one run's records of one type (the SPA's lineage lookup);
+    every row carries its `lineage`; `chain_of=<artifactId>` also returns that artifact's revision chain, root first."""
+    records = _air_run_records(run_id) if run_id else _air_records_since(24 * 3650)
+    rows = []
+    for fp, air, mt in records:
+        row = _air_row(fp, air, mt)
+        if engagement and engagement not in row["engagement"]:
+            continue
+        rows.append(row)
+    chain = _air_chain(rows, chain_of) if chain_of else None
+    if kind:
+        rows = [r for r in rows if str(r.get("kind") or "") == kind]
+    rows.sort(key=lambda r: (r.get("created") or r["modified"]), reverse=True)
+    out = {"count": len(rows), "artifacts": rows[:max(1, min(int(limit or 50), 500))]}
+    if chain is not None:
+        out["chain"] = chain
+    return out
+
+
+@app.post("/api/air/fork")
+async def air_fork(req: Request):
+    """WS-C C2 (2026-10-31): copy an AIR record as the first version of a new chain. The copy keeps the prompt trace,
+    payload, evidence ledger and verdicts; its lineage names the record it came from, and so does its PPTX export.
+    Body {runId, artifactId, targetRunId?}."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON body"}, status_code=400)
+    run_id = _safe_air_id(str(body.get("runId") or ""))
+    artifact_id = _safe_air_id(str(body.get("artifactId") or ""))
+    target = _safe_air_id(str(body.get("targetRunId") or run_id))
+    src = os.path.join(SESSIONS_BASE, run_id, "artifacts", f"{artifact_id}.air.json")
+    if not os.path.exists(src):
+        return JSONResponse({"error": "no such AIR record"}, status_code=404)
+    try:
+        with open(src, "r", encoding="utf-8") as f:
+            air = json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": f"unreadable AIR record: {e}"}, status_code=422)
+    src_lineage = air.get("lineage") if isinstance(air.get("lineage"), dict) else {}
+    new_id = _safe_air_id(f"{artifact_id[:80]}-fork-{uuid.uuid4().hex[:8]}")
+    air.update({"artifactId": new_id, "runId": target, "createdAtIso": datetime.utcnow().isoformat() + "Z",
+                "lineage": {"rootArtifactId": new_id, "revision": 1, "reason": "fork",
+                            "forkedFrom": {"runId": run_id, "artifactId": artifact_id, "revision": int(src_lineage.get("revision") or 1)}}})
+    art_dir = os.path.join(SESSIONS_BASE, target, "artifacts")
+    os.makedirs(art_dir, exist_ok=True)
+    out_path = os.path.join(art_dir, f"{new_id}.air.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(air, f, ensure_ascii=True, separators=(",", ":"))
+    logger.info(f"[air-fork] {run_id}/{artifact_id} -> {target}/{new_id}")
+    return {"forked": True, "runId": target, "artifactId": new_id, "lineage": air["lineage"],
+            "path": os.path.relpath(out_path, SESSIONS_BASE).replace(os.sep, "/")}
+
+
+def _air_provenance_line(run_id: str, artifact_id: str) -> str:
+    """WS-C C2: one plain line naming where an exported deck came from (written first in the first slide's notes)."""
+    fp = os.path.join(SESSIONS_BASE, _safe_air_id(run_id), "artifacts", f"{_safe_air_id(artifact_id)}.air.json")
+    try:
+        with open(fp, "r", encoding="utf-8") as f:
+            air = json.load(f)
+    except Exception:
+        return f"Source: HiC run {run_id}, artifact {artifact_id}."
+    lin = air.get("lineage") if isinstance(air.get("lineage"), dict) else {}
+    parts = [f"Source: HiC run {air.get('runId') or run_id}, {air.get('artifactType') or 'artifact'} {air.get('artifactId') or artifact_id}"]
+    if lin:
+        parts.append(f"version {int(lin.get('revision') or 1)} of chain {lin.get('rootArtifactId') or artifact_id}")
+        if lin.get("parentArtifactId"):
+            parts.append(f"revised from {lin['parentArtifactId']} ({str(lin.get('reason') or 'revised')[:120]})")
+        fk = lin.get("forkedFrom") if isinstance(lin.get("forkedFrom"), dict) else None
+        if fk:
+            parts.append(f"forked from run {fk.get('runId')}, {fk.get('artifactId')} version {fk.get('revision') or 1}")
+    if air.get("createdAtIso"):
+        parts.append(f"generated {str(air['createdAtIso'])[:16].replace('T', ' ')} UTC")
+    return "; ".join(parts).replace("—", ",") + "."
+
+
+@app.get("/api/retention/report")
+async def retention_report(days: int = 0):
+    """What a retention policy of N days (default HIC_RETENTION_REPORT_DAYS) would purge:
+    soft-deleted session copies, inactive sessions, and upload pages older than N days.
+    Read-only."""
+    n = int(days or _RETENTION_REPORT_DAYS)
+    now = time.time()
+    out = {"days": n, "deleted_copies": [], "inactive_sessions": [], "old_uploads": []}
+    try:
+        deleted_root = os.path.join(SESSIONS_BASE, ".deleted")
+        if os.path.isdir(deleted_root):
+            for name in sorted(os.listdir(deleted_root)):
+                p = os.path.join(deleted_root, name)
+                if os.path.isdir(p):
+                    age = (now - _newest_mtime(p)) / 86400
+                    out["deleted_copies"].append({"name": name, "age_days": round(age, 1)})
+        if os.path.isdir(SESSIONS_BASE):
+            for name in sorted(os.listdir(SESSIONS_BASE)):
+                if name.startswith(".") or name.startswith("_"):
+                    continue
+                p = os.path.join(SESSIONS_BASE, name)
+                if os.path.isdir(p):
+                    age = (now - _newest_mtime(p)) / 86400
+                    if age > n:
+                        out["inactive_sessions"].append({"slug": name, "age_days": round(age, 1)})
+        uploads_root = os.path.join(WIKI_BASE, "uploads")
+        if os.path.isdir(uploads_root):
+            for eng in sorted(os.listdir(uploads_root)):
+                ed = os.path.join(uploads_root, eng)
+                if not os.path.isdir(ed):
+                    continue
+                for fn in sorted(os.listdir(ed)):
+                    fp = os.path.join(ed, fn)
+                    if os.path.isfile(fp) and fn.endswith(".md"):
+                        age = (now - os.path.getmtime(fp)) / 86400
+                        if age > n:
+                            out["old_uploads"].append({"page": f"uploads/{eng}/{fn}", "age_days": round(age, 1)})
+    except Exception as e:
+        out["error"] = str(e)
+    return out
+
+
+def _delete_upload_page(rel: str) -> dict:
+    """Remove ONE upload wiki page, its vector-store chunks and its manifest record."""
+    ap = os.path.normpath(os.path.join(WIKI_BASE, rel))
+    if not ap.startswith(os.path.normpath(os.path.join(WIKI_BASE, "uploads"))):
+        raise ValueError("not an upload page")
+    out = {"page": rel, "removed_file": False, "chunks_removed": False}
+    if not os.path.exists(ap):
+        raise FileNotFoundError(rel)
+    os.remove(ap)
+    out["removed_file"] = True
+    try:
+        store = _get_chunk_store()
+        if store is not None:
+            store.delete_article(rel)
+            out["chunks_removed"] = True
+    except Exception as e:
+        logger.warning(f"[retention] chunk removal failed for {rel}: {e}")
+    _manifest_remove(rel)
+    return out
+
+
+@app.post("/api/wiki/uploads/delete")
+async def wiki_upload_delete(payload: dict):
+    """Hard delete ONE client upload page and everything derived from it.
+    Body: {engagement, name, confirm} where confirm must equal "uploads/<engagement>/<name>"."""
+    engagement = str(payload.get("engagement") or "")
+    name = str(payload.get("name") or "")
+    safe_eng = _re_feedback.sub(r'[^A-Za-z0-9_\-]', '_', engagement)[:120]
+    safe_name = os.path.basename(name)
+    if not safe_eng or not safe_name or safe_name.startswith(".") or not safe_name.endswith(".md"):
+        return JSONResponse({"error": "invalid path"}, status_code=400)
+    rel = f"uploads/{safe_eng}/{safe_name}"
+    if str(payload.get("confirm") or "") != rel:
+        return JSONResponse({"error": "confirm must repeat the exact page path", "expected": rel}, status_code=400)
+    try:
+        out = await asyncio.to_thread(_delete_upload_page, rel)
+        logger.info(f"[retention] deleted upload {rel}: {out}")
+        return {"ok": True, **out}
+    except ValueError as e:
+        return JSONResponse({"error": str(e)}, status_code=400)
+    except FileNotFoundError:
+        return JSONResponse({"error": "upload not found"}, status_code=404)
     except Exception as e:
         return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
 
@@ -4482,7 +5943,13 @@ async def session_trace_append(req: Request):
     except (TypeError, ValueError):
         turn_index = 0
     turn_padded = f"{turn_index:06d}"
-    fname = f"{step_safe}-{turn_padded}-{model_safe}.json"
+    # 2026-10-30 (WS-1 T4): the name carries the run id and a server timestamp, and the file is
+    # written create-only. The old <step>-<turn>-<model>.json collided whenever the browser's
+    # turn counter reset on reload, and open("w") then truncated an earlier trace to a stub
+    # (8 of 445 traces in one session were cut off at `"prompt":`).
+    run_safe = _slug(str(body.get("run_id") or "norun"), 40)
+    ts_safe = datetime.utcnow().strftime("%Y%m%dT%H%M%S%f")[:-3]
+    fname = f"{step_safe}-{run_safe}-{turn_padded}-{model_safe}-{ts_safe}.json"
     fpath = os.path.join(folder, fname)
 
     # Stamp server-side received_at so the proxy clock is the source of truth
@@ -4492,8 +5959,13 @@ async def session_trace_append(req: Request):
     out["_filename"] = fname
 
     try:
-        with open(fpath, "w", encoding="utf-8") as f:
+        tmp = fpath + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False, indent=2)
+        # create-only: never overwrite an existing trace
+        fd = os.open(fpath, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.close(fd)
+        os.replace(tmp, fpath)
     except Exception as e:
         # Soft failure: the SPA's call is fire-and-forget, so we return 200
         # with an error payload rather than letting the failure surface as
@@ -4705,6 +6177,8 @@ async def append_epoch_outcome(epoch_id: int = Path(...), req: Request = None):
     except Exception as e:
         logger.error(f"[epoch-outcome] write failed for {epoch_id}: {e}")
         return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
+    _telemetry_event("epoch_outcome", {"epoch_id": epoch_id, "deliverable": body.get("deliverable"), "pass": bool(body.get("dominates_baseline")),
+                                       "regression_severe": bool(body.get("regression_severe")), "dimensions": body.get("dimensions")})
     return {"ok": True, "epoch_id": epoch_id, "path": path}
 
 
@@ -5364,6 +6838,41 @@ async def prototype_delete(slug: str = Path(...)):
         return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
 
 
+
+# 2026-10-30 (WS-0 S5) - model-generated pages (prototypes, HTML artifacts) are served
+# from THIS origin. Without a policy, code the model wrote (or a poisoned corpus
+# smuggled in) could call any /api/* route from the viewer's browser. The policy lets
+# the page load its CDN scripts, fonts and images and, for live prototypes, talk to ONE
+# narrow endpoint (/api/proto-ai/generate, rate-limited, fixed fast model). Everything
+# else on this origin is unreachable from generated code.
+_GEN_CDN = "https://unpkg.com https://esm.sh https://cdn.jsdelivr.net https://cdn.tailwindcss.com"
+
+
+def _generated_content_response(html: str, status_code: int = 200, allow_proto_ai: bool = False):
+    from fastapi.responses import HTMLResponse
+    connect = _GEN_CDN
+    if allow_proto_ai:
+        connect += " http://127.0.0.1:5012/api/proto-ai/ http://localhost:5012/api/proto-ai/ 'self'"
+        # 'self' is intentionally narrowed by the path sources above in CSP3 browsers; older
+        # engines fall back to origin-wide connect, which is still covered by proxy auth.
+        connect = connect.replace(" 'self'", "")
+    ancestors = "'self' " + " ".join(_CORS_ORIGINS)
+    csp = (
+        "default-src 'none'; "
+        f"script-src 'unsafe-inline' 'unsafe-eval' {_GEN_CDN}; "
+        "style-src 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; "
+        "font-src https://fonts.gstatic.com data:; "
+        "img-src data: blob: https: http://127.0.0.1:5012 http://localhost:5012; "
+        "media-src data: blob: https:; "
+        f"connect-src {connect}; "
+        "form-action 'none'; base-uri 'none'; object-src 'none'; "
+        f"frame-ancestors {ancestors}"
+    )
+    return HTMLResponse(content=html, status_code=status_code,
+                        headers={"Content-Security-Policy": csp, "X-Content-Type-Options": "nosniff",
+                                 "Referrer-Policy": "no-referrer"})
+
+
 @app.get("/api/prototypes/{slug}/view")
 async def prototype_view(slug: str = Path(...)):
     """Serve the prototype as a runnable HTML page. Wraps React/JSX code
@@ -5388,7 +6897,7 @@ async def prototype_view(slug: str = Path(...)):
     if fmt == "html":
         # Stage 4 emitted a full HTML doc — serve it verbatim.
         from fastapi.responses import HTMLResponse
-        return HTMLResponse(content=code)
+        return _generated_content_response(code, allow_proto_ai=True)
 
     # 2026-05-11 — Bulletproof React wrapper. Earlier version used import
     # maps + Babel Standalone with data-type="module" which had brittle ESM
@@ -5624,7 +7133,7 @@ async def prototype_view(slug: str = Path(...)):
          expecting {{ data, provider, model }}. Point it at the real generic route so
          in-prototype AI calls reach a functional model instead of 404-ing and
          silently falling back to seeded data ("AI call failed for <flow>"). -->
-    <script>window.__AI_ENDPOINT__ = "/api/ai/generate"; window.__AI_PROVIDER__ = "gemini"; window.__AI_MODEL__ = "gemini-3.5-flash";</script>
+    <script>window.__AI_ENDPOINT__ = "/api/proto-ai/generate"; window.__AI_PROVIDER__ = "gemini"; window.__AI_MODEL__ = "gemini-3.5-flash";</script>
     <style>.ds-brand-logo,.ds-brand-logo svg{{height:26px;width:auto;display:inline-flex;align-items:center}}</style>
     <script>document.addEventListener("DOMContentLoaded",function(){{document.querySelectorAll("[data-brand-logo]").forEach(function(el){{if(window.__BRAND_LOGO__){{el.innerHTML=window.__BRAND_LOGO__;el.classList.add("ds-brand-logo");}}}});}});</script>
     <style>
@@ -5801,7 +7310,7 @@ async def prototype_view(slug: str = Path(...)):
     </script>
 </body>
 </html>"""
-    return HTMLResponse(content=html)
+    return _generated_content_response(html, allow_proto_ai=True)
 
 
 # ============================================================================
@@ -6274,6 +7783,10 @@ async def design_tokens(brand: str = "", format: str = "json"):
 
     if format == "prompt":
         return Response(build_design_tokens_prompt(b), media_type="text/plain")
+    if format == "css" and b in _TOKEN_BRANDS:
+        # 2026-10-31 (agent-stack plan WS-E E2): the same custom properties a generated artifact gets, for previews
+        # the SPA composes itself (the Designer option board), so they resolve tokens instead of literals.
+        return Response(":root {\n" + _design_token_css_vars(b) + "\n}\n", media_type="text/css")
     if b in _TOKEN_BRANDS:
         return JSONResponse(tokens.get(b, {}))
     return JSONResponse(tokens)
@@ -6547,7 +8060,7 @@ async def artifact_view(slug: str = Path(...)):
     # Otherwise wrap it in our scaffold with brand-token injection.
     body_strip = html_body.strip().lower()
     if body_strip.startswith("<!doctype") or body_strip.startswith("<html"):
-        return HTMLResponse(content=html_body)
+        return _generated_content_response(html_body)
 
     # 2026-06-24 — Font loading matches the Figma design system (was stale
     # Bebas/Spectral/Roboto/Open Sans). NXT: Saira Condensed (display) + Archivo
@@ -9011,15 +10524,31 @@ _DOC_URL_SKIP_RE = re.compile(r"\.(png|jpe?g|svg|gif|webp|zip|pdf|css|js|mp4|xml
 def _primary_docs_valid_hosts(subject: str, hosts) -> list:
     """Keep only hostnames that carry the subject's own name (deterministic ownership check)."""
     tok = re.sub(r"[^a-z0-9]", "", (subject or "").lower())
+    # 2026-10-06 (live #case-study: 0 pages for "University of Waterloo"): the whole squashed name never appears in an
+    # institution's host (uwaterloo.ca, drexel.edu, uc.edu). A host also qualifies when it carries the subject's
+    # DISTINCTIVE word (generic words like "university" never qualify alone) or when its registrable label is the
+    # subject's acronym (uc.edu for University of Cincinnati, mit.edu).
+    generic = {"university", "college", "institute", "school", "the", "of", "and", "for", "at", "inc", "corp", "company",
+               "group", "state", "technology", "community", "foundation", "center", "centre"}
+    words = [w for w in re.findall(r"[a-z0-9]+", (subject or "").lower())]
+    distinct = [w for w in words if w not in generic and len(w) >= 4]
+    acronyms = {"".join(w[0] for w in words if w not in {"the", "of", "and", "for", "at"}), "".join(w[0] for w in words)}
     out = []
     for h in hosts or []:
         h = str(h or "").lower().strip()
         h = re.sub(r"^https?://", "", h).split("/")[0].strip()
         if not h or " " in h or ".." in h or not re.fullmatch(r"[a-z0-9.-]+", h):
             continue
-        if tok and tok in h.replace("-", "").replace(".", ""):
-            if h not in out:
-                out.append(h)
+        flat = h.replace("-", "").replace(".", "")
+        labels = h.split(".")
+        root_label = labels[-3] if len(labels) >= 3 and labels[-2] in ("ac", "co", "edu", "gov") and len(labels[-1]) == 2 else (labels[-2] if len(labels) >= 2 else labels[0])
+        owned = (tok and tok in flat) or any(w in flat for w in distinct) or (len(root_label) >= 2 and root_label in acronyms)
+        # An educational institution does not publish its own documentation on a .com host (cincinnati.com is a
+        # newspaper, not the University of Cincinnati).
+        if owned and any(w in words for w in ("university", "college", "institute", "school")) and h.endswith(".com"):
+            owned = False
+        if owned and h not in out:
+            out.append(h)
     return out
 
 
@@ -9050,21 +10579,40 @@ async def _expand_doc_hosts(client, hosts: list) -> list:
     return out
 
 
+def _lenient_json_obj(raw: str) -> dict:
+    """Parse a model's JSON object, repairing the two commonest slips (2026-10-06 live #case-study: "plan failed:
+    Expecting ',' delimiter" ended peer documentation collection): a missing comma between adjacent values/objects and
+    a trailing comma before a closing bracket. Returns {} when it still cannot be read."""
+    try:
+        return json.loads(raw)
+    except Exception:
+        pass
+    fixed = re.sub(r",\s*([}\]])", r"\1", raw)
+    fixed = re.sub(r'(["\]}0-9eE]|true|false|null)\s*\n(\s*["{\[])', r"\1,\n\2", fixed)
+    fixed = re.sub(r'([}\]])\s*([{\[])', r"\1,\2", fixed)
+    try:
+        return json.loads(fixed)
+    except Exception:
+        return {}
+
+
 async def _primary_docs_plan(goal: str, subjects_hint: list) -> dict:
     prompt = (
         "You map a research objective to the OFFICIAL documentation of the products, vendors, organizations, or standards it names.\n"
         "Return ONLY JSON: {\"subjects\":[{\"name\":\"<proper name>\",\"hosts\":[\"<official documentation hostname>\"],"
         "\"queries\":[\"<short documentation search query>\"]}]}\n"
         "Rules: hosts are hostnames only (no paths) that the subject's OWN organization operates: developer docs, help center, API reference, "
-        "changelog, official blog. Never list third-party sites, forums, or news. Give 2-4 hosts per subject. Give 4-8 queries per subject, "
+        "changelog, official blog; for a university, agency or other institution, its own program, office and newsroom sites. Never list third-party sites, forums, or news. Give 2-4 hosts per subject. Give 4-8 queries per subject, "
         "2-6 words each, naming concrete capabilities, events, limits, APIs, policies, pricing or seat rules the objective asks about. "
         "Omit a subject with no official documentation. At most 3 subjects.\n"
         f"Objective: {(goal or '')[:1500]}\n"
         f"Subjects already known: {', '.join(str(s) for s in subjects_hint) if subjects_hint else 'none'}"
     )
-    text = await _call_gemini_for_artifact(prompt, "gemini-3.5-flash", 2000)
+    # 2026-10-06 live #case-study: at 2000 output tokens Flash's thinking left ~200 chars of JSON (cut after the first
+    # host list), so every peer plan parsed to zero subjects. The plan JSON for 3 subjects needs room past the thinking.
+    text = await _call_gemini_for_artifact(prompt, "gemini-3.5-flash", 8192)
     m = re.search(r"\{[\s\S]*\}", text or "")
-    data = json.loads(m.group(0)) if m else {}
+    data = _lenient_json_obj(m.group(0)) if m else {}
     subjects = []
     for s in (data.get("subjects") or [])[:3]:
         if not isinstance(s, dict):
@@ -9560,6 +11108,8 @@ def _parse_pptx_bytes(raw: bytes) -> dict:
         from io import BytesIO
         prs = Presentation(BytesIO(raw))
         slide_blocks = []
+        slide_images: dict = {}
+        slide_images_total: list = []
         for idx, slide in enumerate(prs.slides, start=1):
             parts = [f"[Slide {idx}]"]
             # Title via placeholder index 0 (when present)
@@ -9616,11 +11166,50 @@ def _parse_pptx_bytes(raw: bytes) -> dict:
             except Exception:
                 pass
             slide_blocks.append("\n".join(parts))
+            # 2026-10-21 (owner: information parity for a reformatted deck): the pictures on each source slide ride
+            # along as data URIs so the new deck can carry them. Bounded: 2 per slide, 8 per deck, downscaled JPEG.
+            try:
+                _imgs = []
+                for shape in _flat_shapes(slide.shapes):
+                    if len(_imgs) >= 2 or len(slide_images_total) >= 8:
+                        break
+                    if getattr(shape, "shape_type", None) != 13 or not hasattr(shape, "image"):
+                        continue
+                    _blob = shape.image.blob
+                    if not _blob or len(_blob) < 4_000:
+                        continue
+                    try:
+                        from PIL import Image as _PI
+                        from io import BytesIO as _BIO
+                        import base64 as _b64
+                        _im = _PI.open(_BIO(_blob))
+                        _im.load()
+                        if _im.mode not in ("RGB", "L"):
+                            _im = _im.convert("RGB")
+                        _w, _h = _im.size
+                        if _w < 240 or _h < 160:
+                            continue
+                        if _w > 1600:
+                            _im = _im.resize((1600, int(_h * 1600 / _w)))
+                        _out = _BIO()
+                        _im.save(_out, format="JPEG", quality=82)
+                        _uri = "data:image/jpeg;base64," + _b64.b64encode(_out.getvalue()).decode("ascii")
+                        if len(_uri) > 900_000:
+                            continue
+                        _imgs.append(_uri)
+                        slide_images_total.append(idx)
+                    except Exception:
+                        continue
+                if _imgs:
+                    slide_images[str(idx)] = _imgs
+            except Exception:
+                pass
         text = "\n\n".join(slide_blocks)
         return {
             "text": text[:200_000],
             "method": "python-pptx",
             "slideCount": len(slide_blocks),
+            "slideImages": slide_images,
         }
     except ImportError:
         return {"text": "", "error": "python-pptx not installed", "method": "python-pptx"}
@@ -11283,10 +12872,15 @@ def _usage_ledger_append(session: str, provider: str, model: str, usage: dict) -
         from model_registry import price_usd
         sess = (session or "").strip() or "_unassigned"
         safe = _safe_session_slug(sess) if sess != "_unassigned" else sess
-        d = os.path.join(SESSIONS_DIR, safe) if "SESSIONS_DIR" in globals() else os.path.join(WIKI_DIR, "..", "sessions", safe)
+        # 2026-10-30 (WS-2 E10): the old path guard (`SESSIONS_DIR in globals()`, else WIKI_DIR/..) never
+        # resolved, so no usage.jsonl existed anywhere on disk; SESSIONS_BASE is the sessions root.
+        d = os.path.join(SESSIONS_BASE, safe)
         os.makedirs(d, exist_ok=True)
+        _ctx = _HIC_REQ_CTX.get() or {}
         row = {
             "ts": datetime.utcnow().isoformat() + "Z",
+            "run_id": _ctx.get("run_id") or "",
+            "message_id": _ctx.get("message_id") or "",
             "provider": provider,
             "model": model,
             **{k: (int(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else v) for k, v in (usage or {}).items()},
@@ -11296,6 +12890,10 @@ def _usage_ledger_append(session: str, provider: str, model: str, usage: dict) -
                                     str(row.get("cache_ttl") or "5m"))
         with open(os.path.join(d, "usage.jsonl"), "a", encoding="utf-8") as f:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        # WS-5 R1: the same call in the one event sink
+        _telemetry_event("ai_call", {"run_id": row.get("run_id"), "message_id": row.get("message_id"), "session": sess,
+                                     "model": model, "provider": provider, "cost_usd": row.get("cost_usd"),
+                                     "usage": {k: v for k, v in row.items() if k.endswith("_tokens")}})
     except Exception as e:
         try:
             logger.debug(f"[usage-ledger] skipped: {e}")
@@ -11384,6 +12982,13 @@ def _inject_anthropic_cache_control(body: dict, telemetry: "dict | None" = None)
     added = False
     _segs: "list[str]" = []
     _prefix_chars = 0
+    # 2026-10-31 (live deck measurement): in the WS-4 tool loop every iteration re-sent the whole growing
+    # conversation uncached (fresh_input 93K -> 149K tokens per call across seven calls while cache_read
+    # stayed at the system prefix). The conversation is a strict prefix extension turn over turn, so one
+    # breakpoint on the LAST tool_result block caches it for the next iteration. The system keeps at most
+    # two boundaries while a loop is in progress so the fourth breakpoint stays free for the messages.
+    _msgs = body.get("messages")
+    _loop_in_progress = isinstance(_msgs, list) and len(_msgs) >= 3
     try:
         # Breakpoint 1: TOOLS (the most stable prefix segment; comes before system
         # in Anthropic's tools->system->messages cache order). Mark the LAST tool
@@ -11415,7 +13020,7 @@ def _inject_anthropic_cache_control(body: dict, telemetry: "dict | None" = None)
                     is_last = (i == len(parts) - 1)
                     # cache the boundary when it is not the dynamic tail, the prefix is big enough,
                     # and we have breakpoint budget left (3 on system; tools used one).
-                    if not is_last and cumulative >= ANTHROPIC_CACHE_MIN_CHARS and boundaries_set < 3:
+                    if not is_last and cumulative >= ANTHROPIC_CACHE_MIN_CHARS and boundaries_set < (2 if _loop_in_progress else 3):
                         block["cache_control"] = _anthropic_cc()
                         boundaries_set += 1
                         added = True
@@ -11438,6 +13043,21 @@ def _inject_anthropic_cache_control(body: dict, telemetry: "dict | None" = None)
                     added = True
                     _segs.append(json.dumps(sys))
                     _prefix_chars += total
+        # Breakpoint on the CONVERSATION while a tool loop runs (see the note above). The last block of the
+        # last user turn (the tool_result batch) is marked when the conversation clears the minimum size and
+        # a breakpoint is still free; the system segments stay the stable prefix the telemetry measures.
+        if _loop_in_progress and len(_segs) < 4:
+            last_msg = _msgs[-1]
+            content = last_msg.get("content") if isinstance(last_msg, dict) else None
+            if last_msg.get("role") == "user" and isinstance(content, list) and content:
+                blk = content[-1]
+                if isinstance(blk, dict) and "cache_control" not in blk and blk.get("type") in ("tool_result", "text", "image", "document") \
+                        and len(json.dumps(_msgs)) >= ANTHROPIC_CACHE_MIN_CHARS:
+                    blk["cache_control"] = _anthropic_cc()
+                    added = True
+                    if telemetry is not None:
+                        telemetry["messages_breakpoint"] = True
+                    logger.info(f"[prompt-cache] conversation breakpoint set on the last {blk.get('type')} block ({len(_msgs)} messages)")
         if telemetry is not None and added:
             telemetry["segments"] = _segs
             telemetry["prefix_chars"] = _prefix_chars
@@ -11666,6 +13286,64 @@ async def cache_telemetry(days: int = 7):
     except Exception as e:
         out["error"] = str(e)[:200]
     return JSONResponse(out)
+
+
+# 2026-10-30 (WS-0 S1) - Passthrough for the browser-side @google/genai SDK. The SPA
+# builds its client with httpOptions.baseUrl = <proxy>/api/gemini-sdk (services/
+# genaiClient.ts), so every SDK path (models:generateContent, :streamGenerateContent
+# with alt=sse, files upload/resumable, operations polling, file download) lands here
+# and is forwarded to generativelanguage.googleapis.com with the REAL key added
+# server-side. The browser never holds a provider key. JSON bodies get the same
+# outbound scrub as every other /api/ai/* route; responses stream through unchanged.
+_GEMINI_SDK_FORWARD_HEADERS = {
+    "content-type", "accept", "x-goog-api-client", "x-goog-upload-protocol", "x-goog-upload-command",
+    "x-goog-upload-header-content-length", "x-goog-upload-header-content-type", "x-goog-upload-offset",
+    "x-goog-upload-url", "x-goog-upload-status", "content-range", "user-agent",
+}
+_GEMINI_SDK_DROP_RESPONSE_HEADERS = {"content-encoding", "transfer-encoding", "connection", "content-length", "alt-svc"}
+
+
+@app.api_route("/api/gemini-sdk/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
+async def gemini_sdk_passthrough(path: str, request: Request):
+    from fastapi.responses import StreamingResponse
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "GEMINI_API_KEY not configured"}, status_code=500)
+    if ".." in path or path.startswith("/"):
+        return JSONResponse({"error": "bad path"}, status_code=400)
+    upstream = f"https://generativelanguage.googleapis.com/{path}"
+    params = [(k, v) for k, v in request.query_params.multi_items() if k != "key"]
+    headers = {k: v for k, v in request.headers.items() if k.lower() in _GEMINI_SDK_FORWARD_HEADERS}
+    headers["x-goog-api-key"] = api_key
+    raw = await request.body()
+    body = raw
+    if raw and "application/json" in request.headers.get("content-type", "").lower():
+        try:
+            parsed = json.loads(raw.decode("utf-8"))
+            parsed = _scrub_outbound_payload(parsed)
+            body = json.dumps(parsed, ensure_ascii=False).encode("utf-8")
+        except Exception:
+            body = raw
+    client = httpx.AsyncClient(timeout=httpx.Timeout(600.0, connect=15.0))
+    upstream_req = client.build_request(request.method, upstream, params=params, headers=headers, content=body)
+    try:
+        resp = await client.send(upstream_req, stream=True)
+    except Exception as e:
+        await client.aclose()
+        return JSONResponse({"error": f"gemini upstream unreachable: {e}"}, status_code=502)
+    logger.info(f"[gemini-sdk] {request.method} /{path.split('?')[0]} -> {resp.status_code} ({len(raw):,} bytes in)")
+    resp_headers = {k: v for k, v in resp.headers.items() if k.lower() not in _GEMINI_SDK_DROP_RESPONSE_HEADERS}
+
+    async def _stream():
+        try:
+            async for chunk in resp.aiter_bytes():
+                yield chunk
+        finally:
+            await resp.aclose()
+            await client.aclose()
+
+    return StreamingResponse(_stream(), status_code=resp.status_code, headers=resp_headers,
+                             media_type=resp.headers.get("content-type"))
 
 
 @app.post("/api/ai/gemini")
@@ -11989,6 +13667,7 @@ async def proxy_gemini(request: Request):
                             "temperature": gen_config.get("temperature", 0.2),
                             "stream": False,
                         },
+                        headers=_self_headers(),
                         timeout=300.0,
                     )
                 ds_data = ds_resp.json()
@@ -12033,6 +13712,25 @@ async def proxy_gemini(request: Request):
         composed = f"{err_type}: {err_str[:400]}"
         logger.error(f"Gemini proxy error: {composed}")
         return JSONResponse({"error": f"Gemini proxy error: {composed[:480]}"}, status_code=502)
+
+
+_PROTO_AI_WINDOW: list = []  # request timestamps, last 60 s
+_PROTO_AI_PER_MINUTE = int(os.environ.get("PROTO_AI_PER_MINUTE", "60"))
+
+
+@app.post("/api/proto-ai/generate")
+async def proto_ai_generate(request: Request):
+    """2026-10-30 (WS-0 S5): the ONE endpoint model-generated prototype pages may call.
+    Token-exempt (the page has no proxy token) and therefore rate-limited; forwards to
+    /api/ai/generate, which pins the fast model and caps output. Loopback-bound like the
+    rest of the proxy."""
+    now = time.time()
+    while _PROTO_AI_WINDOW and now - _PROTO_AI_WINDOW[0] > 60:
+        _PROTO_AI_WINDOW.pop(0)
+    if len(_PROTO_AI_WINDOW) >= _PROTO_AI_PER_MINUTE:
+        return JSONResponse({"error": "proto-ai rate limit"}, status_code=429)
+    _PROTO_AI_WINDOW.append(now)
+    return await proxy_ai_generate(request)
 
 
 @app.post("/api/ai/generate")
@@ -12349,6 +14047,7 @@ async def proxy_openai(request: Request):
                             "temperature": body.get("temperature", 0.2),
                             "stream": False,
                         },
+                        headers=_self_headers(),
                         timeout=300.0,
                     )
                 ds_data = ds_resp.json()
@@ -12426,8 +14125,18 @@ async def proxy_gemini_openai_compat(request: Request):
         # uses fetchWithTimeout(420s, retried 3x) — we want the proxy to
         # outlive a single attempt so it cleanly returns a 504 instead of
         # silently TCP-dropping (browser TypeError "Failed to fetch").
+        # 2026-10-05: a connection that never opened ("All connection attempts failed") is retried twice with
+        # backoff before surfacing; it used to return 502 on the first blip and end the #presentation compose.
         async with httpx.AsyncClient() as client:
-            resp = await client.post(url, json=body, headers=headers, timeout=540.0)
+            for _attempt in range(3):
+                try:
+                    resp = await client.post(url, json=body, headers=headers, timeout=540.0)
+                    break
+                except (httpx.ConnectError, httpx.ConnectTimeout) as ce:
+                    if _attempt == 2:
+                        raise
+                    logger.warning(f"Gemini compat connect failed (attempt {_attempt + 1}/3): {ce}; retrying")
+                    await asyncio.sleep(2 * (_attempt + 1))
             if resp.status_code >= 400:
                 logger.error(f"Gemini compat API {resp.status_code} for model={body.get('model')}: {resp.text[:600]}")
             return JSONResponse(resp.json(), status_code=resp.status_code)
@@ -12610,6 +14319,736 @@ async def proxy_deepseek_azure(request: Request):
         {"error": f"DeepSeek failed after {MAX_RETRIES} retries; last status {last_status}"},
         status_code=last_status or 502,
     )
+
+
+# ============================================================================
+# 2026-10-30 (WS-2) - THE EVAL SUITE STORE. Cases, judges, verdicts, human labels and
+# results live under EVALS_DIR (the version-controlled humans-in-control-research/evals,
+# mounted at /evals). The SPA's judgeRegistry/evalSuite modules and the vitest eval lane
+# read and write through these routes; /api/eval/judge-agreement computes each judge's
+# agreement with human labels (Cohen's kappa), which is what lets an LLM judge earn the
+# right to block (judges.json `rule`).
+# ============================================================================
+# HIC_EVALS_DIR (2026-10-31): the proxy test suite points this at a temp dir (proxy/tests/conftest.py); a rescore test
+# had been writing its fixture summary over the day's real one in the version-controlled evals/results.
+_EVALS_DIR = (os.environ.get("HIC_EVALS_DIR", "").strip() or None) or next(
+    (p for p in ("/evals", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "evals")) if os.path.isdir(p)), None)
+
+
+def _evals_path(*parts: str) -> Optional[str]:
+    if not _EVALS_DIR:
+        return None
+    p = os.path.normpath(os.path.join(_EVALS_DIR, *parts))
+    if not p.startswith(os.path.normpath(_EVALS_DIR)):
+        return None
+    return p
+
+
+def _append_jsonl(path: str, row: dict) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(row, ensure_ascii=False, default=str) + "\n")
+
+
+def _read_jsonl(path: str, limit: int = 100_000) -> list:
+    out = []
+    if not os.path.exists(path):
+        return out
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                out.append(json.loads(line))
+            except Exception:
+                continue
+            if len(out) >= limit:
+                break
+    return out
+
+
+# =============================================================================
+# WS-5 R1 (2026-10-30, plan harness-capability-curve-uplift): ONE event sink.
+# Every AI call, judge verdict, human label, post-chain record and epoch outcome lands as one
+# row in hic-workspace/telemetry/events.jsonl with the SAME ids the traces, AIR and receipts
+# carry (run_id, message_id, artifact_id), so one query joins a run's calls, verdicts and cost.
+# The per-session usage.jsonl, evals/verdicts.jsonl and AIR files keep their own copies; the
+# sink is the join surface (the BigQuery-plugin analog of the ADK talk), not a replacement.
+# =============================================================================
+TELEMETRY_PATH = os.environ.get("HIC_TELEMETRY_PATH", "/hic-workspace/telemetry/events.jsonl")
+_TELEMETRY_KINDS = ("ai_call", "verdict", "label", "post_chain", "epoch_outcome", "rescore", "repair", "export",
+                    # 2026-10-31 (agent-stack plan): skill injections (A5), memory admissions and recalls (B1-B3),
+                    # inbound webhook runs (D3), platform-agent turns (D1) and computer-use reviews (D4).
+                    "skill", "memory", "webhook", "agent_turn", "computer_use",
+                    # WS-C C3: the daily brain-growth pass (known-gap pages, engagement frontmatter, pattern due)
+                    "brain")
+
+
+def _telemetry_event(kind: str, row: dict) -> None:
+    """Append one event. Best-effort; never raises into a request path."""
+    try:
+        if kind not in _TELEMETRY_KINDS:
+            kind = "other"
+        ctx = {}
+        try:
+            ctx = _HIC_REQ_CTX.get() or {}
+        except Exception:
+            ctx = {}
+        ev = {
+            "ts": datetime.utcnow().isoformat() + "Z",
+            "kind": kind,
+            "run_id": str(row.get("run_id") or ctx.get("run_id") or ""),
+            "message_id": str(row.get("message_id") or ctx.get("message_id") or ""),
+            "artifact_id": str(row.get("artifact_id") or ""),
+            "stage": row.get("stage"),
+            "model": row.get("model"),
+            "usage": row.get("usage"),
+            "cost_usd": row.get("cost_usd"),
+            "judge_id": row.get("judge_id"),
+            "score": row.get("score"),
+            "pass": row.get("pass"),
+        }
+        for k, v in row.items():
+            if k not in ev and k not in ("run_id", "message_id", "artifact_id"):
+                ev[k] = v
+        _append_jsonl(TELEMETRY_PATH, ev)
+    except Exception as e:
+        try:
+            logger.debug(f"[telemetry] event skipped: {e}")
+        except Exception:
+            pass
+
+
+def _telemetry_rows(run_id: str = "", kind: str = "", since_iso: str = "", limit: int = 2000) -> list:
+    rows = _read_jsonl(TELEMETRY_PATH, limit=500_000)
+    out = []
+    for r in reversed(rows):
+        if run_id and str(r.get("run_id") or "") != run_id:
+            continue
+        if kind and str(r.get("kind") or "") != kind:
+            continue
+        if since_iso and str(r.get("ts") or "") < since_iso:
+            continue
+        out.append(r)
+        if len(out) >= limit:
+            break
+    out.reverse()
+    return out
+
+
+def _telemetry_join(rows: list) -> dict:
+    """One run's calls, verdicts and cost in one object (the query the plan's R1 gate names)."""
+    calls = [r for r in rows if r.get("kind") == "ai_call"]
+    verdicts = [r for r in rows if r.get("kind") == "verdict"]
+    labels = [r for r in rows if r.get("kind") == "label"]
+    cost = 0.0
+    for r in calls:
+        try:
+            cost += float(r.get("cost_usd") or 0)
+        except Exception:
+            pass
+    by_model: dict = {}
+    for r in calls:
+        by_model[str(r.get("model") or "?")] = by_model.get(str(r.get("model") or "?"), 0) + 1
+    passed = sum(1 for v in verdicts if v.get("pass") is True)
+    return {
+        "events": len(rows), "ai_calls": len(calls), "models": by_model, "cost_usd": round(cost, 4),
+        "verdicts": len(verdicts), "verdicts_passed": passed,
+        "judges": sorted({str(v.get("judge_id")) for v in verdicts if v.get("judge_id")}),
+        "labels": len(labels),
+        "post_chain": [{"artifact_id": r.get("artifact_id"), "chain_pass": r.get("pass"), "scores": r.get("scores")} for r in rows if r.get("kind") == "post_chain"][-5:],
+        "first_ts": rows[0].get("ts") if rows else None, "last_ts": rows[-1].get("ts") if rows else None,
+    }
+
+
+@app.post("/api/telemetry/events")
+async def telemetry_events_append(payload: dict):
+    """Append events from the host lanes (eval-run.mjs --rescore, SkillOpt). Body {events: [row...]} or one row."""
+    rows = payload.get("events") if isinstance(payload.get("events"), list) else [payload]
+    n = 0
+    for r in rows[:5000]:
+        if isinstance(r, dict) and r.get("kind"):
+            _telemetry_event(str(r.get("kind")), {k: v for k, v in r.items() if k != "kind"})
+            n += 1
+    return {"ok": True, "appended": n}
+
+
+@app.get("/api/telemetry/events")
+async def telemetry_events(run_id: str = "", kind: str = "", since: str = "", limit: int = 500):
+    """The event sink, queryable. `run_id` joins one run (calls + verdicts + labels + post-chain +
+    cost); `kind` filters; `since` is an ISO lower bound; `limit` caps rows (newest kept)."""
+    rows = _telemetry_rows(run_id=run_id, kind=kind, since_iso=since, limit=max(1, min(int(limit or 500), 5000)))
+    return {"path": TELEMETRY_PATH, "count": len(rows), "join": _telemetry_join(rows) if run_id else None, "rows": rows}
+
+
+def _cohens_kappa(tp: int, fp: int, fn: int, tn: int) -> float:
+    n = tp + fp + fn + tn
+    if n == 0:
+        return 0.0
+    po = (tp + tn) / n
+    p_yes = ((tp + fp) / n) * ((tp + fn) / n)
+    p_no = ((fn + tn) / n) * ((fp + tn) / n)
+    pe = p_yes + p_no
+    if pe >= 1:
+        return 1.0
+    return (po - pe) / (1 - pe)
+
+
+@app.get("/api/eval/judges")
+async def eval_judges_get():
+    p = _evals_path("judges.json")
+    if not p or not os.path.exists(p):
+        return {"judges": [], "source": "none"}
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {"judges": data.get("judges", []), "version": data.get("version"), "updated": data.get("updated"), "source": p,
+                "imageCriticStats": {**_IMAGE_CRITIC_STATS, "blocking": _IMAGE_CRITIC_BLOCKING}}
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.get("/api/eval/cases")
+async def eval_cases_list(set: str = ""):
+    """List cases (optionally one set). Each case file is returned whole; fixtures can be large,
+    so callers that only need ids pass ?set=... and read the `id`/`kind` fields."""
+    out = []
+    for s in ("regression", "frontier"):
+        if set and s != set:
+            continue
+        d = _evals_path("cases", s)
+        if not d or not os.path.isdir(d):
+            continue
+        for fn in sorted(os.listdir(d)):
+            if not fn.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(d, fn), "r", encoding="utf-8") as f:
+                    c = json.load(f)
+                c["set"] = s
+                out.append(c)
+            except Exception as e:
+                out.append({"id": fn[:-5], "set": s, "error": f"unreadable: {e}"})
+    return {"cases": out, "count": len(out)}
+
+
+@app.post("/api/eval/cases")
+async def eval_cases_create(payload: dict):
+    """File a case. The FeedbackWidget and the seeders call this; the set defaults to frontier
+    because a case that exists because something went wrong is, by definition, not yet passing."""
+    cid = re.sub(r"[^a-z0-9_\-]", "-", str(payload.get("id") or f"case-{int(time.time())}").lower())[:80].strip("-")
+    s = payload.get("set") if payload.get("set") in ("regression", "frontier") else "frontier"
+    if not cid or not isinstance(payload.get("input"), dict) or not payload["input"].get("prompt"):
+        return JSONResponse({"error": "id and input.prompt are required"}, status_code=400)
+    p = _evals_path("cases", s, f"{cid}.json")
+    if not p:
+        return JSONResponse({"error": "evals directory not mounted"}, status_code=503)
+    case = dict(payload)
+    case["id"] = cid
+    case["set"] = s
+    case.setdefault("kind", "slides")
+    case.setdefault("origin", {"type": "manual", "added": datetime.utcnow().strftime("%Y-%m-%d")})
+    case["origin"].setdefault("added", datetime.utcnow().strftime("%Y-%m-%d"))
+    existed = os.path.exists(p)
+    _robust_write_text_sync(p, json.dumps(case, ensure_ascii=False, indent=2, default=str))
+    return {"ok": True, "id": cid, "set": s, "path": os.path.relpath(p, _EVALS_DIR), "replaced": existed}
+
+
+@app.post("/api/eval/results")
+async def eval_results_append(payload: dict):
+    cid = re.sub(r"[^a-z0-9_\-]", "-", str(payload.get("case_id") or "").lower())[:80]
+    if not cid:
+        return JSONResponse({"error": "case_id required"}, status_code=400)
+    p = _evals_path("results", f"{cid}.jsonl")
+    if not p:
+        return JSONResponse({"error": "evals directory not mounted"}, status_code=503)
+    row = dict(payload)
+    row.setdefault("ts", int(time.time() * 1000))
+    _append_jsonl(p, row)
+    return {"ok": True}
+
+
+@app.get("/api/eval/results")
+async def eval_results_get(case_id: str = "", limit: int = 500):
+    if case_id:
+        cid = re.sub(r"[^a-z0-9_\-]", "-", case_id.lower())[:80]
+        p = _evals_path("results", f"{cid}.jsonl")
+        return {"results": _read_jsonl(p, limit) if p else []}
+    d = _evals_path("results")
+    out = []
+    if d and os.path.isdir(d):
+        for fn in sorted(os.listdir(d)):
+            if fn.endswith(".jsonl"):
+                out.extend(_read_jsonl(os.path.join(d, fn), limit))
+    return {"results": out[-limit:]}
+
+
+@app.post("/api/eval/verdicts")
+async def eval_verdicts_append(payload: dict):
+    p = _evals_path("verdicts.jsonl")
+    if not p:
+        return JSONResponse({"error": "evals directory not mounted"}, status_code=503)
+    if not payload.get("judge_id"):
+        return JSONResponse({"error": "judge_id required"}, status_code=400)
+    _append_jsonl(p, payload)
+    _telemetry_event("verdict", {"run_id": payload.get("run_id"), "message_id": payload.get("message_id"), "artifact_id": payload.get("artifact_id"),
+                                 "judge_id": payload.get("judge_id"), "score": payload.get("score"), "pass": payload.get("pass"),
+                                 "slide_id": payload.get("slide_id"), "detail": str(payload.get("detail") or "")[:300]})
+    return {"ok": True}
+
+
+@app.post("/api/eval/labels")
+async def eval_labels_append(payload: dict):
+    p = _evals_path("labels.jsonl")
+    if not p:
+        return JSONResponse({"error": "evals directory not mounted"}, status_code=503)
+    if payload.get("label") not in ("approved", "rejected") or not payload.get("slide_id"):
+        return JSONResponse({"error": "label (approved|rejected) and slide_id required"}, status_code=400)
+    _append_jsonl(p, payload)
+    _telemetry_event("label", {"run_id": payload.get("run_id"), "message_id": payload.get("message_id"), "artifact_id": payload.get("artifact_id"),
+                               "slide_id": payload.get("slide_id"), "label": payload.get("label"), "source": payload.get("source"),
+                               "pass": payload.get("label") == "approved", "detail": str(payload.get("detail") or "")[:300]})
+    return {"ok": True}
+
+
+def _compute_judge_agreement() -> dict:
+    """Join human labels to judge verdicts on the same (run_id|artifact_id, slide_id) and compute
+    agreement and Cohen's kappa per judge. Writes human_agreement into judges.json. A judge is
+    'calibrated' at n >= 30 and kappa >= 0.4 (judges.json rule)."""
+    labels_p = _evals_path("labels.jsonl")
+    verdicts_p = _evals_path("verdicts.jsonl")
+    judges_p = _evals_path("judges.json")
+    if not (labels_p and verdicts_p and judges_p):
+        return {"error": "evals directory not mounted"}
+    labels = _read_jsonl(labels_p)
+    verdicts = _read_jsonl(verdicts_p)
+    # latest human label per (key, slide)
+    human: dict = {}
+    for l in labels:
+        key = (str(l.get("artifact_id") or l.get("run_id") or ""), str(l.get("slide_id") or ""))
+        if key[1]:
+            human[key] = l.get("label") == "approved"
+    stats: dict = {}
+    for v in verdicts:
+        jid = str(v.get("judge_id") or "")
+        if not jid or jid.startswith("human."):
+            continue
+        key = (str(v.get("artifact_id") or v.get("run_id") or ""), str(v.get("slide_id") or ""))
+        if key not in human:
+            continue
+        h = human[key]
+        jp = bool(v.get("pass"))
+        s = stats.setdefault(jid, {"tp": 0, "fp": 0, "fn": 0, "tn": 0})
+        if jp and h:
+            s["tp"] += 1
+        elif jp and not h:
+            s["fp"] += 1
+        elif (not jp) and h:
+            s["fn"] += 1
+        else:
+            s["tn"] += 1
+    out = {}
+    for jid, s in stats.items():
+        n = sum(s.values())
+        agreement = (s["tp"] + s["tn"]) / n if n else 0.0
+        kappa = _cohens_kappa(s["tp"], s["fp"], s["fn"], s["tn"])
+        out[jid] = {"n": n, "agreement": round(agreement, 4), "kappa": round(kappa, 4), "last_calibrated": datetime.utcnow().strftime("%Y-%m-%d"), "confusion": s}
+    try:
+        with open(judges_p, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for j in data.get("judges", []):
+            if j.get("id") in out:
+                ha = dict(out[j["id"]])
+                ha.pop("confusion", None)
+                j["human_agreement"] = ha
+        data["updated"] = datetime.utcnow().strftime("%Y-%m-%d")
+        _robust_write_text_sync(judges_p, json.dumps(data, ensure_ascii=False, indent=2))
+    except Exception as e:
+        out["_write_error"] = str(e)
+    return {"labels": len(labels), "verdicts": len(verdicts), "judges": out}
+
+
+@app.post("/api/eval/judge-agreement")
+async def eval_judge_agreement():
+    return await asyncio.to_thread(_compute_judge_agreement)
+
+
+def _seed_frontier_from_failures(limit: int = 50) -> dict:
+    """File frontier cases from what already went wrong: AIR records whose chain did not pass,
+    hook-rejection rows, and auditor withholds. Idempotent (case id derived from the source)."""
+    import brain_growth as _bg_attr
+    created, skipped, errors = [], 0, []
+    cases_dir = _evals_path("cases", "frontier")
+    if not cases_dir:
+        return {"error": "evals directory not mounted"}
+    os.makedirs(cases_dir, exist_ok=True)
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+
+    refreshed = []
+
+    def _file(case: dict) -> None:
+        nonlocal skipped
+        p = os.path.join(cases_dir, f"{case['id']}.json")
+        if os.path.exists(p):
+            # 2026-10-31: notes written before attribution read "chainTrace=[]" (the seeder looked in qualityReport;
+            # the chain writes postChain). Refresh only that field when the record names the failure.
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    old = json.load(f)
+                new_note = str((case.get("origin") or {}).get("note") or "")
+                old_note = str((old.get("origin") or {}).get("note") or "")
+                if old_note.startswith("chainPass=false; chainTrace=") and new_note.startswith("chainPass=false; failing:"):
+                    old.setdefault("origin", {})["note"] = new_note
+                    _robust_write_text_sync(p, json.dumps(old, ensure_ascii=False, indent=2, default=str))
+                    refreshed.append(case["id"])
+            except Exception:
+                pass
+            skipped += 1
+            return
+        _robust_write_text_sync(p, json.dumps(case, ensure_ascii=False, indent=2, default=str))
+        created.append(case["id"])
+
+    # 1) failed AIR records
+    try:
+        for root_dir, _dirs, files in os.walk(SESSIONS_BASE):
+            if len(created) >= limit:
+                break
+            if os.path.basename(root_dir) != "artifacts":
+                continue
+            for fn in files:
+                if not fn.endswith(".air.json") or len(created) >= limit:
+                    continue
+                fp = os.path.join(root_dir, fn)
+                try:
+                    with open(fp, "r", encoding="utf-8") as f:
+                        air = json.load(f)
+                except Exception:
+                    continue
+                qr = air.get("qualityReport") or {}
+                chain_pass = qr.get("chainPass", air.get("chainPass"))
+                if chain_pass is not False:
+                    continue
+                obj = air.get("objective") or {}
+                objective = str(obj.get("userObjective") or obj.get("objective") or "").strip()
+                kind = str(air.get("artifactType") or air.get("kind") or "slides").replace("#", "")
+                slug = os.path.basename(os.path.dirname(root_dir))
+                aid = re.sub(r"[^a-z0-9_\-]", "-", str(air.get("artifactId") or fn[:-9]).lower())[:60]
+                slides = air.get("slides") or (air.get("payload") or {}).get("slides") or None
+                case = {
+                    "id": f"{kind}-{aid}"[:80],
+                    "set": "frontier",
+                    "kind": kind,
+                    "input": {"objective": objective or "(objective not recorded in AIR)", "prompt": str(air.get("prompt") or air.get("userPrompt") or f"#{kind}"), "engagement": slug},
+                    "fixture": {"output": slides if isinstance(slides, list) else None, "source_ref": os.path.relpath(fp, SESSIONS_BASE)},
+                    "expected": {"trajectory": {"max_repair_rounds": 2, "no_fail_open": True}},
+                    "origin": {"type": "failed_air", "ref": aid, "added": today, "note": _bg_attr.attribution_note(_bg_attr.air_attribution(air))[:600]},
+                }
+                _file(case)
+    except Exception as e:
+        errors.append(f"air scan: {e}")
+
+    # 2) hook rejections (one JSON row per line in the markdown log)
+    try:
+        log_p = os.path.join(WIKI_BASE, "synthesis", "hook-rejection-log.md")
+        if os.path.exists(log_p):
+            with open(log_p, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line.startswith("{") or len(created) >= limit:
+                        continue
+                    try:
+                        row = json.loads(line)
+                    except Exception:
+                        continue
+                    kind = str(row.get("deliverable") or row.get("kind") or "artifact").replace("#", "")
+                    stamp = re.sub(r"[^a-z0-9]", "", str(row.get("ts") or row.get("timestamp") or "")[:19].lower())
+                    case = {
+                        "id": f"hook-{kind}-{stamp or int(time.time())}"[:80],
+                        "set": "frontier",
+                        "kind": kind,
+                        "input": {"objective": str(row.get("goal") or row.get("objective") or "(see rejection row)"), "prompt": str(row.get("prompt") or f"#{kind}")},
+                        "expected": {"trajectory": {"no_fail_open": True}},
+                        "origin": {"type": "hook_rejection", "ref": str(row.get("hook") or row.get("validator") or ""), "added": today, "note": str(row.get("reason") or row.get("error") or "")[:400]},
+                    }
+                    _file(case)
+    except Exception as e:
+        errors.append(f"hook log: {e}")
+
+    # 3) auditor withholds
+    try:
+        av_p = os.path.join(WIKI_BASE, "eval", "auditor-verdicts.jsonl")
+        for row in _read_jsonl(av_p):
+            if len(created) >= limit:
+                break
+            if str(row.get("verdict") or "").lower() not in ("withhold", "refine"):
+                continue
+            kind = str(row.get("kind") or row.get("artifactType") or "artifact").replace("#", "")
+            aid = re.sub(r"[^a-z0-9_\-]", "-", str(row.get("artifactId") or row.get("id") or int(time.time())).lower())[:50]
+            case = {
+                "id": f"auditor-{kind}-{aid}"[:80],
+                "set": "frontier",
+                "kind": kind,
+                "input": {"objective": str(row.get("objective") or "(see verdict row)"), "prompt": f"#{kind}"},
+                "origin": {"type": "auditor_withhold", "ref": aid, "added": today, "note": json.dumps(row.get("blocking") or row.get("findings") or [], default=str)[:400]},
+            }
+            _file(case)
+    except Exception as e:
+        errors.append(f"auditor verdicts: {e}")
+
+    return {"created": created, "skipped_existing": skipped, "refreshed_notes": refreshed, "errors": errors}
+
+
+@app.get("/api/eval/matrix")
+async def eval_matrix_get():
+    """The per-model pass matrix written by `node scripts/eval-run.mjs --matrix` (WS-2 E11). aiRouter
+    reads it to refresh ARTIFACT_EVAL_REGISTRY from measured results instead of hand-entered seats."""
+    p = _evals_path("model-matrix.json")
+    if not p or not os.path.exists(p):
+        return {"generated": None, "models": [], "cases": {}}
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.post("/api/eval/seed-frontier")
+async def eval_seed_frontier(payload: dict = None):
+    limit = int((payload or {}).get("limit") or 50)
+    return await asyncio.to_thread(_seed_frontier_from_failures, limit)
+
+
+# =============================================================================
+# WS-5 R2 (2026-10-30): production RESCORING on a cadence. Once a day (RESCORE_INTERVAL_SEC) and
+# on demand (POST /api/eval/rescore) the proxy walks the last window's AIR records and verdict
+# rows, re-derives each artifact's judge scores from its recorded post-chain and the verdict
+# store, writes `rescore` rows to the event sink, files every failure as a frontier case
+# (idempotent; E2), recomputes judge agreement against human labels (E6), and when the failure
+# volume crosses RESCORE_FAILURE_THRESHOLD writes ONE epoch proposal (R6's second trigger).
+# The TypeScript judges themselves are re-EXECUTED by the host lane (`node scripts/eval-run.mjs
+# --rescore --hours 24`), which posts its rows here; this job is the always-on half that needs
+# no node runtime in the container.
+# =============================================================================
+RESCORE_INTERVAL_SEC = int(os.environ.get("RESCORE_INTERVAL_SEC", "86400") or 86400)
+RESCORE_FAILURE_THRESHOLD = int(os.environ.get("RESCORE_FAILURE_THRESHOLD", "5") or 5)
+RESCORE_ENABLED = os.environ.get("RESCORE_ENABLED", "1") not in ("0", "false", "False")
+_RESCORE_LAST: dict = {}
+
+
+def _air_records_since(hours: float) -> list:
+    """(path, air, mtime) for every AIR record modified in the window."""
+    cutoff = time.time() - max(1.0, hours) * 3600.0
+    out = []
+    for root_dir, _dirs, files in os.walk(SESSIONS_BASE):
+        if os.path.basename(root_dir) != "artifacts":
+            continue
+        for fn in files:
+            if not fn.endswith(".air.json"):
+                continue
+            fp = os.path.join(root_dir, fn)
+            try:
+                mt = os.path.getmtime(fp)
+                if mt < cutoff:
+                    continue
+                with open(fp, "r", encoding="utf-8") as f:
+                    air = json.load(f)
+                if isinstance(air, dict):
+                    out.append((fp, air, mt))
+            except Exception:
+                continue
+    out.sort(key=lambda t: t[2])
+    return out
+
+
+def _rescore_recent(hours: float = 24.0) -> dict:
+    """Re-derive scores for the window's artifacts from their recorded verdicts, file failures, refresh
+    judge agreement, and trigger an epoch proposal on failure volume. Returns the summary it wrote."""
+    started = datetime.utcnow().isoformat() + "Z"
+    records = _air_records_since(hours)
+    verdict_rows = _read_jsonl(_evals_path("verdicts.jsonl") or "/nonexistent", limit=200_000) if _evals_path("verdicts.jsonl") else []
+    by_artifact: dict = {}
+    for v in verdict_rows:
+        aid = str(v.get("artifact_id") or "")
+        if aid:
+            by_artifact.setdefault(aid, []).append(v)
+    scored, failures = [], []
+    for fp, air, _mt in records:
+        aid = str(air.get("artifactId") or os.path.basename(fp)[:-9])
+        run_id = str(air.get("runId") or "")
+        kind = str(air.get("artifactType") or air.get("kind") or "artifact").replace("#", "")
+        pc = air.get("postChain") if isinstance(air.get("postChain"), dict) else {}
+        qr = air.get("qualityReport") if isinstance(air.get("qualityReport"), dict) else {}
+        chain_pass = pc.get("chainPass", qr.get("chainPass"))
+        scores = dict(qr.get("reviewScores") or {})
+        # the verdict store carries the per-judge scores the chain recorded at generation (E6)
+        judge_scores: dict = {}
+        for v in by_artifact.get(aid, []):
+            jid = str(v.get("judge_id") or "")
+            if jid and isinstance(v.get("score"), (int, float)):
+                judge_scores[jid] = float(v["score"])
+        rescored = (pc.get("rescoredAfterEdits") or air.get("rescoredAfterEdits")) if isinstance(pc, dict) else None
+        passed = bool(chain_pass) if chain_pass is not None else (all(s >= 0.6 for s in judge_scores.values()) if judge_scores else None)
+        row = {"run_id": run_id, "artifact_id": aid, "kind": kind, "pass": passed, "scores": scores, "judge_scores": judge_scores,
+               "rescored_after_edits": rescored if isinstance(rescored, dict) else None, "air": os.path.relpath(fp, SESSIONS_BASE),
+               "epoch_id": air.get("epochId")}
+        scored.append(row)
+        _telemetry_event("rescore", {"run_id": run_id, "artifact_id": aid, "pass": passed, "stage": kind,
+                                     "score": (sum(judge_scores.values()) / len(judge_scores)) if judge_scores else None,
+                                     "judge_scores": judge_scores, "window_hours": hours})
+        if passed is False:
+            failures.append({"artifact_id": aid, "run_id": run_id, "kind": kind, "failures": (qr.get("deterministicFailures") or [])[:12]})
+    seeded = {}
+    agreement = {}
+    try:
+        seeded = _seed_frontier_from_failures(limit=50)
+    except Exception as e:
+        seeded = {"error": str(e)[:200]}
+    try:
+        agreement = _compute_judge_agreement()
+    except Exception as e:
+        agreement = {"error": str(e)[:200]}
+    # R6: failure volume is the second epoch trigger (the job counter is the first)
+    proposal_id = None
+    if len(failures) >= RESCORE_FAILURE_THRESHOLD:
+        try:
+            items = _read_epoch_proposals()
+            pending = [p for p in items if isinstance(p, dict) and p.get("status") == "pending" and p.get("kind") in ("rescore_failures", "epoch_due")]
+            if not pending:
+                _last_iso, _ts, next_id = _epoch_ledger_state()
+                now = datetime.utcnow().isoformat() + "Z"
+                pid = f"prop_{int(datetime.utcnow().timestamp())}_{len(items) + 1}"
+                items.append({
+                    "id": pid, "created_at": now, "epoch_id": next_id, "target_layer": "epoch",
+                    "target_path": "hic-workspace/wiki/synthesis/improvement-epochs.md",
+                    "summary": f"Epoch {next_id} due: {len(failures)} artifact(s) failed rescoring in the last {int(hours)} h (threshold {RESCORE_FAILURE_THRESHOLD})",
+                    "proposed_edit": f"Run the held-out epoch batch for epoch {next_id}: POST /api/epochs/run-batch {{\"epoch_id\": {next_id}}}. The failing artifacts are filed as frontier cases; the batch trains against them.",
+                    "gate_verdict": None, "risk_class": "low_risk", "kind": "rescore_failures",
+                    "source_rollout_ids": [f["artifact_id"] for f in failures][:200], "confidence": None,
+                    "signal_count": len(failures), "deliverable_type": None, "review": None,
+                    "jobs_since_last_epoch": None, "threshold": RESCORE_FAILURE_THRESHOLD,
+                    "status": "pending", "reviewed_at": None, "review_note": "",
+                })
+                _write_epoch_proposals(items)
+                proposal_id = pid
+                logger.info(f"[rescore] epoch proposal {pid} written on failure volume ({len(failures)})")
+            else:
+                proposal_id = str(pending[0].get("id"))
+        except Exception as e:
+            logger.warning(f"[rescore] proposal write failed: {e}")
+    summary = {
+        "started_at": started, "finished_at": datetime.utcnow().isoformat() + "Z", "window_hours": hours,
+        "artifacts": len(scored), "failures": len(failures), "failure_threshold": RESCORE_FAILURE_THRESHOLD,
+        "frontier_seeded": seeded, "judge_agreement": {k: v for k, v in (agreement or {}).items() if k != "error"} if isinstance(agreement, dict) else agreement,
+        "epoch_proposal_id": proposal_id, "failed": failures[:50],
+    }
+    try:
+        p = _evals_path("results", f"_rescore-{datetime.utcnow().strftime('%Y-%m-%d')}.json")
+        if p:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            _robust_write_text_sync(p, json.dumps(summary, ensure_ascii=False, indent=2, default=str))
+            summary["path"] = os.path.relpath(p, _EVALS_DIR) if _EVALS_DIR else p
+    except Exception as e:
+        summary["write_error"] = str(e)[:200]
+    _RESCORE_LAST.clear()
+    _RESCORE_LAST.update(summary)
+    logger.info(f"[rescore] {len(scored)} artifact(s) rescored, {len(failures)} failing, frontier +{len((seeded or {}).get('created') or [])}")
+    return summary
+
+
+@app.post("/api/eval/rescore")
+async def eval_rescore(payload: dict = None):
+    """Run the rescoring job now. Body {hours?: 24}."""
+    hours = float((payload or {}).get("hours") or 24)
+    return await asyncio.to_thread(_rescore_recent, hours)
+
+
+@app.get("/api/eval/rescore/last")
+async def eval_rescore_last():
+    return {"last": _RESCORE_LAST or None, "interval_sec": RESCORE_INTERVAL_SEC, "enabled": RESCORE_ENABLED,
+            "failure_threshold": RESCORE_FAILURE_THRESHOLD}
+
+
+async def _rescore_loop() -> None:
+    try:
+        await asyncio.sleep(600)
+    except asyncio.CancelledError:
+        return
+    while True:
+        try:
+            await asyncio.to_thread(_rescore_recent, max(1.0, RESCORE_INTERVAL_SEC / 3600.0))
+        except Exception as e:
+            logger.warning(f"[rescore] pass failed (non-fatal): {e}")
+        try:
+            await asyncio.sleep(max(600, RESCORE_INTERVAL_SEC))
+        except asyncio.CancelledError:
+            return
+
+
+@app.on_event("startup")
+async def _start_rescore_loop() -> None:
+    if RESCORE_ENABLED and _EVALS_DIR:
+        asyncio.create_task(_rescore_loop())
+        logger.info(f"[rescore] scheduled every {RESCORE_INTERVAL_SEC}s (first pass in 10 min)")
+    elif RESCORE_ENABLED:
+        logger.info("[rescore] not scheduled: evals directory not mounted")
+
+
+# 2026-10-30 (WS-0 S10) - LOCAL PII extraction. transcriptIntake.ts used to send the raw
+# transcript to Gemini to find the names to anonymize, which defeated the purpose. This
+# deterministic extractor runs in the proxy process and no provider is involved. It is
+# deliberately recall-biased on the shapes transcripts actually have: speaker labels,
+# self-introductions, honorifics, organization suffixes, emails and phones.
+_PII_EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+_PII_PHONE_RE = re.compile(r"(?<!\d)(?:\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}(?!\d)")
+_PII_SPEAKER_RE = re.compile(r"^\s*\[?([A-Z][a-z]+(?:\s[A-Z][a-z]+){0,2})\]?\s*(?:\(\d{1,2}:\d{2}(?::\d{2})?\))?\s*:\s", re.M)
+_PII_INTRO_RE = re.compile(r"\b(?:my name is|I am|I'm|this is|joined by|speaking with)\s+([A-Z][a-z]+(?:\s[A-Z][a-z]+){0,2})\b")
+_PII_HONORIFIC_RE = re.compile(r"\b(?:Mr|Mrs|Ms|Dr|Prof|Professor|Dean|President|Director|VP|CEO|CFO|CTO|COO)\.?\s+([A-Z][a-z]+(?:\s[A-Z][a-z]+){0,2})\b")
+_PII_ORG_RE = re.compile(r"\b([A-Z][A-Za-z&]+(?:\s[A-Z][A-Za-z&]+){0,3}\s(?:Inc|LLC|Ltd|Corp|Corporation|Company|Co|Group|University|College|Institute|Foundation|Partners|Associates|Bank|Health|Hospital|Labs|Technologies|Systems)\b\.?)")
+_PII_STOP_NAMES = {"The", "And", "But", "Okay", "Yeah", "Right", "Well", "So", "Thanks", "Thank", "Hello", "Hi", "Speaker",
+                   "Unknown", "Interviewer", "Participant", "Moderator", "Host", "Question", "Answer", "Note"}
+
+
+def _pii_extract_local(text: str) -> dict:
+    t = text or ""
+    people, orgs = [], []
+
+    def _add(bucket: list, val: str):
+        v = " ".join(val.split()).strip(" .,:;")
+        if len(v) < 2 or v in _PII_STOP_NAMES or v.split()[0] in _PII_STOP_NAMES:
+            return
+        if v not in bucket:
+            bucket.append(v)
+
+    for m in _PII_SPEAKER_RE.finditer(t):
+        _add(people, m.group(1))
+    for m in _PII_INTRO_RE.finditer(t):
+        _add(people, m.group(1))
+    for m in _PII_HONORIFIC_RE.finditer(t):
+        _add(people, m.group(1))
+    for m in _PII_ORG_RE.finditer(t):
+        _add(orgs, m.group(1))
+    # first names of every full name, so a first-name-only mention is replaced too
+    firsts = []
+    for p in list(people):
+        parts = p.split()
+        if len(parts) >= 2 and parts[0] not in firsts and parts[0] not in _PII_STOP_NAMES:
+            firsts.append(parts[0])
+    people = people + [f for f in firsts if f not in people]
+    emails = sorted(set(_PII_EMAIL_RE.findall(t)))
+    phones = sorted(set(m.group(0).strip() for m in _PII_PHONE_RE.finditer(t)))
+    return {"people": people[:200], "organizations": orgs[:100], "emails": emails[:200], "phones": phones[:200],
+            "locations": [], "products": [], "method": "local-deterministic"}
+
+
+@app.post("/api/pii/extract")
+async def pii_extract(request: Request):
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    text = str(body.get("text") or "")[:1_000_000]
+    return _pii_extract_local(text)
 
 
 @app.get("/api/ai/status")
@@ -12928,6 +15367,124 @@ def _skill_path(name: str) -> Optional[str]:
     return p
 
 
+# =============================================================================
+# WS-A A4/A5 (2026-10-31, plan agent-stack-shared-memory-skills-uplift): the skill PASSPORT.
+# ONE registry (hic-workspace/skill-registry.json, generated from every SKILL.md frontmatter by
+# scripts/build-skill-registry.mjs and gated by check:skills) is served to every agent surface: the SPA,
+# research-mcp (list_skills / get_skill), the platform agent (system-prompt packages for the skills whose
+# `surfaces` name it) and NXT-Agency. A skill promoted by SkillOpt lands in the file the registry hashes,
+# so every surface sees the new sha on its next fetch. Paths resolve through the registry's `dir`, so
+# nested packages (diagrams/journey-illustrator) are reachable, which the flat /api/skill/read is not.
+# =============================================================================
+SKILL_REGISTRY_PATH = os.environ.get("HIC_SKILL_REGISTRY", "/hic-workspace/skill-registry.json")
+_SKILL_SURFACES = ("spa", "claude-code", "platform-agent", "nxt-agency", "research-mcp")
+
+
+def _skill_registry() -> dict:
+    try:
+        with open(SKILL_REGISTRY_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict) and isinstance(data.get("skills"), list):
+            return data
+    except Exception as e:
+        return {"skills": [], "count": 0, "error": f"registry unavailable: {e}"}
+    return {"skills": [], "count": 0, "error": "registry malformed"}
+
+
+def _skill_entry(skill_id: str) -> Optional[dict]:
+    for s in _skill_registry().get("skills", []):
+        if s.get("id") == skill_id:
+            return s
+    return None
+
+
+def _skill_prompt_body(entry: dict) -> Optional[str]:
+    """The text an agent injects: a one-line versioned header and the body, frontmatter stripped (the same
+    shape the SPA's withSkillHeader produces, so every surface names the same version)."""
+    rel = str(entry.get("dir") or "")
+    p = os.path.normpath(os.path.join(SKILLS_BASE, rel, "SKILL.md"))
+    if not rel or not p.startswith(os.path.normpath(SKILLS_BASE)) or not os.path.isfile(p):
+        return None
+    with open(p, "r", encoding="utf-8") as f:
+        text = f.read().replace("\r\n", "\n")
+    m = re.match(r"^---\n[\s\S]*?\n---\n?", text)
+    body = text[m.end():].lstrip("\n") if m else text
+    head = f"Skill: {entry.get('id')}" + (f" v{entry.get('version')}" if entry.get("version") else "")
+    if entry.get("description"):
+        head += f"\n{entry.get('description')}"
+    return head + "\n\n" + body
+
+
+def _skill_usage(days: int = 60) -> dict:
+    """Per-skill usage from the event sink joined to the registry, so a skill with zero uses still shows."""
+    from datetime import timedelta as _td
+    since = (datetime.utcnow() - _td(days=max(1, int(days)))).isoformat() + "Z"
+    rows = _telemetry_rows(kind="skill", since_iso=since, limit=500_000)
+    by: dict = {}
+    for r in rows:
+        sid = str(r.get("skill_id") or "")
+        if not sid:
+            continue
+        b = by.setdefault(sid, {"uses": 0, "last_used": None, "versions": {}, "via": {}, "surfaces": {}})
+        b["uses"] += 1
+        b["last_used"] = max(b["last_used"] or "", str(r.get("ts") or ""))
+        v = str(r.get("version") or "")
+        b["versions"][v] = b["versions"].get(v, 0) + 1
+        via = str(r.get("via") or "")
+        b["via"][via] = b["via"].get(via, 0) + 1
+        surf = str(r.get("surface") or "spa")
+        b["surfaces"][surf] = b["surfaces"].get(surf, 0) + 1
+    out = []
+    for s in _skill_registry().get("skills", []):
+        u = by.pop(s.get("id"), None) or {"uses": 0, "last_used": None, "versions": {}, "via": {}, "surfaces": {}}
+        out.append({"id": s.get("id"), "version": s.get("version"), "status": s.get("status"), "invocation": s.get("invocation"),
+                    "loader": bool(s.get("loader")), **u})
+    unknown = [{"id": k, **v, "status": "not-in-registry"} for k, v in by.items()]
+    out.sort(key=lambda x: (-int(x.get("uses") or 0), str(x.get("id"))))
+    return {"window_days": int(days), "since": since, "events": len(rows), "skills": out + unknown,
+            "unused": [x["id"] for x in out if not x.get("uses")]}
+
+
+@app.get("/api/models")
+async def models_seats():
+    """WS-D D2 (2026-10-31): the ONE routing authority's seats (model_registry.routing_seats, pinned to aiRouter by a
+    test) plus each known model's status, so the platform agent, research-mcp and NXT-Agency read model ids from
+    here instead of hard-coding them."""
+    return {"seats": _routing_seats(), "models": {k: {"provider": v.get("provider"), "status": v.get("status"),
+                                                       **({"successor": v["successor"]} if v.get("successor") else {})}
+                                                   for k, v in _KNOWN_MODELS.items()}}
+
+
+@app.get("/api/skills/registry")
+async def skills_registry(surface: str = "", status: str = ""):
+    """The registry, optionally filtered to the skills a surface mounts (`surface=platform-agent`) or a status."""
+    reg = _skill_registry()
+    skills = reg.get("skills", [])
+    if surface:
+        skills = [s for s in skills if surface in (s.get("surfaces") or [])]
+    if status:
+        skills = [s for s in skills if s.get("status") == status]
+    return {**{k: v for k, v in reg.items() if k != "skills"}, "count": len(skills), "skills": skills}
+
+
+@app.get("/api/skills/usage")
+async def skills_usage(days: int = 60):
+    """WS-A A5: which skills were injected, how often, at which version, and which have gone unused."""
+    return _skill_usage(days)
+
+
+@app.get("/api/skills/{skill_id}")
+async def skills_get(skill_id: str = Path(...)):
+    """One skill: its registry entry and the prompt body (versioned header + text, frontmatter stripped)."""
+    entry = _skill_entry(skill_id)
+    if not entry:
+        return JSONResponse({"error": f"no skill '{skill_id}' in the registry"}, status_code=404)
+    body = _skill_prompt_body(entry)
+    if body is None:
+        return JSONResponse({"error": f"skill '{skill_id}' is registered but its SKILL.md is not readable", "skill": entry}, status_code=404)
+    return {"skill": entry, "body": body, "chars": len(body)}
+
+
 @app.get("/api/skill/read")
 async def skill_read(name: str = Query(...)):
     """Read a SKILL.md file. Returns 404 if the skill doesn't exist."""
@@ -12944,6 +15501,49 @@ async def skill_read(name: str = Query(...)):
         return JSONResponse({"error": f"Read failed: {e}"}, status_code=500)
 
 
+
+_SKILL_UNSAFE_PATTERNS = [
+    (re.compile(r"\b(invent|fabricate|make up|estimate)\b[^.]{0,30}\b(source|citation|statistic|quote|number|author)\b", re.I), "instructs fabricating evidence"),
+    (re.compile(r"\brm\s+-rf\b|\bDROP\s+TABLE\b|\bdelete\s+the\s+(wiki|workspace|manifest)\b", re.I), "contains a destructive operation"),
+    (re.compile(r"\b(always|never)\s+(?:use|route to)\s+(?:gpt|claude|gemini)[\w.-]*\b", re.I), "pins a model at the skill layer"),
+    (re.compile(r"AIza[0-9A-Za-z_-]{30,}|sk-ant-[0-9A-Za-z_-]{20,}|sk-proj-[0-9A-Za-z_-]{20,}"), "contains a provider key"),
+]
+
+
+def _review_skill_content(name: str, content: str, path: str) -> list:
+    """Deterministic, server-side port of services/skillReview.ts blockers plus the
+    check-skills.mjs frontmatter rule. Returns a list of problems; empty means pass."""
+    problems = []
+    text = content or ""
+    if len(text.strip()) < 40:
+        problems.append("content is empty or shorter than a usable skill")
+    if len(text) > 400_000:
+        problems.append("content exceeds 400 KB")
+    fm = re.match(r"^\ufeff?---\r?\n(.*?)\r?\n---", text, re.S)
+    if not fm:
+        problems.append("missing YAML frontmatter")
+    else:
+        m = re.search(r"^name:\s*(.+?)\s*$", fm.group(1), re.M)
+        if not m:
+            problems.append("frontmatter has no name:")
+        elif m.group(1).strip().strip("'\"") != os.path.basename(os.path.dirname(path)):
+            problems.append(f"frontmatter name {m.group(1).strip()!r} does not match the skill directory")
+    if _INJECTION_TAG_RE.search(text) or _INJECTION_PHRASE_RE.search(text):
+        problems.append("contains prompt-injection framing")
+    for rx, why in _SKILL_UNSAFE_PATTERNS:
+        if rx.search(text):
+            problems.append(why)
+    try:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                prior = f.read()
+            if len(prior) > 2000 and len(text) < 0.3 * len(prior):
+                problems.append(f"content shrinks the skill to under 30% of its current size ({len(text)} vs {len(prior)} chars)")
+    except Exception:
+        pass
+    return problems
+
+
 @app.post("/api/skill/write")
 async def skill_write(req: SkillWriteRequest):
     """Write a patched SKILL.md. If archive_version is given, save the
@@ -12958,6 +15558,16 @@ async def skill_write(req: SkillWriteRequest):
     # 2026-10-01 (plan Stage 5.1, UNIFIED_VISION phase 7): no skill mutation on rung-3/4 signal alone.
     # The writer must carry an APPROVE verdict from the held-out golden-set gate whose discrimination
     # did not shrink. SKILL_WRITE_UNGATED=1 is the one reversible override (local experiments only).
+    # 2026-10-30 (WS-0 S6): the server VERIFIES, it does not trust. A caller-supplied verdict
+    # alone could approve anything; now the write also has to pass the deterministic review
+    # the SPA's skillReview enforces (frontmatter name, no injection framing, no unsafe or
+    # model-pinning instruction, no secret), and the verdict must be bound to the exact bytes
+    # being written (content_sha256) so an APPROVE cannot be replayed for other content.
+    content_sha = hashlib.sha256(req.content.encode("utf-8", errors="replace")).hexdigest()
+    problems = _review_skill_content(req.name, req.content, path)
+    if problems:
+        logger.warning(f"[skill-write] REFUSED {req.name}: {problems}")
+        return JSONResponse({"error": "skill write refused by server-side review", "problems": problems, "refused": True}, status_code=422)
     if os.getenv("SKILL_WRITE_UNGATED", "0") != "1":
         gv = req.gate_verdict if isinstance(req.gate_verdict, dict) else None
         ok_verdict = bool(gv) and str(gv.get("verdict", "")).upper() == "APPROVE"
@@ -12967,14 +15577,15 @@ async def skill_write(req: SkillWriteRequest):
         except (TypeError, ValueError):
             before = after = None
         ok_disc = before is not None and after is not None and after >= before - 0.05
-        if not (ok_verdict and ok_disc):
-            logger.warning(f"[skill-write] REFUSED {req.name}: missing or failing gate verdict ({gv})")
-            return JSONResponse({"error": "skill write refused: requires gate_verdict {verdict:'APPROVE', discrimination_before, discrimination_after} with discrimination not shrinking (plan Stage 5.1)",
-                                 "refused": True}, status_code=403)
+        ok_bound = bool(gv) and str(gv.get("content_sha256", "")).lower() == content_sha
+        if not (ok_verdict and ok_disc and ok_bound):
+            logger.warning(f"[skill-write] REFUSED {req.name}: missing, failing or unbound gate verdict ({gv})")
+            return JSONResponse({"error": "skill write refused: requires gate_verdict {verdict:'APPROVE', discrimination_before, discrimination_after, content_sha256 of the exact content} with discrimination not shrinking",
+                                 "refused": True, "content_sha256": content_sha}, status_code=403)
         try:
             _ledger = os.path.join(WIKI_BASE, "synthesis", "skill-write-ledger.jsonl")
             with open(_ledger, "a", encoding="utf-8") as _lf:
-                _lf.write(json.dumps({"ts": datetime.utcnow().isoformat() + "Z", "skill": req.name, "verdict": gv, "chars": len(req.content)}) + "\n")
+                _lf.write(json.dumps({"ts": datetime.utcnow().isoformat() + "Z", "skill": req.name, "verdict": gv, "chars": len(req.content), "content_sha256": content_sha}) + "\n")
         except Exception:
             pass
     try:
@@ -12993,8 +15604,10 @@ async def skill_write(req: SkillWriteRequest):
         return JSONResponse({"error": f"Write failed: {e}"}, status_code=500)
 
 
+# 2026-10-31 (loop-stall watchdog): a synchronous scan of the wiki/skills tree on the bind mount, so a plain def:
+# FastAPI runs it in its threadpool instead of on the event loop (it stalled the worker for over 2 s).
 @app.get("/api/skill/list-versions")
-async def skill_list_versions():
+def skill_list_versions():
     """List every skill with its current version and last_improved date,
     plus how many archived versions exist. Powers the per-deliverable
     receipt and the session ChangeStrip."""
@@ -13134,8 +15747,13 @@ def _robust_write_text_sync(safe_path: str, content: str, retries: int = 6) -> i
             parent = os.path.dirname(safe_path)
             if parent:
                 os.makedirs(parent, exist_ok=True)
-            with open(safe_path, "w", encoding="utf-8") as f:
+            # 2026-10-30 (WS-1 T4): write to a sibling temp file and rename, so a crash or a
+            # concurrent reader never sees a half-written session snapshot (one state.json
+            # was 156 MB; a torn write there lost the whole engagement).
+            tmp = f"{safe_path}.tmp.{uuid.uuid4().hex[:8]}"
+            with open(tmp, "w", encoding="utf-8") as f:
                 f.write(content)
+            os.replace(tmp, safe_path)
             return len(content)
         except OSError as e:
             last_err = e
@@ -13271,8 +15889,10 @@ async def wiki_append(req: WikiAppendRequest):
         logger.error(f"Wiki append failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
+# 2026-10-31 (loop-stall watchdog): a synchronous scan of the wiki/skills tree on the bind mount, so a plain def:
+# FastAPI runs it in its threadpool instead of on the event loop (it stalled the worker for over 2 s).
 @app.get("/api/wiki/list/{path:path}")
-async def wiki_list(path: str):
+def wiki_list(path: str):
     """List entries in a wiki directory.
     Returns both files and subdirectories so callers like the Knowledge
     Library aggregator can walk dir-of-dirs structures (e.g. social-intelligence/
@@ -13301,8 +15921,10 @@ class WikiReadBatchRequest(BaseModel):
     paths: list
 
 
+# 2026-10-31 (loop-stall watchdog): a synchronous scan of the wiki/skills tree on the bind mount, so a plain def:
+# FastAPI runs it in its threadpool instead of on the event loop (it stalled the worker for over 2 s).
 @app.post("/api/wiki/read-batch")
-async def wiki_read_batch(req: WikiReadBatchRequest):
+def wiki_read_batch(req: WikiReadBatchRequest):
     """2026-10-01 (plan R-L1 / Stage 4, audit D10): the chunk resolver read every shortlisted
     page with its own GET (300+ sequential reads on a plain chat question; 960 on the live
     #prd run). One POST returns every requested page body (missing pages come back with
@@ -13954,7 +16576,10 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
             "engagement_goal": req.engagementGoal or "",
             "summary": (req.content[:EMBED_BODY_CHARS] if req.content else ""),
         }
-        embedded = _embed_and_cache_article(h, embed_entry, body=(req.content or ""))
+        # 2026-10-20 (root-cause audit P0.5): embed the SAME text the manifest chunker chunked (the full page; the
+        # chunker strips the frontmatter itself), so vector-store chunk ids and manifest chunk ids address the same
+        # spans. Embedding the raw content gave different chunk counts on 150 of 514 sampled pages.
+        embedded = _embed_and_cache_article(h, embed_entry, body=body)
 
         # 2026-06-03 — incremental manifest upsert at ingest (the body text is in
         # hand, so no re-read). Best-effort; never fails the write.
@@ -14194,6 +16819,10 @@ def _publisher_from_domain(host: str) -> str:
     if not parts:
         return host or 'Unknown source'
     stem = parts[0] if len(parts) <= 2 else parts[-2]
+    # 2026-10-27 (slide footers read "Finalroundai", "Bluelinesearch"): a one-token stem title-cased is a squashed
+    # domain, not a publisher name; the registrable domain itself ("finalroundai.com") is the honest, checkable label.
+    if '-' not in stem and '_' not in stem:
+        return '.'.join(parts[-2:]) if len(parts) >= 2 else stem
     return stem.replace('-', ' ').replace('_', ' ').title()
 
 _TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.I | re.S)
@@ -14278,10 +16907,14 @@ def _sanitize_remote_content(s: str, source_label: str = '') -> tuple:
     def _phrase(m):
         nonlocal hits
         hits += 1
-        # Zero-width word joiner inside the trigger phrase: a human reads it
-        # unchanged, a model no longer sees the imperative as one token run.
+        # 2026-10-30 (WS-0 S7): the earlier fix inserted a zero-width word joiner
+        # (U+2060) inside the phrase, but `_scrub_outbound_payload` strips exactly that
+        # range from every outbound body, so the phrase reached the model intact. The
+        # neutralization is now VISIBLE and survives the scrub: the words stay readable
+        # (an article about prompt injection still reads), but they are framed as a
+        # quotation, not an imperative.
         text = m.group(0)
-        return text[0] + '⁠' + text[1:]
+        return '[quoted, not an instruction: "' + text + '"]'
 
     out = _INJECTION_PHRASE_RE.sub(_phrase, out)
     if hits:
@@ -14917,7 +17550,9 @@ def _manifest_load() -> dict:
                     try:
                         rec = json.loads(line)
                         wp = rec.get('wikiPath')
-                        if wp:
+                        if wp and rec.get('deleted'):
+                            records.pop(wp, None)   # 2026-10-30 (WS-0 S10): tombstone from _manifest_remove
+                        elif wp:
                             records[wp] = rec
                     except Exception:
                         continue
@@ -14982,6 +17617,20 @@ def _manifest_upsert(rel: str, text: str = None, abs_path: str = None) -> None:
                 f.write(line)
     except Exception as e:
         logger.warning(f"[manifest] upsert skipped for {rel}: {e}")
+
+def _manifest_remove(rel: str) -> None:
+    """2026-10-30 (WS-0 S10): drop ONE record by appending a tombstone to the journal
+    (same O(1) path as upsert; _manifest_load applies it, compaction folds it away)."""
+    try:
+        rel = (rel or "").replace(os.sep, '/').lstrip('/')
+        if not rel:
+            return
+        with _MANIFEST_LOCK:
+            with open(MANIFEST_JOURNAL, 'a', encoding='utf-8') as f:
+                f.write(json.dumps({"wikiPath": rel, "deleted": True, "ts": time.time()}) + '\n')
+    except Exception as e:
+        logger.warning(f"[manifest] remove skipped for {rel}: {e}")
+
 
 def _manifest_walk_all():
     """Yield (abs, rel, mtime) for every .md under ALL content namespaces.
@@ -15568,6 +18217,11 @@ class WikiFetchArticlesRequest(BaseModel):
     # retrieval. Default false to preserve existing semantics for all other
     # callers (notebookRetrieval, chat tools, etc.).
     excludeUploads: Optional[bool] = False
+    # 2026-10-30 (WS-0 S9): the calling engagement's slug. When present, upload pages that
+    # belong to ANOTHER engagement are refused from the results (a client's documents never
+    # enter a different client's prompt). Without it the legacy behaviour holds and a warning
+    # is logged once per process.
+    engagement: Optional[str] = None
 
 
 def _score_article_for_query(entry: dict, query_tokens: list) -> float:
@@ -15680,7 +18334,10 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         _exclude_list: list[str] = []
         if _exclude_synthesis: _exclude_list.append('synthesis')
         if _exclude_uploads: _exclude_list.append('upload')
-        chunked_results = _search_chunked_articles(
+        # 2026-10-31 (loop-stall watchdog): the query embed inside is a blocking HTTP call; the whole search runs
+        # in a thread (the chunk store's sqlite connection is opened with check_same_thread=False).
+        chunked_results = await asyncio.to_thread(
+            _search_chunked_articles,
             req.query,
             kind=req.kind,
             source=req.source,
@@ -15689,6 +18346,7 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             engagement_goal=req.engagementGoal,
             goal_blend_weight=req.goalBlendWeight if req.goalBlendWeight is not None else 0.30,
             exclude_kinds=_exclude_list or None,
+            engagement_slug=(req.engagement or "").strip() or None,
         )
         if chunked_results is not None:
             # 2026-05-23 — Apply synthesis exclusion DURING chunked admission,
@@ -16619,11 +19277,40 @@ def _embed_query_with_retry(text: str, attempts: int = 4) -> list:
     raise last_exc  # pragma: no cover
 
 
+_FOREIGN_UPLOAD_WARNED = {"done": False}
+
+
+def _drop_foreign_uploads(results: list, engagement_slug: str | None, where: str) -> list:
+    """2026-10-30 (WS-0 S9): remove upload pages recorded under a different engagement.
+    Without a slug nothing can be judged foreign; keep the legacy behaviour and warn once."""
+    if not results:
+        return results
+    if not engagement_slug:
+        if not _FOREIGN_UPLOAD_WARNED["done"]:
+            _FOREIGN_UPLOAD_WARNED["done"] = True
+            logger.warning(f"[{where}] caller passed no engagement; upload pages from every engagement remain eligible")
+        return results
+    records = _manifest_load()
+    kept, dropped = [], 0
+    for r in results:
+        wp = str(r.get("wikiPath") or r.get("wiki_path") or "")
+        rec = records.get(wp) or {}
+        is_upload = (rec.get("type") == "upload") or wp.startswith("uploads/") or (r.get("kind") == "upload")
+        if is_upload and _upload_engagement_of(wp, rec) not in ("", engagement_slug):
+            dropped += 1
+            continue
+        kept.append(r)
+    if dropped:
+        logger.info(f"[{where}] refused {dropped} upload page(s) from other engagements (engagement={engagement_slug})")
+    return kept
+
+
 def _search_chunked_articles(query: str, kind: str | None, source: str | None,
                               limit: int, chunks_per_article: int = 3,
                               engagement_goal: str | None = None,
                               goal_blend_weight: float = 0.30,
-                              exclude_kinds: list[str] | None = None) -> list[dict] | None:
+                              exclude_kinds: list[str] | None = None,
+                              engagement_slug: str | None = None) -> list[dict] | None:
     """Embed the query (optionally blended with the engagement goal), search
     the chunk store, return article-level results enriched with matched chunks.
     None if chunk store unavailable / fails.
@@ -16709,7 +19396,7 @@ def _search_chunked_articles(query: str, kind: str | None, source: str | None,
                                 f"to meet floor {floor}/{limit} (had {art_ct}); query={q[:50]!r}")
     except Exception as e:
         logger.warning(f"[chunked retrieval] type-balance skipped (non-fatal): {e}")
-    return results
+    return _drop_foreign_uploads(results, engagement_slug, "chunked retrieval")
 
 
 # _semantic_scores_for_query REMOVED (Phase 3, 2026-05-29): only caller was
@@ -16792,6 +19479,67 @@ async def wiki_embed_backfill(limit: int = 0, force: int = 0):
 # embed call per chunk per article), so this run is much heavier than the
 # legacy backfill. Keeping them separate also lets the operator backfill
 # Phase 2 without re-embedding the legacy sidecar, and vice-versa.
+@app.post("/api/wiki/rechunk-shifted")
+async def wiki_rechunk_shifted(limit: int = 0, dry_run: int = 0, path_prefix: str = ""):
+    """2026-10-20 (root-cause audit P0.5): pages chunked before the chunker and the resolver agreed on the body's
+    first character carry char_spans shifted by one (the furthest span ends one past the body). Re-chunk those
+    pages in place so their spans are permanent and their last chunk is citable again. Read-only with dry_run=1.
+
+    Query params: limit (0 = all), dry_run (1 = count only), path_prefix (e.g. "articles/").
+    """
+    from wiki_chunker import _FRONTMATTER_RE, chunk_for_manifest, upsert_chunks_into_frontmatter
+    span_re = re.compile(r"char_span:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]")
+    scanned = shifted = rewritten = 0
+    failures: list = []
+    base = os.path.normpath(WIKI_BASE)
+    for root, _dirs, files in os.walk(base):
+        rel_root = os.path.relpath(root, base).replace("\\", "/")
+        if rel_root.startswith(".") or rel_root.split("/")[0] in ("design-system", "eval", "skillopt", "sessions"):
+            continue
+        for fn in files:
+            if not fn.endswith(".md"):
+                continue
+            wp = (rel_root + "/" + fn) if rel_root != "." else fn
+            if path_prefix and not wp.startswith(path_prefix):
+                continue
+            if limit and rewritten >= limit:
+                break
+            safe = os.path.join(root, fn)
+            try:
+                with open(safe, "r", encoding="utf-8") as f:
+                    raw = f.read()
+            except Exception:
+                continue
+            m = _FRONTMATTER_RE.match(raw)
+            if not m or "chunks:" not in m.group(1):
+                continue
+            scanned += 1
+            fm, body = m.group(1), m.group(2)
+            ends = [int(b) for _a, b in span_re.findall(fm)]
+            if not ends or max(ends) != len(body) + 1:
+                continue
+            shifted += 1
+            if dry_run:
+                continue
+            try:
+                chunks = chunk_for_manifest(raw, wp)
+                if not chunks:
+                    failures.append({"wikiPath": wp, "reason": "no chunks"})
+                    continue
+                new_text = upsert_chunks_into_frontmatter(raw, chunks, page_id=wp)
+                await _robust_write_text(safe, new_text)
+                try:
+                    _manifest_upsert(wp, text=new_text)
+                except Exception:
+                    pass
+                rewritten += 1
+            except Exception as e:
+                if len(failures) < 20:
+                    failures.append({"wikiPath": wp, "reason": str(e)[:160]})
+    logger.info(f"[rechunk-shifted] scanned={scanned} shifted={shifted} rewritten={rewritten} dry_run={dry_run}")
+    return {"scanned": scanned, "shifted": shifted, "rewritten": rewritten, "dry_run": bool(dry_run), "failures": failures}
+
+
 @app.post("/api/wiki/chunks-backfill")
 async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 25, path_contains: str = ""):
     """Walk every article in the wiki, chunk it, embed each chunk, upsert to
@@ -16876,7 +19624,8 @@ async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 
             if not body or len(body) < 50:
                 skipped_no_body += 1
                 continue
-            chunks = chunk_markdown(body)
+            # 2026-10-20 (P0.5): chunk the full page, as the manifest chunker does, so chunk ids line up.
+            chunks = chunk_markdown(raw)
             if not chunks:
                 skipped_no_body += 1
                 continue
@@ -16991,10 +19740,13 @@ async def api_embed(payload: EmbedRequest):
                     miss_indices.append(idx)
                     miss_texts.append(t)
 
-            # Embed only the misses through the per-provider semaphore
+            # Embed only the misses through the per-provider semaphore.
+            # 2026-10-31 (loop-stall watchdog): `_embed_texts` is a blocking HTTP call (2-3 s to the local
+            # embedder); on the event loop it stalled every other request on the worker, 14 times in one deck
+            # turn. It runs in a thread now, here and below.
             if miss_texts:
                 async with _get_gemini_embed_semaphore():
-                    fresh_vectors = _embed_texts(miss_texts, task_type=task_type)
+                    fresh_vectors = await asyncio.to_thread(_embed_texts, miss_texts, task_type=task_type)
                 for i, v in zip(miss_indices, fresh_vectors):
                     hit_vectors[i] = v
                     _query_embed_cache_put(texts[i], EMBED_PROVIDER, EMBED_DIM, v)
@@ -17003,7 +19755,7 @@ async def api_embed(payload: EmbedRequest):
         else:
             # Document embeddings: go straight through the semaphore, no cache.
             async with _get_gemini_embed_semaphore():
-                vectors = _embed_texts(texts, task_type=task_type)
+                vectors = await asyncio.to_thread(_embed_texts, texts, task_type=task_type)
 
         return {
             "embeddings": vectors,
@@ -17696,22 +20448,25 @@ async def manifest_chunks_by_goal(
 
     # Build the goal-blended query embedding (reuses the proven fetch-articles path).
     base_text = g or p  # rank by the OBJECTIVE first; prompt only sharpens it
+    # 2026-10-31 (loop-stall watchdog): the embeds are blocking HTTP calls with sleep-based retries; in a thread.
     try:
-        qvec = _embed_query_with_retry(base_text)
+        qvec = await asyncio.to_thread(_embed_query_with_retry, base_text)
     except Exception as e:
         logger.warning(f"[chunks-by-goal] query embed failed: {e}")
         return empty
     if g and p and goal_blend_weight and goal_blend_weight > 0.001:
         try:
-            pvec = _embed_query_with_retry(p)
+            pvec = await asyncio.to_thread(_embed_query_with_retry, p)
             # blend the prompt INTO the objective embedding; goal_blend_weight is
             # the objective's share, so a high weight keeps ranking objective-led.
             qvec = _blend_embeddings(pvec, qvec, goal_blend_weight)
         except Exception as e:
             logger.warning(f"[chunks-by-goal] prompt blend failed, objective-only: {e}")
 
+    # 2026-10-31 (loop-stall watchdog, second heavy turn): the sqlite-vec KNN over the chunk store held the loop past
+    # 2 s, four times in one deck turn. Thread-safe: sqlite3.threadsafety is 3 (serialized) in this image.
     try:
-        rows = store.search(qvec, limit=max(limit, 50), prefer_engagement_goal=(g or engagement or None))
+        rows = await asyncio.to_thread(store.search, qvec, limit=max(limit, 50), prefer_engagement_goal=(g or engagement or None))
     except Exception as e:
         logger.warning(f"[chunks-by-goal] store.search failed: {e}")
         return empty
@@ -17723,6 +20478,7 @@ async def manifest_chunks_by_goal(
     scores: dict = {}   # 2026-10-01 (plan Stage 1.2): per-chunk objective similarity, no longer discarded here
     seen_paths: set[str] = set()
     dropped_unmanifested = 0
+    uploads_refused = 0
     # Pass 1: manifest / type / relevance eligibility (unchanged rules).
     eligible: list[tuple[dict, str, int, dict, int]] = []
     for r in rows:
@@ -17739,6 +20495,12 @@ async def manifest_chunks_by_goal(
             dropped_unmanifested += 1  # pointer beyond the page's declared frontmatter chunks
             continue
         if want_types and rec.get("type") not in want_types:
+            continue
+        # 2026-10-30 (WS-0 S9): a client upload belongs to ONE engagement. When the caller
+        # names an engagement, uploads recorded under a different one are refused outright
+        # (they used to be merely out-boosted, and leaked into other clients' prompts).
+        if engagement and rec.get("type") == "upload" and _upload_engagement_of(wp, rec) not in ("", engagement):
+            uploads_refused += 1
             continue
         try:
             rs = int(rec.get("relevance") or 0)
@@ -17784,7 +20546,8 @@ async def manifest_chunks_by_goal(
         f"[chunks-by-goal] objective-ranked admission: {len(chunk_ids)} manifest-tied pointers "
         f"from {len(seen_paths)} pages (dropped {dropped_unmanifested} unmanifested store hits; "
         f"collapsed {len(dup_dropped)} duplicate document copies; refused {len(synth_blocked)} "
-        f"generated-synthesis pages from other engagements or evidence-typed requests); goal={g[:50]!r}"
+        f"generated-synthesis pages from other engagements or evidence-typed requests; refused "
+        f"{uploads_refused} upload chunks from other engagements); goal={g[:50]!r}"
     )
     return {
         "engagement": engagement,
@@ -17795,7 +20558,20 @@ async def manifest_chunks_by_goal(
         "pages": pages,
         "duplicates_collapsed": dup_dropped,
         "synthesis_refused": synth_blocked,
+        "uploads_refused": uploads_refused,
     }
+
+
+def _upload_engagement_of(wp: str, rec: dict) -> str:
+    """The engagement an upload page belongs to: the frontmatter/manifest field first,
+    else the `uploads/<engagement>/...` path segment. Empty when unknown."""
+    eng = str((rec or {}).get("engagement") or "").strip()
+    if eng:
+        return eng
+    parts = (wp or "").replace("\\", "/").split("/")
+    if len(parts) >= 3 and parts[0] == "uploads":
+        return parts[1]
+    return ""
 
 
 def _evidence_page_info(wp: str, rec: dict) -> dict:
@@ -17970,7 +20746,9 @@ async def manifest_chunks_from_selection(payload: dict):
     dup_dropped: dict = {}
     synth_blocked: dict = {}
     if eng and pages:
-        _eh = _evidence_admission_filter(set(pages.keys()), records, eng, True)
+        # 2026-10-20 (root-cause audit P0.4): a Knowledge Library selection seeds retrieval; generated synthesis in
+        # it is memory, never citable evidence, for this engagement too (owner decision 3, 2026-10-01).
+        _eh = _evidence_admission_filter(set(pages.keys()), records, eng, False)
         dup_dropped, synth_blocked = _eh["duplicates"], _eh["synthesis_blocked"]
         for wp in list(pages.keys()):
             if wp in dup_dropped or wp in synth_blocked:
@@ -18590,6 +21368,9 @@ def _epoch_status_payload(threshold: int) -> dict:
         "next_epoch_id": next_epoch_id,
         "computed_at": _dt.utcnow().isoformat() + "Z",
         "pending_proposal_id": _epoch_pending_proposal_id(next_epoch_id),
+        # WS-5 R6: the loop's retry state rides with the status so the panel can show a paused loop
+        "loop": _loop_state_read(),
+        "rescore": {"last_failures": _RESCORE_LAST.get("failures"), "last_at": _RESCORE_LAST.get("finished_at")} if _RESCORE_LAST else None,
     }
 
 
@@ -18659,6 +21440,10 @@ async def epochs_run_batch(req: Request):
     epoch_id = int(body.get("epoch_id") or _epoch_ledger_state()[2])
     dry_run = bool(body.get("dry_run"))
     skills = [str(x) for x in (body.get("skills") or []) if str(x).strip()]
+    # WS-5 R6: a paused loop does not spend another batch until an owner resumes it
+    loop = _loop_state_read()
+    if loop.get("paused") and not bool(body.get("force")):
+        return JSONResponse({"ok": False, "paused": True, "error": loop.get("paused_reason") or "the self-improvement loop is paused", "loop": loop}, status_code=409)
     scripts_dir = _skillopt_scripts_dir()
     if not scripts_dir:
         return JSONResponse({"ok": False, "error": "skillopt-batch.sh not reachable; mount ./humans-in-control-research/scripts at /app/scripts (docker-compose-all.yml research-proxy volumes)"}, status_code=503)
@@ -18672,9 +21457,19 @@ async def epochs_run_batch(req: Request):
         args.append("--dry-run")
     for sk in skills:
         args.append(f"--skill={sk}")
-    env = dict(os.environ)
+    # 2026-10-30 (WS-0 S6): the batch inherits only what it needs. The optimizer uses the
+    # Gemini fast model, so that key passes; every other secret (Anthropic, OpenAI, Reddit,
+    # Azure, the proxy token) stays out of the child's environment.
+    _keep = ("PATH", "HOME", "LANG", "LC_ALL", "TMPDIR", "TEMP", "TMP", "PYTHONPATH", "PYTHONIOENCODING",
+             "VIRTUAL_ENV", "GEMINI_API_KEY", "API_KEY", "SKILLS_DIR", "TRAINING_DIR")
+    env = {k: v for k, v in os.environ.items() if k in _keep or k.startswith("PYTHON")}
+    # WS-5 R3: the training set lives in the workspace the container can see; the batch builds it from the
+    # AIR records, traces and the event sink when it is missing (scripts/skillopt-batch.sh).
     env.update({"BATCH_ID": batch_id, "PROPOSALS_ROOT": proposals_root, "HIC_WORKSPACE": "/hic-workspace",
-                "SKILLS_DIR": os.environ.get("SKILLS_DIR", "/skills")})
+                "SKILLS_DIR": os.environ.get("SKILLS_DIR", "/skills"),
+                "TRAINING_DIR": os.environ.get("TRAINING_DIR", "/hic-workspace/skillopt/training"),
+                "OUT_DIR": f"/hic-workspace/skillopt/batches/{batch_id}",
+                "HIC_PROXY_BASE": "http://127.0.0.1:5012"})
     log_path = os.path.join(log_dir, f"{batch_id}.log")
     from datetime import datetime as _dt
     started = _dt.utcnow().isoformat() + "Z"
@@ -18686,6 +21481,9 @@ async def epochs_run_batch(req: Request):
             try:
                 rc = await proc.wait()
                 logger.info(f"[epochs/run-batch] {batch_id} finished rc={rc} (log: {log_path})")
+                if not dry_run:
+                    st = _loop_state_after_batch(batch_id, os.path.join(proposals_root, batch_id))
+                    logger.info(f"[epochs/run-batch] loop state: {st.get('epochs_without_heldout_win')} batch(es) without a held-out win{'; PAUSED' if st.get('paused') else ''}")
             finally:
                 try:
                     log_f.close()
@@ -18726,6 +21524,189 @@ def _write_epoch_proposals(items: list) -> None:
     os.makedirs(os.path.dirname(_EPOCH_PROPOSALS_PATH), exist_ok=True)
     with open(_EPOCH_PROPOSALS_PATH, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=True, indent=2)
+
+
+# =============================================================================
+# WS-5 R5/R6 (2026-10-30): the loop's own state, the active epoch, and the canary.
+#   loop-state.json  - epochs_without_heldout_win, paused: after LOOP_PAUSE_AFTER batches with no
+#                      APPROVE verdict the loop pauses and says so (status + panel) until resumed.
+#   /api/epochs/active - the latest "## Epoch N" record of improvement-epochs.md (with its json
+#                      block when the batch wrote one), so the SPA binds production outcomes to it.
+#   canary.json      - a candidate skill text the SPA applies as a RunState instruction override
+#                      (per deliverable kind) BEFORE the held-out gate lets it reach the skill file.
+# =============================================================================
+_LOOP_STATE_PATH = "/hic-workspace/skillopt/loop-state.json"
+_CANARY_PATH = "/hic-workspace/skillopt/canary.json"
+LOOP_PAUSE_AFTER = int(os.environ.get("SKILLOPT_PAUSE_AFTER", "3") or 3)
+
+
+def _loop_state_read() -> dict:
+    base = {"epochs_without_heldout_win": 0, "paused": False, "paused_reason": "", "last_batch_id": None,
+            "last_batch_at": None, "last_approve_at": None, "pause_after": LOOP_PAUSE_AFTER}
+    if not os.path.exists(_LOOP_STATE_PATH):
+        return base
+    try:
+        with open(_LOOP_STATE_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        if isinstance(d, dict):
+            base.update({k: d.get(k, base[k]) for k in base})
+    except Exception as e:
+        logger.warning(f"[epochs] loop state read failed: {e}")
+    base["pause_after"] = LOOP_PAUSE_AFTER
+    return base
+
+
+def _loop_state_write(d: dict) -> None:
+    os.makedirs(os.path.dirname(_LOOP_STATE_PATH), exist_ok=True)
+    tmp = _LOOP_STATE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=True, indent=2)
+    os.replace(tmp, _LOOP_STATE_PATH)
+
+
+def _loop_state_after_batch(batch_id: str, proposals_dir: str) -> dict:
+    """Called when a batch finishes: an APPROVE verdict resets the counter; none increments it and may pause."""
+    st = _loop_state_read()
+    approve = False
+    try:
+        for fn in os.listdir(proposals_dir):
+            if fn.endswith(".verdict.json"):
+                with open(os.path.join(proposals_dir, fn), "r", encoding="utf-8") as f:
+                    v = json.load(f)
+                if isinstance(v, dict) and str(v.get("verdict") or "").upper() == "APPROVE":
+                    approve = True
+                    break
+    except Exception:
+        pass
+    now = datetime.utcnow().isoformat() + "Z"
+    st["last_batch_id"] = batch_id
+    st["last_batch_at"] = now
+    if approve:
+        st["epochs_without_heldout_win"] = 0
+        st["paused"] = False
+        st["paused_reason"] = ""
+        st["last_approve_at"] = now
+    else:
+        st["epochs_without_heldout_win"] = int(st.get("epochs_without_heldout_win") or 0) + 1
+        if st["epochs_without_heldout_win"] >= LOOP_PAUSE_AFTER:
+            st["paused"] = True
+            st["paused_reason"] = f"{st['epochs_without_heldout_win']} epoch batches without a held-out win; the loop is paused until an owner resumes it (POST /api/epochs/loop/resume)"
+    try:
+        _loop_state_write(st)
+    except Exception as e:
+        logger.warning(f"[epochs] loop state write failed: {e}")
+    return st
+
+
+@app.get("/api/epochs/loop")
+async def epochs_loop_state():
+    return _loop_state_read()
+
+
+@app.post("/api/epochs/loop/resume")
+async def epochs_loop_resume(payload: dict = None):
+    st = _loop_state_read()
+    st["paused"] = False
+    st["paused_reason"] = ""
+    st["epochs_without_heldout_win"] = 0
+    st["resumed_at"] = datetime.utcnow().isoformat() + "Z"
+    st["resume_note"] = str((payload or {}).get("note") or "")[:300]
+    _loop_state_write(st)
+    logger.info("[epochs] loop resumed by owner")
+    return {"ok": True, "loop": st}
+
+
+def _active_epoch_record() -> Optional[dict]:
+    """The latest `## Epoch N - <date> UTC` record in improvement-epochs.md, with the json block it carries."""
+    if not os.path.exists(_EPOCH_LEDGER_PATH):
+        return None
+    try:
+        with open(_EPOCH_LEDGER_PATH, "r", encoding="utf-8") as f:
+            text = f.read()
+    except Exception:
+        return None
+    heads = list(re.finditer(r"^##\s+Epoch\s+(\d+)\s+[—-]\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(?::\d{2})?)\s*UTC[^\n]*$", text, re.MULTILINE))
+    if not heads:
+        return None
+    best = max(heads, key=lambda m: int(m.group(1)))
+    body = text[best.end(): heads[heads.index(best) + 1].start()] if heads.index(best) + 1 < len(heads) else text[best.end():]
+    rec = {"epoch_id": int(best.group(1)), "applied_at": best.group(2) + "Z", "layer": "skill", "file_path": "",
+           "deliverable_class": "", "baseline_vector": {}, "hypothesis": "", "target_dims": [], "floor_dims": []}
+    jb = re.search(r"```json\s*(\{[\s\S]*?\})\s*```", body)
+    if jb:
+        try:
+            j = json.loads(jb.group(1))
+            if isinstance(j, dict):
+                for k in ("layer", "file_path", "deliverable_class", "baseline_vector", "hypothesis", "target_dims", "floor_dims", "skill", "batch_id", "candidate_path"):
+                    if k in j:
+                        rec[k] = j[k]
+        except Exception:
+            pass
+    else:
+        m = re.search(r"(?:Skill|File|Target):\s*`?([^\s`]+)`?", body)
+        if m:
+            rec["file_path"] = m.group(1)
+        m = re.search(r"(?:Deliverable|Class):\s*`?(#?[a-z\-]+)`?", body, re.I)
+        if m:
+            rec["deliverable_class"] = m.group(1)
+    rec["summary"] = re.sub(r"\s+", " ", body.strip())[:400]
+    return rec
+
+
+@app.get("/api/epochs/active")
+async def epochs_active():
+    """The epoch production outcomes attribute to (WS-5 R5). null when no epoch has been applied."""
+    return {"active": _active_epoch_record()}
+
+
+@app.get("/api/epochs/canary")
+async def epochs_canary_get():
+    if not os.path.exists(_CANARY_PATH):
+        return {"canary": None}
+    try:
+        with open(_CANARY_PATH, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        return {"canary": d if isinstance(d, dict) else None}
+    except Exception as e:
+        return {"canary": None, "error": str(e)[:120]}
+
+
+@app.post("/api/epochs/canary")
+async def epochs_canary_set(payload: dict):
+    """Set the candidate the SPA trials as a RunState instruction override. Body {skill_id, kind,
+    candidate_path?, text?, batch_id?}. `text` is read from candidate_path when absent (the path
+    must sit under the workspace or the skills mount)."""
+    skill_id = str(payload.get("skill_id") or "").strip()
+    kind = str(payload.get("kind") or "").strip()
+    if not skill_id or not kind:
+        return JSONResponse({"ok": False, "error": "skill_id and kind required"}, status_code=400)
+    text = str(payload.get("text") or "")
+    cp = str(payload.get("candidate_path") or "")
+    if not text and cp:
+        okroot = any(os.path.abspath(cp).startswith(os.path.abspath(r)) for r in ("/hic-workspace", "/skills", "/tmp", "/d/tmp"))
+        if not okroot or not os.path.exists(cp):
+            return JSONResponse({"ok": False, "error": "candidate_path must exist under the workspace or skills mount"}, status_code=400)
+        with open(cp, "r", encoding="utf-8") as f:
+            text = f.read()
+    if len(text) < 200:
+        return JSONResponse({"ok": False, "error": "candidate text too short"}, status_code=400)
+    d = {"skill_id": skill_id, "kind": kind, "candidate_path": cp, "text": text[:120_000], "batch_id": str(payload.get("batch_id") or ""),
+         "set_at": datetime.utcnow().isoformat() + "Z", "sha": hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]}
+    os.makedirs(os.path.dirname(_CANARY_PATH), exist_ok=True)
+    with open(_CANARY_PATH, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=False)
+    logger.info(f"[epochs] canary set: {skill_id} for kind={kind} ({d['sha']})")
+    return {"ok": True, "canary": {k: v for k, v in d.items() if k != "text"}}
+
+
+@app.delete("/api/epochs/canary")
+async def epochs_canary_clear():
+    try:
+        if os.path.exists(_CANARY_PATH):
+            os.remove(_CANARY_PATH)
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": str(e)[:120]}, status_code=500)
+    return {"ok": True}
 
 
 @app.get("/api/epochs/proposals")
@@ -19113,6 +22094,10 @@ async def gold_export_pptx_multi(payload: dict):
     filename = payload.get("filename") or "gold-deck-export.pptx"
     if not filename.endswith(".pptx"):
         filename = filename + ".pptx"
+    # WS-C C2 (2026-10-31): {runId, artifactId} of the source AIR -> a provenance line in the first slide's notes
+    prov = payload.get("provenance")
+    provenance = _air_provenance_line(str(prov.get("runId") or ""), str(prov.get("artifactId") or "")) \
+        if isinstance(prov, dict) and prov.get("artifactId") else ""
     out_dir = tempfile.mkdtemp(prefix="hic-gold-deck-pptx-")
     out_path = os.path.join(out_dir, filename)
 
@@ -19126,7 +22111,7 @@ async def gold_export_pptx_multi(payload: dict):
     mode = "editable"
     try:
         from gold_pptx_export import html_list_to_editable_pptx
-        rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
+        rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path, provenance=provenance)
         runs_per_slide = ",".join(str(s.get("runs", 0)) for s in rep.get("slides", []))
         logger.info("gold pptx-multi export (mode=%s): %d slides, runs=%s -> %s",
                     mode, len(stages), runs_per_slide, filename)
@@ -19137,7 +22122,7 @@ async def gold_export_pptx_multi(payload: dict):
     return FileResponse(
         out_path, filename=filename,
         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
-        headers={"X-Slide-Count": str(len(stages)), "X-Slide-Runs": runs_per_slide},
+        headers={"X-Slide-Count": str(len(stages)), "X-Slide-Runs": runs_per_slide, "X-Provenance": "1" if provenance else "0"},
     )
 
 
@@ -19526,7 +22511,7 @@ Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
         # proxy already accepts JSON POSTs to its AI endpoints.
         import httpx as _RR_httpx
         async with _RR_httpx.AsyncClient(timeout=60.0) as client:
-            resp = await client.post(f"http://127.0.0.1:{os.getenv('PORT', '5012')}{api_url}", json=body)
+            resp = await client.post(f"http://127.0.0.1:{os.getenv('PORT', '5012')}{api_url}", json=body, headers=_self_headers())
         if resp.status_code != 200:
             raise RuntimeError(f"AI endpoint {resp.status_code}: {resp.text[:200]}")
         ai_body = resp.json()
@@ -20565,7 +23550,9 @@ _SLOP_SUBS = [
     (re.compile(r"\bmeticulous(?:ly)?\b", re.I), "careful"),
     (re.compile(r"\bplays?\s+a\s+(?:pivotal|crucial|key|vital|significant)\s+role\b", re.I), "matters"),
     (re.compile(_slop_pat("valuable") + r"\s+" + r"insights?", re.I), "findings"),
-    (re.compile(r"\bcomprehensive\b", re.I), "complete"),
+    # Not inside a proper noun: "Comprehensive Learner Record" is a product name (2026-10-05 live "complete Learner
+    # Record"). A capitalized word followed by another capitalized word is left alone.
+    (re.compile(r"\b(?:comprehensive|Comprehensive(?!\s+[A-Z]))\b|\bCOMPREHENSIVE\b"), "complete"),
     (re.compile(r"\bfacilitate(?:s|d|ing)?\b", re.I), "help"),
     (re.compile(r"\b(?:enhanc|bolster|foster)(?:e|es|ed|ing)?\b", re.I), "improve"),
     (re.compile(r"\bshowcas(?:e|es|ed|ing)?\b", re.I), "show"),
@@ -20960,7 +23947,36 @@ def _strip_leaked_artifacts(html: str) -> str:
     return out
 
 
+_INTERNAL_SOURCE_LABELS = [
+    # 2026-10-05 live Designer QA: internal synthesis/cluster labels shown as SOURCES ("HIC THEME SYNTHESIS",
+    # "TOPIC CLUSTER: LOW PORTAL YIELD ..."). A reader sees what the label stands for, never the pipeline name.
+    (re.compile(r"\bHiC\s+Theme\s+Synthesis\b(?:\s*\(\d+\s+themes?\))?", re.IGNORECASE), "Engagement research synthesis"),
+    (re.compile(r"\bTopic\s+cluster:\s*[^;<\n)]*", re.IGNORECASE), "Engagement research synthesis"),
+    # raw file stems and data files shown as sources ("NXT_Northeastern_ResearchFindings_Clean",
+    # "CoOpResearch-Opportunities.csv", "drexel_steinbright")
+    (re.compile(r"\b([A-Za-z0-9]+(?:_[A-Za-z0-9]+)+)(?:\.(?:pdf|txt|docx?|csv|xlsx?))?\b"),
+     lambda m: re.sub(r"\s{2,}", " ", re.sub(r"\b(?:Final|REDACTED|Clean|Copy)\b", " ", m.group(1).replace("_", " "))).strip()),
+    (re.compile(r"\b([A-Za-z][\w-]+)\.(?:csv|txt|pdf|docx?|xlsx?)\b"), lambda m: m.group(1).replace("-", " ")),
+]
+
+
 def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
+    out = _apply_brand_and_anti_slop_core(html, brand)
+    if not out:
+        return out
+    # TEXT NODES outside <script>/<style> only: never tag names, attributes (class="a_b", href=".../x.csv") or code.
+    def _relabel_text(m: "re.Match") -> str:
+        txt = m.group(1)
+        for pat, sub in _INTERNAL_SOURCE_LABELS:
+            txt = pat.sub(sub, txt)
+        return ">" + txt + "<"
+    parts = re.split(r"(<script[\s\S]*?</script>|<style[\s\S]*?</style>)", out, flags=re.IGNORECASE)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r">([^<]+)<", _relabel_text, parts[i])
+    return "".join(parts)
+
+
+def _apply_brand_and_anti_slop_core(html: str, brand: str) -> str:
     """Post-process JM HTML through HiC's brand + anti-slop pipeline.
 
     Steps:
@@ -21258,6 +24274,121 @@ def _brand_rgb_str(hex_color: str) -> str:
 # We generate one image per slot (capped) and inline it as a data URI so the
 # artifact stays self-contained (no external asset hosting needed).
 _GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview"
+
+# 2026-10-23 (#slides elevation, owner: "professional, high quality images using the most updated image models
+# we have an API key for"). Verified against the live model lists for the keys in .env on 2026-10-23:
+#   Gemini : gemini-3-pro-image (Nano Banana Pro, GA, 1K/2K $0.134, 4K $0.24), gemini-nano-banana-2.1 (1K $0.034,
+#            2K $0.050), gemini-3.1-flash-image (1K $0.067), gemini-3.1-flash-lite-image.
+#   OpenAI : gpt-image-2.5-sunburst (most capable; custom WxH to 3840x2160, quality up to max, true transparent),
+#            gpt-image-2.5-flare (fast), gpt-image-2 (2026-04-21).
+# Slide images route by SLOT TIER: the frames a reader looks at (cover backdrop, hero panels, exhibits) take
+# the quality ladder; thumbnails, header scenes and glyphs take the fast ladder. Each ladder falls through
+# providers on a non-200 / empty response, so one provider outage never leaves a slide blank. The tier, the
+# model and a prompt version are salted into the cache id: an image generated under the old model or the old
+# prompt is never served as if it were the new one.
+_IMAGE_LADDERS = {
+    "quality": ["gemini-3-pro-image", "gpt-image-2.5-sunburst", "gemini-3.1-flash-image"],
+    "fast": ["gemini-nano-banana-2.1", "gemini-3.1-flash-image", "gpt-image-2.5-flare"],
+}
+_SLOT_TIER = {"hero": "quality", "backdrop": "quality", "panel": "quality", "side": "fast",
+              "thumbnail": "fast", "glyph": "fast"}
+# Gemini imageSize per tier (3.x models accept 1K/2K/4K; 2K is the ceiling the 1920-wide stage can use).
+_TIER_IMAGE_SIZE = {"quality": "2K", "fast": "1K"}
+# OpenAI custom sizes (both dimensions divisible by 16, aspect within 1:3..3:1) per aspect and tier.
+_OPENAI_SIZE = {
+    "16:9": {"quality": "2048x1152", "fast": "1536x864"},
+    "21:9": {"quality": "2048x880", "fast": "1536x656"},
+    "4:3": {"quality": "1792x1344", "fast": "1280x960"},
+    "3:2": {"quality": "1920x1280", "fast": "1536x1024"},
+    "1:1": {"quality": "1536x1536", "fast": "1024x1024"},
+    "3:4": {"quality": "1344x1792", "fast": "960x1280"},
+    "4:5": {"quality": "1280x1600", "fast": "1024x1280"},
+    "9:16": {"quality": "1152x2048", "fast": "864x1536"},
+}
+_IMAGE_ASPECTS = tuple(_OPENAI_SIZE.keys())
+_ILLUS_PROMPT_VERSION = "p6-no-pages"
+
+
+def _aspect_for(w: int, h: int) -> str:
+    """Nearest supported aspect string for a slot's frame (the SPA sends the registry bounds)."""
+    try:
+        r = float(w) / float(h)
+    except Exception:
+        return "16:9"
+    best, bd = "16:9", 9e9
+    for a in _IMAGE_ASPECTS:
+        aw, ah = a.split(":")
+        d = abs(r - float(aw) / float(ah))
+        if d < bd:
+            best, bd = a, d
+    return best
+
+
+async def _image_via_gemini(model: str, prompt: str, ref_b64: str, aspect: str, tier: str, api_key: str) -> bytes | None:
+    """One Gemini generateContent image call; None on any failure (the ladder moves on)."""
+    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    parts_out = []
+    if ref_b64:
+        parts_out.append({"inline_data": {"mime_type": "image/png", "data": ref_b64}})
+    parts_out.append({"text": prompt})
+    image_config = {"aspectRatio": aspect}
+    if not model.endswith("-preview") and model != "gemini-2.5-flash-image":
+        image_config["imageSize"] = _TIER_IMAGE_SIZE.get(tier, "1K")
+    body = {"contents": [{"parts": parts_out}],
+            "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": image_config}}
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=150.0)
+        if resp.status_code != 200:
+            logger.warning(f"[illustration] {model} HTTP {resp.status_code}: {resp.text[:200]}")
+            return None
+        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
+        last = None
+        for part in parts:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                last = inline["data"]   # thinking models may return interim images; the last one is final
+        return base64.b64decode(last) if last else None
+    except Exception as e:
+        logger.warning(f"[illustration] {model} error: {e}")
+        return None
+
+
+async def _image_via_openai(model: str, prompt: str, aspect: str, tier: str, transparent: bool) -> bytes | None:
+    """One OpenAI images/generations call (gpt-image-2.x); None on any failure."""
+    key = os.getenv("OPENAI_API_KEY", "")
+    if not key:
+        return None
+    size = (_OPENAI_SIZE.get(aspect) or _OPENAI_SIZE["16:9"]).get(tier, "1536x864")
+    body = {"model": model, "prompt": prompt[:30000], "size": size, "n": 1, "output_format": "png",
+            "quality": "high" if tier == "quality" else "medium",
+            "background": "transparent" if transparent else "opaque", "moderation": "low"}
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post("https://api.openai.com/v1/images/generations", json=body,
+                                     headers={"Authorization": f"Bearer {key}"}, timeout=180.0)
+        if resp.status_code != 200:
+            logger.warning(f"[illustration] {model} HTTP {resp.status_code}: {resp.text[:200]}")
+            return None
+        data = (resp.json().get("data") or [{}])[0]
+        b64 = data.get("b64_json")
+        return base64.b64decode(b64) if b64 else None
+    except Exception as e:
+        logger.warning(f"[illustration] {model} error: {e}")
+        return None
+
+
+async def _image_ladder(tier: str, prompt: str, ref_b64: str, aspect: str, transparent: bool, api_key: str) -> tuple[bytes | None, str]:
+    """Walk the tier's ladder; returns (png bytes, model used) or (None, '')."""
+    for model in _IMAGE_LADDERS.get(tier) or _IMAGE_LADDERS["fast"]:
+        if model.startswith("gpt-image"):
+            raw = await _image_via_openai(model, prompt, aspect, tier, transparent)
+        else:
+            raw = await _image_via_gemini(model, prompt, ref_b64, aspect, tier, api_key)
+        if raw:
+            return raw, model
+        logger.info(f"[illustration] ladder {tier}: {model} returned nothing, trying the next model")
+    return None, ""
 _PERSONA_IMG_SLOT_RE = re.compile(
     r'<img\b[^>]*\bclass="[^"]*persona-img[^"]*"[^>]*>', re.I
 )
@@ -21380,16 +24511,371 @@ def _illus_palette(brand: str, canvas: str) -> dict:
     return {"line": f"deep navy ink ({rail})", "blobs": f"the brand accent ({accent}) and warm gold ({gold})"}
 
 
-def _photo_prompt(concept: str, slot: str, brand: str = "nxt") -> str:
+# 2026-10-26 (owner: "the images look so AI generated!! ... avoid overly futuristic looking slop!"): every slide
+# photograph is prompted as REAL photography by a five-part formula (specific subject, physical camera and lens,
+# ONE light source, mundane imperfections, off-center candid framing) plus explicit negatives. The slide's text is
+# an abstract business judgment an image model cannot photograph (it invents glowing networks and holograms), so a
+# cheap utility pass first writes ONE ordinary real-world scene for it. Buzzwords ("cinematic", "8K", "flawless",
+# "photorealistic") are banned from these prompts.
+_PHOTO_NEGATIVES = (
+    "Avoid: plastic or airbrushed skin, glossy or chrome surfaces, artificial studio-flash look, oversaturated "
+    "colors, HDR glow, lens flares, futuristic or sci-fi elements, holograms, glowing or transparent interfaces, "
+    "neon light, floating data, robots, stock-photo posing, handshakes staged for the camera, people looking into "
+    "the lens, a person pointing at a screen, wall display or whiteboard, dead-center framing."
+)
+_PHOTO_SLOT_FRAMING = {
+    "background": "wide frame, subject in the right third, a calm darker lower third and open space on the left "
+                  "where text will sit",
+    "portrait": "waist-up environmental portrait, subject in the left or right third, candid mid-task, looking "
+                "at the work rather than the lens",
+    "scene": "medium shot of a candid mid-task moment, subject off-center, natural depth of field",
+}
+_PHOTO_SCENES: dict = {}
+# 2026-10-26 (owner: "the images are terrible"; every photo in one deck was a person at a desk with a coiled cable and a
+# water glass in front): the scenes already written for a deck, so the next one picks a different setting and shot.
+_DECK_SCENES: dict = {}
+
+
+def _abstract_diagram_from(raw, concept: str) -> Optional[dict]:
+    """Keep the scene writer's diagram only when it is a small, well-formed flowchart whose every label is drawn
+    from the slide's own words (no invented facts). None otherwise."""
+    if not isinstance(raw, dict) or not isinstance(raw.get("nodes"), list) or not isinstance(raw.get("edges"), list):
+        return None
+    words = set(re.findall(r"[a-z0-9]{3,}", concept.lower()))
+    nodes, ids = [], set()
+    for n in raw["nodes"][:6]:
+        if not isinstance(n, dict):
+            continue
+        label = re.sub(r"\s+", " ", str(n.get("label") or "")).strip()[:48]
+        lw = re.findall(r"[a-z0-9]{3,}", label.lower())
+        if not label or not lw or sum(w in words for w in lw) / len(lw) < 0.6:
+            continue
+        nid = re.sub(r"[^A-Za-z0-9_]", "", str(n.get("id") or "")) or f"n{len(nodes) + 1}"
+        nodes.append({"id": nid, "label": label, "kind": "step"})
+        ids.add(nid)
+    edges = []
+    for e in raw["edges"][:10]:
+        if isinstance(e, dict) and str(e.get("from")) in ids and str(e.get("to")) in ids and e.get("from") != e.get("to"):
+            edges.append({"from": str(e["from"]), "to": str(e["to"]), "label": re.sub(r"\s+", " ", str(e.get("label") or "")).strip()[:32]})
+    if len(nodes) < 4 or len(edges) < 3:   # a sparse three-box drawing reads as filler (2026-10-26 live)
+        return None
+    # Brand the roles instead of drawing plain boxes: the most-connected node is the shared system (dark fill), a node
+    # that only sends is an actor (pill); one label repeated on every edge says nothing and is dropped.
+    degree = {n["id"]: 0 for n in nodes}
+    sends = {n["id"]: 0 for n in nodes}
+    for e in edges:
+        degree[e["from"]] += 1
+        degree[e["to"]] += 1
+        sends[e["from"]] += 1
+    hub = max(degree, key=lambda k: degree[k])
+    for n in nodes:
+        n["kind"] = "system" if n["id"] == hub and degree[hub] >= 3 else ("actor" if sends[n["id"]] == degree[n["id"]] else "step")
+    if len({e["label"] for e in edges}) == 1:
+        for e in edges:
+            e["label"] = ""
+    return {"kind": "flowchart", "nodes": nodes, "edges": edges}
+
+
+_DECK_SUBJECT_RE = re.compile(r"\s*Subject of the deck:\s*(.*)$", re.I | re.S)
+_DELIVERABLE_LEAD_RE = re.compile(r"^\s*(?:please\s+)?(?:generate|create|build|produce|write|draft|develop|prepare)\b.*?\b(?:for|on|about|of)\s+", re.I)
+
+
+def _split_deck_subject(concept: str) -> tuple:
+    """(slide text, deck subject). The SPA appends "Subject of the deck: <research goal>"; the goal often opens with the
+    deliverable ("Generate a comprehensive product requirements document (PRD) for ..."), which is cut to its subject
+    (2026-10-26 live: diagrams read "...Hub requires Product requirements document")."""
+    m = _DECK_SUBJECT_RE.search(concept or "")
+    if not m:
+        return (concept or "").strip(), ""
+    subject = _DELIVERABLE_LEAD_RE.sub("", m.group(1)).strip()
+    return (concept[:m.start()]).strip().rstrip("."), subject
+
+
+_DECK_SCENE_LOCKS: dict = {}
+
+
+async def _photo_scene(concept: str, slot: str, brand: str, diagram_ok: bool = True, retry_note: str = "") -> Optional[dict]:
+    """Scene writing for one deck runs one at a time (2026-10-26 live: three images were generated concurrently, each
+    scene writer saw an empty "already used" list, and four slides became whiteboard scenes); the images themselves still
+    generate in parallel."""
+    _slide, _deck = _split_deck_subject(concept)
+    if not _deck:
+        return await _photo_scene_inner(concept, slot, brand, diagram_ok, retry_note)
+    if len(_DECK_SCENE_LOCKS) > 200:
+        _DECK_SCENE_LOCKS.pop(next(iter(_DECK_SCENE_LOCKS)))
+    lock = _DECK_SCENE_LOCKS.setdefault((brand, _deck[:200]), asyncio.Lock())
+    async with lock:
+        return await _photo_scene_inner(concept, slot, brand, diagram_ok, retry_note)
+
+
+async def _photo_scene_inner(concept: str, slot: str, brand: str, diagram_ok: bool = True, retry_note: str = "") -> Optional[dict]:
+    """ONE ordinary real-world photograph for a slide's content, as the five prompt parts. Deterministic
+    (temperature 0) and memoized per concept/slot/brand; None on any failure (the caller keeps a literal prompt).
+    `diagram_ok` (2026-10-26 live: header strips and thumbnails got 8 px diagrams): only a slot large enough to read a
+    diagram may answer with one; every other slot is always a photograph of the real setting.
+    `retry_note`: why the image critic rejected the previous photograph for this slot (bypasses the memo)."""
+    key = (concept.strip()[:400], slot, brand, diagram_ok)
+    if key in _PHOTO_SCENES and not retry_note:
+        return _PHOTO_SCENES[key]
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not concept.strip():
+        return None
+    studio = _norm_brand(brand) == "deciem"
+    slide_text, deck_subject = _split_deck_subject(concept)
+    deck_key = (brand, (deck_subject or "")[:200])
+    used = _DECK_SCENES.get(deck_key, [])[-10:] if deck_subject else []
+    concept = slide_text + (f"\n(Context for the photograph's setting only, never as diagram text: {deck_subject})" if deck_subject else "")
+    decide = (
+        "This is a full-bleed backdrop: it is ALWAYS a photograph. Pick the real setting where the subject "
+        "happens.\n" if slot == "background" else
+        "This slot is too small for a diagram: it is ALWAYS a photograph. Pick the real people or setting the "
+        "slide's subject involves.\n" if not diagram_ok else
+        "STEP 1. Decide whether an ordinary real photograph can show this slide's point. It can when the point is "
+        "about people, a place, a product or a physical activity. It cannot when the point is an abstract "
+        "structure: a process, a model or framework, a comparison, phases, a relationship between groups, or a "
+        "system. If it cannot, return ONLY {\"photographable\": false, \"diagram\": {\"kind\": \"flowchart\", "
+        "\"nodes\": [{\"id\": \"n1\", \"label\": \"...\"}], \"edges\": [{\"from\": \"n1\", \"to\": \"n2\", "
+        "\"label\": \"...\"}]}} with 4 to 6 connected nodes whose labels (2 to 6 words) use ONLY names and phrases that "
+        "appear in the slide text, never invented facts; or ONLY {\"photographable\": false} when the slide text "
+        "names no parts to connect.\nSTEP 2. If a photograph can show it, describe the photograph as below and "
+        "include \"photographable\": true.\n"
+    )
+    brief = (
+        "You art-direct documentary photographs for a consulting deck. The slide says:\n"
+        f"\"\"\"{concept.strip()[:400]}\"\"\"\n"
+        + decide +
+        "Describe ONE ordinary photograph a working photographer could actually take for this slide: the real "
+        "people, place or object the slide's subject involves, in an everyday moment. Rules:\n"
+        "- show the PLACE, PRODUCT, MATERIAL or ACTIVITY the slide names (a product line on a shelf, a service "
+        "counter, a lab bench, a loading dock, a campus walkway, a team around a meeting table). A person sitting at a desk "
+        "with a laptop or papers is the LAST resort, for a slide that is literally about desk work.\n"
+        "- vary the shot: a wide view of the place, a close detail of hands and materials, an over-the-shoulder "
+        "view, a small group mid-conversation, or the place with no people. Nobody points at a screen, a wall display "
+        "or a whiteboard (run 38: six of fifteen photos were that pose); hands work on the real material.\n"
+        "- no writing surfaces in view (whiteboards, glass walls with marker, signs, labels): image models render "
+        "them as fake lettering (run 42). No floor plans or blueprints unless the slide is about buildings.\n"
+        "- no open notebooks, printed pages, documents or screens facing the camera: the image critic refused most "
+        "run-43 frames for the fake text they carried. A screen is seen edge-on or from behind, or is switched off.\n"
+        + (("- ALREADY USED on the other slides (choose a different setting, activity AND shot type from every one; a shared "
+            "prop such as paper plans, a laptop or a notebook counts as the same scene): "
+            + " | ".join(used) + "\n") if used else "")
+        + (f"- The previous photograph for this slide was REJECTED by the creative director: {retry_note[:240]}. "
+           "Choose a different setting and shot that avoids that problem.\n" if retry_note else "")
+        + ""
+        "- subject: specific and concrete (role, what they are doing, what they hold or use, real material "
+        "textures such as paper, wool, laminate, worn wood). Do NOT state age, gender or ethnicity unless the "
+        "slide text states them. No abstract symbols or metaphors, no holograms, robots, glowing networks, "
+        "transparent screens, neon, sci-fi chrome or floating data. A screen, if any, is an ordinary laptop or "
+        "monitor seen at an angle with unreadable content. No text, signs or logos in frame.\n"
+        "- camera: one physical setup as focal length and aperture (for example 35mm at f/2.8, 50mm at f/2, "
+        "85mm at f/2). Never a camera or film brand.\n"
+        + ("- lighting: one studio soft box from the side on a seamless ground; no environment.\n" if studio else
+           "- lighting: ONE primary source with its angle and color temperature (for example overcast daylight "
+           "through a window on the left, about 5600K; or warm overhead fixtures, about 3200K).\n")
+        + "- environment: two or three ordinary imperfections that belong to THIS setting and no other (worn "
+        "edges, uneven light, real wear on the surfaces the subject uses). Never a coiled cable, a coffee cup or mug, "
+        "a water glass, or a stack of loose papers unless the slide names them: those props mark a stock photo.\n"
+        f"- composition: {_PHOTO_SLOT_FRAMING.get(slot, _PHOTO_SLOT_FRAMING['scene'])}.\n"
+        "Return ONLY JSON: {\"photographable\": true, \"subject\": \"...\", \"camera\": \"...\", \"lighting\": \"...\", "
+        "\"environment\": \"...\", \"composition\": \"...\"}"
+    )
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{_ILLUS_VS_MODEL}:generateContent"
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, headers=_goog_key_headers(api_key), timeout=30.0, json={
+                "contents": [{"role": "user", "parts": [{"text": brief}]}],
+                "generationConfig": {"temperature": 0, "maxOutputTokens": 700, "responseMimeType": "application/json",
+                                     "thinkingConfig": {"thinkingBudget": 0}},
+            })
+        if resp.status_code != 200:
+            logger.warning(f"[illustration] photo scene HTTP {resp.status_code}: {resp.text[:160]}")
+            return None
+        raw = "".join(p.get("text", "") for p in
+                      (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts") or []))
+        scene = json.loads(raw[raw.find("{"): raw.rfind("}") + 1])
+        if scene.get("photographable") is False:
+            if slot == "background" or not diagram_ok:
+                return None   # a backdrop is always a photograph; the literal prompt carries it
+            verdict = {"photographable": False, "diagram": _abstract_diagram_from(scene.get("diagram"), slide_text)}
+            _PHOTO_SCENES[key] = verdict
+            return verdict
+        parts = {k: re.sub(r"\s+", " ", str(scene.get(k) or "")).strip()[:320]
+                 for k in ("subject", "camera", "lighting", "environment", "composition")}
+        if len(parts["subject"]) < 12:
+            return None
+        _PHOTO_SCENES[key] = parts
+        if deck_subject:
+            if len(_DECK_SCENES) > 200:
+                _DECK_SCENES.pop(next(iter(_DECK_SCENES)))
+            _DECK_SCENES.setdefault(deck_key, []).append(f"{parts['subject'][:110]} ({parts['composition'][:50]})")
+        return parts
+    except Exception as e:
+        logger.warning(f"[illustration] photo scene failed, literal prompt kept: {e}")
+        return None
+
+
+_CRITIC_CACHE: dict = {}
+_IMAGE_CRITIC_MODEL = "gemini-3.5-flash"
+# WS-4 L5 (2026-10-30): the composed-slide critic. Report-only (judges.json `slideVisionCritic`) until calibrated.
+_SLIDE_CRITIC_RULES = (
+    "You are the partner reviewing one finished slide of a consulting deck exactly as the reader will see it. "
+    "REJECT (accept=false) the slide when any text block overlaps another text block, a picture or a rule; when text "
+    "is cut off at the edge of the canvas or of its box; when a text block is too small or too low-contrast to read "
+    "at a glance; when a large part of the canvas is empty while another part is crowded; when a picture is AI art, "
+    "a render, a collage, carries garbled lettering, or does not show what the slide is about; or when visible chrome "
+    "(run ids, confidence labels, raw [path#cN] pointers, CHUNK_ markers, emoji) appears. ACCEPT a slide whose text "
+    "reads cleanly, whose elements keep clear of one another and whose picture, if any, is a believable photograph "
+    "or a clean diagram of the subject."
+)
+_CRITIC_RULES = (
+    "You are the creative director approving images for a consulting deck that executives will read. House rule: "
+    "every image is either a believable documentary photograph of real people, places or products, or a clean "
+    "informative visual (a chart, diagram, table or software screenshot). REJECT (accept=false) an image that is: AI "
+    "art or a digital painting, a CGI or 3D render, a collage or montage of several pictures, fantasy, sci-fi or "
+    "futuristic imagery (glowing lines or arcs, holograms, globes of light, golden pipes or tubes, floating icons or "
+    "interfaces, neon), heavy HDR or cinematic glow, plastic or waxy skin, warped hands, faces or objects, garbled or "
+    "fake text, stock-photo posing (people looking into the lens, staged handshakes), a body that merges into furniture "
+    "or another person, an impossible pose or proportion, objects passing through each other, scattered specks or "
+    "smudges on surfaces that a real camera would not record, or anything a skeptical executive would recognize as "
+    "AI-generated."
+)
+
+
+def _shrink_for_critic(png: bytes) -> tuple:
+    """A JPEG at most 768 px on its long side (the judgment needs the look, not the pixels)."""
+    try:
+        from PIL import Image as _CI
+        import io as _io
+        im = _CI.open(_io.BytesIO(png)).convert("RGB")
+        im.thumbnail((768, 768))
+        buf = _io.BytesIO()
+        im.save(buf, "JPEG", quality=82)
+        return buf.getvalue(), "image/jpeg"
+    except Exception:
+        return png, "image/png"
+
+
+# 2026-10-30 (WS-2 E5/E9): the image critic is an LLM judge nobody has calibrated. It REPORTS by
+# default (the better photograph ships with the objection attached); IMAGE_CRITIC_BLOCKING=1
+# restores the empty-slot behaviour. Accept/reject counts are kept so the rate is visible in
+# /api/eval/judges and the generation receipt instead of only in a log line.
+_IMAGE_CRITIC_BLOCKING = os.environ.get("IMAGE_CRITIC_BLOCKING", "").strip() == "1"
+_IMAGE_CRITIC_STATS = {"accept": 0, "reject": 0, "since": datetime.utcnow().isoformat() + "Z"}
+
+
+def _image_critic_stats_bump(kind: str) -> None:
+    try:
+        _IMAGE_CRITIC_STATS[kind] = _IMAGE_CRITIC_STATS.get(kind, 0) + 1
+    except Exception:
+        pass
+
+
+async def _image_critic(img: bytes, purpose: str = "generated", context: str = "") -> dict:
+    """2026-10-26 (owner: "the images are terrible", "avoid overly futuristic looking slop"): ONE vision judgment per
+    image before it reaches a slide. `purpose` "generated" = a photograph this proxy just made for a slide; "source" =
+    a picture taken from the user's attached document. Returns {accept, kind, reason}; fail-open (accept) when the
+    judge cannot be reached, so a provider outage never strips a deck of every picture."""
+    import base64 as _b64
+    h = hashlib.sha1(img).hexdigest() + purpose
+    if h in _CRITIC_CACHE:
+        return _CRITIC_CACHE[h]
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not img:
+        return {"accept": True, "kind": "unknown", "reason": "critic unavailable"}
+    small, mime = _shrink_for_critic(img)
+    if purpose == "slide":
+        # WS-4 L5 (2026-10-30): the COMPOSED slide, text and pictures together, judged as a reader would see it.
+        ask = (_SLIDE_CRITIC_RULES + f" The slide is about: \"{context[:300]}\"."
+               " Return ONLY JSON {\"accept\": true|false, \"kind\": \"clean\"|\"collision\"|\"unreadable\"|\"empty\"|"
+               "\"picture\"|\"other\", \"reason\": \"<one plain sentence naming the element at fault>\"}")
+    else:
+        ask = (_CRITIC_RULES
+           + (" For a photograph made for a slide, also reject any visible lettering, real or garbled (writing on a "
+              "whiteboard or glass wall, a sign, a readable screen or label), a scene whose main interest is the props of AI stock "
+              "photos (a coiled cable, a water glass or coffee cup in the foreground) or that does not show what the "
+              f"slide is about. The slide is about: \"{context[:300]}\"." if purpose == "generated" else
+              " This picture comes from the client's own document; judge only how it looks.")
+           + " Return ONLY JSON {\"accept\": true|false, \"kind\": \"photo\"|\"diagram\"|\"chart\"|\"screenshot\"|"
+             "\"ai-art\"|\"collage\"|\"render\"|\"other\", \"reason\": \"<one plain sentence>\"}")
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{_IMAGE_CRITIC_MODEL}:generateContent"
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, headers=_goog_key_headers(api_key), timeout=30.0, json={
+                "contents": [{"role": "user", "parts": [
+                    {"inline_data": {"mime_type": mime, "data": _b64.b64encode(small).decode()}},
+                    {"text": ask}]}],
+                "generationConfig": {"temperature": 0, "maxOutputTokens": 300, "responseMimeType": "application/json",
+                                     "thinkingConfig": {"thinkingBudget": 0}},
+            })
+        if resp.status_code != 200:
+            logger.warning(f"[image-critic] HTTP {resp.status_code}: {resp.text[:160]}")
+            return {"accept": True, "kind": "unknown", "reason": "critic unavailable"}
+        raw = "".join(p.get("text", "") for p in
+                      (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts") or []))
+        j = json.loads(raw[raw.find("{"): raw.rfind("}") + 1])
+        verdict = {"accept": bool(j.get("accept")), "kind": str(j.get("kind") or "other")[:20],
+                   "reason": re.sub(r"\s+", " ", str(j.get("reason") or "")).strip()[:240]}
+        _CRITIC_CACHE[h] = verdict
+        return verdict
+    except Exception as e:
+        logger.warning(f"[image-critic] judgment failed (image kept): {e}")
+        return {"accept": True, "kind": "unknown", "reason": "critic unavailable"}
+
+
+@app.post("/api/ai/image-screen")
+async def ai_image_screen(payload: dict):
+    """Screen pictures from a user's attached document before they are carried onto slides (2026-10-26 live: the
+    attached deck's AI collages, a glowing globe and golden pipes, were carried onto the cover). Body: {images:
+    [dataUri|url, ...]}. Returns {verdicts: [{accept, kind, reason}]} in input order."""
+    import base64 as _b64
+    imgs = [str(x or "") for x in (payload.get("images") or [])][:24]
+
+    async def one(src: str) -> dict:
+        try:
+            if src.startswith("data:"):
+                data = _b64.b64decode(src.split(",", 1)[1])
+            elif src.startswith("http"):
+                async with httpx.AsyncClient() as c:
+                    r = await c.get(src, timeout=20.0)
+                data = r.content if r.status_code == 200 else b""
+            else:
+                data = b""
+            if not data:
+                return {"accept": True, "kind": "unknown", "reason": "unreadable"}
+            return await _image_critic(data, "source")
+        except Exception as e:
+            return {"accept": True, "kind": "unknown", "reason": f"unreadable ({e})"}
+    verdicts = await asyncio.gather(*[one(s) for s in imgs])
+    for v in verdicts:
+        if not v.get("accept"):
+            logger.info(f"[image-screen] source picture refused ({v.get('kind')}): {v.get('reason')}")
+    return {"verdicts": verdicts}
+
+
+def _photo_prompt(concept: str, slot: str, brand: str = "nxt", scene: Optional[dict] = None) -> str:
     """PHOTOGRAPHIC slot style (2026-07-03, owner-directed slides-imagery uplift): editorial
     photography for cover/agenda BACKGROUNDS and persona/theme THUMBNAILS, mirroring the
     approved reference deck (full-bleed subject scene under a dark scrim; environmental
     portraits of the actual segment in its working context). The CONCEPT arrives as literal
     text lifted from the slide's OWN generated content - this generalizes to ANY industry the
-    corpus returns; nothing here names a domain."""
+    corpus returns; nothing here names a domain. 2026-10-26: with a `scene` (see _photo_scene)
+    the prompt is the five-part real-photography formula plus _PHOTO_NEGATIVES."""
+    if scene and _norm_brand(brand) != "deciem":
+        return (
+            f"Documentary photograph. {scene['subject']}. Lens: {scene['camera'] or '35mm at f/2.8'}. "
+            f"Light: {scene['lighting'] or 'overcast daylight through a window on the left, about 5600K'}. "
+            f"Details: {scene['environment'] or 'light film grain'}. "
+            f"Framing: {scene['composition'] or _PHOTO_SLOT_FRAMING.get(slot, _PHOTO_SLOT_FRAMING['scene'])}. "
+            "True-to-life color, real skin and fabric texture, natural depth of field. "
+            + _PHOTO_NEGATIVES +
+            " No text, words, letters, numbers, logos, watermarks, UI or charts anywhere in the image. "
+            "One coherent photograph: not an illustration, render or collage."
+        )
+    if scene:
+        concept = f"{scene['subject']}. {scene['environment']}"
     if slot == "background":
-        comp = ("Wide cinematic establishing shot with GENEROUS UNCLUTTERED headroom and a calm, "
-                "darker lower third (a text scrim will sit over it). Horizon low in frame. ")
+        comp = ("Wide establishing frame with generous uncluttered headroom and a calm, "
+                "darker lower third (a text scrim will sit over it). Horizon low in frame, subject off-center. ")
     elif slot == "portrait":
         # EVIDENCE-GROUNDED DEPICTION (2026-07-10, owner directive - supersedes the same-day
         # face-free interim): the persona face IS shown. The concept may carry a `depiction`
@@ -21426,10 +24912,11 @@ def _photo_prompt(concept: str, slot: str, brand: str = "nxt") -> str:
                      "matte neutral textures, clinical and minimal, generous white negative space around one "
                      "subject; no props beyond the subject, no warm grade, no film grain. ")
     else:
-        grade = ("Natural golden-hour or soft overcast light, shallow-to-medium depth of field, muted "
-                 "cinematic color grade, realistic textures. ")
+        grade = ("Shot on a 35mm lens at f/2.8. One light source: overcast daylight through a window on the left, "
+                 "about 5600K. True-to-life color, light film grain, real fabric and paper texture. "
+                 + _PHOTO_NEGATIVES + " ")
     return (
-        f"Professional editorial photograph depicting: {concept.strip()}. "
+        f"Documentary photograph of an ordinary real-world moment: {concept.strip()}. "
         + comp + grade +
         "ABSOLUTELY NO text, NO words, NO letters, NO numbers, NO logos, NO watermarks, NO UI, "
         "NO charts anywhere in the image. No illustration, no 3D render, no collage - a single "
@@ -21666,7 +25153,8 @@ def _illus_registry_append(entry: dict) -> None:
 
 async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0,
                               literal: bool = False, style: str = "line", reference: str = "",
-                              brand_hint: str = "") -> dict:
+                              brand_hint: str = "", aspect: str = "", tier: str = "",
+                              bounds: Optional[dict] = None) -> dict:
     """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
     library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
 
@@ -21728,7 +25216,11 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
     # change of wording never serves an image generated under the old wording.
     brand_hint = str(brand_hint or "").strip()
     hint_salt = ("-h" + hashlib.sha1(brand_hint.encode("utf-8")).hexdigest()[:6]) if brand_hint else ""
-    iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}{hint_salt}")
+    # 2026-10-23: slot tier + aspect + prompt version join the id (see _IMAGE_LADDERS).
+    tier = tier if tier in _IMAGE_LADDERS else _SLOT_TIER.get(slot, "fast")
+    aspect = aspect if aspect in _IMAGE_ASPECTS else ("3:4" if slot in ("panel", "side") else ("1:1" if slot == "glyph" else "16:9"))
+    tier_salt = f"-t{tier}-a{aspect.replace(':', 'x')}-{_ILLUS_PROMPT_VERSION}"
+    iid = _illus_id(concept, brand, canvas, slot, variant, f"{style}{('-ref' + ref_salt) if ref_salt else ''}{hint_salt}{tier_salt}")
     os.makedirs(_ILLUS_DIR, exist_ok=True)
     out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
     url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
@@ -21752,47 +25244,86 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         visual_concept = concept
     else:
         visual_concept = await _vs_select_concept(concept, brand, canvas, slot)
-    prompt = (_photo_prompt(visual_concept, style.split("-", 1)[1], brand) if is_photo
+    photo_slot = style.split("-", 1)[1] if is_photo else ""
+    # a diagram only where it can be read: a panel at least 500 x 360 (header strips and thumbnails are photographs)
+    _bw = float((bounds or {}).get("w") or 0) if isinstance(bounds, dict) else 0.0
+    _bh = float((bounds or {}).get("h") or 0) if isinstance(bounds, dict) else 0.0
+    # 2026-10-26 (live: 8 px node diagrams in 560 px brief-card panels): a diagram only in an exhibit-size panel
+    scene = await _photo_scene(visual_concept, photo_slot, brand, _bw >= 800 and 360 <= _bh < 1000) if is_photo else None   # full-height hero panels (dividers, covers) are photographs
+    if scene is not None and scene.get("photographable") is False:
+        # Owner 2026-10-26: "WHEN IMAGE MODELS CANT VISUALIZE ABSTRACT CONCEPTS USE OUR DIAGRAMMING TOOL". The slot is
+        # drawn by the native diagram renderer from the slide's own words; with no structure to draw it stays empty
+        # (`abstract` tells the SPA to try the payload's own structure next).
+        spec = scene.get("diagram") if isinstance(scene.get("diagram"), dict) else None
+        if spec and _diagram_spec_has_content(spec):
+            spec = {**spec, "chrome": "none"}
+            if bounds and bounds.get("w") and bounds.get("h"):
+                spec["frame"] = {"w": int(round(float(bounds["w"]) * 2)), "h": int(round(float(bounds["h"]) * 2))}
+            res = await _brand_diagram(spec, brand, canvas)
+            if res.get("url"):
+                logger.info(f"[illustration] abstract concept drawn as a {spec.get('kind')} diagram for slot={slot}")
+                return {**res, "diagram": True}
+        return {"url": "", "dataUri": "", "id": iid, "reused": False, "abstract": True}
+    prompt = (_photo_prompt(visual_concept, photo_slot, brand, scene) if is_photo
               else _illustration_prompt(visual_concept, brand, canvas))
     if brand_hint:
         prompt = prompt + " Brand visual language: " + brand_hint
-    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
-    parts_out = []
     if ref_b64:
         # The reference image goes FIRST so the model reads it as the style
         # ground, then the instruction naming what must stay identical.
-        parts_out.append({"inline_data": {"mime_type": "image/png", "data": ref_b64}})
         prompt = (
             "Continue the EXACT visual style of the reference image: same palette, same line weight, "
             "same level of abstraction, same background treatment, same amount of negative space. "
             "The subject changes; the visual language does not. " + prompt
         )
-    parts_out.append({"text": prompt})
-    body = {"contents": [{"parts": parts_out}],
-            "generationConfig": {"responseModalities": ["IMAGE"]}}
+    # 2026-10-23: the slot's tier ladder (quality for frames a reader studies, fast for thumbnails), with
+    # provider fall-through. A reference image rides only the Gemini steps (OpenAI generations take no reference).
     try:
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
-        if resp.status_code != 200:
-            logger.warning(f"[illustration] HTTP {resp.status_code}: {resp.text[:200]}")
+        raw_png, model_used = await _image_ladder(tier, prompt, ref_b64, aspect, not is_photo, api_key)
+        if not raw_png:
+            logger.warning(f"[illustration] ladder {tier} exhausted for slot={slot} aspect={aspect}")
             return {"url": "", "dataUri": "", "id": iid, "reused": False}
-        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
-        for part in parts:
-            inline = part.get("inlineData") or part.get("inline_data")
-            if inline and inline.get("data"):
-                raw_png = base64.b64decode(inline["data"])
-                # photos stay OPAQUE (knockout would eat highlights); line-art knocks out to transparent
-                png = raw_png if is_photo else _knockout_to_transparent(raw_png)
-                with open(out_path, "wb") as f:
-                    f.write(png)
-                _illus_registry_append({"id": iid, "idea": concept, "concept": visual_concept,
-                                        "brand": brand, "canvas": canvas, "slot": slot, "style": style,
-                                        "tags": _illus_tags(concept + " " + visual_concept),
-                                        "file": f"{iid}.png", "url": url,
-                                        "model": _GEMINI_IMAGE_MODEL, "transparent": not is_photo})
-                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
-                        "id": iid, "reused": False}
-        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+        # 2026-10-26 IMAGE CRITIC (owner: "the images are terrible"): a generated photograph reaches a slide only when a
+        # vision judge accepts it as a believable documentary photo of the slide's subject. One retry with a new scene
+        # that answers the refusal; a second refusal leaves the slot empty (content-true or nothing).
+        critic_flag = ""
+        if is_photo:
+            verdict = await _image_critic(raw_png, "generated", visual_concept)
+            _image_critic_stats_bump("accept" if verdict.get("accept") else "reject")
+            if not verdict.get("accept"):
+                logger.info(f"[image-critic] generated photo refused ({verdict.get('kind')}): {verdict.get('reason')}; retrying with a new scene")
+                scene2 = await _photo_scene(visual_concept, photo_slot, brand, False, retry_note=str(verdict.get("reason") or ""))
+                prompt2 = _photo_prompt(visual_concept, photo_slot, brand, scene2) + (" Brand visual language: " + brand_hint if brand_hint else "")
+                raw2, model2 = await _image_ladder(tier, prompt2, "", aspect, False, api_key)
+                verdict2 = await _image_critic(raw2, "generated", visual_concept) if raw2 else {"accept": False, "reason": "no image"}
+                _image_critic_stats_bump("accept" if verdict2.get("accept") else "reject")
+                if raw2 and verdict2.get("accept"):
+                    raw_png, model_used = raw2, model2
+                elif _IMAGE_CRITIC_BLOCKING:
+                    logger.info(f"[image-critic] retry refused too ({verdict2.get('reason')}); the slot stays empty")
+                    return {"url": "", "dataUri": "", "id": iid, "reused": False, "rejected": True, "reason": verdict2.get("reason") or verdict.get("reason")}
+                else:
+                    # 2026-10-30 (WS-2 E5): an UNCALIBRATED LLM judge reports, it does not block. Until the image
+                    # critic's agreement with human labels is measured (evals/judges.json), the better of the two
+                    # photographs ships with the critic's objection attached, and the receipt shows it. The old
+                    # behaviour (empty slot) is IMAGE_CRITIC_BLOCKING=1.
+                    critic_flag = str(verdict2.get("reason") or verdict.get("reason") or "critic refused")
+                    if raw2:
+                        raw_png, model_used = raw2, model2
+                    logger.info(f"[image-critic] refused twice but not blocking (uncalibrated); shipping with flag: {critic_flag[:120]}")
+        # photos stay OPAQUE (knockout would eat highlights); line-art knocks out to transparent unless the
+        # provider already returned a transparent PNG (gpt-image-2.5 background=transparent)
+        png = raw_png if (is_photo or model_used.startswith("gpt-image")) else _knockout_to_transparent(raw_png)
+        with open(out_path, "wb") as f:
+            f.write(png)
+        _illus_registry_append({"id": iid, "idea": concept, "concept": visual_concept,
+                                "brand": brand, "canvas": canvas, "slot": slot, "style": style,
+                                "tags": _illus_tags(concept + " " + visual_concept),
+                                "file": f"{iid}.png", "url": url, "tier": tier, "aspect": aspect,
+                                "model": model_used, "transparent": not is_photo})
+        logger.info(f"[illustration] {model_used} ({tier}, {aspect}) -> {iid}.png ({len(png)} bytes)")
+        return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
+                "id": iid, "reused": False, "model": model_used, **({"criticFlag": critic_flag} if critic_flag else {})}
     except Exception as e:
         logger.warning(f"[illustration] generation error: {e}")
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
@@ -21818,9 +25349,23 @@ async def ai_illustration(payload: dict):
                                     literal=bool(payload.get("literal")),
                                     style=str(payload.get("style") or "line"),
                                     reference=str(payload.get("reference") or ""),
-                                    brand_hint=str(payload.get("brandHint") or ""))
+                                    brand_hint=str(payload.get("brandHint") or ""),
+                                    aspect=_illus_aspect_from_payload(payload),
+                                    tier=str(payload.get("tier") or ""),
+                                    bounds=payload.get("bounds") if isinstance(payload.get("bounds"), dict) else None)
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res
+
+
+def _illus_aspect_from_payload(payload: dict) -> str:
+    """`aspect` wins when it is a supported string; otherwise the nearest aspect for `bounds` {w,h}."""
+    a = str(payload.get("aspect") or "")
+    if a in _IMAGE_ASPECTS:
+        return a
+    b = payload.get("bounds") if isinstance(payload.get("bounds"), dict) else None
+    if b and b.get("w") and b.get("h"):
+        return _aspect_for(int(b["w"]), int(b["h"]))
+    return ""
 
 
 @app.get("/api/ai/illustrations")
@@ -21905,7 +25450,7 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v23-deciem-railless-label-slot"
+_DIAGRAM_STYLE_VERSION = "v32-pflow-icons-whole-word"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)
@@ -22123,6 +25668,8 @@ def _diagram_spec_has_content(spec: dict) -> bool:
         return False
     if spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers"):
         return True
+    if str(spec.get("kind") or "") == "flowchart":
+        return len([n for n in (spec.get("nodes") or []) if n]) >= 3 and len([e for e in (spec.get("edges") or []) if e]) >= 2
     if str(spec.get("kind") or "") in ("stat-row", "process-flow", "comparison", "ranked-bars", "composition"):
         return bool(spec.get("steps") or spec.get("stats") or spec.get("segments") or spec.get("bars")
                     or spec.get("items") or (spec.get("left") and spec.get("right")))
@@ -22636,6 +26183,7 @@ KIND_TO_SKILL_PATH = {
     "brief-dialog":   "/skills/brief-dialog/SKILL.md",
     "meta-themes":    "/skills/meta-themes/SKILL.md",
     "research-plan":  "/skills/research-planner/SKILL.md",
+    "case-study":     "/skills/case-study-analyst/SKILL.md",   # 2026-10-05: Designer #case-study
     # 2026-06-01 — gap-fill: every generated kind (incl. plural/alias forms)
     # MUST load its expert consulting skill. Previously these fell through to
     # skill_md="" → generic, strategically-shallow output (AI slop). Aliases map
@@ -23777,9 +27325,58 @@ def _synthetic_request(path: str, body: dict) -> Request:
     return Request(scope, receive)
 
 
-async def _run_job(job_id: str, op: str, body: dict) -> None:
+# 2026-10-25 (orphaned-job hang): a job lives as an asyncio task inside one worker process. A rebuild or
+# restart killed that task mid-run and its state file said "running" forever, so the browser polled one
+# reformat for 19 minutes. A daemon THREAD (it keeps beating while a handler blocks the loop, and it dies
+# with the process) stamps `hb` every _JOB_HEARTBEAT_S; a poll that finds a running job whose `hb` is older
+# than _JOB_STALE_S marks it interrupted (HTTP 503), and the client's retry loop resubmits it.
+_JOB_HEARTBEAT_S = 15
+_JOB_STALE_S = 75
+
+
+class _JobHeartbeat:
+    def __init__(self, job_id: str, state: dict):
+        self.job_id, self.state = job_id, dict(state)
+        self.lock = threading.Lock()
+        self.stop = threading.Event()
+        self.finished = False
+        self.thread = threading.Thread(target=self._beat, name=f"jobhb-{job_id}", daemon=True)
+
+    def _beat(self) -> None:
+        while not self.stop.wait(_JOB_HEARTBEAT_S):
+            with self.lock:
+                if self.finished:
+                    return
+                self.state["hb"] = time.time()
+                try:
+                    _job_write(self.job_id, self.state)
+                except Exception:
+                    pass
+
+    def finish(self, final: dict) -> None:
+        with self.lock:
+            self.finished = True
+            _job_write(self.job_id, final)
+        self.stop.set()
+
+
+def _job_interrupted_state(st: dict) -> Optional[dict]:
+    """The interrupted verdict for a running job nobody is beating for, else None. Jobs written before the
+    heartbeat existed carry only `started_at`; any such job still running is older than this process."""
+    if st.get("status") not in ("running", "queued"):
+        return None
+    hb = st.get("hb")
+    if isinstance(hb, (int, float)) and time.time() - float(hb) < _JOB_STALE_S:
+        return None
+    return {**st, "status": "error", "http_status": 503,
+            "error": "interrupted: the server restarted while this job ran; it is being sent again",
+            "result": {"error": "interrupted: the server restarted while this job ran"}}
+
+
+async def _run_job(job_id: str, op: str, body: dict, beat: Optional[_JobHeartbeat] = None) -> None:
     from datetime import datetime as _dt
     handler = globals().get(_JOB_OPS[op])
+    write_final = beat.finish if beat else (lambda final: _job_write(job_id, final))
     try:
         resp = await handler(_synthetic_request(op, body))
         if isinstance(resp, JSONResponse):
@@ -23791,18 +27388,76 @@ async def _run_job(job_id: str, op: str, body: dict) -> None:
         else:
             status = 200
             result = resp
-        _job_write(job_id, {"job_id": job_id, "op": op, "status": "done" if 200 <= status < 300 else "error",
-                            "http_status": status, "result": result, "finished_at": _dt.utcnow().isoformat() + "Z"})
-    except Exception as e:
+        write_final({"job_id": job_id, "op": op, "status": "done" if 200 <= status < 300 else "error",
+                     "http_status": status, "result": result, "finished_at": _dt.utcnow().isoformat() + "Z"})
+    except BaseException as e:
+        # BaseException: a cancelled task (graceful shutdown) also records an ending instead of "running".
         logger.exception(f"[jobs] {job_id} ({op}) failed: {e}")
-        _job_write(job_id, {"job_id": job_id, "op": op, "status": "error", "http_status": 500,
-                            "error": str(e)[:500], "result": {"error": str(e)[:500]}, "finished_at": _dt.utcnow().isoformat() + "Z"})
+        cancelled = isinstance(e, asyncio.CancelledError)
+        write_final({"job_id": job_id, "op": op, "status": "error", "http_status": 503 if cancelled else 500,
+                     "error": "interrupted: the server stopped while this job ran" if cancelled else str(e)[:500],
+                     "result": {"error": str(e)[:500] or "cancelled"}, "finished_at": _dt.utcnow().isoformat() + "Z"})
+        if cancelled:
+            raise
+
+
+@app.post("/api/layout/measure")
+async def layout_measure(payload: dict):
+    """#slides layout gate (2026-10-26): measure composed slides in this proxy's Chromium, the engine and fonts the PPTX
+    export renders with. Body {slides: [{id, html}]}; returns {results: [defects]}. See layout_measure.py."""
+    slides = payload.get("slides") if isinstance(payload.get("slides"), list) else []
+    slides = [s for s in slides if isinstance(s, dict) and isinstance(s.get("html"), str)][:40]
+    if not slides:
+        return JSONResponse({"error": "slides [{id, html}] required"}, status_code=400)
+    # WS-4 L1/L5 (2026-10-30): `screenshot` returns a JPEG of each composed slide; `critic` additionally asks the
+    # slide vision critic (report-only LLM judge) whether the composed slide reads as a finished consulting slide.
+    want_shot = bool(payload.get("screenshot")) or bool(payload.get("critic"))
+    want_critic = bool(payload.get("critic"))
+    context = payload.get("context") if isinstance(payload.get("context"), dict) else {}
+    import layout_measure as _lm
+    try:
+        results = await asyncio.to_thread(_lm.measure_slides, slides, want_shot)
+    except Exception as e:
+        logger.warning(f"[layout] measurement failed: {e}")
+        return JSONResponse({"error": str(e)[:200]}, status_code=500)
+    if want_critic:
+        import base64 as _b64
+
+        async def _judge(row: dict) -> None:
+            shot = row.get("screenshot")
+            if not shot:
+                return
+            try:
+                row["critic"] = await _image_critic(_b64.b64decode(shot), "slide", str(context.get(str(row.get("slideId")), ""))[:300])
+            except Exception as ce:
+                row["critic"] = {"accept": True, "kind": "unknown", "reason": f"critic unavailable ({str(ce)[:60]})"}
+        await asyncio.gather(*[_judge(r) for r in results if isinstance(r, dict) and not r.get("error")])
+        if not bool(payload.get("screenshot")):
+            for r in results:
+                if isinstance(r, dict):
+                    r.pop("screenshot", None)
+                    r.pop("screenshotMime", None)
+    return {"results": results}
+
+
+def _queue_job(op: str, body: dict, extra: Optional[dict] = None) -> str:
+    """Start one allow-listed job; the ONE entry both /api/jobs and the signed webhook use."""
+    from datetime import datetime as _dt
+    job_id = f"job_{int(time.time() * 1000)}_{uuid.uuid4().hex[:8]}"
+    state = {"job_id": job_id, "op": op, "status": "running", "started_at": _dt.utcnow().isoformat() + "Z",
+             "started_epoch": time.time(), "hb": time.time(), "pid": os.getpid(), **(extra or {})}
+    _job_write(job_id, state)
+    beat = _JobHeartbeat(job_id, state)
+    beat.thread.start()
+    asyncio.create_task(_run_job(job_id, op, body, beat))
+    return job_id
 
 
 @app.post("/api/jobs")
 async def jobs_create(req: Request):
     """Queue one of the fan-out operations. Body `{op: '/api/artifact/generate'|'/api/artifact/revise'|
-    '/api/journey-map/generate', body: {...the op's normal body...}}`. Returns `{job_id, status: 'queued'}`."""
+    '/api/journey-map/generate', body: {...the op's normal body...}, callback_url?}`. Returns `{job_id, status: 'queued'}`.
+    With `callback_url` (2026-10-31, D3) the finished job's summary is POSTed there."""
     try:
         payload = await req.json()
     except Exception:
@@ -23811,11 +27466,190 @@ async def jobs_create(req: Request):
     body = payload.get("body") if isinstance(payload.get("body"), dict) else None
     if op not in _JOB_OPS or body is None:
         return JSONResponse({"error": f"op must be one of {sorted(_JOB_OPS)} and body an object"}, status_code=400)
-    from datetime import datetime as _dt
-    job_id = f"job_{int(time.time() * 1000)}_{uuid.uuid4().hex[:8]}"
-    _job_write(job_id, {"job_id": job_id, "op": op, "status": "running", "started_at": _dt.utcnow().isoformat() + "Z"})
-    asyncio.create_task(_run_job(job_id, op, body))
+    callback = str(payload.get("callback_url") or "").strip()
+    if callback:
+        why = _webhook_callback_refusal(callback)
+        if why:
+            return JSONResponse({"error": f"callback_url refused: {why}"}, status_code=400)
+    job_id = _queue_job(op, body, {"callback_url": callback} if callback else None)
+    if callback:
+        asyncio.create_task(_job_callback_watch(job_id, callback, source="token", secret=""))
     return {"job_id": job_id, "status": "queued", "op": op}
+
+
+# =============================================================================
+# WS-D D3 (2026-10-31, plan agent-stack-shared-memory-skills-uplift): INBOUND DELEGATION. Another agent platform
+# starts a bounded HiC job and gets the report back, without opening HiC (the transcript's agent-to-agent webhook).
+#   POST /api/webhooks/run   headers X-HiC-Source, X-HiC-Timestamp, X-HiC-Signature: sha256=<hex>
+#                            signature = HMAC-SHA256(secret_of_source, f"{timestamp}.{raw_body}")
+#                            body {op, body, callback_url?}; op limited to the _JOB_OPS allow-list
+# No secret, no endpoint (owner decision 5): with no source configured the route answers 404. Secrets come from
+# HIC_WEBHOOK_SECRETS ("source:secret,...") or hic-workspace/.runtime/webhook-secrets.json (gitignored; created by
+# scripts/webhook-secret.py). A request older than 5 minutes, a replayed signature, an unknown source or a bad
+# signature is refused. The callback receives {job_id, op, status, artifact_id, launcher_url, verdict, error},
+# signed the same way so the receiver can verify it came from HiC.
+# =============================================================================
+import hashlib as _wh_hashlib
+import hmac as _wh_hmac
+
+_WEBHOOK_SKEW_S = 300
+# Replay protection must hold across uvicorn workers (2026-10-31 live round trip: a per-process dict let a replay that
+# landed on another worker through). One marker file per accepted signature, created with O_EXCL: exactly one worker
+# wins; markers older than twice the skew window are swept.
+_WEBHOOK_SEEN_DIR = os.path.join(os.environ.get("HIC_JOBS_DIR", "/hic-workspace/sessions/_jobs"), "_webhook_seen")
+
+
+def _webhook_first_use(sig: str) -> bool:
+    """True the first time a signature is presented (any worker), False on a replay."""
+    os.makedirs(_WEBHOOK_SEEN_DIR, exist_ok=True)
+    now = time.time()
+    try:
+        for fn in os.listdir(_WEBHOOK_SEEN_DIR):
+            fp = os.path.join(_WEBHOOK_SEEN_DIR, fn)
+            try:
+                if now - os.path.getmtime(fp) > _WEBHOOK_SKEW_S * 2:
+                    os.remove(fp)
+            except OSError:
+                pass
+    except OSError:
+        pass
+    marker = os.path.join(_WEBHOOK_SEEN_DIR, _wh_hashlib.sha256(sig.encode("utf-8")).hexdigest()[:40])
+    try:
+        fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.close(fd)
+        return True
+    except FileExistsError:
+        return False
+# .runtime is denied by nginx (only the /config.json alias is served); the containers that mount it read-only
+# already hold the stronger shared proxy token
+_WEBHOOK_SECRETS_FILE = os.path.join(_runtime_base_dir() or "/hic-workspace", ".runtime", "webhook-secrets.json")
+
+
+def _webhook_secrets() -> dict:
+    out = {}
+    for pair in os.environ.get("HIC_WEBHOOK_SECRETS", "").split(","):
+        if ":" in pair:
+            src, sec = pair.split(":", 1)
+            if src.strip() and len(sec.strip()) >= 16:
+                out[src.strip()] = sec.strip()
+    try:
+        with open(_WEBHOOK_SECRETS_FILE, "r", encoding="utf-8") as f:
+            for src, sec in ((json.load(f) or {}).get("sources") or {}).items():
+                if isinstance(sec, str) and len(sec) >= 16:
+                    out.setdefault(str(src), sec)
+    except Exception:
+        pass
+    return out
+
+
+def _webhook_sign(secret: str, timestamp: str, raw: bytes) -> str:
+    return "sha256=" + _wh_hmac.new(secret.encode("utf-8"), timestamp.encode("utf-8") + b"." + raw, _wh_hashlib.sha256).hexdigest()
+
+
+def _webhook_callback_refusal(url: str) -> Optional[str]:
+    """A callback must be http(s) to a public host, or to an internal host the owner allow-listed
+    (HIC_WEBHOOK_CALLBACK_HOSTS, e.g. agent,nxt-agency-backend): the webhook must not become an SSRF path."""
+    try:
+        from urllib.parse import urlparse as _up
+        u = _up(url)
+    except Exception:
+        return "unparseable"
+    if u.scheme not in ("http", "https") or not u.hostname:
+        return "only http(s) URLs with a host"
+    allowed = {h.strip().lower() for h in os.environ.get("HIC_WEBHOOK_CALLBACK_HOSTS", "").split(",") if h.strip()}
+    if u.hostname.lower() in allowed:
+        return None
+    try:
+        import flow_capture as _fc
+        _fc._assert_public_http(url)
+    except ValueError as e:
+        return str(e)
+    return None
+
+
+def _job_summary(st: dict) -> dict:
+    res = st.get("result") if isinstance(st.get("result"), dict) else {}
+    # the artifact engine's own verdict fields (run receipt status, degradation, model); never a re-grade here
+    verdict = {k: res.get(k) for k in ("run_status", "degraded", "model", "kind", "brand", "run_id") if res.get(k) not in (None, "")}
+    return {"job_id": st.get("job_id"), "op": st.get("op"), "status": st.get("status"),
+            "artifact_id": res.get("artifact_id") or res.get("artifactId"), "launcher_url": res.get("launcher_url"),
+            "verdict": verdict or None,
+            "error": (st.get("error") or res.get("error")) if st.get("status") != "done" else None,
+            "finished_at": st.get("finished_at")}
+
+
+async def _job_callback_watch(job_id: str, callback_url: str, source: str, secret: str, max_wait_s: float = 7200.0) -> None:
+    """Poll the job until it ends, then POST its summary to the callback (signed when the source has a secret)."""
+    import httpx as _wh_httpx
+    deadline = time.time() + max_wait_s
+    st: dict = {}
+    while time.time() < deadline:
+        st = _job_read(job_id) or {}
+        dead = _job_interrupted_state(st) if st else None
+        if dead:
+            st = dead
+        if st.get("status") in ("done", "error", "interrupted", "failed"):
+            break
+        await asyncio.sleep(3)
+    summary = _job_summary(st or {"job_id": job_id, "status": "timeout"})
+    raw = json.dumps(summary).encode("utf-8")
+    ts = str(int(time.time()))
+    headers = {"Content-Type": "application/json", "X-HiC-Source": "hic", "X-HiC-Timestamp": ts}
+    if secret:
+        headers["X-HiC-Signature"] = _webhook_sign(secret, ts, raw)
+    stage = "callback_ok"
+    try:
+        async with _wh_httpx.AsyncClient(timeout=20.0) as client:
+            r = await client.post(callback_url, content=raw, headers=headers)
+        if r.status_code >= 300:
+            stage = f"callback_http_{r.status_code}"
+    except Exception as e:
+        stage = "callback_failed"
+        logger.warning(f"[webhook] callback for {job_id} failed: {e}")
+    _telemetry_event("webhook", {"stage": stage, "source": source, "job_id": job_id, "op": summary.get("op"), "status": summary.get("status")})
+
+
+@app.post("/api/webhooks/run")
+async def webhook_run(request: Request):
+    secrets = _webhook_secrets()
+    if not secrets:
+        return JSONResponse({"detail": "Not Found"}, status_code=404)       # no secret, no endpoint
+    raw = await request.body()
+    source = request.headers.get("x-hic-source", "").strip()
+    ts = request.headers.get("x-hic-timestamp", "").strip()
+    sig = request.headers.get("x-hic-signature", "").strip()
+    secret = secrets.get(source)
+    if not secret or not ts or not sig:
+        return JSONResponse({"error": "unknown source or unsigned request"}, status_code=401)
+    try:
+        skew = abs(time.time() - int(ts))
+    except ValueError:
+        return JSONResponse({"error": "bad timestamp"}, status_code=401)
+    if skew > _WEBHOOK_SKEW_S:
+        return JSONResponse({"error": "request too old"}, status_code=401)
+    if not _wh_hmac.compare_digest(sig, _webhook_sign(secret, ts, raw)):
+        return JSONResponse({"error": "bad signature"}, status_code=401)
+    if not _webhook_first_use(sig):
+        return JSONResponse({"error": "replayed request"}, status_code=409)
+    try:
+        payload = json.loads(raw.decode("utf-8") or "{}")
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    op = str(payload.get("op") or "")
+    body = payload.get("body") if isinstance(payload.get("body"), dict) else None
+    if op not in _JOB_OPS or body is None:
+        return JSONResponse({"error": f"op must be one of {sorted(_JOB_OPS)} and body an object"}, status_code=400)
+    callback = str(payload.get("callback_url") or "").strip()
+    if callback:
+        why = _webhook_callback_refusal(callback)
+        if why:
+            return JSONResponse({"error": f"callback_url refused: {why}"}, status_code=400)
+    job_id = _queue_job(op, body, {"source": f"webhook:{source}", **({"callback_url": callback} if callback else {})})
+    if callback:
+        asyncio.create_task(_job_callback_watch(job_id, callback, source=source, secret=secret))
+    _telemetry_event("webhook", {"stage": "accepted", "source": source, "job_id": job_id, "op": op})
+    logger.info(f"[webhook] {source} queued {op} as {job_id}{' with a callback' if callback else ''}")
+    return {"job_id": job_id, "status": "queued", "op": op, "callback": bool(callback)}
 
 
 @app.get("/api/jobs/{job_id}")
@@ -23823,7 +27657,44 @@ async def jobs_status(job_id: str = Path(...)):
     st = _job_read(job_id)
     if not st:
         return JSONResponse({"error": "unknown job"}, status_code=404)
+    dead = _job_interrupted_state(st)
+    if dead:
+        logger.warning(f"[jobs] {job_id} ({st.get('op')}) has no heartbeat for {_JOB_STALE_S}s+; marking interrupted")
+        _job_write(job_id, dead)
+        return dead
     return st
+
+
+@app.get("/api/jobs")
+async def jobs_running():
+    """Jobs still running right now (heartbeat fresh). The pre-rebuild idle check reads this: a rebuild or
+    restart while this list is non-empty kills a user's generation.
+
+    2026-10-31 (agent-stack plan, fifth pass; named by the loop-stall watchdog): this read and parsed every job file
+    on the event loop, 791 files and 55 MB, 2.9 s per call. A running job's heartbeat rewrites its file every
+    _JOB_HEARTBEAT_S, so a file untouched for longer than _JOB_STALE_S (plus clock slack) cannot hold a fresh beat
+    and is skipped unread; the scan runs in a thread because even a stat of every file costs 1.4 s on this mount."""
+    return {"running": await asyncio.to_thread(_jobs_running_sync)}
+
+
+def _jobs_running_sync() -> list:
+    out = []
+    try:
+        names = [n for n in os.listdir(_JOBS_DIR) if n.endswith(".json")]
+    except Exception:
+        names = []
+    cutoff = time.time() - (_JOB_STALE_S + 30)
+    for n in names:
+        try:
+            if os.path.getmtime(os.path.join(_JOBS_DIR, n)) < cutoff:
+                continue
+        except OSError:
+            continue
+        st = _job_read(n[:-5])
+        if st and st.get("status") in ("running", "queued") and not _job_interrupted_state(st):
+            out.append({"job_id": st.get("job_id"), "op": st.get("op"), "started_at": st.get("started_at"),
+                        "age_s": round(time.time() - float(st.get("started_epoch") or time.time()))})
+    return out
 
 
 @app.post("/api/artifact/generate")
@@ -24264,7 +28135,7 @@ async def artifact_view(artifact_id: str):
         if os.path.exists(path):
             try:
                 with open(path, "r", encoding="utf-8") as f:
-                    return HTMLResponse(content=_inject_a11y_overrides(f.read()))
+                    return _generated_content_response(_inject_a11y_overrides(f.read()))
             except Exception as e:
                 return JSONResponse({"error": str(e)}, status_code=500)
     return JSONResponse({"error": f"artifact {artifact_id} not found"}, status_code=404)
@@ -24353,6 +28224,11 @@ async def audit_capture_url(payload: dict):
     viewports = payload.get("viewports")
     if viewports is not None and not isinstance(viewports, list):
         return JSONResponse({"error": "viewports must be a list"}, status_code=400)
+    try:
+        import flow_capture as _fc
+        _fc._assert_public_http(url)  # WS-0 S4 (2026-10-30): no SSRF into the Docker network
+    except ValueError as e:
+        return JSONResponse({"error": f"url refused: {e}"}, status_code=400)
     try:
         import asyncio as _aio
         import audit_capture as _ac

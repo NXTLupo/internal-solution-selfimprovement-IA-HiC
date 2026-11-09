@@ -11,26 +11,18 @@ score: 2
 upvote_ratio: 1
 num_comments: 7
 flair: "Resume"
-extracted_at: "2026-05-23T14:53:57.170Z"
+extracted_at: "2026-10-01T20:49:41.908Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce, enterprise_it]
-industry_method: llm
+research_goal: "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility."
+engagement: "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c0"
-    char_span: [0, 1660]
+    char_span: [0, 1844]
     sentence_count: 2
-    key_terms: [full-stack, system, microservices, built, internships, tech, attendance, internship]
-    concepts: [full-stack, system, microservices, internships, attendance]
-    token_count: 420
-    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sybcd1/is_the_market_that_brutal_3rd_year_fullstack_dev/"}]
-  - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c1"
-    char_span: [1674, 3038]
-    sentence_count: 6
-    key_terms: [metrics, resume, get, real, projects, channel, strong, point]
-    concepts: [metrics, resume, projects, channel, strong]
-    section: Comments
-    token_count: 349
+    key_terms: [full-stack, system, internships, microservices, built, tech, attendance, internship]
+    concepts: [full-stack, system, internships, microservices, attendance]
+    token_count: 478
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1sybcd1/is_the_market_that_brutal_3rd_year_fullstack_dev/","kind":"social-post","date":"2026-04-28","author":"Inevitable_Tiger_132","subreddit":"internships"}]
 ---
 # Is the market that brutal ? 3rd Year Full-Stack Dev  | Built Microservices Projects
 
@@ -76,12 +68,5 @@ I’ve been working on **full-stack and microservices-based applications**, with
 
 ## Comments
 
-- **robertisaak** (3↑): The market's bad but the channel is the bigger issue. Cold apps got destroyed by AI apply spam and even strong full stack folks vanish in the resume pile. Nepternship, Boardy, and Series So focus on warm intros which is what's actually converting right now.
-- **chocolate_asshole** (1↑): you’ve got solid stuff, but yeah it’s rough right now. send 100+ apps, tailor resume to jd, add real metrics to projects. network with seniors, discord, linkedin. it’s just stupid hard to get anything now
-  - **Inevitable_Tiger_132** (1↑): Appreciate your feedback but that username  😭 . I didnt get your "real metrics" part. Can you elaborate ?
-    - **Ambitious-Dog3177** (1↑): Real metrics means, for instance I made a app with react then changed it to angular, in resume add a bullet point showing how much did the performance improve what are load time improvement. 
-
-Ofc this is just an example look for these type of points specific to that projects.
 - **Fun_Awareness1404** (1↑): In this group i get updates of jobs and internships and i am also applying from here 
 https://whatsapp.com/channel/0029Vb7SvIO5fM5haDTyvM1p
-- **tanvi_goyar_** (1↑): ngl your profile is strong compared to others at this point The market is difficult but this is more about positioning than ability You have to present your work in a way that shows its effectiveness

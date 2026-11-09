@@ -1,10 +1,16 @@
 ---
 name: service-log-triage
+description: Run the 15-symptom HiC log-audit checklist against a named Docker service's logs and map each hit to the validator hook that catches it. Use when a chat is slow, a generator fails, a stage returns empty or a 400 or 500 shows up.
 invocation: model
-description: Runs the 15-symptom HiC log-audit checklist against a named Docker service's logs and maps each hit to its validator hook. Use when the user reports "the chat is slow", "the generator failed", "something feels off", "the proxy is throwing errors", or after a stage of the HiC pipeline produces a refusal, an empty output, or a 400/500 surfaces in DevTools. Reads docker compose logs for the named service, scans for the 15 known failure patterns from feedback_hic_log_audit_pattern.md, and emits a structured triage report mapping each hit to the validator hook that catches it. Works for hic-research, research-proxy, agent, launchpad, social-research-backend, journey-mapper, copilot-recipe-generator, and any other container in docker-compose-all.yml.
+version: "1.0"
+status: active
 ---
 
 # HiC Service Log Triage
+
+## Scope
+
+Runs the 15-symptom HiC log-audit checklist against a named Docker service's logs and maps each hit to its validator hook. Use when the user reports "the chat is slow", "the generator failed", "something feels off", "the proxy is throwing errors", or after a stage of the HiC pipeline produces a refusal, an empty output, or a 400/500 surfaces in DevTools. Reads docker compose logs for the named service, scans for the 15 known failure patterns from feedback_hic_log_audit_pattern.md, and emits a structured triage report mapping each hit to the validator hook that catches it. Works for hic-research, research-proxy, agent, launchpad, social-research-backend, journey-mapper, copilot-recipe-generator, and any other container in docker-compose-all.yml.
 
 The user's stated symptom is rarely the root cause. The HiC pipeline has 15
 known failure patterns documented in

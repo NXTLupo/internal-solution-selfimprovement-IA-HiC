@@ -16,31 +16,34 @@ collected_at: "2026-07-02T17:50:22+00:00"
 content_hash: "886af108d33317c4"
 chunks:
   - id: "articles/agr-agfundernews/ebfd6d156b.md#c0"
-    char_span: [0, 273]
+    char_span: [0, 272]
     sentence_count: 1
     key_terms: [ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture, agfundernews, fermentation, illuminated, turbocharge, culture, brevel, source]
-    token_count: 84
-    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture"}]
+    token_count: 83
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfundernews/ebfd6d156b.md#c1"
-    char_span: [275, 2727]
+    char_span: [274, 2726]
     sentence_count: 8
     key_terms: [cell, plant, light, fermentation, production, using, culture, brevel]
     concepts: [plant, light, fermentation, production, using]
     token_count: 512
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfundernews/ebfd6d156b.md#c2"
-    char_span: [2408, 4945]
+    char_span: [2407, 4944]
     sentence_count: 7
     key_terms: [commercial, scale, plant, tanks, cell, achieve, ingredients, thousands]
     concepts: [commercial, scale, plant, tanks, ingredients]
     related_chunks: ["articles/agr-agfundernews/ebfd6d156b.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfundernews/ebfd6d156b.md#c3"
-    char_span: [4590, 7103]
+    char_span: [4589, 7102]
     sentence_count: 9
     key_terms: [plant, culture, cell, plants, commercial, supply, increasingly, scale]
     concepts: [plant, culture, plants, commercial, increasingly]
     related_chunks: ["articles/agr-agfundernews/ebfd6d156b.md#c2"]
     token_count: 471
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/ayana-bio-and-brevel-net-1-25m-grant-to-see-if-illuminated-fermentation-can-turbocharge-plant-cell-culture","kind":"article","date":"2026-06-04"}]
 ---
 # Ayana Bio and Brevel net $1.25m grant to see if ‘illuminated fermentation’ can turbocharge plant cell culture
 

@@ -94,8 +94,11 @@ async function readEngagementThemes(proxyBase: string, slug: string): Promise<En
         const themes = Array.isArray(parsed) ? parsed
             : Array.isArray(parsed?.themes) ? parsed.themes
             : Array.isArray(parsed?.result?.themes) ? parsed.result.themes
+            // 2026-10-05: the persisted engagement shape is { data: { themes } }; reading only the older shapes made
+            // #meta-themes scan 0 engagements ("ENGAGEMENTS SCANNED 0").
+            : Array.isArray(parsed?.data?.themes) ? parsed.data.themes
             : [];
-        const researchGoal = parsed?.research_goal || parsed?.goal || parsed?.result?.research_goal;
+        const researchGoal = parsed?.research_goal || parsed?.goal || parsed?.result?.research_goal || parsed?.data?.researchGoal || parsed?.data?.research_goal;
         return {
             slug,
             themes: themes.map((t: any) => ({
@@ -324,9 +327,13 @@ export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
             // content-true or nothing: skip the generic fallback star (meaningless decoration)
             if (g?.dataUri && isContentTrueIcon(g.resolvedBy)) glyphImg = `<img class="mt-glyph" src="${g.dataUri}" alt=""/>`;
         } catch { /* fail-open: card renders without a mark */ }
-        const slugChips = t.engagements.slice(0, 8).map(e =>
-            `<span class="mt-engagement-chip">${escapeHtml(e.slug)}</span>`
-        ).join('');
+        // 2026-10-05 live: the same engagement repeated and the chips read as one run-on slug string. One chip per
+        // engagement, a readable name (its research goal when known), separated.
+        const uniq = Array.from(new Map(t.engagements.map(e => [e.slug, e] as const)).values());
+        const slugChips = uniq.slice(0, 8).map(e => {
+            const label = String(e.research_goal || e.slug.replace(/-/g, ' ')).replace(/\s+/g, ' ').trim();
+            return `<span class="mt-engagement-chip" title="${escapeHtml(e.slug)}">${escapeHtml(label.length > 64 ? `${label.slice(0, 61).replace(/\s+\S*$/, '')}...` : label)}</span>`;
+        }).join(' ');
         return `
         <div class="mt-theme ${t.is_platform_pattern ? 'platform' : ''}">
           <div class="mt-theme-header">

@@ -324,6 +324,88 @@ function norm(s: string): string { return String(s || '').toLowerCase().trim().r
 export interface ResolveResult { id: string; by: 'exact' | 'alias' | 'tag' | 'concept' | 'industry-fallback' | 'default'; }
 /** Resolve a taxonomy concept to a base glyph id. Chain: exact id > baseGlyph alias > baseGlyph
  *  tag-match > concept/synonym match > industry signature > 'insight'. Deterministic. */
+/**
+ * 2026-10-26 (live: org-model drew 0 of 3 icons for "Students / Advisors / Employers": no base carried the everyday
+ * role nouns, so every audience fell to the generic default mark the content-true gate refuses). A short concept that
+ * names a role or audience resolves to the glyph for that role. Order is priority.
+ */
+const ROLE_ICONS: Array<[RegExp, string]> = [
+    [/\b(students?|learners?|first[- ]?years?|freshm[ae]n|undergraduates?|alumni)\b/, 'higher-ed:cap'],
+    // "agents" is left out: in software decks it means AI agents (run 42: "Agents build on isolated branches" got an ID badge)
+    [/\b(advisors?|advisers?|counsell?ors?|coach(?:es)?|mentors?|faculty|staff|employees?|caseworkers?)\b/, 'workforce:badge'],
+    [/\b(employers?|compan(?:y|ies)|hiring managers?|recruiters?|businesses|organi[sz]ations?)\b/, 'workforce:org'],
+    [/\b(partners?|vendors?|suppliers?)\b/, 'partnership'],
+    [/\b(clients?|customers?|patients?|members?|buyers?|shoppers?)\b/, 'customer'],
+    [/\b(teams?|squads?|pods?)\b/, 'team'],
+    [/\b(users?|audiences?|stakeholders?|people|population)\b/, 'people'],
+];
+/** Tags that are homonyms in client language and never count as a concept match (2026-10-26 live: "Experiential
+ *  Learning staff" and "one guided hub" resolved to the machine-learning "supervised" glyph). */
+const CONCEPT_TAG_DENY: Record<string, string[]> = { supervised: ['learning', 'guided'] };
+
+/**
+ * 2026-10-27 (run 43: no card row in a 25-slide deck carried icons; "Diagnose", "Outcome pricing" and "Agents build in
+ * isolated branches" fell to the default mark): the business acts and objects the content tags miss, each to the glyph
+ * for that act. Stems match the inflections a card title uses (branches, ships, prioritize).
+ */
+const ACTION_ICONS: Array<[RegExp, string]> = [
+    [/\b(diagnos\w*|assess\w*|audit\w*|baselin\w*|discover\w*|investigat\w*|research\w*)\b/, 'search'],
+    [/\b(pric\w*|fees?|billing|bill(?:s|ed)?|invoic\w*|revenue|margins?|budget\w*|payroll)\b/, 'cost'],
+    [/\b(weeks?|weekly|months?|monthly|quarters?|days?|faster|speed|deadlines?)\b/, 'time'],
+    [/\b(ship(?:s|ped|ping)?|launch\w*|releas\w*|deliver\w*|go[- ]live)\b/, 'milestone'],
+    // "senior" describes the actor, not the act (run 45: "Senior leads set rules" took the skill badge over governance)
+    [/\b(expert\w*|know[- ]how|knowledge|judg(?:e)?ments?|skills?|craft)\b/, 'workforce:skill'],
+    [/\b(build\w*|implement\w*|develop\w*|construct\w*|embed\w*)\b/, 'scale'],
+    [/\b(review\w*|approv\w*|sign[- ]offs?|validat\w*|verif\w*|checks?|gat(?:e|es|ed|ing))\b/, 'compliance'],
+    [/\b(outcomes?|results?)\b/, 'target'],
+    [/\b(prioriti\w*|rank\w*)\b/, 'priority'],
+    [/\b(expand\w*|grow\w*)\b/, 'growth'],
+    [/\b(rules?|standards?|constraints?|guardrails?)\b/, 'governance'],
+    [/\b(software|code|apps?|tools?|accelerators?)\b/, 'automation'],
+    [/\b(branch\w*|isolat\w*|sandbox\w*)\b/, 'decision'],
+    [/\b(design\w*|architect\w*|blueprints?|wireframes?)\b/, 'prototype'],
+    [/\b(agenc(?:y|ies)|firms?|consultanc(?:y|ies))\b/, 'workforce:org'],
+    [/\b(contracts?|sows?|agreements?|renewals?)\b/, 'contract'],
+    [/\b(pipelines?|proposals?)\b/, 'funnel'],
+];
+
+/**
+ * Every content-true base id a short card concept names, earliest mention first: role nouns, business acts, then the
+ * content tags (plural and verb endings included). Never the default mark or an industry fallback, so an empty list
+ * means the text names nothing a glyph can stand for. A row of sibling cards picks distinct ids from these lists.
+ */
+export function candidateBaseIds(concept: string, industry?: string): string[] {
+    // the house brand's own name is the deck's subject on every card, never a glyph concept (run 45: "NXT Humans prices
+    // and ships the outcome" took the human-handoff glyph)
+    const words = norm(concept || '').replace(/-/g, ' ').replace(/\bnxt\s+humans\b|\bnxt\b/g, ' ');
+    if (!words.trim()) return [];
+    const found: Array<{ id: string; at: number; i: number }> = [];
+    const add = (id: string, at: number) => { if (at >= 0 && ICONS[id]) found.push({ id, at, i: found.length }); };
+    const first = (re: RegExp) => { const m = re.exec(words); return m ? m.index : -1; };
+    // 2026-10-27 (run 44: "Clients get working software in weeks" took the customer glyph, "Agency methods ship as
+    // software tools" the org chart): a card title's subject is usually an actor, its meaning the act or object, so role
+    // nouns rank after every act and tag (a bare role name like "Students" still resolves to its role).
+    const roles: Array<{ id: string; at: number }> = [];
+    const roleIds = new Set(ROLE_ICONS.map(([, id]) => id));
+    if (words.trim().split(/\s+/).length <= 7) for (const [re, id] of ROLE_ICONS) { const at = first(re); if (at >= 0 && ICONS[id]) roles.push({ id, at }); }
+    for (const [re, id] of ACTION_ICONS) { const at = first(re); if (at >= 0 && roleIds.has(id)) { if (ICONS[id]) roles.push({ id, at }); } else add(id, at); }
+    const tagAt = (t: string) => first(new RegExp(`\\b${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:s|es|d|ed|ing)?\\b`));
+    // a tag under four letters ("get", "new") matches filler words; only known acronyms count at that length
+    const SHORT_TAGS = new Set(['ai', 'ml', 'api', 'kpi', 'sla', 'etl', 'llm', 'crm', 'erp', 'roi', 'faq', 'sso', 'pii']);
+    const byTags = (id: string, tags: string[]) => {
+        const hits = tags.filter(t => !(CONCEPT_TAG_DENY[id] || []).includes(t) && (t.length >= 4 || SHORT_TAGS.has(t))).map(tagAt).filter(x => x >= 0);
+        if (!hits.length) return;
+        // an actor glyph matched through a content tag ("client") ranks with the roles
+        if (roleIds.has(id)) roles.push({ id, at: Math.min(...hits) }); else add(id, Math.min(...hits));
+    };
+    for (const id of Object.keys(CONTENT_POOL)) byTags(id, CONTENT_POOL[id].tags);
+    for (const id of industrySignatures(industry)) byTags(id, INDUSTRY[id].tags);
+    const out: string[] = [];
+    for (const f of found.sort((a, b) => a.at - b.at || a.i - b.i)) if (!out.includes(f.id)) out.push(f.id);
+    for (const r of roles.sort((a, b) => a.at - b.at)) if (!out.includes(r.id)) out.push(r.id);
+    return out;
+}
+
 export function resolveBaseId(o: { concept?: string; baseGlyph?: string; synonyms?: string[]; industry?: string }): ResolveResult {
     const bg = norm(o.baseGlyph || '');
     if (bg && ICONS[bg]) return { id: bg, by: 'exact' };
@@ -333,8 +415,12 @@ export function resolveBaseId(o: { concept?: string; baseGlyph?: string; synonym
     // concept / synonyms keyword match
     const words = [norm(o.concept || '').replace(/-/g, ' '), ...(o.synonyms || []).map(norm)].join(' ');
     if (words.trim()) {
+        // a name up to seven words ("Co-op advisors and Experiential Learning staff") is still a role name, not a sentence
+        if (words.trim().split(/\s+/).length <= 7) {
+            for (const [re, id] of ROLE_ICONS) if (re.test(words) && ICONS[id]) return { id, by: 'concept' };
+        }
         const hit = (t: string) => new RegExp(`\\b${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(words);
-        for (const id of Object.keys(CONTENT_POOL)) if (CONTENT_POOL[id].tags.some(hit)) return { id, by: 'concept' };
+        for (const id of Object.keys(CONTENT_POOL)) if (CONTENT_POOL[id].tags.filter(t => !(CONCEPT_TAG_DENY[id] || []).includes(t)).some(hit)) return { id, by: 'concept' };
         for (const id of industrySignatures(o.industry)) if (INDUSTRY[id].tags.some(hit)) return { id, by: 'concept' };
     }
     const sigs = industrySignatures(o.industry);

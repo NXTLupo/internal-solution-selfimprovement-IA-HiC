@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:15:25+00:00"
 content_hash: "f4703b12c6a2decc"
 chunks:
   - id: "articles/federal-register/ac8ad32eb4.md#c0"
-    char_span: [0, 733]
+    char_span: [0, 732]
     sentence_count: 2
     key_terms: [commodity, form, commission, compliance, reporting, advisers, further, trading]
     concepts: [commodity, commission, compliance, reporting, advisers]
-    token_count: 167
-    sources: [{"n":"[Federal Register](hic://pack-backfill/federal_register/9194384005997656289","u":""}]
+    token_count: 166
+    sources: [{"n":"Federal Register","u":"","kind":"article","date":"2025-06-16"}]
 ---
 # Form PF; Reporting Requirements for All Filers and Large Hedge Fund Advisers; Further Extension of Compliance Date
 

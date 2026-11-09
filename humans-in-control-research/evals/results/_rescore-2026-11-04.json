@@ -1,0 +1,82 @@
+{
+  "started_at": "2026-11-04T16:31:02.996242Z",
+  "finished_at": "2026-11-04T16:31:35.009444Z",
+  "window_hours": 24.0,
+  "artifacts": 4,
+  "failures": 4,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "slides-slides_1793746762186",
+      "hook-roadmap-1793809894",
+      "hook-brief-1793809894",
+      "hook-persona-1793809894",
+      "hook-gap-analysis-1793809894",
+      "hook-case-study-1793809894",
+      "hook-recommendation-1793809894",
+      "hook-strategy-1793809894",
+      "auditor-mindmap-1793809894",
+      "auditor-brief-1793809894",
+      "auditor-deep-research-1793809894",
+      "auditor-meta-themes-1793809894"
+    ],
+    "skipped_existing": 207,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 784,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": [
+    {
+      "artifact_id": "slides_1793733775667",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793733775720_oyk8li",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_65ihwy",
+        "evidence:unsupported_p0@slide_1793733775720_nwaejy",
+        "evidence:unsupported_p0@slide_1793733775722_nzl98v"
+      ]
+    },
+    {
+      "artifact_id": "flashcards_1793735006809",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "flashcards",
+      "failures": [
+        "claim:INDEPENDENCE_INFLATED@r17"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793735955307",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793735955347_z0j9n8"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793746762186",
+      "run_id": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793746762240_euyxsy",
+        "title:too_long@slide_1793746762239_hz7nvz",
+        "title:too_long@slide_1793746762239_ut7g0u",
+        "title:too_long@slide_1793746762240_euyxsy",
+        "slop:in a world where"
+      ]
+    }
+  ]
+}

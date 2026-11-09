@@ -16,31 +16,34 @@ collected_at: "2026-07-02T18:05:08+00:00"
 content_hash: "cdcfd5cf7d6caa2c"
 chunks:
   - id: "articles/nist-ai/dd1dc41f0d.md#c0"
-    char_span: [0, 268]
+    char_span: [0, 267]
     sentence_count: 1
     key_terms: [shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation, news-events, timekeeping, ultrastable, navigation, precision, shooting, craters]
-    token_count: 68
-    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/05/shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation"}]
+    token_count: 67
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/05/shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation","kind":"article","date":"2026-05-18"}]
   - id: "articles/nist-ai/dd1dc41f0d.md#c1"
-    char_span: [270, 2993]
+    char_span: [269, 2992]
     sentence_count: 14
     key_terms: [cavity, optical, laser, lunar, frequencies, temperature, distance, craters]
     concepts: [cavity, optical, frequencies, temperature, laser]
     related_chunks: ["articles/nist-ai/dd1dc41f0d.md#c2"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/05/shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation","kind":"article","date":"2026-05-18"}]
   - id: "articles/nist-ai/dd1dc41f0d.md#c2"
-    char_span: [2641, 5275]
+    char_span: [2640, 5274]
     sentence_count: 12
     key_terms: [laser, lunar, colleagues, optical, permanently, cavity, light, precision]
     concepts: [laser, colleagues, lunar, permanently, optical]
     related_chunks: ["articles/nist-ai/dd1dc41f0d.md#c1"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/05/shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation","kind":"article","date":"2026-05-18"}]
   - id: "articles/nist-ai/dd1dc41f0d.md#c3"
-    char_span: [4923, 6557]
+    char_span: [4922, 6556]
     sentence_count: 14
     key_terms: [lunar, moon, cavity, silicon, zhang, astronauts, co-author, precision]
     concepts: [lunar, cavity, silicon, astronauts, zhang]
     token_count: 342
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2026/05/shooting-moon-ultrastable-lasers-dark-craters-could-enable-lunar-navigation","kind":"article","date":"2026-05-18"}]
 ---
 # Shooting for the Moon: Ultrastable Lasers in Dark Craters Could Enable Lunar Navigation, Precision Timekeeping, New Science
 

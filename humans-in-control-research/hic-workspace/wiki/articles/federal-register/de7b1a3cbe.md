@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:00:03+00:00"
 content_hash: "ffecf79cee570411"
 chunks:
   - id: "articles/federal-register/de7b1a3cbe.md#c0"
-    char_span: [0, 1496]
+    char_span: [0, 1495]
     sentence_count: 5
     key_terms: [organizations, regulatory, capital, banking, proposal, approach, risk-based, federal]
     concepts: [organizations, regulatory, capital, banking, proposal]
-    token_count: 248
-    sources: [{"n":"[Federal Register](hic://pack-backfill/federal_register/8196167114834336580","u":""}]
+    token_count: 247
+    sources: [{"n":"Federal Register","u":"","kind":"article","date":"2026-03-27"}]
 ---
 # Regulatory Capital Rules: Regulatory Capital and Standardized Approach for Risk-Weighted Assets
 

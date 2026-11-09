@@ -26,6 +26,9 @@ import zipfile
 import pytest
 
 _PROXY_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# The SPA tree these checks compare against: next to the proxy on a host checkout; inside the proxy container the
+# compose file mounts the two directories read-only at HIC_SPA_ROOT (2026-10-31).
+_SPA_ROOT = os.environ.get("HIC_SPA_ROOT") or os.path.join(_PROXY_DIR, "..")
 if _PROXY_DIR not in sys.path:
     sys.path.insert(0, _PROXY_DIR)
 
@@ -154,7 +157,7 @@ def _bytes_for(name: str, given):
 def test_upload_accept_list_matches_the_types_tested_here():
     """The SPA's single accepted-type list (ChatAttachmentDropzone.ACCEPTED_EXTS, also
     used by the research-start FileUpload) is fully covered by this test's fixtures."""
-    src = open(os.path.join(_PROXY_DIR, "..", "components", "ChatAttachmentDropzone.tsx"), encoding="utf-8").read()
+    src = open(os.path.join(_SPA_ROOT, "components", "ChatAttachmentDropzone.tsx"), encoding="utf-8").read()
     import re
     m = re.search(r"export const ACCEPTED_EXTS = '([^']+)'", src)
     assert m, "ACCEPTED_EXTS must be exported (one list for both entry points)"
@@ -162,7 +165,7 @@ def test_upload_accept_list_matches_the_types_tested_here():
     tested = {n.rsplit(".", 1)[-1] for n in ACCEPTED_DOC_TYPES}
     image_exts = {"png", "jpg", "jpeg", "gif", "webp", "bmp"}
     assert accepted - image_exts <= tested, f"untested accepted types: {sorted(accepted - image_exts - tested)}"
-    fu = open(os.path.join(_PROXY_DIR, "..", "components", "FileUpload.tsx"), encoding="utf-8").read()
+    fu = open(os.path.join(_SPA_ROOT, "components", "FileUpload.tsx"), encoding="utf-8").read()
     assert "UPLOAD_ACCEPT = ACCEPTED_EXTS" in fu, "research-start upload must accept the same list as chat attach"
 
 
@@ -308,7 +311,7 @@ def test_no_engagement_literals_in_non_test_ingestion_code():
     """Generalization guard: the shared ingestion / hygiene code names no client,
     engagement slug or wiki page id."""
     import re
-    root = os.path.join(_PROXY_DIR, "..")
+    root = _SPA_ROOT
     files = [os.path.join(_PROXY_DIR, "evidence_hygiene.py")] + [
         os.path.join(root, p) for p in ("services/chunkRetrieval.ts", "components/FileUpload.tsx", "components/ChatAttachmentDropzone.tsx")]
     banned = re.compile(r"northeastern|\bNU\b|chris|boland|sow01\d|[0-9a-f]{10}\.md|generate-a-comprehensive", re.I)

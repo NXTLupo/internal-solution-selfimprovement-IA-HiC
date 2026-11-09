@@ -9,14 +9,14 @@ author: ""
 date: ""
 tier: 3
 method: "cached"
-extracted_at: "2026-06-12T21:47:46.509345+00:00"
+extracted_at: "2026-10-01T21:00:36.637221+00:00"
 chars: 3839
-engagement: "analyze-emerging-2026-experiential-learning-trends-in-higher"
-collected_at: "2026-06-12T21:47:46.478Z"
-relevance: 70
-engagement_goal: "Analyze emerging 2026 experiential learning trends in higher education to provide actionable optimization strategies for Northeastern University's co-op placement model, focusing on employer integration, hybrid work structures, and evolving skill-matching technologies."
+engagement: "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+collected_at: "2026-10-01T21:00:36.996Z"
+relevance: 15
+engagement_goal: "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility."
 content_hash: "5cb17a4c043e9068"
-relevance_by_goal: {"3d9ef8ee927f":70}
+relevance_by_goal: {"3d9ef8ee927f":70,"3c5a90385ab5":15}
 chunks:
   - id: "articles/reddit-deep-r-internships/68fbf0deb5.md#c0"
     char_span: [0, 1857]
@@ -24,13 +24,14 @@ chunks:
     key_terms: [email, rates, reply, open, internships, emails, students, words]
     concepts: [email, rates, reply, internships, emails]
     token_count: 501
-    sources: [{"n":"[Reddit Deep: r/internships](articles/reddit-deep-r-internships/b4f2dfa2e3.md","u":""}]
+    sources: [{"n":"Reddit Deep: r/internships","u":"","kind":"article","subreddit":"internships"}]
   - id: "articles/reddit-deep-r-internships/68fbf0deb5.md#c1"
     char_span: [1859, 4018]
     sentence_count: 13
     key_terms: [vandan-karakasia, cold-email-data-study-students-2026, email, giphy, methodology, gif, like, internship]
     concepts: [vandan-karakasia, methodology, email, giphy, internship]
     token_count: 511
+    sources: [{"n":"Reddit Deep: r/internships","u":"","kind":"article","subreddit":"internships"}]
 ---
 # We analysed 6,337 cold emails students sent for internships. Here's what works in 2026
 

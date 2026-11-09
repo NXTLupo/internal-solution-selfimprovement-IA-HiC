@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:21:14+00:00"
 content_hash: "1c9b373a190979d9"
 chunks:
   - id: "articles/arxiv-cs-ro/27aeb8ee3a.md#c0"
-    char_span: [0, 648]
+    char_span: [0, 647]
     sentence_count: 3
     key_terms: [geopolitical, development, autonomous, research, weapons, risks, superintelligent, comparatively]
     concepts: [geopolitical, development, autonomous, research, weapons]
-    token_count: 129
-    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2405.01859v2"}]
+    token_count: 128
+    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2405.01859v2","kind":"article","date":"2024-05-03"}]
 ---
 # AI-Powered Autonomous Weapons Risk Geopolitical Instability and Threaten AI Research
 

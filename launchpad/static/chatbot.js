@@ -71,6 +71,9 @@ class ChatbotWidget {
           <div class="chat-header-title">NXT Intelligence Agent</div>
         </div>
         <div class="chat-header-actions">
+          <button class="chat-header-button threads-button" aria-label="Threads" title="Threads (every coordinator thread, with where it runs)">
+            <i class="fa-solid fa-list"></i>
+          </button>
           <button class="chat-header-button minimize-button" aria-label="Minimize chat">
             <i class="fa-solid fa-minus"></i>
           </button>
@@ -109,6 +112,7 @@ class ChatbotWidget {
     this.sendButton = widget.querySelector('.chat-send-button');
     this.minimizeButton = widget.querySelector('.minimize-button');
     this.closeButton = widget.querySelector('.close-button');
+    this.threadsButton = widget.querySelector('.threads-button');
     this.fileInput = widget.querySelector('.file-input');
     console.log('ChatbotWidget DOM elements created');
   }
@@ -147,6 +151,14 @@ class ChatbotWidget {
       console.log('Close button clicked');
       this.closeChat();
     });
+
+    // 2026-10-31 (agent-stack plan D1): the thread list
+    if (this.threadsButton) {
+      this.threadsButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleThreads();
+      });
+    }
     
     // Send message
     this.sendButton.addEventListener('click', () => {
@@ -453,6 +465,15 @@ class ChatbotWidget {
       this.sendButton.disabled = false;
       this._inferenceStart = null;
     }
+    else if (type === 'review_required') {
+      // D4: an outbound computer-use action is paused for the human
+      this.addReviewCard(data);
+    }
+    else if (type === 'routed') {
+      // D1: the coordinator moved this ask to the thread that owns its job or engagement
+      if (data.thread_id) this.conversationId = data.thread_id;
+      this.addMessage('system', data.content || `Continuing in thread ${data.title || data.thread_id}`);
+    }
     else if (type === 'pong') {
       // Keepalive response, ignore
     }
@@ -463,6 +484,114 @@ class ChatbotWidget {
    * @param {string} base64Data - Base64-encoded PNG image data
    * @param {string} url - The URL the screenshot was taken from
    */
+  // ===========================================================================
+  // 2026-10-31 (agent-stack plan WS-D D1/D4): threads and reviews
+  // ===========================================================================
+
+  /** The ONE thread registry (platform agent), newest first, each with its location marker. */
+  async toggleThreads() {
+    if (this._threadsPanel) {
+      this._threadsPanel.remove();
+      this._threadsPanel = null;
+      return;
+    }
+    const panel = document.createElement('div');
+    panel.className = 'nxt-threads-panel';
+    panel.style.cssText = 'position:absolute;inset:56px 0 0 0;background:#0D0D0D;color:#F5F5F0;z-index:20;overflow:auto;padding:12px 14px;font-family:Archivo,system-ui,sans-serif;';
+    panel.innerHTML = '<div style="font:600 11px IBM Plex Mono,monospace;letter-spacing:1px;text-transform:uppercase;color:#B8B800;margin-bottom:10px">Threads</div><div class="nxt-threads-list" style="font-size:13px;color:#A3A3A3">Loading...</div>';
+    this.widget.appendChild(panel);   // .chatbot-widget is position: fixed (chatbot.css), so the panel overlays the body
+    this._threadsPanel = panel;
+    try {
+      const r = await fetch(`${this.baseUrl}/api/threads?limit=50`);
+      const d = await r.json();
+      this._renderThreads(panel.querySelector('.nxt-threads-list'), Array.isArray(d.threads) ? d.threads : []);
+    } catch (err) {
+      panel.querySelector('.nxt-threads-list').textContent = 'The thread registry is unreachable right now.';
+    }
+  }
+
+  _renderThreads(list, rows) {
+    list.innerHTML = '';
+    if (!rows.length) {
+      list.textContent = 'No threads yet.';
+      return;
+    }
+    for (const row of rows) {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.style.cssText = 'display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #2A2A2A;color:#F5F5F0;padding:9px 2px;cursor:pointer;';
+      const local = row.location === 'local';
+      const badge = `<span style="font:600 9px IBM Plex Mono,monospace;letter-spacing:1px;padding:1px 6px;border-radius:2px;margin-right:6px;background:${local ? '#CC6644' : '#115054'};color:${local ? '#0D0D0D' : '#F5F5F0'}">${local ? 'LOCAL' : 'CLOUD'}</span>`;
+      const meta = [row.source === 'nxt-agency' ? 'Launchpad chat' : 'platform agent', row.engagement || '', (row.job_ids || []).length ? `${row.job_ids.length} job(s)` : '', String(row.updated_at || '').replace('T', ' ').slice(0, 16)].filter(Boolean).join(' / ');
+      item.innerHTML = `<div>${badge}<span style="font-weight:600">${this._esc(row.title || row.id)}</span></div><div style="font-size:11px;color:#8A8A8A;margin-top:3px">${this._esc(meta)}</div>`;
+      item.addEventListener('click', () => this.openThread(row));
+      list.appendChild(item);
+    }
+  }
+
+  /** Resume a Launchpad-chat thread (same backend), or show a platform-agent thread read-only. */
+  async openThread(row) {
+    if (this._threadsPanel) { this._threadsPanel.remove(); this._threadsPanel = null; }
+    this.chatBody.innerHTML = '';
+    if (row.source === 'nxt-agency') {
+      this.conversationId = row.id;
+      if (this.ws) { try { this.ws.close(); } catch (e) { /* ignore */ } }
+      this._firstMessageReceived = false;
+      try {
+        const r = await fetch(`${this.baseUrl}/api/agency/history/${encodeURIComponent(row.id)}`);
+        const d = await r.json();
+        for (const m of (d.messages || [])) if (m.content) this.addMessage(m.role === 'assistant' ? 'assistant' : 'user', m.content);
+      } catch (e) { /* history is optional */ }
+      this.addMessage('system', `Resumed thread: ${row.title || row.id}`);
+      this.connectWebSocket();
+      return;
+    }
+    try {
+      const r = await fetch(`${this.baseUrl}/api/threads/${encodeURIComponent(row.id)}`);
+      const d = await r.json();
+      for (const m of (d.messages || [])) if (m.content) this.addMessage(m.role === 'assistant' ? 'assistant' : 'user', m.content);
+    } catch (e) { /* ignore */ }
+    this.addMessage('system', `Platform-agent thread "${row.title || row.id}" (${row.location || 'cloud'}), shown read-only. New asks here go to the Launchpad agent.`);
+  }
+
+  /** D4: an outbound computer-use action waiting for a human decision. Nothing outbound runs until Approve. */
+  addReviewCard(data) {
+    const card = document.createElement('div');
+    card.className = 'nxt-review-card';
+    card.style.cssText = 'margin:8px 0;padding:10px 12px;border-left:3px solid #CC6644;background:#FFF8E6;color:#33332E;font-size:13px;';
+    const shot = data.screenshot ? `<img alt="Page before the action" src="data:image/png;base64,${data.screenshot}" style="width:100%;margin:6px 0;border:1px solid #E5E5E5">` : '';
+    card.innerHTML = `<div style="font:600 10px IBM Plex Mono,monospace;letter-spacing:1px;text-transform:uppercase;color:#CC6644">Review required before this leaves the platform</div>
+      <div style="margin-top:5px"><strong>${this._esc(data.proposed_action || 'Outbound action')}</strong></div>
+      <div style="font-size:11px;color:#737373">${this._esc(data.url || data.host || '')}</div>${shot}
+      <div class="nxt-review-actions" style="display:flex;gap:8px;margin-top:6px">
+        <button type="button" data-d="approve" style="padding:4px 12px;border:1px solid #115054;background:#115054;color:#FFF;cursor:pointer">Approve</button>
+        <button type="button" data-d="reject" style="padding:4px 12px;border:1px solid #CC6644;background:#FFF;color:#CC6644;cursor:pointer">Reject</button>
+      </div>`;
+    card.querySelectorAll('button[data-d]').forEach(b => b.addEventListener('click', () => this._decideReview(data.review_id, b.getAttribute('data-d'), card)));
+    this.hideTypingIndicator();
+    this.chatBody.appendChild(card);
+    this.chatBody.scrollTop = this.chatBody.scrollHeight;
+  }
+
+  async _decideReview(reviewId, decision, card) {
+    const actions = card.querySelector('.nxt-review-actions');
+    try {
+      const r = await fetch(`${this.baseUrl}/api/agency/reviews/${encodeURIComponent(reviewId)}/decision`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ decision, reviewer: 'launchpad' }),
+      });
+      const d = await r.json();
+      actions.innerHTML = r.ok ? `<span style="font-size:12px;color:${decision === 'approve' ? '#115054' : '#CC6644'}">${decision === 'approve' ? 'Approved: the agent continues.' : 'Rejected: the action was not performed.'}</span>`
+        : `<span style="font-size:12px;color:#CC6644">${this._esc(d.detail || d.error || 'Decision failed')}</span>`;
+      if (r.ok) this.showTypingIndicator();
+    } catch (e) {
+      actions.innerHTML = '<span style="font-size:12px;color:#CC6644">The review service is unreachable.</span>';
+    }
+  }
+
+  _esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
   addScreenshot(base64Data, url, mimeType) {
     const mime = mimeType || 'image/png';
     const container = document.createElement('div');

@@ -1,10 +1,48 @@
 ---
 name: tech-audit-inspector
+description: Two-phase technology ecosystem audit producing systems inventory, integration map, capability matrix, and consolidation opportunities.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Two-phase technology ecosystem audit producing systems inventory, integration map, capability matrix, and consolidation opportunities.
+version: "1"
+status: active
 thinking: high
+triggers:
+  - tech audit
+  - systems inventory
+  - inventory
+  - technical debt
+  - tech debt
+  - technology audit
+  - system assessment
+  - IT audit
+  - legacy systems
+  - legacy
+  - technology ecosystem
+  - tech landscape
+  - tools in use
+  - what systems
+  - tooling
+  - platform inventory
+  - sunset candidates
+  - retire
+  - deprecate
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: Tech Audit Inspector
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/tech-audit.md
+    - anti-patterns/tech-audit.md
+  benchmarks:
+    - benchmarks/technology-adoption.md
+  output_types:
+    - grid-matrix
+    - comparison-table
+    - warning-block
+    - evidence-block
 ---
 
 # Technology Ecosystem Audit Inspector

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:37:11+00:00"
 content_hash: "b6b6d53103e484ab"
 chunks:
   - id: "articles/ins-insurance-journal-midwest/063da0efdb.md#c0"
-    char_span: [0, 1237]
+    char_span: [0, 1236]
     sentence_count: 9
     key_terms: [claims, paid, residential, severe, department, insurance, missouri, property]
     concepts: [claims, residential, department, severe, insurance]
-    token_count: 275
-    sources: [{"n":"ins_insurance_journal_midwest","u":"https://www.insurancejournal.com/news/midwest/2026/06/30/875834.htm"}]
+    token_count: 274
+    sources: [{"n":"ins_insurance_journal_midwest","u":"https://www.insurancejournal.com/news/midwest/2026/06/30/875834.htm","kind":"article","date":"2026-06-30"}]
 ---
 # Report: $2.9B in Claims Paid in Missouri After Severe 2025 Season
 

@@ -8,13 +8,13 @@ title: "Update on Product Driven Development (Experiment - transformation) /3"
 author: "Independent_Pitch598"
 date: "2026-04-11T10:24:49.000Z"
 score: 13
-upvote_ratio: 0.74
-num_comments: 24
+upvote_ratio: 0.76
+num_comments: 25
 flair: ""
-extracted_at: "2026-06-24T22:14:23.450Z"
+extracted_at: "2026-10-09T16:37:15.730Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c0"
     char_span: [0, 1978]
@@ -22,13 +22,14 @@ chunks:
     key_terms: [productmanagement, comments, sprints, new, experiment, reddit, https, com]
     concepts: [productmanagement, comments, experiment, sprints, reddit]
     token_count: 520
-    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/"}]
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/","kind":"social-post","date":"2026-04-11","author":"Independent_Pitch598","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c1"
     char_span: [1980, 4155]
     sentence_count: 6
     key_terms: [agents, product, agent, however, developer, attached, anyone, review]
     concepts: [agents, product, agent, however, developer]
     token_count: 482
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/","kind":"social-post","date":"2026-04-11","author":"Independent_Pitch598","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c2"
     char_span: [4157, 5646]
     sentence_count: 13
@@ -36,26 +37,29 @@ chunks:
     concepts: [build, issues, interesting, developer, building]
     related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sifecx.md#c4"]
     token_count: 325
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/","kind":"social-post","date":"2026-04-11","author":"Independent_Pitch598","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c3"
-    char_span: [5660, 7623]
+    char_span: [5661, 7624]
     sentence_count: 14
     key_terms: [code, review, quality, measuring, metrics, release, agents, core]
     concepts: [review, quality, measuring, metrics, release]
     section: Comments
     token_count: 487
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/","kind":"social-post","date":"2026-04-11","author":"Independent_Pitch598","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1sifecx.md#c4"
-    char_span: [7625, 8801]
-    sentence_count: 7
-    key_terms: [building, interesting, code, approach, feature, request, review, solid-aardvark-4590]
-    concepts: [building, interesting, approach, feature, request]
+    char_span: [7626, 9045]
+    sentence_count: 9
+    key_terms: [interesting, approach, building, code, bottleneck, feature, request, results]
+    concepts: [interesting, approach, building, bottleneck, feature]
     related_chunks: ["social-intelligence/reddit-deep/productmanagement/1sifecx.md#c2"]
     section: Comments
-    token_count: 301
+    token_count: 356
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/","kind":"social-post","date":"2026-04-11","author":"Independent_Pitch598","subreddit":"productmanagement"}]
 ---
 # Update on Product Driven Development (Experiment - transformation) /3
 
 Source: [reddit-deep: r/productmanagement](https://www.reddit.com/r/ProductManagement/comments/1sifecx/update_on_product_driven_development_experiment/)
-Posted by **Independent_Pitch598** · **13↑** · **24 comments**
+Posted by **Independent_Pitch598** · **13↑** · **25 comments**
 
 This is the 3rd part of my notes regarding experiment(s) that we are having in my org.
 
@@ -211,6 +215,7 @@ I'm building in a very simmilar space, would love to have a chat!
 But that was the goal - to remove monopoly of building from one department and enable everyone.
 
 I wouldn't say we have a lot of "slop" PRs, one of the goal for devs is to do Agent SKILLS and harness for agents so they generate code that they want.
+- **ForgettingDev** (2↑): Very interesting approach, do you have any updates on the results? I'm curious what the biggest bottlenecks are and how you are planning to solve them. We see quite a big bottleneck on QA when automating development.
 - **Kancityshuffle_aw** (1↑): What are some downsides of the experiment so far?
   - **Independent_Pitch598** (1↑): Quality of PM should be really high, as a result hiring process are slower.
 - **Thecrow05** (1↑): This is so interesting. So now PMs are moving from intaking and building feature request to review and approve complete feature..

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:36:55+00:00"
 content_hash: "c6e73b39c4a5ffe0"
 chunks:
   - id: "articles/ins-insurance-journal-intl/bdc2be6e9b.md#c0"
-    char_span: [0, 1337]
+    char_span: [0, 1336]
     sentence_count: 8
     key_terms: [carpenter, property, guy, europe, london, casualty, jenner, moody]
     concepts: [carpenter, property, europe, london, casualty]
-    token_count: 264
-    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/25/875285.htm"}]
+    token_count: 263
+    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/25/875285.htm","kind":"article","date":"2026-06-25"}]
 ---
 # Guy Carpenter Combines UK Property and Casualty, London Europe Ops
 

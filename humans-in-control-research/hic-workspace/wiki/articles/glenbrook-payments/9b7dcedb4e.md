@@ -19,30 +19,33 @@ content_hash: "76a489f8a52c5a0a"
 relevance_by_goal: {"8429cfd39d4f":5,"d21cb50b17ba":0}
 chunks:
   - id: "articles/glenbrook-payments/9b7dcedb4e.md#c0"
-    char_span: [0, 2830]
+    char_span: [0, 2829]
     sentence_count: 11
     key_terms: [computers, banks, financial, deposits, industry, payment, quantum, interest-rate]
     concepts: [computers, financial, banks, deposits, industry]
-    token_count: 477
-    sources: [{"n":"glenbrook_payments","u":"https://glenbrook.com/payments-news/all-payments-news/"}]
+    token_count: 476
+    sources: [{"n":"glenbrook_payments","u":"https://glenbrook.com/payments-news/all-payments-news/","kind":"article"}]
   - id: "articles/glenbrook-payments/9b7dcedb4e.md#c1"
-    char_span: [2836, 5607]
+    char_span: [2835, 5606]
     sentence_count: 12
     key_terms: [customers, neighborhoods, payment, sellers, meta, business, infrastructure, stripe]
     concepts: [customers, neighborhoods, payment, sellers, business]
     token_count: 477
+    sources: [{"n":"glenbrook_payments","u":"https://glenbrook.com/payments-news/all-payments-news/","kind":"article"}]
   - id: "articles/glenbrook-payments/9b7dcedb4e.md#c2"
-    char_span: [5613, 8187]
+    char_span: [5612, 8186]
     sentence_count: 14
     key_terms: [digital, moneypass, atm, network, banks, group, bridgeport, businesses]
     concepts: [digital, moneypass, network, banks, bridgeport]
     token_count: 435
+    sources: [{"n":"glenbrook_payments","u":"https://glenbrook.com/payments-news/all-payments-news/","kind":"article"}]
   - id: "articles/glenbrook-payments/9b7dcedb4e.md#c3"
-    char_span: [8193, 10115]
+    char_span: [8192, 10114]
     sentence_count: 8
     key_terms: [pay, walmart, amazon, stores, institutions, model, financial, locations]
     concepts: [walmart, institutions, amazon, stores, model]
     token_count: 328
+    sources: [{"n":"glenbrook_payments","u":"https://glenbrook.com/payments-news/all-payments-news/","kind":"article"}]
 ---
 # Glenbrook Payments News
 

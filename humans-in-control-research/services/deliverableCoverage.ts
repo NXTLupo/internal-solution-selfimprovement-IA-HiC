@@ -25,6 +25,7 @@ import {
 } from './deliverableRules';
 import type { LedgerItem, LedgerArea, LedgerIo, ThemeInput } from './engagementLedger';
 import { plainWords, nakedNumbers } from './deliverableRules';
+import { displaySourceName } from './citationPointerRegistry';
 
 // ---- which deliverable --------------------------------------------------------------------------------
 
@@ -41,27 +42,37 @@ export interface CoverageSpec {
     universe: UniversePart[];
     /** Theme deliverables fill with theme cards; every other deliverable with an appendix exhibit. */
     fill: 'theme-cards' | 'appendix';
+    /** 2026-10-05: at most this many board THEMES enter the universe, the ones most relevant to the request. A board
+     *  can hold hundreds of themes; a narrative deliverable that had to restate every one shipped 118 sections. Client
+     *  STATED items and FEEDBACK are never capped (every upload item is still accounted for). Unset = all themes. */
+    themeCap?: number;
+    /** 2026-10-05: at most this many client STATED items for a narrative SLIDE deliverable (a #gap deck over a 920-item
+     *  ledger shipped 24 appendix slides). Required items and decisions rank first, then request relevance. The full set
+     *  is carried by the #prd requirements workbook. Unset = every stated item (the #prd, #proto and HTML contracts). */
+    statedCap?: number;
 }
 
 /** The table in plans/deliverable-rules-and-coverage-all-hashtags-2026-10-02.md, as data. */
 export const COVERAGE_SPECS: Record<CoverageKind, CoverageSpec> = {
-    personas: { kind: 'personas', label: 'persona set', universe: ['theme', 'feedback'], fill: 'appendix' },
-    journey: { kind: 'journey', label: 'journey map', universe: ['theme', 'feedback'], fill: 'appendix' },
-    blueprint: { kind: 'blueprint', label: 'service blueprint', universe: ['stated', 'theme'], fill: 'appendix' },
-    themes: { kind: 'themes', label: 'theme set', universe: ['theme'], fill: 'theme-cards' },
-    gap: { kind: 'gap', label: 'gap analysis', universe: ['stated', 'theme'], fill: 'appendix' },
-    competitive: { kind: 'competitive', label: 'competitive analysis', universe: ['theme'], fill: 'appendix' },
-    recs: { kind: 'recs', label: 'recommendation set', universe: ['theme', 'feedback'], fill: 'appendix' },
-    deck: { kind: 'deck', label: 'deck', universe: ['theme', 'area'], fill: 'appendix' },
-    report: { kind: 'report', label: 'document', universe: ['theme', 'area'], fill: 'appendix' },
-    brief: { kind: 'brief', label: 'brief', universe: ['theme', 'area'], fill: 'appendix' },
-    roadmap: { kind: 'roadmap', label: 'roadmap', universe: ['stated-must', 'feedback-decision'], fill: 'appendix' },
-    arch: { kind: 'arch', label: 'architecture', universe: ['stated-system'], fill: 'appendix' },
+    // 2026-10-05: every theme-based kind is capped to the request-relevant board themes (a 516-theme board produced
+    // 113 appendix slides on #themes and 37 on #gap). Stated items and feedback are never capped.
+    personas: { kind: 'personas', label: 'persona set', universe: ['theme', 'feedback'], fill: 'appendix', themeCap: 12 },
+    journey: { kind: 'journey', label: 'journey map', universe: ['theme', 'feedback'], fill: 'appendix', themeCap: 12 },
+    blueprint: { kind: 'blueprint', label: 'service blueprint', universe: ['stated', 'theme'], fill: 'appendix', themeCap: 16, statedCap: 24 },
+    themes: { kind: 'themes', label: 'theme set', universe: ['theme'], fill: 'theme-cards', themeCap: 32 },
+    gap: { kind: 'gap', label: 'gap analysis', universe: ['stated', 'theme'], fill: 'appendix', themeCap: 16, statedCap: 24 },
+    competitive: { kind: 'competitive', label: 'competitive analysis', universe: ['theme'], fill: 'appendix', themeCap: 16 },
+    recs: { kind: 'recs', label: 'recommendation set', universe: ['theme', 'feedback'], fill: 'appendix', themeCap: 16 },
+    deck: { kind: 'deck', label: 'deck', universe: ['theme', 'area'], fill: 'appendix', themeCap: 24 },
+    report: { kind: 'report', label: 'document', universe: ['theme', 'area'], fill: 'appendix', themeCap: 40 },
+    brief: { kind: 'brief', label: 'brief', universe: ['theme', 'area'], fill: 'appendix', themeCap: 24 },
+    roadmap: { kind: 'roadmap', label: 'roadmap', universe: ['stated-must', 'feedback-decision'], fill: 'appendix', statedCap: 24 },
+    arch: { kind: 'arch', label: 'architecture', universe: ['stated-system'], fill: 'appendix', statedCap: 20 },
     org: { kind: 'org', label: 'org chart', universe: ['person'], fill: 'appendix' },
-    questionnaire: { kind: 'questionnaire', label: 'questionnaire', universe: ['feedback-question', 'theme'], fill: 'appendix' },
-    mindmap: { kind: 'mindmap', label: 'mind map', universe: ['theme'], fill: 'appendix' },
+    questionnaire: { kind: 'questionnaire', label: 'questionnaire', universe: ['feedback-question', 'theme'], fill: 'appendix', themeCap: 16 },
+    mindmap: { kind: 'mindmap', label: 'mind map', universe: ['theme'], fill: 'appendix', themeCap: 30 },
     proto: { kind: 'proto', label: 'prototype brief', universe: ['stated', 'feedback'], fill: 'appendix' },
-    'research-plan': { kind: 'research-plan', label: 'research plan', universe: ['theme'], fill: 'appendix' },
+    'research-plan': { kind: 'research-plan', label: 'research plan', universe: ['theme'], fill: 'appendix', themeCap: 16 },
 };
 
 /** Hashtag -> contract. Order matters: the more specific deliverable wins over a #slides modifier. */
@@ -134,16 +145,160 @@ function ledgerPeople(ledger: LedgerItem[]): CoveragePerson[] {
 }
 
 /** A board theme with nothing to account for: a generic cluster label, no statement of its own and no quote. */
+/**
+ * A meeting ACTION ITEM ("Send Peter the screenshot", "Schedule the follow-up", "... Completed") is housekeeping, not
+ * product scope or feedback: no deliverable has to carry it (2026-10-05 live #journey appendix listed one).
+ */
+/**
+ * #prd scope partition (2026-10-06). Returns the ledger items a PRD for THIS request accounts for deterministically
+ * (id -> reason) instead of writing a requirement through a model batch:
+ *   - meeting action items (engagement logistics, never product requirements);
+ *   - when the request names a narrower scope than the engagement ("#prd for the first-year readiness module"), items
+ *     sharing none of the request's DISTINCTIVE terms (terms common to the whole engagement do not scope anything).
+ * Never narrows below `minInScope` items: a broad or vague request keeps the full ledger.
+ */
+/** Project / delivery verbs: a subject that takes one in the ledger is an engagement party. */
+const PARTY_VERBS = /^(?:holds?|conducts?|delivers?|demonstrates?|reports?|schedules?|tracks?|manages?|coordinates?|reviews?|provides?|analy[sz]es|closes?|runs?|attends?|facilitates?|staffs?|submits?|sends?|shares?|communicates?|works?|meets?|maintains?|documents?|records?|hands?|prepares?|participates?|confirms?|approves?|signs?|grants?|presents?|consolidates?|issues?|leads?|owns?|supplies?|transfers?|drafts?|performs?|follows?|obtains?|accepts?|validates?|nominates?|designates?|assigns?|names?|defines?|escalates?|identifies?|selects?|decides?|determines?|agrees?|commits?)$/;
+/** A subject phrase that names the product, not a party ("<Name> Dashboard", "<Name> Companion"). */
+const PRODUCT_NOUN = /\b(?:Hub|Dashboard|Portal|Module|Coach|Framework|Platform|System|App|Application|Assistant|Companion|Experience|Tool|Summary|Profile|Guide|Advisor|Workspace|Pathway|Checklist|Bot|Agent)$/;
+
+export function prdScopePartition(ledger: LedgerItem[], requestText: string, opts: { minInScope?: number } = {}): { outOfScope: Map<string, string>; focus: string[]; inScope: number; parties: string[] } {
+    const out = new Map<string, string>();
+    const parties = new Set<string>();
+    for (const li of ledger) {
+        if (isAdminTask(li)) out.set(li.id, 'engagement logistics (a meeting action item, not a product requirement)');
+        else if (isEngagementObligation(li)) {
+            out.set(li.id, 'an engagement obligation (a delivery or project task, not a product capability)');
+            const subj = /^((?:[A-Z][\w&.'-]*)(?:\s+[A-Z][\w&.'-]*){0,3})\s/.exec(String(li.statement || li.item || '').trim())?.[1];
+            if (subj) parties.add(subj);
+        }
+    }
+    // 2026-10-06 live #prd round 12: the client side of the engagement ("<Client> schedules the working sessions",
+    // "<Client office> reviews and approves") is never named in a contract title, so it never became a party. Any
+    // subject that takes a project verb twice in the ledger, or once in a contract or meeting record, is a party too;
+    // product nouns ("<Name> Dashboard", "<Name> Companion") never are.
+    {
+        const seen = new Map<string, number>();
+        for (const li of ledger) {
+            const m = /^(?:The\s+)?((?:[A-Z][\w&.'-]*)(?:\s+[A-Z][\w&.'-]*){0,3})\s+(?:will\s+|must\s+|shall\s+)?([a-z]+)\b/.exec(String(li.statement || li.item || '').trim());
+            if (!m || !PARTY_VERBS.test(m[2]) || PRODUCT_NOUN.test(m[1]) || /^(?:The|A|An|Each|Every|All|Given|When|If|Students?|Advisors?|Users?|Employers?|Staff)$/.test(m[1].split(/\s+/)[0])) continue;
+            const kind = String((li as any).documentKind || '');
+            seen.set(m[1], (seen.get(m[1]) || 0) + (kind === 'contract' || kind === 'meeting-notes' ? 2 : 1));
+        }
+        for (const [s, n] of seen) if (n >= 2) parties.add(s);
+    }
+    const SKIP = new Set(['prd', 'prds', 'requirements', 'requirement', 'document', 'product', 'generate', 'write', 'build', 'create', 'module', 'modules', 'release', 'feature', 'features', 'platform', 'system']);
+    const itemText = (li: LedgerItem) => `${li.item} ${li.statement || ''}`;
+    const terms = [...focusTerms(requestText)].filter(w => !SKIP.has(w));
+    const df = (w: string) => ledger.filter(li => focusTerms(itemText(li)).has(w)).length;
+    const n = Math.max(1, ledger.length);
+    const focus = terms.filter(w => { const d = df(w); return d > 0 && d / n <= 0.35; });
+    const remaining = ledger.filter(li => !out.has(li.id));
+    if (!focus.length) return { outOfScope: out, focus, inScope: remaining.length, parties: [...parties] };
+    const hit = (li: LedgerItem) => { const t = focusTerms(itemText(li)); return focus.some(w => t.has(w)); };
+    const inScope = remaining.filter(hit);
+    if (inScope.length < (opts.minInScope ?? 30)) return { outOfScope: out, focus: [], inScope: remaining.length, parties: [...parties] };
+    const reason = `outside the requested scope (${focus.join(', ')})`;
+    for (const li of remaining) if (!hit(li)) out.set(li.id, reason);
+    return { outOfScope: out, focus, inScope: inScope.length, parties: [...parties] };
+}
+
+/**
+ * A GENERATED requirement that describes project work rather than product behaviour (2026-10-06 live #prd: 81 of 371
+ * Musts, e.g. "<Vendor> holds solution architecture design review sessions", "<Client> schedules the working sessions",
+ * "The project team obtains Change Advisory Board approval"). The subject is one of the engagement's own obligation
+ * parties (derived from the ledger, never a fixed name list) or a generic project team, and the verb is project work.
+ */
+export function isProjectWorkRequirement(text: string, parties: string[]): boolean {
+    const t = String(text || '').trim();
+    // 2026-10-06 live #prd round 12: a verb whitelist kept missing project verbs ("escalates", "defines", "classifies",
+    // "<Party> and <Team> jointly define"), leaving 35 Musts on the Engagement Obligations sheet. Inverted: when the
+    // subject is an engagement party (optionally "The <Party> <role>", optionally "and <other party> jointly") or a
+    // generic project team, the sentence is project work UNLESS its verb builds product.
+    const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const names = parties.filter(Boolean).sort((a, b) => b.length - a.length).map(esc);
+    const subject = [
+        ...(names.length ? [`(?:The\\s+)?(?:${names.join('|')})(?:\\s+[A-Z][\\w-]*){0,3}`] : []),
+        'The (?:project|development|delivery|program|implementation|engagement) team',
+    ].join('|');
+    const m = new RegExp(`^((?:${subject}))(?:\\s+and\\s+(?:the\\s+)?[A-Z][\\w&'-]*(?:\\s+[A-Z][\\w&'-]*){0,3})?\\s+(?:jointly\\s+|together\\s+)?(?:will\\s+|must\\s+|shall\\s+)?([a-z]+)\\b`).exec(t);
+    if (!m || PRODUCT_NOUN.test(m[1])) return false;
+    return !/^(?:builds?|embeds?|implements?|develops?|ships?|creates?|integrates?|configures?|codes?|engineers?|extends?|adds?|exposes?|renders?)$/.test(m[2]);
+}
+
+/**
+ * An obligation on the ENGAGEMENT, not a product capability (2026-10-06 live #prd: ~100 of 392 Must rows were
+ * "Kellianne Murphy reviews the draft...", "NXT Humans conducts content handoff sessions..."). Generic, mirroring
+ * proxy/prd_xlsx.py is_engagement_requirement on the ledger side: a CONTRACT item whose subject is a party the
+ * document's own title names, or a MEETING-NOTES item whose subject is a named person or party doing project work.
+ */
+function isEngagementObligation(li: LedgerItem): boolean {
+    if (li.type === 'theme') return false;
+    const text = String(li.statement || li.item || '').trim();
+    const m = /^((?:[A-Z][\w&.'-]*)(?:\s+[A-Z][\w&.'-]*){0,3})\s+(?:will\s+|must\s+|shall\s+)?([a-z]+)\b/.exec(text);
+    if (!m) return false;
+    const subj = m[1];
+    // Only PROCESS / DELIVERY verbs make an obligation. "NXT Humans builds a next-steps view in the dashboard" or
+    // "... embeds the companion in the Student Hub" names a product capability (kept in scope); "holds working
+    // sessions", "delivers the UX Design Package", "tracks each dependency" names project work.
+    const OBLIGATION_VERBS = /^(?:holds?|conducts?|delivers?|demonstrates?|reports?|schedules?|tracks?|manages?|coordinates?|reviews?|provides?|analy[sz]es|closes?|runs?|attends?|facilitates?|staffs?|submits?|sends?|shares?|communicates?|works?|meets?|maintains?|documents?|records?|hands?|prepares?|participates?|confirms?|approves?|signs?|grants?|invoices?|bills?|presents?|consolidates?|issues?|walks?|walkthroughs?|leads?|owns?|supplies?|transfers?|plays?|drafts?|performs?|carries|carry|follows?|kicks?)$/;
+    if (!OBLIGATION_VERBS.test(m[2])) return false;
+    if (/^(?:The|A|An|Each|Every|All|Given|When|Students?|Advisors?|Users?|Employers?|Staff|Hub|Dashboard|System|Platform|Companion)\b/.test(subj)) return false;
+    const kind = String((li as any).documentKind || '');
+    const title = String(li.documentTitle || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
+    const s = subj.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    if (kind === 'contract') return !!s && ` ${title} `.includes(` ${s} `);
+    if (kind === 'meeting-notes') return /^[A-Z][a-z]+\s+[A-Z][a-z]+/.test(subj) || ` ${title} `.includes(` ${s} `);
+    return false;
+}
+
+function isAdminTask(li: LedgerItem): boolean {
+    if (li.type !== 'feedback') return false;
+    const item = String(li.item || '').trim();
+    const quote = String((li as any).quote || '').trim();
+    return /^(?:send|share|forward|email|circulate|schedule|book|set up a (?:call|meeting)|follow up|reach out|loop in|introduce|confirm (?:the )?(?:date|time|meeting))\b/i.test(item)
+        || /\b(?:completed|done)\.?$/i.test(quote);
+}
+
 function isEmptyCluster(li: LedgerItem): boolean {
     const generic = /^(?:cluster|topic|theme|group)\s*#?\d+\.?$/i;
     return li.type === 'theme' && generic.test(String(li.item || '').trim())
         && (!li.statement || generic.test(String(li.statement).replace(/[.!?]$/, '').trim())) && !String(li.quote || '').trim();
 }
 
-export function coverageUniverse(spec: CoverageSpec, ledger: LedgerItem[], areas: LedgerArea[]): CoverageSourceItem[] {
+/** Content words of a text, for request-relevance ranking (lowercase, 4+ letters, no stop words). */
+function focusTerms(t: string): Set<string> {
+    const STOP = new Set(['that', 'this', 'with', 'from', 'into', 'their', 'there', 'these', 'those', 'have', 'will', 'must', 'should', 'would', 'about', 'which', 'what', 'when', 'where', 'while', 'than', 'then', 'they', 'them', 'more', 'most', 'need', 'needs', 'make', 'over', 'only', 'also', 'each', 'every']);
+    return new Set(String(t || '').toLowerCase().replace(/#[\w-]+/g, ' ').split(/[^a-z0-9]+/).filter(w => w.length >= 4 && !STOP.has(w)));
+}
+
+/** The board themes a capped deliverable must carry: the `cap` themes that share the most terms with the request. */
+function capThemes(themes: LedgerItem[], cap: number, focus: string, boost: (li: LedgerItem) => number = () => 0): Set<string> {
+    if (themes.length <= cap) return new Set(themes.map(t => t.id));
+    const f = focusTerms(focus);
+    const scored = themes.map((t, i) => {
+        const terms = focusTerms(`${t.item} ${t.statement || ''}`);
+        let hit = 0;
+        for (const w of terms) if (f.has(w)) hit += 1;
+        return { id: t.id, score: boost(t) + hit / Math.sqrt(Math.max(1, terms.size)), i };
+    }).sort((a, b) => b.score - a.score || a.i - b.i);
+    return new Set(scored.slice(0, cap).map(s => s.id));
+}
+
+export function coverageUniverse(spec: CoverageSpec, ledger: LedgerItem[], areas: LedgerArea[], focus = ''): CoverageSourceItem[] {
     const out: CoverageSourceItem[] = [];
     const want = new Set(spec.universe);
+    const themeKeep = spec.themeCap && want.has('theme')
+        ? capThemes(ledger.filter(li => li.type === 'theme' && !isEmptyCluster(li)), spec.themeCap, focus)
+        : null;
+    const statedKeep = spec.statedCap
+        ? capThemes(ledger.filter(li => li.type === 'stated' && !isEmptyCluster(li)), spec.statedCap, focus, li => (li.label === 'required' || li.label === 'decision' ? 10 : 0)
+            + (want.has('stated-system') && SYSTEM_RE.test(`${li.item} ${li.statement}`) ? 20 : 0))
+        : null;
     for (const li of ledger) {
+        if (themeKeep && li.type === 'theme' && !themeKeep.has(li.id)) continue;
+        if (statedKeep && li.type === 'stated' && !statedKeep.has(li.id)) continue;
+        if (isAdminTask(li)) continue;
         if (isEmptyCluster(li)) continue;
         const take = (li.type === 'stated' && (want.has('stated')
             || (want.has('stated-must') && (li.label === 'required' || li.label === 'decision' || li.label === 'recommended'))
@@ -303,15 +458,57 @@ function fillBody(li: LedgerItem, quote?: string): string {
  * sentence is dropped ("gates on 70% job placement" -> "gates on job placement"). Figures that also appear in the
  * entry's own verbatim quote are never touched (they are sourced).
  */
+/**
+ * 2026-10-20 (root-cause audit A7, plan item 9): the softener used to change facts. "1-year members" became
+ * "multi-year members", "the 2024 cohort" lost its year, "fell by 9%" became "fell by few", and "64%" became "about
+ * half". Terms that name a period rather than assert a quantity are now FIXED: a year, a year range, a fiscal or
+ * quarter label and an "N-year" compound are protected before any rule runs and restored after. A measure of change
+ * ("rose by 9%") drops the measure instead of taking a quantifier, and a share maps to a quantifier that is true of
+ * the share (a majority is never "about half"). Figures inside a verbatim quote are never softened at all: the quote
+ * is passed through `figuresSourced` by every caller (see `soft`).
+ */
+const FIXED_TERM_RE = /\b(?:FY\s?(?:19|20)?\d{2}(?:\s?[-\/]\s?(?:19|20)?\d{2})?|Q[1-4]\s?(?:19|20)\d{2}|(?:19|20)\d{2}(?:\s?[-\/]\s?(?:(?:19|20)?\d{2}))?|\d[\d,.]*-year(?:-old)?s?)\b|\[?[\w./\\-]+\.md(?:#c\d+)?\]?/gi;
+const CHANGE_VERB_RE = /\b(rose|rises?|risen|fell|falls?|fallen|grew|grows?|grown|dropped|drops?|increased|increases?|decreased|decreases?|declined|declines?|improved|improves?|reduced|reduces?|cut|cuts|climbed|climbs?|slipped|slips?|raised|raises?|lowered|lowers?|lifted|lifts?|jumped|jumps?|shrank|shrinks?|expanded|expands?|up|down)\s+by\s+(?:only\s+|nearly\s+|about\s+|roughly\s+|over\s+|more than\s+|less than\s+|some\s+)?\$?\d[\d,.]*\s*(?:%|percent\b|x\b|points?\b|pp\b|k\b|m\b|bn\b)?/gi;
+function protectFixedTerms(text: string): { t: string; spans: string[] } {
+    const spans: string[] = [];
+    const key = (i: number) => { let k = ''; do { k = String.fromCharCode(97 + (i % 26)) + k; i = Math.floor(i / 26); } while (i > 0); return k; };
+    const t = String(text || '').replace(FIXED_TERM_RE, m => { spans.push(m); return `\u0000${key(spans.length - 1)}\u0000`; });
+    return { t, spans };
+}
+function restoreFixedTerms(text: string, spans: string[]): string {
+    const idx = (k: string) => { let i = 0; for (const c of k) i = i * 26 + (c.charCodeAt(0) - 97); return i; };
+    return text.replace(/\u0000([a-z]+)\u0000/g, (_m, k: string) => spans[idx(k)] ?? '');
+}
+/** A quantifier that is true of the share: a majority is "most" or "a majority", never "about half". */
+function shareWord(n: string): string {
+    const v = Number(String(n).replace(/,/g, ''));
+    return v >= 65 ? 'most' : v > 55 ? 'a majority' : v >= 45 ? 'about half' : v >= 15 ? 'some' : 'few';
+}
 export function softenFigures(text: string): string {
-    const qty = (n: string) => { const v = Number(String(n).replace(/,/g, '')); return v >= 65 ? 'most' : v >= 40 ? 'about half' : v >= 10 ? 'some' : 'few'; };
-    let t = String(text || '');
+    const qty = shareWord;
+    const { t: protectedText, spans } = protectFixedTerms(text);
+    let t = protectedText;
     t = t.replace(/\b(\d[\d,.]*)\s*%-([a-z]+)/gi, 'widely $2');
+    // A measure of change ("retention fell by 9%") keeps the direction and drops the measure; a quantifier after "by"
+    // ("fell by few") is not English.
+    t = t.replace(CHANGE_VERB_RE, '$1');
+    // Hyphenated numeric compounds (2026-10-05 live #themes: "A 10-point ... gap" shipped as "A -point ... gap"):
+    // a measured gap or multiple drops its size, a duration shorter than a year becomes "multi-", anything else "multi-".
+    // ("N-year" is a fixed term, protected above.)
+    t = t.replace(/\b\d[\d,.]*-(?:point|percentage-point|fold|percent)\s+/gi, '');
+    t = t.replace(/\b\d[\d,.]*-(month|week|day|hour|semester|term)\b/gi, 'multi-$1');
+    t = t.replace(/\b\d[\d,.]*-(?=[a-z])/gi, 'multi-');
+    // A range of shares ("a goal of 30 to 40 percent") -> "a set target range"; a share closing its clause ("used by
+    // 20%.") -> a quantifier ("used by some."). Round-8 live: both shipped as "goal of to percent." and "used."
+    t = t.replace(/\b\d[\d,.]*\s*(?:%|percent)?\s*(?:to|-|–)\s*\d[\d,.]*\s*(?:%|percent)\b/gi, 'a set target range');
+    t = t.replace(/\b(by|of|for|among|to|at|from)\s+(?:only\s+)?\$?(\d[\d,.]*)\s*(?:%|percent\b)(?=\s*[.,;:)]|\s*$)/gi,
+        (_m, pre: string, n: string) => `${pre} ${qty(n)}`);
     t = t.replace(/\b(?:within|in|after|over|for)\s+(?:the\s+)?(?:first\s+|next\s+|last\s+)?\d[\d,.]*\s*(?:days?|weeks?|months?|years?|hours?|minutes?)\b/gi, m => `${m.split(/\s+/)[0]} a set period`);
     t = t.replace(/\b(on|at|of|with|by|for|to|from|than|a|an|the|global|annual|national)\s+\$?\d[\d,.]*\s*(?:%|percent\b|x\b|k\b|m\b|bn\b)?\s*(?=[A-Za-z])/gi, '$1 ');
     t = t.replace(/(^|[:;]\s*)(?:only\s+)?\$?(\d[\d,.]*)\s*(?:%|percent\b)\s+(?=[a-z])/gi, (_m, pre: string, n: string) => `${pre}${qty(n)} `);
     t = t.replace(/\b(\d[\d,.]*)\s*(?:%|percent\b)\s+(?=[a-z]+\b)/gi, (_m, n: string) => `${qty(n)} `);
     t = t.replace(/(^|[.:;]\s*)\$?\d[\d,.]*\s*(?:%|x|k|m|bn)?\s+(?=[A-Za-z])/g, '$1');
+    t = restoreFixedTerms(t, spans);
     t = t.replace(/\s{2,}/g, ' ').replace(/\s+([,.;:])/g, '$1').trim();
     return t ? t.charAt(0).toUpperCase() + t.slice(1) : t;
 }
@@ -330,8 +527,10 @@ function soft(t: string, quote?: string): string {
     const s1 = softenFigures(t);
     if (!nakedNumbers(s1).length) return s1;
     // Whatever figure survives the softening is removed outright: a placeholder is never written into fill prose.
-    const s2 = s1.replace(/\$?\d[\d,.]*\s*(?:%|\+|x\b|k\b|m\b|bn\b)?(?:\s*[-–]\s*\$?\d[\d,.]*\s*(?:%|\+)?)?\s*/g, '')
-        .replace(/\b(?:a|an|the|of|at|on|to|by|than|above|below|over|under|nearly|about|approximately|up to)\s+(?=[,.;:]|$)/gi, '')
+    // Years, year ranges and "N-year" terms are fixed terms, never figures: they stay (2026-10-20, audit A7).
+    const { t: p, spans } = protectFixedTerms(s1);
+    const s2 = restoreFixedTerms(p.replace(/\$?\d[\d,.]*\s*(?:%|\+|x\b|k\b|m\b|bn\b)?(?:\s*[-–]\s*\$?\d[\d,.]*\s*(?:%|\+)?)?\s*/g, '')
+        .replace(/\b(?:a|an|the|of|at|on|to|by|than|above|below|over|under|nearly|about|approximately|up to)\s+(?=[,.;:]|$)/gi, ''), spans)
         .replace(/\s{2,}/g, ' ').replace(/\s+([,.;:])/g, '$1').trim();
     return s2 ? s2.charAt(0).toUpperCase() + s2.slice(1) : s1;
 }
@@ -344,7 +543,9 @@ function dedupeBody(body: string, heading: string): string {
 function fillEntryFor(li: LedgerItem, areas: LedgerArea[], extraIds: string[] = []): CoverageFillEntry {
     const area = areas.find(a => a.id === li.featureArea);
     const src = li.sources?.find(s => s.quote) || (li.quote ? { quote: li.quote, sourceName: li.sourceName, pointer: li.pointer, speaker: li.speaker, date: li.date } : undefined);
-    const who = [src?.sourceName || li.sourceName, (src as any)?.speaker || li.speaker, (src as any)?.date || li.date].filter(Boolean).join(', ');
+    // The internal upload bucket reads as a client document, once (round-9 live "CLIENT DOCUMENT; CLIENT UPLOADS (OCT 2026)").
+    const _srcName = String(src?.sourceName || li.sourceName || '').replace(/\bClient Uploads?\b:?\s*/gi, 'Client document: ').replace(/^Client document:\s*Client document:?\s*/i, 'Client document: ').replace(/:\s*$/, '').replace(/;\s*Client document\b.*$/i, '').trim();
+    const who = [_srcName, (src as any)?.speaker || li.speaker, (src as any)?.date || li.date].filter(Boolean).join(', ');
     return {
         ids: Array.from(new Set([li.id, ...extraIds, ...(li.featureArea ? [li.featureArea] : [])])),
         areaId: li.featureArea || undefined,
@@ -439,9 +640,9 @@ export interface CoverageUniverseRecord { kind: CoverageKind; items: Array<{ id:
  * Run one deliverable's contract in-path: bind, check, fill, universal rules, receipt. Pure apart from the doc's
  * own mutation (no network): the caller supplies the ledger, the areas and the read stats.
  */
-export async function runCoverageContract(doc: CoverageDoc, ledger: LedgerItem[], areas: LedgerArea[], stats?: LedgerReadStats): Promise<CoverageRunResult> {
+export async function runCoverageContract(doc: CoverageDoc, ledger: LedgerItem[], areas: LedgerArea[], stats?: LedgerReadStats, focus = ''): Promise<CoverageRunResult> {
     const spec = COVERAGE_SPECS[doc.kind];
-    const universe = coverageUniverse(spec, ledger, areas);
+    const universe = coverageUniverse(spec, ledger, areas, focus);
     bindCoverage(doc, universe, ledger);
     const contract = coverageContract(spec, areas, ledger);
     const before = new Set<string>();
@@ -560,8 +761,9 @@ export function deckCoverageDoc(kind: CoverageKind, slides: CoverageSlide[], opt
                 for (const group of chunk(entries, THEMES_PER_SLIDE)) {
                     const sl: CoverageSlide = {
                         id: `${opts.idPrefix}_cov_${++seq}`, template: 'theme-overview', brand: opts.brand, status: 'draft', timestamp: ts,
-                        title: group.length === 1 ? group[0].heading : 'Further themes the research surfaced',
-                        themeCluster: { themes: group.map(e => ({ name: e.heading, insight: e.body, source: e.source || 'Research Assembly Board', ...(e.quote ? { quotes: [{ text: e.quote, source: e.source || 'Research Assembly Board', ...(e.pointer ? { pointer: e.pointer } : {}) }] } : {}) })) },
+                        // 2026-10-05: the strongest theme heads the card (a judgment), never a process label.
+                        title: group[0].heading,
+                        themeCluster: { themes: group.map(e => ({ name: e.heading, insight: e.body, ...(!e.body && e.quote ? { evidence: e.quote } : {}), ...(e.source ? { source: e.source } : {}), ...(e.quote ? { quotes: [{ text: e.quote, source: e.source || '', ...(e.pointer ? { pointer: e.pointer } : {}) }] } : {}) })) },
                         _coverageIds: group.flatMap(e => e.ids), _coverageFill: true,
                     };
                     group.forEach((e, i) => { if (e.quote) fillQuotes.push({ id: `${sl.id}.q${i}`, slide: sl, pointer: e.pointer, get: () => { const t = sl.themeCluster.themes[i]?.quotes?.[0]; return t ? { quote: t.text, source: t.source } : undefined; }, drop: () => { delete sl.themeCluster.themes[i].quotes; } }); });
@@ -630,7 +832,7 @@ export function htmlCoverageDoc(kind: CoverageKind, html: string, opts: { append
         if (!fills.length) return html;
         const byArea = new Map<string, Array<{ e: CoverageFillEntry; i: number }>>();
         fills.forEach((e, i) => { if (!byArea.has(e.areaLabel)) byArea.set(e.areaLabel, []); byArea.get(e.areaLabel)!.push({ e, i }); });
-        const body = [...byArea.entries()].map(([area, list]) => `<h3>${esc(area)}</h3>\n${list.map(({ e, i }) => `<div class="hic-coverage-item" data-covers="${esc(e.ids.join(' '))}"><h4>${esc(e.heading)}</h4>${e.body ? `<p>${esc(e.body)}</p>` : ''}${e.quote && !dropped.has(i) ? `<blockquote><p>"${esc(e.quote)}"</p><cite>${esc(e.source || 'Client document')}</cite></blockquote>` : ''}</div>`).join('\n')}`).join('\n');
+        const body = [...byArea.entries()].map(([area, list]) => `<h3>${esc(area)}</h3>\n${list.map(({ e, i }) => `<div class="hic-coverage-item" data-covers="${esc(e.ids.join(' '))}"><h4>${esc(e.heading)}</h4>${e.body ? `<p>${esc(e.body)}</p>` : ''}${e.quote && !dropped.has(i) ? `<blockquote><p>"${esc(e.quote)}"</p><cite>${esc(displaySourceName(e.source || 'Client document'))}</cite></blockquote>` : ''}</div>`).join('\n')}`).join('\n');
         const block = `\n<section class="hic-coverage-index" data-coverage="fill" style="max-width:960px;margin:48px auto;padding:0 24px;box-sizing:border-box">\n<h2>${esc(opts.appendixTitle || 'Appendix: client scope and research themes')}</h2>\n${body}\n</section>\n`;
         // 2026-10-02 live #report: the model's reply stopped inside a <style> block, the appendix was appended INTO
         // it and the whole page rendered blank. A raw-text element (style, script, comment) left open is closed
@@ -649,7 +851,59 @@ export function htmlCoverageDoc(kind: CoverageKind, html: string, opts: { append
         units: () => [...sections, ...fills.map((e, i) => ({ id: `fill-${i + 1}`, text: `${e.heading} ${e.body} ${e.quote || ''}` }))],
         bind: (id, ids) => { if (id.startsWith('fill-')) return; bound.set(id, ids); },
         bound: (id) => (id.startsWith('fill-') ? fills[+id.slice(5) - 1]?.ids || [] : bound.get(id) || []),
-        addFill: (entries) => { fills.push(...entries.map(e => ({ ...e }))); return entries.length; },
+        addFill: (entries) => {
+            // 2026-11-09 (independent QA of a live #report appendix): three entry pairs shipped as
+            // verbatim duplicates, one heading carried a mid-word "..." cut, and one source sentence
+            // repeated identically under three different headings. Dedupe by normalized heading,
+            // reuse a quote only once (later entries keep their heading and body, lose the repeat),
+            // and strip a truncation ellipsis that upstream theme names sometimes carry.
+            const norm = (s: string) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+            // 2026-11-09 (QA third review): six near-duplicate "portability" theme variants with
+            // different wordings survived exact-heading dedupe, and entries with no quote at all
+            // shipped under an evidence appendix. Near-duplicates collapse by content-word overlap,
+            // and an entry ships only with its verbatim quote (the file's own contract: "an appendix
+            // exhibit that quotes the source verbatim with its attribution").
+            const STOP = new Set(['the', 'a', 'an', 'of', 'and', 'or', 'to', 'for', 'in', 'on', 'over', 'with', 'via', 'by', 'their', 'own', 'that', 'as', 'at', 'is', 'are']);
+            const wordsOf = (s: string) => new Set(norm(s).split(' ').filter(w => w.length > 2 && !STOP.has(w)));
+            const overlaps = (a: Set<string>, b: Set<string>) => {
+                if (!a.size || !b.size) return 0;
+                let inter = 0;
+                for (const w of a) if (b.has(w)) inter++;
+                return inter / Math.min(a.size, b.size);
+            };
+            // The coverage receipt needs EVERY item accounted for, so a duplicate is never dropped:
+            // its ids MERGE into the surviving entry's data-covers and the reader sees one exhibit.
+            const seenWordSets: Array<Set<string>> = fills.map(f => wordsOf(f.heading));
+            const seenQuotes = new Set(fills.map(f => norm(f.quote || '')).filter(Boolean));
+            let added = 0;
+            // Board-theme text arrives with stored grammar defects ("a explicit division of labor",
+            // "AI handle preparation"); the appendix is reader copy, so heading and body get a
+            // conservative cleanup. Quotes stay verbatim and are never touched.
+            const tidy = (s: string) => String(s || '')
+                .replace(/\b([Aa]) (accessible|established|explicit|important|open|existing|additional|internal|external|official|individual|automated|approved|updated|integrated|independent|essential|entire|early|easy|active|annual|audit|auditable)\b/g,
+                    (_m, a: string, w: string) => `${a === 'A' ? 'An' : 'an'} ${w}`)
+                .replace(/\bAI handle\b/g, 'AI handles');
+            for (const raw of entries) {
+                const e = { ...raw };
+                e.heading = tidy(String(e.heading || '').replace(/\s*(?:\.\.\.|…)\s*$/, '').trim());
+                e.body = tidy(e.body);
+                const h = norm(e.heading);
+                const hw = wordsOf(e.heading);
+                const matchAt = !h ? -1 : fills.findIndex((f, i) => norm(f.heading) === h || overlaps(hw, seenWordSets[i]) >= 0.6);
+                if (matchAt >= 0) {
+                    const tgt = fills[matchAt];
+                    for (const id of e.ids) if (!tgt.ids.includes(id)) tgt.ids.push(id);
+                    continue;
+                }
+                const q = norm(e.quote || '');
+                if (q && seenQuotes.has(q)) { e.quote = undefined; e.pointer = undefined; }
+                else if (q) seenQuotes.add(q);
+                seenWordSets.push(hw);
+                fills.push(e);
+                added++;
+            }
+            return added;
+        },
         fillClaims: () => {
             const units: ClaimUnit[] = [];
             fills.forEach((e, i) => {
@@ -671,7 +925,7 @@ export function htmlCoverageDoc(kind: CoverageKind, html: string, opts: { append
 
 // ---- in-path orchestration (network: ledger + board themes) ------------------------------------------
 
-export interface CoverageInputs { ledger: LedgerItem[]; areas: LedgerArea[]; stats: LedgerReadStats }
+export interface CoverageInputs { ledger: LedgerItem[]; areas: LedgerArea[]; stats: LedgerReadStats; /** the request + objective, for theme-cap relevance */ focus?: string }
 
 /**
  * Load what every contract reads: the engagement ledger (every client document read in full; persisted analysis
@@ -696,7 +950,7 @@ export async function loadCoverageInputs(opts: { engagement: string; requestText
         const all = [...ledger.items, ...L.themeLedgerItems(gated.kept)];
         if (!all.length) return null;
         const areas = L.assignAreas(all);
-        return { ledger: all, areas, stats: { engagement: opts.engagement, documents: ledger.documentStats, foreignPages: scoped.foreignPages } };
+        return { ledger: all, areas, stats: { engagement: opts.engagement, documents: ledger.documentStats, foreignPages: scoped.foreignPages }, focus: [opts.requestText, opts.objective].filter(Boolean).join(' ') };
     } catch (e: any) {
         console.warn('[coverage] inputs unavailable (non-fatal):', e?.message || e);
         return null;

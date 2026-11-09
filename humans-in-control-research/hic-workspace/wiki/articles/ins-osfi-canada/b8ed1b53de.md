@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:43:09+00:00"
 content_hash: "0c6086f74d644bb2"
 chunks:
   - id: "articles/ins-osfi-canada/b8ed1b53de.md#c0"
-    char_span: [0, 749]
+    char_span: [0, 748]
     sentence_count: 1
     key_terms: [span, osfi-lowers-domestic-stability-buffer-30-so-canadas-largest-banks-can-deploy-more-capital, div, class, time, osfi-bsif, stability, "canada's"]
     concepts: [class, osfi-bsif, stability, "canada's", datetime]
-    token_count: 233
-    sources: [{"n":"ins_osfi_canada","u":"https://www.osfi-bsif.gc.ca/en/osfi-lowers-domestic-stability-buffer-30-so-canadas-largest-banks-can-deploy-more-capital"}]
+    token_count: 232
+    sources: [{"n":"ins_osfi_canada","u":"https://www.osfi-bsif.gc.ca/en/osfi-lowers-domestic-stability-buffer-30-so-canadas-largest-banks-can-deploy-more-capital","kind":"article","date":"2026-06-19"}]
 ---
 # OSFI lowers Domestic Stability Buffer to 3.0% so Canada's largest banks can deploy more capital
 

@@ -16,23 +16,25 @@ collected_at: "2026-07-02T16:52:56+00:00"
 content_hash: "66f41f05dbf08be8"
 chunks:
   - id: "articles/ins-insurance-journal-southeast/dfb3efbcb5.md#c0"
-    char_span: [0, 195]
+    char_span: [0, 194]
     sentence_count: 1
     key_terms: [insurancejournal, businesses, hurricane, southeast, source, storms, https, panel]
-    token_count: 53
-    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/07/01/875871.htm"}]
+    token_count: 52
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/07/01/875871.htm","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-journal-southeast/dfb3efbcb5.md#c1"
-    char_span: [197, 2829]
+    char_span: [196, 2828]
     sentence_count: 19
     key_terms: [hospital, tampa, employees, hurricane, florida, general, workers, safety]
     concepts: [hospital, tampa, employees, hurricane, florida]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/07/01/875871.htm","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-journal-southeast/dfb3efbcb5.md#c2"
-    char_span: [2462, 4256]
+    char_span: [2461, 4255]
     sentence_count: 21
     key_terms: [preparedness, operations, storm, supplies, transportation, emergency, programs, recovery]
     concepts: [preparedness, operations, storm, supplies, transportation]
     token_count: 331
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/07/01/875871.htm","kind":"article","date":"2026-07-01"}]
 ---
 # The Lull Before the Storms: Businesses Should Test Hurricane Plans, Panel Says
 

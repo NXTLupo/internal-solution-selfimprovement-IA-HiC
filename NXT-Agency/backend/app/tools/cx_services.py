@@ -267,135 +267,81 @@ class GenerateJourneyMapTool(BaseTool):
             }
 
 
-class SearchRedditTool(BaseTool):
-    """Search and collect Reddit data via the Social Data Collector."""
+class McpBoundTool(BaseTool):
+    """A CX tool that wraps ONE MCP service tool. 2026-10-31 (CX Workbench agent-stack plan, WS-A A4): its description
+    and parameter schema come from the service's own declaration (the wrapper's tools/list, the same registry the
+    platform agent discovers), bound at startup by `bind_cx_tools`; only a one-line usage note is local. The three
+    hand-described wrappers this replaces called MCP tools the services never declared (`analyze_topics`,
+    `transcribe_video`) or omitted a required parameter (`reddit_search` without `subreddit`), so they always failed."""
 
+    mcp_url: str = ""
+    mcp_tool: str = ""
+    usage_note: str = ""
+    tier = 2
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.description = f"(binding to {self.mcp_tool} pending) {self.usage_note}".strip()
+        self.parameters = {"type": "object", "properties": {}, "required": []}
+        self.bound = False
+
+    async def bind(self) -> bool:
+        tools = await _list_mcp_tools(self.mcp_url)
+        spec = next((x for x in tools if x.get("name") == self.mcp_tool), None)
+        if not spec:
+            logger.warning("CX tool %s wraps MCP tool %s, which %s does not declare", self.name, self.mcp_tool, self.mcp_url)
+            return False
+        desc = str(spec.get("description") or "").rstrip(". ")
+        self.description = f"{desc}. {self.usage_note}".strip()
+        schema = spec.get("inputSchema") or spec.get("parameters") or {}
+        self.parameters = schema if isinstance(schema, dict) and schema.get("type") == "object" else {"type": "object", "properties": {}}
+        self.bound = True
+        return True
+
+    async def execute(self, params: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
+        if not self.bound and not await self.bind():
+            return {"error": f"{self.name} is unavailable: the service does not declare {self.mcp_tool}"}
+        missing = [k for k in (self.parameters.get("required") or []) if k not in params]
+        if missing:
+            return {"error": f"missing required parameter(s): {', '.join(missing)}"}
+        logger.info("CX tool %s -> %s (session %s)", self.name, self.mcp_tool, ctx.session_id)
+        try:
+            return await _call_mcp(self.mcp_url, self.mcp_tool, params)
+        except Exception as e:
+            logger.error("MCP call %s failed: %s", self.mcp_tool, e)
+            return {"error": f"{self.mcp_tool} unavailable: {e}"}
+
+
+class SearchRedditTool(McpBoundTool):
     name = "search_reddit"
-    description = (
-        "Search Reddit for posts and comments on a topic. Collects data from "
-        "specified subreddits including post content, scores, comments, and metadata. "
-        "Use this for social listening, competitive research, or customer voice analysis."
-    )
-    parameters = {
-        "type": "object",
-        "properties": {
-            "query": {
-                "type": "string",
-                "description": "Search query or topic to search for on Reddit.",
-            },
-            "subreddit": {
-                "type": "string",
-                "description": "Specific subreddit to search (without r/ prefix). Optional.",
-            },
-            "limit": {
-                "type": "integer",
-                "description": "Maximum number of posts to return (default: 25, max: 100).",
-            },
-        },
-        "required": ["query"],
-    }
-    tier = 2
-
-    async def execute(self, params: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
-        query = params.get("query", "")
-        if not query:
-            return {"error": "query parameter is required"}
-
-        logger.info("Searching Reddit: %s (session %s)", query[:50], ctx.session_id)
-
-        try:
-            result = await _call_mcp(REDDIT_MCP_URL, "reddit_search", {
-                "query": query,
-                "subreddit": params.get("subreddit", ""),
-                "limit": params.get("limit", 25),
-            })
-            return result
-        except Exception as e:
-            logger.error("Reddit MCP call failed: %s", e)
-            return {"error": f"Reddit service unavailable: {e}"}
+    mcp_url = REDDIT_MCP_URL
+    mcp_tool = "reddit_search"
+    usage_note = "Use for social listening, competitive research or customer voice; check the job with the status tool before reading results."
 
 
-class AnalyzeSocialDataTool(BaseTool):
-    """Run topic modeling and sentiment analysis via the Social Research service."""
-
+class AnalyzeSocialDataTool(McpBoundTool):
     name = "analyze_social_data"
-    description = (
-        "Analyze social media data using advanced topic modeling (BERTopic) and "
-        "sentiment analysis (VADER + AI). Identifies themes, clusters posts by topic, "
-        "and provides sentiment scores with evidence quotes. "
-        "Use this for brand monitoring, customer voice analysis, or market research."
-    )
-    parameters = {
-        "type": "object",
-        "properties": {
-            "data": {
-                "type": "string",
-                "description": "The text data to analyze (posts, comments, reviews, transcripts).",
-            },
-            "analysis_type": {
-                "type": "string",
-                "enum": ["topic_modeling", "sentiment", "both"],
-                "description": "Type of analysis to run. Default: both.",
-            },
-        },
-        "required": ["data"],
-    }
-    tier = 2
-
-    async def execute(self, params: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
-        data = params.get("data", "")
-        if not data:
-            return {"error": "data parameter is required"}
-
-        logger.info("Analyzing social data (session %s)", ctx.session_id)
-
-        try:
-            result = await _call_mcp(SOCIAL_MCP_URL, "analyze_topics", {
-                "content": data,
-                "analysis_type": params.get("analysis_type", "both"),
-            })
-            return result
-        except Exception as e:
-            logger.error("Social MCP call failed: %s", e)
-            return {"error": f"Social Research service unavailable: {e}"}
+    mcp_url = SOCIAL_MCP_URL
+    mcp_tool = "social_topic_model"
+    usage_note = "Use for brand monitoring or customer voice analysis over collected social data; returns a job to poll."
 
 
-class TranscribeVideoTool(BaseTool):
-    """Transcribe video or audio content via the Video Transcription service."""
-
+class TranscribeVideoTool(McpBoundTool):
     name = "transcribe_video"
-    description = (
-        "Transcribe video or audio content using OpenAI Whisper. "
-        "Accepts YouTube URLs or references to uploaded video/audio files. "
-        "Returns full transcript with timestamps."
-    )
-    parameters = {
-        "type": "object",
-        "properties": {
-            "url": {
-                "type": "string",
-                "description": "YouTube URL or video file path to transcribe.",
-            },
-        },
-        "required": ["url"],
-    }
-    tier = 2
+    mcp_url = VIDEO_MCP_URL
+    mcp_tool = "video_transcribe_youtube"
+    usage_note = "Use for YouTube interviews, talks and reviews; returns a job to poll for the transcript."
 
-    async def execute(self, params: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
-        url = params.get("url", "")
-        if not url:
-            return {"error": "url parameter is required"}
 
-        logger.info("Transcribing video: %s (session %s)", url[:50], ctx.session_id)
-
-        try:
-            result = await _call_mcp(VIDEO_MCP_URL, "transcribe_video", {
-                "url": url,
-            })
-            return result
-        except Exception as e:
-            logger.error("Video MCP call failed: %s", e)
-            return {"error": f"Video Transcription service unavailable: {e}"}
+async def bind_cx_tools(registry) -> dict:
+    """Bind every MCP-bound CX tool to its service's declaration. Called once at startup; a tool whose service is down
+    binds on first use instead."""
+    out = {}
+    for tool in list(getattr(registry, "_tools", {}).values()):
+        if isinstance(tool, McpBoundTool):
+            out[tool.name] = await tool.bind()
+    logger.info("CX tools bound to MCP declarations: %s", out)
+    return out
 
 
 class CollectRedditDataTool(BaseTool):

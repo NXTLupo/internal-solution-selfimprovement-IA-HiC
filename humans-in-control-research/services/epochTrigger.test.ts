@@ -147,7 +147,8 @@ describe('emitDeliverable -> epochTrigger wiring', () => {
         const record = vi.fn().mockResolvedValue({ status: null, counted: true, proposalId: null, proposed: false, statusLine: '' });
         vi.doMock('./epochTrigger', () => ({ recordJobCompletion: record }));
         routeFetch([[/.*/, () => ({ ok: true, status: 'ok' })]]);
-        (window as any).__hicCurrentEngagementSlug = 'eng-wiring';
+        const { setEngagementSlug } = await import('./runState');
+        setEngagementSlug('eng-wiring');
         const { emitDeliverable } = await import('./emitDeliverable');
         await emitDeliverable<{ text: string }>({
             deliverable: '#themes',

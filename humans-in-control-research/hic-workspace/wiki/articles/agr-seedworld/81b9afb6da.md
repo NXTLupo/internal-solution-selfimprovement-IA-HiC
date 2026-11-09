@@ -16,24 +16,26 @@ collected_at: "2026-07-02T16:34:49+00:00"
 content_hash: "2fe1c7960bbf51ad"
 chunks:
   - id: "articles/agr-seedworld/81b9afb6da.md#c0"
-    char_span: [0, 260]
+    char_span: [0, 259]
     sentence_count: 1
     key_terms: [canadas-plant-breeding-future-hinges-on-trust-not-just-funding-models-marcs-take-this-week, canada, seedworld, breeding, funding, future, hinges, models]
     concepts: [canada]
-    token_count: 75
-    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/canada/2026/04/23/canadas-plant-breeding-future-hinges-on-trust-not-just-funding-models-marcs-take-this-week/"}]
+    token_count: 74
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/canada/2026/04/23/canadas-plant-breeding-future-hinges-on-trust-not-just-funding-models-marcs-take-this-week/","kind":"article","date":"2026-04-23"}]
   - id: "articles/agr-seedworld/81b9afb6da.md#c1"
-    char_span: [262, 2919]
+    char_span: [261, 2918]
     sentence_count: 33
     key_terms: [system, consolidation, breeding, innovation, canada, funding, investment, global]
     concepts: [consolidation, system, breeding, innovation, canada]
     token_count: 512
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/canada/2026/04/23/canadas-plant-breeding-future-hinges-on-trust-not-just-funding-models-marcs-take-this-week/","kind":"article","date":"2026-04-23"}]
   - id: "articles/agr-seedworld/81b9afb6da.md#c2"
-    char_span: [2583, 3405]
+    char_span: [2582, 3404]
     sentence_count: 12
     key_terms: [change, innovation, funding, without, buy-in, system, model, conversation]
     concepts: [change, innovation, funding, without, buy-in]
     token_count: 171
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/canada/2026/04/23/canadas-plant-breeding-future-hinges-on-trust-not-just-funding-models-marcs-take-this-week/","kind":"article","date":"2026-04-23"}]
 ---
 # Canada’s Plant Breeding Future Hinges on Trust, Not Just Funding Models — Marc’s Take This Week
 

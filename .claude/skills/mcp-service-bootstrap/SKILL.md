@@ -1,11 +1,16 @@
 ---
 name: mcp-service-bootstrap
+description: "Scaffold a new MCP wrapper and core service for the workbench: a JSON-RPC 2.0 wrapper under mcp-services, the compose entry on nxt-humans-network, the agent's tool_services URL and the restart command. Use when adding a service the platform agent should reach."
 invocation: model
-version: 1.0
-description: Scaffold a new MCP wrapper + core service for the NXT Humans IA Suite. Creates the wrapper directory under mcp-services/<name>-mcp/ with a minimal JSON-RPC 2.0 server, registers it in docker-compose-all.yml on the nxt-humans-network, adds the URL to the agent's tool_services dict, and emits the agent-restart command. Encodes the 5-step ritual from CLAUDE.md "Adding New Services" so it's done correctly every time.
+version: "1"
+status: active
 ---
 
 # MCP Service Bootstrap
+
+## Scope
+
+Scaffold a new MCP wrapper + core service for the NXT Humans IA Suite. Creates the wrapper directory under mcp-services/<name>-mcp/ with a minimal JSON-RPC 2.0 server, registers it in docker-compose-all.yml on the nxt-humans-network, adds the URL to the agent's tool_services dict, and emits the agent-restart command. Encodes the 5-step ritual from CLAUDE.md "Adding New Services" so it's done correctly every time.
 
 You scaffold a new MCP-exposed service in the NXT Humans IA Suite. This is a 5-step ritual documented in `CLAUDE.md` — this skill executes it consistently.
 

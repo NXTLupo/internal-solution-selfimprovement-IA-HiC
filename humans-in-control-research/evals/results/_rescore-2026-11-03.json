@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-11-03T22:54:25.865565Z",
+  "finished_at": "2026-11-03T22:55:00.313859Z",
+  "window_hours": 24.0,
+  "artifacts": 3,
+  "failures": 3,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "hook-roadmap-1793746499",
+      "hook-brief-1793746499",
+      "hook-persona-1793746499",
+      "hook-gap-analysis-1793746499",
+      "hook-case-study-1793746499",
+      "hook-recommendation-1793746499",
+      "hook-persona-1793746500",
+      "hook-strategy-1793746500",
+      "hook-case-study-1793746500",
+      "hook-gap-analysis-1793746500",
+      "hook-recommendation-1793746500",
+      "auditor-mindmap-1793746500",
+      "auditor-brief-1793746500",
+      "auditor-deep-research-1793746500",
+      "auditor-meta-themes-1793746500"
+    ],
+    "skipped_existing": 203,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 720,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": [
+    {
+      "artifact_id": "slides_1793733775667",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793733775720_oyk8li",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_7fxdqp",
+        "evidence:unsupported_p0@slide_1793733775720_65ihwy",
+        "evidence:unsupported_p0@slide_1793733775720_nwaejy",
+        "evidence:unsupported_p0@slide_1793733775722_nzl98v"
+      ]
+    },
+    {
+      "artifact_id": "flashcards_1793735006809",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "flashcards",
+      "failures": [
+        "claim:INDEPENDENCE_INFLATED@r17"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793735955307",
+      "run_id": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793735955347_z0j9n8"
+      ]
+    }
+  ]
+}

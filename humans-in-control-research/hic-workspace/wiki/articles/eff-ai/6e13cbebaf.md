@@ -19,12 +19,12 @@ content_hash: "1462ac109f16ced3"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/eff-ai/6e13cbebaf.md#c0"
-    char_span: [0, 2168]
+    char_span: [0, 2167]
     sentence_count: 16
     key_terms: [illinois, bill, veto, governor, pritzker, eff-gov-pritzker-veto-illinois-hb-5511, privacy, letter]
     concepts: [illinois, governor, pritzker, privacy, letter]
-    token_count: 461
-    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/eff-gov-pritzker-veto-illinois-hb-5511"}]
+    token_count: 460
+    sources: [{"n":"eff_ai","u":"https://www.eff.org/deeplinks/2026/06/eff-gov-pritzker-veto-illinois-hb-5511","kind":"article","date":"2026-06-29"}]
 ---
 # EFF to Gov. Pritzker: Veto Illinois’ HB 5511
 

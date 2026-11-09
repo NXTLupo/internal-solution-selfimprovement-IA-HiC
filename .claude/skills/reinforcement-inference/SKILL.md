@@ -1,12 +1,31 @@
 ---
 name: reinforcement-inference
+description: Re-ask the model with its prior answer verbatim plus an uncertainty hint when confidence crosses a threshold; anchored re-asking beats a plain think-harder prompt. Use at regeneration sites (recommendations, journey map, PRD, roadmap, gap analysis) and uncertain answers.
 invocation: model
-version: 1.0
-description: Training-free inference-time technique that re-asks the model to reconsider its own answer when uncertainty crosses a threshold. The second pass MUST include the prior answer verbatim plus an uncertainty hint — anchored re-asking is load-bearing; prompt-only "think harder" underperforms baseline. Composes with verbalized-sampling (VS surfaces uncertainty by emitting candidates with probabilities and per-claim confidence; RI acts on that uncertainty by triggering an anchored second pass). Apply at HiC's existing regeneration sites (recommendations, journey map, PRD, roadmap, gap analysis) and at four new surfaces (themes, persona enrichment, prototype Stage 1, chat answers). Effect size on the paper's benchmark: DeepSeek-v3.2 MMLU-Pro 60.72% → 84.03% with Cohen's h = 0.81 on re-asked subset.
+version: "1.0"
+status: active
 thinking: max
+triggers:
+  - "#reinforce"
+  - low confidence
+  - reinforcement inference
+  - anchored re-ask
+  - verbalized confidence trigger
+composes_with:
+  - verbalized-sampling
+loader:
+  title: Reinforcement Inference
+  role: self-improvement
+  execution_context: wrapper
+  wiki_companions:
+    - synthesis/uncertainty-ledger.md
 ---
 
 # Reinforcement Inference — Uncertainty-Triggered Two-Pass Reasoning
+
+## Scope
+
+Training-free inference-time technique that re-asks the model to reconsider its own answer when uncertainty crosses a threshold. The second pass MUST include the prior answer verbatim plus an uncertainty hint — anchored re-asking is load-bearing; prompt-only "think harder" underperforms baseline. Composes with verbalized-sampling (VS surfaces uncertainty by emitting candidates with probabilities and per-claim confidence; RI acts on that uncertainty by triggering an anchored second pass). Apply at HiC's existing regeneration sites (recommendations, journey map, PRD, roadmap, gap analysis) and at four new surfaces (themes, persona enrichment, prototype Stage 1, chat answers). Effect size on the paper's benchmark: DeepSeek-v3.2 MMLU-Pro 60.72% → 84.03% with Cohen's h = 0.81 on re-asked subset.
 
 > Source: *Reinforcement Inference: Two-Pass Reasoning with Uncertainty-Triggered Re-asking.* arXiv:2602.08520v3. PDF at `.claude/skills/intelligence/reinforcement_inference.pdf`. The PDF is image-only; the operational summary below is what you need to apply the technique.
 

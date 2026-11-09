@@ -16,24 +16,26 @@ collected_at: "2026-07-02T17:34:32+00:00"
 content_hash: "9baeac85937f2d5e"
 chunks:
   - id: "articles/ins-insurance-business-us/dd57bf4a3e.md#c0"
-    char_span: [0, 224]
+    char_span: [0, 223]
     sentence_count: 1
     key_terms: [world-insurance-associates-acquires-clarke-insurance-580866, insurance, insurancebusinessmag, mergers-acquisitions, associates, acquires, clarke, source]
     concepts: [insurance]
-    token_count: 52
-    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/mergers-acquisitions/world-insurance-associates-acquires-clarke-insurance-580866.aspx"}]
+    token_count: 51
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/mergers-acquisitions/world-insurance-associates-acquires-clarke-insurance-580866.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-us/dd57bf4a3e.md#c1"
-    char_span: [226, 2725]
+    char_span: [225, 2724]
     sentence_count: 17
     key_terms: [insurance, world, clarke, partners, acquisitions, eknoian, jersey, distribution]
     concepts: [insurance, world, clarke, partners, acquisitions]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/mergers-acquisitions/world-insurance-associates-acquires-clarke-insurance-580866.aspx","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-insurance-business-us/dd57bf4a3e.md#c2"
-    char_span: [2411, 3785]
+    char_span: [2410, 3784]
     sentence_count: 7
     key_terms: [auto, average, jersey, state, acquisition, new, rate, insurance]
     concepts: [average, jersey, acquisition, state, insurance]
     token_count: 285
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/mergers-acquisitions/world-insurance-associates-acquires-clarke-insurance-580866.aspx","kind":"article","date":"2026-07-01"}]
 ---
 # World Insurance Associates acquires Clarke Insurance
 

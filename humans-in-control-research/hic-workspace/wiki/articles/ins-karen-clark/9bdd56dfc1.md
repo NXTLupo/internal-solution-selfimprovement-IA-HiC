@@ -16,45 +16,50 @@ collected_at: "2026-07-02T17:41:34+00:00"
 content_hash: "e83aaf03910b945a"
 chunks:
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c0"
-    char_span: [0, 89]
+    char_span: [0, 88]
     sentence_count: 1
     key_terms: [karenclarkandco, company, source, clark, https, karen, com, news]
-    token_count: 28
-    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news"}]
+    token_count: 27
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c1"
-    char_span: [91, 2729]
+    char_span: [90, 2728]
     sentence_count: 3
     key_terms: [clark, hurricane, karen, season, catastrophe, market, insurers, june]
     concepts: [clark, hurricane, karen, season, catastrophe]
     related_chunks: ["articles/ins-karen-clark/9bdd56dfc1.md#c2", "articles/ins-karen-clark/9bdd56dfc1.md#c3", "articles/ins-karen-clark/9bdd56dfc1.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c2"
-    char_span: [2431, 4930]
+    char_span: [2430, 4929]
     sentence_count: 4
     key_terms: [clark, kcc, karen, hurricane, new, risk, company, insurers]
     concepts: [clark, karen, hurricane, company, insurers]
     related_chunks: ["articles/ins-karen-clark/9bdd56dfc1.md#c1", "articles/ins-karen-clark/9bdd56dfc1.md#c3", "articles/ins-karen-clark/9bdd56dfc1.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c3"
-    char_span: [4617, 7288]
+    char_span: [4616, 7287]
     sentence_count: 2
     key_terms: [kcc, hurricane, clark, model, catastrophe, karen, insurers, november]
     concepts: [hurricane, catastrophe, clark, model, karen]
     related_chunks: ["articles/ins-karen-clark/9bdd56dfc1.md#c1", "articles/ins-karen-clark/9bdd56dfc1.md#c2", "articles/ins-karen-clark/9bdd56dfc1.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c4"
-    char_span: [6972, 9512]
+    char_span: [6971, 9511]
     sentence_count: 2
     key_terms: [clark, september, karen, catastrophe, modeling, kcc, reinsurance, models]
     concepts: [clark, september, catastrophe, karen, modeling]
     related_chunks: ["articles/ins-karen-clark/9bdd56dfc1.md#c1", "articles/ins-karen-clark/9bdd56dfc1.md#c2", "articles/ins-karen-clark/9bdd56dfc1.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
   - id: "articles/ins-karen-clark/9bdd56dfc1.md#c5"
-    char_span: [9208, 10092]
+    char_span: [9207, 10091]
     sentence_count: 5
     key_terms: [perils, secondary, clark, market, karen, opportunity, reinsurance, september]
     concepts: [secondary, perils, clark, market, opportunity]
     token_count: 179
+    sources: [{"n":"ins_karen_clark","u":"https://www.karenclarkandco.com/news","kind":"article"}]
 ---
 # Karen Clark & Company
 

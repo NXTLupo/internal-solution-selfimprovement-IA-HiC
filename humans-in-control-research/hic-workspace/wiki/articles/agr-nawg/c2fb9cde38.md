@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:57:40+00:00"
 content_hash: "6fa30450adaa063d"
 chunks:
   - id: "articles/agr-nawg/c2fb9cde38.md#c0"
-    char_span: [0, 2468]
+    char_span: [0, 2467]
     sentence_count: 11
     key_terms: [association, california, growers, dakota, commerce, missouri, chamber, general]
     concepts: [association, california, growers, dakota, commerce]
-    token_count: 475
-    sources: [{"n":"agr_nawg","u":"https://www.wheatworld.org/news/"}]
+    token_count: 474
+    sources: [{"n":"agr_nawg","u":"https://www.wheatworld.org/news/","kind":"article"}]
 ---
 # National Association of Wheat Growers
 

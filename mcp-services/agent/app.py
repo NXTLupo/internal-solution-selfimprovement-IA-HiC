@@ -1,8 +1,19 @@
 """
 Agent Orchestrator Service
 -------------------------
-This service orchestrates the interaction between Claude and the MCP tool services.
-It manages conversation state, coordinates tool invocations, and formats responses.
+The platform coordinator: it receives the user's ask (Launchpad WebSocket or HTTP), routes it to the thread that
+owns its job or engagement, calls the MCP tool services, and answers.
+
+2026-10-31 (plan agent-stack-shared-memory-skills-uplift):
+  - WS-D D1: a THREAD REGISTRY with location markers (threads.py), conversations persisted to
+    hic-workspace/agent so a restart loses nothing, and routing of a new ask to the owning thread.
+  - WS-D D2: models come from the routing authority (/api/models seats: Flash for plain chat, the reasoning model
+    once a tool chain runs) and every call goes through the research proxy's provider routes; the agent holds no
+    provider key and no model id. The dead `openai_journey` service is gone.
+  - WS-B B2: memory is recalled at the start of each turn and admitted after a completed tool chain, through the
+    proxy's ONE memory door.
+  - WS-A A4/A5: the skill registry's `platform-agent` packages are mounted into the system prompt (re-fetched when
+    their hash changes) and each turn records the skills it carried.
 """
 
 import os
@@ -16,10 +27,12 @@ import tempfile
 from typing import Dict, List, Any, Optional, Union, Tuple
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, UploadFile, File, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
-from anthropic import AsyncAnthropic
 from pydantic import BaseModel, Field
 from websockets.exceptions import ConnectionClosedError
 import base64
+
+import hic_door as door
+import threads as thr
 
 # Configure logging
 logging.basicConfig(
@@ -29,23 +42,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger("agent-orchestrator")
 
-# Configuration
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-if not ANTHROPIC_API_KEY:
-    logger.error("ANTHROPIC_API_KEY environment variable not set")
-    raise ValueError("ANTHROPIC_API_KEY environment variable must be set")
-
-ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
-
 REDDIT_MCP_URL = os.environ.get("REDDIT_MCP_URL", "http://reddit-mcp:8501")
 SOCIAL_MCP_URL = os.environ.get("SOCIAL_MCP_URL", "http://social-mcp:8502")
 JOURNEY_MCP_URL = os.environ.get("JOURNEY_MCP_URL", "http://journey-mcp:8503")
 VIDEO_MCP_URL = os.environ.get("VIDEO_MCP_URL", "http://video-mcp:8504")
-OPENAI_JOURNEY_MCP_URL = os.environ.get("OPENAI_JOURNEY_MCP_URL", "http://openai-journey-mcp:8505")
-# Claude4 Journey Mapper removed
-
-# Initialize Anthropic client
-anthropic_client = AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
 
 # Models
 class Message(BaseModel):
@@ -59,48 +59,46 @@ class ToolCall(BaseModel):
 class Conversation(BaseModel):
     id: str
     messages: List[Message] = Field([], description="Conversation messages")
-    active_tools: List[Dict[str, Any]] = Field([], description="Active tools in this conversation")
     file_mappings: Dict[str, str] = Field({}, description="Map file IDs to temporary file paths")
     journey_mappings: Dict[str, str] = Field({}, description="Map file IDs to journey IDs for tracking journey generation")
 
 # Create FastAPI app
 app = FastAPI(
     title="Agent Orchestrator Service",
-    description="Orchestrates the interaction between Claude and MCP tool services",
-    version="1.0.0"
+    description="Coordinates the user's asks across the MCP tool services, with threads, memory and skills",
+    version="2.0.0"
 )
 
-# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify exact origins
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# In-memory storage for conversations
+# Live conversations (a cache over hic-workspace/agent/conversations; the disk copy survives a restart)
 conversations: Dict[str, Conversation] = {}
-
-# In-memory storage for file uploads
 uploaded_files: Dict[str, str] = {}
-
-# Tool definitions - will be populated from services
 tool_definitions: Dict[str, Dict[str, Any]] = {}
 
-# Tool service URLs
+# Tool service URLs. 2026-10-31 (D2): `openai_journey` removed; it had no compose service and failed discovery on
+# every start.
 tool_services = {
     "reddit": REDDIT_MCP_URL,
-    "social": SOCIAL_MCP_URL, 
+    "social": SOCIAL_MCP_URL,
     "journey": JOURNEY_MCP_URL,
     "video": VIDEO_MCP_URL,
-    "openai_journey": OPENAI_JOURNEY_MCP_URL,
     "research": os.getenv("RESEARCH_MCP_URL", "http://research-mcp:8507"),
     # E3.1 (2026-08-21): HTML-to-video rendering. lint_composition is free,
     # render_composition is minutes of CPU that bakes copy into pixels, so the tool
     # descriptions tell the model to lint first.
     "video_render": os.getenv("VIDEO_RENDER_MCP_URL", "http://video-render-mcp:8508"),
 }
+
+seats = door.Seats()
+skill_mount = door.SkillMount("platform-agent")
+_registry_lock = asyncio.Lock()
 
 # Cache the available tools from each service
 async def fetch_and_cache_tools():
@@ -234,182 +232,59 @@ async def fetch_and_cache_tools():
     
     return tool_definitions
 
-# Create system message with tool definitions
-def create_system_message() -> str:
-    """Create a system message that includes the available tools"""
-    tools_description = "You are a helpful assistant with access to the following tools:\n\n"
+# The system message: the tool catalog (from discovery), the mounted skill packages, recalled memory, the thread.
+def tool_catalog() -> str:
+    by_service: Dict[str, List[str]] = {}
+    lines: List[str] = []
+    for tool_name, tool_info in sorted(tool_definitions.items()):
+        spec = tool_info.get("spec", {})
+        by_service.setdefault(tool_info.get("service", "?"), []).append(tool_name)
+        lines.append(f"## {tool_name}\n{spec.get('description', 'No description provided')}\n")
+        params = spec.get("parameters")
+        if not params and isinstance(spec.get("inputSchema"), dict):
+            params = spec["inputSchema"].get("properties", {})
+        lines.append("Parameters:")
+        for param_name, param_info in (params or {}).items():
+            if not isinstance(param_info, dict):
+                continue
+            default = f" (default: {param_info.get('default')})" if "default" in param_info else ""
+            lines.append(f"- {param_name}: {param_info.get('type', 'unknown')} - {param_info.get('description', 'No description')}{default}")
+        lines.append("")
+    services = "\n".join(f"- {svc}: {', '.join(names)}" for svc, names in sorted(by_service.items()))
+    return f"Services and their tools:\n{services}\n\n" + "\n".join(lines)
 
-    # Build message with tool descriptions and parameter details
-    for tool_name, tool_info in tool_definitions.items():
-        tool_spec = tool_info.get("spec", {})
 
-        # Add tool name and description
-        tools_description += f"## {tool_name}\n"
-        tools_description += f"{tool_spec.get('description', 'No description provided')}\n\n"
+def create_system_message(memory_block: str = "", thread: Optional[Dict[str, Any]] = None) -> str:
+    thread_block = ""
+    if thread:
+        thread_block = (f"\nTHIS THREAD: {thread.get('title')}"
+                        + (f"; engagement {thread.get('engagement')}" if thread.get("engagement") else "")
+                        + (f"; jobs {', '.join(thread.get('job_ids')[-5:])}" if thread.get("job_ids") else "")
+                        + f"; runs {thread.get('location', 'cloud')}.\n")
+    memory = f"\nWHAT THE TEAM ALREADY ESTABLISHED (long-term memory recalled for this ask; build on it, never restate it as new):\n{memory_block}\n" if memory_block else ""
+    skills = skill_mount.block()
+    return f"""You are the NXT Humans Customer Experience Workbench coordinator. You help the team analyze customer experiences with the platform's research tools: Reddit and social listening, topic and sentiment modeling, journey mapping, video transcription and rendering, and Humans in Control (HiC) research deliverables.
+{thread_block}{memory}
+{skills}
 
-        # Add parameters section
-        tools_description += "Parameters:\n"
-        for param_name, param_info in tool_spec.get("parameters", {}).items():
-            param_type = param_info.get("type", "unknown")
-            param_desc = param_info.get("description", "No description")
-            param_default = f" (default: {param_info.get('default')})" if "default" in param_info else ""
+AVAILABLE TOOLS
+{tool_catalog()}
 
-            tools_description += f"- {param_name}: {param_type} - {param_desc}{param_default}\n"
-
-        tools_description += "\n"
-
-    # Add instructions for how Claude should use the tools
-    system_prompt = f"""You are the Customer Experience Workbench Assistant for NXT Humans, helping users analyze customer experiences using our specialized tools. You are extremely knowledgeable about customer experience analysis, social listening, and journey mapping.
-
-Your primary tools are:
-
-1. Reddit Data Collector (reddit_*) - Scrapes and analyzes posts from Reddit
-2. Social Research Tool (social_*) - Performs topic modeling and sentiment analysis on social data  
-3. Journey Mapper (journey_*) - Creates customer journey maps using Claude Opus 4.5
-4. OpenAI Journey Mapper (openai_journey_*) - Advanced journey mapping using OpenAI o3 reasoning models
-5. Video Transcriptor (video_*) - Transcribes and analyzes video content from URLs or uploads
-
-Here are all the available tools you can use:
-
-{tools_description}
-
-To use a tool, you MUST respond in this exact format:
+To use a tool, respond ONLY with this JSON block (no prose before it is required):
 ```json
 {{
   "tool_calls": [
-    {{
-      "name": "tool.name",
-      "parameters": {{
-        "param1": "value1",
-        "param2": "value2"
-      }}
-    }}
+    {{"name": "tool_name", "parameters": {{"param1": "value1"}}}}
   ]
 }}
 ```
 
-IMPORTANT USAGE GUIDELINES:
-
-1. For Reddit Analysis:
-   - Start with `reddit_search` to fetch posts with specific parameters
-   - Use `reddit_get_status` to check progress
-   - Use `reddit_get_results` when complete
-
-2. For Social Research:
-   - Use `social_search` for basic querying
-   - Use `social_topic_model` for topic analysis
-   - Use `social_sentiment_analysis` for sentiment analysis
-   - Always check status with corresponding get_status tools
-
-3. For Journey Mapping:
-   - Tell users to upload their files when needed
-   - Use `journey_upload_file` to process uploads
-   - Use `journey_generate_map` to create journey maps
-   - Provide visualization links from `journey_get_results`
-   - You have TWO journey mappers available:
-     * `journey_*` - Claude Opus 4.5 (most advanced)
-     * `openai_journey_*` - OpenAI o3 (advanced reasoning)
-
-4. For Video Transcription:
-   - Use `video_transcribe_youtube` with URL parameter for YouTube videos
-   - Use `video_get_job_status` to check transcription progress
-   - Use `video_get_transcript` when transcription is complete
-   - Support both YouTube URLs and direct video file uploads
-
-SPECIFIC EXAMPLES:
-
-For Reddit data collection:
-1. When a user asks to "get posts from the NBA subreddit", use:
-   ```json
-   {{
-     "tool_calls": [
-       {{
-         "name": "reddit_search",
-         "parameters": {{
-           "subreddit": "nba",
-           "time_filter": "week",
-           "limit": 25,
-           "comments_per_post": 10
-         }}
-       }}
-     ]
-   }}
-   ```
-
-For social media analysis:
-1. When a user asks to "analyze sentiment about iPhone", use:
-   ```json
-   {{
-     "tool_calls": [
-       {{
-         "name": "social_sentiment_analysis",
-         "parameters": {{
-           "search_query": "iPhone",
-           "data_source": "reddit",
-           "sentiment_type": "roberta"
-         }}
-       }}
-     ]
-   }}
-   ```
-
-For video transcription:
-1. When a user asks to "transcribe this YouTube video: https://www.youtube.com/watch?v=abc123", use:
-   ```json
-   {{
-     "tool_calls": [
-       {{
-         "name": "video_transcribe_youtube",
-         "parameters": {{
-           "url": "https://www.youtube.com/watch?v=abc123"
-         }}
-       }}
-     ]
-   }}
-   ```
-
-For journey mapping (choose the appropriate mapper based on complexity):
-1. For Claude Opus 4.5 journey mapping from uploaded file:
-   ```json
-   {{
-     "tool_calls": [
-       {{
-         "name": "journey_upload_file",
-         "parameters": {{
-           "file": "file_id_from_upload"
-         }}
-       }}
-     ]
-   }}
-   ```
-
-IMPORTANT: You DO have video transcription tools available! Never tell users you don't have video tools.
-You have multiple journey mappers - always mention all three options and their strengths.
-
-Remember to explain what you're doing when using tools, and wait for tool results before proceeding.
-Always speak in a professional, helpful tone and focus on addressing the user's specific needs.
+Guidelines:
+- Long-running tools return a job id; check it with the matching status tool before reading results.
+- HiC deliverables run through the research tools (run_deliverable, get_job, get_run_state, list_artifacts); name the engagement.
+- When the answer needs no tool, answer directly. Name the sources a tool returned; never invent a source, a number or a result.
+- Lead with the answer. No meta-narration, no em dashes.
 """
-
-    return system_prompt
-
-# Global system message for use in API calls
-system_message = create_system_message()
-
-# Initialize a conversation
-async def initialize_conversation(conversation_id: str):
-    """Initialize a new conversation"""
-    # Fetch tools if not already cached
-    if not tool_definitions:
-        await fetch_and_cache_tools()
-    
-    conversations[conversation_id] = Conversation(
-        id=conversation_id,
-        messages=[],  # Initialize with empty messages list
-        active_tools=list(tool_definitions.values()),
-        file_mappings={}
-    )
-    
-    return conversations[conversation_id]
 
 # Parse Claude's response for tool calls
 def parse_tool_calls(response: str) -> List[ToolCall]:
@@ -484,7 +359,7 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
         # If parameter is a file and the value is a file_id
         if param_info.get("type") == "file" and isinstance(param_value, str):
             file_id = param_value
-            file_path = conversations[conversation_id].file_mappings.get(file_id)
+            file_path = get_conversation_sync(conversation_id).file_mappings.get(file_id)
             
             if file_path and os.path.exists(file_path):
                 # Load file for sending
@@ -499,7 +374,7 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
         
         # Also check for file_id parameters that reference uploaded files
         elif param_name == "file_id" and isinstance(param_value, str):
-            file_path = conversations[conversation_id].file_mappings.get(param_value)
+            file_path = get_conversation_sync(conversation_id).file_mappings.get(param_value)
             
             if file_path and os.path.exists(file_path):
                 # Load file for sending as a "file" parameter for legacy endpoints
@@ -515,7 +390,7 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
     # Handle journey status and results tools that need journey_id instead of file_id
     if tool_name.endswith(("_get_status", "_get_results")) and "file_id" in parameters:
         file_id = parameters["file_id"]
-        journey_id = conversations[conversation_id].journey_mappings.get(file_id)
+        journey_id = get_conversation_sync(conversation_id).journey_mappings.get(file_id)
         
         if journey_id:
             # Replace file_id with journey_id for status/results calls
@@ -636,131 +511,130 @@ Parameters: {json.dumps(tool_call.parameters, indent=2)}
 Results: {json.dumps(results, indent=2)}
 """
 
-# Process user message with Claude
-async def process_message(conversation_id: str, user_message: str, uploaded_file_id: Optional[str] = None) -> str:
-    """Process a user message with Claude and invoke tools as needed"""
-    # Get or initialize conversation
-    if conversation_id not in conversations:
-        await initialize_conversation(conversation_id)
-    
-    conversation = conversations[conversation_id]
-    
-    # Add user message to conversation
+def get_conversation_sync(conversation_id: str) -> Conversation:
+    """The live conversation, loaded from disk when this process has not seen it (a restart, or a routed thread)."""
+    conv = conversations.get(conversation_id)
+    if conv is not None:
+        return conv
+    data = thr.load_conversation(conversation_id) or {}
+    conv = Conversation(
+        id=conversation_id,
+        messages=[Message(**m) for m in data.get("messages", []) if isinstance(m, dict) and m.get("role") and m.get("content")],
+        file_mappings=data.get("file_mappings") or {},
+        journey_mappings=data.get("journey_mappings") or {},
+    )
+    conversations[conversation_id] = conv
+    return conv
+
+
+def persist_conversation(conv: Conversation) -> None:
+    try:
+        thr.save_conversation(conv.id, {"id": conv.id, "messages": [m.model_dump() for m in conv.messages][-200:],
+                                        "file_mappings": conv.file_mappings, "journey_mappings": conv.journey_mappings})
+    except Exception as e:
+        logger.warning(f"[threads] could not persist {conv.id}: {e}")
+
+
+async def initialize_conversation(conversation_id: str) -> Conversation:
+    if not tool_definitions:
+        await fetch_and_cache_tools()
+    return get_conversation_sync(conversation_id)
+
+
+async def process_message(conversation_id: str, user_message: str, uploaded_file_id: Optional[str] = None) -> Dict[str, Any]:
+    """One turn: route to the owning thread, recall memory, answer (chat seat) or run tools and synthesize
+    (tool-chain seat), admit what the tools established, persist the thread."""
+    t0 = time.time()
+    async with _registry_lock:
+        registry = thr.load_registry()
+    target = thr.route_message(registry, conversation_id, user_message) or conversation_id
+    routed = target != conversation_id
+    if routed:
+        logger.info(f"[threads] ask routed from {conversation_id} to the thread that owns it: {target}")
+    conversation = get_conversation_sync(target)
+    thread_row = registry.get(target)
+
     conversation.messages.append(Message(role="user", content=user_message))
-    
-    # If there's an uploaded file, add information about it
     if uploaded_file_id:
         file_path = uploaded_files.get(uploaded_file_id)
         if file_path:
-            # Add file to conversation file mappings
             conversation.file_mappings[uploaded_file_id] = file_path
-            
-            # Add a message about the uploaded file
-            file_name = os.path.basename(file_path)
-            conversation.messages.append(Message(
-                role="user",
-                content=f"User uploaded a file: {file_name} (ID: {uploaded_file_id}). You can use this file_id in tool calls that accept files."
-            ))
-    
-    # Format messages for Claude
-    claude_messages = []
-    for msg in conversation.messages:
-        claude_messages.append({
-            "role": msg.role,
-            "content": msg.content
-        })
-    
-    # Get response from Claude
-    response = await anthropic_client.messages.create(
-        model=ANTHROPIC_MODEL,
-        system=system_message,  # Use top-level system parameter
-        messages=claude_messages,
-        max_tokens=1024
-    )
-    
-    assistant_response = response.content[0].text
-    
-    # Check if Claude wants to call a tool
+            conversation.messages.append(Message(role="user", content=f"User uploaded a file: {os.path.basename(file_path)} (ID: {uploaded_file_id}). You can use this file_id in tool calls that accept files."))
+
+    engagement = (thread_row or {}).get("engagement", "")
+    await skill_mount.refresh()
+    memory = await door.recall(f"{user_message} {engagement}".strip(), engagement)
+    system = create_system_message(memory["rendered"], thread_row)
+    chat_model = await seats.seat("agent_chat")
+    tools_used: List[str] = []
+    job_ids: List[str] = []
+    models_used = [chat_model]
+    admitted = None
+    try:
+        assistant_response = await door.complete(chat_model, system, [m.model_dump() for m in conversation.messages], max_tokens=4096)
+    except Exception as e:
+        logger.exception("chat model call failed")
+        reply = f"The model route is unavailable right now ({str(e)[:120]}). Nothing was run; ask again in a moment."
+        conversation.messages.append(Message(role="assistant", content=reply))
+        persist_conversation(conversation)
+        return {"reply": reply, "thread_id": target, "routed": routed}
+
     tool_calls = parse_tool_calls(assistant_response)
-    
     if tool_calls:
-        # Claude wants to use tools
-        original_response = assistant_response
-        
-        # Extract just the text before the JSON if any
-        if "```json" in original_response:
-            explanation = original_response.split("```json")[0].strip()
-        elif original_response.strip().startswith("{"):
-            explanation = "I'll help you with that by using the appropriate tools:"
-        else:
-            explanation = original_response
-        
-        # Add Claude's explanation to conversation
-        conversation.messages.append(Message(role="assistant", content=explanation))
-        
-        # Execute each tool call
+        explanation = assistant_response.split("```json")[0].strip() if "```json" in assistant_response else ""
+        if explanation:
+            conversation.messages.append(Message(role="assistant", content=explanation))
+        any_error = False
         for tool_call in tool_calls:
-            # Log the tool call
             logger.info(f"Executing tool call: {tool_call.name}")
-            
-            # Add tool call to conversation
-            tool_call_msg = f"I'll use the {tool_call.name} tool with parameters: {json.dumps(tool_call.parameters, indent=2)}"
-            conversation.messages.append(Message(role="assistant", content=tool_call_msg))
-            
-            # Execute tool call
-            tool_results = await execute_tool_call(tool_call, conversation_id)
-            
-            # Track journey IDs for journey generation tools
-            if tool_call.name.endswith("_generate_map") and "journey_id" in tool_results:
-                journey_id = tool_results["journey_id"]
+            conversation.messages.append(Message(role="assistant", content=f"I'll use the {tool_call.name} tool with parameters: {json.dumps(tool_call.parameters, indent=2)}"))
+            tool_results = await execute_tool_call(tool_call, target)
+            tools_used.append(tool_call.name)
+            any_error = any_error or (isinstance(tool_results, dict) and tool_results.get("status") == "error")
+            job_ids.extend(j for j in thr.extract_job_ids(tool_results) if j not in job_ids)
+            engagement = engagement or thr.extract_engagement(tool_call.parameters, tool_results)
+            if tool_call.name.endswith("_generate_map") and isinstance(tool_results, dict) and "journey_id" in tool_results:
                 file_id = tool_call.parameters.get("file_id")
-                if file_id and journey_id:
-                    conversation.journey_mappings[file_id] = journey_id
-                    logger.info(f"Tracking journey mapping: file_id={file_id} -> journey_id={journey_id}")
-            
-            # Format results for Claude
-            formatted_results = format_tool_results(tool_call, tool_results)
-            
-            # Add tool results to conversation
-            conversation.messages.append(Message(role="user", content=f"Tool Results:\n{formatted_results}"))
-        
-        # Ask Claude to respond with the tool results
-        claude_messages = []
-        for msg in conversation.messages:
-            claude_messages.append({
-                "role": msg.role,
-                "content": msg.content
-            })
-        
-        # Add special instruction for Claude
-        claude_messages.append({
-            "role": "user",
-            "content": "Please provide a clear response based on the tool results above. Do not use any more tools in this response."
-        })
-        
-        # Get final response from Claude
-        final_response = await anthropic_client.messages.create(
-            model=ANTHROPIC_MODEL,
-            system=system_message,  # Use top-level system parameter
-            messages=claude_messages,
-            max_tokens=1024
-        )
-        
-        final_assistant_response = final_response.content[0].text
-        
-        # Add final response to conversation
-        conversation.messages.append(Message(role="assistant", content=final_assistant_response))
-        
-        return final_assistant_response
+                if file_id and tool_results["journey_id"]:
+                    conversation.journey_mappings[file_id] = tool_results["journey_id"]
+            conversation.messages.append(Message(role="user", content=f"Tool Results:\n{format_tool_results(tool_call, tool_results)}"))
+        conversation.messages.append(Message(role="user", content="Please provide a clear response based on the tool results above. Do not use any more tools in this response."))
+        chain_model = await seats.seat("agent_tool_chain")
+        models_used.append(chain_model)
+        try:
+            final = await door.complete(chain_model, create_system_message(memory["rendered"], thread_row), [m.model_dump() for m in conversation.messages], max_tokens=16000)
+        except Exception as e:
+            logger.exception("tool-chain model call failed")
+            final = f"The tools ran ({', '.join(tools_used)}), but the synthesis model is unavailable ({str(e)[:120]}). The raw results are in this thread."
+            any_error = True
+        conversation.messages.pop()          # the synthesis instruction is scaffolding, not history
+        conversation.messages.append(Message(role="assistant", content=final))
+        reply = final
+        if not any_error:
+            fact = door.tool_chain_fact(user_message, final, tools_used)
+            if fact:
+                admitted = await door.admit([fact], f"agent_{thr.safe_id(target)}", engagement)
     else:
-        # No tool calls, just add Claude's response to conversation
+        reply = assistant_response
         conversation.messages.append(Message(role="assistant", content=assistant_response))
-        return assistant_response
+
+    persist_conversation(conversation)
+    async with _registry_lock:
+        registry = thr.load_registry()
+        row = thr.upsert_thread(registry, target, user_message=user_message, reply=reply, tools=tools_used, job_ids=job_ids, engagement=engagement)
+        row.setdefault("source", "platform-agent")
+        thr.save_registry(registry)
+    events = [{"kind": "agent_turn", "surface": "platform-agent", "thread_id": target, "routed": routed, "models": models_used,
+               "tools": tools_used, "job_ids": job_ids[:10], "memory_recalled": len(memory["ids"]), "location": row.get("location"),
+               "memory_admitted": bool(admitted and admitted.get("report", {}).get("admitted")), "elapsed_ms": int((time.time() - t0) * 1000)}]
+    events += [{"kind": "skill", "skill_id": sid, "version": ver, "via": "mounted", "surface": "platform-agent", "role": "system-prompt"}
+               for sid, ver in skill_mount.versions().items()]
+    await door.telemetry(events)
+    return {"reply": reply, "thread_id": target, "routed": routed, "title": row.get("title")}
 
 # API Endpoints
 @app.post("/api/chat/conversation")
 async def create_conversation():
-    """Create a new conversation"""
     conversation_id = str(uuid.uuid4())
     await initialize_conversation(conversation_id)
     return {"conversation_id": conversation_id}
@@ -771,124 +645,153 @@ async def send_message(
     message: str = Form(...),
     file: Optional[UploadFile] = File(None)
 ):
-    """Send a message to the agent"""
     file_id = None
-    
-    # Handle file upload if present
     if file:
-        # Save file to temporary location
         file_id = str(uuid.uuid4())
-        temp_dir = tempfile.gettempdir()
-        file_path = os.path.join(temp_dir, f"{file_id}_{file.filename}")
-        
+        file_path = os.path.join(tempfile.gettempdir(), f"{file_id}_{file.filename}")
         with open(file_path, "wb") as f:
             f.write(await file.read())
-        
-        # Store file path
         uploaded_files[file_id] = file_path
-    
-    # Process message
-    response = await process_message(conversation_id, message, file_id)
-    
-    return {"reply": response}
+    out = await process_message(conversation_id, message, file_id)
+    return out
+
+@app.get("/api/threads")
+async def list_threads(limit: int = 50):
+    """D1: the thread list (newest first) with location markers, for the Launchpad."""
+    registry = thr.load_registry()
+    rows = sorted(registry.values(), key=lambda r: str(r.get("updated_at") or ""), reverse=True)[:max(1, min(limit, 200))]
+    return {"count": len(registry), "threads": rows}
+
+@app.post("/api/threads/report")
+async def report_thread(payload: dict):
+    """D1: other coordinators (NXT-Agency's Launchpad chat) report their conversations into the ONE thread registry,
+    so the Launchpad's thread list shows every thread with its location: `local` once computer use ran."""
+    tid = str(payload.get("id") or "").strip()
+    if not tid:
+        raise HTTPException(status_code=400, detail="id required")
+    tools = [str(t) for t in (payload.get("tools") or []) if t]
+    async with _registry_lock:
+        registry = thr.load_registry()
+        row = thr.upsert_thread(registry, tid, user_message=str(payload.get("user_message") or ""), reply=str(payload.get("reply") or ""),
+                                tools=tools, job_ids=thr.extract_job_ids(payload.get("reply") or ""), engagement=str(payload.get("engagement") or ""))
+        row["source"] = str(payload.get("source") or "external")
+        thr.save_registry(registry)
+    return {"ok": True, "thread": row}
+
+# 2026-10-31 (agent-stack plan WS-D D3): the coordinator receives the signed report of a job it delegated through the
+# proxy's webhook (POST /api/webhooks/run with callback_url http://agent:8500/api/webhooks/hic). The signature is
+# HMAC-SHA256 over "<timestamp>.<raw body>" with this agent's webhook secret (HIC_WEBHOOK_SOURCE in
+# .runtime/webhook-secrets.json); the report attaches to the thread that owns the job id, and every report is kept.
+WEBHOOK_SOURCE = os.environ.get("HIC_WEBHOOK_SOURCE", "platform-agent")
+
+
+def _webhook_secret() -> str:
+    try:
+        with open(os.path.join(os.environ.get("HIC_RUNTIME_DIR", "/hic-workspace/.runtime"), "webhook-secrets.json"), "r", encoding="utf-8") as f:
+            return str(((json.load(f) or {}).get("sources") or {}).get(WEBHOOK_SOURCE) or "")
+    except Exception:
+        return ""
+
+
+@app.post("/api/webhooks/hic")
+async def receive_hic_report(request: Request):
+    import hmac as _hmac
+    import hashlib as _hashlib
+    secret = _webhook_secret()
+    if not secret:
+        raise HTTPException(status_code=404, detail="Not Found")
+    raw = await request.body()
+    ts = request.headers.get("x-hic-timestamp", "")
+    sig = request.headers.get("x-hic-signature", "")
+    want = "sha256=" + _hmac.new(secret.encode("utf-8"), ts.encode("utf-8") + b"." + raw, _hashlib.sha256).hexdigest()
+    try:
+        fresh = abs(time.time() - int(ts)) <= 300
+    except ValueError:
+        fresh = False
+    if not fresh or not _hmac.compare_digest(sig, want):
+        raise HTTPException(status_code=401, detail="bad or stale signature")
+    try:
+        report = json.loads(raw.decode("utf-8") or "{}")
+    except Exception:
+        raise HTTPException(status_code=400, detail="invalid JSON")
+    job_id = str(report.get("job_id") or "")
+    attached = None
+    async with _registry_lock:
+        registry = thr.load_registry()
+        for tid, row in registry.items():
+            if job_id and job_id in (row.get("job_ids") or []):
+                row.setdefault("reports", []).append({k: report.get(k) for k in ("job_id", "status", "artifact_id", "launcher_url", "verdict", "error", "finished_at")})
+                row["updated_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                attached = tid
+                break
+        if attached:
+            thr.save_registry(registry)
+    try:
+        os.makedirs(thr.AGENT_DIR, exist_ok=True)
+        with open(os.path.join(thr.AGENT_DIR, "webhook-reports.jsonl"), "a", encoding="utf-8") as f:
+            f.write(json.dumps({"received_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "thread_id": attached, **report}) + "\n")
+    except Exception as e:
+        logger.warning(f"[webhook] report not logged: {e}")
+    logger.info(f"[webhook] report for {job_id} ({report.get('status')}){' -> thread ' + attached if attached else ''}")
+    return {"ok": True, "thread_id": attached}
+
+
+@app.get("/api/threads/{thread_id}")
+async def get_thread(thread_id: str):
+    registry = thr.load_registry()
+    conv = get_conversation_sync(thread_id)
+    if thread_id not in registry and not conv.messages:
+        raise HTTPException(status_code=404, detail="no such thread")
+    return {"thread": registry.get(thread_id), "messages": [m.model_dump() for m in conv.messages if not m.content.startswith("Tool Results:")][-100:]}
 
 @app.get("/api/chat/ws/{conversation_id}")
 async def websocket_endpoint_info(conversation_id: str):
-    """Return WebSocket endpoint information"""
     return {"ws_url": f"/ws/{conversation_id}"}
 
 @app.websocket("/ws/{conversation_id}")
 async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
-    """WebSocket endpoint for real-time chat"""
     await websocket.accept()
-    
-    # Initialize conversation if needed
-    if conversation_id not in conversations:
-        await initialize_conversation(conversation_id)
-        
-    # Send initial welcome message
-    logger.info(f"Sending welcome message to conversation {conversation_id}")
+    conv = await initialize_conversation(conversation_id)
     try:
-        await websocket.send_json({
-            "type": "message",
-            "content": "I'm the NXT Humans Customer Experience Workbench Assistant. I can help you analyze customer experiences using our specialized tools. How can I assist you today?"
-        })
+        greeting = ("Welcome back. This thread continues where it left off." if conv.messages else
+                    "I'm the NXT Humans Customer Experience Workbench coordinator. I can run social listening, topic and sentiment models, journey maps, video transcription and HiC research deliverables. What do you need?")
+        await websocket.send_json({"type": "message", "content": greeting, "thread_id": conversation_id})
     except Exception as e:
         logger.error(f"Error sending welcome message: {str(e)}")
-    
+
+    async def _answer(text: str, file_id: Optional[str] = None):
+        out = await process_message(conversation_id, text or "", file_id)
+        if out.get("routed"):
+            await websocket.send_json({"type": "routed", "thread_id": out["thread_id"], "title": out.get("title"),
+                                       "content": f"Continuing in the thread that owns this work: {out.get('title') or out['thread_id']}"})
+        await websocket.send_json({"type": "message", "content": out["reply"], "thread_id": out["thread_id"]})
+
     try:
         while True:
-            # Receive message from client
             data = await websocket.receive_json()
             message_type = data.get("type", "")
-            
             if message_type == "message":
-                # Regular text message
-                user_message = data.get("content", "")
-                
-                # Process with Claude (use empty string if message is None)
-                response = await process_message(conversation_id, user_message or "")
-                
-                # Send response back to client
-                await websocket.send_json({
-                    "type": "message",
-                    "content": response
-                })
-                
+                await _answer(data.get("content", ""))
             elif message_type == "file":
-                # File upload message
                 file_data_base64 = data.get("file", {}).get("data", "")
                 file_name = data.get("file", {}).get("name", "unnamed_file")
-                message_text = data.get("content", "")
-                
                 if file_data_base64:
-                    # Decode file data
                     try:
-                        file_data = base64.b64decode(file_data_base64)
-                        
-                        # Save file to temporary location
                         file_id = str(uuid.uuid4())
-                        temp_dir = tempfile.gettempdir()
-                        file_path = os.path.join(temp_dir, f"{file_id}_{file_name}")
-                        
+                        file_path = os.path.join(tempfile.gettempdir(), f"{file_id}_{file_name}")
                         with open(file_path, "wb") as f:
-                            f.write(file_data)
-                        
-                        # Store file path
+                            f.write(base64.b64decode(file_data_base64))
                         uploaded_files[file_id] = file_path
-                        
-                        # Process message with Claude
-                        response = await process_message(conversation_id, message_text or "", file_id)
-                        
-                        # Send response back to client
-                        await websocket.send_json({
-                            "type": "message",
-                            "content": response
-                        })
-                        
+                        await _answer(data.get("content", ""), file_id)
                     except Exception as e:
                         logger.exception("Error processing file upload")
-                        await websocket.send_json({
-                            "type": "error",
-                            "content": f"Error processing file upload: {str(e)}"
-                        })
+                        await websocket.send_json({"type": "error", "content": f"Error processing file upload: {str(e)}"})
                 else:
-                    await websocket.send_json({
-                        "type": "error",
-                        "content": "No file data provided"
-                    })
-            
+                    await websocket.send_json({"type": "error", "content": "No file data provided"})
             elif message_type == "ping":
-                # Ping message to keep connection alive
                 await websocket.send_json({"type": "pong"})
-            
             else:
-                # Unknown message type
-                await websocket.send_json({
-                    "type": "error",
-                    "content": f"Unknown message type: {message_type}"
-                })
-                
+                await websocket.send_json({"type": "error", "content": f"Unknown message type: {message_type}"})
     except WebSocketDisconnect:
         logger.info(f"WebSocket client disconnected: {conversation_id}")
     except ConnectionClosedError:
@@ -896,71 +799,63 @@ async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
     except Exception as e:
         logger.exception(f"Error in WebSocket connection: {str(e)}")
         try:
-            await websocket.send_json({
-                "type": "error",
-                "content": f"Server error: {str(e)}"
-            })
-        except:
+            await websocket.send_json({"type": "error", "content": f"Server error: {str(e)}"})
+        except Exception:
             pass
 
-# Health check endpoint
 @app.get("/health")
 async def health_check():
-    """Health check endpoint"""
+    s = await seats.refresh()
+    registry = thr.load_registry()
     return {
         "status": "healthy",
         "service": "agent-orchestrator",
-        "model": ANTHROPIC_MODEL,
+        "model": s.get("agent_tool_chain"),
+        "seats": s,
+        "seats_source": seats.source,
         "tools_cached": len(tool_definitions),
         "available_tools": list(tool_definitions.keys()),
-        "active_conversations": len(conversations)
+        "services": list(tool_services.keys()),
+        "skills_mounted": skill_mount.versions(),
+        "skills_error": skill_mount.error,
+        "threads": len(registry),
+        "active_conversations": len(conversations),
     }
 
-# Refresh tools endpoint
 @app.post("/refresh-tools")
 async def refresh_tools():
-    """Force refresh tool definitions"""
-    global tool_definitions, system_message
-    
-    # Clear existing tool definitions
+    global tool_definitions
     tool_definitions = {}
-    
-    # Fetch and cache tools again
     await fetch_and_cache_tools()
-    
-    # Update system message with new tool definitions
-    system_message = create_system_message()
-    
-    return {
-        "status": "success",
-        "message": "Tool definitions refreshed",
-        "tools": list(tool_definitions.keys())
-    }
+    await skill_mount.refresh(force=True)
+    await seats.refresh(force=True)
+    return {"status": "success", "message": "Tool definitions, skills and model seats refreshed", "tools": list(tool_definitions.keys()),
+            "skills": skill_mount.versions(), "seats": seats.seats}
 
-# Root endpoint for service info
 @app.get("/")
 async def root():
-    """Root endpoint with service information"""
     return {
         "service": "Agent Orchestrator Service",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "status": "running",
-        "model": ANTHROPIC_MODEL,
+        "seats": seats.seats,
         "endpoints": {
             "/api/chat/conversation": "Create a new conversation",
             "/api/chat/message": "Send a message to the agent",
-            "/api/chat/ws/{conversation_id}": "Get WebSocket endpoint info",
+            "/api/threads": "The thread registry (newest first) with location markers",
+            "/api/threads/{id}": "One thread and its messages",
             "/ws/{conversation_id}": "WebSocket endpoint for real-time chat",
-            "/refresh-tools": "Force refresh tool definitions"
-        }
+            "/refresh-tools": "Force refresh tool definitions, skills and model seats",
+        },
     }
 
 @app.on_event("startup")
 async def startup_event():
-    """Run on server startup"""
-    # Fetch and cache tools
     await fetch_and_cache_tools()
-    logger.info(f"Cached {len(tool_definitions)} tool definitions")
+    await seats.refresh(force=True)
+    await skill_mount.refresh(force=True)
+    logger.info(f"Cached {len(tool_definitions)} tool definitions; seats {seats.seats} ({seats.source}); "
+                f"skills {skill_mount.versions()}; threads {len(thr.load_registry())}")
 
 if __name__ == "__main__":
     import uvicorn

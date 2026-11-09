@@ -16,32 +16,35 @@ collected_at: "2026-07-02T17:35:58+00:00"
 content_hash: "d87b83c7005f3925"
 chunks:
   - id: "articles/ins-insurance-journal-east/3acefeaea1.md#c0"
-    char_span: [0, 190]
+    char_span: [0, 189]
     sentence_count: 1
     key_terms: [insurancejournal, paramedics, immunity, upholds, infant, injury, jersey, source]
-    token_count: 52
-    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/06/30/875695.htm"}]
+    token_count: 51
+    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/06/30/875695.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-insurance-journal-east/3acefeaea1.md#c1"
-    char_span: [192, 2747]
+    char_span: [191, 2746]
     sentence_count: 13
     key_terms: [paramedics, services, communication, act, almonte, direct, court, emsa]
     concepts: [paramedics, services, communication, almonte, direct]
     related_chunks: ["articles/ins-insurance-journal-east/3acefeaea1.md#c2", "articles/ins-insurance-journal-east/3acefeaea1.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/06/30/875695.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-insurance-journal-east/3acefeaea1.md#c2"
-    char_span: [2460, 5018]
+    char_span: [2459, 5017]
     sentence_count: 23
     key_terms: [paramedics, almonte, hospital, ambulance, sharma, court, physician, granted]
     concepts: [paramedics, almonte, hospital, ambulance, sharma]
     related_chunks: ["articles/ins-insurance-journal-east/3acefeaea1.md#c1", "articles/ins-insurance-journal-east/3acefeaea1.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/06/30/875695.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-insurance-journal-east/3acefeaea1.md#c3"
-    char_span: [4665, 6882]
+    char_span: [4664, 6881]
     sentence_count: 10
     key_terms: [paramedics, court, physician, communication, almonte, direct, sharma, intervening]
     concepts: [paramedics, court, physician, communication, almonte]
     related_chunks: ["articles/ins-insurance-journal-east/3acefeaea1.md#c1", "articles/ins-insurance-journal-east/3acefeaea1.md#c2"]
     token_count: 416
+    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/06/30/875695.htm","kind":"article","date":"2026-06-30"}]
 ---
 # New Jersey High Court Upholds Immunity for Paramedics in Infant’s Brain Injury Case
 

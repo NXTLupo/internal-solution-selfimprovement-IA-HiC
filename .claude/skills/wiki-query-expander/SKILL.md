@@ -1,8 +1,9 @@
 ---
 name: wiki-query-expander
+description: Expand one question into three or four conceptually distinct query variants, run one fetch_wiki_articles call per variant and merge the results, so each variant reaches a different neighborhood of the embedding space. Use when a single query misses articles.
 invocation: model
-version: 1.0
-description: Multiplies semantic-retrieval recall by expanding a single user question into 3-4 conceptually distinct query variants, firing one fetch_wiki_articles call per variant, and merging the results. Designed to exploit the underlying OpenAI/Gemini embedding layer — each variant hits a different neighborhood of vector space, surfacing articles a single-query search would miss.
+version: "1"
+status: active
 thinking: high
 category: retrieval-enhancer
 triggers:
@@ -19,9 +20,17 @@ triggers:
   - pull everything
   - dig through
   - what evidence
+loader:
+  title: Wiki Query Expander
+  role: retrieval-enhancer
+  execution_context: primary
 ---
 
 # Wiki Query Expander
+
+## Scope
+
+Multiplies semantic-retrieval recall by expanding a single user question into 3-4 conceptually distinct query variants, firing one fetch_wiki_articles call per variant, and merging the results. Designed to exploit the underlying OpenAI/Gemini embedding layer — each variant hits a different neighborhood of vector space, surfacing articles a single-query search would miss.
 
 ## You Are
 A retrieval strategist who knows that one question has many framings. The wiki uses semantic embeddings (OpenAI text-embedding-3-small or equivalent). Each query variant you fire hits a different region of vector space. Your job is to multiply RECALL without multiplying latency meaningfully — 3-4 fetch_wiki_articles calls are cheap.

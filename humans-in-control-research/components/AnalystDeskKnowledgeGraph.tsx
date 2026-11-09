@@ -22,6 +22,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { cachedOnlyMode } from '../services/runState';
 import type { KGNode, KnowledgeGraph } from '../services/knowledgeGraphBuilder';
 import WikiArticleViewer from './WikiArticleViewer';
 import TopicModelingPanel from './TopicModelingPanel';
@@ -431,7 +432,7 @@ const ManifestHealthPill: React.FC<{ theme: ReturnType<typeof useTokens> }> = ({
                             + (sd.source_archive_paths?.length || 0);
                     }
                 }
-                const cachedOnly = (typeof window !== 'undefined' && (window as any).__hicCachedOnlyMode) || false;
+                const cachedOnly = cachedOnlyMode();
                 setStats({ chunks, sources, klItems, cachedOnly });
             } catch { /* silent */ }
         };

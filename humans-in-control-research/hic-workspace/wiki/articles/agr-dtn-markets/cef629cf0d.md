@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:54:52+00:00"
 content_hash: "5d91ab84f5d86a18"
 chunks:
   - id: "articles/agr-dtn-markets/cef629cf0d.md#c0"
-    char_span: [0, 848]
+    char_span: [0, 847]
     sentence_count: 4
     key_terms: [contracts, traders, noncommercial, corn, commercial, reporting, contract, position]
     concepts: [contracts, noncommercial, traders, commercial, reporting]
-    token_count: 210
-    sources: [{"n":"agr_dtn_markets","u":"https://www.dtnpf.com/agriculture/web/ag/markets"}]
+    token_count: 209
+    sources: [{"n":"agr_dtn_markets","u":"https://www.dtnpf.com/agriculture/web/ag/markets","kind":"article"}]
 ---
 # DTN — Markets/Cash Grains
 

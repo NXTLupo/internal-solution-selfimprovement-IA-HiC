@@ -258,6 +258,20 @@ export function isSourceExcluded(
     return false;
 }
 
+/**
+ * 2026-11-03 W2 (NotebookLM reverse-engineering, spec C2): the source-scope rail's setter.
+ * Writes the checkbox selection into `includeOnly`, which `isSourceExcluded` already
+ * enforces before ranking (an empty list means no scope: every source eligible). Tokens
+ * are matched by containment against chunk title + wikiPath + source, so a source-dir
+ * slug ("higher-ed-dive") or an upload page title both work.
+ */
+export function setSourceScope(slug: string, includeOnly: string[]): void {
+    const prior = getSessionConstraints(slug);
+    const clean = Array.from(new Set((includeOnly || [])
+        .map(s => String(s || '').trim().toLowerCase()).filter(s => s.length >= 2)));
+    setSessionConstraints(slug, { ...prior, includeOnly: clean, updatedAt: Date.now() });
+}
+
 /** The visible echo-back line (V4 rule: enforcement is never invisible). */
 export function describeEnforcement(constraints: SessionConstraints, turnActions: string[] = []): string {
     const parts: string[] = [];
@@ -269,6 +283,9 @@ export function describeEnforcement(constraints: SessionConstraints, turnActions
         if (constraints.visualQuotaFloor !== undefined) {
             parts.push(`visual-slide floor: ${Math.round(constraints.visualQuotaFloor * 100)}%`);
         }
+    }
+    if (constraints.includeOnly.length) {
+        parts.push(`source scope: ${constraints.includeOnly.length} selected source${constraints.includeOnly.length === 1 ? '' : 's'} only`);
     }
     if (!parts.length) return '';
     return `Enforcing: ${parts.join(' | ')}. Say "lift the exclusions" or "use it again" to undo.`;

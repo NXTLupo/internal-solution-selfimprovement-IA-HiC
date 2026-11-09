@@ -17,12 +17,12 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/saas/1pit6iv.md#c0"
-    char_span: [0, 1780]
+    char_span: [0, 1779]
     sentence_count: 31
     key_terms: [calls, onboarding, customers, time, revenue, "didn't", churn, email]
     concepts: [calls, onboarding, customers, revenue, "didn't"]
-    token_count: 434
-    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1pit6iv/offered_free_onboarding_calls_to_every_new/"}]
+    token_count: 433
+    sources: [{"n":"reddit-deep: r/saas","u":"https://www.reddit.com/r/SaaS/comments/1pit6iv/offered_free_onboarding_calls_to_every_new/","kind":"social-post","date":"2025-12-10","author":"Big_Currency_1805","subreddit":"saas"}]
 ---
 # Offered free onboarding calls to every new customer. 12% took them. Those 12% churned 67% less.
 

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:41:16+00:00"
 content_hash: "2d9cff676993dd8d"
 chunks:
   - id: "articles/ins-journal-national/15bcd79ebc.md#c0"
-    char_span: [0, 1729]
+    char_span: [0, 1728]
     sentence_count: 11
     key_terms: [insurance, hub, private, confidentially, public, international, according, companies]
     concepts: [insurance, confidentially, international, private, public]
-    token_count: 370
-    sources: [{"n":"ins_journal_national","u":"https://www.insurancejournal.com/news/national/2026/06/29/875618.htm"}]
+    token_count: 369
+    sources: [{"n":"ins_journal_national","u":"https://www.insurancejournal.com/news/national/2026/06/29/875618.htm","kind":"article","date":"2026-06-29"}]
 ---
 # PE-Backed Insurance Broker Hub International Files Confidentially for US IPO
 

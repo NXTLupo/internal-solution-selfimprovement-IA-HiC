@@ -80,7 +80,15 @@ export interface ExemplarBundle {
 
 export function loadExemplar(kind: FreeformKind, brand: BrandHashtag): ExemplarBundle {
     const kindMap = EXEMPLARS[kind];
-    if (!kindMap) throw new Error(`exemplarLoader: unknown kind "${kind}"`);
+    if (!kindMap) {
+        // 2026-11-08 (live: a revision of an audio overview died with a raw "unknown kind").
+        // Generated-media kinds have no HTML exemplar to revise against: the correct move is a
+        // fresh generation carrying the correction, and the error now says exactly that.
+        if (/^(audio-overview|video-overview|brief-dialog|mindmap|meta-themes|deep-research|infographic)$/i.test(String(kind))) {
+            throw new Error(`This ${kind} artifact is regenerated rather than revised in place: run #${kind} again and put your correction in the prompt (it becomes the steering topic).`);
+        }
+        throw new Error(`exemplarLoader: unknown kind "${kind}"`);
+    }
     const exemplarHtml = kindMap[brand];
     if (!exemplarHtml) throw new Error(`exemplarLoader: unknown brand "${brand}"`);
     const brandSkill = BRAND_SKILLS[brand];

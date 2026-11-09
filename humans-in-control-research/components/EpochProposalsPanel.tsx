@@ -19,14 +19,28 @@ export const EpochProposalsPanel: React.FC<{ onClose: () => void }> = ({ onClose
     const [filter, setFilter] = useState<ProposalStatus>('pending');
     const [loading, setLoading] = useState(true);
     const [busyId, setBusyId] = useState<string | null>(null);
+    // WS-5 R6 (2026-10-30): the loop's retry state. After three epoch batches without a held-out win the loop
+    // pauses itself; the owner sees why here and resumes it deliberately.
+    const [loop, setLoop] = useState<{ paused: boolean; paused_reason: string; epochs_without_heldout_win: number; pause_after: number; last_batch_id?: string | null; last_approve_at?: string | null } | null>(null);
 
     const load = useCallback(async () => {
         setLoading(true);
         const r = await listEpochProposals(filter);
         setProposals(r.proposals);
         setPending(r.pending);
+        try {
+            const resp = await fetch('http://127.0.0.1:5012/api/epochs/loop', { signal: AbortSignal.timeout(4000) });
+            if (resp.ok) setLoop(await resp.json());
+        } catch { /* the loop state is informational */ }
         setLoading(false);
     }, [filter]);
+
+    const resumeLoop = async () => {
+        try {
+            const resp = await fetch('http://127.0.0.1:5012/api/epochs/loop/resume', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ note: 'resumed from the proposals panel' }) });
+            if (resp.ok) { const j = await resp.json(); setLoop(j.loop); }
+        } catch { /* shown on the next load */ }
+    };
 
     useEffect(() => { void load(); }, [load]);
 
@@ -35,6 +49,15 @@ export const EpochProposalsPanel: React.FC<{ onClose: () => void }> = ({ onClose
         const res = await reviewEpochProposal(id, decision);
         setBusyId(null);
         if (res.ok) void load();
+        // WS-B B3 (2026-10-31): an approved epoch is a settled step; its change becomes a user-scoped behavior fact.
+        if (res.ok && decision === 'approved') {
+            const p = proposals.find(x => x.id === id);
+            if (p) {
+                void import('../services/memoryAdmissions').then(({ epochAcceptedFacts, admitAt }) =>
+                    admitAt('epoch accepted', epochAcceptedFacts({ epochId: p.epoch_id ?? undefined, skill: String(p.target_path || '').split(/[\\/]/).slice(-2, -1)[0] || p.target_layer, kind: p.target_layer, summary: p.summary }), `epoch_${p.epoch_id ?? p.id}`, ''))
+                    .catch(() => { /* best-effort */ });
+            }
+        }
     };
 
     const overlay: React.CSSProperties = {
@@ -67,6 +90,19 @@ export const EpochProposalsPanel: React.FC<{ onClose: () => void }> = ({ onClose
                     The epoch-proposer runs the held-out golden-set gate and proposes ONE bounded harness edit per epoch.
                     Nothing is applied automatically. Approve to record intent; a material edit still lands via commit-approval.
                 </p>
+                {loop && (
+                    <div style={{ border: `1px solid ${loop.paused ? '#CC6644' : '#2A2A2A'}`, borderRadius: 4, padding: '10px 14px', marginBottom: 14, fontFamily: 'IBM Plex Mono, monospace', fontSize: 12, color: loop.paused ? '#F5F5F0' : '#B8B8B8' }}>
+                        {loop.paused ? (
+                            <>
+                                <div style={{ color: '#CC6644', textTransform: 'uppercase', marginBottom: 4 }}>Loop paused</div>
+                                <div>{loop.paused_reason}</div>
+                                <button onClick={resumeLoop} style={{ marginTop: 8, fontFamily: 'IBM Plex Mono, monospace', fontSize: 12, textTransform: 'uppercase', padding: '5px 12px', border: '1px solid #B8B800', borderRadius: 2, background: 'transparent', color: '#B8B800', cursor: 'pointer' }}>Resume the loop</button>
+                            </>
+                        ) : (
+                            <div>Loop running: {loop.epochs_without_heldout_win} of {loop.pause_after} batches without a held-out win{loop.last_batch_id ? ` · last batch ${loop.last_batch_id}` : ''}{loop.last_approve_at ? ` · last APPROVE ${String(loop.last_approve_at).slice(0, 16).replace('T', ' ')}` : ''}</div>
+                        )}
+                    </div>
+                )}
 
                 <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
                     {(['pending', 'approved', 'rejected'] as ProposalStatus[]).map(s => (

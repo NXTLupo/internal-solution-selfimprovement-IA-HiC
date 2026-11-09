@@ -122,7 +122,11 @@ async def navigate_to_app(url: str) -> dict[str, Any]:
 
 
 async def execute_computer_action(action: str, params: dict[str, Any]) -> dict[str, Any]:
-    """Execute a computer use action via Playwright headless browser."""
+    """Execute a computer use action via Playwright headless browser.
+
+    2026-10-31 (CX Workbench agent-stack plan, WS-D D4): every action passes the review gate. A state-changing action
+    on a page OUTSIDE the platform's own services waits for a human decision (app/tools/review_gate.py); reading
+    and everything on the platform's own apps run as before."""
 
     try:
         page = await _get_page()
@@ -137,6 +141,17 @@ async def execute_computer_action(action: str, params: dict[str, Any]) -> dict[s
         except Exception:
             pass
 
+    from app.tools import review_gate
+
+    async def _shot() -> str:
+        res = await _screenshot(page)
+        return ((res or {}).get("source") or {}).get("data", "") if isinstance(res, dict) else ""
+
+    return await review_gate.gate(action, params, page.url or "", lambda: _execute_on_page(page, action, params), screenshot=_shot)
+
+
+async def _execute_on_page(page, action: str, params: dict[str, Any]) -> dict[str, Any]:
+    """The action itself (called directly for reads and platform pages, after approval for outbound changes)."""
     if action == "screenshot":
         return await _screenshot(page)
 
@@ -325,6 +340,12 @@ async def _zoom(page, region: list[int]) -> dict[str, Any]:
 # ---- Non-browser tools ----
 
 async def execute_bash_action(command: str) -> dict[str, Any]:
+    """2026-10-31 (D4): a command that reaches the network waits for review like any outbound browser action."""
+    from app.tools import review_gate
+    return await review_gate.gate("bash", {"command": command}, "", lambda: _execute_bash_raw(command))
+
+
+async def _execute_bash_raw(command: str) -> dict[str, Any]:
     """Execute a bash command in the container."""
     try:
         proc = await asyncio.create_subprocess_shell(

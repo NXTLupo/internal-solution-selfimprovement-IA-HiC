@@ -16,20 +16,21 @@ collected_at: "2026-07-02T17:42:45+00:00"
 content_hash: "b79c9492bdea88be"
 chunks:
   - id: "articles/ins-naic-ai/f2a2edbb53.md#c0"
-    char_span: [0, 2723]
+    char_span: [0, 2722]
     sentence_count: 2
     key_terms: [innovation, cybersecurity, technology, insurance, privacy, data, regulatory, naic]
     concepts: [innovation, cybersecurity, technology, insurance, privacy]
     related_chunks: ["articles/ins-naic-ai/f2a2edbb53.md#c1"]
-    token_count: 487
-    sources: [{"n":"ins_naic_ai","u":"https://content.naic.org/cmte_h.htm"}]
+    token_count: 486
+    sources: [{"n":"ins_naic_ai","u":"https://content.naic.org/cmte_h.htm","kind":"article"}]
   - id: "articles/ins-naic-ai/f2a2edbb53.md#c1"
-    char_span: [2726, 3771]
+    char_span: [2725, 3770]
     sentence_count: 3
     key_terms: [cybersecurity, technology, committee, innovation, topics, scott, webex, committee-curated]
     concepts: [cybersecurity, technology, committee, innovation, topics]
     related_chunks: ["articles/ins-naic-ai/f2a2edbb53.md#c0"]
     token_count: 256
+    sources: [{"n":"ins_naic_ai","u":"https://content.naic.org/cmte_h.htm","kind":"article"}]
 ---
 # NAIC AI/Innovation Working Group
 

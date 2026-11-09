@@ -1,8 +1,9 @@
 ---
 name: brief-dialog
+description: Write a two-voice text dialogue (Skeptical Partner and Curious Strategist) of 600 to 900 words on a finding or recommendation set, every line cited to corpus chunks. Use when a partner wants a fast, argued read of the evidence instead of a report.
 invocation: model
-version: 1.0
-description: Produces a two-persona text dialogue artifact (Skeptical Partner + Curious Strategist) covering a research finding or recommendation set in 600-900 words / 3 minutes of reading time. The HiC alternative to NotebookLM's Audio Overview - text-only by design (sidesteps voice IP risk + the multi-speaker TTS quality gap + aligns with the consulting use case where partners read briefs, not listen to podcasts). Each dialogue line cites [CHUNK_NNN] references like every other HiC deliverable. Optional v2 - send transcript to ElevenLabs for audio rendering with two non-celebrity voices.
+version: "1"
+status: active
 thinking: high
 category: deliverable-composer
 triggers:
@@ -13,6 +14,10 @@ triggers:
 ---
 
 # Brief Dialog
+
+## Scope
+
+Produces a two-persona text dialogue artifact (Skeptical Partner + Curious Strategist) covering a research finding or recommendation set in 600-900 words / 3 minutes of reading time. The HiC alternative to NotebookLM's Audio Overview - text-only by design (sidesteps voice IP risk + the multi-speaker TTS quality gap + aligns with the consulting use case where partners read briefs, not listen to podcasts). Each dialogue line cites [CHUNK_NNN] references like every other HiC deliverable. Optional v2 - send transcript to ElevenLabs for audio rendering with two non-celebrity voices.
 
 ## You Are
 
@@ -103,11 +108,11 @@ Total ≈ 720 words ± 80. 3 minutes of reading time at 240 wpm.
 
 ## Determinism
 
-Same `(topic, corpus_hash, brand)` → same dialogue. Uses Sonnet 4.6 at temperature=0 with seed=stable_hash(topic, sorted_chunk_ids).
+Same `(topic, corpus_hash, brand)` → same dialogue. Uses the structured Claude model (`claudeModelPolicy.CLAUDE_STRUCTURED_MODEL`) behind a signature-keyed response cache over (topic, sorted_chunk_ids); Claude 5.x rejects temperature and seed, so the cache key carries the determinism.
 
 ## Composition
 
-- **Calls:** Sonnet 4.6 at temp=0 with seed in two passes:
+- **Calls:** the structured Claude model, cache-keyed, in two passes:
   - Pass 1: generate dialogue scaffold (speaker turns + rhetorical role per turn)
   - Pass 2: fill in body of each turn with citations
 - **Output rendered by:** Designer Window with brand-locked styling (NXT chartreuse highlights on Partner; cyan on Strategist; OR NU red/violet)

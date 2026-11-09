@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hic/contracts/skillopt_verdict.v1",
+  "title": "SkillOpt held-out gate verdict (ONE contract, 2026-10-30 WS-5 R3)",
+  "description": "Written by the skillopt-validation-gate (agent or script) next to a proposal as <skill>.verdict.json. Read by scripts/skillopt-batch.sh promote_candidate, the skillopt-applier agent, services/learningEngine.ts assertApproveVerdict and the proxy's loop state. A skill file changes ONLY on verdict=APPROVE.",
+  "type": "object",
+  "required": ["verdict", "discrimination_before", "discrimination_after", "golden_set_version"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["APPROVE", "REJECT", "HUMAN-REVIEW"] },
+    "discrimination_before": { "type": "number", "description": "The incumbent's score on the held-out split (0..1 pass rate or mean judge score)." },
+    "discrimination_after": { "type": "number", "description": "The candidate's score on the same held-out split." },
+    "golden_set_version": { "type": "integer", "description": "Version of the held-out set the comparison ran on (evals/cases or the golden set)." },
+    "skill": { "type": "string" },
+    "batch_id": { "type": "string" },
+    "candidate_path": { "type": "string" },
+    "source_rollouts": { "type": "array", "items": { "type": "string" } },
+    "checks": {
+      "type": "array",
+      "description": "The 8-check rubric, one row per check.",
+      "items": {
+        "type": "object",
+        "required": ["id", "result"],
+        "properties": {
+          "id": { "type": "string" },
+          "result": { "type": "string", "enum": ["PASS", "SOFT-FAIL", "HARD-FAIL"] },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "pareto": { "type": "object", "description": "The candidate's metric vector from the pool file, when the proposer ran a pool." },
+    "reason": { "type": "string" },
+    "decided_by": { "type": "string", "enum": ["agent", "script", "owner"] },
+    "decided_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}

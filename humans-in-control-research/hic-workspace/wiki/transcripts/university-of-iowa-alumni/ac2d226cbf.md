@@ -16,20 +16,26 @@ duration_sec: 232
 content_hash: "5ea5c2f1158ea9d5"
 chunks:
   - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c0"
-    char_span: [0, 132]
+    char_span: [0, 131]
     sentence_count: 1
     key_terms: [university, iowa, libraries, youtube, alumni, hidden, source, https]
-    token_count: 37
+    concepts: [university]
+    token_count: 36
+    sources: [{"n":"University of Iowa Alumni","u":"https://www.youtube.com/watch?v=5dV_A6tJ6-w","kind":"transcript","date_raw":"20260106"}]
   - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c1"
-    char_span: [134, 2528]
+    char_span: [133, 2527]
     sentence_count: 26
     key_terms: [library, collection, libraries, illustrations, book, "it's", university, amazing]
+    concepts: [collection, library, libraries, illustrations, university]
     token_count: 512
+    sources: [{"n":"University of Iowa Alumni","u":"https://www.youtube.com/watch?v=5dV_A6tJ6-w","kind":"transcript","date_raw":"20260106"}]
   - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c2"
-    char_span: [2235, 4208]
+    char_span: [2234, 4207]
     sentence_count: 20
     key_terms: ["it's", exhibition, manuscript, gallery, library, books, collection, everything]
+    concepts: [exhibition, manuscript, gallery, library, books]
     token_count: 408
+    sources: [{"n":"University of Iowa Alumni","u":"https://www.youtube.com/watch?v=5dV_A6tJ6-w","kind":"transcript","date_raw":"20260106"}]
 ---
 # Hidden Gems of the University of Iowa Libraries
 

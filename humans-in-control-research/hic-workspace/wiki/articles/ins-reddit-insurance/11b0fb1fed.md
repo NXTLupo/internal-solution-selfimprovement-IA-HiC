@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:46:21+00:00"
 content_hash: "9170152d77070c63"
 chunks:
   - id: "articles/ins-reddit-insurance/11b0fb1fed.md#c0"
-    char_span: [0, 659]
+    char_span: [0, 658]
     sentence_count: 4
     key_terms: [insurance, uninsured, driver, issues, amica, claim, auto, rep]
     concepts: [insurance, uninsured, driver, issues, amica]
-    token_count: 165
-    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ukvwmy/amica_auto_insurance_claim_issues/"}]
+    token_count: 164
+    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ukvwmy/amica_auto_insurance_claim_issues/","kind":"article","date":"2026-07-01"}]
 ---
 # Amica auto insurance claim issues
 

@@ -19,37 +19,41 @@ content_hash: "f8757c4a287891df"
 relevance_by_goal: {"8429cfd39d4f":0,"d21cb50b17ba":5}
 chunks:
   - id: "articles/amazon-science/eee6e6cbf5.md#c0"
-    char_span: [0, 157]
+    char_span: [0, 156]
     sentence_count: 1
     key_terms: [making-llms-faster-without-sacrificing-accuracy, sacrificing, accuracy, science, without, amazon, faster, making]
-    token_count: 41
-    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"}]
+    token_count: 40
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy","kind":"article","date":"2026-05-15"}]
   - id: "articles/amazon-science/eee6e6cbf5.md#c1"
-    char_span: [159, 2827]
+    char_span: [158, 2826]
     sentence_count: 17
     key_terms: [scaling, attention, representation, token, architecture, model, accuracy, deepmind]
     concepts: [scaling, representation, attention, architecture, token]
     related_chunks: ["articles/amazon-science/eee6e6cbf5.md#c2"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy","kind":"article","date":"2026-05-15"}]
   - id: "articles/amazon-science/eee6e6cbf5.md#c2"
-    char_span: [2474, 5074]
+    char_span: [2473, 5073]
     sentence_count: 16
     key_terms: [attention, token, hidden, parameters, throughput, model, ratio, key-value]
     concepts: [attention, token, parameters, throughput, hidden]
     related_chunks: ["articles/amazon-science/eee6e6cbf5.md#c1"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy","kind":"article","date":"2026-05-15"}]
   - id: "articles/amazon-science/eee6e6cbf5.md#c3"
-    char_span: [4742, 7072]
+    char_span: [4741, 7071]
     sentence_count: 15
     key_terms: [models, accuracy, model, billion, llama-3, mlp-to-attention, gains, optimal]
     concepts: [models, accuracy, mlp-to-attention, billion, llama-3]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy","kind":"article","date":"2026-05-15"}]
   - id: "articles/amazon-science/eee6e6cbf5.md#c4"
-    char_span: [6702, 7135]
+    char_span: [6701, 7134]
     sentence_count: 2
     key_terms: [parameters, billion, million, across, architecture, conditional, exploration, generalizes]
     concepts: [parameters, billion, million, across]
     token_count: 79
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy","kind":"article","date":"2026-05-15"}]
 ---
 # Making LLMs faster without sacrificing accuracy
 

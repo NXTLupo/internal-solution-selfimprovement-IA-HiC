@@ -19,37 +19,41 @@ content_hash: "822cd5be053bb746"
 relevance_by_goal: {"c5a2d58d1be7":85}
 chunks:
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c0"
-    char_span: [0, 234]
+    char_span: [0, 233]
     sentence_count: 1
     key_terms: [build-the-data-muscle-before-taking-the-big-tech-leap, from-the-virtual-terminal, precisionfarmingdealer, muscle, source, taking, blogs, build]
-    token_count: 58
-    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap"}]
+    token_count: 57
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap","kind":"article","date":"2026-06-26"}]
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c1"
-    char_span: [236, 2773]
+    char_span: [235, 2772]
     sentence_count: 19
     key_terms: [operations, southwest, data, center, rotations, don, build, crops]
     concepts: [operations, southwest, center, rotations, boundaries]
     related_chunks: ["articles/agr-precision-farming-dealer/3ddf7d70cd.md#c4"]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap","kind":"article","date":"2026-06-26"}]
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c2"
-    char_span: [2484, 4937]
+    char_span: [2483, 4936]
     sentence_count: 16
     key_terms: [documentation, boundary, don, growers, foundation, map, step, work]
     concepts: [documentation, boundary, growers, foundation, optimization]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap","kind":"article","date":"2026-06-26"}]
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c3"
-    char_span: [4621, 7198]
+    char_span: [4620, 7197]
     sentence_count: 13
     key_terms: [data, speed, performance, system, especially, labor, right, application]
     concepts: [speed, performance, especially, system, application]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap","kind":"article","date":"2026-06-26"}]
   - id: "articles/agr-precision-farming-dealer/3ddf7d70cd.md#c4"
-    char_span: [6866, 9076]
+    char_span: [6865, 9075]
     sentence_count: 15
     key_terms: [autonomy, foundation, center, consistency, data, work, boundaries, consistent]
     concepts: [autonomy, foundation, center, consistency, boundaries]
     related_chunks: ["articles/agr-precision-farming-dealer/3ddf7d70cd.md#c1"]
     token_count: 435
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7179-build-the-data-muscle-before-taking-the-big-tech-leap","kind":"article","date":"2026-06-26"}]
 ---
 # Build the Data Muscle Before Taking the Big Tech Leap
 

@@ -133,5 +133,11 @@ h1{font-family:'Archivo', sans-serif;font-weight:600;letter-spacing:-0.5px;font-
 
 
 </div>
+<script>(function(){
+function over(el){return el.scrollHeight>el.clientHeight+2||el.scrollWidth>el.clientWidth+2;}
+function clipped(c){var n=c.querySelectorAll('*');for(var i=0;i<n.length&&i<1500;i++){var e=n[i];var cs=getComputedStyle(e);if((cs.overflow==='hidden'||cs.overflowY==='hidden')&&e.clientHeight>0&&e.scrollHeight>e.clientHeight+2)return true;}return false;}
+function fit(){var c=document.querySelector('#stage .canvas');if(!c)return;var z=1;c.style.zoom='1';var guard=8;while((over(c)||clipped(c))&&z>0.72&&guard-->0){z=Math.round((z-0.04)*100)/100;c.style.zoom=String(z);}c.setAttribute('data-fit-zoom',String(z));}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}else{window.addEventListener('load',fit);}
+})();</script>
 </body>
 </html>

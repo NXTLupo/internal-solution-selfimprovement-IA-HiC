@@ -1,0 +1,180 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-09",
+  "rule": "A judge with kind=llm may block only when human_agreement.n >= 30 and human_agreement.kappa >= 0.4. Deterministic judges encode a rule and may block. The nightly agreement job (/api/eval/judge-agreement) fills human_agreement from evals/labels.jsonl joined with evals/verdicts.jsonl.",
+  "judges": [
+    {
+      "id": "chain:normalize",
+      "kind": "deterministic",
+      "metric": "stage ran without error",
+      "threshold": 0.99,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:lexical",
+      "kind": "deterministic",
+      "metric": "1 - banned-phrase sites per slide (cap 2/slide)",
+      "threshold": 0.9,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:titles",
+      "kind": "deterministic",
+      "metric": "share of titles passing the Partner Test heuristics",
+      "threshold": 0.8,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:bindPointers",
+      "kind": "deterministic",
+      "metric": "bound / (bound + unbound) factual fields",
+      "threshold": 0.6,
+      "blocking": false,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:provenance",
+      "kind": "deterministic",
+      "metric": "stage ran; pointers resolved to real sources",
+      "threshold": 0.99,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:claims",
+      "kind": "deterministic",
+      "metric": "1 - blocking claim findings / rows checked",
+      "threshold": 0.9,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:evidenceSlots",
+      "kind": "deterministic",
+      "metric": "P0 slot coverage (plan present) or 1 - violations/slots",
+      "threshold": 0.7,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:exhibits",
+      "kind": "deterministic",
+      "metric": "stage ran without error",
+      "threshold": 0.99,
+      "blocking": false,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:prose",
+      "kind": "deterministic",
+      "metric": "prose signal overall (actor rule, read-aloud, variety)",
+      "threshold": 0.7,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:grade",
+      "kind": "deterministic",
+      "metric": "1 - (unverified + superficial) / claims",
+      "threshold": 0.8,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:renderPlan",
+      "kind": "deterministic",
+      "metric": "stage ran without error",
+      "threshold": 0.99,
+      "blocking": false,
+      "version": "1.0"
+    },
+    {
+      "id": "chain:deckQuality",
+      "kind": "deterministic",
+      "metric": "1 - layout findings / 5",
+      "threshold": 0.6,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "deckPlanGate",
+      "kind": "deterministic",
+      "metric": "1 - violations / slides",
+      "threshold": 0.8,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "layoutGate",
+      "kind": "deterministic",
+      "metric": "1 - slides with open overflow or overlap / slides",
+      "threshold": 0.9,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "titleGate",
+      "kind": "deterministic",
+      "metric": "titles without a bare figure / titles",
+      "threshold": 0.99,
+      "blocking": true,
+      "version": "1.0"
+    },
+    {
+      "id": "deckLoop.submit",
+      "kind": "deterministic",
+      "metric": "weighted join of plan, layout, density, pointer and compose checks on a submit_deck call",
+      "threshold": 0.9,
+      "blocking": true,
+      "version": "1.0",
+      "description": "services/deckLoop.ts judgeDeck"
+    },
+    {
+      "id": "slideVisionCritic",
+      "kind": "llm",
+      "metric": "accept rate of composed slides judged as a reader sees them",
+      "threshold": 0.7,
+      "blocking": false,
+      "version": "1.0",
+      "rubric_ref": "proxy/app.py _SLIDE_CRITIC_RULES"
+    },
+    {
+      "id": "copyCritic",
+      "kind": "llm",
+      "metric": "copy-edit flags per field (rewrites applied only through the fact guard)",
+      "threshold": 0.8,
+      "blocking": false,
+      "version": "1.0",
+      "rubric_ref": "services/copyCritic.ts"
+    },
+    {
+      "id": "criticDispatcher.rubric",
+      "kind": "llm",
+      "metric": "rubric criteria scored 1-5; pass when none below floor",
+      "threshold": 0.6,
+      "blocking": false,
+      "version": "1.0",
+      "rubric_ref": "hic-workspace/wiki/eval/rubrics/index.json"
+    },
+    {
+      "id": "imageCritic",
+      "kind": "llm",
+      "metric": "accept rate of generated photographs",
+      "threshold": 0.5,
+      "blocking": false,
+      "version": "1.0",
+      "rubric_ref": "proxy/app.py _CRITIC_RULES"
+    },
+    {
+      "id": "human.slideApproval",
+      "kind": "human",
+      "metric": "Approve / Reject on the slide card",
+      "threshold": 1,
+      "blocking": false,
+      "version": "1.0"
+    }
+  ]
+}

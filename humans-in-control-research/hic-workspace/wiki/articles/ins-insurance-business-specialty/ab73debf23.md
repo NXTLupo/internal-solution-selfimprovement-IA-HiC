@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:33:10+00:00"
 content_hash: "5079ef2a7cf3577b"
 chunks:
   - id: "articles/ins-insurance-business-specialty/ab73debf23.md#c0"
-    char_span: [0, 1468]
+    char_span: [0, 1467]
     sentence_count: 4
     key_terms: [catastrophe, risk, protection, insurance, uninsured, business, coverage, insurers]
     concepts: [catastrophe, protection, insurance, uninsured, business]
-    token_count: 316
-    sources: [{"n":"ins_insurance_business_specialty","u":"https://www.insurancebusinessmag.com/us/news/catastrophe/"}]
+    token_count: 315
+    sources: [{"n":"ins_insurance_business_specialty","u":"https://www.insurancebusinessmag.com/us/news/catastrophe/","kind":"article"}]
 ---
 # Insurance Business — Catastrophe & Climate
 

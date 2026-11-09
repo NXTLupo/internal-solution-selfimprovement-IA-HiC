@@ -24,6 +24,11 @@ interface Props {
     /** The wikiPath to load, e.g. "articles/evertrue/a1b2c3d4e5.md".
      *  When null/undefined, the component renders nothing. */
     wikiPath: string | null;
+    /** 2026-11-03 W1 (NotebookLM reverse-engineering, spec C1): the chunk pointer the
+     *  citation chip carried (e.g. "articles/x/ab12.md#c3"). When present, the viewer
+     *  resolves the chunk's verbatim text, pins it as a CITED PASSAGE panel above the
+     *  body, and highlights + scrolls to that span inside the body. */
+    chunkPointer?: string | null;
     /** Called when the user closes the viewer (backdrop click / ESC / button). */
     onClose: () => void;
     /** Optional callback: when the user clicks "open source URL", the
@@ -88,11 +93,39 @@ interface ResolvedSource {
     url?: string;
 }
 
-export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUrl }) => {
+export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, chunkPointer, onClose, onOpenUrl }) => {
     const [article, setArticle] = useState<WikiArticle | null>(null);
     const [resolvedSources, setResolvedSources] = useState<ResolvedSource[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    // W1: the verbatim text of the cited chunk, resolved from the pointer's char_span.
+    const [citedText, setCitedText] = useState<string | null>(null);
+    const citedRef = React.useRef<HTMLSpanElement | null>(null);
+
+    useEffect(() => {
+        setCitedText(null);
+        if (!wikiPath || !chunkPointer || !/#c\d+$/i.test(chunkPointer)) return;
+        let cancelled = false;
+        (async () => {
+            try {
+                const { resolveChunks } = await import('../services/wikiPointerResolver');
+                const resolved: any = await resolveChunks([chunkPointer]);
+                const list: any[] = Array.isArray(resolved) ? resolved : (resolved?.chunks || resolved?.resolved || []);
+                const hit = list.find((c: any) => c && typeof c.text === 'string' && c.text.trim());
+                if (!cancelled && hit) setCitedText(String(hit.text).trim());
+            } catch { /* non-fatal: the viewer still shows the page */ }
+        })();
+        return () => { cancelled = true; };
+    }, [wikiPath, chunkPointer]);
+
+    // Scroll to the highlighted span once both the body and the cited text are in.
+    useEffect(() => {
+        if (!citedText || !article) return;
+        const t = setTimeout(() => {
+            try { citedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch { /* non-fatal */ }
+        }, 120);
+        return () => clearTimeout(t);
+    }, [citedText, article]);
 
     useEffect(() => {
         if (!wikiPath) return;
@@ -274,6 +307,23 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                             </div>
                         </div>
                     )}
+                    {/* W1: the exact passage the citation chip pointed at, pinned above the body. */}
+                    {citedText && !loading && !error && (
+                        <div style={{
+                            border: '1px solid #B8B800', background: '#FDFDE8',
+                            padding: '14px 18px', marginBottom: 24,
+                        }}>
+                            <div style={{
+                                fontSize: 10, letterSpacing: 2, textTransform: 'uppercase',
+                                fontWeight: 700, color: '#6B6B00', marginBottom: 8,
+                            }}>
+                                Cited passage · {(/#(c\d+)$/i.exec(chunkPointer || '') || [])[1] || 'chunk'}
+                            </div>
+                            <div style={{ fontSize: 13.5, lineHeight: 1.6, color: '#1A1A1A', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                                {citedText}
+                            </div>
+                        </div>
+                    )}
                     {article && !loading && !error && (
                         <div style={{
                             whiteSpace: 'pre-wrap', wordBreak: 'break-word',
@@ -281,7 +331,25 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                             color: '#1A1A1A', fontWeight: 400,
                             fontFamily: "'Archivo', system-ui, sans-serif",
                         }}>
-                            {article.body || '(empty body)'}
+                            {(() => {
+                                const body = article.body || '(empty body)';
+                                // Highlight the cited span in place when it appears verbatim in the body.
+                                if (citedText) {
+                                    const at = body.indexOf(citedText);
+                                    if (at >= 0) {
+                                        return (
+                                            <>
+                                                {body.slice(0, at)}
+                                                <span ref={citedRef} style={{ background: '#F4F4C8', outline: '2px solid #B8B800', outlineOffset: 1 }}>
+                                                    {body.slice(at, at + citedText.length)}
+                                                </span>
+                                                {body.slice(at + citedText.length)}
+                                            </>
+                                        );
+                                    }
+                                }
+                                return body;
+                            })()}
                         </div>
                     )}
                 </div>

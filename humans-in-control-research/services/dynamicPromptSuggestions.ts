@@ -49,6 +49,10 @@ export interface SuggestionState {
     knowledgeGraph?: { nodes?: any[]; edges?: any[] };
     /** Hint from caller: override the phase detection if needed */
     phaseOverride?: CollectionPhase;
+    /** 2026-11-09 (NotebookLM parity C4): the assistant's LATEST chat answer, so at least
+     *  two chips become follow-up questions to what the researcher just read, not only
+     *  corpus-level openers. Caller passes plain text (fences stripped). */
+    lastAnswer?: string;
 }
 
 // --- DESCRIPTIVE LABELS ---
@@ -322,8 +326,9 @@ ${personas.map(p => `- ${p}`).join('\n') || '(none yet)'}
 TOP SOURCES:
 ${sources.slice(0, 8).map(s => `- ${s}`).join('\n') || '(none)'}
 
+${state.lastAnswer ? `THE ASSISTANT'S LATEST ANSWER (the researcher just read this):\n"""\n${String(state.lastAnswer).slice(0, 1200)}\n"""\n` : ''}
 Suggest ${n} questions that:
-- Drill into the most robust themes (kind: theme-exploration) - NAME the theme
+${state.lastAnswer ? '- AT LEAST TWO must be direct follow-ups to the latest answer above: probe a claim it made, ask for the evidence behind a named point, or push one of its judgments further (kind: evidence-probe or synthesis)\n' : ''}- Drill into the most robust themes (kind: theme-exploration) - NAME the theme
 - Frame a question from a named persona's POV (kind: persona-perspective)
 - Compare themes against each other or against a specific source (kind: comparison)
 - Request specific slide outputs (kind: slide-request) - e.g. "Build a case study slide on X"

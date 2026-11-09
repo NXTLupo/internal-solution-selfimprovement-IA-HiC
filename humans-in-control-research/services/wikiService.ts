@@ -11,6 +11,7 @@
  */
 
 import type { OutputOption } from '../types';
+import { engagementSlug as runEngagementSlug, researchGoal as runObjective } from './runState';
 import { engagementSlugFor } from './engagementSlug';
 import type { BrandVariantId } from '../components/slideTemplates/brands';
 
@@ -87,6 +88,18 @@ export interface GenerationContext {
      *  patterns instead of re-discovering them per engagement. Best-effort
      *  load - silent on miss, never blocks generation. */
     crossEngagementPatterns?: string;
+    /** WS-6 M1 (2026-10-30): the memory facts relevant to this run's objective, rendered for the prompt
+     *  (`memoryRetrieval.selectMemoryFacts` over `memoryLifecycle.loadFactStore`). Absent when none match. */
+    memoryFacts?: string;
+    /** WS-C C4 (2026-10-31): which facts the second brain supplied this turn (the reuse receipt names them). */
+    memoryFactRefs?: Array<{ id: string; category: string; content: string }>;
+    /** WS-C C4: the pattern sections the second brain supplied (headings only). */
+    patternSectionRefs?: string[];
+    /** WS-C C3 (2026-10-31): the recurring chain failures this kind of deliverable keeps hitting (known-gaps/failure-*.md),
+     *  rendered for the prompt; absent when none apply. */
+    knownGaps?: string;
+    /** WS-C C4: the known-gap pages supplied this turn (wiki paths). */
+    knownGapRefs?: string[];
     /** 2026-06-06 - Knowledge Library selection the user explicitly curated
      *  before this run. Read from the engagement manifest's `cached_selection`
      *  field. When present, the assembleEnhancedPrompt() injects a
@@ -322,12 +335,18 @@ const BANNED_PHRASES = [
  * In browser context, fetches from the local dev server.
  * Falls back gracefully if file doesn't exist.
  */
+/** Wiki directories nginx never serves (client data since WS-0 S8; mirrors the deny rule in nginx.conf, kept in step
+ *  by services/knownGaps.test.ts). Reads under them go straight to the authenticated proxy instead of logging a 404
+ *  on every generation turn before the fallback. */
+export const PROXY_ONLY_WIKI_DIRS = ['uploads', 'synthesis', 'evidence', 'engagements', 'feedback', 'insights', 'user-selections'];
+
 async function readWikiPage(relativePath: string): Promise<WikiPage | null> {
     try {
         // Try static path first (Vite dev server / nginx), then proxy fallback (for dynamically written pages)
         let content: string | null = null;
         const fullPath = `${WIKI_BASE}/${relativePath}`;
-        const response = await fetch(fullPath);
+        const proxyOnly = PROXY_ONLY_WIKI_DIRS.includes(String(relativePath).split('/')[0]);
+        const response = proxyOnly ? ({ ok: false } as Response) : await fetch(fullPath);
         if (response.ok) {
             content = await response.text();
         } else {
@@ -1516,10 +1535,16 @@ export async function saveEngagementMemory(
         `- **[${r.impactLevel || 'Unknown'}] ${r.title || 'Untitled'}**: ${r.description || ''}`
     ).join('\n') || '- None generated';
 
+    // WS-C C3 (2026-10-31): the wiki compiler groups engagements by engagement_type + industry and compiles a
+    // cross-engagement pattern at five; without these keys no group ever formed. Industry comes from the
+    // deterministic taxonomy over the goal and is omitted when the goal names no vertical.
+    const { primaryIndustry } = await import('./industryTaxonomy');
+    const _industry = primaryIndustry(goal);
     const content = `---
 title: "${goal.replace(/"/g, '\\"')}"
 type: engagement
-created: "${date}"
+engagement_type: research
+${_industry ? `industry: ${_industry}\n` : ''}created: "${date}"
 updated: "${date}"
 ---
 
@@ -1975,6 +2000,39 @@ async function _maybeIncrementalCompile(): Promise<void> {
     return _incrementalCompilePromise;
 }
 
+/**
+ * WS-C C3 (2026-10-31): the cross-engagement pattern the wiki compiler built for this objective's industry
+ * (`synthesis/patterns/research-<industry>.md`, compiled once five engagements share a type and industry), as the
+ * sections that share the objective's salient terms. Industry first, then the same relevance gate the
+ * cross-engagement page uses, so a retail objective never receives the higher-ed page and an unrelated section of
+ * the right page stays out. Null when the objective names no vertical, no page exists, or nothing is relevant.
+ */
+export async function compiledPatternFor(
+    objective: string,
+    read: (path: string) => Promise<{ content: string; frontmatter?: unknown } | null> = readWikiPage,
+): Promise<{ path: string; block: string; refs: string[] } | null> {
+    const { primaryIndustry } = await import('./industryTaxonomy');
+    const industry = primaryIndustry(objective);
+    if (!industry) return null;
+    const path = `synthesis/patterns/research-${industry.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+    const page = await read(path);
+    if (!page?.content || page.content.trim().length <= 50) return null;
+    const { rankSectionsByRelevance, renderRankedSections } = await import('./memoryRetrieval');
+    const sections = rankSectionsByRelevance(page.content, objective, { minShared: 2, maxChars: 3000, maxSections: 4 });
+    if (!sections.length) {
+        console.info(`[memory] ${path} shares too few terms with the objective; none injected`);
+        return null;
+    }
+    const n = Number((page.frontmatter as Record<string, unknown> | undefined)?.sample_size) || 0;
+    const name = path.replace(/^synthesis\/patterns\//, '').replace(/\.md$/, '');
+    console.info(`[memory] ${sections.length} compiled pattern section(s) from ${path} relevant to the objective (${sections.map(s => `${s.heading}: ${s.shared.length} shared`).join('; ')})`);
+    return {
+        path,
+        block: `### Compiled from ${n ? `${n} prior ` : 'prior '}${industry} engagements (${path})\n${renderRankedSections(sections)}`,
+        refs: sections.map(s => `${name}: ${s.heading}`),
+    };
+}
+
 export async function loadGenerationContext(
     outputType: OutputOption,
     options?: {
@@ -1988,6 +2046,8 @@ export async function loadGenerationContext(
         // burning ~30-70KB of every prompt's token budget. Callers that
         // genuinely need the extra context can pass `eagerExtras: true`.
         eagerExtras?: boolean;
+        /** WS-6 M1: the objective memory is retrieved against (default: the run's objective). */
+        objective?: string;
     }
 ): Promise<GenerationContext> {
     const frameworkKey = OUTPUT_TO_FRAMEWORK[outputType] || 'personas';
@@ -2099,19 +2159,66 @@ export async function loadGenerationContext(
         .join('\n\n');
 
     // 2026-05-24 - Phase 6.1: Cross-engagement patterns injection.
-    // Read synthesis/cross-engagement-patterns.md and surface it on the
-    // returned context so prompt builders can include portfolio-level
-    // patterns in the system prompt. Best-effort - silent on miss.
+    // 2026-10-30 (WS-6 M1): RETRIEVED BY RELEVANCE, never wholesale. The page is split into sections and
+    // only the sections that share salient terms with the run's objective are injected (a retail
+    // objective receives zero higher-ed patterns). The memory fact store is read the same way and
+    // rendered for the first time (`renderFactsForInjection` had no caller).
     let crossEngagementPatterns: string | undefined;
+    let memoryFacts: string | undefined;
+    let memoryFactIds: Array<{ id: string; category: string; content: string }> = [];
+    let patternSectionIds: string[] = [];
+    const _objective = String(options?.objective || runObjective() || '').trim();
     try {
         const patternsPage = await readWikiPage('synthesis/cross-engagement-patterns.md');
-        if (patternsPage?.content && patternsPage.content.trim().length > 50) {
-            // Cap at 8KB so even rich pattern logs don't blow the prompt budget.
-            crossEngagementPatterns = patternsPage.content.slice(0, 8000);
+        if (patternsPage?.content && patternsPage.content.trim().length > 50 && _objective) {
+            const { rankSectionsByRelevance, renderRankedSections } = await import('./memoryRetrieval');
+            const sections = rankSectionsByRelevance(patternsPage.content, _objective, { minShared: 2, maxChars: 3000, maxSections: 4 });
+            if (sections.length) {
+                crossEngagementPatterns = renderRankedSections(sections);
+                patternSectionIds = sections.map(s => s.heading);
+                console.info(`[memory] ${sections.length} cross-engagement pattern section(s) relevant to the objective (${sections.map(s => `${s.heading.slice(0, 40)}: ${s.shared.length} shared`).join('; ')})`);
+            } else {
+                console.info('[memory] no cross-engagement pattern section shares salient terms with the objective; none injected');
+            }
         }
     } catch {
         // Best-effort; the file may not exist yet (first run of any engagement).
     }
+    // WS-C C3 (2026-10-31): the pattern the wiki compiler built from this objective's industry (compiledPatternFor).
+    try {
+        if (_objective) {
+            const compiled = await compiledPatternFor(_objective);
+            if (compiled) {
+                crossEngagementPatterns = crossEngagementPatterns ? `${compiled.block}\n\n${crossEngagementPatterns}` : compiled.block;
+                patternSectionIds = [...compiled.refs, ...patternSectionIds];
+            }
+        }
+    } catch { /* the compiled page is optional */ }
+    try {
+        if (_objective) {
+            // WS-B B1 (2026-10-31): recalled through the proxy's ONE memory door, the same ranking every agent gets.
+            const { memoryRecall } = await import('./memoryLifecycle');
+            const recalled = await memoryRecall(_objective, { engagement: options?.engagement || runEngagementSlug() || undefined, limit: 8, maxChars: 2400, surface: 'spa' });
+            if (recalled.facts.length) {
+                memoryFacts = recalled.rendered;
+                memoryFactIds = recalled.facts.map(f => ({ id: f.id, category: f.category, content: f.content.slice(0, 140) }));
+                console.info(`[memory] ${recalled.facts.length} of ${recalled.total} memory fact(s) relevant to the objective`);
+            }
+        }
+    } catch { /* the fact store is optional */ }
+    // WS-C C3 (2026-10-31): the eval lane's recurring failures for this kind of deliverable, filed by the proxy's
+    // daily brain-growth pass. Harness-only gaps are never injected.
+    let knownGaps: string | undefined;
+    let knownGapRefs: string[] = [];
+    try {
+        const { loadKnownGapPages, selectKnownGaps, renderKnownGaps } = await import('./knownGaps');
+        const picked = selectKnownGaps(await loadKnownGapPages(), outputType);
+        if (picked.length) {
+            knownGaps = renderKnownGaps(picked);
+            knownGapRefs = picked.map(p => p.path);
+            console.info(`[memory] ${picked.length} known gap(s) for ${outputType}: ${picked.map(p => p.family).join(', ')}`);
+        }
+    } catch { /* known gaps are optional */ }
 
     // 2026-06-06 - Knowledge Library cached_selection load. ARCHITECTURAL
     // CORRECTION: the selection is USER-LEVEL, not engagement-bound. When
@@ -2143,7 +2250,7 @@ export async function loadGenerationContext(
         // Read 2: engagement manifest (FALLBACK for legacy / audit).
         if (!cachedSelection) {
             const engagementSlug = options?.engagement
-                || (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : undefined);
+                || (runEngagementSlug() || undefined);
             if (engagementSlug && typeof engagementSlug === 'string') {
                 const manifest = await readEngagementManifest(engagementSlug);
                 const sel = (manifest as any)?.cached_selection;
@@ -2323,6 +2430,11 @@ export async function loadGenerationContext(
         engagementContext,
         engagementGoals,
         crossEngagementPatterns,
+        memoryFacts,
+        memoryFactRefs: memoryFactIds,
+        patternSectionRefs: patternSectionIds,
+        knownGaps,
+        knownGapRefs,
         cachedSelection,
     };
 }
@@ -3271,7 +3383,18 @@ async function readEngagementManifest(slug: string): Promise<EngagementManifest 
  * Used by the IDLE-screen resume picker to surface prior engagements that
  * semantically match the current goal.
  */
-export async function listEngagementManifests(): Promise<EngagementManifest[]> {
+// 2026-10-31 (agent-stack plan, sixth pass): the Knowledge Library aggregator and the resume panel both call this on
+// session load, each reading every engagement manifest (58 today): 116 reads in one burst competing for the browser's
+// six proxy connections. Callers within 30 s now share one pass.
+let _manifestListShared: { at: number; p: Promise<EngagementManifest[]> } | null = null;
+export function listEngagementManifests(): Promise<EngagementManifest[]> {
+    if (_manifestListShared && Date.now() - _manifestListShared.at < 30_000) return _manifestListShared.p;
+    const p = _listEngagementManifestsOnce();
+    _manifestListShared = { at: Date.now(), p };
+    return p;
+}
+
+async function _listEngagementManifestsOnce(): Promise<EngagementManifest[]> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/list/${ENGAGEMENT_DIR}`);
         if (!resp.ok) return [];

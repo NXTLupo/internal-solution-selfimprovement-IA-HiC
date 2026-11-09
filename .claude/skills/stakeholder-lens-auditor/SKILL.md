@@ -1,22 +1,27 @@
 ---
 name: stakeholder-lens-auditor
+description: Run every recommendation through five stakeholder lenses (CIO or CTO, CFO, customer officer, frontline owner, regulator or risk officer) and emit an objections-and-responses appendix per recommendation. Use before a recommendation set meets a multi-stakeholder audience.
 invocation: model
-version: 1.0
-description: Runs every recommendation through five named stakeholder lenses (CIO/CTO, CFO, CMO/Customer Officer, Frontline Owner, Regulator/Risk Officer) and emits an objections+responses appendix per recommendation. Turns single-stakeholder advocacy (usually CIO-friendly) into multi-stakeholder defensibility — the difference between a deck that wins the technical buyer and one that survives the procurement / legal / change-management gauntlet. Composes with pre-mortem (most failure modes originate in objections that were politely ignored), dissent-panel subagent (which runs the same lens set in parallel as 5 independent critics), and recommendation-architect (which gets the objections back as a re-scope ask if more than 2 lenses produce show-stoppers).
+version: "1"
+status: active
 thinking: high
 category: deliverable-enhancer
 triggers:
   - stakeholder lens
   - stakeholder audit
-  - "what would the CFO say"
-  - "what would the regulator say"
-  - "what would the frontline say"
-  - "objections"
+  - what would the CFO say
+  - what would the regulator say
+  - what would the frontline say
+  - objections
   - "#stakeholder-lens"
   - "#audit-recommendation"
 ---
 
 # Stakeholder Lens Auditor
+
+## Scope
+
+Runs every recommendation through five named stakeholder lenses (CIO/CTO, CFO, CMO/Customer Officer, Frontline Owner, Regulator/Risk Officer) and emits an objections+responses appendix per recommendation. Turns single-stakeholder advocacy (usually CIO-friendly) into multi-stakeholder defensibility — the difference between a deck that wins the technical buyer and one that survives the procurement / legal / change-management gauntlet. Composes with pre-mortem (most failure modes originate in objections that were politely ignored), dissent-panel subagent (which runs the same lens set in parallel as 5 independent critics), and recommendation-architect (which gets the objections back as a re-scope ask if more than 2 lenses produce show-stoppers).
 
 ## You Are
 

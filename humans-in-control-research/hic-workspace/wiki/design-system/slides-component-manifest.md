@@ -198,7 +198,7 @@ PAYLOAD: `{ kicker, title, stats: [ { figure, headline, means, matters } ] (exac
 
 ### slides:block-quote — 609:7 / 626:95 · content-rail
 One hero verbatim quote + a right panel of 3 corroborating data points.
-PAYLOAD: `{ topicKicker, quote, attributionName, attributionRole, corroborating: [ { figure, label, source } ] (exactly 3), sourceLine }`.
+PAYLOAD: `{ topicKicker, title (an ACTION TITLE, <= 70 chars: the judgment the quote proves), quote, attributionName, attributionRole, corroborating: [ { figure, label, source } ] (exactly 3), sourceLine }`. `figure` is a WORD or short phrase ("Prepare", "Year one"), never a bare number; a number lives only inside a cited quote.
 OPTIONAL IMAGE (scenes-where-they-fit, USER OVERRIDE 2026-06-28): `panelImage` (a data-URI/URL) renders ONE supporting scene in the empty left band below the quote (Figma slot 901:477, 900x200). The runtime fills it from the quote subject; do NOT author a URL yourself. Omit if there is no supporting visual.
 
 ### slides:infographic-exhibit — composer-native · content-rail  <- the DATA VISUAL slide
@@ -206,15 +206,28 @@ The deck's native infographic slide (2026-07-02): kicker + action title + a FULL
 the takeaway band. The panel is COMPOSED FROM YOUR PAYLOAD'S OWN STRUCTURED FIELDS by the native
 render lane (never a scene, never diffusion): 3-5 steps/actions -> a process flow; a beforeAfter
 pair -> a comparison; 2-5 labeled stats -> a stat row; a 2+ source-type citation mix -> an
-evidence-mix composition. Use when a finding is STRUCTURAL (a sequence, a contrast, a distribution)
+evidence-mix composition; `nodes` + `edges` -> a NATIVE FLOWCHART (decision tree, system flow, operating
+model, escalation path: 3-8 nodes (the legible ceiling on one slide) with kinds step | decision | system | actor | outcome | input, 2-24
+labeled edges, optional `groups` of node ids with a label, `direction` LR or TB). Use when a finding is STRUCTURAL (a sequence, a contrast, a distribution)
 and prose columns would bury it; at most 1-2 per deck.
 PAYLOAD: `{ kicker, title, takeaway: { label, statement }, sourceLine }` PLUS exactly ONE of:
 `steps: [ { title, description } ] (3-5 moves: title = the named move, description = ONE sentence of substance - what happens and why it matters; a bare title renders an empty card)` OR `beforeAfter: { before: { points: [...] },
 after: { points: [...] } } (2-4 points each)` OR `stats: [ { label, value, quote?, source? } ] (2-5;
 values are QUALITATIVE words unless the number rides inside the cited quote)` OR `citations:
-[ "named source", ... ] (4+ real named sources across types)`. Do NOT author an image URL
+[ "named source", ... ] (4+ real named sources across types)` OR `nodes: [ { id, label, kind } ], edges: [ { from, to, label? } ],
+groups?: [ { label, nodes: [ids] } ], direction?: "LR"|"TB"` (a flowchart: every node label is a concrete actor,
+system, decision or outcome from the evidence; every edge label names the condition or hand-off). Do NOT author an image URL
 (exhibitImage is runtime-filled); do NOT emit this archetype without one of the four field shapes -
 that is a protocol violation (the slide would render an empty panel).
+
+### slides:brief-card — 609:8 · content-rail ← one source slide with labeled sections (OBJECTIVE / APPROACH / STATUS / VALUE)
+The consulting one-pager: kicker, action title, one-sentence subtitle, FOUR labeled blocks in a 2x2 grid and a large
+picture panel on the right. THE archetype for carrying a client slide whole (information parity on a reformat: every
+labeled section of the source slide becomes one block, in source order, with its full sentence). PAYLOAD:
+`{ kicker, title, subtitle, blocks: [ { label, body } ] (exactly 4), sourceLine }`.
+BUDGETS: title <= 90 chars; subtitle <= 160; label <= 24 (uppercase rendered); body <= 240 chars (two or three full
+sentences; never a bare phrase). The picture carrier `heroImage` is runtime-owned (the source slide's own picture on a
+reformat); never author it. May repeat for sibling source slides: parity beats variety.
 
 ### slides:numbered-themes — 609:8 / 626:124 · content-rail ← profile N items/apps/themes
 4 numbered columns, each name + synthesis body + a verbatim quote. THE archetype for "profile each
@@ -226,7 +239,7 @@ corpus does not support stay unstated. The runtime treats stated attributes as b
 
 ### slides:evidence-table — 609:9 / 626:158 · content-rail ← named-subject comparison
 4-column comparison; first ~2 rows are featured; closes with a PEER PATTERN takeaway band.
-PAYLOAD: `{ kicker, title, intro, columns: [ 4 column labels ], rows: [ { subject, prove, implication, evidenceGrade, featured } ] (~6; first 2 featured:true), takeaway: { label, statement }, sourceLine }`. TITLE <= 70 chars (1-2 lines max - the dense table has no room for a 3-line title); intro <= 1 sentence; prove/implication cells <= ~90 chars (2 lines).
+PAYLOAD: `{ kicker, title, intro, columns: [ 4 column labels ], rows: [ { subject, prove, implication, evidenceGrade, featured } ] (~6; first 2 featured:true), takeaway: { label, statement }, sourceLine }`. TITLE <= 70 chars (1-2 lines max - the dense table has no room for a 3-line title); intro <= 1 sentence; prove/implication cells <= ~90 chars (2 lines). BUDGETS (2026-10-23, live overflow): `subject` <= 26 chars and is the NAME ONLY ("RingCentral PMO", never "RingCentral PMO (enterprise program management)"; the qualifier belongs in the WHAT column); each column label <= 22 chars, one line; `evidenceGrade` <= 18 chars.
 
 ### slides:problem-diptych — 609:10 / 626:213 · full-bleed-dark
 Two contrasting halves as equals. PAYLOAD: `{ eyebrow, title, subhead, cards: [ { numeral, heading, body } ] (exactly 2) }`.
@@ -249,6 +262,7 @@ One role's recommendation: thesis + 3 supporting actions + 3 projected-impact ti
 PAYLOAD: `{ eyebrow, title, role, thesis, actions: [ { numeral, heading, body } ] (3), impact: [ { label, headline, body } ] (3) }` (label e.g. REVENUE | C-SAT | SERVICE NEEDS).
 
 ### slides:role-roadmap — 609:14 / 626:367 · content-rail
+SO-WHAT BAND (2026-10-23): include `takeaway: { label, statement }` (the judgment this exhibit proves, <= 140 chars); the composer closes the slide with an accent band carrying it.
 One role's phased roadmap across 4 phase columns. G3 of the trio.
 PAYLOAD: `{ eyebrow, title, role, phases: [ { label, name, items: [ ".." ] } ] (4) }` (label e.g. "PHASE 01 · MONTHS 1-6").
 
@@ -282,7 +296,7 @@ outcome <= 140 (2 lines on the band). DENSITY: 4 steps base; `density=dense` war
 A horizontal time axis with 3-6 milestone nodes: accent dot on the axis, mono date label, title +
 one-line detail alternating above/below the axis (collision-free by construction). Use for dated
 commitments, rollout gates, history arcs - anything where WHEN carries the argument.
-PAYLOAD: `{ kicker, title, milestones: [ { date, title, detail } ] (3-6, chronological), sourceLine }`.
+PAYLOAD: `{ kicker, title, intro (one sentence of substance under the title, <= 160 chars: what the sequence achieves and for whom), milestones: [ { date, title, detail } ] (3-6, chronological), takeaway: { label, statement } (the so-what band, <= 140 chars), sourceLine }`.
 BUDGETS: title <= 70 chars; date <= 14 chars (e.g. "MAR 2026", "Q3 2026"); milestone title <= 28
 (2 lines); detail = ONE line of substance, <= 60 chars. DENSITY: 4 milestones base;
 `density=dense` warrants 5-6.
@@ -300,6 +314,7 @@ operations review)`); caption <= 40; means <= 110; matters <= 110. DENSITY: fixe
 `density=dense` does not raise ceilings here.
 
 ### slides:ranked-bars — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#4:29 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← relative magnitude
+SO-WHAT BAND (2026-10-23): include `takeaway: { label, statement }` (the judgment this exhibit proves, <= 140 chars); the composer closes the slide with an accent band carrying it.
 Horizontal proportional bars: 3-6 rows, each label (left) + accent bar on an ecru track scaled by
 a 0-100 RELATIVE value + note (right). The value is NEVER rendered as text - it sets the bar
 length only; any figure the reader sees rides a cited quote in the note. Use when the finding is
@@ -310,6 +325,7 @@ BUDGETS: title <= 70 chars; label <= 28 (2 lines); note <= 90 chars (2 lines; ca
 quote when a figure matters). DENSITY: 4 bars base; `density=dense` warrants 5-6.
 
 ### slides:comparison-panels — composer-native · Figma canon EOWX9FhPtdoP05udKTxN94#6:32 (HiC-DS file, mode-flip NXT/NU; written back 2026-08-07) · content-rail ← option-vs-option
+SO-WHAT BAND (2026-10-23): include `takeaway: { label, statement }` (the judgment this exhibit proves, <= 140 chars); the composer closes the slide with an accent band carrying it.
 2-3 side-by-side option panels, each a dark header band + one cell per criterion, aligned across
 panels on shared hairline rows with the criterion labels in a left rail column. Distinct from
 `slides:evidence-table` (row cards profiling named subjects on ONE axis): this brick compares

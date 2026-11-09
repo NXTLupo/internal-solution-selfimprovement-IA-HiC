@@ -96,8 +96,10 @@ export interface EpochVerdict {
 let _activeEpoch: { id: number; baseline_vector: Record<string, number>; target_dims: string[]; floor_dims: string[]; deliverable_class: string } | null = null;
 
 /** Bind the tracker to the active epoch. Called from the SkillOpt applier
- *  after an edit lands; the next deliverables get tagged with this epoch_id. */
-function bindActiveEpoch(rec: EpochRecord): void {
+ *  after an edit lands; the next deliverables get tagged with this epoch_id.
+ *  WS-5 R5 (2026-10-30): exported and also bound from the LEDGER at the start of every artifact run
+ *  (`bindActiveEpochFromLedger`), so production outcomes attribute to the epoch the batch recorded. */
+export function bindActiveEpoch(rec: EpochRecord): void {
     _activeEpoch = {
         id: rec.epoch_id,
         baseline_vector: rec.baseline_vector,
@@ -114,6 +116,37 @@ function bindActiveEpoch(rec: EpochRecord): void {
 export function getActiveEpochId(): number | null {
     return _activeEpoch?.id ?? null;
 }
+
+let _ledgerBoundAt = 0;
+let _ledgerBoundId: number | null = null;
+/**
+ * WS-5 R5: read the latest applied epoch from the proxy (`/api/epochs/active`, parsed from
+ * improvement-epochs.md) and bind it, so every AIR and outcome after a promotion carries the epoch id
+ * without anyone calling the applier's hook by hand. Cached for five minutes; never throws.
+ */
+export async function bindActiveEpochFromLedger(fetchImpl: typeof fetch = globalThis.fetch): Promise<number | null> {
+    if (Date.now() - _ledgerBoundAt < 5 * 60_000) return _ledgerBoundId;
+    _ledgerBoundAt = Date.now();
+    try {
+        const resp = await fetchImpl(`${PROXY_BASE}/api/epochs/active`, { signal: AbortSignal.timeout(4000) });
+        if (!resp.ok) return _ledgerBoundId;
+        const j = await resp.json();
+        const a = j?.active;
+        if (!a || typeof a.epoch_id !== 'number') { _activeEpoch = null; _ledgerBoundId = null; return null; }
+        if (_activeEpoch?.id === a.epoch_id) return a.epoch_id;
+        bindActiveEpoch({
+            epoch_id: a.epoch_id, applied_at_ms: Date.parse(a.applied_at || '') || Date.now(), layer: String(a.layer || 'skill'),
+            file_path: String(a.file_path || ''), deliverable_class: String(a.deliverable_class || ''),
+            baseline_vector: a.baseline_vector && typeof a.baseline_vector === 'object' ? a.baseline_vector : {},
+            hypothesis: String(a.hypothesis || ''), target_dims: Array.isArray(a.target_dims) ? a.target_dims : [], floor_dims: Array.isArray(a.floor_dims) ? a.floor_dims : [],
+        });
+        _ledgerBoundId = a.epoch_id;
+        return a.epoch_id;
+    } catch {
+        return _ledgerBoundId;
+    }
+}
+export function _resetEpochBindingForTests(): void { _activeEpoch = null; _ledgerBoundAt = 0; _ledgerBoundId = null; }
 
 // ---------------------------------------------------------------------------
 // Outcome scoring - called from emitDeliverable AFTER evaluatePareto

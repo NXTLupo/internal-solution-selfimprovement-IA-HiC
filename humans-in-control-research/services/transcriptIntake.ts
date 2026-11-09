@@ -17,6 +17,8 @@
 import { callAIWithRetry, type AIEndpointId } from './aiRetryClient';
 import { DEFAULT_MODELS, artifactModelFor, endpointForModel, salvageJsonObject } from './aiRouter';
 import { scrubRewrite } from './slideTextEditing';
+import { anthropicText } from './claudeModelPolicy';
+import { proxyBase } from './proxyConfig';
 
 export interface PiiEntities {
     people: string[];
@@ -66,32 +68,28 @@ function pseudonymFor(map: AnonymizationMap, category: keyof PiiEntities, origin
     return label;
 }
 
-/** Model pass: extract the PII entities the regexes cannot see (names, orgs). */
+/** Local pass: extract the PII entities the regexes cannot see (names, orgs).
+ *  2026-10-30 (WS-0 S10): this used to send the RAW transcript to Gemini to find the PII,
+ *  which defeated the point of anonymizing before a provider sees the text. The proxy now
+ *  runs a local, deterministic extractor (/api/pii/extract: speaker labels, self-introductions,
+ *  honorifics, organization suffixes, emails, phones); no provider is involved. */
 async function extractPiiEntities(text: string): Promise<PiiEntities> {
     const empty: PiiEntities = { people: [], organizations: [], emails: [], phones: [], locations: [], products: [] };
-    const system = [
-        'Extract personally identifying and client-identifying strings from a meeting transcript. Return ONLY JSON:',
-        '{"people":[],"organizations":[],"emails":[],"phones":[],"locations":[],"products":[]}',
-        'people: full names and first names of real speakers/participants. organizations: the client company and any',
-        'identifying affiliates (NOT famous public companies mentioned as market context). locations: offices/addresses',
-        'that identify the client. products: internal client product/project code names. Return the exact strings as they appear.',
-    ].join('\n');
     try {
-        const parsed = await callAIWithRetry('gemini', {
-            model: DEFAULT_MODELS.fast_generation,
-            systemInstruction: { parts: [{ text: system }] },
-            contents: [{ role: 'user', parts: [{ text: text.slice(0, 60_000) }] }],
-            config: { temperature: 0, maxOutputTokens: 2000, responseMimeType: 'application/json' },
-        }, { label: 'PII extraction', maxAttempts: 2, requestTimeoutMs: 40_000 });
-        const raw = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-        const obj = salvageJsonObject<any>(raw) as any;
+        const resp = await fetch(`${proxyBase()}/api/pii/extract`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: text.slice(0, 400_000) }),
+        });
+        if (!resp.ok) throw new Error(`pii/extract ${resp.status}`);
+        const obj = await resp.json();
         const arr = (v: any) => (Array.isArray(v) ? v.filter((x: any) => typeof x === 'string' && x.trim().length > 1) : []);
         return {
             people: arr(obj?.people), organizations: arr(obj?.organizations), emails: arr(obj?.emails),
             phones: arr(obj?.phones), locations: arr(obj?.locations), products: arr(obj?.products),
         };
     } catch (e: any) {
-        console.warn('[transcriptIntake] PII model pass failed; regex-only anonymization:', e?.message || e);
+        console.warn('[transcriptIntake] local PII pass failed; regex-only anonymization:', e?.message || e);
         return empty;
     }
 }
@@ -155,7 +153,7 @@ async function routedText(model: string, system: string, user: string, maxTokens
             model, max_tokens: maxTokens, system,
             messages: [{ role: 'user', content: user }],
         }, { label, maxAttempts: 2, requestTimeoutMs: 120_000 });
-        return parsed?.content?.[0]?.text ?? '';
+        return anthropicText(parsed) ?? '';
     }
     const parsed = await callAIWithRetry('gemini', {
         model,

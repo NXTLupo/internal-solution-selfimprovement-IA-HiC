@@ -1,0 +1,521 @@
+[
+  {
+    "id": "fq6cq0d",
+    "content": "Standing preference: From now on, always put the methodology appendix at the end of every deck for the executive search work",
+    "category": "preference",
+    "confidence": 0.9,
+    "scope": "user",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:03:50.631Z",
+    "expectedValidDays": 365,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwm1f4s_4q5fz0"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T06:56:21.275Z",
+    "accessCount": 32
+  },
+  {
+    "id": "fw4w9zc",
+    "content": "Q: From now on, always put the methodology appendix at the end of every deck for the executive search work. / A: Understood. Going forward, every strategy deck (#slides) generated for this executive search engagement will automatically include a standardized **Methodology Appendix** as its closing slide. ### What Will Be Included in the Closing Methodology Appendix The final slide will capture: 1.",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:03:51.063Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwm1f4s_4q5fz0"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T06:46:46.513Z",
+    "accessCount": 11
+  },
+  {
+    "id": "f1xsr6y9",
+    "content": "Q: What came back from job_1793469929812_b20479a4? / A: The job finished cleanly: HiC acknowledged the check with a one-word reply, **\"received.\"** - **Status:** done, HTTP 200, finished 2026-10-31 at 18:05:31 UTC - **Route:** `/api/ai/anthropic`, answered by `claude-sonnet-5-5` (message `msg_011CgakvhhBLQpAds3Q214X7`) - **Stop reason:** `end_turn`, so the model completed normally rather than being cut off - **Usage:** 18 input tokens, 4 output tokens, no cache reads or w (tools: get_job)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:06:51.902Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "agent_nxt-agency-delegation-1793469930"
+    ],
+    "surface": "platform-agent",
+    "lastAccessedAt": "2026-11-09T13:34:15.600Z",
+    "accessCount": 85
+  },
+  {
+    "id": "fbxukoh",
+    "content": "Design direction for briefing for the managing partner on where AI fits in the executive search process: Two Column Verdict. Layout: A dark left rail, a masthead and full-width title, then two side-by-side panels (AI-assisted in a cool wash, partner-led in a neutral panel) listing the stages as rows, closed by a takeaway band. Reading order: The eye reads the title first, then compares the two column labels and their stage rows, then lands on the takeaway band. Density: airy. Imagery: none, typographic panels.",
+    "category": "preference",
+    "confidence": 0.9,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:14:54.178Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwpwhu0_6kvlnl"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T07:11:01.985Z",
+    "accessCount": 19
+  },
+  {
+    "id": "f7zm4o6",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: AI belongs in the research, data and reporting stages of retained search, while finalist assessment and the close stay partner-led.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:22:10.384Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwq5np2_9c7d3k"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-10-31T20:18:11.402Z",
+    "accessCount": 6
+  },
+  {
+    "id": "fla6ag7",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: DSG should put AI on research, records and client reporting and keep finalist assessment with partners",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:25:35.967Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwqccbq_o6yz2h"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-10-31T20:18:11.402Z",
+    "accessCount": 6
+  },
+  {
+    "id": "fwvay5f",
+    "content": "Q: Use the browser to open https://example.com and then click the \"More information...\" link on that page. / A: Sure! Let me open https://example.com in the browser and interact with the page.The screen appears blank. Let me look for a browser to open.The screen is still blank. Let me try to open a terminal or find a browser application using a keyboard shortcut.Playwright is available. (tools: bash, computer, execute_python, str_replace_based_edit_tool)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:28:48.523Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "nxt_agency_f45d8a01-f528-4ad7-b1e4-3cb697b4b98c"
+    ],
+    "surface": "nxt-agency",
+    "lastAccessedAt": "2026-11-08T22:39:19.886Z",
+    "accessCount": 7
+  },
+  {
+    "id": "feqdnn2",
+    "content": "Q: Use Python to send an HTTP POST with the JSON body {\"check\": \"review-gate\"} to https://httpbin.org/post and show me the response. / A: Sure! Let me execute that Python HTTP POST request right now.It looks like this request was **blocked by a review gate** — an outbound action reviewer intercepted the call before it reached `https://httpbin.org/post`. Here's what came back: | Field | Value | |---|---| | **Status** | `review_rejected` | | **Review ID** | `rv_4c4f0948bc26` | | **Message** | The reviewer rejected this outbound action; (tools: execute_python)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:33:54.605Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "nxt_agency_07dd80c1-1453-4928-8d2f-2367424cd44c"
+    ],
+    "surface": "nxt-agency",
+    "lastAccessedAt": "2026-11-09T07:11:01.985Z",
+    "accessCount": 11
+  },
+  {
+    "id": "f1dk610e",
+    "content": "Q: Use the research recall_memory tool to check what the team has established about where the methodology appendix goes in executive search decks, and tell me what it returned. / A: **The methodology appendix goes at the end of every deck for the executive search work.** The team set this as a standing preference on 2026-10-31. ## Directly on point - **Standing preference (fq6cq0d):** \"From now on, always put the methodology appendix at the end of every deck for the executive search work.\" User-scoped, confidence 0.9, top match at score 0.64. (tools: recall_memory)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:49:42.992Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "agent_036db186-8811-48e8-b79c-f85ad2a5ea35"
+    ],
+    "surface": "platform-agent",
+    "lastAccessedAt": "2026-11-09T06:24:51.497Z",
+    "accessCount": 26
+  },
+  {
+    "id": "f1i3toxf",
+    "content": "Q: Do not use Python or bash. Use the computer tool (the browser) to open https://example.com, take a screenshot, then click the link on that page. / A: Sure! Let me open the browser and navigate to https://example.com right now.The screen is blank. Let me try to find and open a browser application. I'll try right-clicking the desktop to see if there are options.The screen is completely blank. (tools: computer)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:50:30.800Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "nxt_agency_51ffc95b-e694-4780-9a58-376aaeeea754"
+    ],
+    "surface": "nxt-agency",
+    "lastAccessedAt": "2026-11-08T22:32:24.207Z",
+    "accessCount": 3
+  },
+  {
+    "id": "fuqezej",
+    "content": "Q: Use only the computer tool, three actions: (1) a type action with the text https://example.com (in this environment typing a URL navigates the browser), (2) a screenshot, (3) a left_click on the \"Lear / A: I can see the page with the **\"Learn more\"** link at the bottom. Clicking it now!The click on the **\"Learn more\"** link was **blocked by an outbound action reviewer** and was not performed (Review ID: `rv_d9c1adcc3fce`). Here's a summary of what happened across the three steps: 1. ✅ **Type action** — Successfully navigated to `https://example.com` 2. (tools: computer)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T18:54:50.247Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "nxt_agency_51ffc95b-e694-4780-9a58-376aaeeea754"
+    ],
+    "surface": "nxt-agency",
+    "lastAccessedAt": "2026-11-09T05:46:20.568Z",
+    "accessCount": 43
+  },
+  {
+    "id": "f1szwylb",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: AI should prepare the shortlist in a retained search and never touch finalist judgment or raw confidential client data.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T19:00:36.919Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwrjmzo_iu89fi"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-10-31T20:18:11.402Z",
+    "accessCount": 4
+  },
+  {
+    "id": "f1px7hfw",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: Search firms should clean, classify and permission candidate records before any AI tool reads them.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T19:08:29.122Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwrs87t_w2fz33"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-10-31T20:18:11.402Z",
+    "accessCount": 2
+  },
+  {
+    "id": "fklnz7x",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: Partners should tell clients at kickoff which search stages use AI and which stay partner-led.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T19:19:28.729Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvws6y5f_dkjut4"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa",
+    "lastAccessedAt": "2026-10-31T20:18:11.402Z",
+    "accessCount": 1
+  },
+  {
+    "id": "f1fhkfjy",
+    "content": "Q: Use only the computer tool, four actions: (1) a type action with the text https://example.com (typing a URL navigates the browser here), (2) a screenshot, (3) a left_click on the \"Learn more\" link you / A: I'll follow those four steps exactly using the computer tool now. **Step 1 — Type the URL to navigate the browser:****Step 2 — Screenshot to see the page:**I can see the page with the **\"Learn more\"** link at the bottom. (tools: computer)",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T19:25:38.467Z",
+    "expectedValidDays": 120,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "nxt_agency_e875c8f8-654d-4836-9aa9-655487d2afbd"
+    ],
+    "surface": "nxt-agency"
+  },
+  {
+    "id": "f1wf21ru",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: First-year co-op support breaks down because no one owns a student's preparation before a co-op advisor is assigned",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T19:45:48.251Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwt3suw_6tps38"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T02:57:07.491Z",
+    "accessCount": 6
+  },
+  {
+    "id": "f8zmbnb",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: First-years now reach a first co-op employer through the portal plus contacts they build themselves, so preparation must start before the search.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T20:00:01.451Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwtm5sv_w9pgjj"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-03T19:27:24.499Z",
+    "accessCount": 5
+  },
+  {
+    "id": "fn264y1",
+    "content": "The slides for \"Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured\" argued: AI sourcing changes the research stages of a retained search, so a firm's sourcing advantage moves to its own relationship records.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T20:20:17.392Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwudnpq_89f2kx"
+    ],
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+    "surface": "spa"
+  },
+  {
+    "id": "f1sae6mb",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: First-years need co-op advisors for judgment calls, so Student Hub must build their preparation before the first meeting.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T20:42:31.119Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwv3icv_lx93qm"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T07:11:01.985Z",
+    "accessCount": 6
+  },
+  {
+    "id": "fcll5jw",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: Employers judge first-year co-op candidates on proof they can check, so Student Hub must build that proof in year one.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T20:56:31.141Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwvj3rv_1z7j3q"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T02:57:07.491Z",
+    "accessCount": 3
+  },
+  {
+    "id": "f1r05ovh",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: First-years miss co-op deadlines because no person or system owns their timing before an advisor is assigned",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T21:09:59.415Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvww24co_mg0gfs"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T02:57:07.491Z",
+    "accessCount": 2
+  },
+  {
+    "id": "fgoh88h",
+    "content": "The slides for \"Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requireme\" argued: First-years have no co-op advisor, so Student Hub must route them to peers and staff before advising begins.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-10-31T21:46:59.289Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mvwxfqw7_fxlwad"
+    ],
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T02:57:07.491Z",
+    "accessCount": 1
+  },
+  {
+    "id": "fgxgr5w",
+    "content": "The slides for \"Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z.\" argued: The email system shows you the design before its AI reviewers run, and every failed check is still fixed before the email is finished.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-03T19:22:55.818Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw12fg72_xgp8fi"
+    ],
+    "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T07:11:01.985Z",
+    "accessCount": 7
+  },
+  {
+    "id": "f1o9wvcj",
+    "content": "The last slides shipped with open findings to fix next time: only 0 of 45 factual fields could be tied to a manifest chunk; copy the corpus block's [path#cN] pointer into each factual field. Unbound: slide 1 (cover: \"How",
+    "category": "correction",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-03T19:22:55.818Z",
+    "expectedValidDays": 90,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw12fg72_xgp8fi"
+    ],
+    "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-08T22:36:45.926Z",
+    "accessCount": 4
+  },
+  {
+    "id": "f1opij9o",
+    "content": "The slides for \"Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z.\" argued: The email system builds campaigns by locking brand aesthetics into modular blocks before AI assembly.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-03T19:59:15.091Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw13w2mn_2n882f"
+    ],
+    "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+    "surface": "spa"
+  },
+  {
+    "id": "fxeaq2q",
+    "content": "The slides for \"Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans tha\" argued: Software buyers now pay for working software under senior review, and NXT Humans delivers it through AI-native process at a fixed price.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-03T22:59:22.460Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw19zvli_sluxul"
+    ],
+    "engagement": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T02:57:07.491Z",
+    "accessCount": 1
+  },
+  {
+    "id": "f6e6fpe",
+    "content": "Q: What are themes emerging from r/neu related to the research objectives / A: Analysis of discussions from **r/neu** reveals four primary student themes directly addressing the engagement's core research objectives: ## 1. Dual-Account BYOAI Strategy Driven by Data Loss Anxiety Northeastern students actively employ a **dual-account architecture** to balance immediate compute needs with long-term data portability [articles/reddit-deep-r-neu/53abcc7c10.md#c0].",
+    "category": "knowledge",
+    "confidence": 0.75,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-09T00:43:27.341Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw8i2ot2_5qfdsk"
+    ],
+    "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T06:08:04.420Z",
+    "accessCount": 5
+  },
+  {
+    "id": "fm4a6yp",
+    "content": "The slides for \"1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations Determine how college students and early-career wo\" argued: Students will connect their own AI assistant to Northeastern systems when access starts read-only, every write needs their approval, and they can revoke and export at any time.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-09T04:01:01.899Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mw8q72x5_s3n7pf"
+    ],
+    "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+    "surface": "spa",
+    "lastAccessedAt": "2026-11-09T07:11:01.985Z",
+    "accessCount": 5
+  }
+]

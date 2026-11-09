@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:22:57+00:00"
 content_hash: "ae5bf170d2bcc53b"
 chunks:
   - id: "articles/arxiv-cs-ir/fc96dead18.md#c0"
-    char_span: [0, 687]
+    char_span: [0, 686]
     sentence_count: 5
     key_terms: [recommendation, stock, risks, investment, profits, reduce, perturbations, quantitative]
     concepts: [recommendation, stock, investment, risks, profits]
-    token_count: 135
-    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2304.11043v2"}]
+    token_count: 134
+    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2304.11043v2","kind":"article","date":"2023-04-20"}]
 ---
 # Can Perturbations Help Reduce Investment Risks? Risk-Aware Stock Recommendation via Split Variational Adversarial Training
 

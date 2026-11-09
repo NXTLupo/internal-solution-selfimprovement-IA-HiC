@@ -86,7 +86,7 @@ export interface ArtifactCatalogEntry {
 export const ARTIFACT_CATALOG: ArtifactCatalogEntry[] = [
     // ---- SCHEMA-BOUNDED slide deliverables (routingClass schema_flash) ----
     { id: 'gap', aliases: ['#gap', '#gaps', '#gap-analysis', '#gapanalysis'], templateId: 'gap-matrix', ownerSkill: 'gap-analysis-evaluator', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
-    { id: 'journey', aliases: ['#journey', '#journeys', '#journey-map', '#journeymap'], templateId: 'journey-map', ownerSkill: 'service-blueprint-mapper', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
+    { id: 'journey', aliases: ['#journey', '#journeys', '#journey-map', '#journeymap'], templateId: 'journey-map', ownerSkill: 'journey-illustrator', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
     { id: 'blueprint', aliases: ['#blueprint', '#blueprints', '#service-blueprint'], templateId: 'service-blueprint', ownerSkill: 'service-blueprint-mapper', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
     { id: 'compete', aliases: ['#compete', '#competes', '#competitive', '#competitives', '#competitors', '#competitor', '#competition'], templateId: 'competitive-matrix', ownerSkill: 'competitive-analyst', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
     { id: 'org', aliases: ['#org', '#orgs', '#orgchart', '#orgcharts', '#org-chart', '#org-charts'], templateId: 'org-chart', ownerSkill: 'org-chart', tier: 'schema', modality: 'slides', editability: 'native_pptx', routingClass: 'schema_flash', imageBearing: false },
@@ -117,11 +117,38 @@ export const ARTIFACT_CATALOG: ArtifactCatalogEntry[] = [
     // E2.5 (2026-08-21): the artifact for a decision the corpus cannot settle. Asks the
     // person who holds the answer, instead of writing that evidence is limited.
     { id: 'questionnaire', aliases: ['#questionnaire', '#questionnaires', '#questions'], templateId: null, ownerSkill: 'questionnaire-author', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-03 - NotebookLM Studio report + study formats (plans/notebooklm-studio-reverse-engineering-2026-11-03.md,
+    // Part 6 W3; Unified Vision phase 6: all route through artifactModelFor, evidence tier). Every one rides the
+    // HTML artifact chain, so the claim-ledger gate and pointer citations apply: HiC's studio outputs stay cited,
+    // which NotebookLM's do not (spec clause S10).
+    { id: 'faq', aliases: ['#faq', '#faqs'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    { id: 'study-guide', aliases: ['#studyguide', '#study-guide', '#studyguides', '#study-guides'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    // 'chronology', never '#timeline': the bare timeline name belongs to the #roadmap slide template (forward plan);
+    // this is the NotebookLM Timeline report, a dated chronology drawn FROM the sources.
+    { id: 'chronology', aliases: ['#chronology', '#chronologies', '#timeline-report', '#source-timeline'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'evidence', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    { id: 'flashcards', aliases: ['#flashcards', '#flashcard'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'schema', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    { id: 'quiz', aliases: ['#quiz', '#quizzes'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'schema', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    { id: 'datatable', aliases: ['#datatable', '#datatables', '#data-table', '#data-tables'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'schema', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    { id: 'critique', aliases: ['#critique', '#critiques'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'evidence', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
 
     // ---- Graph / cross-engagement / dialogue (the NotebookLM kinds; rendered in the Design Desk) ----
     { id: 'mindmap', aliases: ['#mindmap', '#mindmaps', '#mind-map', '#mind-maps'], templateId: null, ownerSkill: 'mind-map-architect', tier: 'schema', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'meta-themes', aliases: ['#meta-themes', '#meta-theme', '#metathemes', '#portfolio-themes', '#platform-patterns'], templateId: null, ownerSkill: 'meta-themes', tier: 'evidence', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'brief-dialog', aliases: ['#brief-dialog', '#brief-dialogue', '#dialog', '#dialogue'], templateId: null, ownerSkill: 'brief-dialog', tier: 'narrative', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-03 W5 (NotebookLM reverse-engineering, spec S1): the two-voice dialogue rendered to SPEECH.
+    // Rides the brief-dialog script engine, then the proxy /api/tts/dialogue (ElevenLabs) renders the MP3;
+    // without a TTS key the handler degrades to the text transcript.
+    { id: 'audio-overview', aliases: ['#audio-overview', '#audiooverview', '#audio', '#podcast'], templateId: null, ownerSkill: 'brief-dialog', tier: 'narrative', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-03 W9 (NotebookLM reverse-engineering, spec S2): the Video Overview. Composes a
+    // brand-tokened recap (services/recapComposition.ts, deterministic, slop-gated) and renders
+    // it to MP4 on the video-renderer sidecar via the proxy /api/video/* passthrough.
+    { id: 'video-overview', aliases: ['#video-overview', '#videooverview', '#video'], templateId: null, ownerSkill: 'deck-composer', tier: 'narrative', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-09 (NotebookLM S8 parity; plans/hic-vs-notebooklm-artifact-audit-2026-11-09.md):
+    // standalone infographic. The model writes a content-true element (steps / comparison / cited
+    // stats) from the grounded corpus; infographicSpecFrom builds the spec; the proxy's native
+    // renderer (/api/ai/diagram, nxt_diagram_render E4 families) draws it. A leading aspect word
+    // steers the frame (landscape default / portrait / square).
+    { id: 'infographic', aliases: ['#infographic', '#infographics'], templateId: null, ownerSkill: 'infographic-composer', tier: 'narrative', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: true },
 
     // ---- Code / external-renderer / collection ----
     { id: 'proto', aliases: ['#proto', '#prototypes'], templateId: null, ownerSkill: 'experience-prototype-composer', tier: 'code', modality: 'figma_spec', editability: 'spa_only', routingClass: 'code', imageBearing: true },

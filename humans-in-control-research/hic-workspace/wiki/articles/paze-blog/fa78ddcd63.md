@@ -19,12 +19,12 @@ content_hash: "18abcfded0b33fc1"
 relevance_by_goal: {"d21cb50b17ba":0}
 chunks:
   - id: "articles/paze-blog/fa78ddcd63.md#c0"
-    char_span: [0, 1699]
+    char_span: [0, 1698]
     sentence_count: 4
     key_terms: [read, article, blog, paze, checkout, trust, page, merchants]
     concepts: [article, checkout, trust, merchants, report]
-    token_count: 377
-    sources: [{"n":"paze_blog","u":"https://www.paze.com/blog"}]
+    token_count: 376
+    sources: [{"n":"paze_blog","u":"https://www.paze.com/blog","kind":"article"}]
 ---
 # Paze CMA wallet
 

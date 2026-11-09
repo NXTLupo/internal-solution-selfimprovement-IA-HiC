@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:44:05+00:00"
 content_hash: "4232cfb211f9198f"
 chunks:
   - id: "articles/ins-planadviser/defaa664a2.md#c0"
-    char_span: [0, 208]
+    char_span: [0, 207]
     sentence_count: 1
     key_terms: [house-hearing-debates-trump-accounts-structure, planadviser, structure, accounts, rss-feed, debates, hearing, source]
-    token_count: 56
-    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/house-hearing-debates-trump-accounts-structure/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed"}]
+    token_count: 55
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/house-hearing-debates-trump-accounts-structure/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-planadviser/defaa664a2.md#c1"
-    char_span: [210, 3178]
+    char_span: [209, 3177]
     sentence_count: 14
     key_terms: [accounts, investment, investments, financial, children, industry, robinhood, administration]
     concepts: [accounts, investment, investments, financial, children]
     related_chunks: ["articles/ins-planadviser/defaa664a2.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/house-hearing-debates-trump-accounts-structure/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-planadviser/defaa664a2.md#c2"
-    char_span: [2837, 4268]
+    char_span: [2836, 4267]
     sentence_count: 4
     key_terms: [accounts, investment, administration, quaadman, treasury, discussions, department, retirement]
     concepts: [accounts, investment, administration, quaadman, treasury]
     related_chunks: ["articles/ins-planadviser/defaa664a2.md#c1"]
     token_count: 252
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/house-hearing-debates-trump-accounts-structure/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
 ---
 # House Hearing Debates Trump Accounts’ Structure
 

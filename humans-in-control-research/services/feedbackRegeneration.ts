@@ -12,6 +12,7 @@
  */
 
 import { OPUS_CAP_ACTIVE, artifactModelFor, applyAnthropicRequestDefaults, chooseUtilityModel, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
+import { anthropicText } from './claudeModelPolicy';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -102,7 +103,7 @@ Return only the instruction text. No preamble. No quotes.`;
         });
         if (!fbResp.ok) return feedbackText;
         const data = await fbResp.json();
-        const text: string = data?.content?.[0]?.text || feedbackText;
+        const text: string = anthropicText(data) || feedbackText;
         return text.trim().replace(/^["']|["']$/g, '');
     } catch {
         return feedbackText;
@@ -149,7 +150,7 @@ CONSTRAINTS:
         });
         if (!resp.ok) return null;
         const data = await resp.json();
-        return data?.content?.[0]?.text || null;
+        return anthropicText(data) || null;
     } else if (provider === 'gemini') {
         // 2026-05-22 - Gemini 3.5 Flash for the "Apply now" path. The proxy
         // wraps the request in the proper { contents: [{ parts: [...] }] }

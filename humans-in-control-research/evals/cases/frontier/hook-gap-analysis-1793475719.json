@@ -1,0 +1,20 @@
+{
+  "id": "hook-gap-analysis-1793475719",
+  "set": "frontier",
+  "kind": "gap-analysis",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#gap-analysis"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-10-31",
+    "note": "Evidence density 0.72 below floor before generation"
+  }
+}

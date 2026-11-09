@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:43:32+00:00"
 content_hash: "27f04c47434014dc"
 chunks:
   - id: "articles/ins-osfi-canada/cdb226f2ee.md#c0"
-    char_span: [0, 630]
+    char_span: [0, 629]
     sentence_count: 1
     key_terms: [span, div, class, time, infopensions, infopensions-issue-34-may-2026, osfi-bsif, datetime]
     concepts: [class, infopensions, osfi-bsif, datetime, issue]
-    token_count: 229
-    sources: [{"n":"ins_osfi_canada","u":"https://www.osfi-bsif.gc.ca/en/infopensions-issue-34-may-2026"}]
+    token_count: 228
+    sources: [{"n":"ins_osfi_canada","u":"https://www.osfi-bsif.gc.ca/en/infopensions-issue-34-may-2026","kind":"article","date":"2026-05-26"}]
 ---
 # InfoPensions – Issue 34 – May 2026
 

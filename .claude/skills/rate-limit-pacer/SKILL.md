@@ -1,22 +1,27 @@
 ---
 name: rate-limit-pacer
+description: "Per-provider token-bucket pacing for HiC's external API calls, so a 429 from one provider throttles only that provider: how concurrency drops on a 429, how long to back off and when to ease back up. Use when touching proxy concurrency or a rate-limit cascade."
 invocation: model
-version: 1.0
-description: Provider-aware adaptive concurrency for HiC's external API calls. Replaces the process-wide semaphore-of-3 pattern in proxy/app.py (which lets a Jina 429 take out all concurrent Gemini calls for 60 seconds) with per-provider token-bucket pacing that throttles only the provider being rate-limited. Defends against the OpenAI 429 storm class of failures (commit 43710b5) and the Jina cascade (line 1991: "backing off Jina Reader for 60s per-process"). Includes the deterministic policy for how concurrency drops on 429, how long to back off, and when to ease back up. Pairs with the quota-monitor subagent which observes spend across providers in real time and surfaces "approaching quota" warnings before the 429 fires.
+version: "1.0"
+status: active
 thinking: high
 category: defense-against-bursts
 triggers:
   - rate limit
-  - 429
+  - "429"
   - throttle
   - quota
   - "#rate-limit"
   - "#pacer"
-  - "backing off"
+  - backing off
   - api storm
 ---
 
 # Rate Limit Pacer
+
+## Scope
+
+Provider-aware adaptive concurrency for HiC's external API calls. Replaces the process-wide semaphore-of-3 pattern in proxy/app.py (which lets a Jina 429 take out all concurrent Gemini calls for 60 seconds) with per-provider token-bucket pacing that throttles only the provider being rate-limited. Defends against the OpenAI 429 storm class of failures (commit 43710b5) and the Jina cascade (line 1991: "backing off Jina Reader for 60s per-process"). Includes the deterministic policy for how concurrency drops on 429, how long to back off, and when to ease back up. Pairs with the quota-monitor subagent which observes spend across providers in real time and surfaces "approaching quota" warnings before the 429 fires.
 
 ## You Are
 

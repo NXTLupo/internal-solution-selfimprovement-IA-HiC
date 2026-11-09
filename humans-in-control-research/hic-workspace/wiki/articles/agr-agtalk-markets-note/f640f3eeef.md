@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:52:03+00:00"
 content_hash: "74263f72e70d49be"
 chunks:
   - id: "articles/agr-agtalk-markets-note/f640f3eeef.md#c0"
-    char_span: [0, 112]
+    char_span: [0, 111]
     sentence_count: 1
     key_terms: [forum-view, marketing, newagtalk, agtalk, forums, source, forum, https]
-    token_count: 31
-    sources: [{"n":"agr_agtalk_markets_note","u":"https://talk.newagtalk.com/forums/forum-view.asp"}]
+    token_count: 30
+    sources: [{"n":"agr_agtalk_markets_note","u":"https://talk.newagtalk.com/forums/forum-view.asp","kind":"article"}]
   - id: "articles/agr-agtalk-markets-note/f640f3eeef.md#c1"
-    char_span: [114, 1660]
+    char_span: [113, 1659]
     sentence_count: 2
     key_terms: [talk, discussions, equipment, today, operation, computer, shepherd, agtalk]
     concepts: [discussions, equipment, today, operation, computer]
     token_count: 512
+    sources: [{"n":"agr_agtalk_markets_note","u":"https://talk.newagtalk.com/forums/forum-view.asp","kind":"article"}]
   - id: "articles/agr-agtalk-markets-note/f640f3eeef.md#c2"
-    char_span: [1492, 1897]
+    char_span: [1491, 1896]
     sentence_count: 1
     key_terms: [forum, market, recreationaltillage, discussions, management, masonb1990, marketing, questions]
     concepts: [forum, market]
     token_count: 154
+    sources: [{"n":"agr_agtalk_markets_note","u":"https://talk.newagtalk.com/forums/forum-view.asp","kind":"article"}]
 ---
 # AgTalk — Marketing Forum
 

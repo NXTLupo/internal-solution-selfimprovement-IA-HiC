@@ -16,26 +16,28 @@ relevance: 70
 content_hash: "b087e231a4071c94"
 chunks:
   - id: "articles/reddit-deep-r-smallbusiness/fdd0fd30ac.md#c0"
-    char_span: [0, 2370]
+    char_span: [0, 2369]
     sentence_count: 19
     key_terms: [reviews, smallbusiness, business, small, customers, comments, removed, automatically]
     concepts: [reviews, smallbusiness, business, small, customers]
-    token_count: 508
-    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1pdztks/as_a_small_business_owner_how_do_you_get_customer/"}]
+    token_count: 507
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1pdztks/as_a_small_business_owner_how_do_you_get_customer/","kind":"article","date":"2025-12-04","subreddit":"smallbusiness"}]
   - id: "articles/reddit-deep-r-smallbusiness/fdd0fd30ac.md#c1"
-    char_span: [2372, 4385]
+    char_span: [2371, 4384]
     sentence_count: 17
     key_terms: [review, google, reviews, process, offer, code, easy, automating]
     concepts: [review, google, reviews, process, automating]
     related_chunks: ["articles/reddit-deep-r-smallbusiness/fdd0fd30ac.md#c2"]
     token_count: 438
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1pdztks/as_a_small_business_owner_how_do_you_get_customer/","kind":"article","date":"2025-12-04","subreddit":"smallbusiness"}]
   - id: "articles/reddit-deep-r-smallbusiness/fdd0fd30ac.md#c2"
-    char_span: [4387, 6100]
+    char_span: [4386, 6099]
     sentence_count: 16
     key_terms: [google, reviews, review, company, people, business, "don't", important]
     concepts: [google, reviews, review, company, people]
     related_chunks: ["articles/reddit-deep-r-smallbusiness/fdd0fd30ac.md#c1"]
     token_count: 354
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1pdztks/as_a_small_business_owner_how_do_you_get_customer/","kind":"article","date":"2025-12-04","subreddit":"smallbusiness"}]
 ---
 # "As a small business owner, how do you get customer reviews?"
 

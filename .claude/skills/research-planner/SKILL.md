@@ -1,8 +1,9 @@
 ---
 name: research-planner
+description: Turn a research goal, an uploaded brief and institution context into a structured research plan (sub-questions, source strategy, institutions, expected theme count, budget cap, reflection threshold) that the user edits and approves before collection runs.
 invocation: model
-version: 1.0
-description: Phase 5 of the NotebookLM uplift plan. The "Humans in Control" feature - takes a research goal + uploaded brief + optional institution context and emits a structured research_plan.json with sub-questions, source strategy, named institutions, expected theme count, budget cap, reflection threshold. The plan is RENDERED IN THE UI for user edit/approval BEFORE any external API calls. After approval, the data fabric runs in a plan-act-reflect loop with reflection traces persisted to the engagement. NotebookLM has Deep Research; only HiC has Deep Research with a deliberate human checkpoint at the planning stage.
+version: "1"
+status: active
 thinking: high
 category: agentic-loop
 triggers:
@@ -13,6 +14,10 @@ triggers:
 ---
 
 # Research Planner
+
+## Scope
+
+Phase 5 of the NotebookLM uplift plan. The "Humans in Control" feature - takes a research goal + uploaded brief + optional institution context and emits a structured research_plan.json with sub-questions, source strategy, named institutions, expected theme count, budget cap, reflection threshold. The plan is RENDERED IN THE UI for user edit/approval BEFORE any external API calls. After approval, the data fabric runs in a plan-act-reflect loop with reflection traces persisted to the engagement. NotebookLM has Deep Research; only HiC has Deep Research with a deliberate human checkpoint at the planning stage.
 
 ## You Are
 
@@ -78,7 +83,7 @@ max_iterations: 6
 ## Hard rules
 
 1. **The plan is human-editable.** UI renders it as a form. User can edit sub-questions, remove sources, change budget cap.
-2. **No external API calls during planning.** The planner uses Opus 4.7 + extended thinking but does NOT collect data.
+2. **No external API calls during planning.** The planner uses the reasoning model (`CLAUDE_REASONING_MODEL`) with adaptive thinking but does NOT collect data.
 3. **plan_hash is deterministic.** Same inputs → same hash. Lets reproducibility_hash bind the engagement to the approved plan.
 4. **budget_usd is binding.** The reflector loop must halt when budget exhausted.
 5. **No emoji.** Repo-wide rule.

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:56:26+00:00"
 content_hash: "a333656705bb5640"
 chunks:
   - id: "articles/agr-future-farming/d8db2cb13d.md#c0"
-    char_span: [0, 1871]
+    char_span: [0, 1870]
     sentence_count: 14
     key_terms: [farm-ing, farm-ing-now-offers-a-choice-of-3-different-smart-weeders, weeding, working, spotsprayer, smart, available, different]
     concepts: [farm-ing, spotsprayer, weeding, working, available]
-    token_count: 432
-    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/crop-solutions/weed-pest-control/farm-ing-now-offers-a-choice-of-3-different-smart-weeders/"}]
+    token_count: 431
+    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/crop-solutions/weed-pest-control/farm-ing-now-offers-a-choice-of-3-different-smart-weeders/","kind":"article","date":"2026-06-17"}]
 ---
 # Farm-ING now offers a choice of 3 different smart weeders
 

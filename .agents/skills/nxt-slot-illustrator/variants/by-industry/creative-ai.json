@@ -1,0 +1,2880 @@
+[
+ {
+  "id": "creative-ai-net-01",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "generative-content-operating-model",
+  "title": "Generative content operating model",
+  "subtitle": "How studio, brand, and ML teams connect around supply",
+  "artifacts": [
+   "org",
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4800
+  }
+ },
+ {
+  "id": "creative-ai-net-02",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "creative-tool-integration-mesh",
+  "title": "Creative tool integration mesh",
+  "subtitle": "How model, asset, review, and publish tools interconnect",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4801
+  }
+ },
+ {
+  "id": "creative-ai-net-03",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "asset-supply-chain-network",
+  "title": "Asset supply chain network",
+  "subtitle": "Briefing nodes to channel endpoints across the pipeline",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 4802
+  }
+ },
+ {
+  "id": "creative-ai-net-04",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "prompt-library-dependency-graph",
+  "title": "Prompt library dependency graph",
+  "subtitle": "Shared prompts, presets, and assets that depend on them",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 11,
+   "layout": "radial",
+   "seed": 4803
+  }
+ },
+ {
+  "id": "creative-ai-net-05",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "brand-governance-control-network",
+  "title": "Brand governance control network",
+  "subtitle": "Reviewers, gates, and approval authorities around output",
+  "artifacts": [
+   "org",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "hub2",
+   "seed": 4804
+  }
+ },
+ {
+  "id": "creative-ai-net-06",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "model-vendor-ecosystem-map",
+  "title": "Model vendor ecosystem map",
+  "subtitle": "Foundation, fine-tune, and orchestration relationships",
+  "artifacts": [
+   "competitive",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "radial",
+   "seed": 4805
+  }
+ },
+ {
+  "id": "creative-ai-net-07",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "localization-routing-network",
+  "title": "Localization routing network",
+  "subtitle": "Master assets fanning out to market-specific variants",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "spine",
+   "seed": 4806
+  }
+ },
+ {
+  "id": "creative-ai-net-08",
+  "family": "operatingNetwork",
+  "industry": "creative-ai",
+  "framework": "human-review-handoff-network",
+  "title": "Human review handoff network",
+  "subtitle": "Where machine drafts pass to human reviewers and back",
+  "artifacts": [
+   "blueprint",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 4807
+  }
+ },
+ {
+  "id": "creative-ai-cap-01",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "creative-production-stack",
+  "title": "Creative production stack",
+  "subtitle": "From foundation models up to published creative",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 2,
+   "seed": 4808
+  }
+ },
+ {
+  "id": "creative-ai-cap-02",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "generative-ai-content-stack",
+  "title": "Generative AI content stack",
+  "subtitle": "Infrastructure, models, tooling, and output layers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4809
+  }
+ },
+ {
+  "id": "creative-ai-cap-03",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "brand-governance-capability-stack",
+  "title": "Brand governance capability stack",
+  "subtitle": "Policy, guardrails, review, and audit layers",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4810
+  }
+ },
+ {
+  "id": "creative-ai-cap-04",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "asset-management-stack",
+  "title": "Asset management stack",
+  "subtitle": "Ingest, tag, store, rights, and distribute layers",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4811
+  }
+ },
+ {
+  "id": "creative-ai-cap-05",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "prompt-engineering-capability-stack",
+  "title": "Prompt engineering capability stack",
+  "subtitle": "From raw prompts to governed reusable prompt systems",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4812
+  }
+ },
+ {
+  "id": "creative-ai-cap-06",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "localization-capability-stack",
+  "title": "Localization capability stack",
+  "subtitle": "Translation, transcreation, market fit, and QA layers",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4813
+  }
+ },
+ {
+  "id": "creative-ai-cap-07",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "creator-tooling-platform-stack",
+  "title": "Creator tooling platform stack",
+  "subtitle": "Editor, copilots, templates, and publishing layers",
+  "artifacts": [
+   "prd",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4814
+  }
+ },
+ {
+  "id": "creative-ai-cap-08",
+  "family": "capabilityStack",
+  "industry": "creative-ai",
+  "framework": "content-quality-assurance-stack",
+  "title": "Content quality assurance stack",
+  "subtitle": "Automated checks, human review, and brand sign-off",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 0,
+   "seed": 4815
+  }
+ },
+ {
+  "id": "creative-ai-rad-01",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "generative-ops-maturity-radar",
+  "title": "Generative content ops maturity",
+  "subtitle": "Current capability versus target across dimensions",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.6,
+    0.3,
+    0.55,
+    0.5,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.7,
+    0.8,
+    0.75,
+    0.8
+   ],
+   "seed": 4816
+  }
+ },
+ {
+  "id": "creative-ai-rad-02",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "brand-governance-maturity-radar",
+  "title": "Brand governance maturity radar",
+  "subtitle": "Policy, review, audit, and enforcement readiness",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.35,
+    0.45
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.7,
+    0.8
+   ],
+   "seed": 4817
+  }
+ },
+ {
+  "id": "creative-ai-rad-03",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "model-evaluation-maturity-radar",
+  "title": "Model evaluation maturity radar",
+  "subtitle": "Benchmarks, safety, drift, and cost-tracking discipline",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.3,
+    0.5,
+    0.4,
+    0.55,
+    0.35
+   ],
+   "target": [
+    0.8,
+    0.75,
+    0.8,
+    0.7,
+    0.85,
+    0.7
+   ],
+   "seed": 4818
+  }
+ },
+ {
+  "id": "creative-ai-rad-04",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "creative-team-ai-readiness-radar",
+  "title": "Creative team AI readiness radar",
+  "subtitle": "Skills, adoption, trust, and workflow integration",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.45,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.75,
+    0.8,
+    0.8
+   ],
+   "seed": 4819
+  }
+ },
+ {
+  "id": "creative-ai-rad-05",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "content-quality-maturity-radar",
+  "title": "Content quality maturity radar",
+  "subtitle": "Consistency, accuracy, on-brand, and accessibility",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.4,
+    0.6,
+    0.35,
+    0.5,
+    0.45
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.8,
+    0.8
+   ],
+   "seed": 4820
+  }
+ },
+ {
+  "id": "creative-ai-rad-06",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "localization-maturity-radar",
+  "title": "Localization maturity radar",
+  "subtitle": "Coverage, transcreation, market QA, and speed",
+  "artifacts": [
+   "gap",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.35,
+    0.6,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.7,
+    0.85,
+    0.75
+   ],
+   "seed": 4821
+  }
+ },
+ {
+  "id": "creative-ai-rad-07",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "ip-rights-maturity-radar",
+  "title": "IP and rights maturity radar",
+  "subtitle": "Provenance, licensing, indemnity, and audit trail",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.3,
+    0.4,
+    0.5,
+    0.35,
+    0.45,
+    0.4
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.85,
+    0.75,
+    0.8,
+    0.8
+   ],
+   "seed": 4822
+  }
+ },
+ {
+  "id": "creative-ai-rad-08",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "pipeline-automation-maturity-radar",
+  "title": "Pipeline automation maturity radar",
+  "subtitle": "Briefing, generation, review, and publish automation",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.55,
+    0.4,
+    0.5,
+    0.35
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.75,
+    0.8,
+    0.7
+   ],
+   "seed": 4823
+  }
+ },
+ {
+  "id": "creative-ai-rad-09",
+  "family": "maturityRadar",
+  "industry": "creative-ai",
+  "framework": "creative-ai-spend-maturity-radar",
+  "title": "Creative AI spend maturity radar",
+  "subtitle": "Cost visibility, attribution, forecasting, and ROI",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.35,
+    0.45,
+    0.4,
+    0.5,
+    0.3,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.75,
+    0.8,
+    0.7,
+    0.8
+   ],
+   "seed": 4824
+  }
+ },
+ {
+  "id": "creative-ai-fun-01",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "brief-to-publish-funnel",
+  "title": "Brief to publish funnel",
+  "subtitle": "Drop-off from briefs requested to assets published",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    82,
+    64,
+    48,
+    33
+   ],
+   "seed": 4825
+  }
+ },
+ {
+  "id": "creative-ai-fun-02",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "generated-asset-approval-funnel",
+  "title": "Generated asset approval funnel",
+  "subtitle": "From drafts generated to brand-approved finals",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    52,
+    38,
+    25
+   ],
+   "seed": 4826
+  }
+ },
+ {
+  "id": "creative-ai-fun-03",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "prompt-to-usable-output-funnel",
+  "title": "Prompt to usable output funnel",
+  "subtitle": "Prompts to outputs that survive human review",
+  "artifacts": [
+   "tech-audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    75,
+    55,
+    40
+   ],
+   "seed": 4827
+  }
+ },
+ {
+  "id": "creative-ai-fun-04",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "campaign-creative-production-funnel",
+  "title": "Campaign creative production funnel",
+  "subtitle": "Concepts to launched campaign creative",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    78,
+    60,
+    45,
+    30,
+    20
+   ],
+   "seed": 4828
+  }
+ },
+ {
+  "id": "creative-ai-fun-05",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "localization-coverage-funnel",
+  "title": "Localization coverage funnel",
+  "subtitle": "Master assets to fully localized market versions",
+  "artifacts": [
+   "blueprint",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    54,
+    40,
+    28
+   ],
+   "seed": 4829
+  }
+ },
+ {
+  "id": "creative-ai-fun-06",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "creator-adoption-funnel",
+  "title": "Creator adoption funnel",
+  "subtitle": "Licensed users to active power users of AI tools",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    45,
+    30,
+    18
+   ],
+   "seed": 4830
+  }
+ },
+ {
+  "id": "creative-ai-fun-07",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "asset-reuse-funnel",
+  "title": "Asset reuse funnel",
+  "subtitle": "Generated assets to repeatedly reused library items",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    60,
+    40,
+    25
+   ],
+   "seed": 4831
+  }
+ },
+ {
+  "id": "creative-ai-fun-08",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "brand-compliance-funnel",
+  "title": "Brand compliance funnel",
+  "subtitle": "Submitted assets to fully compliant published output",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    80,
+    62,
+    46,
+    34
+   ],
+   "seed": 4832
+  }
+ },
+ {
+  "id": "creative-ai-fun-09",
+  "family": "funnelFlow",
+  "industry": "creative-ai",
+  "framework": "model-shortlist-funnel",
+  "title": "Model shortlist funnel",
+  "subtitle": "Candidate models to production-deployed model",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    32,
+    18
+   ],
+   "seed": 4833
+  }
+ },
+ {
+  "id": "creative-ai-jou-01",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "brief-to-publish-journey",
+  "title": "Brief-to-publish journey",
+  "subtitle": "Creator path from brief intake to live publication",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    5
+   ],
+   "seed": 4834
+  }
+ },
+ {
+  "id": "creative-ai-jou-02",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "creator-first-tool-journey",
+  "title": "Creator first-tool journey",
+  "subtitle": "From first login to confident daily generation",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4835
+  }
+ },
+ {
+  "id": "creative-ai-jou-03",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "asset-review-approval-journey",
+  "title": "Asset review and approval journey",
+  "subtitle": "Draft through reviewer cycles to sign-off",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4836
+  }
+ },
+ {
+  "id": "creative-ai-jou-04",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "campaign-localization-journey",
+  "title": "Campaign localization journey",
+  "subtitle": "Master campaign to market-launched localized set",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5,
+    6
+   ],
+   "seed": 4837
+  }
+ },
+ {
+  "id": "creative-ai-jou-05",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "prompt-iteration-journey",
+  "title": "Prompt iteration journey",
+  "subtitle": "From rough prompt to reusable governed preset",
+  "artifacts": [
+   "journey",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4838
+  }
+ },
+ {
+  "id": "creative-ai-jou-06",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "rights-clearance-journey",
+  "title": "Rights clearance journey",
+  "subtitle": "From generated asset to rights-cleared usable asset",
+  "artifacts": [
+   "journey",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4839
+  }
+ },
+ {
+  "id": "creative-ai-jou-07",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "model-onboarding-journey",
+  "title": "Model onboarding journey",
+  "subtitle": "Evaluating a new model into production use",
+  "artifacts": [
+   "journey",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    4
+   ],
+   "seed": 4840
+  }
+ },
+ {
+  "id": "creative-ai-jou-08",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "concept-to-asset-journey",
+  "title": "Concept to finished asset journey",
+  "subtitle": "From creative concept to delivered final asset",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 4841
+  }
+ },
+ {
+  "id": "creative-ai-jou-09",
+  "family": "journeyLine",
+  "industry": "creative-ai",
+  "framework": "channel-handoff-journey",
+  "title": "Channel handoff journey",
+  "subtitle": "Approved asset to channel-ready scheduled post",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    3,
+    4
+   ],
+   "seed": 4842
+  }
+ },
+ {
+  "id": "creative-ai-dat-01",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "cost-per-asset-by-type",
+  "title": "Cost per asset by type",
+  "subtitle": "Generation cost across image, video, copy, and audio",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    9,
+    4,
+    7,
+    3,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4843,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "creative-ai-dat-02",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "assets-generated-by-team",
+  "title": "Assets generated by team",
+  "subtitle": "Monthly generation volume across creative teams",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    8,
+    4,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4844,
+   "mean": true
+  }
+ },
+ {
+  "id": "creative-ai-dat-03",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "rework-rate-by-asset-type",
+  "title": "Rework rate by asset type",
+  "subtitle": "Share of outputs sent back for revision by type",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    5,
+    9,
+    4,
+    6,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4845,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "creative-ai-dat-04",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "time-to-first-draft-by-format",
+  "title": "Time to first draft by format",
+  "subtitle": "Hours from brief to first usable draft per format",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    4,
+    8,
+    3,
+    7,
+    5,
+    9
+   ],
+   "sort": "asc",
+   "seed": 4846,
+   "mean": true
+  }
+ },
+ {
+  "id": "creative-ai-dat-05",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "tool-usage-by-creative-role",
+  "title": "Tool usage by creative role",
+  "subtitle": "Active AI-tool sessions per role per week",
+  "artifacts": [
+   "audit",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    9,
+    5,
+    7,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4847,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "creative-ai-dat-06",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "brand-violations-by-channel",
+  "title": "Brand violations by channel",
+  "subtitle": "Flagged compliance issues per publishing channel",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    5,
+    3,
+    7,
+    2,
+    6,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4848,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "creative-ai-dat-07",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "generation-spend-by-model",
+  "title": "Generation spend by model",
+  "subtitle": "Monthly inference spend across deployed models",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    5,
+    7,
+    3,
+    6,
+    8
+   ],
+   "sort": "desc",
+   "seed": 4849,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "creative-ai-dat-08",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "asset-throughput-by-week",
+  "title": "Asset throughput by week",
+  "subtitle": "Published asset count over the last nine weeks",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    4,
+    5,
+    6,
+    5,
+    7,
+    8,
+    7,
+    9,
+    8
+   ],
+   "sort": "none",
+   "seed": 4850,
+   "mean": true
+  }
+ },
+ {
+  "id": "creative-ai-dat-09",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "review-cycles-per-asset",
+  "title": "Review cycles per asset",
+  "subtitle": "Average revision rounds before sign-off by team",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    4,
+    7,
+    3,
+    5,
+    8
+   ],
+   "sort": "desc",
+   "seed": 4851,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "creative-ai-dat-10",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "prompt-reuse-by-library",
+  "title": "Prompt reuse by library",
+  "subtitle": "Reuse count across shared prompt collections",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    5,
+    9,
+    4,
+    6,
+    7,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4852
+  }
+ },
+ {
+  "id": "creative-ai-dat-11",
+  "family": "dataField",
+  "industry": "creative-ai",
+  "framework": "localization-volume-by-market",
+  "title": "Localization volume by market",
+  "subtitle": "Localized assets shipped per market this quarter",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    8,
+    5,
+    6,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4853,
+   "mean": true
+  }
+ },
+ {
+  "id": "creative-ai-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "generative-tool-eval-matrix",
+  "title": "Generative-tool eval matrix",
+  "subtitle": "Tools scored on quality, control, cost, and rights",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.9,
+     0.7,
+     0.5
+    ],
+    [
+     0.8,
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.5,
+     0.8,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4854
+  }
+ },
+ {
+  "id": "creative-ai-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "model-capability-matrix",
+  "title": "Model capability matrix",
+  "subtitle": "Models versus image, video, copy, and audio output",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6,
+     0.3
+    ],
+    [
+     0.6,
+     0.9,
+     0.5,
+     0.4
+    ],
+    [
+     0.5,
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.4,
+     0.6,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4855
+  }
+ },
+ {
+  "id": "creative-ai-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "channel-format-fit-matrix",
+  "title": "Channel format fit matrix",
+  "subtitle": "Asset formats mapped to channel suitability",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.6,
+     0.5,
+     0.9
+    ],
+    [
+     0.8,
+     0.7,
+     0.6
+    ]
+   ],
+   "seed": 4856
+  }
+ },
+ {
+  "id": "creative-ai-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "build-vs-buy-tool-matrix",
+  "title": "Build versus buy tool matrix",
+  "subtitle": "Options scored on cost, control, speed, and risk",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.4,
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.8,
+     0.5,
+     0.7,
+     0.4
+    ],
+    [
+     0.6,
+     0.7,
+     0.9,
+     0.5
+    ]
+   ],
+   "seed": 4857
+  }
+ },
+ {
+  "id": "creative-ai-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "vendor-rights-risk-matrix",
+  "title": "Vendor rights risk matrix",
+  "subtitle": "Vendors versus indemnity, provenance, and licensing",
+  "artifacts": [
+   "audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.5
+    ],
+    [
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.6,
+     0.4,
+     0.9
+    ],
+    [
+     0.7,
+     0.6,
+     0.5
+    ]
+   ],
+   "seed": 4858
+  }
+ },
+ {
+  "id": "creative-ai-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "asset-quality-consistency-matrix",
+  "title": "Asset quality consistency matrix",
+  "subtitle": "Asset types versus on-brand, accuracy, and polish",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.8,
+     0.6
+    ],
+    [
+     0.7,
+     0.5,
+     0.9
+    ],
+    [
+     0.6,
+     0.7,
+     0.5
+    ]
+   ],
+   "seed": 4859
+  }
+ },
+ {
+  "id": "creative-ai-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "workflow-stage-ownership-matrix",
+  "title": "Workflow stage ownership matrix",
+  "subtitle": "Pipeline stages versus team accountability",
+  "artifacts": [
+   "org",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.3,
+     0.4,
+     0.2
+    ],
+    [
+     0.4,
+     0.9,
+     0.5,
+     0.3
+    ],
+    [
+     0.3,
+     0.4,
+     0.9,
+     0.6
+    ],
+    [
+     0.2,
+     0.3,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4860
+  }
+ },
+ {
+  "id": "creative-ai-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "prompt-preset-coverage-matrix",
+  "title": "Prompt preset coverage matrix",
+  "subtitle": "Use cases versus available governed presets",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     0.5,
+     0.9
+    ],
+    [
+     0.3,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4861
+  }
+ },
+ {
+  "id": "creative-ai-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "creative-ai-use-case-priority-matrix",
+  "title": "Creative AI use case priority matrix",
+  "subtitle": "Use cases on value, feasibility, and risk",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.9,
+     0.4
+    ],
+    [
+     0.8,
+     0.5,
+     0.6
+    ],
+    [
+     0.5,
+     0.8,
+     0.7
+    ]
+   ],
+   "seed": 4862
+  }
+ },
+ {
+  "id": "creative-ai-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "review-effort-vs-risk-matrix",
+  "title": "Review effort versus risk matrix",
+  "subtitle": "Asset classes on review effort and brand risk",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.9,
+     0.5
+    ],
+    [
+     0.6,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4863
+  }
+ },
+ {
+  "id": "creative-ai-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "creative-ai",
+  "framework": "localization-method-matrix",
+  "title": "Localization method matrix",
+  "subtitle": "Methods versus speed, cost, fidelity, and scale",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.9,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.5,
+     0.9,
+     0.7
+    ]
+   ],
+   "seed": 4864
+  }
+ },
+ {
+  "id": "creative-ai-dia-01",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "brand-compliance-gauge",
+  "title": "Brand-compliance gauge",
+  "subtitle": "Share of published assets passing brand checks",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 78,
+   "segments": 10,
+   "seed": 4865
+  }
+ },
+ {
+  "id": "creative-ai-dia-02",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "first-pass-acceptance-gauge",
+  "title": "First-pass acceptance gauge",
+  "subtitle": "Generated outputs approved without rework",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 62,
+   "segments": 10,
+   "seed": 4866
+  }
+ },
+ {
+  "id": "creative-ai-dia-03",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "creative-ai-adoption-gauge",
+  "title": "Creative AI adoption gauge",
+  "subtitle": "Active AI-tool users across the creative org",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 54,
+   "segments": 10,
+   "seed": 4867
+  }
+ },
+ {
+  "id": "creative-ai-dia-04",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "asset-reuse-rate-gauge",
+  "title": "Asset reuse rate gauge",
+  "subtitle": "Library assets reused versus generated fresh",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 41,
+   "segments": 10,
+   "seed": 4868
+  }
+ },
+ {
+  "id": "creative-ai-dia-05",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "rights-clearance-gauge",
+  "title": "Rights clearance gauge",
+  "subtitle": "Published assets with verified rights provenance",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 67,
+   "segments": 10,
+   "seed": 4869
+  }
+ },
+ {
+  "id": "creative-ai-dia-06",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "pipeline-automation-gauge",
+  "title": "Pipeline automation gauge",
+  "subtitle": "Production steps running without manual handoff",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 48,
+   "segments": 10,
+   "seed": 4870
+  }
+ },
+ {
+  "id": "creative-ai-dia-07",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "localization-coverage-gauge",
+  "title": "Localization coverage gauge",
+  "subtitle": "Target markets with full localized asset sets",
+  "artifacts": [
+   "blueprint",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4871
+  }
+ },
+ {
+  "id": "creative-ai-dia-08",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "model-cost-efficiency-gauge",
+  "title": "Model cost efficiency gauge",
+  "subtitle": "Usable outputs per dollar of inference spend",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10,
+   "seed": 4872
+  }
+ },
+ {
+  "id": "creative-ai-dia-09",
+  "family": "instrumentDial",
+  "industry": "creative-ai",
+  "framework": "campaign-velocity-gauge",
+  "title": "Campaign velocity gauge",
+  "subtitle": "Share of campaigns shipped on schedule",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 65,
+   "segments": 10,
+   "seed": 4873
+  }
+ },
+ {
+  "id": "creative-ai-gan-01",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "creative-ai-rollout-roadmap",
+  "title": "Creative AI rollout roadmap",
+  "subtitle": "Pilot, scale, and govern phases across quarters",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4874
+  }
+ },
+ {
+  "id": "creative-ai-gan-02",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "model-evaluation-schedule",
+  "title": "Model evaluation schedule",
+  "subtitle": "Recurring benchmark and re-eval windows",
+  "artifacts": [
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4875
+  }
+ },
+ {
+  "id": "creative-ai-gan-03",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "campaign-production-timeline",
+  "title": "Campaign production timeline",
+  "subtitle": "Concept, generation, review, and launch tracks",
+  "artifacts": [
+   "roadmap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4876
+  }
+ },
+ {
+  "id": "creative-ai-gan-04",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "brand-governance-implementation-plan",
+  "title": "Brand governance implementation plan",
+  "subtitle": "Policy, tooling, and audit phasing over time",
+  "artifacts": [
+   "roadmap",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4877
+  }
+ },
+ {
+  "id": "creative-ai-gan-05",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "localization-wave-plan",
+  "title": "Localization wave plan",
+  "subtitle": "Market rollout waves across the year",
+  "artifacts": [
+   "roadmap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4878
+  }
+ },
+ {
+  "id": "creative-ai-gan-06",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "creator-enablement-program-timeline",
+  "title": "Creator enablement program timeline",
+  "subtitle": "Training, certification, and rollout tracks",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4879
+  }
+ },
+ {
+  "id": "creative-ai-gan-07",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "tooling-migration-roadmap",
+  "title": "Tooling migration roadmap",
+  "subtitle": "Legacy to AI-native creative stack transition",
+  "artifacts": [
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4880
+  }
+ },
+ {
+  "id": "creative-ai-gan-08",
+  "family": "timelineGantt",
+  "industry": "creative-ai",
+  "framework": "content-supply-quarter-plan",
+  "title": "Content supply quarter plan",
+  "subtitle": "Per-channel asset delivery commitments by period",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4881
+  }
+ },
+ {
+  "id": "creative-ai-flo-01",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "asset-production-pipeline",
+  "title": "Asset production pipeline",
+  "subtitle": "Brief, generate, review, finalize, publish flow",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4882
+  }
+ },
+ {
+  "id": "creative-ai-flo-02",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "brand-compliance-review-flow",
+  "title": "Brand compliance review flow",
+  "subtitle": "Decision gates routing assets to approve or rework",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4883
+  }
+ },
+ {
+  "id": "creative-ai-flo-03",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "prompt-to-render-flow",
+  "title": "Prompt to render flow",
+  "subtitle": "Prompt, model call, post-process, output pipeline",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4884
+  }
+ },
+ {
+  "id": "creative-ai-flo-04",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "rights-check-decision-flow",
+  "title": "Rights check decision flow",
+  "subtitle": "Provenance branching to clear, hold, or reject",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4885
+  }
+ },
+ {
+  "id": "creative-ai-flo-05",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "model-routing-flow",
+  "title": "Model routing flow",
+  "subtitle": "Request branching across models by task and cost",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4886
+  }
+ },
+ {
+  "id": "creative-ai-flo-06",
+  "family": "cai_pipeline",
+  "industry": "creative-ai",
+  "framework": "localization-processing-flow",
+  "title": "Localization processing flow",
+  "subtitle": "Master to translate, transcreate, QA, publish",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4887
+  }
+ },
+ {
+  "id": "creative-ai-flo-07",
+  "family": "flowSchematic",
+  "industry": "creative-ai",
+  "framework": "human-in-the-loop-review-flow",
+  "title": "Human-in-the-loop review flow",
+  "subtitle": "Auto-pass, escalate, or human-edit branching",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4888
+  }
+ },
+ {
+  "id": "creative-ai-flo-08",
+  "family": "flowSchematic",
+  "industry": "creative-ai",
+  "framework": "asset-ingest-to-library-flow",
+  "title": "Asset ingest to library flow",
+  "subtitle": "Generate, tag, rights-stamp, store, distribute",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4889
+  }
+ },
+ {
+  "id": "creative-ai-pro-01",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "content-mix-by-channel",
+  "title": "Content mix by channel",
+  "subtitle": "Share of generated assets across channels",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    25,
+    20,
+    12,
+    8
+   ],
+   "seed": 4890
+  }
+ },
+ {
+  "id": "creative-ai-pro-02",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "asset-mix-by-format",
+  "title": "Asset mix by format",
+  "subtitle": "Output volume split across image, video, copy",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    30,
+    20,
+    10
+   ],
+   "seed": 4891
+  }
+ },
+ {
+  "id": "creative-ai-pro-03",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "generation-spend-allocation",
+  "title": "Generation spend allocation",
+  "subtitle": "Inference budget split across model classes",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    45,
+    30,
+    15,
+    10
+   ],
+   "seed": 4892
+  }
+ },
+ {
+  "id": "creative-ai-pro-04",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "human-vs-machine-effort-split",
+  "title": "Human versus machine effort split",
+  "subtitle": "Production hours from generation versus human edit",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    55,
+    30,
+    15
+   ],
+   "seed": 4893
+  }
+ },
+ {
+  "id": "creative-ai-pro-05",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "asset-source-composition",
+  "title": "Asset source composition",
+  "subtitle": "New generation, reuse, and stock contribution",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    50,
+    35,
+    15
+   ],
+   "seed": 4894
+  }
+ },
+ {
+  "id": "creative-ai-pro-06",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "review-time-allocation",
+  "title": "Review time allocation",
+  "subtitle": "Reviewer hours across brand, legal, and quality",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    25,
+    20,
+    15
+   ],
+   "seed": 4895
+  }
+ },
+ {
+  "id": "creative-ai-pro-07",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "localization-spend-by-market-tier",
+  "title": "Localization spend by market tier",
+  "subtitle": "Budget split across tier one, two, and three",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    50,
+    30,
+    20
+   ],
+   "seed": 4896
+  }
+ },
+ {
+  "id": "creative-ai-pro-08",
+  "family": "proportionStack",
+  "industry": "creative-ai",
+  "framework": "creative-time-reallocation",
+  "title": "Creative time reallocation",
+  "subtitle": "Hours shifted from production to concept and review",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    35,
+    25
+   ],
+   "seed": 4897
+  }
+ },
+ {
+  "id": "creative-ai-sec-01",
+  "family": "sectionMark",
+  "industry": "creative-ai",
+  "framework": "section-divider-production",
+  "title": "Production and throughput",
+  "subtitle": "Pipeline, velocity, and asset supply analyses",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4898
+  }
+ },
+ {
+  "id": "creative-ai-sec-02",
+  "family": "sectionMark",
+  "industry": "creative-ai",
+  "framework": "section-divider-governance",
+  "title": "Governance and rights",
+  "subtitle": "Brand compliance, evaluation, and IP analyses",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 4,
+   "seed": 4899
+  }
+ }
+]

@@ -19,39 +19,43 @@ content_hash: "9ce529a17f3fb9b5"
 relevance_by_goal: {"bb7e192171b3":0}
 chunks:
   - id: "articles/venturebeat-ai/ea43db4df7.md#c0"
-    char_span: [0, 242]
+    char_span: [0, 241]
     sentence_count: 1
     key_terms: [nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in, venturebeat, nouscoder-14b, open-source, "research's", technology, landing, claude]
     concepts: [venturebeat]
-    token_count: 62
-    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in"}]
+    token_count: 61
+    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in","kind":"article","date":"2026-01-07"}]
   - id: "articles/venturebeat-ai/ea43db4df7.md#c1"
-    char_span: [244, 3010]
+    char_span: [243, 3009]
     sentence_count: 12
     key_terms: [research, model, nouscoder-14b, nous, trained, open-source, programming, claude]
     concepts: [research, model, nouscoder-14b, open-source, programming]
     related_chunks: ["articles/venturebeat-ai/ea43db4df7.md#c3"]
     token_count: 512
+    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in","kind":"article","date":"2026-01-07"}]
   - id: "articles/venturebeat-ai/ea43db4df7.md#c2"
-    char_span: [2659, 5484]
+    char_span: [2658, 5483]
     sentence_count: 17
     key_terms: [training, model, researchers, competitive, learning, problems, research, "nouscoder-14b's"]
     concepts: [training, model, researchers, competitive, "nouscoder-14b's"]
     related_chunks: ["articles/venturebeat-ai/ea43db4df7.md#c3"]
     token_count: 512
+    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in","kind":"article","date":"2026-01-07"}]
   - id: "articles/venturebeat-ai/ea43db4df7.md#c3"
-    char_span: [5096, 8022]
+    char_span: [5095, 8021]
     sentence_count: 16
     key_terms: [training, data, problems, competitive, programming, model, researchers, generation]
     concepts: [training, problems, competitive, programming, model]
     related_chunks: ["articles/venturebeat-ai/ea43db4df7.md#c1", "articles/venturebeat-ai/ea43db4df7.md#c2"]
     token_count: 512
+    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in","kind":"article","date":"2026-01-07"}]
   - id: "articles/venturebeat-ai/ea43db4df7.md#c4"
-    char_span: [7682, 10245]
+    char_span: [7681, 10244]
     sentence_count: 19
     key_terms: [company, feedback, problems, research, million, coding, models, distinctive]
     concepts: [company, feedback, problems, research, million]
     token_count: 463
+    sources: [{"n":"VentureBeat AI","u":"https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in","kind":"article","date":"2026-01-07"}]
 ---
 # Nous Research's NousCoder-14B is an open-source coding model landing right in the Claude Code moment
 

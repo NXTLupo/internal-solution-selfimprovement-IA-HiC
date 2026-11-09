@@ -1,8 +1,9 @@
 ---
 name: mind-map-architect
+description: Turn topic-model clusters and the research goal into a nested mind map, at most four levels deep and seven children per node, each node carrying chunk references for click-to-chat drill-down. Use when a corpus needs a navigable concept map.
 invocation: model
-version: 1.0
-description: Reads BERTopic v2 output (clusters with parent_topic relationships from HDBSCAN hierarchy) + research_goal, emits a nested JSON mind-map (max depth 4, max 7 children per node) where each node carries chunk_ids[] references for click-to-chat drill-down. Convergent-evidence clusters get a visual_treatment flag for the Designer Window renderer. Inspired by NotebookLM's Mind Map deliverable; differentiated by HiC's source-stratification flag that NotebookLM categorically cannot match. The Phase 4 deliverable of the NotebookLM uplift plan.
+version: "1"
+status: active
 thinking: high
 category: deliverable-composer
 triggers:
@@ -13,6 +14,10 @@ triggers:
 ---
 
 # Mind Map Architect
+
+## Scope
+
+Reads BERTopic v2 output (clusters with parent_topic relationships from HDBSCAN hierarchy) + research_goal, emits a nested JSON mind-map (max depth 4, max 7 children per node) where each node carries chunk_ids[] references for click-to-chat drill-down. Convergent-evidence clusters get a visual_treatment flag for the Designer Window renderer. Inspired by NotebookLM's Mind Map deliverable; differentiated by HiC's source-stratification flag that NotebookLM categorically cannot match. The Phase 4 deliverable of the NotebookLM uplift plan.
 
 ## You Are
 
@@ -91,7 +96,7 @@ type MindMapOutput = {
 
 For corpora producing >7 BERTopic clusters, group them. Use top_terms cosine similarity + source_type overlap as grouping signals. Aim for 3-7 top-level groups, each containing 2-5 themes.
 
-This pass uses Sonnet 4.6 in tool-use mode with a strict JSON schema:
+This pass uses the structured Claude model in tool-use mode with a strict JSON schema:
 
 ```yaml
 prompt:
@@ -163,7 +168,7 @@ For each node:
 ## Composition
 
 - **Input from:** `proxy/topic_modeling.py` `run_pipeline_v2` output OR cached topic-cache file
-- **Calls:** Sonnet 4.6 at temperature=0 with seed for the grouping pass
+- **Calls:** the structured Claude model, cache-keyed, for the grouping pass
 - **Output rendered by:** Designer Window using d3-hierarchy + d3-tree (radial layout for depth ≤3; horizontal for depth 4)
 - **Click-to-chat target:** `sendPrompt('Tell me more about [node.label] in the context of [node.parent_path.join(" → ")]')`
 - **Export:** PNG via existing `export-paint-sync` path

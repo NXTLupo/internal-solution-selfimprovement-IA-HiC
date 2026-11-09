@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:57:43+00:00"
 content_hash: "dcec1aaaf521709f"
 chunks:
   - id: "articles/agr-nfu/6fdabdc02b.md#c0"
-    char_span: [0, 1328]
+    char_span: [0, 1327]
     sentence_count: 2
     key_terms: [press, release, farmers, nfu, national, union, farm, news]
     concepts: [release, press, farmers, national, union]
-    token_count: 310
-    sources: [{"n":"agr_nfu","u":"https://nfu.org/news/"}]
+    token_count: 309
+    sources: [{"n":"agr_nfu","u":"https://nfu.org/news/","kind":"article"}]
 ---
 # National Farmers Union
 

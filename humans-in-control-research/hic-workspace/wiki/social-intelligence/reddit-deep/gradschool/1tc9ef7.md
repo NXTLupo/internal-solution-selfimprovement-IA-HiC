@@ -8,14 +8,13 @@ title: "Help!! Advice on Getting into a MFA"
 author: "van_mildz"
 date: "2026-05-13T19:03:53.000Z"
 score: 3
-upvote_ratio: 0.67
-num_comments: 16
+upvote_ratio: 0.64
+num_comments: 20
 flair: "Admissions & Applications"
-extracted_at: "2026-05-20T12:57:40.638Z"
+extracted_at: "2026-11-09T00:16:21.326Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed]
-industry_method: llm
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c0"
     char_span: [0, 1827]
@@ -23,45 +22,57 @@ chunks:
     key_terms: [everything, gradschool, academia, comments, college, english, getting, parents]
     concepts: [everything, gradschool, academia, comments, college]
     token_count: 441
-    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/"}]
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c1"
     char_span: [1829, 3842]
     sentence_count: 20
     key_terms: [want, applied, writing, trauma, eventually, intergenerational, stories, undergraduate]
     concepts: [applied, writing, eventually, intergenerational, trauma]
     token_count: 436
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c2"
     char_span: [3844, 4780]
     sentence_count: 8
     key_terms: [university, applying, hearing, give, job, year, recommendations, communications]
     concepts: [university, applying, hearing]
     token_count: 213
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c3"
-    char_span: [4794, 6935]
-    sentence_count: 16
-    key_terms: [writing, mfa, phd, benefit, schools, want, university, electives]
-    concepts: [writing, benefit, schools, university, electives]
+    char_span: [4794, 6887]
+    sentence_count: 17
+    key_terms: [funding, writing, matters, mfa, want, oregon, debt, full]
+    concepts: [funding, writing, matters, oregon, academia]
     section: Comments
-    token_count: 511
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c4"
-    char_span: [6938, 9082]
-    sentence_count: 16
-    key_terms: [students, visiting, writer, relationships, lot, too, beneficial, respected]
-    concepts: [students, visiting, relationships, writer, beneficial]
+    char_span: [6890, 9113]
+    sentence_count: 17
+    key_terms: [mfa, schools, phd, creative, writing, relationships, "don't", considering]
+    concepts: [schools, creative, relationships, writing, considering]
     section: Comments
-    token_count: 475
+    token_count: 474
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c5"
-    char_span: [9084, 10422]
-    sentence_count: 8
-    key_terms: [phd, mfa, canadian, research, medical, advice, doing, lot]
-    concepts: [canadian, research, medical, advice, doing]
+    char_span: [9116, 11141]
+    sentence_count: 13
+    key_terms: [lot, mfa, too, phd, canadian, feelings, research, medical]
+    concepts: [canadian, feelings, research, medical, trying]
     section: Comments
-    token_count: 343
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c6"
+    char_span: [11143, 11358]
+    sentence_count: 3
+    key_terms: [limitations, applying, personal, ideally, masters, advice, sorry, thank]
+    section: Comments
+    token_count: 57
+    sources: [{"n":"reddit-deep: r/gradschool","u":"https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/","kind":"social-post","date":"2026-05-13","author":"van_mildz","subreddit":"gradschool"}]
 ---
 # Help!! Advice on Getting into a MFA
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/)
-Posted by **van_mildz** · **3↑** · **16 comments**
+Posted by **van_mildz** · **3↑** · **20 comments**
 
 I am Canadian; I finished high school with a 93% average and went on to the University of British Columbia. I graduated with a BA in English Honors, with an Emphasis in English Literature with a GPA of 3.7. Ever since stepping foot on a college campus, everything changed for me. I hate being cliché, but I mean it; everything about academia I adore. I just feel home and myself when I’m there, and I love the research and the teaching, not to mention everything it stands for.
 
@@ -94,7 +105,7 @@ Thank you. I look forward to hearing from you.
 
 ## Comments
 
-- **Chantertwo** (23↑): To be blunt, your story isn't particularly relevant for the programs: what matters is if your writing is good. To that end, it will be hard for any of us to give you guided feedback. What are you specifically looking for writing wise?
+- **Chantertwo** (25↑): To be blunt, your story isn't particularly relevant for the programs: what matters is if your writing is good. To that end, it will be hard for any of us to give you guided feedback. What are you specifically looking for writing wise?
 
 And I want to offer a word of caution: if you view the MFA more as a tool to remain in academia than to practice writing, they'll sniff that out immediately.
   - **van_mildz** (1↑): That's totally fair! Thank you for this, this helps me with writing my letter of intent
@@ -102,6 +113,7 @@ And I want to offer a word of caution: if you view the MFA more as a tool to rem
 - **houseofmagic** (9↑): Writing sample is literally all that matters
 - **lavenderandjuniper** (7↑): Consider adding to your list: George Mason, Maryland, Oregon State, University of Oregon, and UC Davis. Davis & Mason have slightly higher acceptance rates
   - **van_mildz** (1↑): THANK YOU SO MUCH!!!
+    - **Few_Signature1939** (2↑): If you need true full funding, I’d dump Columbia. You’ll go into debt living in NYC and their funding model is complex and leaves a lot of grads in debt. The name sounds impressive to people outside of academia but funding matters more. I hope you have success but I do want to say that your post makes it sound like you’re falling into the prestige trap. You should get an MFA bc you want to be a better writer and because they’re funding you. In year 3 of applying I’d suggest being more strategic not just targeting the “top” schools. Consider cohort size, actual teaching experience, the type of environments youll be in and the professors you’ll learn from. That all matters way more. I go to a state school with full funding for my MFA and don’t have to worry about debt. It allows me to just focus on improving my craft. Also I don’t think Oregon offers full funding anymore, BTW, but not sure!
 - **Lola_West** (4↑): As someone currently doing an MFA I have a few thoughts.
 
 

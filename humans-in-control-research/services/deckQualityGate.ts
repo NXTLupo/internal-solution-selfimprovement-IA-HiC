@@ -68,7 +68,8 @@ const CONNECTIVE = new Set([
 /** Count the entries in a payload field, tolerating the shapes archetypes use. */
 function countField(payload: any, field: string): number | null {
     if (!payload || typeof payload !== 'object') return null;
-    const v = payload[field];
+    // 2026-10-23: dotted paths reach nested collections (role-needs keeps its needs under persona).
+    const v = field.split('.').reduce((acc: any, k) => (acc && typeof acc === 'object' ? acc[k] : undefined), payload);
     if (Array.isArray(v)) return v.length;
     // Some archetypes nest their collection one level down (left.items, right.items).
     if (v && typeof v === 'object') {

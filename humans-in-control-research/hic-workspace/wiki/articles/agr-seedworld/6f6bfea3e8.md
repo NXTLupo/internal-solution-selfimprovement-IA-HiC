@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:00:37+00:00"
 content_hash: "7a02d43de793f141"
 chunks:
   - id: "articles/agr-seedworld/6f6bfea3e8.md#c0"
-    char_span: [0, 180]
+    char_span: [0, 179]
     sentence_count: 1
     key_terms: [phytoprism-plant-pest-project, decision-making, seedworld, european, platform, project, targets, threats]
-    token_count: 49
-    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/11/phytoprism-plant-pest-project/"}]
+    token_count: 48
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/11/phytoprism-plant-pest-project/","kind":"article","date":"2026-06-11"}]
   - id: "articles/agr-seedworld/6f6bfea3e8.md#c1"
-    char_span: [182, 2946]
+    char_span: [181, 2945]
     sentence_count: 13
     key_terms: [plant, european, health, authorities, management, phytoprism, university, pests]
     concepts: [plant, european, health, authorities, management]
     related_chunks: ["articles/agr-seedworld/6f6bfea3e8.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/11/phytoprism-plant-pest-project/","kind":"article","date":"2026-06-11"}]
   - id: "articles/agr-seedworld/6f6bfea3e8.md#c2"
-    char_span: [2595, 4666]
+    char_span: [2594, 4665]
     sentence_count: 8
     key_terms: [european, plant, through, across, management, phytoprism, protection, europe]
     concepts: [european, plant, through, management, phytoprism]
     related_chunks: ["articles/agr-seedworld/6f6bfea3e8.md#c1"]
     token_count: 368
+    sources: [{"n":"agr_seedworld","u":"https://www.seedworld.com/europe/2026/06/11/phytoprism-plant-pest-project/","kind":"article","date":"2026-06-11"}]
 ---
 # European Project Targets Crop Pest Threats with New Decision-Making Platform
 

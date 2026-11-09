@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:30:26+00:00"
 content_hash: "6bf8956263da86e0"
 chunks:
   - id: "articles/ins-fca-uk/8cd0a0dc1a.md#c0"
-    char_span: [0, 242]
+    char_span: [0, 241]
     sentence_count: 1
     key_terms: [caceis-uk-censured-pay-31-million-wealthtek-clients-weak-financial-crime-controls, press-releases, financial, wealthtek, censured, controls, clients, caceis]
-    token_count: 73
-    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/caceis-uk-censured-pay-31-million-wealthtek-clients-weak-financial-crime-controls"}]
+    token_count: 72
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/caceis-uk-censured-pay-31-million-wealthtek-clients-weak-financial-crime-controls","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-fca-uk/8cd0a0dc1a.md#c1"
-    char_span: [244, 2534]
+    char_span: [243, 2533]
     sentence_count: 14
     key_terms: [wealthtek, clients, caceis, fca, financial, voluntary, payment, client]
     concepts: [wealthtek, clients, caceis, financial, voluntary]
     related_chunks: ["articles/ins-fca-uk/8cd0a0dc1a.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/caceis-uk-censured-pay-31-million-wealthtek-clients-weak-financial-crime-controls","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-fca-uk/8cd0a0dc1a.md#c2"
-    char_span: [2291, 3895]
+    char_span: [2290, 3894]
     sentence_count: 3
     key_terms: [wealthtek, fca, clients, money, financial, voluntary, payment, compensation]
     concepts: [wealthtek, clients, financial, voluntary, money]
     related_chunks: ["articles/ins-fca-uk/8cd0a0dc1a.md#c1"]
     token_count: 354
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/caceis-uk-censured-pay-31-million-wealthtek-clients-weak-financial-crime-controls","kind":"article","date":"2026-06-25"}]
 ---
 # CACEIS UK censured and to pay £31.7m to WealthTek clients for weak financial crime controls
 

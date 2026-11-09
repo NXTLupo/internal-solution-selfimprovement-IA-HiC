@@ -20,8 +20,9 @@
  * cannot: length, figures, topic labels, and the title-specific metaphors the rule names.
  */
 import { detectMetaphors, isTopicTitle } from './slidePostProcessor';
+import { stripNameNumbers } from './deliverableRules';
 
-export type TitleFindingKind = 'too_long' | 'metaphor' | 'naked_number' | 'topic_label' | 'no_verb';
+export type TitleFindingKind = 'too_long' | 'metaphor' | 'naked_number' | 'topic_label' | 'no_verb' | 'process_subject';
 
 export interface TitleFinding {
     slideId: string;
@@ -114,14 +115,24 @@ export function hasFiniteVerb(title: string): boolean {
     return false;
 }
 
+/**
+ * 2026-10-05 live QA: "Research identifies common themes across client projects", "The evaluation identifies several
+ * cross-cutting themes", "The launch strategy outlines the core challenge". The research apparatus or the deliverable is
+ * the grammatical subject with a reporting verb: a meta title, never a judgment about the subject.
+ */
+const PROCESS_SUBJECT_TITLE_RE = /^(?:the\s+|this\s+|our\s+)?(?:research|evidence|analysis|evaluation|assessment|review|study|data|corpus|findings?|report|deck|presentation|document|(?:\w+\s+)?strategy|framework|synthesis)\s+(?:identif|outlin|show|reveal|find|highlight|summari|suggest|indicat|describ|present|explor|examin|confirm|propos|cover|surfac|point)\w*\b/i;
+
 export function evaluateTitle(title: string, template = ''): TitleFindingKind[] {
     const t = String(title || '').trim();
     if (!t) return [];
     const kinds: TitleFindingKind[] = [];
     const words = t.split(/\s+/).filter(Boolean);
     if (t.length > TITLE_MAX_CHARS || words.length > TITLE_MAX_WORDS) kinds.push('too_long');
-    if (NAKED_NUMBER_RE.test(t)) kinds.push('naked_number');
+    // A product or proper name that carries a number ("Student 360", "Windows 11") is a name, not a figure: the same
+    // exemption the rule engine applies (stripNameNumbers), so the two gates never disagree.
+    if (NAKED_NUMBER_RE.test(stripNameNumbers(t))) kinds.push('naked_number');
     if (detectMetaphors(t).length || TITLE_CLICHE_RE.some(re => re.test(t))) kinds.push('metaphor');
+    if (PROCESS_SUBJECT_TITLE_RE.test(t)) kinds.push('process_subject');
     if (isTopicTitle(t) || /^(the|key|our)\s+\w+(\s+\w+)?$/i.test(t) || /^(key )?(findings|recommendations|overview|summary|background|context|next steps|the path forward|the landscape|agenda)$/i.test(t)) {
         kinds.push('topic_label');
     } else if (!hasFiniteVerb(t)) {
@@ -138,6 +149,7 @@ function detailFor(kinds: TitleFindingKind[], title: string): string {
     if (kinds.includes('metaphor')) parts.push('uses a figure of speech; name the literal system, actor, or mechanism');
     if (kinds.includes('topic_label')) parts.push('names a topic instead of stating a conclusion');
     if (kinds.includes('no_verb')) parts.push('may lack a finite verb; a title is a complete sentence');
+    if (kinds.includes('process_subject')) parts.push('makes the research, analysis or deliverable the subject; state the judgment about the SUBJECT itself (who does what, and why it matters)');
     return parts.join('. ');
 }
 
@@ -209,4 +221,97 @@ export function stripNakedFigures(title: string): string {
 /** Slides whose title still carries a naked number after model repair (now neutralized, never dropped). */
 export function withheldSlideIds(report: TitleReport | null | undefined): string[] {
     return (report?.findings || []).filter(f => f.kinds.includes('naked_number')).map(f => f.slideId);
+}
+
+/**
+ * 2026-10-20 (root-cause audit A7, plan item 9): `stripNakedFigures` rewrites meaning. "8% of members drive 60% of
+ * revenue" became "Many members drive many revenue"; "Onboarding drops from 14 days to 3 days" became "Onboarding
+ * drops from days to days". A figure-bearing title is a judgment the slide body supports, so the MODEL restates it
+ * qualitatively with the slide's evidence in hand (actor + mechanism, no digits), and the deterministic strip is
+ * only the fallback when the call fails or the reply does not validate. Tests inject `gen`.
+ */
+export type TitleRewriteGen = (prompt: string) => Promise<string>;
+export interface RewriteTitleOptions {
+    /** The model call; defaults to gemini-3.5-flash at temperature 0 through the proxy (one attempt, 20 s). */
+    gen?: TitleRewriteGen;
+    /** Slide body, quote or evidence the title must keep faith with (truncated to a few hundred characters). */
+    context?: string;
+    timeoutMs?: number;
+}
+const REWRITE_CONTEXT_MAX = 700;
+const REWRITE_TARGET_CHARS = 70;
+
+export function buildTitleRewritePrompt(title: string, context = ''): string {
+    const ctx = String(context || '').replace(/\s+/g, ' ').trim().slice(0, REWRITE_CONTEXT_MAX);
+    return [
+        'Rewrite this slide title so it carries NO number. Keep the same judgment and the same direction of the claim.',
+        'Name the actor (the team, system, audience or product) and the mechanism in literal business language.',
+        `One line, at most ${REWRITE_TARGET_CHARS} characters, a complete sentence with a finite verb, no digits, no`,
+        'spelled-out quantities, no percent, no figure of speech, no quotation marks, no trailing period.',
+        'Reply with the rewritten title only.',
+        '',
+        `TITLE: ${String(title || '').trim()}`,
+        ctx ? `SLIDE EVIDENCE: ${ctx}` : '',
+    ].filter(Boolean).join('\n');
+}
+
+/** The reply must be one non-empty line without a digit, inside the gate's ceiling, and not the input unchanged. */
+export function validateTitleRewrite(reply: unknown, original: string): string | null {
+    if (typeof reply !== 'string') return null;
+    let t = reply.split(/\r?\n/).map(x => x.trim()).find(Boolean) || '';
+    t = t.replace(/^(?:title|rewritten title|rewrite)\s*[:\-]\s*/i, '').replace(/^["'\u201c\u2018]+|["'\u201d\u2019]+$/g, '').replace(/[.]+$/, '').trim();
+    if (!t || t.length > TITLE_MAX_CHARS) return null;
+    if (/\d/.test(t)) return null;
+    if (t.toLowerCase() === String(original || '').trim().toLowerCase()) return null;
+    return t;
+}
+
+function defaultTitleRewriteGen(timeoutMs: number): TitleRewriteGen {
+    return async (prompt: string) => {
+        // Lazy import: the gate stays a pure module for its tests and the chain; the proxy client loads on demand.
+        const { callAIWithRetry } = await import('./aiRetryClient');
+        const data: any = await callAIWithRetry('gemini', {
+            model: 'gemini-3.5-flash',
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            config: { temperature: 0, maxOutputTokens: 120 },
+        }, { label: 'title figure rewrite', maxAttempts: 1, requestTimeoutMs: timeoutMs });
+        return (data?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('');
+    };
+}
+
+/**
+ * A qualitative rewrite of a figure-bearing title. Model first; `stripNakedFigures` only when the call fails or the
+ * reply fails validation. A title that carries no figure is returned unchanged without a call.
+ */
+export async function rewriteTitleWithoutFigures(title: string, opts: RewriteTitleOptions = {}): Promise<string> {
+    const original = String(title || '').trim();
+    if (!original || !evaluateTitle(original).includes('naked_number')) return original;
+    try {
+        const gen = opts.gen || defaultTitleRewriteGen(opts.timeoutMs ?? 20_000);
+        const reply = await gen(buildTitleRewritePrompt(original, opts.context));
+        const valid = validateTitleRewrite(reply, original);
+        if (valid) return valid;
+        console.warn(`[titles] model title rewrite failed validation; deterministic strip used for "${original}"`);
+    } catch (e: any) {
+        console.warn(`[titles] model title rewrite failed (${e?.message || e}); deterministic strip used for "${original}"`);
+    }
+    return stripNakedFigures(original);
+}
+
+/**
+ * Every figure-bearing title in a title report, rewritten (model first, strip as fallback), keyed by slide id. The
+ * report's `title` is the text the gate checked (the composer payload title when present), so the caller writes the
+ * same replacement onto `title` and `composerPayload.title`.
+ */
+export async function rewriteWithheldTitles(
+    report: TitleReport | null | undefined,
+    opts: RewriteTitleOptions & { contextFor?: (slideId: string) => string | undefined } = {},
+): Promise<Map<string, string>> {
+    const out = new Map<string, string>();
+    const findings = (report?.findings || []).filter(f => f.kinds.includes('naked_number'));
+    await Promise.all(findings.map(async f => {
+        const next = await rewriteTitleWithoutFigures(f.title, { ...opts, context: opts.contextFor?.(f.slideId) ?? opts.context });
+        out.set(f.slideId, next);
+    }));
+    return out;
 }

@@ -62,6 +62,21 @@ KNOWN_MODELS = {
 # ---------------------------------------------------------------------------
 CLAUDE_REASONING_MODEL = "claude-opus-5-5"
 CLAUDE_STRUCTURED_MODEL = "claude-sonnet-5-5"
+# 2026-10-31 (agent-stack plan WS-D D2): the chat seat, the proxy half of aiRouter.DEFAULT_MODELS.fast_generation.
+# Pinned to the TS value by services/modelSeats.test.ts, so /api/models cannot drift from the router.
+CHAT_MODEL = "gemini-3.5-flash"
+
+
+def routing_seats() -> dict:
+    """The routing authority's seats, served at /api/models so no service hard-codes a model id. The platform agent
+    answers plain chat on the chat seat and synthesizes a tool chain on the reasoning seat (owner decision 4)."""
+    return {
+        "reasoning": CLAUDE_REASONING_MODEL,
+        "structured": CLAUDE_STRUCTURED_MODEL,
+        "chat": CHAT_MODEL,
+        "agent_chat": CHAT_MODEL,
+        "agent_tool_chain": CLAUDE_REASONING_MODEL,
+    }
 
 import re as _re
 # Models that reject temperature/top_p/top_k and thinking budgets (adaptive thinking only).
@@ -96,6 +111,13 @@ def normalize_claude_body(body, default_effort=None):
         return body
     for k in ("temperature", "top_p", "top_k"):
         body.pop(k, None)
+    # 2026-10-05: Messages API metadata accepts only user_id ("metadata.seed: Extra inputs are not permitted").
+    md = body.get("metadata")
+    if isinstance(md, dict):
+        if md.get("user_id"):
+            body["metadata"] = {"user_id": md["user_id"]}
+        else:
+            body.pop("metadata", None)
     for k in ("config", "generationConfig"):
         if isinstance(body.get(k), dict):
             for kk in ("temperature", "top_p", "top_k"):

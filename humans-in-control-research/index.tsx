@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { DesignDesk } from './design-desk';
 import { installChunkLoadGuard } from './services/chunkLoadGuard';
+import { bootProxyConfig, loadProviderStatus } from './services/proxyConfig';
 import { CLAUDE_REASONING_LABEL } from './services/claudeModelPolicy';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
 import { hydrateTokensFromFigma, TOKENS } from './components/slideTemplates/types';
@@ -82,7 +83,10 @@ installChunkLoadGuard();
 // getBrand('nxt') consumer (web.tsx preview, exporters) saw STALE values while
 // only TOKENS got the live feed. Copying TOKENS -> nxtBrand after hydration keeps
 // both in lockstep, the NXT analogue of how NU hydrates its own object below.
-void import('./components/slideTemplates/brands').then(({ nxtBrand, getBrand }) => {
+// 2026-10-31 (live deploy): the hydration used to fire at module load, before /config.json was read, so the
+// three token calls reached the proxy with no token and died as 401s (WS-0 auth). It now waits for the proxy
+// config (the same promise index.tsx boots below; bootProxyConfig shares one promise across callers).
+void Promise.all([import('./components/slideTemplates/brands'), bootProxyConfig()]).then(([{ nxtBrand, getBrand }]) => {
     void hydrateTokensFromFigma('NXT').then(ok => { if (ok) Object.assign(nxtBrand, TOKENS); });
     // NU brand object hydrates from its own live token sheet so both brands paint
     // Figma-live, not just the NXT default.
@@ -216,7 +220,12 @@ const root = ReactDOM.createRoot(rootElement);
 // (designDeskStore hydrates on boot AND listens for storage events).
 const isDesignerWindow = new URLSearchParams(window.location.search).get('designer') === '1';
 
-root.render(
+// 2026-10-30 (WS-0 S1/S2) - the proxy base and the shared proxy token are runtime
+// configuration read from /config.json, never compiled into the bundle. Boot it before
+// the first render so the fetch interceptor is installed before any module talks to the
+// proxy; then ask the proxy which providers are configured (replaces the old
+// `process.env.<PROVIDER>_API_KEY` checks). Both never throw.
+void bootProxyConfig().then(() => loadProviderStatus()).finally(() => root.render(
   <React.StrictMode>
     <AppErrorBoundary>
       {isDesignerWindow ? (
@@ -230,4 +239,4 @@ root.render(
       )}
     </AppErrorBoundary>
   </React.StrictMode>
-);
+));

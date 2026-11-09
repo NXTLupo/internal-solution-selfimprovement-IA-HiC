@@ -1,0 +1,87 @@
+---
+id: articles/reddit-deep-r-engineeringstudents/3bc9abf7ea.md
+url: "https://www.reddit.com/r/EngineeringStudents/comments/1xkvbeb/i_am_feeling_brainfog_and_overwhelmed_from_ai/"
+url_hash: "3bc9abf7ea"
+kind: "article"
+source: "Reddit Deep: r/engineeringstudents"
+title: "I am feeling brainfog and overwhelmed from AI becoming mandatory for huge scope assignments in my last year of software engineering course"
+author: ""
+date: "2026-11-01T05:45:30.000Z"
+tier: 
+method: "source-native"
+extracted_at: "2026-11-09T00:29:53.899275+00:00"
+chars: 6481
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
+collected_at: "2026-11-09T00:29:53.618Z"
+relevance: 85
+engagement_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations  Determine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.  Explore:  Which AI platforms students use and pay for Career-related use cases: resumes, job discovery, interview prep, networking, skills development Movement from simple prompting toward persistent assistants, agents, memory and connected tools Expectations that AI should know their context rather than start from scratch Differences by AI fluency, age, discipline and career stage  Social listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.  3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.  2. Assess the emerging“Bring Your Own AI” model  Determine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.  Specifically investigate:  Preference for a personally chosen AI vs. institution-provided assistant Evidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products Willingness to connect personal AI to trusted institutional services Expectations for interoperability, memory, portability and personalization Analogous models emerging in banking, healthcare, commerce and enterprise SaaS  This directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.  Key output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.  3. Map consumer trust, privacy and control expectations  Identify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.  Focus on:  What information consumers willingly give AI What information they consider sensitive Differences between AI accessing data and AI writing data back Expectations around consent, transparency, memory and deletion Concern about universities/employers seeing personal AI interactions Behaviors consumers already use to protect themselves Trust differences among an institution, an AI provider and a third-party platform  This addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.  Key output: a consumer AI trust and permission framework that can guide architecture and UX decisions.  4. Identify where proactive AI creates value versus backlash  Determine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.  Analyze market reaction to:  AI notifications and nudges Persistent memory Recommendations based on behavior Autonomous task completion AI detecting problems before the user asks Emotional or motivational interventions AI escalating something to a human  This directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.  Key output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.  5. Define the evolving role of humans in AI-mediated guidance  Understand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.  Look comparatively across:  Career advising Academic advising Healthcare navigation Financial advice Customer service Coaching and mentoring  Study the moments when consumers say:  “AI can handle this.”  versus:  “AI can help me prepare, but I want a person making this call.”  That maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.  Key output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.  The synthesis question  These five objectives ladder into one strategic market question:  As AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+content_hash: "dbf867d85ce49271"
+relevance_by_goal: {"aaf3b0416610":85}
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/3bc9abf7ea.md#c0"
+    char_span: [0, 2483]
+    sentence_count: 9
+    key_terms: [assignments, like, understand, because, technologies, engineeringstudents, agent, last]
+    concepts: [assignments, understand, technologies, engineeringstudents, because]
+    token_count: 506
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1xkvbeb/i_am_feeling_brainfog_and_overwhelmed_from_ai/","kind":"article","date":"2026-11-01","subreddit":"engineeringstudents"}]
+  - id: "articles/reddit-deep-r-engineeringstudents/3bc9abf7ea.md#c1"
+    char_span: [2485, 4489]
+    sentence_count: 8
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, feeling, automoderator]
+    concepts: [engineeringstudents, please, reddit, https, automoderator]
+    token_count: 447
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1xkvbeb/i_am_feeling_brainfog_and_overwhelmed_from_ai/","kind":"article","date":"2026-11-01","subreddit":"engineeringstudents"}]
+  - id: "articles/reddit-deep-r-engineeringstudents/3bc9abf7ea.md#c2"
+    char_span: [4491, 6780]
+    sentence_count: 16
+    key_terms: [senior, different, year, technologies, engineering, already, learned, effectively]
+    concepts: [different, senior, technologies, engineering, already]
+    token_count: 472
+    sources: [{"n":"Reddit Deep: r/engineeringstudents","u":"https://www.reddit.com/r/EngineeringStudents/comments/1xkvbeb/i_am_feeling_brainfog_and_overwhelmed_from_ai/","kind":"article","date":"2026-11-01","subreddit":"engineeringstudents"}]
+---
+# I am feeling brainfog and overwhelmed from AI becoming mandatory for huge scope assignments in my last year of software engineering course
+
+Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1xkvbeb/i_am_feeling_brainfog_and_overwhelmed_from_ai/)
+
+The first 2 years you could not simply hand over AI agent generated work for your assignments, your code and all still had to look like it came from an actual person instead of AI generated with foreing concepts we had not learned yet (which is often what lead to students being caught).
+
+But for this last year, the teachers had to incorporate AI deeply for like all classes because 1 internship company closely related to the school pressured them of making students learn to use AI.
+
+So instead of feeling like AI (the chatbot, not the agent) could sometimes be of help to help me understand concepts or finding more easily documentation about some of the technologies (or reword them if some were unclear), I am now finding myself forced to use agents that do all the work and coding because one, its expected, especially in group projects and two because the scope of what is being asked of us to do is so huge for these projects you would not be able to do all that in time as a regular human. They specifically design assignments arund using AI so the scope is far more massive than what previous years used to perform without AI.
+
+The consequences is that I feel for my last year I am not learning technologies as I should, I am instead just busy managing tokens and AI agent files like agent md stuff so it feels like everything appears to me as not just mountains but foggy mountains, huge assignments that I do not feel I truly grasp or understand because we gotta go at highspeed with tools that you do not fully control.
+
+I am disappointed that this is how my last year in that school will have turned out to be. I understand AI can save time for some stuff, but I just feel like we should at least understand and have practiced properly the technologies involved before we ask AI to do something with it, which currently is not the case.
+
+Someone might say, you can learn on your own, like sure maybe once it is over, but not right now as literally most of the time we have already is spent doing these assignments or working. I will definitely learn some stuff more manually during the winter break tho, but it still sucks right now that this is the environment we have.
+
+How did some of you cope with this feeling, this sort of high speed and seeing mountains or brain fog because you are expected to do massive work without fully being inside it and understanding what technologies your work is currently operating with.
+
+--- TOP COMMENTS ---
+[1↑ AutoModerator] Hello /u/RedCartesia! Thank you for posting in r/EngineeringStudents. This is a custom Automoderator message based on your flair, "Academic Advice". While our wiki is under construction, please be mindful of the users you are asking advice from, and make sure your question is phrased neatly and describes your problem. ***Please be sure that your post is short and succinct.*** Long-winded posts generally do not get responded to. 
+
+Please remember to;
+
+Read our [Rules](https://www.reddit.com/r/EngineeringStudents/wiki/rules)
+
+Read our [Wiki](https://www.reddit.com/r/EngineeringStudents/wiki/index)
+
+Read our [F.A.Q](https://www.reddit.com/r/EngineeringStudents/wiki/index/faq)
+
+Check our [Resources Landing Page](https://reddit.com/r/EngineeringStudents/wiki/resources)
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/EngineeringStudents) if you have any questions or concerns.*
+[9↑ Shikadi297] I feel this way except it's my actual job that I've been at for 7 years
+[7↑ TuitionInTears] treat this yr as a lesson in highssspeed tool management and save the deep technical dives for your personal projects over winter break like you planned. ure not the only one feeling burnt out by AI-driven assignment bloat. Just survive the term, get the degree, and rebuild your fundamentals at your own pace.
+[2↑ RedCartesia] Thank you 😇 it is encouraging to hear there are others feeling this way too
+[5↑ what_could_gowrong] I take it the same as manual arithmetics. Learn how to do the basic, learn the reasoning behind, but for all practical purposes have a calculator do it because real tasks requires way too much calculations. 
+
+The counterargument is obviously "what are you gonna do if AI isn't available? " but I found that the increasingly being same as my  elementary school teacher saying "what you gonna do without an calculator" while teaching arithmetics. The reality is, me living in a city with my phone and laptop and PC and smart watch... Can always have some kind of calculator accessible. I suspect the same will happen with AI. That the vast majority of job positions will always have AI access that it becomes counterproductive to spend too much time to be proficient with coding than to learn to use AI effectively.
+[1↑ MajorKestrel] yeesss I have a project where I need to read ESDU files and graphs and I'm struggling and the teacher just peaced out. I hate that I need to use AI so much to try to save time and understand what I'm doing...
+[0↑ Catsdrinkingbeer] I studied mechanical engineering so I recognize the coursework is different (plus I graduated 15 years ago), but is this not basically where software engineering is headed? AI is doing the coding and grunt work and what not, and your expertise is around effectively using and applying that tool? 
+
+And if this is your senior year, wouldn't you have already learned a lot of the basics? My senior year was a senior design project and specialized electives. All the base classes were already done and it was more about learning to apply those skills. What knowledge of the technologies do you think you're missing that you expected to learn senior year vs previous years?
+
+Again, different type of engineering so maybe I have no idea what I'm talking about, but it sort of sounds like they're structuring your senior year to look like what your actual jobs may look like.
+[1↑ RedCartesia] We learned fundamentals yes but different technologies and frameworks slapped on top of that is different and usually learned during last year. AI can fo grunt work yes but it should be to speed things up about stuff you already understand so that you can adjust or spot mistakes it can make. But currently we skipped the step of learning the actual technology (framework) and are having AI just do it all without a way of knowing is this right or not. In interviews you are still expected to know the technologies and answer questions about code.

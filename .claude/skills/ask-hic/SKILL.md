@@ -2,6 +2,8 @@
 name: ask-hic
 description: Router for the HiC skill library. Use when you know what you want to do but not which skill does it, or when starting any multi-step HiC job (a research run, an artifact, a prototype, a QA pass, a self-improvement pass) and you want the right skills in the right order.
 invocation: model
+version: "1.0"
+status: active
 ---
 
 # ask-hic
@@ -81,6 +83,9 @@ every other flow answers to.
     rather than cited side by side.
 11. **brief-dialog** for the two-persona brief a partner reads instead of a deck.
 12. **critic-revise-loop** wraps any of the above in generate, critique, revise.
+13. **questionnaire-author** for `#questionnaire`, when research has narrowed a decision but
+    the deciding fact sits with a stakeholder, not in a document: the honest artifact is a
+    short, ordered set of questions aimed at the person who holds the answer.
 
 ## Flow: a prototype (`#proto`)
 
@@ -133,3 +138,6 @@ every other flow answers to.
 4. **preflight** and **rebuild-hic** around any container change: HiC has no HMR, so an
    unrebuilt container serves the old bundle and every conclusion drawn from it is
    about the old code.
+5. **hic-run** when another agent platform delegates a deliverable to HiC: a signed call
+   to the proxy's inbound webhook queues the job and the report comes back to a callback.
+   Inside the workbench, research-mcp `run_deliverable` is the same job with the token.

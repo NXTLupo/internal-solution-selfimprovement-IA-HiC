@@ -1,3 +1,4 @@
+import { currentEngagementSlugOrDerive } from './engagementSlug';
 /**
  * Knowledge Gap Finder - Karpathy Plan Phase 2.3.
  *
@@ -214,7 +215,7 @@ async function checkCoverage(question: string, corpusSummary: string): Promise<C
         const retrievalResp = await fetch(`${PROXY_BASE}/api/wiki/fetch-articles`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ query: question, limit: 5, maxCharsPerArticle: 1500 }),
+            body: JSON.stringify({ query: question, limit: 5, maxCharsPerArticle: 1500, engagement: currentEngagementSlugOrDerive() }),
         });
         if (retrievalResp.ok) {
             const data = await retrievalResp.json();

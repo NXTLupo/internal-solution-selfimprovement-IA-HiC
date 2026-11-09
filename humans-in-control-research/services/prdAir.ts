@@ -141,7 +141,7 @@ export type PrdLedgerLabel = LedgerLabel;
 export type PrdLedgerSourceRef = LedgerSourceRef;
 export type PrdLedgerItem = LedgerItem;
 export type PrdArea = LedgerArea;
-export type PrdRequirementOrigin = 'area-pass' | 'gap-fill' | 'research-pass' | 'fallback' | 'model';
+export type PrdRequirementOrigin = 'area-pass' | 'gap-fill' | 'research-pass' | 'fallback' | 'model' | 'out-of-scope' | 'project-work';
 
 export interface PrdRequirement {       // R
     id: string;

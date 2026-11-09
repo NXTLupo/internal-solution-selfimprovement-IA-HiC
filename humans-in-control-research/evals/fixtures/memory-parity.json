@@ -1,0 +1,5184 @@
+{
+ "schema": "hic.memory-parity.v1",
+ "note": "Inputs are hand-built; `expected` is written by the TS reference (services/memoryParity.test.ts with UPDATE_MEMORY_PARITY=1) and asserted by both services/memoryParity.test.ts and proxy/tests/test_memory_store.py.",
+ "now": "2026-10-31T12:00:00.000Z",
+ "inputs": {
+  "factId": [
+   "Executive search firms pilot AI sourcing.",
+   "  MIXED   Case\tand  spaces ",
+   "café résumé naïve",
+   "emoji ok",
+   "",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  ],
+  "admit": {
+   "proposed": [
+    {
+     "content": "Executive search firms pilot AI sourcing before they change fee models.",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "expectedValidDays": 180
+    },
+    {
+     "content": "Prefers the data appendix at the end of every deck.",
+     "category": "preference",
+     "confidence": 0.9,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive"
+    },
+    {
+     "content": "Session-only reminder",
+     "category": "context",
+     "confidence": 0.95,
+     "scope": "session",
+     "durability": "temporary",
+     "authority": "descriptive"
+    },
+    {
+     "content": "No labels at all",
+     "confidence": 0.9
+    },
+    {
+     "content": "Low confidence guess about churn.",
+     "category": "knowledge",
+     "confidence": 0.6,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive"
+    },
+    {
+     "content": "  Executive  search firms pilot AI sourcing before they change fee models.  ",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive"
+    },
+    {
+     "content": "",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive"
+    },
+    {
+     "content": "Window clamp check",
+     "category": "goal",
+     "confidence": 0.75,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "expectedValidDays": 999999
+    },
+    {
+     "content": "Transactional instruction",
+     "category": "behavior",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "transactional"
+    },
+    {
+     "content": "Rounding half 2.5 days",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "expectedValidDays": 2.5
+    }
+   ],
+   "runId": "run_admit"
+  },
+  "merge": {
+   "store": [
+    {
+     "id": "x1",
+     "content": "Alpha fact",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x2",
+     "content": "Beta fact",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "incoming": [
+    {
+     "id": "x1",
+     "content": "Alpha fact",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_new"
+     ]
+    },
+    {
+     "id": "x3",
+     "content": "Gamma fact",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    }
+   ]
+  },
+  "evict": {
+   "store": [
+    {
+     "id": "x100",
+     "content": "Capacity fact number 0",
+     "category": "correction",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x101",
+     "content": "Capacity fact number 1",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x102",
+     "content": "Capacity fact number 2",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x103",
+     "content": "Capacity fact number 3",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x104",
+     "content": "Capacity fact number 4",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x105",
+     "content": "Capacity fact number 5",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x106",
+     "content": "Capacity fact number 6",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x107",
+     "content": "Capacity fact number 7",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x108",
+     "content": "Capacity fact number 8",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x109",
+     "content": "Capacity fact number 9",
+     "category": "correction",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x110",
+     "content": "Capacity fact number 10",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x111",
+     "content": "Capacity fact number 11",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x112",
+     "content": "Capacity fact number 12",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x113",
+     "content": "Capacity fact number 13",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x114",
+     "content": "Capacity fact number 14",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x115",
+     "content": "Capacity fact number 15",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x116",
+     "content": "Capacity fact number 16",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x117",
+     "content": "Capacity fact number 17",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x118",
+     "content": "Capacity fact number 18",
+     "category": "correction",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x119",
+     "content": "Capacity fact number 19",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x120",
+     "content": "Capacity fact number 20",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x121",
+     "content": "Capacity fact number 21",
+     "category": "knowledge",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x122",
+     "content": "Capacity fact number 22",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x123",
+     "content": "Capacity fact number 23",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x124",
+     "content": "Capacity fact number 24",
+     "category": "knowledge",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x125",
+     "content": "Capacity fact number 25",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x126",
+     "content": "Capacity fact number 26",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x127",
+     "content": "Capacity fact number 27",
+     "category": "correction",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x128",
+     "content": "Capacity fact number 28",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x129",
+     "content": "Capacity fact number 29",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x130",
+     "content": "Capacity fact number 30",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x131",
+     "content": "Capacity fact number 31",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x132",
+     "content": "Capacity fact number 32",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x133",
+     "content": "Capacity fact number 33",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x134",
+     "content": "Capacity fact number 34",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x135",
+     "content": "Capacity fact number 35",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x136",
+     "content": "Capacity fact number 36",
+     "category": "correction",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x137",
+     "content": "Capacity fact number 37",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x138",
+     "content": "Capacity fact number 38",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x139",
+     "content": "Capacity fact number 39",
+     "category": "knowledge",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x140",
+     "content": "Capacity fact number 40",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x141",
+     "content": "Capacity fact number 41",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x142",
+     "content": "Capacity fact number 42",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x143",
+     "content": "Capacity fact number 43",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x144",
+     "content": "Capacity fact number 44",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x145",
+     "content": "Capacity fact number 45",
+     "category": "correction",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x146",
+     "content": "Capacity fact number 46",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x147",
+     "content": "Capacity fact number 47",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x148",
+     "content": "Capacity fact number 48",
+     "category": "knowledge",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x149",
+     "content": "Capacity fact number 49",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x150",
+     "content": "Capacity fact number 50",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x151",
+     "content": "Capacity fact number 51",
+     "category": "knowledge",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x152",
+     "content": "Capacity fact number 52",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x153",
+     "content": "Capacity fact number 53",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x154",
+     "content": "Capacity fact number 54",
+     "category": "correction",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x155",
+     "content": "Capacity fact number 55",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x156",
+     "content": "Capacity fact number 56",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x157",
+     "content": "Capacity fact number 57",
+     "category": "knowledge",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x158",
+     "content": "Capacity fact number 58",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x159",
+     "content": "Capacity fact number 59",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x160",
+     "content": "Capacity fact number 60",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x161",
+     "content": "Capacity fact number 61",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x162",
+     "content": "Capacity fact number 62",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x163",
+     "content": "Capacity fact number 63",
+     "category": "correction",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x164",
+     "content": "Capacity fact number 64",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x165",
+     "content": "Capacity fact number 65",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x166",
+     "content": "Capacity fact number 66",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x167",
+     "content": "Capacity fact number 67",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x168",
+     "content": "Capacity fact number 68",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x169",
+     "content": "Capacity fact number 69",
+     "category": "knowledge",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x170",
+     "content": "Capacity fact number 70",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x171",
+     "content": "Capacity fact number 71",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x172",
+     "content": "Capacity fact number 72",
+     "category": "correction",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x173",
+     "content": "Capacity fact number 73",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x174",
+     "content": "Capacity fact number 74",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x175",
+     "content": "Capacity fact number 75",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x176",
+     "content": "Capacity fact number 76",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x177",
+     "content": "Capacity fact number 77",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x178",
+     "content": "Capacity fact number 78",
+     "category": "knowledge",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x179",
+     "content": "Capacity fact number 79",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x180",
+     "content": "Capacity fact number 80",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x181",
+     "content": "Capacity fact number 81",
+     "category": "correction",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x182",
+     "content": "Capacity fact number 82",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x183",
+     "content": "Capacity fact number 83",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x184",
+     "content": "Capacity fact number 84",
+     "category": "knowledge",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x185",
+     "content": "Capacity fact number 85",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x186",
+     "content": "Capacity fact number 86",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x187",
+     "content": "Capacity fact number 87",
+     "category": "knowledge",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x188",
+     "content": "Capacity fact number 88",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x189",
+     "content": "Capacity fact number 89",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x190",
+     "content": "Capacity fact number 90",
+     "category": "correction",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x191",
+     "content": "Capacity fact number 91",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x192",
+     "content": "Capacity fact number 92",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x193",
+     "content": "Capacity fact number 93",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x194",
+     "content": "Capacity fact number 94",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x195",
+     "content": "Capacity fact number 95",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x196",
+     "content": "Capacity fact number 96",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x197",
+     "content": "Capacity fact number 97",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x198",
+     "content": "Capacity fact number 98",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x199",
+     "content": "Capacity fact number 99",
+     "category": "correction",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x200",
+     "content": "Capacity fact number 100",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x201",
+     "content": "Capacity fact number 101",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x202",
+     "content": "Capacity fact number 102",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Capacity fact number 103",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ]
+  },
+  "evictHybrid": {
+   "store": [
+    {
+     "id": "x100",
+     "content": "Capacity fact number 0",
+     "category": "correction",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x101",
+     "content": "Capacity fact number 1",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x102",
+     "content": "Capacity fact number 2",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x103",
+     "content": "Capacity fact number 3",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x104",
+     "content": "Capacity fact number 4",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x105",
+     "content": "Capacity fact number 5",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x106",
+     "content": "Capacity fact number 6",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x107",
+     "content": "Capacity fact number 7",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x108",
+     "content": "Capacity fact number 8",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x109",
+     "content": "Capacity fact number 9",
+     "category": "correction",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x110",
+     "content": "Capacity fact number 10",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x111",
+     "content": "Capacity fact number 11",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x112",
+     "content": "Capacity fact number 12",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x113",
+     "content": "Capacity fact number 13",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x114",
+     "content": "Capacity fact number 14",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x115",
+     "content": "Capacity fact number 15",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x116",
+     "content": "Capacity fact number 16",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x117",
+     "content": "Capacity fact number 17",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x118",
+     "content": "Capacity fact number 18",
+     "category": "correction",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x119",
+     "content": "Capacity fact number 19",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x120",
+     "content": "Capacity fact number 20",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x121",
+     "content": "Capacity fact number 21",
+     "category": "knowledge",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x122",
+     "content": "Capacity fact number 22",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x123",
+     "content": "Capacity fact number 23",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x124",
+     "content": "Capacity fact number 24",
+     "category": "knowledge",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x125",
+     "content": "Capacity fact number 25",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x126",
+     "content": "Capacity fact number 26",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x127",
+     "content": "Capacity fact number 27",
+     "category": "correction",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x128",
+     "content": "Capacity fact number 28",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x129",
+     "content": "Capacity fact number 29",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x130",
+     "content": "Capacity fact number 30",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x131",
+     "content": "Capacity fact number 31",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x132",
+     "content": "Capacity fact number 32",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x133",
+     "content": "Capacity fact number 33",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x134",
+     "content": "Capacity fact number 34",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x135",
+     "content": "Capacity fact number 35",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x136",
+     "content": "Capacity fact number 36",
+     "category": "correction",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x137",
+     "content": "Capacity fact number 37",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x138",
+     "content": "Capacity fact number 38",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x139",
+     "content": "Capacity fact number 39",
+     "category": "knowledge",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x140",
+     "content": "Capacity fact number 40",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x141",
+     "content": "Capacity fact number 41",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x142",
+     "content": "Capacity fact number 42",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x143",
+     "content": "Capacity fact number 43",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x144",
+     "content": "Capacity fact number 44",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x145",
+     "content": "Capacity fact number 45",
+     "category": "correction",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x146",
+     "content": "Capacity fact number 46",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x147",
+     "content": "Capacity fact number 47",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x148",
+     "content": "Capacity fact number 48",
+     "category": "knowledge",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x149",
+     "content": "Capacity fact number 49",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x150",
+     "content": "Capacity fact number 50",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x151",
+     "content": "Capacity fact number 51",
+     "category": "knowledge",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x152",
+     "content": "Capacity fact number 52",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x153",
+     "content": "Capacity fact number 53",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x154",
+     "content": "Capacity fact number 54",
+     "category": "correction",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x155",
+     "content": "Capacity fact number 55",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x156",
+     "content": "Capacity fact number 56",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x157",
+     "content": "Capacity fact number 57",
+     "category": "knowledge",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x158",
+     "content": "Capacity fact number 58",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x159",
+     "content": "Capacity fact number 59",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x160",
+     "content": "Capacity fact number 60",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x161",
+     "content": "Capacity fact number 61",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x162",
+     "content": "Capacity fact number 62",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x163",
+     "content": "Capacity fact number 63",
+     "category": "correction",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x164",
+     "content": "Capacity fact number 64",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x165",
+     "content": "Capacity fact number 65",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x166",
+     "content": "Capacity fact number 66",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x167",
+     "content": "Capacity fact number 67",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x168",
+     "content": "Capacity fact number 68",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x169",
+     "content": "Capacity fact number 69",
+     "category": "knowledge",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x170",
+     "content": "Capacity fact number 70",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z",
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x171",
+     "content": "Capacity fact number 71",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x172",
+     "content": "Capacity fact number 72",
+     "category": "correction",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x173",
+     "content": "Capacity fact number 73",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x174",
+     "content": "Capacity fact number 74",
+     "category": "knowledge",
+     "confidence": 0.84,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x175",
+     "content": "Capacity fact number 75",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x176",
+     "content": "Capacity fact number 76",
+     "category": "knowledge",
+     "confidence": 0.86,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x177",
+     "content": "Capacity fact number 77",
+     "category": "knowledge",
+     "confidence": 0.87,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x178",
+     "content": "Capacity fact number 78",
+     "category": "knowledge",
+     "confidence": 0.88,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x179",
+     "content": "Capacity fact number 79",
+     "category": "knowledge",
+     "confidence": 0.89,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x180",
+     "content": "Capacity fact number 80",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x181",
+     "content": "Capacity fact number 81",
+     "category": "correction",
+     "confidence": 0.91,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x182",
+     "content": "Capacity fact number 82",
+     "category": "knowledge",
+     "confidence": 0.92,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x183",
+     "content": "Capacity fact number 83",
+     "category": "knowledge",
+     "confidence": 0.93,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x184",
+     "content": "Capacity fact number 84",
+     "category": "knowledge",
+     "confidence": 0.94,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x185",
+     "content": "Capacity fact number 85",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x186",
+     "content": "Capacity fact number 86",
+     "category": "knowledge",
+     "confidence": 0.96,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x187",
+     "content": "Capacity fact number 87",
+     "category": "knowledge",
+     "confidence": 0.97,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x188",
+     "content": "Capacity fact number 88",
+     "category": "knowledge",
+     "confidence": 0.98,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x189",
+     "content": "Capacity fact number 89",
+     "category": "knowledge",
+     "confidence": 0.99,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x190",
+     "content": "Capacity fact number 90",
+     "category": "correction",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x191",
+     "content": "Capacity fact number 91",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x192",
+     "content": "Capacity fact number 92",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x193",
+     "content": "Capacity fact number 93",
+     "category": "knowledge",
+     "confidence": 0.73,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x194",
+     "content": "Capacity fact number 94",
+     "category": "knowledge",
+     "confidence": 0.74,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x195",
+     "content": "Capacity fact number 95",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x196",
+     "content": "Capacity fact number 96",
+     "category": "knowledge",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x197",
+     "content": "Capacity fact number 97",
+     "category": "knowledge",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x198",
+     "content": "Capacity fact number 98",
+     "category": "knowledge",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-20T00:00:00.000Z"
+    },
+    {
+     "id": "x199",
+     "content": "Capacity fact number 99",
+     "category": "correction",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x200",
+     "content": "Capacity fact number 100",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastAccessedAt": "2026-10-29T00:00:00.000Z"
+    },
+    {
+     "id": "x201",
+     "content": "Capacity fact number 101",
+     "category": "knowledge",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x202",
+     "content": "Capacity fact number 102",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Capacity fact number 103",
+     "category": "knowledge",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "cfg": {
+    "evictionPolicy": "hybrid-v1"
+   }
+  },
+  "staleness": {
+   "store": [
+    {
+     "id": "x201",
+     "content": "Old knowledge A",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x202",
+     "content": "Old knowledge B",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Old correction",
+     "category": "correction",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 30,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x204",
+     "content": "Fresh knowledge",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x205",
+     "content": "Old but confirmed",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-25T00:00:00.000Z"
+    },
+    {
+     "id": "x206",
+     "content": "Old knowledge C",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-01T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "decisions": [
+    {
+     "id": "x201",
+     "verdict": "REMOVE"
+    },
+    {
+     "id": "x202",
+     "verdict": "EXTEND",
+     "extendByDays": 45
+    },
+    {
+     "id": "x203",
+     "verdict": "REMOVE"
+    },
+    {
+     "id": "x204",
+     "verdict": "REMOVE"
+    },
+    {
+     "id": "x206",
+     "verdict": "REMOVE"
+    },
+    {
+     "id": "x206",
+     "verdict": "EXTEND",
+     "extendByDays": 10
+    }
+   ],
+   "cfg": {
+    "stalenessMaxRemovalsPerCycle": 2
+   }
+  },
+  "consolidation": {
+   "store": [
+    {
+     "id": "x300",
+     "content": "Preference fragment 0",
+     "category": "preference",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-15T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x301",
+     "content": "Preference fragment 1",
+     "category": "preference",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-15T00:00:00.000Z",
+     "expectedValidDays": 70,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x302",
+     "content": "Preference fragment 2",
+     "category": "preference",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-15T00:00:00.000Z",
+     "expectedValidDays": 80,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x303",
+     "content": "Preference fragment 3",
+     "category": "preference",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-04-15T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x304",
+     "content": "Preference fragment 4",
+     "category": "preference",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-05-15T00:00:00.000Z",
+     "expectedValidDays": 100,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x305",
+     "content": "Preference fragment 5",
+     "category": "preference",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-15T00:00:00.000Z",
+     "expectedValidDays": 110,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x306",
+     "content": "Preference fragment 6",
+     "category": "preference",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-07-15T00:00:00.000Z",
+     "expectedValidDays": 120,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x307",
+     "content": "Preference fragment 7",
+     "category": "preference",
+     "confidence": 0.8200000000000001,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-08-15T00:00:00.000Z",
+     "expectedValidDays": 130,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x308",
+     "content": "Preference fragment 8",
+     "category": "preference",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-15T00:00:00.000Z",
+     "expectedValidDays": 140,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "proposals": [
+    {
+     "sourceIds": [
+      "x300",
+      "x301",
+      "x302"
+     ],
+     "consolidated": {
+      "content": "Owner prefers appendices last and tables over prose.",
+      "category": "preference",
+      "confidence": 0.99,
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    },
+    {
+     "sourceIds": [
+      "x302",
+      "x303"
+     ],
+     "consolidated": {
+      "content": "Overlap group",
+      "category": "preference",
+      "confidence": 0.8,
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    },
+    {
+     "sourceIds": [
+      "x304"
+     ],
+     "consolidated": {
+      "content": "Single source",
+      "category": "preference",
+      "confidence": 0.8,
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    },
+    {
+     "sourceIds": [
+      "x305",
+      "x999"
+     ],
+     "consolidated": {
+      "content": "Unknown id",
+      "category": "preference",
+      "confidence": 0.8,
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    },
+    {
+     "sourceIds": [
+      "x306",
+      "x307"
+     ],
+     "consolidated": {
+      "content": "Session merged",
+      "category": "preference",
+      "confidence": 0.8,
+      "scope": "session",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    },
+    {
+     "sourceIds": [
+      "x306",
+      "x308"
+     ],
+     "consolidated": {
+      "content": "Merged two more fragments into one durable preference.",
+      "category": "preference",
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    }
+   ]
+  },
+  "consolidationGroups": {
+   "store": [
+    {
+     "id": "x300",
+     "content": "Preference fragment 0",
+     "category": "preference",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-15T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x301",
+     "content": "Preference fragment 1",
+     "category": "preference",
+     "confidence": 0.76,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-15T00:00:00.000Z",
+     "expectedValidDays": 70,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x302",
+     "content": "Preference fragment 2",
+     "category": "preference",
+     "confidence": 0.77,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-15T00:00:00.000Z",
+     "expectedValidDays": 80,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x303",
+     "content": "Preference fragment 3",
+     "category": "preference",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-04-15T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x304",
+     "content": "Preference fragment 4",
+     "category": "preference",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-05-15T00:00:00.000Z",
+     "expectedValidDays": 100,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x305",
+     "content": "Preference fragment 5",
+     "category": "preference",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-15T00:00:00.000Z",
+     "expectedValidDays": 110,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x306",
+     "content": "Preference fragment 6",
+     "category": "preference",
+     "confidence": 0.81,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-07-15T00:00:00.000Z",
+     "expectedValidDays": 120,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x307",
+     "content": "Preference fragment 7",
+     "category": "preference",
+     "confidence": 0.8200000000000001,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-08-15T00:00:00.000Z",
+     "expectedValidDays": 130,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x308",
+     "content": "Preference fragment 8",
+     "category": "preference",
+     "confidence": 0.83,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-15T00:00:00.000Z",
+     "expectedValidDays": 140,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x201",
+     "content": "Old knowledge A",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x202",
+     "content": "Old knowledge B",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Old correction",
+     "category": "correction",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 30,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x204",
+     "content": "Fresh knowledge",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x205",
+     "content": "Old but confirmed",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-25T00:00:00.000Z"
+    },
+    {
+     "id": "x206",
+     "content": "Old knowledge C",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-01T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "cfg": {
+    "consolidationMinFacts": 3
+   }
+  },
+  "reinforce": {
+   "store": [
+    {
+     "id": "x401",
+     "content": "Reinforce me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x402",
+     "content": "Leave me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    }
+   ],
+   "nominated": [
+    "x401",
+    "x999"
+   ],
+   "confirming": [
+    "thanks",
+    "Yes, exactly right"
+   ],
+   "silent": [
+    "yes",
+    "ok sure"
+   ]
+  },
+  "salient": [
+   "How are executive search firms adopting AI sourcing tools?",
+   "The organizations' CRM migrations stalled across universities",
+   "COVID-19 and AI-native consultancies: running, ranked, rankings",
+   "a an the of AI GPT CX"
+  ],
+  "select": {
+   "facts": [
+    {
+     "id": "x501",
+     "content": "Executive search firms adopt AI sourcing tools for candidate longlists",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x502",
+     "content": "Retail conversion rose with AI shopping assistants",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-09-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x503",
+     "content": "Search partners distrust AI shortlisting for C-suite roles",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-04-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-28T00:00:00.000Z"
+    },
+    {
+     "id": "x504",
+     "content": "Executive compensation benchmarks moved in 2026",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-30T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x505",
+     "content": "CRM migration stalled at Northeastern advancement",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-08-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    }
+   ],
+   "objectives": [
+    "How are executive search firms adopting AI for candidate sourcing?",
+    "retail AI assistants conversion",
+    "the of and"
+   ]
+  },
+  "lifecycle": {
+   "store": [
+    {
+     "id": "x201",
+     "content": "Old knowledge A",
+     "category": "knowledge",
+     "confidence": 0.72,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x202",
+     "content": "Old knowledge B",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Old correction",
+     "category": "correction",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 30,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x204",
+     "content": "Fresh knowledge",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x205",
+     "content": "Old but confirmed",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-25T00:00:00.000Z"
+    },
+    {
+     "id": "x206",
+     "content": "Old knowledge C",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-01T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    }
+   ],
+   "input": {
+    "runId": "run_life",
+    "proposed": [
+     {
+      "content": "Executive search firms pilot AI sourcing before they change fee models.",
+      "category": "knowledge",
+      "confidence": 0.82,
+      "scope": "engagement",
+      "durability": "durable",
+      "authority": "descriptive",
+      "expectedValidDays": 180
+     },
+     {
+      "content": "Prefers the data appendix at the end of every deck.",
+      "category": "preference",
+      "confidence": 0.9,
+      "scope": "user",
+      "durability": "durable",
+      "authority": "descriptive"
+     }
+    ],
+    "stalenessDecisions": [
+     {
+      "id": "x201",
+      "verdict": "REMOVE"
+     },
+     {
+      "id": "x202",
+      "verdict": "EXTEND",
+      "extendByDays": 45
+     },
+     {
+      "id": "x203",
+      "verdict": "REMOVE"
+     }
+    ],
+    "reinforceIds": [
+     "x204"
+    ],
+    "userMessages": [
+     "that's exactly what I wanted"
+    ]
+   }
+  },
+  "render": {
+   "facts": [
+    {
+     "id": "x501",
+     "content": "Executive search firms adopt AI sourcing tools for candidate longlists",
+     "category": "knowledge",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x502",
+     "content": "Retail conversion rose with AI shopping assistants",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-09-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x503",
+     "content": "Search partners distrust AI shortlisting for C-suite roles",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-04-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-28T00:00:00.000Z"
+    },
+    {
+     "id": "x504",
+     "content": "Executive compensation benchmarks moved in 2026",
+     "category": "knowledge",
+     "confidence": 0.95,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-30T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x505",
+     "content": "CRM migration stalled at Northeastern advancement",
+     "category": "knowledge",
+     "confidence": 0.85,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-08-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    }
+   ],
+   "maxChars": 160
+  }
+ },
+ "expected": {
+  "factId": [
+   "f17hhcgo",
+   "faa4lbe",
+   "f1ytdg22",
+   "f10b5qz7",
+   "f45h",
+   "fi9o3g1"
+  ],
+  "admit": {
+   "admitted": [
+    {
+     "id": "fx8l58f",
+     "content": "Executive search firms pilot AI sourcing before they change fee models.",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 180,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_admit"
+     ]
+    },
+    {
+     "id": "fb4h63m",
+     "content": "Prefers the data appendix at the end of every deck.",
+     "category": "preference",
+     "confidence": 0.9,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_admit"
+     ]
+    },
+    {
+     "id": "fxbaaw",
+     "content": "Window clamp check",
+     "category": "goal",
+     "confidence": 0.75,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 1800,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_admit"
+     ]
+    },
+    {
+     "id": "f67ydpo",
+     "content": "Rounding half 2.5 days",
+     "category": "knowledge",
+     "confidence": 0.7,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 3,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_admit"
+     ]
+    }
+   ],
+   "rejected": [
+    {
+     "content": "Session-only reminder",
+     "reason": "scope gate: session/temporary/descriptive"
+    },
+    {
+     "content": "No labels at all",
+     "reason": "missing or invalid category"
+    },
+    {
+     "content": "Low confidence guess about churn.",
+     "reason": "confidence 0.6 below 0.7"
+    },
+    {
+     "content": "Executive  search firms pilot AI sourcing before they change fee models.",
+     "reason": "duplicate in batch"
+    },
+    {
+     "content": "",
+     "reason": "empty content"
+    },
+    {
+     "content": "Transactional instruction",
+     "reason": "scope gate: engagement/durable/transactional"
+    }
+   ],
+   "rejectedByScopeGate": 3
+  },
+  "merge": [
+   {
+    "id": "x1",
+    "content": "Alpha fact",
+    "category": "knowledge",
+    "confidence": 0.85,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-06-01T00:00:00.000Z",
+    "expectedValidDays": 90,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+     "run_1",
+     "run_new"
+    ]
+   },
+   {
+    "id": "x2",
+    "content": "Beta fact",
+    "category": "knowledge",
+    "confidence": 0.9,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-06-01T00:00:00.000Z",
+    "expectedValidDays": 90,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+     "run_2"
+    ]
+   },
+   {
+    "id": "x3",
+    "content": "Gamma fact",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-06-01T00:00:00.000Z",
+    "expectedValidDays": 90,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+     "run_0"
+    ]
+   }
+  ],
+  "evict": {
+   "kept": [
+    "x101",
+    "x102",
+    "x103",
+    "x104",
+    "x105",
+    "x106",
+    "x107",
+    "x108",
+    "x109",
+    "x110",
+    "x111",
+    "x112",
+    "x113",
+    "x114",
+    "x115",
+    "x116",
+    "x117",
+    "x118",
+    "x119",
+    "x120",
+    "x121",
+    "x122",
+    "x123",
+    "x124",
+    "x125",
+    "x126",
+    "x127",
+    "x128",
+    "x129",
+    "x131",
+    "x132",
+    "x133",
+    "x134",
+    "x135",
+    "x136",
+    "x137",
+    "x138",
+    "x139",
+    "x140",
+    "x141",
+    "x142",
+    "x143",
+    "x144",
+    "x145",
+    "x146",
+    "x147",
+    "x148",
+    "x149",
+    "x150",
+    "x151",
+    "x152",
+    "x153",
+    "x154",
+    "x155",
+    "x156",
+    "x157",
+    "x158",
+    "x159",
+    "x161",
+    "x162",
+    "x163",
+    "x164",
+    "x165",
+    "x166",
+    "x167",
+    "x168",
+    "x169",
+    "x170",
+    "x171",
+    "x172",
+    "x173",
+    "x174",
+    "x175",
+    "x176",
+    "x177",
+    "x178",
+    "x179",
+    "x180",
+    "x181",
+    "x182",
+    "x183",
+    "x184",
+    "x185",
+    "x186",
+    "x187",
+    "x188",
+    "x189",
+    "x191",
+    "x192",
+    "x193",
+    "x194",
+    "x195",
+    "x196",
+    "x197",
+    "x198",
+    "x199",
+    "x200",
+    "x201",
+    "x202",
+    "x203"
+   ],
+   "evicted": [
+    "x100",
+    "x130",
+    "x160",
+    "x190"
+   ],
+   "shadowDisagreement": [
+    "x100",
+    "x101",
+    "x130",
+    "x131",
+    "x160",
+    "x161",
+    "x190",
+    "x192"
+   ]
+  },
+  "evictHybrid": {
+   "kept": [
+    "x100",
+    "x102",
+    "x103",
+    "x104",
+    "x105",
+    "x106",
+    "x107",
+    "x108",
+    "x109",
+    "x110",
+    "x111",
+    "x112",
+    "x113",
+    "x114",
+    "x115",
+    "x116",
+    "x117",
+    "x118",
+    "x119",
+    "x120",
+    "x121",
+    "x122",
+    "x123",
+    "x124",
+    "x125",
+    "x126",
+    "x127",
+    "x128",
+    "x129",
+    "x130",
+    "x132",
+    "x133",
+    "x134",
+    "x135",
+    "x136",
+    "x137",
+    "x138",
+    "x139",
+    "x140",
+    "x141",
+    "x142",
+    "x143",
+    "x144",
+    "x145",
+    "x146",
+    "x147",
+    "x148",
+    "x149",
+    "x150",
+    "x151",
+    "x152",
+    "x153",
+    "x154",
+    "x155",
+    "x156",
+    "x157",
+    "x158",
+    "x159",
+    "x160",
+    "x162",
+    "x163",
+    "x164",
+    "x165",
+    "x166",
+    "x167",
+    "x168",
+    "x169",
+    "x170",
+    "x171",
+    "x172",
+    "x173",
+    "x174",
+    "x175",
+    "x176",
+    "x177",
+    "x178",
+    "x179",
+    "x180",
+    "x181",
+    "x182",
+    "x183",
+    "x184",
+    "x185",
+    "x186",
+    "x187",
+    "x188",
+    "x189",
+    "x190",
+    "x191",
+    "x193",
+    "x194",
+    "x195",
+    "x196",
+    "x197",
+    "x198",
+    "x199",
+    "x200",
+    "x201",
+    "x202",
+    "x203"
+   ],
+   "evicted": [
+    "x101",
+    "x131",
+    "x161",
+    "x192"
+   ],
+   "shadowDisagreement": []
+  },
+  "staleCandidates": [
+   "x201",
+   "x202",
+   "x206"
+  ],
+  "staleness": {
+   "facts": [
+    {
+     "id": "x202",
+     "content": "Old knowledge B",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-01T00:00:00.000Z",
+     "expectedValidDays": 318,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Old correction",
+     "category": "correction",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 30,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x204",
+     "content": "Fresh knowledge",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x205",
+     "content": "Old but confirmed",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-25T00:00:00.000Z"
+    }
+   ],
+   "removed": [
+    "x201",
+    "x206"
+   ],
+   "extended": [
+    "x202"
+   ],
+   "refused": [
+    {
+     "id": "x203",
+     "reason": "not an aged candidate (protected, absent, or still inside its window)"
+    },
+    {
+     "id": "x204",
+     "reason": "not an aged candidate (protected, absent, or still inside its window)"
+    }
+   ]
+  },
+  "consolidation": {
+   "facts": [
+    {
+     "id": "x303",
+     "content": "Preference fragment 3",
+     "category": "preference",
+     "confidence": 0.78,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-04-15T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    },
+    {
+     "id": "x304",
+     "content": "Preference fragment 4",
+     "category": "preference",
+     "confidence": 0.79,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-05-15T00:00:00.000Z",
+     "expectedValidDays": 100,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x305",
+     "content": "Preference fragment 5",
+     "category": "preference",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-15T00:00:00.000Z",
+     "expectedValidDays": 110,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x307",
+     "content": "Preference fragment 7",
+     "category": "preference",
+     "confidence": 0.8200000000000001,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-08-15T00:00:00.000Z",
+     "expectedValidDays": 130,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "fsp9q6w",
+     "content": "Owner prefers appendices last and tables over prose.",
+     "category": "preference",
+     "confidence": 0.77,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-15T00:00:00.000Z",
+     "expectedValidDays": 1,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0",
+      "run_1",
+      "run_2"
+     ]
+    },
+    {
+     "id": "f14lu7h1",
+     "content": "Merged two more fragments into one durable preference.",
+     "category": "preference",
+     "confidence": 0.83,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-07-15T00:00:00.000Z",
+     "expectedValidDays": 1,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0",
+      "run_2"
+     ]
+    }
+   ],
+   "mergedIds": [
+    "x300",
+    "x301",
+    "x302",
+    "x306",
+    "x308"
+   ],
+   "refused": [
+    {
+     "sourceIds": [
+      "x302",
+      "x303"
+     ],
+     "reason": "source already consumed by another group"
+    },
+    {
+     "sourceIds": [
+      "x304"
+     ],
+     "reason": "fewer than two sources"
+    },
+    {
+     "sourceIds": [
+      "x305",
+      "x999"
+     ],
+     "reason": "unknown source id"
+    },
+    {
+     "sourceIds": [
+      "x306",
+      "x307"
+     ],
+     "reason": "consolidated fact fails the admission gate"
+    }
+   ]
+  },
+  "consolidationGroups": [
+   {
+    "category": "preference",
+    "factIds": [
+     "x300",
+     "x301",
+     "x302",
+     "x303",
+     "x304",
+     "x305",
+     "x306",
+     "x307",
+     "x308"
+    ]
+   },
+   {
+    "category": "knowledge",
+    "factIds": [
+     "x201",
+     "x202",
+     "x204",
+     "x205",
+     "x206"
+    ]
+   }
+  ],
+  "reinforceConfirmed": {
+   "facts": [
+    {
+     "id": "x401",
+     "content": "Reinforce me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 1,
+     "sourceRunIds": [
+      "run_2"
+     ],
+     "lastConfirmedAt": "2026-10-31T12:00:00.000Z"
+    },
+    {
+     "id": "x402",
+     "content": "Leave me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    }
+   ],
+   "confirmed": [
+    "x401"
+   ],
+   "ignored": [
+    "x999"
+   ]
+  },
+  "reinforceSilent": {
+   "facts": [
+    {
+     "id": "x401",
+     "content": "Reinforce me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x402",
+     "content": "Leave me",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-06-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_0"
+     ]
+    }
+   ],
+   "confirmed": [],
+   "ignored": [
+    "x401",
+    "x999"
+   ]
+  },
+  "salient": [
+   [
+    "adopt",
+    "executive",
+    "firm",
+    "search",
+    "sourc",
+    "tool"
+   ],
+   [
+    "crm",
+    "migrat",
+    "stall",
+    "university"
+   ],
+   [
+    "ai-native",
+    "consultancy",
+    "covid-19",
+    "rank",
+    "ranking",
+    "runn"
+   ],
+   [
+    "gpt"
+   ]
+  ],
+  "select": [
+   [
+    {
+     "id": "x501",
+     "relevance": 1,
+     "score": 0.9151104911
+    }
+   ],
+   [
+    {
+     "id": "x502",
+     "relevance": 1,
+     "score": 0.8412140633
+    }
+   ],
+   []
+  ],
+  "lifecycle": {
+   "facts": [
+    {
+     "id": "x202",
+     "content": "Old knowledge B",
+     "category": "knowledge",
+     "confidence": 0.75,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-02-01T00:00:00.000Z",
+     "expectedValidDays": 318,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ]
+    },
+    {
+     "id": "x203",
+     "content": "Old correction",
+     "category": "correction",
+     "confidence": 0.9,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 30,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "x204",
+     "content": "Fresh knowledge",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 1,
+     "sourceRunIds": [
+      "run_0"
+     ],
+     "lastConfirmedAt": "2026-10-31T12:00:00.000Z"
+    },
+    {
+     "id": "x205",
+     "content": "Old but confirmed",
+     "category": "knowledge",
+     "confidence": 0.8,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-01-01T00:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_1"
+     ],
+     "lastConfirmedAt": "2026-10-25T00:00:00.000Z"
+    },
+    {
+     "id": "x206",
+     "content": "Old knowledge C",
+     "category": "knowledge",
+     "confidence": 0.71,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-03-01T00:00:00.000Z",
+     "expectedValidDays": 60,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_2"
+     ]
+    },
+    {
+     "id": "fx8l58f",
+     "content": "Executive search firms pilot AI sourcing before they change fee models.",
+     "category": "knowledge",
+     "confidence": 0.82,
+     "scope": "engagement",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 180,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_life"
+     ]
+    },
+    {
+     "id": "fb4h63m",
+     "content": "Prefers the data appendix at the end of every deck.",
+     "category": "preference",
+     "confidence": 0.9,
+     "scope": "user",
+     "durability": "durable",
+     "authority": "descriptive",
+     "createdAt": "2026-10-31T12:00:00.000Z",
+     "expectedValidDays": 90,
+     "confirmationCount": 0,
+     "sourceRunIds": [
+      "run_life"
+     ]
+    }
+   ],
+   "report": {
+    "admitted": 2,
+    "rejected": 0,
+    "rejectedByScopeGate": 0,
+    "removed": 1,
+    "extended": 1,
+    "merged": 0,
+    "confirmed": 1,
+    "evicted": 0,
+    "shadowDisagreement": 0,
+    "refusals": [
+     "staleness x203: not an aged candidate (protected, absent, or still inside its window)"
+    ],
+    "total": 7
+   }
+  },
+  "render": "- [knowledge] Executive compensation benchmarks moved in 2026\n- [knowledge] Search partners distrust AI shortlisting for C-suite roles"
+ }
+}

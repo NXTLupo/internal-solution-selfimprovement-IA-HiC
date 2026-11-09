@@ -35,6 +35,8 @@ export interface ChatAttachment {
     wikiPath?: string;
     /** Raw bytes - preserved for Phase 3 multimodal image upload. */
     bytesLength?: number;
+    /** 2026-10-21: pictures per source slide ("1" -> data URIs) for information parity on a reformat. */
+    slideImages?: Record<string, string[]>;
 }
 
 interface UploadProgress {
@@ -190,6 +192,7 @@ async function parseUploadedFile(file: File): Promise<ChatAttachment> {
         isImage: !!data.isImage,
         parseMethod: typeof data.method === 'string' ? data.method : undefined,
         bytesLength: typeof data.bytes === 'number' ? data.bytes : file.size,
+        slideImages: data.slideImages && typeof data.slideImages === 'object' ? data.slideImages : undefined,
     };
 }
 

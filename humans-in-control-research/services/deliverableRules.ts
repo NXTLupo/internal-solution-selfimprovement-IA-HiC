@@ -174,7 +174,10 @@ export function stripNameNumbers(text: string): string { return String(text || '
 // A figure of two or more digits that modifies a SINGULAR noun is a name, not a count ("a unified 360 student
 // profile"); a count takes a plural ("400 students") or a unit, and stays subject to the rule.
 const MODIFIER_NUMBER_RE = new RegExp(`\\b\\d{2,}(?:\\.\\d+)?\\s+(?!(?:${NUMBER_UNITS}))[a-z]*[a-rt-z]\\b`, 'g');
-const PROTECTED_RE = new RegExp(`${STANDARD_RE.source}|${POINTER_TOKEN_RE.source}|${ID_TOKEN_RE.source}|${YEAR_RE.source}`, 'gi');
+// An "N-year" term names a period or a tier ("1-year members", "a 3-year plan"), never a quantity claim; like a year it
+// is a fixed term the number rule leaves as written (2026-10-20, root-cause audit A7: "1-year" shipped as "multi-year").
+const FIXED_TERM_RE = /\b\d+-year(?:-old)?s?\b/g;
+const PROTECTED_RE = new RegExp(`${STANDARD_RE.source}|${POINTER_TOKEN_RE.source}|${ID_TOKEN_RE.source}|${YEAR_RE.source}|${FIXED_TERM_RE.source}`, 'gi');
 /** Base-26 letter key for a protected-span index (a..z, ba, bb, ...): no digit can reach the number rule. */
 function markerKey(i: number): string { let k = ''; do { k = String.fromCharCode(97 + (i % 26)) + k; i = Math.floor(i / 26); } while (i > 0); return k; }
 function markerIndex(k: string): number { let i = 0; for (const c of k) i = i * 26 + (c.charCodeAt(0) - 97); return i; }
@@ -225,9 +228,12 @@ const PLAIN_PHRASES: Array<[RegExp, string]> = [[/\bAI-driven\b/g, 'AI-based'], 
 export function plainWords(t: string): string {
     let out = String(t || '');
     for (const [re, sub] of PLAIN_PHRASES) out = out.replace(re, sub);
-    return out.replace(/\b[A-Za-z]+\b/g, w => {
+    return out.replace(/\b[A-Za-z]+\b/g, (w, offset: number, whole: string) => {
         const r = PLAIN_WORDS[w.toLowerCase()];
         if (!r) return w;
+        // A capitalized word that starts a proper-noun phrase is a NAME, not slop (2026-10-05 live: "Comprehensive
+        // Learner Record" shipped as "Full Learner Record"). Leave it when the next word is capitalized too.
+        if (/^[A-Z]/.test(w) && /^\s+[A-Z][a-z]/.test(whole.slice(offset + w.length, offset + w.length + 3))) return w;
         return /^[A-Z]/.test(w) ? r.charAt(0).toUpperCase() + r.slice(1) : r;
     });
 }

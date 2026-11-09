@@ -1,12 +1,34 @@
 ---
 name: verbalized-sampling
+description: Ask the model for a verbalized probability distribution over k candidates instead of one answer, recovering diversity lost to typicality bias. Apply at creative and synthesis points (themes, recommendations, prototype concepts, personas, slide narrative).
 invocation: model
-version: 1.0
-description: Training-free prompting technique to unlock LLM creative diversity by asking the model to verbalize a probability distribution over k candidate responses instead of generating a single answer. Mitigates the mode collapse caused by typicality bias in RLHF preference data. Recovers up to 66.8% of base-model pretraining diversity at inference time. Apply this skill at every HiC creative/synthesis touchpoint (theme synthesis, recommendations, prototype concept decomposition, persona rostering, slide narrative authoring) where the current output reads as predictable, conventional, or "slop". Bigger models benefit more (1.6-2.1x diversity gain on creative writing) — works best with Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.5.
+version: "1"
+status: active
 thinking: max
+triggers:
+  - "#vs"
+  - "#diverse"
+  - "#sample"
+  - "#explore"
+  - non-obvious
+  - creative diversity
+  - verbalized sampling
+  - mode collapse
+  - tail sampling
+composes_with:
+  - recommendation-architect
+  - html-deliverable-composer
+loader:
+  title: Verbalized Sampling
+  role: retrieval-enhancer
+  execution_context: primary
 ---
 
 # Verbalized Sampling — Unlocking LLM Creative Diversity
+
+## Scope
+
+Training-free prompting technique to unlock LLM creative diversity by asking the model to verbalize a probability distribution over k candidate responses instead of generating a single answer. Mitigates the mode collapse caused by typicality bias in RLHF preference data. Recovers up to 66.8% of base-model pretraining diversity at inference time. Apply this skill at every HiC creative/synthesis touchpoint (theme synthesis, recommendations, prototype concept decomposition, persona rostering, slide narrative authoring) where the current output reads as predictable, conventional, or "slop". Bigger models benefit more (1.6-2.1x diversity gain on creative writing) — works best with the strongest routed models (the reasoning model, Gemini 3.1 Pro, GPT-5.5).
 
 > Source: Zhang et al., *Verbalized Sampling: How to Mitigate Mode Collapse and Unlock LLM Diversity.* arXiv:2510.01171v3, Oct 2025. Read the full PDF at `.claude/skills/intelligence/2510.01171v3.pdf` if you need the mathematical proof; the operational summary below is what you need to apply the technique.
 
@@ -314,7 +336,7 @@ Builder picks `shifted-frame` by default. Exposes UI for user to switch frames o
 
 ## Composition: VS × HTML deliverable generation
 
-This skill composes with `html-deliverable-composer/SKILL.md` (see `plans/html-as-default-output-uplift.md`). When an HTML deliverable is being generated, the composition order is **fixed**:
+This skill composes with `html-deliverable-composer/SKILL.md`. When an HTML deliverable is being generated, the composition order is **fixed**:
 
 ```
 system_prompt_prefix = verbalized-sampling SKILL.md

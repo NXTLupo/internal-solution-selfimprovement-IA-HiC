@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:05:37+00:00"
 content_hash: "7a6398295e94f9e1"
 chunks:
   - id: "articles/bea-pce/dfceb401ac.md#c0"
-    char_span: [0, 638]
+    char_span: [0, 637]
     sentence_count: 4
     key_terms: [data, api, bea, retrieving, published, methods, industry-standard, name]
     concepts: [retrieving, published, methods]
-    token_count: 124
-    sources: [{"n":"bea_pce","u":"https://apps.bea.gov/api/signup/"}]
+    token_count: 123
+    sources: [{"n":"bea_pce","u":"https://apps.bea.gov/api/signup/","kind":"article"}]
 ---
 # BEA Personal Consumption
 

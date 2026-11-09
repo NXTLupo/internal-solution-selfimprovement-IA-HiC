@@ -33,6 +33,24 @@ import os
 
 PROXY_BASE = os.environ.get('RESEARCH_PROXY_URL', 'http://localhost:5012')
 
+
+def _proxy_headers():
+    """2026-10-30 (WS-0 S2): the proxy requires x-proxy-token. Read it from the
+    environment or from the runtime config the proxy writes at startup."""
+    headers = {'Accept': 'application/json'}
+    token = os.environ.get('PROXY_AUTH_TOKEN', '').strip()
+    if not token:
+        try:
+            cfg = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..',
+                               'humans-in-control-research', 'hic-workspace', '.runtime', 'config.json')
+            with open(cfg, encoding='utf-8') as f:
+                token = (json.load(f).get('proxyToken') or '').strip()
+        except Exception:
+            token = ''
+    if token:
+        headers['x-proxy-token'] = token
+    return headers
+
 # In-memory task storage (SEP-1686 pattern)
 tasks = {}
 
@@ -65,7 +83,7 @@ def proxy_search(source_id, query, limit=15):
     """Forward search to existing proxy."""
     try:
         url = f"{PROXY_BASE}/api/search/{source_id}?q={query}&limit={limit}"
-        req = Request(url, headers={'Accept': 'application/json'})
+        req = Request(url, headers=_proxy_headers())
         with urlopen(req, timeout=45) as resp:
             return json.loads(resp.read().decode())
     except Exception as e:

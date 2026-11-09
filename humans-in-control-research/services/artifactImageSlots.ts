@@ -199,6 +199,84 @@ const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         elementField: 'items', carrier: 'itemImages', max: 4, optional: true, wired: true, style: 'photo-scene',
         note: '2026-07-03 slides-imagery uplift (ideal-deck persona-segments parity): each numbered column carries an ENVIRONMENTAL PHOTOGRAPH of ITS OWN item subject between heading and body (slideComposer numbered-themes variant when=itemImages). Concept per item = the item name + first line of its body (content-derived, industry-agnostic). Intra-deck: 4 distinct scenes, one per item.',
     },
+    'slides:brief-card': {
+        artifact: 'slides:brief-card', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 560, h: 740, aspect: 0.76 }, fit: 'cover',
+        carrier: 'heroImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 information parity: the one-pager brief card carries the SOURCE slide picture when the deck reformats an attachment; otherwise a content-derived scene of the slide subject.',
+    },
+    'slides:stat-row': {
+        artifact: 'slides:stat-row', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:evidence-table': {
+        artifact: 'slides:evidence-table', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:means-matters': {
+        artifact: 'slides:means-matters', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:flow-arc': {
+        artifact: 'slides:flow-arc', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:milestone-timeline': {
+        artifact: 'slides:milestone-timeline', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:comparison-panels': {
+        artifact: 'slides:comparison-panels', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:quadrant': {
+        artifact: 'slides:quadrant', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:ranked-bars': {
+        artifact: 'slides:ranked-bars', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:role-recommendation': {
+        artifact: 'slides:role-recommendation', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:role-roadmap': {
+        artifact: 'slides:role-roadmap', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:aggregate-roadmap': {
+        artifact: 'slides:aggregate-roadmap', mode: 'hero', branch: 'emotive', node: '609:8',
+        ground: 'light', kind: 'hero', bounds: { w: 478, h: 170, aspect: 2.81 }, fit: 'cover',
+        carrier: 'sceneImage', optional: true, wired: true, style: 'photo-scene',
+        note: '2026-10-21 visual coverage (owner: templates lack compelling visuals): a content-derived editorial header scene at the top-right of the content rail; the composer narrows the title row under it.',
+    },
+    'slides:problem-diptych': {
+        artifact: 'slides:problem-diptych', mode: 'hero', branch: 'emotive', node: '609:10',
+        ground: 'dark', kind: 'hero', bounds: { w: 1920, h: 1080, aspect: 1.78 }, fit: 'cover',
+        carrier: 'backgroundImage', optional: true, wired: true, style: 'photo-background',
+        note: '2026-10-21 visual coverage: a full-bleed editorial scene under the rail scrim, body regions unchanged on top.',
+    },
     'slides:role-needs': {
         artifact: 'slides:role-needs', mode: 'panel', branch: 'emotive', node: '609:12',
         ground: 'light', kind: 'thumbnail', bounds: { w: 560, h: 236, aspect: 2.37 }, fit: 'cover',
@@ -206,13 +284,13 @@ const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
         note: '2026-07-03 slides-imagery uplift: the persona card leads with an ENVIRONMENTAL PORTRAIT of this role in its real working context (slideComposer role-needs variant when=portraitImage; card grows 624->764). Concept = persona.name + the slide title (content-derived; the person depicted belongs to whatever domain the corpus returned).',
     },
     'slides:section-divider': {
-        artifact: 'slides:section-divider', mode: 'panel', branch: 'none', node: '661:473',
+        artifact: 'slides:section-divider', mode: 'panel', branch: 'emotive', style: 'photo-scene', node: '661:473',
         ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
         carrier: 'heroImage', optional: true, wired: true,
         note: 'section-divider 609:4 (661:473) 820x1080 portrait full-bleed - emotive transition visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
     'slides:thesis-interstitial': {
-        artifact: 'slides:thesis-interstitial', mode: 'panel', branch: 'none', node: '661:474',
+        artifact: 'slides:thesis-interstitial', mode: 'panel', branch: 'emotive', style: 'photo-scene', node: '661:474',
         ground: 'dark', kind: 'panel', bounds: { w: 920, h: 1080, aspect: 0.85 }, fit: 'cover',
         carrier: 'heroImage', optional: true, wired: true,
         note: 'thesis 609:5 (661:474) 920x1080 portrait full-bleed - emotive abstract of the thesis. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
@@ -272,5 +350,11 @@ const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
 export function imageSpecFor(artifact: string | undefined | null): ArtifactImageSpec | undefined {
     if (!artifact) return undefined;
     return ARTIFACT_IMAGE_SPECS[artifact];
+}
+
+/** Every payload carrier the registry names (2026-10-26 live: the org-model icons were attached into `columnIcons`
+ *  and then dropped, because the runtime merge kept a hand-written carrier list that never learned that name). */
+export function registeredImageCarriers(): string[] {
+    return Array.from(new Set(Object.values(ARTIFACT_IMAGE_SPECS).map(s => s.carrier).filter(Boolean)));
 }
 

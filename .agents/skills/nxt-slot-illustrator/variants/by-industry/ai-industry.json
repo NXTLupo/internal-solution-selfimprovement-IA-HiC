@@ -1,0 +1,2824 @@
+[
+ {
+  "id": "ai-industry-net-01",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "foundation-model-supply-chain",
+  "title": "Foundation model supply chain",
+  "subtitle": "From chips to deployed model across the value chain",
+  "artifacts": [
+   "strategy",
+   "arch",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "spine",
+   "seed": 4700
+  }
+ },
+ {
+  "id": "ai-industry-net-02",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "gpu-cluster-topology",
+  "title": "GPU cluster topology",
+  "subtitle": "Nodes, NVLink islands and interconnect fabric",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4701
+  }
+ },
+ {
+  "id": "ai-industry-net-03",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "inference-serving-topology",
+  "title": "Inference serving topology",
+  "subtitle": "Routers, replicas and KV-cache tiers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4702
+  }
+ },
+ {
+  "id": "ai-industry-net-04",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "agent-orchestration-network",
+  "title": "Agent orchestration network",
+  "subtitle": "Planner, tools and sub-agent message paths",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "radial",
+   "seed": 4703
+  }
+ },
+ {
+  "id": "ai-industry-net-05",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "model-provider-ecosystem",
+  "title": "Model provider ecosystem map",
+  "subtitle": "Labs, clouds, chip vendors and resellers",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "mesh",
+   "seed": 4704
+  }
+ },
+ {
+  "id": "ai-industry-net-06",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "data-flywheel-loop",
+  "title": "Data flywheel loop",
+  "subtitle": "Usage feeds labeling feeds model feeds usage",
+  "artifacts": [
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 6,
+   "layout": "radial",
+   "seed": 4705
+  }
+ },
+ {
+  "id": "ai-industry-net-07",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "multi-cloud-gpu-footprint",
+  "title": "Multi-cloud GPU footprint",
+  "subtitle": "Capacity spread across hyperscaler regions",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4706
+  }
+ },
+ {
+  "id": "ai-industry-net-08",
+  "family": "operatingNetwork",
+  "industry": "ai-industry",
+  "framework": "mlops-team-operating-model",
+  "title": "MLOps team operating model",
+  "subtitle": "Research, platform and product handoffs",
+  "artifacts": [
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "spine",
+   "seed": 4707
+  }
+ },
+ {
+  "id": "ai-industry-cap-01",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "enterprise-ai-capability-stack",
+  "title": "Enterprise AI capability stack",
+  "subtitle": "Infra, models, orchestration, apps, governance",
+  "artifacts": [
+   "strategy",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4708
+  }
+ },
+ {
+  "id": "ai-industry-cap-02",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "llm-application-stack",
+  "title": "LLM application stack",
+  "subtitle": "Model, retrieval, agents, UI layers",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4709
+  }
+ },
+ {
+  "id": "ai-industry-cap-03",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "ai-infra-layer-cake",
+  "title": "AI infra layer cake",
+  "subtitle": "Silicon, interconnect, cluster, scheduler, serving",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 0,
+   "seed": 4710
+  }
+ },
+ {
+  "id": "ai-industry-cap-04",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "rag-pipeline-stack",
+  "title": "RAG pipeline stack",
+  "subtitle": "Ingest, embed, index, retrieve, generate",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4711
+  }
+ },
+ {
+  "id": "ai-industry-cap-05",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "model-lifecycle-stack",
+  "title": "Model lifecycle stack",
+  "subtitle": "Pretrain, fine-tune, align, serve, monitor",
+  "artifacts": [
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4712
+  }
+ },
+ {
+  "id": "ai-industry-cap-06",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "ai-safety-control-stack",
+  "title": "AI safety control stack",
+  "subtitle": "Filters, classifiers, red-team, oversight",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4713
+  }
+ },
+ {
+  "id": "ai-industry-cap-07",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "data-curation-stack",
+  "title": "Data curation stack",
+  "subtitle": "Collect, dedupe, filter, weight, eval",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4714
+  }
+ },
+ {
+  "id": "ai-industry-cap-08",
+  "family": "capabilityStack",
+  "industry": "ai-industry",
+  "framework": "agent-autonomy-tiers",
+  "title": "Agent autonomy tiers",
+  "subtitle": "Assist, copilot, supervised, autonomous",
+  "artifacts": [
+   "strategy",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4715
+  }
+ },
+ {
+  "id": "ai-industry-rad-01",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "mlops-maturity-radar",
+  "title": "MLOps maturity radar",
+  "subtitle": "Current capability against target operating state",
+  "artifacts": [
+   "gap",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.3,
+    0.6,
+    0.45,
+    0.35
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.7,
+    0.9,
+    0.8,
+    0.75
+   ],
+   "seed": 4716
+  }
+ },
+ {
+  "id": "ai-industry-rad-02",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "ai-governance-maturity",
+  "title": "AI governance maturity",
+  "subtitle": "Policy readiness versus required controls",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.3,
+    0.5,
+    0.4,
+    0.55,
+    0.35
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.8,
+    0.85,
+    0.8
+   ],
+   "seed": 4717
+  }
+ },
+ {
+  "id": "ai-industry-rad-03",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "model-eval-coverage-radar",
+  "title": "Model eval coverage radar",
+  "subtitle": "Task coverage versus required eval breadth",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.5,
+    0.3,
+    0.55,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.85,
+    0.7,
+    0.85,
+    0.8,
+    0.85
+   ],
+   "seed": 4718
+  }
+ },
+ {
+  "id": "ai-industry-rad-04",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "red-team-coverage-radar",
+  "title": "Red-team coverage radar",
+  "subtitle": "Attack-surface tested against threat model",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.3,
+    0.4,
+    0.45,
+    0.35,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.75,
+    0.8,
+    0.85,
+    0.8,
+    0.85
+   ],
+   "seed": 4719
+  }
+ },
+ {
+  "id": "ai-industry-rad-05",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "data-readiness-radar",
+  "title": "Data readiness radar",
+  "subtitle": "Quality, labeling, lineage versus target",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.35,
+    0.5,
+    0.4,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.8,
+    0.9
+   ],
+   "seed": 4720
+  }
+ },
+ {
+  "id": "ai-industry-rad-06",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "inference-reliability-radar",
+  "title": "Inference reliability radar",
+  "subtitle": "Latency, uptime, scaling versus SLO target",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.4,
+    0.55,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.85,
+    0.85,
+    0.85
+   ],
+   "seed": 4721
+  }
+ },
+ {
+  "id": "ai-industry-rad-07",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "enterprise-ai-adoption-radar",
+  "title": "Enterprise AI adoption radar",
+  "subtitle": "Function-level deployment versus ambition",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.3,
+    0.45,
+    0.55,
+    0.35
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.8,
+    0.75,
+    0.8,
+    0.85,
+    0.75
+   ],
+   "seed": 4722
+  }
+ },
+ {
+  "id": "ai-industry-rad-08",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "responsible-ai-radar",
+  "title": "Responsible AI radar",
+  "subtitle": "Fairness, transparency, accountability scores",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.45,
+    0.5,
+    0.35,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.9,
+    0.8,
+    0.85
+   ],
+   "seed": 4723
+  }
+ },
+ {
+  "id": "ai-industry-rad-09",
+  "family": "maturityRadar",
+  "industry": "ai-industry",
+  "framework": "ai-talent-capability-radar",
+  "title": "AI talent capability radar",
+  "subtitle": "Research, infra, product skill coverage",
+  "artifacts": [
+   "org",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.35,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.8,
+    0.85
+   ],
+   "seed": 4724
+  }
+ },
+ {
+  "id": "ai-industry-fun-01",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "poc-to-production-funnel",
+  "title": "PoC-to-production funnel",
+  "subtitle": "AI pilots that reach scaled deployment",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    38,
+    19,
+    9
+   ],
+   "seed": 4725
+  }
+ },
+ {
+  "id": "ai-industry-fun-02",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "data-curation-funnel",
+  "title": "Data curation funnel",
+  "subtitle": "Raw tokens surviving each filter stage",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    48,
+    30,
+    16
+   ],
+   "seed": 4726
+  }
+ },
+ {
+  "id": "ai-industry-fun-03",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "agent-task-completion-funnel",
+  "title": "Agent task completion funnel",
+  "subtitle": "Steps surviving from plan to verified result",
+  "artifacts": [
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    78,
+    55,
+    33,
+    18
+   ],
+   "seed": 4727
+  }
+ },
+ {
+  "id": "ai-industry-fun-04",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "eval-gate-funnel",
+  "title": "Eval gate funnel",
+  "subtitle": "Model candidates passing each quality gate",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    41,
+    22,
+    11
+   ],
+   "seed": 4728
+  }
+ },
+ {
+  "id": "ai-industry-fun-05",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "inference-request-funnel",
+  "title": "Inference request funnel",
+  "subtitle": "Requests surviving cache, route, generate",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    50,
+    34,
+    20
+   ],
+   "seed": 4729
+  }
+ },
+ {
+  "id": "ai-industry-fun-06",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "ai-sales-pipeline-funnel",
+  "title": "AI sales pipeline funnel",
+  "subtitle": "Enterprise deals from lead to closed seat",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    33,
+    18,
+    8
+   ],
+   "seed": 4730
+  }
+ },
+ {
+  "id": "ai-industry-fun-07",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "fine-tune-data-funnel",
+  "title": "Fine-tune data funnel",
+  "subtitle": "Examples surviving to the training set",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    66,
+    42,
+    25,
+    14
+   ],
+   "seed": 4731
+  }
+ },
+ {
+  "id": "ai-industry-fun-08",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "user-activation-funnel",
+  "title": "AI product activation funnel",
+  "subtitle": "Signups reaching habitual model use",
+  "artifacts": [
+   "prd",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    36,
+    21,
+    12
+   ],
+   "seed": 4732
+  }
+ },
+ {
+  "id": "ai-industry-fun-09",
+  "family": "funnelFlow",
+  "industry": "ai-industry",
+  "framework": "safety-incident-funnel",
+  "title": "Safety incident funnel",
+  "subtitle": "Flagged outputs escalated to human review",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    40,
+    22,
+    11,
+    5
+   ],
+   "seed": 4733
+  }
+ },
+ {
+  "id": "ai-industry-jou-01",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "model-training-lifecycle",
+  "title": "Model training lifecycle",
+  "subtitle": "Data to deployed checkpoint with friction",
+  "artifacts": [
+   "journey",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4734
+  }
+ },
+ {
+  "id": "ai-industry-jou-02",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "enterprise-ai-buyer-journey",
+  "title": "Enterprise AI buyer journey",
+  "subtitle": "Evaluation to renewal with decision friction",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4735
+  }
+ },
+ {
+  "id": "ai-industry-jou-03",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "mlops-deployment-journey",
+  "title": "MLOps deployment journey",
+  "subtitle": "Commit to production with handoff friction",
+  "artifacts": [
+   "journey",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 4736
+  }
+ },
+ {
+  "id": "ai-industry-jou-04",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "agent-task-journey",
+  "title": "Agent task execution journey",
+  "subtitle": "Goal to verified output with breakpoints",
+  "artifacts": [
+   "journey",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4737
+  }
+ },
+ {
+  "id": "ai-industry-jou-05",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "data-annotation-journey",
+  "title": "Data annotation journey",
+  "subtitle": "Raw sample to gold label with rework",
+  "artifacts": [
+   "journey",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4738
+  }
+ },
+ {
+  "id": "ai-industry-jou-06",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "prompt-to-product-journey",
+  "title": "Prompt-to-product journey",
+  "subtitle": "Prototype prompt to shipped feature",
+  "artifacts": [
+   "journey",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4739
+  }
+ },
+ {
+  "id": "ai-industry-jou-07",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "model-incident-response-journey",
+  "title": "Model incident response journey",
+  "subtitle": "Detection to rollback with delay points",
+  "artifacts": [
+   "journey",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4740
+  }
+ },
+ {
+  "id": "ai-industry-jou-08",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "researcher-experiment-journey",
+  "title": "Researcher experiment journey",
+  "subtitle": "Hypothesis to published result with stalls",
+  "artifacts": [
+   "journey",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4741
+  }
+ },
+ {
+  "id": "ai-industry-jou-09",
+  "family": "journeyLine",
+  "industry": "ai-industry",
+  "framework": "developer-api-onboarding-journey",
+  "title": "Developer API onboarding journey",
+  "subtitle": "First key to production call with drop-off",
+  "artifacts": [
+   "journey",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4742
+  }
+ },
+ {
+  "id": "ai-industry-dat-01",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "model-benchmark-by-task",
+  "title": "Model benchmark by task",
+  "subtitle": "Accuracy across reasoning, code and retrieval",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    9,
+    6,
+    8,
+    7,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4743,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "ai-industry-dat-02",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "token-cost-by-model-tier",
+  "title": "Token cost by model tier",
+  "subtitle": "Price per million tokens across tiers",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4744,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "ai-industry-dat-03",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "inference-latency-by-model",
+  "title": "Inference latency by model",
+  "subtitle": "Time-to-first-token across served models",
+  "artifacts": [
+   "tech-audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    5,
+    7,
+    4,
+    9,
+    3
+   ],
+   "sort": "asc",
+   "seed": 4745,
+   "mean": true
+  }
+ },
+ {
+  "id": "ai-industry-dat-04",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "throughput-tokens-per-second",
+  "title": "Throughput by serving config",
+  "subtitle": "Tokens per second across batch settings",
+  "artifacts": [
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    5,
+    7,
+    8,
+    6,
+    9,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4746,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "ai-industry-dat-05",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "compute-spend-by-workload",
+  "title": "Compute spend by workload",
+  "subtitle": "GPU hours across training and inference jobs",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    7,
+    4,
+    5,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4747,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "ai-industry-dat-06",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "eval-win-rate-by-domain",
+  "title": "Eval win-rate by domain",
+  "subtitle": "Head-to-head preference across domains",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    8,
+    6,
+    9,
+    5,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4748,
+   "mean": true,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "ai-industry-dat-07",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "hallucination-rate-by-model",
+  "title": "Hallucination rate by model",
+  "subtitle": "Factual error rate on grounded queries",
+  "artifacts": [
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    5,
+    7,
+    4,
+    8,
+    3,
+    6
+   ],
+   "sort": "asc",
+   "seed": 4749,
+   "mean": true
+  }
+ },
+ {
+  "id": "ai-industry-dat-08",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "gpu-utilization-by-cluster",
+  "title": "GPU utilization by cluster",
+  "subtitle": "Average occupancy across training pools",
+  "artifacts": [
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    5,
+    7,
+    9,
+    4,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4750,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "ai-industry-dat-09",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "context-window-by-model",
+  "title": "Context window by model",
+  "subtitle": "Maximum input length across frontier models",
+  "artifacts": [
+   "competitive",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    4,
+    6,
+    8,
+    5,
+    9,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4751,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "ai-industry-dat-10",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "fine-tune-lift-by-method",
+  "title": "Fine-tune lift by method",
+  "subtitle": "Quality gain across LoRA, SFT and RLHF",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    5,
+    7,
+    9,
+    6,
+    8
+   ],
+   "sort": "desc",
+   "seed": 4752,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "ai-industry-dat-11",
+  "family": "dataField",
+  "industry": "ai-industry",
+  "framework": "ai-revenue-by-product-line",
+  "title": "AI revenue by product line",
+  "subtitle": "Bookings across API, apps and platform",
+  "artifacts": [
+   "strategy",
+   "case-study"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    4,
+    7,
+    3,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4753,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "ai-industry-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "rag-vs-finetune-vs-prompt",
+  "title": "RAG vs fine-tune vs prompt matrix",
+  "subtitle": "Approach scored against deployment criteria",
+  "artifacts": [
+   "strategy",
+   "tech-audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.7,
+     0.6
+    ],
+    [
+     0.6,
+     0.9,
+     0.5,
+     0.8
+    ],
+    [
+     0.4,
+     0.6,
+     0.9,
+     0.5
+    ]
+   ],
+   "seed": 4754
+  }
+ },
+ {
+  "id": "ai-industry-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "build-vs-buy-model",
+  "title": "Build vs buy model 2x2",
+  "subtitle": "Control versus speed-to-value tradeoff",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.4,
+     0.4
+    ],
+    [
+     0.5,
+     0.9,
+     0.4
+    ],
+    [
+     0.4,
+     0.4,
+     0.4
+    ]
+   ],
+   "seed": 4755
+  }
+ },
+ {
+  "id": "ai-industry-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "model-provider-scorecard",
+  "title": "Model provider scorecard",
+  "subtitle": "Vendors scored on cost, quality, latency",
+  "artifacts": [
+   "competitive",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.6,
+     0.8
+    ],
+    [
+     0.7,
+     0.9,
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     0.6,
+     0.9,
+     0.7
+    ],
+    [
+     0.8,
+     0.5,
+     0.7,
+     0.9
+    ]
+   ],
+   "seed": 4756
+  }
+ },
+ {
+  "id": "ai-industry-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "open-vs-closed-model",
+  "title": "Open vs closed model matrix",
+  "subtitle": "Weights access against control criteria",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.6
+    ],
+    [
+     0.6,
+     0.7,
+     0.9
+    ]
+   ],
+   "seed": 4757
+  }
+ },
+ {
+  "id": "ai-industry-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "agent-framework-comparison",
+  "title": "Agent framework comparison",
+  "subtitle": "Frameworks scored on tooling and control",
+  "artifacts": [
+   "tech-audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.9,
+     0.5,
+     0.7
+    ],
+    [
+     0.7,
+     0.5,
+     0.9,
+     0.6
+    ]
+   ],
+   "seed": 4758
+  }
+ },
+ {
+  "id": "ai-industry-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "gpu-instance-cost-quality",
+  "title": "GPU instance cost-quality matrix",
+  "subtitle": "Instance types on price versus throughput",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.4
+    ],
+    [
+     0.6,
+     0.8,
+     0.4
+    ],
+    [
+     0.3,
+     0.9,
+     0.4
+    ]
+   ],
+   "seed": 4759
+  }
+ },
+ {
+  "id": "ai-industry-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "deployment-target-matrix",
+  "title": "Deployment target matrix",
+  "subtitle": "Cloud, edge, on-prem against requirements",
+  "artifacts": [
+   "arch",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.5,
+     0.9,
+     0.6,
+     0.8
+    ],
+    [
+     0.7,
+     0.5,
+     0.9,
+     0.6
+    ]
+   ],
+   "seed": 4760
+  }
+ },
+ {
+  "id": "ai-industry-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "eval-method-comparison",
+  "title": "Eval method comparison",
+  "subtitle": "Human, LLM-judge, benchmark tradeoffs",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.9,
+     0.7
+    ],
+    [
+     0.5,
+     0.7,
+     0.9
+    ]
+   ],
+   "seed": 4761
+  }
+ },
+ {
+  "id": "ai-industry-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "use-case-prioritization-2x2",
+  "title": "Use-case prioritization 2x2",
+  "subtitle": "Business value against build feasibility",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.4
+    ],
+    [
+     0.4,
+     0.8,
+     0.4
+    ],
+    [
+     0.4,
+     0.4,
+     0.4
+    ]
+   ],
+   "seed": 4762
+  }
+ },
+ {
+  "id": "ai-industry-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "safety-risk-heatmap",
+  "title": "Safety risk heatmap",
+  "subtitle": "Capability against misuse severity",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.3,
+     0.6,
+     0.9
+    ],
+    [
+     0.5,
+     0.8,
+     0.7
+    ],
+    [
+     0.7,
+     0.9,
+     0.6
+    ]
+   ],
+   "seed": 4763
+  }
+ },
+ {
+  "id": "ai-industry-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "ai-industry",
+  "framework": "vendor-lock-in-risk-matrix",
+  "title": "Vendor lock-in risk matrix",
+  "subtitle": "Switching cost against dependency depth",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.8,
+     0.4
+    ],
+    [
+     0.4,
+     0.4,
+     0.4
+    ]
+   ],
+   "seed": 4764
+  }
+ },
+ {
+  "id": "ai-industry-dia-01",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "eval-quality-gauge",
+  "title": "Eval quality gauge",
+  "subtitle": "Composite benchmark score against target",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 74,
+   "segments": 10,
+   "seed": 4765
+  }
+ },
+ {
+  "id": "ai-industry-dia-02",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "gpu-utilization-gauge",
+  "title": "GPU utilization gauge",
+  "subtitle": "Fleet-wide occupancy against capacity target",
+  "artifacts": [
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 63,
+   "segments": 10,
+   "seed": 4766
+  }
+ },
+ {
+  "id": "ai-industry-dia-03",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "inference-cost-per-query-gauge",
+  "title": "Cost-per-query gauge",
+  "subtitle": "Blended unit economics against ceiling",
+  "artifacts": [
+   "strategy",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4767
+  }
+ },
+ {
+  "id": "ai-industry-dia-04",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "model-uptime-gauge",
+  "title": "Model uptime gauge",
+  "subtitle": "Serving availability against SLO",
+  "artifacts": [
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 92,
+   "segments": 10,
+   "seed": 4768
+  }
+ },
+ {
+  "id": "ai-industry-dia-05",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "hallucination-rate-gauge",
+  "title": "Hallucination rate gauge",
+  "subtitle": "Grounded error rate against threshold",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 18,
+   "segments": 10,
+   "seed": 4769
+  }
+ },
+ {
+  "id": "ai-industry-dia-06",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "data-coverage-gauge",
+  "title": "Data coverage gauge",
+  "subtitle": "Domain coverage of the training set",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 67,
+   "segments": 10,
+   "seed": 4770
+  }
+ },
+ {
+  "id": "ai-industry-dia-07",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "agent-success-rate-gauge",
+  "title": "Agent success rate gauge",
+  "subtitle": "Task completion against acceptance bar",
+  "artifacts": [
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 4771
+  }
+ },
+ {
+  "id": "ai-industry-dia-08",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "compute-budget-burn-gauge",
+  "title": "Compute budget burn gauge",
+  "subtitle": "Quarter spend against allocation",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 81,
+   "segments": 10,
+   "seed": 4772
+  }
+ },
+ {
+  "id": "ai-industry-dia-09",
+  "family": "instrumentDial",
+  "industry": "ai-industry",
+  "framework": "safety-coverage-gauge",
+  "title": "Safety coverage gauge",
+  "subtitle": "Red-team surface tested against plan",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 54,
+   "segments": 10,
+   "seed": 4773
+  }
+ },
+ {
+  "id": "ai-industry-gan-01",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "model-release-roadmap",
+  "title": "Model release roadmap",
+  "subtitle": "Frontier model launches across quarters",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4774
+  }
+ },
+ {
+  "id": "ai-industry-gan-02",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "compute-buildout-timeline",
+  "title": "Compute buildout timeline",
+  "subtitle": "Cluster delivery and power milestones",
+  "artifacts": [
+   "roadmap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4775
+  }
+ },
+ {
+  "id": "ai-industry-gan-03",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "ai-platform-roadmap",
+  "title": "AI platform roadmap",
+  "subtitle": "Infra, eval and agent capabilities by horizon",
+  "artifacts": [
+   "roadmap",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4776
+  }
+ },
+ {
+  "id": "ai-industry-gan-04",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "capability-scaling-roadmap",
+  "title": "Capability scaling roadmap",
+  "subtitle": "Compute and capability targets by phase",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4777
+  }
+ },
+ {
+  "id": "ai-industry-gan-05",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "ai-governance-rollout",
+  "title": "AI governance rollout",
+  "subtitle": "Policy, controls and audit phases",
+  "artifacts": [
+   "roadmap",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4778
+  }
+ },
+ {
+  "id": "ai-industry-gan-06",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "enterprise-rollout-timeline",
+  "title": "Enterprise rollout timeline",
+  "subtitle": "Function-by-function AI deployment plan",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4779
+  }
+ },
+ {
+  "id": "ai-industry-gan-07",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "data-pipeline-buildout",
+  "title": "Data pipeline buildout",
+  "subtitle": "Ingestion, labeling and curation phases",
+  "artifacts": [
+   "roadmap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4780
+  }
+ },
+ {
+  "id": "ai-industry-gan-08",
+  "family": "timelineGantt",
+  "industry": "ai-industry",
+  "framework": "agent-program-roadmap",
+  "title": "Agent program roadmap",
+  "subtitle": "From copilot pilots to autonomous workflows",
+  "artifacts": [
+   "roadmap",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4781
+  }
+ },
+ {
+  "id": "ai-industry-flo-01",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "training-pipeline-architecture",
+  "title": "Training pipeline architecture",
+  "subtitle": "Data, sharding, optimizer, checkpoint flow",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4782
+  }
+ },
+ {
+  "id": "ai-industry-flo-02",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "rag-retrieval-flow",
+  "title": "RAG retrieval flow",
+  "subtitle": "Query, embed, retrieve, rerank, generate",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4783
+  }
+ },
+ {
+  "id": "ai-industry-flo-03",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "inference-request-flow",
+  "title": "Inference request flow",
+  "subtitle": "Route, batch, decode, stream response",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4784
+  }
+ },
+ {
+  "id": "ai-industry-flo-04",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "agent-decision-loop",
+  "title": "Agent decision loop",
+  "subtitle": "Plan, act, observe, branch on result",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4785
+  }
+ },
+ {
+  "id": "ai-industry-flo-05",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "eval-harness-pipeline",
+  "title": "Eval harness pipeline",
+  "subtitle": "Prompt, run, score, aggregate, gate",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4786
+  }
+ },
+ {
+  "id": "ai-industry-flo-06",
+  "family": "ai_chiptopo",
+  "industry": "ai-industry",
+  "framework": "fine-tune-decision-flow",
+  "title": "Fine-tune decision flow",
+  "subtitle": "Branch on data volume and task fit",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4787
+  }
+ },
+ {
+  "id": "ai-industry-flo-07",
+  "family": "flowSchematic",
+  "industry": "ai-industry",
+  "framework": "data-ingestion-pipeline",
+  "title": "Data ingestion pipeline",
+  "subtitle": "Source, clean, dedupe, embed, store",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4788
+  }
+ },
+ {
+  "id": "ai-industry-flo-08",
+  "family": "flowSchematic",
+  "industry": "ai-industry",
+  "framework": "safety-gating-flow",
+  "title": "Safety gating flow",
+  "subtitle": "Branch output on classifier verdict",
+  "artifacts": [
+   "arch",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4789
+  }
+ },
+ {
+  "id": "ai-industry-pro-01",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "compute-cost-breakdown",
+  "title": "Compute cost breakdown",
+  "subtitle": "Training, inference, storage, network mix",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    42,
+    33,
+    15,
+    10
+   ],
+   "seed": 4790
+  }
+ },
+ {
+  "id": "ai-industry-pro-02",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "training-data-mix",
+  "title": "Training data mix",
+  "subtitle": "Web, code, books, synthetic composition",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    45,
+    25,
+    18,
+    12
+   ],
+   "seed": 4791
+  }
+ },
+ {
+  "id": "ai-industry-pro-03",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "inference-traffic-by-model",
+  "title": "Inference traffic by model",
+  "subtitle": "Request share across model tiers",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    50,
+    28,
+    15,
+    7
+   ],
+   "seed": 4792
+  }
+ },
+ {
+  "id": "ai-industry-pro-04",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "ai-revenue-mix",
+  "title": "AI revenue mix",
+  "subtitle": "API, subscription, enterprise, services share",
+  "artifacts": [
+   "strategy",
+   "case-study"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    30,
+    22,
+    10
+   ],
+   "seed": 4793
+  }
+ },
+ {
+  "id": "ai-industry-pro-05",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "token-spend-by-function",
+  "title": "Token spend by function",
+  "subtitle": "Usage share across business functions",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    27,
+    20,
+    18
+   ],
+   "seed": 4794
+  }
+ },
+ {
+  "id": "ai-industry-pro-06",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "model-portfolio-mix",
+  "title": "Model portfolio mix",
+  "subtitle": "Open, closed and fine-tuned model share",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    35,
+    25
+   ],
+   "seed": 4795
+  }
+ },
+ {
+  "id": "ai-industry-pro-07",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "ai-headcount-allocation",
+  "title": "AI headcount allocation",
+  "subtitle": "Research, infra, product, safety split",
+  "artifacts": [
+   "org",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    30,
+    28,
+    27,
+    15
+   ],
+   "seed": 4796
+  }
+ },
+ {
+  "id": "ai-industry-pro-08",
+  "family": "proportionStack",
+  "industry": "ai-industry",
+  "framework": "gpu-allocation-by-team",
+  "title": "GPU allocation by team",
+  "subtitle": "Cluster share across research and product",
+  "artifacts": [
+   "arch",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    44,
+    26,
+    20,
+    10
+   ],
+   "seed": 4797
+  }
+ },
+ {
+  "id": "ai-industry-sec-01",
+  "family": "sectionMark",
+  "industry": "ai-industry",
+  "framework": "section-divider-infrastructure",
+  "title": "Infrastructure and economics",
+  "subtitle": "Compute, serving and unit economics",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4798
+  }
+ },
+ {
+  "id": "ai-industry-sec-02",
+  "family": "sectionMark",
+  "industry": "ai-industry",
+  "framework": "section-divider-models",
+  "title": "Models, evals and safety",
+  "subtitle": "Capability, evaluation and alignment",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 3,
+   "seed": 4799
+  }
+ }
+]

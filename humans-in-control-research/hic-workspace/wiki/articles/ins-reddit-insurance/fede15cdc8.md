@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:46:04+00:00"
 content_hash: "593a49451b9f9a2c"
 chunks:
   - id: "articles/ins-reddit-insurance/fede15cdc8.md#c0"
-    char_span: [0, 697]
+    char_span: [0, 696]
     sentence_count: 3
     key_terms: [trip, convention, insurance, drive, car, borrowing, yesterday, comments]
     concepts: [convention, insurance, drive]
-    token_count: 171
-    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ukx5fn/borrowing_a_parents_car_for_a_weekend_trip_out_of/"}]
+    token_count: 170
+    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ukx5fn/borrowing_a_parents_car_for_a_weekend_trip_out_of/","kind":"article","date":"2026-07-01"}]
 ---
 # Borrowing a parents car for a weekend trip out of state
 

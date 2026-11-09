@@ -7,107 +7,100 @@ subreddit: "consulting"
 title: "I think MBB is broken"
 author: "Extension_Turn5658"
 date: "2026-05-31T18:10:27.000Z"
-score: 641
+score: 652
 upvote_ratio: 0.97
 num_comments: 135
 flair: ""
-extracted_at: "2026-06-23T20:31:59.148Z"
+extracted_at: "2026-10-09T16:37:07.940Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
-engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c0"
     char_span: [0, 1911]
     sentence_count: 16
     key_terms: [like, work, consulting, anything, comments, partners, company, "doesn't"]
     concepts: [consulting, anything, comments, partners, company]
+    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c4"]
     token_count: 450
-    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/"}]
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c1"
     char_span: [1913, 3624]
     sentence_count: 12
     key_terms: [remember, pay, almost, barely, hours, hard, absolutely, inflation]
     concepts: [remember, almost, barely, absolutely, hours]
     token_count: 384
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c2"
     char_span: [3626, 4585]
     sentence_count: 7
     key_terms: [senior, incentive, partners, beyond, career, change, feels, big]
     concepts: [senior, incentive, partners, beyond, career]
     token_count: 193
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c3"
-    char_span: [4599, 5746]
+    char_span: [4600, 5747]
     sentence_count: 7
     key_terms: [fridays, hours, good, extracurriculars, bigbirdlaw69420, manufacturing, family-owned, coordinated]
     concepts: [fridays, hours]
     section: Comments
     token_count: 306
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c4"
-    char_span: [5748, 7943]
-    sentence_count: 18
-    key_terms: [people, partners, because, clients, chill, experienced, like, mbb]
-    concepts: [people, partners, because, clients, experienced]
-    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c5", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c7", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c8"]
+    char_span: [5749, 7939]
+    sentence_count: 15
+    key_terms: [people, partners, because, experienced, like, top, consulting, already]
+    concepts: [people, partners, because, experienced, consulting]
+    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c0", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c7"]
     section: Comments
     token_count: 512
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c5"
-    char_span: [7644, 8671]
-    sentence_count: 5
-    key_terms: [people, dancewitheverything, work, partners, little, being, top, fetacheese8890]
-    concepts: [dancewitheverything, people, partners, little, being]
-    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c4", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c6", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c7"]
-    section: Comments
-    token_count: 244
-  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c6"
-    char_span: [8673, 10368]
+    char_span: [7695, 8736]
     sentence_count: 4
-    key_terms: [hours, years, work, being, partners, brutal, dancewitheverything, didnt]
-    concepts: [hours, years, being, partners, brutal]
-    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c5"]
+    key_terms: [years, dancewitheverything, hours, been, did, good, apprenticeship, fetacheese8890]
+    concepts: [years, hours]
     section: Comments
-    token_count: 420
+    token_count: 293
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
+  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c6"
+    char_span: [8738, 10749]
+    sentence_count: 10
+    key_terms: [year, consultants, mbb, work, industries, everyone, months, points]
+    concepts: [consultants, industries, everyone, months, points]
+    section: Comments
+    token_count: 485
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c7"
-    char_span: [10370, 12396]
-    sentence_count: 16
-    key_terms: [partners, expert, people, relationship, good, mbb, year, industries]
-    concepts: [partners, relationship, expert, people, industries]
-    related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c4", "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c5"]
-    section: Comments
-    token_count: 487
-  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c8"
-    char_span: [12398, 14169]
-    sentence_count: 17
-    key_terms: [bcg, partner, because, people, mck, resigned, manager, guspsz]
-    concepts: [partner, because, people, resigned, manager]
+    char_span: [10751, 11842]
+    sentence_count: 11
+    key_terms: [partners, partner, expert, people, relationship, everybody, years, team]
+    concepts: [partners, partner, relationship, expert, people]
     related_chunks: ["social-intelligence/reddit-deep/consulting/1tt2qlo.md#c4"]
     section: Comments
-    token_count: 444
+    token_count: 241
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
+  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c8"
+    char_span: [11844, 13584]
+    sentence_count: 14
+    key_terms: [people, level, outsourcing, bcg, machines, possible, resigned, thinking]
+    concepts: [people, outsourcing, level, machines, possible]
+    section: Comments
+    token_count: 441
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c9"
-    char_span: [14171, 14760]
-    sentence_count: 2
-    key_terms: [deliverables, always, hours, been, gap, pay, deliverable, workstreams]
-    concepts: [deliverables, always, hours]
+    char_span: [13586, 14253]
+    sentence_count: 5
+    key_terms: [hours, pay, always, bcg, gap, mck, implementation, considerably]
+    concepts: [hours, always]
     section: Comments
-    token_count: 136
-  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c10"
-    char_span: [14762, 16919]
-    sentence_count: 13
-    key_terms: [lek, absolutely, quality, deliverables, specialists, strategic, sweatshop, clients]
-    concepts: [absolutely, quality, deliverables, specialists, strategic]
-    section: Comments
-    token_count: 476
-  - id: "social-intelligence/reddit-deep/consulting/1tt2qlo.md#c11"
-    char_span: [16921, 17386]
-    sentence_count: 3
-    key_terms: [down, being, looking, working, looked, billionaire, consultants, timing-wise]
-    concepts: [being, looking, working, looked]
-    section: Comments
-    token_count: 104
+    token_count: 159
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/","kind":"social-post","date":"2026-05-31","author":"Extension_Turn5658","subreddit":"consulting"}]
 ---
 # I think MBB is broken
 
 Source: [reddit-deep: r/consulting](https://www.reddit.com/r/consulting/comments/1tt2qlo/i_think_mbb_is_broken/)
-Posted by **Extension_Turn5658** · **641↑** · **135 comments**
+Posted by **Extension_Turn5658** · **652↑** · **135 comments**
 
 I'm a few years in now. Done mostly work for PE clients and strategy work in general. I feel like this job is completely broken. Few thoughts (very unstructured as I am typing this on the go):
 
@@ -127,50 +120,45 @@ I'm a few years in now. Done mostly work for PE clients and strategy work in gen
 
 ## Comments
 
-- **jonahbenton** (545↑): Good non AI post.
-  - **have2gopee** (277↑): _Write in the style of a junior analyst who has just finished a 93 hour week on 42 hours of sleep and 9 cases of Red Bull_
-    - **Extension_Turn5658** (157↑): Know its a joke but just to set this in perspective .. already at PL/EM lvl. now. 
+- **jonahbenton** (553↑): Good non AI post.
+  - **have2gopee** (285↑): _Write in the style of a junior analyst who has just finished a 93 hour week on 42 hours of sleep and 9 cases of Red Bull_
+    - **Extension_Turn5658** (162↑): Know its a joke but just to set this in perspective .. already at PL/EM lvl. now. 
 
 Juniors would be still very much in the kool-aid phase at this point in time.
     - **BigBirdLaw69420** (3↑): My favorite tone
-  - **fxlconn** (6↑): Finally some good content
-- **Count2Zero** (156↑): I just left a job with a PE owned manufacturing company. Never again do I want to deal with that shit. 
+  - **fxlconn** (7↑): Finally some good content
+- **Count2Zero** (155↑): I just left a job with a PE owned manufacturing company. Never again do I want to deal with that shit. 
 
 I'm now working for a family-owned business. It's a godsend for my peace of mind. No more ass kissing and boot licking of the Finance department and hearing "Shareholder value" spouted dozens of times a day.
-- **alex9001** (104↑): To comment re: the hours, I joined in 2021 and felt like the "at least Fridays are chill" refrain we heard from every firm that came on campus was either wildly outdated or a coordinated lie. Not having project work and just doing internal "extracurriculars" on Fridays seemed incredibly quaint. 
+- **alex9001** (109↑): To comment re: the hours, I joined in 2021 and felt like the "at least Fridays are chill" refrain we heard from every firm that came on campus was either wildly outdated or a coordinated lie. Not having project work and just doing internal "extracurriculars" on Fridays seemed incredibly quaint. 
 
 Overall, from my limited experience a lot of this behavior (especially your portfolio management and AI points) is a lasting effect of the post-COVID-19 feeding frenzy/expansion period.
-  - **dudetcrazy** (40↑): That changed with Covid. Before it was really a chill day, with the remote shift, there was less office mingling and clients/partners noticed that shit could be done on fridays. Now it is just a day as the others
-    - **f00kster** (17↑): I concur. I’ve been at an MBB since 2016 and Fridays were indeed chill. And sometimes for recruiting (in person of course) too.
-  - **ForsakenRhubarbPie** (3↑): Concurring this was a COVID change. Was in MBB pre-covid. Friday's really were chill. I remember it being 4pm on Friday and my EM asking me what I was still doing at the office.
-- **suckthesystem** (98↑): Accurate description of what’s happening. I joined an MBB a year ago at a junior level and already thinking of leaving. What I see is borderline lying and most of our analysis is narrative-driven and intellectually dishonest to satisfy what the clients want. I have not yet experienced any proper mentorship, and feedback is shallow and basically just a check the box at this point. Performance is evaluated mainly based on likability, everything else is secondary.
+  - **ForsakenRhubarbPie** (4↑): Concurring this was a COVID change. Was in MBB pre-covid. Friday's really were chill. I remember it being 4pm on Friday and my EM asking me what I was still doing at the office.
+- **suckthesystem** (103↑): Accurate description of what’s happening. I joined an MBB a year ago at a junior level and already thinking of leaving. What I see is borderline lying and most of our analysis is narrative-driven and intellectually dishonest to satisfy what the clients want. I have not yet experienced any proper mentorship, and feedback is shallow and basically just a check the box at this point. Performance is evaluated mainly based on likability, everything else is secondary.
 Most of the content is AI-generated, and clueless juniors are producing content that goes to clients with little reviews because partners are far too stretched. I see this as a sinking ship but hope I’m wrong.
   - **lolavendar** (30↑): 10000% agree with you. Reading this reddit post has helped me feel sane. I feel so crazy and alone at work like no one sees this??
-  - **showmetheEBITDA** (15↑): This is consulting everywhere at this point. Basically, the people in Gen X/Baby Boomer generation made out like bandits because they were there during the good times and are insulated at the top by the Partners for supposedly being "experienced" and can grind out people below them to do their work for them. Meanwhile, if the people at the bottom left, they'd be exposed as not knowing wtf they're doing, but still manage to survive getting paid a very nice paycheck/bonus because the people at the top like them. It's a complete joke and I want to get out of consulting ASAP
-- **Marshall_Cleiton** (93↑): Firm's gone to the dogs
-- **DanceWithEverything** (151↑): A whole class of associates is looking up at the tippy top sr partners that make 8 figures and realizing that that possibility has already been taken off the table for their future
-  - **Fetacheese8890** (22↑): This.
-  - **Fortemuito** (8↑): Why?
-    - **DanceWithEverything** (58↑): Knowledge work is being commoditized. Not immediately no, but little by little. Sr partners make their outsized returns by amassing equity over a successful career and then profit from the high margin they can charge for smart young people willing to work crazy hours (for their firm’s brand)
-
-Today’s Sr Partners are extracting that last bit of margin from C suites unwilling to go AI native or waiting for it to improve. Probably got another 5 or so years until things start getting *very* bloody
-  - **alpha_d** (2↑): That's Accenture 25 years ago, you know, when they got it listed. Ahhh, good times (or not really) …
+  - **showmetheEBITDA** (17↑): This is consulting everywhere at this point. Basically, the people in Gen X/Baby Boomer generation made out like bandits because they were there during the good times and are insulated at the top by the Partners for supposedly being "experienced" and can grind out people below them to do their work for them. Meanwhile, if the people at the bottom left, they'd be exposed as not knowing wtf they're doing, but still manage to survive getting paid a very nice paycheck/bonus because the people at the top like them. It's a complete joke and I want to get out of consulting ASAP
+- **Marshall_Cleiton** (91↑): Firm's gone to the dogs
+- **DanceWithEverything** (153↑): A whole class of associates is looking up at the tippy top sr partners that make 8 figures and realizing that that possibility has already been taken off the table for their future
+  - **Fetacheese8890** (23↑): This.
+  - **alpha_d** (3↑): That's Accenture 25 years ago, you know, when they got it listed. Ahhh, good times (or not really) …
     - **DanceWithEverything** (3↑): Correct, basically exactly what planes and the internet did to Andersen
-- **iLuvBFSsoMuch** (58↑): can any other MBBs corrorborate?
-  - **alex9001** (95↑): It strongly resonates.
-  - **Matthegreat34** (35↑): Also can corroborate, brutal hours and lack of apprenticeship played a big part in me choosing to leave after 2 years. Especially as a first gig, being able to exit and get paid a good bit more + work way less hours even in intense fields made staying seem sub-optimal IMO
+- **iLuvBFSsoMuch** (60↑): can any other MBBs corrorborate?
+  - **alex9001** (93↑): It strongly resonates.
+  - **Matthegreat34** (38↑): Also can corroborate, brutal hours and lack of apprenticeship played a big part in me choosing to leave after 2 years. Especially as a first gig, being able to exit and get paid a good bit more + work way less hours even in intense fields made staying seem sub-optimal IMO
+    - **Adviderisj** (2↑): Where did you move? MBB pay is quite solid, At least at the entry level
   - **kid50cal** (27↑): i been out for a few years now. but yea it matches. 
 
 but its not that partners are incompetent. or mangers are dumb. or consultants are being over worked. its just that no one really cares anymore. the problems that were being asked to provide insight into didnt match the scope of work. company abc wants help understanding why product zyx's is delayed. instead of doing scoping interviews across all relevant stakeholders, observing the work, etc. we started prescribing fixes 2 weeks into the engagement.  no shit things didnt work out by the end of week 8. this is something that would have taken 6 months to diagnose properly, but nah. lets fix it before finding the issues.
-  - **ibarg** (42↑): I have been out for a year but the only thing I agree with is the hours are brutal. 60 to 80 hours a week is pretty common. 
+  - **ibarg** (43↑): I have been out for a year but the only thing I agree with is the hours are brutal. 60 to 80 hours a week is pretty common. 
 
 Regarding the others points, my personal experiences were very different. I am also surprised about the pay. Everyone year we got a bump and the year after I left was an exceptionally good year.
-    - **ParaTodoMalMezcal** (31↑): My last three projects were all 80+ for 3 months each, you can only hear “ooh that’s rough sounds like a real burner” so many times before concluding they’re pretty much all burners now
+    - **ParaTodoMalMezcal** (33↑): My last three projects were all 80+ for 3 months each, you can only hear “ooh that’s rough sounds like a real burner” so many times before concluding they’re pretty much all burners now
     - **Foreign_Writer_9932** (10↑): People forget that MBB vastly outpaces comp in the industries they serve unless those industries are PE, FI, tech, or biopharma. For everyone else, good luck getting comped as generously.
-  - **Any-Panda2219** (7↑): Joined MBB pre covid and fridays for at least BAs and Associates/Consultants were chill.  Moved to an internal role a few years back and now have a first hand view of the governance chaos OP is alluding to.
+  - **Any-Panda2219** (9↑): Joined MBB pre covid and fridays for at least BAs and Associates/Consultants were chill.  Moved to an internal role a few years back and now have a first hand view of the governance chaos OP is alluding to.
   - **alandizzle** (7↑): I was T2, one of my close friends is at M currently. Hates it. He’s an EM. He said that he corroborates this. He’s just looking for exits at this point.
-  - **Rocketbird** (5↑): I’m not even in MBB and this is becoming more true at our consulting firm.
-- **PartnerPerspective** (26↑): I cannot disagree with most of these points sadly..
+  - **Rocketbird** (3↑): I’m not even in MBB and this is becoming more true at our consulting firm.
+- **PartnerPerspective** (27↑): I cannot disagree with most of these points sadly..
 
 AI has levelled up the knowledge and now you’ve got loads of people who pretend to know a topic by running a few prompts.  
 That isn’t bad per se, it can actually be helpful to relationship partners to discuss topics with clients that they’re not super comfortable with and then bring in the expert partners.  
@@ -182,7 +170,11 @@ Hours: I don’t know to be honest, it depends on the team, the project etc. Whe
 Vibe: if you’re >5 years into the career then you’re partner material and the firm knows it. There is a risk that people at the top ask you to put the extra effort because some day you’ll be partner. And that’s what everybody is focused on. The senior manager / associate partner is a really tough job.
 
 All I can say is: if you actually make it to partner, then it’s a life I’d recommend for the long term. Not easy (stress of the numbers etc), but sustainable. This is my experience
-- **Guspsz** (32↑): Did a very high level read, but yes, everyone saying it’s a lot worse than pre-21.
+- **New_Owl_4628** (19↑): AI going to make people dumber rather than smarter. Humans are outsourcing critical thinking to machines.
+  - **amdqiao** (4↑): And the machines don’t even think! They’re just spitting out words from a distribution 😭 we’re so doomed
+  - **Foreign_Writer_9932** (2↑): This exactly the type of “dumber” take that AI enables you to make. Presenting what is a complex frontier as a binary choice is quite literally what most models end up doing when not facing a well-known, well-defined task.
+    - **DB_Seedy13** (1↑): Sure, but the incentives are so strongly in favour of outsourcing all possible thinking to (good) AI models that it’s difficult to prevent it. Even in the last year I’ve noticed a shift towards producing a level of content that is only possible through heavy use of AI.
+- **Guspsz** (35↑): Did a very high level read, but yes, everyone saying it’s a lot worse than pre-21.
 
 In my area all the 3 are struggling, especially McK and Bain (BCG is slightly better because of BCG X). 
 
@@ -193,7 +185,7 @@ For the past year, hours became similar to IB/PE, but without the pay.
 As a result, \~20 people at M level or below, \~8% of the consulting pool, resigned in the last 3-4 months (not counseled to leave, resigned). Mostly were new managers. 
 
 Im not a manager, but I’m leaving too.
-  - **Foreign_Writer_9932** (7↑): It’s funny because BCG X is widely perceived externally as lagging MTech/QB.
+  - **Foreign_Writer_9932** (5↑): It’s funny because BCG X is widely perceived externally as lagging MTech/QB.
 
 Same hours (they are not actually the same - I have yet to hear about a McK team working through July 4 in US for example, and yet have see this happen many many times with peers at, say, Evercore) and pay differential with IB were always there (before AI).
     - **Guspsz** (11↑): BCG/BCG X were pioneers in Gen AI projects in my region. Don’t really know how good they are, but they for sure have a “stronger” name for AI prjs in strategy and implementation.
@@ -201,18 +193,3 @@ Same hours (they are not actually the same - I have yet to hear about a McK team
 Bain and McK are trying to catch up, but they are still considerably behind.
 
 Pay difference were always there, but so were the hours. The point is that the hours gap is closing while the pay gap persists.
-- **Foreign_Writer_9932** (59↑): “Top-tier expertise in pharma pricing such as Simon Kucher” dawg you’ve not been on the receiving end of those deliverables, and it shows lol 
-
-All the problems you’ve identified x worse human capital is the situation that Tier 2 firms face.
-  - **Extension_Turn5658** (71↑): I have only observed them on supporting workstreams and their deliverables have always been sharp and the partners were kinda deep into the deliverable.
-
-Not comparable to the slop/shenanigans that we often produce. I honestly think that clients also know that its mostly slop but we are second to none in putting together a compelling 50-100 board-ready  doc that supports the sponsors narrative in lighting speed (by grinding the junior team until 2 AM). Almost seems like a gentlemens agreement that nobody pokes holes too much (with the exception of large cap PE clients, who will rip you apart and ask you do redo the analysis on channel margins in Peru and interview 10 additional experts to get higher confidence on it).
-    - **Foreign_Writer_9932** (6↑): I am not sure I understand the difference vis a vis SK or LEK? That’s exactly the same model if not more exaggerated re sweatshop hours - when I briefly interviewed at LEK I was deeply unimpressed by the quality of their leaders (although this just might be my east coast Ivy Brahmin bubble background)
-  - **James007Bond** (19↑): have you received those deliverables?  In general, they are good at what they do and have become the go to experts for a reason.
-    - **Foreign_Writer_9932** (2↑): Absolutely. SK for biopharma or LEK for healthcare DD are specialists and yet McKinsey or BCG quality within those verticals (on average) is absolutely different tier. If the question is trust in level of insight and judgement, there is typically no competition.
-  - **wandelust19** (19↑): As a former consultant myself and having exited to industry I would absolutely consider SK tops for global pharma pricing. I mean the whole deal from country mechanisms/pathways, actual price ranges, and next steps to capture that. I feel a lot of MBB/Big4 stuff in that space is “strategy” oriented and imprecise about actually giving solid recs especially globally. Knowing the US market is table stakes in pricing. 
-
-As for LEK, AM, and other DD specialists - here I think MBB’s strategic perspective is a lot more applicable. LEK strikes me as less strategic and a more a white collar equivalent of a model sweatshop. AM deliverables are higher quality in my experience but maybe slightly limited by the scale of the firm and therefore available expertise. 
-
-Timing-wise, consultants are in high level customer service, so working with PE clients means working their hours. Someone post the meme of the banker looking down on MBB, while being looking down on by PE, while being looked down on by a hedge fund analyst, while being looked down on by a tech billionaire. 😆
-  - **LegDayDE** (5↑): Or just no human capital... A lot of firms paused hiring for a couple of years and never plugged that gap in the talent pipeline...

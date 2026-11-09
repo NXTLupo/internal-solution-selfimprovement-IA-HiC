@@ -16,26 +16,28 @@ collected_at: "2026-07-02T17:26:24+00:00"
 content_hash: "023d89f48b0a56cc"
 chunks:
   - id: "articles/ins-artemis-bm/9bba5c5c0f.md#c0"
-    char_span: [0, 366]
+    char_span: [0, 365]
     sentence_count: 1
     key_terms: [kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15, rss, catastrophe, reinsurance, kingstone, wildfire, artemis, lowers]
     concepts: [kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15]
-    token_count: 101
-    sources: [{"n":"ins_artemis_bm","u":"https://www.artemis.bm/news/kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15/?utm_source=rss&utm_medium=rss&utm_campaign=kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15"}]
+    token_count: 100
+    sources: [{"n":"ins_artemis_bm","u":"https://www.artemis.bm/news/kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15/?utm_source=rss&utm_medium=rss&utm_campaign=kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-artemis-bm/9bba5c5c0f.md#c1"
-    char_span: [368, 2885]
+    char_span: [367, 2884]
     sentence_count: 13
     key_terms: [catastrophe, million, reinsurance, kingstone, protection, limit, storm, wildfire]
     concepts: [catastrophe, million, reinsurance, kingstone, protection]
     related_chunks: ["articles/ins-artemis-bm/9bba5c5c0f.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_artemis_bm","u":"https://www.artemis.bm/news/kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15/?utm_source=rss&utm_medium=rss&utm_campaign=kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-artemis-bm/9bba5c5c0f.md#c2"
-    char_span: [2494, 3961]
+    char_span: [2493, 3960]
     sentence_count: 9
     key_terms: [reinsurance, artemis, podcast, video, catastrophe, live, interviews, profitable]
     concepts: [reinsurance, artemis, podcast, catastrophe, interviews]
     related_chunks: ["articles/ins-artemis-bm/9bba5c5c0f.md#c1"]
     token_count: 276
+    sources: [{"n":"ins_artemis_bm","u":"https://www.artemis.bm/news/kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15/?utm_source=rss&utm_medium=rss&utm_campaign=kingstone-grows-catastrophe-reinsurance-limit-again-adds-wildfire-cover-lowers-cost-15","kind":"article","date":"2026-07-01"}]
 ---
 # Kingstone grows catastrophe reinsurance limit again, adds wildfire cover, lowers cost 15%+
 

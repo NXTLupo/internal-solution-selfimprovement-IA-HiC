@@ -19,31 +19,34 @@ content_hash: "193fb0ec31af5c88"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/agr-agri-marketing/7babbec393.md#c0"
-    char_span: [0, 79]
+    char_span: [0, 78]
     sentence_count: 1
     key_terms: [agrimarketing, marketing, source, https, agri, com, www]
-    token_count: 24
-    sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/"}]
+    token_count: 23
+    sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/","kind":"article"}]
   - id: "articles/agr-agri-marketing/7babbec393.md#c1"
-    char_span: [81, 1717]
+    char_span: [80, 1716]
     sentence_count: 5
     key_terms: [guide, best, nama, show, marketing, business, feedback, services]
     concepts: [guide, marketing, business, feedback, services]
     token_count: 512
+    sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/","kind":"article"}]
   - id: "articles/agr-agri-marketing/7babbec393.md#c2"
-    char_span: [1515, 3323]
+    char_span: [1514, 3322]
     sentence_count: 4
     key_terms: [glyphosate, assn, impact, company, growers, "nat'l", impacted, negative]
     concepts: [glyphosate, impact, company, growers, "nat'l"]
     related_chunks: ["articles/agr-agri-marketing/7babbec393.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/","kind":"article"}]
   - id: "articles/agr-agri-marketing/7babbec393.md#c3"
-    char_span: [3102, 3859]
+    char_span: [3101, 3858]
     sentence_count: 2
     key_terms: [glyphosate, assn, agreement, petition, "nat'l", right-to-repair, communications, "agriculture's"]
     concepts: [glyphosate, agreement, petition, "nat'l"]
     related_chunks: ["articles/agr-agri-marketing/7babbec393.md#c2"]
     token_count: 215
+    sources: [{"n":"agr_agri_marketing","u":"https://www.agrimarketing.com/","kind":"article"}]
 ---
 # Agri Marketing
 

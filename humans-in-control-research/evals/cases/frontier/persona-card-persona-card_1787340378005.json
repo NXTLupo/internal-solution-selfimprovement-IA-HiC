@@ -1,0 +1,26 @@
+{
+  "id": "persona-card-persona-card_1787340378005",
+  "set": "frontier",
+  "kind": "persona-card",
+  "input": {
+    "objective": "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges.",
+    "prompt": "#persona-card",
+    "engagement": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals/artifacts/persona-card_1787340378005.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "persona-card_1787340378005",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:bindPointers partial (unknown); chain:provenance partial (schema_invalid); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); evidence:unsupported_p0 x1; layout:archetype_monotony x1; layout:sequence_repeat x1"
+  }
+}

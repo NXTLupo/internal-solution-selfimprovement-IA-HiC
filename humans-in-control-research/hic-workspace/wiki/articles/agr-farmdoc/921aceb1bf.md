@@ -19,45 +19,50 @@ content_hash: "d9c6bda183271b7e"
 relevance_by_goal: {"c5a2d58d1be7":15}
 chunks:
   - id: "articles/agr-farmdoc/921aceb1bf.md#c0"
-    char_span: [0, 207]
+    char_span: [0, 206]
     sentence_count: 1
     key_terms: [the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity, farmdocdaily, production, intensity, illinois, carbon, credit, source]
-    token_count: 62
-    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html"}]
+    token_count: 61
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
   - id: "articles/agr-farmdoc/921aceb1bf.md#c1"
-    char_span: [209, 2792]
+    char_span: [208, 2791]
     sentence_count: 17
     key_terms: [intensity, carbon, feedstock, score, biofuel, crop, credit, associated]
     concepts: [intensity, carbon, feedstock, score, biofuel]
     token_count: 512
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
   - id: "articles/agr-farmdoc/921aceb1bf.md#c2"
-    char_span: [2451, 4983]
+    char_span: [2450, 4982]
     sentence_count: 16
     key_terms: [emissions, carbon, soil, cradle-to-farm-gate, yield, crop, per, associated]
     concepts: [emissions, carbon, cradle-to-farm-gate, yield, associated]
     related_chunks: ["articles/agr-farmdoc/921aceb1bf.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
   - id: "articles/agr-farmdoc/921aceb1bf.md#c3"
-    char_span: [4660, 7274]
+    char_span: [4659, 7273]
     sentence_count: 17
     key_terms: [practice, yield, emissions, usda, fd-cic, practices, conservation, calculator]
     concepts: [practice, yield, emissions, practices, fd-cic]
     related_chunks: ["articles/agr-farmdoc/921aceb1bf.md#c2", "articles/agr-farmdoc/921aceb1bf.md#c4"]
     token_count: 512
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
   - id: "articles/agr-farmdoc/921aceb1bf.md#c4"
-    char_span: [6918, 9741]
+    char_span: [6917, 9740]
     sentence_count: 20
     key_terms: [reduction, recognized, practice, reductions, practices, different, producers, counties]
     concepts: [reduction, recognized, practice, reductions, practices]
     related_chunks: ["articles/agr-farmdoc/921aceb1bf.md#c3", "articles/agr-farmdoc/921aceb1bf.md#c5"]
     token_count: 512
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
   - id: "articles/agr-farmdoc/921aceb1bf.md#c5"
-    char_span: [9421, 10209]
+    char_span: [9420, 10208]
     sentence_count: 6
     key_terms: [reduction, counties, recognized, practice, does, map, county-level, feasibility]
     concepts: [reduction, counties, recognized, practice]
     related_chunks: ["articles/agr-farmdoc/921aceb1bf.md#c4"]
     token_count: 155
+    sources: [{"n":"agr_farmdoc","u":"https://farmdocdaily.illinois.edu/2026/06/the-clean-fuel-production-tax-credit-45z-part-2-carbon-intensity.html","kind":"article","date":"2026-06-18"}]
 ---
 # The Clean Fuel Production Tax Credit (45Z), Part 2: Carbon Intensity
 

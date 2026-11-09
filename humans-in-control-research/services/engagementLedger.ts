@@ -1004,7 +1004,10 @@ const AREA_STOP = new Set(('the a an and or of to in on for with from by at as i
     // 2026-10-03 live: areas were named "Key and Message", "Risk and Step", "Farm and Report": words that organize
     // a document, not a subject, never name an area.
     'key message messages step steps report reports slide slides part parts point points way ways thing things ' +
-    'area areas option options detail details number numbers example examples level levels current new').split(' '));
+    'area areas option options detail details number numbers example examples level levels current new ' +
+    // 2026-10-05 live: an area was named "Nxt and Humans". The platform vendor's own name is on every SOW and meeting
+    // note; it names the consultancy, never a client capability.
+    'nxt humans').split(' '));
 
 function stem(w: string): string {
     if (w.length > 5 && w.endsWith('ies')) return w.slice(0, -3) + 'y';

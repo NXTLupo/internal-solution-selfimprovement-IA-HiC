@@ -19,26 +19,28 @@ content_hash: "bead6d907844c2fe"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/google-ai-blog/2446fbecbf.md#c0"
-    char_span: [0, 171]
+    char_span: [0, 170]
     sentence_count: 1
     key_terms: [google, products-and-platforms, search, blog, thrifting-tips, products, shopping, vintage]
     concepts: [google, search]
     related_chunks: ["articles/google-ai-blog/2446fbecbf.md#c1"]
-    token_count: 39
-    sources: [{"n":"Google AI Blog","u":"https://blog.google/products-and-platforms/products/search/thrifting-tips/"}]
+    token_count: 38
+    sources: [{"n":"Google AI Blog","u":"https://blog.google/products-and-platforms/products/search/thrifting-tips/","kind":"article","date":"2026-06-03"}]
   - id: "articles/google-ai-blog/2446fbecbf.md#c1"
-    char_span: [173, 2543]
+    char_span: [172, 2542]
     sentence_count: 20
     key_terms: [search, vintage, find, circle, google, thrift, ask, lens]
     concepts: [search, vintage, circle, google, thrift]
     related_chunks: ["articles/google-ai-blog/2446fbecbf.md#c0"]
     token_count: 512
+    sources: [{"n":"Google AI Blog","u":"https://blog.google/products-and-platforms/products/search/thrifting-tips/","kind":"article","date":"2026-06-03"}]
   - id: "articles/google-ai-blog/2446fbecbf.md#c2"
-    char_span: [2251, 3142]
+    char_span: [2250, 3141]
     sentence_count: 9
     key_terms: [like, closet, items, home, lens, room, use, dressing]
     concepts: [closet, items, dressing, similar, virtual]
     token_count: 206
+    sources: [{"n":"Google AI Blog","u":"https://blog.google/products-and-platforms/products/search/thrifting-tips/","kind":"article","date":"2026-06-03"}]
 ---
 # 5 ways Google Search can level up your thrift and vintage shopping
 

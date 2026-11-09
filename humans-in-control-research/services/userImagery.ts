@@ -20,7 +20,7 @@ export interface UserImagerySpec { prompt: string; style: UserImageryStyle; auth
 
 export interface SlotDescriptor {
     /** payload field the composer reads (per-item arrays fill index-aligned). */
-    field: 'backgroundImage' | 'panelImage' | 'portraitImage' | 'itemImages' | 'sceneImage';
+    field: 'backgroundImage' | 'panelImage' | 'portraitImage' | 'itemImages' | 'sceneImage' | 'heroImage';
     perItemOf?: string;
     label: string;
     /** illustration-lane style token when the user picks Realistic. */
@@ -39,6 +39,8 @@ export const USER_IMAGE_SLOTS: Record<string, SlotDescriptor[]> = {
     'slides:block-quote': [{ field: 'panelImage', label: 'Scene panel', realistic: 'photo-scene', rect: { x: 209 / 1920, y: 540 / 1080, w: 900 / 1920, h: 200 / 1080 } }],
     'slides:numbered-themes': [{ field: 'itemImages', perItemOf: 'items', label: 'Item scenes', realistic: 'photo-scene', rect: { x: 0.10, y: 0.42, w: 0.80, h: 0.22 } }],
     'slides:role-needs': [{ field: 'portraitImage', label: 'Portrait', realistic: 'photo-portrait', rect: { x: 1260 / 1920, y: 221 / 1080, w: 560 / 1920, h: 236 / 1080 } }],
+    // 2026-10-21 brief card: the picture panel (the source slide's own picture on a reformat).
+    'slides:brief-card': [{ field: 'heroImage', label: 'Picture panel', realistic: 'photo-scene', rect: { x: 1260 / 1920, y: 246 / 1080, w: 560 / 1920, h: 740 / 1080 } }],
 };
 
 // UNIVERSAL COVERAGE (owner mandate 2026-08-14: EVERY slide). Archetypes without

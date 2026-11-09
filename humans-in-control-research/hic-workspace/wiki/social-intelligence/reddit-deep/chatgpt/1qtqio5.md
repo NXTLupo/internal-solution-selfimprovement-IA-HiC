@@ -1,0 +1,103 @@
+---
+id: social-intelligence/reddit-deep/chatgpt/1qtqio5.md
+url: "https://www.reddit.com/r/ChatGPT/comments/1qtqio5/why_prompt_engineering_is_fundamentally_wrong/"
+kind: "social-post"
+source: "reddit-deep: r/chatgpt"
+subreddit: "chatgpt"
+title: "Why Prompt Engineering is Fundamentally Wrong"
+author: "XIIIctc"
+date: "2026-02-02T09:30:08.000Z"
+score: 1
+upvote_ratio: 0.6
+num_comments: 9
+flair: "Prompt engineering "
+extracted_at: "2026-11-08T23:02:20.471Z"
+extraction_method: "praw-deep"
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qtqio5.md#c0"
+    char_span: [0, 551]
+    sentence_count: 2
+    key_terms: [national-security-entanglement, comments, valuation-reconstruction, chatgpt, lithography-bottleneck, reddit, non-linear-output, core-impact-only]
+    concepts: [comments, chatgpt, reddit]
+    token_count: 152
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qtqio5/why_prompt_engineering_is_fundamentally_wrong/","kind":"social-post","date":"2026-02-02","author":"XIIIctc","subreddit":"chatgpt"}]
+  - id: "social-intelligence/reddit-deep/chatgpt/1qtqio5.md#c1"
+    char_span: [565, 2251]
+    sentence_count: 6
+    key_terms: [feature, text, clarity, ninstruction, instruction, please, openai, conversation]
+    concepts: [feature, ninstruction, instruction, clarity, please]
+    section: Comments
+    token_count: 447
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qtqio5/why_prompt_engineering_is_fundamentally_wrong/","kind":"social-post","date":"2026-02-02","author":"XIIIctc","subreddit":"chatgpt"}]
+  - id: "social-intelligence/reddit-deep/chatgpt/1qtqio5.md#c2"
+    char_span: [2253, 3153]
+    sentence_count: 3
+    key_terms: [noselfinterest, instruction, sfeature, xiiictc, exists, prompt, text, interpretation]
+    concepts: [noselfinterest, instruction, sfeature, xiiictc, exists]
+    section: Comments
+    token_count: 242
+    sources: [{"n":"reddit-deep: r/chatgpt","u":"https://www.reddit.com/r/ChatGPT/comments/1qtqio5/why_prompt_engineering_is_fundamentally_wrong/","kind":"social-post","date":"2026-02-02","author":"XIIIctc","subreddit":"chatgpt"}]
+---
+# Why Prompt Engineering is Fundamentally Wrong
+
+Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qtqio5/why_prompt_engineering_is_fundamentally_wrong/)
+Posted by **XIIIctc** · **1↑** · **9 comments**
+
+Φ_Clarity = S_feature / (1 + N_instruction)
+
+​[Field: Semi-Geopolitics Stack] [Container: Dynamic Coupling] [Logic: Lithography-bottleneck → National-security-entanglement → Valuation-reconstruction] [Constraint: Non-linear-output] [Target: Core-impact-only]
+
+Reddit ranks by upvotes, not shares. Help me unlock more subs.
+
+## Comments
+
+- **AutoModerator** (1↑): Hey /u/XIIIctc,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*
+- **[deleted]** (2↑): I don't understand, could you please elaborate?
+- **Ill-Year-3141** (1↑): Looks like you’re defining a **clarity metric**. Interpreting it literally:
+
+ΦClarity=Sfeature1+Ninstruction\\Phi\_{\\text{Clarity}} = \\frac{S\_{\\text{feature}}}{1 + N\_{\\text{instruction}}}ΦClarity​=1+Ninstruction​Sfeature​​
+
+**Plain-English reading**
+
+* **SfeatureS\_{\\text{feature}}Sfeature​** → signal strength / usefulness / salience of the feature
+* **NinstructionN\_{\\text{instruction}}Ninstruction​** → number of instructions, constraints, or directives
+* **1+N1 + N1+N** → avoids division by zero and sets a baseline cost
+
+So clarity:
+
+* **Increases linearly** with feature strength
+* **Decreases hyperbolically** as instructions pile up
+* Implies **instruction overload erodes clarity**, even if the feature itself is strong
+
+**Key properties**
+
+* If Ninstruction=0N\_{\\text{instruction}} = 0Ninstruction​=0: Φ=Sfeature\\Phi = S\_{\\text{feature}}Φ=Sfeature​ (pure signal, no overhead)
+* Each added instruction has **diminishing but cumulative penalty**
+* Doubling instructions ≠ halving clarity, but it *does* compress returns fast
+
+**Interpretation takeaway**  
+This encodes a common design truth:  
+Strong features don’t stay clear when wrapped in too many rules.
+  - **XIIIctc** (1↑): upvote plz
+- **noselfinterest** (1↑): this doesnt explain why its wrong. this explains why it exists
+  - **XIIIctc** (0↑): Exactly. It exists because people don't understand it's self-defeating.
+    - **noselfinterest** (1↑): i mean, the prompt engineers job is to minimize N\_i and maximize S\_f.
+
+at least, anyone who's been around long enough to learn this.
+
+Maybe a more accurate title is "why \_your\_ prompt engineering (probably) sucks" or something

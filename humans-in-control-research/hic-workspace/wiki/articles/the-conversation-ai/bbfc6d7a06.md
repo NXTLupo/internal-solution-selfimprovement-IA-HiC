@@ -19,39 +19,43 @@ content_hash: "bf8daa7799cdd743"
 relevance_by_goal: {"c5a2d58d1be7":0,"bb7e192171b3":0,"8429cfd39d4f":10,"d21cb50b17ba":0,"5a163910d68e":0}
 chunks:
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c0"
-    char_span: [0, 295]
+    char_span: [0, 294]
     sentence_count: 1
     key_terms: [clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398, trials, theconversation, marketing, targeting, clinical, patients, doctors]
     concepts: [trials]
-    token_count: 67
-    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398"}]
+    token_count: 66
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398","kind":"article","date":"2026-05-06"}]
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c1"
-    char_span: [297, 3207]
+    char_span: [296, 3206]
     sentence_count: 22
     key_terms: [trials, seeding, trial, patients, drug, studies, legitimate, scientific]
     concepts: [trials, seeding, trial, patients, legitimate]
     related_chunks: ["articles/the-conversation-ai/bbfc6d7a06.md#c2", "articles/the-conversation-ai/bbfc6d7a06.md#c3"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398","kind":"article","date":"2026-05-06"}]
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c2"
-    char_span: [2843, 5492]
+    char_span: [2842, 5491]
     sentence_count: 19
     key_terms: [seeding, trials, trial, pharmaceutical, internal, research, study, vioxx]
     concepts: [seeding, trials, trial, pharmaceutical, internal]
     related_chunks: ["articles/the-conversation-ai/bbfc6d7a06.md#c1", "articles/the-conversation-ai/bbfc6d7a06.md#c3"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398","kind":"article","date":"2026-05-06"}]
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c3"
-    char_span: [5171, 8127]
+    char_span: [5170, 8126]
     sentence_count: 23
     key_terms: [trials, seeding, marketing-driven, oversight, criteria, research, studies, independent]
     concepts: [trials, seeding, marketing-driven, oversight, criteria]
     related_chunks: ["articles/the-conversation-ai/bbfc6d7a06.md#c1", "articles/the-conversation-ai/bbfc6d7a06.md#c2"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398","kind":"article","date":"2026-05-06"}]
   - id: "articles/the-conversation-ai/bbfc6d7a06.md#c4"
-    char_span: [7731, 9056]
+    char_span: [7730, 9055]
     sentence_count: 10
     key_terms: [oversight, industry, patients, independent, clinicians, physicians, companies, countries]
     concepts: [oversight, industry, patients, independent, clinicians]
     token_count: 220
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/clinical-trials-that-are-actually-marketing-ploys-targeting-doctors-how-seeding-trials-put-profit-over-patients-280398","kind":"article","date":"2026-05-06"}]
 ---
 # Clinical trials that are actually marketing ploys targeting doctors – how seeding trials put profit over patients
 

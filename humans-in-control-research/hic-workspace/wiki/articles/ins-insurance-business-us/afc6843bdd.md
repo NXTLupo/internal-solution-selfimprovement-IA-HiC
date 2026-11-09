@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:34:36+00:00"
 content_hash: "eb3da0211713cc9d"
 chunks:
   - id: "articles/ins-insurance-business-us/afc6843bdd.md#c0"
-    char_span: [0, 2460]
+    char_span: [0, 2459]
     sentence_count: 19
     key_terms: [insurance, canal, company, financial, rzepinski, canal-insurance-names-new-cfo-as-trucking-costs-climb-580793, trucking, bell]
     concepts: [insurance, canal, company, financial, rzepinski]
-    token_count: 479
-    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/auto-motor/canal-insurance-names-new-cfo-as-trucking-costs-climb-580793.aspx"}]
+    token_count: 478
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/auto-motor/canal-insurance-names-new-cfo-as-trucking-costs-climb-580793.aspx","kind":"article","date":"2026-06-30"}]
 ---
 # Canal Insurance names new CFO as trucking costs climb
 

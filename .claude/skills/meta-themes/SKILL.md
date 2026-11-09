@@ -1,9 +1,10 @@
 ---
 name: meta-themes
+description: Surface themes that recur across three or more engagements as portfolio patterns (five or more as platform patterns) from each engagement's themes and the cross-engagement patterns page. Use when a partner asks what the portfolio keeps finding.
 invocation: human
 disable-model-invocation: true
-version: 1.0
-description: Phase 6 of the NotebookLM uplift plan. Activates the cross-engagement-pattern-miner output as a first-class deliverable. Reads all engagements/<slug>/themes.json files + wiki/synthesis/cross-engagement-patterns.md. Surfaces themes that recur across ≥3 engagements as "portfolio patterns" — themes that appear in ≥5 engagements get a special "platform pattern" treatment. The differentiation NotebookLM categorically cannot do because they have no concept of an engagement portfolio. This is HiC's most defensible feature for the consulting partner audience.
+version: "1"
+status: active
 thinking: high
 category: cross-engagement-synthesis
 triggers:
@@ -14,6 +15,10 @@ triggers:
 ---
 
 # Meta-Themes
+
+## Scope
+
+Phase 6 of the NotebookLM uplift plan. Activates the cross-engagement-pattern-miner output as a first-class deliverable. Reads all engagements/<slug>/themes.json files + wiki/synthesis/cross-engagement-patterns.md. Surfaces themes that recur across ≥3 engagements as "portfolio patterns" — themes that appear in ≥5 engagements get a special "platform pattern" treatment. The differentiation NotebookLM categorically cannot do because they have no concept of an engagement portfolio. This is HiC's most defensible feature for the consulting partner audience.
 
 ## You Are
 
@@ -74,7 +79,7 @@ type MetaThemesOutput = {
 1. **Load every `engagements/<slug>/themes.json`** under the engagement root
 2. **For each pair of themes across engagements:** compute name + summary similarity (Jaccard on tokenized name + embedding cosine on summary)
 3. **Cluster equivalent themes:** any theme name appearing in ≥3 engagements (similarity ≥0.7) is a portfolio pattern; ≥5 is a platform pattern
-4. **Emit canonical names** for each cluster (use Sonnet 4.6 to pick the clearest of the variants)
+4. **Emit canonical names** for each cluster (use the structured Claude model to pick the clearest of the variants)
 
 ## Hard rules
 
@@ -87,7 +92,7 @@ type MetaThemesOutput = {
 ## Composition
 
 - **Reads from:** `engagements/<slug>/themes.json` (per engagement) + `wiki/synthesis/cross-engagement-patterns.md` (background)
-- **Calls:** Sonnet 4.6 at temp=0 for canonical naming pass
+- **Calls:** the structured Claude model, cache-keyed, for the canonical naming pass
 - **Rendered by:** Knowledge Library "Portfolio Patterns" view (new React component)
 - **Surfaced via:** `#meta-themes` hashtag; auto-loaded by `loadGenerationContext()` so individual engagement generations carry "this client's pattern matches portfolio pattern X" context
 - **Pairs with:** `cross-engagement-pattern-miner` skill which produces the underlying `wiki/synthesis/cross-engagement-patterns.md` log

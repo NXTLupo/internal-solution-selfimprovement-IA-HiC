@@ -1,9 +1,10 @@
 ---
 name: cross-engagement-pattern-miner
+description: Mine prior sessions and synthesis pages for patterns that recur across engagements and write the signal-only cross-engagement-patterns page that generation context injects. Use after several runs of one deliverable type or industry, or on the scheduled curation pass.
 invocation: human
 disable-model-invocation: true
-version: 1.0
-description: Mines hic-workspace/sessions/ + hic-workspace/wiki/synthesis/ for recurring patterns across prior research runs and writes a compact, signal-only wiki/synthesis/cross-engagement-patterns.md that loadGenerationContext() can inject into every subsequent generation. Turns prior runs into training data for future runs. Composes with theme-analyst (cross-run thematic clustering), source-ranker (which source clusters consistently produced high-quality evidence), and pattern-aware retrieval — the output of this skill is read by HiC's wiki loader on the next generation, closing the compound-interest loop. The signal it produces is the input to verbalized-sampling's "frame" parameter, so prior insights bias the candidate distribution toward what has worked.
+version: "1"
+status: active
 thinking: high
 category: cross-run-intelligence
 triggers:
@@ -18,6 +19,10 @@ triggers:
 ---
 
 # Cross-Engagement Pattern Miner
+
+## Scope
+
+Mines hic-workspace/sessions/ + hic-workspace/wiki/synthesis/ for recurring patterns across prior research runs and writes a compact, signal-only wiki/synthesis/cross-engagement-patterns.md that loadGenerationContext() can inject into every subsequent generation. Turns prior runs into training data for future runs. Composes with theme-analyst (cross-run thematic clustering), source-ranker (which source clusters consistently produced high-quality evidence), and pattern-aware retrieval — the output of this skill is read by HiC's wiki loader on the next generation, closing the compound-interest loop. The signal it produces is the input to verbalized-sampling's "frame" parameter, so prior insights bias the candidate distribution toward what has worked.
 
 ## You Are
 

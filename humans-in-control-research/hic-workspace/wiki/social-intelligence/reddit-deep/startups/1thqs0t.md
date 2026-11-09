@@ -8,78 +8,86 @@ title: "If you're thinking of making another \"I vibe coded X, but I'm not getti
 author: "ewhite12"
 date: "2026-05-19T15:42:17.000Z"
 score: 0
-upvote_ratio: 0.44
+upvote_ratio: 0.45
 num_comments: 22
 flair: "I will not promote"
-extracted_at: "2026-06-18T13:35:25.299Z"
+extracted_at: "2026-10-09T16:37:34.774Z"
 extraction_method: "praw-deep"
-research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
-engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c0"
     char_span: [0, 2364]
     sentence_count: 30
     key_terms: [build, building, founder, care, don, coding, constraints, customers]
     concepts: [building, build, founder, coding, constraints]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c7"]
     token_count: 510
-    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/"}]
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c1"
     char_span: [2366, 4747]
     sentence_count: 44
     key_terms: [real, everyone, product, feels, distribution, cost, building, coding]
     concepts: [everyone, product, distribution, feels, building]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c7"]
     token_count: 499
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c2"
     char_span: [4749, 7381]
     sentence_count: 47
     key_terms: [capability, mvp, build, iterating, want, generate, instead, painful]
     concepts: [capability, iterating, build, generate, instead]
     token_count: 511
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c3"
     char_span: [7383, 9856]
     sentence_count: 47
     key_terms: [sometimes, demand, founders, product, build, building, market, using]
     concepts: [sometimes, demand, founders, product, build]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c5", "social-intelligence/reddit-deep/startups/1thqs0t.md#c7"]
     token_count: 515
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c4"
     char_span: [9858, 10317]
     sentence_count: 12
     key_terms: [ask, specific, commit, email, write, compliment, understand, introduce]
     concepts: [specific, commit, email, write]
     token_count: 101
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c5"
-    char_span: [10331, 12306]
+    char_span: [10332, 12307]
     sentence_count: 14
     key_terms: [product, demand, iterating, building, distribution, holes, need, real]
     concepts: [product, demand, iterating, building, distribution]
-    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c1", "social-intelligence/reddit-deep/startups/1thqs0t.md#c3", "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"]
+    related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c1", "social-intelligence/reddit-deep/startups/1thqs0t.md#c3", "social-intelligence/reddit-deep/startups/1thqs0t.md#c7"]
     section: Comments
     token_count: 467
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c6"
-    char_span: [12308, 14042]
-    sentence_count: 15
-    key_terms: [post, founders, people, excellent, calls, heart, tools, technicalsoup8578]
-    concepts: [founders, people, excellent, calls, heart]
+    char_span: [12309, 14518]
+    sentence_count: 19
+    key_terms: [people, tools, post, excellent, synthetic, founders, instead, writing]
+    concepts: [people, tools, excellent, synthetic, founders]
     section: Comments
-    token_count: 397
+    token_count: 490
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
   - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c7"
-    char_span: [14051, 16148]
-    sentence_count: 18
-    key_terms: [building, weekend, development, app, need, test, something, synthetic]
-    concepts: [building, weekend, development, something, synthetic]
-    section: Comments
-    token_count: 441
-  - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"
-    char_span: [16150, 18458]
-    sentence_count: 16
-    key_terms: [build, design, been, building, product, skills, taste, app]
-    concepts: [build, design, building, product, skills]
+    char_span: [14520, 16852]
+    sentence_count: 22
+    key_terms: [build, product, building, app, weekend, development, been, good]
+    concepts: [build, product, building, weekend, development]
     related_chunks: ["social-intelligence/reddit-deep/startups/1thqs0t.md#c0", "social-intelligence/reddit-deep/startups/1thqs0t.md#c1", "social-intelligence/reddit-deep/startups/1thqs0t.md#c3", "social-intelligence/reddit-deep/startups/1thqs0t.md#c5"]
     section: Comments
-    token_count: 509
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
+  - id: "social-intelligence/reddit-deep/startups/1thqs0t.md#c8"
+    char_span: [16854, 18173]
+    sentence_count: 8
+    key_terms: [design, skills, taste, building, traction, build, users, throwrarotaryphone]
+    concepts: [design, skills, taste, building, traction]
+    section: Comments
+    token_count: 284
+    sources: [{"n":"reddit-deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1thqs0t/if_youre_thinking_of_making_another_i_vibe_coded/","kind":"social-post","date":"2026-05-19","author":"ewhite12","subreddit":"startups"}]
 ---
 # If you're thinking of making another "I vibe coded X, but I'm not getting users..." post, this is for you. I will not promote.
 
@@ -361,7 +369,7 @@ A bea
 
 
 You really need to do some real editing and focus on what you want to say.
-  - **ewhite12** (0↑): This is a longer post from the feedback I've given over and over again over the past several weeks. 
+  - **ewhite12** (1↑): This is a longer post from the feedback I've given over and over again over the past several weeks. 
 
 tldr: Building is the easy part. Most people think that they've been blocked by lack of technical skills and AI tools remove that block, only to realize that the actual work is not in building, but rather customer discovery and selling.
     - **pqueiro1** (4↑): I love this one sentence:
@@ -401,14 +409,6 @@ It’s unfortunate that some people are put off by the length or formatting. Not
 This isn’t the same post we see every day. It’s much better articulated, nuanced, and nails the heart of the ai issues we’re currently navigating as founders. It includes some of the best advice we have for solving the challenges AI is creating for innovative founders.  
 
 You’ve made several very good points and I hope some people find this post and take it to heart. Thanks for sharing. This content deserves a lot more upvotes. I encourage you to experiment with other lengths and formats to help get this message out to all of our best makers. If we can say it in ways that more people can hear, I have to believe it will make a huge difference for them.
-- **henryz2004** (1↑): one thing the post doesn't really get into: founders treat customer convos as a phase. do 10 calls, validate, go build. six months later the product ships and the calls are stale.
-
-
-
-  
-
-
-the ones who avoid that just keep talking to people the whole way through.
 - **Lower_Assistance8196** (0↑): most of the validation advice out there still assumes you need real customers to validate. what closed the loop for me was adding synthetic research as a step before customer conversations rather than instead of them. Tools like Articos or Synthetic Users to stress test the assumption layer in under an hour so by the time you're writing that sales email, you already know which specific pain to lead with and which objections to preempt
 - **ThrowRARotaryPhone** (-1↑): This is all really great, and very much reflects what I’ve been experiencing. Thank you for writing it! 
 

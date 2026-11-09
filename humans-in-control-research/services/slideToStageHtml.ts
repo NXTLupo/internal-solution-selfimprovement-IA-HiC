@@ -35,10 +35,11 @@
 // pure-data module (no React), so importing the shared density spec is light.
 import { densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, clampMin, TOKENS } from '../components/slideTemplates/types';
 import { getBrand, getBrandArt, normalizeBrandId, deciemBrand, type BrandId } from '../components/slideTemplates/brands';
-import { composeSlide } from './slideComposer';
+import { composeSlide, notesWithVisual } from './slideComposer';
 import { attachViz } from './vizSlot';
 import { compositeIcon } from './iconLibrary';
 import { extractPointers, formatCitationLabel } from './citationPointerRegistry';
+import { normalizeSlideShape } from './slideShapeNormalizer';
 
 export interface SlideDataLike {
     id?: string;
@@ -683,6 +684,10 @@ function trunc(s: string | undefined | null, max: number): string {
     if (t.length <= max) return t;
     t = t.replace(/\(Source:\s*([^)_\-]{3,60})[^)]*\)/gi, (_m, name) => `(Source: ${String(name).trim()})`);
     if (t.length <= max) return t;
+    // 2026-10-06: a SHORT field (heading, label, cell title) is never severed mid-phrase when it is within 60% of its
+    // budget ("Centralized governance shifts employer" lost "relations from college silos to enterprise accounts").
+    // The stage fit script scales the canvas down when the longer text needs the room.
+    if (max <= 80 && t.length <= Math.round(max * 1.6)) return t;
     // 1. Finish the in-flight sentence if it ends within 1.35x budget.
     const ahead = t.slice(0, Math.min(t.length, Math.round(max * 1.35)));
     const fwd = ahead.slice(max).search(/[.!?”"](?:\s|$)/);
@@ -1007,9 +1012,24 @@ ${opts.bodyInnerHtml}
 ${takeawayHtml}
 ${sourcesStrip}
 </div>
+<script>${STAGE_FIT_SCRIPT}</script>
 </body>
 </html>`;
 }
+
+/**
+ * 2026-10-05 live QA: dense native exhibits (journey, gap matrix, competitive matrix, blueprint, architecture) clipped
+ * cells mid-sentence and pushed rows under the takeaway band, because every size is a fixed px value and the canvas
+ * is overflow:hidden. After fonts load, the canvas is zoomed down in small steps (floor 0.72) until neither the canvas
+ * nor any clipped cell overflows. The PPTX exporter measures the rendered DOM in Chromium, so the export carries the
+ * same fitted geometry as the preview. A slide that already fits is untouched (zoom stays 1).
+ */
+const STAGE_FIT_SCRIPT = `(function(){
+function over(el){return el.scrollHeight>el.clientHeight+2||el.scrollWidth>el.clientWidth+2;}
+function clipped(c){var n=c.querySelectorAll('*');for(var i=0;i<n.length&&i<1500;i++){var e=n[i];var cs=getComputedStyle(e);if((cs.overflow==='hidden'||cs.overflowY==='hidden')&&e.clientHeight>0&&e.scrollHeight>e.clientHeight+2)return true;}return false;}
+function fit(){var c=document.querySelector('#stage .canvas');if(!c)return;var z=1;c.style.zoom='1';var guard=8;while((over(c)||clipped(c))&&z>0.72&&guard-->0){z=Math.round((z-0.04)*100)/100;c.style.zoom=String(z);}c.setAttribute('data-fit-zoom',String(z));}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}else{window.addEventListener('load',fit);}
+})();`;
 
 // ---------------------------------------------------------------------------
 // stat-row - three columns: value + label + means + matters + source
@@ -2557,7 +2577,7 @@ function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
         ${s.evidence?.quote ? `<div class="ebq"><div class="ebqt">“${esc(trunc(s.evidence.quote, 150))}”</div><div class="ebqs">${esc(trunc(s.evidence.source || '', 44))}</div></div>` : ''}
       </div>`;
     const signalRow = (s: any) => `
-      <div class="ebsig"><span class="ebsigh">${esc(trunc(s.heading || '', 48))}</span><span class="ebsigb">${esc(trunc(s.body || '', 170))}</span></div>`;
+      <div class="ebsig"><span class="ebsigh">${esc(trunc(s.heading || '', 72))}</span><span class="ebsigb">${esc(trunc(s.body || '', 170))}</span></div>`;
     const signalsHtml = bare.length
         ? `<div class="ebsigs"><div class="ebsigl">Signals</div>${bare.map(signalRow).join('')}</div>`
         : '';
@@ -2964,10 +2984,14 @@ function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
     const nName = dense ? SCALE.body : SCALE.lead;
     const lGap = dense ? 9 : 14;
     const lblSize = dense ? SCALE.name : SCALE.subhead;
+    // 2026-10-05 live #arch: "ORCHESTRATION" broke mid-word in the 200px label column. Words stay whole; a label whose
+    // longest word would not fit is set smaller instead.
+    const _longestWord = Math.max(0, ...layers.flatMap((l: any) => String(l?.name || '').split(/\s+/)).map((w: string) => w.length));
+    const lblFit = _longestWord > 11 ? Math.max(14, Math.floor(lblSize * 11 / _longestWord)) : lblSize;
     return `<style>
 .amwrap{display:flex;flex-direction:column;gap:${lGap}px;flex:1;min-height:0;justify-content:flex-start}
 .amlayer{display:grid;grid-template-columns:200px 1fr;gap:14px;border-top:2px solid ${T.accent};padding-top:8px;align-items:start;flex-shrink:0}
-.amlname{font-family:${T.displayFont};font-size:${lblSize}px;line-height:1.1;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;align-self:start;overflow-wrap:anywhere}
+.amlname{font-family:${T.displayFont};font-size:${lblFit}px;line-height:1.1;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;align-self:start;overflow-wrap:normal;word-break:normal}
 .amnodes{display:flex;flex-wrap:wrap;gap:${dense ? 8 : 10}px;align-content:start}
 .amnode{background:${T.callout};border-left:3px solid ${T.accent2};padding:${nPad};font-size:${nName}px;line-height:1.25;min-width:${nMin}px}
 .amnode .nn{font-weight:600;color:${T.ink}}
@@ -3275,13 +3299,38 @@ const _POINTER_WALK_MAX_DEPTH = 10;
 /** A source-type field with pointers -> the prose it carried plus the registry labels, deduped.
  *  "Sources: [a.md#c3], [b.md#c5]" -> "Sources: A (Mar 2026); B (Feb 2026)". Unresolvable
  *  pointers are dropped: a file path never reaches the reader. */
+/**
+ * 2026-10-27 (run 43: the PPTX footers differed from the preview; a session restored in a fresh tab has an empty
+ * citation registry, so pointers fell back to slug names or dropped): the labels a slide's pointers resolved to in the
+ * tab that generated it ride on the slide (`_citeLabels`), and every later render reads them before the live registry.
+ */
+let _frozenCiteLabels: Record<string, string> | null = null;
+
+/** pointer -> reader-facing label for every pointer in the slide, resolved now (call where the registry is loaded). */
+export function freezeCitationLabels(slide: unknown, prior?: Record<string, string> | null): Record<string, string> {
+    const out: Record<string, string> = { ...(prior || {}) };
+    const walk = (v: unknown, depth: number) => {
+        if (depth > _POINTER_WALK_MAX_DEPTH) return;
+        if (typeof v === 'string') {
+            if (v.indexOf('.md') === -1) return;
+            for (const p of extractPointers(v).pointers) {
+                const label = formatCitationLabel(p);
+                if (label) out[p] = label;
+            }
+        } else if (Array.isArray(v)) v.forEach(x => walk(x, depth + 1));
+        else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v as Record<string, unknown>)) { if (k !== '_citeLabels') walk(x, depth + 1); }
+    };
+    walk(slide, 0);
+    return out;
+}
+
 function pointerFreeSourceText(value: string): string {
     const { text, pointers } = extractPointers(value);
     const trimmed = text.trim();
     const lead = trimmed.replace(/^[\s,;:]+|[\s,;:]+$/g, '').replace(/\(\s*\)/g, '').trim();
     const labels: string[] = [];
     for (const p of pointers) {
-        const label = formatCitationLabel(p);
+        const label = (_frozenCiteLabels && _frozenCiteLabels[p]) || formatCitationLabel(p);
         if (!label) continue;
         const lc = label.toLowerCase();
         if (labels.some(l => l.toLowerCase() === lc)) continue;
@@ -3294,12 +3343,48 @@ function pointerFreeSourceText(value: string): string {
     return /:$/.test(trimmed) ? `${lead}: ${labels.join('; ')}` : `${lead}; ${labels.join('; ')}`;
 }
 
+/**
+ * Display leftovers on every rendered string (2026-10-05 live rounds): an empty "()" where a citation was removed, a
+ * stray " ." before punctuation, "(: Theme Synthesis (45 themes) - Synthesize ...)" (an internal synthesis page title
+ * used as a source), and a literal trailing "undefined" from a template literal. Idempotent; never touches carriers.
+ */
+function tidyDisplayText(s: string): string {
+    if (!s || !/[()]|\s[.,;:]|undefined|Theme Synthesis|Topic cluster|Client Uploads?|_[A-Za-z0-9]|\.(?:pdf|txt|docx?)\b|â/i.test(s)) return s;
+    return s
+        // mojibake from upload extraction (UTF-8 punctuation read as Latin-1): "30â40%" was "30-40%"
+        .replace(/â€[“”"]|â€“|â€”/g, '-').replace(/â€™|â€˜/g, "'").replace(/â€œ|â€\u009d/g, '"')
+        .replace(/(\d)\s*â\s*(\d)/g, '$1-$2')
+        .replace(/\bHiC\s+Theme\s+Synthesis\b(?!\s*\(\d)/gi, 'Engagement research synthesis')
+        .replace(/\bTopic\s+cluster:\s*[^;·)\]\n]*/gi, 'Engagement research synthesis')
+        // the internal upload bucket reads as a client document, once (round-8 "CLIENT DOCUMENT; CLIENT UPLOADS (OCT 2026)")
+        .replace(/\bClient Uploads?\b:?/gi, 'Client document')
+        .replace(/\bClient document;\s*Client document\b/gi, 'Client document')
+        // a citation cut off by a length budget: "... by Jun 18 (Source" (round-6 timeline)
+        .replace(/\s*\((?:Sources?|Source:)[^)]*$/i, '')
+        // raw file names shown as text: "NXT_Humans_NU_Coop_Kickoff.pdf" -> "NXT Humans NU Coop Kickoff"
+        .replace(/\b([A-Za-z0-9]+(?:_[A-Za-z0-9]+)+)(?:\.(?:pdf|txt|docx?|pptx?|xlsx?|md|csv))?\b/g, (_m, stem: string) =>
+            stem.replace(/_/g, ' ').replace(/\b(?:final|redacted|copy|clean|draft)\b/gi, ' ').replace(/\s{2,}/g, ' ').trim())
+        .replace(/\s*\(\d+\)\.(?:pdf|txt|docx?)\b/gi, '')
+        .replace(/([A-Za-z0-9)])\.(?:pdf|txt|docx?)\b(?=[\s,;·)\]]|$)/gi, '$1')
+        .replace(/\(\s*[:;,]\s*/g, '(')
+        .replace(/\(\s*(?:HiC\s+)?Theme Synthesis\s*\(\d+\s+themes?\)[^)]*\)?\)?/gi, '(Engagement research synthesis)')
+        .replace(/(\s)\(\s*(?:Source:?\s*)?\)/gi, '$1')
+        .replace(/ undefined(?=[.,;:)]|\s*$)/g, '')
+        .replace(/\s+([.,;:])(?=\s|$)/g, '$1');
+}
+
 export function scrubCitationPointersDeep<T>(value: T, key = '', depth = 0): T {
     if (typeof value === 'string') {
-        // Fast path: no ".md" anywhere -> nothing a pointer regex could match.
-        if (value.indexOf('.md') === -1) return value;
         if (_CARRIER_FIELD_RE.test(key) || /^\s*(data:|<svg\b)/i.test(value)) return value;
-        const out = _SOURCE_FIELD_RE.test(key) ? pointerFreeSourceText(value) : extractPointers(value).text;
+        // Fast path: no ".md" anywhere -> nothing a pointer regex could match; only the display tidy applies.
+        if (value.indexOf('.md') === -1) return tidyDisplayText(value) as unknown as T;
+        const raw = _SOURCE_FIELD_RE.test(key) ? pointerFreeSourceText(value) : extractPointers(value).text;
+        // 2026-10-05 live #arch: a pointer removed from inside "(...)" left "()" and "(: Theme Synthesis ...)".
+        const out = String(raw)
+            .replace(/\(\s*[:;,]\s*/g, '(')
+            .replace(/(\s)\(\s*(?:Source:?\s*)?\)/gi, '$1')
+            .replace(/\s+([.,;:])/g, '$1')
+            .replace(/\s{2,}/g, ' ');
         return out as unknown as T;
     }
     if (!value || typeof value !== 'object' || depth >= _POINTER_WALK_MAX_DEPTH) return value;
@@ -3318,7 +3403,12 @@ export function scrubCitationPointersDeep<T>(value: T, key = '', depth = 0): T {
 
 export function slideDataToStageHtml(slide: SlideDataLike, position?: DeckPosition): string {
     // E1 chokepoint: runs on EVERY slide before any dispatch (see scrubCitationPointersDeep).
-    slide = scrubCitationPointersDeep(slide);
+    const _frozen = (slide as any)?._citeLabels;
+    _frozenCiteLabels = _frozen && typeof _frozen === 'object' ? _frozen : null;
+    try { slide = scrubCitationPointersDeep(slide); } finally { _frozenCiteLabels = null; }
+    // 2026-10-05: older / misplaced field shapes (phases+actors, a journey under serviceBlueprint, node `label`) are
+    // mapped onto the canonical shape for every slide, saved sessions included (the scrub returned a fresh copy).
+    slide = normalizeSlideShape(slide as any, String((slide as any).template || '')) as any;
     const brand: Brand = normalizeBrandId(slide.brand);
     // Deck position (round 2): explicit opts win, else the slide may carry its own position.
     const pos: DeckPosition = {
@@ -3358,7 +3448,11 @@ export function slideDataToStageHtml(slide: SlideDataLike, position?: DeckPositi
             );
         }
         const composed = composeSlide(archetype, payload, brand, pos);
-        if (composed) return composeArchetypeDoc(brand, slide.title || '', composed);
+        // 2026-10-27 (run 43: "for each slide ... a conceptual description for a workflow visualization" had nowhere to
+        // go): a deck slide's speakerNotes ride into the PPTX notes page; the slide face shows the drawing itself.
+        // ...led by a description of the slide's own drawing when the notes do not already give one (run 45)
+        const notes = pptxNotes({ ...slide, speakerNotes: notesWithVisual(archetype, payload, String((slide as any).speakerNotes || (payload as any)?.speakerNotes || '')) } as SlideDataLike);
+        if (composed) return composeArchetypeDoc(brand, slide.title || '', composed + notes);
         // Stage 3.3 (2026-10-01): the PRD projection archetypes are REGISTERED composer specs. A null
         // here means the registry and this dispatch drifted; say so loudly instead of shipping the
         // generic developer-note slide the F1 audit found in the preview and the PPTX alike.

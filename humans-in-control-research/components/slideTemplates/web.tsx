@@ -2221,7 +2221,7 @@ export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; so
     if (data.phasesLabel) metaParts.push(`PHASES ${data.phasesLabel}`);
     const meta = metaParts.length ? metaParts.join('   ·   ') : (sources.length ? `Sources: ${sources.slice(0, 3).join(' · ')}` : undefined);
     const gridCols = `${dense ? 74 : 86}px repeat(${stages.length}, 1fr)`;
-    const notEngaged = (txt: string) => /^not engaged$/i.test((txt || '').trim());
+    const notEngaged = (txt: unknown) => /^not engaged$/i.test(String(txt ?? '').trim());
     // 2026-06-12 USER FEEDBACK REDESIGN (twin of renderJourneyMap): the
     // matrix IS the body. Personas (voice row), stacked per-phase pains
     // (painPoints[si] may be string|string[]; overallPainPoints distribute

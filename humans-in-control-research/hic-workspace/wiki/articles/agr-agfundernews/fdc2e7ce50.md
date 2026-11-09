@@ -16,32 +16,35 @@ collected_at: "2026-07-02T17:50:32+00:00"
 content_hash: "bb6422ec6df13a38"
 chunks:
   - id: "articles/agr-agfundernews/fdc2e7ce50.md#c0"
-    char_span: [0, 203]
+    char_span: [0, 202]
     sentence_count: 1
     key_terms: [zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold, agfundernews, pre-alcohol, mainstream, probiotics, zbiotics, source, https]
-    token_count: 63
-    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold"}]
+    token_count: 62
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold","kind":"article","date":"2026-07-01"}]
   - id: "articles/agr-agfundernews/fdc2e7ce50.md#c1"
-    char_span: [205, 2640]
+    char_span: [204, 2639]
     sentence_count: 10
     key_terms: [zbiotics, fiber, abbott, engineered, gut, converts, alcohol, enzyme]
     concepts: [zbiotics, fiber, engineered, abbott, converts]
     related_chunks: ["articles/agr-agfundernews/fdc2e7ce50.md#c2", "articles/agr-agfundernews/fdc2e7ce50.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold","kind":"article","date":"2026-07-01"}]
   - id: "articles/agr-agfundernews/fdc2e7ce50.md#c2"
-    char_span: [2319, 4785]
+    char_span: [2318, 4784]
     sentence_count: 12
     key_terms: [fiber, sugar, products, gut, day, says, zbiotics, product]
     concepts: [fiber, sugar, products, zbiotics, product]
     related_chunks: ["articles/agr-agfundernews/fdc2e7ce50.md#c1"]
     token_count: 512
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold","kind":"article","date":"2026-07-01"}]
   - id: "articles/agr-agfundernews/fdc2e7ce50.md#c3"
-    char_span: [4494, 5802]
+    char_span: [4493, 5801]
     sentence_count: 5
     key_terms: [probiotics, zbiotics, genetically, engineered, amounts, january, product, abbott]
     concepts: [probiotics, zbiotics, genetically, engineered, amounts]
     related_chunks: ["articles/agr-agfundernews/fdc2e7ce50.md#c1"]
     token_count: 270
+    sources: [{"n":"agr_agfundernews","u":"https://agfundernews.com/zbiotics-takes-gm-probiotics-mainstream-with-15m-pre-alcohol-shots-sold","kind":"article","date":"2026-07-01"}]
 ---
 # ZBiotics takes GM probiotics mainstream with 15m+ ‘pre-alcohol’ shots sold
 

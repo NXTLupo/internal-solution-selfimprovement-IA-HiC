@@ -99,6 +99,34 @@ describe('strategy B: a claim with no label, matched to the span it came from', 
         expect(JSON.stringify(out[0].composerPayload)).not.toContain('.md#c');
     });
 
+    it('binds a paraphrased claim within the slide-DECLARED chunk set at the proportionate bar (strategy declared)', () => {
+        // Below the global bar (paraphrase, short verbatim run) but the slide declared the
+        // chunk as its evidence, so the proportionate declared-first pass binds it.
+        const slides = [slide('s1', {
+            title: 'A finding',
+            evidence: [CLOCKWORK.id],
+            rows: [{ cells: ['Research and sourcing absorb the majority of consultant hours in retained executive search'] }],
+        })];
+        const { report } = bindPointers(slides as any, POOL);
+        const declaredBound = report.bound.filter(b => b.strategy === 'declared');
+        expect(declaredBound.length).toBeGreaterThanOrEqual(1);
+        expect(declaredBound[0].pointer).toBe(CLOCKWORK.id);
+    });
+
+    it('a declared id that is NOT in the grounding pool never binds (invented pointers die)', () => {
+        const slides = [slide('s1', {
+            title: 'A finding',
+            evidence: ['articles/made-up/ff00ff00ff.md#c1'],
+            rows: [{ cells: ['Executive search firms are experimenting with automation because clients demand faster shortlists'] }],
+        })];
+        const { slides: out, report } = bindPointers(slides as any, POOL);
+        expect(report.bound.filter(b => b.pointer.includes('made-up'))).toHaveLength(0);
+        // The declared array itself keeps the string (it is the model's own output); what
+        // matters is that no TEXT FIELD gained the invented address as a citation.
+        expect(String(out[0].composerPayload.rows[0].cells[0])).not.toContain('made-up');
+        expect(String(out[0].composerPayload.title)).not.toContain('made-up');
+    });
+
     it('REFUSES a claim with too few distinctive terms to be safe', () => {
         const slides = [slide('s1', { title: 't', rows: [{ cells: ['Most firms will change because of this'] }] })];
         const { report } = bindPointers(slides as any, POOL);

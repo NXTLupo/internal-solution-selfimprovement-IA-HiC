@@ -22,7 +22,11 @@ try:
     NXT_SYSTEM_CSS = _P.get("css", "")
     NXT_SYSTEM_JS = _P.get("js", "")
     NXT_ICON_SPRITE = _P.get("sprite", "")
-except Exception:
+except Exception as _payload_err:
+    # 2026-10-05: this used to fail SILENTLY and every NXT artifact shipped unstyled. Rebuild the payload with
+    # `python scripts/build-ds-payload.py` (sources: public/nxt-design-gallery/).
+    import logging as _logging
+    _logging.getLogger("app").error(f"[nxt_design_system] _ds_payload.json missing or unreadable ({_payload_err}); artifacts will render UNSTYLED. Run scripts/build-ds-payload.py")
     NXT_SYSTEM_CSS = NXT_SYSTEM_JS = NXT_ICON_SPRITE = ""
 
 # ---- FIGMA TOKENS (source of truth) -----------------------------------------

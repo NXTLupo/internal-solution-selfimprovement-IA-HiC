@@ -42,6 +42,7 @@ import {
 // WS-A: register per-chunk REAL sources at the assembleChunkCorpus chokepoint so cite-time resolution
 // (resolveManifestPointers) uses the chunk's actual attribution, not the page title.
 import { registerResolvedChunkSources } from './citationPointerRegistry';
+import { UNTRUSTED_TAG, defuseFrameTags } from './untrustedFraming';
 // W6 (2026-07-01, scorecard "corpus bias toward Reddit"): stop junk grounding AT RETRIEVAL - the same
 // non-evidence predicate the ledger uses (bot/mod boilerplate, tombstones) now excludes chunks BEFORE
 // they ground a generation, not just before they enter the AIR ledger.
@@ -1299,6 +1300,16 @@ export function describeChunkProvenance(c: {
     return `  provenance | ${parts.join(' | ')}`;
 }
 
+/** Chunks recently placed in a model prompt, id -> verbatim text (2026-10-06 live #personas: a quote the model copied
+ *  from its grounding was pointed at the wrong thread and the verifier could not find the right page, though the
+ *  model had been shown it). Insertion-ordered and capped; the newest prompt wins. */
+const _promptedChunks = new Map<string, string>();
+const PROMPTED_CHUNK_CAP = 3000;
+
+export function promptedChunkTexts(): ReadonlyMap<string, string> {
+    return _promptedChunks;
+}
+
 export function assembleChunkCorpus(
     chunks: ResolvedChunk[],
     opts: CorpusBlockOptions = {},
@@ -1310,6 +1321,12 @@ export function assembleChunkCorpus(
     // right place to register each chunk's REAL sources for cite-time resolution (synchronous, before the
     // model generates + resolveManifestPointers runs at render).
     try { registerResolvedChunkSources(chunks); } catch { /* non-fatal: page-title fallback still applies */ }
+    for (const c of chunks) {
+        if (!c?.id || !c.text) continue;
+        _promptedChunks.delete(c.id);
+        _promptedChunks.set(c.id, c.text);
+    }
+    while (_promptedChunks.size > PROMPTED_CHUNK_CAP) _promptedChunks.delete(_promptedChunks.keys().next().value as string);
     const minChars = opts.minChunkChars ?? 0;
     // 2026-08-21: the pointer used to be printed on its own line with the bare
     // instruction "cite by pointer", and three consecutive live runs bound ZERO
@@ -1335,6 +1352,8 @@ export function assembleChunkCorpus(
         '=== CORPUS (chunk-addressed, cite by pointer) ===',
         intro,
         '',
+        // WS-0 S7 (2026-10-30): every span below is untrusted source text; see untrustedFraming.ts.
+        `<${UNTRUSTED_TAG} kind="corpus" trust="untrusted" chunks="${chunks.length}">`,
     ];
     for (const c of chunks) {
         if (c.text.length < minChars) continue;
@@ -1342,9 +1361,10 @@ export function assembleChunkCorpus(
         lines.push(`[${c.id}]${sectionTag}`);
         const prov = describeChunkProvenance(c);
         if (prov) lines.push(prov);
-        lines.push(c.text.trim());
+        lines.push(defuseFrameTags(c.text.trim()));
         lines.push('');
     }
+    lines.push(`</${UNTRUSTED_TAG}>`);
     lines.push('=== END CORPUS ===');
     return lines.join('\n');
 }
@@ -1414,8 +1434,8 @@ export function chunkCitationInstructions(): string {
         '    omit a pointer, but any reference to corpus evidence within a synthesis',
         '    sentence DOES require a pointer.',
         '  - NEVER invent a chunk pointer. NEVER cite a pointer that wasn\'t in the',
-        '    CORPUS block above. The Stop hook validate_chunk_citations.py rejects',
-        '    both cases with a structured error the user sees.',
+        '    CORPUS block above. The runtime binder drops any pointer it cannot',
+        '    resolve in that block, so the sentence it supported loses its evidence.',
         '  - Avoid sourcing phrases ("research shows", "studies indicate", "the data',
         '    reveals", "according to the corpus"). Cite the chunk pointer instead.',
     ].join('\n');

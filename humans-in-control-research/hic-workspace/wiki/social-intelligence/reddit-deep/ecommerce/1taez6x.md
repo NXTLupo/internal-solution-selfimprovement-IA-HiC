@@ -17,42 +17,47 @@ research_goal: "Identify high-converting email design patterns and product marke
 engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c0"
-    char_span: [0, 527]
+    char_span: [0, 526]
     sentence_count: 2
     key_terms: [e-commerce, ecommerce, comments, industry, posted, recap, week, adventurepaul]
     concepts: [e-commerce, ecommerce, comments, industry, posted]
-    token_count: 147
-    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/"}]
+    token_count: 146
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c1"
-    char_span: [529, 3106]
+    char_span: [528, 3105]
     sentence_count: 11
     key_terms: [amazon, countries, logistics, new, services, "organization's", international, manufacturing]
     concepts: [amazon, countries, logistics, services, "organization's"]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c2"
-    char_span: [2816, 5326]
+    char_span: [2815, 5325]
     sentence_count: 13
     key_terms: [store, chatgpt, shopify, ads, like, new, product, advertisers]
     concepts: [store, chatgpt, shopify, advertisers, product]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c3"
-    char_span: [4980, 7434]
+    char_span: [4979, 7433]
     sentence_count: 10
     key_terms: [agent, shopping, company, meta, product, updates, advertisers, lets]
     concepts: [shopping, agent, company, product, updates]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c4"
-    char_span: [7091, 9594]
+    char_span: [7090, 9593]
     sentence_count: 6
     key_terms: [consumers, new, product, running, openai, discretionary, ceo, low-income]
     concepts: [consumers, discretionary, product, running, openai]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1taez6x.md#c5"
-    char_span: [9283, 10253]
+    char_span: [9282, 10252]
     sentence_count: 4
     key_terms: [spirit, campaign, airline, already, started, effort, letsbuyspiritair-com, going]
     concepts: [spirit, campaign, airline, already, started]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1taez6x/ecommerce_industry_news_recap_week_of_may_11th/","kind":"social-post","date":"2026-05-11","author":"adventurepaul","subreddit":"ecommerce"}]
 ---
 # E-commerce Industry News Recap 🔥 Week of May 11th, 2026
 

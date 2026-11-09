@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:02:55+00:00"
 content_hash: "cdb0b61ace162d55"
 chunks:
   - id: "articles/digital-transactions/ee628d5bef.md#c0"
-    char_span: [0, 2067]
+    char_span: [0, 2066]
     sentence_count: 13
     key_terms: [bluefin, technology, initiative, companies, security, bluefin-works-with-landi-to-streamline-processor-links, devices, payment]
     concepts: [bluefin, technology, initiative, companies, security]
-    token_count: 394
-    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/bluefin-works-with-landi-to-streamline-processor-links/"}]
+    token_count: 393
+    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/bluefin-works-with-landi-to-streamline-processor-links/","kind":"article","date":"2026-06-25"}]
 ---
 # Bluefin Works With Landi to Streamline Processor Links
 

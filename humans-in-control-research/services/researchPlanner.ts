@@ -10,7 +10,7 @@
 //              collectionBudgetFor hands the collection stage per-sub-question query budgets.
 
 import { parseJSONWithRepair } from './aiOutputRepair';
-import { stableHash, withResilience, isThrottleError, type DegradationEvent, emitDegradationEvent } from './multiModelResilience';
+import { stableHash, withResilience, isThrottleError, isProviderUnavailableError, type DegradationEvent, emitDegradationEvent } from './multiModelResilience';
 import { OPUS_CAP_ACTIVE, artifactModelFor, applyAnthropicRequestDefaults, chooseUtilityModel, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
 
 
@@ -324,7 +324,7 @@ async function callPlanner(prompt: string, stage: string, proxyBase: string): Pr
         primary: OPUS_CAP_ACTIVE ? 'gemini' : 'anthropic',
         fallbacks: OPUS_CAP_ACTIVE ? [] : ['gemini'],
         stage,
-        is429: isThrottleError,
+        is429: isProviderUnavailableError,   // 2026-10-05: outages fall back too, not only 429s
         invoke: async (provider) => {
             const endpoint = provider === 'anthropic' ? '/api/ai/anthropic' : '/api/ai/gemini';
             const body = provider === 'anthropic'
@@ -337,8 +337,8 @@ async function callPlanner(prompt: string, stage: string, proxyBase: string): Pr
                     messages: [{ role: 'user', content: prompt }],
                 }, { kind: 'research-plan' })
                 : {
-                    // Stage 4.3 / D7: the Gemini fallback for planning is the Flash utility tier.
-                    model: chooseUtilityModel('research-plan').model,
+                    // 2026-10-05: planning is REASONING (flash is for speed), so the Gemini fallback is the Pro model.
+                    model: 'gemini-3.1-pro-preview',
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: { temperature: 0.1, responseMimeType: 'application/json' },
                 };
@@ -352,7 +352,7 @@ async function callPlanner(prompt: string, stage: string, proxyBase: string): Pr
             }
             const data = await resp.json();
             const text = provider === 'anthropic'
-                ? (data.content?.[0]?.text ?? data.content?.find((c: any) => c.type === 'text')?.text ?? '')
+                ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))   // 2026-10-05: content[0] is the thinking block under adaptive thinking
                 : (data.candidates?.[0]?.content?.parts?.[0]?.text ?? '');
             return parseJSONWithRepair(text, { calling_context: stage });
         },
@@ -588,7 +588,7 @@ export async function reflectOnCollection(opts: {
             }
             const data = await resp.json();
             const text = provider === 'anthropic'
-                ? (data.content?.[0]?.text ?? '')
+                ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))   // 2026-10-05: content[0] is the thinking block under adaptive thinking
                 : (data.candidates?.[0]?.content?.parts?.[0]?.text ?? '');
             return parseJSONWithRepair(text, { calling_context: 'research_planner:reflect' });
         },

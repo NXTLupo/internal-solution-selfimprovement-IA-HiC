@@ -266,19 +266,220 @@ export function mergeThemeSets(
   const freshArr = Array.isArray(fresh) ? fresh : [];
   const absorb: AbsorbFn<any> = (canonical, dup) => {
     pushMergedFrom(canonical, dup);
-    // If the canonical (cached) theme is thinner than the fresh twin, absorb
-    // the richer fields so retention does not cost depth.
-    const cSum = String(canonical.summary ?? canonical.description ?? '');
-    const dSum = String(dup?.summary ?? dup?.description ?? '');
-    if (dSum.length > cSum.length) {
-      if (!canonical.description || String(canonical.description).length < dSum.length) canonical.description = dSum;
-    }
-    const cTerms = Array.isArray(canonical.top_terms) ? canonical.top_terms : [];
-    const dTerms = Array.isArray(dup?.top_terms) ? dup.top_terms : [];
-    if (dTerms.length > cTerms.length) canonical.top_terms = dTerms;
+    absorbThemeFields(canonical, dup);
+    // 2026-10-20 (root-cause audit A1): a twin's citations are corroboration, not
+    // noise. Fold them into the kept theme so the union survives the merge.
+    foldThemeEvidence(canonical, dup);
     canonical._hasFreshTwin = true;
   };
   const res = dedupe([...cachedArr, ...freshArr], identityOfTheme, absorb);
   recordLastDedup(opts?.scope || 'themes', res.stats);
   return res;
+}
+
+// ---------------------------------------------------------------------------
+// Theme twin folding (2026-10-20, root-cause audit A1: cross-shard corroboration
+// was discarded with its citations because the shard dedupe was an exact
+// lower-cased name check). The helpers below are the ONE place a theme twin's
+// evidence folds into the theme that is kept.
+// ---------------------------------------------------------------------------
+
+/** If the canonical theme is thinner than its twin, absorb the richer fields so retention does not cost depth. */
+function absorbThemeFields(canonical: any, dup: any): void {
+  const cSum = String(canonical.summary ?? canonical.description ?? '');
+  const dSum = String(dup?.summary ?? dup?.description ?? '');
+  if (dSum.length > cSum.length) {
+    if (!canonical.description || String(canonical.description).length < dSum.length) canonical.description = dSum;
+  }
+  const cTerms = Array.isArray(canonical.top_terms) ? canonical.top_terms : [];
+  const dTerms = Array.isArray(dup?.top_terms) ? dup.top_terms : [];
+  if (dTerms.length > cTerms.length) canonical.top_terms = dTerms;
+  if (!canonical.quote && dup?.quote) canonical.quote = dup.quote;
+  const cAlign = Number(canonical.goalAlignment);
+  const dAlign = Number(dup?.goalAlignment);
+  if (Number.isFinite(dAlign) && (!Number.isFinite(cAlign) || dAlign > cAlign)) canonical.goalAlignment = dAlign;
+}
+
+/**
+ * Origin of a citation: canonical host + path when it carries a URL, otherwise the
+ * normalized source name / file. Two citations with the same origin are ONE source
+ * for `distinct_source_count` (the same recipe the theme evidence gate uses).
+ */
+export function citationOriginKey(c: any): string {
+  const url = String(c?.url || c?.sourceUrl || '').trim();
+  if (url) {
+    try {
+      const u = new URL(url);
+      return `${u.hostname.toLowerCase().replace(/^www\./, '')}${u.pathname.replace(/\/+$/, '') || '/'}`;
+    } catch { /* fall through to the name key */ }
+  }
+  return String(c?.sourceName || c?.sourceFile || c?.source || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+/** Identity of ONE citation: its origin plus a fingerprint of its quoted span (same origin, different span = two citations). */
+function citationKey(c: any): string {
+  const origin = normalizeUrl(c?.url || c?.sourceUrl || '') || citationOriginKey(c);
+  const span = contentFingerprint(String(c?.text ?? c?.quote ?? c?.excerpt ?? c?.snippet ?? ''), 512);
+  return `${origin}::${span}`;
+}
+
+function unionStrings(a: unknown, b: unknown): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const list of [a, b]) {
+    if (!Array.isArray(list)) continue;
+    for (const v of list) {
+      const s = typeof v === 'string' ? v : String(v?.quote ?? v?.text ?? v?.name ?? '');
+      const k = s.replace(/\s+/g, ' ').trim().toLowerCase();
+      if (!k || seen.has(k)) continue;
+      seen.add(k);
+      out.push(v);
+    }
+  }
+  return out;
+}
+
+/** Distinct origins among a theme's citations, written onto `distinct_source_count` and `evidence_tier`. */
+export function recountThemeSources(theme: any): number {
+  const cits = Array.isArray(theme?.citations) ? theme.citations : [];
+  const origins = new Set(cits.map(citationOriginKey).filter(Boolean));
+  theme.distinct_source_count = origins.size;
+  theme.evidence_tier = origins.size >= 2 ? 'thick' : 'single_source';
+  return origins.size;
+}
+
+/**
+ * Fold a twin's evidence into the kept theme: union of citations (by origin + span),
+ * quotes / keyQuotes / sources, plus the recount of distinct origins. The twin's
+ * citations are appended AFTER the canonical ones, so any `citationIndices` already
+ * computed against the canonical theme stay valid.
+ */
+export function foldThemeEvidence(canonical: any, dup: any): void {
+  const cCits: any[] = Array.isArray(canonical.citations) ? canonical.citations : (canonical.citations = []);
+  const seen = new Set(cCits.map(citationKey));
+  let added = 0;
+  for (const c of (Array.isArray(dup?.citations) ? dup.citations : [])) {
+    if (!c || typeof c !== 'object') continue;
+    const k = citationKey(c);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    cCits.push(c);
+    added++;
+  }
+  for (const field of ['keyQuotes', 'key_quotes', 'quotes', 'representativeQuotes', 'sources', 'sourceNames']) {
+    if (Array.isArray(dup?.[field]) && dup[field].length) {
+      canonical[field] = unionStrings(canonical[field], dup[field]);
+    }
+  }
+  canonical.shard_corroboration = (Number(canonical.shard_corroboration) || 1) + 1;
+  if (added) canonical.citations_folded = (Number(canonical.citations_folded) || 0) + added;
+  recountThemeSources(canonical);
+}
+
+// ---------------------------------------------------------------------------
+// Near-duplicate theme names (2026-10-20, audit A1 part b)
+// ---------------------------------------------------------------------------
+
+const NAME_STOPWORDS = new Set([
+  'a', 'an', 'the', 'of', 'in', 'on', 'for', 'to', 'and', 'or', 'with', 'by', 'from', 'as', 'at',
+  'is', 'are', 'be', 'into', 'over', 'under', 'vs', 'versus', 'across', 'their', 'its', 'that',
+  'this', 'than', 'how', 'what', 'when', 'where', 'who', 'which', 'not', 'no', 'but', 'it', 'they',
+  'them', 'we', 'our', 'your', 'you', 'do', 'does', 'can', 'will', 'more', 'most', 'now', 'still',
+]);
+
+/** Normalized, stopword-stripped tokens of a theme name (lower-case, alphanumeric only). */
+export function themeNameTokens(name: unknown): string[] {
+  return String(name ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(' ')
+    .filter(t => t.length > 0 && !NAME_STOPWORDS.has(t));
+}
+
+/** The near-duplicate bar: token Jaccard at or above this is the same theme. */
+const THEME_NAME_JACCARD_FLOOR = 0.7;
+
+/**
+ * True when two theme names denote the same theme: identical after normalization,
+ * one name's token sequence contained in the other's (two or more tokens, so a
+ * single shared buzzword such as "ai" never collapses two themes), or token
+ * Jaccard >= THEME_NAME_JACCARD_FLOOR.
+ */
+export function themeNamesNearDuplicate(a: unknown, b: unknown): boolean {
+  const ta = themeNameTokens(a);
+  const tb = themeNameTokens(b);
+  if (!ta.length || !tb.length) return false;
+  const ja = ta.join(' ');
+  const jb = tb.join(' ');
+  if (ja === jb) return true;
+  const [shorter, longer] = ta.length <= tb.length ? [ja, jb] : [jb, ja];
+  const shorterTokens = Math.min(ta.length, tb.length);
+  if (shorterTokens >= 2 && ` ${longer} `.includes(` ${shorter} `)) return true;
+  const sa = new Set(ta);
+  const sb = new Set(tb);
+  let inter = 0;
+  for (const t of sa) if (sb.has(t)) inter++;
+  const union = sa.size + sb.size - inter;
+  return union > 0 && inter / union >= THEME_NAME_JACCARD_FLOOR;
+}
+
+export interface ShardMergeResult {
+  /** Themes appended to the accumulator (new identities). */
+  added: number;
+  /** Incoming themes folded into an existing theme (citations unioned). */
+  folded: number;
+  /** The themes that were appended, in order. */
+  addedThemes: any[];
+}
+
+/**
+ * Merge one shard's (or one retry's) themes INTO an accumulator, in place. A theme is
+ * the same theme when it shares an identity key (cluster id, summary fingerprint)
+ * with a kept theme OR its name is a near-duplicate of a kept theme's name. Twins
+ * fold their citations, quotes and sources into the kept theme (first seen wins,
+ * so an earlier shard's theme is canonical) and `distinct_source_count` reflects
+ * the union. Nothing is dropped with its evidence any more.
+ */
+export function mergeShardThemes(accumulator: any[], incoming: any[], opts?: { scope?: string }): ShardMergeResult {
+  const result: ShardMergeResult = { added: 0, folded: 0, addedThemes: [] };
+  const list = Array.isArray(incoming) ? incoming : [];
+  if (!Array.isArray(accumulator) || !list.length) return result;
+  const stats = emptyStats(list.length);
+  const byCluster = new Map<string, any>();
+  const byContent = new Map<string, any>();
+  const register = (t: any) => {
+    const id = identityOfTheme(t);
+    if (id.clusterId && !byCluster.has(id.clusterId)) byCluster.set(id.clusterId, t);
+    if (id.contentHash && !byContent.has(id.contentHash)) byContent.set(id.contentHash, t);
+  };
+  for (const t of accumulator) if (t && typeof t === 'object') register(t);
+  for (const t of list) {
+    if (!t || typeof t !== 'object') continue;
+    const name = String(t.name ?? t.title ?? '').trim();
+    const id = identityOfTheme(t);
+    let canonical: any | undefined;
+    if (id.clusterId && byCluster.has(id.clusterId)) { canonical = byCluster.get(id.clusterId); stats.byKey.clusterId++; }
+    else if (id.contentHash && byContent.has(id.contentHash)) { canonical = byContent.get(id.contentHash); stats.byKey.contentHash++; }
+    else if (name) {
+      canonical = accumulator.find(k => k && typeof k === 'object' && themeNamesNearDuplicate(k.name ?? k.title, name));
+    }
+    if (canonical && canonical !== t) {
+      pushMergedFrom(canonical, t);
+      absorbThemeFields(canonical, t);
+      foldThemeEvidence(canonical, t);
+      register(t);
+      stats.collapsed++;
+      result.folded++;
+      continue;
+    }
+    if (!name) continue;   // a nameless theme cannot be shown or merged against
+    accumulator.push(t);
+    register(t);
+    recountThemeSources(t);
+    result.added++;
+    result.addedThemes.push(t);
+  }
+  stats.output = result.added;
+  recordLastDedup(opts?.scope || 'shard-themes', stats);
+  return result;
 }

@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:56:15+00:00"
 content_hash: "088909ca29e8539b"
 chunks:
   - id: "articles/agr-future-farming/f0cc7bcd2d.md#c0"
-    char_span: [0, 256]
+    char_span: [0, 255]
     sentence_count: 1
     key_terms: [elbit-systems-acquires-bluewhite-a-new-chapter-for-autonomous-farming, autonomous-semi-autosteering-systems, futurefarming, tech-in-focus, autonomous, bluewhite, acquires, chapter]
-    token_count: 64
-    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/tech-in-focus/autonomous-semi-autosteering-systems/elbit-systems-acquires-bluewhite-a-new-chapter-for-autonomous-farming/"}]
+    token_count: 63
+    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/tech-in-focus/autonomous-semi-autosteering-systems/elbit-systems-acquires-bluewhite-a-new-chapter-for-autonomous-farming/","kind":"article","date":"2026-06-02"}]
   - id: "articles/agr-future-farming/f0cc7bcd2d.md#c1"
-    char_span: [258, 3204]
+    char_span: [257, 3203]
     sentence_count: 19
     key_terms: [bluewhite, autonomous, technology, agricultural, systems, acquisition, elbit, new]
     concepts: [bluewhite, autonomous, technology, agricultural, systems]
     related_chunks: ["articles/agr-future-farming/f0cc7bcd2d.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/tech-in-focus/autonomous-semi-autosteering-systems/elbit-systems-acquires-bluewhite-a-new-chapter-for-autonomous-farming/","kind":"article","date":"2026-06-02"}]
   - id: "articles/agr-future-farming/f0cc7bcd2d.md#c2"
-    char_span: [2842, 3952]
+    char_span: [2841, 3951]
     sentence_count: 11
     key_terms: [autonomous, farmers, bluewhite, machines, platform, vehicles, accompanying, agricultural]
     concepts: [autonomous, farmers, bluewhite, machines, platform]
     related_chunks: ["articles/agr-future-farming/f0cc7bcd2d.md#c1"]
     token_count: 192
+    sources: [{"n":"agr_future_farming","u":"https://www.futurefarming.com/tech-in-focus/autonomous-semi-autosteering-systems/elbit-systems-acquires-bluewhite-a-new-chapter-for-autonomous-farming/","kind":"article","date":"2026-06-02"}]
 ---
 # Elbit Systems acquires Bluewhite: a new chapter for autonomous farming
 

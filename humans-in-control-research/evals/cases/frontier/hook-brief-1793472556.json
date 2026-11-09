@@ -1,0 +1,20 @@
+{
+  "id": "hook-brief-1793472556",
+  "set": "frontier",
+  "kind": "brief",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#brief"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-10-31",
+    "note": "Evidence density 0.33 below floor before generation"
+  }
+}

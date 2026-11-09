@@ -19,32 +19,35 @@ content_hash: "6ec81b69134a74c7"
 relevance_by_goal: {"c5a2d58d1be7":10}
 chunks:
   - id: "articles/kdnuggets/c1ce5f5dbc.md#c0"
-    char_span: [0, 2389]
+    char_span: [0, 2388]
     sentence_count: 13
     key_terms: [python, projects, project, real-world-python-projects-you-can-build-in-2026-with-guides, messages, real-world, practical, building]
     concepts: [projects, python, project, messages, real-world]
     related_chunks: ["articles/kdnuggets/c1ce5f5dbc.md#c3"]
-    token_count: 483
-    sources: [{"n":"KDnuggets","u":"https://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides"}]
+    token_count: 482
+    sources: [{"n":"KDnuggets","u":"https://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides","kind":"article","date":"2026-06-30"}]
   - id: "articles/kdnuggets/c1ce5f5dbc.md#c1"
-    char_span: [2394, 4777]
+    char_span: [2393, 4776]
     sentence_count: 18
     key_terms: [https, research, multi-agent-research-assistant, train-serve-and-deploy-a-scikit-learn-model-with-fastapi, how-to-build-a-multi-agent-research-assistant-in-python, applications, machinelearningmastery, build-small-hackathon]
     concepts: [https, multi-agent-research-assistant, research, machinelearningmastery, build-small-hackathon]
     token_count: 500
+    sources: [{"n":"KDnuggets","u":"https://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides","kind":"article","date":"2026-06-30"}]
   - id: "articles/kdnuggets/c1ce5f5dbc.md#c2"
-    char_span: [4780, 7083]
+    char_span: [4779, 7082]
     sentence_count: 18
     key_terms: [project, agentic-market-research-olostep, job, https, com, data, kingabzpro, market]
     concepts: [agentic-market-research-olostep, project, https, kingabzpro, market]
     token_count: 500
+    sources: [{"n":"KDnuggets","u":"https://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides","kind":"article","date":"2026-06-30"}]
   - id: "articles/kdnuggets/c1ce5f5dbc.md#c3"
-    char_span: [7088, 9233]
+    char_span: [7087, 9232]
     sentence_count: 18
     key_terms: [data, analysis, report, projects, tutorial, project, writing, https]
     concepts: [analysis, report, projects, tutorial, project]
     related_chunks: ["articles/kdnuggets/c1ce5f5dbc.md#c0"]
     token_count: 424
+    sources: [{"n":"KDnuggets","u":"https://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides","kind":"article","date":"2026-06-30"}]
 ---
 # 7 Real-World Python Projects You Can Build in 2026 (With Guides)
 

@@ -1,0 +1,95 @@
+---
+id: articles/digiday/d7cd2bcdc1.md
+url: "https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss"
+url_hash: "d7cd2bcdc1"
+kind: "article"
+source: "digiday"
+title: "AI Marketing Strategies: From experimentation to execution with Samsung, Bayer, David’s Bridal and Dolce&Gabbana Beauty"
+author: ""
+date: "Mon, 24 Aug 2026 15:58:08 +0000"
+tier: 3
+method: "source-native"
+extracted_at: "2026-08-26T19:13:08.991843+00:00"
+chars: 7007
+engagement: "deliver-a-technical-architecture-and-implementation-blueprin"
+collected_at: "2026-08-26T19:13:08.177Z"
+relevance: 45
+engagement_goal: "Deliver a technical architecture and implementation blueprint for Deciem's marketing and design teams to automate the email production workflow from Figma design to validated, sendable HTML using a multi-agent AI system, specifying agent roles, skills, and Model Context Protocol configurations that connect Figma libraries, brand guidelines, and design patterns while preserving creative flexibility and brand compliance, based on state of the art evidence current as of August 2026 and no earlier than January 2026. Define the reusable email component approach (including MJML), sending-platform and personalization-token integration, and the QA and validation criteria that qualify automated output as sendable."
+content_hash: "abf6781f293bc786"
+relevance_by_goal: {"8429cfd39d4f":20,"d21cb50b17ba":45}
+chunks:
+  - id: "articles/digiday/d7cd2bcdc1.md#c0"
+    char_span: [0, 352]
+    sentence_count: 1
+    key_terms: [ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty, digiday, experimentation, announcement, general-rss, digidaydis, strategies, execution]
+    concepts: [digiday]
+    token_count: 93
+    sources: [{"n":"digiday","u":"https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss","kind":"article","date":"2026-08-24"}]
+  - id: "articles/digiday/d7cd2bcdc1.md#c1"
+    char_span: [354, 2959]
+    sentence_count: 19
+    key_terms: [strategies, marketers, marketing, brands, experimentation, across, conversation, practices]
+    concepts: [strategies, marketers, marketing, brands, experimentation]
+    token_count: 512
+    sources: [{"n":"digiday","u":"https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss","kind":"article","date":"2026-08-24"}]
+  - id: "articles/digiday/d7cd2bcdc1.md#c2"
+    char_span: [2599, 5276]
+    sentence_count: 20
+    key_terms: [marketing, media, creative, across, attendees, digital, leaders, conversation]
+    concepts: [marketing, creative, media, across, attendees]
+    token_count: 512
+    sources: [{"n":"digiday","u":"https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss","kind":"article","date":"2026-08-24"}]
+  - id: "articles/digiday/d7cd2bcdc1.md#c3"
+    char_span: [4998, 7362]
+    sentence_count: 13
+    key_terms: [content, digiday, marketing, awards, audiences, media, winners, brands]
+    concepts: [content, digiday, marketing, awards, audiences]
+    token_count: 428
+    sources: [{"n":"digiday","u":"https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss","kind":"article","date":"2026-08-24"}]
+---
+# AI Marketing Strategies: From experimentation to execution with Samsung, Bayer, David’s Bridal and Dolce&Gabbana Beauty
+
+Source: [digiday](https://digiday.com/announcement/ai-marketing-strategies-from-experimentation-to-execution-with-samsung-bayer-davids-bridal-and-dolcegabbana-beauty/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss)
+
+Join us Sept. 14-16 in Miami to connect with top publishing leaders
+AI Marketing Strategies: From experimentation to execution with Samsung, Bayer, David’s Bridal and Dolce&Gabbana Beauty
+When we convened in February, marketers’ approaches to AI were still nascent. Over the past several months, many iconic brands have moved from early experimentation to strategies and tactics that put AI firmly in the spotlight — and increasingly in the agentic driver’s seat.
+On Sept. 24 in New York City, Digiday, Glossy and Modern Retail will host the second iteration of AI Marketing Strategies, bringing together brand leaders, agency executives, analysts and technology providers to explore what’s actually working as AI reshapes modern marketing.
+This next phase of AI Marketing Strategies will cut through the hype and lip service, zeroing in on standout case studies and emerging practices from brands like Samsung, Bayer and David’s Bridal and others that are quickly becoming table stakes across product discovery, personalization and targeting, creative generation and more.
+Before the event kicks off at 10 a.m. in New York City, here’s a look at what attendees will learn, who they’ll meet and why this conversation matters for marketers across industries and categories.
+Why are marketers suddenly feeling the pressure to ramp up their AI initiatives?
+The paradigm has shifted. For the past few years, many marketers took a cautious approach to AI, hesitant to be first to integrate it into core workflows. Now, the risk has flipped: Few want to be last.
+As Jim Cooper, editor-in-chief of Digiday, puts it:
+“Many brands have been a bit laggard, letting their agency partners take the early positions — and arrows — on AI adoption. But now brand marketers no longer really have a choice. Their customers are all over AI, and if brands want to remain top of mind with them, they need to be too.”
+From creative production to optimization and analysis, brands and agencies are under pressure to use AI in ways that drive performance, efficiency and scale. Some teams are already seeing results. Others are still sorting signal from noise.
+This moment is about learning what actually works and what doesn’t before the gaps widen further.
+What makes AI Marketing Strategies different from other AI events?
+At AI Marketing Strategies, we are not just having a surface-level conversation. Sessions will focus on how marketers are using AI today, where it is delivering value and where it is falling short.
+Discussions will dig into real experiences and emerging best practices across the most critical layers of the marketing process, including creative generation, media buying and targeting, analytics and measurement, and product discovery and search.
+The event will also feature an interactive town hall, giving attendees space to share challenges, compare notes and exchange off-the-record insights with peers navigating similar situations.
+What will attendees learn?
+Attendees will leave with a clearer view of the current state of play — not predictions or theory, but grounded insight into and examples of how AI is reshaping day-to-day marketing work and results.
+That includes how teams are integrating AI without disrupting creative workflows, evaluating tools and partners and measuring impact beyond experimentation. The goal is practical clarity, not abstraction.
+As Jill Manoff, editor-in-chief of Glossy and Modern Retail, says:
+“In a blink, the brand conversation around AI has shifted from exploration to execution. Seeing its value and potential, today’s brands are racing to harness the technology while, at the same time, managing its risks. With AI transforming the workplace in real time, it’s the right time to master that balance — and learn from those leading the charge.”
+Who should attend?
+Brands: Marketing leaders overseeing AI adoption across creative, media and analytics who want proven approaches that lead to measurable outcomes. You can apply to be a VIP here.
+Agencies: Leaders navigating the push to scale AI across campaigns without undermining creative or strategic impact, and looking for a clear picture of what is working across the industry. You can apply to be a VIP here.
+Tech solution providers: Providers bringing AI-powered or AI-augmented tools to market who want to better understand real-world challenges, connect with decision-makers and align products to current needs. You can buy a pass here.
+Who will be speaking?
+Speakers at the event include leaders working directly at the intersection of marketing and AI, including:
+- Allison Stransky, CMO, Samsung America
+- Patrizia Ranzi, Head of Media, Digital & CRM – Americas, Dolce&Gabbana Beauty
+- Glenniss Richards, senior director, digital media activation, Bayer
+- Chris Maliwat, SVP, e-commerce, digital growth and paid media, David’s Bridal
+Together, speakers will bring firsthand perspectives on how AI is being applied today — and what marketers need to do next.
+What’s the takeaway?
+AI is no longer optional, but adoption is far from straightforward. The AI Marketing Strategies event is designed for marketers who want an honest view of where the industry stands, how peers are approaching change and what it takes to move forward with confidence.
+Join us Sept. 24 in New York City as we map an industry being reshaped in real time. Learn more here.
+More in Announcement
+NFL, Verizon, NBCUniversal and Adobe are among the 2026 Digiday Content Marketing Awards Winners
+This year’s Digiday Content Marketing Awards winners demonstrate how brands are shifting toward more authentic, community-driven approaches to content. By partnering with creators, experts and complementary brands, organizations are building trust while reaching audiences through more relevant storytelling. The winning work also highlights the rise of interactive experiences that move beyond traditional campaigns, creating opportunities […]
+Ford, Amazon Prime Video and Pokémon are among the 2026 Digiday Content Marketing Awards finalists
+This year’s Digiday Content Marketing Awards finalists are creating interactive experiences and leaning on immersive storytelling to foster loyal audiences and build deeper connections. Dedicated channels and content ecosystems are enabling brands to better service niche audiences, while localization and multilingual content are helping brands connect with consumers worldwide. Finally, cross-platform strategies allow advertisers to […]
+Kepler, Samsung Ads and Kraft Heinz are among the 2026 Digiday Media Buying and Planning Awards winners
+This year’s Digiday Media Buying and Planning Awards winners reflect a media landscape increasingly shaped by artificial intelligence, data-driven decision making and integrated audience strategies. Across categories, organizations used AI to identify and engage high-value audiences, while adapting campaigns in real time to improve performance. Successful programs also embraced omnichannel planning, coordinating activity across platforms […]

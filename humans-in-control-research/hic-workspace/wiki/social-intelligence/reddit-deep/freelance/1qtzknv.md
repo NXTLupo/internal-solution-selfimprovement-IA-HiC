@@ -7,15 +7,14 @@ subreddit: "freelance"
 title: "What I learned running a specialized service business for 4 months (finding clients, structuring offers, delivery workflows)"
 author: "bertranddo"
 date: "2026-02-02T16:22:07.000Z"
-score: 40
+score: 38
 upvote_ratio: 0.82
-num_comments: 56
+num_comments: 59
 flair: ""
-extracted_at: "2026-05-26T12:53:48.703Z"
+extracted_at: "2026-10-09T16:37:09.940Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging needs in the remote work sector."
-industries: [workforce, ai_research]
-industry_method: llm
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c0"
     char_span: [0, 2236]
@@ -23,38 +22,42 @@ chunks:
     key_terms: [clients, business, service, businesses, freelance, recurring, need, delivery]
     concepts: [clients, business, service, businesses, freelance]
     token_count: 513
-    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/"}]
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/","kind":"social-post","date":"2026-02-02","author":"bertranddo","subreddit":"freelance"}]
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c1"
     char_span: [2238, 4478]
     sentence_count: 33
     key_terms: [work, outreach, clients, getting, market, delivering, potential, revisions]
     concepts: [outreach, clients, getting, market, delivering]
     token_count: 508
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/","kind":"social-post","date":"2026-02-02","author":"bertranddo","subreddit":"freelance"}]
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c2"
     char_span: [4480, 6025]
     sentence_count: 23
     key_terms: [new, skills, "that's", "don't", niche, price, get, work]
     concepts: [skills, "that's", "don't", niche, price]
     token_count: 331
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/","kind":"social-post","date":"2026-02-02","author":"bertranddo","subreddit":"freelance"}]
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c3"
-    char_span: [6039, 8033]
+    char_span: [6040, 8034]
     sentence_count: 16
     key_terms: [work, clients, upwork, advertising, "i've", job, bertranddo, something]
     concepts: [clients, upwork, advertising, bertranddo, something]
     section: Comments
     token_count: 483
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/","kind":"social-post","date":"2026-02-02","author":"bertranddo","subreddit":"freelance"}]
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c4"
-    char_span: [8035, 10207]
+    char_span: [8036, 10207]
     sentence_count: 12
     key_terms: [work, bertranddo, bottom, people, bookkeeping, positioning, like, ones]
     concepts: [bertranddo, bottom, people, bookkeeping, positioning]
     section: Comments
     token_count: 492
+    sources: [{"n":"reddit-deep: r/freelance","u":"https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/","kind":"social-post","date":"2026-02-02","author":"bertranddo","subreddit":"freelance"}]
 ---
 # What I learned running a specialized service business for 4 months (finding clients, structuring offers, delivery workflows)
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/)
-Posted by **bertranddo** · **40↑** · **56 comments**
+Posted by **bertranddo** · **38↑** · **59 comments**
 
 Alright, so I've been running a specialized service business for about 4 months now.
 
@@ -252,8 +255,8 @@ Feel free to ask if you have questions about the business side of running someth
 
 ## Comments
 
-- **Difficult_End5774** (2↑): it sucks because i work in project manager in advertising, registered in upwork so hard to find job
-  - **sami_camy** (1↑): Same here, Out of the 50+ jobs I've applied for, I've received 4 interviews. 2 weren't serious, one turned into something small and still waiting to hear back from the last. I only started getting responses when I lower my hourly. It's been over 8 years since I've had to "apply" for a job, and 4 since I was this active on upwork. Seems way more saturated with freelancers in marketing/advertising now
+- **Difficult_End5774** (3↑): it sucks because i work in project manager in advertising, registered in upwork so hard to find job
+  - **sami_camy** (2↑): Same here, Out of the 50+ jobs I've applied for, I've received 4 interviews. 2 weren't serious, one turned into something small and still waiting to hear back from the last. I only started getting responses when I lower my hourly. It's been over 8 years since I've had to "apply" for a job, and 4 since I was this active on upwork. Seems way more saturated with freelancers in marketing/advertising now
     - **bertranddo** (1↑): Yea upwork is tough. I think the quality of your samples matters a lot here. It's much more competitive than if you outreach to clients, because you got 15 other people sending their own samples too. So you need to be great at this.
 - **LightOk5071** (1↑): Do you tell the people that your offer is based on AI work, or do you tell them you that you use other tools and then just use AI?
   - **No_Fox_6990** (1↑): Same question
@@ -277,4 +280,4 @@ curious about one thing though — when you do cold outreach and show a sample o
 To answer your question I haven't come across this scenario, but I am sure with enough volume it will happen. Not an issue in the big scheme of things.
 - **pinkpasta1** (-1↑): Wow thanks man. This is sooo helpful
   - **bertranddo** (-1↑): Glad u liked it !
-    - **pinkpasta1** (-1↑): Nop. Could you explain more on how to position yourself on value rather than price? Im a freelancer amd i struggle with that a lot
+    - **pinkpasta1** (0↑): Nop. Could you explain more on how to position yourself on value rather than price? Im a freelancer amd i struggle with that a lot

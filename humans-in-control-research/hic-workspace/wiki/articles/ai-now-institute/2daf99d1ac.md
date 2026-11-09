@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:26:49+00:00"
 content_hash: "e3777d4c74d3ac22"
 chunks:
   - id: "articles/ai-now-institute/2daf99d1ac.md#c0"
-    char_span: [0, 1186]
+    char_span: [0, 1185]
     sentence_count: 6
     key_terms: [national, does, lead, government, great, the-great-ai-grift, kind, competitiveness]
     concepts: [national, government, great]
-    token_count: 252
-    sources: [{"n":"ai_now_institute","u":"https://ainowinstitute.org/news/press/the-great-ai-grift"}]
+    token_count: 251
+    sources: [{"n":"ai_now_institute","u":"https://ainowinstitute.org/news/press/the-great-ai-grift","kind":"article","date":"2026-04-10"}]
 ---
 # The Great AI Grift
 

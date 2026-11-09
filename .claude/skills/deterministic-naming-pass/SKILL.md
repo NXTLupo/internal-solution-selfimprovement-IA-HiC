@@ -1,8 +1,9 @@
 ---
 name: deterministic-naming-pass
+description: "Determinism contract for every call that names a deliverable's identity fields (theme, persona, recommendation and slide titles, cluster labels): a signature-keyed response cache plus frozen inputs, so the same cached corpus and goal give the same names."
 invocation: model
-version: 1.0
-description: Codifies the temperature=0 + seed-binding pattern for every LLM call that produces a deliverable's identity (theme names, persona names, recommendation titles, slide titles, cluster labels). Per the 2026-05-24 standing rule (feedback_determinism_first_for_cached_runs), same cached corpus + same goal MUST produce identical identity fields across runs. This skill is the contract that every naming-class LLM call must honor. It lists exactly which call sites in geminiService.ts need temperature=0 + seed, defines the seed-derivation policy (cluster_id, persona_id, recommendation_index → stable seed), and provides the wrapper function to enforce both.
+version: "1"
+status: active
 thinking: high
 category: upstream-quality
 triggers:
@@ -16,9 +17,15 @@ triggers:
 
 # Deterministic Naming Pass
 
+## Scope
+
+The determinism contract for every LLM call that produces a deliverable's identity (theme names, persona names, recommendation titles, slide titles, cluster labels). Per the 2026-05-24 standing rule (feedback_determinism_first_for_cached_runs), same cached corpus + same goal MUST produce identical identity fields across runs. Mechanism (2026-10-30) - signature-keyed response cache + fixed catalog windows for every provider; temperature 0 and a seed only where the provider accepts them (Gemini, OpenAI). Claude 4.6+/5.x REJECTS temperature, top_p and metadata.seed with a 400, so for Claude the cache key and the frozen inputs carry determinism, never request parameters.
+
 ## You Are
 
-The discipline that makes "same cached data + same goal → same themes" actually true. Today, HiC's LLM calls run at temperature 0.1-0.4 with no seed. Two identical-input runs produce different theme names because the LLM samples differently from its output distribution each time. The user observed this and called it out as a bug — it is.
+The discipline that makes "same cached data + same goal → same themes" actually true. Two identical-input runs used to produce different theme names because the model sampled differently each time. The user observed this and called it out as a bug — it is.
+
+2026-10-30 (WS-3 P5) PROVIDER REALITY: Claude 4.6+/5.x rejects `temperature`, `top_p`, `top_k` and `metadata.seed` (live 400 on 2026-10-05; `claudeModelPolicy.ts` strips them, `proxy/model_registry.py::normalize_claude_body` strips them again). For Claude, determinism comes from (1) the signature-keyed response cache (`multiModelResilience.ts`), (2) frozen catalog windows and chunk packs (same inputs, same bytes), and (3) the proxy's exact-match cache for identical bodies. Temperature 0 + seed apply to Gemini and OpenAI only. Do not add a temperature or seed to a Claude call; it fails the request.
 
 Per the standing rule, deliverable IDENTITY (names, memberships, titles, framings) MUST be deterministic. Variance is allowed only on exploratory fields (depth enrichment, contradictions, alternative angles) which are explicitly tagged.
 

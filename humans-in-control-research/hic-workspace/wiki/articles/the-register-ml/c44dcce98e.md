@@ -16,33 +16,36 @@ collected_at: "2026-07-02T16:04:12+00:00"
 content_hash: "657ee24e64a65b80"
 chunks:
   - id: "articles/the-register-ml/c44dcce98e.md#c0"
-    char_span: [0, 338]
+    char_span: [0, 337]
     sentence_count: 1
     key_terms: [zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026, networks, cross-domain, theregister, autonomous, innovation, practical, showcases]
     concepts: [networks]
-    token_count: 91
-    sources: [{"n":"the_register_ml","u":"https://www.theregister.com/networks/2026/06/26/zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026/5263080"}]
+    token_count: 90
+    sources: [{"n":"the_register_ml","u":"https://www.theregister.com/networks/2026/06/26/zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026/5263080","kind":"article","date":"2026-06-26"}]
   - id: "articles/the-register-ml/c44dcce98e.md#c1"
-    char_span: [340, 3573]
+    char_span: [339, 3572]
     sentence_count: 15
     key_terms: [autonomous, cross-domain, networks, management, intelligent, operational, operations, operators]
     concepts: [autonomous, cross-domain, networks, management, intelligent]
     related_chunks: ["articles/the-register-ml/c44dcce98e.md#c2", "articles/the-register-ml/c44dcce98e.md#c3"]
     token_count: 512
+    sources: [{"n":"the_register_ml","u":"https://www.theregister.com/networks/2026/06/26/zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026/5263080","kind":"article","date":"2026-06-26"}]
   - id: "articles/the-register-ml/c44dcce98e.md#c2"
-    char_span: [3150, 6372]
+    char_span: [3149, 6371]
     sentence_count: 16
     key_terms: [autonomous, intelligent, project, network, excellence, operators, networks, collaboration]
     concepts: [autonomous, intelligent, project, excellence, network]
     related_chunks: ["articles/the-register-ml/c44dcce98e.md#c1"]
     token_count: 512
+    sources: [{"n":"the_register_ml","u":"https://www.theregister.com/networks/2026/06/26/zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026/5263080","kind":"article","date":"2026-06-26"}]
   - id: "articles/the-register-ml/c44dcce98e.md#c3"
-    char_span: [5992, 7681]
+    char_span: [5991, 7680]
     sentence_count: 8
     key_terms: [autonomous, industry, networks, operational, operators, network, intelligence, scale]
     concepts: [autonomous, industry, networks, operational, operators]
     related_chunks: ["articles/the-register-ml/c44dcce98e.md#c1"]
     token_count: 274
+    sources: [{"n":"the_register_ml","u":"https://www.theregister.com/networks/2026/06/26/zte-showcases-practical-path-to-level-4-autonomous-networks-through-agentic-ai-and-cross-domain-innovation-at-dtw-ignite-2026/5263080","kind":"article","date":"2026-06-26"}]
 ---
 # ZTE showcases practical path to Level-4 autonomous networks through agentic AI and cross-domain innovation at DTW Ignite 2026
 

@@ -1,0 +1,26 @@
+{
+  "id": "persona-persona-card_1791247737688",
+  "set": "frontier",
+  "kind": "persona",
+  "input": {
+    "objective": "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility.",
+    "prompt": "#persona",
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ/artifacts/persona-card_1791247737688.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "persona-card_1791247737688",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:lexical partial (schema_invalid); chain:provenance partial (schema_invalid); chain:claims partial (schema_invalid); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); evidence:unsupported_p0 x9; layout:ungrounded_concept x7; layout:archetype_monotony x3; grade:superficial=11 x1; layout:sequence_repeat x1; slop:foundational x1"
+  }
+}

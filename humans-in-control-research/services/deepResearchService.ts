@@ -9,6 +9,8 @@
  */
 
 import { GoogleGenAI } from "@google/genai";
+import { makeGenAI } from './genaiClient';
+import { providerAvailable } from './proxyConfig';
 
 // --- TYPES ---
 
@@ -106,10 +108,9 @@ export function estimateCost(mode: ResearchMode, maxSearches?: number): { low: n
 
 async function geminiGroundedSearch(config: ResearchConfig): Promise<ResearchResult> {
     const start = Date.now();
-    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
+    if (!providerAvailable('gemini')) throw new Error('Gemini is not configured on the proxy');
 
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = makeGenAI();
 
     // Structured research prompt following the Deep Research template pattern:
     // temporal grounding, quality rules, multi-step methodology, relevance constraints, self-validation
@@ -189,10 +190,9 @@ async function geminiDeepResearch(
     onProgress?: (p: DeepResearchProgress) => void
 ): Promise<ResearchResult> {
     const start = Date.now();
-    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
+    if (!providerAvailable('gemini')) throw new Error('Gemini is not configured on the proxy');
 
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = makeGenAI();
 
     onProgress?.({ status: 'starting', message: 'Initiating deep research agent...', elapsedMs: 0 });
 

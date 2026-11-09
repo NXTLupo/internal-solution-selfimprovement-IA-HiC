@@ -42,6 +42,8 @@ export async function ensurePrimaryDocs(opts: {
     goal: string;
     engagement: string;
     force?: boolean;
+    /** Named subjects to collect documentation for (the planner otherwise derives them from the goal). */
+    subjects?: string[];
     maxPages?: number;
     budgetSeconds?: number;
     timeoutMs?: number;
@@ -65,6 +67,7 @@ export async function ensurePrimaryDocs(opts: {
                 goal: opts.goal,
                 engagement: opts.engagement || null,
                 force: !!opts.force,
+                ...(opts.subjects && opts.subjects.length ? { subjects: opts.subjects } : {}),
                 max_pages: opts.maxPages ?? 24,
                 budget_seconds: opts.budgetSeconds ?? 90,
             }),

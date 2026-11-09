@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:04:56+00:00"
 content_hash: "5188bd00a35000a8"
 chunks:
   - id: "articles/nist-ai/44adc2f4dd.md#c0"
-    char_span: [0, 240]
+    char_span: [0, 239]
     sentence_count: 1
     key_terms: [new-technique-measuring-dna-damage-could-improve-cancer-therapy-and, radiological, news-events, emergency, measuring, technique, response, improve]
-    token_count: 59
-    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2025/08/new-technique-measuring-dna-damage-could-improve-cancer-therapy-and"}]
+    token_count: 58
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2025/08/new-technique-measuring-dna-damage-could-improve-cancer-therapy-and","kind":"article","date":"2025-08-21"}]
   - id: "articles/nist-ai/44adc2f4dd.md#c1"
-    char_span: [242, 3168]
+    char_span: [241, 3167]
     sentence_count: 18
     key_terms: [radiation, dna, measuring, nanopore, through, researchers, cancer, damage]
     concepts: [radiation, measuring, nanopore, researchers, through]
     related_chunks: ["articles/nist-ai/44adc2f4dd.md#c2"]
     token_count: 512
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2025/08/new-technique-measuring-dna-damage-could-improve-cancer-therapy-and","kind":"article","date":"2025-08-21"}]
   - id: "articles/nist-ai/44adc2f4dd.md#c2"
-    char_span: [2785, 5163]
+    char_span: [2784, 5162]
     sentence_count: 17
     key_terms: [radiation, technology, researchers, robertson, dna, exposure, quickly, cancer]
     concepts: [radiation, technology, researchers, robertson, exposure]
     related_chunks: ["articles/nist-ai/44adc2f4dd.md#c1"]
     token_count: 446
+    sources: [{"n":"nist_ai","u":"https://www.nist.gov/news-events/news/2025/08/new-technique-measuring-dna-damage-could-improve-cancer-therapy-and","kind":"article","date":"2025-08-21"}]
 ---
 # New Technique for Measuring DNA Damage Could Improve Cancer Therapy and Radiological Emergency Response
 

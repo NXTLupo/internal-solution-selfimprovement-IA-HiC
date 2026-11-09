@@ -1,0 +1,125 @@
+{
+  "started_at": "2026-10-31T21:10:29.324513Z",
+  "finished_at": "2026-10-31T21:10:55.108025Z",
+  "window_hours": 24.0,
+  "artifacts": 14,
+  "failures": 9,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "hook-roadmap-1793481054",
+      "hook-brief-1793481054",
+      "auditor-mindmap-1793481055",
+      "auditor-brief-1793481055",
+      "auditor-deep-research-1793481055",
+      "auditor-meta-themes-1793481055"
+    ],
+    "skipped_existing": 208,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 542,
+    "judges": {}
+  },
+  "epoch_proposal_id": "prop_1793474680_1",
+  "failed": [
+    {
+      "artifact_id": "slides_1793460733471",
+      "run_id": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793460733476_680ds5",
+        "prose:openers",
+        "grade:superficial=4",
+        "layout:sequence_repeat",
+        "layout:ungrounded_concept",
+        "layout:ungrounded_concept",
+        "layout:ungrounded_concept"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793470930453",
+      "run_id": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+      "kind": "slides",
+      "failures": [
+        "title:too_long@slide_1793470930464_rryypj"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793473236332",
+      "run_id": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793473236342_ocykvf",
+        "evidence:unsupported_p0@slide_1793473236342_b8wi7v"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793474368198",
+      "run_id": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793474368219_icqetf"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793475948065",
+      "run_id": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793475948169_5jefkr",
+        "evidence:unsupported_p0@slide_1793475948169_5jefkr",
+        "evidence:unsupported_p0@slide_1793475948169_5jefkr"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793476801519",
+      "run_id": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793476801627_bdhw0k",
+        "evidence:unsupported_p0@slide_1793476801627_kthpro",
+        "title:too_long@slide_1793476801627_kthpro"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793479351383",
+      "run_id": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793479351490_xkc6y5",
+        "evidence:unsupported_p0@slide_1793479351490_xkc6y5",
+        "evidence:unsupported_p0@slide_1793479351490_xkc6y5",
+        "evidence:unsupported_p0@slide_1793479351490_xkc6y5",
+        "evidence:unsupported_p0@slide_1793479351490_zs4me7",
+        "evidence:unsupported_p0@slide_1793479351490_zs4me7",
+        "prose:dilution"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793480190892",
+      "run_id": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793480191029_978hxz",
+        "evidence:unsupported_p0@slide_1793480191029_978hxz",
+        "evidence:unsupported_p0@slide_1793480191029_978hxz",
+        "evidence:unsupported_p0@slide_1793480191029_9z5ljv",
+        "evidence:unsupported_p0@slide_1793480191029_9z5ljv",
+        "evidence:unsupported_p0@slide_1793480191029_9z5ljv",
+        "prose:actors"
+      ]
+    },
+    {
+      "artifact_id": "slides_1793480998773",
+      "run_id": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+      "kind": "slides",
+      "failures": [
+        "evidence:unsupported_p0@slide_1793480998879_49afiw",
+        "layout:ungrounded_concept"
+      ]
+    }
+  ]
+}

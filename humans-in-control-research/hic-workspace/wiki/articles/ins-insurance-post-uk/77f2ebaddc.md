@@ -16,20 +16,21 @@ collected_at: "2026-07-02T17:39:46+00:00"
 content_hash: "a03a98c29dee5ffd"
 chunks:
   - id: "articles/ins-insurance-post-uk/77f2ebaddc.md#c0"
-    char_span: [0, 926]
+    char_span: [0, 925]
     sentence_count: 5
     key_terms: [insurance, verification, insurers, offering, sciences, digital, bspoke, claims]
     concepts: [insurance, verification, insurers, offering, sciences]
     related_chunks: ["articles/ins-insurance-post-uk/77f2ebaddc.md#c1"]
-    token_count: 184
-    sources: [{"n":"ins_insurance_post_uk","u":"https://www.postonline.co.uk/"}]
+    token_count: 183
+    sources: [{"n":"ins_insurance_post_uk","u":"https://www.postonline.co.uk/","kind":"article"}]
   - id: "articles/ins-insurance-post-uk/77f2ebaddc.md#c1"
-    char_span: [942, 3007]
+    char_span: [941, 3006]
     sentence_count: 9
     key_terms: [insurance, customers, insurers, home, consumer, outcomes, revealed, product]
     concepts: [insurance, customers, insurers, consumer, outcomes]
     related_chunks: ["articles/ins-insurance-post-uk/77f2ebaddc.md#c0"]
     token_count: 375
+    sources: [{"n":"ins_insurance_post_uk","u":"https://www.postonline.co.uk/","kind":"article"}]
 ---
 # Insurance Post (UK)
 

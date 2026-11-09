@@ -1,0 +1,2844 @@
+[
+ {
+  "id": "workforce-net-01",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "talent-supply-chain-network",
+  "title": "Talent supply chain operating network",
+  "subtitle": "Sourcing, screening, hiring and onboarding nodes",
+  "artifacts": [
+   "org",
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "spine",
+   "seed": 4200
+  }
+ },
+ {
+  "id": "workforce-net-02",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "internal-mobility-network",
+  "title": "Internal mobility movement network",
+  "subtitle": "Role-to-role transfer paths across functions",
+  "artifacts": [
+   "org",
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "mesh",
+   "seed": 4201
+  }
+ },
+ {
+  "id": "workforce-net-03",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "succession-bench-network",
+  "title": "Succession bench coverage network",
+  "subtitle": "Critical roles linked to ready successors",
+  "artifacts": [
+   "org",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 8,
+   "layout": "radial",
+   "seed": 4202
+  }
+ },
+ {
+  "id": "workforce-net-04",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "skills-adjacency-network",
+  "title": "Skills adjacency reskilling network",
+  "subtitle": "Adjacent skills enabling lateral redeployment",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4203
+  }
+ },
+ {
+  "id": "workforce-net-05",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "sourcing-channel-hub",
+  "title": "Sourcing channel hub network",
+  "subtitle": "Referral, agency, board and inbound feeds",
+  "artifacts": [
+   "org",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "hub2",
+   "seed": 4204
+  }
+ },
+ {
+  "id": "workforce-net-06",
+  "family": "wf_orgpyr",
+  "industry": "workforce",
+  "framework": "hr-shared-services-network",
+  "title": "HR shared services delivery network",
+  "subtitle": "Centers of excellence to business partner links",
+  "artifacts": [
+   "org",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4205
+  }
+ },
+ {
+  "id": "workforce-net-07",
+  "family": "operatingNetwork",
+  "industry": "workforce",
+  "framework": "contingent-vendor-network",
+  "title": "Contingent labor vendor network",
+  "subtitle": "Staffing suppliers feeding requisition pools",
+  "artifacts": [
+   "org",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "radial",
+   "seed": 4206
+  }
+ },
+ {
+  "id": "workforce-net-08",
+  "family": "operatingNetwork",
+  "industry": "workforce",
+  "framework": "talent-mobility-geo-network",
+  "title": "Talent hub geographic network",
+  "subtitle": "Headcount flow between major locations",
+  "artifacts": [
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 12,
+   "layout": "mesh",
+   "seed": 4207
+  }
+ },
+ {
+  "id": "workforce-cap-01",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "workforce-planning-stack",
+  "title": "Workforce planning capability stack",
+  "subtitle": "From demand modeling to scenario execution",
+  "artifacts": [
+   "strategy",
+   "arch",
+   "recommendations"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4208
+  }
+ },
+ {
+  "id": "workforce-cap-02",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "talent-acquisition-stack",
+  "title": "Talent acquisition capability stack",
+  "subtitle": "Sourcing through offer and onboarding layers",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4209
+  }
+ },
+ {
+  "id": "workforce-cap-03",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "learning-architecture-stack",
+  "title": "Learning and development capability stack",
+  "subtitle": "Content, delivery, practice and measurement",
+  "artifacts": [
+   "strategy",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4210
+  }
+ },
+ {
+  "id": "workforce-cap-04",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "hr-tech-stack",
+  "title": "HR technology layer stack",
+  "subtitle": "Core HCM, talent, analytics and experience tiers",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 4,
+   "seed": 4211
+  }
+ },
+ {
+  "id": "workforce-cap-05",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "skills-taxonomy-stack",
+  "title": "Skills taxonomy hierarchy stack",
+  "subtitle": "Domains, families, skills and proficiency tiers",
+  "artifacts": [
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4212
+  }
+ },
+ {
+  "id": "workforce-cap-06",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "total-rewards-stack",
+  "title": "Total rewards composition stack",
+  "subtitle": "Base, bonus, equity, benefits and wellbeing",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4213
+  }
+ },
+ {
+  "id": "workforce-cap-07",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "talent-analytics-maturity-stack",
+  "title": "People analytics maturity stack",
+  "subtitle": "Descriptive to prescriptive reporting layers",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4214
+  }
+ },
+ {
+  "id": "workforce-cap-08",
+  "family": "capabilityStack",
+  "industry": "workforce",
+  "framework": "career-pathing-stack",
+  "title": "Career architecture level stack",
+  "subtitle": "Job families, levels, bands and progression",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 3,
+   "seed": 4215
+  }
+ },
+ {
+  "id": "workforce-rad-01",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "hr-function-maturity",
+  "title": "HR function maturity vs target",
+  "subtitle": "Operating model dimensions assessed against goal",
+  "artifacts": [
+   "audit",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.55,
+    0.3,
+    0.6,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.7,
+    0.9,
+    0.8,
+    0.85
+   ],
+   "seed": 4216
+  }
+ },
+ {
+  "id": "workforce-rad-02",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "talent-acquisition-maturity",
+  "title": "Talent acquisition maturity radar",
+  "subtitle": "Sourcing, assessment and experience capability",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.35,
+    0.55,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.85,
+    0.8,
+    0.85
+   ],
+   "seed": 4217
+  }
+ },
+ {
+  "id": "workforce-rad-03",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "people-analytics-maturity",
+  "title": "People analytics maturity radar",
+  "subtitle": "Data, tooling, skills and adoption readiness",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.35,
+    0.4,
+    0.5,
+    0.3
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.9,
+    0.75
+   ],
+   "seed": 4218
+  }
+ },
+ {
+  "id": "workforce-rad-04",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "dei-program-maturity",
+  "title": "DEI program maturity radar",
+  "subtitle": "Representation, equity, inclusion and accountability",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.45,
+    0.3,
+    0.55,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.8,
+    0.75,
+    0.9,
+    0.85
+   ],
+   "seed": 4219
+  }
+ },
+ {
+  "id": "workforce-rad-05",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "manager-capability-radar",
+  "title": "Manager capability assessment radar",
+  "subtitle": "Coaching, feedback, hiring and development skills",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.45,
+    0.35,
+    0.6,
+    0.5,
+    0.4
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.8,
+    0.75,
+    0.85,
+    0.8,
+    0.8
+   ],
+   "seed": 4220
+  }
+ },
+ {
+  "id": "workforce-rad-06",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "workforce-planning-maturity",
+  "title": "Workforce planning maturity radar",
+  "subtitle": "Forecasting, scenarios, governance and linkage",
+  "artifacts": [
+   "audit",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.35,
+    0.4,
+    0.5,
+    0.3,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.85,
+    0.75,
+    0.8
+   ],
+   "seed": 4221
+  }
+ },
+ {
+  "id": "workforce-rad-07",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "employee-experience-maturity",
+  "title": "Employee experience maturity radar",
+  "subtitle": "Onboarding, tools, recognition and listening",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.45,
+    0.4,
+    0.55,
+    0.35,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.8,
+    0.85,
+    0.75,
+    0.85
+   ],
+   "seed": 4222
+  }
+ },
+ {
+  "id": "workforce-rad-08",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "learning-capability-radar",
+  "title": "Learning capability maturity radar",
+  "subtitle": "Curation, personalization, practice and impact",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.4,
+    0.35,
+    0.5,
+    0.45,
+    0.4,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.75,
+    0.85,
+    0.8,
+    0.8,
+    0.85
+   ],
+   "seed": 4223
+  }
+ },
+ {
+  "id": "workforce-rad-09",
+  "family": "maturityRadar",
+  "industry": "workforce",
+  "framework": "succession-readiness-radar",
+  "title": "Succession readiness assessment radar",
+  "subtitle": "Bench depth, diversity, mobility and risk",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.35,
+    0.45,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.8,
+    0.85,
+    0.75,
+    0.8
+   ],
+   "seed": 4224
+  }
+ },
+ {
+  "id": "workforce-fun-01",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "hiring-funnel-by-stage",
+  "title": "Hiring funnel by stage",
+  "subtitle": "Applicants converting through to accepted offers",
+  "artifacts": [
+   "recommendations",
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    42,
+    18,
+    9,
+    5
+   ],
+   "seed": 4225
+  }
+ },
+ {
+  "id": "workforce-fun-02",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "sourcing-to-screen-funnel",
+  "title": "Sourcing to screen conversion funnel",
+  "subtitle": "Outreach narrowing to qualified phone screens",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    30,
+    15
+   ],
+   "seed": 4226
+  }
+ },
+ {
+  "id": "workforce-fun-03",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "offer-acceptance-funnel",
+  "title": "Offer to acceptance funnel",
+  "subtitle": "Offers extended converting to signed starts",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    58,
+    44
+   ],
+   "seed": 4227
+  }
+ },
+ {
+  "id": "workforce-fun-04",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "internal-application-funnel",
+  "title": "Internal application conversion funnel",
+  "subtitle": "Employees applying through to internal placement",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    48,
+    26,
+    14,
+    8
+   ],
+   "seed": 4228
+  }
+ },
+ {
+  "id": "workforce-fun-05",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "upskilling-completion-funnel",
+  "title": "Upskilling program completion funnel",
+  "subtitle": "Enrolled learners reaching certified proficiency",
+  "artifacts": [
+   "recommendations",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    45,
+    28
+   ],
+   "seed": 4229
+  }
+ },
+ {
+  "id": "workforce-fun-06",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "leadership-pipeline-funnel",
+  "title": "Leadership pipeline progression funnel",
+  "subtitle": "High potentials advancing to promoted leaders",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    60,
+    35,
+    18,
+    9
+   ],
+   "seed": 4230
+  }
+ },
+ {
+  "id": "workforce-fun-07",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "diverse-slate-funnel",
+  "title": "Diverse slate hiring funnel",
+  "subtitle": "Diverse candidates advancing through selection",
+  "artifacts": [
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    28,
+    14,
+    7
+   ],
+   "seed": 4231
+  }
+ },
+ {
+  "id": "workforce-fun-08",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "requisition-to-fill-funnel",
+  "title": "Requisition to fill funnel",
+  "subtitle": "Open roles progressing to closed and filled",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    75,
+    50,
+    30,
+    16
+   ],
+   "seed": 4232
+  }
+ },
+ {
+  "id": "workforce-fun-09",
+  "family": "funnelFlow",
+  "industry": "workforce",
+  "framework": "campus-recruiting-funnel",
+  "title": "Campus recruiting conversion funnel",
+  "subtitle": "Event attendees converting to graduate hires",
+  "artifacts": [
+   "recommendations",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    40,
+    20,
+    10,
+    5
+   ],
+   "seed": 4233
+  }
+ },
+ {
+  "id": "workforce-jou-01",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "candidate-experience-journey",
+  "title": "Candidate experience journey",
+  "subtitle": "Application to first day with friction points",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4234
+  }
+ },
+ {
+  "id": "workforce-jou-02",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "onboarding-journey",
+  "title": "New hire onboarding journey",
+  "subtitle": "Offer accepted to fully ramped contributor",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4235
+  }
+ },
+ {
+  "id": "workforce-jou-03",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "employee-lifecycle-journey",
+  "title": "Employee lifecycle journey",
+  "subtitle": "Hire, grow, perform, advance and exit stages",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    4,
+    6
+   ],
+   "seed": 4236
+  }
+ },
+ {
+  "id": "workforce-jou-04",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "internal-mobility-journey",
+  "title": "Internal mobility move journey",
+  "subtitle": "Interest signal to settled new role",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4237
+  }
+ },
+ {
+  "id": "workforce-jou-05",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "manager-promotion-journey",
+  "title": "First time manager promotion journey",
+  "subtitle": "Individual contributor to confident people lead",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4238
+  }
+ },
+ {
+  "id": "workforce-jou-06",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "reskilling-journey",
+  "title": "Reskilling transition journey",
+  "subtitle": "Declining role to redeployed adjacent skill",
+  "artifacts": [
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4239
+  }
+ },
+ {
+  "id": "workforce-jou-07",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "offboarding-journey",
+  "title": "Employee offboarding journey",
+  "subtitle": "Resignation notice to alumni relationship",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4240
+  }
+ },
+ {
+  "id": "workforce-jou-08",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "contingent-worker-journey",
+  "title": "Contingent worker engagement journey",
+  "subtitle": "Sourcing to assignment close and rehire",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    4
+   ],
+   "seed": 4241
+  }
+ },
+ {
+  "id": "workforce-jou-09",
+  "family": "journeyLine",
+  "industry": "workforce",
+  "framework": "returnship-journey",
+  "title": "Career returner onboarding journey",
+  "subtitle": "Re-entry candidate to integrated team member",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4242
+  }
+ },
+ {
+  "id": "workforce-dat-01",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "time-to-fill-by-role-family",
+  "title": "Time to fill by role family",
+  "subtitle": "Days open ranked across role families",
+  "artifacts": [
+   "recommendations",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4243,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-02",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "attrition-by-tenure-band",
+  "title": "Attrition by tenure band",
+  "subtitle": "Exit rate ranked across tenure cohorts",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    4,
+    3,
+    5,
+    7
+   ],
+   "sort": "none",
+   "seed": 4244,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-03",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "attrition-by-department",
+  "title": "Attrition by department",
+  "subtitle": "Voluntary exits ranked across functions",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4245,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-04",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "cost-per-hire-by-channel",
+  "title": "Cost per hire by channel",
+  "subtitle": "Acquisition cost ranked across sourcing channels",
+  "artifacts": [
+   "recommendations",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4246,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "workforce-dat-05",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "skills-gap-vs-demand",
+  "title": "Skills gap vs demand",
+  "subtitle": "Shortfall magnitude ranked across critical skills",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4247,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-06",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "engagement-by-team",
+  "title": "Engagement score by team",
+  "subtitle": "Survey index ranked across teams",
+  "artifacts": [
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "asc",
+   "seed": 4248,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-07",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "offer-acceptance-by-function",
+  "title": "Offer acceptance rate by function",
+  "subtitle": "Acceptance share ranked across functions",
+  "artifacts": [
+   "recommendations",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "asc",
+   "seed": 4249,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-08",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "training-hours-by-function",
+  "title": "Training hours per employee by function",
+  "subtitle": "Learning investment ranked across functions",
+  "artifacts": [
+   "recommendations",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4250,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "workforce-dat-09",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "quality-of-hire-by-source",
+  "title": "Quality of hire by source",
+  "subtitle": "Performance index ranked across hiring sources",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4251,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-dat-10",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "span-of-control-by-level",
+  "title": "Span of control by level",
+  "subtitle": "Reports per manager ranked across levels",
+  "artifacts": [
+   "recommendations",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    3,
+    5,
+    7,
+    8,
+    6,
+    4
+   ],
+   "sort": "none",
+   "seed": 4252,
+   "mean": true,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "workforce-dat-11",
+  "family": "dataField",
+  "industry": "workforce",
+  "framework": "absence-rate-by-shift",
+  "title": "Absence rate by shift",
+  "subtitle": "Unplanned absence ranked across shift patterns",
+  "artifacts": [
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4253,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "workforce-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "comp-ratio-vs-market",
+  "title": "Comp ratio vs market position",
+  "subtitle": "Pay percentile across roles and bands",
+  "artifacts": [
+   "competitive",
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.9
+    ],
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.9,
+     0.7,
+     0.6
+    ],
+    [
+     0.6,
+     0.8,
+     0.7
+    ]
+   ],
+   "seed": 4254
+  }
+ },
+ {
+  "id": "workforce-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "nine-box-talent-grid",
+  "title": "Nine box performance potential grid",
+  "subtitle": "Talent placed across performance and potential",
+  "artifacts": [
+   "strategy",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.3,
+     0.6,
+     0.9
+    ],
+    [
+     0.2,
+     0.5,
+     0.8
+    ],
+    [
+     0.1,
+     0.4,
+     0.7
+    ]
+   ],
+   "seed": 4255
+  }
+ },
+ {
+  "id": "workforce-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "build-buy-borrow-matrix",
+  "title": "Build buy borrow talent matrix",
+  "subtitle": "Sourcing option scored against role criticality",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.8,
+     0.7
+    ],
+    [
+     0.3,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4256
+  }
+ },
+ {
+  "id": "workforce-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "hr-tech-vendor-scorecard",
+  "title": "HR tech vendor scorecard",
+  "subtitle": "Platforms scored on capability criteria",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.7,
+     0.6,
+     0.9
+    ],
+    [
+     0.6,
+     0.8,
+     0.7,
+     0.5
+    ],
+    [
+     0.7,
+     0.5,
+     0.9,
+     0.6
+    ]
+   ],
+   "seed": 4257
+  }
+ },
+ {
+  "id": "workforce-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "role-criticality-risk-matrix",
+  "title": "Role criticality vs flight risk matrix",
+  "subtitle": "Positions placed on impact and risk axes",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.4,
+     0.7,
+     0.4
+    ],
+    [
+     0.8,
+     0.9,
+     0.4
+    ],
+    [
+     0.3,
+     0.5,
+     0.4
+    ]
+   ],
+   "seed": 4258
+  }
+ },
+ {
+  "id": "workforce-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "skills-proficiency-matrix",
+  "title": "Skills proficiency coverage matrix",
+  "subtitle": "Team competence across critical skills",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4,
+     0.7
+    ],
+    [
+     0.5,
+     0.8,
+     0.6,
+     0.3
+    ],
+    [
+     0.7,
+     0.4,
+     0.9,
+     0.5
+    ]
+   ],
+   "seed": 4259
+  }
+ },
+ {
+  "id": "workforce-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "benefits-competitiveness-matrix",
+  "title": "Benefits competitiveness matrix",
+  "subtitle": "Programs scored against peer benchmarks",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.9,
+     0.5
+    ],
+    [
+     0.6,
+     0.4,
+     0.8
+    ],
+    [
+     0.9,
+     0.7,
+     0.6
+    ],
+    [
+     0.5,
+     0.8,
+     0.7
+    ]
+   ],
+   "seed": 4260
+  }
+ },
+ {
+  "id": "workforce-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "engagement-driver-matrix",
+  "title": "Engagement driver impact matrix",
+  "subtitle": "Drivers placed on impact and performance axes",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.3,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4261
+  }
+ },
+ {
+  "id": "workforce-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "dei-representation-matrix",
+  "title": "DEI representation by level matrix",
+  "subtitle": "Group share across organizational levels",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.5,
+     0.4,
+     0.3,
+     0.2
+    ],
+    [
+     0.6,
+     0.5,
+     0.4,
+     0.3
+    ],
+    [
+     0.4,
+     0.3,
+     0.2,
+     0.1
+    ]
+   ],
+   "seed": 4262
+  }
+ },
+ {
+  "id": "workforce-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "learning-modality-matrix",
+  "title": "Learning modality effectiveness matrix",
+  "subtitle": "Methods scored on reach and depth criteria",
+  "artifacts": [
+   "recommendations",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.9
+    ],
+    [
+     0.6,
+     0.8,
+     0.4
+    ],
+    [
+     0.9,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4263
+  }
+ },
+ {
+  "id": "workforce-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "workforce",
+  "framework": "contingent-vs-permanent-matrix",
+  "title": "Contingent vs permanent decision matrix",
+  "subtitle": "Work types scored against criteria",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4264
+  }
+ },
+ {
+  "id": "workforce-dia-01",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "offer-acceptance-rate-dial",
+  "title": "Offer acceptance rate",
+  "subtitle": "Signed offers against extended offers",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 78,
+   "segments": 10,
+   "seed": 4265
+  }
+ },
+ {
+  "id": "workforce-dia-02",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "voluntary-attrition-dial",
+  "title": "Voluntary attrition rate",
+  "subtitle": "Regretted exits against total headcount",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 14,
+   "segments": 10,
+   "seed": 4266
+  }
+ },
+ {
+  "id": "workforce-dia-03",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "engagement-index-dial",
+  "title": "Employee engagement index",
+  "subtitle": "Favorable responses against survey base",
+  "artifacts": [
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 4267
+  }
+ },
+ {
+  "id": "workforce-dia-04",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "internal-fill-rate-dial",
+  "title": "Internal fill rate",
+  "subtitle": "Roles filled by internal candidates",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 42,
+   "segments": 10,
+   "seed": 4268
+  }
+ },
+ {
+  "id": "workforce-dia-05",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "succession-coverage-dial",
+  "title": "Succession coverage rate",
+  "subtitle": "Critical roles with a ready successor",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4269
+  }
+ },
+ {
+  "id": "workforce-dia-06",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "first-year-retention-dial",
+  "title": "First year retention rate",
+  "subtitle": "New hires remaining past twelve months",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 85,
+   "segments": 10,
+   "seed": 4270
+  }
+ },
+ {
+  "id": "workforce-dia-07",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "diversity-hire-rate-dial",
+  "title": "Diverse hire rate",
+  "subtitle": "Diverse hires against total hires",
+  "artifacts": [
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 36,
+   "segments": 10,
+   "seed": 4271
+  }
+ },
+ {
+  "id": "workforce-dia-08",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "training-completion-dial",
+  "title": "Training completion rate",
+  "subtitle": "Required courses completed on schedule",
+  "artifacts": [
+   "recommendations",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 67,
+   "segments": 10,
+   "seed": 4272
+  }
+ },
+ {
+  "id": "workforce-dia-09",
+  "family": "instrumentDial",
+  "industry": "workforce",
+  "framework": "headcount-plan-attainment-dial",
+  "title": "Headcount plan attainment",
+  "subtitle": "Filled positions against approved plan",
+  "artifacts": [
+   "recommendations",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 92,
+   "segments": 10,
+   "seed": 4273
+  }
+ },
+ {
+  "id": "workforce-gan-01",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "hiring-plan-roadmap",
+  "title": "Annual hiring plan roadmap",
+  "subtitle": "Requisition waves sequenced across quarters",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4274
+  }
+ },
+ {
+  "id": "workforce-gan-02",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "hcm-implementation-roadmap",
+  "title": "HCM implementation roadmap",
+  "subtitle": "Modules deployed across rollout phases",
+  "artifacts": [
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4275
+  }
+ },
+ {
+  "id": "workforce-gan-03",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "reskilling-program-roadmap",
+  "title": "Reskilling program roadmap",
+  "subtitle": "Cohort waves sequenced across periods",
+  "artifacts": [
+   "roadmap",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4276
+  }
+ },
+ {
+  "id": "workforce-gan-04",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "succession-development-roadmap",
+  "title": "Succession development roadmap",
+  "subtitle": "Successor readiness plans across horizons",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 4
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4277
+  }
+ },
+ {
+  "id": "workforce-gan-05",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "dei-initiative-roadmap",
+  "title": "DEI initiative roadmap",
+  "subtitle": "Representation programs across quarters",
+  "artifacts": [
+   "roadmap",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4278
+  }
+ },
+ {
+  "id": "workforce-gan-06",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "comp-cycle-roadmap",
+  "title": "Compensation review cycle roadmap",
+  "subtitle": "Benchmark, model and approval phases",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4279
+  }
+ },
+ {
+  "id": "workforce-gan-07",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "onboarding-rollout-roadmap",
+  "title": "Onboarding redesign roadmap",
+  "subtitle": "Experience phases sequenced across periods",
+  "artifacts": [
+   "roadmap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4280
+  }
+ },
+ {
+  "id": "workforce-gan-08",
+  "family": "timelineGantt",
+  "industry": "workforce",
+  "framework": "workforce-restructure-roadmap",
+  "title": "Workforce restructure roadmap",
+  "subtitle": "Transition workstreams across horizons",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4281
+  }
+ },
+ {
+  "id": "workforce-flo-01",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "requisition-approval-flow",
+  "title": "Requisition approval flow",
+  "subtitle": "Request through sign off to posting",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4282
+  }
+ },
+ {
+  "id": "workforce-flo-02",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "talent-data-architecture",
+  "title": "Talent data architecture flow",
+  "subtitle": "Source systems into analytics layer",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4283
+  }
+ },
+ {
+  "id": "workforce-flo-03",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "performance-review-flow",
+  "title": "Performance review cycle flow",
+  "subtitle": "Goal setting through calibration and reward",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4284
+  }
+ },
+ {
+  "id": "workforce-flo-04",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "promotion-decision-flow",
+  "title": "Promotion decision flow",
+  "subtitle": "Nomination through committee to outcome",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4285
+  }
+ },
+ {
+  "id": "workforce-flo-05",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "workforce-planning-flow",
+  "title": "Workforce planning process flow",
+  "subtitle": "Demand and supply into gap actions",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4286
+  }
+ },
+ {
+  "id": "workforce-flo-06",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "contingent-engagement-flow",
+  "title": "Contingent engagement flow",
+  "subtitle": "Need through vendor to assignment close",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4287
+  }
+ },
+ {
+  "id": "workforce-flo-07",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "skills-inference-flow",
+  "title": "Skills inference pipeline flow",
+  "subtitle": "Profile data into validated skill graph",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4288
+  }
+ },
+ {
+  "id": "workforce-flo-08",
+  "family": "flowSchematic",
+  "industry": "workforce",
+  "framework": "exit-decision-flow",
+  "title": "Exit and retention decision flow",
+  "subtitle": "Risk signal through intervention branches",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4289
+  }
+ },
+ {
+  "id": "workforce-pro-01",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "workforce-by-employment-type",
+  "title": "Workforce by employment type",
+  "subtitle": "Permanent, contingent and contractor share",
+  "artifacts": [
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    62,
+    23,
+    15
+   ],
+   "seed": 4290
+  }
+ },
+ {
+  "id": "workforce-pro-02",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "headcount-by-function",
+  "title": "Headcount by function",
+  "subtitle": "Share of workforce across major functions",
+  "artifacts": [
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    35,
+    25,
+    20,
+    12,
+    8
+   ],
+   "seed": 4291
+  }
+ },
+ {
+  "id": "workforce-pro-03",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "attrition-reason-mix",
+  "title": "Attrition reason mix",
+  "subtitle": "Exit drivers as share of departures",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    40,
+    28,
+    20,
+    12
+   ],
+   "seed": 4292
+  }
+ },
+ {
+  "id": "workforce-pro-04",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "hiring-source-mix",
+  "title": "Hiring source mix",
+  "subtitle": "Hires by channel as share of total",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    38,
+    27,
+    20,
+    15
+   ],
+   "seed": 4293
+  }
+ },
+ {
+  "id": "workforce-pro-05",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "total-rewards-spend-mix",
+  "title": "Total rewards spend mix",
+  "subtitle": "Investment share across reward elements",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    55,
+    18,
+    15,
+    12
+   ],
+   "seed": 4294
+  }
+ },
+ {
+  "id": "workforce-pro-06",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "generational-workforce-mix",
+  "title": "Generational workforce mix",
+  "subtitle": "Share of headcount across age cohorts",
+  "artifacts": [
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    18,
+    42,
+    30,
+    10
+   ],
+   "seed": 4295
+  }
+ },
+ {
+  "id": "workforce-pro-07",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "learning-budget-allocation",
+  "title": "Learning budget allocation",
+  "subtitle": "Spend share across development categories",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    45,
+    25,
+    18,
+    12
+   ],
+   "seed": 4296
+  }
+ },
+ {
+  "id": "workforce-pro-08",
+  "family": "proportionStack",
+  "industry": "workforce",
+  "framework": "l-d-spend-by-band",
+  "title": "Development spend by career band",
+  "subtitle": "Investment share across employee levels",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "groups": [
+    30,
+    30,
+    25,
+    15
+   ],
+   "seed": 4297
+  }
+ },
+ {
+  "id": "workforce-sec-01",
+  "family": "sectionMark",
+  "industry": "workforce",
+  "framework": "section-divider-talent",
+  "title": "Talent acquisition section",
+  "subtitle": "Sourcing, selection and hiring performance",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 4298
+  }
+ },
+ {
+  "id": "workforce-sec-02",
+  "family": "sectionMark",
+  "industry": "workforce",
+  "framework": "section-divider-retention",
+  "title": "Retention and mobility section",
+  "subtitle": "Attrition, engagement and internal movement",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4299
+  }
+ }
+]

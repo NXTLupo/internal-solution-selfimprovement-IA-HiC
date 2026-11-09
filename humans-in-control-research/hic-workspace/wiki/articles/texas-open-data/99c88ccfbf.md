@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:18:11+00:00"
 content_hash: "bdbb0e6546d2c35d"
 chunks:
   - id: "articles/texas-open-data/99c88ccfbf.md#c0"
-    char_span: [0, 697]
+    char_span: [0, 696]
     sentence_count: 3
     key_terms: [pharmacy-medical-billing-services-sv4-header-infor, pharmacy, services, texas, billing, dataset, medical, https]
     concepts: [pharmacy-medical-billing-services-sv4-header-infor, pharmacy, services, texas, billing]
-    token_count: 176
-    sources: [{"n":"texas_open_data","u":"https://data.texas.gov/dataset/Pharmacy-Medical-Billing-Services-SV4-Header-Infor/jkpg-wdht"}]
+    token_count: 175
+    sources: [{"n":"texas_open_data","u":"https://data.texas.gov/dataset/Pharmacy-Medical-Billing-Services-SV4-Header-Infor/jkpg-wdht","kind":"article","date":"2025-09-15"}]
 ---
 # Pharmacy Medical Billing Services (SV4) Header Information - Historical
 

@@ -16,32 +16,35 @@ collected_at: "2026-07-02T18:13:59+00:00"
 content_hash: "301a4a3519543a2d"
 chunks:
   - id: "articles/deepmind-blog/d4d97cea3d.md#c0"
-    char_span: [0, 220]
+    char_span: [0, 219]
     sentence_count: 1
     key_terms: [how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species, deepmind, blog, bioacoustics, endangered, advance, helping, science]
     concepts: [deepmind]
-    token_count: 56
-    sources: [{"n":"DeepMind Blog","u":"https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/"}]
+    token_count: 55
+    sources: [{"n":"DeepMind Blog","u":"https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/","kind":"article","date":"2025-10-24"}]
   - id: "articles/deepmind-blog/d4d97cea3d.md#c1"
-    char_span: [222, 2759]
+    char_span: [221, 2758]
     sentence_count: 16
     key_terms: [perch, model, new, protect, species, data, conservationists, animals]
     concepts: [perch, model, protect, species, conservationists]
     related_chunks: ["articles/deepmind-blog/d4d97cea3d.md#c2"]
     token_count: 512
+    sources: [{"n":"DeepMind Blog","u":"https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/","kind":"article","date":"2025-10-24"}]
   - id: "articles/deepmind-blog/d4d97cea3d.md#c2"
-    char_span: [2445, 4941]
+    char_span: [2444, 4940]
     sentence_count: 15
     key_terms: [perch, monitor, bioacoustics, search, species, sounds, honeycreeper, model]
     concepts: [perch, bioacoustics, monitor, search, species]
     related_chunks: ["articles/deepmind-blog/d4d97cea3d.md#c1"]
     token_count: 512
+    sources: [{"n":"DeepMind Blog","u":"https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/","kind":"article","date":"2025-10-24"}]
   - id: "articles/deepmind-blog/d4d97cea3d.md#c3"
-    char_span: [4688, 5050]
+    char_span: [4687, 5049]
     sentence_count: 3
     key_terms: [collaborators, ornithology, university, research, thousand, another, birdnet, cornell]
     concepts: [collaborators]
     token_count: 84
+    sources: [{"n":"DeepMind Blog","u":"https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/","kind":"article","date":"2025-10-24"}]
 ---
 # How AI is helping advance the science of bioacoustics to save endangered species
 

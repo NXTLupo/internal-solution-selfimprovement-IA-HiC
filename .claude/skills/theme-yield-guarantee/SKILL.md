@@ -1,19 +1,24 @@
 ---
 name: theme-yield-guarantee
+description: "Theme count comes from topic clustering reading the corpus, not from policy: the topic model finds clusters, the model names them, and the citation, source and evidence gates run at naming time with no relaxation tiers. Use when theme yield is low."
 invocation: model
-version: 2.0
-description: HiC produces 15-25 themes from a 200+ document corpus by delegating cluster identification to BERTopic with nr_topics="auto" and auto-scaled min_cluster_size — the same approach proven in internal-solutions-socialresearch/backend/util/topic_model/BertTopic.py. The count comes from the algorithm reading the corpus, NOT from policy. LLM extraction supplements clustering by naming clusters (temperature=0). Quality gates (citation diversity, source diversity, evidence density) are enforced by Stop hooks AT NAMING TIME, not by tier relaxation. The 4-tier relaxation policy from v1.0 was REMOVED 2026-05-24 after observing that the sister Social Research service solves this problem with one BERTopic pipeline + zero relaxation tiers. Per the standing rules feedback_quality_first_never_relax_default and feedback_determinism_first_for_cached_runs, the count is met by upstream quality, not by lowering standards.
+version: "2"
+status: active
 thinking: high
 category: deliverable-enforcer
 triggers:
   - theme yield
   - theme floor
-  - "at least 20 themes"
+  - at least 20 themes
   - "#theme-guarantee"
   - bertopic primary
 ---
 
 # Theme Yield Guarantee — v2.0 (Simplified)
+
+## Scope
+
+HiC produces 15-25 themes from a 200+ document corpus by delegating cluster identification to BERTopic with nr_topics="auto" and auto-scaled min_cluster_size — the same approach proven in internal-solutions-socialresearch/backend/util/topic_model/BertTopic.py. The count comes from the algorithm reading the corpus, NOT from policy. LLM extraction supplements clustering by naming clusters (temperature=0). Quality gates (citation diversity, source diversity, evidence density) are enforced by Stop hooks AT NAMING TIME, not by tier relaxation. The 4-tier relaxation policy from v1.0 was REMOVED 2026-05-24 after observing that the sister Social Research service solves this problem with one BERTopic pipeline + zero relaxation tiers. Per the standing rules feedback_quality_first_never_relax_default and feedback_determinism_first_for_cached_runs, the count is met by upstream quality, not by lowering standards.
 
 ## The 2026-05-24 architectural reset
 

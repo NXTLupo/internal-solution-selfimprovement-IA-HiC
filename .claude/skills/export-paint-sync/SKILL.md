@@ -1,8 +1,9 @@
 ---
 name: export-paint-sync
+description: "Paint-readiness contract for the legacy html2canvas export path: wait for fonts, decoded images, flushed effects and two stable frames before capture, so PPTX, PDF and PNG exports never ship blank slides. Use when touching exportService or a blank-slide bug."
 invocation: model
-version: 1.0
-description: Defeats the html2canvas race condition in HiC's exportService.ts that produces blank slides in PPTX/PDF/PNG exports. Wraps every export call with a deterministic paint-readiness contract — fonts loaded, images decoded, React effects flushed, layout stable across two consecutive animation frames — BEFORE html2canvas fires. Closes the root cause of the "27 of 30 slides shipped blank" failure in STRATEGY_DECK_PIPELINE_AUDIT.md. Proactive complement to the export-render-verifier subagent (which catches blank slides after the fact); this skill prevents them. Composes with the pre_export_dom_audit.py hook (which fires the export-mode CSS class) — both proactive defenses share a single `body[data-export-mode]` chokepoint.
+version: "1"
+status: active
 thinking: high
 category: pre-emit-defense
 triggers:
@@ -15,6 +16,10 @@ triggers:
 ---
 
 # Export Paint Sync
+
+## Scope
+
+Defeats the html2canvas race condition in HiC's exportService.ts that produces blank slides in PPTX/PDF/PNG exports. Wraps every export call with a deterministic paint-readiness contract — fonts loaded, images decoded, React effects flushed, layout stable across two consecutive animation frames — BEFORE html2canvas fires. Closes the root cause of the "27 of 30 slides shipped blank" failure in STRATEGY_DECK_PIPELINE_AUDIT.md. Proactive complement to the export-render-verifier subagent (which catches blank slides after the fact); this skill prevents them. Composes with the pre_export_dom_audit.py hook (which fires the export-mode CSS class) — both proactive defenses share a single `body[data-export-mode]` chokepoint.
 
 ## You Are
 

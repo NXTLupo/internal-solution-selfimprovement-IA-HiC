@@ -12,6 +12,7 @@ Critical constant: the 1920px stage = 144 px/in, so px->pt = px*0.5 (PX2PT). Usi
 1280px exporter's 0.75 oversizes every glyph 1.5x and causes the text collisions.
 """
 import os
+from render_sandbox import sandboxed_page  # WS-0 S3 (2026-10-30): network-sandboxed renders
 import re
 import tempfile
 import pathlib
@@ -145,6 +146,9 @@ MEASURE = r"""
   const isBlock=(el)=>{const d=getComputedStyle(el).display;
     return /^(block|flex|grid|table|list-item|flow-root)/.test(d);};
   const runs=[];
+  // 2026-10-05: the stage fit script may set CSS zoom on the canvas; Chromium reports the UN-zoomed font size, so
+  // the effective zoom (product over ancestors) scales size and line height to the rendered geometry.
+  const zoomOf=(el)=>{let z=1;for(let a=el;a&&a.nodeType===1;a=a.parentElement){const v=parseFloat(getComputedStyle(a).zoom);if(v&&isFinite(v))z*=v;}return z;};
   const emit=(rg, el)=>{
     const txt=rg.toString().replace(/\s+/g,' ').trim();
     if(!txt) return;
@@ -153,11 +157,11 @@ MEASURE = r"""
     const cs=getComputedStyle(el);
     const eb=el.getBoundingClientRect();
     runs.push({text:txt, x:rb.left-sr.left, y:rb.top-sr.top, w:rb.width, h:rb.height, tw:rb.width,
-      eright:eb.right-sr.left, ebottom:eb.bottom-sr.top,
-      size:parseFloat(cs.fontSize)||16, weight:parseInt(cs.fontWeight)||400, color:toHex(cs.color)||null,
+      eright:eb.right-sr.left, ebottom:eb.bottom-sr.top, etop:eb.top-sr.top,
+      size:(parseFloat(cs.fontSize)||16)*zoomOf(el), weight:parseInt(cs.fontWeight)||400, color:toHex(cs.color)||null,
       align:cs.textAlign||'left', transform:cs.textTransform||'none',
       family:(cs.fontFamily||'').split(',')[0].replace(/['"]/g,'').trim(), spacing:cs.letterSpacing,
-      italic:cs.fontStyle==='italic', lh:parseFloat(cs.lineHeight)||0});
+      italic:cs.fontStyle==='italic', lh:(parseFloat(cs.lineHeight)||0)*zoomOf(el)});
   };
   const walk=(el)=>{
     if(el.tagName==='svg' || el.closest('svg')) return;
@@ -279,7 +283,11 @@ GEO = r"""
     // chrome so it lands on the per-variant LAYOUT as the bottom-most shape (behind rail/dot-mark/
     // logo). Otherwise it renders as a full-page rect ON THE SLIDE that COVERS the inherited master
     // chrome (the bug: rail/logo hidden behind a white box on every content slide).
-    const isStageRoot = (el===stage);
+    // 2026-10-27 (run 44 PowerPoint render: no rail, wordmark or dot-mark on any slide): the deck composer paints its
+    // canvas on a full-stage wrapper div INSIDE #stage, so that wrapper is the canvas too, not a slide-level rect over
+    // the layout chrome.
+    const isStageRoot = (el===stage) || (el.parentElement===stage && b.left<=sr.left+1 && b.top<=sr.top+1
+      && b.width>=sr.width-2 && b.height>=sr.height-2);
     // WS-1e overlay marker: attribute value wins (e.g. "oval"); bare class means rect.
     const ov=(el.getAttribute&&el.getAttribute('data-pptx-overlay'))
       ||((el.classList&&el.classList.contains('pptx-overlay'))?'rect':null);
@@ -599,7 +607,18 @@ def html_to_editable_pptx(html: str, out_path: str) -> dict:
     return {"path": out_path, "runs": run_total, "native": _native, "brand": brand}
 
 
-def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
+def stamp_provenance(prs, line: str) -> bool:
+    """WS-C C2 (2026-10-31): the source run and version, first in the first slide's notes, so a shared file names
+    the run it came from. Notes only: the slides themselves stay the finished artifact."""
+    if not line or not len(prs.slides):
+        return False
+    tf = prs.slides[0].notes_slide.notes_text_frame
+    existing = tf.text or ""
+    tf.text = line + ("\n\n" + existing if existing.strip() else "")
+    return True
+
+
+def html_list_to_editable_pptx(html_list: list, out_path: str, provenance: str = "") -> dict:
     """Render a LIST of #stage HTML stages into a single N-slide editable .pptx.
 
     This is the structural primitive behind the chat's "Export Deck PPTX" button. Every
@@ -632,6 +651,7 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
     # the WRITTEN FILE after the font-embed rewrite (the zip is re-authored there).
     if len(prs.slides) != len(html_list):
         raise RuntimeError(f"slide-count mismatch before save: built {len(prs.slides)} of {len(html_list)} requested")
+    stamp_provenance(prs, provenance)
     prs.save(out_path)
     _embed_gold_fonts(out_path, brand=brand, used_families=used_families)
     import zipfile as _zf
@@ -690,7 +710,7 @@ def _render_into_presentation(prs, html_list: list, blank_idx: int = 6, brand: s
                     # D15 (2026-07-02): no per-slide bg raster temp file - the full-bleed raster
                     # tier is deleted; bg_paths kept (empty) only for the shared cleanup loop.
 
-                    pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2)
+                    pg = sandboxed_page(b, viewport={"width": W, "height": H}, device_scale_factor=2)
                     pg.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
                     try:
                         pg.evaluate("async () => { await document.fonts.ready; }")
@@ -1006,6 +1026,14 @@ def _render_into_presentation(prs, html_list: list, blank_idx: int = 6, brand: s
                         # a debug log if it spilled past the bottom — those are
                         # the high-signal density problems to catch). Pairs with
                         # the #stage{overflow:hidden} guard in slideToStageHtml.ts.
+                        # 2026-10-27 (run 44: the divider numerals "01".."04" were missing from every PPTX): a display
+                        # numeral at line-height 1 has a glyph box taller than its line, so its range starts above the
+                        # slide although its element sits inside it. Such a run takes its element's top.
+                        # Run 45: the same holds on the page (an 80 px divider title's box started 35 px above its
+                        # element and its cap tops covered the WORK kicker in PowerPoint): a run whose range starts
+                        # above its element starts at the element.
+                        if r.get("etop") is not None and 0 <= r["etop"] < H and r["y"] < r["etop"] - 1:
+                            r["y"] = r["etop"]
                         if r["x"] >= W or r["y"] >= H or r["x"] < -16 or r["y"] < -16:
                             continue
                         if r.get("transform") == "uppercase":

@@ -1,0 +1,71 @@
+---
+id: social-intelligence/reddit-deep/jobs/1uzpayf.md
+url: "https://www.reddit.com/r/jobs/comments/1uzpayf/i_analyzed_why_aisounding_resumes_get_skipped/"
+kind: "social-post"
+source: "reddit-deep: r/jobs"
+subreddit: "jobs"
+title: "I analyzed why AI-sounding resumes get skipped — here are the 5 actual patterns, not vague \"AI detection\" hand-waving"
+author: "Interesting_Syrup475"
+date: "2026-07-18T07:30:02.000Z"
+score: 0
+upvote_ratio: 0.17
+num_comments: 5
+flair: "Article"
+extracted_at: "2026-11-09T00:13:50.356Z"
+extraction_method: "praw-deep"
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1uzpayf.md#c0"
+    char_span: [0, 2272]
+    sentence_count: 16
+    key_terms: [real, patterns, resumes, reads, ai-sounding, hand-waving, efficiency, recruiters]
+    concepts: [patterns, resumes, ai-sounding, hand-waving, efficiency]
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1uzpayf/i_analyzed_why_aisounding_resumes_get_skipped/","kind":"social-post","date":"2026-07-18","author":"Interesting_Syrup475","subreddit":"jobs"}]
+  - id: "social-intelligence/reddit-deep/jobs/1uzpayf.md#c1"
+    char_span: [2274, 2795]
+    sentence_count: 7
+    key_terms: [specific, posting, fix, individually, application, connection, leveraged, replacing]
+    concepts: [specific, posting]
+    token_count: 114
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1uzpayf/i_analyzed_why_aisounding_resumes_get_skipped/","kind":"social-post","date":"2026-07-18","author":"Interesting_Syrup475","subreddit":"jobs"}]
+  - id: "social-intelligence/reddit-deep/jobs/1uzpayf.md#c2"
+    char_span: [2809, 4224]
+    sentence_count: 11
+    key_terms: [companies, "that's", human, ats, read, closely, company, filters]
+    concepts: [companies, "that's", human, closely, company]
+    section: Comments
+    token_count: 317
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1uzpayf/i_analyzed_why_aisounding_resumes_get_skipped/","kind":"social-post","date":"2026-07-18","author":"Interesting_Syrup475","subreddit":"jobs"}]
+---
+# I analyzed why AI-sounding resumes get skipped — here are the 5 actual patterns, not vague "AI detection" hand-waving
+
+Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1uzpayf/i_analyzed_why_aisounding_resumes_get_skipped/)
+Posted by **Interesting_Syrup475** · **0↑** · **5 comments**
+
+**I analyzed why AI-sounding resumes get skipped — here are the 5 actual patterns, not vague "AI detection" hand-waving**
+
+Quick disclaimer before anything else: there's no reliable way for a recruiter or a tool to actually detect whether a resume was written with AI. One of the few real studies on this (not a vendor survey) had recruiters distinguishing AI-assisted text from human-written text at basically coin-flip accuracy. So if you're worried about "getting caught," that's not really the right frame.
+
+What's actually happening is simpler: a specific set of patterns has become extremely common because everyone's using the same tools the same lazy way, and recruiters who read hundreds of resumes a week have gotten fast at pattern-matching "this reads like a template" — regardless of whether AI was involved at all. Here's what actually triggers that reaction:
+
+**1. Banned buzzwords.** "Results-driven," "proven track record," "synergy," "cross-functional," "self-starter," "go-getter." These have been used so many times they've stopped carrying information. A recruiter's eyes slide past them.
+
+**2. Every bullet has the same shape.** Read your bullets in a row. If they all start "Verb + adjective + noun" — "Spearheaded innovative solutions," "Drove strategic initiatives," "Delivered exceptional results" — that uniform cadence reads as generated even with zero banned words in it. Real work doesn't naturally compress into identical sentence shapes.
+
+**3. Claims with no concrete object.** "Drove significant improvements" — to what? "Enhanced operational efficiency" — which operation, how? A claim becomes credible the second it names a real system, team, or number. Without that it's just an assertion.
+
+**4. Suspiciously round, unsupported metrics.** "Improved efficiency by 50%" with no named process or baseline reads as a number picked for effect. Real numbers need the context that makes them checkable — measured how, compared to what.
+
+**5. Zero connection to the actual job posting.** The resume could be sent to any company in the industry unchanged. Nothing in it responds to what this specific posting actually asked for.
+
+None of these individually tank an application. Together, they're the fastest way to get skimmed past by someone who's read 200 resumes this week.
+
+The fix isn't a thesaurus — swapping "leveraged" for "utilized" doesn't help, it's still an empty verb. The fix is replacing the vague claim with the specific thing you actually did.
+
+## Comments
+
+- **MRV3N** (1↑): Do recruiters actually read 200 resumes? All I’ve heard the machine filters out most of the applicants. Once it picked and passed the filter, only the few remaining left until they choose which candidate is good for them.
+  - **Interesting_Syrup475** (1↑): Fair pushback, and it's a mix that varies a lot by company size. Larger companies do lean heavily on ATS keyword/format filtering before a human ever sees it, and that's true. Once something clears that filter (or at smaller companies that skip ATS software entirely and just eyeball submissions), a human is scanning fast, and that's where these patterns matter. "Reads like everyone else's" is exactly the kind of thing a fast human scan picks up on even when the content is technically fine. The 200/week number was more about total volume across a recruiter's pipeline than "200 read closely," to be clear. Most of that is a few-second glance, which is arguably worse for a generic-reading resume, not better.
+  - **Interesting_Syrup475** (1↑): Depends a lot on company size. At high-volume employers, yes, ATS filters first, then a recruiter skims the survivors for maybe 10-20 seconds each. At smaller companies or startups, often one person reads every single one closely. Either way the bar is the same: does it read clearly and match the role in the first few lines, because that's what determines whether you get more than a skim.

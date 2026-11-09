@@ -1,10 +1,13 @@
 ---
 name: failure-log
-invocation: model
-version: 1.0
 description: Log, classify, and analyze failures from flow runs, API calls, or deployments. Builds a structured failure history that informs future prompt improvements.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob, Bash, Write, Edit
-argument-hint: [error-description-or-screenshot]
+argument-hint:
+  - error-description-or-screenshot
 ---
 
 Act as a Claude skill trainer who captures failures and converts them into active constraints for future improvement.

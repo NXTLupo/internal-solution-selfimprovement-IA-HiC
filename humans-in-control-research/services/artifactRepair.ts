@@ -29,6 +29,7 @@ import { callAIWithRetry } from './aiRetryClient';
 import { DEFAULT_MODELS } from './aiRouter';
 import { noteAttempt, noteResult, resetProgress } from './progressGuard';
 import { runArtifactChain, type ChainContext, type ChainResult } from './artifactChain';
+import { readGroundingChunks } from './pointerBinder';
 import type { SlotViolation } from './evidenceSlots';
 import type { GradeReport } from './outputGrader';
 import type { ProseReport } from './proseSignal';
@@ -54,14 +55,17 @@ const REPAIR_SYSTEM = [
     '',
     'WHAT YOU MUST DO: narrow the claim to what the text itself can support. Replace a quantity, a causal assertion, an absolute or a comparison that has no evidence behind it with the qualitative pattern it was standing in for. Name the actor (a team, a system, a role) instead of an abstract noun.',
     '',
+    'EVIDENCE IN HAND: when the message carries an EVIDENCE AVAILABLE block, those passages are the verbatim corpus text behind the slide\'s manifest pointers. A claim that one of those passages supports is KEPT, narrowed only to what the passage states, with that passage\'s pointer attached inside the same field if it is not already there. Narrow a claim to the qualitative pattern only when no listed passage supports it.',
+    '',
     'WHAT YOU MUST NEVER DO:',
-    '- NEVER add a citation, a source name, a publication, a study, a report title, an author or a manifest pointer. You have no evidence in front of you, so any source you write would be fabricated.',
+    '- NEVER add a citation, a source name, a publication, a study, a report title, an author or a manifest pointer that is NOT in the EVIDENCE AVAILABLE block. Outside that block you have no evidence in front of you, so any source you write would be fabricated.',
     '- NEVER add a number, percentage, currency amount or ratio that is not already in the field.',
     '- NEVER keep an unsupported number by hedging it ("roughly", "approximately", "up to"). Remove it.',
     '- NEVER write a note about missing evidence. No "data unavailable", no annotation, no bracketed caveat. The reader must never see the awareness of a gap.',
     '- NEVER delete a manifest pointer, a source label or a verbatim quote that is already present and correct.',
     '',
-    'STYLE: plain business language, one idea per sentence, no em-dash, no emoji, no markdown, no buzzwords. A short honest sentence beats a padded one.',
+    // 2026-10-30 (WS-3 P7): em-dash and emoji are enforced by the chain's lexical stage, not restated here.
+    'STYLE: plain business language, one idea per sentence, no markdown, no buzzwords. A short honest sentence beats a padded one.',
     '',
     `TITLES: when a finding names the title, ALSO return a key "_titleCandidates" holding THREE distinct alternative titles. Each is one literal sentence under ${TITLE_MAX_CHARS} characters with a finite verb, naming the actor or system, with no figure of speech and no number. The caller picks the one that passes its checks.`,
 ].join('\n');
@@ -152,7 +156,31 @@ function slideInstruction(f: Findings, slide: RepairableSlide): string {
     return lines.join('\n');
 }
 
-async function repairSlide<T extends RepairableSlide>(slide: T, instruction: string): Promise<TextEdit[]> {
+/**
+ * WS-4 L4 (2026-10-30): the verbatim passages behind the slide's pointers, so the repair model narrows to what the
+ * evidence says instead of narrowing the claim away. Pointers come from the slide's own fields; the passages from the
+ * grounding chunks the chain bound against (`ctx.groundingChunks`, else the run's recorded pool).
+ */
+export function evidenceBlockFor(slide: RepairableSlide, pool: Array<{ id: string; text: string; sourceNames?: string[] }>): string {
+    if (!pool.length) return '';
+    let fields: Array<{ value: string }> = [];
+    try { fields = enumerateTextFields(slide).map((f: any) => ({ value: String(f.value || '') })); } catch { return ''; }
+    const pointers = new Set<string>();
+    for (const f of fields) for (const p of (f.value.match(/[\w./\\-]+\.md#c\d+/gi) || [])) pointers.add(p.replace(/\\/g, '/'));
+    if (!pointers.size) return '';
+    const byId = new Map(pool.map(c => [String(c.id).replace(/\\/g, '/'), c]));
+    const lines: string[] = [];
+    for (const p of pointers) {
+        const c = byId.get(p);
+        if (!c || !c.text) continue;
+        const who = (c.sourceNames || []).filter(Boolean).slice(0, 2).join('; ');
+        lines.push(`[${p}]${who ? ` (${who})` : ''}: "${String(c.text).replace(/\s+/g, ' ').trim().slice(0, 600)}"`);
+        if (lines.length >= 8) break;
+    }
+    return lines.length ? ['EVIDENCE AVAILABLE (verbatim corpus passages behind this slide\'s pointers):', ...lines].join('\n') : '';
+}
+
+async function repairSlide<T extends RepairableSlide>(slide: T, instruction: string, evidence = ''): Promise<TextEdit[]> {
     const fields = enumerateTextFields(slide);
     if (!fields.length || !instruction) return [];
     const user = [
@@ -161,6 +189,7 @@ async function repairSlide<T extends RepairableSlide>(slide: T, instruction: str
         'Findings to fix:',
         instruction,
         '',
+        ...(evidence ? [evidence, ''] : []),
         'Fields (path -> current text). The bracketed .md#cN markers are manifest pointers: keep them exactly where they are.',
         JSON.stringify(Object.fromEntries(fields.map(f => [f.path, f.value])), null, 1),
     ].join('\n');
@@ -198,6 +227,9 @@ async function repairSlide<T extends RepairableSlide>(slide: T, instruction: str
         if (typeof raw !== 'string') continue;
         if (path === 'title' && picked) continue;                 // the gate's pick wins
         if (path.startsWith('_')) continue;
+        // A VERBATIM QUOTE is never rewritten (2026-10-05 live #themes: the repair turned corpus quotes into paraphrases
+        // that still sat in quotation marks). Quote fields are kept or dropped by the citation gates, never reworded.
+        if (/quote|verbatim/i.test(path) || /(?:^|\.)evidence(?:$|\[|\.(?:text|quote))/i.test(path)) continue;
         const original = byPath.get(path);
         if (original === undefined) continue;                     // hallucinated path
         // Provenance is the system's, not the model's. STRIP every pointer and
@@ -261,6 +293,17 @@ function riRecord(initial: ChainResult<any>, final: ChainResult<any>): RepairRiR
  * narrow stays visible in the final chain result rather than being declared
  * clean.
  */
+/** The fields that carry the deck's governing thesis: the cover title and the thesis interstitial's statement. */
+export function isThesisField(slide: { template?: string }, path: string): boolean {
+    const t = String(slide?.template || '').replace(/^slides:/, '');
+    // the agenda names the deck's own sections; it carries no claim to narrow (2026-10-26 live: the repair turned
+    // "One hub for students, staff and employers" into "Overview of planning steps")
+    if (t === 'agenda') return true;
+    if (t === 'cover') return path === 'title';
+    if (t === 'thesis-interstitial') return path === 'title' || path === 'statement' || path === 'thesis';
+    return false;
+}
+
 export async function repairArtifact<T extends RepairableSlide>(
     slides: T[],
     chain: ChainResult<T>,
@@ -268,6 +311,8 @@ export async function repairArtifact<T extends RepairableSlide>(
 ): Promise<RepairResult<T>> {
     const runId = `${ctx.runId}:repair`;
     resetProgress(runId);
+    // WS-4 L4: the passages the chain bound against ride into every repair call
+    const _pool = (ctx.groundingChunks ?? readGroundingChunks()) as Array<{ id: string; text: string; sourceNames?: string[] }>;
 
     let current = slides;
     let latest = chain;
@@ -308,7 +353,10 @@ export async function repairArtifact<T extends RepairableSlide>(
         // loop keeps the provider from rate-limiting a deck-wide burst.
         for (const slide of targets) {
             try {
-                const edits = await repairSlide(slide, slideInstruction(f, slide));
+                // 2026-10-26 (live: the owner's thesis "First-year co-op readiness needs one guided hub" was flagged
+                // unsupported and narrowed to "Co-op preparation benefits from coordinated advisor tools"): the deck's
+                // thesis is an EDITORIAL JUDGMENT the user asked for, not a factual claim, so it is never narrowed here.
+                const edits = (await repairSlide(slide, slideInstruction(f, slide), evidenceBlockFor(slide, _pool))).filter(e => !isThesisField(slide, e.path));
                 if (edits.length) {
                     edited.set(slide.id, applyTextEdits(slide, edits) as T);
                     fieldsEdited += edits.length;

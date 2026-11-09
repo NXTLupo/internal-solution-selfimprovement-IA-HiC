@@ -28,6 +28,7 @@
 //   #auto-open               - synchronous window.open() workaround for popups
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
+import { CLAUDE_REASONING_MODEL } from './claudeModelPolicy';
 import {
   ARTIFACT_CATALOG,
   CATALOG_MODIFIERS,
@@ -82,7 +83,9 @@ export function classifyHashtags(message: string): { directives: CatalogHit[]; m
 // professional prose. Composer routes via /api/ai/gemini-compat (Google's
 // OpenAI-compatible endpoint), so the discriminated-union schema keeps
 // working unchanged. Legacy DeepSeek IDs retained for forward-compat.
-export type ComposerModelChoice = 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro';
+// 2026-10-05 owner rule: flash is for SPEED, Opus 5.5 is for REASONING. A presentation is a reasoning deliverable, so
+// the composer DEFAULT is the Claude reasoning model; an explicit #model=flash/pro/deepseek is still honored.
+export type ComposerModelChoice = typeof CLAUDE_REASONING_MODEL | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface PresentationDirective {
   triggered: boolean;
@@ -190,7 +193,7 @@ function parseModel(raw: string | undefined): ComposerModelChoice {
   // OpenAI account is out of quota. So Gemini is the reliable backend now.
   // Explicit DeepSeek requests are still honored (the user's choice), but they
   // remain content-filter-prone.
-  if (!raw) return 'gemini-3.5-flash';
+  if (!raw) return CLAUDE_REASONING_MODEL;
   const v = raw.toLowerCase().replace(/[^a-z0-9.]/g, '');
   if (v === 'geminipro' || v === 'gemini31' || v === 'gemini31propreview' || v === 'gemini-3.1-pro-preview' || v === 'pro') {
     return 'gemini-3.1-pro-preview';
@@ -204,7 +207,7 @@ function parseModel(raw: string | undefined): ComposerModelChoice {
   if (v === 'deepseekpro' || v === 'v4pro' || v === 'deepseekv4pro' || v === 'deepseek-v4-pro') {
     return 'deepseek-v4-pro';
   }
-  return 'gemini-3.5-flash';
+  return CLAUDE_REASONING_MODEL;
 }
 
 /**
@@ -303,7 +306,10 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
 // only; the whitepaper directive composes a consulting-grade HTML long-form
 // document using the same html-deliverable-composer skill plus a whitepaper-
 // specific structural prompt overlay.
-export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire' | '#prd';
+// 2026-11-03 - NotebookLM Studio formats (#faq, #studyguide, #chronology, #flashcards, #quiz,
+// #datatable, #critique) per plans/notebooklm-studio-reverse-engineering-2026-11-03.md W3.
+export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire' | '#prd'
+    | '#faq' | '#studyguide' | '#chronology' | '#flashcards' | '#quiz' | '#datatable' | '#critique';
 
 export interface ArtifactDirective {
     triggered: boolean;
@@ -340,6 +346,13 @@ const HTML_GENERATOR_LABELS: Record<ArtifactGenerator, string> = {
     '#whitepaper': 'consulting whitepaper',
     '#questionnaire': 'stakeholder questionnaire',
     '#prd': 'product requirements document',
+    '#faq': 'FAQ document',
+    '#studyguide': 'study guide',
+    '#chronology': 'source chronology',
+    '#flashcards': 'flashcard set',
+    '#quiz': 'knowledge quiz',
+    '#datatable': 'evidence data table',
+    '#critique': 'evidence critique',
 };
 
 /** The typed aliases that trigger one HTML generator. `#whitepaper` is its own generator inside the report

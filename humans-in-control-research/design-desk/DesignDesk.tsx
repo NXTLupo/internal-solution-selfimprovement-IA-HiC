@@ -62,6 +62,12 @@ export const DesignDesk: React.FC<Props> = ({ corpusText, standalone, onClose })
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && standalone) {
+                // 2026-10-05: Escape while typing (closing an autocomplete, clearing a selection) must never close
+                // the whole Design Desk and lose the prompt. 2026-10-31: nor an Esc another layer consumed (the
+                // #design comparison overlay).
+                if (e.defaultPrevented) return;
+                const t = e.target as HTMLElement | null;
+                if (t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT' || t.isContentEditable)) return;
                 e.preventDefault();
                 onClose?.();
             } else if (e.key === '\\' && (e.ctrlKey || e.metaKey)) {

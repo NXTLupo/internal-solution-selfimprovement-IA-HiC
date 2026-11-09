@@ -115,6 +115,8 @@ function overlayDiagramIcons(svg: string, anchors: VizAnchor[], icons: string[],
         if (!id || !ICONS[id]) return;
         const an = anchors.find((a) => a.idx === i) || anchors[i];
         if (!an) return;
+        // the hub already draws its own glyph; a second icon on it reads as a blob (2026-10-27 live divider)
+        if (an.role === 'hub') return;
         const r = an.nodeR || 12;
         const size = Math.max(16, r * 1.7);
         const sw = (1.6 * 24 / size).toFixed(2);
@@ -174,7 +176,27 @@ export interface VizSlotOpts {
     allowedFamilies?: string[]; // container-permitted families (thin banner -> horizontal flow only)
     w?: number; h?: number;    // slot pixel size (default 480x360)
 }
-export interface VizSlotResult { svg: string; dataUri: string; family: VizFamily; ground: VizGround; labeled: boolean; anchors: VizAnchor[]; }
+export interface VizSlotResult { svg: string; dataUri: string; family: VizFamily; ground: VizGround; labeled: boolean; anchors: VizAnchor[];
+    /** 2026-10-30 (WS-2 E8): true when the family needs data the payload did not supply, so the drawing would be invented. */
+    fabricated: boolean; }
+
+/** Families whose drawing IS data (a bar has a height, a dial has a value). Without the payload key the
+ *  numbers would be seeded noise, which is a fabricated chart on a consulting slide. */
+const DATA_REQUIREMENTS: Record<string, string[]> = {
+    maturityRadar: ['scores'], funnelFlow: ['stages'], dataField: ['values'], comparisonMatrix: ['cells'],
+    instrumentDial: ['value', 'kpi'], timelineGantt: ['tracks'], proportionStack: ['groups'],
+};
+/** Structural families are honest only when they carry authored labels or links; an unlabeled abstract network is decoration. */
+const MEANING_REQUIRED = new Set(['operatingNetwork', 'capabilityStack', 'journeyLine', 'flowSchematic']);
+
+export function isFabricatedViz(family: VizFamily, payload: any): boolean {
+    const p = payload || {};
+    const base: string = (DOMAIN_FORM_BASE as any)[family] || family;
+    const keys = DATA_REQUIREMENTS[base];
+    if (keys) return !keys.some(k => Array.isArray(p[k]) ? p[k].length > 0 : (p[k] !== undefined && p[k] !== null && p[k] !== ''));
+    if (MEANING_REQUIRED.has(base)) return !hasAuthoredMeaning(p) && !(Array.isArray(p.phases) && p.phases.length) && !(Array.isArray(p.nodes) && p.nodes.length);
+    return false;
+}
 
 function svgToDataUri(svg: string): string {
     // base64 keeps the data-URI valid inside an <img src> regardless of '#'/quotes in the SVG.
@@ -194,12 +216,16 @@ export interface AttachVizOpts extends VizSlotOpts { archetype: string; }
 export function attachViz(payload: any, o: AttachVizOpts): any {
     if (!VIZ_PANEL_ARCHETYPES.has(o.archetype)) return payload;
     if (payload && typeof payload.heroImage === 'string' && payload.heroImage) return payload; // respect existing art
+    if (payload && typeof payload.backgroundImage === 'string' && payload.backgroundImage) return payload; // a full-bleed photo is the art
     // size the viz to the archetype's actual slot bounds (Figma canon, from the composer) so it FILLS
     // the panel rather than rendering at the default small size.
     const slot = HERO_PANEL[o.archetype];
     // honor the container's family constraint from the per-container audit registry (slides:<archetype>)
     const spec = imageSpecFor(`slides:${o.archetype}`);
     const r = renderVizSlot({ ...o, payload, allowedFamilies: o.allowedFamilies || spec?.vizFamilies, w: o.w || (slot ? slot[2] : undefined), h: o.h || (slot ? slot[3] : undefined) });
+    // 2026-10-30 (WS-2 E8): a chart whose numbers the payload never supplied is a fabricated exhibit; the slot
+    // stays empty (content-true or nothing) rather than carrying seeded values that look like evidence.
+    if (r.fabricated) return payload;
     return { ...(payload || {}), heroImage: r.dataUri };
 }
 
@@ -211,6 +237,8 @@ export function renderVizSlot(o: VizSlotOpts): VizSlotResult {
     const theme = buildVizTheme(vizBrandColors(brand), ground);
     const family = selectVizFamily({ artifact: o.artifact, industry: o.industry, heading: o.heading, explicitFamily: o.explicitFamily, allowedFamilies: o.allowedFamilies });
     const data = buildVizData(family, o.payload, o.heading || family);
+    // a labeled stack draws one plate per label (2026-10-26 live: four plates, three labels, one plate unnamed)
+    if (family === 'capabilityStack' && Array.isArray(data.labels) && data.labels.length >= 2) data.layers = data.labels.length;
     const cw = o.w || 480, ch = o.h || 360;
     // CONTAINER-FIT (per-container audit 2026-06-27): a labeled DIAGRAM must never be stretched or
     // cropped to a PORTRAIT/squarish container (e.g. the slides cover/divider/thesis 0.76 panels).
@@ -234,5 +262,5 @@ export function renderVizSlot(o: VizSlotOpts): VizSlotResult {
         const dx = Math.round((cw - rw) / 2), dy = Math.round((ch - rh) / 2);
         svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${cw} ${ch}" width="${cw}" height="${ch}">${viz.replace('<svg ', `<svg x="${dx}" y="${dy}" `)}</svg>`;
     }
-    return { svg, dataUri: svgToDataUri(svg), family, ground, labeled: hasLabels, anchors };
+    return { svg, dataUri: svgToDataUri(svg), family, ground, labeled: hasLabels, anchors, fabricated: isFabricatedViz(family, o.payload) };
 }

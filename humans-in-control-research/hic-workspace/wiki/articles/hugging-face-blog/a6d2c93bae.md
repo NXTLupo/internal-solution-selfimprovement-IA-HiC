@@ -19,32 +19,35 @@ content_hash: "cfa8c2cdc2988eb6"
 relevance_by_goal: {"c5a2d58d1be7":1}
 chunks:
   - id: "articles/hugging-face-blog/a6d2c93bae.md#c0"
-    char_span: [0, 153]
+    char_span: [0, 152]
     sentence_count: 1
     key_terms: [discoformer, blog, distributions, huggingface, transformer, allenai, density, hugging]
     concepts: [discoformer]
-    token_count: 39
-    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/allenai/discoformer"}]
+    token_count: 38
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/allenai/discoformer","kind":"article","date":"2026-06-29"}]
   - id: "articles/hugging-face-blog/a6d2c93bae.md#c1"
-    char_span: [155, 2818]
+    char_span: [154, 2817]
     sentence_count: 18
     key_terms: [density, score, distribution, transformer, points, discoformer, data, gradient]
     concepts: [density, score, distribution, transformer, points]
     related_chunks: ["articles/hugging-face-blog/a6d2c93bae.md#c2"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/allenai/discoformer","kind":"article","date":"2026-06-29"}]
   - id: "articles/hugging-face-blog/a6d2c93bae.md#c2"
-    char_span: [2509, 5029]
+    char_span: [2508, 5028]
     sentence_count: 19
     key_terms: [density, score, discoformer, kde, estimation, data, against, error]
     concepts: [density, discoformer, score, estimation, against]
     related_chunks: ["articles/hugging-face-blog/a6d2c93bae.md#c1"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/allenai/discoformer","kind":"article","date":"2026-06-29"}]
   - id: "articles/hugging-face-blog/a6d2c93bae.md#c3"
-    char_span: [4695, 5323]
+    char_span: [4694, 5322]
     sentence_count: 5
     key_terms: [across, score, non-gaussian, discoformer, dependency, dimensions, especially, estimation]
     concepts: [across, score]
     token_count: 120
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/allenai/discoformer","kind":"article","date":"2026-06-29"}]
 ---
 # DiScoFormer: One transformer for density and score, across distributions
 

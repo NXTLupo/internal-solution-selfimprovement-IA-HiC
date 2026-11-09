@@ -1,19 +1,20 @@
 ---
 name: nano-banana-diagram-composer
+description: Compose an image-model prompt that renders a full-bleed 16:9 consulting diagram (journey, architecture, mind map, service blueprint) with every dimension and corpus-verbatim text injected from the deliverable data. Used by the proxy's diagram prompt path.
 invocation: runtime
 disable-model-invocation: true
-description: >-
-  Compose a Nano-Banana (Gemini image) prompt that renders a FULL-BLEED 16:9 consulting DIAGRAM
-  (journey / architecture / mindmap / service-blueprint) with EVERY dimension and PIXEL-ACCURATE,
-  corpus-verbatim text. Skill-based prompt craft; ALL content is injected from the corpus-derived
-  deliverable data (never hardcoded). Used by proxy/app.py::_diagram_prompt (the runtime renderer of
-  this contract) and any diagram re-prompt path.
+version: "1.0"
+status: active
 metadata:
   type: skill
   surface: diagram-image
 ---
 
 # Nano-Banana diagram composer
+
+## Scope
+
+Compose a Nano-Banana (Gemini image) prompt that renders a FULL-BLEED 16:9 consulting DIAGRAM (journey / architecture / mindmap / service-blueprint) with EVERY dimension and PIXEL-ACCURATE, corpus-verbatim text. Skill-based prompt craft; ALL content is injected from the corpus-derived deliverable data (never hardcoded). Used by proxy/app.py::_diagram_prompt (the runtime renderer of this contract) and any diagram re-prompt path.
 
 Diagrams for `#journey`, `#arch`, `#blueprint`, `#mindmap` render as ONE full-bleed 16:9 Nano-Banana
 image that fills the whole slide wall-to-wall (native picture, no chrome around it). The image must carry

@@ -1,0 +1,2863 @@
+[
+ {
+  "id": "retail-net-01",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "omnichannel-fulfillment-network",
+  "title": "Omnichannel fulfillment node network",
+  "subtitle": "How stores, DCs, and lockers route every order",
+  "artifacts": [
+   "arch",
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "mesh",
+   "seed": 4300
+  }
+ },
+ {
+  "id": "retail-net-02",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "store-cluster-supply-spine",
+  "title": "Store cluster to DC supply spine",
+  "subtitle": "Replenishment paths from hubs to clustered stores",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 4301
+  }
+ },
+ {
+  "id": "retail-net-03",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "ship-from-store-radial",
+  "title": "Ship-from-store coverage radial",
+  "subtitle": "Local stores acting as last-mile nodes",
+  "artifacts": [
+   "arch",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4302
+  }
+ },
+ {
+  "id": "retail-net-04",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "returns-reverse-logistics-mesh",
+  "title": "Returns reverse-logistics mesh",
+  "subtitle": "Where returned units re-enter the network",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 4303
+  }
+ },
+ {
+  "id": "retail-net-05",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "marketplace-3p-seller-hub",
+  "title": "Marketplace and 3P seller hub",
+  "subtitle": "First-party and third-party supply into one catalog",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "hub2",
+   "seed": 4304
+  }
+ },
+ {
+  "id": "retail-net-06",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "supplier-vendor-sourcing-network",
+  "title": "Supplier and vendor sourcing network",
+  "subtitle": "Upstream sourcing dependencies by tier",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "spine",
+   "seed": 4305
+  }
+ },
+ {
+  "id": "retail-net-07",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "micro-fulfillment-hub-spokes",
+  "title": "Micro-fulfillment hub and spokes",
+  "subtitle": "Dark stores feeding dense delivery zones",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "n": 7,
+   "layout": "radial",
+   "seed": 4306
+  }
+ },
+ {
+  "id": "retail-net-08",
+  "family": "operatingNetwork",
+  "industry": "retail",
+  "framework": "cross-dock-flow-network",
+  "title": "Cross-dock flow-through network",
+  "subtitle": "Inbound to outbound without put-away",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 4307
+  }
+ },
+ {
+  "id": "retail-cap-01",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "retail-data-platform-stack",
+  "title": "Retail data platform capability stack",
+  "subtitle": "From POS capture to decision layer",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4308
+  }
+ },
+ {
+  "id": "retail-cap-02",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "merchandising-capability-stack",
+  "title": "Merchandising capability stack",
+  "subtitle": "Planning, buying, allocation, and review",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4309
+  }
+ },
+ {
+  "id": "retail-cap-03",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "pricing-promo-engine-stack",
+  "title": "Pricing and promo engine stack",
+  "subtitle": "Rules, elasticity, optimization, execution",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4310
+  }
+ },
+ {
+  "id": "retail-cap-04",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "supply-chain-control-stack",
+  "title": "Supply chain control-tower stack",
+  "subtitle": "Visibility, planning, and orchestration tiers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 4,
+   "seed": 4311
+  }
+ },
+ {
+  "id": "retail-cap-05",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "loyalty-personalization-stack",
+  "title": "Loyalty and personalization stack",
+  "subtitle": "Identity, segments, offers, and triggers",
+  "artifacts": [
+   "strategy",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4312
+  }
+ },
+ {
+  "id": "retail-cap-06",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "omnichannel-commerce-stack",
+  "title": "Omnichannel commerce architecture stack",
+  "subtitle": "Storefront, OMS, inventory, and payments",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 2,
+   "seed": 4313
+  }
+ },
+ {
+  "id": "retail-cap-07",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "store-operations-capability-stack",
+  "title": "Store operations capability stack",
+  "subtitle": "Labor, tasks, replenishment, and service",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 0,
+   "seed": 4314
+  }
+ },
+ {
+  "id": "retail-cap-08",
+  "family": "capabilityStack",
+  "industry": "retail",
+  "framework": "fulfillment-orchestration-stack",
+  "title": "Fulfillment orchestration capability stack",
+  "subtitle": "Sourcing logic, routing, and last mile",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4315
+  }
+ },
+ {
+  "id": "retail-rad-01",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "omnichannel-maturity-radar",
+  "title": "Omnichannel maturity radar",
+  "subtitle": "Current versus target across channel capabilities",
+  "artifacts": [
+   "gap",
+   "competitive",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.7,
+    0.3,
+    0.5,
+    0.45
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.7,
+    0.85,
+    0.8
+   ],
+   "seed": 4316
+  }
+ },
+ {
+  "id": "retail-rad-02",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "merchandising-analytics-maturity",
+  "title": "Merchandising analytics maturity radar",
+  "subtitle": "Assortment, pricing, and allocation rigor",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.55,
+    0.3
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.8,
+    0.85,
+    0.7
+   ],
+   "seed": 4317
+  }
+ },
+ {
+  "id": "retail-rad-03",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "supply-chain-resilience-radar",
+  "title": "Supply chain resilience radar",
+  "subtitle": "Visibility, agility, and recovery readiness",
+  "artifacts": [
+   "gap",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.45,
+    0.6,
+    0.5,
+    0.4,
+    0.65
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.9,
+    0.8,
+    0.8,
+    0.9
+   ],
+   "seed": 4318
+  }
+ },
+ {
+  "id": "retail-rad-04",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "customer-data-maturity-radar",
+  "title": "Customer data maturity radar",
+  "subtitle": "Identity, consent, segmentation, activation",
+  "artifacts": [
+   "gap",
+   "audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.35,
+    0.6,
+    0.45,
+    0.3,
+    0.55
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.75,
+    0.9,
+    0.8,
+    0.7,
+    0.85
+   ],
+   "seed": 4319
+  }
+ },
+ {
+  "id": "retail-rad-05",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "store-experience-maturity-radar",
+  "title": "Store experience maturity radar",
+  "subtitle": "Service, fixtures, digital, and convenience",
+  "artifacts": [
+   "gap",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.4,
+    0.55,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.75,
+    0.85,
+    0.8
+   ],
+   "seed": 4320
+  }
+ },
+ {
+  "id": "retail-rad-06",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "pricing-discipline-maturity",
+  "title": "Pricing discipline maturity radar",
+  "subtitle": "Elasticity, markdown, and promo control",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.5,
+    0.4,
+    0.55,
+    0.35,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.8
+   ],
+   "seed": 4321
+  }
+ },
+ {
+  "id": "retail-rad-07",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "fulfillment-maturity-radar",
+  "title": "Fulfillment maturity radar",
+  "subtitle": "Speed, accuracy, cost, and flexibility",
+  "artifacts": [
+   "gap",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.55,
+    0.4,
+    0.45,
+    0.6
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.75,
+    0.8,
+    0.85
+   ],
+   "seed": 4322
+  }
+ },
+ {
+  "id": "retail-rad-08",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "loyalty-program-maturity-radar",
+  "title": "Loyalty program maturity radar",
+  "subtitle": "Earn, burn, tiers, and engagement depth",
+  "artifacts": [
+   "gap",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.45,
+    0.5,
+    0.4,
+    0.55,
+    0.5,
+    0.35
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.85,
+    0.8,
+    0.7
+   ],
+   "seed": 4323
+  }
+ },
+ {
+  "id": "retail-rad-09",
+  "family": "maturityRadar",
+  "industry": "retail",
+  "framework": "ecommerce-cro-maturity-radar",
+  "title": "Ecommerce conversion maturity radar",
+  "subtitle": "Discovery, PDP, checkout, and retention",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.5,
+    0.45,
+    0.4,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.8,
+    0.85
+   ],
+   "seed": 4324
+  }
+ },
+ {
+  "id": "retail-fun-01",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "ecommerce-conversion-funnel",
+  "title": "Ecommerce conversion funnel",
+  "subtitle": "Visit to purchase drop-off by stage",
+  "artifacts": [
+   "strategy",
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    38,
+    21,
+    9
+   ],
+   "seed": 4325
+  }
+ },
+ {
+  "id": "retail-fun-02",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "pdp-to-cart-funnel",
+  "title": "Product page to cart funnel",
+  "subtitle": "PDP views converting into add-to-cart",
+  "artifacts": [
+   "audit",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    30,
+    14
+   ],
+   "seed": 4326
+  }
+ },
+ {
+  "id": "retail-fun-03",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "checkout-completion-funnel",
+  "title": "Checkout completion funnel",
+  "subtitle": "Cart to confirmed order step losses",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    48,
+    33,
+    22
+   ],
+   "seed": 4327
+  }
+ },
+ {
+  "id": "retail-fun-04",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "store-traffic-conversion-funnel",
+  "title": "Store traffic conversion funnel",
+  "subtitle": "Footfall to transaction to basket build",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    34,
+    19
+   ],
+   "seed": 4328
+  }
+ },
+ {
+  "id": "retail-fun-05",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "loyalty-enrollment-funnel",
+  "title": "Loyalty enrollment funnel",
+  "subtitle": "Eligible shoppers to active members",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    45,
+    28,
+    15,
+    7
+   ],
+   "seed": 4329
+  }
+ },
+ {
+  "id": "retail-fun-06",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "promo-redemption-funnel",
+  "title": "Promo redemption funnel",
+  "subtitle": "Offer reach to qualified redemption",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    31,
+    18
+   ],
+   "seed": 4330
+  }
+ },
+ {
+  "id": "retail-fun-07",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "search-to-purchase-funnel",
+  "title": "Onsite search to purchase funnel",
+  "subtitle": "Query to result click to order",
+  "artifacts": [
+   "audit",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    40,
+    23,
+    11
+   ],
+   "seed": 4331
+  }
+ },
+ {
+  "id": "retail-fun-08",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "return-resolution-funnel",
+  "title": "Return resolution funnel",
+  "subtitle": "Initiated return to refund or exchange",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    50,
+    30
+   ],
+   "seed": 4332
+  }
+ },
+ {
+  "id": "retail-fun-09",
+  "family": "funnelFlow",
+  "industry": "retail",
+  "framework": "new-customer-acquisition-funnel",
+  "title": "New customer acquisition funnel",
+  "subtitle": "Ad impression to first purchase",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    48,
+    26,
+    12,
+    5
+   ],
+   "seed": 4333
+  }
+ },
+ {
+  "id": "retail-jou-01",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "omnichannel-shopper-journey",
+  "title": "Omnichannel shopper journey",
+  "subtitle": "Cross-channel path with friction points",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4334
+  }
+ },
+ {
+  "id": "retail-jou-02",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "buy-online-pickup-store-journey",
+  "title": "Buy online pickup in store journey",
+  "subtitle": "Order to in-store collection handoff",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    4
+   ],
+   "seed": 4335
+  }
+ },
+ {
+  "id": "retail-jou-03",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "return-and-exchange-journey",
+  "title": "Return and exchange journey",
+  "subtitle": "Where reverse logistics frustrates shoppers",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4336
+  }
+ },
+ {
+  "id": "retail-jou-04",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "first-time-buyer-journey",
+  "title": "First-time buyer journey",
+  "subtitle": "Discovery through repeat-purchase trigger",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    1,
+    3,
+    5
+   ],
+   "seed": 4337
+  }
+ },
+ {
+  "id": "retail-jou-05",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "loyalty-member-lifecycle-journey",
+  "title": "Loyalty member lifecycle journey",
+  "subtitle": "Join, earn, redeem, lapse, win-back",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    4,
+    5
+   ],
+   "seed": 4338
+  }
+ },
+ {
+  "id": "retail-jou-06",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "in-store-discovery-journey",
+  "title": "In-store product discovery journey",
+  "subtitle": "Entry to fitting room to checkout",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    6
+   ],
+   "seed": 4339
+  }
+ },
+ {
+  "id": "retail-jou-07",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "same-day-delivery-journey",
+  "title": "Same-day delivery journey",
+  "subtitle": "Order placed to doorstep arrival",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4340
+  }
+ },
+ {
+  "id": "retail-jou-08",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "subscription-replenishment-journey",
+  "title": "Subscription replenishment journey",
+  "subtitle": "Sign-up to recurring fulfillment cadence",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4341
+  }
+ },
+ {
+  "id": "retail-jou-09",
+  "family": "journeyLine",
+  "industry": "retail",
+  "framework": "gift-purchase-journey",
+  "title": "Gift purchase journey",
+  "subtitle": "Occasion to recipient delivery moment",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4342
+  }
+ },
+ {
+  "id": "retail-dat-01",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "inventory-turns-by-category",
+  "title": "Inventory turns by category",
+  "subtitle": "Annual turns ranked across departments",
+  "artifacts": [
+   "strategy",
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4343,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-dat-02",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "comp-sales-growth-by-region",
+  "title": "Comp sales growth by region",
+  "subtitle": "Same-store growth ranked by market",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4344,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "retail-dat-03",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "gross-margin-by-department",
+  "title": "Gross margin by department",
+  "subtitle": "Margin contribution ranked by category",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4345,
+   "mean": true
+  }
+ },
+ {
+  "id": "retail-dat-04",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "sell-through-rate-by-category",
+  "title": "Sell-through rate by category",
+  "subtitle": "Units sold versus received, ranked",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4346,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "retail-dat-05",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "sales-per-square-foot-by-format",
+  "title": "Sales per square foot by format",
+  "subtitle": "Productivity ranked across store formats",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4347,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-dat-06",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "return-rate-by-category",
+  "title": "Return rate by category",
+  "subtitle": "Return frequency ranked, highest first",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4348,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-dat-07",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "markdown-depth-by-department",
+  "title": "Markdown depth by department",
+  "subtitle": "Average markdown percent ranked",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4349,
+   "mean": true
+  }
+ },
+ {
+  "id": "retail-dat-08",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "average-order-value-by-channel",
+  "title": "Average order value by channel",
+  "subtitle": "Basket size ranked across channels",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4350,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-dat-09",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "out-of-stock-rate-by-store",
+  "title": "Out-of-stock rate by store cluster",
+  "subtitle": "Availability gaps ranked by cluster",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4351,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-dat-10",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "loyalty-cohort-retention-curve",
+  "title": "Loyalty cohort retention by tenure",
+  "subtitle": "Active share declining across cohorts",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4352
+  }
+ },
+ {
+  "id": "retail-dat-11",
+  "family": "dataField",
+  "industry": "retail",
+  "framework": "shrink-rate-by-store",
+  "title": "Shrink rate by store",
+  "subtitle": "Inventory loss ranked across locations",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4353,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "retail-mat-01",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "basket-affinity-heatmap",
+  "title": "Basket affinity heatmap",
+  "subtitle": "Cross-purchase strength between categories",
+  "artifacts": [
+   "strategy",
+   "recommendations",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     1,
+     0.6,
+     0.3,
+     0.2
+    ],
+    [
+     0.6,
+     1,
+     0.4,
+     0.5
+    ],
+    [
+     0.3,
+     0.4,
+     1,
+     0.7
+    ],
+    [
+     0.2,
+     0.5,
+     0.7,
+     1
+    ]
+   ],
+   "seed": 4354
+  }
+ },
+ {
+  "id": "retail-mat-02",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "price-volume-segmentation-matrix",
+  "title": "Price-volume product matrix",
+  "subtitle": "SKUs plotted by price tier and velocity",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.2
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ],
+    [
+     0.3,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4355
+  }
+ },
+ {
+  "id": "retail-mat-03",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "store-clustering-matrix",
+  "title": "Store clustering profile matrix",
+  "subtitle": "Clusters scored on demand attributes",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.3,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.8,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.5,
+     0.9,
+     0.7
+    ]
+   ],
+   "seed": 4356
+  }
+ },
+ {
+  "id": "retail-mat-04",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "assortment-coverage-matrix",
+  "title": "Assortment coverage matrix",
+  "subtitle": "Category breadth across store tiers",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     1,
+     0.8,
+     0.5
+    ],
+    [
+     0.9,
+     0.6,
+     0.3
+    ],
+    [
+     0.7,
+     0.4,
+     0.2
+    ],
+    [
+     0.5,
+     0.3,
+     0.1
+    ]
+   ],
+   "seed": 4357
+  }
+ },
+ {
+  "id": "retail-mat-05",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "channel-attribution-matrix",
+  "title": "Channel attribution matrix",
+  "subtitle": "Touch contribution to converted orders",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.4,
+     0.2,
+     0.3
+    ],
+    [
+     0.5,
+     0.8,
+     0.3,
+     0.4
+    ],
+    [
+     0.2,
+     0.3,
+     0.9,
+     0.5
+    ]
+   ],
+   "seed": 4358
+  }
+ },
+ {
+  "id": "retail-mat-06",
+  "family": "rt_planogram",
+  "industry": "retail",
+  "framework": "competitor-price-position-matrix",
+  "title": "Competitor price position matrix",
+  "subtitle": "Relative price index across key lines",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.8,
+     0.5
+    ],
+    [
+     0.4,
+     0.3,
+     0.7
+    ]
+   ],
+   "seed": 4359
+  }
+ },
+ {
+  "id": "retail-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "retail",
+  "framework": "promo-mechanic-effectiveness-matrix",
+  "title": "Promo mechanic effectiveness matrix",
+  "subtitle": "Lift versus margin cost by mechanic",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.3,
+     0.5
+    ],
+    [
+     0.5,
+     0.7,
+     0.4
+    ],
+    [
+     0.3,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4360
+  }
+ },
+ {
+  "id": "retail-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "retail",
+  "framework": "vendor-scorecard-matrix",
+  "title": "Vendor scorecard matrix",
+  "subtitle": "Suppliers rated on service and cost",
+  "artifacts": [
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.8,
+     0.4,
+     0.5
+    ],
+    [
+     0.5,
+     0.6,
+     0.9,
+     0.7
+    ]
+   ],
+   "seed": 4361
+  }
+ },
+ {
+  "id": "retail-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "retail",
+  "framework": "category-role-priority-matrix",
+  "title": "Category role priority matrix",
+  "subtitle": "Destination versus convenience roles",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     1,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.9,
+     0.5
+    ],
+    [
+     0.4,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4362
+  }
+ },
+ {
+  "id": "retail-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "retail",
+  "framework": "fulfillment-cost-speed-matrix",
+  "title": "Fulfillment cost-speed matrix",
+  "subtitle": "Method tradeoffs across delivery options",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.3,
+     0.5
+    ],
+    [
+     0.6,
+     0.6,
+     0.4
+    ],
+    [
+     0.3,
+     0.9,
+     0.6
+    ],
+    [
+     0.5,
+     0.7,
+     0.8
+    ]
+   ],
+   "seed": 4363
+  }
+ },
+ {
+  "id": "retail-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "retail",
+  "framework": "customer-segment-value-matrix",
+  "title": "Customer segment value matrix",
+  "subtitle": "Segments scored on value and growth",
+  "artifacts": [
+   "personas",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.8,
+     0.4
+    ],
+    [
+     0.4,
+     0.5,
+     0.9
+    ],
+    [
+     0.3,
+     0.6,
+     0.5
+    ]
+   ],
+   "seed": 4364
+  }
+ },
+ {
+  "id": "retail-dia-01",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "comp-sales-target-attainment",
+  "title": "Comp sales target attainment",
+  "subtitle": "Same-store growth against the plan",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10,
+   "seed": 4365
+  }
+ },
+ {
+  "id": "retail-dia-02",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "inventory-turn-rate-gauge",
+  "title": "Inventory turn rate gauge",
+  "subtitle": "Turns versus category benchmark",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4366
+  }
+ },
+ {
+  "id": "retail-dia-03",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "on-shelf-availability-gauge",
+  "title": "On-shelf availability gauge",
+  "subtitle": "In-stock rate against service target",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 88,
+   "segments": 10,
+   "seed": 4367
+  }
+ },
+ {
+  "id": "retail-dia-04",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "ecommerce-conversion-rate-gauge",
+  "title": "Ecommerce conversion rate gauge",
+  "subtitle": "Site conversion versus category norm",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 34,
+   "segments": 10,
+   "seed": 4368
+  }
+ },
+ {
+  "id": "retail-dia-05",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "gross-margin-return-gauge",
+  "title": "Gross margin return on inventory gauge",
+  "subtitle": "GMROI against the planning threshold",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 64,
+   "segments": 10,
+   "seed": 4369
+  }
+ },
+ {
+  "id": "retail-dia-06",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "on-time-fulfillment-gauge",
+  "title": "On-time fulfillment gauge",
+  "subtitle": "Promise-met rate across all orders",
+  "artifacts": [
+   "blueprint",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 81,
+   "segments": 10,
+   "seed": 4370
+  }
+ },
+ {
+  "id": "retail-dia-07",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "loyalty-active-rate-gauge",
+  "title": "Loyalty active member rate gauge",
+  "subtitle": "Active share of enrolled members",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 47,
+   "segments": 10,
+   "seed": 4371
+  }
+ },
+ {
+  "id": "retail-dia-08",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "markdown-as-sales-gauge",
+  "title": "Markdown as percent of sales gauge",
+  "subtitle": "Markdown spend against the ceiling",
+  "artifacts": [
+   "audit",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 29,
+   "segments": 10,
+   "seed": 4372
+  }
+ },
+ {
+  "id": "retail-dia-09",
+  "family": "instrumentDial",
+  "industry": "retail",
+  "framework": "net-promoter-score-gauge",
+  "title": "Net promoter score gauge",
+  "subtitle": "Shopper advocacy versus the benchmark",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 53,
+   "segments": 10,
+   "seed": 4373
+  }
+ },
+ {
+  "id": "retail-gan-01",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "omnichannel-rollout-roadmap",
+  "title": "Omnichannel rollout roadmap",
+  "subtitle": "Sequenced capability launches by quarter",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4374
+  }
+ },
+ {
+  "id": "retail-gan-02",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "promo-calendar-cadence",
+  "title": "Promotional calendar cadence",
+  "subtitle": "Campaign windows across the season",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4375
+  }
+ },
+ {
+  "id": "retail-gan-03",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "store-remodel-program-timeline",
+  "title": "Store remodel program timeline",
+  "subtitle": "Phased remodel waves by region",
+  "artifacts": [
+   "roadmap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4376
+  }
+ },
+ {
+  "id": "retail-gan-04",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "assortment-reset-timeline",
+  "title": "Assortment reset timeline",
+  "subtitle": "Category resets sequenced across periods",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4377
+  }
+ },
+ {
+  "id": "retail-gan-05",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "supply-chain-modernization-roadmap",
+  "title": "Supply chain modernization roadmap",
+  "subtitle": "Control tower and WMS upgrade phasing",
+  "artifacts": [
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 4,
+   "seed": 4378
+  }
+ },
+ {
+  "id": "retail-gan-06",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "loyalty-relaunch-roadmap",
+  "title": "Loyalty program relaunch roadmap",
+  "subtitle": "Tier, app, and offer engine rollout",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4379
+  }
+ },
+ {
+  "id": "retail-gan-07",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "new-store-opening-pipeline",
+  "title": "New store opening pipeline",
+  "subtitle": "Site to grand-opening milestone track",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4380
+  }
+ },
+ {
+  "id": "retail-gan-08",
+  "family": "timelineGantt",
+  "industry": "retail",
+  "framework": "peak-season-readiness-timeline",
+  "title": "Peak season readiness timeline",
+  "subtitle": "Hiring, inventory, and capacity ramp",
+  "artifacts": [
+   "roadmap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4381
+  }
+ },
+ {
+  "id": "retail-flo-01",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "order-to-fulfillment-flow",
+  "title": "Order to fulfillment flow",
+  "subtitle": "From checkout to delivery handoff",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4382
+  }
+ },
+ {
+  "id": "retail-flo-02",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "inventory-allocation-decision-flow",
+  "title": "Inventory allocation decision flow",
+  "subtitle": "Routing units to the right node",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4383
+  }
+ },
+ {
+  "id": "retail-flo-03",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "returns-disposition-flow",
+  "title": "Returns disposition flow",
+  "subtitle": "Restock, refurbish, liquidate, or dispose",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4384
+  }
+ },
+ {
+  "id": "retail-flo-04",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "replenishment-trigger-flow",
+  "title": "Replenishment trigger flow",
+  "subtitle": "From sell-down to reorder release",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4385
+  }
+ },
+ {
+  "id": "retail-flo-05",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "markdown-decision-flow",
+  "title": "Markdown decision flow",
+  "subtitle": "When and how deep to mark down",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4386
+  }
+ },
+ {
+  "id": "retail-flo-06",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "buy-online-pickup-flow",
+  "title": "Buy online pickup in store flow",
+  "subtitle": "Order capture to in-store handoff",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4387
+  }
+ },
+ {
+  "id": "retail-flo-07",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "price-change-approval-flow",
+  "title": "Price change approval flow",
+  "subtitle": "Proposal through governance to live",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4388
+  }
+ },
+ {
+  "id": "retail-flo-08",
+  "family": "flowSchematic",
+  "industry": "retail",
+  "framework": "sourcing-routing-flow",
+  "title": "Order sourcing routing flow",
+  "subtitle": "Selecting the lowest-cost fulfillment node",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4389
+  }
+ },
+ {
+  "id": "retail-pro-01",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "channel-revenue-mix",
+  "title": "Channel revenue mix",
+  "subtitle": "Sales share across store, web, and app",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    48,
+    32,
+    14,
+    6
+   ],
+   "seed": 4390
+  }
+ },
+ {
+  "id": "retail-pro-02",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "category-sales-composition",
+  "title": "Category sales composition",
+  "subtitle": "Revenue share by merchandise category",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    28,
+    20,
+    17
+   ],
+   "seed": 4391
+  }
+ },
+ {
+  "id": "retail-pro-03",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "fulfillment-method-mix",
+  "title": "Fulfillment method mix",
+  "subtitle": "Order share by delivery and pickup type",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    25,
+    20,
+    15
+   ],
+   "seed": 4392
+  }
+ },
+ {
+  "id": "retail-pro-04",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "full-price-versus-markdown-mix",
+  "title": "Full-price versus markdown sales mix",
+  "subtitle": "Revenue split by price condition",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    62,
+    28,
+    10
+   ],
+   "seed": 4393
+  }
+ },
+ {
+  "id": "retail-pro-05",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "customer-segment-revenue-share",
+  "title": "Customer segment revenue share",
+  "subtitle": "Sales contribution by shopper segment",
+  "artifacts": [
+   "personas",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    45,
+    30,
+    15,
+    10
+   ],
+   "seed": 4394
+  }
+ },
+ {
+  "id": "retail-pro-06",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "private-label-versus-national-mix",
+  "title": "Private label versus national brand mix",
+  "subtitle": "Sales share by brand ownership",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    52,
+    10
+   ],
+   "seed": 4395
+  }
+ },
+ {
+  "id": "retail-pro-07",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "basket-composition-by-tender",
+  "title": "Basket composition by tender type",
+  "subtitle": "Spend share across payment methods",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    44,
+    30,
+    18,
+    8
+   ],
+   "seed": 4396
+  }
+ },
+ {
+  "id": "retail-pro-08",
+  "family": "proportionStack",
+  "industry": "retail",
+  "framework": "new-versus-returning-revenue-mix",
+  "title": "New versus returning customer revenue",
+  "subtitle": "Sales split by acquisition status",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    65
+   ],
+   "seed": 4397
+  }
+ },
+ {
+  "id": "retail-sec-01",
+  "family": "sectionMark",
+  "industry": "retail",
+  "framework": "section-mark-merchandising",
+  "title": "Merchandising and assortment",
+  "subtitle": "Section divider for the merchandising chapter",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4398
+  }
+ },
+ {
+  "id": "retail-sec-02",
+  "family": "sectionMark",
+  "industry": "retail",
+  "framework": "section-mark-fulfillment",
+  "title": "Supply chain and fulfillment",
+  "subtitle": "Section divider for the fulfillment chapter",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 4,
+   "seed": 4399
+  }
+ }
+]

@@ -1,8 +1,9 @@
 ---
 name: wiki-reranker
+description: After fetch_wiki_articles returns candidates, re-read the question, score each article 1 to 5 on direct intent relevance and cite only articles scoring 4 or 5. Use when retrieval returns near-duplicates, off-topic siblings or surface matches with the wrong intent.
 invocation: model
-version: 1.0
-description: After fetch_wiki_articles returns a candidate set, Claude re-reads the user's actual question and scores each article 1-5 on direct intent relevance — then cites ONLY articles scoring >=4. Turns Claude into a cross-encoder reranker, which is what retrieval pipelines normally buy from Cohere's rerank API. Works because Claude attends to the full question + full article together (unlike bi-encoder embedding, which scored them independently). Essential when the raw retrieval returns near-duplicates, off-topic siblings, or surface-semantic-match-but-wrong-intent results.
+version: "1"
+status: active
 thinking: high
 category: retrieval-enhancer
 triggers:
@@ -14,10 +15,18 @@ triggers:
   - filter results
   - narrow down
   - which of these
-  - #rerank
+  - "#rerank"
+loader:
+  title: Wiki Reranker
+  role: retrieval-enhancer
+  execution_context: primary
 ---
 
 # Wiki Reranker
+
+## Scope
+
+After fetch_wiki_articles returns a candidate set, Claude re-reads the user's actual question and scores each article 1-5 on direct intent relevance — then cites ONLY articles scoring >=4. Turns Claude into a cross-encoder reranker, which is what retrieval pipelines normally buy from Cohere's rerank API. Works because Claude attends to the full question + full article together (unlike bi-encoder embedding, which scored them independently). Essential when the raw retrieval returns near-duplicates, off-topic siblings, or surface-semantic-match-but-wrong-intent results.
 
 ## You Are
 A cross-encoder reranker. The embedding layer already did its job: it scored each candidate article against the query INDEPENDENTLY, via bi-encoder cosine similarity. That scoring misses the joint attention between question and article — you supply the joint attention now, by reading both at once.

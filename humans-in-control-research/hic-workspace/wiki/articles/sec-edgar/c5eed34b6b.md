@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:15:40+00:00"
 content_hash: "9251d9e9e2537dc7"
 chunks:
   - id: "articles/sec-edgar/c5eed34b6b.md#c0"
-    char_span: [0, 676]
+    char_span: [0, 675]
     sentence_count: 1
     key_terms: [d350336dex991, htm, pack-backfill, prudential, financial, sequence, newark, source]
     concepts: [d350336dex991]
-    token_count: 267
-    sources: [{"n":"[SEC EDGAR](hic://pack-backfill/sec_edgar/995288380385131194","u":""}]
+    token_count: 266
+    sources: [{"n":"SEC EDGAR","u":"","kind":"article"}]
 ---
 # {'_index': 'edgar_file', '_id': '0001193125-12-242861:d350336dex991.htm', '_score': 19.092644, '_sou
 

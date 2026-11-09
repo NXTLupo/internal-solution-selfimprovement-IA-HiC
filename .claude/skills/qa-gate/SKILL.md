@@ -1,10 +1,11 @@
 ---
 name: qa-gate
-invocation: model
-version: 1.0
 description: Validate any AI-generated output against its expected schema before delivery. Catches truncated HTML, invalid JSON, missing sections, and format violations.
+invocation: model
+version: "1.0"
+status: active
 allowed-tools: Read, Grep, Glob, Bash
-argument-hint: [output-file] [expected-format]
+argument-hint: "[output-file] [expected-format]"
 ---
 
 Act as a quality gate that validates AI-generated output before it reaches the user or downstream system.

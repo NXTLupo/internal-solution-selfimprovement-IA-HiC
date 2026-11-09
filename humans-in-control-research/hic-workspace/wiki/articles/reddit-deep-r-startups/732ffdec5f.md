@@ -16,51 +16,57 @@ relevance: 70
 content_hash: "ce5de597892d067a"
 chunks:
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c0"
-    char_span: [0, 2079]
+    char_span: [0, 2078]
     sentence_count: 14
     key_terms: [tier, website, google, businesses, everything, month, digital, review]
     concepts: [website, businesses, everything, google, month]
     related_chunks: ["articles/reddit-deep-r-startups/732ffdec5f.md#c5"]
-    token_count: 486
-    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/"}]
+    token_count: 485
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c1"
-    char_span: [2081, 3025]
+    char_span: [2080, 3024]
     sentence_count: 11
     key_terms: [client, sites, publishing, account, average, replit, costs, high]
     concepts: [client, publishing, sites, account, average]
     token_count: 216
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c2"
-    char_span: [3027, 4786]
+    char_span: [3026, 4785]
     sentence_count: 4
     key_terms: [yearly, starting, clients, revenue, profit, level, month, hold]
     concepts: [yearly, starting, clients, revenue, profit]
     token_count: 483
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c3"
-    char_span: [4788, 6546]
+    char_span: [4787, 6545]
     sentence_count: 9
     key_terms: [sites, site, deadline, review, pick, tier, approved, designer]
     concepts: [sites, deadline, review, approved, designer]
     token_count: 429
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c4"
-    char_span: [6548, 8522]
+    char_span: [6547, 8521]
     sentence_count: 17
     key_terms: [month, call, cold, client, calling, clients, level, get]
     concepts: [month, client, calling, clients, level]
     related_chunks: ["articles/reddit-deep-r-startups/732ffdec5f.md#c5"]
     token_count: 466
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c5"
-    char_span: [8524, 10159]
+    char_span: [8523, 10158]
     sentence_count: 11
     key_terms: [clients, google, month, hub, job, performance, days, site]
     concepts: [clients, google, month, performance, retention]
     related_chunks: ["articles/reddit-deep-r-startups/732ffdec5f.md#c0", "articles/reddit-deep-r-startups/732ffdec5f.md#c4"]
     token_count: 371
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/732ffdec5f.md#c6"
-    char_span: [10161, 12128]
+    char_span: [10160, 12127]
     sentence_count: 20
     key_terms: [customers, get, client, experience, already, process, start, theredhype]
     concepts: [customers, client, experience, already, process]
     token_count: 449
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1svegbb/good_idea_v2_i_will_not_promote/","kind":"article","date":"2026-04-25","subreddit":"startups"}]
 ---
 # Good idea? (V2) I will not promote
 

@@ -1,8 +1,10 @@
 ---
 name: roadmap-illustrator
+description: Roadmap illustrator. Use the matching exemplar (styles/07-roadmap-NU.html or 08-roadmap-NXT.html) as visual ground truth. Produce phases / milestones / now-next-later / Gantt-style timelines.
 invocation: runtime
 disable-model-invocation: true
-description: Roadmap illustrator. Use the matching exemplar (styles/07-roadmap-NU.html or 08-roadmap-NXT.html) as visual ground truth. Produce phases / milestones / now-next-later / Gantt-style timelines.
+version: "1.0"
+status: active
 ---
 
 # Roadmap illustrator

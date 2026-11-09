@@ -16,32 +16,35 @@ collected_at: "2026-07-02T18:07:14+00:00"
 content_hash: "5c017b8731fa8251"
 chunks:
   - id: "articles/ieee-spectrum-ai/bdc602a4db.md#c0"
-    char_span: [0, 120]
+    char_span: [0, 119]
     sentence_count: 1
     key_terms: [spectrum, tech-interview-prep, ieee, interview, technical, behind, scenes, source]
     concepts: [spectrum]
-    token_count: 31
-    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/tech-interview-prep"}]
+    token_count: 30
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/tech-interview-prep","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/bdc602a4db.md#c1"
-    char_span: [122, 2662]
+    char_span: [121, 2661]
     sentence_count: 29
     key_terms: [interview, scoring, interviewed, strong, candidates, normal, everything, interviews]
     concepts: [interview, interviewed, scoring, candidates, strong]
     related_chunks: ["articles/ieee-spectrum-ai/bdc602a4db.md#c2"]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/tech-interview-prep","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/bdc602a4db.md#c2"
-    char_span: [2359, 4790]
+    char_span: [2358, 4789]
     sentence_count: 39
     key_terms: [technical, candidate, politics, scoring, strong, bias, didn, behavioral]
     concepts: [technical, candidate, politics, scoring, strong]
     related_chunks: ["articles/ieee-spectrum-ai/bdc602a4db.md#c1"]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/tech-interview-prep","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/bdc602a4db.md#c3"
-    char_span: [4521, 6814]
+    char_span: [4520, 6813]
     sentence_count: 22
     key_terms: [engineers, career, brian, new, software, parsity, advice, senior]
     concepts: [engineers, career, brian, software, parsity]
     token_count: 457
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/tech-interview-prep","kind":"article","date":"2026-06-17"}]
 ---
 # Behind the Scenes of a Technical Interview
 

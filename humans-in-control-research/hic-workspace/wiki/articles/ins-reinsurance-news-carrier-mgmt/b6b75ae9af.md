@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:47:20+00:00"
 content_hash: "65e0b4d3221cb2a2"
 chunks:
   - id: "articles/ins-reinsurance-news-carrier-mgmt/b6b75ae9af.md#c0"
-    char_span: [0, 172]
+    char_span: [0, 171]
     sentence_count: 2
     key_terms: [carriermanagement, investigates, agency, safety, source, crash, fatal, https]
-    token_count: 47
-    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289587.htm"}]
+    token_count: 46
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289587.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-reinsurance-news-carrier-mgmt/b6b75ae9af.md#c1"
-    char_span: [174, 2591]
+    char_span: [173, 2590]
     sentence_count: 15
     key_terms: [tesla, driver, crash, self-driving, autopilot, barbour, million, systems]
     concepts: [tesla, driver, self-driving, crash, autopilot]
     related_chunks: ["articles/ins-reinsurance-news-carrier-mgmt/b6b75ae9af.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289587.htm","kind":"article","date":"2026-06-30"}]
   - id: "articles/ins-reinsurance-news-carrier-mgmt/b6b75ae9af.md#c2"
-    char_span: [2293, 3228]
+    char_span: [2292, 3227]
     sentence_count: 8
     key_terms: [vehicles, drivers, self-driving, immediately, autopilot, barbours, million, david]
     concepts: [vehicles, drivers, self-driving, immediately, autopilot]
     related_chunks: ["articles/ins-reinsurance-news-carrier-mgmt/b6b75ae9af.md#c1"]
     token_count: 190
+    sources: [{"n":"ins_reinsurance_news_carrier_mgmt","u":"https://www.carriermanagement.com/news/2026/06/30/289587.htm","kind":"article","date":"2026-06-30"}]
 ---
 # Second U.S. Safety Agency Investigates Fatal Texas Tesla Crash
 

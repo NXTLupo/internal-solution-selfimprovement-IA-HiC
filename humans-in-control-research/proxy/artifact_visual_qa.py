@@ -14,6 +14,7 @@ logs the report, can surface a warning, and (future) trigger a one-shot revision
 Browser-free fallback: if Chromium is unavailable, returns {available: False}.
 """
 from __future__ import annotations
+from render_sandbox import sandboxed_page  # WS-0 S3 (2026-10-30): network-sandboxed renders
 
 # Detector mirrors the live Playwright probes that diagnosed the persona collapse,
 # the gap-card crush, the meter-bar misuse, the asymmetric margin, and right overflow.
@@ -244,7 +245,7 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_throug
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": viewport, "height": height}, device_scale_factor=1)
+            page = sandboxed_page(browser, viewport={"width": viewport, "height": height}, device_scale_factor=1)
             page.goto("file://" + tmp.name, wait_until="networkidle", timeout=30000)
             try:
                 page.wait_for_timeout(350)

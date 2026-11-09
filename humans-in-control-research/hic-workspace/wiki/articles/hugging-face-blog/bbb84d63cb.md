@@ -19,54 +19,60 @@ content_hash: "dbc1c21083695433"
 relevance_by_goal: {"c5a2d58d1be7":1}
 chunks:
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c0"
-    char_span: [0, 140]
+    char_span: [0, 139]
     sentence_count: 1
     key_terms: [helmet, blog, holistically, long-context, huggingface, introducing, evaluating, language]
     concepts: [helmet]
-    token_count: 34
-    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet"}]
+    token_count: 33
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c1"
-    char_span: [142, 2512]
+    char_span: [141, 2511]
     sentence_count: 13
     key_terms: [models, helmet, language, long-context, lclms, evaluating, context, benchmarks]
     concepts: [models, helmet, language, long-context, evaluating]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c4"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c2"
-    char_span: [2195, 4605]
+    char_span: [2194, 4604]
     sentence_count: 11
     key_terms: [models, tasks, lclms, synthetic, evaluate, benchmarks, downstream, evaluating]
     concepts: [models, tasks, lclms, synthetic, evaluate]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c3", "articles/hugging-face-blog/bbb84d63cb.md#c4"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c3"
-    char_span: [4314, 6957]
+    char_span: [4313, 6956]
     sentence_count: 17
     key_terms: [models, length, tasks, evaluation, input, diverse, applications, benchmarks]
     concepts: [models, length, evaluation, tasks, applications]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c2", "articles/hugging-face-blog/bbb84d63cb.md#c4"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c4"
-    char_span: [6614, 9329]
+    char_span: [6613, 9328]
     sentence_count: 21
     key_terms: [models, performance, different, tasks, long-context, open-source, helmet, using]
     concepts: [models, performance, different, tasks, long-context]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c1", "articles/hugging-face-blog/bbb84d63cb.md#c2", "articles/hugging-face-blog/bbb84d63cb.md#c3"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c5"
-    char_span: [9019, 9605]
+    char_span: [9018, 9604]
     sentence_count: 4
     key_terms: [using, endpoint, "huggingface's", launch, model, machine, helmet, transformerslibrary]
     concepts: [using, "huggingface's", endpoint, launch, model]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c6"]
     token_count: 129
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
   - id: "articles/hugging-face-blog/bbb84d63cb.md#c6"
-    char_span: [9615, 10143]
+    char_span: [9614, 10142]
     sentence_count: 6
     key_terms: ["huggingface's", config, transformers, endpoint, library, option, using, tgi]
     concepts: ["huggingface's", config, transformers, endpoint, library]
     related_chunks: ["articles/hugging-face-blog/bbb84d63cb.md#c5"]
     token_count: 120
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/helmet","kind":"article","date":"2025-04-16"}]
 ---
 # Introducing HELMET: Holistically Evaluating Long-context Language Models
 

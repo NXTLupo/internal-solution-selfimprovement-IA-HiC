@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:23:33+00:00"
 content_hash: "951d8a15c24ad92c"
 chunks:
   - id: "articles/arxiv-cs-hc/9f3d98ffcc.md#c0"
-    char_span: [0, 673]
+    char_span: [0, 672]
     sentence_count: 4
     key_terms: [proficiency, barriers, language, english, limited, beyond, storyboard-driven, care]
     concepts: [proficiency, barriers, language, english, limited]
-    token_count: 131
-    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2511.07277v2"}]
+    token_count: 130
+    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2511.07277v2","kind":"article","date":"2025-11-10"}]
 ---
 # Designing Beyond Language: Sociotechnical Barriers in AI Health Technologies for Limited English Proficiency
 

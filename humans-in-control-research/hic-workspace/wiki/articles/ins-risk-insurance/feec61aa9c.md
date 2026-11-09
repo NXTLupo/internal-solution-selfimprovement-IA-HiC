@@ -16,37 +16,41 @@ collected_at: "2026-07-02T17:47:50+00:00"
 content_hash: "c40b61f5983c4f3d"
 chunks:
   - id: "articles/ins-risk-insurance/feec61aa9c.md#c0"
-    char_span: [0, 287]
+    char_span: [0, 286]
     sentence_count: 1
     key_terms: [content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing, riskandinsurance, navigating, actuarial, insurance, resources, sponsored, fairness]
-    token_count: 70
-    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/"}]
+    token_count: 69
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-risk-insurance/feec61aa9c.md#c1"
-    char_span: [302, 3148]
+    char_span: [301, 3147]
     sentence_count: 16
     key_terms: [pricing, insurance, premiums, differences, driver, disparate, wang, fairness]
     concepts: [pricing, insurance, premiums, differences, driver]
     related_chunks: ["articles/ins-risk-insurance/feec61aa9c.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-risk-insurance/feec61aa9c.md#c2"
-    char_span: [2812, 5476]
+    char_span: [2811, 5475]
     sentence_count: 16
     key_terms: [insurance, wang, requirements, testing, answer, differences, new, test]
     concepts: [insurance, requirements, testing, answer, differences]
     related_chunks: ["articles/ins-risk-insurance/feec61aa9c.md#c1"]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-risk-insurance/feec61aa9c.md#c3"
-    char_span: [5133, 7826]
+    char_span: [5132, 7825]
     sentence_count: 14
     key_terms: [consequences, actuaries, wang, differentiation, engaged, support, constraints, regulations]
     concepts: [consequences, actuaries, differentiation, engaged, support]
     token_count: 512
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/","kind":"article","date":"2026-07-01"}]
   - id: "articles/ins-risk-insurance/feec61aa9c.md#c4"
-    char_span: [7531, 8032]
+    char_span: [7530, 8031]
     sentence_count: 4
     key_terms: [insurance, pinnacleactuaries, don, late, risk, too, course-correct, collaboration]
     concepts: [insurance]
     token_count: 107
+    sources: [{"n":"ins_risk_insurance","u":"https://riskandinsurance.com/content-how-the-insurance-industry-is-navigating-the-complex-debate-over-fairness-in-pricing/","kind":"article","date":"2026-07-01"}]
 ---
 # How the Insurance Industry is Navigating the Complex Debate Over Fairness in Pricing
 

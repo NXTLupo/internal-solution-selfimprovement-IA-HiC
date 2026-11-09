@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:27:25+00:00"
 content_hash: "0335a3f1d74e53e0"
 chunks:
   - id: "articles/ins-big-i/886fef9dae.md#c0"
-    char_span: [0, 1944]
+    char_span: [0, 1943]
     sentence_count: 13
     key_terms: [insurance, big, independent, media, industry, journal, professionals, press]
     concepts: [insurance, independent, media, industry, professionals]
-    token_count: 395
-    sources: [{"n":"ins_big_i","u":"https://www.independentagent.com/news/"}]
+    token_count: 394
+    sources: [{"n":"ins_big_i","u":"https://www.independentagent.com/news/","kind":"article"}]
 ---
 # Big I (Independent Agents)
 

@@ -24,6 +24,7 @@ import { repairAIOutput } from './aiOutputRepair';
 // here so routing callers keep a single import.
 import { CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, CLAUDE_STRUCTURED_MODEL, effortForArtifact, type ClaudeEffort } from './claudeModelPolicy';
 import { isProviderHealthy } from './multiModelResilience';
+import { proxyBase } from './proxyConfig';
 export {
     CLAUDE_REASONING_MODEL, CLAUDE_REASONING_LABEL, CLAUDE_STRUCTURED_MODEL, effortForArtifact, effortFromSkillHint, maxEffort,
     applyAnthropicRequestDefaults, claudeUsesAdaptiveThinking, claudeThinkingAlwaysOn,
@@ -618,6 +619,43 @@ const ARTIFACT_EVAL_REGISTRY: Record<string, Record<string, ModelEval>> = {
     'persona-card': { 'gemini-3.5-flash': { quality: 0.3 }, 'gemini-3.1-pro-preview': { quality: 0.95 }, [CLAUDE_REASONING_MODEL]: { quality: 1.0 } },
 };
 
+// 2026-10-30 (WS-2 E11): the registry is REFRESHED from the measured eval matrix when one exists
+// (evals/model-matrix.json via /api/eval/matrix). A model's quality for a deliverable class becomes
+// its pass rate on that class's cases; the hand-entered seats above stay as the cold-start default
+// and are overwritten by measurement, never the other way round.
+export interface ModelMatrix { generated?: string | null; models: string[]; cases: Record<string, Record<string, { runs: number; passes: number; streak: number }>> }
+
+export function applyModelMatrix(matrix: ModelMatrix | null | undefined): number {
+    if (!matrix || !matrix.cases) return 0;
+    const agg: Record<string, Record<string, { runs: number; passes: number }>> = {};
+    for (const [caseId, perModel] of Object.entries(matrix.cases)) {
+        const kind = caseId.split('-')[0];   // case ids are `<kind>-<...>` (evals/cases/README.md)
+        if (!kind) continue;
+        for (const [model, m] of Object.entries(perModel)) {
+            const a = (agg[kind] ||= {}); const e = (a[model] ||= { runs: 0, passes: 0 });
+            e.runs += m.runs; e.passes += m.passes;
+        }
+    }
+    let updated = 0;
+    for (const [kind, perModel] of Object.entries(agg)) {
+        for (const [model, e] of Object.entries(perModel)) {
+            if (e.runs < 3) continue;   // three runs before a measurement replaces a seat
+            const q = Math.round((e.passes / e.runs) * 1000) / 1000;
+            (ARTIFACT_EVAL_REGISTRY[kind] ||= {})[model] = { quality: q, note: `eval matrix ${matrix.generated || ''}: ${e.passes}/${e.runs} pass` };
+            updated += 1;
+        }
+    }
+    return updated;
+}
+
+export async function loadModelMatrix(fetchImpl: typeof fetch = globalThis.fetch): Promise<number> {
+    try {
+        const resp = await fetchImpl(`${proxyBase()}/api/eval/matrix`, { cache: 'no-store' });
+        if (!resp.ok) return 0;
+        return applyModelMatrix(await resp.json());
+    } catch { return 0; }
+}
+
 // Relative per-1M output-token $ (ordering is what the cost tilt uses, not absolute precision).
 const MODEL_COST_REL: Record<string, number> = {
     'gemini-3.5-flash': 1, 'gemini-3.1-pro-preview': 10, [CLAUDE_REASONING_MODEL]: 20, [CLAUDE_STRUCTURED_MODEL]: 10,
@@ -774,6 +812,20 @@ export function getAvailableProviders(): Set<string> {
     // exposes ANTHROPIC_API_KEY to the client (line 89), and the proxy attaches
     // it server-side at /api/ai/anthropic.
     if ((process.env as any).ANTHROPIC_API_KEY) providers.add('anthropic');
+    // 2026-11-03 (live Docker defect, caught by the Studio #flashcards run): WS-0 S1
+    // (2026-10-30) removed provider keys from the browser bundle on purpose; the proxy
+    // holds the keys and attaches them server-side at /api/ai/*. A bundle with NO baked
+    // key therefore means "proxy-attached", not "nothing reachable". Before this fix,
+    // deliverableModelRouter.resolveModelChain filtered every model out and every HTML
+    // artifact failed in 2ms with "no reachable models (check provider API keys)".
+    // When at least one key IS baked (local dev with .env.local), the old key-gating
+    // stands unchanged; per-provider outages are handled downstream by the chain + the
+    // provider-health tracker, not by this static set.
+    if (providers.size === 0 && typeof window !== 'undefined') {
+        providers.add('google');
+        providers.add('openai');
+        providers.add('anthropic');
+    }
     return providers;
 }
 

@@ -16,26 +16,28 @@ collected_at: "2026-07-02T18:07:11+00:00"
 content_hash: "283c3c99a37427dc"
 chunks:
   - id: "articles/ieee-spectrum-ai/3adcf062ee.md#c0"
-    char_span: [0, 140]
+    char_span: [0, 139]
     sentence_count: 1
     key_terms: [ieee, spectrum, ieee-education-week, emphasized, education, learning, lifelong, events]
     concepts: [spectrum]
-    token_count: 37
-    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/ieee-education-week"}]
+    token_count: 36
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/ieee-education-week","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/3adcf062ee.md#c1"
-    char_span: [142, 3015]
+    char_span: [141, 3014]
     sentence_count: 12
     key_terms: [ieee, educational, education, resources, week, activities, members, professional]
     concepts: [educational, education, resources, activities, professional]
     related_chunks: ["articles/ieee-spectrum-ai/3adcf062ee.md#c2"]
     token_count: 512
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/ieee-education-week","kind":"article","date":"2026-06-17"}]
   - id: "articles/ieee-spectrum-ai/3adcf062ee.md#c2"
-    char_span: [2699, 4811]
+    char_span: [2698, 4810]
     sentence_count: 13
     key_terms: [ieee, education, engineering, week, resources, technical, tryengineering, website]
     concepts: [education, engineering, tryengineering, resources, technical]
     related_chunks: ["articles/ieee-spectrum-ai/3adcf062ee.md#c1"]
     token_count: 390
+    sources: [{"n":"IEEE Spectrum AI","u":"https://spectrum.ieee.org/ieee-education-week","kind":"article","date":"2026-06-17"}]
 ---
 # IEEE’s 2026 Education Week Events Emphasized Lifelong Learning
 

@@ -287,6 +287,7 @@ class AgentEngine:
         session_id: str,
         user_message: str | list[dict],
         history: list[dict] | None = None,
+        extra_system: str = "",
     ) -> AsyncIterator[dict[str, Any]]:
         """
         Execute the agent and yield SSE-compatible event dicts.
@@ -317,6 +318,9 @@ class AgentEngine:
             tool_schemas = tool_schemas + self.tools.get_anthropic_tools()
         tools = tool_schemas if tool_schemas else None
         system_prompt = self._build_system_prompt(agent, bool(tools))
+        # 2026-10-31 (CX Workbench agent-stack plan, WS-B B2): the shared-memory facts recalled for this turn.
+        if extra_system:
+            system_prompt = f"{system_prompt}\n\n{extra_system}"
 
         turns = 0
         tool_calls_log: list[dict[str, Any]] = []
@@ -462,7 +466,21 @@ class AgentEngine:
                     "generate_journey_map", "analyze_social_data",
                     "transcribe_video", "search_reddit",
                 }
-                if tc.name in LONG_RUNNING_TOOLS:
+                # 2026-10-31 (D4): a computer or shell action may pause for human review; run it as a task and
+                # surface the review card to the client the moment the gate opens one.
+                if tc.name in ("computer", "bash", "execute_python", "execute_javascript"):
+                    import asyncio as _aio
+                    from app.tools import review_gate as _rg
+                    gated_task = _aio.create_task(self._execute_tool(tc.name, tc.arguments, ctx))
+                    while not gated_task.done():
+                        await _aio.sleep(0.5)
+                        for rv in _rg.reviews.pending(ctx.session_id):
+                            if not rv.get("announced"):
+                                rv["announced"] = True
+                                yield {"type": "review_required", "review_id": rv["id"], "proposed_action": rv["proposed_action"],
+                                       "url": rv["url"], "host": rv["host"], "screenshot": rv["screenshot"]}
+                    result, error = gated_task.result()
+                elif tc.name in LONG_RUNNING_TOOLS:
                     # Run tool as asyncio task so we can yield heartbeats
                     import asyncio as _aio
                     tool_task = _aio.create_task(
@@ -552,6 +570,9 @@ class AgentEngine:
         on failure.
         """
         try:
+            # D4: the review gate attributes a paused action to this session
+            from app.tools.review_gate import current_session as _review_session
+            _review_session.set(ctx.session_id)
             # --- Anthropic-defined tool routing ---
             if name == "computer":
                 from app.tools.computer_use import execute_computer_action

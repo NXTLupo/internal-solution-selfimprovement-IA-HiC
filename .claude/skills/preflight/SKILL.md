@@ -1,10 +1,12 @@
 ---
 name: preflight
-invocation: model
-version: 1.0
 description: Full pre-deployment audit combining prompt scoring, stress testing, and constraint validation. Run this before deploying any prompt to production.
+invocation: model
+version: "1"
+status: active
 allowed-tools: Read, Grep, Glob, Bash
-argument-hint: [file-path-or-paste]
+argument-hint:
+  - file-path-or-paste
 ---
 
 Act as a Claude deployment gatekeeper who runs a comprehensive pre-flight check before any prompt goes to production.

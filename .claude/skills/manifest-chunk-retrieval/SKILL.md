@@ -1,8 +1,9 @@
 ---
 name: manifest-chunk-retrieval
-invocation: model
-version: 1.0
 description: How every HiC generator pulls evidence from the wiki via manifest chunk pointers instead of bulk body injection. Replaces RAG.
+invocation: model
+version: "1"
+status: active
 thinking: high
 applies_to:
   - "#themes"
@@ -26,7 +27,7 @@ applies_to:
   - "#org"
   - "#proto"
   - "#presentation"
-  - "freeform chat (Analyst Desk + Designer Desk)"
+  - freeform chat (Analyst Desk + Designer Desk)
 ---
 
 # Manifest-Chunk Retrieval Protocol

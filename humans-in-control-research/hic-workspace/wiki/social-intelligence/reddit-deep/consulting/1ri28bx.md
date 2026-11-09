@@ -7,14 +7,14 @@ subreddit: "consulting"
 title: "Trying to figure out which role to take..any guidance?"
 author: "iAMFL4SH"
 date: "2026-03-01T16:51:42.000Z"
-score: 13
-upvote_ratio: 0.93
+score: 12
+upvote_ratio: 0.88
 num_comments: 10
 flair: ""
-extracted_at: "2026-08-13T16:56:19.258Z"
+extracted_at: "2026-10-09T16:37:07.954Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
-engagement: "analyze-the-executive-search-industry-to-map-current-trends"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c0"
     char_span: [0, 2186]
@@ -23,7 +23,7 @@ chunks:
     concepts: [deals, advisory, opportunities, general, project]
     related_chunks: ["social-intelligence/reddit-deep/consulting/1ri28bx.md#c1"]
     token_count: 486
-    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/"}]
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/","kind":"social-post","date":"2026-03-01","author":"iAMFL4SH","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c1"
     char_span: [2188, 4145]
     sentence_count: 15
@@ -31,6 +31,7 @@ chunks:
     concepts: [general, transformation, platform, opportunities, support]
     related_chunks: ["social-intelligence/reddit-deep/consulting/1ri28bx.md#c0"]
     token_count: 411
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/","kind":"social-post","date":"2026-03-01","author":"iAMFL4SH","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c2"
     char_span: [4160, 6149]
     sentence_count: 16
@@ -38,6 +39,7 @@ chunks:
     concepts: [internal, right, yourself, career, either]
     section: Comments
     token_count: 438
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/","kind":"social-post","date":"2026-03-01","author":"iAMFL4SH","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c3"
     char_span: [6154, 8342]
     sentence_count: 26
@@ -45,6 +47,7 @@ chunks:
     concepts: [years, unpredictable, interesting, deals, optimizing]
     section: Comments
     token_count: 481
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/","kind":"social-post","date":"2026-03-01","author":"iAMFL4SH","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1ri28bx.md#c4"
     char_span: [8344, 9743]
     sentence_count: 10
@@ -52,11 +55,12 @@ chunks:
     concepts: [money, votre]
     section: Comments
     token_count: 360
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/","kind":"social-post","date":"2026-03-01","author":"iAMFL4SH","subreddit":"consulting"}]
 ---
 # Trying to figure out which role to take..any guidance?
 
 Source: [reddit-deep: r/consulting](https://www.reddit.com/r/consulting/comments/1ri28bx/trying_to_figure_out_which_role_to_takeany/)
-Posted by **iAMFL4SH** · **13↑** · **10 comments**
+Posted by **iAMFL4SH** · **12↑** · **10 comments**
 
 I'm currently in Deals Advisory (think Deals project management, IMO/SMO type work) at 1 of the big 4. I have an opportunity to go back to an internal role at the same salary. This is appealing for WLB and being able to spend more time with my wife and kid but feels like it would hurt me in the long run career wise or limit options in general. Wondering if I should just keep sticking it out for now in Deals advisory and then try to get a easier role later on?
 
@@ -82,15 +86,15 @@ Just wanted to see whatever one else thinks in general and what else I should be
 
 ## Comments
 
-- **ResultsPlease** (7↑): 1. Time with your kid is more valuable than all of the other shit in life. If the options are even remotely comparable go with the one that gives you more time with the kids.
+- **ResultsPlease** (8↑): 1. Time with your kid is more valuable than all of the other shit in life. If the options are even remotely comparable go with the one that gives you more time with the kids.
 
 2. If you are looking to stay in this game short term, take the easier path.
 
 3. If you are looking to stay in this game long term it's a game of sales. You either sell yourself internally to the right partners who support your career, or you sell yourself to the right customers who give you the work which supports your career. You will know which one you are more likely to win at.
-- **minhthemaster** (3↑): > Cons: Unpredictable hours as weeks can be 50-70 hours easily with random firedrills popping up. Vacations are not necessarily guaranteed as it's really dependent based on the staffing team you have. Either way, you're still generally checking your phone during vacation so you can't really turn off. This is also an M&A field so subject to economic conditions, I would also say travel is maybe once a month or once every other month.
+- **minhthemaster** (4↑): > Cons: Unpredictable hours as weeks can be 50-70 hours easily with random firedrills popping up. Vacations are not necessarily guaranteed as it's really dependent based on the staffing team you have. Either way, you're still generally checking your phone during vacation so you can't really turn off. This is also an M&A field so subject to economic conditions, I would also say travel is maybe once a month or once every other month.
 
 sounds like you should definitely leave, but maybe nto for a shitty internal tax role
-- **bradthebuilder7** (4↑): Deals Advisory exit ops are often narrower than people expect. You've identified it yourself, M&A PM, maybe another consultancy. Corporate development is a common goal but 3-statement modeling gaps are a real blocker. The client-facing skillset is valuable but it's not as transferable as you might hope unless you're gunning for a very specific lane.
+- **bradthebuilder7** (3↑): Deals Advisory exit ops are often narrower than people expect. You've identified it yourself, M&A PM, maybe another consultancy. Corporate development is a common goal but 3-statement modeling gaps are a real blocker. The client-facing skillset is valuable but it's not as transferable as you might hope unless you're gunning for a very specific lane.
 
   
 The internal Tax Tech role: I'd push back on the assumption that internal = career dead end. Tax Technology + AI tooling is actually a growing area right now, and the platform revamp work you'd be doing (dashboards, process automation, AI integration) is genuinely marketable if you frame it right. The "first to be cut" concern is real for internal roles, but M&A Deals work is also notoriously cyclical — you're not immune to economic conditions where you are either.

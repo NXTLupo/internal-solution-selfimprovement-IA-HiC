@@ -5,6 +5,7 @@
 // and delete prototypes uniformly.
 
 import type { PrototypeArtifact, Brand } from './prototypeBuilder';
+import { tokenizedProxyUrl } from './proxyConfig';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -103,7 +104,9 @@ export async function savePrototype(artifact: PrototypeArtifact): Promise<Protot
         code_chars: data.code_chars || (artifact.code || '').length,
         created_at: data.created_at,
         updated_at: data.updated_at,
-        view_url: data.view_url || `/api/prototypes/${data.slug}/view`,
+        // 2026-11-08: launch is a browser navigation; the auth token rides the `t` query
+        // parameter because a navigation cannot carry the header (services/proxyConfig).
+        view_url: tokenizedProxyUrl(data.view_url || `/api/prototypes/${data.slug}/view`),
     };
 }
 

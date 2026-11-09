@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:32:19+00:00"
 content_hash: "8f83b4b735b60544"
 chunks:
   - id: "articles/ins-insurance-business-ca/b3c7ff0b9d.md#c0"
-    char_span: [0, 257]
+    char_span: [0, 256]
     sentence_count: 1
     key_terms: [cooperators-flood-cover-reaches-745000-as-canadas-insurance-gap-widens-580132, insurancebusinessmag, breaking-news, co-operators, insurance, "canada's", reaches, source]
-    token_count: 68
-    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/breaking-news/cooperators-flood-cover-reaches-745000-as-canadas-insurance-gap-widens-580132.aspx"}]
+    token_count: 67
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/breaking-news/cooperators-flood-cover-reaches-745000-as-canadas-insurance-gap-widens-580132.aspx","kind":"article","date":"2026-06-24"}]
   - id: "articles/ins-insurance-business-ca/b3c7ff0b9d.md#c1"
-    char_span: [259, 2871]
+    char_span: [258, 2870]
     sentence_count: 23
     key_terms: [insurance, canada, flood, households, water, coverage, co-operators, claims]
     concepts: [insurance, canada, flood, households, coverage]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/breaking-news/cooperators-flood-cover-reaches-745000-as-canadas-insurance-gap-widens-580132.aspx","kind":"article","date":"2026-06-24"}]
   - id: "articles/ins-insurance-business-ca/b3c7ff0b9d.md#c2"
-    char_span: [2540, 4709]
+    char_span: [2539, 4708]
     sentence_count: 18
     key_terms: [co-operators, sustainable, corporate, flood, federal, knights, investments, disclosure]
     concepts: [co-operators, sustainable, corporate, flood, federal]
     token_count: 404
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/breaking-news/cooperators-flood-cover-reaches-745000-as-canadas-insurance-gap-widens-580132.aspx","kind":"article","date":"2026-06-24"}]
 ---
 # Co-operators' flood cover reaches 745,000 as Canada's insurance gap widens
 

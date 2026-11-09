@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:15:39+00:00"
 content_hash: "3ed405964e1732b5"
 chunks:
   - id: "articles/arxiv-cs-cl/ecbf8dde23.md#c0"
-    char_span: [0, 668]
+    char_span: [0, 667]
     sentence_count: 4
     key_terms: [access, language, technologies, attitudes, managers, towards, arxiv, human]
     concepts: [access, language, technologies, attitudes, managers]
-    token_count: 135
-    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2605.19234v1"}]
+    token_count: 134
+    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2605.19234v1","kind":"article","date":"2026-05-19"}]
 ---
 # AI Technologies in Language Access: Attitudes Towards AI and the Human Value of Language Access Managers
 

@@ -40,9 +40,9 @@ describe('engagement slug convergence', () => {
         expect(offenders, 'use engagementSlugFor (services/engagementSlug.ts)').toEqual([]);
     });
 
-    it('App.tsx sets the engagement global from engagementSlugFor', () => {
+    it('App.tsx sets the engagement run state from engagementSlugFor', () => {
         const src = stripComments(read('App.tsx'));
-        expect(src).toMatch(/__hicCurrentEngagementSlug\s*=\s*slug/);
+        expect(src).toMatch(/setEngagementSlug\(slug/);
         expect(src).toMatch(/const slug = goal \? engagementSlugFor\(goal\) : ''/);
     });
 });

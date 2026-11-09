@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:11:17+00:00"
 content_hash: "53d68a539a0bc177"
 chunks:
   - id: "articles/arxiv-cs-ro/8c3bc4a6ed.md#c0"
-    char_span: [0, 634]
+    char_span: [0, 633]
     sentence_count: 3
     key_terms: [automation, process, robotic, human, errands, computerization, computerized, cutting-edge]
     concepts: [automation, process, robotic, human, errands]
-    token_count: 131
-    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2212.05544v1"}]
+    token_count: 130
+    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2212.05544v1","kind":"article","date":"2022-12-11"}]
 ---
 # A systematic literature review on Robotic Process Automation security
 

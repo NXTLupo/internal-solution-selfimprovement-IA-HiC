@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:39:40+00:00"
 content_hash: "e90b58dae3cf15a2"
 chunks:
   - id: "articles/ins-insurance-journal-west/1ec4f0abce.md#c0"
-    char_span: [0, 2174]
+    char_span: [0, 2173]
     sentence_count: 15
     key_terms: [vehicles, stolen, colorado, theft, attorney, vehicle, defendants, district]
     concepts: [vehicles, stolen, colorado, attorney, theft]
-    token_count: 408
-    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/06/26/875037.htm"}]
+    token_count: 407
+    sources: [{"n":"ins_insurance_journal_west","u":"https://www.insurancejournal.com/news/west/2026/06/26/875037.htm","kind":"article","date":"2026-06-26"}]
 ---
 # Indictments Delivered for Auto Theft Ring Targeting Colorado Airports
 

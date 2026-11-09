@@ -1,8 +1,9 @@
 ---
 name: source-ranker
+description: Rank candidate sources on credibility, recency, relevance to the argument and external, client or synthetic class; emit Use, Verify or Cut per source, the top three, the one to cut and the missing source type. Enforces the external-source floors.
 invocation: model
-version: 1.0
-description: Ranks any candidate source set by four orthogonal dimensions wiki-reranker doesn't cover — credibility (high/medium/low based on publication, methodology, peer review), recency (current/dated/outdated for the topic's volatility), relevance to argument (direct/tangential/weak), and the binding citation-protocol classification external/client/synthetic. Emits per-source Use/Verify/Cut verdicts, the top 3 to build the argument on, the one to cut, and the missing source type that would make the argument stronger. Enforces the >=60% external floor and >=30% external-of-total-citations floor from .claude/CLAUDE.md. Composes with wiki-query-expander (recall) and wiki-reranker (intent relevance) — together they form a 3-stage retrieval pipeline.
+version: "1"
+status: active
 thinking: high
 category: retrieval-enhancer
 triggers:
@@ -13,10 +14,19 @@ triggers:
   - external sources
   - citation diversity
   - source quality
-  - #source-rank
+  - "#source-rank"
+loader:
+  title: Source Ranker
+  role: quality-enhancer
+  execution_context: primary
+skillopt: trainable
 ---
 
 # Source Ranker
+
+## Scope
+
+Ranks any candidate source set by four orthogonal dimensions wiki-reranker doesn't cover — credibility (high/medium/low based on publication, methodology, peer review), recency (current/dated/outdated for the topic's volatility), relevance to argument (direct/tangential/weak), and the binding citation-protocol classification external/client/synthetic. Emits per-source Use/Verify/Cut verdicts, the top 3 to build the argument on, the one to cut, and the missing source type that would make the argument stronger. Enforces the >=60% external floor and >=30% external-of-total-citations floor from .claude/CLAUDE.md. Composes with wiki-query-expander (recall) and wiki-reranker (intent relevance) — together they form a 3-stage retrieval pipeline.
 
 ## You Are
 
@@ -41,6 +51,7 @@ Do NOT activate when:
 - The user has explicitly named a single source to use (e.g., "summarize this article")
 - The candidate set is already < 5 sources (just evaluate inline, don't run the full ranking)
 
+<!-- SLOW_UPDATE_START -->
 ## Input contract
 
 You receive:
@@ -101,6 +112,7 @@ This is NOT a duplicate of wiki-reranker. wiki-reranker scored intent relevance 
 | **Synthetic** | LLM-generated summaries, model outputs treated as evidence, AI-extracted themes without source provenance | NO and forbidden — flag and reject |
 
 Synthetic sources are an automatic Cut. They don't belong in a citation set.
+<!-- SLOW_UPDATE_END -->
 
 ## The trust verdict
 
@@ -112,6 +124,7 @@ Combine all four dimensions into one verdict per source:
 | **Verify** | Credibility Medium with weak methodology, OR Recency Dated in a fast-moving space, OR Relevance Direct but originating from a single weak study — flag the specific concern so the user can confirm |
 | **Cut** | Credibility Low + Class Synthetic, OR Relevance Weak, OR a phantom citation (DOI doesn't resolve, author + title returns zero hits, publication doesn't exist) |
 
+<!-- SLOW_UPDATE_START -->
 ## Output protocol
 
 ### Step 1 — Restate the argument
@@ -174,6 +187,7 @@ External ratio: 37% — FAILS 60% floor. Pull at least 5 more external sources b
 4. **Track citation laundering.** A high-credibility outlet citing a single weak study is still Low.
 5. **The gap is mandatory.** "No gap detected" is wrong — every research set has one.
 6. **Source names must be specific.** Generic references ("Reddit", "research", "studies") are caught at validation but the user shouldn't see them from this skill either.
+<!-- SLOW_UPDATE_END -->
 
 ## Composition with other skills
 

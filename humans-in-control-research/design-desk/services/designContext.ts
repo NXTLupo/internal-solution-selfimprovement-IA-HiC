@@ -21,7 +21,7 @@
 // blocks) instead of raw JSON.stringify, and carries the full structured set
 // (recs/gap/competitive/strategic) + a corpus manifest it previously lacked.
 import {
-    shapeThemes, shapePersonas, shapeJourney, shapeRecommendations,
+    shapeThemesForChat, shapePersonas, shapeJourney, shapeRecommendations,
     shapeGap, shapeCompetitive, shapeStrategic,
 } from '../../services/intelligenceShaping';
 
@@ -93,7 +93,8 @@ export function saveDesignContext(input: Partial<{
     const next: DesignContext = {
         corpusText: input.corpusText !== undefined ? clip(input.corpusText, MAX_CORPUS_CHARS) : prev.corpusText,
         uploadedFileContents: input.uploadedFileContents !== undefined ? clip(input.uploadedFileContents, MAX_UPLOADS_CHARS) : prev.uploadedFileContents,
-        themes: input.themes !== undefined ? clip(shapeThemes(input.themes as any[]), MAX_STRUCT_CHARS) : prev.themes,
+        // 2026-10-20 (P0.1): the Designer desk is held to the Analyst desk's theme contract (own themes first, pointers).
+        themes: input.themes !== undefined ? clip(shapeThemesForChat(input.themes as any[]), MAX_STRUCT_CHARS) : prev.themes,
         personas: input.personas !== undefined ? clip(shapePersonas(input.personas as any[]), MAX_STRUCT_CHARS) : prev.personas,
         journeyStages: input.journeyStages !== undefined ? clip(shapeJourney(input.journeyStages as any[]), MAX_STRUCT_CHARS) : prev.journeyStages,
         recommendations: input.recommendations !== undefined ? clip(shapeRecommendations(input.recommendations as any[]), MAX_STRUCT_CHARS) : prev.recommendations,

@@ -8,6 +8,7 @@ import type { Artifact } from '../types';
 import type { BrandHashtag, ContentHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
+import { makeGenAI } from '../../services/genaiClient';
 
 /** Model id that the chat surface uses. Same union as `ChatModel` in corpusChatService.
  * 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary; legacy
@@ -62,7 +63,7 @@ function resolveProviderModelId(chatModel: GenerationModel): string {
 }
 
 async function callGemini(prompt: string, modelId: string): Promise<string> {
-    const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
+    const ai = makeGenAI();
     const response = await ai.models.generateContent({
         model: modelId,
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -264,7 +265,8 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
         return { ok: false, error: `Content type "${args.content}" is not yet supported in the framework pilot (persona + journey + org only)` };
     }
 
-    const model: GenerationModel = args.model ?? 'deepseek-v4-flash';
+    // 2026-10-05: this legacy path has no Claude client; its strongest reasoning model is Gemini Pro.
+    const model: GenerationModel = args.model ?? 'gemini-3.1-pro-preview';
 
     let raw: string;
     try {

@@ -31,7 +31,7 @@
 // memory feedback_multi_model_resilience_pattern.
 
 import { callAIWithRetry, type AIEndpointId } from './aiRetryClient';
-import { MODEL_REGISTRY, MODELS_FOR_CATEGORY, getAvailableProviders, type TaskCategory, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
+import { MODEL_REGISTRY, MODELS_FOR_CATEGORY, getAvailableProviders, type TaskCategory, CLAUDE_STRUCTURED_MODEL, CLAUDE_REASONING_MODEL } from './aiRouter';
 import { stripFormatTells } from './slidePostProcessor';
 import {
     isProviderHealthy,
@@ -154,7 +154,10 @@ export function resolveModelChain(deliverable: DeliverableKind, preferModel?: st
     // models from that provider at the head of the chain. Keeps cache warm,
     // prevents mid-engagement provider flapping. NO-OP when no commitment
     // exists or when no chain model matches the committed provider.
-    ordered = reorderChainByCommitment(ordered);
+    // 2026-10-05 (owner rule: Opus 5.5 for reasoning): a REASONING chain keeps the Claude reasoning model at its
+    // head. One transient Opus failure used to commit the engagement to Gemini and silently demote every later
+    // reasoning deliverable; the chain still fails over per call when Opus is down.
+    if (ordered[0] !== CLAUDE_REASONING_MODEL) ordered = reorderChainByCommitment(ordered);
 
     // Dedupe, preserve order.
     return ordered.filter((id, i) => ordered.indexOf(id) === i);

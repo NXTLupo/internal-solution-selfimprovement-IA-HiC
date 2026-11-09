@@ -1,0 +1,2940 @@
+[
+ {
+  "id": "fintech-sec-01",
+  "family": "sectionMark",
+  "industry": "fintech",
+  "framework": "section-mark-payments",
+  "title": "Payment Volume and Take Rate",
+  "subtitle": "How money moves and where the platform earns",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 5000
+  }
+ },
+ {
+  "id": "fintech-net-01",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "payment-rail-network",
+  "title": "Payment rail operating network",
+  "subtitle": "Card, ACH, RTP, wire and wallet rails the platform spans",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 5001
+  }
+ },
+ {
+  "id": "fintech-pro-01",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "volume-mix-by-rail",
+  "title": "Payment volume mix by rail",
+  "subtitle": "Share of total volume across card, ACH, RTP and wallet",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    44,
+    23,
+    18,
+    15
+   ],
+   "seed": 5002
+  }
+ },
+ {
+  "id": "fintech-dat-01",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "take-rate-by-product",
+  "title": "Take rate by product line",
+  "subtitle": "Net revenue per dollar processed across products",
+  "artifacts": [
+   "slides",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 5003,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "cac-ltv-by-cohort",
+  "title": "CAC vs LTV by acquisition cohort",
+  "subtitle": "Payback strength across channels and vintages",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.9,
+     0.5
+    ],
+    [
+     0.5,
+     0.7,
+     0.85
+    ],
+    [
+     0.4,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 5004
+  }
+ },
+ {
+  "id": "fintech-dia-01",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "blended-take-rate-gauge",
+  "title": "Blended take-rate gauge",
+  "subtitle": "Net revenue yield against the target band",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 62,
+   "segments": 10,
+   "seed": 5005
+  }
+ },
+ {
+  "id": "fintech-fun-01",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "approval-decline-funnel",
+  "title": "Approval and decline funnel",
+  "subtitle": "Authorization attempts to settled transactions",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    82,
+    71,
+    64
+   ],
+   "seed": 5006
+  }
+ },
+ {
+  "id": "fintech-jou-01",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "onboarding-to-active-journey",
+  "title": "Onboarding-to-active journey",
+  "subtitle": "Signup through first funded transaction",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 5007
+  }
+ },
+ {
+  "id": "fintech-cap-01",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "embedded-finance-stack",
+  "title": "Embedded-finance capability stack",
+  "subtitle": "From license and BaaS to merchant UX",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 5008
+  }
+ },
+ {
+  "id": "fintech-rad-01",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "risk-ops-maturity-radar",
+  "title": "Risk operations maturity radar",
+  "subtitle": "Current versus target across risk disciplines",
+  "artifacts": [
+   "audit",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.7,
+    0.4,
+    0.65,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.85,
+    0.8
+   ],
+   "seed": 5009
+  }
+ },
+ {
+  "id": "fintech-gan-01",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "license-expansion-roadmap",
+  "title": "License and charter expansion roadmap",
+  "subtitle": "State MTLs, EMI, and bank-charter sequencing",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 5010
+  }
+ },
+ {
+  "id": "fintech-flo-01",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "money-movement-architecture",
+  "title": "Money-movement architecture",
+  "subtitle": "Funds flow from payer through ledger to payee",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 5011
+  }
+ },
+ {
+  "id": "fintech-dat-02",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "authorization-rate-by-issuer",
+  "title": "Authorization rate by issuer",
+  "subtitle": "Approval yield across top card issuers",
+  "artifacts": [
+   "gap",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    8,
+    7,
+    6,
+    5
+   ],
+   "sort": "desc",
+   "seed": 5012,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "fintech-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "interchange-by-card-category",
+  "title": "Interchange by card category",
+  "subtitle": "Effective rate across credit, debit and commercial",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.3
+    ],
+    [
+     0.8,
+     0.85,
+     0.6
+    ]
+   ],
+   "seed": 5013
+  }
+ },
+ {
+  "id": "fintech-dia-02",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "fraud-rate-gauge",
+  "title": "Fraud-rate gauge",
+  "subtitle": "Basis points of fraud against tolerance ceiling",
+  "artifacts": [
+   "audit",
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 18,
+   "segments": 10,
+   "seed": 5014
+  }
+ },
+ {
+  "id": "fintech-fun-02",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "kyc-onboarding-funnel",
+  "title": "KYC onboarding funnel",
+  "subtitle": "Applicants through verified, funded accounts",
+  "artifacts": [
+   "gap",
+   "slides",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    76,
+    61,
+    48,
+    40
+   ],
+   "seed": 5015
+  }
+ },
+ {
+  "id": "fintech-pro-02",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "revenue-mix-by-stream",
+  "title": "Revenue mix by stream",
+  "subtitle": "Interchange, float, SaaS and lending share",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    22,
+    21,
+    19
+   ],
+   "seed": 5016
+  }
+ },
+ {
+  "id": "fintech-jou-02",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "checkout-conversion-journey",
+  "title": "Checkout conversion journey",
+  "subtitle": "Cart to confirmed payment across steps",
+  "artifacts": [
+   "journey",
+   "slides",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 5017
+  }
+ },
+ {
+  "id": "fintech-net-02",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "banking-partner-network",
+  "title": "Banking-partner operating network",
+  "subtitle": "Sponsor banks, processors and program managers",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 5018
+  }
+ },
+ {
+  "id": "fintech-cap-02",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "payments-platform-stack",
+  "title": "Payments platform capability stack",
+  "subtitle": "Gateway, processor, ledger and orchestration",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 5019
+  }
+ },
+ {
+  "id": "fintech-rad-02",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "fraud-controls-radar",
+  "title": "Fraud controls maturity radar",
+  "subtitle": "Detection, rules, ML and case management",
+  "artifacts": [
+   "audit",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.7,
+    0.55,
+    0.6,
+    0.45,
+    0.65
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.85,
+    0.75,
+    0.85
+   ],
+   "seed": 5020
+  }
+ },
+ {
+  "id": "fintech-gan-02",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "fraud-platform-roadmap",
+  "title": "Fraud platform delivery roadmap",
+  "subtitle": "Rules engine, ML scoring and device intel rollout",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 3,
+   "seed": 5021
+  }
+ },
+ {
+  "id": "fintech-flo-02",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "decline-recovery-flow",
+  "title": "Decline recovery decision flow",
+  "subtitle": "Soft-decline retry, smart routing and dunning",
+  "artifacts": [
+   "arch",
+   "gap",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 5022
+  }
+ },
+ {
+  "id": "fintech-dat-03",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "chargeback-rate-by-vertical",
+  "title": "Chargeback rate by merchant vertical",
+  "subtitle": "Dispute load across high-risk categories",
+  "artifacts": [
+   "audit",
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    7,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 5023,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "loan-vintage-delinquency",
+  "title": "Delinquency by loan vintage",
+  "subtitle": "Roll rates across origination cohorts",
+  "artifacts": [
+   "report",
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.2,
+     0.4,
+     0.6,
+     0.8
+    ],
+    [
+     0.15,
+     0.35,
+     0.55,
+     0.75
+    ],
+    [
+     0.1,
+     0.3,
+     0.5,
+     0.7
+    ]
+   ],
+   "seed": 5024
+  }
+ },
+ {
+  "id": "fintech-dia-03",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "net-charge-off-gauge",
+  "title": "Net charge-off gauge",
+  "subtitle": "Loss rate against underwriting tolerance",
+  "artifacts": [
+   "audit",
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 34,
+   "segments": 10,
+   "seed": 5025
+  }
+ },
+ {
+  "id": "fintech-fun-03",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "loan-origination-funnel",
+  "title": "Loan origination funnel",
+  "subtitle": "Applications through funded, performing loans",
+  "artifacts": [
+   "gap",
+   "slides",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    52,
+    41,
+    33
+   ],
+   "seed": 5026
+  }
+ },
+ {
+  "id": "fintech-dat-04",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "delinquency-by-dpd-bucket",
+  "title": "Delinquency by days-past-due bucket",
+  "subtitle": "Balance distribution across DPD aging",
+  "artifacts": [
+   "report",
+   "slides",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 5027,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-pro-03",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "loan-book-by-product",
+  "title": "Loan book mix by product",
+  "subtitle": "Share across BNPL, installment, revolving and SMB",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    31,
+    27,
+    24,
+    18
+   ],
+   "seed": 5028
+  }
+ },
+ {
+  "id": "fintech-jou-03",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "borrower-lifecycle-journey",
+  "title": "Borrower lifecycle journey",
+  "subtitle": "Application through repayment and re-borrow",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 5029
+  }
+ },
+ {
+  "id": "fintech-rad-03",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "underwriting-maturity-radar",
+  "title": "Underwriting maturity radar",
+  "subtitle": "Data, models, governance and monitoring",
+  "artifacts": [
+   "audit",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.65,
+    0.6,
+    0.5,
+    0.7,
+    0.55,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.9,
+    0.8,
+    0.85
+   ],
+   "seed": 5030
+  }
+ },
+ {
+  "id": "fintech-cap-03",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "lending-platform-stack",
+  "title": "Lending platform capability stack",
+  "subtitle": "Origination, decisioning, servicing and collections",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 5031
+  }
+ },
+ {
+  "id": "fintech-gan-03",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "credit-model-refresh-roadmap",
+  "title": "Credit model refresh roadmap",
+  "subtitle": "Scorecard rebuilds and challenger deployment",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 5032
+  }
+ },
+ {
+  "id": "fintech-flo-03",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "underwriting-decision-flow",
+  "title": "Underwriting decision flow",
+  "subtitle": "Bureau pull, scoring, policy rules and offer",
+  "artifacts": [
+   "arch",
+   "gap",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 5033
+  }
+ },
+ {
+  "id": "fintech-net-03",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "capital-funding-network",
+  "title": "Capital and funding network",
+  "subtitle": "Warehouse lines, forward-flow buyers and ABS",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "radial",
+   "seed": 5034
+  }
+ },
+ {
+  "id": "fintech-dat-05",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "cac-by-channel",
+  "title": "CAC by acquisition channel",
+  "subtitle": "Cost per funded customer across channels",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    2,
+    4,
+    5,
+    6,
+    8,
+    9
+   ],
+   "sort": "asc",
+   "seed": 5035,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "fintech-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "ltv-by-segment-tenure",
+  "title": "LTV by segment and tenure",
+  "subtitle": "Lifetime value across segments and account age",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.4,
+     0.6,
+     0.8
+    ],
+    [
+     0.5,
+     0.7,
+     0.9
+    ],
+    [
+     0.3,
+     0.55,
+     0.75
+    ],
+    [
+     0.45,
+     0.65,
+     0.85
+    ]
+   ],
+   "seed": 5036
+  }
+ },
+ {
+  "id": "fintech-dia-04",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "cac-payback-gauge",
+  "title": "CAC payback gauge",
+  "subtitle": "Months to recover acquisition cost",
+  "artifacts": [
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 48,
+   "segments": 10,
+   "seed": 5037
+  }
+ },
+ {
+  "id": "fintech-fun-04",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "signup-activation-funnel",
+  "title": "Signup-to-activation funnel",
+  "subtitle": "Registered users through first transaction",
+  "artifacts": [
+   "gap",
+   "slides",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    71,
+    55,
+    42
+   ],
+   "seed": 5038
+  }
+ },
+ {
+  "id": "fintech-pro-04",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "cost-to-serve-breakdown",
+  "title": "Cost-to-serve breakdown",
+  "subtitle": "Processing, risk, support and compliance share",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    34,
+    26,
+    22,
+    18
+   ],
+   "seed": 5039
+  }
+ },
+ {
+  "id": "fintech-dat-06",
+  "family": "fx_candlestick",
+  "industry": "fintech",
+  "framework": "contribution-margin-by-product",
+  "title": "Contribution margin by product",
+  "subtitle": "Unit margin across the product portfolio",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 5040,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-jou-04",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "activation-to-habit-journey",
+  "title": "Activation-to-habit journey",
+  "subtitle": "First use through weekly active behavior",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 5041
+  }
+ },
+ {
+  "id": "fintech-rad-04",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "growth-engine-radar",
+  "title": "Growth engine maturity radar",
+  "subtitle": "Acquisition, activation, referral and retention",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.55,
+    0.4,
+    0.5,
+    0.6
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.7,
+    0.8,
+    0.85
+   ],
+   "seed": 5042
+  }
+ },
+ {
+  "id": "fintech-cap-04",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "growth-marketing-stack",
+  "title": "Growth marketing capability stack",
+  "subtitle": "Attribution, lifecycle, offers and referral",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 5043
+  }
+ },
+ {
+  "id": "fintech-gan-04",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "unit-economics-roadmap",
+  "title": "Unit-economics improvement roadmap",
+  "subtitle": "CAC, margin and payback initiatives by horizon",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 5044
+  }
+ },
+ {
+  "id": "fintech-sec-02",
+  "family": "sectionMark",
+  "industry": "fintech",
+  "framework": "section-mark-risk",
+  "title": "Risk, Fraud and Compliance",
+  "subtitle": "Where losses and regulatory exposure concentrate",
+  "artifacts": [
+   "slides",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 5045
+  }
+ },
+ {
+  "id": "fintech-net-04",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "fraud-signal-network",
+  "title": "Fraud signal operating network",
+  "subtitle": "Device, behavioral, consortium and identity signals",
+  "artifacts": [
+   "arch",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 5046
+  }
+ },
+ {
+  "id": "fintech-dat-07",
+  "family": "dataField",
+  "industry": "fintech",
+  "framework": "false-positive-by-rule",
+  "title": "False-positive rate by fraud rule",
+  "subtitle": "Friction cost across active rule families",
+  "artifacts": [
+   "audit",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 5047,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "compliance-control-coverage",
+  "title": "Compliance control coverage",
+  "subtitle": "Maturity across AML, KYC, sanctions and reporting",
+  "artifacts": [
+   "audit",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.5
+    ],
+    [
+     0.7,
+     0.8,
+     0.4
+    ],
+    [
+     0.6,
+     0.5,
+     0.7
+    ],
+    [
+     0.5,
+     0.65,
+     0.6
+    ]
+   ],
+   "seed": 5048
+  }
+ },
+ {
+  "id": "fintech-dia-05",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "sar-conversion-gauge",
+  "title": "SAR conversion gauge",
+  "subtitle": "Alerts escalated to filed reports",
+  "artifacts": [
+   "audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 27,
+   "segments": 10,
+   "seed": 5049
+  }
+ },
+ {
+  "id": "fintech-fun-05",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "aml-alert-funnel",
+  "title": "AML alert disposition funnel",
+  "subtitle": "Alerts through review, escalation and filing",
+  "artifacts": [
+   "audit",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    34,
+    19
+   ],
+   "seed": 5050
+  }
+ },
+ {
+  "id": "fintech-pro-05",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "fraud-loss-by-type",
+  "title": "Fraud loss by attack type",
+  "subtitle": "Share across ATO, scam, synthetic and card-not-present",
+  "artifacts": [
+   "audit",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    33,
+    28,
+    22,
+    17
+   ],
+   "seed": 5051
+  }
+ },
+ {
+  "id": "fintech-jou-05",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "dispute-resolution-journey",
+  "title": "Dispute resolution journey",
+  "subtitle": "Claim intake through chargeback outcome",
+  "artifacts": [
+   "journey",
+   "slides",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 5052
+  }
+ },
+ {
+  "id": "fintech-flo-04",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "sanctions-screening-flow",
+  "title": "Sanctions screening flow",
+  "subtitle": "Transaction match, hold, review and release",
+  "artifacts": [
+   "arch",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 5053
+  }
+ },
+ {
+  "id": "fintech-gan-05",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "compliance-remediation-roadmap",
+  "title": "Compliance remediation roadmap",
+  "subtitle": "Consent-order and audit-finding closure plan",
+  "artifacts": [
+   "roadmap",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 5054
+  }
+ },
+ {
+  "id": "fintech-dat-08",
+  "family": "dataField",
+  "industry": "fintech",
+  "framework": "interchange-yield-by-bin",
+  "title": "Interchange yield by card BIN",
+  "subtitle": "Effective interchange across program BINs",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    7,
+    6,
+    5,
+    4
+   ],
+   "sort": "desc",
+   "seed": 5055,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "fintech-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "network-fee-comparison",
+  "title": "Network fee comparison",
+  "subtitle": "Assessment and scheme fees across networks",
+  "artifacts": [
+   "competitive",
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.8,
+     0.6,
+     0.5
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ]
+   ],
+   "seed": 5056
+  }
+ },
+ {
+  "id": "fintech-pro-06",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "interchange-split-by-party",
+  "title": "Interchange split by party",
+  "subtitle": "Issuer, network, processor and program share",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    52,
+    18,
+    16,
+    14
+   ],
+   "seed": 5057
+  }
+ },
+ {
+  "id": "fintech-dia-06",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "interchange-capture-gauge",
+  "title": "Interchange capture gauge",
+  "subtitle": "Retained interchange against program ceiling",
+  "artifacts": [
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 5058
+  }
+ },
+ {
+  "id": "fintech-cap-05",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "card-program-stack",
+  "title": "Card program capability stack",
+  "subtitle": "BIN sponsor, processor, ledger and card UX",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 5059
+  }
+ },
+ {
+  "id": "fintech-net-05",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "issuer-processor-network",
+  "title": "Issuer-processor operating network",
+  "subtitle": "Networks, issuers, processors and acquirers",
+  "artifacts": [
+   "arch",
+   "competitive",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "mesh",
+   "seed": 5060
+  }
+ },
+ {
+  "id": "fintech-dat-09",
+  "family": "dataField",
+  "industry": "fintech",
+  "framework": "churn-rate-by-cohort",
+  "title": "Churn rate by cohort",
+  "subtitle": "Account attrition across onboarding vintages",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 5061,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "retention-by-engagement-tier",
+  "title": "Retention by engagement tier",
+  "subtitle": "Survival across product-usage segments",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.5
+    ],
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.55,
+     0.35
+    ]
+   ],
+   "seed": 5062
+  }
+ },
+ {
+  "id": "fintech-dia-07",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "net-revenue-retention-gauge",
+  "title": "Net revenue retention gauge",
+  "subtitle": "Expansion net of churn against target",
+  "artifacts": [
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 5063
+  }
+ },
+ {
+  "id": "fintech-fun-06",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "reactivation-funnel",
+  "title": "Dormant reactivation funnel",
+  "subtitle": "Dormant accounts through re-engaged, active",
+  "artifacts": [
+   "gap",
+   "slides",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    44,
+    28,
+    17
+   ],
+   "seed": 5064
+  }
+ },
+ {
+  "id": "fintech-jou-06",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "churn-warning-journey",
+  "title": "Churn warning signal journey",
+  "subtitle": "Early disengagement through account closure",
+  "artifacts": [
+   "journey",
+   "slides",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 5065
+  }
+ },
+ {
+  "id": "fintech-pro-07",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "churn-reason-mix",
+  "title": "Churn reason mix",
+  "subtitle": "Share across pricing, fraud-friction, fees and switching",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    30,
+    26,
+    24,
+    20
+   ],
+   "seed": 5066
+  }
+ },
+ {
+  "id": "fintech-rad-05",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "retention-program-radar",
+  "title": "Retention program maturity radar",
+  "subtitle": "Signals, offers, save-desk and loyalty",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.45,
+    0.6,
+    0.55,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.75,
+    0.85,
+    0.8,
+    0.8
+   ],
+   "seed": 5067
+  }
+ },
+ {
+  "id": "fintech-dat-10",
+  "family": "dataField",
+  "industry": "fintech",
+  "framework": "neobank-dau-by-feature",
+  "title": "Neobank engagement by feature",
+  "subtitle": "Daily active depth across core features",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 5068,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "primacy-by-segment",
+  "title": "Account primacy by segment",
+  "subtitle": "Direct-deposit and primary-use depth by segment",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.45,
+     0.35
+    ]
+   ],
+   "seed": 5069
+  }
+ },
+ {
+  "id": "fintech-dia-08",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "direct-deposit-gauge",
+  "title": "Direct-deposit penetration gauge",
+  "subtitle": "Accounts with recurring deposit against target",
+  "artifacts": [
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 43,
+   "segments": 10,
+   "seed": 5070
+  }
+ },
+ {
+  "id": "fintech-jou-07",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "primary-account-journey",
+  "title": "Primary-account adoption journey",
+  "subtitle": "Open through direct deposit and primary use",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 5071
+  }
+ },
+ {
+  "id": "fintech-pro-08",
+  "family": "proportionStack",
+  "industry": "fintech",
+  "framework": "deposit-balance-mix",
+  "title": "Deposit balance mix",
+  "subtitle": "Share across checking, savings, vault and invest",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    28,
+    18,
+    14
+   ],
+   "seed": 5072
+  }
+ },
+ {
+  "id": "fintech-cap-06",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "neobank-product-stack",
+  "title": "Neobank product capability stack",
+  "subtitle": "Accounts, card, lending, invest and rewards",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 0,
+   "seed": 5073
+  }
+ },
+ {
+  "id": "fintech-net-06",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "neobank-engagement-network",
+  "title": "Neobank engagement network",
+  "subtitle": "Feature surfaces that drive cross-use",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "radial",
+   "seed": 5074
+  }
+ },
+ {
+  "id": "fintech-rad-06",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "neobank-product-radar",
+  "title": "Neobank product maturity radar",
+  "subtitle": "Breadth and depth across product lines",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.7,
+    0.6,
+    0.5,
+    0.4,
+    0.65,
+    0.55
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.75,
+    0.85,
+    0.8
+   ],
+   "seed": 5075
+  }
+ },
+ {
+  "id": "fintech-net-07",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "embedded-distribution-network",
+  "title": "Embedded distribution network",
+  "subtitle": "Platforms embedding payments, cards and lending",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "hub2",
+   "seed": 5076
+  }
+ },
+ {
+  "id": "fintech-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "partner-economics-matrix",
+  "title": "Partner economics matrix",
+  "subtitle": "Revenue share against volume contribution",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ],
+    [
+     0.4,
+     0.6,
+     0.85
+    ],
+    [
+     0.5,
+     0.45,
+     0.7
+    ]
+   ],
+   "seed": 5077
+  }
+ },
+ {
+  "id": "fintech-dat-11",
+  "family": "dataField",
+  "industry": "fintech",
+  "framework": "revenue-per-partner",
+  "title": "Net revenue per partner",
+  "subtitle": "Yield concentration across embedded partners",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1,
+    1
+   ],
+   "sort": "desc",
+   "seed": 5078,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "fintech-jou-08",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "partner-integration-journey",
+  "title": "Partner integration journey",
+  "subtitle": "Sandbox through go-live and first volume",
+  "artifacts": [
+   "journey",
+   "slides",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 5079
+  }
+ },
+ {
+  "id": "fintech-cap-07",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "baas-platform-stack",
+  "title": "BaaS platform capability stack",
+  "subtitle": "API, sponsor bank, compliance and partner UX",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 5080
+  }
+ },
+ {
+  "id": "fintech-dia-09",
+  "family": "instrumentDial",
+  "industry": "fintech",
+  "framework": "partner-attach-gauge",
+  "title": "Embedded product attach gauge",
+  "subtitle": "Partners attaching second product against target",
+  "artifacts": [
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 52,
+   "segments": 10,
+   "seed": 5081
+  }
+ },
+ {
+  "id": "fintech-gan-06",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "embedded-launch-roadmap",
+  "title": "Embedded product launch roadmap",
+  "subtitle": "Payments, cards and lending module sequencing",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 5082
+  }
+ },
+ {
+  "id": "fintech-flo-05",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "embedded-api-flow",
+  "title": "Embedded payments API flow",
+  "subtitle": "Partner request through ledger and settlement",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 5083
+  }
+ },
+ {
+  "id": "fintech-fun-07",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "partner-pipeline-funnel",
+  "title": "Partner pipeline funnel",
+  "subtitle": "Leads through signed, live and producing",
+  "artifacts": [
+   "gap",
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    40,
+    26,
+    17
+   ],
+   "seed": 5084
+  }
+ },
+ {
+  "id": "fintech-flo-06",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "ledger-double-entry-flow",
+  "title": "Double-entry ledger flow",
+  "subtitle": "Debit and credit postings across accounts",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 5085
+  }
+ },
+ {
+  "id": "fintech-net-08",
+  "family": "operatingNetwork",
+  "industry": "fintech",
+  "framework": "settlement-clearing-network",
+  "title": "Settlement and clearing network",
+  "subtitle": "Acquirer, network, issuer and bank settlement legs",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 5086
+  }
+ },
+ {
+  "id": "fintech-cap-08",
+  "family": "capabilityStack",
+  "industry": "fintech",
+  "framework": "ledger-architecture-stack",
+  "title": "Ledger architecture capability stack",
+  "subtitle": "Journal, balances, reconciliation and reporting",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 0,
+   "seed": 5087
+  }
+ },
+ {
+  "id": "fintech-rad-07",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "money-movement-radar",
+  "title": "Money-movement maturity radar",
+  "subtitle": "Ledger, reconciliation, settlement and controls",
+  "artifacts": [
+   "audit",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.65,
+    0.55,
+    0.6,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.8,
+    0.85,
+    0.75,
+    0.8
+   ],
+   "seed": 5088
+  }
+ },
+ {
+  "id": "fintech-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "reconciliation-coverage",
+  "title": "Reconciliation coverage matrix",
+  "subtitle": "Automated match across rails and accounts",
+  "artifacts": [
+   "tech-audit",
+   "audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.5
+    ],
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.55,
+     0.45
+    ]
+   ],
+   "seed": 5089
+  }
+ },
+ {
+  "id": "fintech-gan-07",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "ledger-migration-roadmap",
+  "title": "Ledger migration roadmap",
+  "subtitle": "Real-time ledger and reconciliation cutover",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 5090
+  }
+ },
+ {
+  "id": "fintech-fun-08",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "dispute-recovery-funnel",
+  "title": "Dispute recovery funnel",
+  "subtitle": "Chargebacks through represented and won",
+  "artifacts": [
+   "gap",
+   "slides",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    41,
+    23
+   ],
+   "seed": 5091
+  }
+ },
+ {
+  "id": "fintech-jou-09",
+  "family": "journeyLine",
+  "industry": "fintech",
+  "framework": "merchant-onboarding-journey",
+  "title": "Merchant onboarding journey",
+  "subtitle": "Application through underwriting and first batch",
+  "artifacts": [
+   "journey",
+   "slides",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 5092
+  }
+ },
+ {
+  "id": "fintech-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "fintech",
+  "framework": "competitor-take-rate-matrix",
+  "title": "Competitor take-rate matrix",
+  "subtitle": "Pricing position against feature breadth",
+  "artifacts": [
+   "competitive",
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.6,
+     0.8,
+     0.6
+    ],
+    [
+     0.5,
+     0.6,
+     0.7
+    ],
+    [
+     0.8,
+     0.4,
+     0.5
+    ]
+   ],
+   "seed": 5093
+  }
+ },
+ {
+  "id": "fintech-rad-08",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "kyc-program-radar",
+  "title": "KYC program maturity radar",
+  "subtitle": "Identity, document, biometric and ongoing checks",
+  "artifacts": [
+   "audit",
+   "gap",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.7,
+    0.6,
+    0.5,
+    0.55,
+    0.65
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.8,
+    0.85
+   ],
+   "seed": 5094
+  }
+ },
+ {
+  "id": "fintech-gan-08",
+  "family": "timelineGantt",
+  "industry": "fintech",
+  "framework": "rtp-enablement-roadmap",
+  "title": "Real-time payments enablement roadmap",
+  "subtitle": "RTP and FedNow send-receive rollout",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 5095
+  }
+ },
+ {
+  "id": "fintech-fun-09",
+  "family": "funnelFlow",
+  "industry": "fintech",
+  "framework": "card-activation-funnel",
+  "title": "Card issuance to activation funnel",
+  "subtitle": "Issued cards through activated, first-spend",
+  "artifacts": [
+   "gap",
+   "slides",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    73,
+    54,
+    38
+   ],
+   "seed": 5096
+  }
+ },
+ {
+  "id": "fintech-rad-09",
+  "family": "maturityRadar",
+  "industry": "fintech",
+  "framework": "embedded-finance-radar",
+  "title": "Embedded-finance maturity radar",
+  "subtitle": "API, compliance, distribution and economics",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.7,
+    0.45,
+    0.55,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.85,
+    0.75,
+    0.8,
+    0.85
+   ],
+   "seed": 5097
+  }
+ },
+ {
+  "id": "fintech-flo-07",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "kyc-verification-flow",
+  "title": "KYC verification flow",
+  "subtitle": "Identity capture, checks, decision and account open",
+  "artifacts": [
+   "arch",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 5098
+  }
+ },
+ {
+  "id": "fintech-flo-08",
+  "family": "flowSchematic",
+  "industry": "fintech",
+  "framework": "payout-disbursement-flow",
+  "title": "Payout disbursement flow",
+  "subtitle": "Balance request through rail selection and settlement",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 5099
+  }
+ }
+]

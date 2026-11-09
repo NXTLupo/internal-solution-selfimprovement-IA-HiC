@@ -1,10 +1,11 @@
 ---
 name: experience-prototype-composer
+description: "Compose every #proto Stage 4 prototype region from a named pattern in the AI Experience Patterns catalog (wiki inspiration-hub/ai-patterns) in the requested brand. Loaded by the Stage 4 prototype coder beside the exemplar curator."
 invocation: model
-version: 1.0
-description: STRICT-RULE skill that mandates every Stage 4 prototype be composed exclusively from the AI Experience Patterns catalog at /hic-workspace/wiki/inspiration-hub/ai-patterns/ — no invented UI shapes, no generic Copilot shells, no "clean modern" placeholders. Parses the user hashtag (`#proto (experience name) #NU`, `#proto (experience name) #NXT` or `#proto (experience name) #DECIEM`) and forces the Stage 4 Prototype Coder to render every region of its output as a NAMED pattern from the catalog in the requested brand. Loaded by `prototypeBuilder.ts` Stage 4 alongside the design-exemplar-curator injection. Replaces ad-hoc UI invention with disciplined composition from a curated, brand-vetted catalog.
+version: "1"
+status: active
 trigger: ALWAYS load at Stage 4 (Prototype Coder) when brand hashtag is present; OVERRIDES any other "build whatever feels right" instructions
-inputs: brief.concept, brief.interaction_pattern, brief.experience_name (parsed from #proto hashtag), brief.brand (parsed from #NU, #NXT or #DECIEM)
+inputs: brief.concept, brief.interaction_pattern, brief.experience_name (parsed from
 outputs: Stage 4 system-prompt rule block; pattern manifest the coder must reference by ID; output validation gate that fails the build if any region is not a catalog pattern
 catalog_url: /hic-workspace/wiki/inspiration-hub/ai-patterns/
 catalog_json: /hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json
@@ -17,6 +18,10 @@ example_hashtags:
 ---
 
 # Experience Prototype Composer (STRICT)
+
+## Scope
+
+STRICT-RULE skill that mandates every Stage 4 prototype be composed exclusively from the AI Experience Patterns catalog at /hic-workspace/wiki/inspiration-hub/ai-patterns/ — no invented UI shapes, no generic Copilot shells, no "clean modern" placeholders. Parses the user hashtag (`#proto (experience name) #NU`, `#proto (experience name) #NXT` or `#proto (experience name) #DECIEM`) and forces the Stage 4 Prototype Coder to render every region of its output as a NAMED pattern from the catalog in the requested brand. Loaded by `prototypeBuilder.ts` Stage 4 alongside the design-exemplar-curator injection. Replaces ad-hoc UI invention with disciplined composition from a curated, brand-vetted catalog.
 
 ## The hard rule
 

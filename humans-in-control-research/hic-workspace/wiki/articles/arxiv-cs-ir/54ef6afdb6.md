@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:13:10+00:00"
 content_hash: "bbe1acf9aa26694e"
 chunks:
   - id: "articles/arxiv-cs-ir/54ef6afdb6.md#c0"
-    char_span: [0, 682]
+    char_span: [0, 681]
     sentence_count: 3
     key_terms: [comments, software, track, engineering, information, code, generated, retrieval]
     concepts: [comments, software, engineering, information, track]
-    token_count: 135
-    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2311.03374v1"}]
+    token_count: 134
+    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2311.03374v1","kind":"article","date":"2023-10-27"}]
 ---
 # Generative AI for Software Metadata: Overview of the Information Retrieval in Software Engineering Track at FIRE 2023
 

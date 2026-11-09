@@ -673,10 +673,13 @@
                     const data = await response.json();
                     
                     if (response.ok) {
+                        // The file is on the server; the rest is processing
+                        progressText.textContent = 'Processing: 0%';
+
                         // Start polling for progress updates
                         const jobId = data.job_id;
                         pollJobProgress(jobId);
-                        
+
                         // Refresh job list
                         fetchJobs();
                     } else {
@@ -738,11 +741,18 @@
                 const interval = setInterval(async () => {
                     try {
                         const response = await fetch(`/jobs/${jobId}`);
+                        if (response.status === 404) {
+                            // The service restarted and the in-flight job is gone
+                            clearInterval(interval);
+                            progressText.textContent = 'This job was interrupted by a service restart. Please upload the video again.';
+                            fetchJobs();
+                            return;
+                        }
                         const job = await response.json();
-                        
+
                         // Update progress bar
                         progressBar.style.width = `${job.progress}%`;
-                        progressText.textContent = `Processing: ${job.progress}%`;
+                        progressText.textContent = job.stage ? `${job.stage}: ${job.progress}%` : `Processing: ${job.progress}%`;
                         
                         // If job is completed or failed, stop polling
                         if (job.status === 'completed' || job.status === 'failed') {
@@ -789,6 +799,10 @@
                 }
             }
             
+            function escapeHtml(text) {
+                return String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            }
+
             // Render jobs
             function renderJobs(jobs) {
                 if (jobs.length === 0) {
@@ -837,7 +851,8 @@
                         <div class="job-details">
                             <div>Started: ${startDate}</div>
                             ${endDate ? `<div>Completed: ${endDate}</div>` : ''}
-                            ${job.status === 'processing' ? `<div>Progress: ${job.progress}%</div>` : ''}
+                            ${job.status === 'processing' ? `<div>${job.stage ? escapeHtml(job.stage) + ': ' : 'Progress: '}${job.progress}%</div>` : ''}
+                            ${job.status === 'failed' && job.error ? `<div>Error: ${escapeHtml(job.error)}</div>` : ''}
                         </div>
                         <div class="job-actions">
                             ${job.status === 'completed' ? `

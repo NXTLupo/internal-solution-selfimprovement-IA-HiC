@@ -1,10 +1,47 @@
 ---
 name: tech-arch-generator
+description: Two-phase technology architecture extraction from research corpus using C4 Model node/flow mapping with citations per component.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Two-phase technology architecture extraction from research corpus using C4 Model node/flow mapping with citations per component.
+version: "1"
+status: active
 thinking: high
+triggers:
+  - architecture
+  - architect
+  - system design
+  - tech stack
+  - technology stack
+  - technology architecture
+  - target architecture
+  - integration
+  - integrations
+  - C4 model
+  - C4
+  - system diagram
+  - technical architecture
+  - platform diagram
+  - infrastructure diagram
+  - solution architecture
+  - data flow
+  - API layer
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: Technology Architecture Generator
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/architecture.md
+    - anti-patterns/architecture.md
+  benchmarks:
+    - benchmarks/technology-adoption.md
+  output_types:
+    - grid-matrix
+    - split-panel
+    - color-block-grid
+    - evidence-block
 ---
 
 # Technology Architecture Generator

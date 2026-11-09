@@ -1,8 +1,10 @@
 ---
 name: arch-illustrator
+description: Technical architecture illustrator. Use the matching exemplar (styles/03-architecture-NU.html or 04-architecture-NXT.html) as visual ground truth. Adapt systems, components, and data flows to the corpus.
 invocation: runtime
 disable-model-invocation: true
-description: Technical architecture illustrator. Use the matching exemplar (styles/03-architecture-NU.html or 04-architecture-NXT.html) as visual ground truth. Adapt systems, components, and data flows to the corpus.
+version: "1.0"
+status: active
 ---
 
 # Technical architecture illustrator

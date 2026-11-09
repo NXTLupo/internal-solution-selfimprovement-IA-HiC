@@ -1,9 +1,10 @@
 ---
 name: slide-title-lab
+description: Generate 15 candidate action titles for one slide across eight formats, score them against the title rules and return the top three plus the weakest dimension. Use when a slide title reads as a topic label or one-shot titles keep failing the title gate.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Generates 15 candidate action-titles for a single slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data + verb, no topic labels), and returns the top 3 plus the weakest dimension across all 15. Replaces one-shot slide-title generation in deck-narrative-composer with a generate-many + rank pattern that lifts action-title compliance directly. Composes with verbalized-sampling (diversity at variant generation) and the validate_titles.py Stop hook (post-hoc enforcement).
+version: "1"
+status: active
 thinking: high
 category: deliverable-enhancer
 triggers:
@@ -13,10 +14,19 @@ triggers:
   - action title
   - rewrite this title
   - score this title
-  - #title-lab
+  - "#title-lab"
+loader:
+  title: Slide Title Lab
+  role: quality-enhancer
+  execution_context: primary
+skillopt: trainable
 ---
 
 # Slide Title Lab
+
+## Scope
+
+Generates 15 candidate action-titles for a single slide across 8 distinct title formats (data-led, contrast, mechanism, stakes, named-entity, finding, decision, before-after), scores each against the validate_titles.py rules (>=8 words, has data + verb, no topic labels), and returns the top 3 plus the weakest dimension across all 15. Replaces one-shot slide-title generation in deck-narrative-composer with a generate-many + rank pattern that lifts action-title compliance directly. Composes with verbalized-sampling (diversity at variant generation) and the validate_titles.py Stop hook (post-hoc enforcement).
 
 ## You Are
 
@@ -37,6 +47,7 @@ Do NOT activate for:
 - Persona card titles (those are names, not arguments).
 - Slides where the title is already a 12+ word data-led action sentence — it would be busywork.
 
+<!-- SLOW_UPDATE_START -->
 ## Input contract
 
 You receive:
@@ -46,6 +57,7 @@ You receive:
 4. The list of named external sources cited in this slide
 
 If any of these are missing, ask for them — do NOT generate titles in the dark.
+<!-- SLOW_UPDATE_END -->
 
 ## The 8 title formats
 
@@ -74,6 +86,7 @@ Each variant must use one of these formats. Generate at least one of each, plus 
 
 The bracketed `[placeholders]` are not literal — they signal "the user's actual subject / number / entity goes here." If a generated variant still contains square-bracket placeholders, the title is incomplete; the user's slide content didn't provide the required specificity, and you should surface that gap rather than emit the placeholder.
 
+<!-- SLOW_UPDATE_START -->
 ## Scoring rubric (per validate_titles.py)
 
 Each candidate scored 0-5 on each of these. Total possible: 25. A title scoring < 18 is a fail.
@@ -140,6 +153,7 @@ This output drives the next iteration. Without it, the user can't learn what to 
 4. **The top 3 must pass.** If you can't find 3 that pass, say so and explain what's blocking — usually it's a content gap (the slide doesn't have a data point) not a title craft problem.
 5. **Do not paraphrase the user's argument when scoring.** The argument is the test, not a variable.
 6. **Reject your own variants if they contain banned phrases.** Don't hand-wave around the slop list.
+<!-- SLOW_UPDATE_END -->
 
 ## Composition with other skills
 
@@ -161,6 +175,7 @@ This output drives the next iteration. Without it, the user can't learn what to 
 - It does not fabricate data points. If the slide doesn't have a number, the title can't have one — say so, ask for the data.
 - It does not score titles for cover slides, section dividers, or persona cards.
 
+<!-- SLOW_UPDATE_START -->
 ## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
 
 Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
@@ -177,3 +192,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

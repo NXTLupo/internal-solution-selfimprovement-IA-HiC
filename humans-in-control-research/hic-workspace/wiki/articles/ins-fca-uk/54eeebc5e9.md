@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:30:23+00:00"
 content_hash: "1a1b5303838d268e"
 chunks:
   - id: "articles/ins-fca-uk/54eeebc5e9.md#c0"
-    char_span: [0, 1921]
+    char_span: [0, 1920]
     sentence_count: 7
     key_terms: [duty, wholesale, consumer, non-uk-business-removed-consumer-duty-scope-reduce-burdens-wholesale-businesses, markets, fca, firms, scope]
     concepts: [wholesale, consumer, markets, proposals, firms]
-    token_count: 371
-    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/non-uk-business-removed-consumer-duty-scope-reduce-burdens-wholesale-businesses"}]
+    token_count: 370
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/press-releases/non-uk-business-removed-consumer-duty-scope-reduce-burdens-wholesale-businesses","kind":"article","date":"2026-06-29"}]
 ---
 # Non-UK business removed from Consumer Duty scope to reduce burdens on wholesale businesses
 

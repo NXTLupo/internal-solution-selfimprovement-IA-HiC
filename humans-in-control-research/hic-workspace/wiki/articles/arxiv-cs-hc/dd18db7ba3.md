@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:23:00+00:00"
 content_hash: "ae61a5208879df4e"
 chunks:
   - id: "articles/arxiv-cs-hc/dd18db7ba3.md#c0"
-    char_span: [0, 671]
+    char_span: [0, 670]
     sentence_count: 3
     key_terms: [acceptance, autonomous, technology, framework, vehicles, predict, public, shared]
     concepts: [acceptance, autonomous, technology, framework, vehicles]
-    token_count: 123
-    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2401.15921v3"}]
+    token_count: 122
+    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2401.15921v3","kind":"article","date":"2024-01-29"}]
 ---
 # A New Framework to Predict and Visualize Technology Acceptance: A Case Study of Shared Autonomous Vehicles
 

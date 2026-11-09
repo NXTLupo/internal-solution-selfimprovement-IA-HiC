@@ -1,3 +1,4 @@
+import { planSubQuestions, setPlanSubQuestions, planDecomposition, setPlanDecomposition } from './runState';
 /**
  * THE run's objective plan, read from one place.
  *
@@ -59,10 +60,8 @@ export interface ObjectivePlanRead {
     reason?: string;
 }
 
-/** The global App.tsx sets once a research plan exists. */
-const WINDOW_KEY = '__hicResearchPlanSubQuestions';
-/** 1.6: the decomposition outcome marker (separate so the sub-questions global stays an array). */
-const DECOMPOSITION_KEY = '__hicObjectiveDecomposition';
+// WS-1 T1 (2026-10-30): the plan lives in the typed RunState (services/runState.ts), not in
+// window globals. This module stays the ONE reader/writer API; only the storage moved.
 
 const PRIORITIES = new Set(['high', 'medium', 'low']);
 const COVERAGE = new Set(['uncovered', 'partial', 'covered']);
@@ -96,14 +95,6 @@ export function normalizeSubQuestions(raw: unknown): PlanSubQuestionLike[] {
     return out;
 }
 
-function _win(): any | null {
-    try {
-        return typeof window !== 'undefined' ? (window as any) : null;
-    } catch {
-        return null; // a locked-down window is the same as no plan
-    }
-}
-
 /** 1.6: record the decomposition outcome for this run. Returns the record as written. */
 export function recordDecompositionStatus(rec: Omit<DecompositionRecord, 'recordedAt'> & { recordedAt?: string }): DecompositionRecord {
     const written: DecompositionRecord = {
@@ -112,19 +103,14 @@ export function recordDecompositionStatus(rec: Omit<DecompositionRecord, 'record
         attempts: typeof rec.attempts === 'number' ? rec.attempts : undefined,
         recordedAt: rec.recordedAt || new Date().toISOString(),
     };
-    const w = _win();
-    if (w) {
-        try { w[DECOMPOSITION_KEY] = written; } catch { /* non-fatal: the read falls back to unrecorded */ }
-    }
+    try { setPlanDecomposition(written); } catch { /* non-fatal: the read falls back to unrecorded */ }
     return written;
 }
 
 /** 1.6: the recorded decomposition outcome, or null when nothing was recorded. */
 export function readDecompositionStatus(): DecompositionRecord | null {
-    const w = _win();
-    if (!w) return null;
     try {
-        const raw = w[DECOMPOSITION_KEY];
+        const raw = planDecomposition<any>();
         if (!raw || typeof raw !== 'object') return null;
         const d = String((raw as any).decomposition || '');
         if (d !== 'decomposed' && d !== 'unavailable') return null;
@@ -141,10 +127,8 @@ export function readDecompositionStatus(): DecompositionRecord | null {
 
 /** 1.6: forget both the plan and the marker (a fresh run, or a test). */
 export function clearObjectivePlan(): void {
-    const w = _win();
-    if (!w) return;
-    try { delete w[WINDOW_KEY]; } catch { /* ignore */ }
-    try { delete w[DECOMPOSITION_KEY]; } catch { /* ignore */ }
+    try { setPlanSubQuestions([]); } catch { /* ignore */ }
+    try { setPlanDecomposition(undefined); } catch { /* ignore */ }
 }
 
 /**
@@ -156,12 +140,9 @@ export function clearObjectivePlan(): void {
 export function publishObjectivePlan(subQuestions: unknown, attempts?: number): PlanSubQuestionLike[] {
     const normalized = normalizeSubQuestions(subQuestions);
     if (!normalized.length) return [];
-    const w = _win();
-    if (w) {
-        // Keep the caller's richer objects (angle, coverage_status, ...) on the global; normalization is
-        // for the READ side. The array contract is what every consumer depends on.
-        try { w[WINDOW_KEY] = Array.isArray(subQuestions) ? subQuestions : normalized; } catch { /* non-fatal */ }
-    }
+    // Keep the caller's richer objects (angle, coverage_status, ...) in the run state; normalization is
+    // for the READ side. The array contract is what every consumer depends on.
+    try { setPlanSubQuestions(Array.isArray(subQuestions) ? subQuestions : normalized); } catch { /* non-fatal */ }
     // A republish after the coverage audit passes no attempts; keep the count the first publish recorded.
     const prior = readDecompositionStatus();
     recordDecompositionStatus({
@@ -179,12 +160,9 @@ export function readObjectivePlan(explicit?: unknown): ObjectivePlanRead {
     const fromExplicit = normalizeSubQuestions(explicit);
     if (fromExplicit.length) return { subQuestions: fromExplicit, planAbsent: false, source: 'explicit', decomposition: 'decomposed' };
 
-    let fromWindow: PlanSubQuestionLike[] = [];
-    const w = _win();
-    if (w) {
-        try { fromWindow = normalizeSubQuestions(w[WINDOW_KEY]); } catch { /* same as no plan */ }
-    }
-    if (fromWindow.length) return { subQuestions: fromWindow, planAbsent: false, source: 'window', decomposition: 'decomposed' };
+    let fromRun: PlanSubQuestionLike[] = [];
+    try { fromRun = normalizeSubQuestions(planSubQuestions()); } catch { /* same as no plan */ }
+    if (fromRun.length) return { subQuestions: fromRun, planAbsent: false, source: 'window', decomposition: 'decomposed' };
 
     const marker = readDecompositionStatus();
     if (marker?.decomposition === 'unavailable') {

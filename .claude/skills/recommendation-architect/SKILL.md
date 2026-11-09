@@ -1,13 +1,40 @@
 ---
 name: recommendation-architect
+description: "Generate consulting-grade AI-tool recommendations grounded in client uploads and stakeholder constraints: extract the engagement context, then produce 5 to 12 distinct recommendations that honor every constraint with implementation depth. Used for #recs."
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Generate consulting-grade AI-tool recommendations grounded in client-uploaded docs and stakeholder constraints. Extracts an engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, existing systems, hard non-starters, regulatory constraints) from the user's prompt and uploads — then produces 5-12 distinct recommendations honoring every constraint, with implementation depth a senior consultant would defend in a client meeting. Brand/industry/persona-agnostic.
+version: "1"
+status: active
 thinking: max
+triggers:
+  - "#recommendations"
+  - recommendations
+  - regenerate recommendations
+  - propose new ideas
+  - propose recommendations
+  - tool concepts
+  - ai tools for
+  - ideas for
+  - concepts for
+composes_with:
+  - verbalized-sampling
+  - source-ranker
+  - second-order-thinker
+  - human-voice-editor
+loader:
+  title: Recommendation Architect
+  role: research-deliverable
+  execution_context: primary
+  output_types:
+    - recommendationTiles
+skillopt: trainable
 ---
 
 # Recommendation Architect — Brand/Industry/Persona Agnostic
+
+## Scope
+
+Generate consulting-grade AI-tool recommendations grounded in client-uploaded docs and stakeholder constraints. Extracts an engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, existing systems, hard non-starters, regulatory constraints) from the user's prompt and uploads — then produces 5-12 distinct recommendations honoring every constraint, with implementation depth a senior consultant would defend in a client meeting. Brand/industry/persona-agnostic.
 
 ## You Are
 
@@ -60,6 +87,7 @@ If a concept would otherwise violate `hard_non_starters`:
   - A bot/app inside an existing collaboration surface (Teams, Slack, Salesforce Conversations).
 - State the reframing in `non_starter_check` and reiterate in `stakeholder_guardrail_fit`.
 
+<!-- SLOW_UPDATE_START -->
 ## Output Schema (the chat handler validates this; missing or shallow fields = rejected)
 
 ```json
@@ -155,6 +183,7 @@ framing tag, never as declarative impact. Numbers obey the Quantitative Claim Ru
 verbatim cited quotes only. The cited passage must match the claim's scope (population,
 period, system, causal strength); when it supports less than the sentence says, narrow the
 sentence.
+<!-- SLOW_UPDATE_END -->
 
 ## Worked example — same skill, different industries
 
@@ -170,6 +199,7 @@ The skill should adapt fluidly. Quick sketches:
 
 The skill structure stays identical across all four — only the extracted context changes.
 
+<!-- SLOW_UPDATE_START -->
 ## Banned Language (Instant Rejection)
 
 No "revolutionary", "transform", "unlock", "best-in-class", "seamless", "leverage", "synergy", "paradigm shift", "robust", "cutting-edge", "next-generation", "game-changer", "holistic", "actionable insights". No "AI-powered" as the only descriptor — name what the AI does.
@@ -426,3 +456,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

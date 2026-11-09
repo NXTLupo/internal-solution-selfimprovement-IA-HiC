@@ -16,23 +16,25 @@ collected_at: "2026-07-02T16:46:27+00:00"
 content_hash: "04bde011e9255d50"
 chunks:
   - id: "articles/ins-insurance-business-ca/23eb5ea6cf.md#c0"
-    char_span: [0, 258]
+    char_span: [0, 257]
     sentence_count: 1
     key_terms: [definity-loses-bid-to-reverse-award-over-its-own-chiropractic-assessment-580467, insurancebusinessmag, legal-insights, chiropractic, assessment, definity, reverse, source]
-    token_count: 65
-    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/legal-insights/definity-loses-bid-to-reverse-award-over-its-own-chiropractic-assessment-580467.aspx"}]
+    token_count: 64
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/legal-insights/definity-loses-bid-to-reverse-award-over-its-own-chiropractic-assessment-580467.aspx","kind":"article","date":"2026-06-27"}]
   - id: "articles/ins-insurance-business-ca/23eb5ea6cf.md#c1"
-    char_span: [260, 2718]
+    char_span: [259, 2717]
     sentence_count: 20
     key_terms: [tribunal, definity, insurer, award, decision, plan, chiropractic, found]
     concepts: [tribunal, definity, insurer, decision, chiropractic]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/legal-insights/definity-loses-bid-to-reverse-award-over-its-own-chiropractic-assessment-580467.aspx","kind":"article","date":"2026-06-27"}]
   - id: "articles/ins-insurance-business-ca/23eb5ea6cf.md#c2"
-    char_span: [2408, 3193]
+    char_span: [2407, 3192]
     sentence_count: 7
     key_terms: [vice-chair, evidence, reasons, request, award, reconsideration, characterized, discretionary]
     concepts: [vice-chair, evidence, reasons, request, award]
     token_count: 153
+    sources: [{"n":"ins_insurance_business_ca","u":"https://www.insurancebusinessmag.com/ca/news/legal-insights/definity-loses-bid-to-reverse-award-over-its-own-chiropractic-assessment-580467.aspx","kind":"article","date":"2026-06-27"}]
 ---
 # Definity loses bid to reverse award over its own chiropractic assessment
 

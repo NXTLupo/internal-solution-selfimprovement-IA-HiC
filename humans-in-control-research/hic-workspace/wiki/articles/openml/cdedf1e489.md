@@ -16,12 +16,12 @@ collected_at: "2026-07-02T15:59:01+00:00"
 content_hash: "790dde999891f5c0"
 chunks:
   - id: "articles/openml/cdedf1e489.md#c0"
-    char_span: [0, 580]
+    char_span: [0, 579]
     sentence_count: 1
     key_terms: [name, value, numberofinstanceswithmissingvalues, maxnominalattdistinctvalues, kr-vs-kp, openml, majorityclasssize, minorityclasssize]
     concepts: [value, kr-vs-kp, openml]
-    token_count: 201
-    sources: [{"n":"[openml](hic://pack-backfill/openml/9078482894107208936","u":""}]
+    token_count: 200
+    sources: [{"n":"openml","u":"","kind":"article"}]
 ---
 # kr-vs-kp
 

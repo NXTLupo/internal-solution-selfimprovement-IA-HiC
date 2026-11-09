@@ -6,6 +6,11 @@
   "scripts": {
     "dev": "vite",
     "check:templates": "node scripts/check-template-parity.mjs",
+    "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs",
+    "check:judges": "node scripts/check-judges.mjs",
+    "eval": "node scripts/eval-run.mjs",
+    "eval:live": "node scripts/eval-run.mjs --mode live",
+    "eval:promote": "node scripts/eval-run.mjs --promote",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
@@ -21,13 +26,18 @@
     "skillopt:all": "npm run skillopt:extract && npm run skillopt:build-training && npm run skillopt:train",
     "regression:obligations": "node scripts/regression-obligations.mjs",
     "check:skills": "node scripts/check-skills.mjs",
+    "build:skills": "node scripts/build-skill-registry.mjs",
     "check:orphans": "node scripts/orphan-exports.mjs",
     "check:prd-rules": "vitest run services/prdRules.generality.test.ts services/engagementLedger.test.ts",
-    "check:all": "npm run typecheck && npm run test && npm run check:templates && npm run check:skills && npm run check:content && npm run check:orphans && npm run check:prd-rules && npm run check:deliverable-rules",
+    "check:all": "npm run typecheck && npm run test && npm run check:templates && npm run check:skills && npm run check:content && npm run check:orphans && npm run check:prd-rules && npm run check:deliverable-rules && npm run check:judges && npm run check:bundle-secrets && npm run eval",
     "check:content": "node scripts/check-content.mjs",
     "test:contended": "vitest run --maxWorkers=2",
     "check:deliverable-rules": "vitest run services/deliverableCoverage.test.ts services/prdRules.generality.test.ts services/engagementLedger.test.ts services/coverageRecheck.test.ts && node scripts/check-generic-rules.mjs",
-    "check:generic-rules": "node scripts/check-generic-rules.mjs"
+    "check:generic-rules": "node scripts/check-generic-rules.mjs",
+    "eval:rescore": "node scripts/eval-run.mjs --rescore --hours 24",
+    "eval:constraint": "node scripts/eval-run.mjs --mode live --constraint",
+    "skillopt:pool": "SKILLOPT_POOL=8 bash scripts/skillopt-batch.sh",
+    "skillopt:pool-live": "SKILLOPT_POOL=8 SKILLOPT_SCORE_MODE=live bash scripts/skillopt-batch.sh"
   },
   "dependencies": {
     "@dagrejs/dagre": "^3.0.0",

@@ -7,14 +7,14 @@ subreddit: "productmanagement"
 title: "How are your enterprise dev teams actually using AI?"
 author: "PinegroveZen"
 date: "2026-03-28T09:41:28.000Z"
-score: 7
-upvote_ratio: 0.71
-num_comments: 39
+score: 8
+upvote_ratio: 0.75
+num_comments: 40
 flair: ""
-extracted_at: "2026-06-24T22:14:23.449Z"
+extracted_at: "2026-10-09T16:37:15.729Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the top AI adoption trends in the global retail sector for 2026, focusing on high-impact use cases, deployment barriers, and measurable ROI benchmarks."
-engagement: "identify-the-top-ai-adoption-trends-in-the-global-retail-sec"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c0"
     char_span: [0, 1506]
@@ -22,56 +22,62 @@ chunks:
     key_terms: [using, customer-specific, productmanagement, systems, integrations, enterprise, interested, comments]
     concepts: [customer-specific, productmanagement, using, systems, integrations]
     token_count: 319
-    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/"}]
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c1"
-    char_span: [1520, 3506]
+    char_span: [1521, 3507]
     sentence_count: 27
     key_terms: [agents, code, add, copilot, agent, good, need, developers]
     concepts: [agents, copilot, agent, developers, understand]
     section: Comments
     token_count: 451
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c2"
-    char_span: [3508, 5578]
+    char_span: [3509, 5579]
     sentence_count: 9
     key_terms: [enterprise, teams, context, product, systems, legacy, pinegrovezen, prototyping]
     concepts: [enterprise, teams, context, product, systems]
     related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c5"]
     section: Comments
     token_count: 450
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c3"
-    char_span: [5580, 7714]
-    sentence_count: 12
-    key_terms: [code, legacy, like, initiative, knowledge, something, codebase, question]
-    concepts: [legacy, initiative, knowledge, something, codebase]
+    char_span: [5581, 7895]
+    sentence_count: 15
+    key_terms: [codebase, code, context, around, legacy, initiative, knowledge, something]
+    concepts: [codebase, context, around, legacy, initiative]
     section: Comments
-    token_count: 476
+    token_count: 505
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c4"
-    char_span: [7716, 9537]
-    sentence_count: 16
-    key_terms: [dev, because, context, experienced, code, don, codebase, starting]
-    concepts: [because, context, experienced, codebase, starting]
+    char_span: [7897, 10174]
+    sentence_count: 15
+    key_terms: [dev, code, like, context, experienced, devs, don, experience]
+    concepts: [context, experienced, experience, starting, training]
     section: Comments
-    token_count: 382
+    token_count: 507
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c5"
-    char_span: [9539, 11210]
-    sentence_count: 9
-    key_terms: [build, building, teams, use, want, year, complex, context]
-    concepts: [build, building, teams, complex, context]
+    char_span: [10176, 12139]
+    sentence_count: 15
+    key_terms: [use, build, context, teams, want, work, year, specific]
+    concepts: [build, context, teams, specific, copilot]
     related_chunks: ["social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c2"]
     section: Comments
-    token_count: 377
+    token_count: 418
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
   - id: "social-intelligence/reddit-deep/productmanagement/1s5w0yx.md#c6"
-    char_span: [11212, 12037]
-    sentence_count: 4
-    key_terms: [specific, context, people, new, use, nkondratyk93, enterprise, centrally]
-    concepts: [specific, context, people]
+    char_span: [12143, 12899]
+    sentence_count: 11
+    key_terms: [summaries, feature, "what's", small, down, conversations, documentation, contributing]
+    concepts: [summaries, feature, "what's", small]
     section: Comments
-    token_count: 169
+    token_count: 172
+    sources: [{"n":"reddit-deep: r/productmanagement","u":"https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/","kind":"social-post","date":"2026-03-28","author":"PinegroveZen","subreddit":"productmanagement"}]
 ---
 # How are your enterprise dev teams actually using AI?
 
 Source: [reddit-deep: r/productmanagement](https://www.reddit.com/r/ProductManagement/comments/1s5w0yx/how_are_your_enterprise_dev_teams_actually_using/)
-Posted by **PinegroveZen** · **7↑** · **39 comments**
+Posted by **PinegroveZen** · **8↑** · **40 comments**
 
 I’m a product person at a mid-to-large enterprise with roughly 500–700 employees, lots of interconnected systems, and some customer-specific customizations layered on top of a broader platform.
 
@@ -106,13 +112,13 @@ Lots more stuff you can do but I think the above are a good starting point.
 We’re a GitHub shop, so we’re deep into their ecosystem. Heavy users of GitHub copilot, beginning to used their Copilot Coding Agent. But we are also launching other platforms like Codex. 
 
 All of this requires a concerted effort to engage the developer community to leverage these tools. Investing that now and you’ll see the gains.
-  - **PinegroveZen** (4↑): Thanks for that. I'll just be super clear that I'm not in engineering but still wish to understand. From what I gather, to do this, there is pretty significant upfront cost to getting AI ready. You can correct me if I read that wrong.
+  - **PinegroveZen** (5↑): Thanks for that. I'll just be super clear that I'm not in engineering but still wish to understand. From what I gather, to do this, there is pretty significant upfront cost to getting AI ready. You can correct me if I read that wrong.
 
 But with an org that is 20-30 years old, there is lots of legacy code that will have to be 'simplified'. 
 
 That said, this is really good high level so appreciate the thoughts.
     - **TechFlameMaster** (1↑): Engineers who are properly trained on the AI tools can make big strides in reducing g tech debt from old systems
-- **frustrated_pm26** (7↑): the gap between what enterprise teams say they're doing with AI and what they're actually doing is massive. the official answer is 'code generation and testing.' the reality is most devs are using it as a search engine replacement to understand legacy systems nobody documented. the teams getting real value are the ones that gave their AI tools access to their actual product context - not just the codebase, but the decision history, the customer requirements, and the architectural constraints. without that context, the AI generates code that compiles but doesn't solve the right problem. how is your team handling the context gap between what the AI can see and what it needs to know?
+- **frustrated_pm26** (8↑): the gap between what enterprise teams say they're doing with AI and what they're actually doing is massive. the official answer is 'code generation and testing.' the reality is most devs are using it as a search engine replacement to understand legacy systems nobody documented. the teams getting real value are the ones that gave their AI tools access to their actual product context - not just the codebase, but the decision history, the customer requirements, and the architectural constraints. without that context, the AI generates code that compiles but doesn't solve the right problem. how is your team handling the context gap between what the AI can see and what it needs to know?
   - **Afton11** (3↑): Hear hear - I work in a megacorp and why you described is 100% what’s actually happening.  Leadership looooves to be invited by AI sales people to speak at conferences at great length about how “AI enabled” we apparently are 😂.
     - **PinegroveZen** (1↑): Perception is not reality. 
 
@@ -128,7 +134,7 @@ Any way, I ask because I'm part of strategic teams and all of these costs involv
 
 To answer your question " how is your team handling the context gap between what the AI can see and what it needs to know?" --- I don't think we've handled that at all. Which is why I even started this thread. :)
   - **DaveC271** (1↑): That’s why I built the platform that I have, the context and knowledge gap lives not just in code, but in people’s head, different documentation, hubspot and crm tools. It also lives in the team, legacy knowledge and old architectural designs that were made on a teams call and bugs that were fixed in an incident wash up
-- **Confident-Corner3987** (3↑): This is a really honest take, and seems to be pretty common in complex environments.
+- **Confident-Corner3987** (4↑): This is a really honest take, and seems to be pretty common in complex environments.
 
 The biggest shift I’ve seen is that AI doesn’t really speed up multi-quarter initiatives directly. It usually speeds up the friction.
 
@@ -152,8 +158,7 @@ The orgs that get stuck are usually trying to jump straight to transformation wi
   - **PinegroveZen** (1↑): Yeah I wouldn't say we are stuck or unstuck, just that the question has been raised -- "Can we use AI to speed up?"
 
 Fortunately, its not an initiative we are being forced with. But something to explore and understand what starting looks like.
-- **ii-_-** (3↑): Making it up as we go along, just like every company
-- **brianly** (2↑): There is a misconception is around legacy code. It’s normally true that if you just ask Claude to do something with the codebase that it’ll struggle. That’s not a surprise and a human wouldn’t be looking across the whole codebase without experience and making changes in that way.
+- **brianly** (3↑): There is a misconception is around legacy code. It’s normally true that if you just ask Claude to do something with the codebase that it’ll struggle. That’s not a surprise and a human wouldn’t be looking across the whole codebase without experience and making changes in that way.
 
 Any kind of competent dev that is new to the codebase is going to be expected to start around the edges because that requires less context. This is exactly where AI tools should be applied to begin. In time the whole codebase is instrumented for AI.
 
@@ -162,14 +167,14 @@ If an experienced dev with no AI experience is given these tools (I’d assume a
 Devs have pride in writing code for humans. That isn’t the only job any more. These people naturally focus on elements affecting humans whereas your very productive dev who cares less about the craft may not get as blocked on the supposed quality of output. 
 
 Obviously, you don’t want to generate garbage but you can be held back by those who overly focus on how things used to work. Mid-level devs without this baggage often use AI more effectively because they see a cross-roads and an AI future where they are the senior dev in that context.
-  - **PinegroveZen** (1↑): Wow, this is one of my favorite responses. What I'm seeing across these answers is that a starting point needs to be defined and established.
+  - **PinegroveZen** (2↑): Wow, this is one of my favorite responses. What I'm seeing across these answers is that a starting point needs to be defined and established.
 
 I think the biggest risk here of using AI to speed up development is suggesting a plan in the wrong way. I really like how palatable starting around the edges is. That makes the most sense to me. 
 
 And just to share my sense of the dev perspective, they generally seem open but also don't think code is the hard part. The hard part is understanding how what they build now affects 10-20 years of legacy code, how it interacts with other systems, and the technical approach because of that.
 
 Great thoughts here, thank you.
-- **hippohoney** (2↑): in complex systems ,ai helps most with understanding not building ,codebase exploration ,impact analysis and test generation .full feature delivery is still very human driven in practice
+- **ii-_-** (3↑): Making it up as we go along, just like every company
 - **gtwooh** (2↑): Drowning in a sea of PRs
 - **robobearded** (2↑): it feels like my org had the opposite experience from most of the comments I read in the thread. we went all in on AI and it actually helped a ton, even with messy legacy code. big rewrites and migrations got like 5x faster with AI support.
 
@@ -182,3 +187,12 @@ We figure that the teams will become more familiar with the tech if they are dri
 
 I believe that the gains are tough to centrally plan. This is new tech that evolves quickly. Companies that have more people exploring and crafting new ways to make this stuff work for your org will do far better than the ones who attempt to redesign workflows top down. Weave the curiosity into the culture by creating forums for people to show off what they built and what they learn.
 - **nkondratyk93** (2↑): from the PM side - the biggest blocker we hit in enterprise AI rollouts isn’t the tooling, it’s context. dev teams with tightly coupled systems and lots of tribal knowledge find that generic AI tools give mediocre results until you actually invest in feeding them the right context.we’ve had more success with targeted use cases (specific module, specific type of task) than broad "everyone use Copilot" mandates.
+- **Kancityshuffle_aw** (2↑): Lot's of great answers so won't be redundant. What I've seen work well at "backwards" enterprises is knowing that they won't become a fast AI startup overnight.   
+  
+Specifically starting by using AI to fill low risk existing gaps instead of playing with live ammo. For example  
+  
+1. Documentation of code base  
+2. "Reading" (someone mentioned JIRA tickets) instead of writing. Basically a search replacement.  
+3. Transcript summaries: This is one that feels advanced. Having a central place where engineers can see summaries of sales/CS call transcripts to work off. It has the appearance of knocking down siloes while being geniunely useful.  
+4. Ship a small new feature/ux fix when ready: have an exec suggest a small feature (you'll have to narrow them down, maybe a button color) and have it built for them. They'll love this and it will give them a frame of reference for what's hard and what's not.
+  - **PinegroveZen** (2↑): Excellent. Thank you for contributing. We've had some great conversations internally since this post.

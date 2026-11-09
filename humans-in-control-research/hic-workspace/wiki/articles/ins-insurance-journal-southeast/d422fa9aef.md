@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:38:12+00:00"
 content_hash: "7f7c6862d4434504"
 chunks:
   - id: "articles/ins-insurance-journal-southeast/d422fa9aef.md#c0"
-    char_span: [0, 200]
+    char_span: [0, 199]
     sentence_count: 1
     key_terms: [insurancejournal, clearinghouse, commercial, southeast, citizens, desantis, unneeded, called]
-    token_count: 54
-    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/19/874550.htm"}]
+    token_count: 53
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/19/874550.htm","kind":"article","date":"2026-06-19"}]
   - id: "articles/ins-insurance-journal-southeast/d422fa9aef.md#c1"
-    char_span: [202, 2844]
+    char_span: [201, 2843]
     sentence_count: 14
     key_terms: [clearinghouse, insurance, commercial, coverage, bill, citizens, florida, agents]
     concepts: [clearinghouse, insurance, commercial, coverage, citizens]
     related_chunks: ["articles/ins-insurance-journal-southeast/d422fa9aef.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/19/874550.htm","kind":"article","date":"2026-06-19"}]
   - id: "articles/ins-insurance-journal-southeast/d422fa9aef.md#c2"
-    char_span: [2510, 3470]
+    char_span: [2509, 3469]
     sentence_count: 9
     key_terms: [commercial, citizens, clearinghouse, policy, residential, florida, litigation-reform, less]
     concepts: [commercial, clearinghouse, citizens, policy, residential]
     related_chunks: ["articles/ins-insurance-journal-southeast/d422fa9aef.md#c1"]
     token_count: 204
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/19/874550.htm","kind":"article","date":"2026-06-19"}]
 ---
 # DeSantis Signs Citizens Commercial Clearinghouse Bill That’s Been Called ‘Unneeded’
 

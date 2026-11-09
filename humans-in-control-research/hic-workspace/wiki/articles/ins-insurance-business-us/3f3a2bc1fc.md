@@ -16,23 +16,25 @@ collected_at: "2026-07-02T16:48:45+00:00"
 content_hash: "6d98e985055a64ba"
 chunks:
   - id: "articles/ins-insurance-business-us/3f3a2bc1fc.md#c0"
-    char_span: [0, 303]
+    char_span: [0, 302]
     sentence_count: 1
     key_terms: [marsh-warns-businesses-to-prepare-for-higher-trade-friction-as-usmca-review-enters-formal-phase-580397, insurancebusinessmag, breaking-news, businesses, friction, prepare, enters, formal]
-    token_count: 76
-    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/breaking-news/marsh-warns-businesses-to-prepare-for-higher-trade-friction-as-usmca-review-enters-formal-phase-580397.aspx"}]
+    token_count: 75
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/breaking-news/marsh-warns-businesses-to-prepare-for-higher-trade-friction-as-usmca-review-enters-formal-phase-580397.aspx","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-business-us/3f3a2bc1fc.md#c1"
-    char_span: [305, 3215]
+    char_span: [304, 3214]
     sentence_count: 14
     key_terms: [agreement, trilateral, review, bilateral, extension, scenario, sector-specific, canada]
     concepts: [agreement, trilateral, bilateral, review, extension]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/breaking-news/marsh-warns-businesses-to-prepare-for-higher-trade-friction-as-usmca-review-enters-formal-phase-580397.aspx","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-business-us/3f3a2bc1fc.md#c2"
-    char_span: [2847, 5172]
+    char_span: [2846, 5171]
     sentence_count: 13
     key_terms: [risk, trade, insurance, scenario, policy, supply, concentrated, negotiations]
     concepts: [insurance, trade, scenario, concentrated, negotiations]
     token_count: 382
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/breaking-news/marsh-warns-businesses-to-prepare-for-higher-trade-friction-as-usmca-review-enters-formal-phase-580397.aspx","kind":"article","date":"2026-06-26"}]
 ---
 # Marsh warns businesses to prepare for higher trade friction as USMCA review enters formal phase
 

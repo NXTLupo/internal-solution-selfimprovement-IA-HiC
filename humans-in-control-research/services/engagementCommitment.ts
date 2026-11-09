@@ -32,6 +32,7 @@
  */
 
 import { recordTurn } from './traceRecorder';
+import { engagementSlug } from './runState';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -56,8 +57,7 @@ const _cache: Map<string, CommitmentRecord> = new Map();
  *  traceRecorder already reads `window.__hicCurrentEngagementSlug`; we reuse
  *  the same global so a single global gates both layers. */
 function activeSlug(): string | null {
-    if (typeof window === 'undefined') return null;
-    const s = (window as any).__hicCurrentEngagementSlug;
+    const s = engagementSlug();
     return typeof s === 'string' && s.length > 0 ? s : null;
 }
 

@@ -1,10 +1,39 @@
 ---
 name: case-study-analyst
+description: Named, evidence-grounded case studies from the corpus -- subject, context, intervention, outcome, and applicability -- each anchored to verbatim quotes and named external sources.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Named, evidence-grounded case studies from the corpus -- subject, context, intervention, outcome, and applicability -- each anchored to verbatim quotes and named external sources.
+version: "1"
+status: active
 thinking: high
+triggers:
+  - case study
+  - case studies
+  - example
+  - examples
+  - real world
+  - real-world
+  - precedent
+  - similar organization
+  - peer example
+  - success story
+  - how X did
+  - proof point
+  - comparable
+  - anecdote
+  - war story
+  - illustration
+  - vignette
+loader:
+  title: Case Study Analyst
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/case-study.md
+  output_types:
+    - case-study
+    - evidence-block
+    - stat-row
 ---
 
 # Case Study Analyst

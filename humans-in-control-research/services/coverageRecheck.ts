@@ -9,11 +9,18 @@ import type { CoverageUniverseRecord } from './deliverableCoverage';
 
 export interface ExportCoverageCheck { checked: number; missing: Array<{ id: string; label: string }> }
 
-export function recheckExportedCoverage(record: CoverageUniverseRecord | undefined, slides: Array<{ status?: string; _coverageIds?: string[] }>): ExportCoverageCheck | null {
+export function recheckExportedCoverage(record: CoverageUniverseRecord | undefined, slides: Array<{ status?: string; _coverageIds?: string[] }>, before?: Array<{ _coverageIds?: string[] }>): ExportCoverageCheck | null {
     if (!record || !record.items.length) return null;
     const carried = new Set<string>();
     for (const s of slides) if (s && s.status !== 'rejected') for (const id of s._coverageIds || []) carried.add(id);
-    const missing = record.items.filter(it => !(it.anyOf || [it.id]).some(id => carried.has(id))).map(({ id, label }) => ({ id, label }));
+    // 2026-10-05: an item counts as LOST only when some slide in the chat carried it before export (`before`: every
+    // lifted slide, rejected ones included). Items no slide was ever stamped with are not an export loss; reporting
+    // them read as "27 of 40 items are no longer carried" on a clean export.
+    const had = before ? new Set(before.flatMap(s => s?._coverageIds || [])) : null;
+    const missing = record.items
+        .filter(it => !(it.anyOf || [it.id]).some(id => carried.has(id)))
+        .filter(it => !had || (it.anyOf || [it.id]).some(id => had.has(id)))
+        .map(({ id, label }) => ({ id, label }));
     return { checked: record.items.length, missing };
 }
 

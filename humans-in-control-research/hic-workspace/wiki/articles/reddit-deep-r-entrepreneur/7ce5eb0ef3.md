@@ -16,48 +16,54 @@ relevance: 70
 content_hash: "10c9cb883941d1b0"
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c0"
-    char_span: [0, 2234]
+    char_span: [0, 2233]
     sentence_count: 22
     key_terms: [care, home, different, people, entrepreneur, age, regulatory, americans]
     concepts: [different, entrepreneur, people, regulatory, americans]
-    token_count: 494
-    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/"}]
+    token_count: 493
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c1"
-    char_span: [2236, 3862]
+    char_span: [2235, 3861]
     sentence_count: 13
     key_terms: [revenue, sde, caregiver, ebitda, non-medical, year, caregivers, platforms]
     concepts: [revenue, caregiver, ebitda, non-medical, caregivers]
     token_count: 439
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c2"
-    char_span: [3864, 6168]
+    char_span: [3863, 6167]
     sentence_count: 13
     key_terms: [care, operators, home, private-pay, building, personal, premium, revenue]
     concepts: [operators, private-pay, building, personal, premium]
     token_count: 510
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c3"
-    char_span: [6170, 6459]
+    char_span: [6169, 6458]
     sentence_count: 2
     key_terms: [medicaid, "i'd", mix, fundamentally, private-pay, evaluating, breakdown, different]
     concepts: [medicaid]
     token_count: 69
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c4"
-    char_span: [6461, 8721]
+    char_span: [6460, 8720]
     sentence_count: 18
     key_terms: [audit, operators, density, history, client, reimbursement, state, private-pay]
     concepts: [operators, audit, reimbursement, density, history]
     token_count: 495
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c5"
-    char_span: [8723, 10489]
+    char_span: [8722, 10488]
     sentence_count: 18
     key_terms: [competition, population, business-friendly, cut, medicaid, entrepreneur, care, cms]
     concepts: [competition, population, business-friendly, medicaid, entrepreneur]
     token_count: 413
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/7ce5eb0ef3.md#c6"
-    char_span: [10491, 11857]
+    char_span: [10490, 11856]
     sentence_count: 6
     key_terms: [content, please, permanent, promotion, stickied, comment, similar, better]
     concepts: [content, please, permanent, promotion, stickied]
     token_count: 319
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rqjot3/pe_is_dumping_billions_into_home_care_despite_79/","kind":"article","date":"2026-03-11","subreddit":"entrepreneur"}]
 ---
 # PE is dumping billions into home care despite 79% caregiver turnover. Heres why.
 

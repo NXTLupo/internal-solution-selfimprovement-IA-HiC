@@ -28,6 +28,10 @@ from __future__ import annotations
 import base64
 import json
 import os
+from flow_capture import _assert_public_http
+from urllib.parse import urlparse as _urlparse
+import ipaddress as _ipaddress
+import socket as _socket
 import time
 from typing import Any, Dict, List, Optional
 
@@ -110,6 +114,9 @@ def capture_url(url: str, viewports: Optional[List[str]] = None) -> Dict[str, An
         "errors": [],
     }
 
+    # WS-0 S4 (2026-10-30): the capture lane must never become an SSRF path into the
+    # Docker network or the host. Same guard as flow_capture; raises ValueError.
+    _assert_public_http(url)
     with sync_playwright() as p:
         browser = p.chromium.launch(args=["--disable-dev-shm-usage"])
         try:
@@ -128,6 +135,24 @@ def capture_url(url: str, viewports: Optional[List[str]] = None) -> Dict[str, An
     return result
 
 
+
+def _abort_private_targets(route, request) -> None:
+    """Request-level SSRF guard for subresources of a captured public page."""
+    try:
+        host = (_urlparse(request.url).hostname or "").lower()
+        if not host or host in ("localhost", "host.docker.internal", "research-proxy"):
+            route.abort("blockedbyclient")
+            return
+        for info in _socket.getaddrinfo(host, None):
+            ip = _ipaddress.ip_address(info[4][0])
+            if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved:
+                route.abort("blockedbyclient")
+                return
+    except Exception:
+        route.abort("blockedbyclient")
+        return
+    route.continue_()
+
 def _capture_one(browser: Any, url: str, name: str, vp: Dict[str, int]) -> Dict[str, Any]:
     # bypass_csp=True is load-bearing: it lets the vendored axe source inject on
     # CSP-strict sites (the Phase-0 verification gate exercises this on real sites).
@@ -140,6 +165,9 @@ def _capture_one(browser: Any, url: str, name: str, vp: Dict[str, int]) -> Dict[
     )
     try:
         page = ctx.new_page()
+        # WS-0 S4: a public page may still embed subresources that point at private
+        # addresses; abort those at the request level.
+        page.route("**/*", _abort_private_targets)
         t0 = time.time()
         page.goto(url, wait_until="domcontentloaded", timeout=NAV_TIMEOUT_MS)
         # networkidle is nice-to-have; many marketing sites never go idle (analytics

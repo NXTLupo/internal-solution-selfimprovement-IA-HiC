@@ -19,32 +19,35 @@ content_hash: "52a78a95243306b0"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/nvidia-developer/a37bffd51a.md#c0"
-    char_span: [0, 276]
+    char_span: [0, 275]
     sentence_count: 1
     key_terms: [deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure, nvidia, developer, infrastructure, long-context, accelerated, reasoning, workflows]
     concepts: [nvidia, developer]
-    token_count: 65
-    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure/"}]
+    token_count: 64
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure/","kind":"article","date":"2026-06-12"}]
   - id: "articles/nvidia-developer/a37bffd51a.md#c1"
-    char_span: [278, 2864]
+    char_span: [277, 2863]
     sentence_count: 15
     key_terms: [nvidia, minimax, blackwell, performance, developers, multimodal, attention, inference]
     concepts: [nvidia, minimax, blackwell, performance, developers]
     related_chunks: ["articles/nvidia-developer/a37bffd51a.md#c3"]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure/","kind":"article","date":"2026-06-12"}]
   - id: "articles/nvidia-developer/a37bffd51a.md#c2"
-    char_span: [2564, 4656]
+    char_span: [2563, 4655]
     sentence_count: 9
     key_terms: [deploying, sglang, tensorrt, vllm, serving, dynamo, nvidia, minimax-m3]
     concepts: [deploying, sglang, tensorrt, serving, minimax-m3]
     token_count: 512
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure/","kind":"article","date":"2026-06-12"}]
   - id: "articles/nvidia-developer/a37bffd51a.md#c3"
-    char_span: [4342, 5652]
+    char_span: [4341, 5651]
     sentence_count: 9
     key_terms: [minimax, nvidia, developers, nemo, dynamo, framework, sequence, tensorrt]
     concepts: [minimax, nvidia, developers, dynamo, framework]
     related_chunks: ["articles/nvidia-developer/a37bffd51a.md#c1"]
     token_count: 272
+    sources: [{"n":"NVIDIA Developer","u":"https://developer.nvidia.com/blog/deploy-long-context-reasoning-and-agentic-workflows-with-minimax-m3-on-nvidia-accelerated-infrastructure/","kind":"article","date":"2026-06-12"}]
 ---
 # Deploy Long-Context Reasoning and Agentic Workflows with MiniMax M3 on NVIDIA Accelerated Infrastructure
 

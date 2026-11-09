@@ -20,6 +20,7 @@
 // user-facing error message on persistent failure.
 
 import { recordAICall } from './costMeter';
+import { engagementSlug, recordStep } from './runState';
 // 2026-09-30 (plan Stage 0.5): every Anthropic body leaving the SPA gets the Claude
 // 4.6+/5.x request contract (adaptive thinking, output_config.effort from the artifact
 // policy, no sampling params, no forced tool_choice). Callers tag the body with
@@ -131,9 +132,10 @@ export async function callAIWithRetry(
     // global the traceRecorder reads - single source of truth for "which
     // engagement is this call for?" Skip the header when no slug is set
     // (pre-engagement bootstrap calls).
-    const sessionSlug = (typeof window !== 'undefined'
-        ? (window as any).__hicCurrentEngagementSlug
-        : undefined);
+    const sessionSlug = engagementSlug() || undefined;
+    const recordFailureStep = (reason: string) => {
+        try { recordStep({ stage: label, model: String(body?.model || body?.config?.model || family), failed: true, note: reason.slice(0, 300) }); } catch { /* never break the call */ }
+    };
     const sessionHeader = (typeof sessionSlug === 'string' && sessionSlug.length > 0)
         ? { 'x-hic-session': sessionSlug }
         : {};
@@ -160,6 +162,10 @@ export async function callAIWithRetry(
                 try {
                     const modelHint = body?.model || body?.config?.model || undefined;
                     recordAICall({ label, model: modelHint, response: parsed, durationMs: Date.now() - callStart });
+                    // WS-1 T3 (2026-10-30): every AI call is a step of the run's trajectory.
+                    const u = (parsed as any)?.usage || (parsed as any)?.usageMetadata || undefined;
+                    recordStep({ stage: label, model: String(modelHint || (parsed as any)?.model || family), attempt: attempt + 1, elapsed_ms: Date.now() - callStart,
+                        usage: u && typeof u === 'object' ? Object.fromEntries(Object.entries(u).filter(([, v]) => typeof v === 'number')) as Record<string, number> : undefined });
                 } catch (meterErr) {
                     // Cost meter must never break a real call.
                     console.warn('[CostMeter] record failed (non-fatal):', meterErr);
@@ -188,6 +194,7 @@ export async function callAIWithRetry(
 
             // 4xx (excluding 429) - config error, fail loudly
             if (resp.status >= 400 && resp.status < 500 && resp.status !== 429) {
+                recordFailureStep(`HTTP ${resp.status}: ${lastErrText.slice(0, 200)}`);
                 throw new Error(`${label} (${family}) returned HTTP ${resp.status}: ${lastErrText.slice(0, 300)}`);
             }
 
@@ -255,6 +262,7 @@ export async function callAIWithRetry(
                 : lastStatus >= 500
                     ? `${family} API returned HTTP ${lastStatus} after ${maxAttempts} attempts. (${label})`
                     : `${label} (${family}): HTTP ${lastStatus}: ${lastErrText.slice(0, 200)}`;
+    recordFailureStep(friendly);
     throw new Error(friendly);
 }
 
@@ -289,6 +297,8 @@ const JOB_THRESHOLD_MS = 180_000;
  * status handling is unchanged. Falls back to the direct POST when the jobs API is absent (older
  * proxy), so the client never depends on the proxy build.
  */
+const JOB_HARD_CEILING_MS = 45 * 60_000;
+
 async function runAnthropicJob(url: string, body: any, timeoutMs: number, sessionHeader: Record<string, string>): Promise<Response> {
     const base = url.replace(/\/api\/ai\/anthropic.*$/, '');
     const started = await fetch(`${base}/api/jobs`, {
@@ -301,16 +311,29 @@ async function runAnthropicJob(url: string, body: any, timeoutMs: number, sessio
     }
     if (!started.ok) return started;
     const { job_id: jobId } = await started.json();
-    const deadline = Date.now() + timeoutMs;
+    // 2026-10-06 live #recs: the client deadline expired while the job was still running and the retry loop submitted
+    // the SAME Opus call again (two 18-minute calls per turn). A job the proxy still reports as running is waited on,
+    // up to a hard ceiling; only a job that stops answering ends at the soft deadline.
+    const softDeadline = Date.now() + timeoutMs;
+    const hardDeadline = Date.now() + Math.max(timeoutMs, JOB_HARD_CEILING_MS);
+    let lastRunningAt = Date.now();
     let pollMs = 2000;
-    while (Date.now() < deadline) {
+    let missing = 0;
+    // 2026-10-25: a proxy restart killed a running job and its record said "running" for 19 minutes. The proxy now
+    // stamps a heartbeat and answers a dead job with status error / http_status 503, which this loop returns so the
+    // retry loop resubmits. A job the proxy no longer knows (404 three polls running) is treated the same way.
+    while (Date.now() < hardDeadline && (Date.now() < softDeadline || Date.now() - lastRunningAt < 60_000)) {
         await new Promise(r => setTimeout(r, pollMs));
         pollMs = Math.min(8000, pollMs + 1000);
         let st: Response;
         try { st = await fetch(`${base}/api/jobs/${encodeURIComponent(jobId)}`, { signal: AbortSignal.timeout(20_000) }); } catch { continue; }
+        if (st.status === 404 && ++missing >= 3) {
+            return new Response(JSON.stringify({ error: `anthropic job ${jobId} was lost by the proxy` }), { status: 503, headers: { 'Content-Type': 'application/json' } });
+        }
         if (!st.ok) continue;
+        missing = 0;
         const j = await st.json();
-        if (j.status === 'running' || j.status === 'queued') continue;
+        if (j.status === 'running' || j.status === 'queued') { lastRunningAt = Date.now(); continue; }
         const status = Number(j.http_status) || (j.status === 'done' ? 200 : 500);
         const payload = j.result ?? { error: j.error || 'job failed' };
         return new Response(JSON.stringify(payload), { status, headers: { 'Content-Type': 'application/json' } });

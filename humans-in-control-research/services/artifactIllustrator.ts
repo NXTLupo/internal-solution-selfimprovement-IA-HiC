@@ -87,11 +87,11 @@ function conceptFromPayload(payload: Record<string, unknown>): string {
 function _strList(v: unknown, cap = 6): string[] {
     if (!Array.isArray(v)) return [];
     return v.map(x => {
-        if (typeof x === 'string') return x.trim();
+        if (typeof x === 'string') return cleanDiagramText(x);
         if (x && typeof x === 'object') {
             const o = x as Record<string, unknown>;
             for (const k of ['name', 'title', 'label', 'action', 'step', 'text']) {
-                if (typeof o[k] === 'string' && (o[k] as string).trim()) return (o[k] as string).trim();
+                if (typeof o[k] === 'string' && (o[k] as string).trim()) return cleanDiagramText(o[k]);
             }
         }
         return '';
@@ -107,8 +107,46 @@ function _sourceTypeOf(name: string): string {
 
 /** Build a content-true infographic spec from a payload element. Returns null when the element has
  *  no structurable substance (-> no image; never decorate). */
+/** 2026-10-26 (live: a flowchart edge read "SOW014 NXT Humans NU Student AI Compa" and a before/after panel showed
+ *  "[articles/client-uploads/b4010f8623.md#c0]"): no citation fragment, pointer or source parenthetical is drawn. */
+function cleanDiagramText(v: unknown): string {
+    return String(v ?? '')
+        .replace(/\s*[(\[](?:Sources?|via|per)\s*:[^)\]]{0,260}[)\]]/gi, '')
+        .replace(/\s*\[[^\]]*\.md#c\d+[^\]]*\]/gi, '')
+        .replace(/\s*[a-z0-9_./-]+\.md#c\d+/gi, '')
+        // 2026-10-27 (run 40: an exhibit's bullets read "(engagement research synthesis)"): provider labels never reach a drawing
+        .replace(/\s*\((?:engagement research synthesis|(?:gemini|gpt[-\w.]*|claude[-\w.]*|openai|deepseek)?\s*\(?(?:focused|deep|web) research\)?|research synthesis)\)/gi, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+}
+
 export function infographicSpecFrom(el: unknown, concept: string): Record<string, unknown> | null {
     const o = (el && typeof el === 'object') ? el as Record<string, unknown> : {};
+    // 0) 2026-10-23: a structured graph (nodes + edges, optional groups) renders as a NATIVE flowchart (Mermaid
+    //    layout in the proxy's Chromium): decision trees, system flows, operating models, escalation paths.
+    if (Array.isArray(o['nodes']) && Array.isArray(o['edges'])) {
+        const nodes = (o['nodes'] as unknown[]).map((n, i) => {
+            if (typeof n === 'string') return cleanDiagramText(n) ? { id: `n${i}`, label: cleanDiagramText(n) } : null;
+            if (n && typeof n === 'object') {
+                const r = n as Record<string, unknown>;
+                const label = cleanDiagramText(r.label ?? r.name ?? r.title ?? '');
+                return label ? { id: String(r.id ?? label), label, kind: String(r.kind ?? 'step') } : null;
+            }
+            return null;
+        }).filter(Boolean).slice(0, 14);
+        const edges = (o['edges'] as unknown[]).map((e) => {
+            if (!e || typeof e !== 'object') return null;
+            const r = e as Record<string, unknown>;
+            const from = String(r.from ?? r.source ?? ''), to = String(r.to ?? r.target ?? '');
+            return from && to ? { from, to, label: typeof r.label === 'string' ? cleanDiagramText(r.label) : '' } : null;
+        }).filter(Boolean).slice(0, 24);
+        if (nodes.length >= 3 && edges.length >= 2) {
+            const spec: Record<string, unknown> = { kind: 'flowchart', nodes, edges };
+            if (Array.isArray(o['groups'])) spec['groups'] = o['groups'];
+            if (typeof o['direction'] === 'string') spec['direction'] = o['direction'];
+            return spec;
+        }
+    }
     // 1) process-flow from actions/steps/phases (the mechanism the element proposes).
     //    2026-07-02 - preserve per-step DESCRIPTIONS: authored {title, description} objects were
     //    being flattened to bare name strings, so the rendered cards carried a title floating in
@@ -121,8 +159,9 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
             if (typeof x === 'string' && x.trim()) return { name: x.trim() };
             if (x && typeof x === 'object') {
                 const r = x as Record<string, unknown>;
-                const name = String(r.title ?? r.name ?? r.step ?? r.label ?? r.action ?? '').trim();
-                const desc = String(r.description ?? r.detail ?? r.descriptor ?? r.body ?? '').trim();
+                const strip = (v: unknown) => String(v ?? '').replace(/\s*[(\[](?:Sources?):[^)\]]{1,220}[)\]]/gi, '').replace(/\s*\[[a-z0-9_./-]+\.md#c\d+(?:[^\]]{0,80})?\]/gi, '').replace(/\s{2,}/g, ' ').trim();
+                const name = strip(r.title ?? r.name ?? r.step ?? r.label ?? r.action);
+                const desc = strip(r.description ?? r.detail ?? r.descriptor ?? r.body);
                 if (name) {
                     const step: { name: string; description?: string } = { name };
                     if (desc) step.description = desc;
@@ -141,10 +180,16 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
         const left = _strList((ba as any).before?.points ?? (ba as any).before, 5);
         const right = _strList((ba as any).after?.points ?? (ba as any).after, 5);
         if (left.length >= 2 && right.length >= 2) {
+            // the sides carry their own names when the payload gives them (2026-10-26 live: "Contracted" and "Proposal"
+            // were drawn under "Before" and "After")
+            const nameOf = (side: any, dflt: string) => {
+                const n = side && typeof side === 'object' ? cleanDiagramText(side.title ?? side.label ?? side.heading ?? side.name ?? '') : '';
+                return n || dflt;
+            };
             return {
                 kind: 'comparison',
-                left: { title: 'Before', points: left },
-                right: { title: 'After', points: right },
+                left: { title: nameOf((ba as any).before, 'Before'), points: left },
+                right: { title: nameOf((ba as any).after, 'After'), points: right },
             };
         }
     }
@@ -152,14 +197,17 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
     for (const key of ['kpiTiles', 'kpis', 'stats', 'metrics', 'keyMetrics']) {
         const arr = o[key];
         if (Array.isArray(arr)) {
+            const SRC = /\s*[(\[](?:Sources?):\s*([^)\]]{1,220})[)\]]/gi;
+            const PTR = /\s*\[[a-z0-9_./-]+\.md#c\d+(?:[^\]]{0,80})?\]/gi;
             const stats = arr.filter(x => x && typeof x === 'object').map(x => {
                 const s = x as Record<string, unknown>;
-                return {
-                    label: String(s.label ?? s.name ?? '').trim(),
-                    value: String(s.value ?? s.stat ?? '').trim(),
-                    quote: typeof s.quote === 'string' ? s.quote : undefined,
-                    source: typeof s.source === 'string' ? s.source : undefined,
-                };
+                // 2026-10-23 (live run 14): a resolved pointer inside the quote ("53% open rate (Source: X)") rendered twice
+                // on the card ("SOURCE: X (SOURCE: X)"); the fragment leaves the quote and names the source when none is set.
+                let found = '';
+                const quote = typeof s.quote === 'string' ? s.quote.replace(SRC, (_m, g: string) => { found = found || g.trim(); return ''; }).replace(PTR, '').replace(/\s{2,}/g, ' ').trim() : undefined;
+                const label = String(s.label ?? s.name ?? '').replace(SRC, '').replace(PTR, '').trim();
+                const source = typeof s.source === 'string' && s.source.trim() ? s.source.replace(SRC, '').replace(PTR, '').trim() : (found || undefined);
+                return { label, value: String(s.value ?? s.stat ?? '').replace(SRC, '').replace(PTR, '').trim(), quote, source };
             }).filter(s => s.label).slice(0, 5);
             if (stats.length >= 2) return { kind: 'stat-row', stats };
         }
@@ -192,6 +240,14 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
     return null;   // no structurable substance -> no image (honest image-free)
 }
 
+/** 2026-10-23: the frames a reader studies (full-bleed backdrops, hero panels at 560x740 and up) take the proxy's
+ *  quality ladder (Gemini 3 Pro Image, then gpt-image-2.5); thumbnails, header scenes and glyphs take the fast one. */
+function imageTierFor(style: string | undefined, bounds?: { w: number; h: number }): 'quality' | 'fast' {
+    if (style === 'photo-background') return 'quality';
+    const area = bounds ? (Number(bounds.w) || 0) * (Number(bounds.h) || 0) : 0;
+    return area >= 400_000 ? 'quality' : 'fast';
+}
+
 async function generateOne(concept: string, brand: string, canvas: 'dark' | 'light', kind: SlotKind,
                            variant: number, branch?: string, el?: unknown,
                            bounds?: { w: number; h: number }, style?: string): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
@@ -205,13 +261,19 @@ async function generateOne(concept: string, brand: string, canvas: 'dark' | 'lig
             const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, style, literal: true, brandHint }),
+                // 2026-10-23: the slot's bounds pick the aspect ratio and the slot kind picks the model tier (proxy ladder).
+                body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, style, literal: true, brandHint, bounds, tier: imageTierFor(style, bounds) }),
             });
             if (!resp.ok) return null;
             const r = await resp.json();
-            return (r && typeof r.url === 'string' && r.url)
-                ? { url: r.url, dataUri: typeof r.dataUri === 'string' ? r.dataUri : '', reused: !!r.reused }
-                : null;
+            if (r && typeof r.url === 'string' && r.url) return { url: r.url, dataUri: typeof r.dataUri === 'string' ? r.dataUri : '', reused: !!r.reused };
+            // 2026-10-26 (owner: "WHEN IMAGE MODELS CANT VISUALIZE ABSTRACT CONCEPTS USE OUR DIAGRAMMING TOOL"): the proxy
+            // judged the slide abstract and found nothing to draw in its words; the payload's own structure (steps,
+            // nodes, stats) is drawn instead, in slots large enough to read a diagram. Otherwise the slot stays empty.
+            // 2026-10-26 (live: 8 px node diagrams in 560 px brief-card panels): only an exhibit-size panel reads a diagram
+            const readable = (bounds?.w || 0) >= 800 && (bounds?.h || 0) >= 360 && (bounds?.h || 0) < 1000;
+            if (!(r && r.abstract) || !readable || style === 'photo-background') return null;
+            branch = 'infographic';
         }
         const native = branch === 'infographic' || branch === 'emotive';   // 'emotive' = legacy audit value, now native
         if (native) {
@@ -236,7 +298,7 @@ async function generateOne(concept: string, brand: string, canvas: 'dark' | 'lig
         const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, brandHint }),
+            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant, brandHint, bounds, tier: imageTierFor('line', bounds) }),
         });
         if (!resp.ok) return null;
         const r = await resp.json();
@@ -299,7 +361,9 @@ export async function resolveArtifactImages(
         // Analyst authored persona.depiction (corpus-derived appearance attributes), it LEADS
         // the concept - the proxy portrait prompt treats stated attributes as binding.
         const depiction = persona && typeof persona === 'object' ? String((persona as any).depiction || '').trim() : '';
-        if (personaName || head) return [depiction, personaName || head, personaName ? head : sub].filter(Boolean).join('. ').slice(0, 340);
+        // 2026-10-23: the deck subject (research objective) anchors interstitial scenes to what the deck is about.
+        const deckSubject = typeof (payload as any)._deckSubject === 'string' ? `Subject of the deck: ${(payload as any)._deckSubject}` : '';
+        if (personaName || head) return [depiction, personaName || head, personaName ? head : sub, deckSubject].filter(Boolean).join('. ').slice(0, 420);
         // block-quote anatomy (2026-07-10): no title/name fields - the scene depicts the SPEAKER'S
         // world: topic kicker + attribution + the quote's first clause (subject language, never text art).
         const kicker = typeof payload['topicKicker'] === 'string' ? (payload['topicKicker'] as string) : '';

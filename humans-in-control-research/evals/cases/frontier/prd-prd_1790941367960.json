@@ -1,0 +1,26 @@
+{
+  "id": "prd-prd_1790941367960",
+  "set": "frontier",
+  "kind": "prd",
+  "input": {
+    "objective": "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility.",
+    "prompt": "#prd",
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ/artifacts/prd_1790941367960.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "prd_1790941367960",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: UNSOURCED_FACT x3; UNVERIFIED_IDENTIFIER x1"
+  }
+}

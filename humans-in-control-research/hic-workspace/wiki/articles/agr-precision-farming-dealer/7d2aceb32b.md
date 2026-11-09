@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:58:46+00:00"
 content_hash: "5d43244f7d7cec63"
 chunks:
   - id: "articles/agr-precision-farming-dealer/7d2aceb32b.md#c0"
-    char_span: [0, 2120]
+    char_span: [0, 2119]
     sentence_count: 9
     key_terms: [farming, precision-farming-dealers-best-of-the-web-june-17-2026, autonomous, fertilizer, innovators, technology, podcast, drones]
     concepts: [farming, autonomous, fertilizer, innovators, technology]
-    token_count: 463
-    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/articles/7167-precision-farming-dealers-best-of-the-web-june-17-2026"}]
+    token_count: 462
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/articles/7167-precision-farming-dealers-best-of-the-web-june-17-2026","kind":"article","date":"2026-06-17"}]
 ---
 # Precision Farming Dealer's Best of the Web: June 17, 2026
 

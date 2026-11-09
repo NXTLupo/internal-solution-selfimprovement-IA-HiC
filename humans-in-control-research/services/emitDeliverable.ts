@@ -58,6 +58,7 @@
  */
 
 import { recordTurn, type RecordTurnOpts } from './traceRecorder';
+import { engagementSlug, planSubQuestions, runSummary } from './runState';
 import { evaluatePareto, type EvaluatePareto, type QualityVector } from './qualityFrontier';
 import { persistInsightAsChunk } from './chunkRetrieval';
 import type { EvidencePointer } from './evidenceLedgerService';
@@ -183,6 +184,8 @@ export interface EmitDeliverableOpts<T> {
         subQuestions?: Array<{ id: string; question?: string; text?: string; priority?: string | number; expected_named_entities?: string[] }>;
         /** D12 per-path ramp: set true ONLY after this path has emitted a clean AIR on a live run. */
         blocking?: boolean;
+        /** WS-C C1 (2026-10-31): this generation revises an earlier artifact (#refine, a depth delta turn). */
+        revision?: import('./artifactLineage').RevisionRequest;
     };
 }
 
@@ -319,7 +322,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
         try {
             const { buildAir, emitAirRecord } = await import('./artifactAirService');
             const runId = opts.air.runId
-                || (typeof window !== 'undefined' ? ((window as any).__hicCurrentEngagementSlug as string) : '')
+                || engagementSlug()
                 || 'run';
             const artifactId = opts.air.artifactId || `${opts.deliverable.replace(/^#/, '')}_${t0}`;
             // W3 (2026-07-01, scorecard "decomposedQuestions 0/11"): hydrate the Objective Graph. Sub-questions
@@ -329,7 +332,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
             let decomposedQuestions: any[] = [];
             try {
                 const rawSqs = opts.air.subQuestions
-                    || (typeof window !== 'undefined' ? ((window as any).__hicResearchPlanSubQuestions as any[]) : null)
+                    || planSubQuestions()
                     || [];
                 if (Array.isArray(rawSqs) && rawSqs.length) {
                     const { auditSubQuestionCoverage } = await import('./researchPlanner');
@@ -381,7 +384,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                     routingReason: (opts.air.routing?.reason || 'caller-selected model')
                         + (fellBack ? ` [FELL BACK from ${requested}]` : ''),
                     provider,
-                    costEstimateUsd: 0,
+                    costEstimateUsd: runSummary().cost_usd,   // WS-2 E10 (2026-10-30): summed from the run's priced steps
                     quotaState: opts.air.routing?.quotaState || (fellBack ? 'degraded' : 'unknown'),
                     elapsedMs: elapsed_ms,
                 });
@@ -421,7 +424,20 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                 console.warn(`[emitDeliverable/${opts.deliverable}] AIR: trigger '${opts.air.trigger}' not in artifact catalog - add it to services/artifactCatalog.ts`);
             }
             // 2026-08-21 CONVERGE: one writer for every artifact (see emitAirRecord).
-            void emitAirRecord(air, { label: `emitDeliverable/${opts.deliverable}` }).catch(() => { /* fire-and-forget */ });
+            // WS-5 R5 (2026-10-30): the AIR carries the epoch it was produced under, so rescoring and the
+            // rollback verdict attribute outcomes to the edit that was live.
+            void emitAirRecord(air, { label: `emitDeliverable/${opts.deliverable}`, revision: opts.air.revision }).then(async (r) => {
+                try {
+                    const { getActiveEpochId } = await import('./epochOutcomeTracker');
+                    const epochId = getActiveEpochId();
+                    if (r?.persisted && epochId !== null) {
+                        await fetch('http://127.0.0.1:5012/api/air/patch', {
+                            method: 'POST', headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ runId, artifactId, patch: { epochId, epoch: { id: epochId } } }),
+                        });
+                    }
+                } catch { /* attribution is best-effort */ }
+            }).catch(() => { /* fire-and-forget */ });
         } catch (e: any) {
             console.warn(`[emitDeliverable/${opts.deliverable}] AIR emission failed (non-fatal):`, e?.message || e);
         }
@@ -431,10 +447,16 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
         // AIR is emitted this run is a completed job: count it once, log the status line once per run, and
         // when the epoch is due write ONE pending proposal to the propose-only ledger. Fire-and-forget; the
         // emission result is never affected. The AIR construction above is untouched.
+        // WS-1 T2 (2026-10-30): the artifact joins the run record and the run manifest is emitted.
+        try {
+            const { recordArtifact, emitRunManifest } = await import('./runState');
+            recordArtifact(opts.air.artifactId || `${opts.deliverable.replace(/^#/, '')}_${t0}`);
+            void emitRunManifest().catch(() => { /* fire-and-forget */ });
+        } catch { /* run state not loaded - no-op */ }
         try {
             const { recordJobCompletion } = await import('./epochTrigger');
             const epochRunId = opts.air.runId
-                || (typeof window !== 'undefined' ? ((window as any).__hicCurrentEngagementSlug as string) : '')
+                || engagementSlug()
                 || 'run';
             void recordJobCompletion(epochRunId, { deliverable: opts.deliverable })
                 .catch((e: any) => console.warn(`[emitDeliverable/${opts.deliverable}] epoch reader failed (non-fatal):`, e?.message || e));
@@ -449,9 +471,7 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
     // logs but never blocks the user.
     if (opts.insightPersist) {
         try {
-            const slug = (typeof window !== 'undefined'
-                ? ((window as any).__hicCurrentEngagementSlug as string)
-                : '') || '';
+            const slug = engagementSlug() || '';
             if (slug && !emitError) {
                 const items = (opts.insightPersist.selectItems(result!) || []).filter(Boolean);
                 const kind = opts.insightPersist.kind;

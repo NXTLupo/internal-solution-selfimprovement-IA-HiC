@@ -70,11 +70,15 @@ function airFixture(slug: string, payload: any) {
 }
 
 describe('check:skills bites', () => {
+    // 2026-10-31 (WS-A A2): a well-formed package carries a version and a lifecycle status.
+    const LIFECYCLE = ['version: "1.0"', 'status: active'];
+
     it('PASSES a well-formed skill package', () => {
         const skills = skillFixture('good-skill', [
             'name: good-skill',
             'invocation: model',
             'description: Use when the caller needs a worked example of a valid package.',
+            ...LIFECYCLE,
         ].join('\n'));
         const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
         expect(r.code).toBe(0);
@@ -122,15 +126,110 @@ describe('check:skills bites', () => {
         expect(r.out).toContain('frontmatter.invocation-contradiction');
     });
 
-    it('WARNS rather than fails on an over-budget description, so the gate does not get bypassed', () => {
+    // 2026-10-31 (agent-stack plan WS-A A2): the library was brought to 0 warnings and the audit became a gate,
+    // so an over-budget description now FAILS (it was a warning while 53 legacy descriptions ran long).
+    it('FAILS on an over-budget description now that the library is clean', () => {
         const skills = skillFixture('long-desc', [
             'name: long-desc',
             'invocation: model',
             `description: ${'word '.repeat(80)}`,
+            ...LIFECYCLE,
         ].join('\n'));
         const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
-        expect(r.code).toBe(0);
+        expect(r.code).toBe(1);
         expect(r.out).toContain('frontmatter.description-budget');
+    });
+
+    it('FAILS on frontmatter that is not valid YAML, which Claude Code would drop (12 skills had this)', () => {
+        const skills = skillFixture('bad-yaml', [
+            'name: bad-yaml',
+            'invocation: model',
+            'description: Repairs output: JSON, HTML and SVG: before parse.',
+            ...LIFECYCLE,
+        ].join('\n'));
+        const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
+        expect(r.code).toBe(1);
+        expect(r.out).toContain('frontmatter.invalid');
+    });
+
+    it('FAILS on an unquoted " #" that YAML reads as a comment and truncates the description', () => {
+        const skills = skillFixture('hash-desc', [
+            'name: hash-desc',
+            'invocation: model',
+            'description: Use for #questionnaire when a stakeholder holds the deciding fact.',
+            ...LIFECYCLE,
+        ].join('\n'));
+        const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
+        expect(r.code).toBe(1);
+        expect(r.out).toContain('frontmatter.description-hash-comment');
+    });
+
+    it('FAILS on a missing version and on a dormant package without its date', () => {
+        const skills = skillFixture('no-version', [
+            'name: no-version',
+            'invocation: model',
+            'description: A package with no version and an undated dormant status.',
+            'status: dormant',
+        ].join('\n'));
+        const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
+        expect(r.code).toBe(1);
+        expect(r.out).toContain('frontmatter.version-missing');
+        expect(r.out).toContain('frontmatter.dormant-undated');
+    });
+
+    it('FAILS on a literal Claude model name: Claude routing has one authority', () => {
+        const skills = skillFixture('stale-model', [
+            'name: stale-model',
+            'invocation: model',
+            'description: Use when a skill still names a retired model tier.',
+            ...LIFECYCLE,
+        ].join('\n'), 'The revisor is a Sonnet 4.6 call.\n');
+        const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
+        expect(r.code).toBe(1);
+        expect(r.out).toContain('content.model-literal');
+    });
+
+    it('FAILS on a SkillOpt-trainable skill whose contract is not protected, and on an unbalanced block', () => {
+        const unprotected = skillFixture('trainable-open', [
+            'name: trainable-open',
+            'invocation: runtime',
+            'disable-model-invocation: true',
+            'description: A trainable skill with no protected contract section.',
+            ...LIFECYCLE,
+            'skillopt: trainable',
+        ].join('\n'), '## Output Contract\n\nFields.\n');
+        const r1 = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', unprotected);
+        expect(r1.code).toBe(1);
+        expect(r1.out).toContain('skillopt.unprotected');
+        const unbalanced = skillFixture('trainable-open2', [
+            'name: trainable-open2',
+            'invocation: runtime',
+            'disable-model-invocation: true',
+            'description: A trainable skill with an unterminated protected block.',
+            ...LIFECYCLE,
+            'skillopt: trainable',
+        ].join('\n'), '<!-- SLOW_UPDATE_START -->\n## Output Contract\n\nFields.\n');
+        const r2 = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', unbalanced);
+        expect(r2.code).toBe(1);
+        expect(r2.out).toContain('skillopt.unbalanced');
+    });
+
+    it('FAILS on a loader binding whose wiki companion does not exist (it would 404 silently at runtime)', () => {
+        const skills = skillFixture('loader-404', [
+            'name: loader-404',
+            'invocation: runtime',
+            'disable-model-invocation: true',
+            'description: A runtime skill whose loader names a missing wiki page.',
+            ...LIFECYCLE,
+            'loader:',
+            '  title: Loader 404',
+            '  role: research-deliverable',
+            '  wiki_companions:',
+            '    - frameworks/this-page-does-not-exist.md',
+        ].join('\n'));
+        const r = runGate(SKILLS_SCRIPT, 'HIC_SKILLS_ROOT', skills);
+        expect(r.code).toBe(1);
+        expect(r.out).toContain('loader.missing-companion');
     });
 });
 

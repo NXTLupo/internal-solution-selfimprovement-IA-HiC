@@ -7,6 +7,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { setEngagementSlug, setResearchGoal, _resetRunStateForTests } from './runState';
 import { engagementSlugFor, currentEngagementSlugOrDerive, ENGAGEMENT_SLUG_MAX } from './engagementSlug';
 
 /** Mirror of proxy `_safe_session_slug`, transcribed for the parity assertion. */
@@ -62,21 +63,21 @@ describe('currentEngagementSlugOrDerive', () => {
         expect(currentEngagementSlugOrDerive('Analyze the retained search market')).toBe('analyze-the-retained-search-market');
     });
 
-    it('prefers the window global when it is set', () => {
-        (globalThis as any).window = { __hicCurrentEngagementSlug: 'explicit-slug' };
+    it('prefers the run state slug when it is set', () => {
+        setEngagementSlug('explicit-slug');
         try {
             expect(currentEngagementSlugOrDerive('some other goal')).toBe('explicit-slug');
         } finally {
-            delete (globalThis as any).window;
+            _resetRunStateForTests();
         }
     });
 
-    it('falls back to the window goal when only that is set', () => {
-        (globalThis as any).window = { __hicResearchGoal: 'Map the executive search market' };
+    it('falls back to the run objective when only that is set', () => {
+        setResearchGoal('Map the executive search market');
         try {
             expect(currentEngagementSlugOrDerive()).toBe('map-the-executive-search-market');
         } finally {
-            delete (globalThis as any).window;
+            _resetRunStateForTests();
         }
     });
 });

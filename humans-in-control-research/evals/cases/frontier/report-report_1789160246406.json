@@ -1,0 +1,26 @@
+{
+  "id": "report-report_1789160246406",
+  "set": "frontier",
+  "kind": "report",
+  "input": {
+    "objective": "As of August-September 2026 (no earlier), what are the capabilities, limitations, and extensibility points of Figma's (the design tool) agents and extensions for connecting agentic workflows, skills, critics, hooks, and visual UI cards? Scour Figma's own documentation and press releases, plus AI/design and marketing sources, and produce a comprehensive, technical white paper detailing all possible use cases for extending Figma's agentic capabilities across: design, approvals, design-system integration, deterministic hooks, and harnessed execution, organized and detailed enough for implementation, covering design, approvals, skills, critics, hooks, AI extensions, and notifications.",
+    "prompt": "#report",
+    "engagement": "as-of-august-september-2026-no-earlier-what-are-the-capabilities-limitations-and"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "as-of-august-september-2026-no-earlier-what-are-the-capabilities-limitations-and/artifacts/report_1789160246406.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "report_1789160246406",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: INDEPENDENCE_INFLATED x4; UNSOURCED_FACT x4; UNVERIFIED_QUOTE x2; UNSUPPORTED_MODALITY x1"
+  }
+}

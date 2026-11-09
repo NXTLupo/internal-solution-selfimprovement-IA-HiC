@@ -16,26 +16,28 @@ collected_at: "2026-07-02T17:36:48+00:00"
 content_hash: "bda940371266b229"
 chunks:
   - id: "articles/ins-insurance-journal-intl/ec89d48cab.md#c0"
-    char_span: [0, 271]
+    char_span: [0, 270]
     sentence_count: 1
     key_terms: [promotes, berkley, insurancejournal, international, commercial, succeeding, president, specialty]
     concepts: [promotes, berkley]
-    token_count: 68
-    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/26/875425.htm"}]
+    token_count: 67
+    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/26/875425.htm","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-journal-intl/ec89d48cab.md#c1"
-    char_span: [273, 2785]
+    char_span: [272, 2784]
     sentence_count: 22
     key_terms: [berkley, london, ariel, officer, specialty, chief, commercial, executive]
     concepts: [berkley, london, officer, ariel, specialty]
     related_chunks: ["articles/ins-insurance-journal-intl/ec89d48cab.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/26/875425.htm","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-journal-intl/ec89d48cab.md#c2"
-    char_span: [2481, 2905]
+    char_span: [2480, 2904]
     sentence_count: 4
     key_terms: [commercial, london, ariel, lloyd, organization, leadership, syndicates, according]
     concepts: [commercial, london, ariel, lloyd]
     related_chunks: ["articles/ins-insurance-journal-intl/ec89d48cab.md#c1"]
     token_count: 88
+    sources: [{"n":"ins_insurance_journal_intl","u":"https://www.insurancejournal.com/news/international/2026/06/26/875425.htm","kind":"article","date":"2026-06-26"}]
 ---
 # People Moves: Berkley Promotes Enright as President of Berkley Specialty London, Succeeding Hastings; Ariel Re Promotes Shreeve as Chief Commercial Officer
 

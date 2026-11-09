@@ -16,11 +16,11 @@ collected_at: "2026-07-02T16:16:20+00:00"
 content_hash: "9c048687c4adac0e"
 chunks:
   - id: "articles/sec-edgar/d31db1bce6.md#c0"
-    char_span: [0, 678]
+    char_span: [0, 677]
     sentence_count: 1
     key_terms: [a15-, htm, pack-backfill, minneapolis, ameriprise, financial, sequence, source]
-    token_count: 272
-    sources: [{"n":"[SEC EDGAR](hic://pack-backfill/sec_edgar/2953723710110584729","u":""}]
+    token_count: 271
+    sources: [{"n":"SEC EDGAR","u":"","kind":"article"}]
 ---
 # {'_index': 'edgar_file', '_id': '0001104659-15-052511:a15-15855_1ex99d1.htm', '_score': 18.729448, '
 

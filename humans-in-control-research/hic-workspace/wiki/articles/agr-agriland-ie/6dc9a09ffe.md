@@ -19,23 +19,25 @@ content_hash: "ee18c8fb952c10e0"
 relevance_by_goal: {"c5a2d58d1be7":55}
 chunks:
   - id: "articles/agr-agriland-ie/6dc9a09ffe.md#c0"
-    char_span: [0, 178]
+    char_span: [0, 177]
     sentence_count: 1
     key_terms: [icmsa-calls-for-on-farm-battery-storage-in-seai-scheme, farming-news, agriland, battery, on-farm, storage, scheme, source]
-    token_count: 54
-    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/icmsa-calls-for-on-farm-battery-storage-in-seai-scheme/"}]
+    token_count: 53
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/icmsa-calls-for-on-farm-battery-storage-in-seai-scheme/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-agriland-ie/6dc9a09ffe.md#c1"
-    char_span: [180, 2727]
+    char_span: [179, 2726]
     sentence_count: 17
     key_terms: [seai, electricity, farmers, solar, tams, storage, icmsa, farm]
     concepts: [electricity, farmers, solar, storage, icmsa]
     token_count: 512
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/icmsa-calls-for-on-farm-battery-storage-in-seai-scheme/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-agriland-ie/6dc9a09ffe.md#c2"
-    char_span: [2375, 2812]
+    char_span: [2374, 2811]
     sentence_count: 3
     key_terms: [benefits, bring, small, case, grid, disproportionate, sustainability, environmental]
     concepts: [benefits, bring, small]
     token_count: 78
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/icmsa-calls-for-on-farm-battery-storage-in-seai-scheme/","kind":"article","date":"2026-07-02"}]
 ---
 # ICMSA calls for on-farm battery storage in SEAI scheme
 

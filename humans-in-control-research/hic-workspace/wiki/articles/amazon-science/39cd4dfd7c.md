@@ -9,47 +9,51 @@ author: ""
 date: "Thu, 28 May 2026 10:30:00 GMT"
 tier: 2
 method: "source-native"
-extracted_at: "2026-09-10T17:35:46.126843+00:00"
+extracted_at: "2026-10-09T16:53:11.369966+00:00"
 chars: 7726
-engagement: "as-of-august-september-2026-no-earlier-what-are-the-capabili"
-collected_at: "2026-09-10T17:35:45.687Z"
-relevance: 0
-engagement_goal: "As of August-September 2026 (no earlier), what are the capabilities, limitations, and extensibility points of Figma's (the design tool) agents and extensions for connecting agentic workflows, skills, critics, hooks, and visual UI cards? Scour Figma's own documentation and press releases, plus AI/design and marketing sources, and produce a comprehensive, technical white paper detailing all possible use cases for extending Figma's agentic capabilities across: design, approvals, design-system integration, deterministic hooks, and harnessed execution, organized and detailed enough for implementation, covering design, approvals, skills, critics, hooks, AI extensions, and notifications.  "
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
+collected_at: "2026-10-09T16:53:08.315Z"
+relevance: 5
+engagement_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
 content_hash: "2eaff3b0424d4525"
-relevance_by_goal: {"5a163910d68e":0}
+relevance_by_goal: {"5a163910d68e":0,"aa6916010743":5}
 chunks:
   - id: "articles/amazon-science/39cd4dfd7c.md#c0"
-    char_span: [0, 169]
+    char_span: [0, 168]
     sentence_count: 1
     key_terms: [how-flat-is-replacing-fat-in-aws-data-center-networks, replacing, networks, science, amazon, center, source, https]
-    token_count: 41
-    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks"}]
+    token_count: 40
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks","kind":"article","date":"2026-05-28"}]
   - id: "articles/amazon-science/39cd4dfd7c.md#c1"
-    char_span: [171, 2825]
+    char_span: [170, 2824]
     sentence_count: 19
     key_terms: [network, routers, random, router, data, tree, randomly, centers]
     concepts: [network, routers, random, router, randomly]
     related_chunks: ["articles/amazon-science/39cd4dfd7c.md#c2", "articles/amazon-science/39cd4dfd7c.md#c3"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks","kind":"article","date":"2026-05-28"}]
   - id: "articles/amazon-science/39cd4dfd7c.md#c2"
-    char_span: [2457, 5178]
+    char_span: [2456, 5177]
     sentence_count: 25
     key_terms: [routers, routing, destination, traffic, random, quasi-random, paths, structure]
     concepts: [routers, routing, destination, traffic, random]
     related_chunks: ["articles/amazon-science/39cd4dfd7c.md#c1"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks","kind":"article","date":"2026-05-28"}]
   - id: "articles/amazon-science/39cd4dfd7c.md#c3"
-    char_span: [4839, 7680]
+    char_span: [4838, 7679]
     sentence_count: 25
     key_terms: [quasi-random, performance, topology, network, routers, models, production, new]
     concepts: [quasi-random, performance, topology, network, routers]
     related_chunks: ["articles/amazon-science/39cd4dfd7c.md#c1"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks","kind":"article","date":"2026-05-28"}]
   - id: "articles/amazon-science/39cd4dfd7c.md#c4"
-    char_span: [7314, 7898]
+    char_span: [7313, 7897]
     sentence_count: 5
     key_terms: [latency-sensitive, infrastructure, transparently, applications, architecture, quasi-random, operational, operations]
     token_count: 103
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/blog/how-flat-is-replacing-fat-in-aws-data-center-networks","kind":"article","date":"2026-05-28"}]
 ---
 # How flat is replacing fat in AWS data center networks
 

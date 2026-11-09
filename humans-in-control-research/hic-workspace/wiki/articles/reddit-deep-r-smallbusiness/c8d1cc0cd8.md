@@ -16,18 +16,19 @@ relevance: 70
 content_hash: "2d00d3d9d76a3ea2"
 chunks:
   - id: "articles/reddit-deep-r-smallbusiness/c8d1cc0cd8.md#c0"
-    char_span: [0, 2205]
+    char_span: [0, 2204]
     sentence_count: 14
     key_terms: [business, question, small, smallbusiness, posts, community, post, repeat]
     concepts: [business, question, smallbusiness, small, community]
-    token_count: 442
-    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1uh0s4p/established_small_online_business_with_repeat/"}]
+    token_count: 441
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1uh0s4p/established_small_online_business_with_repeat/","kind":"article","date":"2026-06-27","subreddit":"smallbusiness"}]
   - id: "articles/reddit-deep-r-smallbusiness/c8d1cc0cd8.md#c1"
-    char_span: [2207, 3876]
+    char_span: [2206, 3875]
     sentence_count: 6
     key_terms: [month, around, goux77, profit, shopee, daily, sales, net]
     concepts: [month, around, goux77, profit, shopee]
     token_count: 377
+    sources: [{"n":"Reddit Deep: r/smallbusiness","u":"https://www.reddit.com/r/smallbusiness/comments/1uh0s4p/established_small_online_business_with_repeat/","kind":"article","date":"2026-06-27","subreddit":"smallbusiness"}]
 ---
 # Established small online business with repeat customers – open to serious buyers
 

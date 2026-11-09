@@ -16,31 +16,34 @@ collected_at: "2026-07-02T17:45:00+00:00"
 content_hash: "7ea8b43a4839b0cc"
 chunks:
   - id: "articles/ins-pra-boe/cfdee0dc32.md#c0"
-    char_span: [0, 234]
+    char_span: [0, 233]
     sentence_count: 1
     key_terms: [fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets, bankofengland, tokenisation, wholesale, england, markets, shared, source]
-    token_count: 70
-    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets"}]
+    token_count: 69
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets","kind":"article","date":"2026-05-18"}]
   - id: "articles/ins-pra-boe/cfdee0dc32.md#c1"
-    char_span: [236, 3002]
+    char_span: [235, 3001]
     sentence_count: 14
     key_terms: [wholesale, markets, tokenisation, bank, england, industry, technology, financial]
     concepts: [wholesale, markets, tokenisation, england, industry]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets","kind":"article","date":"2026-05-18"}]
   - id: "articles/ins-pra-boe/cfdee0dc32.md#c2"
-    char_span: [2674, 5378]
+    char_span: [2673, 5377]
     sentence_count: 11
     key_terms: [published, settlement, tokenisation, consultation, bank, prudential, tokenised, feedback]
     concepts: [published, settlement, tokenisation, consultation, prudential]
     related_chunks: ["articles/ins-pra-boe/cfdee0dc32.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets","kind":"article","date":"2026-05-18"}]
   - id: "articles/ins-pra-boe/cfdee0dc32.md#c3"
-    char_span: [5020, 5597]
+    char_span: [5019, 5596]
     sentence_count: 2
     key_terms: [consultation, distributed, settlement, ledger, hours, infrastructure, simultaneously, participants]
     concepts: [consultation, distributed, settlement, ledger, hours]
     related_chunks: ["articles/ins-pra-boe/cfdee0dc32.md#c2"]
     token_count: 99
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets","kind":"article","date":"2026-05-18"}]
 ---
 # FCA and Bank of England set out shared vision for tokenisation in UK wholesale markets
 

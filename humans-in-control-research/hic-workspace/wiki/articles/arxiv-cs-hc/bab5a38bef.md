@@ -11,17 +11,17 @@ tier: 1
 method: "pack-search-backfill"
 extracted_at: "2026-07-02T16:13:18.298489+00:00"
 chars: 500
-engagement: "define-the-2026-state-of-the-art-operational-and-technologic deliver-a-2026-risk-and-market-analysis-report-evaluating-ho"
+engagement: "define-the-2026-state-of-the-art-operational-and-technologic deliver-a-2026-risk-and-market-analysis-report-evaluating-ho 1-understand-emerging-northeastern-university-student-and-other-college-student"
 collected_at: "2026-07-02T16:13:16+00:00"
 content_hash: "8ae67d6347381dfe"
 chunks:
   - id: "articles/arxiv-cs-hc/bab5a38bef.md#c0"
-    char_span: [0, 663]
+    char_span: [0, 662]
     sentence_count: 3
     key_terms: [metacognitive, interventions, interactions, human-ai, biases, paper, understanding, confirmation]
     concepts: [metacognitive, interventions, interactions, human-ai, biases]
-    token_count: 140
-    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2504.16770v1"}]
+    token_count: 139
+    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2504.16770v1","kind":"article","date":"2025-04-23"}]
 ---
 # DeBiasMe: De-biasing Human-AI Interactions with Metacognitive AIED (AI in Education) Interventions
 

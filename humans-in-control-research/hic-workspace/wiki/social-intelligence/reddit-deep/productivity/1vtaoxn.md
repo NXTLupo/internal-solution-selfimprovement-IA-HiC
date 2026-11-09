@@ -1,0 +1,56 @@
+---
+id: social-intelligence/reddit-deep/productivity/1vtaoxn.md
+url: "https://www.reddit.com/r/productivity/comments/1vtaoxn/is_there_an_ai_workspace_where_the_assistant_can/"
+kind: "social-post"
+source: "reddit-deep: r/productivity"
+subreddit: "productivity"
+title: "Is there an ai workspace where the assistant can do things across your tools not just summarizing the page you're on?"
+author: "Hardin_Shaquille_269"
+date: "2026-08-20T05:40:56.000Z"
+score: 0
+upvote_ratio: 0.43
+num_comments: 3
+flair: "Software"
+extracted_at: "2026-11-09T00:14:00.529Z"
+extraction_method: "praw-deep"
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1vtaoxn.md#c0"
+    char_span: [0, 1455]
+    sentence_count: 10
+    key_terms: [across, productivity, call, crm, deal, page, summarizes, comments]
+    concepts: [productivity, across, summarizes, comments, another]
+    token_count: 344
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1vtaoxn/is_there_an_ai_workspace_where_the_assistant_can/","kind":"social-post","date":"2026-08-20","author":"Hardin_Shaquille_269","subreddit":"productivity"}]
+  - id: "social-intelligence/reddit-deep/productivity/1vtaoxn.md#c1"
+    char_span: [1469, 2743]
+    sentence_count: 9
+    key_terms: [assistant, deal, follow, calendar, shuffle, across, euphoric-butterfly76, draft]
+    concepts: [assistant, follow, calendar, shuffle, across]
+    section: Comments
+    token_count: 311
+    sources: [{"n":"reddit-deep: r/productivity","u":"https://www.reddit.com/r/productivity/comments/1vtaoxn/is_there_an_ai_workspace_where_the_assistant_can/","kind":"social-post","date":"2026-08-20","author":"Hardin_Shaquille_269","subreddit":"productivity"}]
+---
+# Is there an ai workspace where the assistant can do things across your tools not just summarizing the page you're on?
+
+Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1vtaoxn/is_there_an_ai_workspace_where_the_assistant_can/)
+Posted by **Hardin_Shaquille_269** · **0↑** · **3 comments**
+
+Got off a client call lst week and asked our notion ai to bump the deal closed won and send me the renewal date and it just wrote me a neat little summary of the call notes on the page I had open, which I did not ask for. It can only see the page its sitting on and no clue the deal even lives in a different tool. 
+
+That's sort of the whole thing in one go every app has an Ai now but each one is boxed into its own coner. Notetaker summarizes the notes, the crm bot summarizes the crm but none of them can reach across the move something from one place to another the ay a person would. I still do the copy paste shuffle between tabs except now i pay for 4 assistants to sit there and watch me do it. 
+
+We are a small team but even one deal end up smeared across the crm and a few other places and the context never rides along with it. I dont want another chat bot bolted onto a wiki. What i want is almost dumb, i finish a call and the follow up is already sitting theren drafted from what got said instead of me rebuilding the whole thing from memory acros 5 open tabs. 
+
+Is that a viable category yet am i describing here?
+
+## Comments
+
+- **Wild_Parsnip_4074** (2↑): The wrinkle for your case is the deal being smeared across the crm and a few other spots, an assistant that only reads your inbox and calendar still cant draft a real follow up, it doesnt hold the deal. 
+
+Play is the one that worked for us there, the coworker sits over the workspace where the deal lives, so after a call it drafts the follow up off the deal and can bump it to closed won in the crm without the tab shuffle. small team here too.
+- **Valmighty** (1↑): We use Viktor. It works really well cross-4pp and you can command it like you tell your co-worker. It can even create our own notion/clickup.
+
+Apparently this subred warned me because I wrote 4pp.
+- **Euphoric-Butterfly76** (1↑): Yeah, it's viable, basically the whole point of the category. I run a small operation too and hit the same wall, every assistant is glued to the app it lives in, so I was paying for four of them and still doing the copy paste shuffle. Flipping it around fixed it for me, one assistant outside my tools instead of one inside each. I use Butler, it reads and writes across my inbox, calendar and WhatsApp, and after a call I ask it to draft the follow up. Space is still mostly single app, but what you're describing is real and it's the right ask.

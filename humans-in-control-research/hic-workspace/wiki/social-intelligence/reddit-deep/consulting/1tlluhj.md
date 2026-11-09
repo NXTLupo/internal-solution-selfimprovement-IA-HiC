@@ -11,10 +11,10 @@ score: 17
 upvote_ratio: 1
 num_comments: 16
 flair: ""
-extracted_at: "2026-08-13T16:56:19.257Z"
+extracted_at: "2026-10-09T16:37:07.952Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
-engagement: "analyze-the-executive-search-industry-to-map-current-trends"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/consulting/1tlluhj.md#c0"
     char_span: [0, 2459]
@@ -22,13 +22,14 @@ chunks:
     key_terms: [consulting, independent, consultant, events, delivery, opportunities, mtlc, membership]
     concepts: [consulting, independent, consultant, events, opportunities]
     token_count: 488
-    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tlluhj/independent_consultants_in_bostonnew_england_has/"}]
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tlluhj/independent_consultants_in_bostonnew_england_has/","kind":"social-post","date":"2026-05-23","author":"LtCmdrDatum","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tlluhj.md#c1"
     char_span: [2461, 2868]
     sentence_count: 3
     key_terms: [business, depends, whether, relationship-building, appreciated, experiences, sponsorship, consulting]
     concepts: [business, depends, whether]
     token_count: 85
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tlluhj/independent_consultants_in_bostonnew_england_has/","kind":"social-post","date":"2026-05-23","author":"LtCmdrDatum","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1tlluhj.md#c2"
     char_span: [2883, 4453]
     sentence_count: 7
@@ -36,6 +37,7 @@ chunks:
     concepts: [groups, opportunities, involvement, networking, workshops]
     section: Comments
     token_count: 311
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1tlluhj/independent_consultants_in_bostonnew_england_has/","kind":"social-post","date":"2026-05-23","author":"LtCmdrDatum","subreddit":"consulting"}]
 ---
 # Independent consultants in Boston/New England: has MTLC membership been worth it for a solo practice?
 

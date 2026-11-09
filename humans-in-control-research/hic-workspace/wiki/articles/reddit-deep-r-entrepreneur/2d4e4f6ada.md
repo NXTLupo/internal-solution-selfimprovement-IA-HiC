@@ -16,20 +16,21 @@ relevance: 70
 content_hash: "fb93e65e80be99ac"
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/2d4e4f6ada.md#c0"
-    char_span: [0, 2431]
+    char_span: [0, 2430]
     sentence_count: 35
     key_terms: [clients, cent, per, breakthrough, entrepreneur, sales, time, everything]
     concepts: [clients, breakthrough, entrepreneur, everything, sales]
     related_chunks: ["articles/reddit-deep-r-entrepreneur/2d4e4f6ada.md#c1"]
-    token_count: 505
-    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rcfd3c/the_positioning_statement_that_made_prospects_say/"}]
+    token_count: 504
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rcfd3c/the_positioning_statement_that_made_prospects_say/","kind":"article","date":"2026-02-23","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/2d4e4f6ada.md#c1"
-    char_span: [2433, 4737]
+    char_span: [2432, 4736]
     sentence_count: 18
     key_terms: [clients, entrepreneur, please, getting, weekly, value, permanent, promotion]
     concepts: [clients, entrepreneur, please, getting, weekly]
     related_chunks: ["articles/reddit-deep-r-entrepreneur/2d4e4f6ada.md#c0"]
     token_count: 497
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1rcfd3c/the_positioning_statement_that_made_prospects_say/","kind":"article","date":"2026-02-23","subreddit":"entrepreneur"}]
 ---
 # The positioning statement that made prospects say 'that's exactly what I need.
 

@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:17:20+00:00"
 content_hash: "ba7fc858d9286ebe"
 chunks:
   - id: "articles/hugging-face-blog/f56bc9bdca.md#c0"
-    char_span: [0, 133]
+    char_span: [0, 132]
     sentence_count: 1
     key_terms: [model-management-in-llamacpp, blog, huggingface, management, ggml-org, hugging, source, https]
-    token_count: 37
-    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ggml-org/model-management-in-llamacpp"}]
+    token_count: 36
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ggml-org/model-management-in-llamacpp","kind":"article","date":"2025-12-11"}]
   - id: "articles/hugging-face-blog/f56bc9bdca.md#c1"
-    char_span: [135, 2231]
+    char_span: [134, 2230]
     sentence_count: 9
     key_terms: [model, models, llama-server, llama, cpp, localhost, automatically, http]
     concepts: [model, models, llama-server, llama, localhost]
     related_chunks: ["articles/hugging-face-blog/f56bc9bdca.md#c2"]
     token_count: 512
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ggml-org/model-management-in-llamacpp","kind":"article","date":"2025-12-11"}]
   - id: "articles/hugging-face-blog/f56bc9bdca.md#c2"
-    char_span: [1997, 2852]
+    char_span: [1996, 2851]
     sentence_count: 6
     key_terms: [model, models, llama-server, my-model, settings, gguf, web, automatically]
     concepts: [model, models, llama-server, my-model, settings]
     related_chunks: ["articles/hugging-face-blog/f56bc9bdca.md#c1"]
     token_count: 202
+    sources: [{"n":"Hugging Face Blog","u":"https://huggingface.co/blog/ggml-org/model-management-in-llamacpp","kind":"article","date":"2025-12-11"}]
 ---
 # New in llama.cpp: Model Management
 

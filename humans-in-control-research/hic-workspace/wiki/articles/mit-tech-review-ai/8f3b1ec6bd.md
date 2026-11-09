@@ -19,23 +19,25 @@ content_hash: "f47219db76ed1822"
 relevance_by_goal: {"c5a2d58d1be7":5}
 chunks:
   - id: "articles/mit-tech-review-ai/8f3b1ec6bd.md#c0"
-    char_span: [0, 168]
+    char_span: [0, 167]
     sentence_count: 1
     key_terms: [achieving-operational-excellence-with-ai, technologyreview, operational, excellence, achieving, review, source, https]
-    token_count: 47
-    sources: [{"n":"MIT Tech Review AI","u":"https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/"}]
+    token_count: 46
+    sources: [{"n":"MIT Tech Review AI","u":"https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/","kind":"article","date":"2026-07-02"}]
   - id: "articles/mit-tech-review-ai/8f3b1ec6bd.md#c1"
-    char_span: [170, 2961]
+    char_span: [169, 2960]
     sentence_count: 23
     key_terms: [process, excellence, organizations, intelligence, technology, review, tools, foundations]
     concepts: [process, excellence, organizations, intelligence, technology]
     token_count: 512
+    sources: [{"n":"MIT Tech Review AI","u":"https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/","kind":"article","date":"2026-07-02"}]
   - id: "articles/mit-tech-review-ai/8f3b1ec6bd.md#c2"
-    char_span: [2649, 3406]
+    char_span: [2648, 3405]
     sentence_count: 8
     key_terms: [numbers, claude, coding, people, code, get, like, intelligence]
     concepts: [numbers, claude, coding, people]
     token_count: 153
+    sources: [{"n":"MIT Tech Review AI","u":"https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/","kind":"article","date":"2026-07-02"}]
 ---
 # Achieving operational excellence with AI
 

@@ -17,24 +17,26 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/sideproject/1piaejv.md#c0"
-    char_span: [0, 2137]
+    char_span: [0, 2136]
     sentence_count: 10
     key_terms: [feedback, founders, product, improvements, small, works, sideproject, mvp]
     concepts: [feedback, founders, product, improvements, sideproject]
-    token_count: 503
-    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1piaejv/saas_postlaunch_playbook_ep01_what_to_do_right/"}]
+    token_count: 502
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1piaejv/saas_postlaunch_playbook_ep01_what_to_do_right/","kind":"social-post","date":"2025-12-09","author":"juddin0801","subreddit":"sideproject"}]
   - id: "social-intelligence/reddit-deep/sideproject/1piaejv.md#c1"
-    char_span: [2139, 4094]
+    char_span: [2138, 4093]
     sentence_count: 15
     key_terms: [tools, daily, small, don, user, analytics, feedback, linkedin]
     concepts: [tools, daily, small, analytics, feedback]
     token_count: 479
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1piaejv/saas_postlaunch_playbook_ep01_what_to_do_right/","kind":"social-post","date":"2025-12-09","author":"juddin0801","subreddit":"sideproject"}]
   - id: "social-intelligence/reddit-deep/sideproject/1piaejv.md#c2"
-    char_span: [4096, 5297]
+    char_span: [4095, 5296]
     sentence_count: 10
     key_terms: [onboarding, feedback, users, user, like, understanding, complicated, actionable]
     concepts: [onboarding, feedback, users]
     token_count: 267
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1piaejv/saas_postlaunch_playbook_ep01_what_to_do_right/","kind":"social-post","date":"2025-12-09","author":"juddin0801","subreddit":"sideproject"}]
 ---
 # SaaS Post-Launch Playbook — EP01: What To Do Right After Your MVP Goes Live
 

@@ -141,6 +141,14 @@ function assertProject(name: string, r: Awaited<ReturnType<typeof runProject>>) 
     const py = pythonChecks(air);
     if (!py.skipped) {
         console.log(`[${name}] independent export checks: ${py.checks.map((c: any) => `${c.check.split(':')[0]} ${c.pass ? 'pass' : `FAIL ${c.failures.slice(0, 3).join(', ')}`}`).join('; ')}`);
+        // A failing row names its requirement text so the TypeScript and Python detectors can be compared directly.
+        for (const c of py.checks.filter((c: any) => !c.pass)) {
+            for (const f of (c.failures || []).slice(0, 5)) {
+                const id = String(f).split(':')[0].trim();
+                const r: any = (air.graph.requirements || []).find((x: any) => x.id === id);
+                if (r) console.log(`[${name}] failing row ${id}: ${JSON.stringify(String(r.text || '').slice(0, 220))}`);
+            }
+        }
         expect(py.ok).toBe(true);
     }
 }

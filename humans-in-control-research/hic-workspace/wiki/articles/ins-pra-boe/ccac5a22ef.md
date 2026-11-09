@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:44:52+00:00"
 content_hash: "4e5303d1ce9532af"
 chunks:
   - id: "articles/ins-pra-boe/ccac5a22ef.md#c0"
-    char_span: [0, 223]
+    char_span: [0, 222]
     sentence_count: 1
     key_terms: [pra-adjustments-market-risk-internal-model-approach-under-basel31, bankofengland, adjustments, approach, internal, market, source, basel]
-    token_count: 62
-    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/pra-adjustments-market-risk-internal-model-approach-under-basel31"}]
+    token_count: 61
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/pra-adjustments-market-risk-internal-model-approach-under-basel31","kind":"article","date":"2026-06-19"}]
   - id: "articles/ins-pra-boe/ccac5a22ef.md#c1"
-    char_span: [225, 2981]
+    char_span: [224, 2980]
     sentence_count: 10
     key_terms: [pra, trading, capital, ima, implementation, rules, international, activities]
     concepts: [trading, capital, implementation, international, rules]
     related_chunks: ["articles/ins-pra-boe/ccac5a22ef.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/pra-adjustments-market-risk-internal-model-approach-under-basel31","kind":"article","date":"2026-06-19"}]
   - id: "articles/ins-pra-boe/ccac5a22ef.md#c2"
-    char_span: [2674, 3760]
+    char_span: [2673, 3759]
     sentence_count: 5
     key_terms: [requirements, financial, capital, implementation, resolvability, pra, framework, january]
     concepts: [requirements, financial, implementation, resolvability, capital]
     related_chunks: ["articles/ins-pra-boe/ccac5a22ef.md#c1"]
     token_count: 207
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/pra-adjustments-market-risk-internal-model-approach-under-basel31","kind":"article","date":"2026-06-19"}]
 ---
 # PRA sets out adjustments to its market risk internal model approach under Basel 3.1
 

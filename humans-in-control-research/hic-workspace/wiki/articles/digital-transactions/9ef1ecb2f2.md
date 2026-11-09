@@ -16,25 +16,27 @@ collected_at: "2026-07-02T18:04:02+00:00"
 content_hash: "0e22035837656205"
 chunks:
   - id: "articles/digital-transactions/9ef1ecb2f2.md#c0"
-    char_span: [0, 188]
+    char_span: [0, 187]
     sentence_count: 1
     key_terms: [the-healthcare-payments-industry-has-a-perception-problem, digitaltransactions, healthcare, perception, industry, payments, problem, source]
-    token_count: 37
-    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/the-healthcare-payments-industry-has-a-perception-problem/"}]
+    token_count: 36
+    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/the-healthcare-payments-industry-has-a-perception-problem/","kind":"article","date":"2026-06-29"}]
   - id: "articles/digital-transactions/9ef1ecb2f2.md#c1"
-    char_span: [190, 2749]
+    char_span: [189, 2748]
     sentence_count: 26
     key_terms: [healthcare, payments, isos, workflow, providers, increasingly, transaction, financial]
     concepts: [healthcare, payments, workflow, providers, increasingly]
     related_chunks: ["articles/digital-transactions/9ef1ecb2f2.md#c2"]
     token_count: 512
+    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/the-healthcare-payments-industry-has-a-perception-problem/","kind":"article","date":"2026-06-29"}]
   - id: "articles/digital-transactions/9ef1ecb2f2.md#c2"
-    char_span: [2387, 5068]
+    char_span: [2386, 5067]
     sentence_count: 30
     key_terms: [healthcare, payments, isos, financial, payment, whether, market, themselves]
     concepts: [healthcare, payments, financial, payment, whether]
     related_chunks: ["articles/digital-transactions/9ef1ecb2f2.md#c1"]
     token_count: 504
+    sources: [{"n":"digital_transactions","u":"https://www.digitaltransactions.net/the-healthcare-payments-industry-has-a-perception-problem/","kind":"article","date":"2026-06-29"}]
 ---
 # The healthcare payments industry has a perception problem
 

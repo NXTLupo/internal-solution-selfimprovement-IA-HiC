@@ -1,0 +1,53 @@
+# 2026-10-30 (plan harness-capability-curve-uplift, WS-2 E12)
+# The HiC merge gate: type check, unit suite, the standing check:* obligations, the production
+# build with the bundle-secret scan, and the eval suite's regression set in replay mode (no model
+# calls, no proxy). A failing regression case blocks the merge, which is what "unit tests for the
+# AI era" means in practice.
+name: hic
+
+on:
+  pull_request:
+    paths:
+      - 'humans-in-control-research/**'
+      - '.claude/skills/**'
+      - '.github/workflows/hic.yml'
+  push:
+    branches-ignore: [main]
+    paths:
+      - 'humans-in-control-research/**'
+      - '.claude/skills/**'
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: humans-in-control-research
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: humans-in-control-research/package-lock.json
+      - run: npm ci --legacy-peer-deps
+      - name: TypeScript gate
+        run: npm run typecheck
+      - name: Unit suite
+        run: npm run test
+      - name: Template parity, skills, content, orphans, rules
+        run: npm run check:templates && npm run check:skills && npm run check:content && npm run check:orphans && npm run check:prd-rules && npm run check:deliverable-rules
+      - name: Judge registry
+        run: npm run check:judges
+      - name: Production build and bundle-secret scan
+        run: npm run build && npm run check:bundle-secrets
+      - name: Eval suite (replay, regression set blocks)
+        run: npm run eval
+      - name: Proxy syntax
+        run: python3 -m py_compile proxy/app.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-summary
+          path: humans-in-control-research/evals/results/_summary.json
+          if-no-files-found: ignore

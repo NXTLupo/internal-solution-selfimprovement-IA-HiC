@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:57:37+00:00"
 content_hash: "bdaba00f2c6a1543"
 chunks:
   - id: "articles/agr-national-pork/dc9a3fa15b.md#c0"
-    char_span: [0, 2433]
+    char_span: [0, 2432]
     sentence_count: 6
     key_terms: [pork, producers, industry, nppc, national, council, agriculture, washington]
     concepts: [producers, industry, national, council, agriculture]
-    token_count: 512
-    sources: [{"n":"agr_national_pork","u":"https://nppc.org/news/"}]
+    token_count: 511
+    sources: [{"n":"agr_national_pork","u":"https://nppc.org/news/","kind":"article"}]
 ---
 # National Pork Producers Council
 

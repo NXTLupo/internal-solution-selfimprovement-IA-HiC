@@ -1,0 +1,26 @@
+{
+  "id": "case-study-case-study_1791217908582",
+  "set": "frontier",
+  "kind": "case-study",
+  "input": {
+    "objective": "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility.",
+    "prompt": "#case-study",
+    "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ/artifacts/case-study_1791217908582.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "case-study_1791217908582",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:titles partial (schema_invalid); chain:provenance partial (schema_invalid); chain:claims partial (schema_invalid); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); layout:ungrounded_concept x10; evidence:unsupported_p0 x6; layout:archetype_monotony x1; layout:sequence_repeat x1; title:too_long x1"
+  }
+}

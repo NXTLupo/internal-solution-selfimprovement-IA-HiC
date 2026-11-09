@@ -50,6 +50,16 @@ describe('buildPrdInputsFromContext', () => {
         expect(competitiveGapsFromContext(null, 'nope')).toEqual([]);
     });
 
+    it('a gap-matrix row whose `gap` is a numeric score is named by its capability, never by the number', () => {
+        const out = competitiveGapsFromContext({ rows: [
+            { capability: 'First-Year Readiness Tracking', current: 1, target: 4, gap: 3 },
+            { capability: 'Platform Integration', gap: '3' },
+            { capability: 'Advisor Handoff', description: 'No record follows the student to the first advisor' },
+            { gap: 2 },
+        ] }, null);
+        expect(out.map(g => g.text)).toEqual(['First-Year Readiness Tracking', 'Platform Integration', 'Advisor Handoff: No record follows the student to the first advisor']);
+    });
+
     it('chat deliverable blocks (persona / theme / gap cards) count as evidence roots', () => {
         const dels = [
             { id: 'd1', type: 'persona', data: { name: 'Rowan Hale', role: 'Row-crop farmer', painPoints: [{ text: 'Cannot get a quote before planting', quote: 'I could not get a quote before planting season', source: 'Reddit r/farming' }] } },

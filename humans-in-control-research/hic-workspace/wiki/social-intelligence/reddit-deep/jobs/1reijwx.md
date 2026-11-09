@@ -7,13 +7,14 @@ subreddit: "jobs"
 title: "Are there any entry-level jobs not threatened by AI?"
 author: "BudTrimmingBaddie"
 date: "2026-02-25T16:49:29.000Z"
-score: 1
-upvote_ratio: 0.54
-num_comments: 50
+score: 4
+upvote_ratio: 0.63
+num_comments: 52
 flair: "Career planning"
-extracted_at: "2026-06-06T13:04:34.559Z"
+extracted_at: "2026-11-08T23:04:14.337Z"
 extraction_method: "praw-deep"
-research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c0"
     char_span: [0, 1991]
@@ -21,7 +22,7 @@ chunks:
     key_terms: [jobs, get, entry-level, degree, being, field, like, work]
     concepts: [entry-level, degree, being, field, warehouse]
     token_count: 443
-    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/"}]
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c1"
     char_span: [2005, 3101]
     sentence_count: 4
@@ -29,6 +30,7 @@ chunks:
     concepts: [outsourcing, workers]
     section: Comments
     token_count: 293
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c2"
     char_span: [3103, 5181]
     sentence_count: 14
@@ -36,6 +38,7 @@ chunks:
     concepts: [needed, position, realize, always, being]
     section: Comments
     token_count: 512
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c3"
     char_span: [5020, 5722]
     sentence_count: 6
@@ -43,39 +46,44 @@ chunks:
     concepts: [anything, oversaturated, research]
     section: Comments
     token_count: 201
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c4"
-    char_span: [5724, 6983]
+    char_span: [5724, 7208]
     sentence_count: 14
-    key_terms: [accounting, like, too, components, having, "don't", entry, human]
-    concepts: [accounting, components, having, "don't", entry]
+    key_terms: [accounting, too, like, components, engeeners, software, clients, having]
+    concepts: [accounting, components, engeeners, software, clients]
     section: Comments
-    token_count: 287
+    token_count: 344
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c5"
-    char_span: [6985, 9197]
+    char_span: [7210, 9398]
     sentence_count: 14
-    key_terms: [like, degree, "you're", throwaway999222111, budtrimmingbaddie, anything, mistakes, already]
-    concepts: [throwaway999222111, budtrimmingbaddie, degree, "you're", anything]
+    key_terms: [like, budtrimmingbaddie, anything, mistakes, already, several, degree, "you're"]
+    concepts: [budtrimmingbaddie, anything, mistakes, already, several]
     section: Comments
     token_count: 512
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c6"
-    char_span: [8891, 9347]
-    sentence_count: 3
-    key_terms: [several, throwaway999222111, get, increasingly, internships, opportunity, industries, difficult]
-    concepts: [several]
+    char_span: [9105, 9698]
+    sentence_count: 4
+    key_terms: [several, degree, throwaway999222111, budtrimmingbaddie, get, increasingly, internships, opportunity]
+    concepts: [several, degree]
     section: Comments
-    token_count: 96
+    token_count: 133
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
   - id: "social-intelligence/reddit-deep/jobs/1reijwx.md#c7"
-    char_span: [9349, 10564]
+    char_span: [9700, 10915]
     sentence_count: 8
     key_terms: [assistant, companies, robotics, meeting, people, admin, entry, field]
     concepts: [assistant, companies, robotics, meeting, people]
     section: Comments
     token_count: 259
+    sources: [{"n":"reddit-deep: r/jobs","u":"https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/","kind":"social-post","date":"2026-02-25","author":"BudTrimmingBaddie","subreddit":"jobs"}]
 ---
 # Are there any entry-level jobs not threatened by AI?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/)
-Posted by **BudTrimmingBaddie** · **1↑** · **50 comments**
+Posted by **BudTrimmingBaddie** · **4↑** · **52 comments**
 
 I (29F) have recently started going back to school to get a degree in computer science, as I can no longer work low-paying retail and warehouse jobs. The problem is that between AI taking on entry-level tasks in most fields, and there being more people looking for jobs than there are actual jobs, I’ve become incredibly discouraged. Computer science, unless I am specializing in working with LLM’s, doesn’t seem like a viable option, but almost every other career you can get a degree for is having the same issues. I’m too squeamish to get into the medical field, and all the administrative work will eventually mostly be done by AI. Seemingly, every industry is being affected because AI is being used as a cost-effective replacement for entry-level workers. Even the government is using AI to be “more efficient” (Check out the new decision Maura Healey decided on to use AI in the executive branch for Massachusetts on tasks like data security). 
 
@@ -83,13 +91,13 @@ The only options on the table that are mostly safe from AI seem to be the medica
 
 ## Comments
 
-- **Myelo_Screed** (28↑): AI isn’t taking jobs, outsourcing is
-  - **karateisntreal** (17↑): The company my fiance works at recently laid of a ton of American workers with degrees earning 60-70k to replace them with workers in India who accept 5-10k usd per year. 
+- **Myelo_Screed** (30↑): AI isn’t taking jobs, outsourcing is
+  - **karateisntreal** (16↑): The company my fiance works at recently laid of a ton of American workers with degrees earning 60-70k to replace them with workers in India who accept 5-10k usd per year. 
 
 Outsourcing is already really bad an AI is only going to compound these types of layoffs.
-  - **BudTrimmingBaddie** (5↑): There is evidence that AI and outsourcing are both contributing factors to the current issues in the job market.
+  - **BudTrimmingBaddie** (4↑): There is evidence that AI and outsourcing are both contributing factors to the current issues in the job market.
     - **New-Veterinarian5597** (0↑): Then why Ask?
-  - **icenerveshatter** (5↑): Also AI
+  - **icenerveshatter** (4↑): Also AI
   - **Round_Bag_4665** (2↑): I mean to be fair, if outsourcing wasnt an option a lot of these companies absolutely would use robots instead of actually hiring local.
   - **Emergency-Pollution2** (1↑): AI = actual indians
 - **Odd-Flower2744** (7↑): I wouldn’t worry so much about it. Everyone goes through major innovation break throughs in their careers, AI isn’t any different. 
@@ -97,10 +105,10 @@ Outsourcing is already really bad an AI is only going to compound these types of
 It’s all being overstated by doomers who are actually AI salesman if you dig deeper trying to scare everybody into using it. 
 
 Just get into a general business field and pivot as needed, people are always needed there and it’s very flexible.
-  - **Financial_Yard7047** (2↑): This. Also a lot of times companies think they need one thing/this particular position, but after hiring for that position as a few days/weeks pass and what they're asking for the new hire to do, they realize in actuality what they thought they needed was wrong. At that point you can ask the new hire human if they want to stay on and change their title/position to this thing they need or if they're unhappy and both parties move on. For most jobs (not requiring a medical degree or like 6+ years of post grad education level) it's easier for humans to pivot, change and adapt. With AI or any software/tool, if you bought something for this specific purpose and realize that's not what you needed, you're kinda stuck with it until the contract/term is up. Like a couple years from now, I can absolutely see companies buying AI services and then as they work through things realize this isn't what they need, they can't back out of their deal. They would probably wind up stuck with the AI that they will use minimally while also hiring a human
+  - **Financial_Yard7047** (3↑): This. Also a lot of times companies think they need one thing/this particular position, but after hiring for that position as a few days/weeks pass and what they're asking for the new hire to do, they realize in actuality what they thought they needed was wrong. At that point you can ask the new hire human if they want to stay on and change their title/position to this thing they need or if they're unhappy and both parties move on. For most jobs (not requiring a medical degree or like 6+ years of post grad education level) it's easier for humans to pivot, change and adapt. With AI or any software/tool, if you bought something for this specific purpose and realize that's not what you needed, you're kinda stuck with it until the contract/term is up. Like a couple years from now, I can absolutely see companies buying AI services and then as they work through things realize this isn't what they need, they can't back out of their deal. They would probably wind up stuck with the AI that they will use minimally while also hiring a human
 - **veRGe1421** (6↑): Nursing. AI will never be able to do what nurses do. We will always need them, and it's a good career. And you can pursue being a CRNA or nurse practitioner after the fact as well, to make the big bucks.
-  - **BudTrimmingBaddie** (2↑): I would consider being a nurse if I had the stomach for it.
-    - **veRGe1421** (4↑): Like anything, you get desensitized over time. It may be tough to stomach at first, but most folks get over it and get used to it. It just becomes your normal everyday, dealing with the human body. If you're considering being a plumber, it's not that far off disgust-wise. And some nurses do stuff like work at elementary schools, not always hospitals, where the job won't be all gory.
+  - **BudTrimmingBaddie** (3↑): I would consider being a nurse if I had the stomach for it.
+    - **veRGe1421** (5↑): Like anything, you get desensitized over time. It may be tough to stomach at first, but most folks get over it and get used to it. It just becomes your normal everyday, dealing with the human body. If you're considering being a plumber, it's not that far off disgust-wise. And some nurses do stuff like work at elementary schools, not always hospitals, where the job won't be all gory.
   - **SeeTheUntruth_Ad7178** (2↑): AI won’t, but Elon’s robots will.
   - **Calm_Boysenberry_709** (1↑): Until Baymax shows up.
 - **YaPhetsEz** (5↑): Entry level research can’t be automated. Basically, anything that uses your hands (or anything that you are liable for)
@@ -112,6 +120,7 @@ Just get into a general business field and pivot as needed, people are always ne
     - **DCYETI** (2↑): That’s a real fear. But I work for a large US manufacturing company. There’s just way too many components from reconciling accounts, audits, and quantitative tasks, that I believe, can’t be manually processed without having human eyes on it. There’s too much at risk for financials just having AI do it all. I could potentially see AP/AR become obsolete  as that’s more data entry, but again theres components to both of those fields that need human eyes to complete their task. 
 
 I would highly advise going accounting.
+  - **Sea-Bench-7487** (1↑): I'm sorry but accounting can also be replaced by ai if software engeeners can also software engeeners I teract with clients and managers all the time too so you're not special in that regard also
 - **RevengeOfTheIdiot** (3↑): Sales, account management, things that are super heavy on people interactions. You want to be the guy speaking to leadership, clients, etc., not the excel or ppt monkey.
 
 Most skilled trades aren't threatened.
@@ -120,6 +129,7 @@ There is a spectrum of how hard things will be hit by AI.  I'd focus on avoiding
 
 People freak about software development but it's really only a problem for the low level stuff, which was already at risk of being done super poorly by offshore indian teams already
   - **Effective-Resolve-91** (1↑): Agree. And someone had to write the code for that AI. Make sure you learn prompt Engineering and get familiar with different AI tools that exist while you're getting your degree.
+  - **Sea-Bench-7487** (0↑): I mean have you seen how many ai ads exist?seems like no one cares about making good ads anymore
 - **lyricgskills** (2↑): The thing about AI is mass adoption. Unless everyone adopts it, it cannot take over everything. Just like Google. No one googled anything for a long time it was for weirdos to start. Plus it is going to make mistakes and how many mistakes can it make before you fire AI? It’s the same as a person.
   - **BudTrimmingBaddie** (1↑): I think we're already seeing mass adoption. Even when AI makes mistakes, it's cheaper than a human's error because you don't have to pay AI a wage or benefits and you don't have to pay to put out a job listing or to do background checks, etc. Several industries are using AI for entry-level work.
     - **lyricgskills** (2↑): It will be interesting to see how this all goes when we look back in 5 years.

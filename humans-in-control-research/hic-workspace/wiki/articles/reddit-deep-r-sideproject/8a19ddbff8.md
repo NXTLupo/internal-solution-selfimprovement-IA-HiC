@@ -16,12 +16,12 @@ relevance: 70
 content_hash: "e281f75b7c44f6ad"
 chunks:
   - id: "articles/reddit-deep-r-sideproject/8a19ddbff8.md#c0"
-    char_span: [0, 940]
+    char_span: [0, 939]
     sentence_count: 6
     key_terms: [reddit, sideproject, feedback, boards, cinema, launch, paying, added]
     concepts: [reddit, sideproject, feedback, boards, cinema]
-    token_count: 227
-    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1s2egyg/6_days_after_launch_500_visits_from_hn_first/"}]
+    token_count: 226
+    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1s2egyg/6_days_after_launch_500_visits_from_hn_first/","kind":"article","date":"2026-03-24","subreddit":"sideproject"}]
 ---
 # 6 days after launch - 500 visits from HN, first paying user, and applying user feedback
 

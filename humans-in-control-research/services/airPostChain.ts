@@ -34,6 +34,7 @@ import type { ChainResult } from './artifactChain';
 import { buildEnrichmentRecord } from './generationLedger';
 import type { RepairResult } from './artifactRepair';
 import { readLastDeckPlanVerdict } from './deckPlanGate';
+import { readLastLayoutVerdict } from './layoutGate';
 
 const PROXY_BASE = (import.meta as any)?.env?.VITE_PROXY_BASE || 'http://127.0.0.1:5012';
 
@@ -144,6 +145,8 @@ export interface PostChainRecord {
     slop: { sites: number; phrases: string[] } | null;
     /** The DECK MODE composition gate's verdict for the turn (recorded by the chat service). */
     deckPlan: { pass: boolean; violations: string[]; visualRatio: number; resolution: string; remapped: number } | null;
+    /** 2026-10-24 layout gate: the measured-render receipt for the deck (null when no deck was measured). */
+    layoutGate: { measured: number; clean: number; repaired: number; open: string[]; line: string } | null;
     /** R-M1: per-family before/after counts from the repair pass. */
     ri: { before: Record<string, number>; after: Record<string, number>; resolved: number; survived: number; improved: boolean } | null;
     /** Slides withheld from the shipped deck (a naked-number title repair could not clear). */
@@ -162,6 +165,7 @@ export function buildPostChainRecord<T>(
     const enrichmentRecord = buildEnrichmentRecord();
     const final = repair?.finalChain || chain;
     const deckPlan = readLastDeckPlanVerdict();
+    const layoutGate = readLastLayoutVerdict();
     // The initial pass is where binding happens; fall back to the final pass when
     // there was no repair (in which case they are the same object).
     const bindingSource = (chain.bindReport && chain.bindReport.bound.length)
@@ -227,6 +231,7 @@ export function buildPostChainRecord<T>(
             sites: final.slopFindings.length,
             phrases: Array.from(new Set(final.slopFindings.map(s => s.phrase))).slice(0, 20),
         } : null,
+        layoutGate: layoutGate ? { measured: layoutGate.measured, clean: layoutGate.clean, repaired: layoutGate.repaired.length, open: layoutGate.open.map(o => o.slideId), line: layoutGate.line } : null,
         deckPlan: deckPlan ? {
             pass: deckPlan.pass, violations: deckPlan.violations.slice(0, 12), visualRatio: deckPlan.visualRatio,
             resolution: deckPlan.resolution, remapped: deckPlan.remapped.length,

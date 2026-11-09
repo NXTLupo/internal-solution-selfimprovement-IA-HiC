@@ -39,7 +39,7 @@ describe('claudeModelPolicy - effort policy (plan 0.5.3)', () => {
         expect(effortForArtifact(undefined)).toBe('high');
     });
     it('a skill hint can raise the policy floor, never lower it', () => {
-        expect(effortFromSkillHint('max')).toBe('max');
+        expect(effortFromSkillHint('max')).toBe('xhigh');
         expect(effortFromSkillHint('bogus')).toBeNull();
         expect(maxEffort('xhigh', 'medium')).toBe('xhigh');
         expect(maxEffort('high', 'max')).toBe('max');

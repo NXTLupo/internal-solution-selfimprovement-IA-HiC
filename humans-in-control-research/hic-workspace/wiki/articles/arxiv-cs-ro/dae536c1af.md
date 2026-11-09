@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:21:22+00:00"
 content_hash: "0f443806d889fcf4"
 chunks:
   - id: "articles/arxiv-cs-ro/dae536c1af.md#c0"
-    char_span: [0, 647]
+    char_span: [0, 646]
     sentence_count: 3
     key_terms: [global, becoming, security, wireless, food, sociopolitical, communication, demonstration]
     concepts: [global, becoming, security, wireless]
-    token_count: 133
-    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2301.01600v1"}]
+    token_count: 132
+    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2301.01600v1","kind":"article","date":"2022-12-09"}]
 ---
 # 5G on the Farm: Evaluating Wireless Network Capabilities for Agricultural Robotics
 

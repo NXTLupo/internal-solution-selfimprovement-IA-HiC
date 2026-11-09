@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:11:20+00:00"
 content_hash: "dc4da9cf0de5db09"
 chunks:
   - id: "articles/arxiv-cs-ro/b86fb5ad8c.md#c0"
-    char_span: [0, 650]
+    char_span: [0, 649]
     sentence_count: 5
     key_terms: [robotic, demonstration, arm, automation, specific, fitness, highly, human]
     concepts: [demonstration, robotic, automation, specific, fitness]
-    token_count: 134
-    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2401.16801v1"}]
+    token_count: 133
+    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2401.16801v1","kind":"article","date":"2024-01-30"}]
 ---
 # Kinematic Optimization of a Robotic Arm for Automation Tasks with Human Demonstration
 

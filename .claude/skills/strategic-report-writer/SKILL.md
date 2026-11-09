@@ -1,10 +1,42 @@
 ---
 name: strategic-report-writer
+description: McKinsey-format strategic whitepaper synthesis using Rumelt's Kernel, 20+ named sources, case studies, social evidence, and mandatory section manifest driven by available deliverables.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: McKinsey-format strategic whitepaper synthesis using Rumelt's Kernel, 20+ named sources, case studies, social evidence, and mandatory section manifest driven by available deliverables.
+version: "1"
+status: active
 thinking: max
+triggers:
+  - report
+  - whitepaper
+  - strategic report
+  - executive summary
+  - full report
+  - comprehensive report
+  - synthesis report
+composes_with:
+  - source-ranker
+  - contradiction-finder
+  - second-order-thinker
+  - slide-title-lab
+  - human-voice-editor
+loader:
+  title: Strategic Report Writer
+  role: research-deliverable
+  execution_context: primary
+  wiki_companions:
+    - frameworks/strategy.md
+    - anti-patterns/strategy.md
+  benchmarks:
+    - benchmarks/cx-metrics.md
+    - benchmarks/financial-impact.md
+    - benchmarks/maturity-models.md
+  output_types:
+    - full-html
+    - split-panel
+    - stat-row
+    - evidence-block
+    - recommendation
 ---
 
 # Strategic Report Writer

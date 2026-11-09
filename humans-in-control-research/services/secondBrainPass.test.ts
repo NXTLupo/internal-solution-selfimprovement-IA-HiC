@@ -1,119 +1,83 @@
-/** The runner that makes the DF-D lifecycle live (it had no caller). */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
-const callMock = vi.fn();
-vi.mock('./aiRetryClient', () => ({ callAIWithRetry: (...a: any[]) => callMock(...a) }));
-
-const fetchMock = vi.fn();
-vi.stubGlobal('fetch', fetchMock);
-
+/** The runner that makes the DF-D lifecycle live. Since 2026-10-31 (WS-B B1/B3) it drives the proxy's ONE memory
+ *  door: admission and reinforcement through /api/memory/admit, the staleness + consolidation review through
+ *  /api/memory/lifecycle. The guardrails themselves are pinned by the parity fixture (memoryParity.test.ts and
+ *  proxy/tests/test_memory_store.py); these tests pin the runner's calls and how it reads the answers. */
+import { describe, it, expect, vi } from 'vitest';
 import { runSecondBrainPass, constraintToProposedFact } from './secondBrainPass';
 import { DEFAULT_CONFIG, factId, type MemoryFact } from './memoryLifecycle';
 
-const NOW = Date.now();
-const daysAgo = (n: number) => new Date(NOW - n * 86_400_000).toISOString();
+const report = (over: Record<string, any> = {}) => ({ admitted: 0, rejected: 0, rejectedByScopeGate: 0, removed: 0, extended: 0, merged: 0, confirmed: 0, evicted: 0, shadowDisagreement: 0, refusals: [], total: 0, ...over });
 
-const fact = (over: Partial<MemoryFact>): MemoryFact => ({
-    id: over.id || factId(over.content || 'x'),
-    content: over.content || 'x',
-    category: over.category || 'context',
-    confidence: over.confidence ?? 0.9,
-    scope: 'user', durability: 'durable', authority: 'descriptive',
-    createdAt: over.createdAt || daysAgo(5),
-    expectedValidDays: over.expectedValidDays ?? 90,
-    confirmationCount: 0, sourceRunIds: ['r0'],
-    ...over,
-});
+function door(routes: Record<string, { status?: number; body: any }>) {
+    const calls: Array<{ url: string; body: any }> = [];
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => {
+        calls.push({ url: String(url), body: init?.body ? JSON.parse(String(init.body)) : null });
+        const key = Object.keys(routes).find(k => String(url).includes(k));
+        if (!key) return new Response('{}', { status: 404 });
+        return new Response(JSON.stringify(routes[key].body), { status: routes[key].status ?? 200 });
+    }) as any;
+    return { calls, fetchImpl };
+}
 
-const storeResponse = (facts: MemoryFact[]) => ({
-    ok: true,
-    json: async () => ({ path: 'synthesis/memory-facts.json', exists: true, content: JSON.stringify(facts) }),
-});
-const writeOk = { ok: true, json: async () => ({ ok: true }) };
-
-beforeEach(() => { callMock.mockReset(); fetchMock.mockReset(); });
-
-describe('runSecondBrainPass', () => {
-    it('skips the model call when nothing is due for review', async () => {
-        fetchMock.mockResolvedValueOnce(storeResponse([fact({ content: 'fresh fact' })])).mockResolvedValue(writeOk);
+describe('runSecondBrainPass (through the memory door)', () => {
+    it('admits the learning pass constraints, then asks for the review, and sums the two reports', async () => {
+        const { calls, fetchImpl } = door({
+            '/api/memory/admit': { body: { ok: true, report: report({ admitted: 1, total: 5 }), admitted_ids: ['f1'] } },
+            '/api/memory/lifecycle': { body: { report: report({ removed: 1, total: 4, refusals: ['staleness x: not an aged candidate'] }), stale_candidates: 3, consolidation_groups: 0, model_called: true } },
+        });
         const res = await runSecondBrainPass({
-            runId: 'r1',
-            proposed: [constraintToProposedFact('Name the subreddit in social attributions', { fromNegativeSignal: true })],
-        });
-        expect(res.reviewed.modelCalled).toBe(false);
-        expect(callMock).not.toHaveBeenCalled();
-        expect(res.report?.admitted).toBe(1);
-    });
-
-    it('makes ONE model call when aged candidates exist and enforces the guardrails on its answer', async () => {
-        const store = [
-            fact({ id: 'a', content: 'stale a', createdAt: daysAgo(200) }),
-            fact({ id: 'b', content: 'stale b', createdAt: daysAgo(210) }),
-            fact({ id: 'c', content: 'stale c', createdAt: daysAgo(220) }),
-            fact({ id: 'prot', content: 'never use raster slides', category: 'correction', createdAt: daysAgo(400), expectedValidDays: 30 }),
-            fact({ id: 'fresh', content: 'fresh one', createdAt: daysAgo(2) }),
-        ];
-        fetchMock.mockResolvedValueOnce(storeResponse(store)).mockResolvedValue(writeOk);
-        callMock.mockResolvedValue({
-            candidates: [{ content: { parts: [{ text: JSON.stringify({
-                staleFactsToRemove: [
-                    { id: 'a', reason: 'superseded' },
-                    { id: 'prot', reason: 'model tried to drop a correction' },
-                    { id: 'fresh', reason: 'model tried to drop a fresh fact' },
-                ],
-            }) }] } }],
-        });
-
-        const res = await runSecondBrainPass({ runId: 'r2' });
-        expect(callMock).toHaveBeenCalledTimes(1);
-        expect(res.reviewed.staleCandidates).toBe(3);
-        expect(res.report?.removed).toBe(1);                    // only 'a'
+            runId: 'r1', proposed: [constraintToProposedFact('Name the subreddit in social attributions', { fromNegativeSignal: true })],
+        }, fetchImpl);
+        expect(calls.map(c => c.url.replace(/^.*\/api/, '/api'))).toEqual(['/api/memory/admit', '/api/memory/lifecycle']);
+        expect(calls[0].body.facts[0].category).toBe('correction');
+        expect(calls[1].body).toEqual({ deterministic_only: false });
+        expect(res.report).toMatchObject({ admitted: 1, removed: 1, total: 4 });
+        expect(res.reviewed).toEqual({ staleCandidates: 3, consolidationGroups: 0, modelCalled: true });
         expect(res.report?.refusals.join(' ')).toMatch(/not an aged candidate/);
     });
 
-    it('a failed review still runs admission and capacity rather than skipping the cycle', async () => {
-        const store = [
-            fact({ id: 'a', content: 'stale a', createdAt: daysAgo(200) }),
-            fact({ id: 'b', content: 'stale b', createdAt: daysAgo(210) }),
-            fact({ id: 'c', content: 'stale c', createdAt: daysAgo(220) }),
-        ];
-        fetchMock.mockResolvedValueOnce(storeResponse(store)).mockResolvedValue(writeOk);
-        callMock.mockRejectedValue(new Error('provider 500'));
-        const res = await runSecondBrainPass({
-            runId: 'r3',
-            proposed: [constraintToProposedFact('Cite the pack name when the source is a pack article')],
+    it('a failed review still keeps the admission and reports success', async () => {
+        const { fetchImpl } = door({
+            '/api/memory/admit': { body: { ok: true, report: report({ admitted: 1, total: 2 }) } },
+            '/api/memory/lifecycle': { status: 500, body: {} },
         });
+        const res = await runSecondBrainPass({ runId: 'r3', proposed: [constraintToProposedFact('Cite the pack name when the source is a pack article')] }, fetchImpl);
         expect(res.reviewed.modelCalled).toBe(false);
         expect(res.report?.admitted).toBe(1);
-        expect(res.report?.removed).toBe(0);
         expect(res.envelope.status).toBe('success');
     });
 
-    it('a store read failure leaves the store untouched and reports the error', async () => {
-        fetchMock.mockResolvedValue({ ok: false, status: 500, json: async () => ({}) });
-        const res = await runSecondBrainPass({ runId: 'r4' });
+    it('an admission failure reports the error and asks for no review', async () => {
+        const { calls, fetchImpl } = door({ '/api/memory/admit': { status: 503, body: { error: 'memory store unavailable' } } });
+        const res = await runSecondBrainPass({ runId: 'r4', proposed: [constraintToProposedFact('x y z a b c')] }, fetchImpl);
         expect(res.report).toBeNull();
         expect(res.envelope.status).toBe('error');
-        // No write was attempted.
-        expect(fetchMock.mock.calls.every(c => !String(c[0]).includes('/api/wiki/write'))).toBe(true);
+        expect(calls.some(c => c.url.includes('/api/memory/lifecycle'))).toBe(false);
     });
 
-    it('dryRun computes the report and never writes', async () => {
-        fetchMock.mockResolvedValueOnce(storeResponse([fact({ content: 'one' })])).mockResolvedValue(writeOk);
-        const res = await runSecondBrainPass({
-            runId: 'r5', dryRun: true,
-            proposed: [constraintToProposedFact('Prefer native exports')],
-        });
-        expect(res.report?.admitted).toBe(1);
-        expect(fetchMock.mock.calls.some(c => String(c[0]).includes('/api/wiki/write'))).toBe(false);
-    });
-
-    it('deterministicOnly never calls the model even with aged candidates', async () => {
-        const store = [1, 2, 3].map(i => fact({ id: `s${i}`, content: `stale ${i}`, createdAt: daysAgo(200 + i) }));
-        fetchMock.mockResolvedValueOnce(storeResponse(store)).mockResolvedValue(writeOk);
-        const res = await runSecondBrainPass({ runId: 'r6', deterministicOnly: true });
-        expect(callMock).not.toHaveBeenCalled();
+    it('nothing to admit: only the review runs; deterministicOnly asks the proxy to skip the model', async () => {
+        const { calls, fetchImpl } = door({ '/api/memory/lifecycle': { body: { report: report({ total: 3 }), stale_candidates: 3, consolidation_groups: 0, model_called: false } } });
+        const res = await runSecondBrainPass({ runId: 'r6', deterministicOnly: true }, fetchImpl);
+        expect(calls).toHaveLength(1);
+        expect(calls[0].body).toEqual({ deterministic_only: true });
         expect(res.reviewed.staleCandidates).toBe(3);
+    });
+
+    it('nominated reinforcements travel with the user words that must confirm them', async () => {
+        const { calls, fetchImpl } = door({
+            '/api/memory/admit': { body: { ok: true, report: report({ confirmed: 1, total: 1 }) } },
+            '/api/memory/lifecycle': { body: { report: report({ total: 1 }), stale_candidates: 0, consolidation_groups: 0, model_called: false } },
+        });
+        await runSecondBrainPass({ runId: 'r9', reinforceIds: ['fa'], userMessages: ['yes, exactly right'] }, fetchImpl);
+        expect(calls[0].body).toMatchObject({ facts: [], reinforce_ids: ['fa'], user_messages: ['yes, exactly right'] });
+    });
+
+    it('dryRun computes the report from a read of the store and writes nothing', async () => {
+        const store: MemoryFact[] = [{ id: factId('one'), content: 'one', category: 'context', confidence: 0.9, scope: 'user', durability: 'durable', authority: 'descriptive', createdAt: new Date().toISOString(), expectedValidDays: 90, confirmationCount: 0, sourceRunIds: ['r0'] }];
+        const { calls, fetchImpl } = door({ '/api/memory/facts': { body: { total: 1, facts: store } } });
+        const res = await runSecondBrainPass({ runId: 'r5', dryRun: true, proposed: [constraintToProposedFact('Prefer native exports')] }, fetchImpl);
+        expect(res.report?.admitted).toBe(1);
+        expect(calls.every(c => c.url.includes('/api/memory/facts'))).toBe(true);
     });
 });
 
@@ -136,37 +100,5 @@ describe('constraintToProposedFact', () => {
 
     it('floors confidence at the admission threshold so a weak signal cannot be admitted by accident', () => {
         expect(constraintToProposedFact('x', { confidence: 0.1 }).confidence).toBeGreaterThanOrEqual(DEFAULT_CONFIG.factConfidenceThreshold);
-    });
-});
-
-describe('DF-A4 read-before-write on the fact store', () => {
-    it('presents the hash it read, and a 409 leaves the store untouched', async () => {
-        const store = [fact({ id: 'a', content: 'one' })];
-        fetchMock
-            .mockResolvedValueOnce({
-                ok: true,
-                json: async () => ({ exists: true, content: JSON.stringify(store), content_sha256: 'abc123' }),
-            })
-            .mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({ current_sha256: 'def456' }) });
-
-        const res = await runSecondBrainPass({
-            runId: 'r7',
-            proposed: [constraintToProposedFact('Prefer named actors in every claim')],
-        });
-        const write = fetchMock.mock.calls.find(c => String(c[0]).includes('/api/wiki/write'));
-        expect(write).toBeTruthy();
-        expect(JSON.parse(String((write![1] as any).body)).expected_sha256).toBe('abc123');
-        // The pass reports the failure instead of pretending the write landed.
-        expect(res.envelope.status).toBe('error');
-        expect(res.envelope.errorType).toBe('stale_write');
-    });
-
-    it('omits the precondition when the read did not supply a hash', async () => {
-        fetchMock
-            .mockResolvedValueOnce({ ok: true, json: async () => ({ exists: false, content: '' }) })
-            .mockResolvedValue(writeOk);
-        await runSecondBrainPass({ runId: 'r8', proposed: [constraintToProposedFact('x y z a b c')] });
-        const write = fetchMock.mock.calls.find(c => String(c[0]).includes('/api/wiki/write'));
-        expect(JSON.parse(String((write![1] as any).body)).expected_sha256).toBeUndefined();
     });
 });

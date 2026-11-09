@@ -57,6 +57,22 @@ REJECTION_LOG = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / "wi
 USER_SELECTION_PATH = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / "wiki" / "user-selections" / "active.json"
 PROXY_BASE = os.environ.get("HIC_PROXY_BASE", "http://127.0.0.1:5012")
 
+
+def _proxy_headers() -> dict:
+    """2026-10-30 (WS-0 S2): the proxy requires x-proxy-token; read it from the
+    environment or the runtime config the proxy writes at startup."""
+    headers = {"Accept": "application/json"}
+    token = os.environ.get("PROXY_AUTH_TOKEN", "").strip()
+    if not token:
+        try:
+            cfg = REPO_ROOT / "humans-in-control-research" / "hic-workspace" / ".runtime" / "config.json"
+            token = (json.loads(cfg.read_text(encoding="utf-8")).get("proxyToken") or "").strip()
+        except Exception:
+            token = ""
+    if token:
+        headers["x-proxy-token"] = token
+    return headers
+
 # A chunk pointer has the shape <wikiPath>#c<index>. The wikiPath is
 # slash-delimited relative path with .md/.markdown extension. The index is
 # a non-negative integer. Tight enough to avoid matching arbitrary
@@ -162,7 +178,7 @@ def _fetch_manifest_chunk_ids(slug: str) -> tuple[set[str] | None, int]:
     try:
         # Engagement-scoped first.
         url = f"{PROXY_BASE}/api/manifest/chunks?engagement={slug}"
-        req = urllib.request.Request(url, headers={"Accept": "application/json"})
+        req = urllib.request.Request(url, headers=_proxy_headers())
         with urllib.request.urlopen(req, timeout=5) as resp:
             data = json.loads(resp.read().decode("utf-8"))
             ids = data.get("chunk_ids") or []
@@ -170,7 +186,7 @@ def _fetch_manifest_chunk_ids(slug: str) -> tuple[set[str] | None, int]:
                 eng_count = len(ids)
         # Global catalog for existence-of-pointer validation.
         url2 = f"{PROXY_BASE}/api/manifest/chunks?engagement=&types=social-post,article,upload,transcript,synthesis"
-        req2 = urllib.request.Request(url2, headers={"Accept": "application/json"})
+        req2 = urllib.request.Request(url2, headers=_proxy_headers())
         with urllib.request.urlopen(req2, timeout=15) as resp2:
             data2 = json.loads(resp2.read().decode("utf-8"))
             ids2 = data2.get("chunk_ids") or []

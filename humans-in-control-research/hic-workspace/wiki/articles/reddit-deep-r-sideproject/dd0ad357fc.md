@@ -16,18 +16,19 @@ relevance: 70
 content_hash: "f916b0acea2c201c"
 chunks:
   - id: "articles/reddit-deep-r-sideproject/dd0ad357fc.md#c0"
-    char_span: [0, 2004]
+    char_span: [0, 2003]
     sentence_count: 16
     key_terms: [management, built, software, houseplants, sideproject, everything, engineer, project]
     concepts: [management, built, software, houseplants, sideproject]
-    token_count: 465
-    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1nhy9nn/i_invented_a_timelapse_camera_for_houseplants_and/"}]
+    token_count: 464
+    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1nhy9nn/i_invented_a_timelapse_camera_for_houseplants_and/","kind":"article","date":"2025-09-15","subreddit":"sideproject"}]
   - id: "articles/reddit-deep-r-sideproject/dd0ad357fc.md#c1"
-    char_span: [2006, 3719]
+    char_span: [2005, 3718]
     sentence_count: 15
     key_terms: [sell, business, white, talk, product, revenue, stream, cases]
     concepts: [business, white, product, revenue, stream]
     token_count: 418
+    sources: [{"n":"Reddit Deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1nhy9nn/i_invented_a_timelapse_camera_for_houseplants_and/","kind":"article","date":"2025-09-15","subreddit":"sideproject"}]
 ---
 # I invented a timelapse camera for houseplants and brought it to market (I quit my 9-5 as software engineer for this)
 

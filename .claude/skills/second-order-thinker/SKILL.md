@@ -1,8 +1,9 @@
 ---
 name: second-order-thinker
+description: "Map second-order, third-order, unintended and feedback-loop consequences of a recommendation or decision: three moves ahead, one named unintended consequence and the loop that amplifies or undermines the move. Use to deepen strategy actions and roadmap phases."
 invocation: model
-version: 1.0
-description: Maps the second-order, third-order, unintended, and feedback-loop consequences of any strategic recommendation, decision, or trend. Most strategy deliverables stop at first-order effects (the obvious "if we do X, then Y happens") and miss the consequences that bite — Z happens because of Y, then W happens because of Z, then the system circles back and amplifies or undermines the original move. This skill forces three moves ahead per recommendation, names one unintended consequence, and surfaces the feedback loop. Composes with strategy-author (deepens the Coherent Actions phase of Rumelt's Kernel), recommendation-architect (turns shallow recommendations into ones a partner would defend), roadmap-builder (validates that NEXT and LATER phases account for what NOW unlocks or blocks), and gap-analysis-evaluator (the unintended consequences this skill finds are often the gaps that emerge after recommendations land).
+version: "1"
+status: active
 thinking: high
 category: deliverable-enhancer
 triggers:
@@ -15,9 +16,18 @@ triggers:
   - downstream effects
   - "#second-order"
   - "#consequences"
+loader:
+  title: Second Order Thinker
+  role: quality-enhancer
+  execution_context: primary
+skillopt: trainable
 ---
 
 # Second Order Thinker
+
+## Scope
+
+Maps the second-order, third-order, unintended, and feedback-loop consequences of any strategic recommendation, decision, or trend. Most strategy deliverables stop at first-order effects (the obvious "if we do X, then Y happens") and miss the consequences that bite — Z happens because of Y, then W happens because of Z, then the system circles back and amplifies or undermines the original move. This skill forces three moves ahead per recommendation, names one unintended consequence, and surfaces the feedback loop. Composes with strategy-author (deepens the Coherent Actions phase of Rumelt's Kernel), recommendation-architect (turns shallow recommendations into ones a partner would defend), roadmap-builder (validates that NEXT and LATER phases account for what NOW unlocks or blocks), and gap-analysis-evaluator (the unintended consequences this skill finds are often the gaps that emerge after recommendations land).
 
 ## You Are
 
@@ -38,6 +48,7 @@ Do NOT activate for:
 - Recommendations that haven't been quantified yet — you can't map consequences of a vague directive. Have strategy-author quantify first.
 - Themes or findings — those are diagnoses, not actions. This skill maps action consequences.
 
+<!-- SLOW_UPDATE_START -->
 ## Input contract
 
 You receive:
@@ -56,6 +67,7 @@ If the recommendation is stated as a state ("better partner pipeline"), reject i
 > its entities, mechanisms, and claims from the user's actual recommendation
 > + their system context. If you find yourself reaching for the example
 > wording, you are leaking the template instead of analyzing the user's case.
+<!-- SLOW_UPDATE_END -->
 
 ## The 5-layer protocol
 
@@ -111,6 +123,7 @@ Examples of the shape (DOMAIN-ROTATING TEMPLATES — DO NOT COPY):
 
 If the loop is undermining, the recommendation should be paired with a counter-action that breaks the loop. Name the counter-action.
 
+<!-- SLOW_UPDATE_START -->
 ## Output protocol
 
 Structured Markdown, one section per layer:
@@ -151,6 +164,7 @@ Chain: [step 1] → [step 2] → [step 3] → [returns to recommendation as N or
 5. **The unintended consequence must connect causally back to the recommendation.** "Random unrelated outcome" is not an unintended consequence — it's just an unrelated outcome.
 6. **No banned phrases.** "Paradigm shift", "leverage synergies", "transformative outcomes", "fundamentally change" — auto-fail. Apply SLOP_HIGH from `services/slidePostProcessor.ts`.
 7. **No process references.** "Based on the analysis", "this skill suggests" — auto-fail. The reader sees finished thinking, not your work.
+<!-- SLOW_UPDATE_END -->
 
 ## Composition with other skills
 

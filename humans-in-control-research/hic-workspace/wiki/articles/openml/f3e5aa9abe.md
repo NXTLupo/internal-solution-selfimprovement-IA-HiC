@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:27:29+00:00"
 content_hash: "8cff1803eb1eb3a6"
 chunks:
   - id: "articles/openml/f3e5aa9abe.md#c0"
-    char_span: [0, 584]
+    char_span: [0, 583]
     sentence_count: 1
     key_terms: [name, value, mfeat-factors, numberofinstanceswithmissingvalues, maxnominalattdistinctvalues, openml, majorityclasssize, minorityclasssize]
     concepts: [value, mfeat-factors, openml]
-    token_count: 196
-    sources: [{"n":"[openml](hic://pack-backfill/openml/8214232173854746538","u":""}]
+    token_count: 195
+    sources: [{"n":"openml","u":"","kind":"article"}]
 ---
 # mfeat-factors
 

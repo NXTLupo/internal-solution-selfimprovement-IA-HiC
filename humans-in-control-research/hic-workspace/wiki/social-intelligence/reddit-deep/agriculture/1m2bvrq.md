@@ -17,18 +17,19 @@ research_goal: "Deliver a comprehensive 2026 risk and market analysis for the ag
 engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
 chunks:
   - id: "social-intelligence/reddit-deep/agriculture/1m2bvrq.md#c0"
-    char_span: [0, 1874]
+    char_span: [0, 1873]
     sentence_count: 10
     key_terms: [mcmichael, https, according, livestock, com, www, injuries, killed]
     concepts: [mcmichael, according, livestock, https, injuries]
-    token_count: 426
-    sources: [{"n":"reddit-deep: r/agriculture","u":"https://www.reddit.com/r/Agriculture/comments/1m2bvrq/oklahoma_mans_death_highlights_dangers_faced_by/"}]
+    token_count: 425
+    sources: [{"n":"reddit-deep: r/agriculture","u":"https://www.reddit.com/r/Agriculture/comments/1m2bvrq/oklahoma_mans_death_highlights_dangers_faced_by/","kind":"social-post","date":"2025-07-17","author":"kosuradio","subreddit":"agriculture"}]
   - id: "social-intelligence/reddit-deep/agriculture/1m2bvrq.md#c1"
-    char_span: [1876, 2809]
+    char_span: [1875, 2808]
     sentence_count: 4
     key_terms: [safety, agricultural, moore, important, working, times, food, lot]
     concepts: [agricultural, safety, moore, important, working]
     token_count: 192
+    sources: [{"n":"reddit-deep: r/agriculture","u":"https://www.reddit.com/r/Agriculture/comments/1m2bvrq/oklahoma_mans_death_highlights_dangers_faced_by/","kind":"social-post","date":"2025-07-17","author":"kosuradio","subreddit":"agriculture"}]
 ---
 # Oklahoma man's death highlights dangers faced by agricultural workers
 

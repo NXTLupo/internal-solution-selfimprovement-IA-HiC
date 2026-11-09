@@ -7,13 +7,14 @@ subreddit: "internships"
 title: "Tips to make your resume ATS friendly"
 author: "ddddeeeeg"
 date: "2026-03-03T23:08:15.000Z"
-score: 71
+score: 73
 upvote_ratio: 0.97
 num_comments: 9
 flair: "Resume"
-extracted_at: "2026-06-06T23:20:46.215Z"
+extracted_at: "2026-10-01T20:49:41.907Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Generate a comprehensive product requirements document (PRD) for Northeastern University's Experiential Learning Hub that synthesizes functional, technical, and UX specifications. Ground the requirements in the provided NXT Human SOWs, internal design comp feedback, and external competitor benchmarks, focusing on data integration, student companion features, and dashboard utility."
+engagement: "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c0"
     char_span: [0, 2004]
@@ -21,25 +22,27 @@ chunks:
     key_terms: [resume, internships, intern, ats, comments, built, like, use]
     concepts: [internships, resume, intern, comments, built]
     token_count: 481
-    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/"}]
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/","kind":"social-post","date":"2026-03-03","author":"ddddeeeeg","subreddit":"internships"}]
   - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c1"
     char_span: [2006, 2717]
     sentence_count: 5
     key_terms: [resume, experience, formatting, projects, dates, consistent, difference, especially]
     concepts: [resume, experience, formatting, projects, dates]
     token_count: 148
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/","kind":"social-post","date":"2026-03-03","author":"ddddeeeeg","subreddit":"internships"}]
   - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c2"
-    char_span: [2731, 3904]
+    char_span: [2732, 3905]
     sentence_count: 5
     key_terms: [skills, experience, explaining, recruiters, ddddeeeeg, keywords, section, resume]
     concepts: [skills, experience, explaining, recruiters, ddddeeeeg]
     section: Comments
     token_count: 295
+    sources: [{"n":"reddit-deep: r/internships","u":"https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/","kind":"social-post","date":"2026-03-03","author":"ddddeeeeg","subreddit":"internships"}]
 ---
 # Tips to make your resume ATS friendly
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/)
-Posted by **ddddeeeeg** · **71↑** · **9 comments**
+Posted by **ddddeeeeg** · **73↑** · **9 comments**
 
 In my [recent post about the public list of 2026/2027 internships](https://www.reddit.com/r/internships/comments/1rff7qh/its_not_too_late_for_summer_2026_internships/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) I built, several people asked me to review their resumes - I spent some time going through them and a common theme of my feedback was to make your resume as ATS (applicant tracking system) friendly as possible. I figured I’d share a few quick tips for making your resume more ATS-friendly and getting your resume in front of actual recruiters.
 

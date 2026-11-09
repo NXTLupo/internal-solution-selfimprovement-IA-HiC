@@ -28,8 +28,29 @@ set -e
 
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 HIC_DIR="$REPO_ROOT/humans-in-control-research"
-TRAINING_DIR="${TRAINING_DIR:-/d/tmp/training}"
-OUT_DIR="${OUT_DIR:-/d/tmp/skillopt-batch-$(date +%Y%m%d-%H%M%S)}"
+# 2026-10-30 (WS-5 R3): the training set lives where this script can SEE it. Inside the proxy
+# container that is /hic-workspace/skillopt/training (the workspace mount); on a dev host it is
+# ../tmp/skillopt-training (what `npm run skillopt:build-training` writes). The old default
+# /d/tmp/training existed on no machine, so every skill SKIPped. When the directory is empty the
+# set is BUILT here from the AIR records, traces and the event sink (extract + build-training).
+HIC_WORKSPACE="${HIC_WORKSPACE:-$HIC_DIR/hic-workspace}"
+if [ -z "${TRAINING_DIR:-}" ]; then
+  if [ -d "/hic-workspace" ]; then TRAINING_DIR="/hic-workspace/skillopt/training"; else TRAINING_DIR="$HIC_DIR/../tmp/skillopt-training"; fi
+fi
+OUT_DIR="${OUT_DIR:-${TMPDIR:-/tmp}/skillopt-batch-$(date +%Y%m%d-%H%M%S)}"
+POOL="${SKILLOPT_POOL:-8}"
+SCORE_MODE="${SKILLOPT_SCORE_MODE:-text}"
+PROXY_BASE="${HIC_PROXY_BASE:-http://127.0.0.1:5012}"
+# The proxy requires x-proxy-token on /api/* (auth on by default). The token is read from the runtime config
+# the proxy publishes, never passed through the environment by the caller (2026-10-31).
+PROXY_TOKEN="${HIC_PROXY_TOKEN:-}"
+if [ -z "$PROXY_TOKEN" ]; then
+  for _cfg in "${HIC_WORKSPACE:-/hic-workspace}/.runtime/config.json" "$HIC_DIR/hic-workspace/.runtime/config.json"; do
+    if [ -f "$_cfg" ]; then PROXY_TOKEN="$(python -c "import json,sys;print((json.load(open(sys.argv[1])) or {}).get('proxyToken',''))" "$_cfg" 2>/dev/null)"; fi
+    [ -n "$PROXY_TOKEN" ] && break
+  done
+fi
+export HIC_PROXY_TOKEN="$PROXY_TOKEN"
 BATCH_ID="${BATCH_ID:-$(basename "$OUT_DIR")}"
 PROPOSALS_ROOT="${PROPOSALS_ROOT:-$HIC_DIR/hic-workspace/skillopt/proposals}"
 PROPOSALS_DIR="$PROPOSALS_ROOT/$BATCH_ID"
@@ -52,9 +73,65 @@ for arg in "$@"; do
     --skill=*) PO_SKILL="${arg#--skill=}" ;;
     --candidate=*) PO_CANDIDATE="${arg#--candidate=}" ;;
     --skill-path=*) PO_SKILL_PATH="${arg#--skill-path=}" ;;
+    --pool=*) POOL="${arg#--pool=}" ;;
+    --score-mode=*) SCORE_MODE="${arg#--score-mode=}" ;;
     *) echo "Unknown arg: $arg" >&2; exit 2 ;;
   esac
 done
+# In batch mode --skill= is a FILTER (the proxy's run-batch passes it; it used to be rejected as unknown).
+ONLY_SKILLS="$PO_SKILL"
+
+ensure_training_set() {
+  # Build the training set when the directory has no rollouts (WS-5 R3).
+  if ls "$TRAINING_DIR"/*-training.json >/dev/null 2>&1; then return 0; fi
+  echo "  Training set missing at $TRAINING_DIR; building it from the workspace ($HIC_WORKSPACE)"
+  local rollouts_dir="$TRAINING_DIR/../rollouts"
+  mkdir -p "$TRAINING_DIR" "$rollouts_dir"
+  PYTHONIOENCODING=utf-8 python "$HIC_DIR/scripts/extract-rollouts.py" --workspace "$HIC_WORKSPACE" --out-dir "$rollouts_dir" --max-per-kind 60 || return 1
+  PYTHONIOENCODING=utf-8 python "$HIC_DIR/scripts/build-training-set.py" --real-rollouts-dir "$rollouts_dir" --out-dir "$TRAINING_DIR" \
+    --kinds journey,blueprint,persona,gap-analysis,roadmap,recommendation,strategy-slide --feedback-base "$HIC_WORKSPACE/wiki/feedback" || return 1
+}
+
+set_canary() {
+  # $1 = skill id, $2 = kind, $3 = candidate path. The SPA trials the candidate as a RunState instruction
+  # override for this deliverable kind BEFORE the held-out gate lets it reach the skill file (WS-5 R5).
+  python - "$PROXY_BASE" "$1" "$2" "$3" "$BATCH_ID" "$PROXY_TOKEN" <<'PY' 2>/dev/null || echo "  (canary not set: proxy unreachable)"
+import json, sys, urllib.request
+base, skill, kind, path, batch, tok = sys.argv[1:7]
+text = open(path, "r", encoding="utf-8").read()
+hdrs = {"Content-Type": "application/json"}
+if tok: hdrs["x-proxy-token"] = tok
+req = urllib.request.Request(f"{base}/api/epochs/canary", data=json.dumps({"skill_id": skill, "kind": kind, "candidate_path": path, "text": text, "batch_id": batch}).encode("utf-8"), headers=hdrs, method="POST")
+with urllib.request.urlopen(req, timeout=15) as r:
+    print("  CANARY set:", json.loads(r.read().decode("utf-8")).get("canary", {}).get("sha"))
+PY
+}
+
+record_epoch() {
+  # $1 = skill, $2 = kind, $3 = candidate, $4 = live path, $5 = verdict file. Appends the "## Epoch N" record the job
+  # counter resets on and the SPA binds production outcomes to (/api/epochs/active), with its json block.
+  local ledger="$HIC_WORKSPACE/wiki/synthesis/improvement-epochs.md"
+  python - "$ledger" "$1" "$2" "$3" "$4" "$5" "$BATCH_ID" <<'PY'
+import json, os, re, sys, datetime
+ledger, skill, kind, candidate, live, verdict_file, batch = sys.argv[1:8]
+text = open(ledger, "r", encoding="utf-8").read() if os.path.exists(ledger) else "# Improvement epochs\n"
+ids = [int(m.group(1)) for m in re.finditer(r"^##\s+Epoch\s+(\d+)\s", text, re.M)]
+eid = (max(ids) + 1) if ids else 1
+try:
+    v = json.load(open(verdict_file, "r", encoding="utf-8"))
+except Exception:
+    v = {}
+stamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+rec = {"epoch_id": eid, "layer": "skill", "skill": skill, "file_path": live, "deliverable_class": "#" + kind.replace("strategy-slide", "slides").replace("-", ""),
+       "candidate_path": candidate, "batch_id": batch, "hypothesis": str(v.get("reason") or "")[:300],
+       "baseline_vector": {"held_out": v.get("discrimination_before")}, "target_dims": ["held_out"], "floor_dims": [],
+       "discrimination_before": v.get("discrimination_before"), "discrimination_after": v.get("discrimination_after")}
+block = f"\n\n## Epoch {eid} - {stamp} UTC\n\nSkill: `{live}` promoted from `{candidate}` (batch `{batch}`, verdict APPROVE).\n\n```json\n{json.dumps(rec, indent=2)}\n```\n"
+with open(ledger, "a", encoding="utf-8") as f:
+    f.write(block)
+print(f"  EPOCH {eid} recorded in {ledger}")
+PY
+}
 
 # ---------------------------------------------------------------------------
 # Promotion gate (C6/C7). Returns 0 and copies ONLY when
@@ -94,6 +171,13 @@ promote_candidate() {
   fi
   cp "$candidate" "$skill_path"
   echo "  PROMOTED to $skill_path (verdict APPROVE from $verdict_file)"
+  # the epoch record (counter reset + production attribution) and the canary is retired: the skill file carries it now
+  record_epoch "$skill" "${KINDS[$skill]:-strategy-slide}" "$candidate" "$skill_path" "$verdict_file" || true
+  python - "$PROXY_BASE" "$PROXY_TOKEN" <<'PY' 2>/dev/null || true
+import sys, urllib.request
+req = urllib.request.Request(f"{sys.argv[1]}/api/epochs/canary", method="DELETE", headers=({"x-proxy-token": sys.argv[2]} if len(sys.argv) > 2 and sys.argv[2] else {}))
+urllib.request.urlopen(req, timeout=10)
+PY
   return 0
 }
 
@@ -140,9 +224,12 @@ echo "  Batch id:     $BATCH_ID"
 echo "  Proposals:    $PROPOSALS_DIR"
 echo "  Budget:       $BUDGET edits/epoch"
 echo "  Epochs:       $EPOCHS"
+echo "  Pool:         $POOL candidates ($SCORE_MODE scorer)"
+echo "  Skills:       ${ONLY_SKILLS:-all}"
 echo "  Dry-run:      $DRY_RUN"
 echo "  Auto-promote: $AUTO_PROMOTE"
 echo ""
+if [ "$DRY_RUN" != "1" ]; then ensure_training_set || echo "  WARN: training set could not be built; skills without rollouts will SKIP"; fi
 
 # Skill name -> (path, training-rollouts-file)
 declare -A SKILLS=(
@@ -198,6 +285,7 @@ fi
 mkdir -p "$OUT_DIR"
 
 for SKILL in "${!SKILLS[@]}"; do
+  if [ -n "$ONLY_SKILLS" ] && [ "$ONLY_SKILLS" != "$SKILL" ]; then continue; fi
   IFS='|' read -r SKILL_PATH ROLLOUTS_FILE <<< "${SKILLS[$SKILL]}"
   KIND="${KINDS[$SKILL]}"
   ROLLOUTS_PATH="$TRAINING_DIR/$ROLLOUTS_FILE"
@@ -218,13 +306,16 @@ for SKILL in "${!SKILLS[@]}"; do
     continue
   fi
 
-  # Train
+  # Train: a GEPA pool of $POOL scored candidates (WS-5 R4); --pool=0 restores the single-candidate loop
   PYTHONIOENCODING=utf-8 python "$HIC_DIR/scripts/run-skillopt.py" \
     --skill "$SKILL_PATH" \
     --rollouts "$ROLLOUTS_PATH" \
     --kind "$KIND" \
     --epochs "$EPOCHS" \
     --budget "$BUDGET" \
+    --pool "$POOL" \
+    --score-mode "$SCORE_MODE" \
+    --skill-id "$SKILL" \
     --out-dir "$OUT_DIR" 2>&1 | tee "$OUT_DIR/$SKILL.log"
 
   # Locate the most recent candidate
@@ -247,6 +338,8 @@ for SKILL in "${!SKILLS[@]}"; do
     echo "  ACCEPTED by validate-candidate.py (rung 1-2). Writing proposal for the held-out gate."
     write_proposal "$SKILL" "$KIND" "$CANDIDATE" "$SKILL_PATH" "$ROLLOUTS_PATH"
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # WS-5 R5: the candidate trials as the deliverable kind's instruction override until the gate rules
+    set_canary "$SKILL" "$KIND" "$CANDIDATE"
     if [ "$AUTO_PROMOTE" = "1" ]; then
       # L2 REGRESSION OBLIGATIONS (2026-08-07, sota-elevation plan, layer 4):
       # previously-passing obligations must stay green before ANY promotion.

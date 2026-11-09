@@ -19,23 +19,25 @@ content_hash: "c23cf55276eddad9"
 relevance_by_goal: {"c5a2d58d1be7":65}
 chunks:
   - id: "articles/agr-agriland-ie/56d5fdfb3c.md#c0"
-    char_span: [0, 166]
+    char_span: [0, 165]
     sentence_count: 1
     key_terms: [june-2026-was-4th-warmest-on-record-met-eireann, farming-news, agriland, warmest, record, source, https, june]
-    token_count: 60
-    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/june-2026-was-4th-warmest-on-record-met-eireann/"}]
+    token_count: 59
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/june-2026-was-4th-warmest-on-record-met-eireann/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-agriland-ie/56d5fdfb3c.md#c1"
-    char_span: [168, 2542]
+    char_span: [167, 2541]
     sentence_count: 19
     key_terms: [june, pressure, month, temperature, country, period, average, temperatures]
     concepts: [pressure, temperature, country, month, period]
     token_count: 512
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/june-2026-was-4th-warmest-on-record-met-eireann/","kind":"article","date":"2026-07-02"}]
   - id: "articles/agr-agriland-ie/56d5fdfb3c.md#c2"
-    char_span: [2257, 2791]
+    char_span: [2256, 2790]
     sentence_count: 7
     key_terms: [june, wettest, since, airport, average, month, interspersed, temperatures]
     concepts: [wettest, since, airport, average, month]
     token_count: 134
+    sources: [{"n":"agr_agriland_ie","u":"https://www.agriland.ie/farming-news/june-2026-was-4th-warmest-on-record-met-eireann/","kind":"article","date":"2026-07-02"}]
 ---
 # June 2026 was 4th warmest on record – Met Éireann
 

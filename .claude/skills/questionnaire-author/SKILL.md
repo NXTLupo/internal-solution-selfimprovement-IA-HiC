@@ -1,7 +1,9 @@
 ---
 name: questionnaire-author
-description: Use for #questionnaire. Turns a decision the corpus cannot settle into questions for the person who holds the answer. Reach for it when research has narrowed a choice but the deciding fact sits with a stakeholder, not in a document.
+description: "Use for #questionnaire. Turns a decision the corpus cannot settle into questions for the person who holds the answer. Reach for it when research has narrowed a choice but the deciding fact sits with a stakeholder, not in a document."
 invocation: model
+version: "1.0"
+status: active
 ---
 
 # questionnaire-author

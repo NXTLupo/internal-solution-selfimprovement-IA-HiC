@@ -17,12 +17,12 @@ research_goal: "Deliver a comprehensive 2026 risk and market analysis for the ag
 engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1syp7j5.md#c0"
-    char_span: [0, 477]
+    char_span: [0, 476]
     sentence_count: 4
     key_terms: [insurance, comments, hospital, experiences, reddit-deep, replacement, ahmedabad, completed]
     concepts: [insurance, comments, hospital]
-    token_count: 131
-    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1syp7j5/planning_knee_replacement_for_my_mother_at_shalby/"}]
+    token_count: 130
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1syp7j5/planning_knee_replacement_for_my_mother_at_shalby/","kind":"social-post","date":"2026-04-29","author":"Delicious_Anybody560","subreddit":"insurance"}]
 ---
 # Planning knee replacement for my mother at Shalby Hospital Ahmedabad. Care Supreme policy (bought 2024) has 24-month waiting for named ailments—completed May 2026. Still, hospital says claim may not pass. Any similar experiences or advice? 🙏
 

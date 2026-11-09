@@ -1,10 +1,9 @@
 
-## 2026-09-10T18:13:13.657Z · themes · themes_1789063993657
+## 2026-11-09T01:12:02.250Z · themes · themes_1794186722250
 
-**Quality up 11 points (now 71/100) - improvement attributable to corpus or context shift.**
+**Quality up 2 points (now 61/100) - improvement attributable to corpus or context shift.**
 
-Overall: 71/100 (prior 60/100, delta +11)
+Overall: 61/100 (prior 59/100, delta +2)
 
-Improved: Density (+57), Citation diversity (+25).
-Regressed: Content budgets (-8), Meta-narration (-8).
-Carried-over rules from prior runs: 25 active.
+Improved: Citation diversity (+17), Content budgets (+8).
+Regressed: Meta-narration (-8), Density (-5).

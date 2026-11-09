@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:55:06+00:00"
 content_hash: "e2d9ac09b1fe5cb4"
 chunks:
   - id: "articles/agr-farm-equipment/de61c91bdb.md#c0"
-    char_span: [0, 91]
+    char_span: [0, 90]
     sentence_count: 1
     key_terms: [farm-equipment, equipment, lessiter, source, https, com, farm, www]
-    token_count: 26
-    sources: [{"n":"agr_farm_equipment","u":"https://www.farm-equipment.com/"}]
+    token_count: 25
+    sources: [{"n":"agr_farm_equipment","u":"https://www.farm-equipment.com/","kind":"article"}]
   - id: "articles/agr-farm-equipment/de61c91bdb.md#c1"
-    char_span: [93, 2728]
+    char_span: [92, 2727]
     sentence_count: 15
     key_terms: [equipment, dealers, dealership, farm, summit, "equipment's", deere, minds]
     concepts: [equipment, dealers, dealership, summit, "equipment's"]
     related_chunks: ["articles/agr-farm-equipment/de61c91bdb.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_farm_equipment","u":"https://www.farm-equipment.com/","kind":"article"}]
   - id: "articles/agr-farm-equipment/de61c91bdb.md#c2"
-    char_span: [2430, 3944]
+    char_span: [2429, 3943]
     sentence_count: 11
     key_terms: [equipment, farm, dealership, minds, top, learning, dealer-to-dealer, dealers]
     concepts: [equipment, dealership, dealer-to-dealer, minds, learning]
     related_chunks: ["articles/agr-farm-equipment/de61c91bdb.md#c1"]
     token_count: 282
+    sources: [{"n":"agr_farm_equipment","u":"https://www.farm-equipment.com/","kind":"article"}]
 ---
 # Farm Equipment (Lessiter)
 

@@ -16,45 +16,50 @@ relevance: 70
 content_hash: "cb898761569f0486"
 chunks:
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c0"
-    char_span: [0, 2314]
+    char_span: [0, 2313]
     sentence_count: 21
     key_terms: [mistake, people, users, don, startups, like, assessment, something]
     concepts: [mistake, people, users, startups, assessment]
     related_chunks: ["articles/reddit-deep-r-startups/f5cba2c52d.md#c2", "articles/reddit-deep-r-startups/f5cba2c52d.md#c4"]
-    token_count: 498
-    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/"}]
+    token_count: 497
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c1"
-    char_span: [2316, 4796]
+    char_span: [2315, 4795]
     sentence_count: 25
     key_terms: [time, instead, interface, mistake, competitors, like, too, investors]
     concepts: [instead, interface, mistake, competitors, investors]
     token_count: 509
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c2"
-    char_span: [4798, 7261]
+    char_span: [4797, 7260]
     sentence_count: 24
     key_terms: [users, mistake, working, matter, don, real, defensible, definitely]
     concepts: [users, mistake, working, matter, defensible]
     related_chunks: ["articles/reddit-deep-r-startups/f5cba2c52d.md#c0", "articles/reddit-deep-r-startups/f5cba2c52d.md#c4"]
     token_count: 499
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c3"
-    char_span: [7263, 9489]
+    char_span: [7262, 9488]
     sentence_count: 24
     key_terms: [internalize, too, upbringing, marketing, everyone, dictate, thought, advice]
     concepts: [internalize, upbringing, marketing, everyone, dictate]
     token_count: 493
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c4"
-    char_span: [9491, 11543]
+    char_span: [9490, 11542]
     sentence_count: 20
     key_terms: [users, because, free, mistake, too, completely, technical, features]
     concepts: [users, because, mistake, completely, technical]
     related_chunks: ["articles/reddit-deep-r-startups/f5cba2c52d.md#c0", "articles/reddit-deep-r-startups/f5cba2c52d.md#c2"]
     token_count: 423
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/f5cba2c52d.md#c5"
-    char_span: [11545, 12210]
+    char_span: [11544, 12209]
     sentence_count: 8
     key_terms: [users, freemium, model, agreeable-yak9560, b2c, saas, contrarian, experience]
     concepts: [users, freemium, model]
     token_count: 170
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1r9659a/if_i_started_over_today_id_do_this_instead_i_will/","kind":"article","date":"2026-02-19","subreddit":"startups"}]
 ---
 # If I started over today, I’d do this instead… (I will not promote)
 

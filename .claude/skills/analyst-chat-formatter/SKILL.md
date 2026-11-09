@@ -1,11 +1,14 @@
 ---
 name: analyst-chat-formatter
+description: "Formatting contract for plain, non-hashtag chat replies on the Analyst and Designer desks: headers, bullets, numbered lists, blockquotes and bold in the ChatProse renderer. Use for conversational answers; hashtag deliverables follow the deck and render contracts."
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Rich-text formatting contract for NON-HASHTAG chat replies in the Analyst Desk and Designer Desk panes (the conversational answers routed to Gemini 3.5 Flash). When a user asks a plain question - no #slide / #slides / artifact hashtag - the answer renders in a rich text pane (components/ChatProse.tsx) that formats a safe Markdown subset into NXT-styled headers, bullets, numbered lists, blockquotes, and bold. This skill defines HOW to structure that answer so it is beautifully scannable instead of a wall of text. Does NOT apply to hashtag deliverables (those follow nxt-visual-renderer + the SLIDE OUTPUT PROTOCOL).
+version: "1.1"
+status: active
 thinking: medium
 category: chat-contract
+surfaces:
+  - platform-agent
 triggers:
   - chat
   - question
@@ -17,6 +20,10 @@ triggers:
 ---
 
 # Analyst Chat Formatter
+
+## Scope
+
+Rich-text formatting contract for NON-HASHTAG chat replies in the Analyst Desk and Designer Desk panes (the conversational answers routed to Gemini 3.5 Flash). When a user asks a plain question - no #slide / #slides / artifact hashtag - the answer renders in a rich text pane (components/ChatProse.tsx) that formats a safe Markdown subset into NXT-styled headers, bullets, numbered lists, blockquotes, and bold. This skill defines HOW to structure that answer so it is beautifully scannable instead of a wall of text. Does NOT apply to hashtag deliverables (those follow nxt-visual-renderer + the SLIDE OUTPUT PROTOCOL).
 
 ## You are
 An expert research analyst answering a colleague's question in a chat pane. The pane renders Markdown beautifully, so your job is to make the answer **scannable in three seconds** and readable in full. A flat wall of text is a failure.

@@ -1,13 +1,38 @@
 ---
 name: html-deliverable-composer
+description: "Generate brand-locked, self-contained HTML deliverables (briefs, explainers, reports, playgrounds, approach pickers) for human review, applying verbalized sampling across layout, structure, diagram, interaction and iconography. Used for #brief, #explainer, #report."
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Generate NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the evidence contract the claim ledger gate enforces (chrome is runtime-owned). MUST compose with verbalized-sampling — load that skill first and apply the five-layer VS pattern (visual layout, IA, diagram type, interaction pattern, iconography) as a <vs_thinking> preamble before emitting HTML. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts.
+version: "1"
+status: active
 thinking: max
+triggers:
+  - "#brief"
+  - "#explainer"
+  - "#report"
+  - "#playground"
+  - "#approaches"
+  - "#artifacts"
+  - html artifact
+  - html deliverable
+  - share as html
+  - export as html
+composes_with:
+  - verbalized-sampling
+  - human-voice-editor
+loader:
+  title: HTML Deliverable Composer
+  role: research-deliverable
+  execution_context: primary
+  output_types:
+    - html_artifact
 ---
 
 # HTML Deliverable Composer
+
+## Scope
+
+Generate NXT/NU brand-locked, self-contained HTML artifacts (briefs, explainers, reports, playgrounds, approach-pickers) as the canonical output format for human-review deliverables. Replaces Markdown for any output a human reads and shares. Encodes the NXT design system as CSS variables, the 8 information types (tables, design, illustrations, code, interactions, workflows, spatial, images), 5-7 SVG diagram recipes, the print stylesheet, and the evidence contract the claim ledger gate enforces (chrome is runtime-owned). MUST compose with verbalized-sampling — load that skill first and apply the five-layer VS pattern (visual layout, IA, diagram type, interaction pattern, iconography) as a <vs_thinking> preamble before emitting HTML. Triggered by #brief, #explainer, #report, #playground, #approaches, and #artifacts.
 
 ## Composition contract — load verbalized-sampling first
 

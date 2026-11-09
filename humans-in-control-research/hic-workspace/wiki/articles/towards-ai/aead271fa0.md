@@ -19,12 +19,12 @@ content_hash: "555bb85493d95596"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/towards-ai/aead271fa0.md#c0"
-    char_span: [0, 1240]
+    char_span: [0, 1239]
     sentence_count: 12
     key_terms: [visual, calculations, visual-calculations-just-went-ga-9a5940244b34, percent-of-parent, conversation, calculation, rss----98111c9905da---4, because]
     concepts: [visual, calculations, percent-of-parent, conversation, calculation]
-    token_count: 270
-    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/visual-calculations-just-went-ga-9a5940244b34?source=rss----98111c9905da---4"}]
+    token_count: 269
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/visual-calculations-just-went-ga-9a5940244b34?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
 ---
 # Visual Calculations Just Went GA.
 

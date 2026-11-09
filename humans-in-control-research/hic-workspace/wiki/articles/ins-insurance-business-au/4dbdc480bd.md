@@ -16,23 +16,25 @@ collected_at: "2026-07-02T16:45:31+00:00"
 content_hash: "1d8a06ae2d497310"
 chunks:
   - id: "articles/ins-insurance-business-au/4dbdc480bd.md#c0"
-    char_span: [0, 256]
+    char_span: [0, 255]
     sentence_count: 1
     key_terms: [four-policies-one-crane-job-the-standoff-that-surfaces-when-a-loss-hits-580547, insurancebusinessmag, construction, policies, standoff, surfaces, source, crane]
-    token_count: 67
-    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/construction/four-policies-one-crane-job-the-standoff-that-surfaces-when-a-loss-hits-580547.aspx"}]
+    token_count: 66
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/construction/four-policies-one-crane-job-the-standoff-that-surfaces-when-a-loss-hits-580547.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-au/4dbdc480bd.md#c1"
-    char_span: [258, 2913]
+    char_span: [257, 2912]
     sentence_count: 16
     key_terms: [liability, insurer, specialist, operator, cover, crane, policies, single]
     concepts: [liability, insurer, specialist, operator, cover]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/construction/four-policies-one-crane-job-the-standoff-that-surfaces-when-a-loss-hits-580547.aspx","kind":"article","date":"2026-06-29"}]
   - id: "articles/ins-insurance-business-au/4dbdc480bd.md#c2"
-    char_span: [2577, 4543]
+    char_span: [2576, 4542]
     sentence_count: 15
     key_terms: [wording, single, policy, insurer, accountability, client, rather, claim]
     concepts: [wording, single, policy, accountability, insurer]
     token_count: 374
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/construction/four-policies-one-crane-job-the-standoff-that-surfaces-when-a-loss-hits-580547.aspx","kind":"article","date":"2026-06-29"}]
 ---
 # Four policies, one crane job: The standoff that surfaces when a loss hits
 

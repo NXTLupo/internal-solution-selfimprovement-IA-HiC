@@ -16,31 +16,34 @@ collected_at: "2026-07-02T17:49:37+00:00"
 content_hash: "624646f435fa77f2"
 chunks:
   - id: "articles/agr-agfunder-news/ffff8ded4f.md#c0"
-    char_span: [0, 201]
+    char_span: [0, 200]
     sentence_count: 1
     key_terms: [indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump, agfundernews, junction, revenue, tractor, shares, source, upside]
-    token_count: 56
-    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump"}]
+    token_count: 55
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfunder-news/ffff8ded4f.md#c1"
-    char_span: [203, 2407]
+    char_span: [202, 2406]
     sentence_count: 7
     key_terms: [junction, farmers, tractor, gupta, tractors, million, year-over-year, mechanization]
     concepts: [junction, farmers, tractor, gupta, tractors]
     related_chunks: ["articles/agr-agfunder-news/ffff8ded4f.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfunder-news/ffff8ded4f.md#c2"
-    char_span: [2114, 4524]
+    char_span: [2113, 4523]
     sentence_count: 10
     key_terms: [credit, junction, farmers, tractor, million, finj, interest, tractors]
     concepts: [credit, junction, farmers, tractor, million]
     related_chunks: ["articles/agr-agfunder-news/ffff8ded4f.md#c1"]
     token_count: 512
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump","kind":"article","date":"2026-06-04"}]
   - id: "articles/agr-agfunder-news/ffff8ded4f.md#c3"
-    char_span: [4262, 4734]
+    char_span: [4261, 4733]
     sentence_count: 2
     key_terms: [india, partners, collaboration, mycoprotein, production, agreement, microsoft, planetary]
     concepts: [india, partners]
     token_count: 108
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/indias-tractor-junction-shares-upside-with-staff-after-62-revenue-jump","kind":"article","date":"2026-06-04"}]
 ---
 # India’s Tractor Junction shares upside with staff after 62% revenue jump
 

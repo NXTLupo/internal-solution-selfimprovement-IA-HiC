@@ -37,7 +37,7 @@ from app.tools.cx_services import (
     GenerateJourneyMapTool, SearchRedditTool, CollectRedditDataTool,
     AnalyzeSocialDataTool, TranscribeVideoTool,
     TranscribeVideoComputerTool, BuildCopilotRecipeTool,
-    GenerateCharacterComputerTool,
+    GenerateCharacterComputerTool, bind_cx_tools,
 )
 from app.tools.computer_use import (
     COMPUTER_USE_TOOL_DEF,
@@ -128,6 +128,13 @@ async def on_startup():
         GeneratePrototypeTool,                         # tier 3
     ]:
         tool_registry.register(tool_cls())
+
+    # 2026-10-31 (CX Workbench agent-stack plan A4): CX tools that wrap one MCP tool take their description and
+    # parameters from the service's own declaration (the wrapper's tools/list).
+    try:
+        await bind_cx_tools(tool_registry)
+    except Exception as e:
+        logger.warning("CX tool binding deferred to first use: %s", e)
 
     # Delegate tool (tier 4) -- needs engine reference, wired below
     delegate_tool = DelegateToAgentTool()

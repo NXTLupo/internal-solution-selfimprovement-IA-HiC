@@ -11,7 +11,7 @@ tier: 2
 method: "source-native"
 extracted_at: "2026-08-13T17:16:49.474205+00:00"
 chars: 4336
-engagement: "analyze-the-executive-search-industry-to-map-current-trends identify-high-converting-email-design-patterns-and-product-m"
+engagement: "analyze-the-executive-search-industry-to-map-current-trends identify-high-converting-email-design-patterns-and-product-m 1-understand-emerging-northeastern-university-student-and-other-college-student"
 collected_at: "2026-08-13T17:16:49.687Z"
 relevance: 0
 engagement_goal: "Analyze the executive search industry to map current trends against DSG Global's specific operational pain points (as well as market research validated industry-wide use cases), producing a structured assessment of targeted AI use cases, their implementation feasibility, and expected efficiency gains to address these challenges."
@@ -19,23 +19,25 @@ content_hash: "0d63c820da234663"
 relevance_by_goal: {"c5a2d58d1be7":0,"bb7e192171b3":0}
 chunks:
   - id: "articles/the-conversation-ai/e5ae1d3f0c.md#c0"
-    char_span: [0, 187]
+    char_span: [0, 186]
     sentence_count: 2
     key_terms: [swatch-brawls-why-are-people-fighting-over-pocket-watches-283295, theconversation, fighting, watches, brawls, people, pocket, source]
-    token_count: 50
-    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/swatch-brawls-why-are-people-fighting-over-pocket-watches-283295"}]
+    token_count: 49
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/swatch-brawls-why-are-people-fighting-over-pocket-watches-283295","kind":"article","date":"2026-05-20"}]
   - id: "articles/the-conversation-ai/e5ae1d3f0c.md#c1"
-    char_span: [189, 2581]
+    char_span: [188, 2580]
     sentence_count: 20
     key_terms: [swatch, watch, luxury, brands, demand, collaboration, perspective, get]
     concepts: [swatch, watch, luxury, collaboration, brands]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/swatch-brawls-why-are-people-fighting-over-pocket-watches-283295","kind":"article","date":"2026-05-20"}]
   - id: "articles/the-conversation-ai/e5ae1d3f0c.md#c2"
-    char_span: [2283, 4526]
+    char_span: [2282, 4525]
     sentence_count: 16
     key_terms: [enrichment, economy, swatch, originally, customers, something, instance, products]
     concepts: [enrichment, economy, swatch, originally, customers]
     token_count: 455
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/swatch-brawls-why-are-people-fighting-over-pocket-watches-283295","kind":"article","date":"2026-05-20"}]
 ---
 # Swatch brawls: why are people fighting over pocket watches?
 

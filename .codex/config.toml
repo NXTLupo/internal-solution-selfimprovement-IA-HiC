@@ -1,0 +1,7 @@
+[mcp_servers.research-data]
+command = "python"
+args = [".claude/mcp-servers/research-data-server.py"]
+
+[mcp_servers.research-data.env]
+RESEARCH_PROXY_URL = "http://localhost:5012"
+MCP_PORT = "5020"

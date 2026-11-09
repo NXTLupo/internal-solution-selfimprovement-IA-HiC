@@ -17,12 +17,12 @@ research_goal: "Deliver a comprehensive 2026 risk and market analysis for the ag
 engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
 chunks:
   - id: "social-intelligence/reddit-deep/insurance/1tzoji8.md#c0"
-    char_span: [0, 1173]
+    char_span: [0, 1172]
     sentence_count: 4
     key_terms: [insurance, cover, resident, travel, multi-trip, worldwide, comments, domestic]
     concepts: [insurance, cover, resident, travel, multi-trip]
-    token_count: 304
-    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tzoji8/annual_multitrip_worldwide_travel_insurance_for/"}]
+    token_count: 303
+    sources: [{"n":"reddit-deep: r/insurance","u":"https://www.reddit.com/r/Insurance/comments/1tzoji8/annual_multitrip_worldwide_travel_insurance_for/","kind":"social-post","date":"2026-06-07","author":"SpecialAppearance229","subreddit":"insurance"}]
 ---
 # Annual multi-trip worldwide travel insurance for Indian national, UK resident — policy comparison and claim experience?
 

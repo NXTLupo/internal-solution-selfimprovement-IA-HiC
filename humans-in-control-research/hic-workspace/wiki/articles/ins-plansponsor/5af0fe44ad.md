@@ -16,29 +16,32 @@ collected_at: "2026-07-02T17:44:41+00:00"
 content_hash: "73c120fc1da9db1d"
 chunks:
   - id: "articles/ins-plansponsor/5af0fe44ad.md#c0"
-    char_span: [0, 178]
+    char_span: [0, 177]
     sentence_count: 1
     key_terms: [products-services-launches-4-062526, plansponsor, launches, products, rss-feed, services, source, https]
-    token_count: 47
-    sources: [{"n":"ins_plansponsor","u":"https://www.plansponsor.com/products-services-launches-4-062526/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed"}]
+    token_count: 46
+    sources: [{"n":"ins_plansponsor","u":"https://www.plansponsor.com/products-services-launches-4-062526/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-plansponsor/5af0fe44ad.md#c1"
-    char_span: [180, 3065]
+    char_span: [179, 3064]
     sentence_count: 17
     key_terms: [accounts, investments, portfolios, fidelity, participants, plan, private, morningstar]
     concepts: [investments, accounts, portfolios, participants, fidelity]
     token_count: 512
+    sources: [{"n":"ins_plansponsor","u":"https://www.plansponsor.com/products-services-launches-4-062526/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-plansponsor/5af0fe44ad.md#c2"
-    char_span: [2697, 5746]
+    char_span: [2696, 5745]
     sentence_count: 17
     key_terms: [platform, private, data, analytics, performance, investment, investors, portfolio]
     concepts: [platform, private, analytics, performance, investment]
     token_count: 512
+    sources: [{"n":"ins_plansponsor","u":"https://www.plansponsor.com/products-services-launches-4-062526/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-plansponsor/5af0fe44ad.md#c3"
-    char_span: [5448, 6213]
+    char_span: [5447, 6212]
     sentence_count: 5
     key_terms: [etf, launches, services, companies, investors, portfolio, exposure, products]
     concepts: [launches, services, companies, investors, portfolio]
     token_count: 154
+    sources: [{"n":"ins_plansponsor","u":"https://www.plansponsor.com/products-services-launches-4-062526/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-25"}]
 ---
 # Products & Services Launches
 

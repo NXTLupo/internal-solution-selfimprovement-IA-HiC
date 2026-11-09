@@ -1,8 +1,9 @@
 ---
 name: pre-mortem
+description: Assume a recommendation failed badly 18 months out and reason backward to its failure modes (political resistance, lock-in, change fatigue, integration regret, talent flight, regulatory reversal). Produces a likelihood-by-severity risk register entry per recommendation.
 invocation: model
-version: 1.0
-description: Inverts second-order-thinker — instead of mapping consequences forward, this skill assumes the recommendation has FAILED catastrophically 18 months from now and reasons backward to surface the failure modes that forward-mapping misses (political resistance, vendor lock-in, change-management bankruptcy, integration regret, talent flight, regulatory snap-back). Produces a Risk Register entry per recommendation, scored on likelihood x severity, grounded in named failure modes the deliverable's evidence already supports. Composes with second-order-thinker (forward-mapped consequences) and stakeholder-lens-auditor (most failures originate in stakeholder objections that were politely ignored). Pre-mortem before commit is the single discipline most often missing from consulting strategy decks.
+version: "1"
+status: active
 thinking: high
 category: deliverable-enhancer
 triggers:
@@ -17,6 +18,10 @@ triggers:
 ---
 
 # Pre-Mortem
+
+## Scope
+
+Inverts second-order-thinker — instead of mapping consequences forward, this skill assumes the recommendation has FAILED catastrophically 18 months from now and reasons backward to surface the failure modes that forward-mapping misses (political resistance, vendor lock-in, change-management bankruptcy, integration regret, talent flight, regulatory snap-back). Produces a Risk Register entry per recommendation, scored on likelihood x severity, grounded in named failure modes the deliverable's evidence already supports. Composes with second-order-thinker (forward-mapped consequences) and stakeholder-lens-auditor (most failures originate in stakeholder objections that were politely ignored). Pre-mortem before commit is the single discipline most often missing from consulting strategy decks.
 
 ## You Are
 

@@ -1,0 +1,26 @@
+{
+  "id": "persona-persona-card_1790878394752",
+  "set": "frontier",
+  "kind": "persona",
+  "input": {
+    "objective": "Deliver a 2026 risk and market analysis report evaluating how emerging property risks (climate extremes, aging equipment, outdated practices, AI and technological assets) and macroeconomic factors (inflation, interest rates) impact agricultural underwriting viability and farm solvency. Analyze these dynamics across distinct modern farmer personas, detailing their technological adoption barriers, educational needs, and generational shifts.",
+    "prompt": "#persona",
+    "engagement": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property/artifacts/persona-card_1790878394752.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "persona-card_1790878394752",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:bindPointers partial (unknown); chain:provenance partial (schema_invalid); chain:claims partial (schema_invalid); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); evidence:unsupported_p0 x1; layout:archetype_monotony x1; layout:sequence_repeat x1"
+  }
+}

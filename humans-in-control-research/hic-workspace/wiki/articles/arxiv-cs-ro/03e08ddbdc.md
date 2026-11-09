@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:10:59+00:00"
 content_hash: "571d686f907bc049"
 chunks:
   - id: "articles/arxiv-cs-ro/03e08ddbdc.md#c0"
-    char_span: [0, 642]
+    char_span: [0, 641]
     sentence_count: 4
     key_terms: [aerial-ground, construction, cooperative, automated, system, wall, simultaneously, heterogeneous]
     concepts: [aerial-ground, construction, cooperative, automated, system]
-    token_count: 129
-    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2204.13926v1"}]
+    token_count: 128
+    sources: [{"n":"arxiv_cs_ro","u":"https://arxiv.org/abs/2204.13926v1","kind":"article","date":"2022-04-29"}]
 ---
 # Cooperative Aerial-Ground Multi-Robot System for Automated Construction Tasks
 

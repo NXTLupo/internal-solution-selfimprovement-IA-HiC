@@ -1,0 +1,34 @@
+---
+id: articles/northeastern-university-documentation/fcc36e48ff.md
+url: "https://its.northeastern.edu/2019/02/06/its-hosts-student-staff-game-night-to-celebrate-team-achievements/"
+url_hash: "fcc36e48ff"
+kind: "documentation"
+source: "Northeastern University documentation"
+title: "ITS Hosts Student-Staff Game Night to Celebrate Team Achievements – IT Services"
+author: ""
+date: ""
+tier: 1
+method: "primary-docs"
+extracted_at: "2026-11-09T03:27:29.658194+00:00"
+chars: 680
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
+source_pack: "primary-docs"
+collected_at: "2026-11-09T03:27:29.616197Z"
+engagement_goal: "Northeastern should plug into students' chosen AI, not replace it. 1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations  Determine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.  Explore:  Which AI platforms students use and pay for Career-related use cases: resumes, job discovery, interview prep, networking, skills development Movement from simple prompting toward persistent assistants, agents, memory and connected tools Expectations that AI should know their context rather than start from scratch Differences by AI fluency, age, discipline and career stage  Social listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.  3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.  2. Assess the emerging“Bring Your Own AI” model  Determine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.  Specifically investigate:  Preference for a personally chosen AI vs. institution-provided assistant Evidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products Willingness to connect personal AI to trusted institutional services Expectations for interoperability, memory, portability and personalization Analogous models emerging in banking, healthcare, commerce and enterprise SaaS  This directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.  Key output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.  3. Map consumer trust, privacy and control expectations  Identify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.  Focus on:  What information consumers willingly give AI What information they consider sensitive Differences between AI accessing data and AI writing data back Expectations around consent, transparency, memory and deletion Concern about universities/employers seeing personal AI interactions Behaviors consumers already use to protect themselves Trust differences among an institution, an AI provider and a third-party platform  This addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.  Key output: a consumer AI trust and permission framework that can guide architecture and UX decisions.  4. Identify where proactive AI creates value versus backlash  Determine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.  Analyze market reaction to:  AI notifications and nudges Persistent memory Recommendations based on behavior Autonomous task completion AI detecting problems before the user asks Emotional or motivational interventions AI escalating something to a human  This directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.  Key output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.  5. Define the evolving role of humans in AI-mediated guidance  Understand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.  Look comparatively across:  Career advising Academic advising Healthcare navigation Financial advice Customer service Coaching and mentoring  Study the moments when consumers say:  “AI can handle this.”  versus:  “AI can help me prepare, but I want a person making this call.”  That maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.  Key output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.  The synthesis question  These five objectives ladder into one strategic market question:  As AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+content_hash: "7eec6f34a6ea849e"
+chunks:
+  - id: "articles/northeastern-university-documentation/fcc36e48ff.md#c0"
+    char_span: [0, 921]
+    sentence_count: 5
+    key_terms: [northeastern, student, its-hosts-student-staff-game-night-to-celebrate-team-achievements, employees, technology, university, celebrate, community]
+    concepts: [northeastern, student, employees, technology, university]
+    token_count: 189
+    sources: [{"n":"Northeastern University documentation","u":"https://its.northeastern.edu/2019/02/06/its-hosts-student-staff-game-night-to-celebrate-team-achievements/","kind":"documentation"}]
+---
+# ITS Hosts Student-Staff Game Night to Celebrate Team Achievements – IT Services
+
+Source: [Northeastern University documentation](https://its.northeastern.edu/2019/02/06/its-hosts-student-staff-game-night-to-celebrate-team-achievements/)
+
+Ensuring the Northeastern University community has its technology needs met requires the time and energy of hundreds of hardworking individuals, many of whom are student employees. In roles ranging from offering phone IT support to helping with administrative duties, ITS employs 180 Northeastern students.
+On November 30th, 2018, ITS Customer Service hosted a Student Staff Game Night to celebrate student employees’ hard work. Together, ITS student employees and staff members ate dinner, played board games, and played video games.
+Join us in thanking all of the amazing student employees for all that they do to enhance the technology experience of the Northeastern community!

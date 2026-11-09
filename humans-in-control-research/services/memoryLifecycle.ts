@@ -33,8 +33,7 @@
  */
 
 import { runStep, type StepEnvelope } from './stepEnvelope';
-
-const PROXY_BASE = (import.meta as any)?.env?.VITE_PROXY_BASE || 'http://127.0.0.1:5012';
+import { proxyBase } from './proxyConfig';
 
 // ---------------------------------------------------------------------------
 // The record
@@ -566,50 +565,112 @@ export function renderFactsForInjection(facts: MemoryFact[], maxChars = 2400): s
     return lines.join('\n');
 }
 
-const STORE_PATH = 'synthesis/memory-facts.json';
+// ---------------------------------------------------------------------------
+// IO: the proxy's ONE memory door (WS-B B1, 2026-10-31)
+// ---------------------------------------------------------------------------
+// Before: the SPA read and rewrote wiki/synthesis/memory-facts.json itself (whole-file read-modify-write with a
+// hash precondition), so it was the store's only writer and the other agents had no way in. Now every agent
+// (SPA, platform agent, research-mcp, Claude Code hook, NXT-Agency) goes through /api/memory/*, which runs
+// proxy/memory_store.py, a port of THIS module's pure functions pinned by evals/fixtures/memory-parity.json,
+// under one cross-process lock. The pure functions above stay the reference rule set; the SPA no longer writes
+// the file.
 
-/**
- * DF-A4 read-before-write: the hash of the store as it was last READ. The fact
- * store is the one true read-modify-write file in this service (load, mutate,
- * save), which is exactly the pattern a stale write corrupts, so it presents the
- * precondition on save. A 409 means another writer won; the caller re-loads and
- * re-runs the pass rather than clobbering.
- */
-let _lastReadHash: string | null = null;
+export interface MemoryRecallRow {
+    id: string;
+    content: string;
+    category: FactCategory;
+    scope: FactScope;
+    confidence: number;
+    relevance: number;
+    score: number;
+    sourceRunIds?: string[];
+    engagement?: string;
+}
 
-export async function loadFactStore(): Promise<StepEnvelope<MemoryFact[]>> {
+export interface MemoryRecallResult {
+    facts: MemoryRecallRow[];
+    rendered: string;
+    total: number;
+}
+
+export interface MemoryAdmitResult {
+    ok: boolean;
+    report?: LifecyclePassReport;
+    admitted_ids?: string[];
+    redacted?: number;
+    total?: number;
+    error?: string;
+}
+
+/** Read the whole store (audits, dry runs). */
+export async function loadFactStore(fetchImpl: typeof fetch = globalThis.fetch): Promise<StepEnvelope<MemoryFact[]>> {
     return runStep('memory:load', async () => {
-        const r = await fetch(`${PROXY_BASE}/api/wiki/read/${STORE_PATH}`);
-        if (!r.ok) throw new Error(`wiki read failed: ${r.status}`);
+        const r = await fetchImpl(`${proxyBase()}/api/memory/facts`);
+        if (!r.ok) throw new Error(`memory read failed: ${r.status}`);
         const data = await r.json();
-        _lastReadHash = typeof data?.content_sha256 === 'string' ? data.content_sha256 : null;
-        if (!data?.exists || !data?.content) return [];
-        const parsed = JSON.parse(data.content);
-        return Array.isArray(parsed) ? parsed as MemoryFact[] : [];
+        return Array.isArray(data?.facts) ? data.facts as MemoryFact[] : [];
     });
 }
 
-export async function saveFactStore(facts: MemoryFact[]): Promise<StepEnvelope<number>> {
-    return runStep('memory:save', async () => {
-        const r = await fetch(`${PROXY_BASE}/api/wiki/write`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                path: STORE_PATH,
-                content: JSON.stringify(facts, null, 2),
-                ...(_lastReadHash ? { expected_sha256: _lastReadHash } : {}),
-            }),
-        });
-        if (r.status === 409) {
-            // Do not retry blindly: the next pass re-reads and recomputes, which
-            // is the only safe resolution for a snapshot-derived write.
-            throw new Error('stale write: the fact store changed since it was read');
-        }
-        if (!r.ok) throw new Error(`wiki write failed: ${r.status}`);
-        // The write succeeded, so the caller's in-memory view is now the file.
-        _lastReadHash = null;
-        return facts.length;
+/** The facts relevant to an objective, ranked by the proxy (selectMemoryFacts twin), plus the injection block. */
+export async function memoryRecall(objective: string, opts: { engagement?: string; kind?: FactCategory[]; scope?: FactScope[]; limit?: number; maxChars?: number; surface?: string } = {},
+    fetchImpl: typeof fetch = globalThis.fetch): Promise<MemoryRecallResult> {
+    const q = new URLSearchParams({ objective: objective.slice(0, 2000), limit: String(opts.limit ?? 8), surface: opts.surface || 'spa' });
+    if (opts.engagement) q.set('engagement', opts.engagement);
+    if (opts.kind?.length) q.set('kind', opts.kind.join(','));
+    if (opts.scope?.length) q.set('scope', opts.scope.join(','));
+    if (opts.maxChars) q.set('max_chars', String(opts.maxChars));
+    const r = await fetchImpl(`${proxyBase()}/api/memory/recall?${q.toString()}`, { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error(`memory recall failed: ${r.status}`);
+    const d = await r.json();
+    return { facts: Array.isArray(d?.facts) ? d.facts : [], rendered: String(d?.rendered || ''), total: Number(d?.total || 0) };
+}
+
+/** Admit proposed facts through the gate (and optionally nominate reinforcements the user's words must confirm). */
+export async function memoryAdmit(facts: ProposedFact[], runId: string, opts: { engagement?: string; retainNames?: boolean; reinforceIds?: string[]; userMessages?: string[]; surface?: string } = {},
+    fetchImpl: typeof fetch = globalThis.fetch): Promise<MemoryAdmitResult> {
+    const r = await fetchImpl(`${proxyBase()}/api/memory/admit`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            facts, run_id: runId, engagement: opts.engagement || '', surface: opts.surface || 'spa',
+            ...(opts.retainNames !== undefined ? { retain_names: opts.retainNames } : {}),
+            ...(opts.reinforceIds?.length ? { reinforce_ids: opts.reinforceIds } : {}),
+            ...(opts.userMessages?.length ? { user_messages: opts.userMessages.slice(-6) } : {}),
+        }),
+        signal: AbortSignal.timeout(15000),
     });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) return { ok: false, error: String(d?.error || `memory admit failed: ${r.status}`) };
+    return d as MemoryAdmitResult;
+}
+
+/** The forgetting path: by ids, by text, or by engagement (run-id prefix or engagement slug). */
+export async function memoryForget(sel: { ids?: string[]; contains?: string; engagement?: string },
+    fetchImpl: typeof fetch = globalThis.fetch): Promise<{ removed: string[]; total: number; error?: string }> {
+    const r = await fetchImpl(`${proxyBase()}/api/memory/forget`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sel),
+    });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) return { removed: [], total: 0, error: String(d?.error || `memory forget failed: ${r.status}`) };
+    return { removed: Array.isArray(d?.removed) ? d.removed : [], total: Number(d?.total || 0) };
+}
+
+export interface MemoryLifecycleRun {
+    report: LifecyclePassReport | null;
+    stale_candidates: number;
+    consolidation_groups: number;
+    model_called: boolean;
+    model_error?: string | null;
+}
+
+/** Ask the proxy to run the staleness + consolidation review now (it also runs daily on its own). */
+export async function memoryLifecycleNow(deterministicOnly = false, fetchImpl: typeof fetch = globalThis.fetch): Promise<MemoryLifecycleRun> {
+    const r = await fetchImpl(`${proxyBase()}/api/memory/lifecycle`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ deterministic_only: deterministicOnly }),
+        signal: AbortSignal.timeout(120000),
+    });
+    if (!r.ok) throw new Error(`memory lifecycle failed: ${r.status}`);
+    return await r.json() as MemoryLifecycleRun;
 }
 
 export interface LifecyclePassInput {

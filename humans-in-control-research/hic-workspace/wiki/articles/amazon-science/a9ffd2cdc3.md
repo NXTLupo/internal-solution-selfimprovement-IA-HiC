@@ -19,26 +19,28 @@ content_hash: "fb0aa4dad2e4ec13"
 relevance_by_goal: {"bb7e192171b3":0,"d21cb50b17ba":0}
 chunks:
   - id: "articles/amazon-science/a9ffd2cdc3.md#c0"
-    char_span: [0, 175]
+    char_span: [0, 174]
     sentence_count: 1
     key_terms: [how-amazon-tracks-carbon-intensity-across-its-operations, amazon, operations, intensity, science, across, carbon, source]
     concepts: [amazon]
-    token_count: 41
-    sources: [{"n":"amazon_science","u":"https://www.amazon.science/news/how-amazon-tracks-carbon-intensity-across-its-operations"}]
+    token_count: 40
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/news/how-amazon-tracks-carbon-intensity-across-its-operations","kind":"article","date":"2026-07-01"}]
   - id: "articles/amazon-science/a9ffd2cdc3.md#c1"
-    char_span: [177, 2880]
+    char_span: [176, 2879]
     sentence_count: 17
     key_terms: [emissions, carbon, intensity, per, decarbonization, amazon, unit, business]
     concepts: [emissions, carbon, intensity, decarbonization, amazon]
     related_chunks: ["articles/amazon-science/a9ffd2cdc3.md#c2"]
     token_count: 512
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/news/how-amazon-tracks-carbon-intensity-across-its-operations","kind":"article","date":"2026-07-01"}]
   - id: "articles/amazon-science/a9ffd2cdc3.md#c2"
-    char_span: [2533, 4500]
+    char_span: [2532, 4499]
     sentence_count: 15
     key_terms: [carbon, intensity, progress, decarbonization, revenue, change, equivalent, operations]
     concepts: [carbon, intensity, decarbonization, progress, revenue]
     related_chunks: ["articles/amazon-science/a9ffd2cdc3.md#c1"]
     token_count: 377
+    sources: [{"n":"amazon_science","u":"https://www.amazon.science/news/how-amazon-tracks-carbon-intensity-across-its-operations","kind":"article","date":"2026-07-01"}]
 ---
 # How Amazon tracks carbon intensity across its operations
 

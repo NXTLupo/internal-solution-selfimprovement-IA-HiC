@@ -45,6 +45,26 @@ import urllib.error
 
 
 PROXY_BASE = os.environ.get('HIC_PROXY_BASE', 'http://127.0.0.1:5012')
+
+
+def proxy_auth_headers():
+    """The proxy requires x-proxy-token on /api/* (auth on by default since WS-0). The token is never passed
+    through the batch environment; it is read from the runtime config the proxy publishes
+    (<hic-workspace>/.runtime/config.json), which the container and the host both see."""
+    tok = os.environ.get('HIC_PROXY_TOKEN', '').strip()
+    if not tok:
+        for base in (os.environ.get('HIC_WORKSPACE', ''), '/hic-workspace',
+                     os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'hic-workspace')):
+            if not base:
+                continue
+            try:
+                with open(os.path.join(base, '.runtime', 'config.json'), 'r', encoding='utf-8') as f:
+                    tok = str((json.load(f) or {}).get('proxyToken') or '')
+                if tok:
+                    break
+            except Exception:
+                continue
+    return {'x-proxy-token': tok} if tok else {}
 SLOW_UPDATE_START = '<!-- SLOW_UPDATE_START -->'
 SLOW_UPDATE_END = '<!-- SLOW_UPDATE_END -->'
 DEFAULT_MODEL = 'gemini-3.5-flash'
@@ -233,7 +253,7 @@ def call_optimizer(prompt, model=DEFAULT_MODEL):
     req = urllib.request.Request(
         f'{PROXY_BASE}/api/ai/gemini',
         data=json.dumps(body).encode('utf-8'),
-        headers={'Content-Type': 'application/json'},
+        headers={'Content-Type': 'application/json', **proxy_auth_headers()},
         method='POST',
     )
     try:
@@ -311,15 +331,39 @@ def safe_parse(text, context):
 
 # ─── Text-patch operations ────────────────────────────────────────────────
 
+def protected_regions(skill):
+    """Every (start, end) span the proposer may not touch: the YAML frontmatter (the registry, the manifest view and
+    Claude Code all parse it) and every SLOW_UPDATE_START/END block (the skill's contract sections, WS-A A3,
+    2026-10-31). A skill can carry several blocks; the old single-pair check protected only the first."""
+    spans = []
+    if skill.startswith('---'):
+        fm_end = skill.find('\n---', 3)
+        if fm_end > 0:
+            spans.append((0, fm_end + 4))
+    pos = 0
+    while True:
+        s = skill.find(SLOW_UPDATE_START, pos)
+        if s < 0:
+            break
+        e = skill.find(SLOW_UPDATE_END, s)
+        if e < 0:
+            spans.append((s, len(skill)))   # an unterminated block protects to the end
+            break
+        spans.append((s, e + len(SLOW_UPDATE_END)))
+        pos = e + len(SLOW_UPDATE_END)
+    return spans
+
+
+def slow_update_blocks(skill):
+    return [sp for sp in protected_regions(skill) if skill[sp[0]:sp[0] + len(SLOW_UPDATE_START)] == SLOW_UPDATE_START]
+
+
 def in_protected_region(skill, target):
-    s_start = skill.find(SLOW_UPDATE_START)
-    s_end = skill.find(SLOW_UPDATE_END)
-    if s_start < 0 or s_end < s_start:
-        return False
     t_idx = skill.find(target)
     if t_idx < 0:
         return False
-    return s_start <= t_idx <= s_end + len(SLOW_UPDATE_END)
+    t_end = t_idx + len(target)
+    return any(a <= t_idx < b or a < t_end <= b for a, b in protected_regions(skill))
 
 
 def apply_edit(skill, edit):
@@ -548,13 +592,13 @@ def run_skillopt_step(skill_text, rollouts, budget, minibatch_size, optimizer_me
     # 5: rank + clip
     selected = final_edits
     if len(final_edits) > budget:
-        edit_list = '\n'.join(
-            f'[{i}] {e.get("source_type", "?")}/{e.get("op")}'
-            f'{f" target={e.get('target', '')[:80]!r}" if e.get("target") else ""}'
-            f'{f" content={e.get('content', '')[:200]!r}" if e.get("content") else ""}'
-            f' support={e.get("support_count", 1)}'
-            for i, e in enumerate(final_edits)
-        )
+        # Python 3.11 (the proxy container that runs the SkillOpt batch) rejects a nested f-string that reuses the
+        # outer quote, so the fragments are built by a helper (2026-10-31; the old form raised SyntaxError on import).
+        def _edit_line(i, e):
+            target = ' target=' + repr(str(e.get('target') or '')[:80]) if e.get('target') else ''
+            content = ' content=' + repr(str(e.get('content') or '')[:200]) if e.get('content') else ''
+            return f"[{i}] {e.get('source_type', '?')}/{e.get('op')}{target}{content} support={e.get('support_count', 1)}"
+        edit_list = '\n'.join(_edit_line(i, e) for i, e in enumerate(final_edits))
         prompt = RANKING.format(skill=skill_text[:8000], edits=edit_list, budget=budget)
         print('  [ranking] calling optimizer...')
         try:
@@ -581,6 +625,129 @@ def run_skillopt_step(skill_text, rollouts, budget, minibatch_size, optimizer_me
     }
 
 
+# ─── GEPA-style candidate POOL (2026-10-30, WS-5 R4) ─────────────────────────
+# The optimizer used to yield ONE Flash patch per epoch, never executed or scored. The pool
+# keeps k candidates (the incumbent, a mutation of it, and k-2 proposer runs with different
+# minibatch orders and edit budgets), SCORES each one on a vector of metrics, keeps the Pareto
+# front, and picks the winner by a weighted tie-break. Two scorers:
+#   text  (rung 1): structural integrity, hygiene, held-out failure coverage, size cost; no model
+#                   call, so a dev run completes on any machine
+#   live  (rung 2): `node scripts/eval-run.mjs --mode live --skill-override <id>=<candidate>`
+#                   generates the eval cases with the candidate installed as the deliverable
+#                   kind's instruction override and reads the judge registry's scores
+# The pool file (<skill>.pool-<ts>.json) lists every candidate with its vector so the gate reviews
+# a scored population, not one unscored edit.
+
+def _load_validator():
+    from importlib import util as _imp_util
+    spec = _imp_util.spec_from_file_location('validate_candidate', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'validate-candidate.py'))
+    mod = _imp_util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def text_score_vector(baseline_text, candidate_text, rollouts):
+    """Rung-1 vector: every metric 0..1, higher is better."""
+    v = _load_validator()
+    ok, issues = v.check_structural_integrity(baseline_text, candidate_text)
+    integrity = 1.0 if ok else max(0.0, 1.0 - 0.34 * len(issues))
+    hygiene = v.universal_hygiene_score(candidate_text)
+    failures = [f for r in rollouts for f in (r.get('failures') or [])]
+    addressed, total, _missing = v.held_out_failure_addressed(candidate_text, failures)
+    coverage = (addressed / total) if total else 1.0
+    ratio = len(candidate_text) / max(1, len(baseline_text))
+    size = 1.0 if ratio <= 1.0 else max(0.0, 1.0 - (ratio - 1.0) / 0.6)   # up to 60% growth tolerated
+    return {'integrity': round(integrity, 4), 'hygiene': round(hygiene, 4), 'failure_coverage': round(coverage, 4), 'size': round(size, 4)}
+
+
+def live_score_vector(candidate_path, skill_id, kind, hic_dir, model):
+    """Rung-2 vector from the eval lane. Returns None when the lane cannot run (no node, no proxy)."""
+    import subprocess
+    summary_path = os.path.join(hic_dir, 'evals', 'results', '_summary.json')
+    cmd = ['node', os.path.join(hic_dir, 'scripts', 'eval-run.mjs'), '--mode', 'live', '--models', model,
+           '--skill-override', f'{skill_id}={candidate_path}', '--kinds', kind]
+    try:
+        r = subprocess.run(cmd, cwd=hic_dir, capture_output=True, text=True, timeout=3600)
+    except Exception as e:
+        print(f'  [live-score] eval lane unavailable: {e}', file=sys.stderr)
+        return None
+    if not os.path.exists(summary_path):
+        print(f'  [live-score] no summary written (rc={r.returncode}): {(r.stderr or r.stdout)[-300:]}', file=sys.stderr)
+        return None
+    try:
+        summary = json.loads(open(summary_path, 'r', encoding='utf-8').read())
+    except Exception:
+        return None
+    cases = [c for c in (summary.get('cases') or []) if isinstance(c, dict) and isinstance(c.get('scores'), dict)]
+    if not cases:
+        return None
+    agg = {}
+    for c in cases:
+        for k, val in c['scores'].items():
+            if isinstance(val, (int, float)):
+                agg.setdefault(k, []).append(float(val))
+    vec = {k: round(sum(vs) / len(vs), 4) for k, vs in agg.items()}
+    vec['pass_rate'] = round(sum(1 for c in cases if c.get('pass')) / len(cases), 4)
+    return vec
+
+
+def pareto_front(indexed_vectors):
+    """[(idx, {metric: score})] -> indices of the non-dominated candidates (higher is better on every metric)."""
+    keys = sorted({k for _i, v in indexed_vectors for k in v})
+    front = []
+    for i, vi in indexed_vectors:
+        dominated = False
+        for j, vj in indexed_vectors:
+            if i == j:
+                continue
+            ge_all = all(vj.get(k, 0) >= vi.get(k, 0) for k in keys)
+            gt_any = any(vj.get(k, 0) > vi.get(k, 0) for k in keys)
+            if ge_all and gt_any:
+                dominated = True
+                break
+        if not dominated:
+            front.append(i)
+    return front
+
+
+WEIGHTS = {'failure_coverage': 0.35, 'hygiene': 0.25, 'integrity': 0.25, 'size': 0.15, 'pass_rate': 0.5}
+
+
+def weighted(vec):
+    return sum(WEIGHTS.get(k, 0.2) * float(v) for k, v in vec.items())
+
+
+def build_pool(skill_text, rollouts, budget, minibatch, k, seed=7):
+    """k candidate skill texts: the incumbent, a mutation of the incumbent, and proposer runs over shuffled minibatches."""
+    import random
+    rng = random.Random(seed)
+    pool = [{'label': 'incumbent', 'text': skill_text, 'applied_edits': [], 'trace': 'the live skill, unchanged', 'cost': 0.0}]
+    # a mutation: the proposer sees only the FAILURES, with a wider budget (the incumbent's weak spots, not its successes)
+    variants = []
+    for n in range(max(1, k - 1)):
+        order = list(rollouts)
+        rng.shuffle(order)
+        variants.append({
+            'label': 'mutation' if n == 0 else f'proposer-{n}',
+            'rollouts': [r for r in order if r.get('score', 0) < 0.6] or order if n == 0 else order,
+            'budget': budget + 2 if n == 0 else max(1, budget - (n % 2)),
+            'minibatch': minibatch if n % 3 else max(2, minibatch - 1),
+        })
+    for v in variants:
+        print(f'  [pool] {v["label"]}: budget={v["budget"]} minibatch={v["minibatch"]} rollouts={len(v["rollouts"])}')
+        try:
+            result = run_skillopt_step(skill_text, v['rollouts'], v['budget'], v['minibatch'])
+        except Exception as e:
+            print(f'  [pool] {v["label"]} failed: {e}', file=sys.stderr)
+            continue
+        text = result['candidate_skill'] if result['applied_edits'] else skill_text
+        if any(text == c['text'] for c in pool):
+            print(f'  [pool] {v["label"]}: identical to an existing candidate; dropped')
+            continue
+        pool.append({'label': v['label'], 'text': text, 'applied_edits': result['applied_edits'], 'trace': result['reasoning_trace'], 'cost': result['estimated_cost_usd']})
+    return pool
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--skill', required=True, help='Path to SKILL.md')
@@ -590,7 +757,16 @@ def main():
     p.add_argument('--budget', type=int, default=4)
     p.add_argument('--minibatch', type=int, default=4)
     p.add_argument('--out-dir', default=None, help='Output directory (default: alongside SKILL.md)')
+    # WS-5 R4: the GEPA pool
+    p.add_argument('--pool', type=int, default=0, help='Candidate pool size k (0 = the single-candidate loop)')
+    p.add_argument('--score-mode', choices=['text', 'live'], default='text', help='text = rung-1 text metrics; live = eval lane with the candidate installed')
+    p.add_argument('--skill-id', default=None, help='Skill id for the live override (default: the skill folder name)')
+    p.add_argument('--live-model', default='claude-opus-5-5')
+    p.add_argument('--budget-usd', type=float, default=2.0, help='Stop building the pool when the estimated optimizer spend passes this')
     args = p.parse_args()
+
+    if args.pool and args.pool >= 2:
+        return main_pool(args)
 
     if not os.path.exists(args.skill):
         print(f'SKILL.md not found: {args.skill}', file=sys.stderr)
@@ -655,6 +831,82 @@ def main():
     print(f'Edits:     {edits_path}')
     print(f'Cost:      ${total_cost:.4f}')
     print(f'\nReview the diff, then to deploy: cp {candidate_path} {args.skill}')
+
+
+def main_pool(args):
+    """The GEPA loop: pool -> score -> Pareto -> pick; repeat for --epochs with the winner as the next incumbent."""
+    if not os.path.exists(args.skill) or not os.path.exists(args.rollouts):
+        print('SKILL.md or rollouts JSON not found', file=sys.stderr)
+        sys.exit(1)
+    skill_text = open(args.skill, 'r', encoding='utf-8').read()
+    # WS-A A3 (2026-10-31): the pool trains METHOD, never the contract. A skill with no SLOW_UPDATE block has no
+    # declared contract to protect, so a pool run on it could rewrite its output contract or hard rules; refuse.
+    if not slow_update_blocks(skill_text):
+        print(f'REFUSED: {args.skill} has no {SLOW_UPDATE_START} ... {SLOW_UPDATE_END} block. Wrap its contract '
+              f'sections (input/output contract, hard rules) before a pool run; the proposer may edit only the method.',
+              file=sys.stderr)
+        sys.exit(3)
+    rollouts = json.loads(open(args.rollouts, 'r', encoding='utf-8').read())
+    hic_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+    skill_id = args.skill_id or os.path.basename(os.path.dirname(os.path.abspath(args.skill)))
+    out_dir = args.out_dir or os.path.dirname(os.path.abspath(args.skill))
+    os.makedirs(out_dir, exist_ok=True)
+    timestamp = dt.datetime.now().strftime('%Y%m%d-%H%M%S')
+    skill_base = os.path.splitext(os.path.basename(args.skill))[0]
+    print(f'SkillOpt GEPA pool: {args.skill} ({len(skill_text)} chars), {len(rollouts)} rollouts, kind={args.kind}, k={args.pool}, scorer={args.score_mode}')
+
+    incumbent = skill_text
+    history = []
+    total_cost = 0.0
+    for epoch in range(max(1, args.epochs)):
+        print(f'\n=== POOL EPOCH {epoch + 1}/{args.epochs} ===')
+        pool = build_pool(incumbent, rollouts, args.budget, args.minibatch, args.pool, seed=7 + epoch)
+        total_cost += sum(c['cost'] for c in pool)
+        scored = []
+        for i, c in enumerate(pool):
+            vec = text_score_vector(skill_text, c['text'], rollouts)
+            if args.score_mode == 'live' and c['label'] != 'incumbent':
+                cpath = os.path.join(out_dir, f'{skill_base}.pool-{timestamp}-e{epoch + 1}-c{i}.md')
+                open(cpath, 'w', encoding='utf-8').write(c['text'])
+                live = live_score_vector(cpath, skill_id, args.kind, hic_dir, args.live_model)
+                if live:
+                    vec = {**vec, **live}
+                else:
+                    vec['pass_rate'] = 0.0
+            c['vector'] = vec
+            c['weighted'] = round(weighted(vec), 4)
+            scored.append((i, vec))
+            print(f'  [{i}] {c["label"]:<12} ' + ' '.join(f'{k}={v:.2f}' for k, v in vec.items()) + f'  weighted={c["weighted"]:.3f}')
+        front = pareto_front(scored)
+        # the incumbent only loses to a candidate on the front that beats it on the weighted sum AND on failure coverage
+        inc = pool[0]
+        winners = [i for i in front if i != 0 and pool[i]['weighted'] > inc['weighted'] and pool[i]['vector'].get('failure_coverage', 0) >= inc['vector'].get('failure_coverage', 0)]
+        winner = max(winners, key=lambda i: pool[i]['weighted']) if winners else 0
+        history.append({'epoch': epoch + 1, 'pool': [{k: v for k, v in c.items() if k != 'text'} | {'chars': len(c['text'])} for c in pool],
+                        'pareto_front': front, 'winner': winner, 'winner_label': pool[winner]['label']})
+        print(f'  Pareto front: {front}; winner: [{winner}] {pool[winner]["label"]}')
+        if winner == 0:
+            print('  The incumbent is not beaten this epoch; no candidate is written.')
+            break
+        incumbent = pool[winner]['text']
+        if total_cost > args.budget_usd:
+            print(f'  Optimizer budget ${args.budget_usd:.2f} reached after epoch {epoch + 1}')
+            break
+
+    pool_path = os.path.join(out_dir, f'{skill_base}.pool-{timestamp}.json')
+    with open(pool_path, 'w', encoding='utf-8') as f:
+        json.dump({'skill': args.skill, 'skill_id': skill_id, 'kind': args.kind, 'k': args.pool, 'score_mode': args.score_mode,
+                   'rollouts': len(rollouts), 'estimated_cost_usd': round(total_cost, 4), 'epochs': history,
+                   'weights': WEIGHTS, 'generated_at': dt.datetime.utcnow().isoformat() + 'Z'}, f, indent=2)
+    print(f'\nPool record: {pool_path}')
+    if incumbent != skill_text:
+        candidate_path = os.path.join(out_dir, f'{skill_base}.candidate-{timestamp}.md')
+        open(candidate_path, 'w', encoding='utf-8').write(incumbent)
+        print(f'Candidate: {candidate_path}')
+        print(f'Cost:      ${total_cost:.4f}')
+        print(f'\nReview the diff, then to deploy: cp {candidate_path} {args.skill}')
+    else:
+        print('No candidate beat the incumbent; nothing to promote.')
 
 
 if __name__ == '__main__':

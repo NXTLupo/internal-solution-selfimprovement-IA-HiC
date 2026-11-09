@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:14:27+00:00"
 content_hash: "cb1c09f8ddaf44a0"
 chunks:
   - id: "articles/arxiv-cs-ai/0fd2ac2a4f.md#c0"
-    char_span: [0, 628]
+    char_span: [0, 627]
     sentence_count: 3
     key_terms: [intelligence, artificial, technologies, existential, near-term, potential, humanity, current]
     concepts: [intelligence, artificial, technologies, existential, near-term]
-    token_count: 130
-    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2209.10604v1"}]
+    token_count: 129
+    sources: [{"n":"arXiv CS.AI","u":"https://arxiv.org/abs/2209.10604v1","kind":"article","date":"2022-09-21"}]
 ---
 # Current and Near-Term AI as a Potential Existential Risk Factor
 

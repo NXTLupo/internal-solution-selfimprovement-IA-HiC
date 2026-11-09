@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:06:03+00:00"
 content_hash: "30861f4ad40fa81b"
 chunks:
   - id: "articles/importgenius-blog/55aa0bea3b.md#c0"
-    char_span: [0, 713]
+    char_span: [0, 712]
     sentence_count: 4
     key_terms: [insights, importgenius, reports, analysis, tariffs, expert, global, supply]
     concepts: [insights, importgenius, reports, analysis, tariffs]
-    token_count: 146
-    sources: [{"n":"importgenius_blog","u":"https://www.importgenius.com/blog"}]
+    token_count: 145
+    sources: [{"n":"importgenius_blog","u":"https://www.importgenius.com/blog","kind":"article"}]
 ---
 # ImportGenius blog
 

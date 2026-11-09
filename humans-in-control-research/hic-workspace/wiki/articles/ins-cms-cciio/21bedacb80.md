@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:28:07+00:00"
 content_hash: "113d8c9fa63ea3af"
 chunks:
   - id: "articles/ins-cms-cciio/21bedacb80.md#c0"
-    char_span: [0, 1812]
+    char_span: [0, 1811]
     sentence_count: 8
     key_terms: [insurance, health, information, marketplace, care, new, consumers, oversight]
     concepts: [insurance, information, health, marketplace, consumers]
-    token_count: 338
-    sources: [{"n":"ins_cms_cciio","u":"https://www.cms.gov/marketplace/about/oversight"}]
+    token_count: 337
+    sources: [{"n":"ins_cms_cciio","u":"https://www.cms.gov/marketplace/about/oversight","kind":"article"}]
 ---
 # CMS CCIIO (Insurance Oversight)
 

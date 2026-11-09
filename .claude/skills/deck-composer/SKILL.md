@@ -1,11 +1,46 @@
 ---
 name: deck-composer
+description: "The authority for #slides, #strategy and #presentation deck composition: archetype choice by content shape, the visual floor and variety rules, the Minto, Rumelt and SCQA arc, title craft and subject discipline. Injected whole into the DECK MODE prompt."
 invocation: model
-version: 1.1
-description: "The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry, Figma 609). Covers archetype selection by content shape (including the six native diagram bricks), the gate-enforced visual floor and variety rules, the narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, and reference-deck language. Injected whole into the DECK MODE prompt; it also carries the legacy GOLD Slide-object contract (section 8, folded from the deleted deck-narrative-composer) and folds in infographic-composer."
+version: "1.1"
+status: active
+triggers:
+  - deck
+  - presentation
+  - slides
+  - pitch
+  - strategy deck
+  - slide deck
+  - pitch deck
+composes_with:
+  - slide-title-lab
+  - second-order-thinker
+  - human-voice-editor
+loader:
+  title: Deck Composer
+  role: research-deliverable
+  execution_context: primary
+  thinking_effort: max
+  wiki_companions:
+    - frameworks/deck.md
+    - anti-patterns/deck.md
+    - anti-patterns/deck_structure.md
+  output_types:
+    - stat-row
+    - evidence-block
+    - recommendation
+    - split-panel
+    - section-divider
+    - quote-block
+    - color-block-grid
+skillopt: trainable
 ---
 
 # Deck Composer - the DECK MODE authority
+
+## Scope
+
+The single versioned authority for #slides / #strategy / #presentation deck composition (DECK MODE, SLIDES archetype registry, Figma 609). Covers archetype selection by content shape (including the six native diagram bricks), the gate-enforced visual floor and variety rules, the narrative arc (Minto / Rumelt / SCQA), title craft, subject discipline, the infographic-exhibit depth contract, and reference-deck language. Injected whole into the DECK MODE prompt; it also carries the legacy GOLD Slide-object contract (section 8, folded from the deleted deck-narrative-composer) and folds in infographic-composer.
 
 > DESIGN CONSTITUTION (2026-08-07, D1): every deck surface is bound by the ten HiC Design Laws
 > in `hic-workspace/wiki/brand/design-laws.md` (tokens only; compose from registered bricks;
@@ -34,6 +69,24 @@ skill (the 12-content-block architecture) was folded into section 8 below on 202
 section 8 applies only to legacy GOLD Slide-object flows, never to DECK MODE. `infographic-composer`
 remains the detailed per-family reference for `slides:infographic-exhibit`; its load-bearing rules are
 folded into section 5 below and this skill governs when that archetype is used at all.
+
+## 0. Reformat mode (provided content only; 2026-10-21)
+
+When the request plan reads the turn as PROVIDED-CONTENT-ONLY (the user attached or pasted a document and asked for
+it as a deck), the deck is a reformat, and these rules replace sections 2 and 3:
+- INFORMATION PARITY is the bar. Every source slide becomes at least one output slide, in source order. A source slide
+  with labeled sections (OBJECTIVE / APPROACH / STATUS / BUSINESS VALUE and the like) maps to ONE `slides:brief-card`
+  whose four blocks are those sections, label for label, with their full sentences. Keep every named entity, product
+  name, figure and status statement as written; tighten wording, never drop a unit.
+- Parity beats variety: the same archetype may repeat for sibling source slides; the visual floor and the adjacency
+  rule do not apply.
+- The governing thesis is the source document's own main message (its cover title or stated through-line); offer no
+  alternatives and never a judgment the source does not make.
+- Kickers and section labels carry verbatim ("02 BENEFITS CORTEX / PLAN PULSE" keeps its number).
+- No corpus: no external citations, no pointer binding, no market context, no appendix. Every slide cites the source
+  document by name. The source slide's own pictures ride onto the mapped output slides; do not describe new scenes.
+- A deterministic parity check runs on the reply (title idea or half the sections, plus every named entity and
+  figure); an uncovered source slide gets one re-ask and then a brief card built from the source text.
 
 ## 1. The archetype selection table (content shape -> archetype)
 
@@ -68,13 +121,13 @@ source line is a caption, not a substitute.
 | A RANKING or distribution (where the hours go, which drivers dominate) | `slides:ranked-bars` | `{ kicker, title, bars: [{ label, value, note }] (3-6, sorted descending; value = 0-100 relative, sets bar length only), sourceLine }` |
 | Side-by-side OPTIONS down a shared criteria list (build vs buy, vendor A vs B) | `slides:comparison-panels` | `{ kicker, title, criteria (3-5), panels: [{ name, cells }] (2-3), sourceLine }` |
 | Exactly 3 hard proof figures, by-the-numbers | `slides:stat-row` | `{ kicker, title, stats: [{ figure, headline, means, matters }] (exactly 3), sourceLine }` |
-| One hero verbatim quote + corroboration (single deep-dive subject with a voice) | `slides:block-quote` | `{ topicKicker, quote, attributionName, attributionRole, corroborating (exactly 3), sourceLine }` |
-| EXACTLY 4 items profiled at a glance (themes, plays, apps) | `slides:numbered-themes` | `{ kicker, title, items: [{ number, name, body, quote }] (4), sourceLine }`; NOT a catch-all, max 2 per deck, never for one-subject-per-slide content |
+| One hero verbatim quote + corroboration (single deep-dive subject with a voice) | `slides:block-quote` | `{ topicKicker, title (action title), quote, attributionName, attributionRole, corroborating (exactly 3), sourceLine }` |
+| EXACTLY 4 items profiled at a glance (themes, plays, apps) | `slides:numbered-themes` | `{ kicker, title, items: [{ number, name, body, quote, quoteSource }] (4), sourceLine }` (quote = a verbatim line, quoteSource = the named source it came from); NOT a catch-all, max 2 per deck, never for one-subject-per-slide content |
 | Named subjects compared across criteria on ONE axis | `slides:evidence-table` | `{ kicker, title, intro, columns (4), rows (~6, first 2 featured), takeaway, sourceLine }` |
 | Two contrasting forces as equals | `slides:problem-diptych` | `{ eyebrow, title, subhead, cards: [{ numeral, heading, body }] (exactly 2) }` |
 | A 3-part operating model (peer columns, not a reporting chart) | `slides:org-model` | `{ eyebrow, title, columns: [{ name, definition, teams, outcomes }] (3) }` |
 | One role's current challenges + persona needs | `slides:role-needs` | `{ eyebrow, title, role, challenges (3), persona: { name, needs (3) } }` |
-| One role's recommendation: thesis + actions + impact | `slides:role-recommendation` | `{ eyebrow, title, role, thesis, actions (3), impact (3) }` |
+| One role's recommendation: thesis + actions + impact | `slides:role-recommendation` | `{ eyebrow, title, role, thesis, actionsLabel, actions (3), impactLabel, impact (3), sourceLine }` (the two labels name what each column holds; on a slide carrying the user's attachment they come from the source, never "SUPPORTING ACTIONS" over account facts) |
 | One role's phased roadmap | `slides:role-roadmap` | `{ eyebrow, title, role, phases (4) }` |
 | The cross-role roadmap matrix (closer) | `slides:aggregate-roadmap` | `{ eyebrow, title, horizons (4), roles: [{ name, cells }] }` |
 | A STRUCTURAL finding prose would bury (a 3-5 move sequence, a before/after contrast, a labeled qualitative distribution, an evidence-source mix) | `slides:infographic-exhibit` | `{ kicker, title, takeaway, sourceLine }` + exactly ONE of `steps` / `beforeAfter` / `stats` / `citations`; see section 5 |
@@ -98,6 +151,7 @@ For "one slide per X" coverage (e.g. nine apps): do NOT emit nine identical numb
 GROUP them four per numbered-themes slide, OR give each a single-subject archetype, and
 intersperse stat-row / block-quote / evidence-table / section-divider so consecutive slides differ.
 
+<!-- SLOW_UPDATE_START -->
 ## 2. Gate-enforced composition floors (compose right the first time)
 
 A deterministic gate (`services/deckPlanGate.ts`) evaluates every deck AFTER generation. It does
@@ -121,6 +175,60 @@ violations named). Satisfy these floors in the first pass:
 - CONNECTIVE PADDING: in decks of 8+ slides, at least 60% of slides are BODY slides. Substance
   lives in content-dense archetypes; cover/agenda/divider/thesis are transitions, not content.
 - `slides:infographic-exhibit` caps at 3 per deck, and only with genuinely evidenced fields.
+- PER-SLIDE VISUAL ASK (2026-10-27, gate-enforced): when the user asks for a visualization, diagram or workflow on
+  EACH slide, EVERY research body slide is a drawn archetype (infographic-exhibit, flow-arc, milestone-timeline,
+  ranked-bars, quadrant); a stat tile, table or text grid does not count. infographic-exhibit may then appear up
+  to 5 times across different exhibit shapes (flowchart, process flow, before/after, composition). The slides
+  carrying the user's attached document are exempt.
+- CARD ICONS (2026-10-27): each card in a row (flow-arc `steps`, comparison-panels `panels`, org-model `columns`,
+  numbered-themes `items`) may carry `icon`: ONE id naming the card's ACT or OBJECT (not its actor), a different id per
+  card, from: risk, opportunity, growth, governance, compliance, data, insight, workflow, automation, integration,
+  people, team, customer, time, roadmap, milestone, target, decision, alert, cost, value, security, channel, network,
+  document, search, ai, feedback, scale, churn, retention, acquisition, conversion, funnel, segmentation,
+  personalization, loyalty, satisfaction, sentiment, adoption, engagement, onboarding, resolution, backlog,
+  throughput, capacity, efficiency, benchmark, forecast, trend, experiment, hypothesis, prototype, priority,
+  dependency, blocker, handoff, consent, privacy, transparency, accountability, sustainability, partnership, contract,
+  sla, incident, monitoring, migration, campaign, touchpoint. Omit `icon` on a card when none fits; the slides that
+  carry the user's attached document take no icons.
+- TIMELINE LABELS (2026-10-27): a milestone `date` is a calendar marker ("Q1 2027", "H2 2026", "2028") or a
+  sequence word; a duration a source reports ("pilots in four to five weeks") rides in a quoted, sourced detail
+  line, never as a bare label such as "WEEK 4-5". The composer replaces unsourced duration labels on research
+  slides with FIRST / NEXT / THEN / LATER, so detail lines must not lean on the label ("took this long").
+- SPEAKER NOTES: every `slides:*` payload may carry `speakerNotes` (plain text, <= 600 chars). It is exported to the
+  PPTX notes page and never drawn on the slide. When the user asks for something to be DESCRIBED on each slide (a
+  conceptual description of the visualization, talking points), it goes there; the visualization itself is drawn.
+- COPY RULES (2026-10-25, from the partner / copy-editor audit of a live deck):
+  - EVERY body slide carries an ACTION TITLE, block-quote included (`title`); the kicker names the subject, never the
+    deck's structure ("THE RESPONSE", "WHY IT FAILS" are structure; "FIRST-YEAR ADVISING" is subject).
+  - The title states what THIS slide's body shows; never a claim the body does not carry.
+  - Spell out every acronym and internal product name on first use in the deck ("Comprehensive Learner Record
+    (CLR)"); contract and work-order codes (SOW-style labels) never appear in body text.
+  - Dates: today is the generation date given in the prompt. A milestone before today is shown as done ("Delivered
+    Mar 2026") or left out; never as upcoming. Timelines use one date granularity.
+  - Agenda items name the deck's actual sections in the deck's order, in one grammatical form.
+  - One fact, one version: a capacity, owner or sequence stated on one slide is never contradicted on another.
+- DIAGRAM FLOOR (2026-10-23, gate-enforced): a deck with 6+ body slides carries at least ONE `slides:infographic-exhibit`
+  drawn from the evidence (two from 9 body slides): a FLOWCHART (`nodes` with kinds step | decision | system | actor |
+  outcome | input, labeled `edges`, optional `groups`) for any branching path, hand-off or escalation; `process-flow`
+  for a plain sequence; `stat-row` for cited figures; `composition` for a mix. When the request names a flowchart,
+  diagram, decision tree or escalation path, a flowchart exhibit is MANDATORY. Tables and panels are visual, not
+  diagrams; a sequence the reader must follow is drawn, never listed. The gate re-asks, then converts the first step
+  sequence itself.
+- SO-WHAT BAND: comparison-panels, milestone-timeline, ranked-bars and role-roadmap carry `takeaway: { label,
+  statement }` (the judgment the exhibit proves, <= 140 chars); the composer closes the slide with it.
+- DENSITY FLOOR (2026-10-23, gate-enforced on the payload): every BODY slide carries real reading matter,
+  measured as the characters of every string in its payload with the pointers removed. Floors:
+  numbered-themes / brief-card 520; comparison-panels 480; evidence-table 440; flow-arc 400; means-matters
+  380; role-recommendation 360; role-needs 340; org-model / infographic-exhibit 320-340; quadrant /
+  ranked-bars 300; stat-row / milestone-timeline 260; problem-diptych / role-roadmap 240; aggregate-roadmap
+  220; block-quote 200. Fill EVERY field of the payload contract with complete sentences of substance (the
+  actor, the mechanism, the named evidence); a bare label or a three-word phrase in a body field is what
+  the gate catches. Write to the ceilings in section 6, not to a third of them.
+- POINTER FLOOR: in a corpus-grounded deck every body slide binds at least one manifest pointer inside a
+  factual field, and the archetype's quote-bearing field (quote / prove / note / evidence) carries a VERBATIM
+  corpus sentence with its pointer. A slide with judgment only and no evidence is a connective slide in
+  disguise.
+<!-- SLOW_UPDATE_END -->
 
 ## 3. Narrative arc - plan the business argument FIRST (governs the whole deck)
 
@@ -145,6 +253,7 @@ choosing any archetype, decide the deck's spine and make every slide advance it:
    IN THE USER'S ORDER; sequence their items into setup -> diagnosis -> evidence -> so-what;
    never drop, merge, or reorder them.
 
+<!-- SLOW_UPDATE_START -->
 ## 4. Title craft + subject discipline (HARD)
 
 TITLE CRAFT (concise + literal, NO METAPHOR): every slide title is SHORT and PLAIN. Aim
@@ -238,6 +347,22 @@ contrast, evidence-source mix) or where the takeaway-band anatomy fits best.
   when the archetype's slots genuinely hold more.
 - NO chrome: no page numbers, no run metadata, no confidence labels, no em-dash characters, no
   emoji, plain text only (the renderer owns formatting).
+- JUDGMENT TITLES ON EVERY CONTENT SLIDE (THIS APPLIES TO EVERY CONTENT SLIDE): capability
+  lists, data-source inventories, measurement frameworks, and outcome slides included. The
+  KICKER carries the topic label ("AI CAPABILITIES"); the TITLE carries the judgment ("The
+  platform learns risk-scoring from every farmer interaction"). A kicker plus a descriptive
+  subtitle is NOT a title. ONE message per slide: a title joining two claims with "and" becomes
+  two slides. No colon-then-triad titles, no "X, not Y" antithesis, no preamble-noun-plus-colon
+  openers ("The competitive thesis:").
+- QUOTES ARE COMPLETE SENTENCES: never a lowercase mid-sentence fragment ("installing fire
+  detection and protection equipment."). Pick a span that starts and ends as a sentence, or pick
+  a different span. Quotes are verbatim; the only edits allowed are fixing an unambiguous
+  transcription mis-hearing of a proper noun in the subject's own domain and dropping a filler
+  word ("like,", "you know").
+- DECK-LEVEL EVIDENCE DIVERSITY (MANDATORY): across the whole deck no single citation carries
+  more than a third of the slides; the same verbatim quote never appears on two slides; at least
+  60% of citations name external (non-upload) sources. If a draft leans on one document, swap in
+  the next-strongest independent source before emitting.
 
 ## 7. Imagery rules (runtime-owned, payload-derived)
 
@@ -251,6 +376,7 @@ exhibitImage / panelImage are runtime-owned). When a numbered-themes slide profi
 segments, keep each `items[].body` <= 140 chars so the thumbnail layout breathes. `slides:scene`
 takes an `imageConcept` (a literal shapes-as-content description), never a URL; not every scene
 needs one.
+<!-- SLOW_UPDATE_END -->
 
 ## 8. Legacy GOLD Slide-object flows (folded from deck-narrative-composer, 2026-10-01)
 
@@ -380,6 +506,7 @@ corpus yields a smaller, honest deck; the exemplar's depth is the ceiling of for
 - Eliminate redundant source citations, increase body copy size, and align sources directly beneath
   the quotes they support.
 
+<!-- SLOW_UPDATE_START -->
 ## THE ACTOR RULE (anti-slop, 2026-08-07, binding on every generated sentence)
 
 Two tests every user-visible sentence must pass, on top of the banned-phrase lexicon in
@@ -398,3 +525,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    fact or step.
 
 > FIELD-NAME NOTE (2026-08-07): the `eyebrow` payload field in the slides:* schemas renders as the CANON KICKER (IBM Plex Mono SemiBold 17/+5px, cyan, UPPERCASE) - exactly ONE per slide, always the artifact-type line. Never emit additional micro-labels above titles or section headings; per-section labels that color/position already convey are banned (the "eyebrow slop" rule, owner 2026-08-07).
+<!-- SLOW_UPDATE_END -->

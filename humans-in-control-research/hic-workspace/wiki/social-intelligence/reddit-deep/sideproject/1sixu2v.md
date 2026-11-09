@@ -17,12 +17,12 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/sideproject/1sixu2v.md#c0"
-    char_span: [0, 1565]
+    char_span: [0, 1564]
     sentence_count: 8
     key_terms: [app, com, users, expense, tracker, moneytracker, simplebudget, https]
     concepts: [users, expense, tracker, moneytracker, simplebudget]
-    token_count: 351
-    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1sixu2v/just_launched_my_first_android_app_expense/"}]
+    token_count: 350
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1sixu2v/just_launched_my_first_android_app_expense/","kind":"social-post","date":"2026-04-11","author":"No_Vermicelli_7377","subreddit":"sideproject"}]
 ---
 # Just launched my first Android app (expense tracker) — would love feedback + advice on getting users
 

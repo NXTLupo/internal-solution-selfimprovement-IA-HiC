@@ -7,15 +7,14 @@ subreddit: "artificial"
 title: "Researchers gave 1,222 people AI assistants, then took them away after 10 minutes. Performance crashed below the control group and people stopped trying. UCLA, MIT, Oxford, and Carnegie Mellon call it the \"boiling frog\" effect."
 author: "hibzy7"
 date: "2026-04-20T02:47:31.000Z"
-score: 348
+score: 346
 upvote_ratio: 0.9
-num_comments: 137
+num_comments: 136
 flair: "News"
-extracted_at: "2026-05-11T16:53:08.152Z"
+extracted_at: "2026-11-08T23:47:28.696Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
-industries: [ai_research]
-industry_method: deterministic
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c0"
     char_span: [0, 1886]
@@ -23,7 +22,7 @@ chunks:
     key_terms: [ai-boiling-frog-cognition-study, people, https, cognitive, minutes, effect, performance, researchers]
     concepts: [ai-boiling-frog-cognition-study, people, cognitive, https, minutes]
     token_count: 470
-    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/"}]
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1"
     char_span: [1900, 3270]
     sentence_count: 7
@@ -32,6 +31,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"]
     section: Comments
     token_count: 333
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"
     char_span: [3272, 5111]
     sentence_count: 15
@@ -40,6 +40,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"]
     section: Comments
     token_count: 431
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"
     char_span: [5113, 7209]
     sentence_count: 13
@@ -48,6 +49,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1", "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"]
     section: Comments
     token_count: 501
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c4"
     char_span: [7211, 9255]
     sentence_count: 10
@@ -55,6 +57,7 @@ chunks:
     concepts: [reading, experiments, study, original, effects]
     section: Comments
     token_count: 495
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c5"
     char_span: [9257, 11425]
     sentence_count: 15
@@ -62,25 +65,28 @@ chunks:
     concepts: [higher, level, calculator, minutes, productivity]
     section: Comments
     token_count: 449
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c6"
-    char_span: [11427, 13489]
+    char_span: [11427, 13488]
     sentence_count: 17
     key_terms: [offloaded, civil-interaction-76, thinking, direction, process, without, people, never]
     concepts: [offloaded, civil-interaction-76, thinking, direction, process]
     section: Comments
     token_count: 491
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c7"
-    char_span: [13491, 13836]
+    char_span: [13490, 13835]
     sentence_count: 3
     key_terms: [gamers, build, synthesize, underlying, understand, bothering, insights, extends]
     concepts: [gamers, build]
     section: Comments
     token_count: 76
+    sources: [{"n":"reddit-deep: r/artificial","u":"https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/","kind":"social-post","date":"2026-04-20","author":"hibzy7","subreddit":"artificial"}]
 ---
 # Researchers gave 1,222 people AI assistants, then took them away after 10 minutes. Performance crashed below the control group and people stopped trying. UCLA, MIT, Oxford, and Carnegie Mellon call it the "boiling frog" effect.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/)
-Posted by **hibzy7** · **348↑** · **137 comments**
+Posted by **hibzy7** · **346↑** · **136 comments**
 
 A new study from UCLA, MIT, Oxford, and Carnegie Mellon gave 1,222 people AI assistants for cognitive tasks — then pulled the plug midway through.
 
@@ -126,25 +132,25 @@ https://preview.redd.it/xm3dil38e9wg1.jpg?width=2752&format=pjpg&auto=webp&s=4ce
 
 ## Comments
 
-- **redfroody** (195↑): That's an interesting experiment and finding, but I I'm very sceptical that cognitive ability changes in the span of 10 minutes. I would assume it has something to do with motivation instead.
+- **redfroody** (192↑): That's an interesting experiment and finding, but I I'm very sceptical that cognitive ability changes in the span of 10 minutes. I would assume it has something to do with motivation instead.
   - **PineappleLemur** (12↑): 10 minutes is a weird experiment. Like they probably gave up because they didn't want to do it again or put effort.
 
 A few days long thing would be a lot more interesting (but much harder to do).
-    - **sausage4mash** (7↑): This kind of crap really grinds my gears , it's not science it's a pop study to push an opinion,r/science is full of this rubbish
-    - **uusu** (5↑): Maybe that's how much the scientists' attention span was. They just wanted to stop the study to go watch some shorts on TikTok.
-  - **slaty_balls** (105↑): Motivation and frustration. This isn’t cognition, it’s proof that when available tools break, you’re worse off situationally. I don’t buy this study one bit.
-    - **Seidans** (46↑): When you don't have access to internet one day you usually don't goes to the library trying to get a book about wathever subject that interest you - you just wait a few hours or days until It return because it always return
+    - **sausage4mash** (9↑): This kind of crap really grinds my gears , it's not science it's a pop study to push an opinion,r/science is full of this rubbish
+    - **uusu** (3↑): Maybe that's how much the scientists' attention span was. They just wanted to stop the study to go watch some shorts on TikTok.
+  - **slaty_balls** (106↑): Motivation and frustration. This isn’t cognition, it’s proof that when available tools break, you’re worse off situationally. I don’t buy this study one bit.
+    - **Seidans** (49↑): When you don't have access to internet one day you usually don't goes to the library trying to get a book about wathever subject that interest you - you just wait a few hours or days until It return because it always return
 
 AI will probably be very similar in that aspect, a very powerful tool (such as internet) that it make or will make looking at alternative pointless because it will always be available 
 
 We better be more concerned about the performance of AI than being dependant on it, we're dependant about electricity, internet but also the water and sewage system, public infrastructure, agrochemistry, transport of goods etc etc as a technological advanced species we will be more and more dependant on our technology as we advance the tech tree
     - **Generous_Cougar** (3↑): One of my hobbies is DIY'ing anything my cars need. If one of my essential tools breaks, I'm absolutely dead in the water. Sure, I probably have something that will work, but it's not as good and it'll take me 4 times as long. If I can, I'll just order a new one and hold off until it arrives before attempting the repair again.
     - **mindfulmu** (1↑): I wonder what the reset period is.
-  - **JohnWangDoe** (5↑): have you tried driving without gps. 
+  - **JohnWangDoe** (4↑): have you tried driving without gps. 
 
 
 Using AI is like using GPS. It's really disorienting when navigating new areas with GPS and takes longer to learn
-  - **LLFTR** (4↑): Well, certainly, but it's still a problem.
+  - **LLFTR** (5↑): Well, certainly, but it's still a problem.
 
 >but I I'm very sceptical that cognitive ability changes in the span of 10 minutes.
 
@@ -156,12 +162,12 @@ But if motivation can be obliterated in just 10 minutes... I doubt the same moti
 
 Following the logic, over the long-term there will be an effect, and I doubt it's going to trend towards smarter...
     - **redfroody** (1↑): If the effect on motivation was permanent that seems concerning. Does the study say how long the effect lasted?
-  - **FruitOfTheVineFruit** (12↑): And the experimental design can have a huge impact on motivation.  Psych 1 students required to complete a set of tasks and "don't know" is an acceptable answer? Very low motivation.  Your job depends on it, or you get $100 per correct answer? I bet you get high motivation.  
+  - **FruitOfTheVineFruit** (11↑): And the experimental design can have a huge impact on motivation.  Psych 1 students required to complete a set of tasks and "don't know" is an acceptable answer? Very low motivation.  Your job depends on it, or you get $100 per correct answer? I bet you get high motivation.  
 
 
 There's no link to the study and I have no motivation to go searching for it, especially since it hasn't been published yet.
-    - **En-tro-py** (6↑): OP is only interested in driving blog traffic.
-  - **Due_Satisfaction2167** (7↑): Yeah, I think any basic reading of the situations is something along the lines of “when you give someone a tool that works well, then purposely break that tool, people may consider temporarily giving up and waiting for a new tool to be provided.”
+    - **En-tro-py** (8↑): OP is only interested in driving blog traffic.
+  - **Due_Satisfaction2167** (5↑): Yeah, I think any basic reading of the situations is something along the lines of “when you give someone a tool that works well, then purposely break that tool, people may consider temporarily giving up and waiting for a new tool to be provided.”
 
 To put it another way: suppose the researchers had been asked to dig a hole using a backhoe. Then, ten minutes later, that backhoe was remotely disabled. Does anyone presume they would immediately jump to completing the hole by digging with their hands, instead of reasoning that it is better to wait till the backhoe is repaired? Would we interpret such a result as “using a backhoe even for 10 minutes permanently inhibits a person’s ability to dig a hole by hand”?
   - **The_Northern_Light** (2↑): Or just spite in how I don’t like being fucked with. 🤷‍♂️
@@ -170,9 +176,9 @@ To put it another way: suppose the researchers had been asked to dig a hole usin
   - **SnooCats3468** (1↑): I take some pretty powerful stimulant medication and I’d guess that would at least partially nullify the effect seen in their study.
 
 Willpower, motivation, resilience—those are things cognitive science will probably heavily study as we move forward
-- **frankster** (18↑): If the LLM was taken away, would OP have lost the ability to write their own reddit posts?
+- **frankster** (17↑): If the LLM was taken away, would OP have lost the ability to write their own reddit posts?
   - **hibzy7** (-6↑): Yes. But with more effort
-    - **HolyGarbage** (8↑): Stellar reading comprehension.
+    - **HolyGarbage** (7↑): Stellar reading comprehension.
 - **ninursa** (34↑): [https://arxiv.org/html/2604.04721v2](https://arxiv.org/html/2604.04721v2) \- at least have the decency to link the original study to let other people use their own AI assistants to read and think about the results.
 
 Reading the study, it seems rather good - 3 different experiments. The effects are mainly concentrated on the lazier people and the mechanism does  seem to be a lowered interest in doing the work (any work).
@@ -199,7 +205,7 @@ Granted however that this might be an issue of AI presentation and salient affor
     - **Honest-Quality-6422** (1↑): I think the notion that cognitive engagement is required for “higher level work” is not an accurate conception. Abstracted complexity allows one to “stand on the shoulders of giants” - but you are right that if the foundation is shoddy, the substance is lacking, the user must pay the ignorance tax.
 
 We are seeing now that those with domain expertise are getting much more mileage out of AI as it exists today. There are those that argue LLMs are not the be-all-end-all and have serious drawbacks in hallucination, sycophancy and over-confidence. But wielded carefully, I think there is much potential in the boost that AI provides, if properly applied.
-- **Civil-Interaction-76** (10↑): This feels less like “cognitive damage”
+- **Civil-Interaction-76** (9↑): This feels less like “cognitive damage”
 and more like a shift in effort and motivation.
 
 We’ve always offloaded thinking to tools.

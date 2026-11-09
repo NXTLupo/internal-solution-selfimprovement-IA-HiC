@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:07:18+00:00"
 content_hash: "721f5601b8977353"
 chunks:
   - id: "articles/arxiv-cs-lg/ecdc7f31aa.md#c0"
-    char_span: [0, 666]
+    char_span: [0, 665]
     sentence_count: 3
     key_terms: [efficient, approximations, large-scale, learning, entropy, machine, maximum, method]
     concepts: [efficient, approximations, large-scale, learning, entropy]
-    token_count: 132
-    sources: [{"n":"arXiv CS.LG","u":"https://arxiv.org/abs/1906.01101v1"}]
+    token_count: 131
+    sources: [{"n":"arXiv CS.LG","u":"https://arxiv.org/abs/1906.01101v1","kind":"article","date":"2019-06-03"}]
 ---
 # MEMe: An Accurate Maximum Entropy Method for Efficient Approximations in Large-Scale Machine Learning
 

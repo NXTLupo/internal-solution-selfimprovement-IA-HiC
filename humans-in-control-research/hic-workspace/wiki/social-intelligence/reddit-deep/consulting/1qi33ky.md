@@ -11,10 +11,10 @@ score: 12
 upvote_ratio: 1
 num_comments: 20
 flair: ""
-extracted_at: "2026-06-23T20:31:59.152Z"
+extracted_at: "2026-10-09T16:37:07.953Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze case studies of private equity firms and holding companies (such as Medforth) that build repeatable AI capabilities once and scale them across higher education portfolio companies. Deliver an operational playbook detailing the shared-service models, governance frameworks, and deployment strategies used to scale AI across admissions workflows, student communications, and enrollment operations to accelerate long enrollment cycles."
-engagement: "analyze-case-studies-of-private-equity-firms-and-holding-com"
+research_goal: "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution."
+engagement: "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
 chunks:
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c0"
     char_span: [0, 2302]
@@ -22,48 +22,46 @@ chunks:
     key_terms: [produce, project, interview, people, slides, client, friend, asked]
     concepts: [produce, project, interview, people, slides]
     token_count: 491
-    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/"}]
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c1"
     char_span: [2304, 2748]
     sentence_count: 2
     key_terms: [least, necessarily, realistically, essentially, generation, interview, situation, anything]
     concepts: [necessarily, least]
     token_count: 95
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c2"
-    char_span: [2762, 4623]
+    char_span: [2763, 4624]
     sentence_count: 12
     key_terms: [work, time, requests, scope, reasonable, contract, clients, connect]
     concepts: [requests, reasonable, scope, contract, clients]
     section: Comments
     token_count: 436
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c3"
-    char_span: [4625, 5834]
-    sentence_count: 3
-    key_terms: [clients, good, real, work, crawlpatterns, deliverables, game-changer, hypothetical]
-    concepts: [clients]
+    char_span: [4626, 6571]
+    sentence_count: 11
+    key_terms: [project, client, including, anyone, needs, phase, scope, value]
+    concepts: [project, client, including, anyone, needs]
     section: Comments
-    token_count: 284
+    token_count: 451
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c4"
-    char_span: [5836, 8029]
-    sentence_count: 14
-    key_terms: [client, project, asking, consultancy, provide, including, anyone, level]
-    concepts: [client, project, asking, consultancy, provide]
+    char_span: [6573, 8923]
+    sentence_count: 12
+    key_terms: [consulting, asking, questions, consultancy, please, recruiting, new, client]
+    concepts: [consulting, questions, asking, consultancy, recruiting]
     section: Comments
-    token_count: 487
+    token_count: 507
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
   - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c5"
-    char_span: [8031, 10280]
-    sentence_count: 10
-    key_terms: [consulting, questions, please, recruiting, new, subreddit, message, wanting]
-    concepts: [consulting, questions, recruiting, please, subreddit]
+    char_span: [8925, 10106]
+    sentence_count: 7
+    key_terms: [freelancer, test, something, "doesn't", project, wanting, people, wants]
+    concepts: [freelancer, something, "doesn't", project, wanting]
     section: Comments
-    token_count: 492
-  - id: "social-intelligence/reddit-deep/consulting/1qi33ky.md#c6"
-    char_span: [10282, 10807]
-    sentence_count: 3
-    key_terms: [freelancer, "doesn't", call, "it's", test, significant, irrelevant, open-ended]
-    concepts: [freelancer, "doesn't"]
-    section: Comments
-    token_count: 113
+    token_count: 267
+    sources: [{"n":"reddit-deep: r/consulting","u":"https://www.reddit.com/r/consulting/comments/1qi33ky/for_freelancers_prospective_clients_asking_to/","kind":"social-post","date":"2026-01-20","author":"Henry_Charrier","subreddit":"consulting"}]
 ---
 # For freelancers: prospective clients asking to produce slides/models relevant to the project you are interviewing for?
 
@@ -94,7 +92,7 @@ Thanks!
 
 ## Comments
 
-- **lock_robster2022** (15↑): If I have the time, I’ll do it for new clients who didn’t connect via referral.
+- **lock_robster2022** (14↑): If I have the time, I’ll do it for new clients who didn’t connect via referral.
 
 Otherwise, I’ve had mostly successful results (2 for 3) in saying some combination of the following:  
 * This is out of the ordinary and getting into the scope of paid work and
@@ -109,21 +107,19 @@ Take note this is distinct from providing a workplan for the actual work they ne
   - **Henry_Charrier** (3↑): This is sensible and it puts this kind of requests in an even less good light. 
 
 I think the lesson learned here is to pre-empt these requests by stating that I don't work on showcase deliverables that are relevant to the work at hand... as early on as it makes sense to do so in the process.
-- **LumpyHeight2953** (6↑): I’ve seen this go both ways. A small, bounded exercise can be reasonable. Anything that looks like real client work without compensation is usually a red flag.
+- **LumpyHeight2953** (5↑): I’ve seen this go both ways. A small, bounded exercise can be reasonable. Anything that looks like real client work without compensation is usually a red flag.
   - **Henry_Charrier** (1↑): Thanks for your input. I've come to the conclusion that these exercises should only ever be done in a live setting (in person or with a shared screen). Put a limit to the candidate's time you are going to waste. Open-ended homework lends itself to disproportionate amounts of time.
 - **00ians** (3↑): IMO it depends on the scope of work and value of the contract.  If the contract is only worth the amount of time it would take to mock up the sample, what's the point?  But if the scope is large, a small mock-up seems reasonable.
 
 Yes, AI is a game-changer, but not all are familiar with what it can do.
   - **Henry_Charrier** (2↑): My friend told me that what they are asking him to do is already a good portion of the initial 2 month phase... Yes, a mock up, but the reasoning has to be there and needs to be defended in a presentation + follow up question session.
-- **crawlpatterns** (2↑): this has become way more common and it always feels like a gray line at best. i have no issue with hypothetical or sanitized case studies, but once it maps cleanly onto a real project with real numbers and timelines, that is unpaid work. i have pushed back before by offering a high level approach instead of deliverables, and the serious clients were fine with it. the ones that were fishing usually weren’t. forcing detailed models also quietly selects for who is willing to overwork or lean hard on tools just to compete, which is a weird signal to send in an interview. to me the rule is simple: assess thinking, not free labor.
-  - **Henry_Charrier** (1↑): Thanks, your last quip is a good one to go by.
 - **devvok** (2↑): Encountered this many times recently. Clients ask for quite extensive "prep-"work and is then not interested anymore. 
 
 Curious whether anyone had experiences in including this prep-work in the contract scope
 - **SomeCat9762** (2↑): I've seen this from both perspectives. As a client, I respected the ones who politely pushed back and suggested a paid "discovery phase." Anyone who offers to do full project planning for free either feels desperate or doesn't value their time, which does not inspire confidence. A 30-minute call where you demonstrate your understanding of their problem is sufficient. If they want the solution, they need to pay for it.
   - **Henry_Charrier** (1↑): I also agree that it needs to be "live". Anything async will mean people give things to LLM.
 - **LumpyHeight2953** (2↑): I’m generally okay with a *small* paid exercise, but unpaid multi-slide decks feel like free labor. If they can’t scope it tightly, that’s usually a red flag for how the project will run too.
-- **Dafe8** (3↑): From my experience, it's absolutely bog standard and expected that you will provide both an overview of what the key deliverables will be as well as a project plan (including timeline, summary of activities you will take, key milestone, how you will interact with client) etc. for any RFP response. If you can't tell the client what you will give them and how you will run the project, how much of an expert are you in the topic? If 4 slides of high level approach is most of the value the consultant will deliver, that's not a very good project for the client to undertake.
+- **Dafe8** (4↑): From my experience, it's absolutely bog standard and expected that you will provide both an overview of what the key deliverables will be as well as a project plan (including timeline, summary of activities you will take, key milestone, how you will interact with client) etc. for any RFP response. If you can't tell the client what you will give them and how you will run the project, how much of an expert are you in the topic? If 4 slides of high level approach is most of the value the consultant will deliver, that's not a very good project for the client to undertake.
 
 Cost model part - dunno about that. Depends on what level we are going to here. But doing initial analytics in pitch phase to indicate e.g. directionally cost savings etc. (to be further validated and refined during project) is everyday thing. Your firend's case could be him getting used, the middleman consultancy not knowing how much they are asking for or purely him lacking expertise to provide what the other party is asking.
   - **Henry_Charrier** (2↑): Wait, this is not the client asking a whole consultancy to provide something tangible with an RFP.   
@@ -158,3 +154,4 @@ And wanting to do it on something that is so aligned to the actual project is ve
 I actually think that a live test on a shared screen during a call on something irrelevant to the project would be the right way of doing this. The freelancer doesn't have to commit to an open-ended task that could take significant time (the test would be 1 hour on the call and it's on the freelancer go as far as possible with it, if they don't finish it's minus points) and can't cheat. 
 
 The client doesn't come across as somebody who wants relevant work done for free and can see what the freelancer is capable for real.
+- **phatster88** (1↑): Yuzbinhad

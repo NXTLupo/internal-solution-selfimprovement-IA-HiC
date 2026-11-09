@@ -19,24 +19,26 @@ content_hash: "8e7c4b8d654e883d"
 relevance_by_goal: {"c5a2d58d1be7":60}
 chunks:
   - id: "articles/agr-agribusiness-global/e545eafd0d.md#c0"
-    char_span: [0, 653]
+    char_span: [0, 652]
     sentence_count: 2
     key_terms: [data-driven, decisions, episodes, talk, tech, exploring, agr-agribusiness-global, digital]
     concepts: [data-driven, decisions, episodes, exploring, digital]
-    token_count: 136
-    sources: [{"n":"[agr_agribusiness_global](articles/agr-agribusiness-global/73b70b3003.md","u":""}]
+    token_count: 135
+    sources: [{"n":"agr_agribusiness_global","u":"","kind":"article"}]
   - id: "articles/agr-agribusiness-global/e545eafd0d.md#c1"
-    char_span: [675, 3270]
+    char_span: [674, 3269]
     sentence_count: 16
     key_terms: [data, tech, monitoring, technology, decision-making, retailers, crop, across]
     concepts: [decision-making, monitoring, technology, retailers, across]
     token_count: 512
+    sources: [{"n":"agr_agribusiness_global","u":"","kind":"article"}]
   - id: "articles/agr-agribusiness-global/e545eafd0d.md#c2"
-    char_span: [2963, 3405]
+    char_span: [2962, 3404]
     sentence_count: 6
     key_terms: [agribusiness, here, interested, newsletter, newspapers, specialist, university, attendees]
     concepts: [agribusiness]
     token_count: 92
+    sources: [{"n":"agr_agribusiness_global","u":"","kind":"article"}]
 ---
 # 5 Ag Tech Talk Episodes Exploring AI, Digital Ag Retail Tools and Data-Driven Farming Decisions
 

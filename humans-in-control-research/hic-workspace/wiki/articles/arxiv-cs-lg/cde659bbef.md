@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:14:47+00:00"
 content_hash: "f2f86e5c666299f5"
 chunks:
   - id: "articles/arxiv-cs-lg/cde659bbef.md#c0"
-    char_span: [0, 676]
+    char_span: [0, 675]
     sentence_count: 4
     key_terms: [management, risks, events, catastrophic, intelligence, risk, addressing, artificial]
     concepts: [management, risks, catastrophic, intelligence, events]
-    token_count: 139
-    sources: [{"n":"arXiv CS.LG","u":"https://arxiv.org/abs/2206.08966v3"}]
+    token_count: 138
+    sources: [{"n":"arXiv CS.LG","u":"https://arxiv.org/abs/2206.08966v3","kind":"article","date":"2022-06-17"}]
 ---
 # Actionable Guidance for High-Consequence AI Risk Management: Towards Standards Addressing AI Catastrophic Risks
 

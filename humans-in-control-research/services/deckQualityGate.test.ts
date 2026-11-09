@@ -22,7 +22,7 @@ describe('exhibit data fit', () => {
 
     it('flags a 2x2 plotting one subject and a table with one row', () => {
         const r = evaluateDeckQuality([
-            slide('slides:quadrant', { items: [{ label: 'only' }] }, 'q'),
+            slide('slides:quadrant', { subjects: [{ label: 'only' }] }, 'q'),
             slide('slides:evidence-table', { rows: [{ cells: ['a'] }] }, 't'),
         ]);
         expect(r.findings.filter(f => f.kind === 'exhibit_underfilled')).toHaveLength(2);

@@ -19,39 +19,43 @@ content_hash: "eaf792f1c010dbd2"
 relevance_by_goal: {"c5a2d58d1be7":50}
 chunks:
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c0"
-    char_span: [0, 209]
+    char_span: [0, 208]
     sentence_count: 1
     key_terms: [deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity, agfundernews, agrifoodtech, opportunity, innovation, argentina, capital, limited]
-    token_count: 51
-    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity"}]
+    token_count: 50
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity","kind":"article","date":"2026-06-30"}]
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c1"
-    char_span: [211, 3210]
+    char_span: [210, 3209]
     sentence_count: 21
     key_terms: [argentina, global, country, agricultural, agrifoodtech, agriculture, around, sophisticated]
     concepts: [argentina, global, agricultural, agrifoodtech, agriculture]
     related_chunks: ["articles/agr-agfunder-news/ce5fed74f5.md#c2", "articles/agr-agfunder-news/ce5fed74f5.md#c3", "articles/agr-agfunder-news/ce5fed74f5.md#c4"]
     token_count: 512
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity","kind":"article","date":"2026-06-30"}]
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c2"
-    char_span: [2804, 5671]
+    char_span: [2803, 5670]
     sentence_count: 17
     key_terms: [agricultural, infrastructure, startups, biologicals, argentina, ecosystem, climate, agrifoodtech]
     concepts: [agricultural, infrastructure, startups, biologicals, argentina]
     related_chunks: ["articles/agr-agfunder-news/ce5fed74f5.md#c1", "articles/agr-agfunder-news/ce5fed74f5.md#c3"]
     token_count: 512
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity","kind":"article","date":"2026-06-30"}]
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c3"
-    char_span: [5408, 8353]
+    char_span: [5407, 8352]
     sentence_count: 19
     key_terms: [agricultural, agrifoodtech, innovation, argentina, capital, agriculture, challenges, ecosystem]
     concepts: [agricultural, agrifoodtech, innovation, argentina, agriculture]
     related_chunks: ["articles/agr-agfunder-news/ce5fed74f5.md#c1", "articles/agr-agfunder-news/ce5fed74f5.md#c2"]
     token_count: 512
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity","kind":"article","date":"2026-06-30"}]
   - id: "articles/agr-agfunder-news/ce5fed74f5.md#c4"
-    char_span: [7950, 9075]
+    char_span: [7949, 9074]
     sentence_count: 6
     key_terms: [agrifoodtech, ecosystem, capital, global, increasingly, opportunity, efficiency, innovation]
     concepts: [agrifoodtech, ecosystem, capital, increasingly, global]
     related_chunks: ["articles/agr-agfunder-news/ce5fed74f5.md#c1"]
     token_count: 186
+    sources: [{"n":"agr_agfunder_news","u":"https://agfundernews.com/deep-innovation-limited-capital-define-argentinas-agrifoodtech-opportunity","kind":"article","date":"2026-06-30"}]
 ---
 # Deep innovation, limited capital define Argentina’s agrifoodtech opportunity
 

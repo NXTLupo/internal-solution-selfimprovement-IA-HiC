@@ -16,25 +16,27 @@ collected_at: "2026-07-02T17:38:21+00:00"
 content_hash: "edd20731f4316929"
 chunks:
   - id: "articles/ins-insurance-journal-southeast/8abd4ce83d.md#c0"
-    char_span: [0, 188]
+    char_span: [0, 187]
     sentence_count: 1
     key_terms: [insurancejournal, florida-based, safepoint, southeast, withdraws, expected, launch, source]
-    token_count: 52
-    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/25/875288.htm"}]
+    token_count: 51
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/25/875288.htm","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-insurance-journal-southeast/8abd4ce83d.md#c1"
-    char_span: [190, 2806]
+    char_span: [189, 2805]
     sentence_count: 12
     key_terms: [withdrawal, insurance, safepoint, ipo, registration, florida, filing, statement]
     concepts: [withdrawal, insurance, safepoint, registration, florida]
     related_chunks: ["articles/ins-insurance-journal-southeast/8abd4ce83d.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/25/875288.htm","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-insurance-journal-southeast/8abd4ce83d.md#c2"
-    char_span: [2505, 3233]
+    char_span: [2504, 3232]
     sentence_count: 5
     key_terms: [florida, insurance, safepoint, slide, public, exec, pay, contributions]
     concepts: [florida, insurance, safepoint, slide, public]
     related_chunks: ["articles/ins-insurance-journal-southeast/8abd4ce83d.md#c1"]
     token_count: 165
+    sources: [{"n":"ins_insurance_journal_southeast","u":"https://www.insurancejournal.com/news/southeast/2026/06/25/875288.htm","kind":"article","date":"2026-06-25"}]
 ---
 # Florida-Based Safepoint Withdraws IPO Just as it Was Expected to Launch
 

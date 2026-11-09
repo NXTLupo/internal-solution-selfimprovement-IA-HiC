@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:18:24+00:00"
 content_hash: "9d2d4599b110c83a"
 chunks:
   - id: "articles/apple-ml/c643cdcb6f.md#c0"
-    char_span: [0, 163]
+    char_span: [0, 162]
     sentence_count: 1
     key_terms: [balcaprl-mllm-image-captioning, machinelearning, captioning, framework, balanced, balcaprl, research, rl-based]
-    token_count: 44
-    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/balcaprl-mllm-image-captioning"}]
+    token_count: 43
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/balcaprl-mllm-image-captioning","kind":"article","date":"2026-05-11"}]
   - id: "articles/apple-ml/c643cdcb6f.md#c1"
-    char_span: [165, 2586]
+    char_span: [164, 2585]
     sentence_count: 12
     key_terms: [captioning, image, reinforcement, models, framework, balanced, learning, vision-language]
     concepts: [captioning, image, reinforcement, models, framework]
     token_count: 512
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/balcaprl-mllm-image-captioning","kind":"article","date":"2026-05-11"}]
   - id: "articles/apple-ml/c643cdcb6f.md#c2"
-    char_span: [2231, 3185]
+    char_span: [2230, 3184]
     sentence_count: 5
     key_terms: [models, foundation, multimodal, captions, pre-training, synthetic, caption, algorithmsconference]
     concepts: [foundation, multimodal, models, captions, pre-training]
     token_count: 170
+    sources: [{"n":"apple_ml","u":"https://machinelearning.apple.com/research/balcaprl-mllm-image-captioning","kind":"article","date":"2026-05-11"}]
 ---
 # BalCapRL: A Balanced Framework for RL-Based MLLM Image Captioning
 

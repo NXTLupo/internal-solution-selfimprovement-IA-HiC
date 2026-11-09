@@ -17,12 +17,12 @@ research_goal: ""
 engagement: "misc"
 chunks:
   - id: "social-intelligence/reddit-deep/sideproject/1s2egyg.md#c0"
-    char_span: [0, 987]
+    char_span: [0, 986]
     sentence_count: 6
     key_terms: [sideproject, comments, feedback, boards, cinema, launch, paying, posted]
     concepts: [sideproject, comments, feedback, boards, cinema]
-    token_count: 244
-    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1s2egyg/6_days_after_launch_500_visits_from_hn_first/"}]
+    token_count: 243
+    sources: [{"n":"reddit-deep: r/sideproject","u":"https://www.reddit.com/r/SideProject/comments/1s2egyg/6_days_after_launch_500_visits_from_hn_first/","kind":"social-post","date":"2026-03-24","author":"oant97","subreddit":"sideproject"}]
 ---
 # 6 days after launch - 500 visits from HN, first paying user, and applying user feedback
 

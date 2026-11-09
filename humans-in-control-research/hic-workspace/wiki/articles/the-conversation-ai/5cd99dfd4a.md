@@ -19,32 +19,35 @@ content_hash: "db20065331fb0579"
 relevance_by_goal: {"8429cfd39d4f":20,"d21cb50b17ba":5}
 chunks:
   - id: "articles/the-conversation-ai/5cd99dfd4a.md#c0"
-    char_span: [0, 199]
+    char_span: [0, 198]
     sentence_count: 1
     key_terms: [how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684, theconversation, schiaparelli, pioneered, currency, fashion, maison, source]
-    token_count: 51
-    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684"}]
+    token_count: 50
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684","kind":"article","date":"2026-06-11"}]
   - id: "articles/the-conversation-ai/5cd99dfd4a.md#c1"
-    char_span: [201, 2740]
+    char_span: [200, 2739]
     sentence_count: 23
     key_terms: [schiaparelli, cultural, connection, relevance, art, fashion, transforming, brand]
     concepts: [schiaparelli, cultural, connection, relevance, fashion]
     related_chunks: ["articles/the-conversation-ai/5cd99dfd4a.md#c2"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684","kind":"article","date":"2026-06-11"}]
   - id: "articles/the-conversation-ai/5cd99dfd4a.md#c2"
-    char_span: [2431, 4958]
+    char_span: [2430, 4957]
     sentence_count: 25
     key_terms: [schiaparelli, cultural, brand, unconventional, luxury, recognisable, experience, signalling]
     concepts: [schiaparelli, cultural, brand, unconventional, recognisable]
     related_chunks: ["articles/the-conversation-ai/5cd99dfd4a.md#c1", "articles/the-conversation-ai/5cd99dfd4a.md#c3"]
     token_count: 512
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684","kind":"article","date":"2026-06-11"}]
   - id: "articles/the-conversation-ai/5cd99dfd4a.md#c3"
-    char_span: [4636, 6076]
+    char_span: [4635, 6075]
     sentence_count: 13
     key_terms: [schiaparelli, brand, intelligence, collections, environment, customer, atelier, clothes]
     concepts: [schiaparelli, brand, intelligence, collections, environment]
     related_chunks: ["articles/the-conversation-ai/5cd99dfd4a.md#c2"]
     token_count: 292
+    sources: [{"n":"the_conversation_ai","u":"https://theconversation.com/how-maison-schiaparelli-pioneered-a-new-form-of-fashion-currency-280684","kind":"article","date":"2026-06-11"}]
 ---
 # How Maison Schiaparelli pioneered a new form of fashion currency
 

@@ -1,0 +1,37 @@
+{
+  "started_at": "2026-11-08T23:38:18.780754Z",
+  "finished_at": "2026-11-08T23:38:50.232365Z",
+  "window_hours": 24.0,
+  "artifacts": 1,
+  "failures": 1,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "brief-brief_1794179493648",
+      "hook-recommendation-1794181130",
+      "hook-persona-1794181130",
+      "hook-strategy-1794181130",
+      "hook-case-study-1794181130",
+      "hook-gap-analysis-1794181130"
+    ],
+    "skipped_existing": 214,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 784,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": [
+    {
+      "artifact_id": "brief_1794179493648",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "brief",
+      "failures": [
+        "claim:UNSOURCED_FACT@r1"
+      ]
+    }
+  ]
+}

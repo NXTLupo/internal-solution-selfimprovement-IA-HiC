@@ -115,8 +115,13 @@ over a large one.
 - 0 hard, ≥ 3 soft → HUMAN-REVIEW (escalate to user during next /loop)
 
 Write the verdict to
-`hic-workspace/skillopt/proposals/{batch-id}/{skill-id}.verdict.md`
-in the format documented in `.claude/skills/skillopt-validation-gate/SKILL.md`.
+`hic-workspace/skillopt/proposals/{batch-id}/{skill-id}.verdict.json`
+in the ONE verdict contract (`humans-in-control-research/contracts/skillopt_verdict.v1.schema.json`,
+2026-10-30 WS-5 R3): `{"verdict": "APPROVE"|"REJECT"|"HUMAN-REVIEW", "discrimination_before": <held-out
+score of the incumbent>, "discrimination_after": <held-out score of the candidate>, "golden_set_version":
+<int>, "checks": [{"id", "result": "PASS"|"SOFT-FAIL"|"HARD-FAIL", "note"}], "reason", "decided_by":
+"agent", "decided_at"}`. The batch script, the applier and `learningEngine.assertApproveVerdict` all read
+this same file; a markdown verdict is not read by anything.
 
 ## What success looks like
 

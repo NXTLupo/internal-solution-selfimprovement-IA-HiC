@@ -73,10 +73,10 @@ describe('fit verdicts', () => {
     });
 
     it('fails an underfilled exhibit and names the downgrade', () => {
-        const v = checkExhibitFit('slides:quadrant', { items: [1, 2] });
+        const v = checkExhibitFit('slides:quadrant', { subjects: [1, 2] });
         expect(v.fits).toBe(false);
         expect(v.downgradeTo).toBe('slides:comparison-panels');
-        expect(v.detail).toMatch(/carries 2 items \(needs 3\)/);
+        expect(v.detail).toMatch(/carries 2 subjects \(needs 3\)/);
     });
 
     it('fails an OVERFULL exhibit without offering a downgrade', () => {
@@ -148,7 +148,7 @@ describe('the exhibits stage', () => {
     });
 
     it('names the downgrade for an underfilled exhibit', () => {
-        const report = evaluateExhibits([slide('s1', 'slides:quadrant', { items: [1, 2] })]);
+        const report = evaluateExhibits([slide('s1', 'slides:quadrant', { subjects: [1, 2] })]);
         expect(report.pass).toBe(false);
         expect(report.findings[0].kind).toBe('misfit');
         expect(report.findings[0].remedy).toMatch(/Re-map this slide to slides:comparison-panels/);
@@ -211,7 +211,7 @@ describe('the model-facing catalog block', () => {
 
     it('carries no em-dash and no banned padding advice', () => {
         const block = buildExhibitCatalogBlock() + buildExhibitInstruction(
-            evaluateExhibits([slide('s1', 'slides:quadrant', { items: [1] })]),
+            evaluateExhibits([slide('s1', 'slides:quadrant', { subjects: [1] })]),
         );
         expect(block).not.toMatch(/—/);
         expect(block.toLowerCase()).not.toMatch(/leverage|utilize|robust|seamless/);

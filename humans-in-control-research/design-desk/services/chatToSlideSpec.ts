@@ -18,6 +18,7 @@ import { validateSlideArtifact } from '../schemas/slideArtifact';
 import type { BrandHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
+import { makeGenAI } from '../../services/genaiClient';
 // 2026-07-02 Designer-chat prompt caching: single-sourced marker + scrub from the router.
 import { HIC_CACHE_BREAK as SLIDESPEC_CACHE_BREAK, stripCacheMarkers, CLAUDE_REASONING_MODEL } from '../../services/aiRouter';
 
@@ -117,7 +118,7 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
         return data?.choices?.[0]?.message?.content || '';
     }
     if (m === 'gpt-5.4') return analyzeTextOpenAI(sys, prompt, id, MAX_TOKENS, TEMPERATURE);
-    const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
+    const ai = makeGenAI();
     const response = await ai.models.generateContent({
         model: id,
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -378,7 +379,7 @@ function _repairJsonSlice(s: string): string {
 // ---------------------------------------------------------------------------
 
 export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<SlideSpecGenerateResult> {
-    const model: SlideSpecModel = args.model ?? 'deepseek-v4-flash';
+    const model: SlideSpecModel = args.model ?? CLAUDE_REASONING_MODEL;   // 2026-10-05: reasoning default
     let prompt = buildPrompt(args);
     // EXEMPLAR CONTRACT (2026-08-07): the Designer desk consults the hashtag exemplar
     // manifest for this KIND before composing, same rule as the Analyst desk. Appended

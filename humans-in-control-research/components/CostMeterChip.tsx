@@ -33,7 +33,9 @@ export const CostMeterChip: React.FC<{ accentColor?: string }> = ({ accentColor 
             style={{
                 position: 'fixed',
                 bottom: 14,
-                right: 14,
+                // 2026-10-05: bottom-LEFT (beside the epochs chip). Bottom-right sat on top of the Analyst chat
+                // composer, which docks on the right edge.
+                left: 150,
                 zIndex: 9000,
                 fontFamily: "'JetBrains Mono', monospace",
                 pointerEvents: 'auto',

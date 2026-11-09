@@ -19,72 +19,84 @@ content_hash: "4b063efb5f3bd586"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/agr-united-produce/b08ace9c6c.md#c0"
-    char_span: [0, 108]
+    char_span: [0, 107]
     sentence_count: 1
     key_terms: [international, freshproduce, association, produce, source, fresh, https, com]
-    token_count: 25
-    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/"}]
+    token_count: 24
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c1"
-    char_span: [110, 1317]
+    char_span: [109, 1316]
     sentence_count: 1
     key_terms: [class, span, navigation, icon-bar, button, div, aria-label, noscript]
     concepts: [class, navigation, icon-bar, button, aria-label]
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c2"
-    char_span: [1204, 2109]
+    char_span: [1203, 2108]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c3"
-    char_span: [1995, 2902]
+    char_span: [1994, 2901]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c4"
-    char_span: [2787, 3752]
+    char_span: [2786, 3751]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c5"
-    char_span: [3629, 4625]
+    char_span: [3628, 4624]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c6"
-    char_span: [4503, 5494]
+    char_span: [4502, 5493]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c7"
-    char_span: [5376, 6351]
+    char_span: [5375, 6350]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c8"
-    char_span: [6228, 7215]
+    char_span: [6227, 7214]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c9"
-    char_span: [7100, 7964]
+    char_span: [7099, 7963]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c10"
-    char_span: [7856, 8729]
+    char_span: [7855, 8728]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c11"
-    char_span: [8620, 9507]
+    char_span: [8619, 9506]
     sentence_count: 1
     key_terms: []
     token_count: 512
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
   - id: "articles/agr-united-produce/b08ace9c6c.md#c12"
-    char_span: [9392, 10111]
+    char_span: [9391, 10110]
     sentence_count: 1
     key_terms: []
     token_count: 410
+    sources: [{"n":"agr_united_produce","u":"https://www.freshproduce.com/news/","kind":"article"}]
 ---
 # International Fresh Produce Association
 

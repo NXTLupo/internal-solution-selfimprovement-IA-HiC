@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:28:05+00:00"
 content_hash: "f8eb8db07be734cb"
 chunks:
   - id: "articles/ins-claims-journal/caafb5ce4d.md#c0"
-    char_span: [0, 2123]
+    char_span: [0, 2122]
     sentence_count: 16
     key_terms: [prices, according, producers, investigation, department, settlement, price, statement]
     concepts: [according, producers, prices, investigation, department]
-    token_count: 425
-    sources: [{"n":"ins_claims_journal","u":"https://www.claimsjournal.com/news/national/2026/07/01/338545.htm"}]
+    token_count: 424
+    sources: [{"n":"ins_claims_journal","u":"https://www.claimsjournal.com/news/national/2026/07/01/338545.htm","kind":"article","date":"2026-07-01"}]
 ---
 # States, US Reach Deal With Egg Producers in Cartel Pricing Probe
 

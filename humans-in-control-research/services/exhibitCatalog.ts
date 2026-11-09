@@ -80,7 +80,7 @@ export const EXHIBIT_CATALOG: Record<string, ExhibitSpec> = {
     'slides:quadrant': {
         id: 'slides:quadrant', family: 'position',
         useWhen: 'subjects positioned against TWO independent axes, where the clustering is the finding',
-        field: 'items', min: 3, max: 12,
+        field: 'subjects', min: 3, max: 12,
         why: 'a 2x2 with fewer than three plotted subjects shows no positioning',
         failureMode: 'one or two dots on a 2x2 asserts a landscape the evidence does not describe',
         downgradeTo: 'slides:comparison-panels',
@@ -104,7 +104,7 @@ export const EXHIBIT_CATALOG: Record<string, ExhibitSpec> = {
     'slides:means-matters': {
         id: 'slides:means-matters', family: 'quantity',
         useWhen: 'one or two figures that carry the whole argument, with the interpretation beside them',
-        field: 'stats', min: 2, max: 2,
+        field: 'stats', min: 2, max: 3,
         why: 'the hero-numeral layout needs at least two figures to compare',
         failureMode: 'a single hero numeral with no counterpart reads as decoration',
         downgradeTo: 'slides:block-quote',
@@ -146,7 +146,7 @@ export const EXHIBIT_CATALOG: Record<string, ExhibitSpec> = {
     'slides:comparison-panels': {
         id: 'slides:comparison-panels', family: 'comparison',
         useWhen: 'exactly two subjects or two states set against each other',
-        field: 'panels', min: 2, max: 2,
+        field: 'panels', min: 2, max: 3,
         why: 'a comparison needs two sides',
         failureMode: 'one populated panel beside an empty one reads as a bug',
         downgradeTo: 'slides:block-quote',
@@ -165,7 +165,7 @@ export const EXHIBIT_CATALOG: Record<string, ExhibitSpec> = {
     'slides:role-needs': {
         id: 'slides:role-needs', family: 'narrative',
         useWhen: 'one actor and the three or more distinct needs the evidence attributes to them',
-        field: 'needs', min: 3, max: 6,
+        field: 'persona.needs', min: 3, max: 6,
         why: 'a needs list with fewer than three entries does not characterize a role',
         failureMode: 'two needs describe an anecdote, not a role',
         downgradeTo: 'slides:block-quote',

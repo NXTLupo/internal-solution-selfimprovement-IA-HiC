@@ -21,6 +21,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { blendMode, cachedOnlyMode, setBlendMode, setCachedOnlyMode } from '../services/runState';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -44,13 +45,11 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
     // longer forces cached-only - App.tsx runs fresh collection AND merges the
     // cached selection (deduped by the corpus merge authority). Persisted on a
     // window flag the App.tsx collection gate reads.
-    const [blend, setBlend] = useState<boolean>(
-        typeof window !== 'undefined' && !!(window as any).__hicBlendMode,
-    );
+    const [blend, setBlend] = useState<boolean>(blendMode());
     const toggleBlend = () => {
         setBlend(prev => {
             const next = !prev;
-            if (typeof window !== 'undefined') (window as any).__hicBlendMode = next;
+            setBlendMode(next);
             return next;
         });
     };
@@ -80,7 +79,7 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
                             + (sd.source_archive_paths?.length || 0);
                     }
                 }
-                const cachedOnly = (typeof window !== 'undefined' && (window as any).__hicCachedOnlyMode) || false;
+                const cachedOnly = cachedOnlyMode();
                 setStats({ chunks, sources, klItems, cachedOnly, loaded: true });
             } catch { /* silent */ }
         };
@@ -100,10 +99,8 @@ export const LandingScopeBar: React.FC<LandingScopeBarProps> = ({ onEditKL, onCl
     const handleClear = async () => {
         try {
             await fetch(`${PROXY_BASE}/api/user-selection/active`, { method: 'DELETE' });
-            if (typeof window !== 'undefined') {
-                (window as any).__hicCachedOnlyMode = false;
-                (window as any).__hicBlendMode = false;
-            }
+            setCachedOnlyMode(false);
+            setBlendMode(false);
             setBlend(false);
             setStats(s => ({ ...s, klItems: 0, cachedOnly: false }));
             onClear?.();

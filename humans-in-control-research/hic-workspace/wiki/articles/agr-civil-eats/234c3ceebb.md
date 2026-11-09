@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:53:29+00:00"
 content_hash: "2dc6130cbd255b2f"
 chunks:
   - id: "articles/agr-civil-eats/234c3ceebb.md#c0"
-    char_span: [0, 690]
+    char_span: [0, 689]
     sentence_count: 3
     key_terms: [supreme-court-sides-with-bayer-in-glyphosate-cancer-risk-case, bayer, glyphosate, civileats, monsanto, against, supreme, court]
     concepts: [supreme-court-sides-with-bayer-in-glyphosate-cancer-risk-case, bayer, glyphosate, civileats, monsanto]
-    token_count: 184
-    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/25/supreme-court-sides-with-bayer-in-glyphosate-cancer-risk-case/"}]
+    token_count: 183
+    sources: [{"n":"agr_civil_eats","u":"https://civileats.com/2026/06/25/supreme-court-sides-with-bayer-in-glyphosate-cancer-risk-case/","kind":"article","date":"2026-06-25"}]
 ---
 # Supreme Court Sides With Bayer in Glyphosate Cancer-Risk Case
 

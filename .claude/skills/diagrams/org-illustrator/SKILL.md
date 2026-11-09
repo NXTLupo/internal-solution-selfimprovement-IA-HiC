@@ -1,8 +1,10 @@
 ---
 name: org-illustrator
+description: Org chart illustrator skill. Use the matching exemplar (styles/05-org-chart-NU.html or 06-org-chart-NXT.html) as the literal visual ground truth. Adapt the content (people, roles, reporting lines) to the corpus; preserve the frame, typography, atmospheric washes.
 invocation: runtime
 disable-model-invocation: true
-description: Org chart illustrator skill. Use the matching exemplar (styles/05-org-chart-NU.html or 06-org-chart-NXT.html) as the literal visual ground truth. Adapt the content (people, roles, reporting lines) to the corpus; preserve the frame, typography, atmospheric washes.
+version: "1.0"
+status: active
 ---
 
 # Org chart illustrator

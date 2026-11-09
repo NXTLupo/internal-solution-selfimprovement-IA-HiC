@@ -1,0 +1,26 @@
+{
+  "id": "slides-slides_1793081882491",
+  "set": "frontier",
+  "kind": "slides",
+  "input": {
+    "objective": "Analyze the 2026 AI software development and consulting landscape to identify the root causes of traditional agency decline, and deliver a differentiated value proposition narrative for NXT Humans that positions its AI-native tools, accelerators, and processes as the modern solution.",
+    "prompt": "#slides",
+    "engagement": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th/artifacts/slides_1793081882491.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "slides_1793081882491",
+    "added": "2026-10-31",
+    "note": "chainPass=false; failing: chain:bindPointers partial (unknown); chain:provenance partial (schema_invalid); chain:claims partial (schema_invalid); chain:evidenceSlots partial (schema_invalid); chain:grade partial (schema_invalid); chain:deckQuality partial (schema_invalid); evidence:unsupported_p0 x8; layout:ungrounded_concept x7; deckplan:1 x1; layout:sequence_repeat x1"
+  }
+}

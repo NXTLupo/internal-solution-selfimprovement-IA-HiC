@@ -19,38 +19,42 @@ content_hash: "d3a5728f25262ba3"
 relevance_by_goal: {"c5a2d58d1be7":85}
 chunks:
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c0"
-    char_span: [0, 248]
+    char_span: [0, 247]
     sentence_count: 1
     key_terms: [ways-to-drive-precision-technology-adoption-in-tough-times, from-the-virtual-terminal, precisionfarmingdealer, technology, precision, adoption, source, blogs]
-    token_count: 62
-    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times"}]
+    token_count: 61
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times","kind":"article","date":"2026-06-22"}]
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c1"
-    char_span: [250, 3010]
+    char_span: [249, 3009]
     sentence_count: 15
     key_terms: [precision, discussion, times, dealership, leadership, solutions, felt, conversation]
     concepts: [precision, discussion, times, dealership, leadership]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times","kind":"article","date":"2026-06-22"}]
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c2"
-    char_span: [2688, 5691]
+    char_span: [2687, 5690]
     sentence_count: 21
     key_terms: [sales, growers, technology, customer, conversations, technologies, value, equipment]
     concepts: [sales, growers, technology, conversations, customer]
     related_chunks: ["articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c3", "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c4"]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times","kind":"article","date":"2026-06-22"}]
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c3"
-    char_span: [5322, 8435]
+    char_span: [5321, 8434]
     sentence_count: 21
     key_terms: [growers, technology, adopt, value, adoption, customer, improved, opportunities]
     concepts: [growers, technology, adopt, adoption, value]
     related_chunks: ["articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c2", "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c4"]
     token_count: 512
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times","kind":"article","date":"2026-06-22"}]
   - id: "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c4"
-    char_span: [8045, 10251]
+    char_span: [8044, 10250]
     sentence_count: 14
     key_terms: [growers, dealerships, manufacturers, product, technology, support, communicating, obsolescence]
     concepts: [growers, dealerships, manufacturers, product, technology]
     related_chunks: ["articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c2", "articles/agr-precision-farming-dealer/1f2ba3fc2f.md#c3"]
     token_count: 354
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/blogs/1-from-the-virtual-terminal/post/7173-4-ways-to-drive-precision-technology-adoption-in-tough-times","kind":"article","date":"2026-06-22"}]
 ---
 # 4 Ways to Drive Precision Technology Adoption in Tough Times
 

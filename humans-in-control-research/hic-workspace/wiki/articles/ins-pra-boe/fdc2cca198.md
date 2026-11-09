@@ -16,27 +16,29 @@ collected_at: "2026-07-02T17:45:26+00:00"
 content_hash: "67649a81f6b78d1e"
 chunks:
   - id: "articles/ins-pra-boe/fdc2cca198.md#c0"
-    char_span: [0, 259]
+    char_span: [0, 258]
     sentence_count: 1
     key_terms: [rpib-launches-consultation-on-next-generation-uk-payments-infrastructure, infrastructure, payments, bankofengland, consultation, generation, launches, retail]
     concepts: [infrastructure, payments]
     related_chunks: ["articles/ins-pra-boe/fdc2cca198.md#c1", "articles/ins-pra-boe/fdc2cca198.md#c2"]
-    token_count: 66
-    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure"}]
+    token_count: 65
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-pra-boe/fdc2cca198.md#c1"
-    char_span: [261, 3078]
+    char_span: [260, 3077]
     sentence_count: 14
     key_terms: [payments, infrastructure, retail, consultation, payment, design, vision, next-generation]
     concepts: [payments, infrastructure, retail, consultation, payment]
     related_chunks: ["articles/ins-pra-boe/fdc2cca198.md#c0", "articles/ins-pra-boe/fdc2cca198.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-pra-boe/fdc2cca198.md#c2"
-    char_span: [2742, 4090]
+    char_span: [2741, 4089]
     sentence_count: 4
     key_terms: [payments, infrastructure, delivery, next-generation, ecosystem, including, clearing, industry]
     concepts: [payments, infrastructure, delivery, next-generation, ecosystem]
     related_chunks: ["articles/ins-pra-boe/fdc2cca198.md#c0", "articles/ins-pra-boe/fdc2cca198.md#c1"]
     token_count: 250
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure","kind":"article","date":"2026-06-25"}]
 ---
 # The Retail Payments Infrastructure Board launches consultation on the next generation UK payments infrastructure
 

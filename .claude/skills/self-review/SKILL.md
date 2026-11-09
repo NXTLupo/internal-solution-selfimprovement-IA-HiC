@@ -1,10 +1,13 @@
 ---
 name: self-review
-invocation: model
-version: 1.0
 description: Claude reviews its own planned changes against the original request before executing. Catches scope creep, over-engineering, and missed requirements.
+invocation: model
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 allowed-tools: Read, Grep, Glob, Bash
-argument-hint: [description-of-what-was-just-done]
+argument-hint:
+  - description-of-what-was-just-done
 ---
 
 Act as a ruthless code reviewer who checks whether planned or completed changes actually match the original request.

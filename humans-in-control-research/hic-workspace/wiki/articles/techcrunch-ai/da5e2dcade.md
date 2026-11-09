@@ -11,17 +11,17 @@ tier: 2
 method: "pack-search-backfill"
 extracted_at: "2026-07-02T18:08:38.281526+00:00"
 chars: 1545
-engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th"
+engagement: "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th 1-understand-emerging-northeastern-university-student-and-other-college-student"
 collected_at: "2026-07-02T18:08:36+00:00"
 content_hash: "7edad5270b396d60"
 chunks:
   - id: "articles/techcrunch-ai/da5e2dcade.md#c0"
-    char_span: [0, 1705]
+    char_span: [0, 1704]
     sentence_count: 14
     key_terms: [solar, meta, meta-to-add-100-mw-of-solar-power-from-u-s-gear, techcrunch, developer, center, signed, power]
     concepts: [solar, techcrunch, developer, center, signed]
-    token_count: 383
-    sources: [{"n":"TechCrunch AI","u":"https://techcrunch.com/2025/08/20/meta-to-add-100-mw-of-solar-power-from-u-s-gear/"}]
+    token_count: 382
+    sources: [{"n":"TechCrunch AI","u":"https://techcrunch.com/2025/08/20/meta-to-add-100-mw-of-solar-power-from-u-s-gear/","kind":"article","date":"2025-08-20"}]
 ---
 # Meta to add 100MW of solar power from US gear
 

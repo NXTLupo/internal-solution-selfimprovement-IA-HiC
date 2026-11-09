@@ -26,6 +26,9 @@ import {
     getActiveConstraints,
     MAX_INJECTED_CONSTRAINTS,
     MAX_INJECTED_CONSTRAINT_CHARS,
+    __setImprovementsForTests,
+    __getImprovementsForTests,
+    __resetPromptImprovementForTests,
     type ConstraintLifecycleRecord,
 } from './promptImprovementEngine';
 
@@ -64,6 +67,7 @@ beforeEach(() => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     localStorage.clear();
+    __resetPromptImprovementForTests();
 });
 
 describe('row at creation', () => {
@@ -156,10 +160,10 @@ describe('retirement that deletes', () => {
         });
         indexMock.mockResolvedValue({});
         routeFetch(w.routes);
-        localStorage.setItem('hic_prompt_improvements', JSON.stringify([
+        __setImprovementsForTests([
             { id: 'i1', field: 'f', stage: 's', constraint: RULE, appliedAt: 1, improvementScore: 0 },
             { id: 'i2', field: 'f', stage: 's', constraint: KEEP, appliedAt: 2, improvementScore: 0 },
-        ]));
+        ]);
 
         const result = await runLearningPass();
 
@@ -171,7 +175,7 @@ describe('retirement that deletes', () => {
         const rows = w.records();
         expect(typeof rows.find(r => r.text === RULE)?.retired).toBe('string');
         expect(rows.find(r => r.text === KEEP)?.retired).toBeUndefined();
-        const store = JSON.parse(localStorage.getItem('hic_prompt_improvements') || '[]');
+        const store = __getImprovementsForTests();
         expect(store.map((i: any) => i.constraint)).toEqual([KEEP]);
     });
 
@@ -220,7 +224,7 @@ describe('injection cap (mirrors inject_active_constraints_and_patterns.py: 12 /
             id: `i${i}`, field: 'f', stage: 's', appliedAt: i, improvementScore: 0,
             constraint: `Rule ${i}: when generating the deck, name the owning team and the system it uses because an unnamed actor cannot act (confidence ${(0.5 + (i % 5) * 0.1).toFixed(2)})`,
         }));
-        localStorage.setItem('hic_prompt_improvements', JSON.stringify(improvements));
+        __setImprovementsForTests(improvements);
         const block = getActiveConstraints();
         const injected = block.split('\n').filter(l => l.startsWith('- '));
         expect(injected.length).toBeLessThanOrEqual(MAX_INJECTED_CONSTRAINTS);

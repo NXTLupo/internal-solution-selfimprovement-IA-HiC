@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:35:25+00:00"
 content_hash: "677a155090680504"
 chunks:
   - id: "articles/ins-insurance-journal-east/2fe4f7abec.md#c0"
-    char_span: [0, 884]
+    char_span: [0, 883]
     sentence_count: 11
     key_terms: [insurance, jersey, new, agency, clarke, world, business, insurancejournal]
     concepts: [insurance, jersey, agency, clarke, world]
-    token_count: 197
-    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/07/01/875841.htm"}]
+    token_count: 196
+    sources: [{"n":"ins_insurance_journal_east","u":"https://www.insurancejournal.com/news/east/2026/07/01/875841.htm","kind":"article","date":"2026-07-01"}]
 ---
 # World Insurance Acquires Clarke Agency of New Jersey
 

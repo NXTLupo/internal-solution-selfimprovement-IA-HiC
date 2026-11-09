@@ -14,6 +14,7 @@ lanes, personas, takeaway, nodes, connections, ...). `palette` is proxy app._dia
 All text is anti-slop scrubbed by the caller (via _dq / _scrub_diag_text) before it reaches here.
 """
 import os
+from render_sandbox import sandboxed_page  # WS-0 S3 (2026-10-30): network-sandboxed renders
 import re
 import html as _html
 
@@ -104,7 +105,7 @@ _ICONS = {
 }
 
 
-def _icon_best_name(text: str, exclude=frozenset()):
+def _icon_best_name(text: str, exclude=frozenset(), min_score: int = 1):
     """Concept-match `text` to the best NXT glyph NAME by tag/word overlap, skipping `exclude`
     (intra-artifact uniqueness: the same glyph repeated across sibling cards reads as filler).
     Returns None when nothing matches: content-true or nothing."""
@@ -122,7 +123,7 @@ def _icon_best_name(text: str, exclude=frozenset()):
                 s += 1
         if s > score:
             best, score = nm, s
-    return best
+    return best if score >= min_score else None
 
 
 def _icon_scored(text: str):
@@ -447,15 +448,15 @@ _KICK_FALLBACK = {
 
 _INFO_CSS = """
 /* --- infographic families (E4) --- */
-.statrow{display:flex;gap:16px;width:100%;align-items:stretch;justify-content:center}
-.stat{flex:1;min-width:0;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
-  padding:20px 22px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.statrow{display:flex;gap:16px;width:100%;height:100%;align-items:stretch;justify-content:center}
+.stat{flex:1;min-width:0;border:1px solid __HAIR__;border-top:4px solid __ACCENT__;border-radius:4px;background:__PAPER__;
+  padding:26px 24px;display:flex;flex-direction:column;gap:12px;justify-content:flex-start}
 .stat .shead{display:flex;align-items:center;gap:10px}
-.stat .sv{font-family:__FDISP__;font-weight:600;font-size:46px;line-height:1;color:__INK__}
-.stat .sl{font-family:__FMONO__,monospace;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:__GREY__}
-.stat .sq{font-family:__FBODY__;font-size:13px;font-style:italic;line-height:1.35;color:__INK__;
-  border-left:3px solid __KICK__;padding-left:10px;margin-top:3px}
-.stat .ss{font-family:__FMONO__;font-size:10px;letter-spacing:.6px;color:__GREY__;text-transform:uppercase}
+.stat .sv{font-family:__FDISP__;font-weight:600;font-size:calc(54px * var(--fs,1));line-height:1;color:__INK__}
+.stat .sl{font-family:__FMONO__,monospace;font-size:calc(17px * var(--fs,1));letter-spacing:1.6px;text-transform:uppercase;color:__GREY__}
+.stat .sq{font-family:__FBODY__;font-size:calc(22px * var(--fs,1));font-style:italic;line-height:1.4;color:__INK__;
+  border-left:3px solid __KICK__;padding-left:12px;margin-top:6px}
+.stat .ss{font-family:__FMONO__,monospace;font-size:calc(15px * var(--fs,1));letter-spacing:.6px;color:__GREY__;text-transform:uppercase;margin-top:auto;overflow-wrap:anywhere}
 .pflow{display:flex;gap:0;width:100%;align-items:stretch;justify-content:center}
 .pstep{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;padding:24px 24px 28px;
   justify-content:flex-end;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
@@ -466,28 +467,29 @@ _INFO_CSS = """
   font-size:120px;line-height:1;color:__KICK__;opacity:.16;letter-spacing:-2px}
 .pstep .psico{line-height:0;margin-bottom:4px}
 .pstep .pst{font-family:__FTITLE__;font-weight:700;font-size:22px;line-height:1.2;color:__INK__}
-.pstep .psd{font-family:__FBODY__;font-size:14.5px;line-height:1.4;color:__GREY__}
+.pstep .psd{font-family:__FBODY__;font-size:18px;line-height:1.4;color:__GREY__}
 .pflow.nodesc .pstep{gap:20px}
 .pflow.nodesc .pstep .pst{font-size:27px;line-height:1.18}
 .pconn{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:__GREY__}
 .cmpwrap{display:flex;gap:16px;width:100%;align-items:stretch}
-.cmp{flex:1;min-width:0;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.cmp{flex:1;min-width:0;border-radius:4px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center}
 .cmp.a{background:__WASHCOOL__}
 .cmp.b{background:__PAPER__;border:1px solid __HAIR__}
-.cmp .ct{font-family:__FTITLE__;font-weight:700;font-size:19px;line-height:1.2;color:__INK__}
-.cmp li{font-family:__FBODY__;font-size:14px;line-height:1.4;color:__INK__;padding-left:12px;position:relative;list-style:none;margin-top:6px}
-.cmp li:before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;background:__KICK__}
+.cmpwrap{height:100%}
+.cmp .ct{font-family:__FTITLE__;font-weight:700;font-size:calc(28px * var(--cs,1));line-height:1.2;color:__INK__}
+.cmp li{font-family:__FBODY__;font-size:calc(22px * var(--cs,1));line-height:1.4;color:__INK__;padding-left:calc(18px * var(--cs,1));position:relative;list-style:none;margin-top:calc(8px * var(--cs,1))}
+.cmp li:before{content:'';position:absolute;left:0;top:calc(12px * var(--cs,1));width:calc(7px * var(--cs,1));height:calc(7px * var(--cs,1));background:__KICK__}
 .rbars{display:flex;flex-direction:column;gap:12px;width:100%;justify-content:center}
 .rbar{display:grid;grid-template-columns:minmax(150px,32%) 1fr;gap:12px;align-items:center}
-.rbar .rl{font-family:__FTITLE__;font-weight:600;font-size:14px;line-height:1.25;color:__INK__;text-align:right}
+.rbar .rl{font-family:__FTITLE__;font-weight:600;font-size:18px;line-height:1.25;color:__INK__;text-align:right}
 .rbar .rtrack{background:__HAIR__;border-radius:2px;height:20px;position:relative}
 .rbar .rfill{background:__ACCENT__;height:20px;border-radius:2px}
-.rbar .rn{font-family:__FMONO__;font-size:10px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
+.rbar .rn{font-family:__FMONO__;font-size:15px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
 .compo{display:flex;flex-direction:column;gap:14px;width:100%;justify-content:center}
 .cbar{display:flex;height:42px;border-radius:3px;overflow:hidden}
 .cseg{height:100%}
 .clegend{display:flex;gap:18px;flex-wrap:wrap}
-.cleg{display:flex;align-items:center;gap:8px;font-family:__FBODY__;font-size:13px;color:__INK__}
+.cleg{display:flex;align-items:center;gap:8px;font-family:__FBODY__;font-size:17px;color:__INK__}
 .cleg i{width:12px;height:12px;display:block}
 """
 
@@ -504,6 +506,24 @@ def _info_css(pal: dict) -> str:
     return css
 
 
+_PROVIDER_LABEL_RE = re.compile(r"\s*\((?:engagement research synthesis|(?:gemini|gpt[-\w.]*|claude[-\w.]*|openai|deepseek)?\s*\(?(?:focused|deep|web) research\)?|research synthesis)\)", re.I)
+
+
+def _clean_source(raw: str) -> str:
+    """2026-10-27 (live exhibit: "SOURCE: GEMINI (FOCUSED RESEARCH) (ENGAGEMENT RESEARCH SYNTHESIS)"): a source line names
+    the publication; provider labels, model names, connector prefixes and file debris never reach the drawing."""
+    src = re.sub(r"^\s*reddit[\s-]*deep\s*:\s*", "Reddit ", str(raw or ""), flags=re.I)
+    src = re.sub(r"^\s*(?:client\s+document|uploaded\s+document)\s*:\s*", "", src.replace("_", " "), flags=re.I)
+    was_file = bool(re.search(r"\.(?:pdf|docx?|txt|md|pptx|xlsx)\b", src))
+    src = re.sub(r"\.(?:pdf|docx?|txt|md|pptx|xlsx)\b", "", src, flags=re.I)
+    if was_file:   # a file's copy suffix ("... Continuity 1.pptx") is not part of the document's name
+        src = re.sub(r"\s+\(?\d\)?\s*$", "", src)
+    src = _PROVIDER_LABEL_RE.sub("", src)
+    src = re.sub(r"^\s*(?:gemini|gpt[-\w.]*|claude[-\w.]*|openai|deepseek|perplexity)\s*$", "", src, flags=re.I)
+    src = re.sub(r"\s+copy\s*$", "", src, flags=re.I)
+    return re.sub(r"\s{2,}", " ", src).strip()
+
+
 def _stat_row_body(spec: dict, pal: dict) -> str:
     stats = [s for s in _list(spec.get("stats")) if isinstance(s, dict)][:5]
     cells = []
@@ -511,13 +531,24 @@ def _stat_row_body(spec: dict, pal: dict) -> str:
         icon = _icon(_s(st.get("label")) + " " + _s(st.get("icon")), "insight")
         val = _e(_s(st.get("value")))
         quote = _s(st.get("quote"))
-        src = _s(st.get("source"))
+        # 2026-10-26 (live: "SOURCE: REDDIT DEEP: R/CONSULTING"): the reader sees the source's name, not the connector
+        src = _clean_source(_s(st.get("source")))
+        # a verbatim quote reads as one: typographic marks unless it already carries them (live: three bare quotes)
+        if quote and not re.match(r'^\s*["“‘\']', quote):
+            quote = f"“{quote.strip()}”"
         q_html = (f'<div class="sq">{_e(quote)}</div>' if quote else "")
         s_html = (f'<div class="ss">SOURCE: {_e(src)}</div>' if src else "")
         val_html = (f'<div class="sv">{val}</div>' if val else "")
         cells.append(f'<div class="stat"><div class="shead">{_svg(icon, 18, pal["kicker"])}'
                      f'<span class="sl">{_e(_s(st.get("label")))}</span></div>{val_html}{q_html}{s_html}</div>')
-    return f'<div class="statrow">{"".join(cells)}</div>'
+    # 2026-10-26 (live: three quote cards, mostly empty, 11-13 px labels): the type grows in steps until the fullest card
+    # is ~85% full or the type reaches 1.6x (the comparison family's fill rule).
+    fit = ("<script>(function(){const w=document.querySelector('.statrow');if(!w)return;"
+           "const run=()=>{let fs=1;const full=()=>Math.max(...Array.from(w.querySelectorAll('.stat')).map(c=>{let h=0;for(const k of c.children)h+=k.offsetHeight;return h/(c.clientHeight-52);}));"
+           "if(full()>0.98){for(let i=0;i<6&&full()>0.98;i++){fs=+(fs-0.05).toFixed(2);w.style.setProperty('--fs',String(fs));}return;}"
+           "for(let i=0;i<12;i++){const n=+(fs+0.05).toFixed(2);w.style.setProperty('--fs',String(n));if(full()>0.85||n>1.6){w.style.setProperty('--fs',String(fs));break;}fs=n;}};"
+           "(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);})();</script>")
+    return f'<div class="statrow">{"".join(cells)}</div>{fit}'
 
 
 def _process_flow_body(spec: dict, pal: dict) -> str:
@@ -536,17 +567,24 @@ def _process_flow_body(spec: dict, pal: dict) -> str:
     # glyph reads as filler); no concept match -> no glyph, type carries the card.
     used_glyphs: set = set()
     cells = []
+    # WS-1d 2026-07-09 - every step card is title(+description) with a content-true glyph or nothing, per the
+    # isContentTrueIcon doctrine. 2026-10-27 (run 42: icons on cards 02 and 03 of four): a row carries a glyph on EVERY
+    # card or on none, the rule the slide card rows follow.
+    names = []
+    for st in steps:
+        # 2026-10-27 (run 44: an umbrella for "fires staff and expects AI to cover", a bank for "clients leave"): a
+        # card glyph needs a whole-word tag match; a substring overlap alone is a pun, and the row then carries none.
+        nm0 = _icon_best_name(_s(st.get("name")) + " " + _s(st.get("icon")), frozenset(used_glyphs), 3)
+        if nm0:
+            used_glyphs.add(nm0)
+        names.append(nm0)
+    if not all(names):
+        names = [None] * len(steps)
     for i, st in enumerate(steps):
         name_txt = _s(st.get("name"))
         desc = _s(st.get("description"))
         d_html = (f'<div class="psd">{_e(desc)}</div>' if desc else "")
-        # WS-1d 2026-07-09 - diffusion concept art removed from deliverable exhibits; the
-        # .psart img consumption (Nano-Banana st["art"] data URIs) is DELETED. Every step
-        # card is title(+description) with a content-true glyph or nothing, per the
-        # isContentTrueIcon doctrine.
-        nm = _icon_best_name(name_txt + " " + _s(st.get("icon")), frozenset(used_glyphs))
-        if nm:
-            used_glyphs.add(nm)
+        nm = names[i]
         ico_size = 72 if not has_desc else 32
         vis_html = f'<div class="psico">{_svg(_glyph(nm), ico_size, pal["kicker"], 1.4)}</div>' if nm else ""
         cells.append(f'<div class="pstep"><div class="psghost">{i + 1:02d}</div>'
@@ -563,7 +601,14 @@ def _comparison_body(spec: dict, pal: dict) -> str:
         side = side if isinstance(side, dict) else {}
         pts = "".join(f"<li>{_e(_s(p))}</li>" for p in _list(side.get("points"))[:6])
         panels.append(f'<div class="cmp {cls}"><div class="ct">{_e(_s(side.get("title")))}</div><ul>{pts}</ul></div>')
-    return f'<div class="cmpwrap">{"".join(panels)}</div>'
+    # 2026-10-26 (live: three points per side sat centered in a 566px panel with ~170px empty above and below): the
+    # type grows in steps until the fuller panel's content reaches ~85% of its height or the type reaches 1.6x.
+    fit = ("<script>(function(){const w=document.querySelector('.cmpwrap');if(!w)return;"
+           "const run=()=>{let cs=1;const full=()=>Math.max(...Array.from(w.querySelectorAll('.cmp')).map(c=>{let h=0;for(const k of c.children)h+=k.offsetHeight;return h/(c.clientHeight-56);}));"
+           "if(full()>0.98){for(let i=0;i<6&&full()>0.98;i++){cs=+(cs-0.05).toFixed(2);w.style.setProperty('--cs',String(cs));}return;}"
+           "for(let i=0;i<12;i++){const n=+(cs+0.05).toFixed(2);w.style.setProperty('--cs',String(n));if(full()>0.85||n>1.6){w.style.setProperty('--cs',String(cs));break;}cs=n;}};"
+           "(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);})();</script>")
+    return f'<div class="cmpwrap">{"".join(panels)}</div>{fit}'
 
 
 def _ranked_bars_body(spec: dict, pal: dict) -> str:
@@ -596,7 +641,160 @@ def _composition_body(spec: dict, pal: dict) -> str:
             f'<div class="clegend">{"".join(legend)}</div></div>')
 
 
+_MERMAID_JS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vendor", "mermaid.min.js")
+# 2026-10-26 (live: three actor nodes drew their wrapped labels across the curve): an actor is a rounded box, not a
+# stadium; a stadium's semicircular ends cut into any label taller than two lines.
+_FLOW_SHAPES = {"decision": ("{", "}"), "system": ("[[", "]]"), "actor": ("(", ")"), "outcome": (">", "]"),
+                "input": ("[/", "/]"), "step": ("[", "]")}
+
+
+def _mm_id(raw, i: int) -> str:
+    base = "".join(ch for ch in str(raw or "") if ch.isalnum())
+    return ("n" + base) if base else f"n{i}"
+
+
+def _mm_label(text: str, wrap: int = 24) -> str:
+    # Mermaid quoted labels: a double quote inside becomes the #quot; entity. Plain labels do not auto-wrap
+    # (wrappingWidth applies to markdown strings only), so long labels break on word boundaries here.
+    t = str(text or "").replace('"', "#quot;").replace("\n", " ").strip()[:90]
+    if wrap and len(t) > wrap:
+        words, lines, cur = t.split(" "), [], ""
+        for w in words:
+            if cur and len(cur) + 1 + len(w) > wrap:
+                lines.append(cur)
+                cur = w
+            else:
+                cur = (cur + " " + w).strip()
+        if cur:
+            lines.append(cur)
+        t = "<br/>".join(lines)
+    return '"' + t + '"'
+
+
+def _flowchart_body(spec: dict, pal: dict) -> str:
+    """2026-10-23 (#slides elevation): a NATIVE process / decision / system flowchart composed from a structured
+    graph (nodes with kinds, labeled edges, optional swim-groups) and laid out by Mermaid (vendored, loaded from
+    file://) inside the same headless Chromium that rasterizes every exhibit. Brand tokens drive the theme; the
+    model authors the graph, never the drawing. Nothing is invented: a node without a label is dropped."""
+    nodes_in = [n if isinstance(n, dict) else {"label": _s(n)} for n in _list(spec.get("nodes"))][:14]   # the contract caps at 8; 14 is the hard stop
+    ids = {}
+    lines = []
+    direction = "TB" if str(spec.get("direction") or "").upper() in ("TB", "TD") else "LR"
+    lines.append(f"flowchart {direction}")
+    decl = []
+    for i, n in enumerate(nodes_in):
+        label = _s(n.get("label") or n.get("name") or n.get("title"))
+        if not label:
+            continue
+        nid = _mm_id(n.get("id") or label, i)
+        while nid in ids.values():
+            nid += "x"
+        ids[str(n.get("id") or label)] = nid
+        kind = str(n.get("kind") or "step").lower()
+        a, b = _FLOW_SHAPES.get(kind, _FLOW_SHAPES["step"])
+        decl.append((nid, f"    {nid}{a}{_mm_label(label)}{b}", kind))
+    if len(decl) < 3:
+        return ""
+    if len(decl) > 5:
+        decl = [(nid, d.replace(_mm_label(_s(n.get("label") or n.get("name") or n.get("title"))), _mm_label(_s(n.get("label") or n.get("name") or n.get("title")), 12)), k)
+                for (nid, d, k), n in zip(decl, [n for n in nodes_in if _s(n.get("label") or n.get("name") or n.get("title"))])]
+    grouped = set()
+    groups_in = [g for g in _list(spec.get("groups")) if isinstance(g, dict)][:6]
+    # 2026-10-23 (live: a 12-node LR chain rendered as a 6:1 strip inside the 2.7:1 exhibit frame, unreadable at
+    # slide size; a subgraph's own direction is ignored by Mermaid once edges cross its boundary, so stacking groups
+    # is not available). Wide graphs keep LR with NARROW nodes (labels wrapped at 14 characters) and tight ranks, so
+    # the chain fits the frame width at legible type; branches add rows.
+    narrow = len(decl) > 5
+    inner = direction
+    synthetic = False
+    # 2026-10-24 (owner screenshot: edges routed through the group boxes, a node on a group title): groups are not
+    # Mermaid subgraphs any more (dagre clusters constrain the routing); every node is laid out freely and the groups
+    # are drawn AFTER layout as background bands around their members, labeled at the top.
+    bands = []
+    for g in groups_in:
+        members = [ids.get(str(m)) for m in _list(g.get("nodes"))]
+        members = [m for m in members if m and m not in grouped]
+        if not members:
+            continue
+        grouped.update(members)
+        bands.append({"label": _s(g.get("label")), "nodes": members})
+    for nid, d, _k in decl:
+        lines.append(d)
+    n_edges = 0
+    for e in [e for e in _list(spec.get("edges")) if isinstance(e, dict)][:24]:
+        a = ids.get(str(e.get("from") or e.get("source") or ""))
+        b = ids.get(str(e.get("to") or e.get("target") or ""))
+        if not a or not b or a == b:
+            continue
+        lab = _s(e.get("label"))
+        lines.append(f"    {a} -->{('|' + _mm_label(lab, 12 if len(decl) > 5 else 0) + '|') if lab else ''} {b}")
+        n_edges += 1
+    if n_edges < 2:
+        return ""
+    for kind in set(k for _n, _d, k in decl):
+        members = ",".join(nid for nid, _d, k in decl if k == kind)
+        lines.append(f"    class {members} k_{kind}")
+    src = "\n".join(lines)
+    import json as _json
+    bands_js = _json.dumps(bands)
+    ink, paper, accent, kick, wash, grey = pal["ink"], pal["paper"], pal["accent"], pal["kicker"], pal["wash_cool"], pal["grey"]
+    fb = _faces(pal)["css_body"]
+    fb_js = fb.replace("'", "").replace('"', "")   # the CSS stack is quoted; the JS string must not be
+    init = (
+        "{startOnLoad:false, securityLevel:'loose', theme:'base', themeVariables:{"
+        f"primaryColor:'{paper}', primaryTextColor:'{ink}', primaryBorderColor:'{ink}', lineColor:'{kick}', "
+        f"secondaryColor:'{wash}', tertiaryColor:'{paper}', clusterBkg:'{wash}', clusterBorder:'{grey}', "
+        f"edgeLabelBackground:'{paper}', fontFamily:'{fb_js}', fontSize:'34px'"
+        "}, flowchart:{curve:'basis', nodeSpacing:" + ("26" if narrow else "40") + ", rankSpacing:" + ("34" if narrow else "72") + ", padding:18, htmlLabels:true, useMaxWidth:false, wrappingWidth:900}}"
+    )
+    css = (
+        ".flowwrap{flex:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%}"
+        ".flowwrap pre.mermaid{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:transparent}"
+        ".flowwrap svg{max-width:none !important}"
+        f".flowwrap .node rect,.flowwrap .node polygon,.flowwrap .node path{{stroke-width:2px}}"
+        f".flowwrap .k_system rect,.flowwrap .k_system path,.flowwrap .k_system polygon{{fill:{ink} !important;stroke:{ink} !important}}"
+        f".flowwrap .k_system .nodeLabel,.flowwrap .k_system span,.flowwrap .k_system p{{color:{paper} !important}}"
+        f".flowwrap .k_outcome .nodeLabel,.flowwrap .k_outcome span,.flowwrap .k_outcome p{{color:{pal['band_text']} !important}}"
+        f".flowwrap .k_outcome polygon,.flowwrap .k_outcome path{{fill:{accent} !important;stroke:{accent} !important}}"
+        f".flowwrap .k_decision polygon{{fill:{wash} !important}}"
+        f".flowwrap .edgeLabel{{font-family:{fb};font-size:18px;color:{ink}}}"
+        # labels render one px under the measured size so a metric mismatch never clips the last glyph
+        f".flowwrap .nodeLabel,.flowwrap .nodeLabel p,.flowwrap .nodeLabel span{{font-family:{fb};font-size:33px;line-height:1.2}}"
+        f".flowwrap .edgeLabel,.flowwrap .edgeLabel p{{font-size:27px}}"
+        f".flowwrap .synth>rect,.flowwrap .cluster.synth rect{{fill:transparent !important;stroke:transparent !important}}"
+        f".flowwrap .cluster-label span,.flowwrap .cluster-label p,.flowwrap .cluster-label div,.flowwrap .cluster-label{{font-family:{fb};font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{grey};white-space:nowrap !important;overflow:visible}}"
+    )
+    band_js = (
+        "try{const _root=_svg.querySelector('g');const _m=_svg.getScreenCTM().inverse();const _NS='http://www.w3.org/2000/svg';"
+        "const _bands=" + bands_js + ";const _pad=22;let _minx=1e9,_miny=1e9,_maxx=-1e9,_maxy=-1e9;"
+        "const _box=(el)=>{const r=el.getBoundingClientRect();const p1=new DOMPoint(r.left,r.top).matrixTransform(_m);const p2=new DOMPoint(r.right,r.bottom).matrixTransform(_m);return {x:p1.x,y:p1.y,X:p2.x,Y:p2.y};};"
+        "_svg.querySelectorAll('.node,.edgePath,.edgeLabel').forEach(el=>{const b=_box(el);_minx=Math.min(_minx,b.x);_miny=Math.min(_miny,b.y);_maxx=Math.max(_maxx,b.X);_maxy=Math.max(_maxy,b.Y);});"
+        "const _rects=[];for(const g of _bands){let x=1e9,y=1e9,X=-1e9,Y=-1e9,n=0;const els=[];for(const id of g.nodes){const el=_svg.querySelector('[id^=\"flowchart-'+id+'-\"]');if(!el)continue;els.push(el);const b=_box(el);x=Math.min(x,b.x);y=Math.min(y,b.y);X=Math.max(X,b.X);Y=Math.max(Y,b.Y);n++;}"
+        "if(n)_rects.push({g:g,els:els,x:x-_pad,y:y-_pad-44,X:X+_pad,Y:Y+_pad});}"
+        # 2026-10-25 (audit: lanes overlapped and covered labels when the layout interleaved groups): a band is drawn
+        # only when no two bands intersect; otherwise each group's nodes are tinted and a swatch legend names them.
+        "let _ov=false;for(let i=0;i<_rects.length;i++)for(let j=i+1;j<_rects.length;j++){const a=_rects[i],b=_rects[j];if(Math.min(a.X,b.X)-Math.max(a.x,b.x)>4&&Math.min(a.Y,b.Y)-Math.max(a.y,b.y)>4)_ov=true;}"
+        "const _tints=['__WASH__','__WASHW__','__WASHA__','__WASHG__'];"
+        "if(!_ov){for(const r of _rects){const rect=document.createElementNS(_NS,'rect');rect.setAttribute('x',r.x);rect.setAttribute('y',r.y);rect.setAttribute('width',r.X-r.x);rect.setAttribute('height',r.Y-r.y);rect.setAttribute('rx',4);"
+        "rect.setAttribute('fill','__WASH__');rect.setAttribute('stroke','__HAIR__');rect.setAttribute('stroke-width','1.5');_root.insertBefore(rect,_root.firstChild);"
+        "if(r.g.label){const tx=document.createElementNS(_NS,'text');tx.setAttribute('x',r.x+14);tx.setAttribute('y',r.y+34);tx.setAttribute('fill','__GREY__');tx.setAttribute('font-family','__FB__');tx.setAttribute('font-size','30');tx.setAttribute('font-weight','700');tx.setAttribute('letter-spacing','1.2');tx.textContent=String(r.g.label).toUpperCase();_root.insertBefore(tx,rect.nextSibling);}"
+        "_minx=Math.min(_minx,r.x);_miny=Math.min(_miny,r.y);_maxx=Math.max(_maxx,r.X);_maxy=Math.max(_maxy,r.Y);}}"
+        "else{let lx=_minx,ly=_miny-66;_rects.forEach((r,i)=>{const t=_tints[i%_tints.length];let tinted=0;for(const el of r.els){if(/k_system|k_outcome/.test(el.getAttribute('class')||''))continue;tinted++;el.querySelectorAll('rect,polygon,circle,ellipse,path').forEach(sh=>{sh.style.fill=t;});}"
+        "if(r.g.label&&tinted){const sw=document.createElementNS(_NS,'rect');sw.setAttribute('x',lx);sw.setAttribute('y',ly);sw.setAttribute('width',30);sw.setAttribute('height',30);sw.setAttribute('rx',3);sw.setAttribute('fill',t);sw.setAttribute('stroke','__HAIR__');_root.appendChild(sw);"
+        "const tx=document.createElementNS(_NS,'text');tx.setAttribute('x',lx+40);tx.setAttribute('y',ly+24);tx.setAttribute('fill','__GREY__');tx.setAttribute('font-family','__FB__');tx.setAttribute('font-size','28');tx.setAttribute('font-weight','700');tx.setAttribute('letter-spacing','1.2');tx.textContent=String(r.g.label).toUpperCase();_root.appendChild(tx);"
+        "lx+=40+tx.getComputedTextLength()+52;}});_miny=Math.min(_miny,ly-8);_maxx=Math.max(_maxx,lx);}"
+        "if(_maxx>_minx){_svg.setAttribute('viewBox',[_minx-16,_miny-16,(_maxx-_minx)+32,(_maxy-_miny)+32].join(' '));}}catch(e){document.body.setAttribute('data-band-error',String(e));}"
+    ).replace("__WASHW__", pal.get("wash_warn") or "#FAF1EC").replace("__WASHA__", pal.get("wash_accent") or "#F3F3DD").replace("__WASHG__", pal.get("wash_grey") or "#EFEFEC").replace("__WASH__", wash).replace("__HAIR__", pal["hairline"]).replace("__GREY__", grey).replace("__FB__", fb_js)
+    return (
+        f'<style>{css}</style>'
+        f'<div class="flowwrap"><pre class="mermaid">{_e(src)}</pre></div>'
+        f'<script src="file://{_MERMAID_JS.replace(chr(92), "/")}"></script>'
+        f'<script>(async()=>{{try{{mermaid.initialize({init});if(document.fonts&&document.fonts.load){{try{{await document.fonts.load("22px "+{fb_js!r});await document.fonts.load("bold 22px "+{fb_js!r});}}catch(_e){{}}}}if(document.fonts&&document.fonts.ready){{await document.fonts.ready;}}await mermaid.run();const _svg=document.querySelector("pre.mermaid svg");if(_svg){{' + band_js + f'const _vb=(_svg.getAttribute("viewBox")||"").split(/[ ,]+/).map(Number);if(_vb.length===4&&_vb[2]>0){{_svg.setAttribute("width",String(Math.ceil(_vb[2])));_svg.setAttribute("height",String(Math.ceil(_vb[3])));_svg.style.width=Math.ceil(_vb[2])+"px";_svg.style.height=Math.ceil(_vb[3])+"px";_svg.style.maxWidth="none";}}}}}}catch(e){{document.body.setAttribute("data-mermaid-error",String(e));}}}})();</script>'
+    )
+
+
 _INFO_BODIES = {
+    "flowchart": _flowchart_body,
     "stat-row": _stat_row_body,
     "process-flow": _process_flow_body,
     "comparison": _comparison_body,
@@ -605,14 +803,14 @@ _INFO_BODIES = {
 }
 
 
-def _chromeless_shell(pal: dict, body_html: str, w: int, h: int) -> str:
+def _chromeless_shell(pal: dict, body_html: str, w: int, h: int, zoom: float | None = None) -> str:
     """Slot variant: just the family body on paper, no rail/kicker/title/band (the graphic lives
     INSIDE a GOLD slide that already carries the chrome). Sized to the slot's aspect.
     2026-07-02 (live legibility fix): the family CSS is authored in a 1600px-wide DESIGN SPACE;
     the shell ZOOMS that space to the requested frame so type/cards scale with the slot instead
     of rendering fixed-px-tiny in a 2x-export frame (first live exhibit shipped a thin card band
     adrift in ~70% whitespace). Families stretch to the design height - no dead bands."""
-    k = max(1.0, w / 1600.0)
+    k = zoom if zoom else max(1.0, w / 1600.0)
     dw = int(round(w / k))
     dh = int(round(h / k))
     FB = _faces(pal)["css_body"]
@@ -639,7 +837,9 @@ def diagram_html(spec: dict, pal: dict) -> str:
             frame = spec.get("frame") if isinstance(spec.get("frame"), dict) else {}
             w = int(frame.get("w") or 984)
             h = int(frame.get("h") or 580)
-            return _chromeless_shell(pal, body, w, h)
+            # 2026-10-23: Mermaid measures labels under CSS zoom but lays out in unzoomed units (every node ballooned
+            # 2x, every graph became a strip); the flowchart renders at zoom 1 and is captured at its own size.
+            return _chromeless_shell(pal, body, w, h, zoom=1.0 if kind == "flowchart" else None)
         return _shell_with_info_css(pal, kicker, title, body, takeaway)
     if kind in ("journey", "journey-map", "flow", "funnel", "blueprint", "service-blueprint"):
         body = _journey_body(spec, pal)
@@ -656,6 +856,67 @@ def _shell_with_info_css(pal: dict, kicker: str, title: str, body_html: str, tak
     """Full-bleed GOLD exhibit carrying an infographic family: reuse _shell and inject the family CSS."""
     doc = _shell(pal, kicker, title, body_html, takeaway)
     return doc.replace("</style>", _info_css(pal) + "\n</style>", 1)
+
+
+# 2026-10-26 (probe: k was NaN on every flowchart ever rendered): page.evaluate passes ONE argument, so the function
+# destructures the [fw, fh, cap] array; the three-parameter form left fh and cap undefined and every graph shipped at its
+# natural size (node text ~16px on the slide).
+_FIT_JS = """([fw, fh, cap]) => { const s = document.querySelector('pre.mermaid svg'); if (!s) return null;
+  const vb = (s.getAttribute('viewBox') || '').split(/[ ,]+/).map(Number); if (vb.length !== 4 || !(vb[2] > 0)) return null;
+  const k = Math.min(cap, (fw - 40) / vb[2], (fh - 40) / vb[3]);
+  s.setAttribute('width', String(Math.floor(vb[2] * k))); s.setAttribute('height', String(Math.floor(vb[3] * k)));
+  s.style.width = Math.floor(vb[2] * k) + 'px'; s.style.height = Math.floor(vb[3] * k) + 'px'; s.style.maxWidth = 'none'; s.style.maxHeight = 'none';
+  const ex = document.querySelector('.exhibit'); if (ex) { ex.style.width = fw + 'px'; ex.style.height = fh + 'px'; ex.style.alignItems = 'center'; ex.style.justifyContent = 'center'; }
+  const fl = document.querySelector('.flowwrap'); if (fl) { fl.style.width = '100%'; fl.style.height = '100%'; }
+  return { k: k, w: vb[2], h: vb[3] }; }"""
+
+
+def _capture_flowchart_fitted(page, spec: dict, pal: dict, first_path: str, fw: int, fh: int):
+    """2026-10-25 (audit: a 2.6:1 drawing contain-fit into a 4.5:1 strip shrank node text below legibility): lay the
+    graph out left-to-right AND top-to-bottom, keep the orientation whose drawing fits the slot at the larger scale,
+    then scale the SVG to fill the frame (capped so a small graph never balloons) and capture the frame itself, so the
+    PNG has the slot's own aspect and the composer's contain-fit fills the panel edge to edge."""
+    import tempfile
+    # 2026-10-26 (probe: a four-node diagram sat small in the middle of a tall panel): a small graph may scale further
+    # so it fills its slot; larger graphs keep the 1.7 ceiling.
+    n_nodes = len([n for n in _list(spec.get("nodes")) if n])
+    cap = 2.4 if n_nodes <= 4 else (2.0 if n_nodes <= 6 else 1.7)
+    best = None
+    # 2026-10-26 (live: a 5-node concept diagram filled ~12% of an 820 x 1080 divider panel): a portrait frame tries
+    # top-to-bottom first, so a tie keeps the orientation that matches the panel.
+    portrait = fh > fw * 1.15 and not spec.get("direction")
+    first_dir = "TB" if (str(spec.get("direction") or "").upper() in ("TB", "TD") or portrait) else "LR"
+    for direction in (first_dir, "LR" if first_dir == "TB" else "TB"):
+        if direction != first_dir:
+            alt = dict(spec)
+            alt["direction"] = direction
+            doc2 = diagram_html(alt, pal)
+            t2 = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
+            t2.write(doc2)
+            t2.close()
+            try:
+                page.goto("file://" + t2.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
+                page.wait_for_function("!!document.querySelector('pre.mermaid svg')", timeout=20000)
+                page.wait_for_timeout(350)
+            except Exception:
+                continue
+            finally:
+                try:
+                    os.unlink(t2.name)
+                except Exception:
+                    pass
+        try:
+            m = page.evaluate(_FIT_JS, [fw, fh, cap])
+        except Exception:
+            m = None
+        if not m:
+            continue
+        if best is None or m["k"] > best[1] * 1.04:
+            best = (direction, m["k"])
+            el = page.query_selector(".exhibit")
+            best_png = el.screenshot(type="png") if el else page.screenshot(type="png")
+            best = (direction, m["k"], best_png)
+    return best[2] if best else None
 
 
 def render_diagram_png(spec: dict, pal: dict) -> bytes | None:
@@ -680,14 +941,22 @@ def render_diagram_png(spec: dict, pal: dict) -> bytes | None:
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": vw, "height": vh}, device_scale_factor=2)
+            page = sandboxed_page(browser, viewport={"width": vw, "height": vh}, device_scale_factor=2)
             page.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
+            # 2026-10-23: a flowchart body lays itself out asynchronously; wait for its SVG (or no mermaid at all).
+            try:
+                page.wait_for_function("!document.querySelector('pre.mermaid') || !!document.querySelector('pre.mermaid svg')", timeout=20000)
+            except Exception:
+                pass
             try:
                 page.wait_for_timeout(350)  # let @font-face settle
             except Exception:
                 pass
-            el = page.query_selector(".exhibit")
-            out = (el.screenshot(type="png") if el else page.screenshot(type="png"))
+            if str(spec.get("kind") or "").lower() == "flowchart":
+                out = _capture_flowchart_fitted(page, spec, pal, tmp.name, vw, vh)
+            else:
+                el = page.query_selector(".exhibit")
+                out = (el.screenshot(type="png") if el else page.screenshot(type="png"))
             browser.close()
     except Exception:
         return None

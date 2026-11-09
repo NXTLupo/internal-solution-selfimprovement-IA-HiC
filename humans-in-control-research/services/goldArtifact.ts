@@ -91,6 +91,14 @@ export function buildGoldFillPrompt(goldHtml: string, deliverableBase: string, u
     ].join('\n');
 }
 
+/** 2026-10-27 (run 43: the 18 MB deck download failed four times with "Failed to fetch" while the proxy answered 200;
+ *  `Response.blob()` spills a large body to a disk-backed blob store, which fails when the system drive is full, and
+ *  `arrayBuffer()` on the same body worked): the body is read into memory first and wrapped as the download blob. */
+async function pptxBlob(resp: Response): Promise<Blob> {
+    const type = resp.headers.get('content-type') || 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+    try { return new Blob([await resp.clone().arrayBuffer()], { type }); } catch { return await resp.blob(); }
+}
+
 /** Export gold-language HTML to an EDITABLE .pptx via the proxy, and trigger a browser download. */
 export async function exportGoldPptx(html: string, filename: string, proxyBase = ''): Promise<void> {
     const base = proxyBase || (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
@@ -103,7 +111,7 @@ export async function exportGoldPptx(html: string, filename: string, proxyBase =
         const msg = await resp.text().catch(() => '');
         throw new Error(`gold export failed (${resp.status}): ${msg.slice(0, 200)}`);
     }
-    const blob = await resp.blob();
+    const blob = await pptxBlob(resp);
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = filename.endsWith('.pptx') ? filename : `${filename}.pptx`;
@@ -118,7 +126,7 @@ export async function exportGoldPptx(html: string, filename: string, proxyBase =
  *  source of truth; capture each slide's rendered DOM into a #stage shell and ship
  *  the array here. Browser startup cost amortized across N slides on the proxy.
  */
-export async function exportGoldDeckPptx(htmlList: string[], filename: string, proxyBase = ''): Promise<void> {
+export async function exportGoldDeckPptx(htmlList: string[], filename: string, proxyBase = '', provenance?: { runId: string; artifactId: string }): Promise<void> {
     if (!Array.isArray(htmlList) || htmlList.length === 0) {
         throw new Error('exportGoldDeckPptx: htmlList must be a non-empty array of #stage HTML strings');
     }
@@ -126,13 +134,14 @@ export async function exportGoldDeckPptx(htmlList: string[], filename: string, p
     const resp = await fetch(`${base}/api/gold/export-pptx-multi`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slides: htmlList.map(scrubStageHtmlText), filename }),
+        // WS-C C2 (2026-10-31): the source AIR; the proxy writes its run and version into the first slide's notes
+        body: JSON.stringify({ slides: htmlList.map(scrubStageHtmlText), filename, ...(provenance ? { provenance } : {}) }),
     });
     if (!resp.ok) {
         const msg = await resp.text().catch(() => '');
         throw new Error(`gold deck export failed (${resp.status}): ${msg.slice(0, 200)}`);
     }
-    const blob = await resp.blob();
+    const blob = await pptxBlob(resp);
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = filename.endsWith('.pptx') ? filename : `${filename}.pptx`;

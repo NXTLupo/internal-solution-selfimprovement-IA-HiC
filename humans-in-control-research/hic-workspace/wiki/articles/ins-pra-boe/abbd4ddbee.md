@@ -16,38 +16,42 @@ collected_at: "2026-07-02T17:45:29+00:00"
 content_hash: "25bf6507c8501889"
 chunks:
   - id: "articles/ins-pra-boe/abbd4ddbee.md#c0"
-    char_span: [0, 175]
+    char_span: [0, 174]
     sentence_count: 1
     key_terms: [court-minutes-23-april-2026, minutes, bankofengland, directors, meeting, source, april, court]
     concepts: [minutes]
-    token_count: 57
-    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026"}]
+    token_count: 56
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026","kind":"article","date":"2026-06-18"}]
   - id: "articles/ins-pra-boe/abbd4ddbee.md#c1"
-    char_span: [177, 2609]
+    char_span: [176, 2608]
     sentence_count: 17
     key_terms: [governor, update, arco, committee, remco, received, meeting, deputy]
     concepts: [governor, update, committee, received, remco]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026","kind":"article","date":"2026-06-18"}]
   - id: "articles/ins-pra-boe/abbd4ddbee.md#c2"
-    char_span: [2301, 4838]
+    char_span: [2300, 4837]
     sentence_count: 14
     key_terms: [court, update, introduced, risk, sharepoint, noted, paper, approved]
     concepts: [court, update, introduced, sharepoint, noted]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026","kind":"article","date":"2026-06-18"}]
   - id: "articles/ins-pra-boe/abbd4ddbee.md#c3"
-    char_span: [4493, 7076]
+    char_span: [4492, 7075]
     sentence_count: 15
     key_terms: [court, committee, report, appointments, annual, update, cyber, approved]
     concepts: [court, committee, report, appointments, annual]
     related_chunks: ["articles/ins-pra-boe/abbd4ddbee.md#c4"]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026","kind":"article","date":"2026-06-18"}]
   - id: "articles/ins-pra-boe/abbd4ddbee.md#c4"
-    char_span: [6792, 7435]
+    char_span: [6791, 7434]
     sentence_count: 2
     key_terms: [report, committee, minutes, court, january, meeting, annual, fund]
     concepts: [report, committee, minutes, court, january]
     related_chunks: ["articles/ins-pra-boe/abbd4ddbee.md#c3"]
     token_count: 144
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/june/court-minutes-23-april-2026","kind":"article","date":"2026-06-18"}]
 ---
 # Minutes of the Meeting of the Court of Directors held on 23 April 2026
 

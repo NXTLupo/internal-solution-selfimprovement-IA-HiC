@@ -127,7 +127,7 @@ describe('artifact catalog: the five vocabularies agree', () => {
     });
 
     it('the NotebookLM uplift kinds are exactly the analysis-modality catalog ids', () => {
-        expect(Array.from(UPLIFT_CATALOG_IDS).sort()).toEqual(['brief-dialog', 'deep-research', 'meta-themes', 'mindmap']);
+        expect(Array.from(UPLIFT_CATALOG_IDS).sort()).toEqual(['audio-overview', 'brief-dialog', 'deep-research', 'infographic', 'meta-themes', 'mindmap', 'video-overview']);
         for (const id of UPLIFT_CATALOG_IDS) {
             const e = catalogEntryFor(id)!;
             const kind = e.designDeskKind || e.id;

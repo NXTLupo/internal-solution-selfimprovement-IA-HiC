@@ -1,20 +1,20 @@
 /**
  * Stage 1 item 1.6 (B8 / R-D1): absence of a plan now carries a REASON. The run path records
  * either a decomposed plan (publishObjectivePlan) or `decomposition: 'unavailable'`
- * (recordDecompositionStatus), and readObjectivePlan reports which one happened. The sub-questions
- * global stays an ARRAY (emitDeliverable and the session restore depend on it), so the marker
- * lives in its own global.
+ * (recordDecompositionStatus), and readObjectivePlan reports which one happened. The
+ * sub-questions stay an ARRAY (emitDeliverable and the session restore depend on it), so
+ * the marker lives in its own run-state field.
+ *
+ * WS-1 T1 (2026-10-30): storage moved from window globals to the typed RunState.
  */
 import { describe, it, expect, afterEach } from 'vitest';
 import {
     readObjectivePlan, recordDecompositionStatus, readDecompositionStatus, publishObjectivePlan,
     clearObjectivePlan, planSummary, normalizeSubQuestions, NO_PLAN_DECLARED_REASON,
 } from './objectivePlan';
+import { planSubQuestions, setPlanDecomposition, _resetRunStateForTests } from './runState';
 
-const WINDOW_KEY = '__hicResearchPlanSubQuestions';
-const DECOMPOSITION_KEY = '__hicObjectiveDecomposition';
-
-afterEach(() => clearObjectivePlan());
+afterEach(() => { clearObjectivePlan(); _resetRunStateForTests(); });
 
 const PLAN = [
     { id: 'sq_1', question: 'Which stages change first?', priority: 'high', angle: 'mechanism', expected_evidence_types: ['news'], expected_named_entities: [], coverage_status: 'uncovered' },
@@ -52,7 +52,7 @@ describe('the unavailable marker', () => {
     });
 
     it('a junk marker is ignored rather than trusted', () => {
-        (globalThis as any).window[DECOMPOSITION_KEY] = { decomposition: 'maybe' };
+        setPlanDecomposition({ decomposition: 'maybe' });
         expect(readDecompositionStatus()).toBeNull();
         expect(readObjectivePlan().decomposition).toBe('unrecorded');
     });
@@ -66,10 +66,10 @@ describe('the unavailable marker', () => {
 });
 
 describe('publishObjectivePlan (the one writer)', () => {
-    it('publishes the ARRAY global emitDeliverable reads and records decomposition: decomposed', () => {
+    it('publishes the ARRAY emitDeliverable reads and records decomposition: decomposed', () => {
         const normalized = publishObjectivePlan(PLAN, 1);
-        expect(Array.isArray((globalThis as any).window[WINDOW_KEY])).toBe(true);
-        expect((globalThis as any).window[WINDOW_KEY]).toBe(PLAN); // the richer objects, not a lossy copy
+        expect(Array.isArray(planSubQuestions())).toBe(true);
+        expect(planSubQuestions()).toBe(PLAN); // the richer objects, not a lossy copy
         expect(normalized).toHaveLength(2);
         expect(readDecompositionStatus()).toMatchObject({ decomposition: 'decomposed', attempts: 1 });
         const read = readObjectivePlan();
@@ -88,7 +88,7 @@ describe('publishObjectivePlan (the one writer)', () => {
 
     it('refuses to publish an empty plan: that outcome is the unavailable marker, not an empty array', () => {
         publishObjectivePlan([]);
-        expect((globalThis as any).window[WINDOW_KEY]).toBeUndefined();
+        expect(planSubQuestions()).toEqual([]);
         expect(readDecompositionStatus()).toBeNull();
         expect(readObjectivePlan().planAbsent).toBe(true);
     });
@@ -104,7 +104,7 @@ describe('publishObjectivePlan (the one writer)', () => {
     it('clearObjectivePlan forgets both the plan and the marker', () => {
         publishObjectivePlan(PLAN);
         clearObjectivePlan();
-        expect((globalThis as any).window[WINDOW_KEY]).toBeUndefined();
+        expect(planSubQuestions()).toEqual([]);
         expect(readDecompositionStatus()).toBeNull();
         expect(readObjectivePlan().decomposition).toBe('unrecorded');
     });

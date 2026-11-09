@@ -16,20 +16,21 @@ collected_at: "2026-07-02T16:20:38+00:00"
 content_hash: "1efa37661eff5669"
 chunks:
   - id: "articles/pymnts/cefd27b6d5.md#c0"
-    char_span: [0, 2574]
+    char_span: [0, 2573]
     sentence_count: 15
     key_terms: [agent, article, infrastructure, identity, agents, commerce, billion, whether]
     concepts: [agent, article, infrastructure, identity, agents]
     related_chunks: ["articles/pymnts/cefd27b6d5.md#c1"]
-    token_count: 492
-    sources: [{"n":"pymnts","u":"https://www.pymnts.com/news/artificial-intelligence/2026/why-its-time-to-know-your-agent/"}]
+    token_count: 491
+    sources: [{"n":"pymnts","u":"https://www.pymnts.com/news/artificial-intelligence/2026/why-its-time-to-know-your-agent/","kind":"article","date":"2026-06-29"}]
   - id: "articles/pymnts/cefd27b6d5.md#c1"
-    char_span: [2577, 4921]
+    char_span: [2576, 4920]
     sentence_count: 14
     key_terms: [agent, agents, authorization, regulators, financial, standards, nist, note]
     concepts: [agent, agents, authorization, regulators, financial]
     related_chunks: ["articles/pymnts/cefd27b6d5.md#c0"]
     token_count: 391
+    sources: [{"n":"pymnts","u":"https://www.pymnts.com/news/artificial-intelligence/2026/why-its-time-to-know-your-agent/","kind":"article","date":"2026-06-29"}]
 ---
 # Why It’s Time to Know Your Agent
 

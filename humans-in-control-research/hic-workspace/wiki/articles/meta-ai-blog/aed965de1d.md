@@ -19,39 +19,43 @@ content_hash: "1824d1ef0dcf80d5"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/meta-ai-blog/aed965de1d.md#c0"
-    char_span: [0, 246]
+    char_span: [0, 245]
     sentence_count: 1
     key_terms: [privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study, classification, infrastructure, privacy-aware, engineering, ai-native, security, source]
-    token_count: 59
-    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/"}]
+    token_count: 58
+    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/","kind":"article","date":"2026-06-25"}]
   - id: "articles/meta-ai-blog/aed965de1d.md#c1"
-    char_span: [248, 2971]
+    char_span: [247, 2970]
     sentence_count: 18
     key_terms: [classification, asset, deterministic, enforcement, production, downstream-sharing, retention, data]
     concepts: [classification, deterministic, asset, enforcement, downstream-sharing]
     related_chunks: ["articles/meta-ai-blog/aed965de1d.md#c2"]
     token_count: 512
+    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/","kind":"article","date":"2026-06-25"}]
   - id: "articles/meta-ai-blog/aed965de1d.md#c2"
-    char_span: [2606, 5474]
+    char_span: [2605, 5473]
     sentence_count: 28
     key_terms: [classification, context, asset, pipeline, signals, enforcement, fields, classifier]
     concepts: [classification, context, pipeline, asset, enforcement]
     related_chunks: ["articles/meta-ai-blog/aed965de1d.md#c1"]
     token_count: 512
+    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/","kind":"article","date":"2026-06-25"}]
   - id: "articles/meta-ai-blog/aed965de1d.md#c3"
-    char_span: [5099, 7948]
+    char_span: [5098, 7947]
     sentence_count: 25
     key_terms: [classifier, evaluation, deterministic, context, optimization, stable, model, contract]
     concepts: [classifier, evaluation, deterministic, optimization, context]
     related_chunks: ["articles/meta-ai-blog/aed965de1d.md#c4"]
     token_count: 512
+    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/","kind":"article","date":"2026-06-25"}]
   - id: "articles/meta-ai-blog/aed965de1d.md#c4"
-    char_span: [7582, 10249]
+    char_span: [7581, 10248]
     sentence_count: 23
     key_terms: [context, classifier, decision, evidence, signal, data, signals, supporting]
     concepts: [classifier, context, decision, evidence, signal]
     related_chunks: ["articles/meta-ai-blog/aed965de1d.md#c3"]
     token_count: 510
+    sources: [{"n":"Meta AI Blog","u":"https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/","kind":"article","date":"2026-06-25"}]
 ---
 # Privacy-Aware Infrastructure in the AI-Native Era: An Asset Classification Case Study
 

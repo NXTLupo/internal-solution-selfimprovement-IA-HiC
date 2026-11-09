@@ -17,42 +17,47 @@ research_goal: "Identify high-converting email design patterns and product marke
 engagement: "identify-high-converting-email-design-patterns-and-product-m"
 chunks:
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c0"
-    char_span: [0, 253]
+    char_span: [0, 252]
     sentence_count: 1
     key_terms: [ecommerce, comments, adventurepaul, reddit-deep, e-commerce, industry, posted, reddit]
     concepts: [ecommerce, comments]
-    token_count: 80
-    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/"}]
+    token_count: 79
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c1"
-    char_span: [255, 2401]
+    char_span: [254, 2400]
     sentence_count: 10
     key_terms: [surcharge, wholesale, e-commerce, merchants, shopify, third-party, fba, sellers]
     concepts: [surcharge, wholesale, e-commerce, merchants, shopify]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c2"
-    char_span: [2161, 4574]
+    char_span: [2160, 4573]
     sentence_count: 13
     key_terms: [tiktok, moratorium, cameo, countries, surcharge, creators, through, without]
     concepts: [tiktok, moratorium, countries, surcharge, cameo]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c3"
-    char_span: [4249, 6829]
+    char_span: [4248, 6828]
     sentence_count: 11
     key_terms: [amazon, perplexity, injunction, comet, ads, shopping, browser, spotify]
     concepts: [amazon, perplexity, injunction, comet, shopping]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c4"
-    char_span: [6485, 9154]
+    char_span: [6484, 9153]
     sentence_count: 11
     key_terms: [openai, like, coalition, itself, safety, verification, child, legislation]
     concepts: [openai, coalition, verification, itself, safety]
     token_count: 512
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
   - id: "social-intelligence/reddit-deep/ecommerce/1secags.md#c5"
-    char_span: [8803, 10256]
+    char_span: [8802, 10255]
     sentence_count: 8
     key_terms: [consumers, merchants, bitcoin, eligible, hispanic, payments, sharpton, inquiry]
     concepts: [consumers, merchants, bitcoin, eligible, hispanic]
     token_count: 291
+    sources: [{"n":"reddit-deep: r/ecommerce","u":"https://www.reddit.com/r/ecommerce/comments/1secags/ecommerce_industry_news_recap_week_of_april_6th/","kind":"social-post","date":"2026-04-06","author":"adventurepaul","subreddit":"ecommerce"}]
 ---
 # E-commerce Industry News Recap 🔥 Week of April 6th, 2026
 

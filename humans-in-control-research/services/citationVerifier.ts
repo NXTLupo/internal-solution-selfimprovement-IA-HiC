@@ -49,6 +49,8 @@ export interface EvidenceClaim {
     kind: 'quote' | 'stat' | 'text';
     text: string;
     pointers: string[];
+    /** pointers written INSIDE the claim field (kept on a snapped quote). */
+    inlinePointers?: string[];
 }
 
 export type Verdict = 'VERIFIED' | 'ATTRIBUTION_FIXED' | 'UNVERIFIED' | 'UNSOURCED' | 'UNREACHABLE';
@@ -131,7 +133,7 @@ export function extractEvidenceClaims(slide: any): EvidenceClaim[] {
         const text = stripPointerMarkers(raw);
         if (text.length < 8) return;
         const kind: EvidenceClaim['kind'] = quoteish ? 'quote' : (/\d/.test(text) ? 'stat' : 'text');
-        claims.push({ slideId, slideTitle, field, attributions: attrs, kind, text, pointers });
+        claims.push({ slideId, slideTitle, field, attributions: attrs, kind, text, pointers, inlinePointers: extractPointers(raw) });
     };
 
     const visit = (node: any, prefix: string, depth: number, inheritedAttrs: AttributionRef[]) => {
@@ -300,6 +302,41 @@ export function lookupFrontmatterUrl(pagePath: string): string | null {
     return _wikiFrontmatterUrls.get(pagePath) ?? null;
 }
 
+/** Raw page body by its normalized text (2026-10-06): quote snapping needs the original casing and punctuation. */
+const _wikiRawBodies = new Map<string, string>();
+
+/**
+ * The closest VERBATIM span of a page to a model-written quote (2026-10-06: "not found verbatim" flags on persona and
+ * theme quotes the model lightly reworded). Sentences and adjacent sentence pairs are scored by content-word recall
+ * and F1 against the quote; the best span is returned when recall >= 0.75 and F1 >= 0.7, else null (the quote stays
+ * flagged). Deterministic; the replacement text is lifted from the source, never authored.
+ */
+export function bestVerbatimSpan(quote: string, rawBody: string): string | null {
+    const STOP = new Set(['the', 'and', 'for', 'have', 'has', 'had', 'are', 'was', 'were', 'with', 'that', 'this', 'from', 'their', 'they', 'them', 'its', 'not', 'nor', 'but', 'you', 'your', 'our', 'can', 'will', 'into', 'than', 'then', 'what', 'who', 'which']);
+    const words = (t: string) => normalizeForMatch(t).split(/[^a-z0-9']+/).filter(w => w.length >= 3 && !STOP.has(w));
+    const q = words(quote);
+    if (q.length < 4 || !rawBody) return null;
+    const qs = new Set(q);
+    const sents = String(rawBody).replace(/\s+/g, ' ').split(/(?<=[.!?]["”']?)\s+(?=[A-Z0-9"“(])/).map(x => x.trim()).filter(x => x.length >= 12 && x.length <= 600);
+    const cands: string[] = [...sents];
+    for (let i = 0; i + 1 < sents.length; i++) if (sents[i].length + sents[i + 1].length <= 600) cands.push(`${sents[i]} ${sents[i + 1]}`);
+    let best: { span: string; f1: number; recall: number } | null = null;
+    for (const c of cands) {
+        const cw = words(c);
+        if (!cw.length) continue;
+        const cs = new Set(cw);
+        let hit = 0;
+        for (const w of qs) if (cs.has(w)) hit++;
+        const recall = hit / qs.size, precision = hit / cs.size;
+        const f1 = recall + precision ? (2 * recall * precision) / (recall + precision) : 0;
+        // recall first (a quote is often PART of a long source sentence), then precision, then the shorter span
+        if (precision < 0.35) continue;
+        if (!best || recall > best.recall || (recall === best.recall && (f1 > best.f1 || (f1 === best.f1 && c.length < best.span.length)))) best = { span: c, f1, recall };
+    }
+    if (!best || best.recall < 0.8) return null;
+    return best.span.replace(/^[\s"“”]+|[\s"“”]+$/g, '').replace(/\s*\[[^\]]*\.md(?:#c\d+)?\]/g, '').trim();
+}
+
 export function makeWikiPageFetcher(): PageFetcher {
     const cache = new Map<string, string | null>();
     return async (pagePath: string) => {
@@ -317,6 +354,7 @@ export function makeWikiPageFetcher(): PageFetcher {
                         _wikiFrontmatterUrls.set(pagePath, raw && /^https?:\/\//i.test(raw) ? raw : null);
                     }
                     text = normalizeForMatch(d.content);
+                    _wikiRawBodies.set(text, d.content.replace(/^---\n[\s\S]*?\n---\n?/, ''));
                 }
             }
         } catch { /* offline proxy: rows become UNREACHABLE and are never fix-applied */ }
@@ -342,6 +380,11 @@ function realSourceNames(pointer: string): string[] {
 export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher): Promise<LedgerRow[]> {
     const fetcher = fetchPage || makeWikiPageFetcher();
     const rows: LedgerRow[] = [];
+    // Every page this deck cites (2026-10-06): a quote attached to the WRONG pointer is often verbatim on another page
+    // the same deck cites (live #personas: three different quotes all pointed at one r/internships thread).
+    const deckPages: string[] = [];
+    let corpusLookups = 0;
+    for (const slide of slides || []) for (const c of extractEvidenceClaims(slide)) for (const ptr of c.pointers) if (!deckPages.includes(ptr)) deckPages.push(ptr);
     for (const slide of slides || []) {
         for (const claim of extractEvidenceClaims(slide)) {
             const citedAs = claim.attributions.map(a => a.value).filter(Boolean).join(' / ');
@@ -381,6 +424,67 @@ export async function verifyDeckEvidence(slides: any[], fetchPage?: PageFetcher)
                 row.note = 'Pointed source page could not be loaded; claim left untouched and unchecked.';
                 rows.push(row);
                 continue;
+            }
+            // Quote snapping (2026-10-06): a lightly reworded quote is replaced by the exact source sentence.
+            if (!verifiedOn && claim.kind === 'quote') {
+                for (const pointer of claim.pointers) {
+                    const norm = await fetcher(pointer.replace(/#c\d+$/i, ''));
+                    const raw = norm != null ? _wikiRawBodies.get(norm) : undefined;
+                    const span = raw ? bestVerbatimSpan(claim.text, raw) : null;
+                    if (span) {
+                        row.pointer = pointer;
+                        row.verdict = 'VERIFIED';
+                        row.note = 'Quote matched to the exact source text.';
+                        const inline = (claim.inlinePointers || []).map(ptr => ` [${ptr}]`).join('');
+                        row.fixes = [{ field: claim.field, value: `${span}${inline}` }];
+                        break;
+                    }
+                }
+                // Corpus-level candidates (2026-10-06): the quote's true page is often one the deck never cites. The
+                // manifest retrieval ranks chunks by the quote's own words; those pages join the candidates.
+                let corpusPages: string[] = [];
+                // The chunks the model was actually shown come first: a verbatim match there names the true page
+                // without a fetch or a retrieval call.
+                if (row.verdict !== 'VERIFIED') {
+                    try {
+                        const { promptedChunkTexts } = await import('./chunkRetrieval');
+                        for (const [id, text] of promptedChunkTexts()) {
+                            if (claim.pointers.includes(id)) continue;
+                            if (quoteAppearsIn(claim.text, normalizeForMatch(text))) corpusPages.push(id);
+                            if (corpusPages.length >= 3) break;
+                        }
+                    } catch { /* non-fatal */ }
+                }
+                if (row.verdict !== 'VERIFIED' && !corpusPages.length && corpusLookups < 15) {
+                    corpusLookups++;
+                    try {
+                        const [{ pickChunksForPrompt }, { currentEngagementSlug }] = await Promise.all([import('./chunkRetrieval'), import('./wikiPointerResolver')]);
+                        const slug = currentEngagementSlug();
+                        if (slug) corpusPages = ((await pickChunksForPrompt(claim.text, slug, { tokenBudget: 2500, skipRerank: true, skipAutoPin: true })).chunkIds || []).slice(0, 8);
+                    } catch { corpusPages = []; }
+                }
+                if (row.verdict !== 'VERIFIED') {
+                    for (const ptr of [...deckPages.slice(0, 60), ...corpusPages.filter(p => !deckPages.includes(p))]) {
+                        if (claim.pointers.includes(ptr)) continue;
+                        const norm = await fetcher(ptr.replace(/#c\d+$/i, ''));
+                        if (norm == null) continue;
+                        const raw = _wikiRawBodies.get(norm);
+                        const exact = quoteAppearsIn(claim.text, norm);
+                        const span = exact ? null : (raw ? bestVerbatimSpan(claim.text, raw) : null);
+                        if (!exact && !span) continue;
+                        const page = ptr.replace(/#c\d+$/i, '');
+                        const realNames = realSourceNames(ptr);
+                        row.pointer = ptr;
+                        row.realSources = realNames;
+                        row.url = lookupPointerUrl(ptr) || (realNames[0] ? lookupSourceUrl(realNames[0]) : null) || lookupFrontmatterUrl(page);
+                        row.verdict = 'VERIFIED';
+                        row.note = 'Quote re-pointed to the source that carries it.';
+                        const labelFix = claim.attributions.map(a => ({ field: a.field, value: honestLabelFor(ptr, realNames) }));
+                        row.fixes = [{ field: claim.field, value: `${span || claim.text} [${ptr}]` }, ...labelFix];
+                        break;
+                    }
+                }
+                if (row.verdict === 'VERIFIED') { rows.push(row); continue; }
             }
             if (!verifiedOn) {
                 row.verdict = 'UNVERIFIED';

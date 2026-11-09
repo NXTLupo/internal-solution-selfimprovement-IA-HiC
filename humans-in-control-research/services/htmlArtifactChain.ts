@@ -32,9 +32,13 @@ import { callAIWithRetry } from './aiRetryClient';
 import { DEFAULT_MODELS } from './aiRouter';
 import { scrubRewrite, stripCitationArtifacts } from './slideTextEditing';
 import { readLastEmittedAir } from './airPostChain';
+import { analyzeProse, buildProseRepairInstruction, carriesContrastTemplate, endsOnVerdict } from './proseSignal';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
-const MAX_REPAIR_ROUNDS = 1;
+// 2026-11-09: 2 rounds. One capped round of 30 rows left a large #prd at 74 blocking; the loop
+// already exits early the moment blocking reaches zero, so the second round costs nothing on
+// documents the first round clears.
+const MAX_REPAIR_ROUNDS = 2;
 
 /**
  * RAW page fetcher for the gate. `citationVerifier.makeWikiPageFetcher` returns the page
@@ -63,6 +67,8 @@ export interface HtmlChainOptions {
     chunks: GateChunk[];
     /** Run the narrowing repair on blocking findings (one model call, Flash, temperature 0). Default true. */
     repair?: boolean;
+    /** Run the deterministic prose signal + one bounded voice-only repair (2026-11-08). Default true. */
+    prose?: boolean;
     /** Append the dated source index. Default true. */
     sourceIndex?: boolean;
     /** Patch the last emitted AIR with the ledger. Default true when an AIR ref exists. */
@@ -85,6 +91,10 @@ export interface HtmlChainResult {
     pass: boolean;
     summaryLine: string;
     airPatched: boolean;
+    /** Prose-signal overall score (0..1) before/after the voice repair; null when the stage was skipped. */
+    proseOverallBefore: number | null;
+    proseOverallAfter: number | null;
+    proseBlocksRepaired: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -118,8 +128,8 @@ async function defaultRepair(instruction: string, sentences: Array<{ id: string;
         model: DEFAULT_MODELS.fast_generation,
         systemInstruction: { parts: [{ text: REPAIR_SYSTEM }] },
         contents: [{ role: 'user', parts: [{ text: user }] }],
-        config: { temperature: 0, maxOutputTokens: 4000, responseMimeType: 'application/json', thinkingBudget: 0 },
-    }, { label: 'HTML artifact repair', maxAttempts: 2, requestTimeoutMs: 60_000 });
+        config: { temperature: 0, maxOutputTokens: 12000, responseMimeType: 'application/json', thinkingBudget: 0 },
+    }, { label: 'HTML artifact repair', maxAttempts: 2, requestTimeoutMs: 90_000 });
     const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
     try { return JSON.parse(text); } catch {
         const m = text.match(/\{[\s\S]*\}/);
@@ -132,23 +142,97 @@ function escapeHtml(s: string): string {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// ---------------------------------------------------------------------------
+// Prose repair: voice only, never facts (2026-11-08)
+// ---------------------------------------------------------------------------
+
+const PROSE_REPAIR_SYSTEM = [
+    'You rewrite individual blocks of a consulting document whose WRITING failed a deterministic prose check (the facts passed; the voice did not). Return ONLY a JSON object mapping each block id you changed to its rewritten text. Omit ids you did not change.',
+    '',
+    'WHAT YOU MUST DO: rewrite for a human voice. Break the contrast template ("X, not Y", "not X, but Y", "is not X; it is Y", "rather than", the semicolon pivot): state the positive claim directly, or give the alternative its own plain sentence. Replace a short oracular verdict that closes a paragraph with an ending on the evidence or the mechanism. Vary sentence length and openings. Name the actor. Use "is".',
+    '',
+    'WHAT YOU MUST NEVER DO:',
+    '- NEVER change, add or remove a fact, number, date, name, claim, comparison or conclusion. The meaning of every block stays identical; only the wording changes.',
+    '- NEVER touch text inside quotation marks: a verbatim quote stays character-for-character.',
+    '- NEVER add or delete a citation pointer ([path.md#cN]); keep pointers exactly where they are.',
+    '- NEVER add a hedge, an intensifier, a metaphor, an em-dash or a buzzword.',
+    '',
+    'STYLE: plain business language a colleague would say aloud. One idea per sentence.',
+].join('\n');
+
+async function defaultProseRepair(instruction: string, sentences: Array<{ id: string; text: string }>): Promise<Record<string, string>> {
+    const user = [
+        'Prose findings to fix:',
+        instruction,
+        '',
+        'Blocks (id -> current text). Rewrite the voice; keep every fact and every bracketed .md#cN pointer.',
+        JSON.stringify(Object.fromEntries(sentences.map(s => [s.id, s.text])), null, 1),
+    ].join('\n');
+    const parsed = await callAIWithRetry('gemini', {
+        model: DEFAULT_MODELS.fast_generation,
+        systemInstruction: { parts: [{ text: PROSE_REPAIR_SYSTEM }] },
+        contents: [{ role: 'user', parts: [{ text: user }] }],
+        config: { temperature: 0, maxOutputTokens: 8000, responseMimeType: 'application/json', thinkingBudget: 0 },
+    }, { label: 'HTML artifact prose repair', maxAttempts: 2, requestTimeoutMs: 90_000 });
+    const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+    try { return JSON.parse(text); } catch {
+        const m = text.match(/\{[\s\S]*\}/);
+        if (m) { try { return JSON.parse(m[0]); } catch { /* fall through */ } }
+    }
+    return {};
+}
+
 /**
  * Replace a flagged block's inner HTML with the repaired sentence. The row's original
  * pointers are re-attached in a single bracket at the end, so the repair can neither add
  * nor lose provenance. Inline markup inside the repaired block is dropped; a narrowed
  * sentence in plain text beats an overclaim in bold.
  */
-function applySentenceRepairs(html: string, ledger: ClaimLedger, repaired: Record<string, string>, findings: LedgerFinding[]): { html: string; applied: number } {
+/**
+ * 2026-11-09 (QA third review): the repair model became the last writer and the only unchecked
+ * one. It shipped "System engagement depends on maintain trust.", "record to a accessible log",
+ * an unclosed quotation, and verbatim quotes flattened into "The text highlights..." narration.
+ * A repair that reads broken is worse than the defect it fixes, so a rewrite that trips any of
+ * these is REJECTED and the original sentence stays (the finding stays visible in the ledger).
+ */
+const REPAIR_BREAKAGE_RES: RegExp[] = [
+    // bare verb after a preposition ("depends on maintain trust")
+    /\b(?:on|of|for|in|by|with|to|from) (?:maintain|provide|create|ensure|support|deliver|build|record|transmit|manage|preserve|establish|improve|reduce)\b(?![a-z])/,
+    // evidence-narration the writing contract bans ("The text highlights ...")
+    /\b[Tt]he (?:text|setup|post|comment|material|content|passage) (?:highlights|relies|reports|indicates|suggests|shows|reflects)\b/,
+];
+function repairIsSafe(originalText: string, replacement: string): boolean {
+    for (const re of REPAIR_BREAKAGE_RES) if (re.test(replacement)) return false;
+    // Unbalanced quotation marks (straight or curly) ship an unclosed quote.
+    if ((replacement.match(/"/g) || []).length % 2 !== 0) return false;
+    if ((replacement.match(/“/g) || []).length !== (replacement.match(/”/g) || []).length) return false;
+    // A verbatim quoted span in the original must survive character-for-character (the marks may
+    // go, per remove_quote_marks, but the words may not be paraphrased away).
+    const spans = originalText.match(/"([^"]{24,})"|“([^”]{24,})”/g) || [];
+    for (const s of spans) {
+        const inner = s.replace(/^["“]|["”]$/g, '');
+        if (!replacement.includes(inner)) return false;
+    }
+    return true;
+}
+/** Conservative article agreement for the exact class the repair model emits ("a accessible log"). */
+function fixArticles(text: string): string {
+    return text.replace(/\b([Aa]) (accessible|established|explicit|important|open|existing|additional|internal|external|official|individual|automated|approved|updated|integrated|independent|essential|entire|early|easy|active|annual|audit|auditable)\b/g,
+        (_m, a: string, w: string) => `${a === 'A' ? 'An' : 'an'} ${w}`);
+}
+
+function applySentenceRepairs(html: string, ledger: ClaimLedger, repaired: Record<string, string>, flagged: LedgerFinding[] | Set<string>): { html: string; applied: number } {
     let out = html;
     let applied = 0;
-    const flaggedIds = new Set(findings.map(f => f.rowId));
+    const flaggedIds = flagged instanceof Set ? flagged : new Set(flagged.map(f => f.rowId));
     for (const row of ledger.rows) {
         const raw = repaired[row.id];
         if (typeof raw !== 'string' || !flaggedIds.has(row.id)) continue;
         // Provenance is the system's: strip anything the model wrote that looks like a pointer or source
         // suffix, then re-attach exactly the pointers the block already carried.
-        const cleaned = stripCitationArtifacts(scrubRewrite(raw)).trim();
+        const cleaned = fixArticles(stripCitationArtifacts(scrubRewrite(raw)).trim());
         if (cleaned.length < 8 || cleaned === row.text) continue;
+        if (!repairIsSafe(row.text, cleaned)) { console.warn(`[html-chain] repair rejected for ${row.id}: rewrite reads broken or damages a quote`); continue; }
         const pointerSuffix = row.pointers.length ? ` [${row.pointers.join(', ')}]` : '';
         const replacement = `${escapeHtml(cleaned)}${pointerSuffix}`;
         const idx = out.indexOf(row.rawInner);
@@ -295,7 +379,7 @@ function appendSourceIndex(html: string, index: string): string {
 // AIR record
 // ---------------------------------------------------------------------------
 
-async function patchAir(before: ClaimLedger, after: ClaimLedger, shippedHtml: string, chromeStripped: string[], repairRounds: number, sentencesRepaired: number): Promise<boolean> {
+async function patchAir(before: ClaimLedger, after: ClaimLedger, shippedHtml: string, chromeStripped: string[], repairRounds: number, sentencesRepaired: number, prose?: { before: number | null; after: number | null; repaired: number }): Promise<boolean> {
     const ref = readLastEmittedAir();
     if (!ref) return false;
     const codes = (l: ClaimLedger) => l.findings.filter(f => f.severity === 'block').map(f => `claim:${f.code}@${f.rowId}`);
@@ -328,6 +412,7 @@ async function patchAir(before: ClaimLedger, after: ClaimLedger, shippedHtml: st
                             pointers_resolved: after.resolvedPointers,
                             chrome_stripped: chromeStripped.length,
                             repaired_sentences: sentencesRepaired,
+                            ...(prose && prose.before !== null ? { prose_overall_before: prose.before, prose_overall_after: prose.after ?? prose.before, prose_blocks_repaired: prose.repaired } : {}),
                         },
                         chainPass: after.pass,
                     },
@@ -373,7 +458,11 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
             if (!instruction) break;
             const targets = current.findings.filter(f => f.severity === 'block' && f.repair !== 'strip_pointer' && f.repair !== 'strip_tail');
             const ids = new Set(targets.map(f => f.rowId));
-            const sentences = current.rows.filter(r => ids.has(r.id)).map(r => ({ id: r.id, text: r.text }));
+            // 2026-11-09 (live #prd defect): 123 blocking rows produced "0 sentence(s) narrowed"
+            // because the whole set went to one repair call whose 4K-token JSON reply truncated
+            // and failed to parse. The batch is capped so the reply always fits; one round of a
+            // bounded cap repairs the worst rows instead of silently repairing none.
+            const sentences = current.rows.filter(r => ids.has(r.id)).map(r => ({ id: r.id, text: r.text })).slice(0, 30);
             if (!sentences.length) break;
             progress(`narrowing ${sentences.length} flagged sentence(s)...`);
             repairRounds++;
@@ -393,6 +482,70 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
         ledgerAfter = await evaluateClaimLedger(html, gateCtx);
     }
 
+    // 4.5. PROSE SIGNAL (2026-11-08, the live "#report full of AI slop" defect).
+    // The claim gate checks what the document says; nothing checked how it says it,
+    // so a report could clear every lexical ban and still ship saturated with the
+    // contrast template and oracular paragraph enders. Measure the reader-visible
+    // blocks, and when the signal fails, run ONE bounded voice-only repair over the
+    // offending blocks (facts, quotes and pointers are preserved by contract and by
+    // applySentenceRepairs re-attaching the row's own pointers), then re-gate.
+    let proseBefore: ReturnType<typeof analyzeProse> | null = null;
+    let proseAfter: ReturnType<typeof analyzeProse> | null = null;
+    let proseBlocksRepaired = 0;
+    if (opts.prose !== false) {
+        try {
+            const rowTexts = ledgerAfter.rows.map(r => r.text).filter(t => t && t.split(/\s+/).length >= 3);
+            proseBefore = analyzeProse(rowTexts.join(' '), { paragraphs: rowTexts });
+            proseAfter = proseBefore;
+            // Over-long action titles are a voice defect on their own: tighten them even when the
+            // sentence-level metrics pass.
+            const _hasLongHeadings = ledgerAfter.rows.some(r => /^h[1-6]$/.test(r.tag) && (r.text || '').split(/\s+/).length > 13);
+            if ((!proseBefore.pass || _hasLongHeadings) && rowTexts.length >= 5) {
+                const offenderText = new Set(proseBefore.concerns.flatMap(c => c.offenders));
+                const templateFlagged = proseBefore.concerns.some(c => c.id === 'templates');
+                const endersFlagged = proseBefore.concerns.some(c => c.id === 'enders');
+                // 2026-11-09 (independent QA): action titles that pass judgment and literalness but run
+                // 16-19 words violate the hard "aim <= 10 words" concision clause. Over-long headings
+                // are voice targets too; the instruction below tells the rewriter to tighten, and
+                // applySentenceRepairs re-attaches the row's own pointers as with any block.
+                const longHeadings = ledgerAfter.rows.filter(r => /^h[1-6]$/.test(r.tag) && (r.text || '').split(/\s+/).length > 13 && !/["“”]/.test(r.text || ''));
+                const targets = [...longHeadings, ...ledgerAfter.rows.filter(r => {
+                    const t = r.text || '';
+                    if (/^h[1-6]$/.test(r.tag)) return false;      // handled above
+                    if (t.split(/\s+/).length < 6) return false;
+                    if (/["“”]/.test(t)) return false;   // verbatim quotes stay untouched
+                    if ([...offenderText].some(o => o && t.includes(o.slice(0, 80)))) return true;
+                    if (templateFlagged && carriesContrastTemplate(t)) return true;
+                    if (endersFlagged && endsOnVerdict(t)) return true;
+                    return false;
+                })].slice(0, 20);
+                if (targets.length) {
+                    progress(`prose signal ${proseBefore.pass ? 'pass, tightening titles' : `below floor (${proseBefore.concerns.map(c => c.id).join(', ')})`}; rewriting ${targets.length} block(s) for voice...`);
+                    const proseFn = opts.repairFn || defaultProseRepair;
+                    const headingLine = longHeadings.length
+                        ? `\nTITLES: ${longHeadings.length} heading(s) run past the action-title concision rule. Tighten each to 10 words or fewer while keeping the exact judgment, the named actor and literal language. Drop subordinate clauses; never drop the conclusion.`
+                        : '';
+                    const instruction = (buildProseRepairInstruction(proseBefore) || 'PROSE REVISION: voice only, never facts.') + headingLine;
+                    let rewritten: Record<string, string> = {};
+                    try { rewritten = await proseFn(instruction, targets.map(r => ({ id: r.id, text: r.text }))); }
+                    catch (e: any) { console.warn('[html-chain] prose repair failed:', e?.message || e); }
+                    const appliedProse = applySentenceRepairs(html, ledgerAfter, rewritten, new Set(targets.map(r => r.id)));
+                    if (appliedProse.applied) {
+                        proseBlocksRepaired = appliedProse.applied;
+                        html = appliedProse.html;
+                        // The voice rewrite must not regress the claim gate; measure what ships.
+                        ledgerAfter = await evaluateClaimLedger(html, gateCtx);
+                        html = applyDeterministicFixes(html, ledgerAfter);
+                        const afterTexts = ledgerAfter.rows.map(r => r.text).filter(t => t && t.split(/\s+/).length >= 3);
+                        proseAfter = analyzeProse(afterTexts.join(' '), { paragraphs: afterTexts });
+                    }
+                }
+            }
+        } catch (e: any) {
+            console.warn('[html-chain] prose stage failed (non-fatal):', e?.message || e);
+        }
+    }
+
     // 5. Citations and the source index.
     const pointers = collectPointers(html);
     html = renderCitations(html, declared);
@@ -401,11 +554,23 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
 
     // 6. Record.
     let airPatched = false;
-    if (opts.recordAir !== false) airPatched = await patchAir(ledgerBefore, ledgerAfter, html, chrome.stripped, repairRounds, sentencesRepaired);
+    if (opts.recordAir !== false) airPatched = await patchAir(ledgerBefore, ledgerAfter, html, chrome.stripped, repairRounds, sentencesRepaired,
+        { before: proseBefore ? Number(proseBefore.overall.toFixed(3)) : null, after: proseAfter ? Number(proseAfter.overall.toFixed(3)) : null, repaired: proseBlocksRepaired });
 
-    const summaryLine = `${ledgerSummaryLine(ledgerAfter)}; ${chrome.stripped.length} chrome element(s) stripped; ${sentencesRepaired} sentence(s) narrowed; ${pointers.length} citation(s) rendered`;
+    // Final punctuation tidy (2026-11-09 QA: a deletion upstream left "at the moment of need , on
+    // terms..." in the hero). A space before , . ; : after a word or closing quote never belongs
+    // in prose; CSS and JS are unaffected by removing one.
+    html = html.replace(/([\w"”]) +([,.;:])(?=\s)/g, '$1$2');
+
+    const proseNote = proseBefore
+        ? `; prose ${proseBefore.overall.toFixed(2)}${proseBlocksRepaired ? ` -> ${(proseAfter?.overall ?? proseBefore.overall).toFixed(2)} (${proseBlocksRepaired} block(s) rewritten for voice)` : (proseBefore.pass ? ' (pass)' : ' (below floor, no repairable block)')}`
+        : '';
+    const summaryLine = `${ledgerSummaryLine(ledgerAfter)}; ${chrome.stripped.length} chrome element(s) stripped; ${sentencesRepaired} sentence(s) narrowed; ${pointers.length} citation(s) rendered${proseNote}`;
     return {
         html, ledgerBefore, ledgerAfter, chromeStripped: chrome.stripped, repairRounds, sentencesRepaired,
         citationsRendered: pointers.length, pass: ledgerAfter.pass, summaryLine, airPatched,
+        proseOverallBefore: proseBefore ? Number(proseBefore.overall.toFixed(3)) : null,
+        proseOverallAfter: proseAfter ? Number(proseAfter.overall.toFixed(3)) : null,
+        proseBlocksRepaired,
     };
 }

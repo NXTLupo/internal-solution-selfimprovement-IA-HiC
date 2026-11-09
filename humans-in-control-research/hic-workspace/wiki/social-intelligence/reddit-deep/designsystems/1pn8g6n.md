@@ -1,0 +1,264 @@
+---
+id: social-intelligence/reddit-deep/designsystems/1pn8g6n.md
+url: "https://www.reddit.com/r/DesignSystems/comments/1pn8g6n/stop_styling_components_start_expressing_design/"
+kind: "social-post"
+source: "reddit-deep: r/designsystems"
+subreddit: "designsystems"
+title: "Stop Styling Components. Start Expressing Design. UXDSL, the UX Design system Language is the tool for this path."
+author: "WestAbbreviations504"
+date: "2025-12-15T14:17:19.000Z"
+score: 0
+upvote_ratio: 0.43
+num_comments: 6
+flair: ""
+extracted_at: "2026-09-10T17:19:04.809Z"
+extraction_method: "praw-deep"
+research_goal: "As of August-September 2026 (no earlier), what are the capabilities, limitations, and extensibility points of Figma's (the design tool) agents and extensions for connecting agentic workflows, skills, critics, hooks, and visual UI cards? Scour Figma's own documentation and press releases, plus AI/design and marketing sources, and produce a comprehensive, technical white paper detailing all possible use cases for extending Figma's agentic capabilities across: design, approvals, design-system integration, deterministic hooks, and harnessed execution, organized and detailed enough for implementation, covering design, approvals, skills, critics, hooks, AI extensions, and notifications.\n\n"
+engagement: "as-of-august-september-2026-no-earlier-what-are-the-capabili"
+chunks:
+  - id: "social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c0"
+    char_span: [0, 2065]
+    sentence_count: 16
+    key_terms: [design, uxdsl, styling, https, css, language, intent, system]
+    concepts: [design, uxdsl, styling, https, language]
+    related_chunks: ["social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c2", "social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c3"]
+    token_count: 507
+    sources: [{"n":"reddit-deep: r/designsystems","u":"https://www.reddit.com/r/DesignSystems/comments/1pn8g6n/stop_styling_components_start_expressing_design/"}]
+  - id: "social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c1"
+    char_span: [2067, 4183]
+    sentence_count: 10
+    key_terms: [uxdsl, palette, css, compiles, a31d93455af55f65822a347ab7e613ac2eba11cd, density, padding, radius]
+    concepts: [palette, uxdsl, compiles, border-radius, density]
+    token_count: 516
+    sources: [{"n":".hero-title {","u":""}]
+  - id: "social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c2"
+    char_span: [4185, 5202]
+    sentence_count: 5
+    key_terms: [uxdsl, runtime, without, tokens, styling, design, class, https]
+    concepts: [uxdsl, runtime, without, tokens, styling]
+    related_chunks: ["social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c0"]
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c3"
+    char_span: [5217, 6675]
+    sentence_count: 13
+    key_terms: [css, scss, library, uxdsl, language, project, design, system]
+    concepts: [library, uxdsl, language, project, design]
+    related_chunks: ["social-intelligence/reddit-deep/designsystems/1pn8g6n.md#c0"]
+    section: Comments
+    token_count: 377
+---
+# Stop Styling Components. Start Expressing Design. UXDSL, the UX Design system Language is the tool for this path.
+
+Source: [reddit-deep: r/designsystems](https://www.reddit.com/r/DesignSystems/comments/1pn8g6n/stop_styling_components_start_expressing_design/)
+Posted by **WestAbbreviations504** · **0↑** · **6 comments**
+
+# Stop Styling Components. Start Expressing Design. UXDSL - UX Design system Language
+
+I love styling.
+
+I also got tired of it.
+
+Not because CSS is bad — but because most modern approaches slowly erase the *intent* behind a design.
+
+Utility frameworks are fast… until your UI becomes a wall of classes. You can style anything, but six months later no one remembers *why* it looks the way it does.
+
+SCSS starts clean, then grows into deep nesting, duplicated breakpoints, and “just one more override”. Auditing or refactoring becomes guesswork.
+
+CSS-in-JS is powerful (I genuinely enjoy it), but it comes with trade-offs: runtime cost, hydration concerns, and more complexity than you want when all you need is a consistent design system.
+
+https://preview.redd.it/djc7nt9gmd7g1.png?width=1598&format=png&auto=webp&s=1a3a6e0d395b0c48c47795ca0d5fa169fffa9f44
+
+
+
+**UXDSL is my attempt to keep what makes us fast — without losing clarity.**
+
+👉 [https://uxdsl.io/](https://uxdsl.io/)
+
+# What UXDSL is
+
+UXDSL is a small styling language that compiles to **plain CSS**.
+
+It looks like SCSS, feels like CSS, and stays build-time and SSR-friendly — but it adds first-class support for design systems:
+
+* Design tokens for color, spacing, density, typography, radius, shadows
+* Responsive values built directly into the syntax
+* Smart mixins for common UI patterns (surfaces, buttons, inputs, text)
+* Optional runtime theming that updates tokens live — without regenerating styles
+
+The goal isn’t to replace CSS.  
+It’s to make **design intent** the primary thing you write.
+
+# Writing intent, not numbers
+
+Most design systems already exist — they’re just trapped in Figma.
+
+Designers say:
+
+>
+
+Developers write:
+
+>
+
+UXDSL removes that translation step.
+
+    .card {
+      background: palette(surface-main);
+      color: palette(surface-contrast);
+      padding: density(2);
+      border-radius: radius(2);
+    }
+    
+
+That reads like a decision, not a guess.
+
+# Responsive styles without the noise
+
+Breakpoints are where CSS gets messy. UXDSL treats responsiveness as data:
+
+    .layout {
+      display: flex;
+      flex-direction: xs(column) md(row);
+      gap: xs(space(3)) md(space(6));
+    }
+    
+
+You write it once.  
+UXDSL compiles it to normal CSS with media queries.
+
+No duplication. No hunting through files to see where a breakpoint was defined.
+
+# Tokens instead of magic values
+
+UXDSL gives you small helpers that keep the system consistent:
+
+    palette(primary-main)
+    space(4)
+    density(2)
+    radius(2)
+    shadow(1)
+    
+
+Example:
+
+    .cta {
+      background: palette(primary-main);
+      color: palette(primary-contrast);
+      padding: density(3);
+      border-radius: radius(2);
+      box-shadow: shadow(1);
+    }
+    
+
+Everything compiles to plain CSS (mostly variables), so the browser does what it’s already good at.
+
+# Smart mixins, not utility soup
+
+Utility classes work because they encode consistency. UXDSL keeps that benefit, but expresses it as **design primitives**, not class combinations.
+
+    .card {
+      (contained);
+    }
+    
+    .title {
+      (h1);
+    }
+    
+    .button {
+      (contained primary);
+    }
+    
+
+These aren’t shortcuts — they’re guardrails.  
+They encode padding, contrast, borders, states, and defaults in one place.
+
+# What UXDSL outputs
+
+UXDSL always compiles to **boring, inspectable CSS**.
+
+Example source:
+
+    .hero-title {
+      @ds-typo(h1);
+    }
+    
+
+Compiled shape (simplified):
+
+    :where(h1).ds-typo {
+      font-size: var(--h1-size);
+      font-weight: var(--h1-weight, 700);
+    }
+    
+
+Responsive changes become variable overrides:
+
+     (min-width: 768px) {
+      :root {
+        --h1-size: 44px;
+      }
+    }
+    
+
+No runtime styles. No class explosion. No surprises.
+
+https://preview.redd.it/bdyclm5cmd7g1.png?width=1736&format=png&auto=webp&s=a31d93455af55f65822a347ab7e613ac2eba11cd
+
+# Live theming, without runtime styling
+
+UXDSL includes an optional runtime that updates **tokens**, not components.
+
+That means:
+
+* Live theme editors
+* Documentation playgrounds
+* Persisted theme changes
+* SSR-safe rendering
+
+Your styles stay compiled.  
+Only variables change.
+
+# Why this helps teams ship
+
+UXDSL speeds up the part that actually costs time: **maintenance**.
+
+* Refactors touch tokens, not hundreds of values
+* Design intent stays readable in code
+* Responsive logic is compact and predictable
+* Themes are data, not scattered overrides
+
+It’s SCSS with discipline.  
+Utility-level consistency without class soup.  
+CSS-in-JS ergonomics without runtime cost.
+
+# The idea
+
+UXDSL is the middle path I wanted:
+
+* Author like SCSS
+* Think in design tokens
+* Compile to real CSS
+* Stay fast, SSR-friendly, and inspectable
+
+If you’ve ever felt stuck between class soup, stylesheet sprawl, and runtime styling overhead — this is my attempt at a better balance.
+
+👉 [**https://uxdsl.io/**](https://uxdsl.io/)
+
+## Comments
+
+- **esr360** (7↑): Interesting. Why opt for your own language that mimics Scss instead of providing a library of Scss mixins/functions?
+  - **WestAbbreviations504** (2↑): PROS
+
+1. you already know css, sass, and you dislike breakpoints, or the variable naming.
+2. You wanna have a unified visual solution across your new components, driven by a theme handler, the DNA, and configured in a json as needed.
+3. It is precompiled, so all css is cached, and run as fast as pure css, because it is compiled as css.
+4. It has a runtime library, that allows you to update tokens live in case you need this feature.
+5. It separates concerns keeping the html clean, but super fast scss.
+6. It uses the logic of libs like css in js, but on the css side, avoiding the speed issues.
+7. It is not a mimic, it is a layer on top of scss. UXDSL, precompiles and understands everything related to UX Design system library, and let the scss flow running. So any scss file my be converted to uxdsl, and still work, but if you wanna apply Design system powers, UXDSL does the job
+8.  CONS: alpha version and constant changes, but you can play around in small projects
+    - **xBati** (2↑): Thinking as a company, I don’t get why should I bet for a language from an indie project. What if you get tired of the project in few months?
+
+It should be based on Sass IMHO.
+  - **Puzzleheaded-Work903** (0↑): hopes of money and fame - tru vibecoder dream
+- **deivinhodj** (1↑): Very nice

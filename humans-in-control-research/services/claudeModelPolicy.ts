@@ -90,10 +90,14 @@ export function effortForArtifact(kind?: string | null): ClaudeEffort {
 const EFFORT_RANK: Record<ClaudeEffort, number> = { low: 0, medium: 1, high: 2, xhigh: 3, max: 4 };
 
 /** Map the legacy per-skill `thinkingEffort` ('max' | 'high' | 'medium') onto the
- *  vendor effort scale. 'max' stays 'max' (the skill asked for the ceiling). */
+ *  vendor effort scale. A skill hint tops out at 'xhigh' (see below). */
 export function effortFromSkillHint(hint?: string | null): ClaudeEffort | null {
     const h = String(hint || '').toLowerCase();
-    if (h === 'max' || h === 'xhigh' || h === 'high' || h === 'medium' || h === 'low') return h as ClaudeEffort;
+    // 2026-10-06 live #recs: a skill's legacy 'max' on a ~560K-char grounded prompt spent the full 128K output budget
+    // reasoning and truncated the deliverable mid-fence (blank reply after 24 min). A skill hint tops out at xhigh;
+    // 'max' stays reachable only as an explicit caller override.
+    if (h === 'max') return 'xhigh';
+    if (h === 'xhigh' || h === 'high' || h === 'medium' || h === 'low') return h as ClaudeEffort;
     return null;
 }
 
@@ -136,6 +140,12 @@ export function applyAnthropicRequestDefaults<T extends Record<string, any>>(bod
     delete out.temperature;
     delete out.top_p;
     delete out.top_k;
+    // 2026-10-05 live #mindmap 400 "metadata.seed: Extra inputs are not permitted": Messages API metadata accepts
+    // only user_id. Keep that, drop anything else.
+    if (out.metadata && typeof out.metadata === 'object') {
+        const uid = (out.metadata as any).user_id;
+        if (uid) out.metadata = { user_id: uid }; else delete out.metadata;
+    }
 
     // thinking: adaptive only. A budget or `disabled` is a 400 on 5.x; on 4.6-4.8
     // `disabled` is accepted but means "no thinking", which is never what HiC's
@@ -176,4 +186,14 @@ export function extractThinkingSummary(response: any): string {
 export function extractClaudeText(response: any): string {
     const blocks = Array.isArray(response?.content) ? response.content : [];
     return blocks.map((b: any) => (b && b.type === 'text' && typeof b.text === 'string' ? b.text : '')).join('').trim();
+}
+
+/**
+ * The text of an Anthropic Messages response (2026-10-05). Under adaptive thinking `content[0]` is a THINKING block,
+ * so every `content[0].text` reader silently got an empty string (live: #mindmap / #brief-dialog "AI output
+ * unrepairable: empty input", #deep-research "reading 'join'"). Joins every text block, in order.
+ */
+export function anthropicText(data: any): string {
+    const blocks = Array.isArray(data?.content) ? data.content : [];
+    return blocks.filter((c: any) => c?.type === 'text' || (c && c.type === undefined && typeof c.text === 'string')).map((c: any) => String(c.text || '')).join('');
 }

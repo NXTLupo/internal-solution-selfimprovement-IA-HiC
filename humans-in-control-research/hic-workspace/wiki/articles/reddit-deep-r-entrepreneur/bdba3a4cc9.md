@@ -16,18 +16,19 @@ relevance: 70
 content_hash: "11dec85cfb481622"
 chunks:
   - id: "articles/reddit-deep-r-entrepreneur/bdba3a4cc9.md#c0"
-    char_span: [0, 2214]
+    char_span: [0, 2213]
     sentence_count: 16
     key_terms: [entrepreneur, reserve, square, comments, services, please, reddit, essentially]
     concepts: [entrepreneur, reserve, square, comments, services]
-    token_count: 476
-    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/"}]
+    token_count: 475
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/","kind":"article","date":"2025-11-20","subreddit":"entrepreneur"}]
   - id: "articles/reddit-deep-r-entrepreneur/bdba3a4cc9.md#c1"
-    char_span: [2217, 4092]
+    char_span: [2216, 4091]
     sentence_count: 15
     key_terms: [square, risk, switching, industry, balloon, history, looking, reserve]
     concepts: [square, switching, industry, balloon, history]
     token_count: 436
+    sources: [{"n":"Reddit Deep: r/entrepreneur","u":"https://www.reddit.com/r/Entrepreneur/comments/1p1rqp9/square_withholding_20k_many_customers_zero/","kind":"article","date":"2025-11-20","subreddit":"entrepreneur"}]
 ---
 # Square withholding $20K. Many customers, ZERO Chargebacks. What can I do?
 

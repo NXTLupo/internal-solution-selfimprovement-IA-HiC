@@ -19,6 +19,7 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional, Tuple
 
 import proto_partials
+from render_sandbox import sandboxed_page  # WS-0 S3 (2026-10-30): network-sandboxed renders
 
 FRAME_W = 760          # matches the slides:screen-redesign proposed image slot
 MAX_SECTIONS = 10   # 2026-07-08: dense screens need more carriers (NFP live failure)
@@ -63,7 +64,7 @@ def render_proposed_png(sections: List[Dict[str, Any]], tokens: Dict[str, Any]
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
-            page = browser.new_page(viewport={"width": FRAME_W + 40, "height": 900}, device_scale_factor=2)
+            page = sandboxed_page(browser, viewport={"width": FRAME_W + 40, "height": 900}, device_scale_factor=2)
             page.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
             try:
                 page.wait_for_timeout(300)

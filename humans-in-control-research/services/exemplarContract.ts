@@ -1,3 +1,4 @@
+import { engagementSlug } from './runState';
 /**
  * exemplarContract.ts (2026-08-07, hashtag-deliverable design-system build)
  *
@@ -83,7 +84,7 @@ export function sliceExemplarSections(manifest: string, userMessage: string): st
 export function noteExemplarConsultation(sessionSlug?: string): void {
     try {
         const slug = sessionSlug
-            || (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : '')
+            || engagementSlug()
             || '_unassigned';
         void fetch(`${PROXY_BASE}/api/sessions/loop-trace/event`, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },

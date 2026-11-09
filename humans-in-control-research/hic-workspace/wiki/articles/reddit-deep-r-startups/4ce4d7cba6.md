@@ -16,18 +16,19 @@ relevance: 70
 content_hash: "8e1c2f2d6b0e4eac"
 chunks:
   - id: "articles/reddit-deep-r-startups/4ce4d7cba6.md#c0"
-    char_span: [0, 1587]
+    char_span: [0, 1586]
     sentence_count: 15
     key_terms: [app, consumer, enough, been, fan, free, "i'm", mau]
     concepts: [consumer, enough, comments, startups, promote]
-    token_count: 400
-    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t4ykp4/feeling_stuck_scaling_a_consumer_app_i_will_not/"}]
+    token_count: 399
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t4ykp4/feeling_stuck_scaling_a_consumer_app_i_will_not/","kind":"article","date":"2026-05-06","subreddit":"startups"}]
   - id: "articles/reddit-deep-r-startups/4ce4d7cba6.md#c1"
-    char_span: [1589, 3349]
+    char_span: [1588, 3348]
     sentence_count: 17
     key_terms: [movies, people, distribution, users, interesting, mayonayzdad, app, day]
     concepts: [distribution, movies, people, interesting, mayonayzdad]
     token_count: 395
+    sources: [{"n":"Reddit Deep: r/startups","u":"https://www.reddit.com/r/startups/comments/1t4ykp4/feeling_stuck_scaling_a_consumer_app_i_will_not/","kind":"article","date":"2026-05-06","subreddit":"startups"}]
 ---
 # Feeling stuck scaling a consumer app (i will not promote)
 

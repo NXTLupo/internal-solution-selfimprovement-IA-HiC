@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:58:57+00:00"
 content_hash: "634745123f6942e7"
 chunks:
   - id: "articles/agr-precision-farming-dealer/53ebccdf04.md#c0"
-    char_span: [0, 1318]
+    char_span: [0, 1317]
     sentence_count: 3
     key_terms: [precision, farming, "dealer's", valuable, june, precisionfarmingdealer, dealer, top-10-precision-farming-stories-in-june-2026]
     concepts: [precision, farming, precisionfarmingdealer, "dealer's", valuable]
-    token_count: 315
-    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/articles/7187-top-10-precision-farming-stories-in-june-2026"}]
+    token_count: 314
+    sources: [{"n":"agr_precision_farming_dealer","u":"https://www.precisionfarmingdealer.com/articles/7187-top-10-precision-farming-stories-in-june-2026","kind":"article","date":"2026-07-01"}]
 ---
 # Top 10 Precision Farming Stories in June 2026
 

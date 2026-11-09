@@ -41,15 +41,27 @@ _ENC = tiktoken.get_encoding("cl100k_base")
 
 
 def _strip_frontmatter(content: str) -> str:
-    """Strip a YAML frontmatter block delimited by --- if present at the start."""
+    """Strip a YAML frontmatter block delimited by --- if present at the start.
+
+    2026-10-20: the body this returns is the coordinate system of every char_span, and it MUST equal the body
+    `_FRONTMATTER_RE` (used by `upsert_chunks_into_frontmatter`) and the TypeScript resolver produce. Those swallow
+    the whitespace run after the closing fence up to its last newline (`---\\s*\\n`); this function kept it, so a
+    page written as `---\\n...\\n---\\n\\n# Title` had every span shifted by one character: the resolver dropped the
+    last chunk of about half the article pages and every chunk of pages with a single chunk (live: 411 of 2,398
+    sampled pages uncitable), and no-heading chunks lost their first character.
+    """
     if content.startswith("---\n") or content.startswith("---\r\n"):
         idx = content.find("\n---\n", 4)
         if idx == -1:
             idx = content.find("\n---\r\n", 4)
             if idx != -1:
-                return content[idx + 7:]
-            return content
-        return content[idx + 5:]
+                rest = content[idx + 7:]
+            else:
+                return content
+        else:
+            rest = content[idx + 5:]
+        m = re.match(r"[ \t\r\n]*\n", rest)
+        return rest[m.end():] if m else rest
     return content
 
 

@@ -1,12 +1,18 @@
 ---
 name: nxt-humans-slides
+description: Generate PowerPoint decks in the NXT Humans brand (flat minimalism, token typography, chartreuse and cyan accents) from 15 codified slide templates. Use for NXT-branded slides produced outside the HiC app, such as turning a report into a house-style deck.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: "Generate PowerPoint (.pptx) decks in the NXT Humans brand system — anti-slop business flat minimalism with Bebas Neue + Archivo typography, chartreuse/cyan accents, strict black-and-white dominance, and sharp geometry. Use this skill whenever the user asks for NXT Humans branded slides, a Humans in Control deck, an Intelligence Augmentation Suite deliverable, any consulting deck in the NXT style, or references the NXT Humans design system / style guide / brand. Also use when the user asks to 'build slides from this content in our brand,' 'turn this report into a deck,' or 'make a presentation like our other decks.' The skill includes 15 codified slide templates covering cover, section divider, agenda, executive summary, stat row, evidence quote, split panel, color-block grid, three-column grid, recommendation, chart, matrix, process timeline, do/don't, and closing. Do not use this skill for generic presentations where no NXT Humans branding is requested."
+version: "1"
+status: dormant
+dormant_since: 2026-10-31
 ---
 
 # NXT Humans Slide System
+
+## Scope
+
+Generate PowerPoint (.pptx) decks in the NXT Humans brand system — anti-slop business flat minimalism with Bebas Neue + Archivo typography, chartreuse/cyan accents, strict black-and-white dominance, and sharp geometry. Use this skill whenever the user asks for NXT Humans branded slides, a Humans in Control deck, an Intelligence Augmentation Suite deliverable, any consulting deck in the NXT style, or references the NXT Humans design system / style guide / brand. Also use when the user asks to 'build slides from this content in our brand,' 'turn this report into a deck,' or 'make a presentation like our other decks.' The skill includes 15 codified slide templates covering cover, section divider, agenda, executive summary, stat row, evidence quote, split panel, color-block grid, three-column grid, recommendation, chart, matrix, process timeline, do/don't, and closing. Do not use this skill for generic presentations where no NXT Humans branding is requested.
 
 Anti-slop business flat minimalism for PowerPoint. Every slide in this system earns its place — no gradients, no rounded cards, no stock imagery, no accent lines under titles, no pie charts, no purple, no Inter/Roboto. The single rule: **if it looks like AI made it, it's wrong.**
 

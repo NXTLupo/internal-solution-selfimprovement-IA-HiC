@@ -19,12 +19,12 @@ content_hash: "b55f4c2def1a3c9d"
 relevance_by_goal: {"8429cfd39d4f":5,"d21cb50b17ba":5}
 chunks:
   - id: "articles/visa-blog/aa7e10dfa5.md#c0"
-    char_span: [0, 1169]
+    char_span: [0, 1168]
     sentence_count: 5
     key_terms: [visa, commerce, economist, business, economic, transfer, digital, stories]
     concepts: [commerce, economist, business, economic, transfer]
-    token_count: 222
-    sources: [{"n":"visa_blog","u":"https://usa.visa.com/visa-everywhere/blog.html"}]
+    token_count: 221
+    sources: [{"n":"visa_blog","u":"https://usa.visa.com/visa-everywhere/blog.html","kind":"article"}]
 ---
 # Visa Business News
 

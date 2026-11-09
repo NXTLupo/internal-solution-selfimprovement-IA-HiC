@@ -7,13 +7,14 @@ subreddit: "neu"
 title: "Ready to give up on coop"
 author: "Quick_Shop4397"
 date: "2026-05-19T13:29:09.000Z"
-score: 25
-upvote_ratio: 0.97
+score: 26
+upvote_ratio: 1
 num_comments: 28
 flair: "Co-op & Career"
-extracted_at: "2026-06-06T00:27:19.930Z"
+extracted_at: "2026-11-08T23:41:19.387Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earlier than October, 2026) and expectations\n\nDetermine how college students and early-career workers are adopting AI and personal assistants like Muse (from Meta) for academic, career, and life-management needs, and how those behaviors are evolving.\n\nExplore:\n\nWhich AI platforms students use and pay for\nCareer-related use cases: resumes, job discovery, interview prep, networking, skills development\nMovement from simple prompting toward persistent assistants, agents, memory and connected tools\nExpectations that AI should know their context rather than start from scratch\nDifferences by AI fluency, age, discipline and career stage\n\nSocial listening: Reddit, TikTok, YouTube, Discord/public communities, product communities and app reviews.\n 3rd-party: Pew, EDUCAUSE, Anthropic, OpenAI, Microsoft, Google, Handshake, NACE and LinkedIn.\n\n2. Assess the emerging“Bring Your Own AI” model\n\nDetermine whether consumers increasingly view AI as a personal technology layer that should travel with them across institutions and services.\n\nSpecifically investigate:\n\nPreference for a personally chosen AI vs. institution-provided assistant\nEvidence of switching between ChatGPT, Claude, Gemini, Copilot and emerging personal-agent products\nWillingness to connect personal AI to trusted institutional services\nExpectations for interoperability, memory, portability and personalization\nAnalogous models emerging in banking, healthcare, commerce and enterprise SaaS\n\nThis directly tests the broader proposition behind the team's headless direction: rather than Northeastern trying to build or permanently select the student's AI, institutional services could securely make themselves available to whichever AI the student chooses.\n\nKey output: evidence for or against AI becoming a user-owned interface layer rather than an institution-owned destination.\n\n3. Map consumer trust, privacy and control expectations\n\nIdentify what makes people willing or unwilling to connect AI with personal, institutional and behavioral data.\n\nFocus on:\n\nWhat information consumers willingly give AI\nWhat information they consider sensitive\nDifferences between AI accessing data and AI writing data back\nExpectations around consent, transparency, memory and deletion\nConcern about universities/employers seeing personal AI interactions\nBehaviors consumers already use to protect themselves\nTrust differences among an institution, an AI provider and a third-party platform\n\nThis addresses a fundamental issue already surfacing internally: bi-directional student data and what should be written back to institutional profiles.\n\nKey output: a consumer AI trust and permission framework that can guide architecture and UX decisions.\n\n4. Identify where proactive AI creates value versus backlash\n\nDetermine when consumers want AI to anticipate a need and intervene, versus when proactive behavior becomes noise, surveillance or unwanted influence.\n\nAnalyze market reaction to:\n\nAI notifications and nudges\nPersistent memory\nRecommendations based on behavior\nAutonomous task completion\nAI detecting problems before the user asks\nEmotional or motivational interventions\nAI escalating something to a human\n\nThis directly addresses the team's concern that proactive experiences can become noisy, while career guidance depends heavily on providing the right intervention at the right moment.\n\nKey output: a taxonomy of high-value, acceptable and unacceptable proactive AI behaviors.\n\n5. Define the evolving role of humans in AI-mediated guidance\n\nUnderstand where consumers expect AI to replace transactions, augment experts or defer entirely to humans.\n\nLook comparatively across:\n\nCareer advising\nAcademic advising\nHealthcare navigation\nFinancial advice\nCustomer service\nCoaching and mentoring\n\nStudy the moments when consumers say:\n\n“AI can handle this.”\n\nversus:\n\n“AI can help me prepare, but I want a person making this call.”\n\nThat maps directly to the question the Co-op team has raised about ensuring AI strengthens rather than appears to displace advisor expertise.\n\nKey output: a human-AI responsibility model that shows where career services can automate, augment or preserve human interaction.\n\nThe synthesis question\n\nThese five objectives ladder into one strategic market question:\n\nAs AI becomes a persistent personal interface, what role should universities play in connecting students' preferred AI tools to trusted data, services, expertise and human support?"
+engagement: "1-understand-emerging-northeastern-university-student-and-other-college-student"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c0"
     char_span: [0, 1729]
@@ -21,7 +22,7 @@ chunks:
     key_terms: ["i've", international, co-op, get, interviews, anything, applying, comments]
     concepts: [international, co-op, interviews, anything, applying]
     token_count: 389
-    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/"}]
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/","kind":"social-post","date":"2026-05-19","author":"Quick_Shop4397","subreddit":"neu"}]
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c1"
     char_span: [1743, 3634]
     sentence_count: 17
@@ -29,6 +30,7 @@ chunks:
     concepts: [internships, spring, co-op, complete, position]
     section: Comments
     token_count: 483
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/","kind":"social-post","date":"2026-05-19","author":"Quick_Shop4397","subreddit":"neu"}]
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c2"
     char_span: [3636, 5678]
     sentence_count: 22
@@ -36,6 +38,7 @@ chunks:
     concepts: [program, ambulance, students, internship, ackman747]
     section: Comments
     token_count: 484
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/","kind":"social-post","date":"2026-05-19","author":"Quick_Shop4397","subreddit":"neu"}]
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c3"
     char_span: [5680, 7971]
     sentence_count: 20
@@ -44,6 +47,7 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/neu/1thn15i.md#c4"]
     section: Comments
     token_count: 508
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/","kind":"social-post","date":"2026-05-19","author":"Quick_Shop4397","subreddit":"neu"}]
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c4"
     char_span: [7973, 9769]
     sentence_count: 12
@@ -52,11 +56,12 @@ chunks:
     related_chunks: ["social-intelligence/reddit-deep/neu/1thn15i.md#c3"]
     section: Comments
     token_count: 393
+    sources: [{"n":"reddit-deep: r/neu","u":"https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/","kind":"social-post","date":"2026-05-19","author":"Quick_Shop4397","subreddit":"neu"}]
 ---
 # Ready to give up on coop
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1thn15i/ready_to_give_up_on_coop/)
-Posted by **Quick_Shop4397** · **25↑** · **28 comments**
+Posted by **Quick_Shop4397** · **26↑** · **28 comments**
 
 Im a rising senior, international, did my first co-op in finance in NYC and this search has been hell. I managed to get 2 interviews, one straight up ghosted, the other was my dream job and i managed to get to the final round but was ultimately rejected. This was in mid to early March. Since then I've just been sending out applications and hearing nothing back, and with such little postings I've frankly just given up. 
 
@@ -67,10 +72,10 @@ I've already registered for fall classes and accepted defeat - plus an earlier i
 ## Comments
 
 - **Well_-Oiled_Machine** (16↑): someone posted days ago about applying to thousands of jobs and finally landing, just keep trying
-- **Trick_Condition145** (8↑): It is not ideal, but you could look into doing a coop your senior spring and then graduate on summer 1 classes. You’ll be allowed to walk with everyone else in the spring.   
+- **Trick_Condition145** (7↑): It is not ideal, but you could look into doing a coop your senior spring and then graduate on summer 1 classes. You’ll be allowed to walk with everyone else in the spring.   
 Just try not to lose the plot and remember that full-time is what really matters.   
 I’m sorry you’ve had a bad time with it. Just know you have options and way to get creative with it, but at the end of the day it’s a numbers game.
-- **DryVeterinarian2821** (5↑): I understand your situation. If you are unable to secure a co-op position in the fall, you can apply for a position in the spring and postpone your graduation. Alternatively, you could take two summer courses after your co-op to meet Northeastern’s graduation requirements. Alternatively, you could apply for summer internships in July and August for 2027 and use your CPT to complete these internships. This plan would allow you to complete your fall and spring semesters, graduate in May and then complete your internship.
+- **DryVeterinarian2821** (4↑): I understand your situation. If you are unable to secure a co-op position in the fall, you can apply for a position in the spring and postpone your graduation. Alternatively, you could take two summer courses after your co-op to meet Northeastern’s graduation requirements. Alternatively, you could apply for summer internships in July and August for 2027 and use your CPT to complete these internships. This plan would allow you to complete your fall and spring semesters, graduate in May and then complete your internship.
   - **Quick_Shop4397** (2↑): Finally, some good advice. I've looked into the first one, but I never knew you could use CPT for external internships...thank you !
 - **thebigjawn610** (3↑): co-op is the easy part bro, good luck with full time search
   - **Quick_Shop4397** (1↑): Yeah im dreading it
@@ -83,9 +88,9 @@ I felt horrible for a few months. But I kept applying. All of a sudden got a co-
   - **Quick_Shop4397** (1↑): Thats insane, I'm glad it worked out for you. Did they say anything about a drug test before they gave you the job? Or were you hit with it by surprise post-interview?
     - **Wooden_Cheesecake480** (1↑): They told me, I tried to detox thc in 2 weeks but wasnt successful lol
     - **Wooden_Cheesecake480** (1↑): Also, you need to SPAM apply all jobs. Like literally. Thats how you get the statistics in your favor
-- **Ackman747** (-5↑): They run the co op like you’re a seasoned professional with a CV when it should just be a place internship. The co op program is a joke. Any other college with major programs like nursing, business, etc has an internship program unpaid but with lower annual tuition. So really who cares - the co op program is outdated and useless.
-  - **Quick_Shop4397** (16↑): What really screwed it over is the school's stupid over enrollment, over promising/marketing of the program, and not building enough relationships with companies to secure students a placement they were essentially promised. Coupled with how brutal the job market is now, it's looking especially scammy. But overall I'd say it's still a decent program... but it definitely serves the marketing interests of the school WAY more than actual students
-    - **Ackman747** (-3↑): I graduated in 2004. The Yankees won the World Series. The rich kids from NJ and NY rioted and three kids were critically injured. When the ambulance took them away a few other kids decided to tailgate the ambulance. The ambulance stopped bc they didn’t know they were on the back.
+- **Ackman747** (-4↑): They run the co op like you’re a seasoned professional with a CV when it should just be a place internship. The co op program is a joke. Any other college with major programs like nursing, business, etc has an internship program unpaid but with lower annual tuition. So really who cares - the co op program is outdated and useless.
+  - **Quick_Shop4397** (18↑): What really screwed it over is the school's stupid over enrollment, over promising/marketing of the program, and not building enough relationships with companies to secure students a placement they were essentially promised. Coupled with how brutal the job market is now, it's looking especially scammy. But overall I'd say it's still a decent program... but it definitely serves the marketing interests of the school WAY more than actual students
+    - **Ackman747** (-2↑): I graduated in 2004. The Yankees won the World Series. The rich kids from NJ and NY rioted and three kids were critically injured. When the ambulance took them away a few other kids decided to tailgate the ambulance. The ambulance stopped bc they didn’t know they were on the back.
 
 Two of the kids died and the others are in a wheelchair for the rest of their lives. So what’s my point? NEU needs to pay attention to their students and their well being. They need advisors and staff that care  about people vs their bottom line.
 
@@ -108,7 +113,7 @@ If co-ops were guaranteed, nobody would see the point in trying to excel, since 
 
 I feel for the people who couldn’t get co-ops, but the process was never designed to be guaranteed. Northeastern’s job is a to facilitate the job search, not replace it.
     - **Ackman747** (2↑): If they did it would be guaranteed. What is your kid going to do? Submit a resume from scooping ice cream and babysitting?
-    - **turtlecap1324** (2↑): I’m currently a student on co-op, and in my experience, a good co-op is not guaranteed, but an irrelevant activity that wastes six months is almost guaranteed. 
+    - **turtlecap1324** (3↑): I’m currently a student on co-op, and in my experience, a good co-op is not guaranteed, but an irrelevant activity that wastes six months is almost guaranteed. 
 
 Almost every student will apply to the singular Morgan Stanley role and be shocked when they aren’t chosen. Students ONLY want these big-name companies and won’t consider applying for a mid-tier firm until the end of the co-op cycle when all firms have closed applications and all students are in this “chase” for a co-op. 
 

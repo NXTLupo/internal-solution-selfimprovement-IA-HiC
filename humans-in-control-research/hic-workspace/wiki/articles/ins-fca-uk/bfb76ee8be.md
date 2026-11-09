@@ -16,23 +16,25 @@ collected_at: "2026-07-02T17:30:34+00:00"
 content_hash: "538db15b71ad92ba"
 chunks:
   - id: "articles/ins-fca-uk/bfb76ee8be.md#c0"
-    char_span: [0, 203]
+    char_span: [0, 202]
     sentence_count: 1
     key_terms: [why-stronger-buy-now-pay-later-protections-are-right-step-consumers, protections, consumers, stronger, source, blogs, https, later]
-    token_count: 55
-    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/blogs/why-stronger-buy-now-pay-later-protections-are-right-step-consumers"}]
+    token_count: 54
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/blogs/why-stronger-buy-now-pay-later-protections-are-right-step-consumers","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-fca-uk/bfb76ee8be.md#c1"
-    char_span: [205, 2866]
+    char_span: [204, 2865]
     sentence_count: 25
     key_terms: [people, bnpl, affordability, credit, consumers, circumstances, proportionate, access]
     concepts: [people, affordability, consumers, credit, circumstances]
     token_count: 512
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/blogs/why-stronger-buy-now-pay-later-protections-are-right-step-consumers","kind":"article","date":"2026-06-25"}]
   - id: "articles/ins-fca-uk/bfb76ee8be.md#c2"
-    char_span: [2515, 3763]
+    char_span: [2514, 3762]
     sentence_count: 11
     key_terms: [appropriate, bnpl, access, protections, regulation, consumers, including, customer]
     concepts: [appropriate, access, protections, regulation, consumers]
     token_count: 227
+    sources: [{"n":"ins_fca_uk","u":"https://www.fca.org.uk/news/blogs/why-stronger-buy-now-pay-later-protections-are-right-step-consumers","kind":"article","date":"2026-06-25"}]
 ---
 # Why stronger Buy Now Pay Later protections are the right step for consumers
 

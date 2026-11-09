@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:46:15+00:00"
 content_hash: "af24cca36da103b5"
 chunks:
   - id: "articles/ins-reddit-insurance/ae4fd53e0e.md#c0"
-    char_span: [0, 633]
+    char_span: [0, 632]
     sentence_count: 1
     key_terms: [insurance, collision, wrote, contradicting, arbitration, deductible, motorcycle, liability]
     concepts: [insurance, collision, wrote]
-    token_count: 155
-    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ul09au/contradicting_events/"}]
+    token_count: 154
+    sources: [{"n":"ins_reddit_insurance","u":"https://www.reddit.com/r/Insurance/comments/1ul09au/contradicting_events/","kind":"article","date":"2026-07-01"}]
 ---
 # contradicting events
 

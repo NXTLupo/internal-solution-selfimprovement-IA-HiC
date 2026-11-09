@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:00:47+00:00"
 content_hash: "250deef314eba40d"
 chunks:
   - id: "articles/agr-southeast-farm-press/ced7cfaa43.md#c0"
-    char_span: [0, 871]
+    char_span: [0, 870]
     sentence_count: 8
     key_terms: [southeast, residual, press, farm, activation, herbicides, provided, purposes]
     concepts: [southeast, residual, activation, herbicides, press]
-    token_count: 186
-    sources: [{"n":"agr_southeast_farm_press","u":"https://www.farmprogress.com/southeast-farm-press"}]
+    token_count: 185
+    sources: [{"n":"agr_southeast_farm_press","u":"https://www.farmprogress.com/southeast-farm-press","kind":"article"}]
 ---
 # Southeast Farm Press
 

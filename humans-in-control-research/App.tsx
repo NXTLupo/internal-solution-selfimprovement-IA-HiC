@@ -1,8 +1,16 @@
 ﻿import './tailwind.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { engagementSlugFor } from './services/engagementSlug';
+import { providerAvailable } from './services/proxyConfig';
+// 2026-11-03 ("every artifact" directive): scope + per-source guide applied at the single
+// raw-upload chokepoint (buildUploadedFileContents) that feeds every artifact prompt.
+import { getSessionConstraints, isSourceExcluded } from './services/sessionConstraints';
+import { currentEngagementSlug as cpCurrentEngagementSlug } from './services/wikiPointerResolver';
+import { registerSourceIntel, sourceGuideLine } from './services/sourceIntelligence';
+import { engagementSlug as runEngagementSlug, setEngagementSlug, setResearchGoal, cachedOnlyMode, setCachedOnlyMode, blendMode, setBlendMode, runMode, setRunMode, planSubQuestions, setCorpusComposition, setKnowledgeGaps, beginRun, setStage, emitRunManifest } from './services/runState';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
+import { ResearchPlanEditor } from './components/ResearchPlanEditor';
 import { EpochProposalsPanel } from './components/EpochProposalsPanel';
 import ResultsView from './components/ResultsView';
 import AnalysisCheckpoint from './components/AnalysisCheckpoint';
@@ -21,6 +29,7 @@ import { useSubredditSuggester, SuggesterButton, SuggesterPanel } from './compon
 import { CostMeterChip } from './components/CostMeterChip';
 // 2026-05-22 - Self-improvement loop, Phase 6: change-promotion surface
 import ChangeStrip from './components/ChangeStrip';
+import DigestBar from './components/DigestBar';
 import KnowledgeGapsPanel, { KnowledgeGapChip } from './components/KnowledgeGapsPanel';
 import type { KnowledgeGap, FindGapsResult } from './services/knowledgeGapFinder';
 
@@ -255,7 +264,19 @@ const MethodologyModal = ({ outputId, onClose }: { outputId: OutputOption, onClo
 function buildUploadedFileContents(files: any[]): string {
     if (!Array.isArray(files) || files.length === 0) return '';
     try {
-        return files.map((f: any) => {
+        // 2026-11-03 ("every artifact" directive): the raw-upload injection honors the SAME
+        // source scope the manifest retrieval enforces (sessionConstraints excludeSources +
+        // includeOnly, set by the Scope rail or chat directives). Before this, "don't use the
+        // transcript" and the scope checkboxes filtered chunk retrieval while the full document
+        // text still entered every prompt here, so the constraint was half-enforced.
+        let scoped = files;
+        try {
+            const constraints = getSessionConstraints(cpCurrentEngagementSlug() || '');
+            if (constraints && (constraints.excludeSources.length || constraints.includeOnly.length)) {
+                scoped = files.filter((f: any) => !isSourceExcluded(constraints, { title: String(f?.name || '') }));
+            }
+        } catch { /* scope filter is best-effort; never drops uploads on error */ }
+        return scoped.map((f: any) => {
             // Prefer proxy-parsed text (PDFs/DOCX) when available.
             if (f.parsedText && typeof f.parsedText === 'string' && f.parsedText.length > 40) {
                 const meta = [
@@ -263,7 +284,10 @@ function buildUploadedFileContents(files: any[]): string {
                     f.parsedPages ? `pages=${f.parsedPages}` : '',
                     `chars=${f.parsedText.length}`,
                 ].filter(Boolean).join(', ');
-                return `=== FILE: ${f.name} (${meta}) ===\n${f.parsedText}\n`;
+                // 2026-11-03: the document's SOURCE GUIDE (summary + key topics from the
+                // upload-time intelligence pass) leads its text in every artifact prompt.
+                const guide = (() => { try { return sourceGuideLine(f.name); } catch { return ''; } })();
+                return `=== FILE: ${f.name} (${meta}) ===\n${guide ? guide + '\n' : ''}${f.parsedText}\n`;
             }
             // Fallback for text-like files that didn't hit the parser path
             const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
@@ -744,7 +768,7 @@ const LiveResearchBoard = ({
                                 researchGoal={researchGoal}
                                 onTopicModelResult={onTopicModelResult}
                                 themesData={themes}
-                                engagementSlug={(typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : '') || ''}
+                                engagementSlug={runEngagementSlug() || ''}
                                 onOpenWiki={(wikiPath: string, chunkPointer?: string) => {
                                     // P5/UX-merger: dispatch a custom event the
                                     // WikiArticleViewer panel listens for to
@@ -1277,6 +1301,53 @@ const App = () => {
         }
     }, []);
     const [files, setFiles] = useState<FileType[]>([]);
+    // 2026-11-03 - W6 (NotebookLM reverse-engineering, spec N1): instant per-source intelligence.
+    // One Flash call per upload as soon as parsedText lands; summary + key topics + suggested
+    // questions render under the upload chips, before any run starts. Keyed by filename;
+    // re-fires only when the parsed length changes (the parse-merge replaces the file entry).
+    const [sourceIntel, setSourceIntel] = useState<Record<string, import('./services/sourceIntelligence').SourceIntel>>({});
+    const sourceIntelInFlight = useRef<Set<string>>(new Set());
+    const sourceIntelSeen = useRef<Map<string, number>>(new Map());
+    useEffect(() => {
+        let cancelled = false;
+        for (const f of files) {
+            const textLen = (f.parsedText || '').length;
+            if (textLen < 200) continue;
+            const key = f.name;
+            if (sourceIntelInFlight.current.has(key)) continue;
+            if (sourceIntelSeen.current.get(key) === textLen) continue;
+            sourceIntelInFlight.current.add(key);
+            (async () => {
+                try {
+                    const { analyzeUploadForIntelligence } = await import('./services/sourceIntelligence');
+                    const intel = await analyzeUploadForIntelligence({
+                        filename: f.name,
+                        parsedText: f.parsedText || '',
+                        researchGoal,
+                    });
+                    if (!cancelled) {
+                        sourceIntelSeen.current.set(key, textLen);
+                        setSourceIntel(prev => ({ ...prev, [key]: intel }));
+                        // "every artifact" directive: the guide also feeds every generation
+                        // prompt via buildUploadedFileContents -> sourceGuideLine.
+                        registerSourceIntel(intel);
+                    }
+                } catch (e: any) {
+                    console.warn('[sourceIntel] analysis failed (non-fatal):', f.name, e?.message || e);
+                } finally {
+                    sourceIntelInFlight.current.delete(key);
+                }
+            })();
+        }
+        // prune intel for removed files
+        setSourceIntel(prev => {
+            const names = new Set(files.map(f => f.name));
+            const keep = Object.entries(prev).filter(([k]) => names.has(k));
+            return keep.length === Object.keys(prev).length ? prev : Object.fromEntries(keep);
+        });
+        return () => { cancelled = true; };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [files]);
     const [statusMessage, setStatusMessage] = useState("");
     const [activeStage, setActiveStage] = useState<AnalysisStage>(AnalysisStage.IDLE);
     const [showMethodology, setShowMethodology] = useState<OutputOption | null>(null);
@@ -1402,8 +1473,8 @@ const App = () => {
                         }),
                     }).catch(() => {});
                     if (typeof window !== 'undefined') {
-                        (window as any).__hicCachedOnlyMode = false;
-                        (window as any).__hicBlendMode = false;
+                        setCachedOnlyMode(false);
+                        setBlendMode(false);
                         // Tell the LandingScopeBar to re-read immediately so it
                         // shows "fresh" without waiting for its 15s poll (no flash).
                         window.dispatchEvent(new CustomEvent('hic:selection-changed'));
@@ -1812,6 +1883,12 @@ const App = () => {
     const [selectedPackIds, setSelectedPackIds] = useState<string[]>([]);
     const [enableDeepResearch, setEnableDeepResearch] = useState(false);
     const [deepResearchMode, setDeepResearchMode] = useState<'quick' | 'focused' | 'deep'>('focused');
+    // WS-4 L7 (2026-10-30): the research plan is a reviewable artifact. Opt-in: when on, the planner's decomposition
+    // opens in ResearchPlanEditor and collection waits for Approve (the edited sub-questions drive the run) or Cancel
+    // (the planner's own). Off by default so an output request is never blocked without asking for it.
+    const [reviewPlanBeforeRun, setReviewPlanBeforeRun] = useState(false);
+    const [planForReview, setPlanForReview] = useState<import('./services/researchPlanner').ResearchPlan | null>(null);
+    const planReviewResolveRef = useRef<((p: import('./services/researchPlanner').ResearchPlan | null) => void) | null>(null);
     const [enableNews, setEnableNews] = useState(false);
     const [enableAcademic, setEnableAcademic] = useState(false);
     const [enableEconomic, setEnableEconomic] = useState(false);
@@ -1931,9 +2008,7 @@ const App = () => {
     const chatSavePendingSinceRef = useRef<number>(0);
     const handleSaveSessionRef = useRef<((opts?: { silent?: boolean; status?: 'in-progress' | 'complete' }) => Promise<boolean>) | null>(null);
     const chatSignature = (msgs: any[]) => `${msgs.length}:${msgs[msgs.length - 1]?.id || ''}:${String(msgs[msgs.length - 1]?.content || '').length}`;
-    const onChatMessagesChange = useCallback((msgs: any[]) => {
-        chatMessagesRef.current = msgs;
-        if (chatSignature(msgs) === chatSignature(initialChatMessagesRef.current || [])) return;
+    const scheduleSilentSave = useCallback(() => {
         const now = Date.now();
         if (!chatSavePendingSinceRef.current) chatSavePendingSinceRef.current = now;
         if (chatSaveTimerRef.current) clearTimeout(chatSaveTimerRef.current);
@@ -1944,6 +2019,32 @@ const App = () => {
             void handleSaveSessionRef.current?.({ silent: true });
         }, overdue ? 0 : 4000);
     }, []);
+    const onChatMessagesChange = useCallback((msgs: any[]) => {
+        chatMessagesRef.current = msgs;
+        if (chatSignature(msgs) === chatSignature(initialChatMessagesRef.current || [])) return;
+        scheduleSilentSave();
+    }, [scheduleSilentSave]);
+    // 2026-10-25 (live: after a reload 8 of 11 slide images, the drawn flowchart and every repaired title were gone):
+    // images, repair rewrites and type step-downs change only the deck, never the transcript, so after the last chat
+    // line nothing scheduled a save. A changed slide or deliverable in the durable projection now schedules the same
+    // silent save. React replaces only the objects it changes, so identity is the change signal. A restore records its
+    // own artifacts as already seen, so reopening a session never re-saves what it just loaded.
+    const durableSeenRef = useRef<Map<string, unknown>>(new Map());
+    useEffect(() => {
+        let unsub: (() => void) | null = null;
+        let cancelled = false;
+        void import('./services/sessionService').then(({ subscribeDurableArtifacts }) => {
+            if (cancelled) return;
+            unsub = subscribeDurableArtifacts((d) => {
+                const items = [...(d.slides || []), ...(d.deliverables || [])].filter((x: any) => x && x.id);
+                const seen = durableSeenRef.current;
+                const changed = items.length !== seen.size || items.some((x: any) => seen.get(String(x.id)) !== x);
+                durableSeenRef.current = new Map(items.map((x: any) => [String(x.id), x] as const));
+                if (changed) scheduleSilentSave();
+            });
+        });
+        return () => { cancelled = true; unsub?.(); };
+    }, [scheduleSilentSave]);
     const [topicModelResult, setTopicModelResult] = useState<any>(null);
     // 2026-06-02 - promise of the in-flight topic-model job, handed to the theme
     // session so generateThemes can ground themes on the deterministic clusters.
@@ -1964,7 +2065,7 @@ const App = () => {
         if (_cachedOnlyTopicTriggeredRef.current) return;
         if (topicModelResult) return;
         if (topicModelStatus.status === 'running') return;
-        const cachedOnly = typeof window !== 'undefined' && !!(window as any).__hicCachedOnlyMode;
+        const cachedOnly = cachedOnlyMode();
         if (!cachedOnly) return;
         const themesArr = themesResult?.themes || (Array.isArray(themesResult) ? themesResult : []);
         if (!themesArr || themesArr.length === 0) return;
@@ -1972,7 +2073,7 @@ const App = () => {
         (async () => {
             try {
                 const { startTopicModelJob, waitForTopicModelJob } = await import('./services/topicModelService');
-                const engagementSlug = (typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : '') || undefined;
+                const engagementSlug = runEngagementSlug() || undefined;
                 setTopicModelStatus({ status: 'running', message: 'Cached-only: clustering manifest corpus...' });
                 // 2026-06-06 - Cap to 2000 docs for the auto-trigger. The
                 // unbounded 100000 path timed out at 420s repeatedly on 13912
@@ -2057,11 +2158,8 @@ const App = () => {
         // matches the proxy). The inline 60-char variant here is what split every engagement
         // into an artifacts folder and a state folder.
         const slug = goal ? engagementSlugFor(goal) : '';
-        if (typeof window !== 'undefined') {
-            (window as any).__hicCurrentEngagementSlug = slug || undefined;
-            (window as any).__hicResearchGoal = goal || undefined;
-            (window as any).__hicCurrentGoal = goal || undefined;
-        }
+        setEngagementSlug(slug || '');
+        setResearchGoal(goal || '');
         if (slug) {
             // Warm commitment cache - fire and forget. Failure is safe (no
             // commitment = chain head stays default).
@@ -2104,7 +2202,7 @@ const App = () => {
                 // Cached articles' relevance was already scored at ingest;
                 // no need to re-grade them when the user has explicitly
                 // chosen to run on cached corpora.
-                if ((window as any).__hicCachedOnlyMode) {
+                if (cachedOnlyMode()) {
                     console.info('[GoalRegrade] skipped (CACHED-ONLY MODE)');
                     setRef();
                     return;
@@ -2183,7 +2281,7 @@ const App = () => {
     // a toggle defeats the canonical entry point. When fresh-collection runs,
     // the user may want the panel collapsed initially.
     useEffect(() => {
-        const cachedOnly = typeof window !== 'undefined' && !!(window as any).__hicCachedOnlyMode;
+        const cachedOnly = cachedOnlyMode();
         if ((collectionPhase === 'complete' || collectionPhase === 'done') && cachedOnly) {
             setShowCorpusChat(true);
         }
@@ -2948,15 +3046,18 @@ const App = () => {
                 corpusText: corpusTextRef.current || '',
                 liveSourceResults,
                 redditDeepItems,
+                // WS-1 T5 (2026-10-30): the save used to drop these three; a restored session lost its
+                // learned constraints, its chunk-to-source map and its source references.
+                learnedConstraints: getActiveConstraints() || undefined,
+                chunkMap: getChunkSourceMap(),
+                sourceReferences: buildSourceReferences(liveSourceResults || []),
                 status: opts?.status || (themesResult && topicModelResult && personasResult && recsResult ? 'complete' : 'in-progress'),
                 createdAt: sessionStartedAt || undefined,
                 // E1.1: persist the objective plan so a RESTORED session can still measure
                 // evidence coverage against its own objective. Omitting it is why a live
                 // restored run reported zero declared sub-questions. Defaults to whatever
                 // the one reader can see, so the caller cannot forget it.
-                researchPlanSubQuestions: (typeof window !== 'undefined'
-                    ? (window as any).__hicResearchPlanSubQuestions
-                    : undefined) || undefined,
+                researchPlanSubQuestions: planSubQuestions().length ? planSubQuestions() : undefined,
             });
             const result = await saveSession(snapshot, sessionSlug || undefined);
             if (!result.ok) {
@@ -3081,6 +3182,7 @@ const App = () => {
             try {
                 const { projectDurableArtifacts } = await import('./services/sessionService');
                 if (r.slides?.length || r.deliverables?.length) {
+                    durableSeenRef.current = new Map([...(r.slides || []), ...(r.deliverables || [])].filter((x: any) => x && x.id).map((x: any) => [String(x.id), x] as const));
                     projectDurableArtifacts({ slides: r.slides, deliverables: r.deliverables });
                 }
             } catch { /* best-effort: a restore without artifacts is still a valid restore */ }
@@ -3294,6 +3396,11 @@ const App = () => {
         autoSavedRef.current = true;
         // Fire silently so the user isn't notification-spammed
         handleSaveSession({ silent: false, status: 'complete' });
+        // WS-1 T2 (2026-10-30): the run is complete; emit its ResearchRunManifest from the RunState.
+        void import('./services/workflowTable').then(({ enterNode }) => enterNode('research', 'complete')).catch(() => setStage('complete'));
+        void emitRunManifest({
+            sources: (liveSourceResults || []).map((s: any) => ({ sourceName: String(s?.source || s?.name || s?.sourceId || 'source'), sourceType: 'web' as const, provenance: 'fresh' as const, itemCount: Array.isArray(s?.items) ? s.items.length : undefined })),
+        }).catch(() => { /* fire-and-forget */ });
     }, [themesResult, topicModelResult, personasResult, recsResult, handleSaveSession]);
 
     // 2026-06-03 - CONTINUOUS auto-save hardening. The once-per-run save above
@@ -3535,7 +3642,7 @@ const App = () => {
         setResult(project.result);
 
         // Try to Re-ignite the session for potential edits (if key is available)
-        if (process.env.API_KEY) { 
+        if (providerAvailable('gemini')) {
              sessionRef.current = new GenAISession(project.goal, project.approach, project.selectedOutputs);
              // We don't await this to keep UI snappy, but we trigger the context injection
              sessionRef.current.restore(project.ingestion, project.themes, project.personas, project.structure);
@@ -3573,7 +3680,7 @@ const App = () => {
             // persist to wiki/synthesis/verifier-history.md for the learning engine.
             try {
                 const { verifyDeliverable } = await import('./services/verifierService');
-                const engagementSlug = (window as any).__hicCurrentEngagementSlug || undefined;
+                const engagementSlug = runEngagementSlug() || undefined;
                 const deliverableId = `${deliverableType}_${new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '')}`;
                 const report = await verifyDeliverable({
                     text: text.slice(0, 24000),  // cap to keep verifier prompt < 30K input chars
@@ -4057,6 +4164,10 @@ const App = () => {
     };
 
     const startAnalysis = async () => {
+        // WS-1 T1 (2026-10-30): a research run is a run of its own in the typed RunState.
+        beginRun({ kind: 'research', objective: researchGoal, engagement: researchGoal ? engagementSlugFor(researchGoal) : undefined });
+        // WS-6 M3: the research run follows its declared node table (decompose -> collect -> chunk -> synthesize -> checkpoint -> complete)
+        try { const { enterNode } = await import('./services/workflowTable'); enterNode('research', 'collect', 'sources selected'); } catch { setStage('collecting'); }
         if ((window as any).aistudio) {
              const hasKey = await (window as any).aistudio.hasSelectedApiKey();
              if (!hasKey) {
@@ -4250,7 +4361,7 @@ const App = () => {
         // ENHANCEMENT A: when the user toggled blend, a KL selection no longer
         // forces cached-only - fresh collection ALSO runs, and the cached
         // selection is merged in as individual items (deduped by Enhancement B).
-        const _blendFlag = !!(window as any).__hicBlendMode;
+        const _blendFlag = blendMode();
         try {
             const _selResp = await fetch('http://127.0.0.1:5012/api/user-selection/active');
             if (_selResp.ok) {
@@ -4264,8 +4375,8 @@ const App = () => {
                         (_sel.source_archive_paths?.length || 0);
                     if (_total > 0 && !_blendFlag) {
                         _willSkipCollection = true;
-                        (window as any).__hicCachedOnlyMode = true;
-                        (window as any).__hicRunMode = 'reuse-only';
+                        setCachedOnlyMode(true);
+                        setRunMode('reuse-only');
                         console.info(`[App] CACHED-ONLY MODE: ${_total} KL items selected. Skipping ALL external collection. Generation will draw from the 60K+ wiki chunks via manifest pointers.`);
                         setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
                             type: 'PHASE',
@@ -4273,8 +4384,8 @@ const App = () => {
                         }]);
                     } else if (_total > 0 && _blendFlag) {
                         _blendMode = true;
-                        (window as any).__hicCachedOnlyMode = false;
-                        (window as any).__hicRunMode = 'blend';
+                        setCachedOnlyMode(false);
+                        setRunMode('blend');
                         console.info(`[App] BLEND MODE: ${_total} KL items + fresh collection. Cached articles resolved as items and deduped against fresh via the merge authority.`);
                         setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
                             type: 'PHASE',
@@ -4284,11 +4395,11 @@ const App = () => {
                 }
             }
         } catch (_e) { /* silent - fall through to default */ }
-        if (!_willSkipCollection) (window as any).__hicCachedOnlyMode = false;
+        if (!_willSkipCollection) setCachedOnlyMode(false);
         // WS-3 (2026-08-14 v2, PDF item 3): the third mode is now EXPLICIT too.
         // Every run states its mode up front; nothing is inferred silently.
         if (!_willSkipCollection && !_blendMode) {
-            (window as any).__hicRunMode = 'fresh';
+            setRunMode('fresh');
             setThinkingEvents((prev: ThinkingEvent[]) => [...prev, {
                 type: 'PHASE',
                 content: `[RUN MODE: FULL FRESH RUN] No cached Knowledge Library items selected: this run collects everything fresh. Select KL items on a prior engagement to reuse research instead of re-paying for collection.`,
@@ -4989,7 +5100,7 @@ const App = () => {
                 // fresh collection runs and the cached items (staged earlier into
                 // blendCachedItemsRef) are merged + deduped via the merge
                 // authority. Only force cached-only when blend is OFF.
-                const _blendActive = !!(window as any).__hicBlendMode;
+                const _blendActive = blendMode();
                 try {
                     const _selResp = await fetch('http://127.0.0.1:5012/api/user-selection/active');
                     if (_selResp.ok) {
@@ -5003,7 +5114,7 @@ const App = () => {
                                 (_sel.source_archive_paths?.length || 0);
                             if (_total > 0 && !_blendActive) {
                                 _cachedOnly = true;
-                                (window as any).__hicCachedOnlyMode = true;
+                                setCachedOnlyMode(true);
                                 console.info(`[App] CACHED-ONLY MODE engaged (${_total} KL items selected). Skipping external search, GoalRegrade, and Reddit-deep fetches. Generation will draw from the manifest catalog.`);
                                 setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[CACHED-ONLY] User curated ${_total} items; skipping all external API calls and using cached corpus.` }]);
                             } else if (_total > 0 && _blendActive) {
@@ -5020,7 +5131,7 @@ const App = () => {
                     setDataSourceStatus('Cached-only run: using your Knowledge Library selection');
                     return;
                 }
-                (window as any).__hicCachedOnlyMode = false;
+                setCachedOnlyMode(false);
 
                 // STEP 1: AI Query Refinement - generate targeted queries per source
                 const { refineSearchQueries } = await import('./services/researchFabricOrchestrator');
@@ -5480,6 +5591,7 @@ const App = () => {
                 // snapshot and the coverage audit below read the same thing. The run never proceeds silently.
                 try {
                     const { ensureObjectiveDecomposition } = await import('./services/researchPlanner');
+                    try { const { enterNode } = await import('./services/workflowTable'); enterNode('research', 'decompose'); } catch { /* the stage string stands */ }
                     const { publishObjectivePlan, recordDecompositionStatus } = await import('./services/objectivePlan');
                     const uploadedBrief = (((files as any[]) || [])
                         .map(f => (f as any)?.parsedText)
@@ -5492,12 +5604,48 @@ const App = () => {
                         proxy_base: 'http://127.0.0.1:5012',
                     });
                     if (decomposition.status === 'decomposed') {
-                        (plan as any).sub_questions = decomposition.subQuestions;
-                        publishObjectivePlan(decomposition.subQuestions, decomposition.attempts);
-                        const highCount = decomposition.subQuestions.filter(q => q.priority === 'high').length;
+                        let subQuestions = decomposition.subQuestions;
+                        // WS-4 L7: the plan is shown and edited BEFORE collection when the user asked for the review.
+                        if (reviewPlanBeforeRun && decomposition.plan) {
+                            try { const { enterNode } = await import('./services/workflowTable'); enterNode('research', 'plan_review'); } catch { /* best-effort */ }
+                            setDataSourceStatus('Research plan ready for review. Approve or edit it to start collection.');
+                            // 2026-11-08 (live 4-hour stall diagnosis): the run banner reads statusMessage, and this
+                            // path only wrote dataSourceStatus, so the screen kept saying "Collecting intelligence
+                            // data..." for hours while the run silently awaited an Approve click on a card rendered
+                            // out of view. A human checkpoint must announce itself where the user is looking: the
+                            // banner now states the wait, and the editor renders as a modal overlay (see the
+                            // planForReview render site), so the gate is unmissable in every view.
+                            setStatusMessage('WAITING FOR YOUR REVIEW: approve or edit the research plan to continue the run.');
+                            // 2026-11-08 (empty-[] forensics): the PROPOSED plan persists into the run record the
+                            // moment the gate arms. Before this, sub-questions were written only after approval, so
+                            // a stalled review left `plan.sub_questions: []` on disk and the planner's real output
+                            // existed nowhere outside browser memory: undiagnosable after the fact.
+                            try {
+                                const { setPlanSubQuestions, recordStep } = await import('./services/runState');
+                                setPlanSubQuestions(decomposition.subQuestions);
+                                recordStep({ stage: 'plan_review', note: `proposed: ${decomposition.subQuestions.length} sub-question(s), awaiting approval` });
+                            } catch { /* best-effort; the gate still works */ }
+                            const approved = await new Promise<import('./services/researchPlanner').ResearchPlan | null>(res => {
+                                planReviewResolveRef.current = res;
+                                setPlanForReview(decomposition.plan);
+                            });
+                            planReviewResolveRef.current = null;
+                            setStatusMessage('Research plan review settled. Continuing the run...');
+                            if (approved) {
+                                subQuestions = approved.sub_questions;
+                                const changed = JSON.stringify(approved.sub_questions) !== JSON.stringify(decomposition.subQuestions);
+                                setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[PLAN REVIEW] The user approved the research plan${changed ? ' with edits' : ' as proposed'}: ${approved.sub_questions.length} sub-question(s).` }]);
+                                try { const { recordStep } = await import('./services/runState'); recordStep({ stage: 'plan_review', note: changed ? 'approved with edits' : 'approved as proposed' }); } catch { /* the event line stands */ }
+                            } else {
+                                setThinkingEvents(prev => [...prev, { type: 'PHASE', content: '[PLAN REVIEW] Review skipped; the planner\'s decomposition drives the run.' }]);
+                            }
+                        }
+                        (plan as any).sub_questions = subQuestions;
+                        publishObjectivePlan(subQuestions, decomposition.attempts);
+                        const highCount = subQuestions.filter(q => q.priority === 'high').length;
                         setThinkingEvents(prev => [...prev, {
                             type: 'PHASE',
-                            content: `[DECOMPOSITION] Objective decomposed into ${decomposition.subQuestions.length} sub-question(s), ${highCount} high priority${decomposition.reasked ? '; the planner needed one anchored re-ask' : ''}. Evidence coverage is measured against them after collection.`,
+                            content: `[DECOMPOSITION] Objective decomposed into ${subQuestions.length} sub-question(s), ${highCount} high priority${decomposition.reasked ? '; the planner needed one anchored re-ask' : ''}. Evidence coverage is measured against them after collection.`,
                         }]);
                     } else {
                         recordDecompositionStatus({ decomposition: 'unavailable', reason: decomposition.reason, attempts: decomposition.attempts });
@@ -5671,7 +5819,7 @@ const App = () => {
                             // persistent manifest (budget-aware, NO 50/subreddit cap).
                             // The proxy dedups (items + scoped_items by id/title), so
                             // sending both is safe and additive.
-                            const engagementSlug = (window as any).__hicCurrentEngagementSlug || undefined;
+                            const engagementSlug = runEngagementSlug() || undefined;
                             const { jobId } = await startTopicModelJob({
                                 items: deepItems,
                                 researchGoal,
@@ -5793,7 +5941,7 @@ const App = () => {
                     const { getLastMergeStats } = await import('./services/researchFabricOrchestrator');
                     const ms = getLastMergeStats();
                     if (ms) {
-                        const mode = String((window as any).__hicRunMode || 'fresh');
+                        const mode = String(runMode() || 'fresh');
                         setThinkingEvents(prev => [...prev, {
                             type: 'PHASE',
                             content: `[RUN DIFF] Mode ${mode.toUpperCase()}: reused ${ms.cachedReused} cached item(s), ${ms.uploads} client upload(s), collected ${ms.fresh} fresh item(s); the merge authority collapsed ${ms.duplicatesCollapsed} duplicate(s); final corpus carries ${ms.finalUnique} unique items.`,
@@ -5896,7 +6044,7 @@ const App = () => {
                     `Internal/wiki ${composition.coreCorpusKB}KB (${Math.round(composition.coreCorpusKB / totalForPct * 100)}%) | ` +
                     `Total ${composition.totalKB}KB`
                 );
-                try { (window as any).__hicCorpusComposition = composition; } catch { /* SSR-safe */ }
+                setCorpusComposition(composition);
 
                 // ================================================================
                 // TRI-MODEL CORPUS ANALYSIS
@@ -6496,6 +6644,7 @@ ${synthesisParts.join('\n')}
             // P1-03: Context refresh before generation ensures Gemini has latest state
 
             if (activeStage === AnalysisStage.INGESTION) {
+                try { const { enterNode } = await import('./services/workflowTable'); enterNode('research', 'synthesize', 'themes, topics, personas, recommendations'); } catch { /* best-effort */ }
                 setStatusMessage("Identifying Patterns...");
                 const themes = mergeCachedThemes(await sessionRef.current.generateThemes(feedback, handleStreamUpdate));
                 setThemesResult(themes);
@@ -6515,7 +6664,7 @@ ${synthesisParts.join('\n')}
                     const corpusSummary = (themes?.themes || []).slice(0, 25)
                         .map((t: any) => `${t.name}: ${(t.description || '').slice(0, 240)}`)
                         .join('\n');
-                    const engagementSlugForGaps = (window as any).__hicCurrentEngagementSlug
+                    const engagementSlugForGaps = runEngagementSlug()
                         || engagementSlugFor(researchGoal || 'default-engagement');
                     const deliverableTypesForGaps = (selectedOutputs || [])
                         .map(o => String(o).toLowerCase().replace(/_/g, '-').replace(/^strategic-recs$/, 'recommendations'));
@@ -6540,7 +6689,7 @@ ${synthesisParts.join('\n')}
                     // result on a window-accessible hook so the Knowledge Library
                     // panel can read it.
                     gapResultPromise.then(result => {
-                        (window as any).__hicKnowledgeGaps = result;
+                        setKnowledgeGaps(result);
                         setGapsResult(result);
                         setGapsDismissed(false);
                         setThinkingEvents(prev => [...prev, {
@@ -6767,6 +6916,8 @@ ${synthesisParts.join('\n')}
                  their last session. Dismissible. Hidden when there is
                  nothing to report. */}
              <ChangeStrip />
+             {/* 2026-10-31 (agent-stack plan WS-E E3): the morning read-out of HiC's own state. */}
+             <DigestBar />
 
              {/* 2026-06-06 - Knowledge Library closure banner. Renders when
                  the user has persisted a cached_selection to the engagement
@@ -6782,7 +6933,7 @@ ${synthesisParts.join('\n')}
                  KL closure feedback in the right context. */}
              {appState !== AppState.IDLE && (
                  <KnowledgeLibraryClosureBanner
-                     engagementSlug={(typeof window !== 'undefined' ? (window as any).__hicCurrentEngagementSlug : null) || null}
+                     engagementSlug={runEngagementSlug() || null}
                  />
              )}
 
@@ -6801,7 +6952,7 @@ ${synthesisParts.join('\n')}
                      </div>
                      <KnowledgeGapsPanel
                          gaps={gapsResult.gaps as KnowledgeGap[]}
-                         engagementSlug={(window as any).__hicCurrentEngagementSlug || engagementSlugFor(researchGoal || 'default')}
+                         engagementSlug={runEngagementSlug() || engagementSlugFor(researchGoal || 'default')}
                      />
                  </div>
              )}
@@ -7393,6 +7544,59 @@ ${synthesisParts.join('\n')}
                                                           </div>
                                                       ))}
                                                   </div>
+                                                  {/* 2026-11-03 W6: instant per-source intelligence (summary, key topics,
+                                                      suggested questions) the moment each upload parses. A question click
+                                                      opens the Analyst Desk with the question prefilled. */}
+                                                  {files.some(f => sourceIntel[f.name] || (f.parsedText || '').length >= 200) && (
+                                                      <div className="mt-2 space-y-2">
+                                                          {files.map((f) => {
+                                                              const intel = sourceIntel[f.name];
+                                                              const parsing = !intel && (f.parsedText || '').length >= 200;
+                                                              if (!intel && !parsing) return null;
+                                                              return (
+                                                                  <div key={`intel-${f.name}`} className="bg-white border border-[var(--border-primary)] rounded p-2.5">
+                                                                      <div className="flex items-center justify-between">
+                                                                          <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] truncate max-w-[70%]">{f.name}</span>
+                                                                          <span className="text-[8px] text-[var(--text-tertiary)] uppercase tracking-wider">
+                                                                              {parsing ? 'analyzing...' : intel?.status === 'ready' ? 'source read' : 'analysis unavailable'}
+                                                                          </span>
+                                                                      </div>
+                                                                      {intel?.status === 'ready' && (
+                                                                          <>
+                                                                              <p className="text-[10px] text-[var(--text-secondary)] leading-relaxed mt-1.5">{intel.summary}</p>
+                                                                              {intel.keyTopics.length > 0 && (
+                                                                                  <div className="flex flex-wrap gap-1 mt-1.5">
+                                                                                      {intel.keyTopics.map((t, ti) => (
+                                                                                          <span key={ti} className="text-[8.5px] px-1.5 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded text-[var(--text-secondary)]">{t}</span>
+                                                                                      ))}
+                                                                                  </div>
+                                                                              )}
+                                                                              {intel.suggestedQuestions.length > 0 && (
+                                                                                  <div className="mt-1.5 space-y-1">
+                                                                                      {intel.suggestedQuestions.map((q, qi) => (
+                                                                                          <button
+                                                                                              key={qi}
+                                                                                              onClick={() => {
+                                                                                                  try {
+                                                                                                      window.dispatchEvent(new CustomEvent('hic:prefill-chat', { detail: { text: q } }));
+                                                                                                  } catch { /* non-fatal */ }
+                                                                                                  setShowCorpusChat(true);
+                                                                                              }}
+                                                                                              className="block w-full text-left text-[9.5px] text-[var(--nxt-teal)] hover:text-[var(--text-primary)] hover:bg-[var(--nxt-lime-10)] px-1.5 py-1 rounded border border-transparent hover:border-[var(--border-primary)] transition-colors"
+                                                                                              title="Ask this in the Analyst Desk"
+                                                                                          >
+                                                                                              <i className="fas fa-arrow-right mr-1.5 text-[8px]"></i>{q}
+                                                                                          </button>
+                                                                                      ))}
+                                                                                  </div>
+                                                                              )}
+                                                                          </>
+                                                                      )}
+                                                                  </div>
+                                                              );
+                                                          })}
+                                                      </div>
+                                                  )}
                                                   {hasDataSources && (
                                                       <div className="mt-2 text-[10px] text-[var(--nxt-teal)] bg-[var(--nxt-lime-10)] px-2 py-1 rounded">
                                                           These files will be COMBINED with intelligence data sources below into a unified research corpus.
@@ -7442,6 +7646,48 @@ ${synthesisParts.join('\n')}
                                                  </div>
                                              )}
                                          </div>
+
+                                         {/* WS-4 L7 (2026-10-30): review the research plan before collection (opt-in) */}
+                                         <div className="mb-4">
+                                             <div className="flex items-center gap-3 mb-2">
+                                                 <button onClick={() => setReviewPlanBeforeRun(!reviewPlanBeforeRun)} aria-pressed={reviewPlanBeforeRun} className={`w-5 h-5 rounded-sm border flex items-center justify-center text-xs ${reviewPlanBeforeRun ? 'bg-[var(--nxt-lime)] border-[var(--nxt-lime)] text-[var(--nxt-teal)]' : 'border-[var(--border-primary)] bg-white'}`}>{reviewPlanBeforeRun ? '' : ''}</button>
+                                                 <span className="text-sm font-bold">Review the research plan before collection</span>
+                                                 <span className="tag">Human checkpoint</span>
+                                             </div>
+                                             {reviewPlanBeforeRun && (
+                                                 <div className="ml-8 text-xs text-[var(--text-tertiary)]">The planner's sub-questions and source strategy open for editing; collection starts when you approve them.</div>
+                                             )}
+                                         </div>
+                                         {planForReview && (
+                                             /* 2026-11-08 (live 4-hour stall): the approval card used to render inline in the
+                                                setup column, where an active run's processing board hid it below the fold; the
+                                                run then awaited a click on a control the user could not see. The checkpoint now
+                                                mounts as a fixed full-screen modal above every view. No scrim-click dismiss on
+                                                purpose: the two exits are the card's own Approve and Cancel, so a stray click
+                                                cannot silently resolve the gate. */
+                                             <div style={{ position: 'fixed', inset: 0, zIndex: 9000, background: 'rgba(13,13,13,0.55)', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', overflowY: 'auto', padding: '48px 16px' }}>
+                                                 <div style={{ width: 'min(880px, 96vw)', background: '#FAFAF7', border: '2px solid #0D0D0D', boxShadow: '0 30px 90px rgba(0,0,0,0.4)' }}>
+                                                     <div style={{ background: '#0D0D0D', padding: '12px 18px' }}>
+                                                         <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#B8B800' }}>Human checkpoint · the run is paused</div>
+                                                         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.75)', marginTop: 4 }}>Review the research plan below. The run continues the moment you approve or cancel; nothing is processing while this card is open.</div>
+                                                     </div>
+                                                     <div style={{ padding: 16 }}>
+                                             <ResearchPlanEditor
+                                                 plan={planForReview}
+                                                 onApprove={(edited) => {
+                                                     setPlanForReview(null); planReviewResolveRef.current?.(edited);
+                                                     // WS-B B3 (2026-10-31): an approved plan is a settled step; its objective and sub-questions become a goal fact.
+                                                     void import('./services/memoryAdmissions').then(({ planApprovedFacts, admitAt }) => {
+                                                         const slug = runEngagementSlug() || '';
+                                                         return admitAt('plan approved', planApprovedFacts(edited.goal, (edited.sub_questions || []).map(sq => sq.question)), `plan_${slug || 'run'}_${edited.plan_hash || edited.plan_version}`, slug);
+                                                     }).catch(() => { /* best-effort */ });
+                                                 }}
+                                                 onCancel={() => { setPlanForReview(null); planReviewResolveRef.current?.(null); }}
+                                             />
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         )}
 
                                          {/* Source Toggles Grid */}
                                          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
@@ -7852,6 +8098,54 @@ ${synthesisParts.join('\n')}
              {/* UX-merger (2026-06-06) - Research Browser wiki-page click-through
                   overlay. Dispatched via 'hic:open-wiki' from ResearchCard.
                   Slide-in from the right; click outside or X to close. */}
+             {/* 2026-11-08 (live gap, owner report "theres no where to restart the run"): a RESTORED
+                 session renders the results view, which replaced the setup form and with it the ONLY
+                 start button in the app: a session whose analysis never ran was a dead end. This bar
+                 appears exactly in that state (SUCCESS view, a goal, no themes, nothing processing)
+                 and starts the SAME startAnalysis path the setup button uses; the restored source
+                 toggles satisfy its data gate. The review checkbox is the same state the setup form
+                 binds, so the choice carries into the run. */}
+             {/* handleLoadSession restores into ANALYZING + "Analysis Complete", not SUCCESS;
+                 the status regex below keeps the bar away from genuinely active stages. */}
+             {(appState === AppState.SUCCESS || appState === AppState.ANALYZING)
+                 && !!researchGoal
+                 && !(themesResult?.themes?.length)
+                 && !/\b(collecting|synthesiz|generating|mapping|drafting|architecting|formulating|defining|planning|analyzing|composing|inferring|extracting|enriching|waiting for your review)/i.test(statusMessage || '')
+                 && (
+                 <div style={{
+                     position: 'fixed', left: '50%', bottom: 18, transform: 'translateX(-50%)', zIndex: 8000,
+                     background: '#0D0D0D', border: '1px solid #B8B800', padding: '12px 18px',
+                     display: 'flex', alignItems: 'center', gap: 16, boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
+                     maxWidth: 'min(860px, 94vw)',
+                 }}>
+                     <div style={{ minWidth: 0 }}>
+                         <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#B8B800' }}>
+                             Analysis has not run for this session
+                         </div>
+                         <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginTop: 2 }}>
+                             The goal and source selections are restored. Start the run to collect, ingest, and build the themes board.
+                         </div>
+                     </div>
+                     <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', flexShrink: 0 }}>
+                         <input type="checkbox" checked={reviewPlanBeforeRun} onChange={() => setReviewPlanBeforeRun(!reviewPlanBeforeRun)} style={{ accentColor: '#B8B800' }} />
+                         <span style={{ fontSize: 10, color: '#FFFFFF' }}>Review plan first</span>
+                     </label>
+                     <button
+                         onClick={() => { if (files.length > 0 || hasDataSources) void startAnalysis(); }}
+                         disabled={!(files.length > 0 || hasDataSources)}
+                         title={(files.length > 0 || hasDataSources) ? 'Start the research run with the restored goal and sources' : 'No sources are enabled: open a new session setup to pick packs first'}
+                         style={{
+                             flexShrink: 0, padding: '10px 18px', fontSize: 11, fontWeight: 700,
+                             letterSpacing: '2px', textTransform: 'uppercase', cursor: (files.length > 0 || hasDataSources) ? 'pointer' : 'not-allowed',
+                             background: (files.length > 0 || hasDataSources) ? '#B8B800' : '#3A3A3A',
+                             color: (files.length > 0 || hasDataSources) ? '#0D0D0D' : '#888', border: 'none',
+                         }}
+                     >
+                         Start research run
+                     </button>
+                 </div>
+             )}
+
              {openWikiState && (
                  <div
                      onClick={(e) => { if (e.target === e.currentTarget) setOpenWikiState(null); }}
@@ -7868,6 +8162,7 @@ ${synthesisParts.join('\n')}
                      }}>
                          <WikiArticleViewer
                              wikiPath={openWikiState.wikiPath}
+                             chunkPointer={openWikiState.chunkPointer || null}
                              onClose={() => setOpenWikiState(null)}
                              onOpenUrl={(url: string) => { try { window.open(url, '_blank', 'noopener,noreferrer'); } catch { /* non-fatal */ } }}
                          />

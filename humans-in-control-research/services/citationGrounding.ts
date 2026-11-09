@@ -22,8 +22,12 @@ function norm(s: string): string {
         .toLowerCase()
         .replace(/[‘’‛′]/g, "'")      // curly/prime single quotes -> '
         .replace(/[“”″]/g, '"')             // curly double quotes -> "
-        .replace(/[--−]/g, '-')             // en/em/minus dash -> hyphen
-        .replace(/.../g, '...')                          // ellipsis char -> ...
+        // 2026-10-20: these two classes were written with literal dash / ellipsis characters, which a source-level
+        // em-dash sweep later turned into "-" and "...": `[--−]` became the range U+002D..U+2212 (every letter and
+        // digit -> "-") and `/.../g` replaced any three characters. Matching was content-blind, so the gate blanked
+        // verbatim quotes and kept fabricated ones. Escapes only, never literal dash characters, in this file.
+        .replace(/[–—−]/g, '-')          // en/em/minus dash -> hyphen
+        .replace(/…/g, '...')                       // ellipsis char -> ...
         .replace(/[`'"]/g, '')                              // drop quote chars entirely (quotes are wrapped inconsistently)
         .replace(/\s+/g, ' ')
         .trim();

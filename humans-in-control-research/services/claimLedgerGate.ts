@@ -40,7 +40,8 @@ export type ReasonCode =
     | 'INDEPENDENCE_INFLATED'  // population / consensus language over fewer than three independent origins
     | 'UNVERIFIED_IDENTIFIER'  // identifier or proper-noun phrase absent from every cited chunk, or only hedged in social text
     | 'DERIVED_AS_SOURCE'      // "via theme" / "paraphrased from theme": a cached summary cited as evidence
-    | 'CHROME_LEAK';           // model-emitted footer / buttons / audit / metadata in the reader document
+    | 'CHROME_LEAK'            // model-emitted footer / buttons / audit / metadata in the reader document
+    | 'NAKED_FIGURE';          // a hard figure (%, $, comma-thousands, Nx) asserted outside a verbatim quote
 
 /**
  * `spec` and `ref` rows are NOT claims about the world (2026-10-01, #prd consulting-grade pass).
@@ -121,6 +122,7 @@ export interface ClaimGateContext {
 const REASON_CODES: ReasonCode[] = [
     'UNRESOLVED_SOURCE', 'UNSOURCED_FACT', 'UNVERIFIED_QUOTE', 'DATE_SCOPE_MISMATCH', 'UNSUPPORTED_MODALITY',
     'PRODUCT_SCOPE_MISMATCH', 'INDEPENDENCE_INFLATED', 'UNVERIFIED_IDENTIFIER', 'DERIVED_AS_SOURCE', 'CHROME_LEAK',
+    'NAKED_FIGURE',
 ];
 
 // ---------------------------------------------------------------------------
@@ -526,6 +528,22 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
         const body = t.replace(/^---\s*\n[\s\S]*?\n---\s*\n?/, '');
         return { norm: normalizeForMatch(body), raw: body };
     };
+    /** The whole cited page, normalized for matching (frontmatter stripped), for checks that a chunk boundary must not
+     *  decide. Null when the page cannot be fetched. */
+    const pageBodyNorm = new Map<string, string | null>();
+    const pageBodyFor = async (pointer: string): Promise<string | null> => {
+        const page = pageOf(pointer);
+        if (pageBodyNorm.has(page)) return pageBodyNorm.get(page)!;
+        if (!pageTextCache.has(page)) {
+            let t: string | null = null;
+            if (ctx.fetchPage) { try { t = await ctx.fetchPage(page); } catch { t = null; } }
+            pageTextCache.set(page, t);
+        }
+        const t = pageTextCache.get(page);
+        const norm = t ? normalizeForMatch(t.replace(/^---\s*\n[\s\S]*?\n---\s*\n?/, '')) : null;
+        pageBodyNorm.set(page, norm);
+        return norm;
+    };
     const originOf = (pointer: string): string => {
         const meta = metaFor(pointer);
         const c = chunkById.get(pointer);
@@ -576,6 +594,33 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
                 ? 'Declarative factual claim (quantity, absolute, comparison, causal link or quoted material) carries no resolvable pointer.'
                 : 'Declarative statement about a named entity carries no pointer; state it as judgment or source it.', 'narrow');
         }
+
+        // NAKED_FIGURE (2026-11-09, independent QA of a live #report: "classified about 38,000 as
+        // personal guidance" paraphrased a figure just OUTSIDE its quotation marks; a pointer does
+        // not cure it). The Quantitative Claim Rule allows a hard figure only inside a verbatim
+        // quote. Checked on evidence-bearing prose rows only: quote rows, blockquotes, spec/ref
+        // rows and headings are out of scope (headings already block via UNSOURCED_FACT + STAT_RE).
+        // Scope is deliberately the unambiguous figure shapes: percent, currency, comma-thousands,
+        // and "Nx" multipliers. Plain small counts and durations stay a review signal, not a block.
+        // HEADINGS (2026-11-09, QA re-review): a regenerated report shipped "...comprise 26% of
+        // personal guidance requests" AS A SECTION TITLE with a citation attached. The action-title
+        // rules ban both outright: a title carries neither a figure (quoted or not) nor a citation.
+        // The pointer on the heading had satisfied UNSOURCED_FACT, so nothing else caught it.
+        if (/^h[1-6]$/.test(row.tag) && !isExempt(row)) {
+            const hm = row.text.match(/(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?\s*(?:%|percent\b)|\$\s?\d[\d,.]*|\b\d+(?:\.\d+)?x\b)/i);
+            if (hm) push('NAKED_FIGURE', 'block', `Heading carries the figure "${hm[0]}"; a title states the judgment and never a number. Move the figure into a cited quote in the body.`, 'narrow');
+            if (row.pointers.length) push('NAKED_FIGURE', 'block', 'Heading carries a citation; titles state judgments and are never cited. Move the citation to the body sentence that carries the evidence.', 'narrow');
+        }
+        if (!isExempt(row) && row.kind !== 'quote' && row.tag !== 'blockquote' && row.tag !== 'summary' && !/^h[1-6]$/.test(row.tag)) {
+            const outsideQuotes = row.text
+                .replace(/"[^"]*"/g, ' ')
+                .replace(/“[^”]*”/g, ' ');
+            const m = outsideQuotes.match(/(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?\s*(?:%|percent\b)|\$\s?\d[\d,.]*|\b\d+(?:\.\d+)?x\b)/i);
+            if (m) {
+                push('NAKED_FIGURE', 'block',
+                    `Figure "${m[0]}" is asserted outside a verbatim quote; the number may appear only inside the quoted source text.`, 'narrow');
+            }
+        }
         if (resolvedTexts.length === 0) continue;
 
         // UNVERIFIED_QUOTE: every quoted span of 24+ chars must be verbatim in a cited chunk. A spec or ref row
@@ -585,9 +630,16 @@ export async function evaluateClaimLedger(html: string, ctx: ClaimGateContext): 
             if (!spans.length && /^["“].{20,}["”]$/.test(row.text)) spans.push(row.text.replace(/^["“]|["”]$/g, ''));
             if (!spans.length && row.tag === 'blockquote') spans.push(row.text);
             for (const span of spans) {
-                if (!quoteAppearsIn(span, unionNorm)) {
-                    push('UNVERIFIED_QUOTE', 'block', `Quoted span is not verbatim in any cited chunk: "${span.slice(0, 120)}".`, 'remove_quote_marks');
+                if (quoteAppearsIn(span, unionNorm)) continue;
+                // 2026-10-26 (live: a verbatim stakeholder quote from the cited upload was flagged because the pointer named a
+                // neighbouring chunk of the same document): a quote verbatim in the cited PAGE is verified; only a quote that
+                // no cited document holds is blocked.
+                let inPage = false;
+                for (const p of row.pointers) {
+                    const body = await pageBodyFor(p);
+                    if (body && quoteAppearsIn(span, body)) { inPage = true; break; }
                 }
+                if (!inPage) push('UNVERIFIED_QUOTE', 'block', `Quoted span is not verbatim in any cited chunk: "${span.slice(0, 120)}".`, 'remove_quote_marks');
             }
         }
 
@@ -820,6 +872,7 @@ export function buildNarrowingInstruction(ledger: ClaimLedger): string {
         const how = f.repair === 'reframe_as_recollection' ? 'Reframe as what a practitioner reported, in quotation marks or with "a practitioner on the forum described".'
             : f.repair === 'name_the_analogy' ? 'Name the other product explicitly as an analogy, or delete the comparison.'
             : f.repair === 'remove_quote_marks' ? 'Remove the quotation marks and restate as plain prose, or replace with a verbatim span from the cited chunk (copy exactly).'
+            : f.code === 'NAKED_FIGURE' ? 'Either quote the source sentence verbatim so the figure rides inside the quotation marks, or restate the point qualitatively with no number.'
             : 'Narrow the sentence to what the cited text itself says; drop the unsupported date, guarantee, count or name.';
         return `- [${f.code}] ${f.detail}\n  Sentence: "${f.sentence}"\n  Fix: ${how}`;
     });

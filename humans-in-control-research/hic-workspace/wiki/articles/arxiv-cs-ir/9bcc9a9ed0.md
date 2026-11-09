@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:22:43+00:00"
 content_hash: "b29c11f940e68435"
 chunks:
   - id: "articles/arxiv-cs-ir/9bcc9a9ed0.md#c0"
-    char_span: [0, 621]
+    char_span: [0, 620]
     sentence_count: 3
     key_terms: [management, discovery, ml-asset, utilization, curation, assets, comprehensive, documentation]
     concepts: [management, discovery, ml-asset, utilization, curation]
-    token_count: 131
-    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2509.23577v1"}]
+    token_count: 130
+    sources: [{"n":"arxiv_cs_ir","u":"https://arxiv.org/abs/2509.23577v1","kind":"article","date":"2025-09-28"}]
 ---
 # ML-Asset Management: Curation, Discovery, and Utilization
 

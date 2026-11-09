@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:18:00+00:00"
 content_hash: "dbd71f85fc4133e7"
 chunks:
   - id: "articles/texas-open-data/5da4b52cbd.md#c0"
-    char_span: [0, 688]
+    char_span: [0, 687]
     sentence_count: 3
     key_terms: [professional-medical-billing-services-sv1-header-i, professional-medical-billing-services-sv1-he, professional, texas, services, billing, dataset, medical]
     concepts: [professional, texas, services, billing, dataset]
-    token_count: 160
-    sources: [{"n":"texas_open_data","u":"https://data.texas.gov/dataset/Professional-Medical-Billing-Services-SV1-Header-I/pvi6-huub"}]
+    token_count: 159
+    sources: [{"n":"texas_open_data","u":"https://data.texas.gov/dataset/Professional-Medical-Billing-Services-SV1-Header-I/pvi6-huub","kind":"article","date":"2026-06-12"}]
 ---
 # Professional Medical Billing Services (SV1) Header Information
 

@@ -16,23 +16,25 @@ collected_at: "2026-07-02T16:34:08+00:00"
 content_hash: "6d062ce29fa46522"
 chunks:
   - id: "articles/agr-precisionag/ce0b6ccc1d.md#c0"
-    char_span: [0, 269]
+    char_span: [0, 268]
     sentence_count: 1
     key_terms: [beyond-disruption-earning-trust-and-driving-impact-in-agtech-through-grower-led-innovation, globalagtechinitiative, digital-farming, disruption, grower-led, innovation, driving, earning]
-    token_count: 64
-    sources: [{"n":"agr_precisionag","u":"https://www.globalagtechinitiative.com/digital-farming/beyond-disruption-earning-trust-and-driving-impact-in-agtech-through-grower-led-innovation/"}]
+    token_count: 63
+    sources: [{"n":"agr_precisionag","u":"https://www.globalagtechinitiative.com/digital-farming/beyond-disruption-earning-trust-and-driving-impact-in-agtech-through-grower-led-innovation/","kind":"article","date":"2026-06-17"}]
   - id: "articles/agr-precisionag/ce0b6ccc1d.md#c1"
-    char_span: [271, 2788]
+    char_span: [270, 2787]
     sentence_count: 20
     key_terms: [agriculture, innovation, crop, croplife, software, growers, agtech, unpredictable]
     concepts: [agriculture, innovation, croplife, software, unpredictable]
     token_count: 512
+    sources: [{"n":"agr_precisionag","u":"https://www.globalagtechinitiative.com/digital-farming/beyond-disruption-earning-trust-and-driving-impact-in-agtech-through-grower-led-innovation/","kind":"article","date":"2026-06-17"}]
   - id: "articles/agr-precisionag/ce0b6ccc1d.md#c2"
-    char_span: [2482, 3281]
+    char_span: [2481, 3280]
     sentence_count: 7
     key_terms: [according, retailers, croplife, growers, massive, crop, identification, technologists]
     concepts: [according, retailers, croplife, growers, massive]
     token_count: 171
+    sources: [{"n":"agr_precisionag","u":"https://www.globalagtechinitiative.com/digital-farming/beyond-disruption-earning-trust-and-driving-impact-in-agtech-through-grower-led-innovation/","kind":"article","date":"2026-06-17"}]
 ---
 # Beyond Disruption: Earning Trust and Driving Impact in AgTech Through Grower-Led Innovation
 

@@ -1,10 +1,53 @@
 ---
 name: roadmap-builder
+description: Build evidence-based implementation roadmaps using NOW/NEXT/LATER horizon framework with problem framing
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Build evidence-based implementation roadmaps using NOW/NEXT/LATER horizon framework with problem framing
+version: "1"
+status: active
 thinking: high
+triggers:
+  - roadmap
+  - roadmaps
+  - timeline
+  - timelines
+  - now next later
+  - implementation plan
+  - phasing
+  - phases
+  - sequencing
+  - horizon planning
+  - prioritization
+  - schedule
+  - delivery plan
+  - rollout plan
+  - milestones
+  - program plan
+  - quarters
+  - quarterly plan
+  - sprint plan
+  - sequence of work
+  - build order
+  - what first
+composes_with:
+  - source-ranker
+  - second-order-thinker
+  - human-voice-editor
+loader:
+  title: Roadmap Builder
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/roadmap.md
+    - anti-patterns/roadmap.md
+  benchmarks:
+    - benchmarks/financial-impact.md
+  output_types:
+    - grid-matrix
+    - stat-row
+    - color-block-grid
+    - evidence-block
+skillopt: trainable
 ---
 
 # Strategic Roadmap Building
@@ -13,6 +56,7 @@ thinking: high
 
 A strategy consultant creating an evidence-based implementation roadmap. You translate strategic recommendations into time-horizoned initiatives, each framed as a problem to solve (not a feature to build), with explicit owners, dependencies, success metrics, and strategic theme alignment.
 
+<!-- SLOW_UPDATE_START -->
 ## Input Contract
 
 - Research objective (the goal statement for this engagement)
@@ -45,6 +89,7 @@ A strategy consultant creating an evidence-based implementation roadmap. You tra
   }
 }
 ```
+<!-- SLOW_UPDATE_END -->
 
 ## Methodology
 
@@ -98,6 +143,7 @@ For each initiative:
 - Include at least 1 initiative per persona archetype identified
 - Every theme must have at least one initiative in each horizon
 
+<!-- SLOW_UPDATE_START -->
 ## Evidence Mandates
 
 - Every initiative description MUST cite [CHUNK_XXX] evidence for the WHY
@@ -106,6 +152,7 @@ For each initiative:
 - Success metrics MUST include baselines and timeframes, not just targets
 - Dependencies MUST reference other initiatives by name (not generic "prerequisites")
 - The vision statement MUST be grounded in research themes
+<!-- SLOW_UPDATE_END -->
 
 ## Anti-Patterns
 
@@ -124,6 +171,7 @@ For each initiative:
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## Quality Discipline v2 (2026-05-20) — universal contract
 
 This block is applied identically across every artifact-expert skill. Where a skill needs artifact-specific rules they appear above this block; this block is the floor every artifact must pass.
@@ -308,3 +356,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

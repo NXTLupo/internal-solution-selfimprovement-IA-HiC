@@ -1,8 +1,9 @@
 ---
 name: design-exemplar-curator
+description: "Match a prototype brief and its brand hashtag to the strongest Behance exemplars and pick one verbalized-sampling framing per match. Loaded by #proto Stage 3 (visual direction) and Stage 4 (prototype coder) so the design direction cites real references."
 invocation: model
-version: 1.0
-description: Curated reference library skill that matches a prototype brief's concept and brand hashtag to the highest-signal Behance exemplars and selects ONE Verbalized-Sampling framing (α-ε) per match. Loaded by Stage 3 (Visual Direction) and Stage 4 (Prototype Coder) of the prototype pipeline. Replaces the "clean modern" aesthetic placeholder with named, evidence-backed visual references that ship into the coder's system prompt as STUDY-THESE images + framing rules. The retrieval is hashtag-aware — #NXT-radical loads framing ε, #NXT-convention loads α/δ, #NU-institutional swaps to NU brand and loads NU α/γ, #DECIEM swaps to the DECIEM brand and loads framing α. Used wherever a brief's `visual_direction` or `interaction_choreography` needs grounding in real-world design quality rather than the LLM's typicality bias.
+version: "1"
+status: active
 trigger: load at Stage 3 (Visual Direction) and Stage 4 (Prototype Coder); also at Brief Generator Pass 2 when `visual_direction.exemplar_refs` is empty
 inputs: brief.concept, brief.interaction_pattern, brief.aesthetic_keywords, brief.committed_frame, brief.brand_hashtag
 outputs: brief.visual_direction.exemplar_refs (array of {exemplar_id, framing_letter, rationale}), Stage 4 system-prompt injection block
@@ -12,11 +13,15 @@ brand_dependencies: NXT (chartreuse + Bebas Neue + Archivo + JetBrains Mono) | N
 
 # Design Exemplar Curator
 
+## Scope
+
+Curated reference library skill that matches a prototype brief's concept and brand hashtag to the highest-signal Behance exemplars and selects ONE Verbalized-Sampling framing (α-ε) per match. Loaded by Stage 3 (Visual Direction) and Stage 4 (Prototype Coder) of the prototype pipeline. Replaces the "clean modern" aesthetic placeholder with named, evidence-backed visual references that ship into the coder's system prompt as STUDY-THESE images + framing rules. The retrieval is hashtag-aware — #NXT-radical loads framing ε, #NXT-convention loads α/δ, #NU-institutional swaps to NU brand and loads NU α/γ, #DECIEM swaps to the DECIEM brand and loads framing α. Used wherever a brief's `visual_direction` or `interaction_choreography` needs grounding in real-world design quality rather than the LLM's typicality bias.
+
 ## Why this skill exists
 
 The HiC prototype pipeline was shipping generic Copilot-clone UIs because Stages 3 and 4 had no authoritative reference library. The brief said `aesthetic_keywords: "clean modern"` and the coder defaulted to the modal SaaS shell (white modal + tone slider + regenerate button) every single time. This skill replaces "clean modern" with five real Behance exemplars and a chosen Verbalized-Sampling framing per match — so the coder has a concrete visual target, not a vague mood.
 
-The reference library lives at `/hic-workspace/wiki/inspiration-hub/` (browsable HTML gallery) and `/hic-workspace/wiki/exemplars/behance/_raw_index.json` (machine-readable index). Each exemplar with a `Pattern Translation` page has 5 NXT framings + 5 NU framings authored by Claude Opus 4.7 with Verbalized Sampling.
+The reference library lives at `/hic-workspace/wiki/inspiration-hub/` (browsable HTML gallery) and `/hic-workspace/wiki/exemplars/behance/_raw_index.json` (machine-readable index). Each exemplar with a `Pattern Translation` page has 5 NXT framings + 5 NU framings authored by the reasoning model with Verbalized Sampling.
 
 ## Inputs
 

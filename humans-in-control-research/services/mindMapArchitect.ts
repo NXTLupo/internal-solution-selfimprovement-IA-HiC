@@ -5,7 +5,8 @@
 // 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import { parseJSONWithRepair } from './aiOutputRepair';
-import { stableHash, withResilience, isThrottleError } from './multiModelResilience';
+import { stableHash, withResilience, isProviderUnavailableError } from './multiModelResilience';
+import { CLAUDE_REASONING_MODEL } from './claudeModelPolicy';
 
 
 export type BertTopicCluster = {
@@ -114,19 +115,18 @@ async function callSonnetForGrouping(
         primary: 'anthropic',
         fallbacks: ['gemini'],
         stage: 'mind_map:grouping',
-        is429: isThrottleError,
+        is429: isProviderUnavailableError,   // outages fall back too, not only 429s
         invoke: async (provider) => {
             const endpoint = provider === 'anthropic' ? '/api/ai/anthropic' : '/api/ai/gemini';
             const body = provider === 'anthropic'
                 ? {
-                    model: 'claude-sonnet-4-6',
-                    max_tokens: 4000,
+                    model: CLAUDE_REASONING_MODEL,   // 2026-10-05: reasoning deliverable -> Opus 5.5
+                    max_tokens: 16000,
                     temperature: 0,
-                    metadata: { seed }, // honored where provider supports; otherwise ignored
                     messages: [{ role: 'user', content: prompt }],
                 }
                 : {
-                    model: 'gemini-3.5-flash',
+                    model: 'gemini-3.1-pro-preview',   // reasoning fallback (flash is for speed)
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     config: { temperature: 0, responseMimeType: 'application/json' },
                 };
@@ -140,7 +140,7 @@ async function callSonnetForGrouping(
             }
             const data = await resp.json();
             const text = provider === 'anthropic'
-                ? (data.content?.[0]?.text ?? '')
+                ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))   // 2026-10-05: content[0] is the thinking block under adaptive thinking
                 : (data.candidates?.[0]?.content?.parts?.[0]?.text ?? '');
             return parseJSONWithRepair(text, { calling_context: 'mind_map:grouping' });
         },

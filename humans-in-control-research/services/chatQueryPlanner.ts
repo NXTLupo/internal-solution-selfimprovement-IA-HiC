@@ -125,7 +125,7 @@ async function callHaikuJSON<T>(
             }
             const data = await resp.json();
             const textOut = provider === 'anthropic'
-                ? (data.content?.[0]?.text ?? '')
+                ? ((data.content || []).filter((c: any) => c?.type === 'text').map((c: any) => c.text || '').join(''))   // 2026-10-05: content[0] can be a thinking block
                 : (data.candidates?.[0]?.content?.parts?.[0]?.text ?? '');
             return parseJSONWithRepair<T>(textOut, {
                 calling_context: `query_expansion:${purpose}:${provider}`,

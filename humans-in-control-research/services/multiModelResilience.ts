@@ -190,6 +190,17 @@ export async function withResilience<T>(opts: ResilientCallOpts<T>): Promise<{
 
 
 /**
+ * Provider unavailable (2026-10-05): throttling OR an outage - 5xx, a network failure, a timeout. Deliverable paths
+ * use this as their fallback trigger; throttle-only matching left a 502 or "All connection attempts failed" with no
+ * fallback at all.
+ */
+export function isProviderUnavailableError(err: unknown): boolean {
+    if (isThrottleError(err)) return true;
+    const msg = String((err as any)?.message || err || '').toLowerCase();
+    return /\b50[0234]\b|overloaded|unavailable|timed out|timeout|all connection attempts failed|connect(?:ion)? ?(?:error|refused|reset)|econn|etimedout|fetch failed|failed to fetch|networkerror|aborterror/.test(msg);
+}
+
+/**
  * Default 429 detector - checks error message for common throttle signals.
  */
 export function isThrottleError(err: unknown): boolean {

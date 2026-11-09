@@ -109,6 +109,27 @@ const DIRECTIVES_COPY: HashtagDirective[] = [
         outputType: 'prototype',
     },
     {
+        id: '#design',
+        name: 'Design Option Board',
+        // produces no deliverable (so no artifact-catalog entry): it sets the direction the next #slides / #proto compose to
+        category: 'edit-refine',
+        summary: 'Designer desk: compose 2 to 4 layout directions for one subject side by side, then pin one for the next #slides deck and #proto build.',
+        description:
+            'Verbalized sampling over LAYOUT, not copy: every direction keeps the same headline and evidence and differs in grid, reading order, density and imagery. Previews are composed from the brand design tokens. "Use option N" stores the pick as the engagement design direction (a preference fact), which the next #slides deck and the #proto Stage 3 visual designer read before composing.',
+        combinesWith: ['#NXT', '#NU', '#deciem'],
+        modifiers: [
+            { token: 'options:N', description: 'How many directions to compose', values: '2-4 (default 3)' },
+        ],
+        examples: [
+            '#design options:3 donor retention deck for the CFO #NU',
+            '#design first-year readiness coach #NXT',
+        ],
+        requiresContext: false,
+        usesVerbalizedSampling: true,
+        introduced: '2026-10-31',
+        outputType: 'chat_response',
+    },
+    {
         id: '#prototypes',
         name: 'Prototype Library',
         category: 'browse',
@@ -744,6 +765,181 @@ const DIRECTIVES_COPY: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         introduced: '2026-06-01',
         outputType: 'chat_response',
+    },
+    // ────────────────────────────────────────────────────────────────────
+    // Studio formats (2026-11-03, NotebookLM reverse-engineering W3+W5): one-click
+    // grounded study and reference outputs. The documents ride the HTML artifact
+    // chain, so pointer citations and the claim-ledger gate apply to every one.
+    // ────────────────────────────────────────────────────────────────────
+    {
+        id: '#audio-overview',
+        name: 'Audio Overview',
+        category: 'consulting-deliverable',
+        summary: 'A two-voice spoken dialogue over the evidence, with the cited transcript below the player.',
+        description:
+            'The brief-dialog engine writes the Skeptical Partner vs Curious Strategist script from the corpus; the proxy renders it to one MP3 with two alternating voices (ElevenLabs). The player and the line-cited transcript land together in the Design Desk. Needs ELEVENLABS_API_KEY on the proxy; without it the text transcript still generates.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#audio-overview the retention findings for the drive home',
+            '#podcast pressure-test the co-op matching thesis',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-11-03',
+        outputType: 'chat_response',
+    },
+    {
+        id: '#video-overview',
+        name: 'Video Overview',
+        category: 'consulting-deliverable',
+        summary: 'A brand-tokened recap video rendered to MP4: objective, thesis, named sources, and the closing judgment as animated scenes.',
+        description:
+            'Composes a deterministic recap from the run\'s own recorded substance (services/recapComposition.ts, slop-gated, token-skinned per brand) and renders it on the video-renderer sidecar via the proxy /api/video passthrough. Every scene is text the run recorded; an absent thesis produces no thesis scene. The player and the narration beats land in the Design Desk.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#video-overview the retention research in ninety seconds',
+            '#video the email design findings recap #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-11-03',
+        outputType: 'chat_response',
+    },
+    {
+        id: '#infographic',
+        name: 'Infographic',
+        category: 'consulting-deliverable',
+        summary: 'A standalone native infographic: one content-true element (process, comparison, or quoted figures) drawn by the proxy renderer.',
+        description:
+            'The model writes ONE structurable element from the grounded corpus (4-6 steps, a before/after pair, or stats whose values ride verbatim quoted passages); infographicSpecFrom builds the spec and the proxy\'s native renderer (/api/ai/diagram, the E4 infographic families) draws it as a PNG. A leading aspect word steers the frame: landscape (default), portrait, or square. No figure appears unless a corpus quote carries it.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#infographic the permission ladder students expect before connecting an assistant',
+            '#infographic portrait how the connector handles a write request',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: false,
+        introduced: '2026-11-09',
+        outputType: 'chat_response',
+    },
+    {
+        id: '#faq',
+        name: 'FAQ Document',
+        category: 'consulting-deliverable',
+        summary: 'Grounded FAQ: the stakeholder questions the corpus can settle, each answered with cited evidence.',
+        description:
+            'Composes 12-20 question/answer pairs grouped by theme. Questions read as real stakeholder asks; answers are 2-5 declarative sentences with corpus pointers, at least half anchored by a verbatim quote from a named source. Questions the corpus cannot answer are omitted. Saved to the artifact library; refine with #refine <slug>.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#faq what leadership keeps asking about the co-op matching program',
+            '#faq the AI procurement questions this corpus answers #NU',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#studyguide',
+        name: 'Study Guide',
+        category: 'consulting-deliverable',
+        summary: 'Topic modules with key terms, anchor quotes, and self-check questions with reveal-style answers.',
+        description:
+            'Builds 4-7 topic modules over the corpus: core idea, defined key terms, one verbatim anchor quote per module, and self-check questions whose model answers sit behind native reveal elements. Closes with a synthesis module connecting the topics into one argument. Every evidence sentence carries its corpus pointer.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#studyguide onboarding a new analyst to the retention research',
+            '#studyguide the service blueprint evidence base #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#chronology',
+        name: 'Source Chronology',
+        category: 'consulting-deliverable',
+        summary: 'A dated timeline of events drawn from the sources, every entry cited; not a forward-looking roadmap.',
+        description:
+            'Extracts 10-25 dated events from the corpus into a vertical timeline grouped by era. Dates come only from chunk provenance or chunk text; entries without an establishable date are dropped, and conflicting dates keep both sides with citations. Use #roadmap for a forward plan; #chronology looks backward at what the sources record.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#chronology how the vendor landscape shifted across the corpus',
+            '#chronology the program decisions the uploads record #NU',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#flashcards',
+        name: 'Flashcard Set',
+        category: 'consulting-deliverable',
+        summary: 'Active-recall flashcards over the corpus: tap a card face to reveal the grounded answer.',
+        description:
+            'Generates 16-30 flashcards grouped by topic, mixing term-definition, question-answer, quote-attribution, and claim-evaluation card types. Card bodies carry the corpus pointer that grounds them; cards the corpus cannot answer are omitted. Faces use native reveal elements, so the set works in the saved artifact with no scripts.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#flashcards the key concepts in the uploaded strategy documents',
+            '#flashcards vendor capabilities from the competitive research #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#quiz',
+        name: 'Knowledge Quiz',
+        category: 'consulting-deliverable',
+        summary: 'Multiple-choice quiz with explained, cited answers behind reveal elements.',
+        description:
+            'Writes 10-16 multiple-choice questions over the corpus, ordered easy to hard, four options each. The reveal carries the correct letter, why it is right with its corpus pointer, and why the strongest distractor is wrong. Distractors come from real adjacent facts, never absurd fillers.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#quiz test my team on the discovery research findings',
+            '#quiz the client context pack, hard questions last #NU',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#datatable',
+        name: 'Evidence Data Table',
+        category: 'consulting-deliverable',
+        summary: 'One structured entities-by-attributes table extracted across sources, every row cited.',
+        description:
+            'Picks the densest table shape the corpus supports (vendors by capabilities, stakeholders by concerns, systems by status, initiatives by outcomes), then fills one primary HTML table with grounded cells and a Sources column of corpus pointers per row. Unfillable cells read "not evidenced"; nothing is guessed. Reading notes below the table state the patterns.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#datatable compare the assessment platforms the corpus covers',
+            '#datatable stakeholders and their stated concerns #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#critique',
+        name: 'Evidence Critique',
+        category: 'consulting-deliverable',
+        summary: 'Where the sources are strong, where they are weak, and which findings are decision-grade.',
+        description:
+            'Audits the corpus material on a subject: named convergences backed by independent sources, specific source weaknesses (single-origin repetition, causal overreach, vendor self-report, stale dates), contested claims with both sides quoted, and a closing trust ranking. The critique targets the sources themselves and names authors, outlets, and documents.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#critique how solid is the evidence behind the retention findings',
+            '#critique the vendor claims in the uploaded RFP responses #NU',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-03',
+        outputType: 'html_artifact',
     },
 ];
 

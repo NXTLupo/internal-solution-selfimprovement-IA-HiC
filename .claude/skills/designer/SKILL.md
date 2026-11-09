@@ -1,11 +1,17 @@
 ---
 name: designer
+description: "Runtime visual router for deliverable image slots: chooses per slot between a native exhibit render, a content-true icon or a generated illustration, bound by the HiC Design Laws. Use when a deliverable declares image slots whose lane the archetype registry has not fixed."
 invocation: runtime
 disable-model-invocation: true
-description: Runtime visual router for deliverable image slots. Decides, per slot, which of the three visual lanes fills it: native GOLD exhibit render, composable content-true icon, or generated illustration. Bound by the ten HiC Design Laws in hic-workspace/wiki/brand/design-laws.md (tokens only, content-true or nothing, native render never image-gen for exhibits, collision bans). Use when a deliverable declares image slots and the lane choice is not already fixed by the archetype registry.
+version: "1.0"
+status: active
 ---
 
 # Designer — runtime visual router for deliverable image slots
+
+## Scope
+
+Runtime visual router for deliverable image slots. Decides, per slot, which of the three visual lanes fills it: native GOLD exhibit render, composable content-true icon, or generated illustration. Bound by the ten HiC Design Laws in hic-workspace/wiki/brand/design-laws.md (tokens only, content-true or nothing, native render never image-gen for exhibits, collision bans). Use when a deliverable declares image slots and the lane choice is not already fixed by the archetype registry.
 
 > DESIGN CONSTITUTION (2026-08-07, D1): all visual output is bound by the ten HiC Design Laws
 > in `hic-workspace/wiki/brand/design-laws.md`. Tokens only (Law 1), content-true or nothing

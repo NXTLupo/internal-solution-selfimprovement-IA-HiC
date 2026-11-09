@@ -18,6 +18,9 @@ export interface ParsedDesignMd {
 const FRONTMATTER_RE = /^---\n([\s\S]*?)\n---\n?/;
 
 export function parseDesignMd(source: string): ParsedDesignMd {
+    // 2026-10-05: a Windows checkout (core.autocrlf) serves DESIGN.md with CRLF line endings, and the LF-only pattern
+    // reported "missing YAML frontmatter" so the whole Design Desk failed to load. Normalize first.
+    source = String(source || '').replace(/^﻿/, '').replace(/\r\n?/g, '\n');
     const match = source.match(FRONTMATTER_RE);
     if (!match) {
         throw new Error('DESIGN.md missing YAML frontmatter block');

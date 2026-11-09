@@ -16,32 +16,35 @@ collected_at: "2026-07-02T17:34:46+00:00"
 content_hash: "d1a0c49a9c9aeb27"
 chunks:
   - id: "articles/ins-insurance-business-us/dcc5fd337e.md#c0"
-    char_span: [0, 219]
+    char_span: [0, 218]
     sentence_count: 1
     key_terms: [data-centers-are-rewriting-construction-insurance-aon-580245, construction, insurancebusinessmag, insurance, rewriting, centers, source, https]
     concepts: [construction]
-    token_count: 52
-    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/construction/data-centers-are-rewriting-construction-insurance-aon-580245.aspx"}]
+    token_count: 51
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/construction/data-centers-are-rewriting-construction-insurance-aon-580245.aspx","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-business-us/dcc5fd337e.md#c1"
-    char_span: [221, 2912]
+    char_span: [220, 2911]
     sentence_count: 18
     key_terms: [construction, williams, data, billion, centers, insurance, brokers, global]
     concepts: [construction, williams, billion, centers, insurance]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/construction/data-centers-are-rewriting-construction-insurance-aon-580245.aspx","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-business-us/dcc5fd337e.md#c2"
-    char_span: [2588, 5153]
+    char_span: [2587, 5152]
     sentence_count: 15
     key_terms: [data, center, construction, hyperscale, projects, billion, capital, infrastructure]
     concepts: [center, construction, hyperscale, projects, infrastructure]
     related_chunks: ["articles/ins-insurance-business-us/dcc5fd337e.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/construction/data-centers-are-rewriting-construction-insurance-aon-580245.aspx","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-insurance-business-us/dcc5fd337e.md#c3"
-    char_span: [4886, 5974]
+    char_span: [4885, 5973]
     sentence_count: 7
     key_terms: [brokers, construction, risk, projects, business-interruption, energy, water, concentration]
     concepts: [brokers, construction, projects, energy, water]
     related_chunks: ["articles/ins-insurance-business-us/dcc5fd337e.md#c2"]
     token_count: 213
+    sources: [{"n":"ins_insurance_business_us","u":"https://www.insurancebusinessmag.com/us/news/construction/data-centers-are-rewriting-construction-insurance-aon-580245.aspx","kind":"article","date":"2026-06-26"}]
 ---
 # Data centers are rewriting construction insurance: Aon
 

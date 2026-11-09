@@ -19,44 +19,49 @@ content_hash: "18f7ce61a412121c"
 relevance_by_goal: {"bb7e192171b3":5}
 chunks:
   - id: "articles/import-ai/ff5c4e75aa.md#c0"
-    char_span: [0, 166]
+    char_span: [0, 165]
     sentence_count: 1
     key_terms: [import-ai-457-ai-stuxnet-cursed-muon, alignment, optimizer, importai, positive, substack, stuxnet, cursed]
-    token_count: 51
-    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon"}]
+    token_count: 50
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
   - id: "articles/import-ai/ff5c4e75aa.md#c1"
-    char_span: [168, 2844]
+    char_span: [167, 2843]
     sentence_count: 13
     key_terms: [code, calculation, modeling, software, stuxnet, high-precision, import, investigation]
     concepts: [calculation, modeling, software, high-precision, investigation]
     token_count: 512
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
   - id: "articles/import-ai/ff5c4e75aa.md#c2"
-    char_span: [2475, 4930]
+    char_span: [2474, 4929]
     sentence_count: 8
     key_terms: [neurons, muon, optimizer, aurora, non-proliferation, superintelligence, nuclear, small]
     concepts: [neurons, optimizer, aurora, non-proliferation, superintelligence]
     token_count: 512
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
   - id: "articles/import-ai/ff5c4e75aa.md#c3"
-    char_span: [4693, 7082]
+    char_span: [4692, 7081]
     sentence_count: 17
     key_terms: [aurora, alignment, positive, university, adamw, like, systems, improvement]
     concepts: [aurora, alignment, positive, university, adamw]
     related_chunks: ["articles/import-ai/ff5c4e75aa.md#c4", "articles/import-ai/ff5c4e75aa.md#c5"]
     token_count: 512
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
   - id: "articles/import-ai/ff5c4e75aa.md#c4"
-    char_span: [6741, 9592]
+    char_span: [6740, 9591]
     sentence_count: 7
     key_terms: [alignment, positive, safety, human, different, negative, systems, development]
     concepts: [alignment, positive, safety, different, human]
     related_chunks: ["articles/import-ai/ff5c4e75aa.md#c3", "articles/import-ai/ff5c4e75aa.md#c5"]
     token_count: 512
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
   - id: "articles/import-ai/ff5c4e75aa.md#c5"
-    char_span: [9258, 10169]
+    char_span: [9257, 10168]
     sentence_count: 3
     key_terms: [alignment, positive, society, success, systems, write, good, like]
     concepts: [alignment, positive, society, success, systems]
     related_chunks: ["articles/import-ai/ff5c4e75aa.md#c3", "articles/import-ai/ff5c4e75aa.md#c4"]
     token_count: 172
+    sources: [{"n":"import_ai","u":"https://importai.substack.com/p/import-ai-457-ai-stuxnet-cursed-muon","kind":"article","date":"2026-05-18"}]
 ---
 # Import AI 457: AI stuxnet; cursed Muon optimizer; and positive alignment
 

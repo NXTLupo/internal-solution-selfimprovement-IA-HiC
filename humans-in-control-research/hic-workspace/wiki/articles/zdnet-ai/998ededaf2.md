@@ -16,39 +16,43 @@ collected_at: "2026-07-02T18:09:42+00:00"
 content_hash: "d3007476a233afc4"
 chunks:
   - id: "articles/zdnet-ai/998ededaf2.md#c0"
-    char_span: [0, 170]
+    char_span: [0, 169]
     sentence_count: 1
     key_terms: [the-new-enterprise-ai-expert-every-company-needs-and-why, enterprise, article, company, expert, source, https, needs]
-    token_count: 46
-    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/"}]
+    token_count: 45
+    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/","kind":"article","date":"2026-07-01"}]
   - id: "articles/zdnet-ai/998ededaf2.md#c1"
-    char_span: [172, 2653]
+    char_span: [171, 2652]
     sentence_count: 14
     key_terms: [frontier, lucas, engineer, enterprise, specialist, ceo, neural, organizations]
     concepts: [frontier, engineer, lucas, enterprise, specialist]
     related_chunks: ["articles/zdnet-ai/998ededaf2.md#c2", "articles/zdnet-ai/998ededaf2.md#c3", "articles/zdnet-ai/998ededaf2.md#c4"]
     token_count: 512
+    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/","kind":"article","date":"2026-07-01"}]
   - id: "articles/zdnet-ai/998ededaf2.md#c2"
-    char_span: [2380, 4741]
+    char_span: [2379, 4740]
     sentence_count: 12
     key_terms: [engineer, lucas, recruitment, role, frontier, professionals, engineering, enduring]
     concepts: [engineer, recruitment, lucas, frontier, professionals]
     related_chunks: ["articles/zdnet-ai/998ededaf2.md#c1", "articles/zdnet-ai/998ededaf2.md#c3", "articles/zdnet-ai/998ededaf2.md#c4"]
     token_count: 512
+    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/","kind":"article","date":"2026-07-01"}]
   - id: "articles/zdnet-ai/998ededaf2.md#c3"
-    char_span: [4411, 7045]
+    char_span: [4410, 7044]
     sentence_count: 14
     key_terms: [frontier, neural, understand, lucas, engineer, engineers, skills, productivity]
     concepts: [frontier, neural, understand, engineer, lucas]
     related_chunks: ["articles/zdnet-ai/998ededaf2.md#c1", "articles/zdnet-ai/998ededaf2.md#c2", "articles/zdnet-ai/998ededaf2.md#c4"]
     token_count: 512
+    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/","kind":"article","date":"2026-07-01"}]
   - id: "articles/zdnet-ai/998ededaf2.md#c4"
-    char_span: [6704, 8265]
+    char_span: [6703, 8264]
     sentence_count: 8
     key_terms: [lucas, engineer, forward-deployed, someone, professionals, effectively, technology, frontier]
     concepts: [forward-deployed, lucas, engineer, professionals, someone]
     related_chunks: ["articles/zdnet-ai/998ededaf2.md#c1", "articles/zdnet-ai/998ededaf2.md#c2", "articles/zdnet-ai/998ededaf2.md#c3"]
     token_count: 313
+    sources: [{"n":"zdnet_ai","u":"https://www.zdnet.com/article/the-new-enterprise-ai-expert-every-company-needs-and-why/","kind":"article","date":"2026-07-01"}]
 ---
 # The new enterprise AI expert every company needs - and why
 

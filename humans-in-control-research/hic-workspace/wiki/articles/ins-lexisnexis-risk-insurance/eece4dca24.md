@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:42:25+00:00"
 content_hash: "4f2c381b2d19065a"
 chunks:
   - id: "articles/ins-lexisnexis-risk-insurance/eece4dca24.md#c0"
-    char_span: [0, 2056]
+    char_span: [0, 2055]
     sentence_count: 13
     key_terms: [data, insurance, risk, improve, lexisnexis, risks, customer, underwriting]
     concepts: [insurance, improve, lexisnexis, risks, customer]
-    token_count: 374
-    sources: [{"n":"ins_lexisnexis_risk_insurance","u":"https://risk.lexisnexis.com/insurance"}]
+    token_count: 373
+    sources: [{"n":"ins_lexisnexis_risk_insurance","u":"https://risk.lexisnexis.com/insurance","kind":"article"}]
 ---
 # LexisNexis Risk Solutions — Insurance
 

@@ -205,7 +205,7 @@
         "target": { "$ref": "#/$defs/requirementTarget" },
         "bet": { "type": "object", "required": ["statement", "test", "conditionWhereAlternativeWins"], "properties": { "statement": { "type": "string" }, "test": { "type": "string" }, "conditionWhereAlternativeWins": { "type": "string" } } },
         "ledgerIds": { "type": "array", "items": { "type": "string" } },
-        "origin": { "enum": ["area-pass", "gap-fill", "research-pass", "fallback", "model"] },
+        "origin": { "enum": ["area-pass", "gap-fill", "research-pass", "fallback", "model", "out-of-scope", "project-work"] },
         "notes": { "type": "string" }
       },
       "if": { "properties": { "claimType": { "const": "HYPOTHESIS" } } },

@@ -1,10 +1,50 @@
 ---
 name: competitive-analyst
+description: Dual-mode competitive landscape analysis combining named entity extraction with archetype analysis, benchmark scoring, maturity matrix, and gap summary.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: Dual-mode competitive landscape analysis combining named entity extraction with archetype analysis, benchmark scoring, maturity matrix, and gap summary.
+version: "1"
+status: active
 thinking: high
+triggers:
+  - competitive
+  - competitor
+  - competitors
+  - rival
+  - peer
+  - peers
+  - market position
+  - peer analysis
+  - maturity matrix
+  - competitive landscape
+  - competition
+  - market share
+  - versus
+  - vs
+  - comparison
+  - compared to
+  - how do we stack up
+  - stack up
+  - benchmarking peers
+composes_with:
+  - source-ranker
+  - contradiction-finder
+  - human-voice-editor
+loader:
+  title: Competitive Analyst
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/competitive.md
+    - anti-patterns/competitive.md
+  benchmarks:
+    - benchmarks/competitive-intel.md
+    - benchmarks/maturity-models.md
+  output_types:
+    - grid-matrix
+    - comparison-table
+    - stat-row
+    - color-block-grid
 ---
 
 # Competitive and Landscape Analyst

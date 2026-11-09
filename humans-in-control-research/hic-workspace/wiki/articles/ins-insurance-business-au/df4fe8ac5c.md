@@ -16,38 +16,42 @@ collected_at: "2026-07-02T17:31:51+00:00"
 content_hash: "b9bc473a6deba9d3"
 chunks:
   - id: "articles/ins-insurance-business-au/df4fe8ac5c.md#c0"
-    char_span: [0, 197]
+    char_span: [0, 196]
     sentence_count: 1
     key_terms: [winners-shine-as-industry-turns-out-in-force-577727, insurancebusinessmag, best-insurance, industry, winners, source, force, https]
-    token_count: 52
-    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx"}]
+    token_count: 51
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/df4fe8ac5c.md#c1"
-    char_span: [199, 2643]
+    char_span: [198, 2642]
     sentence_count: 8
     key_terms: [insurance, people, night, award, time, industry, representatives, serious]
     concepts: [insurance, people, night, award, representatives]
     related_chunks: ["articles/ins-insurance-business-au/df4fe8ac5c.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/df4fe8ac5c.md#c2"
-    char_span: [2340, 3311]
+    char_span: [2339, 3310]
     sentence_count: 2
     key_terms: [claims, award, customers, diversity, inclusion, accepted, mckendry, amazing]
     concepts: [claims, customers, award, diversity, inclusion]
     token_count: 210
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/df4fe8ac5c.md#c3"
-    char_span: [3314, 5592]
+    char_span: [3313, 5591]
     sentence_count: 14
     key_terms: [sponsored, nominations, insurance, people, award, industry, event, aamc]
     concepts: [sponsored, nominations, insurance, people, award]
     related_chunks: ["articles/ins-insurance-business-au/df4fe8ac5c.md#c1", "articles/ins-insurance-business-au/df4fe8ac5c.md#c4"]
     token_count: 483
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/df4fe8ac5c.md#c4"
-    char_span: [5595, 8045]
+    char_span: [5594, 8044]
     sentence_count: 17
     key_terms: [excellence, insurance, business, nominations, awards, category, awardees, judges]
     concepts: [excellence, insurance, business, nominations, category]
     related_chunks: ["articles/ins-insurance-business-au/df4fe8ac5c.md#c3"]
     token_count: 446
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/best-insurance/winners-shine-as-industry-turns-out-in-force-577727.aspx","kind":"article","date":"2026-06-28"}]
 ---
 # Winners shine as industry turns out in force
 

@@ -16,12 +16,12 @@ collected_at: "2026-07-02T18:02:31+00:00"
 content_hash: "3cdc7058989e0be0"
 chunks:
   - id: "articles/agr-tractor-supply-note/7dda52d4eb.md#c0"
-    char_span: [0, 1747]
+    char_span: [0, 1746]
     sentence_count: 9
     key_terms: [equipment, sales, dealership-forward-order-taker-to-sales-professional-webinar, dealership, years, dealerships, performance, salespeople]
     concepts: [equipment, sales, dealership, dealerships, performance]
-    token_count: 302
-    sources: [{"n":"agr_tractor_supply_note","u":"https://www.farm-equipment.com/articles/25408-dealership-forward-order-taker-to-sales-professional-webinar"}]
+    token_count: 301
+    sources: [{"n":"agr_tractor_supply_note","u":"https://www.farm-equipment.com/articles/25408-dealership-forward-order-taker-to-sales-professional-webinar","kind":"article","date":"2026-06-30"}]
 ---
 # Dealership Forward: Order Taker to Sales Professional  [Webinar]
 

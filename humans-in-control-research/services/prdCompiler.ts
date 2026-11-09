@@ -1210,10 +1210,16 @@ function sectionsPromptFor(inputs: PrdCompilerInputs, reqs: any[]): { system: st
  * a failed batch falls to gap-fill, then to the deterministic requirement; a failed sections call compiles the
  * requirements with empty sections, and the rule registry repairs and fills what it can.
  */
-export async function compilePrdFromLedger(inputs: PrdCompilerInputs, gen: PrdGen, opts: { concurrency?: number; onProgress?: (msg: string) => void } = {}): Promise<PrdCompileResult> {
-    const ledger = inputs.ledger || [];
+export async function compilePrdFromLedger(inputs: PrdCompilerInputs, gen: PrdGen, opts: { concurrency?: number; onProgress?: (msg: string) => void; outOfScope?: Map<string, string>; isProjectWork?: (text: string) => boolean } = {}): Promise<PrdCompileResult> {
+    // 2026-10-06: items OUTSIDE the requested scope (a module PRD) and meeting admin tasks are still ACCOUNTED FOR
+    // (owner rule: every ledger item and board theme is covered), but deterministically, as Won't rows with the reason,
+    // never through a model batch. A 920-item engagement ran 68 batches (~36 minutes) and wrote program-admin tasks
+    // ("schedules a mock advisor session") as product requirements.
+    const outOfScope = opts.outOfScope || new Map<string, string>();
+    const allLedger = inputs.ledger || [];
+    const ledger = allLedger.filter(l => !outOfScope.has(l.id));
     const failures: string[] = [];
-    const conc = Math.max(1, opts.concurrency ?? 6);
+    const conc = Math.max(1, opts.concurrency ?? 10);   // 2026-10-06: 6 -> 10 parallel area batches
     const run = async (label: string, prompt: { system: string; user: string }, maxTokens: number): Promise<string> => {
         try { return await gen({ system: prompt.system, user: prompt.user, label, maxTokens }); }
         catch (e: any) { failures.push(`${label}: ${e?.message || e}`); return ''; }
@@ -1222,7 +1228,7 @@ export async function compilePrdFromLedger(inputs: PrdCompilerInputs, gen: PrdGe
         let i = 0;
         await Promise.all(Array.from({ length: Math.min(conc, xs.length) }, async () => { while (i < xs.length) { const x = xs[i++]; await fn(x); } }));
     };
-    const ledgerById = new Map(ledger.map(l => [l.id, l] as const));
+    const ledgerById = new Map(allLedger.map(l => [l.id, l] as const));
     const inputThemeIds = new Set((inputs.themes || []).map(t => t.id));
     const clean = (r: any, origin: string) => {
         const ledgerIds = arrStr(r?.ledgerIds).filter(id => ledgerById.has(id));
@@ -1274,6 +1280,14 @@ export async function compilePrdFromLedger(inputs: PrdCompilerInputs, gen: PrdGe
     covered = coveredIds();
     const primary = (inputs.personas || []).find(p => p.primary)?.id;
     for (const [area, items] of byArea) for (const li of items) if (!covered.has(li.id)) drafts.get(area)!.push(clean(fallbackRequirementDraft(li, areaLabelOf(areaInputs, area), primary), 'fallback'));
+    // Out-of-scope items: one deterministic Won't row each, carrying the reason (accounted for, not built).
+    const outRows: any[] = [];
+    for (const li of allLedger) {
+        const why = outOfScope.get(li.id);
+        if (!why) continue;
+        const d = fallbackRequirementDraft(li, 'Out of scope', undefined);
+        outRows.push(clean({ ...d, proposedTier: 'wont', cagansBar: false, mapsToThesis: false, tierRationale: `Won't (this release): ${why}.`, notes: `Accounted for, not built in this release: ${why}.` }, 'out-of-scope'));
+    }
 
     // (d) research pass: pains and gaps no requirement addresses yet.
     let researchCalls = 0;
@@ -1293,11 +1307,25 @@ export async function compilePrdFromLedger(inputs: PrdCompilerInputs, gen: PrdGe
     const order: Record<string, number> = { 'area-pass': 0, 'gap-fill': 1, fallback: 2 };
     for (const a of areas) for (const r of drafts.get(a.id)!.map((r, i) => ({ r, i })).sort((x, y) => ((order[x.r.origin] ?? 3) - (order[y.r.origin] ?? 3)) || (x.i - y.i)).map(x => x.r)) { merged.push(r); reqArea.set(r, a.id); }
     merged.push(...research);
+    // Project work written as a requirement ("<Vendor> holds design review sessions", "The project team obtains
+    // approval") is accounted for, not built: Won't with the reason (2026-10-06 live: 81 of 371 Musts).
+    if (opts.isProjectWork) {
+        for (const r of merged) {
+            if (r.origin === 'out-of-scope' || !opts.isProjectWork(str(r.text))) continue;
+            r.proposedTier = 'wont';
+            r.cagansBar = false;
+            r.mapsToThesis = false;
+            r.tierRationale = "Won't (this release): an engagement obligation (project or delivery work, not product behaviour).";
+            r.notes = `${r.notes ? `${r.notes} ` : ''}Engagement obligation: tracked on the Engagement Obligations sheet, not built.`;
+            r.origin = 'project-work';
+        }
+    }
+    merged.push(...outRows);
     merged.forEach((r, i) => { r.id = `R-${i + 1}`; });
 
     // (e) the remaining sections against the full requirement set.
     opts.onProgress?.(`compiling the PRD sections against ${merged.length} requirement(s)`);
-    const sectionsRaw = await run('#prd sections (PrdAir contract)', sectionsPromptFor(inputs, merged), 64000);
+    const sectionsRaw = await run('#prd sections (PrdAir contract)', sectionsPromptFor(inputs, merged.filter(r => r.origin !== 'out-of-scope')), 64000);
     let sections: any = {};
     let sectionsCall: PrdPassReport['sectionsCall'] = 'ok';
     try { sections = extractJsonObject(sectionsRaw) || {}; } catch (e: any) { sectionsCall = 'failed'; failures.push(`sections parse: ${e?.message || e}`); }

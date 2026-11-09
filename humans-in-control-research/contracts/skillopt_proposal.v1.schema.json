@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hic/contracts/skillopt_proposal.v1",
+  "title": "SkillOpt proposal (ONE contract, 2026-10-30 WS-5 R3)",
+  "description": "Written by scripts/skillopt-batch.sh as hic-workspace/skillopt/proposals/<batch>/<skill>.proposal.json. The gate reads it and writes <skill>.verdict.json (skillopt_verdict.v1) beside it.",
+  "type": "object",
+  "required": ["kind", "batch_id", "skill", "deliverable_kind", "candidate_path", "target_path", "verdict_file", "status", "created_at"],
+  "properties": {
+    "kind": { "type": "string", "enum": ["skill_patch"] },
+    "batch_id": { "type": "string" },
+    "skill": { "type": "string" },
+    "deliverable_kind": { "type": "string" },
+    "candidate_path": { "type": "string" },
+    "target_path": { "type": "string" },
+    "rollouts_path": { "type": "string" },
+    "pool_path": { "type": "string", "description": "The scored candidate pool the candidate was picked from (GEPA)." },
+    "validator": { "type": "string" },
+    "verdict_file": { "type": "string" },
+    "status": { "type": "string", "enum": ["pending_gate", "gated", "promoted", "refused"] },
+    "created_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}

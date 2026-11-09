@@ -1,0 +1,20 @@
+{
+  "id": "hook-persona-1794181130",
+  "set": "frontier",
+  "kind": "persona",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#persona"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-11-08",
+    "note": "Evidence density 0.72 below floor before generation"
+  }
+}

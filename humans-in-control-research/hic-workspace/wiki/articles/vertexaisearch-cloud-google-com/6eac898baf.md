@@ -19,74 +19,82 @@ content_hash: "973a479d483a09de"
 relevance_by_goal: {"c5a2d58d1be7":10}
 chunks:
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c0"
-    char_span: [0, 209]
+    char_span: [0, 208]
     sentence_count: 1
     key_terms: [accelerating, vertexaisearch-cloud-google-com, adoption, vertexaisearch, management, ai-ready, articles, requires]
     concepts: [accelerating, adoption]
-    token_count: 54
-    sources: [{"n":"[vertexaisearch.cloud.google.com](articles/vertexaisearch-cloud-google-com/6e2d7","u":""}]
+    token_count: 53
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1"
-    char_span: [211, 2800]
+    char_span: [210, 2799]
     sentence_count: 11
     key_terms: [data, support, management, analytics, initiatives, firms, survey, developing]
     concepts: [support, management, analytics, initiatives, firms]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c3", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c4", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c5", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c7", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c9"]
     token_count: 512
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c2"
-    char_span: [2485, 3666]
+    char_span: [2484, 3665]
     sentence_count: 2
     key_terms: [business, data, support, cutter, survey, architecture, accessible, complexity]
     concepts: [business, support, architecture, cutter, survey]
     token_count: 244
     sources: [{"n":"Cutter Research Front Office Support Model","u":""}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c3"
-    char_span: [3668, 6088]
+    char_span: [3667, 6087]
     sentence_count: 8
     key_terms: [data, ey-research-artificial-intelligence-investments-set-to-remain-strong-in-2025-but-senior-leaders-recognize-emerging-risks, firms, infrastructure, challenges, management, technology, analytics]
     concepts: [firms, infrastructure, challenges, management, technology]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c5"]
     token_count: 512
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c4"
-    char_span: [5773, 7235]
+    char_span: [5772, 7234]
     sentence_count: 6
     key_terms: [data, analytics, support, users, ensure, appropriate, multiple, quality]
     concepts: [analytics, support, users, ensure, appropriate]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1"]
     token_count: 295
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c5"
-    char_span: [7237, 9833]
+    char_span: [7236, 9832]
     sentence_count: 15
     key_terms: [data, management, managed, firms, solutions, infrastructure, larger, innovation]
     concepts: [management, managed, firms, solutions, infrastructure]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c3"]
     token_count: 512
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c6"
-    char_span: [9488, 11075]
+    char_span: [9487, 11074]
     sentence_count: 10
     key_terms: [data, infrastructure, across, fabric, architecture, capabilities, environment, integrating]
     concepts: [infrastructure, architecture, capabilities, across, fabric]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c7"]
     token_count: 284
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c7"
-    char_span: [11077, 13763]
+    char_span: [11076, 13762]
     sentence_count: 9
     key_terms: [data, intersystems, capabilities, management, analytics, firms, managed, architecture]
     concepts: [intersystems, capabilities, management, analytics, architecture]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c6", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c9"]
     token_count: 512
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c8"
-    char_span: [13414, 13927]
+    char_span: [13413, 13926]
     sentence_count: 3
     key_terms: [intersystems, data, fabric, firms, smart, implementation, infrastructure, capabilities]
     concepts: [intersystems, fabric, firms, smart]
     token_count: 97
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
   - id: "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c9"
-    char_span: [13929, 15132]
+    char_span: [13928, 15131]
     sentence_count: 4
     key_terms: [intersystems, management, asset, months, analytics, mid-sized, enabling, managers]
     concepts: [intersystems, management, asset, months, analytics]
     related_chunks: ["articles/vertexaisearch-cloud-google-com/6eac898baf.md#c1", "articles/vertexaisearch-cloud-google-com/6eac898baf.md#c7"]
     token_count: 234
+    sources: [{"n":"vertexaisearch.cloud.google.com","u":"","kind":"article"}]
 ---
 # Accelerating AI Adoption in
 

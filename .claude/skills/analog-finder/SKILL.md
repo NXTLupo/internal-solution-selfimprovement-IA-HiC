@@ -1,22 +1,27 @@
 ---
 name: analog-finder
+description: Abstract a challenge to its functional pattern and retrieve three or more named analogues from adjacent industries that solved or failed at the same problem. Use when within-industry retrieval keeps returning the same evidence and a recommendation needs outside precedent.
 invocation: model
-version: 1.0
-description: Abstracts the current challenge to its underlying functional pattern (matching variable supply to variable demand, retaining users with low intrinsic motivation, scaling expert judgment across non-expert practitioners, etc.) and retrieves 3+ named adjacent-industry analogues that have already solved or failed to solve the same functional problem. Breaks the within-industry retrieval ceiling that wiki-query-expander and wiki-reranker can't escape — those tools find better evidence in the same neighborhood; this skill finds evidence from neighborhoods nobody thought to query. Composes with wiki-query-expander (fires after abstraction to retrieve from each analogue domain), source-ranker (validates the analogue sources meet the >=60% external floor), and recommendation-architect (analogue precedents become the strongest input to quantification-architect's target.precedent field).
+version: "1"
+status: active
 thinking: high
 category: retrieval-enhancer
 triggers:
   - analog
   - analogous
-  - "another industry"
-  - "what's the pattern"
-  - "cross-industry"
-  - "who else has solved this"
+  - another industry
+  - what's the pattern
+  - cross-industry
+  - who else has solved this
   - "#analog"
   - "#cross-industry"
 ---
 
 # Analog Finder
+
+## Scope
+
+Abstracts the current challenge to its underlying functional pattern (matching variable supply to variable demand, retaining users with low intrinsic motivation, scaling expert judgment across non-expert practitioners, etc.) and retrieves 3+ named adjacent-industry analogues that have already solved or failed to solve the same functional problem. Breaks the within-industry retrieval ceiling that wiki-query-expander and wiki-reranker can't escape — those tools find better evidence in the same neighborhood; this skill finds evidence from neighborhoods nobody thought to query. Composes with wiki-query-expander (fires after abstraction to retrieve from each analogue domain), source-ranker (validates the analogue sources meet the >=60% external floor), and recommendation-architect (analogue precedents become the strongest input to quantification-architect's target.precedent field).
 
 ## You Are
 

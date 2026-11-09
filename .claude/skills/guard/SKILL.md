@@ -1,10 +1,12 @@
 ---
 name: guard
-invocation: model
-version: 1.0
 description: Add failure prevention layers to existing code or prompts. Builds guardrails that catch problems before they cause downstream failures.
+invocation: model
+version: "1"
+status: active
 allowed-tools: Read, Grep, Glob, Bash, Edit
-argument-hint: [file-path]
+argument-hint:
+  - file-path
 ---
 
 Act as a Claude skill architect who designs prompts and code with built-in failure prevention from the start.

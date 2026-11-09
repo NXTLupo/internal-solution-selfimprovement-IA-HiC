@@ -16,12 +16,12 @@ collected_at: "2026-07-02T17:23:06+00:00"
 content_hash: "e73114018ca4533a"
 chunks:
   - id: "articles/arxiv-cs-hc/47afee67ad.md#c0"
-    char_span: [0, 651]
+    char_span: [0, 650]
     sentence_count: 4
     key_terms: [agricultural, agriculture, anticipated, production, farming, output, smart, technological]
     concepts: [agricultural, agriculture, anticipated, production, farming]
-    token_count: 148
-    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2401.00814v1"}]
+    token_count: 147
+    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2401.00814v1","kind":"article","date":"2024-01-01"}]
 ---
 # Agricultural 4.0 Leveraging on Technological Solutions: Study for Smart Farming Sector
 

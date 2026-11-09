@@ -16,46 +16,51 @@ collected_at: "2026-07-02T17:28:54+00:00"
 content_hash: "ed355f5893d7cc7a"
 chunks:
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c0"
-    char_span: [0, 141]
+    char_span: [0, 140]
     sentence_count: 1
     key_terms: [international-health-policy-center, pakistan, commonwealthfund, countries, source, https, org, www]
     concepts: [pakistan]
-    token_count: 31
-    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan"}]
+    token_count: 30
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c1"
-    char_span: [143, 2873]
+    char_span: [142, 2872]
     sentence_count: 15
     key_terms: [health, pakistan, care, program, spending, access, government, rural]
     concepts: [health, pakistan, program, spending, government]
     related_chunks: ["articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c2", "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c3", "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c2"
-    char_span: [2476, 4988]
+    char_span: [2475, 4987]
     sentence_count: 8
     key_terms: [health, public, pakistan, government, care, pakhtunkhwa, punjab, districts]
     concepts: [health, public, pakistan, government, pakhtunkhwa]
     related_chunks: ["articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c1", "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c5"]
     token_count: 512
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c3"
-    char_span: [4663, 7068]
+    char_span: [4662, 7067]
     sentence_count: 5
     key_terms: [health, punjab, program, care, ssp, access, insurance, per]
     concepts: [health, punjab, program, access, gilgit-baltistan]
     related_chunks: ["articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c1"]
     token_count: 512
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c4"
-    char_span: [6717, 9422]
+    char_span: [6716, 9421]
     sentence_count: 7
     key_terms: [services, health, care, essi, particularly, pessi, including, treatment]
     concepts: [services, health, particularly, including, treatment]
     token_count: 512
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
   - id: "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c5"
-    char_span: [9168, 10144]
+    char_span: [9167, 10143]
     sentence_count: 4
     key_terms: [usd, poverty, pkr, ssp, government, families, pakistan, million]
     concepts: [poverty, government, families, pakistan, million]
     related_chunks: ["articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c1", "articles/ins-commonwealth-fund-coverage/8cec47fb5c.md#c2"]
     token_count: 223
+    sources: [{"n":"ins_commonwealth_fund_coverage","u":"https://www.commonwealthfund.org/international-health-policy-center/countries/pakistan","kind":"article","date":"2026-04-08"}]
 ---
 # Pakistan
 

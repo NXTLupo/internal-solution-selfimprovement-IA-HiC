@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:13:38+00:00"
 content_hash: "25385b9d1149d078"
 chunks:
   - id: "articles/arxiv-cs-hc/9a26cdac6c.md#c0"
-    char_span: [0, 623]
+    char_span: [0, 622]
     sentence_count: 4
     key_terms: [interaction, human-robot, management, dialogue, current, robots, hri, informative]
     concepts: [interaction, human-robot, management, dialogue, current]
-    token_count: 128
-    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2307.10897v1"}]
+    token_count: 127
+    sources: [{"n":"arxiv_cs_hc","u":"https://arxiv.org/abs/2307.10897v1","kind":"article","date":"2023-07-20"}]
 ---
 # A Survey on Dialogue Management in Human-Robot Interaction
 

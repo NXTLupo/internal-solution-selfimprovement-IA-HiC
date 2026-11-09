@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:10:18+00:00"
 content_hash: "94966d5b2e1bc662"
 chunks:
   - id: "articles/arxiv-cs-cv/94ac5eca5a.md#c0"
-    char_span: [0, 616]
+    char_span: [0, 615]
     sentence_count: 3
     key_terms: [network, neural, image, layer, frequency, adaptive, computer, domain]
     concepts: [network, neural, image, layer, frequency]
-    token_count: 121
-    sources: [{"n":"arxiv_cs_cv","u":"https://arxiv.org/abs/2010.01177v4"}]
+    token_count: 120
+    sources: [{"n":"arxiv_cs_cv","u":"https://arxiv.org/abs/2010.01177v4","kind":"article","date":"2020-10-02"}]
 ---
 # Global Adaptive Filtering Layer for Computer Vision
 

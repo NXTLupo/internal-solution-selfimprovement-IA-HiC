@@ -148,7 +148,15 @@ humans-in-control-research/hic-workspace/prototypes/*
 humans-in-control-research/hic-workspace/sources/*
 !humans-in-control-research/hic-workspace/sources/.gitkeep
 humans-in-control-research/hic-workspace/sample-artifacts/
-humans-in-control-research/hic-workspace/eval/
+# 2026-10-30 (WS-0 S2): runtime config written by research-proxy (holds the proxy token)
+humans-in-control-research/hic-workspace/.runtime/
+# 2026-10-31 (agent-stack plan WS-D D1): the platform agent thread registry and conversations (user data)
+humans-in-control-research/hic-workspace/agent/
+# 2026-10-30 (WS-2 E1): the frozen benchmark baseline is version-controlled; run outputs are not
+humans-in-control-research/hic-workspace/eval/*
+!humans-in-control-research/hic-workspace/eval/benchmark-baseline.json
+humans-in-control-research/evals/results/*.jsonl
+humans-in-control-research/evals/verdicts.jsonl
 internal-solutions-video-analyzer/transcripts/*
 !internal-solutions-video-analyzer/transcripts/.gitkeep
 internal-solutions-socialresearch/backend/log_topic/*

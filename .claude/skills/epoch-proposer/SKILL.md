@@ -1,11 +1,17 @@
 ---
 name: epoch-proposer
+description: "The Step-7 self-improvement epoch proposer: reads traces, Pareto vectors and the golden-set baseline, proposes one bounded harness edit, runs the gate and applies it only if accepted. Fires when jobs since the last epoch reach k (default 5)."
 invocation: human
 disable-model-invocation: true
-description: The Step-7 self-improvement epoch proposer. Reads M1 traces + M2 Pareto vectors + M3 golden-set baseline, proposes ONE bounded harness edit, runs the gate, applies if accepted. Fires when jobs_since_last_epoch >= k (default 5).
+version: "1.0"
+status: active
 ---
 
 # Epoch Proposer — the Step-7 self-improvement loop
+
+## Scope
+
+The Step-7 self-improvement epoch proposer. Reads M1 traces + M2 Pareto vectors + M3 golden-set baseline, proposes ONE bounded harness edit, runs the gate, applies if accepted. Fires when jobs_since_last_epoch >= k (default 5).
 
 You are the **epoch proposer** for HiC's volume-to-insight-substrate self-improvement loop
 (plans/volume-to-insight-substrate-2026-06-03.md §6.4 M5). Your job is to inspect the

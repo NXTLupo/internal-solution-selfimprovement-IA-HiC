@@ -19,45 +19,50 @@ content_hash: "3584ea121f11c71c"
 relevance_by_goal: {"c5a2d58d1be7":0}
 chunks:
   - id: "articles/towards-ai/1fa9ea1df6.md#c0"
-    char_span: [0, 139]
+    char_span: [0, 138]
     sentence_count: 1
     key_terms: [ai-vendor-lock-in-2-0-a95bb3eb2656, rss----98111c9905da---4, source, towardsai, lock-in, vendor, https, net]
     concepts: [source]
-    token_count: 56
-    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4"}]
+    token_count: 55
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
   - id: "articles/towards-ai/1fa9ea1df6.md#c1"
-    char_span: [141, 2620]
+    char_span: [140, 2619]
     sentence_count: 25
     key_terms: [lock-in, contract, provider, model, problem, nobody, vendor, enterprises]
     concepts: [lock-in, contract, provider, model, problem]
     related_chunks: ["articles/towards-ai/1fa9ea1df6.md#c2", "articles/towards-ai/1fa9ea1df6.md#c4"]
     token_count: 512
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
   - id: "articles/towards-ai/1fa9ea1df6.md#c2"
-    char_span: [2326, 4777]
+    char_span: [2325, 4776]
     sentence_count: 15
     key_terms: [model, lock-in, different, call, behavior, decision, prompt, system]
     concepts: [model, lock-in, different, behavior, decision]
     related_chunks: ["articles/towards-ai/1fa9ea1df6.md#c1"]
     token_count: 512
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
   - id: "articles/towards-ai/1fa9ea1df6.md#c3"
-    char_span: [4507, 7257]
+    char_span: [4506, 7256]
     sentence_count: 11
     key_terms: [vendor, abstraction, enterprise, directly, architecture, model, prototype, adoption]
     concepts: [vendor, abstraction, enterprise, directly, architecture]
     token_count: 512
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
   - id: "articles/towards-ai/1fa9ea1df6.md#c4"
-    char_span: [6911, 9522]
+    char_span: [6910, 9521]
     sentence_count: 19
     key_terms: [model, provider, isn, abstraction, engineering, cost, interface, prototype]
     concepts: [model, provider, abstraction, engineering, interface]
     related_chunks: ["articles/towards-ai/1fa9ea1df6.md#c1"]
     token_count: 512
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
   - id: "articles/towards-ai/1fa9ea1df6.md#c5"
-    char_span: [9195, 10142]
+    char_span: [9194, 10141]
     sentence_count: 8
     key_terms: [model, quarter, provider-specific, best, isn, ones, architectural, organizations]
     concepts: [model, quarter]
     token_count: 202
+    sources: [{"n":"towards_ai","u":"https://pub.towardsai.net/ai-vendor-lock-in-2-0-a95bb3eb2656?source=rss----98111c9905da---4","kind":"article","date":"2026-07-02"}]
 ---
 # AI Vendor Lock-in 2.0
 

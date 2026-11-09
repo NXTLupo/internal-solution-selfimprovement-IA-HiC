@@ -16,26 +16,28 @@ collected_at: "2026-07-02T17:00:31+00:00"
 content_hash: "b054c845777b2989"
 chunks:
   - id: "articles/ins-pra-boe/3c261bbacf.md#c0"
-    char_span: [0, 164]
+    char_span: [0, 163]
     sentence_count: 1
     key_terms: [banknote-expert-minutes-10-march, minutes, march, bankofengland, banknote, imagery, expert, source]
     concepts: [minutes, march]
-    token_count: 53
-    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/march/banknote-expert-minutes-10-march"}]
+    token_count: 52
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/march/banknote-expert-minutes-10-march","kind":"article","date":"2026-06-15"}]
   - id: "articles/ins-pra-boe/3c261bbacf.md#c1"
-    char_span: [166, 2820]
+    char_span: [165, 2819]
     sentence_count: 20
     key_terms: [bank, panel, shortlist, banknote, wildlife, team, consultation, design]
     concepts: [panel, shortlist, banknote, wildlife, consultation]
     related_chunks: ["articles/ins-pra-boe/3c261bbacf.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/march/banknote-expert-minutes-10-march","kind":"article","date":"2026-06-15"}]
   - id: "articles/ins-pra-boe/3c261bbacf.md#c2"
-    char_span: [2490, 4582]
+    char_span: [2489, 4581]
     sentence_count: 12
     key_terms: [banknote, panel, members, design, engagement, notes, discussed, analysis]
     concepts: [banknote, panel, members, engagement, design]
     related_chunks: ["articles/ins-pra-boe/3c261bbacf.md#c1"]
     token_count: 418
+    sources: [{"n":"ins_pra_boe","u":"https://www.bankofengland.co.uk/minutes/2026/march/banknote-expert-minutes-10-march","kind":"article","date":"2026-06-15"}]
 ---
 # Banknote imagery expert panel minutes – 10 March 2026
 

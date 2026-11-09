@@ -16,12 +16,12 @@ collected_at: "2026-07-02T16:07:43+00:00"
 content_hash: "76ad573b2c680e3a"
 chunks:
   - id: "articles/arxiv-cs-cl/c92bc53eac.md#c0"
-    char_span: [0, 614]
+    char_span: [0, 613]
     sentence_count: 3
     key_terms: [model, shai, management, language, arxiv, asset, large, tasks]
     concepts: [management, model, language, arxiv, asset]
-    token_count: 125
-    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2312.14203v1"}]
+    token_count: 124
+    sources: [{"n":"arXiv CS.CL","u":"https://arxiv.org/abs/2312.14203v1","kind":"article","date":"2023-12-21"}]
 ---
 # Shai: A large language model for asset management
 

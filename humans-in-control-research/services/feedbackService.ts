@@ -163,6 +163,7 @@ export async function submitFeedback(input: {
             return { ok: false, id: null, error: err };
         }
         const data = await resp.json();
+        (await import('./sharedGet')).forgetShared(`${PROXY_BASE}/api/feedback/index`);
         // 2026-05-23 - Classify feedback text into chunking signals and persist
         // to localStorage. Chunker entry points read these on the next
         // generation so user complaints about truncation/depth visibly
@@ -202,14 +203,10 @@ async function readDeliverableFeedback(
  * "what changed" surfaces to find recent patterns per deliverable type.
  */
 export async function readFeedbackIndex(): Promise<FeedbackIndex> {
-    try {
-        const resp = await fetch(`${PROXY_BASE}/api/feedback/index`);
-        if (!resp.ok) return {};
-        const data = await resp.json();
-        return data.index || {};
-    } catch {
-        return {};
-    }
+    // 2026-10-31: one request shared by every widget on the page (services/sharedGet.ts); a write clears it.
+    const { sharedJson } = await import('./sharedGet');
+    const data = await sharedJson<{ index?: FeedbackIndex }>(`${PROXY_BASE}/api/feedback/index`, 30_000);
+    return data?.index || {};
 }
 
 /**

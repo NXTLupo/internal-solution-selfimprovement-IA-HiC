@@ -11,6 +11,7 @@
  * Created 2026-05-22 as part of Phase 5 of the self-improvement loop.
  */
 import { chooseUtilityModel, applyAnthropicRequestDefaults, CLAUDE_STRUCTURED_MODEL } from './aiRouter';
+import { anthropicText } from './claudeModelPolicy';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 const STALE_SYNTHESIS_DAYS = 30;
@@ -59,7 +60,7 @@ interface SynthesisPage {
     title: string;
 }
 
-interface EngagementPage {
+export interface EngagementPage {
     path: string;
     slug: string;
     industry: string | null;
@@ -218,24 +219,31 @@ async function loadEngagementPages(): Promise<EngagementPage[]> {
     for (const path of allFiles) {
         const content = await readPage(path);
         if (!content) continue;
-        const fm = parseFrontmatter(content);
-        const slug = path.replace(/^engagements\//, '').replace(/\.md$/, '').replace(/\//g, '__');
-        const goals = extractListUnderHeading(content, /##\s+Goals?\s*\n/i);
-        const themes = extractListUnderHeading(content, /##\s+Themes?\s*\n/i);
-        const personas = extractListUnderHeading(content, /##\s+Personas?\s*\n/i);
-        const recommendations = extractListUnderHeading(content, /##\s+Recommendations?\s*\n/i);
-        out.push({
-            path,
-            slug,
-            industry: fm.industry || null,
-            engagementType: fm.engagement_type || fm.type || null,
-            goals,
-            themes,
-            personas,
-            recommendations,
-        });
+        out.push(parseEngagementPage(path, content));
     }
     return out;
+}
+
+/** One engagement page as the pattern step reads it. */
+export function parseEngagementPage(path: string, content: string): EngagementPage {
+    const fm = parseFrontmatter(content);
+    const slug = path.replace(/^engagements\//, '').replace(/\.md$/, '').replace(/\//g, '__');
+    // WS-C C3 (2026-10-31): saveEngagementMemory writes "## Research Goal" (a paragraph), "## Themes Found",
+    // "## Personas Identified" and "## Recommendations Made"; the old patterns matched none of them, so every
+    // engagement summary reached the pattern compiler empty.
+    const goalBullets = extractListUnderHeading(content, /##\s+(?:Research\s+)?Goals?\b[^\n]*\n/i);
+    const goalPara = /##\s+Research Goal\s*\n+([^\n#][^\n]*)/i.exec(content)?.[1]?.trim();
+    const goals = goalBullets.length ? goalBullets : (goalPara ? [goalPara.slice(0, 400)] : []);
+    return {
+        path,
+        slug,
+        industry: fm.industry || null,
+        engagementType: fm.engagement_type || fm.type || null,
+        goals,
+        themes: extractListUnderHeading(content, /##\s+Themes?\b[^\n]*\n/i),
+        personas: extractListUnderHeading(content, /##\s+Personas?\b[^\n]*\n/i),
+        recommendations: extractListUnderHeading(content, /##\s+Recommendations?\b[^\n]*\n/i),
+    };
 }
 
 function extractListUnderHeading(content: string, headingRe: RegExp): string[] {
@@ -331,7 +339,7 @@ RULES:
             });
             if (!resp.ok) return null;
             const data = await resp.json();
-            newContent = data?.content?.[0]?.text || null;
+            newContent = anthropicText(data) || null;
             if (!newContent || newContent.length < 100) return null;
         } catch {
             return null;
@@ -427,7 +435,7 @@ Then the body sections (## Themes, ## Personas, ## Recommendations, ## Gaps).`;
             });
             if (!resp.ok) return null;
             const data = await resp.json();
-            content = data?.content?.[0]?.text || null;
+            content = anthropicText(data) || null;
             if (!content || content.length < 200) return null;
         } catch {
             return null;

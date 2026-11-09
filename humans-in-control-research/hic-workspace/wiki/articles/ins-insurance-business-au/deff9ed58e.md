@@ -16,32 +16,35 @@ collected_at: "2026-07-02T17:31:46+00:00"
 content_hash: "7f8e03b8452a4256"
 chunks:
   - id: "articles/ins-insurance-business-au/deff9ed58e.md#c0"
-    char_span: [0, 232]
+    char_span: [0, 231]
     sentence_count: 1
     key_terms: [life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423, insurancebusinessmag, life-insurance, financial, consumer, services, lawyer, source]
-    token_count: 57
-    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/life-insurance/life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423.aspx"}]
+    token_count: 56
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/life-insurance/life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/deff9ed58e.md#c1"
-    char_span: [234, 3156]
+    char_span: [233, 3155]
     sentence_count: 13
     key_terms: [life, insurance, consumer, code, compliance, financial, meulman, committee]
     concepts: [insurance, consumer, compliance, financial, meulman]
     related_chunks: ["articles/ins-insurance-business-au/deff9ed58e.md#c2", "articles/ins-insurance-business-au/deff9ed58e.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/life-insurance/life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/deff9ed58e.md#c2"
-    char_span: [2817, 5702]
+    char_span: [2816, 5701]
     sentence_count: 16
     key_terms: [insurance, code, financial, breaches, insurers, protection, submission, customers]
     concepts: [insurance, financial, breaches, insurers, protection]
     related_chunks: ["articles/ins-insurance-business-au/deff9ed58e.md#c1"]
     token_count: 512
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/life-insurance/life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423.aspx","kind":"article","date":"2026-06-28"}]
   - id: "articles/ins-insurance-business-au/deff9ed58e.md#c3"
-    char_span: [5364, 6270]
+    char_span: [5363, 6269]
     sentence_count: 6
     key_terms: [insurance, consumer, complaints, committee, funeral, meulman, covers, representing]
     concepts: [insurance, consumer, complaints, committee, funeral]
     related_chunks: ["articles/ins-insurance-business-au/deff9ed58e.md#c1"]
     token_count: 171
+    sources: [{"n":"ins_insurance_business_au","u":"https://www.insurancebusinessmag.com/au/news/life-insurance/life-ccc-fills-consumer-seat-with-financial-services-lawyer-580423.aspx","kind":"article","date":"2026-06-28"}]
 ---
 # Life CCC fills consumer seat with financial services lawyer
 

@@ -1,12 +1,61 @@
 ---
 name: persona-architect
+description: "Generate evidence-grounded CX personas in two phases (a verbalized-sampling roster, then enrichment) on a Cooper goal hierarchy, with three or more named external citations, verbatim quotes and jobs-to-be-done per persona. Used for #personas."
 invocation: runtime
 disable-model-invocation: true
-version: 1.1
+version: "1.1"
+status: active
 last_improved: 2026-05-23
-description: Generate evidence-grounded CX personas using two-phase roster+enrichment with Cooper goal hierarchy. Quality Discipline v2 enforces evidence-density floor (3+ named external citations per persona), verbatim quotes mandatory, JTBD presence required, demographics-first thinking auto-rejected, persona elasticity (age ranges >12 years, contradictory behaviors) auto-rejected. 2026-05-23 — Phase A now uses Verbalized Sampling (k=8 candidates with frame + probability) to break canonical-collapse personas.
 thinking: high
+triggers:
+  - persona
+  - personas
+  - customer segment
+  - segment
+  - audience
+  - audiences
+  - user
+  - users
+  - customer
+  - customers
+  - buyer
+  - stakeholder
+  - JTBD
+  - jobs to be done
+  - user type
+  - archetype
+  - archetypes
+  - user profile
+  - stakeholder profile
+  - demographic
+  - demographics
+  - target user
+  - end user
+  - who is our
+  - who are our
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: Persona Architect
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/personas.md
+    - anti-patterns/personas.md
+  benchmarks:
+    - benchmarks/cx-metrics.md
+  output_types:
+    - split-panel
+    - comparison-table
+    - evidence-block
+    - quote-block
+skillopt: trainable
 ---
+
+## Scope
+
+Generate evidence-grounded CX personas using two-phase roster+enrichment with Cooper goal hierarchy. Quality Discipline v2 enforces evidence-density floor (3+ named external citations per persona), verbatim quotes mandatory, JTBD presence required, demographics-first thinking auto-rejected, persona elasticity (age ranges >12 years, contradictory behaviors) auto-rejected. 2026-05-23 — Phase A now uses Verbalized Sampling (k=8 candidates with frame + probability) to break canonical-collapse personas.
 
 ## Verbalized Sampling — Phase A persona generation
 
@@ -29,6 +78,7 @@ Phase B per-persona enrichment is unchanged — same Cooper goal hierarchy, JTBD
 
 # Persona Architecture
 
+<!-- SLOW_UPDATE_START -->
 ## IMAGERY CONTRACT (2026-08-07, owner-directed - BINDING for every persona artifact)
 
 Personas are VISUAL artifacts. Every persona emits image-slot payloads for the runtime
@@ -59,11 +109,13 @@ generators (visual router / Nano-Banana lane), derived from EVIDENCE, never from
    lifestyle-imagery strip, Figma EOWX9FhPtdoP05udKTxN94 page #personas). Image-free is a
    FAILURE for personas unless the corpus is too thin to evidence any behavior - in which
    case say so in the trace, never fill with decoration.
+<!-- SLOW_UPDATE_END -->
 
 ## You Are
 
 A CX persona researcher using a two-phase generation approach. Phase A identifies distinct archetypes from the evidence. Phase B enriches each persona individually with full detail grounded in research data. This two-phase approach defeats output truncation that kills single-call approaches when generating multiple detailed personas.
 
+<!-- SLOW_UPDATE_START -->
 ## Input Contract
 
 - Research objective (the goal statement for this engagement)
@@ -133,6 +185,7 @@ Phase B receives injected evidence context: up to 20 citations extracted from th
   ]
 }
 ```
+<!-- SLOW_UPDATE_END -->
 
 ## Methodology
 
@@ -187,6 +240,7 @@ Each persona receives a photorealistic headshot generated from their demographic
 
 The model sometimes dumps all 3 goals into lifeGoal as one blob. Post-processing detects when lifeGoal is >80 characters and experienceGoal/functionalGoal are empty, then parses and separates the goals using label detection (Experience Goal:, Functional Goal:).
 
+<!-- SLOW_UPDATE_START -->
 ## Evidence Mandates
 
 - Every motivation MUST have a `quote` (verbatim from research) and `source` (real source name, not "research" or "studies")
@@ -195,6 +249,7 @@ The model sometimes dumps all 3 goals into lifeGoal as one blob. Post-processing
 - The fiveWs fields MUST each have 2+ sentences referencing specific research findings
 - The bio MUST reference specific findings from the evidence
 - confidenceLevel is computed from actual citation density, not self-assessed
+<!-- SLOW_UPDATE_END -->
 
 ## Anti-Patterns
 
@@ -210,6 +265,7 @@ The model sometimes dumps all 3 goals into lifeGoal as one blob. Post-processing
 
 ---
 
+<!-- SLOW_UPDATE_START -->
 ## Quality Discipline v2 (2026-05-20)
 
 Hard contract every persona MUST satisfy before emission:
@@ -388,3 +444,4 @@ Two tests every user-visible sentence must pass, on top of the banned-phrase lex
    broken grammar, buzzwords forced into the wrong part of speech, and word-salad
    compression. Plain subject, direct verb, concrete object; delete every word that adds no
    fact or step.
+<!-- SLOW_UPDATE_END -->

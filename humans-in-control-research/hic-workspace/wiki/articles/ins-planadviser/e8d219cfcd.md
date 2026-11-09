@@ -16,32 +16,35 @@ collected_at: "2026-07-02T17:44:08+00:00"
 content_hash: "96e540bf58d44ed3"
 chunks:
   - id: "articles/ins-planadviser/e8d219cfcd.md#c0"
-    char_span: [0, 237]
+    char_span: [0, 236]
     sentence_count: 1
     key_terms: [conflict-free-retirement-advice-is-the-future-of-our-industry, conflict-free, planadviser, retirement, industry, rss-feed, advice, future]
-    token_count: 61
-    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/conflict-free-retirement-advice-is-the-future-of-our-industry/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed"}]
+    token_count: 60
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/conflict-free-retirement-advice-is-the-future-of-our-industry/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-planadviser/e8d219cfcd.md#c1"
-    char_span: [239, 3099]
+    char_span: [238, 3098]
     sentence_count: 19
     key_terms: [retirement, plan, advice, fiduciary, sponsors, expectations, regulation, standard]
     concepts: [retirement, fiduciary, advice, sponsors, expectations]
     related_chunks: ["articles/ins-planadviser/e8d219cfcd.md#c2"]
     token_count: 512
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/conflict-free-retirement-advice-is-the-future-of-our-industry/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-planadviser/e8d219cfcd.md#c2"
-    char_span: [2726, 5702]
+    char_span: [2725, 5701]
     sentence_count: 24
     key_terms: [sponsors, financial, plan, compensation, litigation, retirement, fiduciary, advisers]
     concepts: [sponsors, financial, compensation, litigation, retirement]
     related_chunks: ["articles/ins-planadviser/e8d219cfcd.md#c1", "articles/ins-planadviser/e8d219cfcd.md#c3"]
     token_count: 512
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/conflict-free-retirement-advice-is-the-future-of-our-industry/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
   - id: "articles/ins-planadviser/e8d219cfcd.md#c3"
-    char_span: [5289, 7828]
+    char_span: [5288, 7827]
     sentence_count: 20
     key_terms: [sponsors, participants, financial, advisory, personalization, relationships, increasingly, participant]
     concepts: [sponsors, participants, financial, personalization, advisory]
     related_chunks: ["articles/ins-planadviser/e8d219cfcd.md#c2"]
     token_count: 417
+    sources: [{"n":"ins_planadviser","u":"https://www.planadviser.com/conflict-free-retirement-advice-is-the-future-of-our-industry/?utm_source=rss-feed&utm_medium=news&utm_campaign=feed","kind":"article","date":"2026-06-26"}]
 ---
 # Conflict-Free Retirement Advice Is the Future of Our Industry
 

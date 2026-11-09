@@ -94,3 +94,78 @@ describe('repair instruction', () => {
         if (r.pass) expect(buildProseRepairInstruction(r)).toBe('');
     });
 });
+
+// 2026-11-08 - structural templates (the live "#report full of AI slop" defect: a
+// document cleared every lexical ban while 10.7% of its sentences carried the
+// contrast template and most paragraphs closed on a short oracular verdict).
+describe('templates', () => {
+    it('flags contrast-template saturation', () => {
+        const saturated = [
+            'The university should connect to the assistant, not compete with it.',
+            'Students choose the tool, not the institution behind it.',
+            'Memory accrues in the agent rather than the campus platform.',
+            'The complaint is not that the agent remembers; it is that the inference was undocumented.',
+            'Advisors own the judgment, not the drafting work.',
+            'The record belongs to the student, not the vendor.',
+            'Trust is earned by read access; it is spent by silent write-back.',
+            'The team ships the connector first and the dashboard later this year.',
+            'The registrar sends the file on Fridays and nobody downstream reads it before Monday.',
+            'A student logs into three systems to answer one question about a deadline.',
+        ].join(' ');
+        const m = metric(analyzeProse(saturated), 'templates');
+        expect(m.pass).toBe(false);
+        expect(m.offenders.length).toBeGreaterThan(0);
+    });
+
+    it('passes prose with one earned contrast among plain sentences', () => {
+        const plain = [
+            'The registrar exports enrollment to a weekly file. Three downstream teams never open it.',
+            'Gift officers learn about a lapsed alumna from the annual reconciliation, eleven months late.',
+            'The CRM stores donor history nightly and the advising notes live in a separate tool.',
+            'Students ask the co-op office one question a dozen different ways each September.',
+            'The fix is routing, not another dashboard.',
+            'One integration engineer owns the export job and she inherited it without documentation.',
+            'The finance office reconciles pledges quarterly, so the gap stays invisible between cycles.',
+            'Advisors keep their own spreadsheets because the system of record loses their notes.',
+            'The provost asked for a single list and received four conflicting ones in March.',
+            'Nobody at the Tuesday standup can say which list was right.',
+            'The attendance feed broke in October and the alert went to a retired mailbox.',
+            'A work-study student found the failure while checking an unrelated report.',
+        ].join(' ');
+        expect(metric(analyzeProse(plain), 'templates').pass).toBe(true);
+    });
+});
+
+describe('enders', () => {
+    const para = (body: string, closer: string) => `${body} ${closer}`;
+    const LONG = 'The registrar exports the enrollment file on Friday afternoons, the CRM ingests donor history overnight, and the advising team keeps its own notes in a spreadsheet nobody else can open without asking twice.';
+
+    it('flags a document where most paragraphs close on a short verdict', () => {
+        const paras = [
+            para(LONG, 'That gap is the diagnosis.'),
+            para(LONG, 'This is the core asymmetry.'),
+            para(LONG, 'That tension is the whole problem.'),
+            para(LONG, 'The memory is the asset.'),
+            para(LONG, 'The team closed the ticket on Thursday after the registrar confirmed receipt of the corrected file.'),
+        ];
+        const m = metric(analyzeProse(paras.join('\n\n'), { paragraphs: paras }), 'enders');
+        expect(m.pass).toBe(false);
+        expect(m.offenders.length).toBeGreaterThan(0);
+    });
+
+    it('passes paragraphs that end on evidence or mechanism', () => {
+        const paras = [
+            para(LONG, 'The team closed the ticket on Thursday after the registrar confirmed receipt of the corrected file.'),
+            para(LONG, 'Two of the four downstream teams confirmed they never received the October export.'),
+            para(LONG, 'The advising office re-keys the same records into its spreadsheet every Monday morning.'),
+            para(LONG, 'That gap is the diagnosis.'),
+            para(LONG, 'The finance office reconciles the pledge ledger quarterly and files the variance report with the provost.'),
+        ];
+        expect(metric(analyzeProse(paras.join('\n\n'), { paragraphs: paras }), 'enders').pass).toBe(true);
+    });
+
+    it('is absent when no paragraphs are supplied (slide path)', () => {
+        const r = analyzeProse(LONG);
+        expect(r.metrics.some(m => m.id === 'enders')).toBe(false);
+    });
+});

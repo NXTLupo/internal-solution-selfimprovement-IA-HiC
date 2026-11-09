@@ -1,10 +1,49 @@
 ---
 name: prd-compiler
+description: "Compile the one PRD contract (PrdAir, spec v2026) from typed AIR references: two tiers, twelve sections, a Source to Signal traceability graph, evidence-derived MoSCoW tiers, seven-field success signals, and the typed requirement_target number rule. Document first; the deck is a projection."
 invocation: runtime
 disable-model-invocation: true
-version: 2.0
-description: Compile the one PRD contract (PrdAir, spec v2026) from typed AIR references: two tiers, twelve sections, a Source to Signal traceability graph, evidence-derived MoSCoW tiers, seven-field success signals, and the typed requirement_target number rule. Document first; the deck is a projection.
+version: "2.0"
+status: active
 thinking: high
+triggers:
+  - PRD
+  - requirements
+  - feature spec
+  - feature
+  - features
+  - product requirements
+  - user story
+  - user stories
+  - epics
+  - feature list
+  - product specification
+  - spec
+  - specifications
+  - acceptance criteria
+  - must have
+  - should have
+  - MoSCoW
+  - moscow
+  - backlog
+  - release plan
+composes_with:
+  - source-ranker
+  - human-voice-editor
+loader:
+  title: PRD Compiler
+  role: research-deliverable
+  execution_context: subagent
+  wiki_companions:
+    - frameworks/prd.md
+    - anti-patterns/prd.md
+  benchmarks:
+    - benchmarks/technology-adoption.md
+  output_types:
+    - grid-matrix
+    - evidence-block
+    - split-panel
+    - comparison-table
 ---
 
 # Product Requirements Document Compilation (v2026)

@@ -1,0 +1,2893 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT Humans — 100 Slot Illustrations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Saira+Condensed:wght@600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#0D0D0D;--ink:#fff;--body:#ccc;--accent:#B8B800;--cyan:#00B7C3;--rust:#C24A2A;--rule:#262626;--muted:#7d7d76;--panel:#121212}
+*{box-sizing:border-box}body{margin:0;background:var(--ground);color:var(--ink);font-family:"Archivo",system-ui,sans-serif}
+.wrap{max-width:1320px;margin:0 auto;padding:44px 28px 100px}
+.eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px}
+h1{font-family:"Saira Condensed",sans-serif;font-weight:600;font-size:clamp(40px,6vw,76px);line-height:.95;margin:0 0 14px;text-transform:uppercase;letter-spacing:.01em}
+h1 .a{color:var(--accent)}
+.lede{max-width:70ch;color:var(--body);font-size:15.5px;margin:0 0 26px;line-height:1.55}
+.bar{position:sticky;top:0;z-index:20;background:rgba(13,13,13,.94);backdrop-filter:blur(6px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0;margin:0 0 30px}
+.bar .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--rule);padding:7px 11px;cursor:pointer;transition:.12s}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip.on{color:var(--ground);background:var(--accent);border-color:var(--accent);font-weight:700}
+.chip .n{opacity:.6;margin-left:5px}
+.search{font-family:"Space Mono",monospace;font-size:12px;background:var(--panel);border:1px solid var(--rule);color:var(--ink);padding:8px 12px;min-width:200px;flex:1}
+.search::placeholder{color:var(--muted)}
+.count{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted);margin:14px 2px 18px;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:30px 24px}
+.card{display:flex;flex-direction:column;cursor:pointer}
+.card .frame{border:1px solid var(--rule);background:var(--ground);overflow:hidden;transition:.12s}
+.card:hover .frame{border-color:var(--muted)}
+.card .frame.portrait{aspect-ratio:820/1080}.card .frame.wide{aspect-ratio:1920/1080}.card .frame.square{aspect-ratio:1/1}
+.card .frame svg{width:100%;height:100%;display:block}
+.card h3{font-family:"Saira Condensed",sans-serif;font-weight:600;font-size:19px;text-transform:uppercase;letter-spacing:.02em;margin:11px 0 2px;line-height:1.05}
+.card .sub{font-size:12.5px;color:var(--body);margin:0 0 7px;line-height:1.35}
+.card .tags{font-family:"Space Mono",monospace;font-size:10px;color:var(--muted);letter-spacing:.04em;display:flex;justify-content:space-between;gap:8px}
+.card .tags .fam{color:var(--cyan)}
+footer{margin-top:60px;color:var(--muted);font-size:13px;max-width:78ch;line-height:1.6}
+footer .k{font-family:"Space Mono",monospace;color:var(--body)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--ground);font-family:"Space Mono",monospace;font-size:12px;padding:10px 16px;opacity:0;transition:.18s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+</style></head><body><div class="wrap">
+<p class="eyebrow">NXT Humans · Designer Skill · 100 Variants</p>
+<h1>One hundred <span class="a">content-true</span> slot illustrations</h1>
+<p class="lede">Each is generated from a slide's actual content — a maturity vector, a placement funnel, a journey with friction points, a comparison lattice — not decorated. Twelve renderer families, token-locked to the NXT system, anti-slop by construction (flat, vector-only, no gradient/shadow/radius, one chartreuse focal point, no type inside the art). Filter by family or domain; click any card to copy its spec for your Claude Code designer.</p>
+<script>
+/* =====================================================================
+   NXT ILLUSTRATION ENGINE  v2  (content-driven, anti-slop, token-locked)
+   renderVariant(spec, w, h) -> SVG string.  No <text> in art. Literal hex
+   so figma.createNodeFromSvg imports cleanly. Deterministic per spec.seed.
+   ===================================================================== */
+const NXT = {
+  ground:'#0D0D0D', ink:'#FFFFFF', body:'#CCCCCC', accent:'#B8B800',
+  cyan:'#00B7C3', rust:'#C24A2A', rule:'#2A2A2A', muted:'#6E6E66',
+  f1:'#1C1C20', f2:'#141418', f3:'#0E0E12'
+};
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function rng(seed){return mulberry32(((seed||1)*2654435761)>>>0);}
+function W(w,h,inner){return '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';}
+function CT(w,h){var p=Math.min(w,h)*0.05,L=Math.min(w,h)*0.035,s='stroke="'+NXT.muted+'" stroke-width="1" opacity="0.5" fill="none"';
+  return '<path d="M'+p+','+(p+L)+' V'+p+' H'+(p+L)+'" '+s+'/><path d="M'+(w-p-L)+','+p+' H'+(w-p)+' V'+(p+L)+'" '+s+'/><path d="M'+p+','+(h-p-L)+' V'+(h-p)+' H'+(p+L)+'" '+s+'/><path d="M'+(w-p-L)+','+(h-p)+' H'+(w-p)+' V'+(h-p-L)+'" '+s+'/>';}
+function DOTS(w,h){var st=Math.max(w,h)/22,s='';for(var y=st;y<h;y+=st)for(var x=st;x<w;x+=st)s+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="0.8" fill="'+NXT.muted+'" opacity="0.13"/>';return s;}
+function ln(x1,y1,x2,y2,c,sw,op){return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+(sw||1.4)+'"'+(op?' opacity="'+op+'"':'')+'/>';}
+function cir(cx,cy,r,fill,stroke,sw,op){return '<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="'+r.toFixed(1)+'"'+(fill?' fill="'+fill+'"':' fill="none"')+(stroke?' stroke="'+stroke+'" stroke-width="'+(sw||1.5)+'"':'')+(op?' opacity="'+op+'"':'')+'/>';}
+function rct(x,y,w,h,fill,stroke,sw){return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'"'+(fill?' fill="'+fill+'"':' fill="none"')+(stroke?' stroke="'+stroke+'" stroke-width="'+(sw||1.5)+'"':'')+'/>';}
+function poly(pts,fill,stroke,sw,fop){return '<polygon points="'+pts+'"'+(fill?' fill="'+fill+'"':' fill="none"')+(fop?' fill-opacity="'+fop+'"':'')+(stroke?' stroke="'+stroke+'" stroke-width="'+(sw||1.5)+'"':'')+'/>';}
+
+/* ---- operating network (operating model / ecosystem / architecture) ---- */
+function layoutNodes(d,w,h){
+  var pad=Math.min(w,h)*0.14, iw=w-2*pad, ih=h-2*pad, R=rng(d.seed), n=d.n||8, P=[],E=[];
+  function A(nx,ny){return [pad+nx*iw, pad+ny*ih];}
+  if(d.layout==='radial'){
+    P.push(A(0.5,0.5));
+    for(var i=0;i<n;i++){var a=-Math.PI/2+i/n*Math.PI*2, rad=0.34+0.08*R(); P.push(A(0.5+rad*Math.cos(a),0.5+rad*Math.sin(a)));}
+    for(var j=1;j<=n;j++){E.push([0,j]); if(R()>0.55&&j<n)E.push([j,j+1]);}
+    d._hub=0;
+  } else if(d.layout==='hub2'){
+    P.push(A(0.32,0.40)); P.push(A(0.68,0.62)); E.push([0,1]);
+    for(var k=0;k<n;k++){var hsel=k%2, ang=R()*Math.PI*2, rd=0.16+0.10*R(), base=hsel?[0.68,0.62]:[0.32,0.40], idx=P.length; P.push(A(base[0]+rd*Math.cos(ang),base[1]+rd*Math.sin(ang))); E.push([hsel,idx]);}
+    d._hub=0;
+  } else if(d.layout==='mesh'){
+    var cols=Math.ceil(Math.sqrt(n)), rows=Math.ceil(n/cols), c2=0;
+    for(var r=0;r<rows;r++)for(var c=0;c<cols&&c2<n;c++,c2++){var jx=(R()-0.5)*0.06, jy=(R()-0.5)*0.06; P.push(A((c+0.5)/cols+jx,(r+0.5)/rows+jy));}
+    for(var ii=0;ii<P.length;ii++)for(var jj=ii+1;jj<P.length;jj++){var dx=P[ii][0]-P[jj][0],dy=P[ii][1]-P[jj][1]; if(Math.hypot(dx,dy)<iw/cols*1.3&&R()>0.4)E.push([ii,jj]);}
+    d._hub=Math.floor(n/2);
+  } else {
+    var levels=Math.min(5,Math.max(3,Math.round(n/2)));
+    for(var l=0;l<levels;l++){ P.push(A(0.32,0.1+l*0.8/(levels-1))); if(l>0)E.push([l-1,l]); }
+    var b=levels;
+    for(var l2=0;l2<levels&&b<n;l2++){ if(R()>0.3){ var side=R()>0.5?1:-1; P.push(A(0.32+side*(0.18+0.16*R()),0.1+l2*0.8/(levels-1)+(R()-0.5)*0.06)); E.push([l2,b]); b++; } }
+    d._hub=Math.floor(levels/2);
+  }
+  return {P:P,E:E};
+}
+function r_operatingNetwork(d,w,h){
+  var o=layoutNodes(d,w,h),P=o.P,E=o.E,r=Math.min(w,h)*0.013,s=DOTS(w,h),i;
+  for(i=0;i<E.length;i++){var a=P[E[i][0]],b=P[E[i][1]]; if(a&&b)s+=ln(a[0],a[1],b[0],b[1],NXT.cyan,1.5,0.8);}
+  for(i=0;i<P.length;i++){ if(i===d._hub)continue; s+=cir(P[i][0],P[i][1],r,NXT.ground,NXT.ink,1.6); }
+  var H=P[d._hub]; s+=cir(H[0],H[1],r*2.5,null,NXT.accent,1.4,0.7)+cir(H[0],H[1],r*1.5,NXT.accent);
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- capability stack (platform / tiers / layers) ---- */
+function r_capabilityStack(d,w,h){
+  var layers=d.layers||3, hi=(d.highlight==null?Math.floor(layers/2):d.highlight);
+  var cx=w*0.44, rx=Math.min(w*0.26,h*0.18), ry=rx*0.5, th=Math.min(w,h)*0.045, s=DOTS(w,h);
+  var top=h*0.22, bot=h*0.78, step=(layers>1?(bot-top)/(layers-1):0);
+  s+=ln(cx,top,cx,bot,NXT.rule,1,0.8);
+  for(var i=0;i<layers;i++){ var cy=top+i*step, edge=(i===hi)?NXT.accent:NXT.cyan;
+    var topD=cx+','+(cy-ry).toFixed(1)+' '+(cx+rx).toFixed(1)+','+cy.toFixed(1)+' '+cx+','+(cy+ry).toFixed(1)+' '+(cx-rx).toFixed(1)+','+cy.toFixed(1);
+    var left=(cx-rx).toFixed(1)+','+cy.toFixed(1)+' '+(cx-rx).toFixed(1)+','+(cy+th).toFixed(1)+' '+cx+','+(cy+ry+th).toFixed(1)+' '+cx+','+(cy+ry).toFixed(1);
+    var right=cx+','+(cy+ry).toFixed(1)+' '+cx+','+(cy+ry+th).toFixed(1)+' '+(cx+rx).toFixed(1)+','+(cy+th).toFixed(1)+' '+(cx+rx).toFixed(1)+','+cy.toFixed(1);
+    s+=poly(left,NXT.f2,edge,1.4)+poly(right,NXT.f3,edge,1.4)+poly(topD,(i===hi)?'#15150F':NXT.f1,edge,1.4);
+  }
+  s+=cir(cx,top+hi*step,Math.min(w,h)*0.016,NXT.accent);
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- maturity radar (assessment / readiness) ---- */
+function r_maturityRadar(d,w,h){
+  var cx=w*0.5, cy=h*0.48, R=Math.min(w,h)*0.34, ax=d.scores.length, s=DOTS(w,h), i, g, a, rr, pts;
+  for(g=1;g<=4;g++){ pts=''; for(i=0;i<ax;i++){a=-Math.PI/2+i/ax*2*Math.PI; pts+=(cx+R*g/4*Math.cos(a)).toFixed(1)+','+(cy+R*g/4*Math.sin(a)).toFixed(1)+' ';} s+=poly(pts.trim(),null,NXT.rule,1); }
+  for(i=0;i<ax;i++){a=-Math.PI/2+i/ax*2*Math.PI; s+=ln(cx,cy,cx+R*Math.cos(a),cy+R*Math.sin(a),NXT.rule,1,0.7);}
+  if(d.target){ pts=''; for(i=0;i<ax;i++){a=-Math.PI/2+i/ax*2*Math.PI;rr=R*d.target[i]; pts+=(cx+rr*Math.cos(a)).toFixed(1)+','+(cy+rr*Math.sin(a)).toFixed(1)+' ';} s+='<polygon points="'+pts.trim()+'" fill="none" stroke="'+NXT.cyan+'" stroke-width="1.4" stroke-dasharray="5 4"/>'; }
+  pts=''; for(i=0;i<ax;i++){a=-Math.PI/2+i/ax*2*Math.PI;rr=R*d.scores[i]; pts+=(cx+rr*Math.cos(a)).toFixed(1)+','+(cy+rr*Math.sin(a)).toFixed(1)+' ';}
+  s+=poly(pts.trim(),NXT.accent,NXT.accent,2,0.14);
+  for(i=0;i<ax;i++){a=-Math.PI/2+i/ax*2*Math.PI;rr=R*d.scores[i]; s+=cir(cx+rr*Math.cos(a),cy+rr*Math.sin(a),Math.min(w,h)*0.01,NXT.accent);}
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- funnel (pipeline / conversion) ---- */
+function r_funnelFlow(d,w,h){
+  var v=d.stages,k=v.length,max=Math.max.apply(null,v),s=DOTS(w,h);
+  var top=h*0.16, bot=h*0.84, cx=w*0.5, maxW=w*0.62, gap=(bot-top)/k*0.16, segH=((bot-top)-(gap*(k-1)))/k;
+  for(var i=0;i<k;i++){ var wT=maxW*(v[i]/max), wB=maxW*((i<k-1?v[i+1]:v[i]*0.72)/max), y=top+i*(segH+gap);
+    var pts=(cx-wT/2).toFixed(1)+','+y.toFixed(1)+' '+(cx+wT/2).toFixed(1)+','+y.toFixed(1)+' '+(cx+wB/2).toFixed(1)+','+(y+segH).toFixed(1)+' '+(cx-wB/2).toFixed(1)+','+(y+segH).toFixed(1);
+    var last=(i===k-1); s+=poly(pts,last?NXT.accent:NXT.f1,last?NXT.accent:NXT.cyan,1.5,last?null:0.95);
+  }
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- journey line (process / experience, with friction) ---- */
+function r_journeyLine(d,w,h){
+  var k=d.stations,R=rng(d.seed||7),s=DOTS(w,h),i;
+  var x0=w*0.12,x1=w*0.88,midY=h*0.5,amp=h*0.16,pts=[];
+  for(i=0;i<k;i++){var x=x0+(x1-x0)*i/(k-1), y=midY+(i%2?amp:-amp)*(0.5+0.5*R()); pts.push([x,y]);}
+  var path='M'+pts[0][0].toFixed(1)+','+pts[0][1].toFixed(1)+' ';
+  for(i=1;i<k;i++){var mx=(pts[i-1][0]+pts[i][0])/2; path+='L'+mx.toFixed(1)+','+pts[i-1][1].toFixed(1)+' L'+mx.toFixed(1)+','+pts[i][1].toFixed(1)+' L'+pts[i][0].toFixed(1)+','+pts[i][1].toFixed(1)+' ';}
+  s+='<path d="'+path+'" fill="none" stroke="'+NXT.cyan+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
+  var fr={}; (d.friction||[]).forEach(function(x){fr[x]=1;});
+  for(i=0;i<k;i++){ var p=pts[i]; if(fr[i]){ s+=cir(p[0],p[1],Math.min(w,h)*0.022,NXT.ground,NXT.rust,2.4)+cir(p[0],p[1],Math.min(w,h)*0.006,NXT.rust); } else { s+=cir(p[0],p[1],Math.min(w,h)*0.013,NXT.ground,NXT.ink,1.8); } }
+  s+=cir(pts[k-1][0],pts[k-1][1],Math.min(w,h)*0.016,NXT.accent);
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- data field (findings / ranked distribution) ---- */
+function r_dataField(d,w,h){
+  var v=d.values.slice(); if(d.sort==='asc')v.sort(function(a,b){return a-b;}); if(d.sort==='desc')v.sort(function(a,b){return b-a;});
+  var x0=w*0.12,x1=w*0.88,base=h*0.8,top=h*0.2,max=Math.max.apply(null,v),n=v.length,slot=(x1-x0)/n,bw=slot*0.6,s=DOTS(w,h);
+  s+=ln(x0,base,x1,base,NXT.rule,1);
+  for(var i=0;i<n;i++){var bh=(v[i]/max)*(base-top); s+=rct(x0+i*slot,base-bh,bw,bh,(d.highlight===i)?NXT.cyan:NXT.accent);}
+  if(d.mean){var m=v.reduce(function(a,b){return a+b;},0)/n, my=base-(m/max)*(base-top); s+='<line x1="'+x0.toFixed(1)+'" y1="'+my.toFixed(1)+'" x2="'+x1.toFixed(1)+'" y2="'+my.toFixed(1)+'" stroke="'+NXT.cyan+'" stroke-width="1.4" stroke-dasharray="7 5"/>';}
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- comparison matrix (lattice; intensity by inner-square size) ---- */
+function r_comparisonMatrix(d,w,h){
+  var cells=d.cells,rows=cells.length,cols=cells[0].length,s=DOTS(w,h),i,j;
+  var gw=Math.min(w*0.66,h*0.66*cols/rows), gh=gw*rows/cols, x0=(w-gw)/2, y0=(h-gh)/2, cw=gw/cols, ch=gh/rows, pad=Math.min(cw,ch)*0.12;
+  var bi=0,bj=0,best=-1; for(i=0;i<rows;i++)for(j=0;j<cols;j++){if(cells[i][j]>best){best=cells[i][j];bi=i;bj=j;}}
+  for(i=0;i<rows;i++)for(j=0;j<cols;j++){ var x=x0+j*cw,y=y0+i*ch,vv=cells[i][j];
+    s+=rct(x+pad,y+pad,cw-2*pad,ch-2*pad,null,NXT.rule,1);
+    var sz=(Math.min(cw,ch)-2*pad)*vv*0.82, ix=x+cw/2, iy=y+ch/2, fill=(i===bi&&j===bj)?NXT.accent:NXT.cyan;
+    s+=rct(ix-sz/2,iy-sz/2,sz,sz,fill,null,0);
+  }
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- instrument dial (KPI / score / gauge) ---- */
+function r_instrumentDial(d,w,h){
+  var cx=w*0.5,cy=h*0.56,R=Math.min(w,h)*0.34,a0=Math.PI*0.8,a1=Math.PI*2.2,s=DOTS(w,h);
+  function arc(rr,col,sw,t0,t1){var sx=cx+rr*Math.cos(t0),sy=cy+rr*Math.sin(t0),ex=cx+rr*Math.cos(t1),ey=cy+rr*Math.sin(t1),lg=(t1-t0)>Math.PI?1:0; return '<path d="M'+sx.toFixed(1)+','+sy.toFixed(1)+' A'+rr.toFixed(1)+','+rr.toFixed(1)+' 0 '+lg+' 1 '+ex.toFixed(1)+','+ey.toFixed(1)+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'"/>';}
+  s+=arc(R,NXT.rule,2,a0,a1);
+  var tv=a0+(a1-a0)*(d.value/100); s+=arc(R,NXT.cyan,2.6,a0,tv);
+  var seg=d.segments||10; for(var i=0;i<=seg;i++){var t=a0+(a1-a0)*i/seg,big=(i%5===0); s+=ln(cx+(R-(big?15:9))*Math.cos(t),cy+(R-(big?15:9))*Math.sin(t),cx+R*Math.cos(t),cy+R*Math.sin(t),NXT.muted,1,0.8);}
+  s+=ln(cx,cy,cx+R*0.86*Math.cos(tv),cy+R*0.86*Math.sin(tv),NXT.accent,2.6);
+  s+=cir(cx,cy,Math.min(w,h)*0.02,NXT.ground,NXT.accent,2)+cir(cx,cy,Math.min(w,h)*0.008,NXT.accent);
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- timeline / gantt (roadmap) ---- */
+function r_timelineGantt(d,w,h){
+  var tr=d.tracks,periods=d.periods||6,k=tr.length,s=DOTS(w,h),i;
+  var x0=w*0.12,x1=w*0.88,top=h*0.2,bot=h*0.8,rowH=(bot-top)/k,colW=(x1-x0)/periods;
+  for(i=0;i<=periods;i++){var x=x0+i*colW; s+=ln(x,top,x,bot,NXT.rule,1,0.6);}
+  for(i=0;i<k;i++){var y=top+i*rowH+rowH*0.22, bh=rowH*0.56, bx=x0+tr[i].start*colW, bw=tr[i].dur*colW, last=(i===k-1); s+=rct(bx,y,bw,bh,last?NXT.accent:NXT.f1,last?NXT.accent:NXT.cyan,1.5);}
+  if(d.now!=null){var nx=x0+d.now*colW; s+='<line x1="'+nx.toFixed(1)+'" y1="'+(top-8).toFixed(1)+'" x2="'+nx.toFixed(1)+'" y2="'+(bot+8).toFixed(1)+'" stroke="'+NXT.cyan+'" stroke-width="1.6" stroke-dasharray="5 5"/>';}
+  if(d.milestone!=null){var mx=x0+d.milestone*colW,my=top-2; s+=poly(mx.toFixed(1)+','+(my-7)+' '+(mx+7).toFixed(1)+','+my.toFixed(1)+' '+mx.toFixed(1)+','+(my+7)+' '+(mx-7).toFixed(1)+','+my.toFixed(1),NXT.accent,null,0);}
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- flow schematic (architecture / how-it-works) ---- */
+function r_flowSchematic(d,w,h){
+  var b=d.blocks,links=d.links||[],s=DOTS(w,h),i;
+  var pad=Math.min(w,h)*0.1, iw=w-2*pad, ih=h-2*pad;
+  var B=b.map(function(q){return {x:pad+q[0]*iw,y:pad+q[1]*ih,w:q[2]*iw,h:q[3]*ih};});
+  for(i=0;i<links.length;i++){var a=B[links[i][0]],c=B[links[i][1]],ax=a.x+a.w,ay=a.y+a.h/2,cxp=c.x,cyp=c.y+c.h/2,mx=(ax+cxp)/2;
+    s+='<path d="M'+ax.toFixed(1)+','+ay.toFixed(1)+' L'+mx.toFixed(1)+','+ay.toFixed(1)+' L'+mx.toFixed(1)+','+cyp.toFixed(1)+' L'+cxp.toFixed(1)+','+cyp.toFixed(1)+'" fill="none" stroke="'+NXT.cyan+'" stroke-width="1.4"/>';
+    s+=poly(cxp.toFixed(1)+','+cyp.toFixed(1)+' '+(cxp-7).toFixed(1)+','+(cyp-4).toFixed(1)+' '+(cxp-7).toFixed(1)+','+(cyp+4).toFixed(1),NXT.cyan,null,0);
+  }
+  for(i=0;i<B.length;i++){var q=B[i],hl=(d.highlight===i); s+=rct(q.x,q.y,q.w,q.h,hl?'#15150F':NXT.f1,hl?NXT.accent:NXT.cyan,1.6); s+=cir(q.x,q.y,Math.min(w,h)*0.012,hl?NXT.accent:NXT.ground,hl?NXT.accent:NXT.ink,1.5);}
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- proportion (waffle 10x10; composition / allocation) ---- */
+function r_proportionStack(d,w,h){
+  var groups=d.groups,total=groups.reduce(function(a,b){return a+b;},0),s=DOTS(w,h);
+  var N=10, side=Math.min(w,h)*0.52, x0=(w-side)/2, y0=(h-side)/2, cell=side/N, pad=cell*0.16;
+  var counts=groups.map(function(g){return Math.round(g/total*100);});
+  var sum=counts.reduce(function(a,b){return a+b;},0); counts[0]+=100-sum;
+  var cols=[NXT.accent,NXT.cyan,NXT.f1,'#3A3A3A',NXT.muted], idx=0;
+  for(var r=0;r<N;r++)for(var c=0;c<N;c++){ var acc=0,g=0; for(var k=0;k<counts.length;k++){acc+=counts[k]; if(idx<acc){g=k;break;}}
+    s+=rct(x0+c*cell+pad,y0+r*cell+pad,cell-2*pad,cell-2*pad,cols[g%cols.length],null,0); idx++; }
+  return W(w,h,s+CT(w,h));
+}
+
+/* ---- section mark (divider) ---- */
+function r_sectionMark(d,w,h){
+  var Nl=40,x0=w*0.12,x1=w*0.88,top=h*0.18,bot=h*0.82,s='',i;
+  for(i=0;i<Nl;i++){var bx=x0+(x1-x0)*i/(Nl-1),amp=Math.min(w,h)*0.05*Math.sin(Math.PI*i/(Nl-1)),dd='';
+    for(var y=top;y<=bot;y+=9){var x=bx+amp*Math.sin((y-top)/(bot-top)*Math.PI*2); dd+=(y===top?'M':'L')+x.toFixed(1)+','+y.toFixed(1)+' ';}
+    s+='<path d="'+dd+'" fill="none" stroke="'+NXT.ink+'" stroke-width="1" opacity="0.45"/>';}
+  var ord=d.ordinal||1; for(i=0;i<ord;i++){s+=rct(x0+i*15,bot+12,9,9,NXT.accent,null,0);}
+  s+=ln(w*0.5,top,w*0.5,bot,NXT.accent,2,0.9);
+  return W(w,h,s+CT(w,h));
+}
+
+var FAMILIES={operatingNetwork:r_operatingNetwork,capabilityStack:r_capabilityStack,maturityRadar:r_maturityRadar,funnelFlow:r_funnelFlow,journeyLine:r_journeyLine,dataField:r_dataField,comparisonMatrix:r_comparisonMatrix,instrumentDial:r_instrumentDial,timelineGantt:r_timelineGantt,flowSchematic:r_flowSchematic,proportionStack:r_proportionStack,sectionMark:r_sectionMark};
+function renderVariant(spec,w,h){var f=FAMILIES[spec.family]; if(!f)return W(w,h,CT(w,h)); return f(spec.data||{},w,h);}
+function pickFamily(text){var t=(text||'').toLowerCase();
+  if(/\bsection\b|divider|agenda|appendix|\bpart [a-z]\b|chapter/.test(t))return'sectionMark';
+  if(/architect|schematic|how it works|integration|data flow|processing/.test(t))return'flowSchematic';
+  if(/road ?map|timeline|rollout|release plan|\bphase|quarter|calendar|program$/.test(t))return'timelineGantt';
+  if(/compar|matrix|trade-?off|scorecard|build.*buy|\\bvs\\.|versus|prioriti|\bgrid\b|\bx /.test(t))return'comparisonMatrix';
+  if(/matur|readiness|assess|governance score|quality dimension/.test(t))return'maturityRadar';
+  if(/journey|experience|lifecycle|coaching cycle|onboarding|path$/.test(t))return'journeyLine';
+  if(/funnel|conver|drop-?off|yield|activation|enrollment funnel/.test(t))return'funnelFlow';
+  if(/allocation|\bmix\b|composition|breakdown|\bshare\b|\bsplit\b|budget|distribution/.test(t))return'proportionStack';
+  if(/ by (college|segment|channel|industry|domain|cohort|plan|type|region|bucket)|rank|benchmark|caseload|aging/.test(t))return'dataField';
+  if(/capabilit|platform|\bstack\b|\blayer|\btier/.test(t))return'capabilityStack';
+  if(/gauge|\bscore\b|\bkpi\b|\brate\b|percent|\bnps\b|\bindex\b|health|fidelity|confidence|retention/.test(t))return'instrumentDial';
+  if(/finding|evidence|pipeline$/.test(t))return'dataField';
+  return'operatingNetwork';
+}
+if(typeof module!=='undefined'){module.exports={NXT:NXT,renderVariant:renderVariant,pickFamily:pickFamily,FAMILIES:FAMILIES};}
+
+const VARIANTS=[
+ {
+  "id": "net-01",
+  "family": "operatingNetwork",
+  "title": "Advancement operating model",
+  "subtitle": "Six functions, one shared donor record",
+  "tags": [
+   "advancement",
+   "operating-model"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "n": 10,
+   "layout": "spine",
+   "seed": 1000
+  }
+ },
+ {
+  "id": "net-02",
+  "family": "operatingNetwork",
+  "title": "Co-op employer ecosystem",
+  "subtitle": "1,400 partners across nine industries",
+  "tags": [
+   "coop",
+   "ecosystem"
+  ],
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "mesh",
+   "seed": 1001
+  }
+ },
+ {
+  "id": "net-03",
+  "family": "operatingNetwork",
+  "title": "NXT Humans delivery model",
+  "subtitle": "Agentic pods around a shared spine",
+  "tags": [
+   "agency",
+   "operating-model"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "n": 11,
+   "layout": "spine",
+   "seed": 1002
+  }
+ },
+ {
+  "id": "net-04",
+  "family": "operatingNetwork",
+  "title": "Benefits Cortex data fabric",
+  "subtitle": "Carriers, claims, and member identity",
+  "tags": [
+   "benefits",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "hub2",
+   "seed": 1003
+  }
+ },
+ {
+  "id": "net-05",
+  "family": "operatingNetwork",
+  "title": "HiC source network",
+  "subtitle": "200+ sources feeding one synthesis core",
+  "tags": [
+   "hic",
+   "architecture"
+  ],
+  "aspect": "square",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 1004
+  }
+ },
+ {
+  "id": "net-06",
+  "family": "operatingNetwork",
+  "title": "Alumni engagement web",
+  "subtitle": "Chapters, volunteers, giving officers",
+  "tags": [
+   "advancement",
+   "network"
+  ],
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 1005
+  }
+ },
+ {
+  "id": "net-07",
+  "family": "operatingNetwork",
+  "title": "Federated analytics model",
+  "subtitle": "Two hubs: plan design and member ops",
+  "tags": [
+   "benefits",
+   "operating-model"
+  ],
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 1006
+  }
+ },
+ {
+  "id": "net-08",
+  "family": "operatingNetwork",
+  "title": "Research-to-deliverable graph",
+  "subtitle": "Briefs converge on eleven outputs",
+  "tags": [
+   "hic",
+   "operating-model"
+  ],
+  "aspect": "square",
+  "data": {
+   "n": 7,
+   "layout": "radial",
+   "seed": 1007
+  }
+ },
+ {
+  "id": "net-09",
+  "family": "operatingNetwork",
+  "title": "Cross-college co-op governance",
+  "subtitle": "Shared advising, distributed intake",
+  "tags": [
+   "coop",
+   "org"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "n": 11,
+   "layout": "spine",
+   "seed": 1008
+  }
+ },
+ {
+  "id": "net-10",
+  "family": "operatingNetwork",
+  "title": "Partner integration mesh",
+  "subtitle": "Systems of record stitched at the edge",
+  "tags": [
+   "agency",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 1009
+  }
+ },
+ {
+  "id": "cap-01",
+  "family": "capabilityStack",
+  "title": "Digital capability stack",
+  "subtitle": "Four tiers from data to experience",
+  "tags": [
+   "advancement",
+   "capability"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "cap-02",
+  "family": "capabilityStack",
+  "title": "Benefits Cortex platform layers",
+  "subtitle": "Ingest, model, surface",
+  "tags": [
+   "benefits",
+   "platform"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 3,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "cap-03",
+  "family": "capabilityStack",
+  "title": "HiC harness architecture",
+  "subtitle": "Routing, memory, synthesis",
+  "tags": [
+   "hic",
+   "platform"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "cap-04",
+  "family": "capabilityStack",
+  "title": "NXT creative tech stack",
+  "subtitle": "Tokens, components, generation",
+  "tags": [
+   "agency",
+   "platform"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 3,
+   "highlight": 1
+  }
+ },
+ {
+  "id": "cap-05",
+  "family": "capabilityStack",
+  "title": "Advancement martech layers",
+  "subtitle": "CRM, CDP, engagement",
+  "tags": [
+   "advancement",
+   "tech"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "cap-06",
+  "family": "capabilityStack",
+  "title": "Co-op systems stack",
+  "subtitle": "Intake, matching, reporting",
+  "tags": [
+   "coop",
+   "platform"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "layers": 3,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "rad-01",
+  "family": "maturityRadar",
+  "title": "Advancement digital maturity",
+  "subtitle": "Six dimensions vs. peer target",
+  "tags": [
+   "advancement",
+   "maturity"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.86,
+    0.59,
+    0.87,
+    0.91,
+    0.4,
+    0.39
+   ],
+   "target": [
+    0.98,
+    0.65,
+    0.98,
+    0.98,
+    0.51,
+    0.5
+   ]
+  }
+ },
+ {
+  "id": "rad-02",
+  "family": "maturityRadar",
+  "title": "Co-op program readiness",
+  "subtitle": "Where coaching capacity lags",
+  "tags": [
+   "coop",
+   "readiness"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.74,
+    0.5,
+    0.78,
+    0.42,
+    0.84,
+    0.36
+   ],
+   "target": [
+    0.95,
+    0.67,
+    0.97,
+    0.51,
+    0.98,
+    0.54
+   ]
+  }
+ },
+ {
+  "id": "rad-03",
+  "family": "maturityRadar",
+  "title": "Benefits analytics maturity",
+  "subtitle": "Reporting strong, prediction weak",
+  "tags": [
+   "benefits",
+   "maturity"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.71,
+    0.42,
+    0.42,
+    0.61,
+    0.5,
+    0.63
+   ],
+   "target": [
+    0.84,
+    0.57,
+    0.62,
+    0.71,
+    0.68,
+    0.77
+   ]
+  }
+ },
+ {
+  "id": "rad-04",
+  "family": "maturityRadar",
+  "title": "AI adoption readiness",
+  "subtitle": "People ahead of process",
+  "tags": [
+   "generic",
+   "readiness"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.73,
+    0.56,
+    0.77,
+    0.55,
+    0.59
+   ],
+   "target": [
+    0.66,
+    0.79,
+    0.63,
+    0.9,
+    0.63,
+    0.66
+   ]
+  }
+ },
+ {
+  "id": "rad-05",
+  "family": "maturityRadar",
+  "title": "Data governance scorecard",
+  "subtitle": "Lineage and access gaps",
+  "tags": [
+   "generic",
+   "assess"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.65,
+    0.85,
+    0.8,
+    0.67,
+    0.49,
+    0.53
+   ],
+   "target": [
+    0.78,
+    0.98,
+    0.97,
+    0.88,
+    0.55,
+    0.61
+   ]
+  }
+ },
+ {
+  "id": "rad-06",
+  "family": "maturityRadar",
+  "title": "Donor experience maturity",
+  "subtitle": "Personalization trails service",
+  "tags": [
+   "advancement",
+   "maturity"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.88,
+    0.71,
+    0.6,
+    0.77,
+    0.77
+   ],
+   "target": [
+    0.52,
+    0.98,
+    0.78,
+    0.7,
+    0.87,
+    0.94
+   ]
+  }
+ },
+ {
+  "id": "rad-07",
+  "family": "maturityRadar",
+  "title": "HiC quality dimensions",
+  "subtitle": "Grounding high, determinism low",
+  "tags": [
+   "hic",
+   "assess"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.83,
+    0.56,
+    0.46,
+    0.63,
+    0.7
+   ],
+   "target": [
+    0.54,
+    0.98,
+    0.73,
+    0.58,
+    0.85,
+    0.83
+   ]
+  }
+ },
+ {
+  "id": "rad-08",
+  "family": "maturityRadar",
+  "title": "Member engagement index",
+  "subtitle": "Channels uneven across plans",
+  "tags": [
+   "benefits",
+   "maturity"
+  ],
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.67,
+    0.58,
+    0.81,
+    0.48,
+    0.59,
+    0.36,
+    0.62
+   ],
+   "target": [
+    0.87,
+    0.8,
+    0.94,
+    0.68,
+    0.74,
+    0.42,
+    0.8
+   ]
+  }
+ },
+ {
+  "id": "fun-01",
+  "family": "funnelFlow",
+  "title": "First-year co-op placement funnel",
+  "subtitle": "4,100 applications to 540 offers",
+  "tags": [
+   "coop",
+   "funnel"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    4100,
+    2350,
+    1180,
+    540,
+    310
+   ]
+  }
+ },
+ {
+  "id": "fun-02",
+  "family": "funnelFlow",
+  "title": "Major gift pipeline",
+  "subtitle": "Identification to commitment",
+  "tags": [
+   "advancement",
+   "pipeline"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    3245,
+    2290,
+    1405,
+    851,
+    495
+   ]
+  }
+ },
+ {
+  "id": "fun-03",
+  "family": "funnelFlow",
+  "title": "Benefits enrollment funnel",
+  "subtitle": "Eligible to actively engaged",
+  "tags": [
+   "benefits",
+   "funnel"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    1168,
+    750,
+    393,
+    205
+   ]
+  }
+ },
+ {
+  "id": "fun-04",
+  "family": "funnelFlow",
+  "title": "Lead-to-engagement",
+  "subtitle": "Marketing-qualified to closed",
+  "tags": [
+   "agency",
+   "funnel"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    3200,
+    1852,
+    1220,
+    620
+   ]
+  }
+ },
+ {
+  "id": "fun-05",
+  "family": "funnelFlow",
+  "title": "Research intake funnel",
+  "subtitle": "Briefs to shipped deliverables",
+  "tags": [
+   "hic",
+   "pipeline"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    4230,
+    2390,
+    1381,
+    711
+   ]
+  }
+ },
+ {
+  "id": "fun-06",
+  "family": "funnelFlow",
+  "title": "Annual giving conversion",
+  "subtitle": "Solicited to renewed",
+  "tags": [
+   "advancement",
+   "funnel"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    1758,
+    839,
+    412,
+    194,
+    87
+   ]
+  }
+ },
+ {
+  "id": "fun-07",
+  "family": "funnelFlow",
+  "title": "Employer partner activation",
+  "subtitle": "Prospected to repeat-hiring",
+  "tags": [
+   "coop",
+   "pipeline"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    3453,
+    2308,
+    1341,
+    667,
+    364
+   ]
+  }
+ },
+ {
+  "id": "fun-08",
+  "family": "funnelFlow",
+  "title": "Claims resolution funnel",
+  "subtitle": "Submitted to paid",
+  "tags": [
+   "benefits",
+   "funnel"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    984,
+    522,
+    288,
+    144
+   ]
+  }
+ },
+ {
+  "id": "jou-01",
+  "family": "journeyLine",
+  "title": "First-year co-op student journey",
+  "subtitle": "Friction at application and silence",
+  "tags": [
+   "coop",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 200
+  }
+ },
+ {
+  "id": "jou-02",
+  "family": "journeyLine",
+  "title": "Donor first-gift journey",
+  "subtitle": "Drop-off after the ask",
+  "tags": [
+   "advancement",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3
+   ],
+   "seed": 201
+  }
+ },
+ {
+  "id": "jou-03",
+  "family": "journeyLine",
+  "title": "New-hire benefits journey",
+  "subtitle": "Confusion at plan selection",
+  "tags": [
+   "benefits",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2
+   ],
+   "seed": 202
+  }
+ },
+ {
+  "id": "jou-04",
+  "family": "journeyLine",
+  "title": "Alumni reengagement path",
+  "subtitle": "Lapse before the reunion touch",
+  "tags": [
+   "advancement",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    4
+   ],
+   "seed": 203
+  }
+ },
+ {
+  "id": "jou-05",
+  "family": "journeyLine",
+  "title": "Research brief lifecycle",
+  "subtitle": "Stall at human approval",
+  "tags": [
+   "hic",
+   "process"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3
+   ],
+   "seed": 204
+  }
+ },
+ {
+  "id": "jou-06",
+  "family": "journeyLine",
+  "title": "Advisor coaching cycle",
+  "subtitle": "Triage replaces coaching",
+  "tags": [
+   "coop",
+   "process"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    4
+   ],
+   "seed": 205
+  }
+ },
+ {
+  "id": "jou-07",
+  "family": "journeyLine",
+  "title": "Member claims experience",
+  "subtitle": "Stuck in adjudication",
+  "tags": [
+   "benefits",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3
+   ],
+   "seed": 206
+  }
+ },
+ {
+  "id": "jou-08",
+  "family": "journeyLine",
+  "title": "Prospect-to-partner journey",
+  "subtitle": "Cold gap mid-funnel",
+  "tags": [
+   "agency",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2
+   ],
+   "seed": 207
+  }
+ },
+ {
+  "id": "jou-09",
+  "family": "journeyLine",
+  "title": "Volunteer onboarding",
+  "subtitle": "Energy lost at training",
+  "tags": [
+   "advancement",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2
+   ],
+   "seed": 208
+  }
+ },
+ {
+  "id": "jou-10",
+  "family": "journeyLine",
+  "title": "Co-op employer renewal",
+  "subtitle": "Silence after first cohort",
+  "tags": [
+   "coop",
+   "journey"
+  ],
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    4
+   ],
+   "seed": 209
+  }
+ },
+ {
+  "id": "dat-01",
+  "family": "dataField",
+  "title": "Placement rate by college",
+  "subtitle": "Spread hides the median",
+  "tags": [
+   "coop",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    64,
+    11,
+    9,
+    30,
+    83,
+    45,
+    87,
+    28,
+    70,
+    30,
+    65
+   ],
+   "sort": "desc",
+   "mean": true
+  }
+ },
+ {
+  "id": "dat-02",
+  "family": "dataField",
+  "title": "Gift size distribution",
+  "subtitle": "Long tail, thin midmajor",
+  "tags": [
+   "advancement",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    85,
+    12,
+    43,
+    93,
+    81,
+    93,
+    88,
+    18,
+    52,
+    38,
+    12,
+    57,
+    100
+   ],
+   "sort": "asc",
+   "mean": false
+  }
+ },
+ {
+  "id": "dat-03",
+  "family": "dataField",
+  "title": "Cost per member by plan",
+  "subtitle": "Outliers drive the mean",
+  "tags": [
+   "benefits",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    85,
+    12,
+    89,
+    41,
+    48,
+    84,
+    87,
+    81,
+    26,
+    34,
+    61,
+    99,
+    31,
+    16,
+    20,
+    89,
+    38
+   ],
+   "sort": "desc",
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "dat-04",
+  "family": "dataField",
+  "title": "Source coverage by domain",
+  "subtitle": "Uneven across topics",
+  "tags": [
+   "hic",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    46,
+    79,
+    73,
+    9,
+    72,
+    13,
+    67,
+    45,
+    12,
+    16,
+    28,
+    70,
+    8,
+    8
+   ],
+   "sort": "desc",
+   "mean": false
+  }
+ },
+ {
+  "id": "dat-05",
+  "family": "dataField",
+  "title": "Advisor caseload by cohort",
+  "subtitle": "One team carries the load",
+  "tags": [
+   "coop",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    52,
+    75,
+    57,
+    31,
+    97,
+    16,
+    18,
+    38,
+    16,
+    79
+   ],
+   "sort": "none",
+   "mean": true
+  }
+ },
+ {
+  "id": "dat-06",
+  "family": "dataField",
+  "title": "Engagement by channel",
+  "subtitle": "Email still leads",
+  "tags": [
+   "advancement",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    52,
+    68,
+    81,
+    20,
+    93,
+    63,
+    92,
+    84,
+    87,
+    36,
+    96,
+    24
+   ],
+   "sort": "desc",
+   "mean": false,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "dat-07",
+  "family": "dataField",
+  "title": "Time-to-offer by industry",
+  "subtitle": "Tech fastest, gov slowest",
+  "tags": [
+   "coop",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    16,
+    38,
+    10,
+    43,
+    43,
+    81,
+    64,
+    10,
+    42,
+    28,
+    97,
+    61,
+    29,
+    88
+   ],
+   "sort": "asc",
+   "mean": false
+  }
+ },
+ {
+  "id": "dat-08",
+  "family": "dataField",
+  "title": "Deliverable volume by type",
+  "subtitle": "Briefs dominate",
+  "tags": [
+   "hic",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    27,
+    40,
+    20,
+    30,
+    59,
+    80,
+    79,
+    78,
+    29,
+    96,
+    36,
+    9,
+    79,
+    68,
+    30,
+    71,
+    8
+   ],
+   "sort": "desc",
+   "mean": false,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "dat-09",
+  "family": "dataField",
+  "title": "Claims aging buckets",
+  "subtitle": "60+ days is the problem",
+  "tags": [
+   "benefits",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    74,
+    24,
+    62,
+    22,
+    82,
+    63,
+    22,
+    47,
+    57,
+    40,
+    82
+   ],
+   "sort": "none",
+   "mean": false,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "dat-10",
+  "family": "dataField",
+  "title": "Channel ROI ranked",
+  "subtitle": "Few carry returns",
+  "tags": [
+   "agency",
+   "findings"
+  ],
+  "aspect": "wide",
+  "data": {
+   "values": [
+    47,
+    32,
+    87,
+    98,
+    14,
+    39,
+    48,
+    98,
+    25,
+    84,
+    33,
+    63,
+    89,
+    24,
+    88,
+    25,
+    16
+   ],
+   "sort": "desc",
+   "mean": true
+  }
+ },
+ {
+  "id": "mat-01",
+  "family": "comparisonMatrix",
+  "title": "Build vs. buy vs. partner",
+  "subtitle": "Across cost, speed, control, risk",
+  "tags": [
+   "generic",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.54,
+     0.36,
+     0.5,
+     0.93
+    ],
+    [
+     0.65,
+     0.83,
+     0.84,
+     0.95
+    ],
+    [
+     0.19,
+     0.35,
+     0.75,
+     0.34
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-02",
+  "family": "comparisonMatrix",
+  "title": "Vendor scorecard",
+  "subtitle": "Four tools, five criteria",
+  "tags": [
+   "generic",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.97,
+     0.64,
+     0.65,
+     0.98,
+     0.3
+    ],
+    [
+     0.3,
+     0.49,
+     0.61,
+     0.56,
+     0.67
+    ],
+    [
+     0.61,
+     0.78,
+     0.4,
+     0.79,
+     0.74
+    ],
+    [
+     0.56,
+     0.64,
+     0.3,
+     0.49,
+     0.52
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-03",
+  "family": "comparisonMatrix",
+  "title": "Segment x capability heat",
+  "subtitle": "Where to invest first",
+  "tags": [
+   "advancement",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.57,
+     0.21,
+     0.2,
+     0.88
+    ],
+    [
+     0.35,
+     0.42,
+     0.86,
+     0.33
+    ],
+    [
+     0.6,
+     0.65,
+     0.33,
+     0.53
+    ],
+    [
+     0.96,
+     0.8,
+     0.43,
+     0.32
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-04",
+  "family": "comparisonMatrix",
+  "title": "Plan design trade-offs",
+  "subtitle": "Coverage vs. cost vs. simplicity",
+  "tags": [
+   "benefits",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.23,
+     0.54,
+     0.53
+    ],
+    [
+     0.43,
+     0.18,
+     0.52
+    ],
+    [
+     0.49,
+     0.48,
+     0.86
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-05",
+  "family": "comparisonMatrix",
+  "title": "Channel x stage fit",
+  "subtitle": "Right touch, right moment",
+  "tags": [
+   "agency",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.32,
+     0.87,
+     0.8,
+     0.42
+    ],
+    [
+     0.33,
+     0.29,
+     0.68,
+     0.39
+    ],
+    [
+     0.97,
+     0.19,
+     0.7,
+     0.87
+    ],
+    [
+     0.59,
+     0.53,
+     0.53,
+     0.79
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-06",
+  "family": "comparisonMatrix",
+  "title": "Model routing matrix",
+  "subtitle": "Task type vs. provider",
+  "tags": [
+   "hic",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.85,
+     0.3,
+     0.82
+    ],
+    [
+     0.3,
+     0.94,
+     0.46
+    ],
+    [
+     0.83,
+     0.38,
+     0.69
+    ],
+    [
+     0.45,
+     0.29,
+     0.93
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-07",
+  "family": "comparisonMatrix",
+  "title": "College x readiness grid",
+  "subtitle": "Hotspots for coaching",
+  "tags": [
+   "coop",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.72,
+     0.96,
+     0.64,
+     0.21
+    ],
+    [
+     0.46,
+     0.47,
+     0.85,
+     0.92
+    ],
+    [
+     0.51,
+     0.2,
+     0.94,
+     0.99
+    ],
+    [
+     0.9,
+     0.36,
+     0.55,
+     0.6
+    ],
+    [
+     0.45,
+     0.67,
+     0.37,
+     0.93
+    ]
+   ]
+  }
+ },
+ {
+  "id": "mat-08",
+  "family": "comparisonMatrix",
+  "title": "Use-case prioritization",
+  "subtitle": "Impact vs. effort lattice",
+  "tags": [
+   "generic",
+   "comparison"
+  ],
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.85,
+     0.98,
+     0.36,
+     0.86
+    ],
+    [
+     0.83,
+     0.24,
+     0.74,
+     0.64
+    ],
+    [
+     0.42,
+     0.63,
+     0.8,
+     0.94
+    ],
+    [
+     0.65,
+     0.92,
+     0.48,
+     0.9
+    ]
+   ]
+  }
+ },
+ {
+  "id": "dia-01",
+  "family": "instrumentDial",
+  "title": "Co-op readiness score",
+  "subtitle": "41 of 100",
+  "tags": [
+   "coop",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 41,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-02",
+  "family": "instrumentDial",
+  "title": "Advancement digital index",
+  "subtitle": "58 of 100",
+  "tags": [
+   "advancement",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-03",
+  "family": "instrumentDial",
+  "title": "AI adoption rate",
+  "subtitle": "67% of teams",
+  "tags": [
+   "generic",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 67,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-04",
+  "family": "instrumentDial",
+  "title": "Benefits engagement rate",
+  "subtitle": "34% active",
+  "tags": [
+   "benefits",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 34,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-05",
+  "family": "instrumentDial",
+  "title": "Pipeline health",
+  "subtitle": "72 of 100",
+  "tags": [
+   "agency",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-06",
+  "family": "instrumentDial",
+  "title": "Grounding fidelity",
+  "subtitle": "88 of 100",
+  "tags": [
+   "hic",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 88,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-07",
+  "family": "instrumentDial",
+  "title": "Donor retention",
+  "subtitle": "61% renewed",
+  "tags": [
+   "advancement",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 61,
+   "segments": 10
+  }
+ },
+ {
+  "id": "dia-08",
+  "family": "instrumentDial",
+  "title": "Forecast confidence",
+  "subtitle": "45 of 100",
+  "tags": [
+   "generic",
+   "kpi"
+  ],
+  "aspect": "square",
+  "data": {
+   "value": 45,
+   "segments": 10
+  }
+ },
+ {
+  "id": "gan-01",
+  "family": "timelineGantt",
+  "title": "Advancement transformation roadmap",
+  "subtitle": "Four phases over six quarters",
+  "tags": [
+   "advancement",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3
+  }
+ },
+ {
+  "id": "gan-02",
+  "family": "timelineGantt",
+  "title": "Co-op platform rollout",
+  "subtitle": "Intake to analytics",
+  "tags": [
+   "coop",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 1
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 3
+  }
+ },
+ {
+  "id": "gan-03",
+  "family": "timelineGantt",
+  "title": "Benefits Cortex release plan",
+  "subtitle": "Ingest, model, surface, scale",
+  "tags": [
+   "benefits",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4
+  }
+ },
+ {
+  "id": "gan-04",
+  "family": "timelineGantt",
+  "title": "HiC six-week hardening",
+  "subtitle": "Debt patterns, in sequence",
+  "tags": [
+   "hic",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 1
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4
+  }
+ },
+ {
+  "id": "gan-05",
+  "family": "timelineGantt",
+  "title": "Brand system rollout",
+  "subtitle": "Tokens to templates",
+  "tags": [
+   "agency",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 5,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 3
+  }
+ },
+ {
+  "id": "gan-06",
+  "family": "timelineGantt",
+  "title": "AI enablement program",
+  "subtitle": "Pilot to org-wide",
+  "tags": [
+   "generic",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 5,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 3
+  }
+ },
+ {
+  "id": "gan-07",
+  "family": "timelineGantt",
+  "title": "Data governance plan",
+  "subtitle": "Lineage to access",
+  "tags": [
+   "generic",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 1
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3
+  }
+ },
+ {
+  "id": "gan-08",
+  "family": "timelineGantt",
+  "title": "Alumni campaign calendar",
+  "subtitle": "Quiet phase to public launch",
+  "tags": [
+   "advancement",
+   "roadmap"
+  ],
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 1
+    },
+    {
+     "start": 3,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 4,
+   "milestone": 5
+  }
+ },
+ {
+  "id": "flo-01",
+  "family": "flowSchematic",
+  "title": "HiC pipeline architecture",
+  "subtitle": "Brief to deliverable, five stages",
+  "tags": [
+   "hic",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.21,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.42,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.63,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "highlight": 4
+  }
+ },
+ {
+  "id": "flo-02",
+  "family": "flowSchematic",
+  "title": "Benefits data integration",
+  "subtitle": "Carriers to member portal",
+  "tags": [
+   "benefits",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.21,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.42,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.63,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "highlight": 4
+  }
+ },
+ {
+  "id": "flo-03",
+  "family": "flowSchematic",
+  "title": "Agentic generation flow",
+  "subtitle": "Prompt, tool, render",
+  "tags": [
+   "agency",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.28,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.56,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3
+  }
+ },
+ {
+  "id": "flo-04",
+  "family": "flowSchematic",
+  "title": "Advancement data flow",
+  "subtitle": "Sources to single donor view",
+  "tags": [
+   "advancement",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.21,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.42,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.63,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "highlight": 4
+  }
+ },
+ {
+  "id": "flo-05",
+  "family": "flowSchematic",
+  "title": "Co-op matching engine",
+  "subtitle": "Profiles to placements",
+  "tags": [
+   "coop",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.28,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.56,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3
+  }
+ },
+ {
+  "id": "flo-06",
+  "family": "flowSchematic",
+  "title": "Research synthesis flow",
+  "subtitle": "Retrieve, ground, compose",
+  "tags": [
+   "hic",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.28,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.56,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3
+  }
+ },
+ {
+  "id": "flo-07",
+  "family": "flowSchematic",
+  "title": "PPTX generation pipeline",
+  "subtitle": "Content to deck",
+  "tags": [
+   "agency",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.21,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.42,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.63,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "highlight": 4
+  }
+ },
+ {
+  "id": "flo-08",
+  "family": "flowSchematic",
+  "title": "Claims processing schematic",
+  "subtitle": "Intake to payment",
+  "tags": [
+   "benefits",
+   "architecture"
+  ],
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.0,
+     0.4,
+     0.16,
+     0.2
+    ],
+    [
+     0.21,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.42,
+     0.304,
+     0.16,
+     0.2
+    ],
+    [
+     0.63,
+     0.496,
+     0.16,
+     0.2
+    ],
+    [
+     0.84,
+     0.4,
+     0.16,
+     0.2
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "highlight": 4
+  }
+ },
+ {
+  "id": "pro-01",
+  "family": "proportionStack",
+  "title": "Advancement budget allocation",
+  "subtitle": "Where the dollars go",
+  "tags": [
+   "advancement",
+   "allocation"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    36,
+    34,
+    31,
+    29,
+    9
+   ]
+  }
+ },
+ {
+  "id": "pro-02",
+  "family": "proportionStack",
+  "title": "Co-op cohort by industry",
+  "subtitle": "Mix across sectors",
+  "tags": [
+   "coop",
+   "composition"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    39,
+    19,
+    18
+   ]
+  }
+ },
+ {
+  "id": "pro-03",
+  "family": "proportionStack",
+  "title": "Engagement channel mix",
+  "subtitle": "Share of touchpoints",
+  "tags": [
+   "advancement",
+   "mix"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    21,
+    20,
+    17
+   ]
+  }
+ },
+ {
+  "id": "pro-04",
+  "family": "proportionStack",
+  "title": "Deliverable mix",
+  "subtitle": "Output composition",
+  "tags": [
+   "hic",
+   "composition"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    36,
+    32,
+    22,
+    8
+   ]
+  }
+ },
+ {
+  "id": "pro-05",
+  "family": "proportionStack",
+  "title": "Member plan distribution",
+  "subtitle": "Enrollment split",
+  "tags": [
+   "benefits",
+   "composition"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    38,
+    19,
+    17,
+    9
+   ]
+  }
+ },
+ {
+  "id": "pro-06",
+  "family": "proportionStack",
+  "title": "Advisor time allocation",
+  "subtitle": "Coaching vs. triage",
+  "tags": [
+   "coop",
+   "allocation"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    33,
+    23,
+    20,
+    18
+   ]
+  }
+ },
+ {
+  "id": "pro-07",
+  "family": "proportionStack",
+  "title": "Pipeline by stage",
+  "subtitle": "Value composition",
+  "tags": [
+   "agency",
+   "composition"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    28,
+    22,
+    8,
+    8
+   ]
+  }
+ },
+ {
+  "id": "pro-08",
+  "family": "proportionStack",
+  "title": "Source mix by type",
+  "subtitle": "Coverage breakdown",
+  "tags": [
+   "hic",
+   "composition"
+  ],
+  "aspect": "square",
+  "data": {
+   "groups": [
+    23,
+    18,
+    12,
+    12
+   ]
+  }
+ },
+ {
+  "id": "sec-01",
+  "family": "sectionMark",
+  "title": "Section 01 \u2014 Findings",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 1
+  }
+ },
+ {
+  "id": "sec-02",
+  "family": "sectionMark",
+  "title": "Section 02 \u2014 Operating model",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 2
+  }
+ },
+ {
+  "id": "sec-03",
+  "family": "sectionMark",
+  "title": "Section 03 \u2014 Capabilities",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 3
+  }
+ },
+ {
+  "id": "sec-04",
+  "family": "sectionMark",
+  "title": "Section 04 \u2014 Roadmap",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 4
+  }
+ },
+ {
+  "id": "sec-05",
+  "family": "sectionMark",
+  "title": "Part A \u2014 Context",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 1
+  }
+ },
+ {
+  "id": "sec-06",
+  "family": "sectionMark",
+  "title": "Part B \u2014 Evidence",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 2
+  }
+ },
+ {
+  "id": "sec-07",
+  "family": "sectionMark",
+  "title": "Part C \u2014 Recommendations",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 3
+  }
+ },
+ {
+  "id": "sec-08",
+  "family": "sectionMark",
+  "title": "Appendix \u2014 Methods",
+  "subtitle": "Divider",
+  "tags": [
+   "generic",
+   "section"
+  ],
+  "aspect": "portrait",
+  "data": {
+   "ordinal": 5
+  }
+ }
+];
+</script>
+
+<div class="bar"><div class="row" id="famrow"></div>
+<div class="row" style="margin-top:10px"><div class="row" id="tagrow" style="flex:0 0 auto"></div>
+<input class="search" id="q" placeholder="search title, subtitle, tag, id…"></div></div>
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+<footer><p><span class="k">For the Claude Code designer:</span> ship <code>engine.js</code> (the renderer), <code>variants.json</code> (these specs), and <code>SKILL.md</code> (the contract). The designer calls <code>renderVariant(spec, w, h)</code> for any slot size, or <code>pickFamily(headingText)</code> to route an unseen slide to a family. The same <code>engine.js</code> drops into the Figma injector via <code>figma.createNodeFromSvg</code>.</p></footer>
+</div><div class="toast" id="toast">spec copied</div>
+<script>
+const ASPECT={portrait:[820,1080],wide:[1920,1080],square:[1080,1080]};
+const FAM_ORDER=["operatingNetwork","capabilityStack","maturityRadar","funnelFlow","journeyLine","dataField","comparisonMatrix","instrumentDial","timelineGantt","flowSchematic","proportionStack","sectionMark"];
+const FAM_LABEL={operatingNetwork:"Network",capabilityStack:"Stack",maturityRadar:"Radar",funnelFlow:"Funnel",journeyLine:"Journey",dataField:"Data",comparisonMatrix:"Matrix",instrumentDial:"Dial",timelineGantt:"Timeline",flowSchematic:"Schematic",proportionStack:"Waffle",sectionMark:"Section"};
+let famFilter="all", tagFilter="all", q="";
+const allTags=[...new Set(VARIANTS.flatMap(v=>v.tags))].filter(t=>["advancement","coop","benefits","hic","agency","generic"].includes(t));
+const famrow=document.getElementById("famrow"), tagrow=document.getElementById("tagrow"), grid=document.getElementById("grid"), countEl=document.getElementById("count");
+function chip(label,n,active,on){const b=document.createElement("button");b.className="chip"+(active?" on":"");b.innerHTML=label+(n!=null?'<span class="n">'+n+'</span>':'');b.onclick=on;return b;}
+function buildBar(){
+  famrow.innerHTML="";famrow.appendChild(chip("All",VARIANTS.length,famFilter==="all",()=>{famFilter="all";render();}));
+  FAM_ORDER.forEach(f=>{const n=VARIANTS.filter(v=>v.family===f).length;famrow.appendChild(chip(FAM_LABEL[f],n,famFilter===f,()=>{famFilter=f;render();}));});
+  tagrow.innerHTML="";tagrow.appendChild(chip("All domains",null,tagFilter==="all",()=>{tagFilter="all";render();}));
+  allTags.forEach(t=>tagrow.appendChild(chip(t,null,tagFilter===t,()=>{tagFilter=t;render();})));
+}
+function match(v){
+  if(famFilter!=="all"&&v.family!==famFilter)return false;
+  if(tagFilter!=="all"&&!v.tags.includes(tagFilter))return false;
+  if(q){const hay=(v.id+" "+v.title+" "+v.subtitle+" "+v.tags.join(" ")+" "+v.family).toLowerCase();if(!hay.includes(q))return false;}
+  return true;
+}
+function toast(){const t=document.getElementById("toast");t.classList.add("show");clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove("show"),1100);}
+function render(){
+  buildBar();
+  const list=VARIANTS.filter(match);
+  countEl.textContent=list.length+" of "+VARIANTS.length+" shown";
+  grid.innerHTML="";
+  for(const v of list){
+    const [w,h]=ASPECT[v.aspect]||[1080,1080];
+    const card=document.createElement("div");card.className="card";
+    card.innerHTML='<div class="frame '+v.aspect+'">'+renderVariant(v,w,h)+'</div>'+
+      '<h3>'+v.title+'</h3><div class="sub">'+v.subtitle+'</div>'+
+      '<div class="tags"><span class="fam">'+FAM_LABEL[v.family]+'</span><span>'+v.id+' · '+v.tags.join(" / ")+'</span></div>';
+    card.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(JSON.stringify(v,null,2));toast();};
+    grid.appendChild(card);
+  }
+}
+document.getElementById("q").addEventListener("input",e=>{q=e.target.value.toLowerCase().trim();render();});
+render();
+</script></body></html>

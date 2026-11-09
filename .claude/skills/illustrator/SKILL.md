@@ -1,14 +1,19 @@
 ---
 name: illustrator
+description: "Generate one minimalist flat-vector illustration per #presentation scene, tied to the scene's content and limited to the brand palette from the design tokens. The #presentation lane only; deck and artifact image slots route through the designer skill."
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-category: visual-generator
-description: Generates ONE tasteful, on-brand, minimalist abstract FLAT-VECTOR illustration per scene to support a #presentation (:5014 renderer) - never AI photo-slop. NARROWED 2026-07-02 (E4): this is the #presentation lane ONLY; GOLD artifact + #slides image slots route to the native infographic lane per the `designer` skill, NOT here. The image relates to the scene's content, uses ONLY the brand palette (NXT or NU tokens from /api/design-tokens), and is produced by Nano Banana 2 (gemini-3.1-flash-image-preview) or GPT Image 2 (gpt-image-2). Apply when a presentation scene needs a supporting graphic. Pairs with deck-narrative-composer (the scene content) and the brand token system (the palette).
+version: "1"
+status: active
 thinking: high
+category: visual-generator
 ---
 
 # Illustrator
+
+## Scope
+
+Generates ONE tasteful, on-brand, minimalist abstract FLAT-VECTOR illustration per scene to support a #presentation (:5014 renderer) - never AI photo-slop. NARROWED 2026-07-02 (E4): this is the #presentation lane ONLY; GOLD artifact + #slides image slots route to the native infographic lane per the `designer` skill, NOT here. The image relates to the scene's content, uses ONLY the brand palette (NXT or NU tokens from /api/design-tokens), and is produced by Nano Banana 2 (gemini-3.1-flash-image-preview) or GPT Image 2 (gpt-image-2). Apply when a presentation scene needs a supporting graphic. Pairs with deck-narrative-composer (the scene content) and the brand token system (the palette).
 
 Deliverables are bland without visuals, but generic AI imagery is slop. This skill produces the ONE
 acceptable kind for NXT: a **minimalist, abstract, flat vector illustration** that (a) means something

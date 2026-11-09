@@ -1,14 +1,12 @@
 ---
 name: nxt-visual-renderer
+description: Layout, density and quote-handling contract for the 18 web slide templates and their PPTX export, shared by the NXT and NU brand variants. Loaded as a render contract when slide or template intent appears; budgets and JSON shapes live in references/web-layouts.md.
 invocation: runtime
 disable-model-invocation: true
-version: 1.0
-description: NXT Humans Design System v3.0 — canonical layout, density, and quote-handling contract for the 18 web slide templates + PPTX export. Render-contract: always loaded when slide intent is detected (keywords like "slide", "deck", "#slide", or any template name). Covers both NXT (teal + chartreuse) and NU (Huskies near-black + red) brand variants — colors resolve per brand, layout geometry is shared. The Option B density upgrade (2026-04-21) adds per-template IMPLICATION lines, full-sentence smart-clipped quotes, role-attributed speakers, and template-specific extensions. For full content budgets and JSON example shapes read references/web-layouts.md. For quote-handling and anti-slop rules read references/anti-slop-rules.md.
+version: "1.0"
+status: active
 thinking: high
 category: render-contract
-references:
-  - references/web-layouts.md
-  - references/anti-slop-rules.md
 triggers:
   - slide
   - slides
@@ -33,9 +31,63 @@ triggers:
   - gap-matrix
   - timeline
   - section divider
+  - theme-spotlight
+  - theme-cluster
+  - visual
+  - render
+  - design
+  - chart
+  - diagram
+  - layout
+  - evidence block
+  - recommendation callout
+  - split panel
+  - grid
+  - table
+  - format
+  - styled
+loader:
+  title: NXT Visual Renderer
+  role: render-contract
+  execution_context: primary
+  wiki_companions:
+    - brand/identity.md
+    - brand/layout-patterns.md
+    - brand/anti-slop.md
+    - brand/chart-standards.md
+    - brand/illustration-style.md
+  skill_references:
+    - references/web-layouts.md
+    - references/anti-slop-rules.md
+  output_types:
+    - theme-spotlight
+    - theme-arc
+    - theme-mosaic
+    - theme-cluster
+    - case-study
+    - recommendation
+    - stat-row
+    - block-quote
+    - persona-card
+    - competitive-matrix
+    - evidence-block
+    - split-panel
+    - section-divider
+    - grid-matrix
+    - color-block-grid
+    - quote-block
+    - comparison-table
+    - warning-block
+references:
+  - references/web-layouts.md
+  - references/anti-slop-rules.md
 ---
 
 # NXT Visual Renderer v3.0
+
+## Scope
+
+NXT Humans Design System v3.0 — canonical layout, density, and quote-handling contract for the 18 web slide templates + PPTX export. Render-contract: always loaded when slide intent is detected (keywords like "slide", "deck", "#slide", or any template name). Covers both NXT (teal + chartreuse) and NU (Huskies near-black + red) brand variants — colors resolve per brand, layout geometry is shared. The Option B density upgrade (2026-04-21) adds per-template IMPLICATION lines, full-sentence smart-clipped quotes, role-attributed speakers, and template-specific extensions. For full content budgets and JSON example shapes read references/web-layouts.md. For quote-handling and anti-slop rules read references/anti-slop-rules.md.
 
 ## You Are
 A senior visual designer producing consulting deliverables for NXT Humans or Northeastern Advancement. Every slide must read as top-tier design-consultancy output, not AI generation.
@@ -140,4 +192,5 @@ Always reference via `T.TEAL`, `T.CHARTREUSE_BRIGHT`, `T.CYAN` — the brand res
 
 ## Companion references
 - `references/web-layouts.md` — per-template character budgets and full JSON example shapes. Authoritative field-by-field spec. Read before emitting any `:::slide` block.
+- `references/typographic-system.md`: the type contract (sizes, weights and line heights resolved from the Figma `type/*` tokens served at `/api/design-tokens`); read it when a template's type scale is in question.
 - `references/anti-slop-rules.md` — titles-as-quotes ban, meta-narration patterns, corpus-meta-commentary ban, quote-source preference order.

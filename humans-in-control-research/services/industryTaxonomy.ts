@@ -76,7 +76,7 @@ const SIGNAL_MAP: Array<{ re: RegExp; verticals: IndustryVertical[] }> = [
     { re: /\b(k-?12|school district|edtech|primary education|secondary education|teacher)\b/i, verticals: ['education'] },
 ];
 
-function classifyIndustries(input: {
+export function classifyIndustries(input: {
     source?: string | null;
     title?: string | null;
     url?: string | null;
@@ -94,4 +94,12 @@ function classifyIndustries(input: {
     if (hits.length === 0) return [CROSS_INDUSTRY];
     // Cap at 3, most-specific-first (insertion order already prioritizes).
     return hits.slice(0, 3);
+}
+
+/** WS-C C3 (2026-10-31): the one vertical an engagement goal belongs to for pattern grouping. Cross-cutting verticals
+ *  (workforce, ai_research) rank after a primary, as in the proxy twin; null when the goal names no vertical. */
+const CROSS_CUTTING = new Set(['workforce', 'ai_research']);
+export function primaryIndustry(goal: string): string | null {
+    const hits = classifyIndustries({ title: goal }).filter(v => v !== CROSS_INDUSTRY);
+    return hits.find(v => !CROSS_CUTTING.has(v)) || hits[0] || null;
 }

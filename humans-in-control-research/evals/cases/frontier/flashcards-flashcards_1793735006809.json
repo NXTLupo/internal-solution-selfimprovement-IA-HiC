@@ -1,0 +1,26 @@
+{
+  "id": "flashcards-flashcards_1793735006809",
+  "set": "frontier",
+  "kind": "flashcards",
+  "input": {
+    "objective": "Identify high-converting email design patterns and product marketing trends for 2026 to guide the template redesign of a clean, organic cosmetics and skincare brand targeting Gen Z.",
+    "prompt": "#flashcards",
+    "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for/artifacts/flashcards_1793735006809.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "flashcards_1793735006809",
+    "added": "2026-11-03",
+    "note": "chainPass=false; failing: INDEPENDENCE_INFLATED x1"
+  }
+}

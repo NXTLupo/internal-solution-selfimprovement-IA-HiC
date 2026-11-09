@@ -1,0 +1,2866 @@
+[
+ {
+  "id": "government-net-01",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "agency-service-mesh",
+  "title": "Inter-agency service delivery network",
+  "subtitle": "How citizen-facing programs route across agencies",
+  "artifacts": [
+   "arch",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "mesh",
+   "seed": 4400
+  }
+ },
+ {
+  "id": "government-net-02",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "identity-trust-fabric",
+  "title": "Digital identity trust network",
+  "subtitle": "Credential providers, verifiers, and relying parties",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4401
+  }
+ },
+ {
+  "id": "government-net-03",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "data-exchange-spine",
+  "title": "Inter-agency data exchange backbone",
+  "subtitle": "Authoritative sources feeding shared services",
+  "artifacts": [
+   "arch",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "spine",
+   "seed": 4402
+  }
+ },
+ {
+  "id": "government-net-04",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "benefits-eligibility-hub",
+  "title": "Benefits eligibility determination hub",
+  "subtitle": "Programs converging on a shared rules engine",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "hub2",
+   "seed": 4403
+  }
+ },
+ {
+  "id": "government-net-05",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "procurement-vendor-web",
+  "title": "Procurement vendor relationship map",
+  "subtitle": "Prime contractors and subcontractor dependencies",
+  "artifacts": [
+   "org",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "mesh",
+   "seed": 4404
+  }
+ },
+ {
+  "id": "government-net-06",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "fraud-signal-network",
+  "title": "Improper-payment signal-sharing network",
+  "subtitle": "Detection units exchanging fraud indicators",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "radial",
+   "seed": 4405
+  }
+ },
+ {
+  "id": "government-net-07",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "shared-platform-topology",
+  "title": "Shared digital platform topology",
+  "subtitle": "Common components reused across agencies",
+  "artifacts": [
+   "arch",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "radial",
+   "seed": 4406
+  }
+ },
+ {
+  "id": "government-net-08",
+  "family": "operatingNetwork",
+  "industry": "government",
+  "framework": "case-referral-network",
+  "title": "Cross-program case referral network",
+  "subtitle": "How cases hand off between caseworker teams",
+  "artifacts": [
+   "blueprint",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "spine",
+   "seed": 4407
+  }
+ },
+ {
+  "id": "government-cap-01",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "digital-service-stack",
+  "title": "Government digital service capability stack",
+  "subtitle": "Channels, services, platform, and data layers",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4408
+  }
+ },
+ {
+  "id": "government-cap-02",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "identity-verification-stack",
+  "title": "Digital identity capability stack",
+  "subtitle": "Proofing, authentication, and federation layers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4409
+  }
+ },
+ {
+  "id": "government-cap-03",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "data-platform-stack",
+  "title": "Shared data platform stack",
+  "subtitle": "Ingest, governance, exchange, and analytics",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4410
+  }
+ },
+ {
+  "id": "government-cap-04",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "fraud-analytics-stack",
+  "title": "Fraud and improper-payment detection stack",
+  "subtitle": "Rules, models, and adjudication layers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4411
+  }
+ },
+ {
+  "id": "government-cap-05",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "benefits-delivery-stack",
+  "title": "Benefits delivery capability stack",
+  "subtitle": "Intake, eligibility, payment, and renewal",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4412
+  }
+ },
+ {
+  "id": "government-cap-06",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "procurement-capability-stack",
+  "title": "Digital procurement capability stack",
+  "subtitle": "Sourcing, award, and contract management",
+  "artifacts": [
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 0,
+   "seed": 4413
+  }
+ },
+ {
+  "id": "government-cap-07",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "accessibility-capability-stack",
+  "title": "Accessibility and equity capability stack",
+  "subtitle": "Standards, tooling, testing, and remediation",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4414
+  }
+ },
+ {
+  "id": "government-cap-08",
+  "family": "capabilityStack",
+  "industry": "government",
+  "framework": "workforce-skills-stack",
+  "title": "Digital workforce skills stack",
+  "subtitle": "Foundational, technical, and leadership tiers",
+  "artifacts": [
+   "strategy",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 3,
+   "highlight": 1,
+   "seed": 4415
+  }
+ },
+ {
+  "id": "government-rad-01",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "digital-maturity-radar",
+  "title": "Service digitization maturity radar",
+  "subtitle": "Current state versus target operating model",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.55,
+    0.3,
+    0.6,
+    0.45,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.7,
+    0.9,
+    0.8,
+    0.85
+   ],
+   "seed": 4416
+  }
+ },
+ {
+  "id": "government-rad-02",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "identity-maturity-radar",
+  "title": "Digital identity maturity radar",
+  "subtitle": "Proofing, assurance, and federation readiness",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.35,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.85
+   ],
+   "seed": 4417
+  }
+ },
+ {
+  "id": "government-rad-03",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "data-governance-radar",
+  "title": "Data governance maturity radar",
+  "subtitle": "Stewardship, quality, and exchange readiness",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.3,
+    0.45,
+    0.4,
+    0.5,
+    0.35,
+    0.4
+   ],
+   "target": [
+    0.7,
+    0.8,
+    0.75,
+    0.85,
+    0.7,
+    0.8
+   ],
+   "seed": 4418
+  }
+ },
+ {
+  "id": "government-rad-04",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "accessibility-maturity-radar",
+  "title": "Accessibility maturity radar",
+  "subtitle": "WCAG conformance across service touchpoints",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.45,
+    0.35,
+    0.5,
+    0.4,
+    0.55,
+    0.3
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.9,
+    0.85,
+    0.9,
+    0.8
+   ],
+   "seed": 4419
+  }
+ },
+ {
+  "id": "government-rad-05",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "fraud-control-radar",
+  "title": "Fraud control maturity radar",
+  "subtitle": "Prevention, detection, and recovery capabilities",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.35,
+    0.55,
+    0.45
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.75,
+    0.85,
+    0.8
+   ],
+   "seed": 4420
+  }
+ },
+ {
+  "id": "government-rad-06",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "procurement-maturity-radar",
+  "title": "Procurement maturity radar",
+  "subtitle": "Speed, transparency, and vendor diversity",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.35,
+    0.4,
+    0.5,
+    0.45,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.75,
+    0.8,
+    0.85,
+    0.8,
+    0.7,
+    0.85
+   ],
+   "seed": 4421
+  }
+ },
+ {
+  "id": "government-rad-07",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "workforce-readiness-radar",
+  "title": "Digital workforce readiness radar",
+  "subtitle": "Skills, capacity, and retention dimensions",
+  "artifacts": [
+   "gap",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.45,
+    0.35,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.85
+   ],
+   "seed": 4422
+  }
+ },
+ {
+  "id": "government-rad-08",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "agency-cx-radar",
+  "title": "Citizen experience maturity radar",
+  "subtitle": "Usability, trust, and channel coverage",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.3,
+    0.45,
+    0.55,
+    0.4
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.8,
+    0.85,
+    0.9,
+    0.8
+   ],
+   "seed": 4423
+  }
+ },
+ {
+  "id": "government-rad-09",
+  "family": "maturityRadar",
+  "industry": "government",
+  "framework": "interoperability-radar",
+  "title": "Interoperability maturity radar",
+  "subtitle": "Standards, APIs, and shared identifiers",
+  "artifacts": [
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.35,
+    0.45,
+    0.4,
+    0.3,
+    0.5
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.8,
+    0.75,
+    0.85
+   ],
+   "seed": 4424
+  }
+ },
+ {
+  "id": "government-fun-01",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "benefits-enrollment-funnel",
+  "title": "Benefits enrollment funnel",
+  "subtitle": "From eligibility check to active enrollment",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    47,
+    33,
+    21
+   ],
+   "seed": 4425
+  }
+ },
+ {
+  "id": "government-fun-02",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "identity-verification-funnel",
+  "title": "Identity verification completion funnel",
+  "subtitle": "Drop-off from start to verified credential",
+  "artifacts": [
+   "journey",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    55,
+    38,
+    26
+   ],
+   "seed": 4426
+  }
+ },
+ {
+  "id": "government-fun-03",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "application-completion-funnel",
+  "title": "Online application completion funnel",
+  "subtitle": "Where applicants abandon before submit",
+  "artifacts": [
+   "journey",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    80,
+    61,
+    44,
+    30,
+    19
+   ],
+   "seed": 4427
+  }
+ },
+ {
+  "id": "government-fun-04",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "case-resolution-funnel",
+  "title": "Case resolution funnel",
+  "subtitle": "From intake to closed and adjudicated",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    74,
+    52,
+    35,
+    22
+   ],
+   "seed": 4428
+  }
+ },
+ {
+  "id": "government-fun-05",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "procurement-award-funnel",
+  "title": "Procurement award funnel",
+  "subtitle": "From solicitation to executed contract",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    63,
+    41,
+    28,
+    17
+   ],
+   "seed": 4429
+  }
+ },
+ {
+  "id": "government-fun-06",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "appeals-funnel",
+  "title": "Benefits appeals resolution funnel",
+  "subtitle": "From filed appeal to final determination",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    48,
+    31,
+    20
+   ],
+   "seed": 4430
+  }
+ },
+ {
+  "id": "government-fun-07",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "renewal-retention-funnel",
+  "title": "Benefits renewal retention funnel",
+  "subtitle": "Continued coverage through redetermination",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    77,
+    58,
+    42,
+    29
+   ],
+   "seed": 4431
+  }
+ },
+ {
+  "id": "government-fun-08",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "digital-channel-funnel",
+  "title": "Digital channel adoption funnel",
+  "subtitle": "Shifting volume from phone to self-service",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    66,
+    45,
+    30,
+    18
+   ],
+   "seed": 4432
+  }
+ },
+ {
+  "id": "government-fun-09",
+  "family": "funnelFlow",
+  "industry": "government",
+  "framework": "grant-disbursement-funnel",
+  "title": "Grant disbursement funnel",
+  "subtitle": "From award to funds received by recipient",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    71,
+    50,
+    34,
+    23
+   ],
+   "seed": 4433
+  }
+ },
+ {
+  "id": "government-jou-01",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "citizen-service-journey",
+  "title": "Citizen service journey",
+  "subtitle": "End-to-end experience seeking a benefit",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 4434
+  }
+ },
+ {
+  "id": "government-jou-02",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "benefits-applicant-journey",
+  "title": "Benefits applicant journey",
+  "subtitle": "Discover, apply, verify, and receive",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4435
+  }
+ },
+ {
+  "id": "government-jou-03",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "identity-enrollment-journey",
+  "title": "Digital identity enrollment journey",
+  "subtitle": "Proofing through credential activation",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4436
+  }
+ },
+ {
+  "id": "government-jou-04",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "case-lifecycle-journey",
+  "title": "Case lifecycle journey",
+  "subtitle": "Intake, assignment, work, and closure",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4437
+  }
+ },
+ {
+  "id": "government-jou-05",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "appeals-journey",
+  "title": "Appeals process journey",
+  "subtitle": "From adverse decision to hearing outcome",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4438
+  }
+ },
+ {
+  "id": "government-jou-06",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "veteran-services-journey",
+  "title": "Veteran services journey",
+  "subtitle": "Transition through claim and care access",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5,
+    6
+   ],
+   "seed": 4439
+  }
+ },
+ {
+  "id": "government-jou-07",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "small-business-permit-journey",
+  "title": "Small-business permit journey",
+  "subtitle": "From application to approved license",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4440
+  }
+ },
+ {
+  "id": "government-jou-08",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "unemployment-claim-journey",
+  "title": "Unemployment claim journey",
+  "subtitle": "File, verify, certify, and receive payment",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    5
+   ],
+   "seed": 4441
+  }
+ },
+ {
+  "id": "government-jou-09",
+  "family": "journeyLine",
+  "industry": "government",
+  "framework": "immigration-status-journey",
+  "title": "Immigration status request journey",
+  "subtitle": "From submission to status determination",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4442
+  }
+ },
+ {
+  "id": "government-dat-01",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "improper-payment-rate",
+  "title": "Improper-payment rate by program",
+  "subtitle": "Programs ranked by estimated error rate",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4443,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "government-dat-02",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "case-backlog-by-agency",
+  "title": "Case backlog by agency",
+  "subtitle": "Pending caseload across service lines",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    7,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4444,
+   "mean": true
+  }
+ },
+ {
+  "id": "government-dat-03",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "benefits-uptake-rate",
+  "title": "Benefits uptake rate by program",
+  "subtitle": "Eligible population actually enrolled",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "asc",
+   "seed": 4445,
+   "mean": true,
+   "highlight": 7
+  }
+ },
+ {
+  "id": "government-dat-04",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "digital-adoption-by-service",
+  "title": "Digital adoption by service",
+  "subtitle": "Share of transactions completed online",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4446,
+   "mean": true
+  }
+ },
+ {
+  "id": "government-dat-05",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "sla-breach-by-process",
+  "title": "SLA breach frequency by process",
+  "subtitle": "Processes ranked by missed service targets",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    9,
+    7,
+    6,
+    4,
+    3,
+    2,
+    1,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4447,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "government-dat-06",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "cost-per-transaction",
+  "title": "Cost per transaction by channel",
+  "subtitle": "Unit cost across phone, mail, and digital",
+  "artifacts": [
+   "strategy",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    4,
+    2,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4448,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "government-dat-07",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "accessibility-defects-by-service",
+  "title": "Accessibility defects by service",
+  "subtitle": "WCAG failures found per digital service",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    7,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4449,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "government-dat-08",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "recovery-rate-by-program",
+  "title": "Overpayment recovery rate by program",
+  "subtitle": "Improper funds recovered after detection",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "asc",
+   "seed": 4450,
+   "mean": true
+  }
+ },
+ {
+  "id": "government-dat-09",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "vacancy-rate-by-role",
+  "title": "Vacancy rate by digital role",
+  "subtitle": "Hardest technical roles to fill",
+  "artifacts": [
+   "org",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4451,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "government-dat-10",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "call-deflection-by-topic",
+  "title": "Call deflection by inquiry topic",
+  "subtitle": "Topics most shifted to self-service",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4452,
+   "mean": true
+  }
+ },
+ {
+  "id": "government-dat-11",
+  "family": "dataField",
+  "industry": "government",
+  "framework": "contract-spend-by-vendor",
+  "title": "Contract spend concentration by vendor",
+  "subtitle": "Procurement dollars by top suppliers",
+  "artifacts": [
+   "competitive",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    6,
+    4,
+    3,
+    2,
+    1,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4453,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "government-mat-01",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "service-digitization-priority",
+  "title": "Service digitization priority matrix",
+  "subtitle": "Volume versus readiness to digitize",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.3
+    ],
+    [
+     0.7,
+     0.5,
+     0.4
+    ],
+    [
+     0.4,
+     0.3,
+     0.2
+    ]
+   ],
+   "seed": 4454
+  }
+ },
+ {
+  "id": "government-mat-02",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "benefits-program-comparison",
+  "title": "Benefits program comparison matrix",
+  "subtitle": "Uptake, error rate, and cost dimensions",
+  "artifacts": [
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.3,
+     0.8
+    ],
+    [
+     0.4,
+     0.6,
+     0.4
+    ]
+   ],
+   "seed": 4455
+  }
+ },
+ {
+  "id": "government-mat-03",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "identity-provider-comparison",
+  "title": "Identity provider comparison matrix",
+  "subtitle": "Assurance, coverage, and cost trade-offs",
+  "artifacts": [
+   "competitive",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.4
+    ],
+    [
+     0.6,
+     0.8,
+     0.6
+    ],
+    [
+     0.5,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4456
+  }
+ },
+ {
+  "id": "government-mat-04",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "vendor-evaluation-matrix",
+  "title": "Procurement vendor evaluation matrix",
+  "subtitle": "Capability, price, and past performance",
+  "artifacts": [
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.7
+    ],
+    [
+     0.6,
+     0.8,
+     0.5
+    ],
+    [
+     0.7,
+     0.6,
+     0.9
+    ],
+    [
+     0.5,
+     0.7,
+     0.6
+    ]
+   ],
+   "seed": 4457
+  }
+ },
+ {
+  "id": "government-mat-05",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "channel-effectiveness-matrix",
+  "title": "Service channel effectiveness matrix",
+  "subtitle": "Reach, satisfaction, and cost by channel",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.3
+    ],
+    [
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.5,
+     0.8,
+     0.8
+    ]
+   ],
+   "seed": 4458
+  }
+ },
+ {
+  "id": "government-mat-06",
+  "family": "gov_servicegrid",
+  "industry": "government",
+  "framework": "equity-access-matrix",
+  "title": "Equity of access matrix",
+  "subtitle": "Service availability across populations",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.3,
+     0.4
+    ],
+    [
+     0.6,
+     0.4,
+     0.5,
+     0.3
+    ],
+    [
+     0.5,
+     0.6,
+     0.4,
+     0.2
+    ]
+   ],
+   "seed": 4459
+  }
+ },
+ {
+  "id": "government-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "government",
+  "framework": "fraud-control-coverage-matrix",
+  "title": "Fraud control coverage matrix",
+  "subtitle": "Controls mapped to risk categories",
+  "artifacts": [
+   "audit",
+   "arch"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.7,
+     0.6
+    ],
+    [
+     0.6,
+     0.4,
+     0.8
+    ],
+    [
+     0.4,
+     0.5,
+     0.5
+    ]
+   ],
+   "seed": 4460
+  }
+ },
+ {
+  "id": "government-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "government",
+  "framework": "build-buy-share-matrix",
+  "title": "Build, buy, or share decision matrix",
+  "subtitle": "Sourcing options across capabilities",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.8,
+     0.4
+    ],
+    [
+     0.4,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4461
+  }
+ },
+ {
+  "id": "government-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "government",
+  "framework": "program-roi-matrix",
+  "title": "Program ROI prioritization matrix",
+  "subtitle": "Benefit potential versus effort to deliver",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.4
+    ],
+    [
+     0.6,
+     0.5,
+     0.5
+    ],
+    [
+     0.4,
+     0.3,
+     0.2
+    ]
+   ],
+   "seed": 4462
+  }
+ },
+ {
+  "id": "government-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "government",
+  "framework": "data-sharing-readiness-matrix",
+  "title": "Data sharing readiness matrix",
+  "subtitle": "Legal, technical, and governance readiness",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     0.4,
+     0.7
+    ],
+    [
+     0.5,
+     0.6,
+     0.4
+    ]
+   ],
+   "seed": 4463
+  }
+ },
+ {
+  "id": "government-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "government",
+  "framework": "accessibility-conformance-matrix",
+  "title": "Accessibility conformance matrix",
+  "subtitle": "WCAG criteria by service line",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.5,
+     0.7
+    ],
+    [
+     0.5,
+     0.7,
+     0.4,
+     0.6
+    ],
+    [
+     0.6,
+     0.5,
+     0.8,
+     0.4
+    ]
+   ],
+   "seed": 4464
+  }
+ },
+ {
+  "id": "government-dia-01",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "case-backlog-vs-sla",
+  "title": "Case backlog versus SLA",
+  "subtitle": "Share of cases within service target",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 62,
+   "segments": 10,
+   "seed": 4465
+  }
+ },
+ {
+  "id": "government-dia-02",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "benefits-uptake-index",
+  "title": "Benefits uptake index",
+  "subtitle": "Eligible population currently enrolled",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 48,
+   "segments": 10,
+   "seed": 4466
+  }
+ },
+ {
+  "id": "government-dia-03",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "digital-completion-rate",
+  "title": "Digital completion rate",
+  "subtitle": "Transactions finished fully online",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 55,
+   "segments": 10,
+   "seed": 4467
+  }
+ },
+ {
+  "id": "government-dia-04",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "identity-verification-success",
+  "title": "Identity verification success rate",
+  "subtitle": "Proofing attempts that pass first time",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 4468
+  }
+ },
+ {
+  "id": "government-dia-05",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "improper-payment-index",
+  "title": "Improper-payment exposure index",
+  "subtitle": "Estimated error share of outlays",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 12,
+   "segments": 10,
+   "seed": 4469
+  }
+ },
+ {
+  "id": "government-dia-06",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "accessibility-conformance-score",
+  "title": "Accessibility conformance score",
+  "subtitle": "WCAG criteria met across services",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 67,
+   "segments": 10,
+   "seed": 4470
+  }
+ },
+ {
+  "id": "government-dia-07",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "first-contact-resolution",
+  "title": "First-contact resolution rate",
+  "subtitle": "Inquiries resolved on initial contact",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4471
+  }
+ },
+ {
+  "id": "government-dia-08",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "procurement-cycle-time-index",
+  "title": "Procurement cycle-time index",
+  "subtitle": "Awards completed within target window",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 44,
+   "segments": 10,
+   "seed": 4472
+  }
+ },
+ {
+  "id": "government-dia-09",
+  "family": "instrumentDial",
+  "industry": "government",
+  "framework": "program-outcome-attainment",
+  "title": "Program outcome attainment",
+  "subtitle": "Targeted outcomes achieved to date",
+  "artifacts": [
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 53,
+   "segments": 10,
+   "seed": 4473
+  }
+ },
+ {
+  "id": "government-gan-01",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "digital-transformation-roadmap",
+  "title": "Service digitization roadmap",
+  "subtitle": "Phased delivery across program lines",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4474
+  }
+ },
+ {
+  "id": "government-gan-02",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "identity-rollout-plan",
+  "title": "Digital identity rollout plan",
+  "subtitle": "Proofing, pilot, and scale phases",
+  "artifacts": [
+   "roadmap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4475
+  }
+ },
+ {
+  "id": "government-gan-03",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "backlog-reduction-plan",
+  "title": "Case backlog reduction plan",
+  "subtitle": "Surge, automation, and steady-state",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 3,
+   "seed": 4476
+  }
+ },
+ {
+  "id": "government-gan-04",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "data-exchange-program",
+  "title": "Data exchange program timeline",
+  "subtitle": "Agreements, pipes, and onboarding waves",
+  "artifacts": [
+   "roadmap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4477
+  }
+ },
+ {
+  "id": "government-gan-05",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "benefits-modernization-plan",
+  "title": "Benefits system modernization plan",
+  "subtitle": "Legacy retirement and platform cutover",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4478
+  }
+ },
+ {
+  "id": "government-gan-06",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "accessibility-remediation-plan",
+  "title": "Accessibility remediation plan",
+  "subtitle": "Audit, fix, and certification waves",
+  "artifacts": [
+   "roadmap",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 4,
+   "seed": 4479
+  }
+ },
+ {
+  "id": "government-gan-07",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "fraud-program-roadmap",
+  "title": "Fraud prevention program roadmap",
+  "subtitle": "Analytics, controls, and recovery phases",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4480
+  }
+ },
+ {
+  "id": "government-gan-08",
+  "family": "timelineGantt",
+  "industry": "government",
+  "framework": "workforce-build-plan",
+  "title": "Digital workforce build plan",
+  "subtitle": "Hiring, reskilling, and retention waves",
+  "artifacts": [
+   "roadmap",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 3
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4481
+  }
+ },
+ {
+  "id": "government-flo-01",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "identity-verification-flow",
+  "title": "Identity verification flow",
+  "subtitle": "Proofing decision path to credential",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4482
+  }
+ },
+ {
+  "id": "government-flo-02",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "eligibility-determination-flow",
+  "title": "Eligibility determination flow",
+  "subtitle": "Rules evaluation from intake to decision",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4483
+  }
+ },
+ {
+  "id": "government-flo-03",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "case-routing-flow",
+  "title": "Case routing and assignment flow",
+  "subtitle": "Triage logic across caseworker queues",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4484
+  }
+ },
+ {
+  "id": "government-flo-04",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "payment-disbursement-flow",
+  "title": "Payment disbursement flow",
+  "subtitle": "Approval and funds-release pipeline",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4485
+  }
+ },
+ {
+  "id": "government-flo-05",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "data-exchange-flow",
+  "title": "Inter-agency data exchange flow",
+  "subtitle": "Request, consent, and response path",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4486
+  }
+ },
+ {
+  "id": "government-flo-06",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "fraud-adjudication-flow",
+  "title": "Fraud adjudication flow",
+  "subtitle": "Alert triage to disposition decision",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4487
+  }
+ },
+ {
+  "id": "government-flo-07",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "procurement-approval-flow",
+  "title": "Procurement approval flow",
+  "subtitle": "Requisition to award gating steps",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4488
+  }
+ },
+ {
+  "id": "government-flo-08",
+  "family": "flowSchematic",
+  "industry": "government",
+  "framework": "appeals-escalation-flow",
+  "title": "Appeals escalation flow",
+  "subtitle": "Review tiers from reconsideration to hearing",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4489
+  }
+ },
+ {
+  "id": "government-pro-01",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "budget-allocation-by-program",
+  "title": "Budget allocation by program",
+  "subtitle": "Share of IT spend across portfolios",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    25,
+    20,
+    15
+   ],
+   "seed": 4490
+  }
+ },
+ {
+  "id": "government-pro-02",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "channel-volume-mix",
+  "title": "Service channel volume mix",
+  "subtitle": "Transaction share by phone, mail, online",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    45,
+    20,
+    35
+   ],
+   "seed": 4491
+  }
+ },
+ {
+  "id": "government-pro-03",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "improper-payment-composition",
+  "title": "Improper-payment composition",
+  "subtitle": "Error share by root cause category",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    27,
+    20,
+    15
+   ],
+   "seed": 4492
+  }
+ },
+ {
+  "id": "government-pro-04",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "caseload-composition",
+  "title": "Caseload composition by type",
+  "subtitle": "Share of pending cases by category",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    30,
+    20,
+    15
+   ],
+   "seed": 4493
+  }
+ },
+ {
+  "id": "government-pro-05",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "procurement-spend-mix",
+  "title": "Procurement spend mix",
+  "subtitle": "Contract dollars by acquisition type",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    50,
+    30,
+    20
+   ],
+   "seed": 4494
+  }
+ },
+ {
+  "id": "government-pro-06",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "workforce-composition",
+  "title": "Digital workforce composition",
+  "subtitle": "Headcount share across role families",
+  "artifacts": [
+   "org",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    30,
+    25,
+    25,
+    20
+   ],
+   "seed": 4495
+  }
+ },
+ {
+  "id": "government-pro-07",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "benefits-outlay-mix",
+  "title": "Benefits outlay mix by program",
+  "subtitle": "Share of total disbursements",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    42,
+    28,
+    18,
+    12
+   ],
+   "seed": 4496
+  }
+ },
+ {
+  "id": "government-pro-08",
+  "family": "proportionStack",
+  "industry": "government",
+  "framework": "identity-method-mix",
+  "title": "Identity verification method mix",
+  "subtitle": "Share of proofing by assurance path",
+  "artifacts": [
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    40,
+    35,
+    25
+   ],
+   "seed": 4497
+  }
+ },
+ {
+  "id": "government-sec-01",
+  "family": "sectionMark",
+  "industry": "government",
+  "framework": "section-mark-current-state",
+  "title": "Current state",
+  "subtitle": "Where service delivery stands today",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 4498
+  }
+ },
+ {
+  "id": "government-sec-02",
+  "family": "sectionMark",
+  "industry": "government",
+  "framework": "section-mark-the-path-forward",
+  "title": "The path forward",
+  "subtitle": "Priorities for the next operating model",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4499
+  }
+ }
+]

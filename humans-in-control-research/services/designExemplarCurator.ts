@@ -282,11 +282,14 @@ export async function curateExemplarsForBrief(input: CurateInput, k = 5): Promis
 export function buildStage4InjectionBlock(refs: ExemplarRef[], brandHashtag: BrandHashtag): string {
   if (!refs || refs.length === 0) return '';
   const brand = brandOfHashtag(brandHashtag);
+  // 2026-10-30 (WS-3 P5): the fonts here were stale (Bebas Neue was dropped 2026-06-13; NU is single-typeface
+  // Lato). Stage 4 followed the old line and auditTokenPurity then flagged the same fonts as stale_fonts.
+  // These mirror .claude/CLAUDE.md "Typography"; figma-tokens.json is the authority.
   const brandLanguage = brand === 'nu'
-    ? "Spectral Light (display) / Roboto (body) / Roboto Mono (data) / Huskies red sparingly on navy ink-900"
+    ? "Lato as the single typeface (display, title, body and data; weight and size carry hierarchy) / Huskies red sparingly on near-black ink"
     : brand === 'deciem'
     ? "black and white editorial canvases, Poppins Bold uppercase (display) / Josefin Sans (body) / Nunito (tables and data), pink / cyan / purple pops, thin line-art, no gradients"
-    : "Bebas Neue (display) / Archivo (body) / JetBrains Mono (data) / chartreuse on near-white";
+    : "Saira Condensed SemiBold (display) / Archivo (body) / IBM Plex Mono (data) / chartreuse on near-white";
 
   const exemplarLines = refs.map((r, i) => {
     return [
