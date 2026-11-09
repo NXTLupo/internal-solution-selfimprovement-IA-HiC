@@ -177,6 +177,9 @@ just on paper.
 
 ## Live NotebookLM comparison: attempted, blocked by auth, protocol ready for the owner
 
+> SUPERSEDED same day: the owner signed the session browser into Google and the full live run
+> happened. See "THE LIVE RUN" at the end of this file. This section stays as the access record.
+
 Attempted 2026-11-09 from the session browser, three ways, all terminating at the Google
 Accounts credential form: (1) notebooklm.google.com redirects to notebook.google.com/trynow
 ("Gemini Notebook"), whose only path in is "Sign in to Gemini Notebook"; (2) the sign-in
@@ -255,3 +258,123 @@ can perform. The branch is staged, tested and live-verified for review.
   "#artifacts" now lists and relaunches uplift artifacts like any HTML document.
 - Copy-critic rule 6b (title length) and the S1 audio-format steering (live run: 8 turns /
   391 words under the brief budget, format word stripped from the heading) complete the set.
+
+## THE LIVE RUN: fresh Gemini Notebook outputs, driven end-to-end (2026-11-09, afternoon)
+
+The owner signed the session's Playwright browser into Google ("im signed in") and the agent drove
+the whole protocol: created notebook `25078bb9-e656-434d-bf21-668c6305f615` ("HiC Head-to-Head:
+Student AI and Northeastern Connectors"), added the 14 staged source URLs from the owner protocol
+above, and generated six Studio outputs. The notebook remains in the owner's account for direct
+inspection.
+
+### Run facts
+
+- Ingestion: 12 of 14 sources ingested; theconversation.com and venturebeat.com FAILED with error
+  badges (silent degradation: every generation ran on 12 sources with no warning in the outputs
+  themselves). HiC equivalent: the GenerationReceipt names degraded sources per run.
+- Outputs generated: Briefing Doc report, Study Guide report, Mind Map, Quiz (10 questions),
+  Data Table, Audio Overview (Deep Dive, default length).
+- Capture method: full innerText extraction of each report via the DOM (what copy/export yields),
+  DOM citation-element counts, accessibility-tree reads for the iframe-hosted Quiz and Mind Map,
+  screenshot of the Mind Map.
+
+### Per-output scorecard (same instruments as the HiC artifacts this session)
+
+**1. Briefing Doc, "Executive Briefing: Enterprise AI Architecture, Financial Realities, and
+Behavioral Governance" (~2,900 words)**
+- Citations: ZERO. The report viewer (`labs-tailwind-doc-viewer`) contains zero citation chips,
+  zero sup elements, zero buttons; the text carries no source names beyond those that appear
+  inside sentences. Not one claim is traceable to a source passage from the deliverable itself.
+  The S10 prediction held exactly.
+- Naked figures: 40+ in the model's own voice (revenue, EPS, capex, percentages from the
+  Anthropic study, "9,434 business calls", "~78 sessions weekly", "55% reduction"). Under the
+  claim-ledger gate every one would be blocked or forced into a quoted span.
+- Self-reference: "This briefing document synthesizes key developments..." in the opening
+  paragraph (banned process language under the HiC contract).
+- RENDERING DEFECT (new finding): dollar figures are mangled by a math-mode parser. Verbatim from
+  the export surface: "nearly 128billioninQ32026,Alphabet(Google)experiencedasignificantmarket
+  capitalizationdrop( 122.12 actual vs. 3.02projected)" - adjacent words fused, $ signs eaten,
+  and "$2.12" corrupted to "122.12" in one spot while the table says $2.12 (the same document
+  contradicts itself). The Study Guide shows the identical defect ("over 26billion,missing
+  earningspershareprojections(2.12 actual vs. 3.02expected)").
+- Titles: every heading is a topic label ("1. Commercial AI Financials and Market Dynamics");
+  zero action titles.
+- Genuine strengths, recorded honestly: strong information architecture (comparative matrices,
+  ASCII flow diagrams that are collision-free and content-true), dense synthesis across all 12
+  sources, correct attribution of the NVIDIA pattern and the Anthropic study inside prose, and
+  zero hedge filler. Fluency is comparable to HiC's post-chokepoint prose.
+
+**2. Study Guide report ("Comprehensive Study Guide: Multi-Agent Architectures...")**
+- Citations: zero chips, zero source names in the answer key beyond in-sentence mentions.
+- Same $-mangling defect; same naked-figure density in the answer key.
+- Strengths: 10 well-formed short-answer Q/As, 5 essay prompts, an 18-term glossary; the glossary
+  definitions are accurate to the sources.
+
+**3. Data Table ("Claims and Implications of Student and Professional AI Assistant Usage") -
+NotebookLM's BEST-GROUNDED output, recorded against our thesis**
+- Every row carries: a named source descriptor ("r/MuseAgent post by u/cgallic", "Anthropic
+  Research", "u/NikeCool79 (Reddit user)"), a VERBATIM supporting quote, and a numbered [1]-[6]
+  citation resolvable in-app. This is the one Studio surface that matches HiC's Evidence-Label
+  pattern (claim + verbatim quote + named source). On copy-out the [N] markers survive as plain
+  brackets (degraded but not debris).
+- Weaknesses: the "implication" column is uncited model editorialization (acceptable, labeled);
+  figures appear but inside quoted spans, which would PASS the HiC gate. The audit matrix's
+  "S10: no citations anywhere" clause must be narrowed: Data Table is the exception.
+
+**4. Mind Map ("AI Agents Mind Map")**
+- Root + 6 branches (Meta Muse Onboarding and Setup; Advanced Agent Capabilities; Multi-Agent
+  Systems and Shared Brain Architecture; Optimizing Workflows and Overcoming Pitfalls; Enterprise
+  AI Platforms and Economics; AI Guidance and Sycophancy Research), 3-5 children each. Clean,
+  faithful clustering. Keyboard-navigable tree, zoom, and a "Download mindmap as image" button
+  (so not fully trapped; image-only export, no data form, no node citations). HiC #mindmap:
+  nodes carry chunk references with click-to-chat drill-down and the HTML lands in the gallery.
+  Verdict stays PAR on structure; HiC ahead on provenance and reuse, NotebookLM ahead on polish
+  of the interactive viewer.
+
+**5. Quiz ("Artificial Intelligence Quiz")**
+- 10 scenario-based MCQs (A-D), rendered inside a cross-origin usercontent.goog iframe; no
+  citations on questions; content quality high (questions test mechanisms, not trivia). Not
+  exportable: the host DOM cannot even read it, which is the "trapped in the tool" estate
+  finding reproduced live.
+
+**6. Audio Overview (Deep Dive)** - generation pending at write time; result appended below.
+
+### Live-run verdict
+
+The fresh outputs reproduce the estate findings almost clause for clause: text reports ship with
+ZERO resolvable citations and dozens of naked figures in the model's own voice, plus a new
+export-corruption defect ($-math mangling) and silent 2-source ingestion failure. The one genuine
+counterexample is the Data Table, whose per-row verbatim-quote grounding matches HiC's
+evidence-label contract and must be credited: the matrix clause "S10: studio outputs carry no
+citations" is now "all EXCEPT Data Table". Mind Map and Quiz are strong interactive learning
+surfaces with no provenance. Nothing in the live run moves any HiC BEHIND verdict; both former
+BEHIND items were already shipped and live-proven earlier today.
+
+### 6. Audio Overview, scored from a full Whisper transcript (appended as promised)
+
+"How To Manage Autonomous AI Agents", 23:41, Deep Dive format, ~4,300 spoken words. The agent
+downloaded the m4a (NotebookLM offers a real audio download, credit where due) and transcribed it
+through the platform's own Video Analyzer (job ee8cf989, Whisper, 77 seconds). Scored on the
+plain-text half of the transcript:
+
+- Spoken attributions EXIST at the organization level: Anthropic named 5 times, NVIDIA 4,
+  Ars Technica 1, "a Reddit user [with ADHD]" for the Notion story. This is BETTER than the
+  public simonwillison sample (zero attributions) and the finding is corrected accordingly:
+  the Deep Dive names its source organizations but never ties any claim to a passage, and no
+  listener can resolve "a source here" to a document.
+- Naked figures spoken as host assertions: about 11 distinct ($128 billion, $30 billion,
+  $9.06 billion, $300 billion, 55%, 12%, 19%, 6%, 25%, 9,434 calls). Same figures the text
+  reports carry; same gate failure.
+- Podcast chrome by design: "Welcome to today's Deep Dive", "our mission for you today",
+  "Thanks for taking this deep dive with us". HiC's dialog contract bans greetings; NotebookLM's
+  genre requires them. Noted as a genre difference, not graded as a defect.
+- Slop: one each of "fundamental shift", "robust", "ecosystem". Low density.
+- Production quality: high. A sustained opening analogy (a Lamborghini in a traffic jam you
+  built), natural two-host banter, a closing provocation about personalized echo chambers that
+  goes beyond the sources (mild unsupported editorializing).
+
+Audio verdict refined: NotebookLM wins audio production and now also shows coarse spoken
+attribution; HiC keeps the provenance win (per-turn chunk citations in #audio-overview and
+#brief-dialog) but its TTS leg was degraded on audit day (ElevenLabs 401, owner key item), so
+NotebookLM shipped 23 minutes of real audio while HiC shipped a cited transcript with an honest
+degradation notice. Closing that key restores the full head-to-head.
