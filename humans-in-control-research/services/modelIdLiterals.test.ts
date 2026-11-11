@@ -20,6 +20,7 @@ const ALLOWLIST = new Set<string>([
     'services/criticDispatcher.ts',      // sonnet / haiku tier ids (not the reasoning model)
     'services/criticReviseLoop.ts',      // sonnet / haiku tier ids (not the reasoning model)
     'services/narrativeComposer.ts',     // #presentation fallback tier (audit A8, Stage 6 scope)
+    'services/seatMatrix.ts',            // 2026-11-11 IA Phase 0: the owner's seat matrix names each seat's target id; pinned to proxy/model_registry.py
 ]);
 const CLAUDE_ID_RE = /['"`]claude-(?:opus|sonnet|haiku|fable|mythos)-\d[\w.-]*['"`]/g;
 const REASONING_ID_RE = /['"`]claude-opus-(?:4-8|5-5)['"`]/g;

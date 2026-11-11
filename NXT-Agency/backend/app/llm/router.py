@@ -11,46 +11,94 @@ from __future__ import annotations
 
 import logging
 import os
+from collections.abc import Iterator, Mapping
 from typing import AsyncIterator
 
+from . import seats
 from .provider import LLMProvider, LLMResponse, LLMStreamChunk
 
 logger = logging.getLogger(__name__)
 
 # ---- model key -> (provider_name, native_model_id) ----
-MODEL_MAP: dict[str, tuple[str, str]] = {
-    # Anthropic — Claude 4.6 (current flagship, March 2026)
-    "claude-opus": ("anthropic", "claude-opus-4-6"),
-    "claude-sonnet": ("anthropic", "claude-sonnet-4-6"),
-    "claude-haiku": ("anthropic", "claude-haiku-4-5-20251001"),
-    # Anthropic — Legacy (still available)
-    "claude-sonnet-4.5": ("anthropic", "claude-sonnet-4-5-20250929"),
-    "claude-opus-4.5": ("anthropic", "claude-opus-4-5-20251101"),
-    "claude-opus-4.1": ("anthropic", "claude-opus-4-1-20250805"),
-    "claude-sonnet-4": ("anthropic", "claude-sonnet-4-20250514"),
+# 2026-11-11 (IA plan Phase 0, section 6.10 step 5): no model id lives here any more. Each friendly key names a
+# seat at the platform's routing authority (GET /api/models on the research proxy) and resolves at call time:
+# an explicit env override, then the proxy's seat, then a current fallback constant (see seats.py). The old keys
+# stay valid so agent configs and the orchestration router keep working; legacy keys resolve to the same seat as
+# their family.
+_REASONING = ("NXT_AGENCY_REASONING_MODEL", ("seats", "reasoning"), seats.REASONING_FALLBACK)
+_STRUCTURED = ("NXT_AGENCY_STRUCTURED_MODEL", ("seats", "structured"), seats.STRUCTURED_FALLBACK)
+_FAST_CLAUDE = ("NXT_AGENCY_FAST_MODEL", ("seat_matrix", "fast", "secondary"), seats.FAST_CLAUDE_FALLBACK)
+_OPENAI = ("NXT_AGENCY_OPENAI_MODEL", ("seat_matrix", "analysis", "secondary"), seats.OPENAI_FALLBACK)
+_OPENAI_LIGHT = ("NXT_AGENCY_OPENAI_LIGHT_MODEL", None, seats.OPENAI_LIGHT_FALLBACK)
+_GEMINI_RESEARCH = ("NXT_AGENCY_GEMINI_RESEARCH_MODEL", ("seat_matrix", "research", "primary"),
+                    seats.GEMINI_RESEARCH_FALLBACK)
+_GEMINI_CHAT = ("NXT_AGENCY_GEMINI_CHAT_MODEL", ("seats", "chat"), seats.GEMINI_CHAT_FALLBACK)
 
-    # OpenAI — GPT-5 (latest flagship)
-    "gpt-5": ("openai", "gpt-5"),
-    "gpt-5-mini": ("openai", "gpt-5-mini"),
-    # OpenAI — GPT-4.1 (1M context, great for code)
-    "gpt-4.1": ("openai", "gpt-4.1"),
-    "gpt-4.1-mini": ("openai", "gpt-4.1-mini"),
-    "gpt-4.1-nano": ("openai", "gpt-4.1-nano"),
-    # OpenAI — o-series reasoning
-    "o3": ("openai", "o3"),
-    "o3-pro": ("openai", "o3-pro"),
-    "o4-mini": ("openai", "o4-mini"),
-    # OpenAI — legacy
-    "gpt-4o": ("openai", "gpt-4o"),
-    "gpt-4o-mini": ("openai", "gpt-4o-mini"),
-
-    # Google — Gemini 3.x (latest, Jan 2026+)
-    "gemini-pro": ("google", "gemini-3.1-pro-preview"),
-    "gemini-flash": ("google", "gemini-3.1-flash-lite-preview"),
-    # Google — Gemini 2.5 (stable)
-    "gemini-2.5-pro": ("google", "gemini-2.5-pro"),
-    "gemini-2.5-flash": ("google", "gemini-2.5-flash"),
+# key -> (provider_name, (env override, /api/models path, fallback id))
+MODEL_SEATS: dict[str, tuple[str, tuple]] = {
+    # Anthropic: opus keys -> reasoning seat, sonnet keys -> structured seat, haiku -> fast seat (Claude secondary)
+    "claude-opus": ("anthropic", _REASONING),
+    "claude-opus-4.5": ("anthropic", _REASONING),
+    "claude-opus-4.1": ("anthropic", _REASONING),
+    "claude-sonnet": ("anthropic", _STRUCTURED),
+    "claude-sonnet-4.5": ("anthropic", _STRUCTURED),
+    "claude-sonnet-4": ("anthropic", _STRUCTURED),
+    "claude-haiku": ("anthropic", _FAST_CLAUDE),
+    # OpenAI: flagship and reasoning keys -> the matrix's OpenAI analysis model; light keys -> gpt-5.5
+    "gpt-5": ("openai", _OPENAI),
+    "gpt-4.1": ("openai", _OPENAI),
+    "o3": ("openai", _OPENAI),
+    "o3-pro": ("openai", _OPENAI),
+    "gpt-4o": ("openai", _OPENAI),
+    "gpt-5-mini": ("openai", _OPENAI_LIGHT),
+    "gpt-4.1-mini": ("openai", _OPENAI_LIGHT),
+    "gpt-4.1-nano": ("openai", _OPENAI_LIGHT),
+    "o4-mini": ("openai", _OPENAI_LIGHT),
+    "gpt-4o-mini": ("openai", _OPENAI_LIGHT),
+    # Google: pro keys (broad evidence intake) -> research seat; flash keys -> chat seat
+    "gemini-pro": ("google", _GEMINI_RESEARCH),
+    "gemini-2.5-pro": ("google", _GEMINI_RESEARCH),
+    "gemini-flash": ("google", _GEMINI_CHAT),
+    "gemini-2.5-flash": ("google", _GEMINI_CHAT),
 }
+
+_VENDOR_PREFIX: dict[str, str] = {"anthropic": "claude-", "openai": "gpt-", "google": "gemini-"}
+
+
+def resolve_model(model_key: str) -> tuple[str, str]:
+    """Resolve a friendly key to (provider_name, native_model_id) through the routing authority's seats."""
+    provider_name, (env_var, path, fallback) = MODEL_SEATS[model_key]
+    return provider_name, seats.seat_model(env_var, path, fallback, _VENDOR_PREFIX[provider_name])
+
+
+def model_source(model_key: str) -> str:
+    provider_name, (env_var, path, _fallback) = MODEL_SEATS[model_key]
+    return seats.source_of(env_var, path, _VENDOR_PREFIX[provider_name])
+
+
+class _SeatMap(Mapping):
+    """Read-only view kept under the old name: MODEL_MAP[key] -> (provider_name, native_model_id), resolved live."""
+
+    def __getitem__(self, key: str) -> tuple[str, str]:
+        return resolve_model(key)
+
+    def __iter__(self) -> Iterator[str]:
+        return iter(MODEL_SEATS)
+
+    def __len__(self) -> int:
+        return len(MODEL_SEATS)
+
+
+MODEL_MAP: Mapping[str, tuple[str, str]] = _SeatMap()
+
+
+def seat_summary() -> dict[str, dict[str, str]]:
+    """One row per distinct seat the keys use: the resolved id and where it came from (for /health and logs)."""
+    out: dict[str, dict[str, str]] = {}
+    for key in ("claude-opus", "claude-sonnet", "claude-haiku", "gpt-5", "gpt-5-mini", "gemini-pro", "gemini-flash"):
+        provider_name, model_id = resolve_model(key)
+        out[key] = {"provider": provider_name, "model_id": model_id, "source": model_source(key)}
+    return out
 
 # Maps provider name -> (env var for API key, provider class import path)
 _PROVIDER_CONFIG: dict[str, tuple[str, str]] = {
@@ -106,13 +154,13 @@ class ModelRouter:
         return provider
 
     def _resolve(self, model_key: str) -> tuple[LLMProvider, str]:
-        """Resolve a model key to (provider_instance, native_model_id)."""
-        if model_key not in MODEL_MAP:
-            available = ", ".join(sorted(MODEL_MAP))
+        """Resolve a model key to (provider_instance, native_model_id) through the routing authority's seats."""
+        if model_key not in MODEL_SEATS:
+            available = ", ".join(sorted(MODEL_SEATS))
             raise ValueError(
                 f"Unknown model key {model_key!r}. Available keys: {available}"
             )
-        provider_name, model_id = MODEL_MAP[model_key]
+        provider_name, model_id = resolve_model(model_key)
         return self._get_provider(provider_name), model_id
 
     async def chat(
@@ -154,18 +202,19 @@ class ModelRouter:
 
     def available_models(self) -> list[str]:
         """Return sorted list of available model keys."""
-        return sorted(MODEL_MAP)
+        return sorted(MODEL_SEATS)
 
     def model_info(self, model_key: str) -> dict[str, str]:
-        """Return provider name and native model ID for a given key."""
-        if model_key not in MODEL_MAP:
+        """Return provider name, native model ID and its source for a given key."""
+        if model_key not in MODEL_SEATS:
             raise ValueError(f"Unknown model key: {model_key!r}")
-        provider_name, model_id = MODEL_MAP[model_key]
+        provider_name, model_id = resolve_model(model_key)
         env_var = _PROVIDER_CONFIG[provider_name][0]
         return {
             "key": model_key,
             "provider": provider_name,
             "model_id": model_id,
+            "source": model_source(model_key),
             "api_key_env": env_var,
             "configured": bool(os.environ.get(env_var)),
         }

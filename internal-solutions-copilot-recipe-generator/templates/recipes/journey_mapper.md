@@ -41,7 +41,7 @@ This recipe walks you through every click, field, toggle, and configuration need
 +------------------------------------------------------------------+
 |              ANTHROPIC CLAUDE API (claude-opus-4-6)               |
 |              POST https://api.anthropic.com/v1/messages           |
-|              max_tokens: 64000 | temperature: 0.3                |
+|              max_tokens: 64000                                   |
 +------------------------------------------------------------------+
          |                    |
          v                    v
@@ -1387,14 +1387,14 @@ WHERE AM I?: Power Automate > Flow Editor > Extract Journey Elements > Below Act
 
 **COPY-PASTE** into the Expression field:
 ```
-concat('{"model":"claude-opus-4-6","max_tokens":64000,"temperature":0.3,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"',outputs('Escape_User_Prompt'),'"}]}')
+concat('{"model":"claude-opus-4-6","max_tokens":64000,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"',outputs('Escape_User_Prompt'),'"}]}')
 ```
 
 3. Click OK.
 
 4. Rename this action to: Build_Pass1_Body
 
-> **WATCH OUT**: The concat() function builds the JSON body by combining literal JSON structure with the escaped prompt outputs. All literal double quotes inside the JSON string are escaped with backslashes. The model is set to "claude-opus-4-6" which is the current Claude Opus model identifier. The max_tokens is 64000 for comprehensive extraction. Temperature is 0.3 for consistency.
+> **WATCH OUT**: The concat() function builds the JSON body by combining literal JSON structure with the escaped prompt outputs. All literal double quotes inside the JSON string are escaped with backslashes. The model is set to "claude-opus-4-6" which is the current Claude Opus model identifier. The max_tokens is 64000 for comprehensive extraction. The body carries no temperature, top_p or top_k: current Claude models reject temperature, top_p and top_k with an HTTP 400 error.
 
 ## Step 4.9: Action 7 -- HTTP POST to Anthropic Claude API
 
@@ -1708,7 +1708,7 @@ WHERE AM I?: Power Automate > Flow Editor > Synthesize Journey Map > Below Actio
 
 **COPY-PASTE** into the Expression field:
 ```
-concat('{"model":"claude-opus-4-6","max_tokens":64000,"temperature":0.3,"system":"',outputs('Escape_Pass2_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Pass2_User'),'"}]}')
+concat('{"model":"claude-opus-4-6","max_tokens":64000,"system":"',outputs('Escape_Pass2_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Pass2_User'),'"}]}')
 ```
 
 3. Click OK.
@@ -3199,7 +3199,7 @@ POWER AUTOMATE FLOWS:
 EXTERNAL APIS:
     +-- Anthropic Claude API (claude-opus-4-6)
         POST https://api.anthropic.com/v1/messages
-        max_tokens: 64000 | temperature: 0.3
+        max_tokens: 64000
 
 SHAREPOINT:
     +-- /Journey Templates/ (knowledge source)

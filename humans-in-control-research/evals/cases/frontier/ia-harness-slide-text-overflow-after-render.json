@@ -1,0 +1,22 @@
+{
+  "id": "ia-harness-slide-text-overflow-after-render",
+  "set": "frontier",
+  "kind": "harness",
+  "input": {
+    "objective": "Guard against a failure pattern seen in open-source analogs (IA plan 3.5).",
+    "prompt": "Presenton estimates text fit from character counts and never measures."
+  },
+  "expected": {
+    "behavior": "Each exported slide is measured after rendering; a text box that overflows its slot fails the export check.",
+    "trajectory": {
+      "no_fail_open": true,
+      "max_failed_steps": 0
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 failure regression set",
+    "added": "2026-11-11",
+    "note": "Needs a fixture that reproduces the failure (Phase 5 verification); recorded now so it cannot be forgotten."
+  }
+}

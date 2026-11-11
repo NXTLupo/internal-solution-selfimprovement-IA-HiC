@@ -437,6 +437,56 @@ export const generateObjectsFromImage = async (image: ImageData, hint: string): 
 };
 
 // --- Video Generation Services ---
+//
+// Veo is not served on this account: every Veo id, including the veo-3.1-fast-generate-preview
+// this file used to call, returns "model not found" (checked 2026-11-10). The video seat is
+// Gemini Omni 1.2 Flash (owner decision, 2026-11-10). It is not a generateVideos model: it is
+// called through the Interactions API (POST /v1beta/interactions) and returns the finished MP4,
+// with native audio, inline in the same response, so there is no long-running operation to poll.
+// The installed @google/genai (1.19) has no interactions surface, so this is a REST fetch.
+
+export const VIDEO_MODEL = 'gemini-omni-1.2-flash';
+const INTERACTIONS_URL = 'https://generativelanguage.googleapis.com/v1beta/interactions';
+const VIDEO_DEFAULT_SECONDS = 8;
+const VIDEO_MIN_SECONDS = 3;
+const VIDEO_MAX_SECONDS = 15;
+const VIDEO_MAX_SECONDS_WITH_END_FRAME = 10; // first-and-last-frame interpolation supports 3 to 10 s
+const VIDEO_MAX_IMAGES = 6; // reference images per request
+
+type InteractionImagePart = { type: 'image'; data: string; mime_type: string };
+
+const toInteractionImage = (image: ImageData): InteractionImagePart => ({
+  type: 'image',
+  data: image.base64,
+  mime_type: image.mimeType,
+});
+
+// Find the generated video in an Interactions response: steps[] -> model_output -> content[] -> video.
+const findInteractionVideo = (payload: any): { data?: string; uri?: string; mime_type?: string } | null => {
+  for (const step of payload?.steps ?? []) {
+    for (const part of step?.content ?? []) {
+      if (part?.type === 'video' && (part.data || part.uri)) return part;
+    }
+  }
+  return null;
+};
+
+const collectInteractionText = (payload: any): string =>
+  (payload?.steps ?? [])
+    .flatMap((step: any) => step?.content ?? [])
+    .filter((part: any) => part?.type === 'text' && typeof part.text === 'string')
+    .map((part: any) => part.text.trim())
+    .filter(Boolean)
+    .join(' ');
+
+// Character portraits go to the model as identity references, not as opening or closing frames.
+// Subject reference supports up to 2 characters per request.
+const VIDEO_MAX_REFERENCE_CHARACTERS = 2;
+const characterReferenceImages = (characters: Character[]): ImageData[] =>
+  characters
+    .map(c => c.imageData)
+    .filter((img): img is ImageData => !!img?.base64)
+    .slice(0, VIDEO_MAX_REFERENCE_CHARACTERS);
 
 export const generateVideoClip = async (
   prompt: string,
@@ -444,224 +494,124 @@ export const generateVideoClip = async (
   endFrame?: ImageData,
   config?: VideoGenerationConfig
 ): Promise<VideoData> => {
-  // ✅ ENHANCED: Validate resolution constraints per Veo 3 documentation
-  const requestedAspectRatio = config?.aspectRatio || '16:9';
-  const normalizedAspectRatio = mapVideoAspectRatio(requestedAspectRatio);
-  const defaultResolution = normalizedAspectRatio === '9:16' ? '720p' : '1080p';
-  const requestedResolution = config?.resolution || defaultResolution;
-  let normalizedResolution = mapVideoResolution(requestedResolution);
+  const aspectRatio = mapVideoAspectRatio(config?.aspectRatio || '16:9');
+  const resolution = mapVideoResolution(config?.resolution || '720p');
+  const interpolating = !!(startFrame && endFrame);
+  const maxSeconds = interpolating ? VIDEO_MAX_SECONDS_WITH_END_FRAME : VIDEO_MAX_SECONDS;
+  const durationSeconds = Math.min(
+    maxSeconds,
+    Math.max(VIDEO_MIN_SECONDS, Math.round(config?.durationSeconds ?? VIDEO_DEFAULT_SECONDS))
+  );
 
-  if (normalizedAspectRatio === '9:16' && normalizedResolution === '1080p') {
-    console.warn('⚠️ Veo 3: 9:16 aspect ratio only supports 720p resolution. Adjusting to 720p.');
-    normalizedResolution = '720p';
+  // Input images. The model reads each image's role from the prompt, so the prompt names them.
+  // Interpolation takes exactly two frames, so character references are only sent without an end frame.
+  const frames = [startFrame, endFrame].filter((f): f is ImageData => !!f?.base64);
+  const requestedReferences = (config?.referenceImages ?? []).filter((img): img is ImageData => !!img?.base64);
+  const references = interpolating ? [] : requestedReferences.slice(0, VIDEO_MAX_IMAGES - frames.length);
+  if (references.length < requestedReferences.length) {
+    console.warn(`[video] sending ${references.length} of ${requestedReferences.length} reference images (limit ${VIDEO_MAX_IMAGES} images; none with an end frame)`);
   }
 
-  // Build simple, clear prompt
-  let enhancedPrompt = `Create a cinematic 8-second video. ${prompt}. Professional quality, smooth motion, ${normalizedAspectRatio} format.`;
+  const roleNotes: string[] = [];
+  let imageCount = 0;
+  if (startFrame?.base64) roleNotes.push(`Image ${++imageCount} is the opening frame of the video.`);
+  if (endFrame?.base64) roleNotes.push(`Image ${++imageCount} is the closing frame of the video.`);
+  if (references.length === 1) {
+    roleNotes.push(`Image ${++imageCount} is a character reference: keep that character's face, hair, build and clothing identical to it.`);
+  } else if (references.length > 1) {
+    const first = imageCount + 1;
+    imageCount += references.length;
+    roleNotes.push(`Images ${first} to ${imageCount} are character references: keep each character's face, hair, build and clothing identical to their reference.`);
+  }
 
+  let text = `Create a cinematic ${durationSeconds}-second video. ${prompt}. Professional quality, smooth motion, ${aspectRatio} format.`;
+  if (config?.negativePrompt) text += ` Avoid: ${config.negativePrompt}.`;
+  if (roleNotes.length) text += ` ${roleNotes.join(' ')}`;
+
+  const imageParts = [...frames, ...references].map(toInteractionImage);
+  const task = startFrame && !endFrame && references.length === 0
+    ? 'image_to_video'
+    : !startFrame && !endFrame && references.length > 0
+      ? 'reference_to_video'
+      : undefined;
+
+  const body: Record<string, unknown> = {
+    model: VIDEO_MODEL,
+    input: imageParts.length ? [...imageParts, { type: 'text', text }] : text,
+    response_format: {
+      type: 'video',
+      aspect_ratio: aspectRatio,
+      resolution,
+      duration: `${durationSeconds}s`,
+    },
+    // Synchronous unary generation; store=false keeps the clip out of server-side history.
+    background: false,
+    store: false,
+  };
+  if (task) body.generation_config = { video_config: { task } };
+
+  console.log('[video] generating with', VIDEO_MODEL, {
+    aspectRatio,
+    resolution,
+    durationSeconds,
+    frames: frames.length,
+    references: references.length,
+    task: task ?? 'inferred from prompt',
+  });
+
+  let response: Response;
   try {
-    console.log('🎬 Starting video generation with Veo 3.1 API');
-    console.log('📝 Enhanced prompt:', enhancedPrompt);
-    console.log('⚙️ Video config:', {
-      aspectRatio: normalizedAspectRatio,
-      resolution: normalizedResolution,
-      hasStartFrame: !!startFrame,
-      hasEndFrame: !!endFrame
+    response = await fetch(INTERACTIONS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': getApiKey() },
+      body: JSON.stringify(body),
     });
-
-    // Initialize the client with the API key
-    const apiKey = getApiKey();
-    const genAI = new GoogleGenAI({ apiKey });
-
-    // Build the request according to Veo API documentation
-    const videoRequest: any = {
-      model: 'veo-3.1-fast-generate-preview', // Use the fast model for quicker generation
-      prompt: enhancedPrompt,
-      config: {
-        numberOfVideos: 1,
-        resolution: normalizedResolution,
-        aspectRatio: normalizedAspectRatio
-      }
-    };
-
-    // Add image if provided (for image-to-video generation)
-    if (startFrame) {
-      videoRequest.image = {
-        imageBytes: startFrame.base64,
-        mimeType: startFrame.mimeType
-      };
-      console.log('🖼️ Using image-to-video generation');
-
-      // If we have an end frame, add it to config
-      if (endFrame) {
-        videoRequest.config.lastFrame = {
-          imageBytes: endFrame.base64,
-          mimeType: endFrame.mimeType
-        };
-        console.log('🖼️ Using start and end frame generation');
-      }
-    } else {
-      console.log('📝 Using text-to-video generation');
-    }
-
-    console.log('🌐 Using Veo 3.1 generateVideos API');
-
-    // Call generateVideos and immediately poll for completion
-    // This follows the exact pattern from the Veo API documentation
-    let operation = await genAI.models.generateVideos(videoRequest);
-
-    console.log('🎬 Initial operation received:', {
-      name: operation?.name,
-      done: operation?.done
-    });
-
-    // Poll for completion EXACTLY as shown in the Veo API documentation
-    // We keep the operation object and update it in place
-    while (!operation.done) {
-      await new Promise(resolve => setTimeout(resolve, 5000)); // Poll every 5 seconds
-      const timestamp = new Date().toLocaleTimeString();
-      console.log(`[${timestamp}] Polling operation ${operation.name}...`);
-
-      // Pass the SAME operation object back to getVideosOperation
-      operation = await genAI.operations.getVideosOperation({ operation: operation });
-      console.log(`[${timestamp}] Poll result: done=${operation.done}`);
-    }
-
-    // Operation is complete - extract the video URL
-    const timestamp = new Date().toLocaleTimeString();
-    if (operation.response) {
-      // Check for safety filter issues
-      if (operation.response.raiMediaFilteredCount > 0 || operation.response.raiMediaFilteredReasons) {
-        const filterReason = operation.response.raiMediaFilteredReasons?.[0] || 'Content filtered';
-        console.error(`[${timestamp}] ⚠️ Video blocked by safety filters:`, filterReason);
-        return {
-          status: 'failed',
-          mimeType: 'video/mp4',
-          error: `Safety Filter: ${filterReason}`
-        };
-      }
-
-      // Get the video URL as shown in documentation
-      const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
-      if (downloadLink) {
-        const videoUrlWithKey = `${downloadLink}&key=${apiKey}`;
-        console.log(`[${timestamp}] ✅ Video generated successfully!`);
-        return {
-          url: videoUrlWithKey,
-          status: 'completed',
-          mimeType: 'video/mp4'
-        };
-      }
-    }
-
-    console.error(`[${timestamp}] ❌ No video found in completed operation`);
-    return {
-      status: 'failed',
-      mimeType: 'video/mp4',
-      error: 'No video generated'
-    };
   } catch (error) {
-    console.error('Video generation error:', error);
-    throw new Error(`Video generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    throw new Error(`Video generation with ${VIDEO_MODEL} could not reach the Gemini API: ${error instanceof Error ? error.message : String(error)}`);
   }
+
+  const payload: any = await response.json().catch(() => null);
+  if (!response.ok) {
+    const apiStatus = payload?.error?.status ? ` ${payload.error.status}` : '';
+    const apiMessage = payload?.error?.message || response.statusText || 'no error message returned';
+    throw new Error(`Video generation with ${VIDEO_MODEL} failed (HTTP ${response.status}${apiStatus}): ${apiMessage}`);
+  }
+
+  const video = findInteractionVideo(payload);
+  if (video?.data) {
+    const mimeType = video.mime_type || 'video/mp4';
+    console.log(`[video] ${VIDEO_MODEL} returned ${mimeType}, ${Math.round((video.data.length * 3) / 4 / 1024)} KB`);
+    return {
+      // A data URL keeps the clip playable after reload (clips persist in IndexedDB) and never
+      // puts the API key in a URL.
+      url: `data:${mimeType};base64,${video.data}`,
+      status: 'completed',
+      mimeType,
+    };
+  }
+
+  const modelText = collectInteractionText(payload);
+  const detail = video?.uri
+    ? 'it returned a file link instead of inline video'
+    : `interaction status: ${payload?.status ?? 'unknown'}`;
+  console.error(`[video] ${VIDEO_MODEL} returned no video (${detail})`, modelText);
+  return {
+    status: 'failed',
+    mimeType: 'video/mp4',
+    error: `${VIDEO_MODEL} returned no video (${detail})${modelText ? `: ${modelText}` : ''}`,
+  };
 };
 
+// Clips created before the switch hold a serialized Veo long-running operation. Veo is not served
+// on this account, so those operations cannot be resumed; Gemini Omni never needs polling.
 export const pollVideoOperation = async (operationId: string): Promise<VideoData> => {
-  const timestamp = new Date().toLocaleTimeString();
-
-  try {
-    // Deserialize the operation object
-    const operation = JSON.parse(operationId);
-    console.log(`[${timestamp}] 🎬 Polling video operation:`, operation.name || 'unknown');
-
-    // Initialize the client with the API key
-    const apiKey = getApiKey();
-    const genAI = new GoogleGenAI({ apiKey });
-
-    // According to the Veo API documentation, pass the operation object directly
-    const operationData = await genAI.operations.getVideosOperation({ operation });
-    console.log(`[${timestamp}] 📊 Operation response:`, {
-      done: operationData.done,
-      hasError: !!operationData.error,
-      hasResponse: !!operationData.response
-    });
-
-    if (operationData.done) {
-      console.log(`[${timestamp}] ✅ Video generation completed for operation: ${operationId}`);
-
-      if (operationData.error) {
-        console.error(`[${timestamp}] ❌ Video generation failed:`, operationData.error);
-        throw new Error(`Video generation failed: ${operationData.error.message}`);
-      }
-
-      // Extract the video data according to Veo API documentation
-      if (operationData.response) {
-        const response = operationData.response;
-        console.log(`[${timestamp}] 🎥 Video response found:`, JSON.stringify(response, null, 2));
-
-        // Check for safety filter issues
-        if (response.raiMediaFilteredCount > 0 || response.raiMediaFilteredReasons) {
-          const filterReason = response.raiMediaFilteredReasons?.[0] || 'Content filtered by safety system';
-          console.error(`[${timestamp}] ⚠️ Video generation blocked by safety filters:`, filterReason);
-
-          return {
-            fileUri: null,
-            url: null,
-            mimeType: 'video/mp4',
-            operationId,
-            status: 'failed',
-            error: `Safety Filter: ${filterReason}`
-          };
-        }
-
-        // According to documentation, response should have generatedVideos array
-        if (response.generatedVideos && response.generatedVideos.length > 0) {
-          const video = response.generatedVideos[0];
-          console.log(`[${timestamp}] 🎬 Video structure:`, JSON.stringify(video, null, 2));
-
-          // Extract video URI from the response
-          const rawVideoUrl = video?.video?.uri || video?.uri;
-
-          if (rawVideoUrl) {
-            // Append API key as per documentation
-            const videoUrlWithKey = `${rawVideoUrl}&key=${apiKey}`;
-            console.log(`[${timestamp}] 🎉 Video URL extracted:`, {
-              rawUrl: rawVideoUrl,
-              urlWithKey: 'URL with key prepared'
-            });
-
-            return {
-              fileUri: video?.video?.fileUri,
-              url: videoUrlWithKey,
-              mimeType: video?.video?.mimeType || 'video/mp4',
-              operationId,
-              status: 'completed'
-            };
-          }
-        }
-
-      }
-
-      console.error(`[${timestamp}] ❌ Operation completed but no video data found`);
-      throw new Error('No video data found in completed operation');
-    }
-
-    // Still generating
-    console.log(`[${timestamp}] ⏳ Video still generating for operation: ${operation.name}`);
-    return {
-      operationId, // Keep the serialized operation for next poll
-      status: 'generating',
-      mimeType: 'video/mp4'
-    };
-  } catch (error) {
-    const operationName = operationId.includes('{') ? JSON.parse(operationId)?.name : operationId;
-    console.error(`[${timestamp}] ❌ Video polling error for ${operationName}:`, error);
-    return {
-      operationId,
-      status: 'failed',
-      mimeType: 'video/mp4'
-    };
-  }
+  console.warn('[video] cannot poll a legacy Veo operation; Veo is no longer served on this account');
+  return {
+    operationId,
+    status: 'failed',
+    mimeType: 'video/mp4',
+    error: `This clip was started on Veo, which this account no longer serves. Generate it again: videos now come from ${VIDEO_MODEL} in a single request.`,
+  };
 };
 
 export const generateVideoFromScenes = async (
@@ -716,7 +666,8 @@ export const generateVideoFromScenes = async (
     console.error('Scene-to-video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -775,7 +726,8 @@ export const generateVideoFromSingleScene = async (
     console.error('Single scene video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1081,12 +1033,13 @@ export const generateAudioSyncVideo = async (
     // Generate video using existing function with audio-aware prompt
     const videoData = await generateVideoClip(
       enhancedPrompt,
-      characters[0]?.imageData,
+      undefined,
       undefined,
       {
         aspectRatio: '16:9',
         resolution: '1080p',
-        durationSeconds: 8
+        durationSeconds: 8,
+        referenceImages: characterReferenceImages(characters)
       }
     );
 
@@ -1098,7 +1051,8 @@ export const generateAudioSyncVideo = async (
     console.error('Audio sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1107,7 +1061,7 @@ export const generateAudioSyncVideo = async (
 
 /**
  * Generate a dialogue-synchronized video
- * This is a NEW function for Veo 3.1 dialogue features
+ * Dialogue (speech) comes from the video model's native audio
  */
 export const generateDialogueSyncVideo = async (
   characters: Character[],
@@ -1124,7 +1078,7 @@ export const generateDialogueSyncVideo = async (
 
   const characterName = characters[0]?.name || 'Character';
 
-  // Create dialogue-aware prompt with Veo 3.1 dialogue cues
+  // Create dialogue-aware prompt with dialogue cues
   const prompt = `
     Character ${characterName} speaking with natural lip-sync and facial expressions.
 
@@ -1156,13 +1110,14 @@ export const generateDialogueSyncVideo = async (
   try {
     const videoData = await generateVideoClip(
       prompt,
-      characters[0]?.imageData,
+      undefined,
       undefined,
       {
         aspectRatio: '16:9',
         resolution: '1080p',
         durationSeconds: 8,
-        // Note: When Veo 3.1 is available, we can add dialogue-specific parameters here
+        // Gemini Omni generates native audio, so the dialogue cue in the prompt drives the speech
+        referenceImages: characterReferenceImages(characters.slice(0, 1))
       }
     );
 
@@ -1174,7 +1129,8 @@ export const generateDialogueSyncVideo = async (
     console.error('Dialogue sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1240,12 +1196,13 @@ export const generateMusicSyncVideo = async (
   try {
     const videoData = await generateVideoClip(
       prompt,
-      characters[0]?.imageData,
-      characters.length > 1 ? characters[1]?.imageData : undefined,
+      undefined,
+      undefined,
       {
         aspectRatio: '16:9',
         resolution: '1080p',
-        durationSeconds: 8
+        durationSeconds: 8,
+        referenceImages: characterReferenceImages(characters)
       }
     );
 
@@ -1257,7 +1214,8 @@ export const generateMusicSyncVideo = async (
     console.error('Music sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1370,7 +1328,8 @@ export const generateAudioSyncVideoFromScene = async (
     console.error('Audio sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1445,7 +1404,8 @@ export const generateDialogueSyncVideoFromScene = async (
     console.error('Dialogue sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;
@@ -1525,7 +1485,8 @@ export const generateMusicSyncVideoFromScene = async (
     console.error('Music sync video generation error:', error);
     videoClip.videoData = {
       status: 'failed',
-      mimeType: 'video/mp4'
+      mimeType: 'video/mp4',
+      error: error instanceof Error ? error.message : String(error)
     };
     await addVideoClipToDB(videoClip);
     return videoClip;

@@ -1,6 +1,8 @@
 import os
 import anthropic
 
+from model_seats import reasoning_model
+
 """
 Python equivalent of the curl command for Claude 4.5:
 
@@ -9,7 +11,7 @@ curl https://api.anthropic.com/v1/messages \
     --header "anthropic-version: 2023-06-01" \
     --header "content-type: application/json" \
     --data '{
-   "model": "claude-opus-4-8",
+   "model": "<the routing authority's reasoning seat, e.g. claude-opus-5-5>",
    "max_tokens": 1024,
    "messages": [
        {"role": "user", "content": "Hello, world"}
@@ -26,7 +28,7 @@ client = anthropic.Anthropic(api_key=API_KEY)
 try:
     # Send request to Claude 4.5
     response = client.messages.create(
-        model="claude-opus-4-8",  # Claude 4.5 Opus model
+        model=reasoning_model(),  # Claude 4.5 Opus model
         max_tokens=1024,                   # Maximum tokens in response
         messages=[                         # Message content
             {"role": "user", "content": "Hello, world"}

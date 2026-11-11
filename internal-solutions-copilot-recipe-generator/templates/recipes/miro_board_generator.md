@@ -1321,7 +1321,7 @@ WHERE AM I?: Power Automate > Flow Editor > Create Miro Journey Board > Below Es
 2. Click in the Inputs field, then click the fx (Expression) tab. Paste:
 
 ```
-concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"temperature":0.1,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"Analyze the following journey map and extract structured phases:\\n\\n',outputs('Escape_Journey_Html'),'"}]}')
+concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"Analyze the following journey map and extract structured phases:\\n\\n',outputs('Escape_Journey_Html'),'"}]}')
 ```
 
 3. Click OK.

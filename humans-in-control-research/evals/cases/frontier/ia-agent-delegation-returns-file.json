@@ -1,0 +1,21 @@
+{
+  "id": "ia-agent-delegation-returns-file",
+  "set": "frontier",
+  "kind": "agent",
+  "input": {
+    "objective": "Act as the person's research partner across engagements (IA plan 6.1).",
+    "prompt": "Research the top five competitors and draft a comparison."
+  },
+  "expected": {
+    "behavior": "Specialists return a result file and a one-line summary; the person's memory is not passed to specialists; the comparison cites the file.",
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 personal-agent benchmark (from OpenClaw scenario pack, plan 3.5)",
+    "added": "2026-11-11",
+    "note": "Runs live once the Agent exists (Phase 1); fails by design until then."
+  }
+}

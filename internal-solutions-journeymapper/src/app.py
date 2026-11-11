@@ -17,6 +17,10 @@ import subprocess  # Import missing subprocess module
 import requests
 import pdfkit  # For server-side PDF generation
 
+# 2026-11-11 (IA plan Phase 0, section 6.10): model ids come from the routing authority's seats (model_seats.py at
+# the service root, next to claude_api_wrapper.py).
+from model_seats import fast_model, reasoning_model, reasoning_source, resolve_requested, structured_model
+
 # Import wkhtmltopdf configuration
 try:
     from wkhtmltopdf_config import wkhtmltopdf_config
@@ -44,7 +48,7 @@ if not os.environ.get("ANTHROPIC_API_KEY"):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-8",
+                "model": fast_model(),
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -98,7 +102,7 @@ try:
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-8",
+                "model": fast_model(),
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -127,8 +131,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 2026-06-03 — standalone Journey Mapper default upgraded to Opus 4.8 (1M context).
-DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-8")
+# The production model: ANTHROPIC_MODEL when set (kept current), else the routing authority's reasoning seat.
+DEFAULT_ANTHROPIC_MODEL = reasoning_model()
+log.info("Journey Mapper production model: %s (%s)", DEFAULT_ANTHROPIC_MODEL, reasoning_source())
 
 data_processor = DataProcessor()
 
@@ -136,15 +141,13 @@ def get_available_models() -> List[str]:
     """
     Return a list of available Claude models
     """
-    # 2026-06-03 — current, non-deprecated models only. Removed the retired
-    # claude-3-7-* family (sonnet/haiku/opus 3.7 officially retired) and the
-    # superseded 4.5 line. Opus 4.8 + Sonnet 4.6 share a 1M-token context;
-    # Sonnet 4.6 is the faster/cheaper alternative, Haiku 4.5 the lightweight.
-    return [
-        "claude-opus-4-8",
-        "claude-sonnet-4-6",
-        "claude-haiku-4-5-20251001",
-    ]
+    # 2026-11-11 (IA plan Phase 0): the routing authority's Claude seats, in order: reasoning (the default),
+    # structured, fast. No model id is written here.
+    models = []
+    for model in (reasoning_model(), structured_model(), fast_model()):
+        if model not in models:
+            models.append(model)
+    return models
 
 @app.get("/dev-sw.js")
 @app.get("/sw.js")
@@ -457,7 +460,7 @@ async def get_models():
     Return the list of Anthropic-based models for the frontend to display.
     """
     models = get_available_models()
-    return {"models": models, "default": DEFAULT_ANTHROPIC_MODEL}
+    return {"models": models, "default": reasoning_model()}
 
 @app.get("/api/check-key")
 async def check_api_key():
@@ -477,7 +480,7 @@ async def check_api_key():
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-opus-4-8",
+                "model": fast_model(),
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -541,7 +544,8 @@ async def analyze_files(
     log.info(f"Received {len(files)} files for analysis")
     journey_id = str(uuid.uuid4())
     
-    model_to_use = llm_model if llm_model else DEFAULT_ANTHROPIC_MODEL
+    # A requested id is kept current (sunset -> successor, retired generation -> the seat); none means the seat.
+    model_to_use = resolve_requested(llm_model)
     log.info(f"Using model: {model_to_use}")
     
     # Import vector store if available

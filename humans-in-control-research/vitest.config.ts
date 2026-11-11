@@ -8,7 +8,8 @@ export default defineConfig({
         environment: 'jsdom',
         globals: true,
         setupFiles: ['./design-desk/__fixtures__/vitest.setup.ts'],
-        include: ['design-desk/**/*.test.{ts,tsx}', 'services/**/*.test.{ts,tsx}'],
+        // 2026-11-11 (IA plan Phase 0): components/ joins the unit run, starting with ArtifactLabelBar.
+        include: ['design-desk/**/*.test.{ts,tsx}', 'services/**/*.test.{ts,tsx}', 'components/**/*.test.{ts,tsx}'],
         /**
          * 2026-09-30 (plan Stage 0.6 / audit finding A10): the unit run executed
          * services/__e2e__/composer.e2e.test.ts against the LIVE proxy and made paid

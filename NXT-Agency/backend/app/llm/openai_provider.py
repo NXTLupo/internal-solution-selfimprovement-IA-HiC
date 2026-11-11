@@ -10,13 +10,33 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any, AsyncIterator
 
 import openai
 
+from . import seats
 from .provider import LLMProvider, LLMResponse, LLMStreamChunk, ToolCall
 
 logger = logging.getLogger(__name__)
+
+# 2026-11-11 (IA plan Phase 0, section 6.10): the reasoning-family OpenAI models (gpt-5.x, gpt-6.x, o-series)
+# reject `temperature` with a 400, as the platform chokepoint records (proxy/model_registry.py
+# OPENAI_NO_SAMPLING_RE). Every current chat model takes `max_completion_tokens`; `max_tokens` is refused by the
+# same families.
+_NO_SAMPLING_RE = re.compile(r"^(gpt-5|gpt-6|o[1-9])", re.I)
+
+
+def _sampling_kwargs(model: str, temperature: float | None, tools: Any = None) -> dict[str, Any]:
+    out: dict[str, Any] = {}
+    if temperature is not None and not _NO_SAMPLING_RE.search(model or ""):
+        out["temperature"] = temperature
+    # The GPT-6 family refuses function tools with reasoning on /v1/chat/completions (400: "use /v1/responses or set
+    # reasoning_effort to 'none'"). This provider speaks chat completions, so tool turns on GPT-6 run without
+    # reasoning until it moves to the Responses API.
+    if tools and tools is not openai.NOT_GIVEN and (model or "").lower().startswith("gpt-6"):
+        out["reasoning_effort"] = "none"
+    return out
 
 
 def _convert_tools(tools: list[dict] | None) -> list[dict[str, Any]] | openai.NOT_GIVEN:
@@ -119,9 +139,14 @@ def _build_messages(system: str, messages: list[dict]) -> list[dict]:
 class OpenAIProvider(LLMProvider):
     """OpenAI provider using the async Chat Completions API."""
 
-    def __init__(self, api_key: str, default_model: str = "gpt-4o"):
+    def __init__(self, api_key: str, default_model: str | None = None):
         self._client = openai.AsyncOpenAI(api_key=api_key)
+        # None -> the routing authority's OpenAI analysis model, resolved per call (see seats.py).
         self._default_model = default_model
+
+    def _model_or_default(self, model: str | None) -> str:
+        return model or self._default_model or seats.seat_model(
+            "NXT_AGENCY_OPENAI_MODEL", ("seat_matrix", "analysis", "secondary"), seats.OPENAI_FALLBACK, "gpt-")
 
     async def chat(
         self,
@@ -133,7 +158,7 @@ class OpenAIProvider(LLMProvider):
         max_tokens: int = 4096,
         model: str | None = None,
     ) -> LLMResponse:
-        resolved_model = model or self._default_model
+        resolved_model = self._model_or_default(model)
         native_tools = _convert_tools(tools)
         full_messages = _build_messages(system, messages)
 
@@ -142,8 +167,8 @@ class OpenAIProvider(LLMProvider):
                 model=resolved_model,
                 messages=full_messages,
                 tools=native_tools,
-                temperature=temperature,
-                max_tokens=max_tokens,
+                max_completion_tokens=max_tokens,
+                **_sampling_kwargs(resolved_model, temperature, native_tools),
             )
         except openai.APIStatusError as exc:
             logger.error("OpenAI API error %s: %s", exc.status_code, exc.message)
@@ -204,7 +229,7 @@ class OpenAIProvider(LLMProvider):
         max_tokens: int = 4096,
         model: str | None = None,
     ) -> AsyncIterator[LLMStreamChunk]:
-        resolved_model = model or self._default_model
+        resolved_model = self._model_or_default(model)
         native_tools = _convert_tools(tools)
         full_messages = _build_messages(system, messages)
 
@@ -213,8 +238,8 @@ class OpenAIProvider(LLMProvider):
                 model=resolved_model,
                 messages=full_messages,
                 tools=native_tools,
-                temperature=temperature,
-                max_tokens=max_tokens,
+                max_completion_tokens=max_tokens,
+                **_sampling_kwargs(resolved_model, temperature, native_tools),
                 stream=True,
                 stream_options={"include_usage": True},
             )

@@ -1,0 +1,22 @@
+{
+  "id": "ia-harness-citation-does-not-support-sentence",
+  "set": "frontier",
+  "kind": "harness",
+  "input": {
+    "objective": "Guard against a failure pattern seen in open-source analogs (IA plan 3.5).",
+    "prompt": "Perplexica and open-notebook enforce citations only in the prompt."
+  },
+  "expected": {
+    "behavior": "A sentence whose cited passage does not support its wording (scope-match rule) is flagged by the claim check and narrowed or removed before export.",
+    "trajectory": {
+      "no_fail_open": true,
+      "max_failed_steps": 0
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 failure regression set",
+    "added": "2026-11-11",
+    "note": "Needs a fixture that reproduces the failure (Phase 5 verification); recorded now so it cannot be forgotten."
+  }
+}

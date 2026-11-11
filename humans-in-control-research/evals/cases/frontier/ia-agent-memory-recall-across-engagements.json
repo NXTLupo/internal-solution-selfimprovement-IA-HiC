@@ -1,0 +1,21 @@
+{
+  "id": "ia-agent-memory-recall-across-engagements",
+  "set": "frontier",
+  "kind": "agent",
+  "input": {
+    "objective": "Act as the person's research partner across engagements (IA plan 6.1).",
+    "prompt": "Where did we land on the methodology appendix for executive search decks?"
+  },
+  "expected": {
+    "behavior": "The answer quotes the standing preference recorded 2026-10-31 with its source; nothing is invented if no memory exists.",
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 personal-agent benchmark (from OpenClaw scenario pack, plan 3.5)",
+    "added": "2026-11-11",
+    "note": "Runs live once the Agent exists (Phase 1); fails by design until then."
+  }
+}

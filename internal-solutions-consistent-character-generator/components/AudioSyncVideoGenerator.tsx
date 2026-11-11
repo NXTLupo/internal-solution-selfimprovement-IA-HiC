@@ -256,7 +256,7 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
     <div className="audio-sync-video-generator glass-panel">
       <div className="section-header">
         <span className="section-step-badge">🎵</span>
-        <h2 className="section-title">Audio-Driven Animation (Veo 3.1 Preview)</h2>
+        <h2 className="section-title">Audio-Driven Animation (Gemini Omni)</h2>
         <span className="text-xs bg-[#caca20] text-[#115054] font-bold uppercase px-2 py-1 rounded ml-2 tracking-wider">BETA</span>
       </div>
 

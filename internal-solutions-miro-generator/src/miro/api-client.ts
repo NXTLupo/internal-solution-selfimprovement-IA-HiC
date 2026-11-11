@@ -23,9 +23,9 @@ import {
   StickerShape,
   ConnectorShape,
   MiroItemType
-} from '@types/index';
-import { Logger } from '@utils/logger';
-import { MiroAPIError } from '@utils/errors';
+} from '../types/index';
+import { Logger } from '../utils/logger';
+import { MiroAPIError, ConfigurationError } from '../utils/errors';
 
 export class MiroAPIClient {
   private client: AxiosInstance;
@@ -34,6 +34,10 @@ export class MiroAPIClient {
   private rateLimiter: ReturnType<typeof pLimit>;
 
   constructor(config: MiroConfig) {
+    if (!config.accessToken) {
+      // Fail before any request: an empty bearer token can only produce a 401 after the retries run out.
+      throw new ConfigurationError('Miro access token is not configured. Set MIRO_ACCESS_TOKEN or run: miro-gen config --set-token <token>');
+    }
     this.config = config;
     this.logger = new Logger('MiroAPIClient');
     this.rateLimiter = pLimit(5); // Limit concurrent requests

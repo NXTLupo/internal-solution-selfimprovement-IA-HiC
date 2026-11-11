@@ -1,0 +1,22 @@
+{
+  "id": "ia-harness-failed-job-recorded-complete",
+  "set": "frontier",
+  "kind": "harness",
+  "input": {
+    "objective": "Guard against a failure pattern seen in open-source analogs (IA plan 3.5).",
+    "prompt": "open-notebook records some failed jobs as completed."
+  },
+  "expected": {
+    "behavior": "A job whose work failed has status failed in the job store and in the UI; completed means the output exists.",
+    "trajectory": {
+      "no_fail_open": true,
+      "max_failed_steps": 0
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 failure regression set",
+    "added": "2026-11-11",
+    "note": "Needs a fixture that reproduces the failure (Phase 5 verification); recorded now so it cannot be forgotten."
+  }
+}

@@ -620,7 +620,6 @@ json
 { 
   "model": "claude-sonnet-4-6", 
   "max_tokens": 8192, 
-  "temperature": 0.2, 
   "system": "@{triggerBody()?['text_1']}", 
   "messages": [ 
     { 

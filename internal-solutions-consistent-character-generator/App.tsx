@@ -808,7 +808,7 @@ const App: React.FC = () => {
                                   {clip.videoData.error.includes('Safety Filter') ? (
                                     <>
                                       <strong>⚠️ Content Safety Issue:</strong>
-                                      <p className="mt-1">The audio or prompt was blocked by Veo 3's safety filters.</p>
+                                      <p className="mt-1">The audio or prompt was blocked by the video model's safety filters.</p>
                                       <p className="text-xs mt-1">Try using different audio or modifying your prompt.</p>
                                     </>
                                   ) : (

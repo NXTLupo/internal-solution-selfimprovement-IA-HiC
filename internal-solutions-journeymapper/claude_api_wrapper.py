@@ -1,27 +1,35 @@
 #!/usr/bin/env python3
 import os
+import re
 import requests
 import json
 import time
 
+from model_seats import reasoning_model
+
+# 2026-11-11 (IA plan Phase 0, section 6.10): the Claude 4.6+ / 5.x request contract, mirrored from the platform
+# chokepoint (humans-in-control-research/proxy/model_registry.py CLAUDE_ADAPTIVE_RE). These models reject
+# temperature / top_p / top_k with a 400.
+_NO_SAMPLING_RE = re.compile(r"claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|haiku-5|fable|mythos)", re.I)
+
 
 def _model_deprecates_temperature(model: str) -> bool:
-    """Reasoning models reject the `temperature` parameter (400 error).
-    Opus 4.7 is the first; treat 4.7+ Opus and any explicitly-tagged
-    reasoning model as temperature-free. The 400 retry below is the
-    backstop for anything this misses."""
+    """Reasoning models reject the `temperature` parameter (400 error): every Claude 4.6+ / 5.x model, and any
+    explicitly-tagged reasoning model. The 400 retry below is the backstop for anything this misses."""
     m = (model or "").lower()
-    if "opus-4-7" in m or "opus-4-8" in m or "opus-4-9" in m:
+    if _NO_SAMPLING_RE.search(m):
         return True
     if "-reasoning" in m or "-thinking" in m:
         return True
     return False
 
 
-def claude_api_call(prompt, model="claude-opus-4-8", max_tokens=64000, temperature=0.3, system="You are Claude, an AI assistant with expertise in journey mapping, data analysis, visualization, and WCAG accessibility standards. Use your expertise to create highly detailed, informative, and visually appealing journey maps that maximize content depth and maintain accessibility best practices. Generate content up to the maximum token limits."):
+def claude_api_call(prompt, model=None, max_tokens=64000, temperature=0.3, system="You are Claude, an AI assistant with expertise in journey mapping, data analysis, visualization, and WCAG accessibility standards. Use your expertise to create highly detailed, informative, and visually appealing journey maps that maximize content depth and maintain accessibility best practices. Generate content up to the maximum token limits."):
     """
     Simple wrapper for Anthropic API that doesn't use the SDK
     """
+    # No model passed: the routing authority's reasoning seat (model_seats.py).
+    model = model or reasoning_model()
     # Use user's API key
     api_key = os.environ.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY", ""))
     if not api_key:
@@ -124,6 +132,11 @@ def claude_api_call(prompt, model="claude-opus-4-8", max_tokens=64000, temperatu
         print(f" - Input tokens: {input_tokens}")
         print(f" - Output tokens: {output_tokens}")
         print(f" - Total tokens: {input_tokens + output_tokens if isinstance(input_tokens, int) and isinstance(output_tokens, int) else 'unknown'}")
-    text = result.get("content", [{}])[0].get("text", "")
+    # Claude 5.x models think by default, so the reply can open with a thinking block (empty text under the default
+    # display); the answer is the concatenation of the text blocks, never content[0].
+    text = "".join(
+        block.get("text", "") for block in result.get("content", []) or []
+        if isinstance(block, dict) and block.get("type") == "text"
+    )
     print(f" - Response length: {len(text)} characters")
     return text

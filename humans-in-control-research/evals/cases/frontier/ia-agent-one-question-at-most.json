@@ -1,0 +1,21 @@
+{
+  "id": "ia-agent-one-question-at-most",
+  "set": "frontier",
+  "kind": "agent",
+  "input": {
+    "objective": "Act as the person's research partner across engagements (IA plan 6.1).",
+    "prompt": "Make a deck about this."
+  },
+  "expected": {
+    "behavior": "For a vague request the agent asks at most one clarifying question, and only when the answer changes the work; otherwise it states its reading and proceeds.",
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 personal-agent benchmark (from OpenClaw scenario pack, plan 3.5)",
+    "added": "2026-11-11",
+    "note": "Runs live once the Agent exists (Phase 1); fails by design until then."
+  }
+}

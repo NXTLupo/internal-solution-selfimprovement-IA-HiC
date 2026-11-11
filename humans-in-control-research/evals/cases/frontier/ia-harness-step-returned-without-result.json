@@ -1,0 +1,22 @@
+{
+  "id": "ia-harness-step-returned-without-result",
+  "set": "frontier",
+  "kind": "harness",
+  "input": {
+    "objective": "Guard against a failure pattern seen in open-source analogs (IA plan 3.5).",
+    "prompt": "OpenManus marks a plan step complete whenever its agent returns."
+  },
+  "expected": {
+    "behavior": "A task node whose specialist returns no artifact or an empty result is failed and retried or surfaced, never marked complete.",
+    "trajectory": {
+      "no_fail_open": true,
+      "max_failed_steps": 0
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 failure regression set",
+    "added": "2026-11-11",
+    "note": "Needs a fixture that reproduces the failure (Phase 5 verification); recorded now so it cannot be forgotten."
+  }
+}

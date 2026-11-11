@@ -2,7 +2,7 @@
  * Custom error classes for the Miro Generator application
  */
 
-import { AppError } from '@types/index';
+import { AppError } from '../types/index';
 
 export class ValidationError extends Error implements AppError {
   code: string;

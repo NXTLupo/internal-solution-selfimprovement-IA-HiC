@@ -92,7 +92,9 @@ async function callOpenAI(request: OpenAIRequest): Promise<OpenAIResponse> {
     // deliverable failed. Drop the temperature param for gpt-5.5 so the API uses
     // its only-supported default (the fallback can't be temperature-deterministic
     // on this model anyway; Gemini is the deterministic primary).
-    if (request.temperature !== undefined && (request.model || '').startsWith('gpt-5.5')) {
+    // 2026-11-11 (IA plan Phase 0 seat probe): the GPT-6 family rejects `temperature` outright. Mirrors
+    // proxy/model_registry.py OPENAI_NO_SAMPLING_RE, which strips it again at the proxy chokepoint.
+    if (request.temperature !== undefined && /^(gpt-5\.5|gpt-6|o[1-9])/i.test(request.model || '')) {
         delete (request as any).temperature;
     }
     const headers: Record<string, string> = {

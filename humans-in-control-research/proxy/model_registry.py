@@ -37,8 +37,27 @@ KNOWN_MODELS = {
     # is flagged with its successor (RunReceipt degradation), never silently served.
     "claude-opus-4-8":        {"provider": "anthropic", "status": "sunset", "successor": "claude-opus-5-5"},
     "claude-sonnet-4-6":      {"provider": "anthropic", "status": "active"},
-    "gemini-3.1-pro-preview": {"provider": "google",    "status": "active"},
-    "gemini-3.5-flash":       {"provider": "google",    "status": "active"},
+    # 2026-11-11 (IA plan Phase 0, owner seat matrix of 2026-11-10). Every id below was listed by the
+    # provider AND answered one request through this proxy's own route (scripts/probe-model-seats.py,
+    # plans/ia-phase0/model-seat-probe-2026-11-11.json). Seats in SEAT_MATRIX decide where they serve.
+    "claude-fable-5-2":       {"provider": "anthropic", "status": "active"},
+    "claude-haiku-5-5":       {"provider": "anthropic", "status": "active"},
+    "gpt-6-astra":            {"provider": "openai",    "status": "active"},
+    "gpt-6.1-terra":          {"provider": "openai",    "status": "active"},
+    "gpt-6-luna":             {"provider": "openai",    "status": "active"},
+    "gemini-4-carbon":        {"provider": "google",    "status": "active"},
+    "gemini-4-argon":         {"provider": "google",    "status": "active"},
+    # The image model the platform serves today was priced but never registered; the seat test found it.
+    "gemini-3.1-flash-image-preview": {"provider": "google", "status": "active", "successor_candidate": "gpt-image-2.6-flare"},
+    "gpt-image-2.6-flare":    {"provider": "openai",    "status": "active"},
+    "gemini-nano-banana-2.1": {"provider": "google",    "status": "active"},
+    "gemini-omni-1.2-flash":  {"provider": "google",    "status": "active"},
+    # OpenAI no longer lists Sora; a direct lookup reports shutdown_date 2026-09-24.
+    "sora-2":                 {"provider": "openai",    "status": "sunset", "successor": "gemini-omni-1.2-flash"},
+    "sora-2-pro":             {"provider": "openai",    "status": "sunset", "successor": "gemini-omni-1.2-flash"},
+    # successor_candidate is informational: the seat moves only after its bake-off (plan 6.10 step 4).
+    "gemini-3.1-pro-preview": {"provider": "google",    "status": "active", "successor_candidate": "gemini-4-carbon"},
+    "gemini-3.5-flash":       {"provider": "google",    "status": "active", "successor_candidate": "gpt-6-luna"},
     "gpt-5.5":                {"provider": "openai",    "status": "active"},
     "gpt-5.4":                {"provider": "openai",    "status": "active"},
     "gpt-5.4-mini":           {"provider": "openai",    "status": "active"},
@@ -67,6 +86,37 @@ CLAUDE_STRUCTURED_MODEL = "claude-sonnet-5-5"
 CHAT_MODEL = "gemini-3.5-flash"
 
 
+# ---------------------------------------------------------------------------
+# 2026-11-11 (IA plan Phase 0): the owner's seat matrix of 2026-11-10, as data. `serving` is what the
+# platform routes to TODAY for that kind of work; `primary` is the owner's target. A seat is
+# "seated" when primary == serving and the primary was probed through this proxy; otherwise it is
+# "held" with the reason, and the bake-off on the regression set (eval-run.mjs + applyModelMatrix)
+# moves it. Pinned to services/seatMatrix.ts by services/seatMatrix.test.ts. No Grok, by the owner.
+# ---------------------------------------------------------------------------
+SEAT_MATRIX = {
+    "deep_reasoning": {"primary": "claude-fable-5-2", "secondary": "gpt-6-astra", "serving": CLAUDE_REASONING_MODEL,
+                       "status": "held", "reason": "bake-off on the regression set before Fable 5.2 takes reasoning work from Opus 5.5"},
+    "research":       {"primary": "gemini-4-carbon", "secondary": "claude-opus-5-5", "serving": CLAUDE_REASONING_MODEL,
+                       "status": "held", "reason": "bake-off on the regression set; research has run on Opus 5.5 since the 2026-10-01 owner decision"},
+    "artifact":       {"primary": "claude-opus-5-5", "secondary": "claude-sonnet-5-5", "serving": CLAUDE_REASONING_MODEL,
+                       "status": "seated", "reason": ""},
+    "orchestration":  {"primary": "claude-opus-5-5", "secondary": "gemini-4-carbon", "serving": CLAUDE_REASONING_MODEL,
+                       "status": "seated", "reason": ""},
+    "search":         {"primary": "gemini-4-argon", "secondary": None, "serving": "gemini-3.5-flash",
+                       "status": "held", "reason": "search grounding not yet exercised on gemini-4-argon; the probe covered plain generation only"},
+    "analysis":       {"primary": "claude-sonnet-5-5", "secondary": "gpt-6.1-terra", "serving": "gemini-3.5-flash",
+                       "status": "held", "reason": "the 2026-10-01 theme-breadth bake-off scored gemini-3.5-flash 0.957 against Sonnet 5.5 at 0.861; re-run before moving"},
+    "fast":           {"primary": "gpt-6-luna", "secondary": "claude-haiku-5-5", "serving": CHAT_MODEL,
+                       "status": "held", "reason": "bake-off on chat latency and quality before plain chat leaves gemini-3.5-flash"},
+    "image":          {"primary": "gpt-image-2.6-flare", "secondary": "gemini-nano-banana-2.1", "serving": "gemini-3.1-flash-image-preview",
+                       "status": "held", "reason": "owner-approved; the proxy image routes speak the Gemini image API only, so the OpenAI image path lands with the Media Producer"},
+    "video":          {"primary": "gemini-omni-1.2-flash", "secondary": None, "serving": "gemini-omni-1.2-flash",
+                       "status": "seated", "reason": "OpenAI Sora is shut down (2026-09-24); Gemini Omni generated a verified 3 s clip on 2026-11-11"},
+    "verifier":       {"primary": "a different vendor from the author", "secondary": "a second vendor, pooled", "serving": None,
+                       "status": "constraint", "reason": "a rule on authorship, not a model id"},
+}
+
+
 def routing_seats() -> dict:
     """The routing authority's seats, served at /api/models so no service hard-codes a model id. The platform agent
     answers plain chat on the chat seat and synthesizes a tool chain on the reasoning seat (owner decision 4)."""
@@ -80,7 +130,9 @@ def routing_seats() -> dict:
 
 import re as _re
 # Models that reject temperature/top_p/top_k and thinking budgets (adaptive thinking only).
-CLAUDE_ADAPTIVE_RE = _re.compile(r"claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|fable|mythos)", _re.I)
+# 2026-11-11 (IA plan Phase 0, seat probe): Haiku 5.5 joins the family; it 400s on `temperature`
+# ("temperature is deprecated for this model") exactly like the rest of the 5.x generation.
+CLAUDE_ADAPTIVE_RE = _re.compile(r"claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|haiku-5|fable|mythos)", _re.I)
 # Models on which thinking cannot be disabled at all (5.5 generation + Fable/Mythos).
 CLAUDE_ALWAYS_THINKING_RE = _re.compile(r"claude-(opus-5-5|sonnet-5-5|fable|mythos)", _re.I)
 # Models that accept server-side `fallbacks: "default"` (Opus 5 generation + Fable).
@@ -137,6 +189,23 @@ def normalize_claude_body(body, default_effort=None):
         body["tool_choice"] = {"type": "auto"}
     elif isinstance(tc, str) and tc in ("any", "required"):
         body["tool_choice"] = {"type": "auto"}
+    return body
+
+
+# 2026-11-11 (IA plan Phase 0, seat probe through /api/ai/openai): the GPT-6 family (gpt-6-astra,
+# gpt-6.1-terra, gpt-6-luna) rejects `temperature` with a 400 ("Unsupported parameter"), as gpt-5.5
+# already did for any value other than 1. One chokepoint strips the sampling knobs for these families
+# so no caller (SPA, platform agent, scripts) can send a body the provider refuses.
+OPENAI_NO_SAMPLING_RE = _re.compile(r"^(gpt-5\.5|gpt-6|o[1-9])", _re.I)
+
+
+def normalize_openai_body(body):
+    """Strip sampling parameters the reasoning-family OpenAI models reject. Idempotent; in place."""
+    if not isinstance(body, dict):
+        return body
+    if OPENAI_NO_SAMPLING_RE.search(str(body.get("model") or "").strip()):
+        for k in ("temperature", "top_p", "top_logprobs", "presence_penalty", "frequency_penalty"):
+            body.pop(k, None)
     return body
 
 
@@ -199,6 +268,9 @@ def assert_startup(default_models):
 # services/costMeter.ts PRICING. Keep both in lockstep.
 # ---------------------------------------------------------------------------
 PRICES = {
+    # 2026-11-11: no list price is recorded here for the Phase 0 seat-matrix models (Fable 5.2, Haiku 5.5,
+    # GPT-6, Gemini 4, gpt-image-2.6, Gemini Omni). They meter at _DEFAULT_PRICE until a published price is
+    # entered, which overstates the small models; the cost meter must not be read as exact for them.
     "claude-opus-5-5":        (4.00, 20.0, 0.05),
     "claude-sonnet-5-5":      (2.00, 10.0, 0.10),
     "claude-opus-4-8":        (5.00, 25.0, 0.10),

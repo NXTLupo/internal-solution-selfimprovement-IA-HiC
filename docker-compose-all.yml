@@ -189,13 +189,15 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - PORT=8000
-      # 2026-06-03 — standalone Journey Mapper upgraded to Opus 4.8 (1M context).
-      # Opus 4.8 rejects sampling params; claude_api_wrapper strips temperature
-      # for opus-4-8 (see _model_deprecates_temperature) so calls don't 400.
-      - ANTHROPIC_MODEL=claude-opus-4-8
+      # 2026-11-11 (IA plan Phase 0, section 6.10): no model pin. model_seats.py reads the routing authority's
+      # reasoning seat from the research proxy's /api/models (token from the .runtime mount below); set
+      # ANTHROPIC_MODEL here only to pin a model on purpose. claude_api_wrapper drops temperature for Claude 4.6+/5.x.
+      - HIC_PROXY_URL=http://research-proxy:5012
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
     volumes:
       - ./internal-solutions-journeymapper/static:/app/static
       - ./internal-solutions-journeymapper/journey_maps:/app/journey_maps
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
     networks:
       - nxt-humans-network
 
@@ -272,8 +274,12 @@ services:
       - POSTGRES_PORT=5432
       - DATABASE_URL=postgresql://postgres:postgres@social-research-db:5432/app
       - FLASK_DEBUG=true
+      # 2026-11-11 (IA plan Phase 0): model ids come from the routing authority's seats at /api/models.
+      - HIC_PROXY_URL=http://research-proxy:5012
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
     volumes:
       - ./internal-solutions-socialresearch/backend:/app
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
     # Use the image's default WORKDIR and CMD (startup.py + gunicorn)
     # working_dir and command intentionally omitted to rely on Dockerfile
     networks:
@@ -376,8 +382,15 @@ services:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=5013
+      # 2026-11-11 (IA plan Phase 0): model ids come from the routing authority's seats
+      # (/api/models), never from constants that go stale and leak into recipes.
+      - HIC_PROXY_URL=http://research-proxy:5012
+      - PROXY_AUTH_TOKEN=${PROXY_AUTH_TOKEN:-}
     volumes:
       - ./internal-solutions-copilot-recipe-generator:/app
+      - ./humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+    depends_on:
+      - research-proxy
     working_dir: /app
     command: >-
       bash -c "pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 5013"

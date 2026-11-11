@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 from typing import List
@@ -24,6 +25,7 @@ from app.agents.registry import AgentRegistry
 from app.agents.engine import AgentEngine
 from app.agents.routes import router as agents_router, configure_routes
 from app.llm import ModelRouter
+from app.llm.router import seat_summary
 from app.tools import ToolRegistry
 from app.tools.web_search import WebSearchTool, ExtractUrlContentTool
 from app.tools.file_ops import ReadFileTool, WriteFileTool, ListDirectoryTool
@@ -107,8 +109,13 @@ async def on_startup():
         configs_dir=configs_dir,
     )
 
-    # Model router (reads API keys from environment)
+    # Model router (reads API keys from environment). Model ids come from the routing authority's seats
+    # (research proxy /api/models); log what each key resolves to at boot.
     model_router = ModelRouter()
+    try:
+        logger.info("Model seats: %s", await asyncio.to_thread(seat_summary))
+    except Exception as e:  # pylint: disable=broad-except
+        logger.warning("Model seats could not be resolved at startup: %s", e)
 
     # Tool registry -- register all built-in tools
     tool_registry = ToolRegistry()
@@ -207,10 +214,15 @@ logger.info("Launchpad compatibility routes mounted (/api/chat/*, /ws/*)")
 # Health check — includes CX Agent compatible fields
 @app.get("/health")
 async def health_check():
+    try:
+        models = await asyncio.to_thread(seat_summary)
+    except Exception:  # pylint: disable=broad-except
+        models = {}
     return {
         "status": "healthy",
         "service": "nxt-agency-backend",
         "model": "multi-model",
+        "models": models,
         "tools_cached": 0,
         "available_tools": [],
         "active_conversations": 0,

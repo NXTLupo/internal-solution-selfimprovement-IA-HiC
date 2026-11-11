@@ -2547,7 +2547,7 @@ replace(replace(replace(replace(string(outputs('Chunk_User_Prompt')),'\','\\'),'
 15. Click the Expression tab (fx) and paste:
 
 ```
-concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"temperature":0.2,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"',outputs('Escape_Chunk_Prompt'),'"}]}')
+concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"system":"',outputs('Escape_System_Prompt'),'","messages":[{"role":"user","content":"',outputs('Escape_Chunk_Prompt'),'"}]}')
 ```
 
 16. Click OK. Rename to: Build_Claude_Body
@@ -2667,7 +2667,7 @@ WHERE AM I?: Power Automate > Flow Editor > Run Topic Modeling
 2. Click the Expression tab (fx) and paste:
 
 ```
-concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"temperature":0.2,"system":"',outputs('Escape_Consolidation_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Consolidation_User'),'"}]}')
+concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"system":"',outputs('Escape_Consolidation_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Consolidation_User'),'"}]}')
 ```
 
 3. Click OK. Rename to: Build_Consolidation_Body
@@ -3238,7 +3238,7 @@ replace(replace(replace(replace(string(outputs('Sentiment_User_Prompt')),'\','\\
 1. Add Compose. Expression:
 
 ```
-concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"temperature":0.2,"system":"',outputs('Escape_Sentiment_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Sentiment_User'),'"}]}')
+concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"system":"',outputs('Escape_Sentiment_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Sentiment_User'),'"}]}')
 ```
 
 2. Rename to: Build_Sentiment_Body
@@ -3504,12 +3504,12 @@ replace(replace(replace(replace(outputs('Search_User_Prompt'),'\','\\'),'"','\"'
 1. Add Compose. Expression:
 
 ```
-concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"temperature":0.1,"system":"',outputs('Escape_Search_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Search_User'),'"}]}')
+concat('{"model":"claude-sonnet-4-6","max_tokens":8000,"system":"',outputs('Escape_Search_System'),'","messages":[{"role":"user","content":"',outputs('Escape_Search_User'),'"}]}')
 ```
 
 2. Rename to: Build_Search_Body
 
-> **BEGINNER TIP**: We use temperature 0.1 (lower than the 0.2 used for topic modeling) because search ranking should be as deterministic as possible.
+> **BEGINNER TIP**: Do not add a temperature setting to this body: current Claude models reject temperature, top_p and top_k with an HTTP 400 error. The ranking rules in the system prompt keep the results consistent.
 
 ## Step 17.11: Action 9 -- HTTP POST to Claude
 

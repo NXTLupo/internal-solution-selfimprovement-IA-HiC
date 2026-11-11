@@ -10,14 +10,36 @@ from __future__ import annotations
 
 import base64
 import logging
+import uuid
+from collections import OrderedDict
 from typing import Any, AsyncIterator
 
 from google import genai
 from google.genai import types
 
+from . import seats
 from .provider import LLMProvider, LLMResponse, LLMStreamChunk, ToolCall
 
 logger = logging.getLogger(__name__)
+
+# 2026-11-11 (IA plan Phase 0, section 6.10): Gemini 3.x and 4 reject a replayed function-call turn that lacks the
+# thought_signature its response carried (400 "Function call is missing a thought_signature in functionCall
+# parts"). The engine's history keeps only a tool_use block's id, name and input, so the provider remembers each
+# call's signature under a call id that is unique across turns, and puts it back when the history is replayed.
+_SIGNATURES: "OrderedDict[str, bytes]" = OrderedDict()
+_SIGNATURE_CAP = 4096
+
+
+def _new_call_id() -> str:
+    return f"gemini_call_{uuid.uuid4().hex[:16]}"
+
+
+def _remember_signature(call_id: str, part: Any) -> None:
+    sig = getattr(part, "thought_signature", None)
+    if sig:
+        _SIGNATURES[call_id] = sig
+        while len(_SIGNATURES) > _SIGNATURE_CAP:
+            _SIGNATURES.popitem(last=False)
 
 
 def _convert_tools(tools: list[dict] | None) -> list[types.Tool] | None:
@@ -40,9 +62,8 @@ def _extract_response(response: Any) -> tuple[str, list[ToolCall]]:
     """Parse text and function calls from a Gemini response."""
     text_parts: list[str] = []
     tool_calls: list[ToolCall] = []
-    call_counter = 0
 
-    for candidate in response.candidates:
+    for candidate in response.candidates or []:
         if not candidate.content or not candidate.content.parts:
             continue
         for part in candidate.content.parts:
@@ -51,14 +72,15 @@ def _extract_response(response: Any) -> tuple[str, list[ToolCall]]:
             if part.function_call is not None:
                 fc = part.function_call
                 args = dict(fc.args) if fc.args else {}
+                call_id = _new_call_id()
+                _remember_signature(call_id, part)
                 tool_calls.append(
                     ToolCall(
-                        id=f"gemini_call_{call_counter}",
+                        id=call_id,
                         name=fc.name,
                         arguments=args,
                     )
                 )
-                call_counter += 1
 
     return "\n".join(text_parts), tool_calls
 
@@ -66,9 +88,14 @@ def _extract_response(response: Any) -> tuple[str, list[ToolCall]]:
 class GeminiProvider(LLMProvider):
     """Google Gemini provider using the google-genai SDK."""
 
-    def __init__(self, api_key: str, default_model: str = "gemini-2.5-flash-preview-05-20"):
+    def __init__(self, api_key: str, default_model: str | None = None):
         self._client = genai.Client(api_key=api_key)
+        # None -> the routing authority's chat seat, resolved per call (see seats.py).
         self._default_model = default_model
+
+    def _model_or_default(self, model: str | None) -> str:
+        return model or self._default_model or seats.seat_model(
+            "NXT_AGENCY_GEMINI_CHAT_MODEL", ("seats", "chat"), seats.GEMINI_CHAT_FALLBACK, "gemini-")
 
     async def chat(
         self,
@@ -80,7 +107,7 @@ class GeminiProvider(LLMProvider):
         max_tokens: int = 4096,
         model: str | None = None,
     ) -> LLMResponse:
-        resolved_model = model or self._default_model
+        resolved_model = self._model_or_default(model)
         native_tools = _convert_tools(tools)
 
         # Build Gemini content list from messages.
@@ -144,7 +171,7 @@ class GeminiProvider(LLMProvider):
         max_tokens: int = 4096,
         model: str | None = None,
     ) -> AsyncIterator[LLMStreamChunk]:
-        resolved_model = model or self._default_model
+        resolved_model = self._model_or_default(model)
         native_tools = _convert_tools(tools)
         contents = _build_contents(messages)
 
@@ -165,7 +192,6 @@ class GeminiProvider(LLMProvider):
             logger.error("Gemini stream error: %s", exc)
             raise
 
-        call_counter = 0
         total_input = 0
         total_output = 0
 
@@ -188,12 +214,13 @@ class GeminiProvider(LLMProvider):
                     if part.function_call is not None:
                         fc = part.function_call
                         args = dict(fc.args) if fc.args else {}
+                        call_id = _new_call_id()
+                        _remember_signature(call_id, part)
                         tc = ToolCall(
-                            id=f"gemini_call_{call_counter}",
+                            id=call_id,
                             name=fc.name,
                             arguments=args,
                         )
-                        call_counter += 1
                         yield LLMStreamChunk(type="tool_call_start", tool_call=tc)
                         # Gemini delivers complete function calls per chunk (no partial JSON),
                         # so we immediately emit the finished call as well.
@@ -219,6 +246,15 @@ def _build_contents(messages: list[dict]) -> list[types.Content]:
         -> types.Part(inline_data=types.Blob(mime_type=..., data=...))
     """
     contents: list[types.Content] = []
+    # tool_use id -> function name, so a tool_result answers the function by name (Gemini matches on name).
+    call_names: dict[str, str] = {}
+    for msg in messages:
+        blocks = msg.get("content")
+        if isinstance(blocks, list):
+            for block in blocks:
+                if isinstance(block, dict) and block.get("type") == "tool_use" and block.get("id"):
+                    call_names[block["id"]] = block.get("name", "unknown")
+
     for msg in messages:
         role = msg.get("role", "user")
 
@@ -281,24 +317,27 @@ def _build_contents(messages: list[dict]) -> list[types.Content]:
                             )
                         )
                     elif block_type == "tool_result":
+                        call_id = block.get("tool_use_id", "")
                         parts.append(
                             types.Part(
                                 function_response=types.FunctionResponse(
-                                    name=block.get("tool_use_id", "unknown"),
+                                    name=call_names.get(call_id, call_id or "unknown"),
                                     response={"result": block.get("content", "")},
                                 )
                             )
                         )
                     elif block_type == "tool_use":
-                        # Assistant tool_use blocks -> FunctionCall for Gemini
-                        parts.append(
-                            types.Part(
-                                function_call=types.FunctionCall(
-                                    name=block.get("name", "unknown"),
-                                    args=block.get("input", {}),
-                                )
+                        # Assistant tool_use blocks -> FunctionCall for Gemini, with the call's thought signature
+                        part_kwargs: dict[str, Any] = {
+                            "function_call": types.FunctionCall(
+                                name=block.get("name", "unknown"),
+                                args=block.get("input", {}),
                             )
-                        )
+                        }
+                        signature = _SIGNATURES.get(block.get("id", ""))
+                        if signature:
+                            part_kwargs["thought_signature"] = signature
+                        parts.append(types.Part(**part_kwargs))
                     else:
                         parts.append(types.Part(text=str(block)))
                 else:

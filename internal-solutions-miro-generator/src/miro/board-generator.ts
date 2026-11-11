@@ -28,11 +28,13 @@ import {
   ShapeType,
   StickerShape,
   ConnectorShape,
-  MiroStyle
-} from '@types/index';
+  MiroStyle,
+  TextAlign,
+  TextAlignVertical
+} from '../types/index';
 import { MiroAPIClient } from './api-client';
-import { Logger } from '@utils/logger';
-import { GridLayout, LayoutResult } from '@utils/grid-layout';
+import { Logger } from '../utils/logger';
+import { GridLayout, LayoutResult } from '../utils/grid-layout';
 
 export interface GenerationResult {
   boardId: string;
@@ -172,8 +174,8 @@ export class BoardGenerator {
       fillColor: 'transparent',
       fontSize: 28,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center',
-      textAlignVertical: 'middle'
+      textAlign: TextAlign.CENTER,
+      textAlignVertical: TextAlignVertical.MIDDLE
     };
 
     const titleItem = await this.miroClient.createText(boardId, {
@@ -234,8 +236,8 @@ export class BoardGenerator {
       fillColor: this.config.styling.colorScheme.primary,
       fontSize: 18,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center',
-      textAlignVertical: 'middle'
+      textAlign: TextAlign.CENTER,
+      textAlignVertical: TextAlignVertical.MIDDLE
     };
 
     const headerItem = await this.miroClient.createShape(boardId, {
@@ -516,8 +518,8 @@ export class BoardGenerator {
       fillColor: this.config.styling.colorScheme.primary,
       fontSize: 14,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center',
-      textAlignVertical: 'middle'
+      textAlign: TextAlign.CENTER,
+      textAlignVertical: TextAlignVertical.MIDDLE
     };
   }
 
@@ -572,7 +574,7 @@ export class BoardGenerator {
       fillColor: color,
       fontSize: 12,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center'
+      textAlign: TextAlign.CENTER
     };
   }
 
@@ -599,7 +601,7 @@ export class BoardGenerator {
       fillColor: this.config.styling.colorScheme.secondary,
       fontSize: 12,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center'
+      textAlign: TextAlign.CENTER
     };
   }
 
@@ -612,7 +614,7 @@ export class BoardGenerator {
       fillColor: baseColor,
       fontSize: 12,
       fontFamily: this.config.styling.fonts.primary,
-      textAlign: 'center'
+      textAlign: TextAlign.CENTER
     };
   }
 

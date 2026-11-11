@@ -10,6 +10,7 @@ from typing import Dict, Any, List, Optional, Union
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from claude_api_wrapper import claude_api_call
+from model_seats import resolve_requested
 
 # Import vector store functionality if available
 try:
@@ -54,12 +55,10 @@ CLAUDE_MAX_DETAILED_ITEMS = 15    # Maximum number of detailed items to include 
 
 class DynamicJourneyMapper:
     def __init__(self, anthropic_model=None, debug_mode=True, use_rag=True, brand=None, artifact_type=None, render_mode=None, include_metrics=False):
-        # Use environment variable or default to the Sonnet model
-        # 2026-06-03 — fallback bumped off the RETIRED claude-3-7-sonnet (officially
-        # retired) to claude-sonnet-4-6 (current, non-deprecated, 1M-token, fast).
-        # HiC journey/blueprint generation passes llm_model explicitly (e.g.
-        # gemini-3.5-flash); this is the safety default when none is provided.
-        self.anthropic_model = anthropic_model or os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6")
+        # 2026-11-11 (IA plan Phase 0, section 6.10): the model comes from the routing authority. HiC
+        # journey/blueprint generation passes llm_model explicitly; a requested id is kept current (sunset ->
+        # successor, retired generation -> the reasoning seat) and none means the reasoning seat.
+        self.anthropic_model = resolve_requested(anthropic_model)
         self.debug_mode = debug_mode
         self.logger = logging.getLogger(__name__)
         self.use_rag = use_rag
@@ -1413,12 +1412,13 @@ Now, create the complete HTML document with all required elements and closing ta
             print(f"   - Max tokens requested: {max_tokens}")
             print(f"   - Prompt length: {len(prompt)} characters")
 
-            # Call Claude API with maximum tokens and reduced temperature for more detailed output
+            # Call Claude API with maximum tokens. temperature=0.3 applies only to models that still accept it;
+            # claude_api_call drops it for the Claude 4.6+ / 5.x family, which rejects it with a 400.
             response = claude_api_call(
                 prompt=prompt,
                 model=self.anthropic_model,
                 max_tokens=max_tokens,
-                temperature=0.3  # Lower temperature for more detailed, comprehensive output
+                temperature=0.3
             )
 
             # Extract HTML from response

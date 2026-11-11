@@ -199,6 +199,13 @@ def _get_extraction_client() -> anthropic.AsyncAnthropic:
     return _extraction_client
 
 
+def _extraction_model() -> str:
+    """2026-11-11 (IA plan Phase 0, section 6.10): the fast seat's Claude model (seat_matrix.fast.secondary at the
+    routing authority, fallback claude-haiku-5-5), resolved through the same key the agents use."""
+    from app.llm.router import resolve_model  # pylint: disable=import-outside-toplevel
+    return resolve_model("claude-haiku")[1]
+
+
 async def _ai_extract_params(message: str, tool_name: str) -> dict:
     """Use Claude Haiku to extract structured parameters from a natural language message.
 
@@ -215,12 +222,16 @@ async def _ai_extract_params(message: str, tool_name: str) -> dict:
 
     try:
         client = _get_extraction_client()
+        # Haiku 5.5 thinks by default (adaptive), so the reply can open with a thinking block and the thinking
+        # tokens count toward max_tokens: read the text blocks, and leave room beyond the short JSON answer.
         response = await client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=256,
+            model=_extraction_model(),
+            max_tokens=1024,
             messages=[{"role": "user", "content": prompt}],
         )
-        raw = response.content[0].text.strip()
+        raw = "".join(
+            getattr(block, "text", "") for block in response.content if getattr(block, "type", "") == "text"
+        ).strip()
         # Strip markdown fencing if model adds it despite instructions
         raw = raw.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         return json.loads(raw)

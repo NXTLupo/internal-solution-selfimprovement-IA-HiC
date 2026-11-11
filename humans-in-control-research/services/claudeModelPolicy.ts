@@ -39,7 +39,7 @@ export type ClaudeEffort = 'low' | 'medium' | 'high' | 'xhigh' | 'max';
 /** Claude models that run adaptive thinking and reject sampling params + budgets.
  *  Opus 4.6+ / Sonnet 4.6+ / Opus 5.x / Sonnet 5.x / Fable / Mythos. Haiku 4.5 and
  *  older models still take budget_tokens and are NOT normalized here. */
-const ADAPTIVE_RE = /claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|fable|mythos)/i;
+const ADAPTIVE_RE = /claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|haiku-5|fable|mythos)/i;
 
 /** Models on which `thinking: {type: "disabled"}` is a 400 (Opus 5.5, Sonnet 5.5, Fable). */
 const ALWAYS_THINKING_RE = /claude-(opus-5-5|sonnet-5-5|fable|mythos)/i;

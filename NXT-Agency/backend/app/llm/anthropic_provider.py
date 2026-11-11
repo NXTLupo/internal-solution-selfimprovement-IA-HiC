@@ -15,13 +15,52 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any, AsyncIterator
 
 import anthropic
 
+from . import seats
 from .provider import LLMProvider, LLMResponse, LLMStreamChunk, ToolCall
 
 logger = logging.getLogger(__name__)
+
+# 2026-11-11 (IA plan Phase 0, section 6.10): the Claude 4.6+ / 5.x request contract, mirrored from the platform
+# chokepoint (humans-in-control-research/proxy/model_registry.py CLAUDE_ADAPTIVE_RE). These models reject
+# temperature / top_p / top_k with a 400, so the provider never sends them.
+_NO_SAMPLING_RE = re.compile(r"claude-(opus-4-[6-9]|opus-5|sonnet-4-6|sonnet-5|haiku-5|fable|mythos)", re.I)
+# Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 accept computer use on the Claude API only as the
+# computer_toolset_20260801 toolset; a computer_20251124 / computer_20250124 tool entry is a 400. The agent loop
+# here still speaks the single `computer` tool (action in input.action), so a request that carries that tool is
+# served by an active model that accepts it (seats.COMPUTER_USE_FALLBACK, override NXT_AGENCY_COMPUTER_USE_MODEL)
+# until the loop is moved to the toolset.
+_TOOLSET_ONLY_RE = re.compile(r"claude-(opus|sonnet|haiku)-5-[5-9]", re.I)
+_LEGACY_COMPUTER_TOOLS = ("computer_20251124", "computer_20250124")
+_warned_holds: set[str] = set()
+
+
+def _request_model(model: str, tools: list[dict] | None) -> str:
+    """The model that will serve this request: the seat's model, unless the request carries a computer-use tool
+    version that model rejects."""
+    if not tools or not _TOOLSET_ONLY_RE.search(model or ""):
+        return model
+    if not any(str(t.get("type", "")) in _LEGACY_COMPUTER_TOOLS for t in tools if isinstance(t, dict)):
+        return model
+    held = seats.seat_model("NXT_AGENCY_COMPUTER_USE_MODEL", None, seats.COMPUTER_USE_FALLBACK, "claude-")
+    if model not in _warned_holds:
+        _warned_holds.add(model)
+        logger.warning(
+            "%s accepts computer use only as computer_toolset_20260801; requests carrying the computer tool are "
+            "served by %s until the agent loop moves to the toolset", model, held,
+        )
+    return held
+
+
+def _sampling_kwargs(model: str, temperature: float | None) -> dict[str, Any]:
+    """temperature only for models that still accept it."""
+    if temperature is None or _NO_SAMPLING_RE.search(model or ""):
+        return {}
+    return {"temperature": temperature}
 
 _STOP_REASON_MAP: dict[str, str] = {
     "end_turn": "end_turn",
@@ -103,9 +142,14 @@ class AnthropicProvider(LLMProvider):
     Anthropic's 10-minute non-streaming timeout.
     """
 
-    def __init__(self, api_key: str, default_model: str = "claude-sonnet-4-20250514"):
+    def __init__(self, api_key: str, default_model: str | None = None):
         self._client = anthropic.AsyncAnthropic(api_key=api_key)
+        # None -> the routing authority's structured seat, resolved per call (see seats.py).
         self._default_model = default_model
+
+    def _model_or_default(self, model: str | None) -> str:
+        return model or self._default_model or seats.seat_model(
+            "NXT_AGENCY_STRUCTURED_MODEL", ("seats", "structured"), seats.STRUCTURED_FALLBACK, "claude-")
 
     async def chat(
         self,
@@ -123,8 +167,9 @@ class AnthropicProvider(LLMProvider):
         ``LLMResponse`` — callers see no difference from the old non-streaming
         path, but the underlying transport is streaming.
         """
-        resolved_model = model or self._default_model
+        resolved_model = _request_model(self._model_or_default(model), tools)
         native_tools, betas = _convert_tools(tools)
+        sampling = _sampling_kwargs(resolved_model, temperature)
 
         try:
             # Both paths use streaming to avoid Anthropic's 10-minute non-streaming timeout.
@@ -135,9 +180,9 @@ class AnthropicProvider(LLMProvider):
                     system=system,
                     messages=messages,
                     tools=native_tools,
-                    temperature=temperature,
                     max_tokens=max_tokens,
                     betas=betas,
+                    **sampling,
                 ) as stream:
                     final_message = await stream.get_final_message()
             else:
@@ -146,8 +191,8 @@ class AnthropicProvider(LLMProvider):
                     system=system,
                     messages=messages,
                     tools=native_tools,
-                    temperature=temperature,
                     max_tokens=max_tokens,
+                    **sampling,
                 ) as stream:
                     final_message = await stream.get_final_message()
 
@@ -182,7 +227,7 @@ class AnthropicProvider(LLMProvider):
         max_tokens: int = 4096,
         model: str | None = None,
     ) -> AsyncIterator[LLMStreamChunk]:
-        resolved_model = model or self._default_model
+        resolved_model = _request_model(self._model_or_default(model), tools)
         native_tools, betas = _convert_tools(tools)
 
         try:
@@ -192,8 +237,8 @@ class AnthropicProvider(LLMProvider):
                 system=system,
                 messages=messages,
                 tools=native_tools,
-                temperature=temperature,
                 max_tokens=max_tokens,
+                **_sampling_kwargs(resolved_model, temperature),
             )
 
             if betas:

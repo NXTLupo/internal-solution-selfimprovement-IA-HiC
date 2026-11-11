@@ -63,5 +63,6 @@ export interface VideoGenerationConfig {
   seed?: number;
   startFrame?: ImageData;
   endFrame?: ImageData;
-  durationSeconds?: number;
+  durationSeconds?: number; // 3 to 15 seconds (3 to 10 with an end frame) on gemini-omni-1.2-flash
+  referenceImages?: ImageData[]; // character or subject references, up to 6 images per request
 }

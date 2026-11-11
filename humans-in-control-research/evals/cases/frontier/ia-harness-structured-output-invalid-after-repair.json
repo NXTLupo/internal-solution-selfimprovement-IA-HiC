@@ -1,0 +1,22 @@
+{
+  "id": "ia-harness-structured-output-invalid-after-repair",
+  "set": "frontier",
+  "kind": "harness",
+  "input": {
+    "objective": "Guard against a failure pattern seen in open-source analogs (IA plan 3.5).",
+    "prompt": "Presenton ships invalid JSON after its repair rounds with only a log line."
+  },
+  "expected": {
+    "behavior": "Structured output still invalid after the repair rounds fails the node with a visible error; it is never shipped.",
+    "trajectory": {
+      "no_fail_open": true,
+      "max_failed_steps": 0
+    }
+  },
+  "origin": {
+    "type": "roadmap",
+    "ref": "IA plan Phase 0 failure regression set",
+    "added": "2026-11-11",
+    "note": "Needs a fixture that reproduces the failure (Phase 5 verification); recorded now so it cannot be forgotten."
+  }
+}

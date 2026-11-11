@@ -162,16 +162,15 @@ else
     echo -e "${GREEN}Using Anthropic API key from environment.${NC}"
 fi
 
-# Set the model
-export ANTHROPIC_MODEL="claude-3-7-sonnet-20250219"
+# The model comes from the routing authority's reasoning seat (model_seats.py); set ANTHROPIC_MODEL only to pin one.
 
 # Create necessary directories
 mkdir -p logs journey_maps uploads static templates/pages
 
 # Start the application
-echo -e "${GREEN}Starting AI Journey Mapper with Claude 3.7...${NC}"
+echo -e "${GREEN}Starting AI Journey Mapper...${NC}"
 echo "API Key: ${ANTHROPIC_API_KEY:0:10}...${ANTHROPIC_API_KEY:(-5)}"
-echo "Model: $ANTHROPIC_MODEL"
+echo "Model: ${ANTHROPIC_MODEL:-routing authority reasoning seat}"
 echo "======================================================"
 echo "Open your browser and go to: http://localhost:${PORT}"
 echo "======================================================"

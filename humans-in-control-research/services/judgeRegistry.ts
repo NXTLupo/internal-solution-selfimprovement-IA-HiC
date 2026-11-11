@@ -137,10 +137,18 @@ export function recordJudgeVerdict(v: VerdictInput, fetchImpl: typeof fetch = gl
 
 export interface HumanLabelInput {
     artifact_id?: string;
+    /** 2026-11-11 (IA plan Phase 0): every id the label can be joined on (proxy/judge_agreement.py). */
+    run_id?: string;
+    message_id?: string;
     slide_id: string;
     label: 'approved' | 'rejected';
-    source?: 'slide_card' | 'feedback_widget';
+    source?: 'slide_card' | 'feedback_widget' | 'thumbs';
+    /** The person's short reason, kept with the label so a judge's disagreement can be read, not only counted. */
+    detail?: string;
 }
+
+/** Slide id for a label or verdict on the whole artifact. Mirrors proxy/judge_agreement.py WHOLE_ARTIFACT. */
+export const WHOLE_ARTIFACT_SLIDE = '_artifact';
 
 /** Record a human label (slide Approve/Reject). These calibrate every judge that judged the same slide. */
 export function recordHumanLabel(l: HumanLabelInput, fetchImpl: typeof fetch = globalThis.fetch): void {
@@ -148,7 +156,9 @@ export function recordHumanLabel(l: HumanLabelInput, fetchImpl: typeof fetch = g
     if (typeof fetchImpl !== 'function') return;
     try {
         const run = getRun();
-        const row = { ts: Date.now(), run_id: run.run_id, engagement: run.engagement, message_id: run.current_message_id, source: 'slide_card', ...l };
+        // The caller's run_id/message_id (the artifact's own) win over the ambient run's.
+        const row = { ts: Date.now(), run_id: run.run_id, engagement: run.engagement, message_id: run.current_message_id, source: 'slide_card', ...l,
+                      ...(l.detail ? { detail: l.detail.slice(0, 300) } : {}) };
         void fetchImpl(`${proxyBase()}/api/eval/labels`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(row) }).catch(() => { /* fire-and-forget */ });
     } catch { /* ignore */ }
 }

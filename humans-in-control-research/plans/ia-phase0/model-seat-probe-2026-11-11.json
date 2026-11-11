@@ -1,0 +1,96 @@
+{
+ "probed": "2026-11-11T06:02:46",
+ "proxy": "http://localhost:5012",
+ "results": [
+  {
+   "seat": "deep_reasoning",
+   "model": "claude-fable-5-2",
+   "route": "anthropic",
+   "status": 200,
+   "seconds": 21.2,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "claude-fable-5-2"
+  },
+  {
+   "seat": "deep_reasoning (secondary)",
+   "model": "gpt-6-astra",
+   "route": "openai",
+   "status": 200,
+   "seconds": 23.0,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "gpt-6-astra"
+  },
+  {
+   "seat": "research",
+   "model": "gemini-4-carbon",
+   "route": "gemini",
+   "status": 200,
+   "seconds": 24.2,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "gemini-4-carbon"
+  },
+  {
+   "seat": "artifact / orchestration",
+   "model": "claude-opus-5-5",
+   "route": "anthropic",
+   "status": 200,
+   "seconds": 21.1,
+   "answered": true,
+   "reply": "Ready",
+   "served_model": "claude-opus-5-5"
+  },
+  {
+   "seat": "artifact (secondary) / analysis",
+   "model": "claude-sonnet-5-5",
+   "route": "anthropic",
+   "status": 200,
+   "seconds": 21.1,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "claude-sonnet-5-5"
+  },
+  {
+   "seat": "search",
+   "model": "gemini-4-argon",
+   "route": "gemini",
+   "status": 200,
+   "seconds": 29.3,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "gemini-4-argon"
+  },
+  {
+   "seat": "analysis (secondary)",
+   "model": "gpt-6.1-terra",
+   "route": "openai",
+   "status": 200,
+   "seconds": 23.5,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "gpt-6.1-terra"
+  },
+  {
+   "seat": "fast",
+   "model": "gpt-6-luna",
+   "route": "openai",
+   "status": 200,
+   "seconds": 23.2,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "gpt-6-luna"
+  },
+  {
+   "seat": "fast (secondary)",
+   "model": "claude-haiku-5-5",
+   "route": "anthropic",
+   "status": 200,
+   "seconds": 22.1,
+   "answered": true,
+   "reply": "ready",
+   "served_model": "claude-haiku-5-5"
+  }
+ ]
+}

@@ -12,7 +12,7 @@ import {
   Geometry,
   AlignmentType,
   DistributionType
-} from '@types/index';
+} from '../types/index';
 import { Logger } from './logger';
 
 export interface LayoutResult {

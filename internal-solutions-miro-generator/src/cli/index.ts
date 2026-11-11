@@ -13,14 +13,14 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { config } from 'dotenv';
 
-import { JourneyMapParser } from '@parsers/journey-parser';
-import { MiroAPIClient } from '@miro/api-client';
-import { BoardGenerator } from '@miro/board-generator';
-import { GridLayout } from '@utils/grid-layout';
-import { Logger } from '@utils/logger';
-import { ConfigManager } from '@utils/config';
-import { ValidationError, MiroAPIError } from '@utils/errors';
-import { CLIOptions, AppConfig } from '@types/index';
+import { JourneyMapParser } from '../parsers/journey-parser';
+import { MiroAPIClient } from '../miro/api-client';
+import { BoardGenerator } from '../miro/board-generator';
+import { GridLayout } from '../utils/grid-layout';
+import { Logger } from '../utils/logger';
+import { ConfigManager } from '../utils/config';
+import { ValidationError, MiroAPIError } from '../utils/errors';
+import { CLIOptions, AppConfig } from '../types/index';
 
 // Load environment variables
 config();
@@ -28,6 +28,13 @@ config();
 const program = new Command();
 const logger = new Logger();
 const configManager = new ConfigManager();
+
+/**
+ * Progress and result lines go to stdout, next to the summary they introduce; errors stay on stderr.
+ */
+function startSpinner(text: string): ReturnType<typeof ora> {
+  return ora({ text, stream: process.stdout }).start();
+}
 
 /**
  * Main CLI setup
@@ -102,7 +109,7 @@ function setupCLI(): void {
  * Handle generate command
  */
 async function handleGenerateCommand(options: CLIOptions): Promise<void> {
-  const spinner = ora('Initializing Miro board generation...').start();
+  const spinner = startSpinner('Initializing Miro board generation...');
   
   try {
     // Setup logging
@@ -196,7 +203,7 @@ async function handleGenerateCommand(options: CLIOptions): Promise<void> {
  * Handle validate command
  */
 async function handleValidateCommand(options: Pick<CLIOptions, 'input' | 'verbose'>): Promise<void> {
-  const spinner = ora('Validating journey map HTML...').start();
+  const spinner = startSpinner('Validating journey map HTML...');
 
   try {
     if (options.verbose) {
@@ -280,7 +287,7 @@ async function handleTemplateCommand(options: any): Promise<void> {
  * Handle test command
  */
 async function handleTestCommand(options: Pick<CLIOptions, 'verbose'>): Promise<void> {
-  const spinner = ora('Testing Miro API connection...').start();
+  const spinner = startSpinner('Testing Miro API connection...');
 
   try {
     if (options.verbose) {
@@ -382,9 +389,10 @@ async function initializeConfiguration(): Promise<void> {
 }
 
 async function showConfiguration(): Promise<void> {
-  const config = await configManager.getCurrentConfig();
+  const config = await loadConfiguration();
+  const token = config.miro.accessToken;
   console.log(chalk.blue('\n📋 Current Configuration:\n'));
-  console.log(chalk.cyan(`  Miro Access Token: ${'*'.repeat(20)}${config.miro.accessToken.slice(-4)}`));
+  console.log(chalk.cyan(`  Miro Access Token: ${token ? `${'*'.repeat(20)}${token.slice(-4)}` : 'Not set'}`));
   console.log(chalk.cyan(`  Default Board ID: ${config.miro.boardId || 'Not set'}`));
   console.log(chalk.cyan(`  API Base URL: ${config.miro.baseUrl}`));
   console.log(chalk.cyan(`  Log Level: ${logger.getLevel()}`));

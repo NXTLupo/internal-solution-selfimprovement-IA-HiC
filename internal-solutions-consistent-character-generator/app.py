@@ -50,7 +50,7 @@ def video_status():
         'server_time': time.time(),
         'video_processing_location': 'client-side',
         'polling_architecture': {
-            'description': 'Video generation uses Google Veo 3 API directly from browser',
+            'description': 'Video generation calls Gemini Omni (gemini-omni-1.2-flash, Interactions API) directly from the browser; the video returns inline, so new clips need no polling (polling remains only for legacy Veo clips, which now report failed)',
             'storage': 'IndexedDB (ConsistentCharacterDB -> videoClips store)',
             'polling_interval': '5 seconds',
             'max_timeout': '10 minutes (120 attempts)',
@@ -73,7 +73,7 @@ def video_debug():
     debug_info = {
         'backend_role': 'Static file server only - no video processing',
         'frontend_architecture': {
-            'video_generation': 'Google Veo 3 API (veo-3.0-generate-001 model)',
+            'video_generation': 'Gemini Omni 1.2 Flash (gemini-omni-1.2-flash) via POST /v1beta/interactions',
             'polling_system': 'startVideoPolling() function in App.tsx',
             'storage': 'Browser IndexedDB with 4 stores: characters, scenes, videoClips, objects',
             'api_key_injection': 'GEMINI_API_KEY injected via Flask template'

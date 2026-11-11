@@ -124,7 +124,7 @@ export interface MiroItem {
 }
 
 export interface MiroShape extends MiroItem {
-  type: 'shape';
+  type: MiroItemType.SHAPE;
   data: {
     shape: ShapeType;
     content: string;
@@ -132,14 +132,14 @@ export interface MiroShape extends MiroItem {
 }
 
 export interface MiroText extends MiroItem {
-  type: 'text';
+  type: MiroItemType.TEXT;
   data: {
     content: string;
   };
 }
 
 export interface MiroSticker extends MiroItem {
-  type: 'sticky_note';
+  type: MiroItemType.STICKY_NOTE;
   data: {
     content: string;
     shape: StickerShape;
@@ -147,7 +147,7 @@ export interface MiroSticker extends MiroItem {
 }
 
 export interface MiroConnector extends MiroItem {
-  type: 'connector';
+  type: MiroItemType.CONNECTOR;
   data: {
     start: ConnectorEnd;
     end: ConnectorEnd;

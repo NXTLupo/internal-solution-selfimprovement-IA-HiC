@@ -4,6 +4,7 @@
  */
 
 import * as cheerio from 'cheerio';
+import type { Element } from 'domhandler';
 import * as fs from 'fs-extra';
 import { v4 as uuidv4 } from 'uuid';
 import Joi from 'joi';
@@ -27,9 +28,9 @@ import {
   ActionType,
   ChannelType,
   Position
-} from '@types/index';
-import { Logger } from '@utils/logger';
-import { ValidationError } from '@utils/errors';
+} from '../types/index';
+import { Logger } from '../utils/logger';
+import { ValidationError } from '../utils/errors';
 
 export class JourneyMapParser {
   private logger: Logger;
@@ -61,6 +62,12 @@ export class JourneyMapParser {
     try {
       this.logger.debug('Loading HTML content with cheerio');
       const $ = cheerio.load(htmlContent);
+
+      // An empty or unparseable document carries no journey content: refuse it instead of returning a
+      // blank one-phase map that would become an empty Miro board.
+      if ($.root().text().trim().length === 0) {
+        throw new ValidationError('HTML contains no journey map content');
+      }
 
       // Extract basic metadata
       const metadata = this.extractMetadata($, source);
@@ -176,9 +183,9 @@ export class JourneyMapParser {
       '.section[data-phase]',
       'section.phase',
       '.timeline-phase'
-    ];
+    ] as const; // literal selectors, so cheerio types each query result as Cheerio<Element>
 
-    let phaseElements: cheerio.Cheerio<cheerio.Element> = $();
+    let phaseElements: cheerio.Cheerio<Element> = $();
     
     for (const selector of phaseSelectors) {
       phaseElements = $(selector);
@@ -207,7 +214,7 @@ export class JourneyMapParser {
   /**
    * Infer phases from HTML structure when explicit phase markers aren't found
    */
-  private inferPhasesFromStructure($: cheerio.CheerioAPI): cheerio.Cheerio<cheerio.Element> {
+  private inferPhasesFromStructure($: cheerio.CheerioAPI): cheerio.Cheerio<Element> {
     // Look for common structural patterns
     const structuralSelectors = [
       'section',
@@ -216,7 +223,7 @@ export class JourneyMapParser {
       'div[class*="phase"]',
       'div[class*="stage"]',
       'div[class*="step"]'
-    ];
+    ] as const;
 
     for (const selector of structuralSelectors) {
       const elements = $(selector);
@@ -234,7 +241,7 @@ export class JourneyMapParser {
   /**
    * Extract individual phase data
    */
-  private async extractPhase($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, order: number): Promise<JourneyPhase | null> {
+  private async extractPhase($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, order: number): Promise<JourneyPhase | null> {
     try {
       const id = uuidv4();
       
@@ -277,7 +284,7 @@ export class JourneyMapParser {
   /**
    * Extract phase name
    */
-  private extractPhaseName(element: cheerio.Cheerio<cheerio.Element>): string | undefined {
+  private extractPhaseName(element: cheerio.Cheerio<Element>): string | undefined {
     const nameSelectors = [
       'h2',
       'h3',
@@ -307,7 +314,7 @@ export class JourneyMapParser {
   /**
    * Extract phase description
    */
-  private extractPhaseDescription(element: cheerio.Cheerio<cheerio.Element>): string | undefined {
+  private extractPhaseDescription(element: cheerio.Cheerio<Element>): string | undefined {
     const descSelectors = [
       '.description',
       '.phase-description',
@@ -329,7 +336,7 @@ export class JourneyMapParser {
   /**
    * Extract touchpoints
    */
-  private extractTouchpoints($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): Touchpoint[] {
+  private extractTouchpoints($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): Touchpoint[] {
     const touchpoints: Touchpoint[] = [];
     const selectors = [
       '.touchpoint',
@@ -355,10 +362,13 @@ export class JourneyMapParser {
   /**
    * Parse individual touchpoint
    */
-  private parseTouchpoint($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): Touchpoint | null {
+  private parseTouchpoint($el: cheerio.Cheerio<Element>, phaseId: string, index: number): Touchpoint | null {
     try {
-      const name = $el.text().trim() || $el.attr('data-name') || `Touchpoint ${index + 1}`;
-      const description = $el.attr('data-description') || $el.find('.description').text().trim();
+      const heading = $el.find('.name, .title, h3, h4, h5, strong').first().text().trim();
+      const name = heading || $el.text().trim() || $el.attr('data-name') || `Touchpoint ${index + 1}`;
+      const description = $el.attr('data-description') ||
+        $el.find('.description').text().trim() ||
+        (heading ? $el.find('p').first().text().trim() : '');
       const typeAttr = $el.attr('data-type') || $el.attr('class');
       
       // Determine touchpoint type
@@ -387,7 +397,7 @@ export class JourneyMapParser {
   /**
    * Extract emotions
    */
-  private extractEmotions($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): Emotion[] {
+  private extractEmotions($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): Emotion[] {
     const emotions: Emotion[] = [];
     const selectors = [
       '.emotion',
@@ -413,7 +423,7 @@ export class JourneyMapParser {
   /**
    * Parse individual emotion
    */
-  private parseEmotion($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): Emotion | null {
+  private parseEmotion($el: cheerio.Cheerio<Element>, phaseId: string, index: number): Emotion | null {
     try {
       const text = $el.text().trim().toLowerCase();
       const classNames = $el.attr('class') || '';
@@ -462,7 +472,7 @@ export class JourneyMapParser {
   /**
    * Extract pain points
    */
-  private extractPainPoints($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): PainPoint[] {
+  private extractPainPoints($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): PainPoint[] {
     const painPoints: PainPoint[] = [];
     const selectors = [
       '.pain-point',
@@ -490,7 +500,7 @@ export class JourneyMapParser {
   /**
    * Parse individual pain point
    */
-  private parsePainPoint($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): PainPoint | null {
+  private parsePainPoint($el: cheerio.Cheerio<Element>, phaseId: string, index: number): PainPoint | null {
     try {
       const title = $el.find('.title, h4, h5').first().text().trim() || 
                    $el.attr('data-title') || 
@@ -503,8 +513,8 @@ export class JourneyMapParser {
       let severity = SeverityLevel.MEDIUM;
       const severityAttr = $el.attr('data-severity') || $el.attr('class');
       if (severityAttr) {
-        if (severityAttr.includes('high') || severityAttr.includes('critical')) severity = SeverityLevel.HIGH;
-        else if (severityAttr.includes('critical')) severity = SeverityLevel.CRITICAL;
+        if (severityAttr.includes('critical')) severity = SeverityLevel.CRITICAL;
+        else if (severityAttr.includes('high')) severity = SeverityLevel.HIGH;
         else if (severityAttr.includes('low')) severity = SeverityLevel.LOW;
       }
 
@@ -542,7 +552,7 @@ export class JourneyMapParser {
   /**
    * Extract quotes
    */
-  private extractQuotes($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): Quote[] {
+  private extractQuotes($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): Quote[] {
     const quotes: Quote[] = [];
     const selectors = [
       '.quote',
@@ -569,7 +579,7 @@ export class JourneyMapParser {
   /**
    * Parse individual quote
    */
-  private parseQuote($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): Quote | null {
+  private parseQuote($el: cheerio.Cheerio<Element>, phaseId: string, index: number): Quote | null {
     try {
       const text = $el.text().trim().replace(/^["']|["']$/g, ''); // Remove surrounding quotes
       const attribution = $el.find('.attribution, cite, .author').text().trim() || 
@@ -613,7 +623,7 @@ export class JourneyMapParser {
   /**
    * Extract actions
    */
-  private extractActions($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): Action[] {
+  private extractActions($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): Action[] {
     const actions: Action[] = [];
     const selectors = [
       '.action',
@@ -640,7 +650,7 @@ export class JourneyMapParser {
   /**
    * Parse individual action
    */
-  private parseAction($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): Action | null {
+  private parseAction($el: cheerio.Cheerio<Element>, phaseId: string, index: number): Action | null {
     try {
       const name = $el.text().trim() || $el.attr('data-name') || `Action ${index + 1}`;
       const description = $el.find('.description').text().trim() || $el.attr('data-description');
@@ -676,7 +686,7 @@ export class JourneyMapParser {
   /**
    * Extract channels
    */
-  private extractChannels($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.Element>, phaseId: string): Channel[] {
+  private extractChannels($: cheerio.CheerioAPI, element: cheerio.Cheerio<Element>, phaseId: string): Channel[] {
     const channels: Channel[] = [];
     const selectors = [
       '.channel',
@@ -702,7 +712,7 @@ export class JourneyMapParser {
   /**
    * Parse individual channel
    */
-  private parseChannel($el: cheerio.Cheerio<cheerio.Element>, phaseId: string, index: number): Channel | null {
+  private parseChannel($el: cheerio.Cheerio<Element>, phaseId: string, index: number): Channel | null {
     try {
       const name = $el.text().trim() || $el.attr('data-name') || `Channel ${index + 1}`;
       const description = $el.find('.description').text().trim() || $el.attr('data-description');
@@ -744,7 +754,7 @@ export class JourneyMapParser {
   /**
    * Calculate position for element
    */
-  private calculatePosition($el: cheerio.Cheerio<cheerio.Element>, index: number): Position {
+  private calculatePosition($el: cheerio.Cheerio<Element>, index: number): Position {
     // Try to get position from data attributes
     const x = $el.attr('data-x');
     const y = $el.attr('data-y');
@@ -766,7 +776,7 @@ export class JourneyMapParser {
   /**
    * Extract metadata from element
    */
-  private extractElementMetadata($el: cheerio.Cheerio<cheerio.Element>): Record<string, any> {
+  private extractElementMetadata($el: cheerio.Cheerio<Element>): Record<string, any> {
     const metadata: Record<string, any> = {};
     
     // Extract all data attributes

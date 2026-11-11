@@ -4,9 +4,11 @@ Generates complete, step-by-step Copilot Studio agent build recipes
 using Claude API with streaming SSE responses.
 """
 import os
+import re
 import json
 import logging
 import time
+import urllib.request
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 
@@ -32,12 +34,115 @@ app.add_middleware(
 
 PORT = int(os.environ.get("PORT", 5013))
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-MODEL = "claude-opus-4-6"
 
-# Centralized model IDs for recipes — update here when models change
-RECIPE_MODEL_OPUS = "claude-opus-4-6"
-RECIPE_MODEL_SONNET = "claude-sonnet-4-6"
-RECIPE_MODEL_HAIKU = "claude-haiku-4-5-20251001"
+# --- Model ids: read from the platform's routing authority at startup, never hard-coded in prompts ---
+# The research proxy serves the platform's model seats at GET /api/models as
+# {"seats": {"reasoning": ..., "structured": ..., ...}, "models": {...}}. The route sits behind the
+# proxy's shared token (x-proxy-token), read the same way the platform agent reads it
+# (mcp-services/agent/hic_door.py): PROXY_AUTH_TOKEN when pinned, else the token the proxy publishes
+# to <hic-workspace>/.runtime/config.json. When the seats cannot be read (proxy down, 401, no token),
+# the fallback ids below are used; all three were verified callable on 2026-11-10.
+HIC_PROXY_URL = os.environ.get("HIC_PROXY_URL", "http://research-proxy:5012").rstrip("/")
+HIC_RUNTIME_CONFIG = os.environ.get("HIC_RUNTIME_CONFIG", "/hic-workspace/.runtime/config.json")
+FALLBACK_RECIPE_MODELS = {
+    "opus": "claude-opus-5-5",
+    "sonnet": "claude-sonnet-5-5",
+    "haiku": "claude-haiku-5-5",
+}
+# Recipe tier -> proxy seat. The proxy has no small-model seat today; a "haiku" seat is used if one appears.
+RECIPE_TIER_SEATS = {"opus": "reasoning", "sonnet": "structured", "haiku": "haiku"}
+
+
+def _proxy_token() -> str:
+    token = os.environ.get("PROXY_AUTH_TOKEN", "").strip()
+    if token:
+        return token
+    try:
+        with open(HIC_RUNTIME_CONFIG, "r", encoding="utf-8") as f:
+            return str((json.load(f) or {}).get("proxyToken") or "").strip()
+    except Exception:
+        return ""
+
+
+def resolve_recipe_models(timeout: float = 3.0) -> tuple:
+    """Return ({tier: model_id}, source). A seat that is missing or is not a Claude id keeps its fallback,
+    because recipes call the Anthropic API directly."""
+    models = dict(FALLBACK_RECIPE_MODELS)
+    headers = {"Accept": "application/json"}
+    token = _proxy_token()
+    if token:
+        headers["x-proxy-token"] = token
+    try:
+        req = urllib.request.Request(f"{HIC_PROXY_URL}/api/models", headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            seats = (json.loads(resp.read().decode("utf-8")) or {}).get("seats") or {}
+    except Exception as e:
+        logger.warning(f"[models] {HIC_PROXY_URL}/api/models unavailable ({e}); using fallback model ids")
+        return models, "fallback (proxy seats unavailable)"
+    used = []
+    for tier, seat in RECIPE_TIER_SEATS.items():
+        value = str(seats.get(seat) or "").strip()
+        if re.fullmatch(r"claude-[a-z0-9.-]+", value):
+            models[tier] = value
+            used.append(seat)
+    return models, f"proxy /api/models (seats used: {', '.join(used) or 'none'})"
+
+
+_RECIPE_MODELS, MODEL_SOURCE = resolve_recipe_models()
+RECIPE_MODEL_OPUS = _RECIPE_MODELS["opus"]
+RECIPE_MODEL_SONNET = _RECIPE_MODELS["sonnet"]
+RECIPE_MODEL_HAIKU = _RECIPE_MODELS["haiku"]
+# The service writes its own recipes on the highest-quality seat.
+MODEL = RECIPE_MODEL_OPUS
+logger.info(f"Recipe models from {MODEL_SOURCE}: opus={RECIPE_MODEL_OPUS} "
+            f"sonnet={RECIPE_MODEL_SONNET} haiku={RECIPE_MODEL_HAIKU}")
+
+# Pre-generated recipes, the few-shot knowledge files and the template JSONs were written when other
+# model ids were current. Every Claude id or display name in that text is rewritten to the current id
+# of the same tier on its way to a user or into the prompt, so a model change never needs a data edit.
+_CLAUDE_ID_RE = re.compile(r"\bclaude-(opus|sonnet|haiku)-\d+(?:-\d+)?(?:-\d{8})?\b")
+_CLAUDE_NAME_RE = re.compile(r"\bClaude (Opus|Sonnet|Haiku) \d+(?:\.\d+)?\b")
+
+
+def _tier_model(tier: str) -> str:
+    return {"opus": RECIPE_MODEL_OPUS, "sonnet": RECIPE_MODEL_SONNET, "haiku": RECIPE_MODEL_HAIKU}[tier.lower()]
+
+
+def model_display_name(model_id: str) -> str:
+    """claude-opus-5-5 -> Claude Opus 5.5 (a trailing date suffix is dropped)."""
+    parts = re.sub(r"-\d{8}$", "", model_id).split("-")[1:]
+    if not parts:
+        return model_id
+    version = ".".join(p for p in parts[1:] if p.isdigit())
+    return f"Claude {parts[0].capitalize()} {version}".strip()
+
+
+def with_current_models(text: str) -> str:
+    text = _CLAUDE_ID_RE.sub(lambda m: _tier_model(m.group(1)), text)
+    return _CLAUDE_NAME_RE.sub(lambda m: model_display_name(_tier_model(m.group(1))), text)
+
+
+def rule_45_model_ids() -> str:
+    """RULE 45 of the system prompt, generated from the resolved ids (never typed by hand)."""
+    ids = [RECIPE_MODEL_OPUS, RECIPE_MODEL_SONNET, RECIPE_MODEL_HAIKU]
+    dated = [m for m in ids if re.search(r"-\d{8}$", m)]
+    undated = [m for m in ids if m not in dated]
+    lines = [
+        "RULE 45: CURRENT MODEL IDS",
+        f"    - Highest quality (Journey Mapper): `{RECIPE_MODEL_OPUS}`",
+        f"    - Fast/cost-effective (Social Research, Miro): `{RECIPE_MODEL_SONNET}`",
+        f"    - Budget/high-volume: `{RECIPE_MODEL_HAIKU}`",
+        "    - Copy these ids exactly as written. Never use a Claude model id from memory or from an older recipe: "
+        "older ids are retired and the API rejects them.",
+    ]
+    if undated:
+        lines.append(f"    - No date suffix on {', '.join(f'`{m}`' for m in undated)}; adding one makes the id invalid")
+    if dated:
+        lines.append(f"    - Keep the date suffix exactly as written on {', '.join(f'`{m}`' for m in dated)}")
+    lines.append("    - A Claude request body carries only model, max_tokens, system, messages (plus tools when needed). "
+                 "NEVER add temperature, top_p, top_k, a thinking budget (budget_tokens), a forced tool_choice "
+                 "(any/tool) or an assistant prefill message: current Claude models reject each with HTTP 400.")
+    return "\n".join(lines) + "\n"
 
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -53,10 +158,10 @@ def load_knowledge():
     landscape_path = KNOWLEDGE_DIR / "platform_landscape.md"
     aria_path = KNOWLEDGE_DIR / "aria_recipe.md"
     if landscape_path.exists():
-        platform_landscape = landscape_path.read_text(encoding="utf-8")
+        platform_landscape = with_current_models(landscape_path.read_text(encoding="utf-8"))
         logger.info(f"Loaded platform landscape ({len(platform_landscape)} chars)")
     if aria_path.exists():
-        aria_recipe = aria_path.read_text(encoding="utf-8")
+        aria_recipe = with_current_models(aria_path.read_text(encoding="utf-8"))
         logger.info(f"Loaded Aria recipe ({len(aria_recipe)} chars)")
 
 load_knowledge()
@@ -453,7 +558,7 @@ def load_templates() -> List[Dict[str, Any]]:
         return templates
     for f in sorted(TEMPLATES_DIR.glob("*.json")):
         try:
-            data = json.loads(f.read_text(encoding="utf-8"))
+            data = json.loads(with_current_models(f.read_text(encoding="utf-8")))
             templates.append(data)
         except Exception as e:
             logger.warning(f"Failed to load template {f.name}: {e}")
@@ -493,9 +598,10 @@ RULE_37 = """
     **A. ANTHROPIC CLAUDE API (Journey Mapper, Social Research Analytics, Miro Board Generator)**
     - URL: `POST https://api.anthropic.com/v1/messages`
     - Headers: `x-api-key: {outputs('Get_Anthropic_Key')}`, `anthropic-version: 2023-06-01`, `Content-Type: application/json`
-    - Journey Mapper model: `OPUS_MODEL_ID` (highest quality; temperature 0.3, max_tokens 64000)
+    - Journey Mapper model: `OPUS_MODEL_ID` (highest quality; max_tokens 64000)
     - Social Research / Miro analysis model: `SONNET_MODEL_ID` (faster alternative)
-    - Body: `{"model": "OPUS_MODEL_ID", "messages": [{"role": "user", "content": "@{variables('varPrompt')}"}], "system": "@{variables('varSystemPrompt')}", "max_tokens": 64000, "temperature": 0.3}`
+    - Body: `{"model": "OPUS_MODEL_ID", "messages": [{"role": "user", "content": "@{variables('varPrompt')}"}], "system": "@{variables('varSystemPrompt')}", "max_tokens": 64000}`
+    - Never add temperature, top_p, top_k, a thinking budget, a forced tool_choice or an assistant prefill to a Claude body: current Claude models reject each with HTTP 400 (see RULE 45)
     - Response text extraction: `first(body('HTTP_Claude')?['content'])?['text']`
     - Journey Mapper uses TWO sequential Cloud Flow HTTP calls: Pass 1 extracts journey elements (stages, touchpoints, emotions, pain points) from the uploaded document; Pass 2 takes the Pass 1 JSON output plus original document and synthesizes a complete interactive HTML journey map visualization
 
@@ -912,7 +1018,7 @@ RULE 39: CONCAT() BODY CONSTRUCTION PATTERN (CANONICAL)
     Use concat() to build HTTP JSON bodies. This is the ONE correct pattern -- never offer alternatives:
     ```
     concat(
-      '{{"model":"{RECIPE_MODEL_OPUS}","max_tokens":64000,"temperature":0.3,"system":"',
+      '{{"model":"{RECIPE_MODEL_OPUS}","max_tokens":64000,"system":"',
       outputs('Escape_System_Prompt'),
       '","messages":[{{"role":"user","content":"',
       outputs('Escape_User_Prompt'),
@@ -922,6 +1028,7 @@ RULE 39: CONCAT() BODY CONSTRUCTION PATTERN (CANONICAL)
     - All literal JSON braces must be doubled: {{ and }}
     - All literal quotes inside the JSON string must be escaped: \\"
     - Reference only Compose outputs that have been through the RULE 38 escape chain
+    - Never add temperature, top_p or top_k to the body (RULE 45)
     - For tool-use bodies (e.g., web_search), extend the pattern: add the tools array as a literal string segment
     - NEVER suggest a "lightning bolt" approach or "expression builder" as an alternative
 
@@ -955,13 +1062,7 @@ RULE 44: RESPONSE CONTENT EXTRACTION PATTERNS
     - web_search tool declaration in body: `"tools":[{{"type":"web_search_20250305","name":"web_search","max_uses":8}}]`
     - Always specify which extraction pattern to use based on whether the API call includes tools or not
 
-RULE 45: CURRENT MODEL IDS (UPDATE THIS WHEN MODELS CHANGE)
-    - Highest quality (Journey Mapper): `{RECIPE_MODEL_OPUS}`
-    - Fast/cost-effective (Social Research, Miro): `{RECIPE_MODEL_SONNET}`
-    - Budget/high-volume: `{RECIPE_MODEL_HAIKU}`
-    - NEVER use dated suffixes for Opus or Sonnet (e.g., claude-opus-4-5-20251101 is WRONG)
-    - Haiku DOES require a date suffix: `{RECIPE_MODEL_HAIKU}`
-"""
+{rule_45_model_ids()}"""
 
 
 # --- API Endpoints ---
@@ -972,7 +1073,9 @@ async def health():
         "status": "healthy",
         "service": "copilot-recipe-generator",
         "templates_loaded": len(load_templates()),
-        "knowledge_loaded": bool(platform_landscape and aria_recipe)
+        "knowledge_loaded": bool(platform_landscape and aria_recipe),
+        "models": {"opus": RECIPE_MODEL_OPUS, "sonnet": RECIPE_MODEL_SONNET,
+                   "haiku": RECIPE_MODEL_HAIKU, "source": MODEL_SOURCE},
     }
 
 
@@ -1008,7 +1111,7 @@ async def generate_recipe(req: RecipeRequest):
     if req.template_id:
         recipe_path = TEMPLATES_DIR / "recipes" / f"{req.template_id}.md"
         if recipe_path.exists():
-            recipe_content = recipe_path.read_text(encoding="utf-8")
+            recipe_content = with_current_models(recipe_path.read_text(encoding="utf-8"))
             if recipe_content.strip():
                 logger.info(f"Serving pre-generated recipe for template '{req.template_id}' ({len(recipe_content)} chars)")
 
@@ -1045,8 +1148,10 @@ async def generate_recipe(req: RecipeRequest):
         try:
             async with client.messages.stream(
                 model=MODEL,
-                max_tokens=64000,
-                temperature=0.3,
+                # No temperature/top_p/top_k: the Claude 5.x family rejects them with HTTP 400. Thinking is
+                # always on for this family and shares max_tokens, so the budget is the 128K output cap
+                # (streaming, so the size is safe) to leave room for a full-length recipe.
+                max_tokens=128000,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}],
             ) as stream:

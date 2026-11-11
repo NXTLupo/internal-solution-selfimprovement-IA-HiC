@@ -20,8 +20,11 @@ import {
   FontConfig,
   ShapeConfig,
   SizeConfig,
-  GridConfig
-} from '@types/index';
+  GridConfig,
+  AlignmentType,
+  DistributionType,
+  ShapeType
+} from '../types/index';
 import { Logger } from './logger';
 import { ConfigurationError } from './errors';
 
@@ -104,8 +107,8 @@ export class ConfigManager {
         element: 20,
         group: 40
       },
-      alignment: 'center' as any,
-      distribution: 'grid' as any
+      alignment: AlignmentType.CENTER,
+      distribution: DistributionType.GRID
     };
 
     const colorScheme: ColorScheme = {
@@ -132,13 +135,13 @@ export class ConfigManager {
     };
 
     const shapeConfig: ShapeConfig = {
-      default: 'rectangle' as any,
-      touchpoint: 'rectangle' as any,
-      painPoint: 'rectangle' as any,
-      emotion: 'circle' as any,
-      quote: 'rectangle' as any,
-      action: 'arrow_right' as any,
-      channel: 'diamond' as any
+      default: ShapeType.RECTANGLE,
+      touchpoint: ShapeType.RECTANGLE,
+      painPoint: ShapeType.RECTANGLE,
+      emotion: ShapeType.CIRCLE,
+      quote: ShapeType.RECTANGLE,
+      action: ShapeType.ARROW_RIGHT,
+      channel: ShapeType.DIAMOND
     };
 
     const sizeConfig: SizeConfig = {
@@ -233,7 +236,7 @@ export class ConfigManager {
   private async validateConfig(config: AppConfig): Promise<void> {
     const schema = Joi.object({
       miro: Joi.object({
-        accessToken: Joi.string().min(1).required(),
+        accessToken: Joi.string().allow('').required(),
         boardId: Joi.string().optional(),
         baseUrl: Joi.string().uri().required(),
         timeout: Joi.number().integer().min(1000).max(300000).required(),
@@ -276,11 +279,6 @@ export class ConfigManager {
     const { error } = schema.validate(config);
     if (error) {
       throw new ConfigurationError(`Configuration validation failed: ${error.message}`);
-    }
-
-    // Additional validation
-    if (!config.miro.accessToken) {
-      throw new ConfigurationError('Miro access token is required');
     }
   }
 

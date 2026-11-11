@@ -20,9 +20,13 @@ from app.tools.base import AgentContext, BaseTool
 logger = logging.getLogger("tools.web_search")
 
 
-# Gemini model used for search grounding — use the latest stable flash model
-# (fast, cheap, and supports Google Search tool natively).
-_SEARCH_MODEL = "gemini-2.5-flash"
+# Gemini model used for search grounding. 2026-11-11 (IA plan Phase 0, section 6.10): the routing authority's
+# search seat. Its primary (gemini-4-argon) is held until grounding is tested on it, so the seat's serving model is
+# used; override with NXT_AGENCY_SEARCH_MODEL.
+def _search_model() -> str:
+    from app.llm import seats  # pylint: disable=import-outside-toplevel
+    return seats.seat_model("NXT_AGENCY_SEARCH_MODEL", ("seat_matrix", "search", "serving"),
+                            seats.GEMINI_SEARCH_FALLBACK, "gemini-")
 
 
 async def _gemini_search(query: str, max_results: int = 5) -> list[dict[str, str]]:
@@ -45,7 +49,7 @@ async def _gemini_search(query: str, max_results: int = 5) -> list[dict[str, str
     client = genai.Client(api_key=api_key)
 
     response = await client.aio.models.generate_content(
-        model=_SEARCH_MODEL,
+        model=_search_model(),
         contents=f"Search the web and return the top {max_results} results for: {query}\n\nFor each result, provide the title, URL, and a brief content snippet.",
         config=types.GenerateContentConfig(
             tools=[types.Tool(google_search=types.GoogleSearch())],
