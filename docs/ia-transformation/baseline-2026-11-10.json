@@ -1,0 +1,712 @@
+{
+ "frozen": "2026-11-10",
+ "source": "hic-workspace on disk; nothing generated, nothing called",
+ "platform": {
+  "window": [
+   "2026-10-31T15:04:23.208248Z",
+   "2026-11-10T19:22:18.928666Z"
+  ],
+  "model_calls": 1924,
+  "spend_usd": 120.42,
+  "by_model": {
+   "claude-opus-5-5": {
+    "calls": 213,
+    "input": 5902581,
+    "output": 2281334,
+    "cache_read": 13238551,
+    "cost": 100.79,
+    "cache_read_share": 0.692
+   },
+   "gemini-3.1-pro-preview": {
+    "calls": 152,
+    "input": 2159131,
+    "output": 451090,
+    "cache_read": 118472,
+    "cost": 12.4,
+    "cache_read_share": 0.052
+   },
+   "gemini-3.5-flash": {
+    "calls": 1550,
+    "input": 7839133,
+    "output": 3434505,
+    "cache_read": 315751,
+    "cost": 6.5,
+    "cache_read_share": 0.039
+   },
+   "gpt-5.4-mini": {
+    "calls": 2,
+    "input": 95655,
+    "output": 10078,
+    "cache_read": 0,
+    "cost": 0.68,
+    "cache_read_share": 0.0
+   },
+   "claude-sonnet-4-6": {
+    "calls": 1,
+    "input": 3645,
+    "output": 1800,
+    "cache_read": 0,
+    "cost": 0.04,
+    "cache_read_share": 0.0
+   },
+   "claude-haiku-4-5-20251001": {
+    "calls": 4,
+    "input": 4472,
+    "output": 1932,
+    "cache_read": 0,
+    "cost": 0.01,
+    "cache_read_share": 0.0
+   },
+   "claude-sonnet-5-5": {
+    "calls": 2,
+    "input": 36,
+    "output": 8,
+    "cache_read": 0,
+    "cost": 0.0,
+    "cache_read_share": 0.0
+   }
+  },
+  "cost_per_run": {
+   "runs": 38,
+   "median": 1.98,
+   "p90": 6.06,
+   "max": 30.71
+  },
+  "post_chain": {
+   "n": 94,
+   "pass": 28
+  },
+  "judge_pass_rate": {
+   "chain:provenance": {
+    "n": 87,
+    "pass_rate": 0.39
+   },
+   "chain:evidenceSlots": {
+    "n": 87,
+    "pass_rate": 0.41
+   },
+   "chain:grade": {
+    "n": 87,
+    "pass_rate": 0.48
+   },
+   "chain:bindPointers": {
+    "n": 87,
+    "pass_rate": 0.52
+   },
+   "chain:claims": {
+    "n": 87,
+    "pass_rate": 0.54
+   },
+   "deckLoop.submit": {
+    "n": 22,
+    "pass_rate": 0.64
+   },
+   "slideVisionCritic": {
+    "n": 61,
+    "pass_rate": 0.75
+   },
+   "chain:deckQuality": {
+    "n": 87,
+    "pass_rate": 0.77
+   },
+   "chain:titles": {
+    "n": 87,
+    "pass_rate": 0.78
+   },
+   "deckPlanGate": {
+    "n": 22,
+    "pass_rate": 0.91
+   },
+   "layoutGate": {
+    "n": 22,
+    "pass_rate": 0.95
+   },
+   "chain:lexical": {
+    "n": 87,
+    "pass_rate": 0.98
+   },
+   "chain:normalize": {
+    "n": 87,
+    "pass_rate": 1.0
+   },
+   "chain:exhibits": {
+    "n": 87,
+    "pass_rate": 1.0
+   },
+   "chain:prose": {
+    "n": 87,
+    "pass_rate": 1.0
+   },
+   "chain:renderPlan": {
+    "n": 87,
+    "pass_rate": 1.0
+   }
+  },
+  "event_kinds": {
+   "ai_call": 1924,
+   "rescore": 3858,
+   "verdict": 1171,
+   "post_chain": 94,
+   "skill": 58,
+   "memory": 303,
+   "label": 1,
+   "agent_turn": 3,
+   "webhook": 6,
+   "brain": 13,
+   "computer_use": 6
+  },
+  "human_labels": 1,
+  "skills_fired": {
+   "wiki-synthesizer": 1,
+   "wiki-query-expander": 10,
+   "deck-composer": 22,
+   "analyst-chat-formatter": 3,
+   "human-voice-editor": 8,
+   "theme-analyst": 4,
+   "contradiction-finder": 4,
+   "source-ranker": 5,
+   "persona-architect": 1
+  },
+  "agent_turns": 3
+ },
+ "saved_artifacts": 106,
+ "sessions": [
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-ai-behaviors-and-expectati",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-and-otheai-behaviors-and-e",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-and-other-collegai-behavio",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+   "runs": 12,
+   "files": 237,
+   "model_calls": 503,
+   "spend_usd": 6.65,
+   "post_chain": {
+    "n": 50,
+    "pass": 10
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-10"
+  },
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-and-other-college-studenta",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastern-universtudent-ai-behaviors-and-expectationsde",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastestudent-ai-behaviors-and-expectationsdetermine-h",
+   "runs": 1,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-student-ai-behaviors-and-expectationsdetermine-how-college",
+   "runs": 1,
+   "files": 2,
+   "model_calls": 1,
+   "spend_usd": 0.0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "analyze-case-studies-of-private-equity-firms-and-holding-com",
+   "runs": 0,
+   "files": 17,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-24"
+  },
+  {
+   "slug": "analyze-emerging-higher-education-advancement-trends-for-202",
+   "runs": 0,
+   "files": 11,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-19"
+  },
+  {
+   "slug": "analyze-the-2023-2024-landscape-of-ai-adoption-across-global",
+   "runs": 0,
+   "files": 8,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-19"
+  },
+  {
+   "slug": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
+   "runs": 5,
+   "files": 59,
+   "model_calls": 34,
+   "spend_usd": 0.76,
+   "post_chain": {
+    "n": 3,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-03"
+  },
+  {
+   "slug": "analyze-the-executive-search-industry-to-map-current-trends",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+   "runs": 8,
+   "files": 62,
+   "model_calls": 36,
+   "spend_usd": 0.53,
+   "post_chain": {
+    "n": 12,
+    "pass": 6
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-10-31"
+  },
+  {
+   "slug": "as-of-august-september-2026-no-earlier-what-are-the-capabili",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "as-of-august-september-2026-no-earlier-what-are-the-capabilities-limitations-and",
+   "runs": 1,
+   "files": 19,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-09-11"
+  },
+  {
+   "slug": "conduct-a-2026-comprehensive-market-and-user-research-study-no-earlier-than-octo",
+   "runs": 1,
+   "files": 2,
+   "model_calls": 2,
+   "spend_usd": 0.0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-08"
+  },
+  {
+   "slug": "deerflow-probe",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-08-21"
+  },
+  {
+   "slug": "define-the-2026-state-of-the-art-operational-and-technologic",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "define-the-2026-state-of-the-art-operational-and-technological-benchmarks-for-th",
+   "runs": 1,
+   "files": 32,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-07-01"
+  },
+  {
+   "slug": "deliver-a-2026-risk-and-market-analysis-report-evaluating-ho",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property",
+   "runs": 1,
+   "files": 219,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-10-04"
+  },
+  {
+   "slug": "deliver-a-comprehensive-2026-risk-and-market-analysis-for-th",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "deliver-a-comprehensive-2026-risk-and-market-analysis-for-the-agricultural-insur",
+   "runs": 1,
+   "files": 13,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-07-07"
+  },
+  {
+   "slug": "deliver-a-comprehensive-strategic-assessment-of-the-state-of",
+   "runs": 0,
+   "files": 11,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-22"
+  },
+  {
+   "slug": "deliver-a-strategic-market-outlook-report-on-the-state-of-ai",
+   "runs": 0,
+   "files": 11,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-22"
+  },
+  {
+   "slug": "deliver-a-strategic-outlook-report-on-the-global-insurance-i",
+   "runs": 0,
+   "files": 11,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-20"
+  },
+  {
+   "slug": "deliver-a-technical-architecture-and-implementation-blueprin",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "deliver-a-technical-architecture-and-implementation-blueprint-for-deciems-market",
+   "runs": 1,
+   "files": 18,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-08-26"
+  },
+  {
+   "slug": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+   "runs": 10,
+   "files": 1124,
+   "model_calls": 40,
+   "spend_usd": 4.24,
+   "post_chain": {
+    "n": 12,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-10-31"
+  },
+  {
+   "slug": "generate-a-structured-client-ready-introductory-and-capabili",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "generate-a-structured-client-ready-introductory-and-capabilities-presentation-ou",
+   "runs": 1,
+   "files": 25,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-07-09"
+  },
+  {
+   "slug": "identify-and-analyze-the-top-five-consumer-finance-trends-fo",
+   "runs": 0,
+   "files": 2,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-26"
+  },
+  {
+   "slug": "identify-high-converting-email-design-patterns-and-product-m",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": true,
+   "last_activity": "2026-10-01"
+  },
+  {
+   "slug": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+   "runs": 4,
+   "files": 33,
+   "model_calls": 32,
+   "spend_usd": 1.7,
+   "post_chain": {
+    "n": 5,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-11-03"
+  },
+  {
+   "slug": "identify-how-peer-large-private-universities-without-medical",
+   "runs": 0,
+   "files": 7,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-25"
+  },
+  {
+   "slug": "identify-the-top-ai-adoption-trends-in-the-global-retail-sec",
+   "runs": 0,
+   "files": 1,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-06-24"
+  },
+  {
+   "slug": "live-test-2026-08-07",
+   "runs": 0,
+   "files": 2,
+   "model_calls": 0,
+   "spend_usd": 0,
+   "post_chain": {
+    "n": 0,
+    "pass": 0
+   },
+   "merged_into_other": false,
+   "last_activity": "2026-08-07"
+  }
+ ],
+ "regression_set_proposed": [
+  {
+   "slug": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+   "why": "runs=12, model calls=503, chain verdicts=50 (pass 10), last active 2026-11-10"
+  },
+  {
+   "slug": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
+   "why": "runs=10, model calls=40, chain verdicts=12 (pass 0), last active 2026-10-31"
+  },
+  {
+   "slug": "analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals",
+   "why": "runs=8, model calls=36, chain verdicts=12 (pass 6), last active 2026-10-31"
+  },
+  {
+   "slug": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
+   "why": "runs=4, model calls=32, chain verdicts=5 (pass 0), last active 2026-11-03"
+  },
+  {
+   "slug": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
+   "why": "runs=5, model calls=34, chain verdicts=3 (pass 0), last active 2026-11-03"
+  },
+  {
+   "slug": "conduct-a-2026-comprehensive-market-and-user-research-study-no-earlier-than-octo",
+   "why": "runs=1, model calls=2, chain verdicts=0 (pass 0), last active 2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-student-ai-behaviors-and-expectationsdetermine-how-college",
+   "why": "runs=1, model calls=1, chain verdicts=0 (pass 0), last active 2026-11-08"
+  },
+  {
+   "slug": "1-understand-emerging-northeastestudent-ai-behaviors-and-expectationsdetermine-h",
+   "why": "runs=1, model calls=0, chain verdicts=0 (pass 0), last active 2026-11-08"
+  },
+  {
+   "slug": "deliver-a-2026-risk-and-market-analysis-report-evaluating-how-emerging-property",
+   "why": "runs=1, model calls=0, chain verdicts=0 (pass 0), last active 2026-10-04"
+  },
+  {
+   "slug": "as-of-august-september-2026-no-earlier-what-are-the-capabilities-limitations-and",
+   "why": "runs=1, model calls=0, chain verdicts=0 (pass 0), last active 2026-09-11"
+  }
+ ],
+ "note": "The regression set is a proposal ranked by recorded activity. The owner confirms or replaces it."
+}

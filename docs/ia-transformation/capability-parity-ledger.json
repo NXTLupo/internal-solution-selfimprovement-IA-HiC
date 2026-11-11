@@ -1,0 +1,4466 @@
+{
+  "generated_from": "working tree",
+  "plan": "docs/INTELLIGENCE_AUGMENTATION_TRANSFORMATION_PLAN.md",
+  "services": [
+    {
+      "service": "launchpad",
+      "disposition": "folded-in",
+      "target": "workspace-ui (Operations view)"
+    },
+    {
+      "service": "agent",
+      "disposition": "becomes",
+      "target": "ia-agent"
+    },
+    {
+      "service": "reddit-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "social-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "journey-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "research-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "video-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "journey-mapper",
+      "disposition": "tool-then-merged",
+      "target": "journey-engine -> studio-worker"
+    },
+    {
+      "service": "reddit-ripper",
+      "disposition": "becomes",
+      "target": "collector plugin (Research Lead)"
+    },
+    {
+      "service": "social-research-frontend",
+      "disposition": "retired",
+      "target": "workspace-ui canvas views"
+    },
+    {
+      "service": "social-research-backend",
+      "disposition": "becomes",
+      "target": "nlp"
+    },
+    {
+      "service": "social-research-db",
+      "disposition": "stays",
+      "target": "nlp-db"
+    },
+    {
+      "service": "video-analyzer",
+      "disposition": "becomes",
+      "target": "media-intake"
+    },
+    {
+      "service": "miro-generator",
+      "disposition": "becomes",
+      "target": "export adapter (Journey Cartographer)"
+    },
+    {
+      "service": "consistent-character-generator",
+      "disposition": "becomes",
+      "target": "Media Producer tools behind the proxy"
+    },
+    {
+      "service": "copilot-recipe-generator",
+      "disposition": "becomes",
+      "target": "Automation Engineer"
+    },
+    {
+      "service": "research-generator",
+      "disposition": "becomes",
+      "target": "workspace-ui; engine imported by studio-worker"
+    },
+    {
+      "service": "research-proxy",
+      "disposition": "stays",
+      "target": "research-proxy"
+    },
+    {
+      "service": "presentation-renderer",
+      "disposition": "stays",
+      "target": "presentation-renderer"
+    },
+    {
+      "service": "video-renderer",
+      "disposition": "stays",
+      "target": "video-renderer"
+    },
+    {
+      "service": "video-render-mcp",
+      "disposition": "consolidated",
+      "target": "tool-gateway"
+    },
+    {
+      "service": "nxt-agency-launchpad",
+      "disposition": "retired",
+      "target": "workspace-ui"
+    },
+    {
+      "service": "nxt-agency-db",
+      "disposition": "retired-after-migration",
+      "target": "engagement workspace"
+    },
+    {
+      "service": "nxt-agency-backend",
+      "disposition": "split",
+      "target": "ia-agent contracts + sandbox + specialist catalog"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "gap",
+      "ownerSkill": "gap-analysis-evaluator",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "journey",
+      "ownerSkill": "journey-illustrator",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Journey Cartographer"
+    },
+    {
+      "id": "blueprint",
+      "ownerSkill": "service-blueprint-mapper",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Journey Cartographer"
+    },
+    {
+      "id": "compete",
+      "ownerSkill": "competitive-analyst",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "org",
+      "ownerSkill": "org-chart",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "audit",
+      "ownerSkill": "tech-audit-inspector",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "arch",
+      "ownerSkill": "tech-arch-generator",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "roadmap",
+      "ownerSkill": "roadmap-builder",
+      "tier": "schema",
+      "modality": "slides",
+      "routingClass": "schema_flash",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "case-study",
+      "ownerSkill": "case-study-analyst",
+      "tier": "evidence",
+      "modality": "slides",
+      "routingClass": "evidence_pro",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "persona",
+      "ownerSkill": "persona-architect",
+      "tier": "imagery",
+      "modality": "slides",
+      "routingClass": "evidence_pro",
+      "specialist": "Journey Cartographer"
+    },
+    {
+      "id": "themes",
+      "ownerSkill": "theme-analyst",
+      "tier": "imagery",
+      "modality": "slides",
+      "routingClass": "evidence_pro",
+      "specialist": "Analyst"
+    },
+    {
+      "id": "recommendations",
+      "ownerSkill": "recommendation-architect",
+      "tier": "narrative",
+      "modality": "slides",
+      "routingClass": "evidence_pro",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "prd",
+      "ownerSkill": "prd-compiler",
+      "tier": "evidence",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "strategy",
+      "ownerSkill": "strategy-author",
+      "tier": "narrative",
+      "modality": "slides",
+      "routingClass": "evidence_pro",
+      "specialist": "Strategist"
+    },
+    {
+      "id": "brief",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "explainer",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "report",
+      "ownerSkill": "strategic-report-writer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "playground",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "approaches",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "questionnaire",
+      "ownerSkill": "questionnaire-author",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "faq",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "study-guide",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "chronology",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "evidence",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "flashcards",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "schema",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "quiz",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "schema",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "datatable",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "schema",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "critique",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "evidence",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "blogpost",
+      "ownerSkill": "html-deliverable-composer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "dossier",
+      "ownerSkill": "strategic-report-writer",
+      "tier": "narrative",
+      "modality": "html",
+      "routingClass": "evidence_pro",
+      "specialist": "Writer"
+    },
+    {
+      "id": "mindmap",
+      "ownerSkill": "mind-map-architect",
+      "tier": "schema",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Analyst"
+    },
+    {
+      "id": "meta-themes",
+      "ownerSkill": "meta-themes",
+      "tier": "evidence",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Analyst"
+    },
+    {
+      "id": "brief-dialog",
+      "ownerSkill": "brief-dialog",
+      "tier": "narrative",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Media Producer"
+    },
+    {
+      "id": "audio-overview",
+      "ownerSkill": "brief-dialog",
+      "tier": "narrative",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Media Producer"
+    },
+    {
+      "id": "video-overview",
+      "ownerSkill": "deck-composer",
+      "tier": "narrative",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Media Producer"
+    },
+    {
+      "id": "infographic",
+      "ownerSkill": "infographic-composer",
+      "tier": "narrative",
+      "modality": "analysis",
+      "routingClass": "evidence_pro",
+      "specialist": "Media Producer"
+    },
+    {
+      "id": "proto",
+      "ownerSkill": "experience-prototype-composer",
+      "tier": "code",
+      "modality": "figma_spec",
+      "routingClass": "code",
+      "specialist": "Prototyper"
+    },
+    {
+      "id": "presentation",
+      "ownerSkill": "deck-composer",
+      "tier": "narrative",
+      "modality": "external_render",
+      "routingClass": "external",
+      "specialist": "Deck Composer"
+    },
+    {
+      "id": "deep-research",
+      "ownerSkill": "research-planner",
+      "tier": "collection",
+      "modality": "analysis",
+      "routingClass": "collection",
+      "specialist": "Research Lead"
+    },
+    {
+      "id": "slides",
+      "ownerSkill": "deck-composer",
+      "tier": "narrative",
+      "modality": "multi",
+      "routingClass": "evidence_pro",
+      "specialist": "Deck Composer"
+    }
+  ],
+  "directives": [
+    {
+      "directive": "#approaches",
+      "catalog_id": "approaches",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#arch",
+      "catalog_id": "arch",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#artifacts",
+      "catalog_id": null,
+      "owner": "Agent"
+    },
+    {
+      "directive": "#audio-overview",
+      "catalog_id": "audio-overview",
+      "owner": "Media Producer"
+    },
+    {
+      "directive": "#audit",
+      "catalog_id": "audit",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#blogpost",
+      "catalog_id": "blogpost",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#blueprint",
+      "catalog_id": "blueprint",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "directive": "#brief",
+      "catalog_id": "brief",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#brief-dialog",
+      "catalog_id": "brief-dialog",
+      "owner": "Media Producer"
+    },
+    {
+      "directive": "#case-study",
+      "catalog_id": "case-study",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#chronology",
+      "catalog_id": "chronology",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#compete",
+      "catalog_id": "compete",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#critique",
+      "catalog_id": "critique",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#datatable",
+      "catalog_id": "datatable",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#deep-research",
+      "catalog_id": "deep-research",
+      "owner": "Research Lead"
+    },
+    {
+      "directive": "#dense",
+      "catalog_id": null,
+      "owner": "Agent"
+    },
+    {
+      "directive": "#design",
+      "catalog_id": null,
+      "owner": "Designer"
+    },
+    {
+      "directive": "#dossier",
+      "catalog_id": "dossier",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#explainer",
+      "catalog_id": "explainer",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#faq",
+      "catalog_id": "faq",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#flashcards",
+      "catalog_id": "flashcards",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#gap",
+      "catalog_id": "gap",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#help",
+      "catalog_id": null,
+      "owner": "Agent"
+    },
+    {
+      "directive": "#infographic",
+      "catalog_id": "infographic",
+      "owner": "Media Producer"
+    },
+    {
+      "directive": "#journey",
+      "catalog_id": "journey",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "directive": "#meta-themes",
+      "catalog_id": "meta-themes",
+      "owner": "Analyst"
+    },
+    {
+      "directive": "#mindmap",
+      "catalog_id": "mindmap",
+      "owner": "Analyst"
+    },
+    {
+      "directive": "#org",
+      "catalog_id": "org",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#persona",
+      "catalog_id": "persona",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "directive": "#playground",
+      "catalog_id": "playground",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#prd",
+      "catalog_id": "prd",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#presentation",
+      "catalog_id": "presentation",
+      "owner": "Deck Composer"
+    },
+    {
+      "directive": "#presentations",
+      "catalog_id": "presentation",
+      "owner": "Deck Composer"
+    },
+    {
+      "directive": "#proto",
+      "catalog_id": "proto",
+      "owner": "Prototyper"
+    },
+    {
+      "directive": "#prototypes",
+      "catalog_id": null,
+      "owner": "Prototyper"
+    },
+    {
+      "directive": "#questionnaire",
+      "catalog_id": "questionnaire",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#quiz",
+      "catalog_id": "quiz",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#recommendations",
+      "catalog_id": "recommendations",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#refine",
+      "catalog_id": null,
+      "owner": "Agent"
+    },
+    {
+      "directive": "#report",
+      "catalog_id": "report",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#roadmap",
+      "catalog_id": "roadmap",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#slide",
+      "catalog_id": null,
+      "owner": "Deck Composer"
+    },
+    {
+      "directive": "#slides",
+      "catalog_id": "slides",
+      "owner": "Deck Composer"
+    },
+    {
+      "directive": "#strategy",
+      "catalog_id": "strategy",
+      "owner": "Strategist"
+    },
+    {
+      "directive": "#studyguide",
+      "catalog_id": "study-guide",
+      "owner": "Writer"
+    },
+    {
+      "directive": "#themes",
+      "catalog_id": "themes",
+      "owner": "Analyst"
+    },
+    {
+      "directive": "#video-overview",
+      "catalog_id": "video-overview",
+      "owner": "Media Producer"
+    }
+  ],
+  "mcp_tools": [
+    {
+      "wrapper": "reddit-mcp",
+      "tool": "reddit_get_results",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "reddit-mcp",
+      "tool": "reddit_get_status",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "reddit-mcp",
+      "tool": "reddit_search",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_get_sentiment_results",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_get_topic_results",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_get_topic_status",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_search",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_sentiment_analysis",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "social-mcp",
+      "tool": "social_topic_model",
+      "owner": "Analyst"
+    },
+    {
+      "wrapper": "journey-mcp",
+      "tool": "journey_generate_map",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "wrapper": "journey-mcp",
+      "tool": "journey_get_results",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "wrapper": "journey-mcp",
+      "tool": "journey_get_status",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "wrapper": "journey-mcp",
+      "tool": "journey_list_maps",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "wrapper": "journey-mcp",
+      "tool": "journey_upload_file",
+      "owner": "Journey Cartographer"
+    },
+    {
+      "wrapper": "video-mcp",
+      "tool": "video_get_job_status",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "video-mcp",
+      "tool": "video_get_transcript",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "video-mcp",
+      "tool": "video_list_jobs",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "video-mcp",
+      "tool": "video_transcribe_youtube",
+      "owner": "Research Lead"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "admit_memory",
+      "owner": "Librarian"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "get_digest",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "get_job",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "get_run_state",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "get_run_telemetry",
+      "owner": "Coach"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "get_skill",
+      "owner": "Librarian"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "launch_research_app",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "list_artifacts",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "list_skills",
+      "owner": "Librarian"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "recall_memory",
+      "owner": "Librarian"
+    },
+    {
+      "wrapper": "research-mcp",
+      "tool": "run_deliverable",
+      "owner": "Agent"
+    },
+    {
+      "wrapper": "video-render-mcp",
+      "tool": "lint_composition",
+      "owner": "Media Producer"
+    },
+    {
+      "wrapper": "video-render-mcp",
+      "tool": "render_composition",
+      "owner": "Media Producer"
+    },
+    {
+      "wrapper": "video-render-mcp",
+      "tool": "render_status",
+      "owner": "Media Producer"
+    }
+  ],
+  "proxy_route_families": [
+    {
+      "family": "ai",
+      "routes": 13,
+      "owner": "provider door"
+    },
+    {
+      "family": "air",
+      "routes": 4,
+      "owner": "studio-worker"
+    },
+    {
+      "family": "artifact",
+      "routes": 6,
+      "owner": "studio-worker"
+    },
+    {
+      "family": "artifacts",
+      "routes": 7,
+      "owner": "studio-worker"
+    },
+    {
+      "family": "audit",
+      "routes": 3,
+      "owner": "Verifier"
+    },
+    {
+      "family": "brain",
+      "routes": 2,
+      "owner": "Librarian"
+    },
+    {
+      "family": "cache",
+      "routes": 1,
+      "owner": "provider door"
+    },
+    {
+      "family": "corpus",
+      "routes": 3,
+      "owner": "Librarian"
+    },
+    {
+      "family": "cx",
+      "routes": 5,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "deep-research",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "design-assets",
+      "routes": 1,
+      "owner": "Designer"
+    },
+    {
+      "family": "design-tokens",
+      "routes": 1,
+      "owner": "Designer"
+    },
+    {
+      "family": "digest",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "embed",
+      "routes": 1,
+      "owner": "provider door"
+    },
+    {
+      "family": "engagement",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "epochs",
+      "routes": 14,
+      "owner": "Coach"
+    },
+    {
+      "family": "eval",
+      "routes": 12,
+      "owner": "Coach"
+    },
+    {
+      "family": "export-pptx",
+      "routes": 1,
+      "owner": "Deck Composer"
+    },
+    {
+      "family": "extract-content",
+      "routes": 1,
+      "owner": "Brief Lead"
+    },
+    {
+      "family": "extract-pdf",
+      "routes": 1,
+      "owner": "Brief Lead"
+    },
+    {
+      "family": "facts",
+      "routes": 3,
+      "owner": "Librarian"
+    },
+    {
+      "family": "feedback",
+      "routes": 4,
+      "owner": "Coach"
+    },
+    {
+      "family": "fonts",
+      "routes": 1,
+      "owner": "Designer"
+    },
+    {
+      "family": "gold",
+      "routes": 2,
+      "owner": "Deck Composer"
+    },
+    {
+      "family": "golden-set",
+      "routes": 1,
+      "owner": "Coach"
+    },
+    {
+      "family": "heuristic",
+      "routes": 1,
+      "owner": "Verifier"
+    },
+    {
+      "family": "jobs",
+      "routes": 3,
+      "owner": "Agent"
+    },
+    {
+      "family": "journey-map",
+      "routes": 5,
+      "owner": "Journey Cartographer"
+    },
+    {
+      "family": "knowledge-gaps",
+      "routes": 2,
+      "owner": "Analyst"
+    },
+    {
+      "family": "layout",
+      "routes": 1,
+      "owner": "Verifier"
+    },
+    {
+      "family": "manifest",
+      "routes": 8,
+      "owner": "Librarian"
+    },
+    {
+      "family": "memory",
+      "routes": 6,
+      "owner": "Librarian"
+    },
+    {
+      "family": "models",
+      "routes": 2,
+      "owner": "provider door"
+    },
+    {
+      "family": "multi-search",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "pacer",
+      "routes": 1,
+      "owner": "provider door"
+    },
+    {
+      "family": "parse-upload",
+      "routes": 1,
+      "owner": "Brief Lead"
+    },
+    {
+      "family": "pii",
+      "routes": 1,
+      "owner": "Brief Lead"
+    },
+    {
+      "family": "prd",
+      "routes": 1,
+      "owner": "Strategist"
+    },
+    {
+      "family": "presentations",
+      "routes": 4,
+      "owner": "Deck Composer"
+    },
+    {
+      "family": "proto-ai",
+      "routes": 1,
+      "owner": "provider door"
+    },
+    {
+      "family": "prototypes",
+      "routes": 5,
+      "owner": "Prototyper"
+    },
+    {
+      "family": "reddit-deep",
+      "routes": 2,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "retention",
+      "routes": 4,
+      "owner": "Librarian"
+    },
+    {
+      "family": "run-receipts",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "scheduler",
+      "routes": 1,
+      "owner": "Agent"
+    },
+    {
+      "family": "search",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "session",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "sessions",
+      "routes": 14,
+      "owner": "Agent"
+    },
+    {
+      "family": "skill",
+      "routes": 4,
+      "owner": "Librarian"
+    },
+    {
+      "family": "skillopt",
+      "routes": 1,
+      "owner": "Coach"
+    },
+    {
+      "family": "skills",
+      "routes": 3,
+      "owner": "Librarian"
+    },
+    {
+      "family": "source",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "source-packs",
+      "routes": 2,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "sources",
+      "routes": 2,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "step-result",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "tabular",
+      "routes": 1,
+      "owner": "Brief Lead"
+    },
+    {
+      "family": "telemetry",
+      "routes": 2,
+      "owner": "Agent"
+    },
+    {
+      "family": "themes",
+      "routes": 1,
+      "owner": "Analyst"
+    },
+    {
+      "family": "topic-cache",
+      "routes": 2,
+      "owner": "Analyst"
+    },
+    {
+      "family": "topic-model",
+      "routes": 3,
+      "owner": "Analyst"
+    },
+    {
+      "family": "transcribe",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "transcribe-youtube",
+      "routes": 1,
+      "owner": "Research Lead"
+    },
+    {
+      "family": "tts",
+      "routes": 1,
+      "owner": "Media Producer"
+    },
+    {
+      "family": "user-selection",
+      "routes": 3,
+      "owner": "Agent"
+    },
+    {
+      "family": "video",
+      "routes": 3,
+      "owner": "Media Producer"
+    },
+    {
+      "family": "webhooks",
+      "routes": 1,
+      "owner": "Agent"
+    },
+    {
+      "family": "wiki",
+      "routes": 25,
+      "owner": "Librarian"
+    },
+    {
+      "family": "youtube",
+      "routes": 1,
+      "owner": "Research Lead"
+    }
+  ],
+  "service_routes": [
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/agent",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/agency/history/<conversation_id>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/agency/reviews",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/agency/reviews/<review_id>/decision",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/conversation",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/image/<image_id>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/message",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/model",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/models",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/chat/ws/<conversation_id>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/digest",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/digest/seen",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/logs",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/mcp/conversation",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/mcp/message",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/mcp/servers",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/mcp/tools",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/metrics",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/status",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/threads",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/threads/<thread_id>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/api/urls",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/mcp-chat",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/proxy/agent/<path:path>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/proxy/journey-mcp/<path:path>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/proxy/reddit-mcp/<path:path>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/proxy/social-mcp/<path:path>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/proxy/video-mcp/<path:path>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/redirect/<service>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/status",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "launchpad",
+      "method": "ROUTE",
+      "path": "/ws-proxy/<conversation_id>",
+      "owner": "workspace-ui (Operations view)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/api/chat/ws/{conversation_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/api/files/{file_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/api/threads",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/api/threads/{thread_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/health",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/jobs",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/jobs/{job_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/journey/{journey_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/list",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/mcp/tools",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/result/{journey_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "GET",
+      "path": "/transcript/{job_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/analyze-video",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/api/chat/conversation",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/api/chat/message",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/api/threads/report",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/api/webhooks/hic",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/create",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/claude4_journey_generate_map",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/claude4_journey_get_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/claude4_journey_get_status",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/claude4_journey_list_maps",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/claude4_journey_upload_file",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/journey_generate_map",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/journey_get_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/journey_get_status",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/journey_list_maps",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/journey_upload_file",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/openai_journey_generate_map",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/openai_journey_get_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/openai_journey_list_maps",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/openai_journey_upload_file",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/reddit_get_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/reddit_get_status",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/reddit_search",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_get_sentiment_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_get_topic_results",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_get_topic_status",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_search",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_sentiment_analysis",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/social_topic_model",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/video_get_job_status",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/video_get_transcript",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/video_list_jobs",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/video_transcribe_file",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/mcp/invoke/video_transcribe_youtube",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/refresh-tools",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "POST",
+      "path": "/upload",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "mcp-services",
+      "method": "WEBSOCKET",
+      "path": "/ws/{conversation_id}",
+      "owner": "ia-agent + tool-gateway",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/agent-sessions/{session_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/api/chat/history/{conversation_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/api/chat/image/{image_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/api/reviews",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/approvals",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/categories",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/conversations/{conversation_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/conversations/{conversation_id}/messages/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/decisions/{engagement_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/engagements",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/engagements/{engagement_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/engagements/{engagement_id}/status",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/evidence",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/health",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/users/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/users/{user_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/users/{user_id}/conversations/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/workers",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "GET",
+      "path": "/{slug}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/agent-sessions/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/api/chat/conversation",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/api/chat/message",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/api/reviews/{review_id}/decision",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/approvals/{approval_id}/approve",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/approvals/{approval_id}/reject",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/conversations/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/engagements",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/engagements/{engagement_id}/decompose",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/engagements/{engagement_id}/tasks/{task_id}/handoff",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/engagements/{engagement_id}/tasks/{task_id}/verify",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/messages/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/refresh-tools",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/users/",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/{slug}/chat",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "POST",
+      "path": "/{slug}/chat/stream",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "PUT",
+      "path": "/agent-sessions/{session_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "WEBSOCKET",
+      "path": "/ws/{conversation_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "NXT-Agency",
+      "method": "WEBSOCKET",
+      "path": "/ws/{slug}/{session_id}",
+      "owner": "ia-agent (orchestration API) + sandbox",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "DELETE",
+      "path": "/api/remove-element/{journey_id}",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/api/check-key",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/api/export-pdf/{journey_id}",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/api/models",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/dev-sw.js",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "GET",
+      "path": "/sw.js",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "POST",
+      "path": "/api/analyze",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "POST",
+      "path": "/api/chat",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "POST",
+      "path": "/api/edit-journey-map/{journey_id}",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "POST",
+      "path": "/api/upload",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "ROUTE",
+      "path": "/",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "ROUTE",
+      "path": "/api/analyze",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "ROUTE",
+      "path": "/api/generate-map",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-journeymapper",
+      "method": "ROUTE",
+      "path": "/api/upload",
+      "owner": "Journey Cartographer (journey-engine)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/<user_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/ai-summary",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/ai-summary/<project_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/analyze-async",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/analyze-sentiment",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/analyze-sentiment/<search_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/chat",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/embed",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/health",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/job-status/<job_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/job/<job_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/jobs/analysis/<analysis_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/jobs/project/<project_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/jobs/user/<user_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/posts",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/project/<project_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/project/<project_id>/cancel",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/projects",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/projects/<project_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/projects/<user_id>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/query",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/search",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/send_hi",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/subreddit-stats/<subreddit>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/subreddit/<string:subreddit_name>",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/subreddit/<subreddit>/about",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/subreddit/<subreddit>/icon",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-socialresearch",
+      "method": "ROUTE",
+      "path": "/subreddits",
+      "owner": "Analyst (nlp)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/api",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/health",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/jobs",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/jobs/{job_id}",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "GET",
+      "path": "/transcript/{job_id}",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "POST",
+      "path": "/analyze-youtube",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-video-analyzer",
+      "method": "POST",
+      "path": "/upload-video",
+      "owner": "Research Lead (media-intake)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/config",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/download/<path:output_dir>/<path:filename>",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/files",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/generate",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/generate-figma",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/test",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/upload",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/api/validate",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-miro-generator",
+      "method": "ROUTE",
+      "path": "/health",
+      "owner": "Journey Cartographer (export adapter)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/api/clear-data",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/api/status",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/api/video-debug",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/api/video-status",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/assets/<path:filename>",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/health",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/static/<path:filename>",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-consistent-character-generator",
+      "method": "ROUTE",
+      "path": "/vite.svg",
+      "owner": "Media Producer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/api/entities",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/api/entities/{template_id}",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/api/templates",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/api/templates/{template_id}",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/api/triggers",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/health",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "GET",
+      "path": "/{full_path:path}",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "POST",
+      "path": "/api/export",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "POST",
+      "path": "/api/generate-recipe",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-copilot-recipe-generator",
+      "method": "POST",
+      "path": "/api/topic-yaml",
+      "owner": "Automation Engineer",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/api/collect",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/api/download/<job_id>/<filename>",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/api/scrape",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/api/sources",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/api/status/<job_id>",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "internal-solutions-reddit-ripper",
+      "method": "ROUTE",
+      "path": "/static/<path:filename>",
+      "owner": "Research Lead (collector plugin)",
+      "parity_proof": "recorded request/response fixture required"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/artifacts/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/epochs/canary",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/presentations/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/prototypes/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/sessions/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "DELETE",
+      "path": "/api/user-selection/active",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/ai/cache-stats",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/ai/illustrations",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/ai/status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/air/list",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifact/list",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifact/view/{artifact_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifacts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifacts/audio/{name}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifacts/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/artifacts/{slug}/view",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/brain/report",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/cache/telemetry",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/cx/download/{job_id}/{filename}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/cx/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/cx/results/{job_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/cx/status/{job_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/design-assets/{brand}/{filename}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/design-tokens",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/digest",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/engagement/upload-pages",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/active",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/canary",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/loop",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/proposals",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/epochs/{epoch_id}/outcomes",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/eval/cases",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/eval/judges",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/eval/matrix",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/eval/rescore/last",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/eval/results",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/extract-content",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/extract-pdf",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/facts/index/status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/facts/search",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/feedback/index",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/feedback/list/{engagement_slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/feedback/read/{engagement_slug}/{deliverable_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/fonts/embed-css",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/golden-set/failure-corpus",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/jobs",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/jobs/{job_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/journey-map/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/journey-map/list",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/journey-map/view/{journey_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/knowledge-gaps/list/{engagement_slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/manifest/chunks",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/manifest/chunks-by-goal",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/manifest/chunks-by-title",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/manifest/cross-doc-edges",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/manifest/cross-doc-edges/rebuild/status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/memory/facts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/memory/lifecycle/last",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/memory/recall",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/models",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/models/registry",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/multi-search",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/pacer/status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/presentations",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/presentations/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/prototypes",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/prototypes/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/prototypes/{slug}/view",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/reddit-deep/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/retention/flag",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/retention/report",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/run-receipts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/run-receipts/{run_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/search/{source_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/session/chunk-map",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions/{slug}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions/{slug}/commitment",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions/{slug}/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions/{slug}/traces",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sessions/{slug}/traces/{filename}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/skill/list-versions",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/skill/read",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/skills/registry",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/skills/usage",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/skills/{skill_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/source-packs",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/source-packs/{pack_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/sources",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/step-result/read",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/telemetry/events",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/topic-cache/list",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/topic-cache/read/{filename:path}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/topic-model/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/topic-model/status/{job_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/user-selection/active",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/video/outputs/{name}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/video/render/{job_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/check-article",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/embed-status",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/index",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/list/{path:path}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/manifest",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/read-article/{hash_or_path:path}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/api/wiki/read/{path:path}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "GET",
+      "path": "/health",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/anthropic",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/brand-image",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/deepseek",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/diagram",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/gemini",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/gemini-compat",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/generate",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/illustration",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/image-screen",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/ai/openai",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/air/fork",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/air/patch",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/air/write",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifact/audit",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifact/export-slides",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifact/generate",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifact/revise",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifacts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/artifacts/{slug}/promote-variant",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/audit/capture-url",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/audit/ingest-files",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/audit/render-proposed",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/brain/grow",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/corpus/from-selection",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/corpus/retrieve",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/corpus/scope",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/cx/collect",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/deep-research/backfill-attribution",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/digest/seen",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/embed",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/engagement/page-owners",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/canary",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/jobs",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/loop/resume",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/proposals",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/proposals/{pid}/review",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/run-batch",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/epochs/{epoch_id}/outcome",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/cases",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/judge-agreement",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/labels",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/rescore",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/results",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/seed-frontier",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/eval/verdicts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/export-pptx",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/facts/index/rebuild",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/feedback/append",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/gold/export-pptx",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/gold/export-pptx-multi",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/heuristic/capture-flow",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/jobs",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/journey-map/generate",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/journey-map/revise",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/knowledge-gaps/run-remediation",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/layout/measure",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/manifest/chunks-from-selection",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/manifest/cross-doc-edges/rebuild",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/manifest/reindex-pages",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/memory/admit",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/memory/forget",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/memory/lifecycle",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/parse-upload",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/pii/extract",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/prd/export-xlsx",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/presentations",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/proto-ai/generate",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/prototypes",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/reddit-deep/fetch",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/retention/flag",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/retention/forget-memory",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/scheduler/poll-youtube-channels",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/session/chunk-map",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sessions",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sessions/loop-trace/event",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sessions/loop-trace/finalize",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sessions/trace/append",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sessions/{slug}/commitment",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/skill/rollback",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/skill/write",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/skillopt/trajectory",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/source/resolve",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/sources/primary-docs",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/step-result/write",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/tabular/aggregate",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/telemetry/events",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/themes/reresolve-attribution",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/topic-model/analyze",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/transcribe-youtube",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/transcribe/dictation",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/tts/dialogue",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/user-selection/active",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/video/render",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/webhooks/run",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/append",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/chunks-backfill",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/embed-ab",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/embed-backfill",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/embed-rebuild",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/explore-concepts",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/fetch-articles",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/manifest/rebuild",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/manifest/reconcile",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/read-batch",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/rechunk-shifted",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/regrade-relevance",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/repair-mojibake",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/rerank",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/retrofit-chunks",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/uploads/delete",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/write",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/wiki/write-article",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "POST",
+      "path": "/api/youtube/discover-by-channels",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "PUT",
+      "path": "/api/sessions/{slug}/runs/{run_id}",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    },
+    {
+      "source": "humans-in-control-research",
+      "method": "PUT",
+      "path": "/api/sessions/{slug}/runs/{run_id}/manifest",
+      "owner": "research-proxy + studio-worker + workspace-ui",
+      "parity_proof": "existing unit tests"
+    }
+  ],
+  "tree": {
+    "launchpad": {
+      "files": 16,
+      "lines": 2394,
+      "test_files": 0
+    },
+    "mcp-services": {
+      "files": 28,
+      "lines": 11009,
+      "test_files": 3
+    },
+    "NXT-Agency": {
+      "files": 69,
+      "lines": 13760,
+      "test_files": 2
+    },
+    "internal-solutions-journeymapper": {
+      "files": 47,
+      "lines": 10156,
+      "test_files": 0
+    },
+    "internal-solutions-socialresearch": {
+      "files": 124,
+      "lines": 27316,
+      "test_files": 0
+    },
+    "internal-solutions-video-analyzer": {
+      "files": 30,
+      "lines": 25113,
+      "test_files": 0
+    },
+    "internal-solutions-miro-generator": {
+      "files": 16,
+      "lines": 7372,
+      "test_files": 0
+    },
+    "internal-solutions-consistent-character-generator": {
+      "files": 25,
+      "lines": 6725,
+      "test_files": 0
+    },
+    "internal-solutions-copilot-recipe-generator": {
+      "files": 17,
+      "lines": 5383,
+      "test_files": 0
+    },
+    "internal-solutions-presentation-renderer": {
+      "files": 29,
+      "lines": 4031,
+      "test_files": 0
+    },
+    "internal-solutions-video-renderer": {
+      "files": 1,
+      "lines": 277,
+      "test_files": 0
+    },
+    "internal-solutions-reddit-ripper": {
+      "files": 11,
+      "lines": 2099,
+      "test_files": 0
+    },
+    "humans-in-control-research": {
+      "files": 743,
+      "lines": 270509,
+      "test_files": 273
+    }
+  },
+  "invariants": [
+    {
+      "invariant": "no hardcoded Claude model id at any call site",
+      "pinned_by": "services/modelIdLiterals.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "/api/models seats equal the TypeScript router",
+      "pinned_by": "services/modelSeats.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "slide chain stage order",
+      "pinned_by": "services/artifactChain.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "every directive has a catalog entry",
+      "pinned_by": "services/artifactCatalog.coverage.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "learning pass never writes a skill without APPROVE",
+      "pinned_by": "services/learningEngineProposals.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "memory lifecycle parity, TypeScript side",
+      "pinned_by": "services/memoryParity.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "memory lifecycle parity, Python side",
+      "pinned_by": "proxy/tests/test_memory_store.py",
+      "test_exists": true
+    },
+    {
+      "invariant": "scrubs never damage CSS",
+      "pinned_by": "services/artifactCssIntegrity.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "a question stays a question through repair",
+      "pinned_by": "services/quizStemIntegrity.test.ts",
+      "test_exists": true
+    },
+    {
+      "invariant": "PRD visual slots",
+      "pinned_by": "services/prdVisualSlots.test.ts",
+      "test_exists": true
+    }
+  ],
+  "skills": [
+    "ai-output-syntax-repair",
+    "analog-finder",
+    "analyst-chat-formatter",
+    "ask-hic",
+    "before-after",
+    "benchmark-reporter",
+    "brands",
+    "brief-dialog",
+    "case-study-analyst",
+    "commit-prepare",
+    "competitive-analyst",
+    "constrain",
+    "contradiction-finder",
+    "critic-revise-loop",
+    "cross-engagement-pattern-miner",
+    "deck-composer",
+    "decompose",
+    "design-exemplar-curator",
+    "designer",
+    "deterministic-naming-pass",
+    "diagnose-prompt",
+    "diagrams",
+    "drift-check",
+    "epoch-proposer",
+    "escape-audit",
+    "evidence-curator",
+    "evidence-density-pre-checker",
+    "experience-prototype-composer",
+    "explainer",
+    "export-paint-sync",
+    "failure-log",
+    "fallback-event-surfacing",
+    "gap-analysis-evaluator",
+    "git-branch-protocol",
+    "guard",
+    "hic-rebuild-verify",
+    "hic-run",
+    "hic-unified-vision",
+    "html-deliverable-composer",
+    "human-voice-editor",
+    "illustrator",
+    "infographic-composer",
+    "intelligence",
+    "lock-format",
+    "long-running-service-call",
+    "manifest-chunk-retrieval",
+    "mcp-service-bootstrap",
+    "meta-themes",
+    "mind-map-architect",
+    "nano-banana-diagram-composer",
+    "nxt-humans-slides",
+    "nxt-slot-illustrator",
+    "nxt-visual-renderer",
+    "org-chart",
+    "persona-architect",
+    "prd-compiler",
+    "pre-mortem",
+    "preflight",
+    "qa-gate",
+    "quantification-architect",
+    "questionnaire-author",
+    "rate-limit-pacer",
+    "recommendation-architect",
+    "reinforcement-inference",
+    "research-planner",
+    "roadmap-builder",
+    "score-prompt",
+    "second-order-thinker",
+    "self-review",
+    "service-blueprint-mapper",
+    "service-log-triage",
+    "skillopt-validation-gate",
+    "slide-templates",
+    "slide-title-lab",
+    "source-ranker",
+    "source-yield-scorer",
+    "stakeholder-lens-auditor",
+    "strategic-report-writer",
+    "strategy-author",
+    "stress-test",
+    "tech-arch-generator",
+    "tech-audit-inspector",
+    "theme-analyst",
+    "theme-yield-guarantee",
+    "topic-cluster-to-theme-converter",
+    "trim-prompt",
+    "verbalized-sampling",
+    "wiki-query-expander",
+    "wiki-reranker",
+    "wiki-synthesizer"
+  ],
+  "subagents": [
+    "chunk-retrieval-strategist",
+    "dissent-panel",
+    "evidence-quality-auditor",
+    "export-render-verifier",
+    "hic-output-qa",
+    "orphan-code-auditor",
+    "parallel-runner",
+    "platform-health",
+    "pre-mortem-runner",
+    "quota-monitor",
+    "schema-drift-auditor",
+    "skillopt-applier",
+    "skillopt-validation-gate",
+    "spa-smoke-tester",
+    "wiki-curator"
+  ],
+  "counts": {
+    "source_files": 1156,
+    "source_lines": 386144,
+    "service_routes": 434,
+    "routes_without_tests": 120,
+    "invariants": 10,
+    "services": 24,
+    "artifacts": 39,
+    "directives": 47,
+    "mcp_tools": 32,
+    "proxy_route_families": 68,
+    "proxy_routes": 221,
+    "skills": 90,
+    "subagents": 15,
+    "unowned": 0
+  },
+  "unowned": []
+}
