@@ -53,11 +53,13 @@ import hmac  # A1 auth: constant-time token comparison
 # shares (SPA chokepoint, artifact engine, topic-model labels).
 from model_registry import (
     routing_seats as _routing_seats,
+    SEAT_MATRIX as _SEAT_MATRIX,
     KNOWN_MODELS as _KNOWN_MODELS,
     CLAUDE_REASONING_MODEL as _CLAUDE_REASONING_MODEL,
     CLAUDE_STRUCTURED_MODEL as _CLAUDE_STRUCTURED_MODEL,
     CLAUDE_SERVER_FALLBACK_RE as _CLAUDE_SERVER_FALLBACK_RE,
     normalize_claude_body as _claude_normalize_body,
+    normalize_openai_body as _openai_normalize_body,
     claude_uses_adaptive_thinking as _claude_adaptive,
 )
 # Opus 5.5 contract knobs (all reversible by env, no code edit):
@@ -13976,6 +13978,7 @@ async def proxy_openai(request: Request):
                 "openai", _do_openai_post,
                 is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
             )
+        body = _openai_normalize_body(body)    # 2026-11-11 IA Phase 0: GPT-6 / gpt-5.5 reject temperature
         except RuntimeError as pacer_err:
             logger.warning(f"OpenAI pacer exhausted: {pacer_err} — escalating to DeepSeek fallback")
             pacer_exhausted = True
@@ -14623,31 +14626,11 @@ def _compute_judge_agreement() -> dict:
         return {"error": "evals directory not mounted"}
     labels = _read_jsonl(labels_p)
     verdicts = _read_jsonl(verdicts_p)
-    # latest human label per (key, slide)
-    human: dict = {}
-    for l in labels:
-        key = (str(l.get("artifact_id") or l.get("run_id") or ""), str(l.get("slide_id") or ""))
-        if key[1]:
-            human[key] = l.get("label") == "approved"
-    stats: dict = {}
-    for v in verdicts:
-        jid = str(v.get("judge_id") or "")
-        if not jid or jid.startswith("human."):
-            continue
-        key = (str(v.get("artifact_id") or v.get("run_id") or ""), str(v.get("slide_id") or ""))
-        if key not in human:
-            continue
-        h = human[key]
-        jp = bool(v.get("pass"))
-        s = stats.setdefault(jid, {"tp": 0, "fp": 0, "fn": 0, "tn": 0})
-        if jp and h:
-            s["tp"] += 1
-        elif jp and not h:
-            s["fp"] += 1
-        elif (not jp) and h:
-            s["fn"] += 1
-        else:
-            s["tn"] += 1
+    # 2026-11-11 (IA plan Phase 0): the join lives in judge_agreement.py (pure, tested). It counts a verdict
+    # with no slide id as a verdict on the whole artifact and matches labels by artifact, run or message id,
+    # so the 1,110 whole-artifact verdicts can finally meet a human label.
+    from judge_agreement import confusion_by_judge as _confusion_by_judge
+    stats = _confusion_by_judge(labels, verdicts)
     out = {}
     for jid, s in stats.items():
         n = sum(s.values())
@@ -15450,9 +15433,13 @@ async def models_seats():
     """WS-D D2 (2026-10-31): the ONE routing authority's seats (model_registry.routing_seats, pinned to aiRouter by a
     test) plus each known model's status, so the platform agent, research-mcp and NXT-Agency read model ids from
     here instead of hard-coding them."""
-    return {"seats": _routing_seats(), "models": {k: {"provider": v.get("provider"), "status": v.get("status"),
-                                                       **({"successor": v["successor"]} if v.get("successor") else {})}
-                                                   for k, v in _KNOWN_MODELS.items()}}
+    # 2026-11-11 (IA plan Phase 0): `seat_matrix` adds the owner's ten seats (target, what serves today, and
+    # whether each is seated or held with the reason). `seats` is unchanged so existing readers keep working.
+    return {"seats": _routing_seats(), "seat_matrix": _SEAT_MATRIX,
+            "models": {k: {"provider": v.get("provider"), "status": v.get("status"),
+                           **({"successor": v["successor"]} if v.get("successor") else {}),
+                           **({"successor_candidate": v["successor_candidate"]} if v.get("successor_candidate") else {})}
+                       for k, v in _KNOWN_MODELS.items()}}
 
 
 @app.get("/api/skills/registry")

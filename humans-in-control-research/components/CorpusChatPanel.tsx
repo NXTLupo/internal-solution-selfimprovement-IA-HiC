@@ -15,6 +15,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { setCurrentMessageId, corpusComposition } from '../services/runState';
 import { recordHumanLabel } from '../services/judgeRegistry';
+import { ArtifactLabelBar } from './ArtifactLabelBar';
 import { readObjectivePlan, toAirDecomposedQuestions } from '../services/objectivePlan';
 import { lineageLabel } from '../services/artifactLineage';
 import { DictationButton } from './DictationButton';
@@ -9298,6 +9299,11 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
 
                                 {/* 2026-05-13 - Product Brief comparison grid.
                                     Set by the #proto handler with 5 briefs from the
+                            {/* IA plan Phase 0 (2026-11-11): label capture. Thumbs and a short reason on every artifact,
+                                recorded as a human label that calibrates the judges; it never changes a prompt. */}
+                            {msg.role === 'assistant' && msg.artifactLineage && (
+                                <ArtifactLabelBar artifactId={msg.artifactLineage.artifactId} runId={msg.artifactLineage.runId} messageId={msg.id} />
+                            )}
                                     VS brief generator. User clicks BUILD THIS to
                                     fire the Stage 2→3→3.5→4→5 pipeline against
                                     the approved brief. */}
