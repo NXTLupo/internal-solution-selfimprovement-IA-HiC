@@ -13918,6 +13918,7 @@ async def proxy_openai(request: Request):
     try:
         body = await request.json()
         body = _scrub_outbound_payload(body)  # 2026-06-15 - broken-emoji-half guard (see proxy_anthropic)
+        body = _openai_normalize_body(body)    # 2026-11-11 IA Phase 0: GPT-6 / gpt-5.5 reject temperature
         # Prompt caching (2026-06-22): OpenAI auto-caches prompts >=1024 tokens;
         # `prompt_cache_key` steers same-prefix requests to the same cache shard
         # for a higher hit rate. Key on the engagement slug (stable across a
@@ -13978,7 +13979,6 @@ async def proxy_openai(request: Request):
                 "openai", _do_openai_post,
                 is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
             )
-        body = _openai_normalize_body(body)    # 2026-11-11 IA Phase 0: GPT-6 / gpt-5.5 reject temperature
         except RuntimeError as pacer_err:
             logger.warning(f"OpenAI pacer exhausted: {pacer_err} — escalating to DeepSeek fallback")
             pacer_exhausted = True
