@@ -349,6 +349,34 @@ def skill_promote(vid: str):
 from fastapi import Request  # noqa: E402
 
 
+@app.post("/api/channels/teams")
+async def teams_messages(request: Request):
+    """Bot Framework messaging endpoint for Microsoft Teams (off until the bot's app id and secret are set)."""
+    from . import channels, teams
+    if not teams.enabled():
+        raise HTTPException(503, "Teams is off: set MICROSOFT_APP_ID and MICROSOFT_APP_PASSWORD from the Azure Bot registration")
+    try:
+        activity = await request.json()
+    except Exception:
+        raise HTTPException(400, "not an activity")
+    try:
+        teams.verify_token(request.headers.get("authorization", ""), service_url=activity.get("serviceUrl"))
+    except Exception:
+        raise HTTPException(401, "token not valid for this bot")
+    if not teams.trusted_service_url(activity.get("serviceUrl")):
+        raise HTTPException(400, "untrusted serviceUrl")
+    return teams.handle(activity, agent.turn, channels.conversation_for, agent.new_conversation)
+
+
+@app.get("/api/channels/teams/status")
+def teams_status():
+    from . import teams
+    c = teams.config()
+    return {"enabled": teams.enabled(), "app_id_set": bool(c["app_id"]), "secret_set": bool(c["password"]),
+            "tenant_set": bool(c["tenant"]), "endpoint_path": "/api/channels/teams",
+            "needs": [n for n, ok in (("MICROSOFT_APP_ID", c["app_id"]), ("MICROSOFT_APP_PASSWORD", c["password"])) if not ok]}
+
+
 @app.post("/api/channels/webhook")
 async def channel_webhook(request: Request):
     from . import channels

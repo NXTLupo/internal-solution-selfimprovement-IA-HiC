@@ -6,3 +6,4 @@ pydantic>=2.7
 pytest>=8.0
 python-pptx==1.0.2
 python-multipart>=0.0.9
+PyJWT[crypto]>=2.8
