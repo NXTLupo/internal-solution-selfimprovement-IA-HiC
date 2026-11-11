@@ -5,7 +5,6 @@ import praw
 from dotenv import load_dotenv
 import json
 from flask_cors import CORS
-from util.llm_models.deepseek import get_single_deepseek_completion, get_json_deepseek_completion
 from util.prompts.reddit_prompt import get_category_merger_prompt, get_reddit_pros_cons_prompt, get_point_merger_prompt, openai_get_reddit_pros_cons_prompt, get_ai_summary_prompt
 from util.llm_models.openai import get_openai_completion
 from util.llm_models.claude import get_claude_completion, get_claude_completion_with_json
@@ -470,9 +469,9 @@ def analyze_sentiment_by_search_id(search_id):
         application_name = data.get('application_name', 'Application')
         filter_type = data.get('filter_type', 'cluster')
         keyword = data.get('keyword', '')
-        merge_method = data.get('merge_method', 'deepseek-r1')
+        merge_method = data.get('merge_method', 'claude-opus-5-5')
         chunk_size = data.get('chunk_size', 40000)
-        analysis_model = data.get('analysis_model', 'deepseek-r1')
+        analysis_model = data.get('analysis_model', 'claude-opus-5-5')
         max_workers = data.get('max_workers', 3)
         skip_filtering = data.get('skip_filtering', True)
         user_id = data.get('user_id', '123')
@@ -522,9 +521,9 @@ def analyze_pros_cons():
         application_name = data.get('application_name', query)
         filter_type = data.get('filter_type', 'cluster')
         keyword = data.get('keyword', query)
-        merge_method = data.get('merge_method', 'deepseek-r1')
+        merge_method = data.get('merge_method', 'claude-opus-5-5')
         chunk_size = data.get('chunk_size', 40000)
-        analysis_model = data.get('analysis_model', 'deepseek-r1')
+        analysis_model = data.get('analysis_model', 'claude-opus-5-5')
         max_workers = data.get('max_workers', 3)
         skip_filtering = data.get('skip_filtering', True)
         user_id = data.get('user_id', '123')
@@ -1006,12 +1005,17 @@ def setup_temp_directory():
         except Exception as e:
             logging.error(f"[reddit.py] Error deleting file {f}: {str(e)}")
 
-def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='deepseek-r1'):
+def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='claude-opus-5-5'):
     """Process a single data chunk and return the result with retries"""
+    # util/llm_models/deepseek.py was a stub that returned "" (it now raises), so every 'deepseek-r1' chunk
+    # came back empty. That legacy value (still saved in forms and job parameters) now
+    # runs on Claude Opus 5.5 with the same prompt.
+    if method in ('deepseek-r1', 'claude'):
+        method = 'claude-opus-5-5'
     for attempt in range(max_retries):
         try:
             # Get pros/cons for this chunk
-            if method == 'deepseek-r1':
+            if method == 'claude-opus-5-5':
                 prompt = get_reddit_pros_cons_prompt(
                     application_name=application_name,
                     posts_data=json.dumps(chunk, indent=2)[1:-1]  # Remove the outer {} while keeping formatting
@@ -1034,11 +1038,8 @@ def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='dee
             # Get analysis for this chunk using streaming
             # Use app context for LLM API calls
 
-            if method == 'deepseek-r1':
-                for content in get_json_deepseek_completion(messages, stream=True):
-                    if content:
-                        # Remove print statement that streams to stdout
-                        chunk_result += content
+            if method == 'claude-opus-5-5':
+                chunk_result = get_claude_completion_with_json(messages)
             elif method == 'openai-4':
                 chunk_result = get_openai_completion(messages,temperature=0.6)
             
