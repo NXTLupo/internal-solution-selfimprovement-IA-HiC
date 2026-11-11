@@ -55,8 +55,23 @@ class Ledger:
 
     def add(self, u: Usage):
         self.calls.append(u)
+        record_spend(u)
         if self.spent_usd > self.limit_usd:
             raise BudgetExceeded(self.spent_usd, self.limit_usd)
+
+
+def record_spend(u: Usage):
+    """Every metered call lands in the spend table, so spend by day and by model is visible (plan 6.7).
+    Recording never breaks a call."""
+    try:
+        from . import store
+        c = store.conn()
+        c.execute("CREATE TABLE IF NOT EXISTS spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
+                  "cache_read_tokens INTEGER, usd REAL, seconds REAL)")
+        c.execute("INSERT INTO spend VALUES (?,?,?,?,?,?,?)",
+                  (time.time(), u.model, u.input_tokens, u.output_tokens, u.cache_read_tokens, u.usd, u.seconds))
+    except Exception:
+        pass
 
 
 class BudgetExceeded(RuntimeError):

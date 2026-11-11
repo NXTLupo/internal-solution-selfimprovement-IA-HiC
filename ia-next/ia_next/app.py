@@ -289,6 +289,71 @@ def task_download(tid: str):
 
 
 # ---- schedules ---------------------------------------------------------------------------------
+class Label(BaseModel):
+    label: str
+    reason: str = ""
+
+
+@app.post("/api/tasks/{tid}/label")
+def label_task(tid: str, body: Label):
+    """A person's thumbs up or down on a finished output (plan 6.5). It calibrates judges; it changes no prompt."""
+    from . import labels
+    try:
+        return labels.add(tid, body.label, body.reason)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/calibration")
+def calibration():
+    from . import labels
+    return labels.calibration()
+
+
+@app.get("/api/spend")
+def spend():
+    """Spend by day and by model from every metered call (plan 6.7: a meter the person can read)."""
+    import time as _t
+    c = store.conn()
+    c.execute("CREATE TABLE IF NOT EXISTS spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
+              "cache_read_tokens INTEGER, usd REAL, seconds REAL)")
+    day0 = _t.time() - (_t.time() % 86400)
+    today = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ?", (day0,)).fetchone()
+    week = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ?", (day0 - 6 * 86400,)).fetchone()
+    by_model = [dict(r) for r in c.execute("SELECT model, COUNT(*) calls, ROUND(SUM(usd),4) usd, ROUND(AVG(seconds),1) avg_seconds "
+                                           "FROM spend WHERE ts >= ? GROUP BY model ORDER BY usd DESC", (day0 - 6 * 86400,))]
+    return {"today_usd": round(today["s"], 4), "today_calls": today["n"], "week_usd": round(week["s"], 4), "week_calls": week["n"],
+            "by_model_7d": by_model, "note": "models without a published price are metered at a conservative placeholder"}
+
+
+@app.get("/api/digest")
+def digest():
+    """Since you last looked (plan Phase 8, proactive): finished and failed work, what waits for you, spend."""
+    from . import schedule
+    c = store.conn()
+    c.execute("CREATE TABLE IF NOT EXISTS prefs (k TEXT PRIMARY KEY, v TEXT)")
+    r = c.execute("SELECT v FROM prefs WHERE k = 'digest_seen_event'").fetchone()
+    seen = int(r["v"]) if r else 0
+    ev = store.events_after(seen, limit=1000)
+    done = [e["data"].get("summary") for e in ev if e["kind"] == "task_done"]
+    failed = [e["data"].get("error") for e in ev if e["kind"] == "task_failed"]
+    paused = [s for s in schedule.list_all() if s["status"] == "paused"]
+    cands = sum(e["data"].get("count", 0) for e in ev if e["kind"] == "memory_candidates")
+    return {"since_event": seen, "last_event": ev[-1]["id"] if ev else seen,
+            "finished": done[-10:], "failed": [f for f in failed if f][-10:], "pending_approvals": len(control.pending()),
+            "paused_schedules": [{"id": s["id"], "tool": s["tool"], "error": s["last_error"]} for s in paused],
+            "new_memory_candidates": cands, "spend": spend()["today_usd"]}
+
+
+@app.post("/api/digest/seen")
+def digest_seen():
+    c = store.conn()
+    c.execute("CREATE TABLE IF NOT EXISTS prefs (k TEXT PRIMARY KEY, v TEXT)")
+    last = c.execute("SELECT COALESCE(MAX(id), 0) m FROM events").fetchone()["m"]
+    c.execute("INSERT INTO prefs VALUES ('digest_seen_event', ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v", (str(last),))
+    return {"seen_through_event": last}
+
+
 @app.get("/api/regression")
 def regression_report():
     """Plan 7.6: per absorbed application, whether IA Next's real outputs pass that app's regression cases."""

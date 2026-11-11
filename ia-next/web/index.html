@@ -53,6 +53,7 @@
     <form id="f"><textarea id="t" placeholder="Ask a question, or ask for a researched report." aria-label="Message"></textarea><button id="send">Send</button></form>
   </section>
   <aside>
+    <section><h2>Since you last looked</h2><div id="digest" class="list"><span style="color:#999">Nothing new.</span></div></section>
     <section><h2>Approvals</h2><div id="approvals" class="list"><span style="color:#999">None waiting.</span></div></section>
     <section><h2>Tasks</h2><div id="tasks" class="list"></div></section>
     <section><h2>Schedules</h2><div id="schedules" class="list"><span style="color:#999">None.</span></div></section>
@@ -111,7 +112,20 @@ $('f').onsubmit = async (e) => {
 async function refresh() {
   try {
     const [h, ts, ap, mem] = await Promise.all([api('/health'), api('/api/tasks'), api('/api/approvals'), api('/api/memory')]);
-    $('health').textContent = h.status + ' · v' + h.version;
+    const sp = await api('/api/spend');
+    $('health').textContent = `${h.status} · spent today ${sp.today_usd.toFixed(2)} USD · v${h.version}`;
+    const dg = await api('/api/digest');
+    const items = [];
+    for (const s of dg.finished) items.push(`Finished: ${s}`);
+    for (const f of dg.failed) items.push(`Failed: ${f}`);
+    if (dg.pending_approvals) items.push(`${dg.pending_approvals} approval(s) waiting for you`);
+    for (const p of dg.paused_schedules) items.push(`Schedule paused (${p.tool}): ${p.error || ''}`);
+    if (dg.new_memory_candidates) items.push(`${dg.new_memory_candidates} new memory candidate(s), promoted only through the gate`);
+    $('digest').innerHTML = '';
+    if (!items.length) $('digest').innerHTML = '<span style="color:#999">Nothing new.</span>';
+    for (const it of items) { const div = document.createElement('div'); div.textContent = it; $('digest').appendChild(div); }
+    if (items.length) { const b = document.createElement('button'); b.className = 'ghost'; b.textContent = 'Mark as read';
+      b.onclick = async () => { await api('/api/digest/seen', {method:'POST'}); refresh(); }; $('digest').appendChild(b); }
     $('tasks').innerHTML = ts.tasks.length ? '' : '<span style="color:#999">No tasks yet.</span>';
     for (const t of ts.tasks.slice(0, 12)) {
       const d = document.createElement('div'); d.className = 'task';
@@ -122,6 +136,19 @@ async function refresh() {
         if (t.kind === 'deck') { const p = document.createElement('a'); p.href = `/api/tasks/${t.id}/download`; p.textContent = ' · Download PowerPoint'; d.appendChild(p); }
       }
       else if (t.status === 'done' && t.kind === 'research_report') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').innerHTML = renderMarkdown(await api(`/api/tasks/${t.id}/report`)); $('report').style.display='block'; }; d.appendChild(b); }
+      if (t.status === 'done') {
+        // Plan 6.5: a person's thumbs calibrate the judges; they change no prompt.
+        const fb = document.createElement('span'); fb.style.marginLeft = '8px';
+        for (const [glyph, lab, tip] of [['\u{1F44D}', 'approved', 'This was right'], ['\u{1F44E}', 'rejected', 'This was wrong']]) {
+          const b = document.createElement('button'); b.className = 'ghost'; b.textContent = glyph; b.title = tip; b.setAttribute('aria-label', tip);
+          b.style.padding = '2px 6px';
+          b.onclick = async () => { const reason = prompt(lab === 'rejected' ? 'What was wrong? (optional)' : 'What worked? (optional)') || '';
+            await api(`/api/tasks/${t.id}/label`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({label: lab, reason})});
+            fb.textContent = ' Thanks, recorded.'; };
+          fb.appendChild(b);
+        }
+        d.appendChild(fb);
+      }
       const full = await api(`/api/tasks/${t.id}`); const ul = document.createElement('ul'); ul.className='steps';
       for (const n of full.nodes) { const li = document.createElement('li'); li.textContent = `${n.specialist}: ${n.state}${n.summary ? ' · ' + n.summary : ''}${n.error ? ' · ' + n.error : ''}`; ul.appendChild(li); }
       d.appendChild(ul); $('tasks').appendChild(d);

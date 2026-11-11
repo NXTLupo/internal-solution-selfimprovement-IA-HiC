@@ -240,6 +240,9 @@ def turn(cid, text, call=None):
         uses = [b for b in resp.content if getattr(b, "type", None) == "tool_use"]
         if resp.stop_reason != "tool_use" or not uses:
             store.event("agent_reply", {"conversation": cid, "text": reply[:4000], "tools": [t["tool"] for t in trace], "usd": ledger.spent_usd})
+            if call is providers.claude:            # the background memory reviewer (plan 6.4); not under test fakes
+                from . import reviewer
+                reviewer.after_turn(cid, conv.messages)
             return {"reply": reply, "trace": trace, "usd": ledger.spent_usd}
         results = []
         for u in uses:
