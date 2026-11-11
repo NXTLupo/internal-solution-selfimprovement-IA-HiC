@@ -11,7 +11,7 @@ import re
 
 from . import config, providers
 
-EM_DASH = "—"
+EM_DASH = "\u2014"
 SLOP = [
     "paradigm shift", "game-changer", "holistic approach", "cutting-edge", "best-in-class", "leverage synergies",
     "robust solution", "seamless integration", "actionable insights", "thought leadership", "move the needle",

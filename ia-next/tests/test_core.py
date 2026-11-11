@@ -141,7 +141,7 @@ def test_clean_text_passes():
 
 
 def test_fabricated_quote_em_dash_slop_and_naked_number_are_caught():
-    text = 'AI is a game-changer — firms cut costs by 40% "AI will replace every recruiter by next year" [S1] [S9]'
+    text = 'AI is a game-changer \u2014 firms cut costs by 40% "AI will replace every recruiter by next year" [S1] [S9]'
     rules = {f["rule"] for f in verify.deterministic(text, SOURCES)}
     assert {"em-dash", "slop", "quote-not-in-source", "unknown-citation", "naked-number"} <= rules
 
@@ -204,6 +204,14 @@ def test_journey_html_escapes_source_text():
          "touchpoints": [], "opportunities": [], "pains": [{"pain": "p", "quote": "<script>alert(1)</script>", "source_id": "S1"}]}]}
     page = journey.render_html(j, [{"id": "S1", "title": "<b>t</b>", "url": "https://x", "text": ""}])
     assert "<script>" not in page.split("</style>", 1)[1] and "<img src=x" not in page
+
+
+def test_journey_html_escapes_pain_text_too():
+    from ia_next import journey
+    j = {"persona": "p", "title": "t", "stages": [{"name": "s", "goal": "g", "actions": [], "touchpoints": [], "opportunities": [],
+         "pains": [{"pain": "<script>alert(1)</script>", "quote": "q", "source_id": "S1"}]}]}
+    page = journey.render_html(j, [])
+    assert "<script>alert(1)</script>" not in page
 
 
 def test_journey_task_without_research_fails_clearly():

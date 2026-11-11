@@ -55,6 +55,7 @@
   <aside>
     <section><h2>Approvals</h2><div id="approvals" class="list"><span style="color:#999">None waiting.</span></div></section>
     <section><h2>Tasks</h2><div id="tasks" class="list"></div></section>
+    <section><h2>Schedules</h2><div id="schedules" class="list"><span style="color:#999">None.</span></div></section>
     <section><h2>Memory</h2><div class="list"><pre id="memory"></pre>
       <div style="display:flex;gap:6px"><input id="fm" placeholder="Text to forget" style="flex:1;font:inherit;padding:4px" aria-label="Text to forget"><button class="ghost" id="forget">Forget</button></div></div></section>
   </aside>
@@ -115,8 +116,12 @@ async function refresh() {
     for (const t of ts.tasks.slice(0, 12)) {
       const d = document.createElement('div'); d.className = 'task';
       d.innerHTML = `<span class="status ${t.status}">${t.status}</span> <small>${t.id}</small><div>${(t.summary || t.error || '').replace(/</g,'&lt;')}</div><small>spent ${Number(t.spent_usd||0).toFixed(2)} USD</small>`;
-      if (t.status === 'done' && t.kind === 'journey_map') { const a = document.createElement('a'); a.href = `/api/tasks/${t.id}/view`; a.target = '_blank'; a.textContent = 'Open journey map'; d.appendChild(a); }
-      else if (t.status === 'done') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').innerHTML = renderMarkdown(await api(`/api/tasks/${t.id}/report`)); $('report').style.display='block'; }; d.appendChild(b); }
+      const label = {journey_map: 'Open journey map', deck: 'Open deck preview', social: 'Open social analysis', prototype: 'Open prototype'}[t.kind];
+      if (t.status === 'done' && label) {
+        const a = document.createElement('a'); a.href = `/api/tasks/${t.id}/view`; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; d.appendChild(a);
+        if (t.kind === 'deck') { const p = document.createElement('a'); p.href = `/api/tasks/${t.id}/download`; p.textContent = ' · Download PowerPoint'; d.appendChild(p); }
+      }
+      else if (t.status === 'done' && t.kind === 'research_report') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').innerHTML = renderMarkdown(await api(`/api/tasks/${t.id}/report`)); $('report').style.display='block'; }; d.appendChild(b); }
       const full = await api(`/api/tasks/${t.id}`); const ul = document.createElement('ul'); ul.className='steps';
       for (const n of full.nodes) { const li = document.createElement('li'); li.textContent = `${n.specialist}: ${n.state}${n.summary ? ' · ' + n.summary : ''}${n.error ? ' · ' + n.error : ''}`; ul.appendChild(li); }
       d.appendChild(ul); $('tasks').appendChild(d);
@@ -128,6 +133,15 @@ async function refresh() {
       $('approvals').appendChild(d);
     }
     $('memory').textContent = (mem.user || '') + '\n' + (mem.memory || '') || 'Nothing remembered yet.';
+    const sc = await api('/api/schedules');
+    $('schedules').innerHTML = sc.schedules.length ? '' : '<span style="color:#999">None.</span>';
+    for (const s of sc.schedules) {
+      const d = document.createElement('div'); d.className = 'task';
+      d.innerHTML = `<span class="status ${s.status === 'active' ? 'done' : 'failed'}">${s.status}</span> ${s.tool.replace(/</g,'&lt;')} every ${s.every_minutes} min<div><small>${(s.last_error || '').replace(/</g,'&lt;')}</small></div>`;
+      const b = document.createElement('button'); b.className = 'ghost'; b.textContent = s.status === 'active' ? 'Pause' : 'Resume';
+      b.onclick = async () => { await api(`/api/schedules/${s.id}/${s.status === 'active' ? 'pause' : 'resume'}`, {method:'POST'}); refresh(); };
+      d.appendChild(b); $('schedules').appendChild(d);
+    }
   } catch (err) { $('health').textContent = 'unreachable'; }
 }
 $('forget').onclick = async () => { const m = $('fm').value.trim(); if (m.length < 3) return; const r = await api('/api/memory/forget', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({match:m})}); add('tool', `forgot ${r.removed.length} entr${r.removed.length === 1 ? 'y' : 'ies'}`); $('fm').value=''; refresh(); };

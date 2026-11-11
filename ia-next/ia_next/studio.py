@@ -57,7 +57,15 @@ def research_lead(eid, brief, ledger):
     text, _, raw = providers.gemini_generate(model, prompt, ledger, search=True, max_output_tokens=4096)
     gm = ((raw.get("candidates") or [{}])[0]).get("groundingMetadata") or {}
     chunks = gm.get("groundingChunks") or []
-    sources, seen = [], set()
+    # Sources already in the engagement (uploads, earlier research) keep their ids; new ones are numbered
+    # after the highest existing S#, so a research run never overwrites an uploaded source.
+    try:
+        with io.open(store.safe_path(eid, "results/sources.json"), encoding="utf-8") as fh:
+            existing = json.load(fh).get("sources", [])
+    except (FileNotFoundError, ValueError):
+        existing = []
+    start = max([int(s["id"][1:]) for s in existing if str(s.get("id", "")).startswith("S") and s["id"][1:].isdigit()] or [0])
+    sources, seen = [], {s.get("url") for s in existing}
     for ch in chunks:
         web = ch.get("web") or {}
         uri, title = web.get("uri"), web.get("title") or ""
@@ -67,15 +75,15 @@ def research_lead(eid, brief, ledger):
         body, final_url = _page_text(uri)
         if len(body) < 400:
             continue
-        sid = f"S{len(sources) + 1}"
+        sid = f"S{start + len(sources) + 1}"
         sources.append({"id": sid, "url": final_url, "title": title, "text": body, "untrusted": True})
         store.add_evidence(eid, sid, final_url, title, body)
         if len(sources) >= 8:
             break
     if not sources:
         raise providers.ProviderError("search returned no readable sources")
-    path = _write(eid, "results/sources.json", {"summary": text, "sources": sources, "queries": gm.get("webSearchQueries")})
-    return path, f"{len(sources)} sources collected and read", sources
+    path = _write(eid, "results/sources.json", {"summary": text, "sources": existing + sources, "queries": gm.get("webSearchQueries")})
+    return path, f"{len(sources)} sources collected and read" + (f" ({len(existing)} earlier sources kept)" if existing else ""), existing + sources
 
 
 # ---- Analyst ----------------------------------------------------------------------------------
@@ -124,7 +132,10 @@ WRITER_SYSTEM = (
     "colons or parentheses. No slogans, metaphors or filler. No bold or italics. Headings are short statements of a conclusion.")
 
 
-def writer(eid, brief, findings, sources, ledger, feedback=None, previous=None):
+def writer(eid, brief, findings, sources, ledger, feedback=None, previous=None, system=None):
+    """`system` overrides the active Writer skill (the held-out evaluation in skills.py uses it)."""
+    from . import skills
+    system = system or skills.active_text("writer", WRITER_SYSTEM)
     model = config.SEATS["artifact"]["primary"]
     fl = "\n".join(f"- [{f['source_id']}] ({f['claim_type']}) {f['claim']} | quote: \"{f['quote']}\"" for f in findings)
     srcs = "\n".join(f"[{s['id']}] {s['title']} {s['url']}" for s in sources)
@@ -133,7 +144,7 @@ def writer(eid, brief, findings, sources, ledger, feedback=None, previous=None):
            "End with a 'Sources' section listing each [S#] with its title and URL.")
     if feedback:
         msg += f"\n\nREVISE the draft below. Fix exactly these problems and change nothing else:\n{feedback}\n\nDRAFT:\n{previous}"
-    text, _, _ = providers.claude(model, WRITER_SYSTEM, [{"role": "user", "content": msg}], ledger, max_tokens=32000, effort="high")
+    text, _, _ = providers.claude(model, system, [{"role": "user", "content": msg}], ledger, max_tokens=32000, effort="high")
     if not text.strip():
         raise providers.ProviderError("the writer returned an empty report")
     return text, model

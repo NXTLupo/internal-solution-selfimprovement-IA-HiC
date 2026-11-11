@@ -65,6 +65,24 @@ TOOLS = [
      "input_schema": {"type": "object", "additionalProperties": False, "required": [], "properties": {}}},
 ]
 
+TOOLS.append({"name": "schedule_task", "strict": True,
+              "description": "Run one of your tools on a schedule (for example a weekly research refresh). Needs the person's approval. args_json is the JSON of that tool's arguments.",
+              "input_schema": {"type": "object", "additionalProperties": False, "required": ["tool", "args_json", "every_minutes"],
+                               "properties": {"tool": STR, "args_json": STR, "every_minutes": {"type": "integer"}}}})
+
+# Studio specialists that live in their own modules (plan 6.2 and Phase 6). Each module exposes TOOLS
+# and execute(name, args); the agent's tool list is fixed at import, so it stays cache-stable (plan 6.7).
+SPECIALIST_MODULES = []
+for _name in ("deck", "media", "social", "transcripts", "prototype"):
+    try:
+        _mod = __import__(f"ia_next.{_name}", fromlist=["TOOLS", "execute"])
+        if getattr(_mod, "TOOLS", None) and hasattr(_mod, "execute"):
+            SPECIALIST_MODULES.append(_mod)
+            TOOLS.extend(_mod.TOOLS)
+    except ImportError:
+        pass
+MODULE_FOR_TOOL = {spec["name"]: m for m in SPECIALIST_MODULES for spec in m.TOOLS}
+
 _CONVS = {}
 _LOCK = threading.RLock()
 
@@ -134,6 +152,16 @@ def _read_report(args):
         return {"error": "no such task"}
     if t["status"] != "done" or not t["result_path"]:
         return {"error": f"the task is {t['status']}; there is no finished report"}
+    if t["kind"] in ("deck", "social", "prototype"):
+        import os
+        base = os.path.dirname(t["result_path"])
+        for name in ("deck.json", "social.json"):
+            p = os.path.join(base, name)
+            if t["kind"] in name or (t["kind"] == "deck" and name == "deck.json"):
+                if os.path.isfile(p):
+                    with open(p, encoding="utf-8") as fh:
+                        return {t["kind"]: json.load(fh), "view": f"/api/tasks/{t['id']}/view"}
+        return {"summary": t["summary"], "view": f"/api/tasks/{t['id']}/view"}
     if t["kind"] == "journey_map":
         import os
         jp = os.path.join(os.path.dirname(t["result_path"]), "journey.json")
@@ -183,6 +211,13 @@ def execute_tool(name, args):
             return _send_email(args)
         if name == "list_engagements":
             return {"engagements": [dict(e, tasks=store.list_tasks(e["id"], 5)) for e in store.list_engagements()[:20]]}
+        if name == "schedule_task":
+            from . import schedule
+            if args["tool"] in ("schedule_task", "send_email", "forget"):
+                return {"error": f"{args['tool']} cannot be scheduled"}
+            return schedule.create(args["tool"], json.loads(args["args_json"] or "{}"), args["every_minutes"])
+        if name in MODULE_FOR_TOOL:
+            return MODULE_FOR_TOOL[name].execute(name, args)
         return {"error": f"unknown tool {name}"}
     except Exception as e:
         return {"error": f"{type(e).__name__}: {str(e)[:300]}"}

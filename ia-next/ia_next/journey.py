@@ -60,7 +60,7 @@ def render_html(j, sources):
     cols = len(stages) or 1
     src = {s["id"]: s for s in sources}
     lanes = [("Goal", lambda s: [s["goal"]]), ("Actions", lambda s: s["actions"]), ("Touchpoints", lambda s: s["touchpoints"]),
-             ("Pains", lambda s: [f'{p["pain"]} <q>{e(p["quote"])}</q> <sup>[{e(p["source_id"])}]</sup>' for p in s["pains"]]),
+             ("Pains", lambda s: [f'{e(p["pain"])} <q>{e(p["quote"])}</q> <sup>[{e(p["source_id"])}]</sup>' for p in s["pains"]]),
              ("Opportunities", lambda s: s["opportunities"])]
     cells = []
     cells.append('<div class="lane"></div>' + "".join(f'<div class="stage">{i + 1}. {e(s["name"])}</div>' for i, s in enumerate(stages)))
