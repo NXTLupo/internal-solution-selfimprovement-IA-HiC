@@ -30,6 +30,7 @@ docker run --rm -v "$PWD/ia-next/tests:/app/tests:ro" -u root ia-next:0.1 python
 |---|---|
 | 6.1 The Agent | One conversation on the orchestration seat (Claude Opus 5.5) with a fixed system prompt and tool list. It asks at most one clarifying question, sends long work to the studio as a background task, and reports a task as done only when the task store says so. |
 | 6.2 The Studio | Brief Lead (five required brief fields), Research Lead (Gemini 4 Argon with Google Search grounding, then reads each page), Analyst (Claude Sonnet 5.5, findings with verbatim quotes; a finding whose quote is not in its source is dropped), Writer (Claude Opus 5.5), Verifier. Specialists get the brief and their inputs, never the person's memory. |
+| Phase 6, journey mapping | The Journey Cartographer (Claude Sonnet 5.5) maps one persona from an engagement's verified findings: stages, actions, touchpoints, pains and opportunities. Every pain carries a verbatim quote checked against its source; the exhibit is a CSS-grid page with no overlapping boxes. First live map: six stages, 12 quoted pains, USD 0.06. |
 | 6.3 Runtime | A task graph in SQLite. Each step is `running`, then `available` with a result file, or `failed`; a step that returns nothing is failed. Tasks are idempotent by key. Specialists write only inside the engagement workspace. A task interrupted by a restart is marked failed, never left "running". |
 | 6.4 Second brain | `USER.md` and `MEMORY.md`, capped, entering the prompt as a snapshot taken when a conversation starts. Candidate notes are promoted only through the gate: a score, three recalls by three distinct queries, a source line, trusted origin, and at most a quarter of existing entries lost per pass. Evidence passages are full-text indexed. The person can see and forget memory. |
 | 6.5 Verification | Rung 1, no model: em-dash and slop bans, every citation resolves, every quote appears verbatim in its source, no bare numbers outside quotes. Rung 2: a judge from a different vendor than the author scores a checklist drawn from the brief. One repair round; the earlier version is kept when the repair scores worse. |
@@ -38,6 +39,6 @@ docker run --rm -v "$PWD/ia-next/tests:/app/tests:ro" -u root ia-next:0.1 python
 | 6.9 Workspace | One page: the conversation, approvals, tasks with each specialist's state, the report, and memory with forget. |
 | 6.10 Models | The owner's seat matrix of 2026-11-10 as probed on 2026-11-11. No Grok. Sora is shut down, so video is Gemini Omni only. |
 
-Not yet in IA Next: decks and native PowerPoint, journey maps, social analytics, transcript analysis,
+Not yet in IA Next: decks and native PowerPoint, social analytics, transcript analysis,
 prototypes, image and video production, scheduled work, messaging channels, SkillOpt. Section 8 of the
 plan orders them; each arrives as a studio specialist with the regression cases of the app it absorbs.

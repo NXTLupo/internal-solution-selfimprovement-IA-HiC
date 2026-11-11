@@ -204,6 +204,37 @@ def run_research_task(tid):
         store.event("task_failed", {"error": msg, "spent_usd": ledger.spent_usd, "trace": traceback.format_exc()[-800:]}, eid, tid)
 
 
+def run_journey_task(tid):
+    """Background body for a journey map: one Journey Cartographer node over the engagement's findings."""
+    from . import journey
+    t = store.get_task(tid)
+    eid, brief = t["engagement_id"], t["brief"]
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD)
+    store.update_task(tid, status="running")
+    nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], 1)
+    try:
+        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger)
+        store.finish_node(nid, hp, summary)
+        store.update_task(tid, status="done", result_path=hp, summary=f"Journey map ready: {summary}.", spent_usd=ledger.spent_usd)
+        store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
+    except FileNotFoundError:
+        msg = "this engagement has no finished research yet; run a research report first"
+        store.finish_node(nid, None, None, error=msg)
+        store.update_task(tid, status="failed", error=msg, spent_usd=ledger.spent_usd)
+        store.event("task_failed", {"error": msg}, eid, tid)
+    except Exception as e:
+        store.finish_node(nid, None, None, error=str(e)[:500])
+        store.update_task(tid, status="failed", error=str(e)[:500], spent_usd=ledger.spent_usd)
+        store.event("task_failed", {"error": str(e)[:500]}, eid, tid)
+
+
+def start_journey_task(engagement_id, persona, scope, budget_usd, idem_key):
+    tid, created = store.create_task(engagement_id, "journey_map", {"persona": persona, "scope": scope}, budget_usd, idem_key)
+    if created:
+        threading.Thread(target=run_journey_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
+    return tid, created
+
+
 def start_research_task(engagement_id, brief, budget_usd, idem_key):
     tid, created = store.create_task(engagement_id, "research_report", brief, budget_usd, idem_key)
     if created:

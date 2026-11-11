@@ -35,7 +35,14 @@ def health():
 
 @app.get("/")
 def index():
-    return FileResponse(os.path.join(WEB, "index.html"))
+    return FileResponse(os.path.join(WEB, "index.html"), headers={"Cache-Control": "no-store"})
+
+
+@app.get("/favicon.ico")
+def favicon():
+    from fastapi.responses import Response
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect width="16" height="16" fill="#0D0D0D"/><circle cx="8" cy="8" r="3" fill="#B8B800"/></svg>'
+    return Response(svg, media_type="image/svg+xml")
 
 
 @app.get("/api/seats")
@@ -93,6 +100,15 @@ def task_report(tid: str):
         raise HTTPException(404, "no finished report for this task")
     with open(t["result_path"], encoding="utf-8") as fh:
         return fh.read()
+
+
+@app.get("/api/tasks/{tid}/view")
+def task_view(tid: str):
+    """A finished HTML exhibit (a journey map), served as a page."""
+    t = store.get_task(tid)
+    if not t or t["status"] != "done" or not (t["result_path"] or "").endswith(".html"):
+        raise HTTPException(404, "no finished exhibit for this task")
+    return FileResponse(t["result_path"], media_type="text/html", headers={"Cache-Control": "no-store"})
 
 
 @app.get("/api/tasks/{tid}/verification")

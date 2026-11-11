@@ -33,6 +33,14 @@
   .done { background:#E8F6F7; color:var(--teal); } .failed { background:#FBEDE8; color:var(--warn); } .running, .queued { background:#F6F6E0; color:#6B6B00; }
   .steps { margin:6px 0 0; padding-left:16px; color:var(--muted); font-size:12px; }
   pre { white-space:pre-wrap; font-size:12px; margin:0; }
+  #reporttext { max-width:860px; margin:12px auto; font-size:15px; line-height:1.55; }
+  #reporttext h2 { font-size:22px; text-transform:none; letter-spacing:0; color:var(--ink); border:0; padding:0; margin:18px 0 8px; }
+  #reporttext h3 { font-size:17px; margin:18px 0 6px; color:var(--teal); }
+  #reporttext table { border-collapse:collapse; width:100%; font-size:13px; margin:8px 0; }
+  #reporttext th, #reporttext td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
+  #reporttext th { background:#F3F3EE; }
+  #reporttext .cite { color:var(--cool); font-size:10px; }
+  #reporttext a { color:var(--teal); word-break:break-all; }
   #report { display:none; position:fixed; inset:5vh 5vw; background:#fff; border:1px solid var(--line); padding:16px; overflow:auto; z-index:10; box-shadow:0 0 0 100vmax rgba(0,0,0,.35); }
 </style>
 </head>
@@ -51,8 +59,38 @@
       <div style="display:flex;gap:6px"><input id="fm" placeholder="Text to forget" style="flex:1;font:inherit;padding:4px" aria-label="Text to forget"><button class="ghost" id="forget">Forget</button></div></div></section>
   </aside>
 </main>
-<div id="report"><button class="ghost" onclick="report.style.display='none'">Close</button><pre id="reporttext"></pre></div>
+<div id="report"><button class="ghost" onclick="report.style.display='none'">Close</button><article id="reporttext"></article></div>
 <script>
+// A small Markdown renderer for reports. Everything is HTML-escaped first, so text that came from web
+// sources can never inject markup; only headings, lists, tables, bold, links and paragraphs are rendered.
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function inline(s) {
+  return esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/(https?:\/\/[^\s<)|]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\[(S\d+)\]/g, '<sup class="cite">[$1]</sup>');
+}
+function renderMarkdown(md) {
+  const out = []; const lines = md.split('\n'); let i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (/^#{1,6}\s/.test(l)) { const n = l.match(/^#+/)[0].length; out.push(`<h${Math.min(n + 1, 6)}>${inline(l.replace(/^#+\s*/, ''))}</h${Math.min(n + 1, 6)}>`); i++; continue; }
+    if (/^\|/.test(l)) {
+      const rows = []; while (i < lines.length && /^\|/.test(lines[i])) { rows.push(lines[i]); i++; }
+      const cells = (r) => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+      const body = rows.filter(r => !/^\|\s*-/.test(r));
+      out.push('<table>' + body.map((r, k) => '<tr>' + cells(r).map(c => k === 0 ? `<th>${inline(c)}</th>` : `<td>${inline(c)}</td>`).join('') + '</tr>').join('') + '</table>');
+      continue;
+    }
+    if (/^\s*([-*]|\d+\.)\s/.test(l)) {
+      const ordered = /^\s*\d+\./.test(l); const items = [];
+      while (i < lines.length && /^\s*([-*]|\d+\.)\s/.test(lines[i])) { items.push(`<li>${inline(lines[i].replace(/^\s*([-*]|\d+\.)\s/, ''))}</li>`); i++; }
+      out.push(ordered ? `<ol>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`); continue;
+    }
+    if (l.trim()) { const para = []; while (i < lines.length && lines[i].trim() && !/^(#|\||\s*([-*]|\d+\.)\s)/.test(lines[i])) { para.push(lines[i]); i++; } out.push(`<p>${inline(para.join(' '))}</p>`); continue; }
+    i++;
+  }
+  return out.join('\n');
+}
 let conv = null;
 const $ = (id) => document.getElementById(id);
 const api = async (p, o) => { const r = await fetch(p, o); if (!r.ok) throw new Error((await r.text()).slice(0, 300)); return r.headers.get('content-type')?.includes('json') ? r.json() : r.text(); };
@@ -77,7 +115,8 @@ async function refresh() {
     for (const t of ts.tasks.slice(0, 12)) {
       const d = document.createElement('div'); d.className = 'task';
       d.innerHTML = `<span class="status ${t.status}">${t.status}</span> <small>${t.id}</small><div>${(t.summary || t.error || '').replace(/</g,'&lt;')}</div><small>spent ${Number(t.spent_usd||0).toFixed(2)} USD</small>`;
-      if (t.status === 'done') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').textContent = await api(`/api/tasks/${t.id}/report`); $('report').style.display='block'; }; d.appendChild(b); }
+      if (t.status === 'done' && t.kind === 'journey_map') { const a = document.createElement('a'); a.href = `/api/tasks/${t.id}/view`; a.target = '_blank'; a.textContent = 'Open journey map'; d.appendChild(a); }
+      else if (t.status === 'done') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').innerHTML = renderMarkdown(await api(`/api/tasks/${t.id}/report`)); $('report').style.display='block'; }; d.appendChild(b); }
       const full = await api(`/api/tasks/${t.id}`); const ul = document.createElement('ul'); ul.className='steps';
       for (const n of full.nodes) { const li = document.createElement('li'); li.textContent = `${n.specialist}: ${n.state}${n.summary ? ' · ' + n.summary : ''}${n.error ? ' · ' + n.error : ''}`; ul.appendChild(li); }
       d.appendChild(ul); $('tasks').appendChild(d);

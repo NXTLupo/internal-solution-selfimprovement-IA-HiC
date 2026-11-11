@@ -43,6 +43,10 @@ TOOLS = [
                       "properties": {"engagement_title": STR, "engagement_id": {"type": "string", "description": "Existing engagement id, or empty to create one"},
                                      "audience": STR, "goal": STR, "scope": STR, "structure": STR, "constraints": STR,
                                      "success": {"type": "array", "items": STR}, "budget_usd": {"type": "number"}}}},
+    {"name": "start_journey_map", "strict": True,
+     "description": "Start a background task in which the Journey Cartographer maps one persona's journey (stages, actions, touchpoints, quoted pains, opportunities) from an engagement's finished research. Needs an engagement that has a done research report.",
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "persona", "scope"],
+                      "properties": {"engagement_id": STR, "persona": STR, "scope": STR}}},
     {"name": "task_status", "strict": True, "description": "Current status of a task and each specialist step.",
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id"], "properties": {"task_id": STR}}},
     {"name": "read_report", "strict": True, "description": "Read the finished report of a done task.",
@@ -130,6 +134,11 @@ def _read_report(args):
         return {"error": "no such task"}
     if t["status"] != "done" or not t["result_path"]:
         return {"error": f"the task is {t['status']}; there is no finished report"}
+    if t["kind"] == "journey_map":
+        import os
+        jp = os.path.join(os.path.dirname(t["result_path"]), "journey.json")
+        with open(jp, encoding="utf-8") as fh:
+            return {"journey_map": json.load(fh), "view": f"/api/tasks/{t['id']}/view"}
     with open(t["result_path"], encoding="utf-8") as fh:
         return {"report": fh.read()[:20000]}
 
@@ -154,6 +163,12 @@ def execute_tool(name, args):
     try:
         if name == "start_research_report":
             return _start_research(args)
+        if name == "start_journey_map":
+            if not store.get_engagement(args["engagement_id"]):
+                return {"error": "no such engagement; list_engagements shows the ids"}
+            idem = hashlib.sha256(json.dumps(args, sort_keys=True).encode()).hexdigest()
+            tid, created = studio.start_journey_task(args["engagement_id"], args["persona"], args["scope"], 1.0, idem)
+            return {"task_id": tid, "started": created}
         if name == "task_status":
             return _task_status(args)
         if name == "read_report":

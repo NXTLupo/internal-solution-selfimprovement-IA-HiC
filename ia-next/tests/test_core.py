@@ -186,3 +186,29 @@ def test_agent_reports_status_from_the_store_not_from_the_model():
     cid = agent.new_conversation()
     out = agent.turn(cid, "Is my report done?", call=fake)
     assert out["reply"] == "The task is queued." and out["trace"][0]["tool"] == "task_status"
+
+
+# ---- journey cartographer ------------------------------------------------------------------------
+def test_journey_drops_pains_whose_quote_is_not_in_the_source():
+    from ia_next import journey
+    j = {"persona": "p", "title": "t", "stages": [{"name": "Search", "goal": "g", "actions": [], "touchpoints": [], "opportunities": [],
+         "pains": [{"pain": "real", "quote": "Search firms are divided on whether AI can assess finalist candidates.", "source_id": "S1"},
+                   {"pain": "made up", "quote": "Partners hate every AI tool they have tried.", "source_id": "S1"}]}]}
+    out, dropped = journey.check_quotes(j, SOURCES)
+    assert dropped == 1 and [p["pain"] for p in out["stages"][0]["pains"]] == ["real"]
+
+
+def test_journey_html_escapes_source_text():
+    from ia_next import journey
+    j = {"persona": "<script>x</script>", "title": "t", "stages": [{"name": "<img src=x onerror=1>", "goal": "g", "actions": ["a"],
+         "touchpoints": [], "opportunities": [], "pains": [{"pain": "p", "quote": "<script>alert(1)</script>", "source_id": "S1"}]}]}
+    page = journey.render_html(j, [{"id": "S1", "title": "<b>t</b>", "url": "https://x", "text": ""}])
+    assert "<script>" not in page.split("</style>", 1)[1] and "<img src=x" not in page
+
+
+def test_journey_task_without_research_fails_clearly():
+    eid = store.create_engagement("e", "o")
+    tid, _ = store.create_task(eid, "journey_map", {"persona": "p", "scope": "s"}, 1.0)
+    studio.run_journey_task(tid)
+    t = store.get_task(tid)
+    assert t["status"] == "failed" and "no finished research" in t["error"] and t["nodes"][0]["state"] == "failed"
