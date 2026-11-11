@@ -499,10 +499,10 @@ show how a working system of that kind is built, not what Gamma or Genspark ship
 | `kortix-ai/suna` (2026-11-11) | Genspark, Manus | A front chat agent hands work to named background workers; each writes a result file and reports only the path and one line. A `workflow` tool runs up to 50 subagents, 8 at once, whose answers are checked against a JSON schema with up to five correction rounds, after a person approves the plan and the agent count. Goals carry one to eight completion criteria backed by evidence files, ruled on by a verifier session that can never be the author. Approvals are bound to a hash of the call's arguments. Model fallback chains, a provider circuit breaker, spend budgets that warn or block, and a cap on images per turn and per session | No default step limit; a plain subagent result is unvalidated text; the front router, goals and teams are all behind feature flags |
 | `FoundationAgents/OpenManus` (2026-08-16) | Manus | A planner writes a plan, a regular expression routes each step to an agent, and a `terminate` tool ends a run | A step is marked complete whenever the agent returns; the stuck check compares the wrong messages; memory is a list cut at 100 messages, which can separate a tool result from its call; nothing persists; code runs on the host |
 | `NousResearch/hermes-agent` (2026-11-10) | Personal agents | `MEMORY.md` and `USER.md` capped at 2,200 and 1,375 characters and frozen into the prompt at session start; a background reviewer every ten turns that may add memory but must queue edits and removals for approval; past sessions in SQLite full-text search with no model call; a skill index of names and short descriptions with bodies loaded on demand; children get the goal and no memory, one level deep, and return a summary capped at half the parent's remaining context; a scheduled job advances its next run time before it fires; the system prompt never changes in a conversation and a test fails the build if the prompt or tool list changes | The scan of agent-written skills is off by default while the review prompt pushes toward writing one every session; the memory-write approval is off by default; no general audit log |
-| `openclaw/openclaw` (2026-11-11) | Personal agents | A nightly job promotes notes to long-term memory only above a score, a recall count and a count of distinct queries, never losing more than a quarter of existing entries, with a source line cited for every promoted line; memory of untrusted origin is kept out of the prompt; one session per person across channels through identity links; tool definitions follow the session, not the surface, so the cache key is stable; old tool results are trimmed only after the provider cache has expired; a ten-scenario personal-agent benchmark covering reminders, recall, secret leaks, denied approvals and fake progress | Defaults are permissive: full command execution, no sandbox, one shared direct-message session; learned skills apply immediately and the scanner has no injection rule. The memory promotion thresholds, the subagent limits and the execution defaults were then confirmed in its code; the pruning and compaction figures are from its documentation only |
+| `openclaw/openclaw` (2026-11-11) | Personal agents | A nightly job promotes notes to long-term memory only above a score, a recall count and a count of distinct queries, never losing more than a quarter of existing entries, with a source line cited for every promoted line; memory of untrusted origin is kept out of the prompt; one session per person across channels through identity links; tool definitions follow the session, not the surface, so the cache key is stable; old tool results are trimmed only after the provider cache has expired; a ten-scenario personal-agent benchmark covering reminders, recall, secret leaks, denied approvals and fake progress | Defaults are permissive: full command execution, no sandbox, one shared direct-message session; learned skills apply immediately and the scanner has no injection rule. The memory promotion thresholds, the subagent limits, the execution defaults and the compaction check for exact identifiers were then confirmed in its code; the documented pruning settings are retired keys that its migration tool removes |
 | `lfnovo/open-notebook` (2026-11-08) | Gemini Notebook | Per-source context level chosen by the person: excluded, insights only, or full text; prompt templates run on every source at ingestion and stored as insights; a model default per task (chat, transformation, tools, large context, embedding, speech) with an automatic switch to the large-context model above a token threshold; podcasts from an episode profile and a speaker profile, outline first and then one transcript call per segment | Citations are enforced only by the prompt and point at a whole source; no vector index; some failed jobs are recorded as completed |
 | `ItzCrazyKns/Perplexica` (2026-09-01) | Perplexity | A classifier rewrites the question and sets flags; three depth modes cap research rounds at 2, 6 and 25; snippets are kept above a similarity threshold and near-duplicates dropped; the quality mode reads the pages themselves and extracts facts; an in-memory session replays events to a reconnecting client | No check that a citation supports its sentence; in the two faster modes citations rest on search snippets, not page text; no error path; no cap on what reaches the writer |
-| `presenton/presenton` (2026-11-06) | Gamma | Outline in one call, a layout index for every slide in one call, then one call per slide against a schema derived from that layout's editable elements, with length limits computed from the geometry of each cell; importing a PowerPoint template takes four vision passes per slide and falls back to a faithful copy; when drafting a new layout the model renders its draft to an image and corrects what it sees; a chat agent with 25 deck-editing tools | Fit is estimated from character counts and never measured after rendering; after four repair rounds invalid output ships with a log line; an out-of-range layout index is replaced by a random layout; the image style prompt is never set; the converter that writes the PowerPoint file is not in the repository, so whether its output is editable could not be verified |
+| `presenton/presenton` (2026-11-06) | Gamma | Outline in one call, a layout index for every slide in one call, then one call per slide against a schema derived from that layout's editable elements, with length limits computed from the geometry of each cell; importing a PowerPoint template takes four vision passes per slide and falls back to a faithful copy; when drafting a new layout the model renders its draft to an image and corrects what it sees; a chat agent with 25 deck-editing tools | Fit is estimated from character counts and never measured after rendering; after four repair rounds invalid output ships with a log line; an out-of-range layout index is replaced by a random layout; the image style prompt is never set; the PowerPoint converter ships as a separate package whose open-source edition supports only its low-quality mode |
 | `danny-avila/LibreChat` (2026-11-10) | ChatGPT, Claude | Agents joined by edges of two kinds, a handoff the model chooses and a fixed hop; a hook warns the model when about three tool rounds remain; memory written by a separate small-model agent that runs beside the reply, with per-user view, edit, delete and opt-out; generation decoupled from the request so a reconnecting client gets a state sync, the missed chunks and then the live stream; a credit reservation held for each turn and settled on recorded usage; conversation forking | Artifacts are text markers that a line in the content can close early, and renaming one splits its history; memory errors are swallowed; the price table is kept by hand |
 
 **Three internals that sit outside those repositories, read afterwards.** Kortix's agent core
@@ -515,8 +515,16 @@ is adopted in 6.3. LibreChat's graph engine (`@librechat/agents` 4.2.2) was read
 handoff is a tool whose result names the destination agent, which must be one the edge declares;
 the receiving agent gets the whole message history plus the handoff instructions; and each
 transition is recorded with an id and a depth so a replay does not apply it twice. Presenton's
-PowerPoint converter is published only as a binary release with no source, so whether its output
-is editable remains unverified; this platform's own native exporter is the reference for that.
+PowerPoint converter (`@presenton/export-core` 1.0.54, open-source edition) is attached to its
+release page as a package and was read from its type definitions, readme and compiled bundle. It
+measures the rendered page in headless Chromium and writes native PowerPoint objects: text boxes
+with paragraphs and runs, shapes, pictures, connectors, tables and charts with their data. That is
+the same design as this platform's own exporter (`gold_pptx_export.py`), which is reassuring. What
+it has that this platform lacks is an export evaluation: a 45-slide stress deck plus real
+regression slides, exported in three page layouts, asserting slide order, editable headings and
+notes, native table and chart parity, and every embedded picture's placement within one CSS pixel
+and its pixels within a stated error of the browser rendering. Phase 5 adopts that evaluation for
+the native exporter (6.5).
 
 **What the analogs confirm, and what they change.** Most of the architecture in Section 5 appears
 in at least one of them in working form, which is reassurance more than news: one front agent
@@ -953,6 +961,12 @@ omissions. A completeness pass compares the deliverable against its coverage con
 (`deliverableCoverage.ts` already defines one per hashtag) and against the themes on the assembly
 board, which answers the owner's requirement that every captured theme produce requirements.
 
+**The exporter has its own evaluation (3.5).** A fixed stress deck and slides taken from real
+engagements are exported on every change to the exporter. The check asserts slide order, that
+titles and notes are editable text, that tables and charts are native objects, and that each
+picture lands within one pixel of its browser position with pixels matching the browser
+rendering within a set tolerance. A change that fails is not shipped.
+
 **Fit is measured, not estimated (3.5).** The length limit on each field of a slide comes from
 the geometry of its slot, and after rendering the slide is measured for overflow in the browser;
 an estimate from character counts is never the last check. A new or changed layout is rendered
@@ -1322,8 +1336,10 @@ candidate for deletion, decided by the owner, not silently dropped.
 starting or touching any service: 243 test files, 2,511 tests, 2,510 passed, one skipped, none
 failed (2,455 under `services/`, 56 under `design-desk/`). This is the pinned behavior every
 phase must keep. It covers the browser-side engine only; the proxy's Python tests were not run
-because they are not guaranteed to stay clear of the live runtime, and the other services have
-no suites.
+because they are not guaranteed to stay clear of the live runtime. The Miro Generator's Jest suite
+does not start: two Jest configurations are present and, with the file named explicitly, the
+`ts-jest` preset is not installed. The suite is therefore unproven today, and repairing it is added
+to the Phase 0 defect list. The other services have no suites.
 
 **The "before" side is now written down.** Two further files on this branch record current
 behavior without running anything:
@@ -1404,6 +1420,8 @@ P0 Baseline --> P1 One front door --> P2 Engine on the server --> P3 The Studio
   Labels start accruing before anything else changes.
 - **Re-tier the models to the owner's matrix** (Section 6.10): registry entries, live probes,
   request normalization per family, bake-off per seat, then re-run the baseline.
+- Restore the Miro Generator's unit suite (one Jest configuration, the `ts-jest` preset
+  installed) so journey-to-Miro export has a test before Phase 6 absorbs it.
 - Fix the three outward-facing defects that should not wait: the recipe generator writing retired
   model ids into deliverables, the Social Research merge path that returns empty strings, and the
   Character Generator's video call to a Veo id the Google account no longer serves.
