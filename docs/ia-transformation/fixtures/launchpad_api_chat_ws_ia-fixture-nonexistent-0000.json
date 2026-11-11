@@ -1,0 +1,17 @@
+{
+ "service": "launchpad",
+ "route": "/api/chat/ws/<conversation_id>",
+ "method": "GET",
+ "path": "/api/chat/ws/ia-fixture-nonexistent-0000",
+ "status": 302,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "error": "string",
+  "redirect": "string"
+ },
+ "body": {
+  "error": "Old WebSocket agent is deprecated. Please use the new MCP chatbot.",
+  "redirect": "/mcp-chat"
+ }
+}

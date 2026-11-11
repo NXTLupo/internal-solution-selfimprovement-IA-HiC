@@ -1,0 +1,58 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/api/templates",
+ "method": "GET",
+ "path": "/api/templates",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "templates": [
+   {
+    "complexity": "string",
+    "description": "string",
+    "estimated_build_time": "string",
+    "icon": "string",
+    "id": "string",
+    "name": "string",
+    "replicates_service": "string",
+    "thumbnail": "string"
+   }
+  ]
+ },
+ "body": {
+  "templates": [
+   {
+    "id": "character_generator",
+    "name": "Consistent Character Generator Agent",
+    "description": "A Copilot Studio agent that generates visually consistent character portraits using Google gemini-3-pro-image-preview (NOT Imagen -- this model supports up to 14 reference images including up to 5 human images for character consistency) and creates animated video clips using veo-3.1-fast-generate-preview. The agent maintains character identity across scenes and poses for persona-driven visual narr... (428 chars)",
+    "replicates_service": "Character Generator (Port 5010)",
+    "icon": "fa-solid fa-user-pen",
+    "estimated_build_time": "8-12 hours",
+    "complexity": "advanced",
+    "thumbnail": "character-generator-demo.gif"
+   },
+   {
+    "id": "hic_research",
+    "name": "Humans-in-Control Research Agent",
+    "description": "A Copilot Studio agent that runs a multi-checkpoint research pipeline with human intervention gates at each stage. The agent orchestrates a structured analysis workflow where researchers can review, revise, weight, and approve AI-generated findings at key checkpoints before the pipeline advances, ensuring human oversight of the entire research synthesis process.",
+    "replicates_service": "Humans-in-Control Research (Port 5011)",
+    "icon": "fa-solid fa-clipboard-check",
+    "estimated_build_time": "12-16 hours",
+    "complexity": "advanced",
+    "thumbnail": "research-generator-demo.gif"
+   },
+   {
+    "id": "journey_mapper",
+    "name": "Customer Journey Mapper Agent",
+    "description": "A Copilot Studio agent that analyzes uploaded documents (research reports, transcripts, survey data) and generates comprehensive customer journey maps using the Anthropic Claude API. The agent performs dual-pass analysis with content selection, producing structured journey stages with touchpoints, emotions, pain points, and opportunities.",
+    "replicates_service": "Journey Mapper (Port 8080)",
+    "icon": "fa-solid fa-route",
+    "estimated_build_time": "10-14 hours",
+    "complexity": "advanced",
+    "thumbnail": "journey_mapper_3_7.gif"
+   },
+   "... 4 more"
+  ]
+ }
+}

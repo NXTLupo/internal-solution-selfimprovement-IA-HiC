@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-reddit-ripper",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 29526,
+ "body_sha256": "4100edba98276bc1343a1b602bda0d5b9b408a815310d36bb8aa782eccccbd76",
+ "title": "NXT Humans | Social Data Collector"
+}

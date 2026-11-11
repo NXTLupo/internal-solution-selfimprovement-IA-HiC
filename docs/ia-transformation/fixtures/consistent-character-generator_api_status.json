@@ -1,0 +1,19 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/api/status",
+ "method": "GET",
+ "path": "/api/status",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "description": "string",
+  "service": "string",
+  "status": "string"
+ },
+ "body": {
+  "description": "AI-powered consistent persona and scene generation tool",
+  "service": "Consistent Persona Generator API",
+  "status": "active"
+ }
+}

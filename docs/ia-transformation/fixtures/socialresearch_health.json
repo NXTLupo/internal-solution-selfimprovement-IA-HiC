@@ -1,0 +1,16 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/health",
+ "method": "GET",
+ "path": "/health",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "status": "string"
+ },
+ "body": {
+  "status": "healthy"
+ }
+}

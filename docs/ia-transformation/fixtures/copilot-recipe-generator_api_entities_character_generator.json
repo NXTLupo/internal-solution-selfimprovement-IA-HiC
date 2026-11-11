@@ -1,0 +1,49 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/api/entities/{template_id}",
+ "method": "GET",
+ "path": "/api/entities/character_generator",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "entity_definitions": [
+   {
+    "description": "string",
+    "download_url": "string",
+    "entity_file": "string",
+    "entity_name": "string",
+    "entry_count": "number",
+    "used_in_topics": [
+     "\"string\""
+    ]
+   }
+  ],
+  "template_id": "string"
+ },
+ "body": {
+  "template_id": "character_generator",
+  "entity_definitions": [
+   {
+    "entity_name": "Character Styles",
+    "entity_file": "character_generator_styles.txt",
+    "description": "Closed list entity for character image composition styles (Portrait, Full Body, Scene) with synonyms",
+    "used_in_topics": [
+     "Character Creation"
+    ],
+    "entry_count": 0,
+    "download_url": "/static/entities/character_generator_styles.txt"
+   },
+   {
+    "entity_name": "Video Styles",
+    "entity_file": "character_generator_video_styles.txt",
+    "description": "Closed list entity for video animation styles (Realistic, Cinematic, Animated) with synonyms",
+    "used_in_topics": [
+     "Video Generation"
+    ],
+    "entry_count": 0,
+    "download_url": "/static/entities/character_generator_video_styles.txt"
+   }
+  ]
+ }
+}

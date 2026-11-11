@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-miro-generator",
+ "route": "/api/files",
+ "method": "GET",
+ "path": "/api/files",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "compose network (host port refused)",
+ "shape": {
+  "generated_outputs": [],
+  "success": "bool",
+  "uploaded_files": []
+ }
+}

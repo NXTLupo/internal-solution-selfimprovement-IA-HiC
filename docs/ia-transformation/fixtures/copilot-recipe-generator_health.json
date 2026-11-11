@@ -1,0 +1,33 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/health",
+ "method": "GET",
+ "path": "/health",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "knowledge_loaded": "bool",
+  "models": {
+   "haiku": "string",
+   "opus": "string",
+   "sonnet": "string",
+   "source": "string"
+  },
+  "service": "string",
+  "status": "string",
+  "templates_loaded": "number"
+ },
+ "body": {
+  "status": "healthy",
+  "service": "copilot-recipe-generator",
+  "templates_loaded": 7,
+  "knowledge_loaded": true,
+  "models": {
+   "opus": "claude-opus-5-5",
+   "sonnet": "claude-sonnet-5-5",
+   "haiku": "claude-haiku-5-5",
+   "source": "proxy /api/models (seats used: reasoning, structured)"
+  }
+ }
+}

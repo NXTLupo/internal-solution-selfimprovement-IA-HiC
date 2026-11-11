@@ -1,0 +1,15 @@
+{
+ "service": "launchpad",
+ "route": "/api/threads/<thread_id>",
+ "method": "GET",
+ "path": "/api/threads/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "detail": "string"
+ },
+ "body": {
+  "detail": "no such thread"
+ }
+}

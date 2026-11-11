@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/api/triggers",
+ "method": "GET",
+ "path": "/api/triggers",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "files": []
+ },
+ "body": {
+  "files": []
+ }
+}

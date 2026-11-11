@@ -1,0 +1,16 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/project/<project_id>",
+ "method": "GET",
+ "path": "/api/user/project/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "Project not found"
+ }
+}

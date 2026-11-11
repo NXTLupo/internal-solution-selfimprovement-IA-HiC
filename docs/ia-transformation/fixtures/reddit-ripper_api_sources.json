@@ -1,0 +1,247 @@
+{
+ "service": "internal-solutions-reddit-ripper",
+ "route": "/api/sources",
+ "method": "GET",
+ "path": "/api/sources",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "sources": [
+   {
+    "label": "string",
+    "name": "string",
+    "params": {
+     "country": {
+      "default": "string",
+      "label": "string",
+      "options": [
+       {
+        "label": "string",
+        "value": "string"
+       }
+      ],
+      "type": "string"
+     },
+     "language": {
+      "default": "string",
+      "label": "string",
+      "options": [
+       {
+        "label": "string",
+        "value": "string"
+       }
+      ],
+      "type": "string"
+     },
+     "review_count": {
+      "default": "number",
+      "label": "string",
+      "max": "number",
+      "min": "number",
+      "type": "string"
+     },
+     "sort_by": {
+      "default": "string",
+      "label": "string",
+      "options": [
+       {
+        "label": "string",
+        "value": "string"
+       }
+      ],
+      "type": "string"
+     },
+     "target": {
+      "label": "string",
+      "placeholder": "string",
+      "required": "bool",
+      "type": "string"
+     }
+    }
+   }
+  ]
+ },
+ "body": {
+  "sources": [
+   {
+    "label": "Reddit",
+    "name": "reddit",
+    "params": {
+     "comments_per_post": {
+      "default": 5,
+      "label": "Comments Per Post",
+      "max": 50,
+      "min": 0,
+      "type": "number"
+     },
+     "post_count": {
+      "default": 100,
+      "label": "Number of Posts",
+      "max": 1000,
+      "min": 1,
+      "type": "number"
+     },
+     "target": {
+      "label": "Subreddit Name",
+      "placeholder": "Enter subreddit name (without r/)",
+      "required": true,
+      "type": "string"
+     },
+     "time_filter": {
+      "default": "year",
+      "label": "Time Filter",
+      "options": [
+       {
+        "label": "Past Day",
+        "value": "day"
+       },
+       {
+        "label": "Past Week",
+        "value": "week"
+       },
+       {
+        "label": "Past Month",
+        "value": "month"
+       },
+       "... 2 more"
+      ],
+      "type": "select"
+     }
+    }
+   },
+   {
+    "label": "Trustpilot",
+    "name": "trustpilot",
+    "params": {
+     "min_rating": {
+      "default": 1,
+      "label": "Minimum Rating",
+      "options": [
+       {
+        "label": "All Ratings",
+        "value": 1
+       },
+       {
+        "label": "2+ Stars",
+        "value": 2
+       },
+       {
+        "label": "3+ Stars",
+        "value": 3
+       },
+       "... 2 more"
+      ],
+      "type": "select"
+     },
+     "review_count": {
+      "default": 100,
+      "label": "Number of Reviews",
+      "max": 1000,
+      "min": 1,
+      "type": "number"
+     },
+     "sort_by": {
+      "default": "recency",
+      "label": "Sort By",
+      "options": [
+       {
+        "label": "Most Recent",
+        "value": "recency"
+       },
+       {
+        "label": "Rating",
+        "value": "rating"
+       }
+      ],
+      "type": "select"
+     },
+     "target": {
+      "label": "Company URL or Name",
+      "placeholder": "e.g., amazon.com or https://trustpilot.com/review/amazon.com",
+      "required": true,
+      "type": "string"
+     }
+    }
+   },
+   {
+    "label": "Playstore",
+    "name": "playstore",
+    "params": {
+     "country": {
+      "default": "us",
+      "label": "Country",
+      "options": [
+       {
+        "label": "United States",
+        "value": "us"
+       },
+       {
+        "label": "United Kingdom",
+        "value": "gb"
+       },
+       {
+        "label": "Canada",
+        "value": "ca"
+       },
+       "... 7 more"
+      ],
+      "type": "select"
+     },
+     "language": {
+      "default": "en",
+      "label": "Language",
+      "options": [
+       {
+        "label": "English",
+        "value": "en"
+       },
+       {
+        "label": "Spanish",
+        "value": "es"
+       },
+       {
+        "label": "French",
+        "value": "fr"
+       },
+       "... 7 more"
+      ],
+      "type": "select"
+     },
+     "review_count": {
+      "default": 100,
+      "label": "Number of Reviews",
+      "max": 1000,
+      "min": 1,
+      "type": "number"
+     },
+     "sort_by": {
+      "default": "newest",
+      "label": "Sort By",
+      "options": [
+       {
+        "label": "Newest",
+        "value": "newest"
+       },
+       {
+        "label": "By Rating",
+        "value": "rating"
+       },
+       {
+        "label": "Most Helpful",
+        "value": "helpful"
+       }
+      ],
+      "type": "select"
+     },
+     "target": {
+      "label": "Package Name",
+      "placeholder": "e.g., com.spotify.music",
+      "required": true,
+      "type": "string"
+     }
+    }
+   }
+  ]
+ }
+}

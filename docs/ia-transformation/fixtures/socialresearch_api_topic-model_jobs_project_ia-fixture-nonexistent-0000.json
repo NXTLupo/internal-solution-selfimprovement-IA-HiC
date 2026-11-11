@@ -1,0 +1,20 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/jobs/project/<project_id>",
+ "method": "GET",
+ "path": "/api/topic-model/jobs/project/ia-fixture-nonexistent-0000",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "jobs": [],
+  "project_id": "string",
+  "total_jobs": "number"
+ },
+ "body": {
+  "jobs": [],
+  "project_id": "ia-fixture-nonexistent-0000",
+  "total_jobs": 0
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/<user_id>",
+ "method": "GET",
+ "path": "/api/user/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "User not found"
+ }
+}

@@ -1,0 +1,259 @@
+{
+ "service": "launchpad",
+ "route": "/api/status",
+ "method": "GET",
+ "path": "/api/status",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "services": {
+   "agent": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "claude4_journey_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "consistent_character_generator": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "copilot_recipe_generator": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "journey_mapper": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "journey_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "miro_generator": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "reddit_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "reddit_ripper": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "research_generator": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "research_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "social_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "social_research": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "video_analyzer": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   },
+   "video_mcp": {
+    "last_checked": "string",
+    "message": "string",
+    "status": "string"
+   }
+  },
+  "urls": {
+   "agent": {
+    "client_url": "string",
+    "internal_url": "string",
+    "ws_url": "string"
+   },
+   "consistent_character_generator": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "copilot_recipe_generator": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "journey_mapper": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "mcp": {
+    "journey": "string",
+    "reddit": "string",
+    "research": "string",
+    "social": "string",
+    "video": "string"
+   },
+   "miro_generator": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "reddit_ripper": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "research_generator": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "social_research": {
+    "client_url": "string",
+    "internal_url": "string"
+   },
+   "video_analyzer": {
+    "client_url": "string",
+    "internal_url": "string"
+   }
+  }
+ },
+ "body": {
+  "services": {
+   "agent": {
+    "last_checked": "2026-11-11T13:40:17.265797",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "claude4_journey_mcp": {
+    "last_checked": "2026-11-11T13:40:17.256179",
+    "message": "Service URL not configured",
+    "status": "unknown"
+   },
+   "consistent_character_generator": {
+    "last_checked": "2026-11-11T13:40:17.235729",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "copilot_recipe_generator": {
+    "last_checked": "2026-11-11T13:40:17.246815",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "journey_mapper": {
+    "last_checked": "2026-11-11T13:40:17.216370",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "journey_mcp": {
+    "last_checked": "2026-11-11T13:40:17.255972",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "miro_generator": {
+    "last_checked": "2026-11-11T13:40:17.232839",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "reddit_mcp": {
+    "last_checked": "2026-11-11T13:40:17.250158",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "reddit_ripper": {
+    "last_checked": "2026-11-11T13:40:17.220033",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "research_generator": {
+    "last_checked": "2026-11-11T13:40:17.237914",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "research_mcp": {
+    "last_checked": "2026-11-11T13:40:17.262904",
+    "message": "Error: HTTP 404",
+    "status": "error"
+   },
+   "social_mcp": {
+    "last_checked": "2026-11-11T13:40:17.253102",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "social_research": {
+    "last_checked": "2026-11-11T13:40:17.221814",
+    "message": "HTTPConnectionPool(host='social-research-frontend', port=3000): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPConnection(host='social-research-frontend', port=3000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+    "status": "offline"
+   },
+   "video_analyzer": {
+    "last_checked": "2026-11-11T13:40:17.228170",
+    "message": "Service is running",
+    "status": "running"
+   },
+   "video_mcp": {
+    "last_checked": "2026-11-11T13:40:17.259283",
+    "message": "Service is running",
+    "status": "running"
+   }
+  },
+  "urls": {
+   "agent": {
+    "client_url": "http://localhost:8201",
+    "internal_url": "http://nxt-agency-backend:8000",
+    "ws_url": "ws://nxt-agency-backend:8000"
+   },
+   "consistent_character_generator": {
+    "client_url": "http://localhost:5010",
+    "internal_url": "http://consistent-character-generator:5010"
+   },
+   "copilot_recipe_generator": {
+    "client_url": "http://localhost:5013",
+    "internal_url": "http://copilot-recipe-generator:5013"
+   },
+   "journey_mapper": {
+    "client_url": "http://localhost:8080",
+    "internal_url": "http://journey-mapper:8000"
+   },
+   "mcp": {
+    "journey": "http://journey-mcp:8503",
+    "reddit": "http://reddit-mcp:8501",
+    "research": "http://research-mcp:8507",
+    "social": "http://social-mcp:8502",
+    "video": "http://video-mcp:8504"
+   },
+   "miro_generator": {
+    "client_url": "http://localhost:5004",
+    "internal_url": "http://miro-generator:5004"
+   },
+   "reddit_ripper": {
+    "client_url": "http://localhost:5001",
+    "internal_url": "http://reddit-ripper:5000"
+   },
+   "research_generator": {
+    "client_url": "http://localhost:5011",
+    "internal_url": "http://research-generator:5011"
+   },
+   "social_research": {
+    "client_url": "http://localhost:3000",
+    "internal_url": "http://social-research-frontend:3000"
+   },
+   "video_analyzer": {
+    "client_url": "http://localhost:5002",
+    "internal_url": "http://video-analyzer:5000"
+   }
+  }
+ }
+}

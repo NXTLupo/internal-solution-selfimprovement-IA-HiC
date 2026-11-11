@@ -1,0 +1,16 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/job-status/<job_id>",
+ "method": "GET",
+ "path": "/api/topic-model/job-status/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "Job not found"
+ }
+}

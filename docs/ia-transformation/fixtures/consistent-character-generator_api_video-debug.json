@@ -1,0 +1,48 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/api/video-debug",
+ "method": "GET",
+ "path": "/api/video-debug",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "backend_role": "string",
+  "common_issues": {
+   "api_errors": "string",
+   "missing_operation_id": "string",
+   "no_polling_logs": "string",
+   "timeout": "string"
+  },
+  "frontend_architecture": {
+   "api_key_injection": "string",
+   "polling_system": "string",
+   "storage": "string",
+   "video_generation": "string"
+  },
+  "troubleshooting_steps": [
+   "\"string\""
+  ]
+ },
+ "body": {
+  "backend_role": "Static file server only - no video processing",
+  "common_issues": {
+   "api_errors": "Check Network tab for failed requests to ai.google.dev",
+   "missing_operation_id": "Initial video generation request failed",
+   "no_polling_logs": "Video generation may not have started or completed already",
+   "timeout": "Extended to 10 minutes but complex videos may take longer"
+  },
+  "frontend_architecture": {
+   "api_key_injection": "***",
+   "polling_system": "startVideoPolling() function in App.tsx",
+   "storage": "Browser IndexedDB with 4 stores: characters, scenes, videoClips, objects",
+   "video_generation": "Google Veo 3 API (veo-3.0-generate-001 model)"
+  },
+  "troubleshooting_steps": [
+   "1. Check browser console for video polling messages",
+   "2. Verify API key is present: window.API_KEY in browser console",
+   "3. Check IndexedDB: DevTools -> Application -> Storage -> IndexedDB",
+   "... 3 more"
+  ]
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/subreddit-stats/<subreddit>",
+ "method": "GET",
+ "path": "/api/llm-analyzer/subreddit-stats/NEU",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "total_comments": "number",
+  "total_posts": "number"
+ },
+ "body": {
+  "total_comments": 1247,
+  "total_posts": 571
+ }
+}

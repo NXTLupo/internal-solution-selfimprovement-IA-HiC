@@ -235,6 +235,7 @@ def tree_scan():
     for d in DIR_OWNER:
         files = lines = tests = 0
         routes = set()
+        test_text = []
         for dp, dn, fn in os.walk(os.path.join(ROOT, d)):
             dn[:] = [x for x in dn if x not in SKIP_DIRS]
             for f in fn:
@@ -247,13 +248,42 @@ def tree_scan():
                 lines += text.count('\n')
                 if '.test.' in f or f.startswith('test_'):
                     tests += 1
+                    test_text.append(text)
                     continue
                 found = PY_ROUTE.findall(text) if f.endswith('.py') else JS_ROUTE.findall(text)
                 for method, path in found:
                     if path.startswith('/'):
                         routes.add((method.upper(), path))
-        out[d] = {'files': files, 'lines': lines, 'test_files': tests, 'routes': sorted(routes)}
+        out[d] = {'files': files, 'lines': lines, 'test_files': tests, 'routes': sorted(routes), '_test_text': chr(10).join(test_text)}
     return out
+
+
+def _route_tested(path, test_text):
+    """2026-11-11: a route counts as tested only if a test in its own tree names it. Having test files is not
+    enough: Social Research's merge tests and the Miro CLI tests exercise no HTTP route."""
+    if not test_text:
+        return False
+    static = re.split(r'[<{]', path, maxsplit=1)[0].rstrip('/')
+    if not static:
+        return bool(re.search(r'''(get|post|request|fetch|client)\(\s*["']/["']''', test_text))
+    return static in test_text
+
+
+def _fixture_index():
+    try:
+        d = json.load(io.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fixtures', 'index.json'), encoding='utf-8'))
+    except Exception:
+        return {}, {}
+    rec = {(f['service'], f['route']): f for f in d.get('fixtures', []) if f.get('status') is not None}
+    return rec, d.get('not_called', {})
+
+
+def _not_called_reason(method, path, not_called):
+    for reason, keys in not_called.items():
+        for k in keys:
+            if k == method or (k.startswith('/') and (path == k or (k.endswith('/') and path.startswith(k)) or path.endswith(k))):
+                return reason
+    return None
 
 
 # --- build ---------------------------------------------------------------------------------------
@@ -314,13 +344,20 @@ def build():
     # every HTTP route of every service, with the proof of parity each one needs
     scan = tree_scan()
     svc_route_rows = []
+    fixtures, not_called = _fixture_index()
     for d, info in scan.items():
-        proof = 'existing unit tests' if info['test_files'] else 'recorded request/response fixture required'
         for method, path in info['routes']:
+            if _route_tested(path, info['_test_text']):
+                proof = 'existing unit tests'
+            elif (d, path) in fixtures:
+                proof = 'recorded fixture: fixtures/' + fixtures[(d, path)]['file']
+            else:
+                why = _not_called_reason(method, path, not_called)
+                proof = 'recorded request/response fixture required' + (' (not recorded read-only: %s)' % why if why else '')
             svc_route_rows.append({'source': d, 'method': method, 'path': path,
                                    'owner': DIR_OWNER[d], 'parity_proof': proof})
     ledger['service_routes'] = svc_route_rows
-    ledger['tree'] = {d: {k: v for k, v in info.items() if k != 'routes'} for d, info in scan.items()}
+    ledger['tree'] = {d: {k: v for k, v in info.items() if k not in ('routes', '_test_text')} for d, info in scan.items()}
 
     inv_rows = []
     for name, rel in INVARIANTS:
@@ -337,6 +374,8 @@ def build():
         'source_lines': sum(v['lines'] for v in scan.values()),
         'service_routes': len(svc_route_rows),
         'routes_without_tests': sum(1 for r in svc_route_rows if r['parity_proof'] != 'existing unit tests'),
+        'routes_with_recorded_fixture': sum(1 for r in svc_route_rows if r['parity_proof'].startswith('recorded fixture')),
+        'routes_still_needing_proof': sum(1 for r in svc_route_rows if r['parity_proof'].startswith('recorded request')),
         'invariants': len(inv_rows),
         'services': len(svc_rows), 'artifacts': len(cat_rows), 'directives': len(dir_rows),
         'mcp_tools': len(tool_rows), 'proxy_route_families': len(route_rows),
@@ -355,7 +394,8 @@ def main():
           '%(mcp_tools)d | proxy route families %(proxy_route_families)d (%(proxy_routes)d routes) | '
           'skills %(skills)d | subagents %(subagents)d' % c)
     print('whole tree: %(source_files)d source files, %(source_lines)d lines | %(service_routes)d HTTP '
-          'routes across all services, %(routes_without_tests)d in services with no tests | '
+          'routes across all services, %(routes_without_tests)d without a route test, '
+          '%(routes_with_recorded_fixture)d of those with a recorded fixture, %(routes_still_needing_proof)d still needing proof | '
           '%(invariants)d pinned invariants' % c)
     if '--check' not in sys.argv:
         with io.open(OUT, 'w', encoding='utf-8', newline='\n') as f:

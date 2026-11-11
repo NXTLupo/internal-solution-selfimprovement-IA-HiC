@@ -1,0 +1,31 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/subreddit/<string:subreddit_name>",
+ "method": "GET",
+ "path": "/api/reddit/subreddit/NEU",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": {
+  "posts": [
+   {
+    "author": "string",
+    "comments": [],
+    "content": "string",
+    "created_utc": "number",
+    "id": "string",
+    "num_comments": "number",
+    "permalink": "string",
+    "score": "number",
+    "search_id": "string",
+    "subreddit": "string",
+    "title": "string",
+    "url": "string"
+   }
+  ],
+  "subreddit": "string",
+  "totalComments": "number",
+  "totalPosts": "number"
+ }
+}

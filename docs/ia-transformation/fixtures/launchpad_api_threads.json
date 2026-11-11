@@ -1,0 +1,95 @@
+{
+ "service": "launchpad",
+ "route": "/api/threads",
+ "method": "GET",
+ "path": "/api/threads",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "count": "number",
+  "threads": [
+   {
+    "created_at": "string",
+    "engagement": "string",
+    "id": "string",
+    "job_ids": [],
+    "last_reply": "string",
+    "location": "string",
+    "source": "string",
+    "status": "string",
+    "title": "string",
+    "tools": [],
+    "turns": "number",
+    "updated_at": "string",
+    "reports": [
+     {
+      "artifact_id": "null",
+      "error": "null",
+      "finished_at": "string",
+      "job_id": "string",
+      "launcher_url": "null",
+      "status": "string",
+      "verdict": {
+       "model": "string"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "body": {
+  "count": 7,
+  "threads": [
+   {
+    "created_at": "2026-10-31T19:25:38Z",
+    "engagement": "",
+    "id": "e875c8f8-654d-4836-9aa9-655487d2afbd",
+    "job_ids": [],
+    "last_reply": "I'll follow those four steps exactly using the computer tool now. **Step 1 — Type the URL to navigate the browser:****Step 2 — Screenshot...",
+    "location": "cloud",
+    "source": "nxt-agency",
+    "status": "active",
+    "title": "Use only the computer tool, four actions: (1) a type action with the...",
+    "tools": [
+     "computer"
+    ],
+    "turns": 1,
+    "updated_at": "2026-10-31T19:25:38Z"
+   },
+   {
+    "created_at": "2026-10-31T18:50:30Z",
+    "engagement": "",
+    "id": "51ffc95b-e694-4780-9a58-376aaeeea754",
+    "job_ids": [],
+    "last_reply": "I can see the page with the **\"Learn more\"** link at the bottom. Clicking it now!The click on the **\"Learn more\"** link was **blocked by...",
+    "location": "cloud",
+    "source": "nxt-agency",
+    "status": "active",
+    "title": "Do not use Python or bash. Use the computer tool (the browser) to open...",
+    "tools": [
+     "computer"
+    ],
+    "turns": 2,
+    "updated_at": "2026-10-31T18:54:50Z"
+   },
+   {
+    "created_at": "2026-10-31T18:49:43Z",
+    "engagement": "",
+    "id": "036db186-8811-48e8-b79c-f85ad2a5ea35",
+    "job_ids": [],
+    "last_reply": "**The methodology appendix goes at the end of every deck for the executive search work.** The team set this as a standing preference on...",
+    "location": "cloud",
+    "source": "platform-agent",
+    "status": "active",
+    "title": "Use the research recall_memory tool to check what the team has...",
+    "tools": [
+     "recall_memory"
+    ],
+    "turns": 1,
+    "updated_at": "2026-10-31T18:49:43Z"
+   },
+   "... 4 more"
+  ]
+ }
+}

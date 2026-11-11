@@ -1,0 +1,20 @@
+{
+ "service": "internal-solutions-video-analyzer",
+ "route": "/jobs/{job_id}",
+ "method": "GET",
+ "path": "/jobs/1c42a9ea-f6d4-46b7-8b1e-7032e3e1c1b8",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "end_time": "string",
+  "error": "string",
+  "filename": "string",
+  "id": "string",
+  "progress": "number",
+  "start_time": "string",
+  "status": "string",
+  "transcript_json_path": "string",
+  "transcript_path": "string"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "service": "launchpad",
+ "route": "/api/mcp/tools",
+ "method": "GET",
+ "path": "/api/mcp/tools",
+ "status": 404,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 207,
+ "body_sha256": "e9639e3c4681ce85f852fbac48e2eeee5ba51296dbfec57c200d59b76237ab80",
+ "title": "404 Not Found"
+}

@@ -1,0 +1,446 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/api/templates/{template_id}",
+ "method": "GET",
+ "path": "/api/templates/character_generator",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "complexity": "string",
+  "description": "string",
+  "estimated_build_time": "string",
+  "icon": "string",
+  "id": "string",
+  "name": "string",
+  "prefilled": {
+   "agent_description": "string",
+   "agent_name": "string",
+   "auth_mode": "string",
+   "delivery_channels": [
+    "\"string\""
+   ],
+   "disable_general_knowledge": "bool",
+   "entity_definitions": [
+    {
+     "description": "string",
+     "entity_file": "string",
+     "entity_name": "string",
+     "used_in_topics": [
+      "\"string\""
+     ]
+    }
+   ],
+   "flows": [
+    {
+     "actions_description": "string",
+     "call_method": "string",
+     "description": "string",
+     "flow_type": "string",
+     "http_endpoints": [
+      {
+       "description": "string",
+       "method": "string",
+       "url": "string"
+      }
+     ],
+     "input_params": [
+      {
+       "description": "string",
+       "name": "string",
+       "type": "string"
+      }
+     ],
+     "name": "string",
+     "output_params": [
+      {
+       "description": "string",
+       "name": "string",
+       "type": "string"
+      }
+     ],
+     "trigger_type": "string",
+     "use_async_pattern": "bool"
+    }
+   ],
+   "knowledge_sources": [
+    {
+     "description": "string",
+     "name": "string",
+     "path_or_url": "string",
+     "source_type": "string"
+    }
+   ],
+   "orchestration_model": "string",
+   "persona_instructions": "string",
+   "tools": [
+    {
+     "description": "string",
+     "inputs": [
+      {
+       "name": "string",
+       "type": "string"
+      }
+     ],
+     "name": "string",
+     "outputs": [
+      {
+       "name": "string",
+       "type": "string"
+      }
+     ],
+     "tool_type": "string"
+    }
+   ],
+   "topics": [
+    {
+     "description": "string",
+     "name": "string",
+     "nodes": [
+      {
+       "description": "string",
+       "name": "string",
+       "type": "string",
+       "action_type": "string",
+       "variable_name": "string",
+       "variable_scope": "string",
+       "choices": [
+        {
+         "displayName": "string",
+         "id": "string"
+        }
+       ],
+       "entity_type": "string",
+       "condition_expression": "string",
+       "redirect_topic": "string"
+      }
+     ],
+     "trigger_phrases": "string"
+    }
+   ]
+  },
+  "replicates_service": "string",
+  "thumbnail": "string"
+ },
+ "body": {
+  "id": "character_generator",
+  "name": "Consistent Character Generator Agent",
+  "description": "A Copilot Studio agent that generates visually consistent character portraits using Google gemini-3-pro-image-preview (NOT Imagen -- this model supports up to 14 reference images including up to 5 human images for character consistency) and creates animated video clips using veo-3.1-fast-generate-preview. The agent maintains character identity across scenes and poses for persona-driven visual narr... (428 chars)",
+  "replicates_service": "Character Generator (Port 5010)",
+  "icon": "fa-solid fa-user-pen",
+  "estimated_build_time": "8-12 hours",
+  "complexity": "advanced",
+  "thumbnail": "character-generator-demo.gif",
+  "prefilled": {
+   "agent_name": "Consistent Character Creator",
+   "agent_description": "This agent generates visually consistent character portraits using Google gemini-3-pro-image-preview (Nano Banana Pro Preview) and animated video clips using veo-3.1-fast-generate-preview, calling both APIs DIRECTLY from Power Automate flows. CRITICAL MODEL NOTE: This agent uses gemini-3-pro-image-preview for ALL image generation -- NOT Imagen 3, NOT gemini-2.0-flash. This model supports up to 14 ... (4812 chars)",
+   "persona_instructions": "You are the Consistent Character Creator, a creative AI assistant that helps researchers and content creators build visually consistent character assets for persona-driven narratives. You specialize in generating character portraits that maintain identity consistency and creating short video clips of those characters.\n\nPersona: You are creative, attentive to visual detail, and enthusiastic about c... (3341 chars)",
+   "orchestration_model": "GPT-5 Chat GA",
+   "auth_mode": "Authenticate with Microsoft",
+   "disable_general_knowledge": true,
+   "topics": [
+    {
+     "name": "Character Creation",
+     "description": "User wants to create a new character or generate character portraits. Route here when the user mentions creating a character, generating a portrait, designing a persona avatar, or building a new character for their story or research.",
+     "nodes": [
+      {
+       "type": "Message",
+       "name": "Character Creation Welcome",
+       "description": "Introduces the character creation process: the agent will gather physical attributes, art style preferences, and generate 3-4 portrait variations using Gemini Imagen 3 for the user to choose from. Mentions that selected characters are saved to the library for consistent reuse."
+      },
+      {
+       "type": "Question",
+       "name": "Provide Character Name",
+       "description": "Asks the user for the character's name. This will be used to label the character in the library and reference it in future scene compositions.",
+       "variable_name": "varCharacterName",
+       "variable_scope": "Topic"
+      },
+      {
+       "type": "Question",
+       "name": "Describe Physical Attributes",
+       "description": "Asks the user to describe the character's physical appearance: approximate age range, gender presentation, ethnicity/skin tone, hair description (color, style, length), clothing style, and any distinguishing features (glasses, scars, accessories).",
+       "variable_name": "varCharacterAttributes",
+       "variable_scope": "Topic"
+      },
+      "... 7 more"
+     ],
+     "trigger_phrases": "create character, generate portrait, design persona avatar, build new character, character portrait"
+    },
+    {
+     "name": "Scene Composition",
+     "description": "User wants to place an existing character into a new scene or context while maintaining visual consistency. Route here when the user mentions creating a scene, placing a character somewhere, generating a character in a specific setting, or composing a multi-character image.",
+     "nodes": [
+      {
+       "type": "Message",
+       "name": "Scene Composition Introduction",
+       "description": "Explains the scene composition process: uses the character's reference portrait as conditioning input to maintain visual identity while placing the character in a new context. Warns that extreme pose or style changes may reduce consistency."
+      },
+      {
+       "type": "Question",
+       "name": "Select Character for Scene",
+       "description": "Asks the user to select a character from their library for the scene composition. Presents a list of saved characters with thumbnail previews and names.",
+       "variable_name": "varSceneCharacterId",
+       "variable_scope": "Topic"
+      },
+      {
+       "type": "Question",
+       "name": "Describe Scene Context",
+       "description": "Asks the user to describe the scene: setting/background (office, park, cafe), character pose or action (sitting, presenting, walking), lighting conditions, and any props or additional elements.",
+       "variable_name": "varSceneDescription",
+       "variable_scope": "Topic"
+      },
+      "... 4 more"
+     ],
+     "trigger_phrases": "create scene, place character in setting, generate scene composition, compose multi-character image, character in context"
+    },
+    {
+     "name": "Video Generation",
+     "description": "User wants to generate a short animated video clip of a character. Route here when the user mentions video, animation, motion, Veo, or wants to see a character in action or moving.",
+     "nodes": [
+      {
+       "type": "Message",
+       "name": "Video Generation Overview",
+       "description": "Explains the video generation capability using Veo 3.1: generates short animated clips (up to 8 seconds) of characters in motion. Processing typically takes 2-3 minutes. Uses the character reference image for visual consistency."
+      },
+      {
+       "type": "Question",
+       "name": "Select Character for Video",
+       "description": "Asks the user to select a character from their library to animate. Shows character thumbnails and names for easy selection.",
+       "variable_name": "varVideoCharacterId",
+       "variable_scope": "Topic"
+      },
+      {
+       "type": "Question",
+       "name": "Describe Video Scene and Action",
+       "description": "Asks the user to describe what the character should be doing in the video: the action (walking, talking, gesturing), the setting, camera movement preferences, and any specific expressions or emotions to convey.",
+       "variable_name": "varVideoSceneDescription",
+       "variable_scope": "Topic"
+      },
+      "... 5 more"
+     ],
+     "trigger_phrases": "generate character video, create animation, animate character, Veo video clip, character in motion"
+    },
+    "... 1 more"
+   ],
+   "flows": [
+    {
+     "name": "Generate Character Portrait",
+     "trigger_type": "When an agent calls the flow",
+     "description": "Generates character portrait images using the Google Gemini Imagen 3 API. Composes a detailed prompt from character attributes, calls the image generation endpoint, and returns multiple variations for user selection.",
+     "actions_description": "Get nxth_GeminiApiKey from environment -> Compose detailed gemini-3-pro-image-preview prompt with physical attributes, art style, lighting, composition -> If reference_image_base64 provided: build parts array [{inlineData: {data: base64, mimeType: mimeType}}, {text: prompt}] else parts array [{text: prompt}] -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image... (813 chars)",
+     "flow_type": "Agent Flow",
+     "call_method": "Both",
+     "input_params": [
+      {
+       "name": "character_description",
+       "type": "String",
+       "description": "Detailed physical description of the character including age, gender, ethnicity, hair, clothing, and distinguishing features"
+      },
+      {
+       "name": "style",
+       "type": "String",
+       "description": "Art style for the portrait: photorealistic, digital_illustration, watercolor, anime, comic_book, or minimalist"
+      }
+     ],
+     "output_params": [
+      {
+       "name": "image_url",
+       "type": "String",
+       "description": "SharePoint URL to the generated character portrait image"
+      },
+      {
+       "name": "status",
+       "type": "String",
+       "description": "Generation status (completed, failed)"
+      }
+     ],
+     "use_async_pattern": false,
+     "http_endpoints": [
+      {
+       "method": "POST",
+       "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent?key={nxth_GeminiApiKey}",
+       "description": "Google gemini-3-pro-image-preview image generation endpoint. API key as URL query param. Accepts contents array with optional inlineData reference images (base64) plus text prompt. responseModalities must include IMAGE. Supports up to 14 reference images for character consistency."
+      }
+     ]
+    },
+    {
+     "name": "Generate Character Video",
+     "trigger_type": "When an agent calls the flow",
+     "description": "Generates a short video clip of a character using the Google Veo 3.1 API. Uses the character reference image and a scene description to produce a consistent animated clip. Video generation is asynchronous and typically takes 2-3 minutes.",
+     "actions_description": "Receive character_reference_image_url, scene_description, duration_seconds, aspect_ratio -> Compose Veo 3.1 prompt combining character description with scene action -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/veo-3.1-generate-preview:predictLongRunning with prompt and referenceImage -> Extract operation_name from response -> Do Until operation complete (max 5 minutes): ... (608 chars)",
+     "flow_type": "Agent Flow",
+     "call_method": "Topic-level tool",
+     "input_params": [
+      {
+       "name": "character_image_url",
+       "type": "String",
+       "description": "SharePoint URL to the character reference image for visual consistency"
+      },
+      {
+       "name": "animation_prompt",
+       "type": "String",
+       "description": "Description of the character action, scene setting, and camera movement for the video"
+      },
+      {
+       "name": "duration",
+       "type": "Number",
+       "description": "Video clip duration in seconds (2-8, default 4)"
+      }
+     ],
+     "output_params": [
+      {
+       "name": "video_url",
+       "type": "String",
+       "description": "SharePoint URL to the generated video clip"
+      },
+      {
+       "name": "status",
+       "type": "String",
+       "description": "Video generation status (completed, failed, timeout)"
+      }
+     ],
+     "use_async_pattern": true,
+     "http_endpoints": [
+      {
+       "method": "POST",
+       "url": "https://generativelanguage.googleapis.com/v1beta/models/veo-3.1-fast-generate-preview:predictLongRunning?key={nxth_GeminiApiKey}",
+       "description": "Google Veo 3.1 Fast video generation endpoint (predictLongRunning). API key as URL query param. Body: {instances: [{prompt, image: {bytesBase64Encoded, mimeType}}], parameters: {aspectRatio, sampleCount: 1}}. Returns operation name for polling. 9:16 portrait only supports 720p."
+      },
+      {
+       "method": "GET",
+       "url": "https://generativelanguage.googleapis.com/v1beta/{operation_name}?key={nxth_GeminiApiKey}",
+       "description": "Polls the status of an async Veo video generation operation until done=true. Extract video URI from response.generateVideoResponse.generatedSamples[0].video.uri then append ?key={nxth_GeminiApiKey} to download."
+      }
+     ]
+    }
+   ],
+   "knowledge_sources": [
+    {
+     "source_type": "SharePoint",
+     "path_or_url": "/sites/ResearchHub/Shared Documents/Character Library",
+     "name": "Character Library",
+     "description": "SharePoint document library storing character reference images, attribute metadata, and generated assets organized by character name and project"
+    }
+   ],
+   "delivery_channels": [
+    "Teams Adaptive Card",
+    "Email"
+   ],
+   "tools": [
+    {
+     "tool_type": "Flow",
+     "name": "Generate Character Portrait",
+     "description": "Generates 1-4 character portrait variations using Gemini Imagen 3 with detailed prompt composition from character attributes.",
+     "inputs": [
+      {
+       "name": "character_name",
+       "type": "string"
+      },
+      {
+       "name": "character_attributes",
+       "type": "object"
+      },
+      {
+       "name": "art_style",
+       "type": "string"
+      },
+      "... 3 more"
+     ],
+     "outputs": [
+      {
+       "name": "image_urls",
+       "type": "object"
+      },
+      {
+       "name": "prompt_used",
+       "type": "string"
+      },
+      {
+       "name": "generation_count",
+       "type": "number"
+      },
+      "... 1 more"
+     ]
+    },
+    {
+     "tool_type": "Flow",
+     "name": "Generate Character Video",
+     "description": "Generates a short video clip of a character using Veo 3.1 with reference image conditioning for visual consistency.",
+     "inputs": [
+      {
+       "name": "character_reference_url",
+       "type": "string"
+      },
+      {
+       "name": "scene_description",
+       "type": "string"
+      },
+      {
+       "name": "duration_seconds",
+       "type": "number"
+      },
+      "... 1 more"
+     ],
+     "outputs": [
+      {
+       "name": "video_url",
+       "type": "string"
+      },
+      {
+       "name": "thumbnail_url",
+       "type": "string"
+      },
+      {
+       "name": "duration_seconds",
+       "type": "number"
+      },
+      "... 1 more"
+     ]
+    },
+    {
+     "tool_type": "Connector",
+     "name": "SharePoint Character Library",
+     "description": "SharePoint connector for storing and retrieving character reference images and metadata from the Character Library document library.",
+     "inputs": [
+      {
+       "name": "character_name",
+       "type": "string"
+      },
+      {
+       "name": "operation",
+       "type": "string"
+      }
+     ],
+     "outputs": [
+      {
+       "name": "character_data",
+       "type": "object"
+      },
+      {
+       "name": "image_urls",
+       "type": "object"
+      }
+     ]
+    }
+   ],
+   "entity_definitions": [
+    {
+     "entity_name": "Character Styles",
+     "entity_file": "character_generator_styles.txt",
+     "description": "Closed list entity for character image composition styles (Portrait, Full Body, Scene) with synonyms",
+     "used_in_topics": [
+      "Character Creation"
+     ]
+    },
+    {
+     "entity_name": "Video Styles",
+     "entity_file": "character_generator_video_styles.txt",
+     "description": "Closed list entity for video animation styles (Realistic, Cinematic, Animated) with synonyms",
+     "used_in_topics": [
+      "Video Generation"
+     ]
+    }
+   ]
+  }
+ }
+}

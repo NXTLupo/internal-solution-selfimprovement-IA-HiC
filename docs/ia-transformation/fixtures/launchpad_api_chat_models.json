@@ -1,0 +1,15 @@
+{
+ "service": "launchpad",
+ "route": "/api/chat/models",
+ "method": "GET",
+ "path": "/api/chat/models",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "detail": "string"
+ },
+ "body": {
+  "detail": "Not Found"
+ }
+}

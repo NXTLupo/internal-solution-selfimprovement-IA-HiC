@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/assets/<path:filename>",
+ "method": "GET",
+ "path": "/assets/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "File not found"
+ }
+}

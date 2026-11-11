@@ -1,0 +1,61 @@
+{
+ "service": "launchpad",
+ "route": "/api/urls",
+ "method": "GET",
+ "path": "/api/urls",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "agent": {
+   "port": "string",
+   "url": "string"
+  },
+  "journey_mapper": {
+   "port": "string",
+   "url": "string"
+  },
+  "launchpad": {
+   "port": "string",
+   "url": "string"
+  },
+  "reddit_ripper": {
+   "port": "string",
+   "url": "string"
+  },
+  "social_research": {
+   "port": "string",
+   "url": "string"
+  },
+  "video_analyzer": {
+   "port": "string",
+   "url": "string"
+  }
+ },
+ "body": {
+  "agent": {
+   "port": "8201",
+   "url": "http://localhost:8201"
+  },
+  "journey_mapper": {
+   "port": "8080",
+   "url": "http://localhost:8080"
+  },
+  "launchpad": {
+   "port": "80",
+   "url": "http://localhost:8000"
+  },
+  "reddit_ripper": {
+   "port": "5001",
+   "url": "http://localhost:5001"
+  },
+  "social_research": {
+   "port": "3000",
+   "url": "http://localhost:3000"
+  },
+  "video_analyzer": {
+   "port": "5002",
+   "url": "http://localhost:5002"
+  }
+ }
+}

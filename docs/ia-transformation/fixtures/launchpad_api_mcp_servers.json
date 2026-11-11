@@ -1,0 +1,79 @@
+{
+ "service": "launchpad",
+ "route": "/api/mcp/servers",
+ "method": "GET",
+ "path": "/api/mcp/servers",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "servers": {
+   "claude4_journey": {
+    "description": "string",
+    "error": "string",
+    "status": "string",
+    "url": "string"
+   },
+   "journey": {
+    "description": "string",
+    "status": "string",
+    "url": "string"
+   },
+   "reddit": {
+    "description": "string",
+    "status": "string",
+    "url": "string"
+   },
+   "research": {
+    "description": "string",
+    "status": "string",
+    "url": "string"
+   },
+   "social": {
+    "description": "string",
+    "status": "string",
+    "url": "string"
+   },
+   "video": {
+    "description": "string",
+    "status": "string",
+    "url": "string"
+   }
+  }
+ },
+ "body": {
+  "servers": {
+   "claude4_journey": {
+    "description": "Advanced customer journey mapping with Claude Sonnet 4",
+    "error": "HTTPConnectionPool(host='claude4-journey-mcp', port=8506): Max retries exceeded with url: /health (Caused by NameResolutionError(\"HTTPConnection(host='claude4-journey-mcp', port=8506): Failed to resolve 'claude4-journey-mcp' ([Errno -2] Name or service not known)\"))",
+    "status": "offline",
+    "url": "http://claude4-journey-mcp:8506"
+   },
+   "journey": {
+    "description": "Customer journey mapping with Claude 3.7 Sonnet",
+    "status": "online",
+    "url": "http://journey-mcp:8503"
+   },
+   "reddit": {
+    "description": "Reddit data collection and analysis tools",
+    "status": "online",
+    "url": "http://reddit-mcp:8501"
+   },
+   "research": {
+    "description": "Research analysis and persona generation with Gemini 3 Pro",
+    "status": "online",
+    "url": "http://research-mcp:8507"
+   },
+   "social": {
+    "description": "Social media research and sentiment analysis tools",
+    "status": "online",
+    "url": "http://social-mcp:8502"
+   },
+   "video": {
+    "description": "Video transcription and analysis tools",
+    "status": "online",
+    "url": "http://video-mcp:8504"
+   }
+  }
+ }
+}

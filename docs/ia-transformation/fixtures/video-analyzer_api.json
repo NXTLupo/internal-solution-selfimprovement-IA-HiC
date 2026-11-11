@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-video-analyzer",
+ "route": "/api",
+ "method": "GET",
+ "path": "/api",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "message": "string"
+ },
+ "body": {
+  "message": "NXT Humans Video Analyzer API"
+ }
+}

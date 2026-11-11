@@ -1,0 +1,17 @@
+{
+ "service": "launchpad",
+ "route": "/api/agency/history/<conversation_id>",
+ "method": "GET",
+ "path": "/api/agency/history/ia-fixture-nonexistent-0000",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "conversation_id": "string",
+  "messages": []
+ },
+ "body": {
+  "conversation_id": "ia-fixture-nonexistent-0000",
+  "messages": []
+ }
+}

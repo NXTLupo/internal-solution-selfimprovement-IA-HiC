@@ -1,0 +1,22 @@
+{
+ "service": "internal-solutions-miro-generator",
+ "route": "/health",
+ "method": "GET",
+ "path": "/health",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "compose network (host port refused)",
+ "shape": {
+  "service": "string",
+  "status": "string",
+  "timestamp": "string",
+  "version": "string"
+ },
+ "body": {
+  "service": "miro-generator",
+  "status": "healthy",
+  "timestamp": "2026-11-11T14:30:44.952933",
+  "version": "1.0.0"
+ }
+}

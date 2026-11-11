@@ -1,0 +1,13 @@
+{
+ "service": "internal-solutions-miro-generator",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "via": "compose network (host port refused)",
+ "bytes": 47771,
+ "body_sha256": "caa9f9c6237a3ae8b62c9a4a40bd38b2e3780c6edddc5967b2fd4719d1dfb161",
+ "title": "NXT Humans | Miro Board Generator"
+}

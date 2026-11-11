@@ -1096,7 +1096,7 @@ is best at: artifacts, code and tool use.
 | `analysis` | Semantic and sentiment classification, extraction, schema-bound output at volume | Claude Sonnet 5.5 | GPT-6.1 Terra | Analyst (breadth), Journey Cartographer, Librarian |
 | `fast` | Intent routing, short classification, high-volume low-latency turns | GPT-6 Luna | Claude Haiku 5.5 | the Agent's intent router, tool-output compaction, chips and suggestions |
 | `image` | Still imagery | `gpt-image-2.6-flare` (the matrix names DALL-E 3, which the account does not have) | `gemini-nano-banana-2.1` | Media Producer, Designer |
-| `video` | Generated video | `sora-2` (OpenAI) and `gemini-omni-1.2-flash` (Google), per the owner on 2026-11-10; no Veo model is callable on the account | `sora-2-pro` | Media Producer |
+| `video` | Generated video | `gemini-omni-1.2-flash` (Google). The owner also named `sora-2`; OpenAI no longer lists any Sora model and reports a shutdown date of 2026-09-24, so it is registered as sunset | none | Media Producer |
 | `verifier` | Independent review of an artifact | a model from a different vendor than the author | a second vendor, pooled | Verifier |
 
 **What the code says today.** None of these families is in the routing registry. A search of
@@ -1324,8 +1324,8 @@ The ledger therefore records, for each of the 434 routes, the proof it needs:
 
 | Proof | Applies to | How |
 |---|---|---|
-| Existing unit tests keep passing | 314 routes in the three tested trees; the 10 pinned invariants in 7.5 | Run unchanged against the new owner |
-| Recorded request and response fixture | the 120 routes in untested services | Before a service is absorbed, drive it through its real UI once per route, record the traffic, and replay the recording against the new owner. REA can turn a recorded capture into a replayable tool surface and a coverage report, so this is tooling the project already has |
+| Existing unit tests keep passing | 76 routes named by a test in their own tree (a route-level count made on 2026-11-11; the earlier figure of 314 counted every route in a tree that has any test); the 10 pinned invariants in 7.5 | Run unchanged against the new owner |
+| Recorded request and response fixture | the 358 routes no test names; 67 of them now carry a recorded read-only fixture (Phase 0 record below) | Before a service is absorbed, drive it through its real UI once per route, record the traffic, and replay the recording against the new owner. REA can turn a recorded capture into a replayable tool surface and a coverage report, so this is tooling the project already has |
 | Regression engagement | every deliverable and directive | The ten real engagements from Phase 0: same request, compare chain verdicts, rendered pages and exports |
 | A person reads it | every phase gate | The standing rule: counts are not reading |
 
@@ -1425,6 +1425,25 @@ P0 Baseline --> P1 One front door --> P2 Engine on the server --> P3 The Studio
 - Fix the three outward-facing defects that should not wait: the recipe generator writing retired
   model ids into deliverables, the Social Research merge path that returns empty strings, and the
   Character Generator's video call to a Veo id the Google account no longer serves.
+
+**Phase 0 record, 2026-11-11 (started on the owner's go-ahead).** What was done, verified and still open.
+
+| Item | State | Evidence |
+|---|---|---|
+| Ledger check in `npm run check:all` | Done | `check:ledger` runs before the type check; it now credits a route only to a test that names it or to its own recorded fixture |
+| Read-only route fixtures | 67 routes recorded across the eight services; a replay after the day's changes found no route whose status or JSON shape changed | `docs/ia-transformation/record_fixtures.py record` and `check`; `fixtures/index.json` lists every route deliberately not called and why. The Miro Generator's host port refuses connections although the app listens, so its routes are recorded over the compose network |
+| Model re-tier, steps 1 to 3 | Done and live | 12 models registered in both registries; all nine seat models answered one request through the proxy's own routes (`scripts/probe-model-seats.py`, `plans/ia-phase0/model-seat-probe-2026-11-11.json`). The probe found two missing body rules, now in both chokepoints: the GPT-6 family rejects `temperature`, and Claude Haiku 5.5 rejects it too. The test that pins the seats also found the image model in use, `gemini-3.1-flash-image-preview`, missing from the registry's known set |
+| Seat matrix | Served at `/api/models` as `seat_matrix`; artifact, orchestration and video seated; six seats held with a stated reason until their bake-off | `services/seatMatrix.ts`, `services/seatMatrix.test.ts` (fails on a seat with neither its primary serving nor a reason, on Grok, or on a sunset model) |
+| Model re-tier, step 4 (bake-offs) | Not started | Needs regression runs; it spends model credits |
+| Model re-tier, step 5 (services read `/api/models`) | Done and live for all four services that carried their own ids: recipe generator, Social Research, NXT-Agency, Journey Mapper | Each `/health` or `/api/models` names the seat source. Found on the way: NXT-Agency needed Gemini thought signatures replayed and GPT-6 tool turns without reasoning; Journey Mapper read the first content block, which is a thinking block on Opus 5.5, and its image baked a retired model id. NXT-Agency computer use stays on Sonnet 4.6 until its loop moves to the new computer toolset |
+| Recipe generator writing retired ids | Fixed and live | Every Claude id that reaches a recipe resolves from the seats; old ids in stored recipes are rewritten when served |
+| Social Research empty merge | Fixed and live | The DeepSeek stub raises instead of returning nothing; the LLM merge runs on Claude; 14 new tests. The merge path turned out to be unreachable from any route; the silent-blank path was the chunk analysis, which earlier work moved to Claude. Key-prefix logging removed |
+| Character Generator video | Fixed and live | Calls `gemini-omni-1.2-flash` through the Interactions API; one real 3-second clip generated and checked (640 by 360, 24 fps, audio track); the page renders with no console errors |
+| Miro Generator suite | Restored and passing | 44 type errors fixed, the deleted tests restored from history, 22 of 22 tests pass, network blocked in tests. Six code defects the tests exposed were fixed. One real read-only Miro call was made with the owner's token before the tests were made hermetic |
+| Label capture | Done and live | A thumbs control with an optional reason on every chat reply that carries an artifact; it posts a whole-artifact human label with the artifact, run and message ids. The join that calibrates judges could never match whole-artifact verdicts (1,110 of 1,171 verdicts carry no slide id); it now does, in a tested module (`proxy/judge_agreement.py`) |
+| Regression cases | 16 cases filed in the eval harness's frontier set: the ten personal-agent scenarios and the six failure patterns from 3.5 | `evals/cases/frontier/ia-*.json`. The agent cases run once the Agent exists (Phase 1); the six failure cases need reproducing fixtures (Phase 5) |
+| Fresh runs for the five areas without a saved engagement | Not started | They spend model credits |
+| Baseline re-run on the new model set | Not possible yet | Seats move only after their bake-offs |
 
 **Exit gate:** the ledger test passes with zero unowned capabilities; every seat in the matrix is
 seated on a probed model or explicitly held with a reason; the baseline script reproduces Section
@@ -1680,10 +1699,22 @@ Each has a recommended default, so work is not blocked.
   the ledger it generates (24 services, 39 artifacts, 47 directives, 32 MCP tools, 434 HTTP routes
   across 1,156 source files, 10 pinned invariants). The script reads files and writes one JSON file; it calls no service
   and no model. No service, compose or application code was changed.
-- **Not done:** no commit, no push, no merge. Main is untouched. The NXT-Humans origin has push
-  disabled.
-- **First action for whoever picks this up:** the rest of Phase 0, starting with the baseline
-  script and the ten regression engagements.
+- **Commits:** the plan and its evidence folder were committed locally on this branch with the
+  owner's approval on 2026-11-10 (`d031fb754`, `6182e2f8e`). No push, no merge. Main is untouched.
+  The NXT-Humans origin has push disabled.
+- **Phase 0 started 2026-11-11** on the owner's go-ahead; its record is under Phase 0 in Section 8.
+  Phase 0 changes application code in the proxy, the HiC chat, and five services; none of it is
+  committed yet.
+- **First action for whoever picks this up:** the bake-offs (6.10 step 4) and the fresh runs for
+  the five areas, both of which spend model credits and need the owner's budget.
+- **IA Next, the new system, started 2026-11-11** on branch `ia-next-agent-system-2026-11-11`, on the
+  owner's directive to build it as a completely separate system beside the existing tools. It lives in
+  `ia-next/` with its own compose project, network, data volume and port (127.0.0.1:9400), and calls no
+  existing service. Version 0.1 carries the Agent (6.1), a first studio (Brief Lead, Research Lead,
+  Analyst, Writer, cross-vendor Verifier; 6.2), the task runtime with handoff states (6.3), the memory
+  promotion gate (6.4), the deterministic and judge rungs (6.5), budgets (6.7), hash-bound approvals
+  (6.8) and a workspace page (6.9). `ia-next/README.md` lists what runs and what does not yet. The
+  existing suite stays the system of record until each phase gate passes.
 
 ---
 

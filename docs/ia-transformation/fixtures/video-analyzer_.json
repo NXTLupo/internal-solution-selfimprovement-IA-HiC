@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-video-analyzer",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 37638,
+ "body_sha256": "aa0433c6f3b56569f383c4fadbd0945344d3b0baf4b04f33305a5b819f1b5f16",
+ "title": "NXT Humans | Video Transcriber"
+}

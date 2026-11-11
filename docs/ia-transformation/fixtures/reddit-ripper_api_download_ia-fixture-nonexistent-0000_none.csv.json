@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-reddit-ripper",
+ "route": "/api/download/<job_id>/<filename>",
+ "method": "GET",
+ "path": "/api/download/ia-fixture-nonexistent-0000/none.csv",
+ "status": 404,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 207,
+ "body_sha256": "e9639e3c4681ce85f852fbac48e2eeee5ba51296dbfec57c200d59b76237ab80",
+ "title": "404 Not Found"
+}

@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-video-analyzer",
+ "route": "/transcript/{job_id}",
+ "method": "GET",
+ "path": "/transcript/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "message": "string"
+ },
+ "body": {
+  "message": "Job ia-fixture-nonexistent-0000 not found"
+ }
+}

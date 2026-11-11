@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-video-analyzer",
+ "route": "/health",
+ "method": "GET",
+ "path": "/health",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "status": "string"
+ },
+ "body": {
+  "status": "running"
+ }
+}

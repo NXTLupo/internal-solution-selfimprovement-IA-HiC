@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 6892,
+ "body_sha256": "aa078db196991adb56791ef423ff7906b231445294f9614bcad128ec87c464ab",
+ "title": "NXT Humans | Consistent Persona Generator"
+}

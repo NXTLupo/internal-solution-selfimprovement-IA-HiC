@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA Next</title>
+<style>
+  :root { --rail:#0D0D0D; --accent:#B8B800; --cool:#00B7C3; --teal:#115054; --warn:#CC6644; --ink:#1A1A1A; --muted:#6B6B6B; --line:#E4E4DC; --bg:#FAFAF7; --panel:#FFFFFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: Archivo, "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:var(--rail); color:#fff; padding:12px 16px; display:flex; align-items:center; gap:12px; }
+  header b { font-family:"Saira Condensed", "Arial Narrow", sans-serif; letter-spacing:1px; font-size:18px; }
+  header span { color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
+  main { display:grid; grid-template-columns: minmax(0,1fr) 340px; gap:16px; padding:16px; max-width:1400px; margin:0 auto; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  section { background:var(--panel); border:1px solid var(--line); border-radius:2px; }
+  h2 { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin:0; padding:10px 12px; border-bottom:1px solid var(--line); }
+  #chat { display:flex; flex-direction:column; min-height:70vh; }
+  #log { flex:1; overflow:auto; padding:12px; display:flex; flex-direction:column; gap:10px; }
+  .msg { max-width:85%; padding:10px 12px; border-radius:2px; white-space:pre-wrap; line-height:1.45; font-size:14px; }
+  .user { align-self:flex-end; background:#EEF6F6; }
+  .agent { align-self:flex-start; background:#fff; border:1px solid var(--line); border-left:3px solid var(--accent); }
+  .tool { align-self:flex-start; font-family:"IBM Plex Mono", Consolas, monospace; font-size:11px; color:var(--muted); }
+  form { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
+  textarea { flex:1; min-height:56px; font:inherit; padding:8px; border:1px solid var(--line); border-radius:2px; }
+  button { font:inherit; font-size:12px; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--teal); background:var(--teal); color:#fff; padding:8px 14px; border-radius:2px; cursor:pointer; }
+  button.ghost { background:#fff; color:var(--teal); }
+  button.deny { border-color:var(--warn); background:#fff; color:var(--warn); }
+  aside { display:flex; flex-direction:column; gap:16px; }
+  .list { padding:8px 12px; font-size:13px; display:flex; flex-direction:column; gap:8px; max-height:40vh; overflow:auto; }
+  .task { border:1px solid var(--line); padding:8px; border-radius:2px; }
+  .status { font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:1px 6px; border-radius:2px; }
+  .done { background:#E8F6F7; color:var(--teal); } .failed { background:#FBEDE8; color:var(--warn); } .running, .queued { background:#F6F6E0; color:#6B6B00; }
+  .steps { margin:6px 0 0; padding-left:16px; color:var(--muted); font-size:12px; }
+  pre { white-space:pre-wrap; font-size:12px; margin:0; }
+  #report { display:none; position:fixed; inset:5vh 5vw; background:#fff; border:1px solid var(--line); padding:16px; overflow:auto; z-index:10; box-shadow:0 0 0 100vmax rgba(0,0,0,.35); }
+</style>
+</head>
+<body>
+<header><b>IA NEXT</b><span>One agent, a studio behind it</span><span id="health" style="margin-left:auto;color:#999"></span></header>
+<main>
+  <section id="chat">
+    <h2>Conversation</h2>
+    <div id="log" aria-live="polite"></div>
+    <form id="f"><textarea id="t" placeholder="Ask a question, or ask for a researched report." aria-label="Message"></textarea><button id="send">Send</button></form>
+  </section>
+  <aside>
+    <section><h2>Approvals</h2><div id="approvals" class="list"><span style="color:#999">None waiting.</span></div></section>
+    <section><h2>Tasks</h2><div id="tasks" class="list"></div></section>
+    <section><h2>Memory</h2><div class="list"><pre id="memory"></pre>
+      <div style="display:flex;gap:6px"><input id="fm" placeholder="Text to forget" style="flex:1;font:inherit;padding:4px" aria-label="Text to forget"><button class="ghost" id="forget">Forget</button></div></div></section>
+  </aside>
+</main>
+<div id="report"><button class="ghost" onclick="report.style.display='none'">Close</button><pre id="reporttext"></pre></div>
+<script>
+let conv = null;
+const $ = (id) => document.getElementById(id);
+const api = async (p, o) => { const r = await fetch(p, o); if (!r.ok) throw new Error((await r.text()).slice(0, 300)); return r.headers.get('content-type')?.includes('json') ? r.json() : r.text(); };
+function add(cls, text) { const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text; $('log').appendChild(d); d.scrollIntoView({block:'end'}); return d; }
+async function ensureConv() { if (!conv) conv = (await api('/api/conversations', {method:'POST'})).id; return conv; }
+$('f').onsubmit = async (e) => {
+  e.preventDefault(); const text = $('t').value.trim(); if (!text) return;
+  $('t').value = ''; add('user', text); $('send').disabled = true; const wait = add('tool', 'working...');
+  try {
+    const r = await api(`/api/conversations/${await ensureConv()}/messages`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})});
+    wait.remove();
+    for (const t of r.trace) add('tool', `${t.tool} -> ${JSON.stringify(t.output).slice(0, 220)}`);
+    add('agent', r.reply);
+  } catch (err) { wait.textContent = 'Error: ' + err.message; }
+  $('send').disabled = false; refresh();
+};
+async function refresh() {
+  try {
+    const [h, ts, ap, mem] = await Promise.all([api('/health'), api('/api/tasks'), api('/api/approvals'), api('/api/memory')]);
+    $('health').textContent = h.status + ' · v' + h.version;
+    $('tasks').innerHTML = ts.tasks.length ? '' : '<span style="color:#999">No tasks yet.</span>';
+    for (const t of ts.tasks.slice(0, 12)) {
+      const d = document.createElement('div'); d.className = 'task';
+      d.innerHTML = `<span class="status ${t.status}">${t.status}</span> <small>${t.id}</small><div>${(t.summary || t.error || '').replace(/</g,'&lt;')}</div><small>spent ${Number(t.spent_usd||0).toFixed(2)} USD</small>`;
+      if (t.status === 'done') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').textContent = await api(`/api/tasks/${t.id}/report`); $('report').style.display='block'; }; d.appendChild(b); }
+      const full = await api(`/api/tasks/${t.id}`); const ul = document.createElement('ul'); ul.className='steps';
+      for (const n of full.nodes) { const li = document.createElement('li'); li.textContent = `${n.specialist}: ${n.state}${n.summary ? ' · ' + n.summary : ''}${n.error ? ' · ' + n.error : ''}`; ul.appendChild(li); }
+      d.appendChild(ul); $('tasks').appendChild(d);
+    }
+    $('approvals').innerHTML = ap.pending.length ? '' : '<span style="color:#999">None waiting.</span>';
+    for (const a of ap.pending) {
+      const d = document.createElement('div'); d.className='task'; d.innerHTML = `<b>${a.cls}</b> · ${a.tool}<div>${a.reason.replace(/</g,'&lt;')}</div>`;
+      for (const [label, ok] of [['Approve', true], ['Deny', false]]) { const b = document.createElement('button'); b.textContent = label; if (!ok) b.className='deny'; b.onclick = async () => { await api(`/api/approvals/${a.id}`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({approve: ok})}); refresh(); }; d.appendChild(b); }
+      $('approvals').appendChild(d);
+    }
+    $('memory').textContent = (mem.user || '') + '\n' + (mem.memory || '') || 'Nothing remembered yet.';
+  } catch (err) { $('health').textContent = 'unreachable'; }
+}
+$('forget').onclick = async () => { const m = $('fm').value.trim(); if (m.length < 3) return; const r = await api('/api/memory/forget', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({match:m})}); add('tool', `forgot ${r.removed.length} entr${r.removed.length === 1 ? 'y' : 'ies'}`); $('fm').value=''; refresh(); };
+refresh(); setInterval(refresh, 5000);
+</script>
+</body>
+</html>

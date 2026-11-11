@@ -1,0 +1,22 @@
+{
+ "service": "internal-solutions-miro-generator",
+ "route": "/api/config",
+ "method": "GET",
+ "path": "/api/config",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "compose network (host port refused)",
+ "shape": {
+  "config_exists": "bool",
+  "message": "string",
+  "success": "bool",
+  "token_configured": "bool"
+ },
+ "body": {
+  "config_exists": true,
+  "message": "Configuration status retrieved",
+  "success": true,
+  "token_configured": true
+ }
+}

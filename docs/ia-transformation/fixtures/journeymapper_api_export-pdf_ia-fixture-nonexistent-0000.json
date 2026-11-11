@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-journeymapper",
+ "route": "/api/export-pdf/{journey_id}",
+ "method": "GET",
+ "path": "/api/export-pdf/ia-fixture-nonexistent-0000",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "Journey map not found"
+ }
+}

@@ -1,0 +1,45 @@
+# IA Next: the personal-agent system from docs/INTELLIGENCE_AUGMENTATION_TRANSFORMATION_PLAN.md.
+#
+# A COMPLETELY SEPARATE system from the existing Intelligence Augmentation suite (docker-compose-all.yml):
+#   - its own compose project name (ia-next), so `docker compose` never touches the suite's containers;
+#   - its own network (ia-next-net), never nxt-humans-network;
+#   - its own data volume (ia-next-data);
+#   - its own port range, 9400 and up, bound to 127.0.0.1 only; the suite uses 3000, 5001-5015, 5050,
+#     6080, 8000, 8080, 8081, 8201 and 8500-8508.
+# It reads only the provider keys from the workbench's root .env. It calls no suite service.
+#
+#   docker compose -f ia-next/ia-next.compose.yml up -d --build      # start
+#   docker compose -f ia-next/ia-next.compose.yml down               # stop (data volume kept)
+name: ia-next
+
+services:
+  ia-next:
+    build: .
+    image: ia-next:0.1
+    container_name: ia-next
+    env_file:
+      - path: ../.env
+        required: false
+    environment:
+      - IA_NEXT_PORT=9400
+      - IA_NEXT_DATA=/data
+    ports:
+      - "127.0.0.1:${IA_NEXT_PORT:-9400}:9400"
+    volumes:
+      - ia-next-data:/data
+    networks:
+      - ia-next-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9400/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  ia-next-net:
+    name: ia-next-net
+
+volumes:
+  ia-next-data:
+    name: ia-next-data

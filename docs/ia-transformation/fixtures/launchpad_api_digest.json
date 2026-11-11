@@ -1,0 +1,115 @@
+{
+ "service": "launchpad",
+ "route": "/api/digest",
+ "method": "GET",
+ "path": "/api/digest",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "counts": {
+   "brain": "number",
+   "proposals": "number",
+   "rescore": "number",
+   "runs": "number",
+   "verdicts": "number"
+  },
+  "generated_at": "string",
+  "headline": "string",
+  "needs_attention": "bool",
+  "sections": [
+   {
+    "id": "string",
+    "items": [
+     {
+      "text": "string"
+     }
+    ],
+    "title": "string"
+   }
+  ],
+  "since": "string",
+  "surface": "string"
+ },
+ "body": {
+  "counts": {
+   "brain": 1,
+   "proposals": 1,
+   "rescore": 1,
+   "runs": 12,
+   "verdicts": 7
+  },
+  "generated_at": "2026-11-11T13:42:51.475929Z",
+  "headline": "Needs you: 1 proposal to review.",
+  "needs_attention": true,
+  "sections": [
+   {
+    "id": "runs",
+    "items": [
+     {
+      "ref": {
+       "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+       "run_id": "run_mw8uzd3c_g7nmz1"
+      },
+      "text": "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earli: artifact, 64 artifacts, 146 of 180 verdicts passed."
+     },
+     {
+      "ref": {
+       "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+       "run_id": "run_mw8raudm_9kk1vf"
+      },
+      "text": "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earli: artifact, 26 artifacts, 70 of 96 verdicts passed."
+     },
+     {
+      "ref": {
+       "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+       "run_id": "run_mw8r2nvn_ehafuz"
+      },
+      "text": "1. Understand emerging northeastern university student (and other college student) 2026 AI behaviors (no earli: artifact, 40 of 48 verdicts passed."
+     },
+     "... 9 more"
+    ],
+    "title": "Runs since you were last here"
+   },
+   {
+    "id": "verdicts",
+    "items": [
+     {
+      "text": "52 artifacts went through the post-generation chain; 42 failed it."
+     },
+     {
+      "ref": {
+       "artifact_id": "slides_1793746762186",
+       "run_id": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
+      },
+      "text": "Failed: slides_1793746762186 in analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th after 2 repair round(s)."
+     },
+     {
+      "ref": {
+       "artifact_id": "slides_1793746762186",
+       "run_id": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
+      },
+      "text": "Failed: slides_1793746762186 in analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th."
+     },
+     "... 4 more"
+    ],
+    "title": "Verdicts"
+   },
+   {
+    "id": "proposals",
+    "items": [
+     {
+      "ref": {
+       "proposal_id": "prop_1793474680_1"
+      },
+      "text": "Epoch 9 due: 22 artifact(s) failed rescoring in the last 168 h (threshold 5)"
+     }
+    ],
+    "title": "Self-improvement proposals waiting for review"
+   },
+   "... 2 more"
+  ],
+  "since": "2026-11-03T22:42:00.095754Z",
+  "surface": "launchpad"
+ }
+}

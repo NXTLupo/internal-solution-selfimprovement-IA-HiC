@@ -1,0 +1,15 @@
+{
+ "service": "launchpad",
+ "route": "/api/agency/reviews",
+ "method": "GET",
+ "path": "/api/agency/reviews",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "pending": []
+ },
+ "body": {
+  "pending": []
+ }
+}

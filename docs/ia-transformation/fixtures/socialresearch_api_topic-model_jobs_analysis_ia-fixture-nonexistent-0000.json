@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/jobs/analysis/<analysis_id>",
+ "method": "GET",
+ "path": "/api/topic-model/jobs/analysis/ia-fixture-nonexistent-0000",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": [],
+ "body": []
+}

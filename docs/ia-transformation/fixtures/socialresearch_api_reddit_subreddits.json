@@ -1,0 +1,46 @@
+{
+ "service": "internal-solutions-socialresearch",
+ "route": "/subreddits",
+ "method": "GET",
+ "path": "/api/reddit/subreddits",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "via": "host port",
+ "shape": [
+  {
+   "commentCount": "number",
+   "createdAt": "string",
+   "id": "string",
+   "name": "string",
+   "postCount": "number",
+   "updatedAt": "string"
+  }
+ ],
+ "body": [
+  {
+   "commentCount": 1247,
+   "createdAt": "2026-09-01T00:08:21",
+   "id": "1540263188821586751",
+   "name": "NEU",
+   "postCount": 571,
+   "updatedAt": "2026-11-09T15:33:32"
+  },
+  {
+   "commentCount": 1544,
+   "createdAt": "2026-02-07T06:42:53",
+   "id": "2214626536260985573",
+   "name": "farming",
+   "postCount": 434,
+   "updatedAt": "2026-07-16T11:29:04"
+  },
+  {
+   "commentCount": 1945,
+   "createdAt": "2026-06-01T01:11:36",
+   "id": "-3228409486843917384",
+   "name": "warriors",
+   "postCount": 279,
+   "updatedAt": "2026-06-26T20:52:17"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "service": "launchpad",
+ "route": "/status",
+ "method": "GET",
+ "path": "/status",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 30232,
+ "body_sha256": "ae881a6c692da8bcb9f243b3c110bbd634cb1551ccf5d9f846b0247f9c1e1ff2",
+ "title": "NXT Humans | Service Status & Monitoring"
+}

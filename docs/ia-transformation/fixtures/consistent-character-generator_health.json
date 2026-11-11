@@ -1,0 +1,19 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/health",
+ "method": "GET",
+ "path": "/health",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "service": "string",
+  "status": "string",
+  "version": "string"
+ },
+ "body": {
+  "service": "Consistent Persona Generator",
+  "status": "healthy",
+  "version": "1.0.0"
+ }
+}

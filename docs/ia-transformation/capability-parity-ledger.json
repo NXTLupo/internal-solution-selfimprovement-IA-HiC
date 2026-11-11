@@ -1184,28 +1184,28 @@
       "method": "ROUTE",
       "path": "/",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/agent",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_agent.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/agency/history/<conversation_id>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_agency_history_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/agency/reviews",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_agency_reviews.json"
     },
     {
       "source": "launchpad",
@@ -1226,7 +1226,7 @@
       "method": "ROUTE",
       "path": "/api/chat/image/<image_id>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: needs an id the owner has not chosen to expose)"
     },
     {
       "source": "launchpad",
@@ -1247,35 +1247,35 @@
       "method": "ROUTE",
       "path": "/api/chat/models",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_chat_models.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/chat/ws/<conversation_id>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_chat_ws_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/digest",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_digest.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/digest/seen",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/logs",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_logs_service=agent_lines=3.json"
     },
     {
       "source": "launchpad",
@@ -1296,252 +1296,252 @@
       "method": "ROUTE",
       "path": "/api/mcp/servers",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_mcp_servers.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/mcp/tools",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_mcp_tools.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/metrics",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_metrics.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/status",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_status.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/threads",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_threads.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/threads/<thread_id>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_threads_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/api/urls",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_api_urls.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/mcp-chat",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_mcp-chat.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/proxy/agent/<path:path>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/proxy/journey-mcp/<path:path>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/proxy/reddit-mcp/<path:path>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/proxy/social-mcp/<path:path>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/proxy/video-mcp/<path:path>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/redirect/<service>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_redirect_journey-mapper.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/status",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/launchpad_status.json"
     },
     {
       "source": "launchpad",
       "method": "ROUTE",
       "path": "/ws-proxy/<conversation_id>",
       "owner": "workspace-ui (Operations view)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: opens a socket or forwards to another service (covered by that service))"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/api/chat/ws/{conversation_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/api/files/{file_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/api/threads",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/api/threads/{thread_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/health",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/jobs",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/jobs/{job_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/journey/{journey_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/list",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/mcp/tools",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/result/{journey_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "GET",
       "path": "/transcript/{job_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/analyze-video",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/api/chat/conversation",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/api/chat/message",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/api/threads/report",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/api/webhooks/hic",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/create",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
@@ -1555,588 +1555,588 @@
       "method": "POST",
       "path": "/mcp/invoke/claude4_journey_generate_map",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/claude4_journey_get_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/claude4_journey_get_status",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/claude4_journey_list_maps",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/claude4_journey_upload_file",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/journey_generate_map",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/journey_get_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/journey_get_status",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/journey_list_maps",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/journey_upload_file",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/openai_journey_generate_map",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/openai_journey_get_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/openai_journey_list_maps",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/openai_journey_upload_file",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/reddit_get_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/reddit_get_status",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/reddit_search",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_get_sentiment_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_get_topic_results",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_get_topic_status",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_search",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_sentiment_analysis",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/social_topic_model",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/video_get_job_status",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/video_get_transcript",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/video_list_jobs",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/video_transcribe_file",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/mcp/invoke/video_transcribe_youtube",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/refresh-tools",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "POST",
       "path": "/upload",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "mcp-services",
       "method": "WEBSOCKET",
       "path": "/ws/{conversation_id}",
       "owner": "ia-agent + tool-gateway",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/agent-sessions/{session_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/api/chat/history/{conversation_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/api/chat/image/{image_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/api/reviews",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/approvals",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/categories",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/conversations/{conversation_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/conversations/{conversation_id}/messages/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/decisions/{engagement_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/engagements",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/engagements/{engagement_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/engagements/{engagement_id}/status",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/evidence",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/health",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/users/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/users/{user_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/users/{user_id}/conversations/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/workers",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "GET",
       "path": "/{slug}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/agent-sessions/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/api/chat/conversation",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/api/chat/message",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/api/reviews/{review_id}/decision",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/approvals/{approval_id}/approve",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/approvals/{approval_id}/reject",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/conversations/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/engagements",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/engagements/{engagement_id}/decompose",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/engagements/{engagement_id}/tasks/{task_id}/handoff",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/engagements/{engagement_id}/tasks/{task_id}/verify",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/messages/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/refresh-tools",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/users/",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/{slug}/chat",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "POST",
       "path": "/{slug}/chat/stream",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "NXT-Agency",
       "method": "PUT",
       "path": "/agent-sessions/{session_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "WEBSOCKET",
       "path": "/ws/{conversation_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "NXT-Agency",
       "method": "WEBSOCKET",
       "path": "/ws/{slug}/{session_id}",
       "owner": "ia-agent (orchestration API) + sandbox",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "DELETE",
       "path": "/api/remove-element/{journey_id}",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/api/check-key",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/api/export-pdf/{journey_id}",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_api_export-pdf_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/api/models",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_api_models.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/dev-sw.js",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_dev-sw.js.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "GET",
       "path": "/sw.js",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_sw.js.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "POST",
       "path": "/api/analyze",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "POST",
       "path": "/api/chat",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "POST",
       "path": "/api/edit-journey-map/{journey_id}",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "POST",
       "path": "/api/upload",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "ROUTE",
       "path": "/",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/journeymapper_.json"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "ROUTE",
       "path": "/api/analyze",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-journeymapper",
       "method": "ROUTE",
       "path": "/api/generate-map",
       "owner": "Journey Cartographer (journey-engine)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-journeymapper",
@@ -2150,14 +2150,14 @@
       "method": "ROUTE",
       "path": "/<user_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_user_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/ai-summary",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-socialresearch",
@@ -2192,28 +2192,28 @@
       "method": "ROUTE",
       "path": "/chat",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/embed",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/health",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_health.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/job-status/<job_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_topic-model_job-status_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
@@ -2227,21 +2227,21 @@
       "method": "ROUTE",
       "path": "/jobs/analysis/<analysis_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_topic-model_jobs_analysis_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/jobs/project/<project_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_topic-model_jobs_project_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/jobs/user/<user_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_topic-model_jobs_user_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
@@ -2255,7 +2255,7 @@
       "method": "ROUTE",
       "path": "/project/<project_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_user_project_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
@@ -2283,14 +2283,14 @@
       "method": "ROUTE",
       "path": "/projects/<user_id>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_user_projects_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/query",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-socialresearch",
@@ -2304,147 +2304,147 @@
       "method": "ROUTE",
       "path": "/send_hi",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/subreddit-stats/<subreddit>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_llm-analyzer_subreddit-stats_NEU.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/subreddit/<string:subreddit_name>",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_reddit_subreddit_NEU.json"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/subreddit/<subreddit>/about",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: calls an outside site)"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/subreddit/<subreddit>/icon",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: calls an outside site)"
     },
     {
       "source": "internal-solutions-socialresearch",
       "method": "ROUTE",
       "path": "/subreddits",
       "owner": "Analyst (nlp)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/socialresearch_api_reddit_subreddits.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/api",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_api.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/health",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_health.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/jobs",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_jobs.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/jobs/{job_id}",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_jobs_1c42a9ea-f6d4-46b7-8b1e-7032e3e1c1b8.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "GET",
       "path": "/transcript/{job_id}",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/video-analyzer_transcript_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "POST",
       "path": "/analyze-youtube",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-video-analyzer",
       "method": "POST",
       "path": "/upload-video",
       "owner": "Research Lead (media-intake)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/miro-generator_.json"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/config",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/miro-generator_api_config.json"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/download/<path:output_dir>/<path:filename>",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/miro-generator_api_download_ia-fixture-nonexistent-0000_none.json.json"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/files",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/miro-generator_api_files.json"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/generate",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/generate-figma",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: spends model, image or video credits)"
     },
     {
       "source": "internal-solutions-miro-generator",
       "method": "ROUTE",
       "path": "/api/test",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: calls an outside site)"
     },
     {
       "source": "internal-solutions-miro-generator",
@@ -2465,154 +2465,154 @@
       "method": "ROUTE",
       "path": "/health",
       "owner": "Journey Cartographer (export adapter)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/miro-generator_health.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/api/clear-data",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/api/status",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_api_status.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/api/video-debug",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_api_video-debug.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/api/video-status",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_api_video-status.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/assets/<path:filename>",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_assets_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/health",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_health.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/static/<path:filename>",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_static_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-consistent-character-generator",
       "method": "ROUTE",
       "path": "/vite.svg",
       "owner": "Media Producer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/consistent-character-generator_vite.svg.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/api/entities",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_api_entities.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/api/entities/{template_id}",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_api_entities_character_generator.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/api/templates",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_api_templates.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/api/templates/{template_id}",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_api_templates_character_generator.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/api/triggers",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_api_triggers.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/health",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_health.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "GET",
       "path": "/{full_path:path}",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/copilot-recipe-generator_some_client_route.json"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "POST",
       "path": "/api/export",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "POST",
       "path": "/api/generate-recipe",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-copilot-recipe-generator",
       "method": "POST",
       "path": "/api/topic-yaml",
       "owner": "Automation Engineer",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "internal-solutions-reddit-ripper",
       "method": "ROUTE",
       "path": "/",
       "owner": "Research Lead (collector plugin)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/reddit-ripper_.json"
     },
     {
       "source": "internal-solutions-reddit-ripper",
@@ -2626,7 +2626,7 @@
       "method": "ROUTE",
       "path": "/api/download/<job_id>/<filename>",
       "owner": "Research Lead (collector plugin)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/reddit-ripper_api_download_ia-fixture-nonexistent-0000_none.csv.json"
     },
     {
       "source": "internal-solutions-reddit-ripper",
@@ -2640,49 +2640,49 @@
       "method": "ROUTE",
       "path": "/api/sources",
       "owner": "Research Lead (collector plugin)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/reddit-ripper_api_sources.json"
     },
     {
       "source": "internal-solutions-reddit-ripper",
       "method": "ROUTE",
       "path": "/api/status/<job_id>",
       "owner": "Research Lead (collector plugin)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/reddit-ripper_api_status_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "internal-solutions-reddit-ripper",
       "method": "ROUTE",
       "path": "/static/<path:filename>",
       "owner": "Research Lead (collector plugin)",
-      "parity_proof": "recorded request/response fixture required"
+      "parity_proof": "recorded fixture: fixtures/reddit-ripper_static_ia-fixture-nonexistent-0000.json"
     },
     {
       "source": "humans-in-control-research",
       "method": "DELETE",
       "path": "/api/artifacts/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "DELETE",
       "path": "/api/epochs/canary",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "DELETE",
       "path": "/api/presentations/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "DELETE",
       "path": "/api/prototypes/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -2696,21 +2696,21 @@
       "method": "DELETE",
       "path": "/api/user-selection/active",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/ai/cache-stats",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/ai/illustrations",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2731,7 +2731,7 @@
       "method": "GET",
       "path": "/api/artifact/list",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2745,28 +2745,28 @@
       "method": "GET",
       "path": "/api/artifacts",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/artifacts/audio/{name}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/artifacts/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/artifacts/{slug}/view",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2780,35 +2780,35 @@
       "method": "GET",
       "path": "/api/cache/telemetry",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/cx/download/{job_id}/{filename}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/cx/health",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/cx/results/{job_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/cx/status/{job_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2836,28 +2836,28 @@
       "method": "GET",
       "path": "/api/engagement/upload-pages",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/epochs/active",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/epochs/canary",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/epochs/loop",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2871,7 +2871,7 @@
       "method": "GET",
       "path": "/api/epochs/status",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2892,91 +2892,91 @@
       "method": "GET",
       "path": "/api/eval/judges",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/eval/matrix",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/eval/rescore/last",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/eval/results",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/extract-content",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/extract-pdf",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/facts/index/status",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/facts/search",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/feedback/index",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/feedback/list/{engagement_slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/feedback/read/{engagement_slug}/{deliverable_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/fonts/embed-css",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/golden-set/failure-corpus",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -2997,28 +2997,28 @@
       "method": "GET",
       "path": "/api/journey-map/health",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/journey-map/list",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/journey-map/view/{journey_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/knowledge-gaps/list/{engagement_slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3039,21 +3039,21 @@
       "method": "GET",
       "path": "/api/manifest/chunks-by-title",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/manifest/cross-doc-edges",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/manifest/cross-doc-edges/rebuild/status",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3088,105 +3088,105 @@
       "method": "GET",
       "path": "/api/models/registry",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/multi-search",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/pacer/status",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/presentations",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/presentations/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/prototypes",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/prototypes/{slug}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/prototypes/{slug}/view",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/reddit-deep/health",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/retention/flag",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/retention/report",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/run-receipts",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/run-receipts/{run_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/search/{source_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/session/chunk-map",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3242,7 +3242,7 @@
       "method": "GET",
       "path": "/api/skill/read",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3270,14 +3270,14 @@
       "method": "GET",
       "path": "/api/source-packs",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/source-packs/{pack_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3291,7 +3291,7 @@
       "method": "GET",
       "path": "/api/step-result/read",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3305,70 +3305,70 @@
       "method": "GET",
       "path": "/api/topic-cache/list",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/topic-cache/read/{filename:path}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/topic-model/health",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/topic-model/status/{job_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/user-selection/active",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/video/outputs/{name}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/video/render/{job_id}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/wiki/check-article",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/wiki/embed-status",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/wiki/index",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3382,14 +3382,14 @@
       "method": "GET",
       "path": "/api/wiki/manifest",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
       "method": "GET",
       "path": "/api/wiki/read-article/{hash_or_path:path}",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3403,7 +3403,7 @@
       "method": "GET",
       "path": "/favicon.ico",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required"
     },
     {
       "source": "humans-in-control-research",
@@ -3431,7 +3431,7 @@
       "method": "POST",
       "path": "/api/ai/deepseek",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3459,28 +3459,28 @@
       "method": "POST",
       "path": "/api/ai/generate",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/ai/illustration",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/ai/image-screen",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/ai/openai",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3508,14 +3508,14 @@
       "method": "POST",
       "path": "/api/artifact/audit",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/artifact/export-slides",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3529,42 +3529,42 @@
       "method": "POST",
       "path": "/api/artifact/revise",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/artifacts",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/artifacts/{slug}/promote-variant",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/audit/capture-url",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/audit/ingest-files",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/audit/render-proposed",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3578,35 +3578,35 @@
       "method": "POST",
       "path": "/api/corpus/from-selection",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/corpus/retrieve",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/corpus/scope",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/cx/collect",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/deep-research/backfill-attribution",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3627,28 +3627,28 @@
       "method": "POST",
       "path": "/api/engagement/page-owners",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/epochs/canary",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/epochs/jobs",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/epochs/loop/resume",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3669,7 +3669,7 @@
       "method": "POST",
       "path": "/api/epochs/run-batch",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3690,7 +3690,7 @@
       "method": "POST",
       "path": "/api/eval/judge-agreement",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3704,21 +3704,21 @@
       "method": "POST",
       "path": "/api/eval/rescore",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/eval/results",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/eval/seed-frontier",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3732,21 +3732,21 @@
       "method": "POST",
       "path": "/api/export-pptx",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/facts/index/rebuild",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/feedback/append",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3767,7 +3767,7 @@
       "method": "POST",
       "path": "/api/heuristic/capture-flow",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3781,49 +3781,49 @@
       "method": "POST",
       "path": "/api/journey-map/generate",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/journey-map/revise",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/knowledge-gaps/run-remediation",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/layout/measure",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/manifest/chunks-from-selection",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/manifest/cross-doc-edges/rebuild",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/manifest/reindex-pages",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3872,7 +3872,7 @@
       "method": "POST",
       "path": "/api/presentations",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3886,21 +3886,21 @@
       "method": "POST",
       "path": "/api/prototypes",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/reddit-deep/fetch",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/retention/flag",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3914,14 +3914,14 @@
       "method": "POST",
       "path": "/api/scheduler/poll-youtube-channels",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/session/chunk-map",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3935,21 +3935,21 @@
       "method": "POST",
       "path": "/api/sessions/loop-trace/event",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/sessions/loop-trace/finalize",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/sessions/trace/append",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3963,7 +3963,7 @@
       "method": "POST",
       "path": "/api/skill/rollback",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -3977,35 +3977,35 @@
       "method": "POST",
       "path": "/api/skillopt/trajectory",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/source/resolve",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/sources/primary-docs",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/step-result/write",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/tabular/aggregate",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4019,21 +4019,21 @@
       "method": "POST",
       "path": "/api/themes/reresolve-attribution",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/topic-model/analyze",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/transcribe-youtube",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4047,21 +4047,21 @@
       "method": "POST",
       "path": "/api/tts/dialogue",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/user-selection/active",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/video/render",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4082,56 +4082,56 @@
       "method": "POST",
       "path": "/api/wiki/chunks-backfill",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/embed-ab",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/embed-backfill",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/embed-rebuild",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/explore-concepts",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/fetch-articles",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/manifest/rebuild",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/manifest/reconcile",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4145,42 +4145,42 @@
       "method": "POST",
       "path": "/api/wiki/rechunk-shifted",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/regrade-relevance",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/repair-mojibake",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/rerank",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/retrofit-chunks",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
       "method": "POST",
       "path": "/api/wiki/uploads/delete",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4201,7 +4201,7 @@
       "method": "POST",
       "path": "/api/youtube/discover-by-channels",
       "owner": "research-proxy + studio-worker + workspace-ui",
-      "parity_proof": "existing unit tests"
+      "parity_proof": "recorded request/response fixture required (not recorded read-only: writes or deletes data)"
     },
     {
       "source": "humans-in-control-research",
@@ -4240,9 +4240,9 @@
       "test_files": 0
     },
     "internal-solutions-socialresearch": {
-      "files": 124,
-      "lines": 27316,
-      "test_files": 0
+      "files": 127,
+      "lines": 27539,
+      "test_files": 1
     },
     "internal-solutions-video-analyzer": {
       "files": 30,
@@ -4250,18 +4250,18 @@
       "test_files": 0
     },
     "internal-solutions-miro-generator": {
-      "files": 16,
-      "lines": 7372,
-      "test_files": 0
+      "files": 21,
+      "lines": 8273,
+      "test_files": 3
     },
     "internal-solutions-consistent-character-generator": {
       "files": 25,
-      "lines": 6725,
+      "lines": 6687,
       "test_files": 0
     },
     "internal-solutions-copilot-recipe-generator": {
       "files": 17,
-      "lines": 5383,
+      "lines": 5488,
       "test_files": 0
     },
     "internal-solutions-presentation-renderer": {
@@ -4280,9 +4280,9 @@
       "test_files": 0
     },
     "humans-in-control-research": {
-      "files": 743,
-      "lines": 270509,
-      "test_files": 273
+      "files": 750,
+      "lines": 271026,
+      "test_files": 276
     }
   },
   "invariants": [
@@ -4447,10 +4447,12 @@
     "wiki-curator"
   ],
   "counts": {
-    "source_files": 1156,
-    "source_lines": 386144,
+    "source_files": 1171,
+    "source_lines": 387852,
     "service_routes": 434,
-    "routes_without_tests": 120,
+    "routes_without_tests": 358,
+    "routes_with_recorded_fixture": 67,
+    "routes_still_needing_proof": 291,
     "invariants": 10,
     "services": 24,
     "artifacts": 39,

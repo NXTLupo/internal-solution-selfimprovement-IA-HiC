@@ -1,0 +1,31 @@
+{
+ "service": "launchpad",
+ "route": "/api/metrics",
+ "method": "GET",
+ "path": "/api/metrics",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "api_requests": "number",
+  "api_requests_change": "number",
+  "containers": [],
+  "cpu_change": "number",
+  "cpu_usage": "number",
+  "disk_change": "number",
+  "disk_usage": "number",
+  "memory_change": "number",
+  "memory_usage": "string"
+ },
+ "body": {
+  "api_requests": 1250,
+  "api_requests_change": 15.2,
+  "containers": [],
+  "cpu_change": 2.5,
+  "cpu_usage": 1.9,
+  "disk_change": 0.8,
+  "disk_usage": 6.9,
+  "memory_change": -1.3,
+  "memory_usage": "15.4% (7.21 GB / 46.77 GB)"
+ }
+}

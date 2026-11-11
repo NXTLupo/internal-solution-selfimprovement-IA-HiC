@@ -1,0 +1,16 @@
+{
+ "service": "internal-solutions-miro-generator",
+ "route": "/api/download/<path:output_dir>/<path:filename>",
+ "method": "GET",
+ "path": "/api/download/ia-fixture-nonexistent-0000/none.json",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "via": "compose network (host port refused)",
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-copilot-recipe-generator",
+ "route": "/{full_path:path}",
+ "method": "GET",
+ "path": "/some/client/route",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 6193,
+ "body_sha256": "18887726dc97d68fb22ae615cfeccdd3d2aa0a0a785faa5f4d21f6c9980934d4",
+ "title": "NXT Humans | Copilot Studio Recipe Generator"
+}

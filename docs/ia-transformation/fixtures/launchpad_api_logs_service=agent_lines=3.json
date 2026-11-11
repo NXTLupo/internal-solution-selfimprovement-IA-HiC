@@ -1,0 +1,15 @@
+{
+ "service": "launchpad",
+ "route": "/api/logs",
+ "method": "GET",
+ "path": "/api/logs?service=agent&lines=3",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "logs": [
+   "\"string\""
+  ],
+  "service": "string"
+ }
+}

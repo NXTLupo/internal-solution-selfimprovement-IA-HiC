@@ -1,0 +1,47 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/api/video-status",
+ "method": "GET",
+ "path": "/api/video-status",
+ "status": 200,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "monitoring_instructions": {
+   "browser_console": "string",
+   "current_status_check": "string",
+   "indexeddb": "string",
+   "network": "string"
+  },
+  "polling_architecture": {
+   "description": "string",
+   "max_timeout": "string",
+   "polling_interval": "string",
+   "status_tracking": "string",
+   "storage": "string"
+  },
+  "server_time": "number",
+  "service_status": "string",
+  "timestamp": "string",
+  "video_processing_location": "string"
+ },
+ "body": {
+  "monitoring_instructions": {
+   "browser_console": "Check browser DevTools console for polling logs with 🎬 🔄 ⏳ emojis",
+   "current_status_check": "Look for \"Generating video...\" text in UI or console polling messages",
+   "indexeddb": "DevTools -> Application -> IndexedDB -> ConsistentCharacterDB -> videoClips",
+   "network": "DevTools -> Network tab -> Filter by \"operations\" to see Google AI API calls"
+  },
+  "polling_architecture": {
+   "description": "Video generation uses Google Veo 3 API directly from browser",
+   "max_timeout": "10 minutes (120 attempts)",
+   "polling_interval": "5 seconds",
+   "status_tracking": "Client-side React state + IndexedDB persistence",
+   "storage": "IndexedDB (ConsistentCharacterDB -> videoClips store)"
+  },
+  "server_time": 1794405378.5749364,
+  "service_status": "Backend serving static files only - video processing is frontend-only",
+  "timestamp": "2026-11-11T13:56:18.574856",
+  "video_processing_location": "client-side"
+ }
+}

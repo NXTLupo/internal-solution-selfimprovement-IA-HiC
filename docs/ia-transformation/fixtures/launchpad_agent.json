@@ -1,0 +1,12 @@
+{
+ "service": "launchpad",
+ "route": "/agent",
+ "method": "GET",
+ "path": "/agent",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 24043,
+ "body_sha256": "76579b217b23d86178050f3e7d8a02b858890768c3deb34622d84fcfff31ee15",
+ "title": "NXT Humans | Intelligence Agent"
+}

@@ -1,0 +1,15 @@
+{
+ "service": "internal-solutions-consistent-character-generator",
+ "route": "/vite.svg",
+ "method": "GET",
+ "path": "/vite.svg",
+ "status": 404,
+ "content_type": "application/json",
+ "location": null,
+ "shape": {
+  "error": "string"
+ },
+ "body": {
+  "error": "vite.svg not found"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "service": "launchpad",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 32116,
+ "body_sha256": "ef9d4ab8839f99881c2086bb5e6da60d97c1b07ca675a1d0526b61c8b8d4d0f3",
+ "title": "NXT Humans | AI CX Workbench"
+}

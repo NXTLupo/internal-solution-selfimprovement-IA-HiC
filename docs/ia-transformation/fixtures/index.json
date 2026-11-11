@@ -1,0 +1,502 @@
+{
+ "recorded_with": "record_fixtures.py record",
+ "policy": "GET only; no writes, no paid calls, no outside sites",
+ "fixtures": [
+  {
+   "service": "launchpad",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "launchpad_.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/agent",
+   "path": "/agent",
+   "status": 200,
+   "file": "launchpad_agent.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/status",
+   "path": "/status",
+   "status": 200,
+   "file": "launchpad_status.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/mcp-chat",
+   "path": "/mcp-chat",
+   "status": 200,
+   "file": "launchpad_mcp-chat.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/status",
+   "path": "/api/status",
+   "status": 200,
+   "file": "launchpad_api_status.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/urls",
+   "path": "/api/urls",
+   "status": 200,
+   "file": "launchpad_api_urls.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/metrics",
+   "path": "/api/metrics",
+   "status": 200,
+   "file": "launchpad_api_metrics.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/threads",
+   "path": "/api/threads",
+   "status": 200,
+   "file": "launchpad_api_threads.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/threads/<thread_id>",
+   "path": "/api/threads/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "launchpad_api_threads_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/agency/reviews",
+   "path": "/api/agency/reviews",
+   "status": 200,
+   "file": "launchpad_api_agency_reviews.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/agency/history/<conversation_id>",
+   "path": "/api/agency/history/ia-fixture-nonexistent-0000",
+   "status": 200,
+   "file": "launchpad_api_agency_history_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/digest",
+   "path": "/api/digest",
+   "status": 200,
+   "file": "launchpad_api_digest.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/chat/models",
+   "path": "/api/chat/models",
+   "status": 404,
+   "file": "launchpad_api_chat_models.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/mcp/servers",
+   "path": "/api/mcp/servers",
+   "status": 200,
+   "file": "launchpad_api_mcp_servers.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/mcp/tools",
+   "path": "/api/mcp/tools",
+   "status": 404,
+   "file": "launchpad_api_mcp_tools.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/logs",
+   "path": "/api/logs?service=agent&lines=3",
+   "status": 200,
+   "file": "launchpad_api_logs_service=agent_lines=3.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/redirect/<service>",
+   "path": "/redirect/journey-mapper",
+   "status": 302,
+   "file": "launchpad_redirect_journey-mapper.json"
+  },
+  {
+   "service": "launchpad",
+   "route": "/api/chat/ws/<conversation_id>",
+   "path": "/api/chat/ws/ia-fixture-nonexistent-0000",
+   "status": 302,
+   "file": "launchpad_api_chat_ws_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-journeymapper",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "journeymapper_.json"
+  },
+  {
+   "service": "internal-solutions-journeymapper",
+   "route": "/api/models",
+   "path": "/api/models",
+   "status": 200,
+   "file": "journeymapper_api_models.json"
+  },
+  {
+   "service": "internal-solutions-journeymapper",
+   "route": "/sw.js",
+   "path": "/sw.js",
+   "status": 200,
+   "file": "journeymapper_sw.js.json"
+  },
+  {
+   "service": "internal-solutions-journeymapper",
+   "route": "/dev-sw.js",
+   "path": "/dev-sw.js",
+   "status": 200,
+   "file": "journeymapper_dev-sw.js.json"
+  },
+  {
+   "service": "internal-solutions-journeymapper",
+   "route": "/api/export-pdf/{journey_id}",
+   "path": "/api/export-pdf/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "journeymapper_api_export-pdf_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-reddit-ripper",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "reddit-ripper_.json"
+  },
+  {
+   "service": "internal-solutions-reddit-ripper",
+   "route": "/api/sources",
+   "path": "/api/sources",
+   "status": 200,
+   "file": "reddit-ripper_api_sources.json"
+  },
+  {
+   "service": "internal-solutions-reddit-ripper",
+   "route": "/api/status/<job_id>",
+   "path": "/api/status/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "reddit-ripper_api_status_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-reddit-ripper",
+   "route": "/api/download/<job_id>/<filename>",
+   "path": "/api/download/ia-fixture-nonexistent-0000/none.csv",
+   "status": 404,
+   "file": "reddit-ripper_api_download_ia-fixture-nonexistent-0000_none.csv.json"
+  },
+  {
+   "service": "internal-solutions-reddit-ripper",
+   "route": "/static/<path:filename>",
+   "path": "/static/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "reddit-ripper_static_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "video-analyzer_.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/api",
+   "path": "/api",
+   "status": 200,
+   "file": "video-analyzer_api.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/health",
+   "path": "/health",
+   "status": 200,
+   "file": "video-analyzer_health.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/jobs",
+   "path": "/jobs",
+   "status": 200,
+   "file": "video-analyzer_jobs.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/jobs/{job_id}",
+   "path": "/jobs/1c42a9ea-f6d4-46b7-8b1e-7032e3e1c1b8",
+   "status": 200,
+   "file": "video-analyzer_jobs_1c42a9ea-f6d4-46b7-8b1e-7032e3e1c1b8.json"
+  },
+  {
+   "service": "internal-solutions-video-analyzer",
+   "route": "/transcript/{job_id}",
+   "path": "/transcript/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "video-analyzer_transcript_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "consistent-character-generator_.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/health",
+   "path": "/health",
+   "status": 200,
+   "file": "consistent-character-generator_health.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/api/status",
+   "path": "/api/status",
+   "status": 200,
+   "file": "consistent-character-generator_api_status.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/api/video-status",
+   "path": "/api/video-status",
+   "status": 200,
+   "file": "consistent-character-generator_api_video-status.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/api/video-debug",
+   "path": "/api/video-debug",
+   "status": 200,
+   "file": "consistent-character-generator_api_video-debug.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/vite.svg",
+   "path": "/vite.svg",
+   "status": 404,
+   "file": "consistent-character-generator_vite.svg.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/assets/<path:filename>",
+   "path": "/assets/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "consistent-character-generator_assets_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-consistent-character-generator",
+   "route": "/static/<path:filename>",
+   "path": "/static/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "consistent-character-generator_static_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "copilot-recipe-generator_.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/health",
+   "path": "/health",
+   "status": 200,
+   "file": "copilot-recipe-generator_health.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/api/templates",
+   "path": "/api/templates",
+   "status": 200,
+   "file": "copilot-recipe-generator_api_templates.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/api/templates/{template_id}",
+   "path": "/api/templates/character_generator",
+   "status": 200,
+   "file": "copilot-recipe-generator_api_templates_character_generator.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/api/entities",
+   "path": "/api/entities",
+   "status": 200,
+   "file": "copilot-recipe-generator_api_entities.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/api/entities/{template_id}",
+   "path": "/api/entities/character_generator",
+   "status": 200,
+   "file": "copilot-recipe-generator_api_entities_character_generator.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/api/triggers",
+   "path": "/api/triggers",
+   "status": 200,
+   "file": "copilot-recipe-generator_api_triggers.json"
+  },
+  {
+   "service": "internal-solutions-copilot-recipe-generator",
+   "route": "/{full_path:path}",
+   "path": "/some/client/route",
+   "status": 200,
+   "file": "copilot-recipe-generator_some_client_route.json"
+  },
+  {
+   "service": "internal-solutions-miro-generator",
+   "route": "/",
+   "path": "/",
+   "status": 200,
+   "file": "miro-generator_.json"
+  },
+  {
+   "service": "internal-solutions-miro-generator",
+   "route": "/health",
+   "path": "/health",
+   "status": 200,
+   "file": "miro-generator_health.json"
+  },
+  {
+   "service": "internal-solutions-miro-generator",
+   "route": "/api/config",
+   "path": "/api/config",
+   "status": 200,
+   "file": "miro-generator_api_config.json"
+  },
+  {
+   "service": "internal-solutions-miro-generator",
+   "route": "/api/files",
+   "path": "/api/files",
+   "status": 200,
+   "file": "miro-generator_api_files.json"
+  },
+  {
+   "service": "internal-solutions-miro-generator",
+   "route": "/api/download/<path:output_dir>/<path:filename>",
+   "path": "/api/download/ia-fixture-nonexistent-0000/none.json",
+   "status": 404,
+   "file": "miro-generator_api_download_ia-fixture-nonexistent-0000_none.json.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/health",
+   "path": "/health",
+   "status": 200,
+   "file": "socialresearch_health.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/subreddits",
+   "path": "/api/reddit/subreddits",
+   "status": 200,
+   "file": "socialresearch_api_reddit_subreddits.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/subreddit/<string:subreddit_name>",
+   "path": "/api/reddit/subreddit/NEU",
+   "status": 200,
+   "file": "socialresearch_api_reddit_subreddit_NEU.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/subreddit-stats/<subreddit>",
+   "path": "/api/llm-analyzer/subreddit-stats/NEU",
+   "status": 200,
+   "file": "socialresearch_api_llm-analyzer_subreddit-stats_NEU.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/projects/<user_id>",
+   "path": "/api/user/projects/ia-fixture-nonexistent-0000",
+   "status": 200,
+   "file": "socialresearch_api_user_projects_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/<user_id>",
+   "path": "/api/user/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "socialresearch_api_user_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/project/<project_id>",
+   "path": "/api/user/project/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "socialresearch_api_user_project_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/job-status/<job_id>",
+   "path": "/api/topic-model/job-status/ia-fixture-nonexistent-0000",
+   "status": 404,
+   "file": "socialresearch_api_topic-model_job-status_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/jobs/user/<user_id>",
+   "path": "/api/topic-model/jobs/user/ia-fixture-nonexistent-0000",
+   "status": 200,
+   "file": "socialresearch_api_topic-model_jobs_user_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/jobs/analysis/<analysis_id>",
+   "path": "/api/topic-model/jobs/analysis/ia-fixture-nonexistent-0000",
+   "status": 200,
+   "file": "socialresearch_api_topic-model_jobs_analysis_ia-fixture-nonexistent-0000.json"
+  },
+  {
+   "service": "internal-solutions-socialresearch",
+   "route": "/jobs/project/<project_id>",
+   "path": "/api/topic-model/jobs/project/ia-fixture-nonexistent-0000",
+   "status": 200,
+   "file": "socialresearch_api_topic-model_jobs_project_ia-fixture-nonexistent-0000.json"
+  }
+ ],
+ "not_called": {
+  "writes or deletes data": [
+   "POST",
+   "DELETE",
+   "/api/clear-data",
+   "/api/digest/seen"
+  ],
+  "spends model, image or video credits": [
+   "/api/check-key",
+   "/send_hi",
+   "/api/analyze",
+   "/api/generate-map",
+   "/api/generate",
+   "/api/generate-figma",
+   "/api/generate-recipe",
+   "/api/topic-yaml",
+   "/chat",
+   "/query",
+   "/embed",
+   "/ai-summary"
+  ],
+  "calls an outside site": [
+   "/subreddit/<subreddit>/about",
+   "/subreddit/<subreddit>/icon",
+   "/api/test"
+  ],
+  "opens a socket or forwards to another service (covered by that service)": [
+   "/ws-proxy/<conversation_id>",
+   "/proxy/"
+  ],
+  "needs an id the owner has not chosen to expose": [
+   "/api/chat/image/<image_id>"
+  ]
+ }
+}

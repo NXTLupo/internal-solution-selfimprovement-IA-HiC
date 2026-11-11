@@ -1,0 +1,12 @@
+{
+ "service": "internal-solutions-journeymapper",
+ "route": "/",
+ "method": "GET",
+ "path": "/",
+ "status": 200,
+ "content_type": "text/html",
+ "location": null,
+ "bytes": 19505,
+ "body_sha256": "414d1b228d5f036f8d3f8300f8c5a3f9e0c95f9749b27e1bf8683237f91f7880",
+ "title": "NXT Humans | Journey Mapper"
+}

@@ -1,0 +1,11 @@
+{
+ "service": "internal-solutions-journeymapper",
+ "route": "/sw.js",
+ "method": "GET",
+ "path": "/sw.js",
+ "status": 200,
+ "content_type": "application/javascript",
+ "location": null,
+ "bytes": 506,
+ "body_sha256": "d4dc303526d74a426925162a4b1326c70c0eaf6a7a47777bcf894e5c5526a875"
+}
