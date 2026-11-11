@@ -289,6 +289,13 @@ def task_download(tid: str):
 
 
 # ---- schedules ---------------------------------------------------------------------------------
+@app.get("/api/regression")
+def regression_report():
+    """Plan 7.6: per absorbed application, whether IA Next's real outputs pass that app's regression cases."""
+    from . import regression
+    return regression.run()
+
+
 @app.get("/api/schedules")
 def schedules():
     from . import schedule
