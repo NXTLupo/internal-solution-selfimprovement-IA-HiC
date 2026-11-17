@@ -352,7 +352,7 @@ internal only. Each port can be moved with the variable named in `docker-compose
 **IA Next** is the new personal-agent system: one conversation, a studio of specialists behind it,
 quotes checked against sources, approvals before spending. It is developed on the
 [`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17)
-branch and documented in that branch's README. Its code is also in this branch under `ia-next/`.
+branch and documented in that branch's README. This branch holds an earlier snapshot of its code under `ia-next/`; run IA Next from the IA Next branch.
 
 The two systems are fully separate and can run at the same time:
 
@@ -360,8 +360,9 @@ The two systems are fully separate and can run at the same time:
 |---|---|---|
 | Compose file | `docker-compose-all.yml` | `ia-next/ia-next.compose.yml` |
 | Compose project | `nxt-humans_ai_cx_workbench` | `ia-next` |
-| Network | `nxt-humans-network` | `ia-next-net` |
-| Host ports | the 23 listed above | **9400** only, on 127.0.0.1 |
+| Network | `nxt-humans-network` | `ia-next-net`, and `ia-next-render` (internal, no internet route) |
+| Containers | 24 | 2: `ia-next` (the workspace) and `ia-next-render` (Chromium for the prototype design review, no host port) |
+| Host ports | the 23 listed above | **9400** only, on 127.0.0.1 (the renderer publishes none) |
 | Address | http://localhost:8000 (hub), http://localhost:5011 (HiC) | http://127.0.0.1:9400 |
 | Data | the suite's volumes and `hic-workspace/` | the `ia-next-data` volume |
 | Shared | the API keys in the root `.env` | the same `.env` |
@@ -386,9 +387,10 @@ When the suite is down, IA Next says so and keeps working on its own (local chun
 subtitle, CSV and audio uploads only). Restarting the suite's `research-proxy` makes HiC issue a new token; IA Next
 re-reads it on every call, so no IA Next restart is needed.
 
-**Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every
-published port was listed with `docker ps`: no host port is used twice, and IA Next's 9400 is outside
-the suite's set. To repeat the check (Git Bash, macOS or Linux):
+**Port check, 17 November 2026 (evening).** With all 24 suite containers and both IA Next containers running
+together (27 containers in all, counting an unrelated SearXNG container on 127.0.0.1:8890), every published
+port was listed with `docker ps`: each host port is used by one container, IA Next's 9400 is outside the
+suite's set, and the IA Next renderer publishes no port. The two compose files declare no host port in common. To repeat the check (Git Bash, macOS or Linux):
 
 ```bash
 docker ps --format '{{.Ports}}' | tr ',' '\n' | grep -o '[0-9.]*:[0-9]*->' | sort | uniq -d

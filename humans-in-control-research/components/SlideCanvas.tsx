@@ -438,12 +438,33 @@ export const SlideCanvas: React.FC<Props> = ({
     const statusColor = slide.status === 'approved' ? '#4CAF50' : slide.status === 'rejected' ? '#CC3333' : '#B8B800';
     const allowsImage = slide.template === 'persona-card';
 
+    // 2026-11-17 (owner's blank #slides): a long chat mounted EVERY slide of EVERY deck as a live 1920x1080 iframe at
+    // once. A 415-turn session built 1,223 of them; the page stopped answering for over seven minutes and the newest
+    // deck's frames never got a document, so the deck showed as blank white boxes though its data was complete. A
+    // slide now builds its stage and mounts its iframe only while it is within about two screens of the viewport, and
+    // releases both when scrolled far away, so a long chat holds a dozen live frames instead of a thousand.
+    const [nearView, setNearView] = useState(false);
+    React.useEffect(() => {
+        const el = slideRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') { setNearView(true); return; }
+        // The viewport is the root on purpose. Observing the first scrollable ancestor was tried and measured: in the
+        // chat that ancestor is a wrapper as tall as its content, so every slide counted as near and all 1,223 frames
+        // mounted again. With the viewport, a slide builds once it enters the visible panel (its title shows meanwhile).
+        const io = new IntersectionObserver((entries) => {
+            for (const e of entries) setNearView(e.isIntersecting);
+        }, { rootMargin: '1600px 0px' });
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+
     // 1:1 stage HTML for this slide - the SAME doc the export rasterizes. Memoized
     // so the iframe only re-renders when the slide changes. Falls back to the React
     // template renderer only if stage generation throws (defensive, never silent).
+    // null = not built yet (the slide is far from the viewport); '' = generation failed.
     const stageHtml = React.useMemo(() => {
+        if (!nearView) return null;
         try { return slideDataToStageHtml(slide as any, deckPos); } catch (e) { console.warn('[SlideCanvas] stage HTML failed; falling back to React preview:', e); return ''; }
-    }, [slide, deckPos]);
+    }, [slide, deckPos, nearView]);
 
     // keyframes for the slot progress overlay (injected once per document)
     React.useEffect(() => {
@@ -470,6 +491,12 @@ export const SlideCanvas: React.FC<Props> = ({
                     onLoad={attachClickToEdit}
                     style={{ width: STAGE_W, height: STAGE_H, border: 0, transform: `scale(${SLIDE_W / STAGE_W})`, transformOrigin: 'top left', pointerEvents: textEditable ? 'auto' : 'none', display: 'block' }}
                 />
+            ) : stageHtml === null ? (
+                // far from the viewport: the slide's title stands in until it scrolls near (never a blank box)
+                <div data-slide-id={slide.id} data-slide-deferred="true"
+                    style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center', background: '#F2F1EA', color: '#3A3A3A', fontSize: 15, lineHeight: 1.4 }}>
+                    {String((slide as any).title || (slide as any).composerPayload?.title || slide.template || '')}
+                </div>
             ) : <DeckPositionContext.Provider value={deckPos}>{renderTemplate(slide, !!isGeneratingVisual)}</DeckPositionContext.Provider>}
             {/* Persona image-generation overlay (iframe path: shown at card level) */}
             {isGeneratingVisual && slide.template === 'persona-card' && (
