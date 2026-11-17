@@ -4341,6 +4341,11 @@ function isProcessingPlaceholder(content: string): boolean {
 
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange, initialCachedBriefs, pipelineActive, auditReviseHandler }) => {
     const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
+    // 2026-11-17 (owner's 415-turn session): the panel laid out every turn at once. A CPU profile after the chat opened
+    // showed 22 s of style and layout work, on top of the slide frames that left a deck blank. The panel renders the
+    // latest turns only; older turns stay in the session, untouched, and come back with "Show earlier messages".
+    const CHAT_WINDOW = 60;
+    const [chatWindow, setChatWindow] = useState(CHAT_WINDOW);
     // 2026-05-11 - Mirror messages up to the App so a session-save can
     // serialize the conversation. Effect-based callback (not inline)
     // avoids re-rendering the parent on every setState. Skipped on first
@@ -9173,7 +9178,16 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     );
                 })()}
 
+                {messages.length > chatWindow && (
+                    <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0 12px' }}>
+                        <button type="button" onClick={() => setChatWindow(w => w + CHAT_WINDOW)}
+                            style={{ fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', padding: '6px 12px', border: '1px solid currentColor', background: 'transparent', cursor: 'pointer' }}>
+                            Show {Math.min(CHAT_WINDOW, messages.length - chatWindow)} earlier messages ({messages.length - chatWindow} not shown)
+                        </button>
+                    </div>
+                )}
                 {messages.map((msg, _msgIdx) => {
+                    if (_msgIdx < messages.length - chatWindow) return null;   // older turns: behind "Show earlier messages"
                     // Find deliverables/slides associated with this message
                     const msgDels = deliverables.filter(d => d.model === msg.model && Math.abs(d.timestamp - msg.timestamp) < 5000);
                     const msgSlides = slides.filter(s => s.model === msg.model && Math.abs(s.timestamp - msg.timestamp) < 5000);

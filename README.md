@@ -138,11 +138,14 @@ From the repository root:
 docker compose -f ia-next/ia-next.compose.yml up -d --build
 ```
 
-The first build takes two to five minutes. Later starts take seconds.
+This starts two containers: `ia-next` (the workspace) and `ia-next-render` (Chromium, used only to screenshot
+prototypes for their design review). The first build takes five to ten minutes, most of it downloading Chromium for
+the renderer. Later starts take seconds.
 
 ### 4. Check it is healthy
 
 ```bash
+docker compose -f ia-next/ia-next.compose.yml ps        # both containers should say "healthy"
 curl http://127.0.0.1:9400/health
 ```
 
@@ -454,7 +457,22 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 219 tests, all passing.
+On 17 November 2026: 223 tests, all passing.
+
+### Benchmark a prototype against best-of-breed output
+
+Put reference prototypes (single HTML files captured from v0, Figma Make, Claude artifacts or anything else) into
+`/data/benchmarks/refs` inside the container, then run, with the task id of a finished prototype:
+
+```bash
+docker exec -i -e TASK=task_xxxxxxxxxxxx -e REFS=/data/benchmarks/refs -w /app ia-next python - < ia-next/scripts/benchmark_prototypes.py
+```
+
+Add `-e MAKE_CLAUDE_ARTIFACT=1` to also make one reference the way a Claude artifact is made (one pass from the same
+brief). Every candidate is screenshotted by the renderer and scored by the same reviewer with the same rubric; the
+table lands in `/data/benchmarks/<task>/report.md`. First run, 17 November 2026: IA Next's Northeastern Annual Giving
+prototype scored 31 of 35 with all four screens reached; a one-pass reference from the same brief scored 12 and did
+not finish its file.
 
 ### Back up and restore your data
 
@@ -490,6 +508,11 @@ docker compose -f ia-next/ia-next.compose.yml down -v     # DELETES every engage
 | Reddit listening fails | The Reddit keys are missing or wrong in `.env`. |
 | The page looks out of date after an update | Rebuild (see above), then reload the page. |
 | Running both systems is slow | The full suite needs about 16 GB for Docker. IA Next alone needs very little. |
+| A document, themes or a PDF upload says HiC is not running | Those use HiC's engine: start the suite (`docker compose -f docker-compose-all.yml up -d`). Decks, journey maps, prototypes and text uploads work without it. |
+| A prototype's card says its design review looked at the source only | The renderer is down: `docker compose -f ia-next/ia-next.compose.yml up -d ia-next-render`. The prototype is still built and checked. |
+| A document from HiC waits | HiC's artifact studio costs about 3 USD per document by HiC's own meter, so it asks for your approval first. |
+| Files went into the wrong engagement | On the "Attached to ..." line in the conversation, press **Use a new engagement for these files**. |
+| An engagement you do not need is in the list | Hover it and press **Hide**. "Show hidden engagements" at the bottom brings it back; nothing is deleted. |
 
 ---
 
@@ -505,7 +528,18 @@ Your browser ──► IA Next (one FastAPI app on 127.0.0.1:9400)
                    ├─ The studio (specialists on a background task graph)
                    │    Brief Lead, Research Lead (Google Search grounding), Analyst,
                    │    Writer and Verifier, Journey Cartographer, Deck Studio,
-                   │    Social Analyst, Transcript Analyst, Prototyper, Media Producer
+                   │    Social Analyst, Transcript Analyst, Prototyper, Media Producer,
+                   │    Theme Analyst and Artifact Studio (through HiC)
+                   │    each working from a governed expert skill
+                   │
+                   ├─ Attention: work uses the files you attach or name (source ids)
+                   ├─ Second brain: sources archived in HiC's wiki, read back as
+                   │    manifest chunk pointers (local chunks when HiC is down)
+                   │
+                   ├──► ia-next-render (second container, internal network only):
+                   │    Chromium screenshots each prototype screen for the design review
+                   ├──► HiC's research proxy through the host (optional): documents,
+                   │    data packs, the second brain, themes, the artifact studio
                    │
                    ├─ Controls: approvals for spend, send and delete; a budget per task
                    ├─ Verification: quotes checked verbatim, citations resolved,
@@ -526,17 +560,25 @@ never replaces the first.
 
 ```
 ia-next/
-  ia-next.compose.yml     the one compose file for IA Next (port, network, volume)
+  ia-next.compose.yml     the one compose file for IA Next (port, networks, volume, the renderer)
   Dockerfile              the image: Python, python-pptx, the app and the page
+  render/                 the second container: Chromium for prototype screenshots (no keys, no data, no internet)
   README.md               feature-by-feature status against the transformation plan
   ia_next/
     app.py                the web server: page, API routes, downloads, approvals
-    agent.py              the agent: conversation, tool list, engagement focus
+    agent.py              the agent: conversation, tool list, engagement focus, conversation spend limit
+    attachments.py        files attached in a conversation: verified, stated to the agent, never left unnamed
+    secondbrain.py        sources archived in HiC's wiki and read back as manifest chunks
+    hic.py                the link to HiC's proxy (token read per call, never logged)
+    artifacts.py          HiC's artifact studio (#prd, #roadmap, #recs and more), checked and sandboxed here
+    themes.py             themes from HiC's topic model
+    skills.py             governed expert skills, one per creator
     studio.py             research pipeline: Brief Lead, Research Lead, Analyst, Writer, Verifier
     deck.py, deckstudio.py   the Deck Studio: slides, native PowerPoint, brands, brand switch
     brand_tokens.json     read-only copy of HiC's brand tokens (colours, typefaces, logo vectors)
+    fonts/                the brand typefaces (open licences), embedded in pages
     journey.py            the Journey Cartographer
-    prototype.py          the Prototyper and its sandbox
+    prototype.py          the Prototyper, its sandbox and its screenshot review
     social.py             Reddit listening
     transcripts.py        uploads and transcription
     media.py              images and video
@@ -550,7 +592,7 @@ ia-next/
     providers.py          calls to Anthropic, OpenAI and Google, metered
     store.py              the SQLite task store and the per-engagement file area
   web/                    the page: index.html, app.js, app.css, md.js, plain.js, vendor/ (Mermaid)
-  scripts/                bake-offs and sync_brand_tokens.py
+  scripts/                bake-offs, sync_brand_tokens.py, make_brand_fonts.py, benchmark_prototypes.py
   tests/                  the offline test suite
   regression/, bakeoffs/  recorded reports
 ```
