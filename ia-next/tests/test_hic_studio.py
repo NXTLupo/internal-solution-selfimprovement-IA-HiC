@@ -201,3 +201,27 @@ def test_recall_reads_the_second_brain_with_pointers(monkeypatch):
 def test_recall_still_works_when_hic_is_down():
     got = agent._recall({"query": "anything"})
     assert got["second_brain"] == [] and "memory" in got
+
+
+def test_a_quote_across_a_table_row_keeps_its_longest_cell():
+    """17 Nov themes page: "Production readiness | ITS can name a source owner ..." came from a Word table row."""
+    q = "Production readiness | ITS can name a source owner, join key, access path, and remediation owner for every required feed."
+    assert verify.narrow_table_quote(q) == "ITS can name a source owner, join key, access path, and remediation owner for every required feed"
+    assert verify.narrow_table_quote("Owner | Phase 3") == ""                 # no cell long enough to stand as a quote
+    assert verify.narrow_table_quote("No table here, just a sentence.") == "No table here, just a sentence."
+    found, dropped, _ = transcripts.check_findings(
+        [{"claim": "c", "quote": q, "source_id": "S1", "claim_type": "SUPPORTED_FACT"}],
+        [{"id": "S1", "text": "TABLE: Gate | Proof\n" + q}])
+    assert not dropped and "|" not in found[0]["quote"]
+
+
+def test_approving_a_document_on_its_card_returns_the_task_to_follow(monkeypatch):
+    from ia_next import control
+    eid = _engagement_with_material()
+    started = []
+    monkeypatch.setattr(artifacts.threading, "Thread", lambda *a, **k: SimpleNamespace(start=lambda: started.append(k.get("args"))))
+    args = {"engagement_id": eid, "kind": "prd", "goal": "What must the product do?", "brand": "nu"}
+    pending = artifacts.execute("start_artifact", dict(args))
+    r = TestClient(app_module.app).post(f"/api/approvals/{pending['approval_id']}", json={"approve": True}).json()
+    assert r["approval"]["status"] == "approved" and r["started"]["task_id"].startswith("task_")
+    assert store.get_task(r["started"]["task_id"])["kind"] == "artifact" and started

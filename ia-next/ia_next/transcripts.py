@@ -291,10 +291,12 @@ def check_findings(findings, sources):
     kept, dropped, cleared = [], [], 0
     for f in findings or []:
         sid = f.get("source_id")
-        q = verify._norm(f.get("quote"))
+        raw = verify.narrow_table_quote(f.get("quote"))       # a quote across a table row keeps its longest cell
+        q = verify._norm(raw)
         if sid not in norm or len(q) < MIN_QUOTE_CHARS or q not in norm[sid]:
             dropped.append(f)
             continue
+        f = dict(f, quote=raw)
         speaker = str(f.get("speaker") or "").strip()
         if speaker and verify._norm(speaker) not in norm[sid]:
             speaker, cleared = "", cleared + 1

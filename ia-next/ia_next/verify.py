@@ -31,6 +31,17 @@ def _norm(s):
     return re.sub(r"\s+", " ", (s or "").lower()).strip()
 
 
+def narrow_table_quote(quote, min_chars=20):
+    """A quote copied across a table row ("Production readiness | ITS can name a source owner ...") reads as broken
+    text: uploaded tables arrive as cells joined by "|". The quote narrows to its longest cell, which is still verbatim
+    (it is part of the verbatim quote); "" when no cell is long enough to stand as a quote. 17 Nov themes page."""
+    q = str(quote or "").strip()
+    if "|" not in q:
+        return q
+    best = max((c.strip(" .,;:") for c in q.split("|")), key=len, default="")
+    return best if len(best) >= min_chars else ""
+
+
 def deterministic(text, sources):
     """Rung 1. sources: list of {id: 'S1', text, title}. Returns list of findings (empty = pass)."""
     findings = []

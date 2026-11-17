@@ -293,6 +293,10 @@ def decide(aid: str, d: Decision):
         elif row["tool"] == "create_schedule":
             from . import schedule
             started = schedule.create(args["tool"], args["args"], args["every_minutes"])
+        elif row["tool"] in agent.MODULE_FOR_TOOL and row["tool"].startswith("start_"):
+            # a start_ tool only queues its task and returns at once, so the card gets the task id and shows the work
+            # running (17 Nov: an approved HiC document started with no card to follow)
+            started = agent.execute_tool(row["tool"], args)
         elif row["tool"] in agent.MODULE_FOR_TOOL:
             threading.Thread(target=agent.execute_tool, args=(row["tool"], args), daemon=True).start()
             started = {"running": row["tool"]}

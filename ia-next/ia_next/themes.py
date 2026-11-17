@@ -13,7 +13,7 @@ import re
 import threading
 import time
 
-from . import config, deck, hic, providers, secondbrain, store
+from . import config, deck, hic, providers, secondbrain, store, verify
 
 BUDGET_USD = 1.0
 POLL_SECONDS = 4
@@ -95,6 +95,7 @@ def build(eid, brief, ledger, tid=None):
         if not n:
             continue
         posts = [by_id[p] for p in t["post_ids"] if p in by_id]
+        n["quote"] = verify.narrow_table_quote(n.get("quote"))     # a quote across a table row keeps its longest cell
         hit = next((p for p in posts if _norm(n.get("quote")) and _norm(n["quote"]) in _norm(p["text"])), None)
         if not hit:
             unquoted += 1

@@ -2,11 +2,12 @@
 #
 # A COMPLETELY SEPARATE system from the existing Intelligence Augmentation suite (docker-compose-all.yml):
 #   - its own compose project name (ia-next), so `docker compose` never touches the suite's containers;
-#   - its own network (ia-next-net), never nxt-humans-network;
+#   - its own networks (ia-next-net, and ia-next-render: internal, no internet route), never nxt-humans-network;
 #   - its own data volume (ia-next-data);
 #   - its own port range, 9400 and up, bound to 127.0.0.1 only; the suite uses 3000, 5001-5015, 5050,
 #     6080, 8000, 8080, 8081, 8201 and 8500-8508.
-# It reads only the provider keys from the workbench's root .env. It calls no suite service.
+# It reads only the provider keys from the workbench's root .env. It calls one suite service, optionally: HiC's
+# research proxy through the host (uploads, data packs, the second brain, themes, the artifact studio).
 #
 #   docker compose -f ia-next/ia-next.compose.yml up -d --build      # start
 #   docker compose -f ia-next/ia-next.compose.yml down               # stop (data volume kept)

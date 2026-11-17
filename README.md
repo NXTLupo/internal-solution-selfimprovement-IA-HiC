@@ -8,13 +8,17 @@ writing, decks, journey maps, prototypes, social listening, images and video), c
 source, asks for your approval before anything costly, and brings the finished work back into the same
 conversation.
 
-It runs as **one container on one port (9400)**, completely separate from the original Intelligence
-Augmentation suite, so you can run both on the same computer at the same time.
+It runs as **two containers on one port (9400)**: the workspace, and a renderer with no port of its own that
+screenshots prototypes for their design review. It is separate from the original Intelligence Augmentation suite
+(its own compose project, networks and data), so you can run both on the same computer at the same time. When the
+suite is running, IA Next can also use HiC's engine through the host (documents, data packs, the second brain,
+themes and HiC's artifact studio); without it, IA Next still works on its own.
 
 > **You are on the `ia-next-2026-11-17` branch.** This branch is for IA Next. The original suite (Launchpad, HiC,
 > Social Research, Journey Mapper and the rest) has its own branch and guide:
 > [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17).
-> The suite's code is also present in this branch, unchanged, so nothing here stops you running it.
+> The suite's code is also present in this branch, with the same HiC fixes as the suite branch (17 November: HiC's
+> wiki writes, slide previews and long chats), so nothing here stops you running it.
 
 ---
 
