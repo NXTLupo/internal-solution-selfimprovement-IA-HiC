@@ -7,6 +7,12 @@ watch-it-happen browser (computer use / cobrowse). The flagship surface is **Hum
 (strategy decks, personas, journey maps, service blueprints, PRDs, competitive analyses) using
 multi-model AI (Gemini, Claude, OpenAI).
 
+> **You are on the `ia-suite-2026-11-17` branch**, the branch for the original suite. The new
+> personal-agent system, **IA Next**, has its own branch and guide:
+> [`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17).
+> Both systems can run on the same computer at the same time; see
+> [Running IA Next beside the suite](#running-ia-next-beside-the-suite).
+
 > **The entire suite — including NXT-Agency (the cowork agent) and the HiC wiki — runs from ONE
 > command on a fresh machine.** This guide is written so a first-time user on **macOS** or
 > **Windows** can go from nothing to a fully working suite by copy-pasting. No prior knowledge of
@@ -21,10 +27,12 @@ multi-model AI (Gemini, Claude, OpenAI).
 3. [Full fresh-install walkthrough](#full-fresh-install-walkthrough)
 4. [The cowork agent (NXT Intelligence Agent)](#the-cowork-agent-nxt-intelligence-agent)
 5. [Service + port map](#service--port-map)
-6. [Everyday operations](#everyday-operations)
-7. [Troubleshooting](#troubleshooting) (read this if anything looks broken)
-8. [Optional extras](#optional-extras)
-9. [Repository layout](#repository-layout)
+6. [Running IA Next beside the suite](#running-ia-next-beside-the-suite)
+7. [Everyday operations](#everyday-operations)
+8. [Troubleshooting](#troubleshooting) (read this if anything looks broken)
+9. [Optional extras](#optional-extras)
+10. [Repository layout](#repository-layout)
+11. [Branches](#branches)
 
 ---
 
@@ -44,11 +52,13 @@ After setup, you can open any of these in your browser:
 | Character / Persona Generator | http://localhost:5010 | Gemini image/video character generation. |
 | Copilot Recipe Generator | http://localhost:5013 | Builds Copilot Studio agent recipes. |
 | Presentation Renderer | http://localhost:5014 | Scroll-driven presentation rendering. |
+| Video Renderer (API) | http://localhost:5015/health | Renders HiC promo and explainer videos (HyperFrames); called by HiC, no page of its own. |
 | **Cowork agent backend** | http://localhost:8201 | Drives all the above tools for you (Playwright). |
 | **Live browser viewport (noVNC)** | http://localhost:6080 | Watch the cowork agent operate apps in real time. |
 
-Under the hood there are **22 containers** (the apps above, an AI agent orchestrator, MCP tool
-wrappers, two PostgreSQL databases, and the NXT-Agency cowork backend). You don't need to manage
+Under the hood there are **24 containers** (the apps above, an AI agent orchestrator, six MCP tool
+wrappers, the HiC research proxy, the video renderer, two PostgreSQL databases, and the NXT-Agency
+cowork backend and catalog). You don't need to manage
 them individually — Docker Compose handles all of it.
 
 ---
@@ -93,10 +103,10 @@ Follow every step in order. Each one is copy-paste; nothing is assumed.
 ```bash
 git clone https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC.git
 cd internal-solution-selfimprovement-IA-HiC
-git checkout self-improvement-ia-2026-05-29
+git checkout ia-suite-2026-11-17
 ```
 
-This branch is the supported one. A fresh clone already contains **everything**: all app source,
+This branch is the supported one for the suite (cut on 17 November 2026). A fresh clone already contains **everything**: all app source,
 the **vendored NXT-Agency** cowork backend (`NXT-Agency/`), the **HiC wiki knowledge base**
 (`humans-in-control-research/hic-workspace/wiki/`, ~11,600 markdown files), every manifest, and
 all landing-page graphics. Nothing lives outside this repo.
@@ -161,7 +171,7 @@ From the repo root:
 docker compose -f docker-compose-all.yml up -d --build
 ```
 
-That single command builds and starts **all 22 services**, including the NXT-Agency cowork
+That single command builds and starts **all 24 services**, including the NXT-Agency cowork
 backend.
 
 > ⏱️ **First run takes 15-30 minutes.** It downloads/builds large images — the **Playwright**
@@ -189,7 +199,7 @@ docker compose -f docker-compose-all.yml ps
 When things look up, confirm the key endpoints respond (run in Git Bash / Terminal):
 
 ```bash
-for url in 8000 5011 5012 3000 8081 8500 8080 5001 5002 5004 5010 5013 5014 8201 6080; do
+for url in 8000 5011 5012 3000 8081 8500 8080 5001 5002 5004 5010 5013 5014 5015 8201 6080; do
   printf "  :%-5s -> %s\n" "$url" "$(curl -s -o /dev/null -w '%{http_code}' --max-time 8 http://localhost:$url/)"
 done
 ```
@@ -271,7 +281,8 @@ in the clone and are served automatically. No setup needed.
   type a prompt in the **Analyst Desk** chat, and add an artifact **hashtag** to generate a
   deliverable, e.g. `#slides #NXT a 6-slide retail strategy deck`. Export as PPTX/PDF.
   Artifact hashtags: `#slides #journey #blueprint #personas #themes #recommendations #prd
-  #competitive #case-study #roadmap #org #proto #presentation`. Brand tags: `#NXT` or `#NU`.
+  #competitive #case-study #roadmap #org #proto #presentation`. Brand tags: `#NXT`, `#NU`
+  (Northeastern) or `#deciem`.
 
 ---
 
@@ -303,7 +314,12 @@ will open Journey Mapper, fill the form, upload your file, and submit it — and
 |---|---|---|---|
 | Launchpad Hub (entry + cowork chat) | 8000 | `launchpad` | Flask + WebSocket proxy |
 | AI Agent orchestrator (MCP) | 8500 | `agent` | FastAPI + AsyncAnthropic |
-| MCP wrappers (reddit/social/journey/video/research) | 8501-8507 | `*-mcp` | JSON-RPC 2.0 |
+| Reddit MCP | 8501 | `reddit-mcp` | JSON-RPC 2.0 |
+| Social MCP | 8502 | `social-mcp` | JSON-RPC 2.0 |
+| Journey MCP | 8503 | `journey-mcp` | JSON-RPC 2.0 |
+| Video MCP | 8504 | `video-mcp` | JSON-RPC 2.0 |
+| Research MCP (HiC) | 8507 | `research-mcp` | JSON-RPC 2.0 |
+| Video Render MCP | 8508 | `video-render-mcp` | JSON-RPC 2.0 |
 | Social Research Frontend | 3000 | `social-research-frontend` | React 19, Vite |
 | Social Research Backend | 8081 | `social-research-backend` | FastAPI, BERTopic, pgvector |
 | Social Research DB | (internal) | `social-research-db` | PostgreSQL 15 + pgvector |
@@ -312,9 +328,10 @@ will open Journey Mapper, fill the form, upload your file, and submit it — and
 | Miro Board Generator | 5004 | `miro-generator` | TypeScript CLI |
 | Character / Persona Generator | 5010 | `consistent-character-generator` | Gemini |
 | **HiC Research (SPA)** | **5011** | `hic-research` | React 18, Vite 6, Tailwind |
-| **HiC Research Proxy** | **5012** | `research-proxy` | FastAPI (~16k lines) |
+| **HiC Research Proxy** | **5012** (127.0.0.1 only) | `research-proxy` | FastAPI |
 | Copilot Recipe Generator | 5013 | `copilot-recipe-generator` | FastAPI + Vite |
 | Presentation Renderer | 5014 | `presentation-renderer` | React 19 |
+| Video Renderer | 5015 | `video-renderer` | Node, HyperFrames, headless Chromium |
 | Journey Mapper | 8080 | `journey-mapper` | FastAPI, Claude Opus |
 | **NXT-Agency cowork backend** | **8201** | `nxt-agency-backend` | FastAPI + Playwright + noVNC |
 | NXT-Agency live viewport (noVNC) | 6080 | `nxt-agency-backend` | noVNC / x11vnc |
@@ -322,6 +339,48 @@ will open Journey Mapper, fill the form, upload your file, and submit it — and
 | NXT-Agency catalog UI (optional) | 5050 | `nxt-agency-launchpad` | Nginx (needs one-time build, see Optional) |
 
 > **Port 3000 is Social Research, not HiC.** In Docker, HiC is **5011** (SPA) + **5012** (proxy).
+
+**Every host port the suite publishes:** 3000, 5001, 5002, 5004, 5010, 5011, 5012, 5013, 5014, 5015,
+5050, 6080, 8000, 8080, 8081, 8201, 8500, 8501, 8502, 8503, 8504, 8507, 8508. The two databases are
+internal only. Each port can be moved with the variable named in `docker-compose-all.yml` (for example
+`LAUNCHPAD_PORT=8010`).
+
+---
+
+## Running IA Next beside the suite
+
+**IA Next** is the new personal-agent system: one conversation, a studio of specialists behind it,
+quotes checked against sources, approvals before spending. It is developed on the
+[`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17)
+branch and documented in that branch's README. Its code is also in this branch under `ia-next/`.
+
+The two systems are fully separate and can run at the same time:
+
+| | This suite | IA Next |
+|---|---|---|
+| Compose file | `docker-compose-all.yml` | `ia-next/ia-next.compose.yml` |
+| Compose project | `nxt-humans_ai_cx_workbench` | `ia-next` |
+| Network | `nxt-humans-network` | `ia-next-net` |
+| Host ports | the 23 listed above | **9400** only, on 127.0.0.1 |
+| Address | http://localhost:8000 (hub), http://localhost:5011 (HiC) | http://127.0.0.1:9400 |
+| Data | the suite's volumes and `hic-workspace/` | the `ia-next-data` volume |
+| Shared | the API keys in the root `.env` | the same `.env` |
+| Calls into the other system | none | none (it keeps a read-only copy of HiC's brand tokens) |
+
+```bash
+docker compose -f docker-compose-all.yml up -d --build          # the suite
+docker compose -f ia-next/ia-next.compose.yml up -d --build     # IA Next, then open http://127.0.0.1:9400
+```
+
+**Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every
+published port was listed with `docker ps`: no host port is used twice, and IA Next's 9400 is outside
+the suite's set. To repeat the check (Git Bash, macOS or Linux):
+
+```bash
+docker ps --format '{{.Ports}}' | tr ',' '\n' | grep -o '[0-9.]*:[0-9]*->' | sort | uniq -d
+```
+
+No output means no clash.
 
 ---
 
@@ -455,6 +514,8 @@ internal-solution-selfimprovement-IA-HiC/
   CLAUDE.md                      # platform architecture + conventions
 ```
 
+IA Next lives beside the suite in `ia-next/` (see [Running IA Next beside the suite](#running-ia-next-beside-the-suite)).
+
 Deeper docs: [CLAUDE.md](CLAUDE.md) (platform topology + port map),
 [humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md) (HiC architecture),
 [humans-in-control-research/hic-workspace/AGENTS.md](humans-in-control-research/hic-workspace/AGENTS.md)
@@ -462,9 +523,21 @@ Deeper docs: [CLAUDE.md](CLAUDE.md) (platform topology + port map),
 
 ---
 
+## Branches
+
+| Branch | For | Guide |
+|---|---|---|
+| **`ia-suite-2026-11-17`** (this one) | The original Intelligence Augmentation suite | This README |
+| `ia-next-2026-11-17` | IA Next, the personal agent and its studio | That branch's README |
+| `ia-next-agent-system-2026-11-11` | The working branch both were cut from | |
+
+Never merge to `main`; it is owner-controlled and runs months behind the feature branches.
+
+---
+
 ## License
 
 Proprietary software. All rights reserved.
 
-*Branch: `self-improvement-ia-2026-05-29` · NXT Humans Intelligence Augmentation Suite*
+*Branch: `ia-suite-2026-11-17` · NXT Humans Intelligence Augmentation Suite*
 </content>

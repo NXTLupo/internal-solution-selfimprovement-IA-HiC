@@ -19672,5 +19672,16 @@
     "url": "/hic-workspace/wiki/design-system/illustrations/diag-138cae449676caf9.png",
     "model": "native-html-chromium",
     "diagram": true
+  },
+  {
+    "id": "diag-3e24c496ddf32322",
+    "idea": "",
+    "kind": "flowchart",
+    "brand": "nu",
+    "canvas": "light",
+    "file": "diag-3e24c496ddf32322.png",
+    "url": "/hic-workspace/wiki/design-system/illustrations/diag-3e24c496ddf32322.png",
+    "model": "native-html-chromium",
+    "diagram": true
   }
 ]
