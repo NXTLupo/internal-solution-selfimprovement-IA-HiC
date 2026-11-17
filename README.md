@@ -447,6 +447,13 @@ The HiC proxy (`research-proxy`) hot-reloads `proxy/app.py`, but rebuild it afte
 - **First `up --build` seems stuck** → normal; it's building the Playwright (~2 GB) and PyTorch
   images. Watch with `docker compose -f docker-compose-all.yml logs -f nxt-agency-backend` or
   `... social-research-backend`.
+- **HiC slide previews show a title instead of the slide, or a long chat starts at a recent turn** → by design
+  since 17 November 2026. A slide's preview is drawn when it scrolls near the screen, and a chat shows its latest 60
+  turns with **Show earlier messages** above them. (A 415-turn chat used to draw 1,223 full-size slide previews at
+  once; the page stopped responding and the newest deck's slides came out blank.) Nothing is removed: exports and
+  the session keep every slide and turn. After updating HiC, hard-refresh (Ctrl+Shift+R).
+- **Rebuilding only HiC's page** → `docker compose -f docker-compose-all.yml up -d --build --no-deps research-generator`.
+  Without `--no-deps`, compose also restarts `research-proxy`, which cuts off any HiC generation in progress.
 - **An endpoint returns `000` right after startup** → that service is still booting (the
   NXT-Agency backend boots a virtual display + browser first; the Social Research backend has a
   ~240s start period). Wait a minute, re-check `... ps`.
