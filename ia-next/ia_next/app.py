@@ -135,14 +135,30 @@ def events(after: int = 0, engagement_id: str = None):
 
 
 @app.get("/api/engagements")
-def engagements(include_library: int = 0):
+def engagements(include_library: int = 0, include_hidden: int = 0):
     """Client engagements. The imported research library is a background store, not an engagement, so it is
-    left out unless asked for; the agent and evidence search still use it."""
+    left out unless asked for; the agent and evidence search still use it. Hidden engagements (made by automated
+    checks, or hidden by the person) are left out unless asked for (C6); `hidden_count` says how many."""
     from .library import LIBRARY_TITLE
-    rows = store.list_engagements()
+    rows = store.list_engagements(include_hidden=True)
     if not include_library:
         rows = [e for e in rows if e["title"] != LIBRARY_TITLE]
-    return {"engagements": rows}
+    hidden = sum(1 for e in rows if e.get("hidden"))
+    if not include_hidden:
+        rows = [e for e in rows if not e.get("hidden")]
+    return {"engagements": rows, "hidden_count": hidden}
+
+
+class Hidden(BaseModel):
+    hidden: bool
+
+
+@app.post("/api/engagements/{eid}/hidden")
+def hide_engagement(eid: str, h: Hidden):
+    """Hide an engagement from the list, or show it again (C6). Nothing is deleted."""
+    if not store.set_hidden(eid, h.hidden):
+        raise HTTPException(404, "no such engagement")
+    return {"id": eid, "hidden": h.hidden}
 
 
 @app.get("/api/tasks")
@@ -172,6 +188,13 @@ def task_view(tid: str, embed: int = 0):
     """A finished HTML exhibit (a journey map), served as a page. embed=1 drops the prototype page's top line,
     for the workspace, which frames the prototype inside its own card."""
     t = store.get_task(tid)
+    if t and t["status"] == "done" and t["kind"] == "artifact":
+        # HiC's artifact is model-written HTML from untrusted sources: the same sandbox and CSP as a prototype
+        from html import escape
+        return HTMLResponse(f"""<!doctype html><html><head><meta charset="utf-8"><title>Artifact</title>
+<style>body{{margin:0;background:#fff}} iframe{{border:0;display:block;width:100%;height:100vh;background:#fff}}</style></head>
+<body><iframe sandbox="allow-scripts" referrerpolicy="no-referrer" src="/api/tasks/{escape(tid)}/artifact"></iframe></body></html>""",
+                            headers={"Cache-Control": "no-store"})
     if t and t["status"] == "done" and t["kind"] == "prototype":
         # A prototype is model-written code: it is served with a strict CSP and only inside a sandboxed
         # iframe without allow-same-origin, so it can run its own script and reach nothing else.
@@ -353,16 +376,76 @@ def task_prototype(tid: str):
     return HTMLResponse(doc, headers=dict(prototype.PROTOTYPE_HEADERS))
 
 
+def _artifact_doc(tid):
+    from . import artifacts
+    t = store.get_task(tid)
+    if not t or t["status"] != "done" or t["kind"] != "artifact":
+        raise HTTPException(404, "no finished artifact for this task")
+    with open(artifacts.html_path_for_task(tid), encoding="utf-8") as fh:
+        return t, fh.read()
+
+
+@app.get("/api/tasks/{tid}/artifact")
+def task_artifact(tid: str):
+    """HiC's artifact itself, only ever loaded by the sandboxed iframe in /view, with the brand faces embedded."""
+    from . import artifacts, deck
+    t, doc = _artifact_doc(tid)
+    faces = deck.brand_kit(t["brief"].get("brand") or "nxt")["fonts_css"]
+    m = re.search(r"(?i)<head[^>]*>", doc)
+    style = f"<style>{faces}</style>"
+    doc = doc[:m.end()] + style + doc[m.end():] if m else style + doc
+    return HTMLResponse(doc, headers=dict(artifacts.ARTIFACT_HEADERS))
+
+
+@app.get("/api/tasks/{tid}/artifact/download")
+def task_artifact_download(tid: str):
+    from . import artifacts
+    t, doc = _artifact_doc(tid)
+    name = re.sub(r"[^A-Za-z0-9 _-]+", "", f"{artifacts.label(t['brief'].get('kind', ''))} {t['id']}").strip().replace(" ", "_")
+    return HTMLResponse(doc, headers={"Content-Disposition": f'attachment; filename="{name or "artifact"}.html"',
+                                      **artifacts.ARTIFACT_HEADERS})
+
+
 class NewEngagement(BaseModel):
     title: str
     objective: str
+    test: bool = False          # made by an automated check: kept, but hidden from the person's list (C6)
 
 
 @app.post("/api/engagements")
 def create_engagement(e: NewEngagement):
     if not e.title.strip() or not e.objective.strip():
         raise HTTPException(400, "title and objective are required")
-    return {"id": store.create_engagement(e.title.strip(), e.objective.strip())}
+    return {"id": store.create_engagement(e.title.strip(), e.objective.strip(), hidden=e.test)}
+
+
+class NewHome(BaseModel):
+    source_ids: list[str]
+    title: str = ""
+
+
+@app.post("/api/engagements/{eid}/uploads/new-engagement")
+def uploads_to_new_engagement(eid: str, n: NewHome):
+    """C4: files dropped into an engagement that is about something else get an engagement of their own. The files are
+    copied (the first engagement keeps them, so nothing built from them breaks) and the new engagement is returned with
+    the new source ids, so the conversation's attachment list can point at them."""
+    from . import secondbrain, transcripts
+    if not store.get_engagement(eid):
+        raise HTTPException(404, "no such engagement")
+    ups = {u["id"]: u for u in transcripts.uploaded_sources(eid)}
+    picked = [ups[s] for s in dict.fromkeys(str(x).strip().upper() for x in n.source_ids) if s in ups]
+    if not picked:
+        raise HTTPException(400, "none of those files are uploads of this engagement")
+    title = (n.title or "").strip() or re.sub(r"[_-]+", " ", re.sub(r"\.[A-Za-z0-9]+$", "", picked[0]["title"])).strip()[:80]
+    names = ", ".join(u["title"] for u in picked)
+    new = store.create_engagement(title or "Uploaded files", f"Find what matters in the uploaded files: {names}"[:500])
+    mapping = {}
+    for u in picked:
+        sid = transcripts.add_text_source(new, u["title"], u["text"], u.get("kind") or "document", origin=u.get("origin") or "upload")
+        mapping[u["id"]] = sid
+        secondbrain.archive_upload_later(new, sid)
+    store.event("uploads_rehomed", {"from": eid, "files": len(mapping)}, new)
+    return {"engagement_id": new, "title": title, "source_ids": mapping}
 
 
 AUDIO = (".mp3", ".m4a", ".wav", ".webm", ".mp4", ".mpeg", ".mpga", ".ogg")
@@ -520,7 +603,7 @@ def spend():
     cache = c.execute("SELECT COALESCE(SUM(input_tokens),0) fresh, COALESCE(SUM(cache_read_tokens),0) cached, "
                       "COALESCE(SUM(cache_write_tokens),0) written FROM spend WHERE ts >= ?", (day0,)).fetchone()
     total_in = cache["fresh"] + cache["cached"] + cache["written"]
-    agent = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ? AND label = 'agent'", (day0,)).fetchone()
+    agent = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ? AND label LIKE 'agent%'", (day0,)).fetchone()
     return {"today_usd": round(today["s"], 4), "today_calls": today["n"], "week_usd": round(week["s"], 4), "week_calls": week["n"],
             "by_model_7d": by_model,
             "today_cache": {"input_tokens": total_in, "read_from_cache": cache["cached"], "written_to_cache": cache["written"],
@@ -587,17 +670,32 @@ class Proposal(BaseModel):
     reason: str
 
 
+@app.get("/api/skills")
+def skills_list():
+    """Every creator's governed skill (plan P7): the active version, and how many candidates wait."""
+    from . import skills
+    skills.seed_all()
+    out = []
+    for name in sorted(skills.REGISTRY):
+        vs = skills.versions(name)
+        active = next((v for v in reversed(vs) if v["status"] == "active"), None)
+        out.append({"skill": name, "active_version": active["version"] if active else None,
+                    "candidates": sum(1 for v in vs if v["status"] == "candidate"), "versions": len(vs),
+                    "held_out_cases": len(skills.prompt_cases(name)) if name != "writer" else len(skills.held_out_cases())})
+    return {"skills": out}
+
+
 @app.get("/api/skills/{skill}")
 def skill_versions(skill: str):
-    from . import skills, studio
-    skills.seed("writer", studio.WRITER_SYSTEM)
+    from . import skills
+    skills.seed_all()
     return {"versions": skills.versions(skill)}
 
 
 @app.post("/api/skills/proposals")
 def skill_propose(p: Proposal):
-    from . import skills, studio
-    skills.seed("writer", studio.WRITER_SYSTEM)
+    from . import skills
+    skills.seed_all()
     return skills.propose(p.skill, p.text, p.reason)
 
 

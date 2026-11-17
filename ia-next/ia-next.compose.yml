@@ -35,8 +35,29 @@ services:
       - "host.docker.internal:host-gateway"
     networks:
       - ia-next-net
+      - ia-next-render
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9400/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+    restart: unless-stopped
+
+  # Plan P5: Chromium for the prototype design review. Untrusted, model-written pages run here: no env file (no API
+  # keys), no volume, no published port, and only the internal network below, which has no route to the internet.
+  ia-next-render:
+    build: ./render
+    image: ia-next-render:0.1
+    container_name: ia-next-render
+    networks:
+      - ia-next-render
+    shm_size: "512m"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /home/render
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9500/health', timeout=4)"]
       interval: 30s
       timeout: 6s
       retries: 3
@@ -45,6 +66,9 @@ services:
 networks:
   ia-next-net:
     name: ia-next-net
+  ia-next-render:
+    name: ia-next-render
+    internal: true
 
 volumes:
   ia-next-data:

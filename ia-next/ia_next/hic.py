@@ -48,8 +48,9 @@ def _headers():
 
 
 def _call(method, path, timeout, **kw):
+    headers = dict(_headers(), **(kw.pop("headers", None) or {}))
     try:
-        r = httpx.request(method, HIC_URL + path, headers=_headers(), timeout=timeout, **kw)
+        r = httpx.request(method, HIC_URL + path, headers=headers, timeout=timeout, **kw)
     except httpx.HTTPError:
         raise HicUnavailable("HiC is not running, so this needs the suite: start it with "
                              "docker compose -f docker-compose-all.yml up -d")

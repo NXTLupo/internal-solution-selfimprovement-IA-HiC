@@ -12,6 +12,7 @@ whose Content-Security-Policy also sandboxes the page, and embed it as
 defense in depth; the CSP is the boundary. The task's result_path is results/prototype.json, never the
 HTML, so the generic /api/tasks/{tid}/view route (which sends no CSP) cannot serve the prototype.
 """
+import base64
 import hashlib
 import html
 import io
@@ -22,6 +23,8 @@ import threading
 import time
 import traceback
 from html.parser import HTMLParser
+
+import httpx
 
 from . import config, providers, store, verify
 
@@ -478,9 +481,11 @@ def direct(brief, findings, kit, ledger, model):
            + ("Screens or features it must include, in order:\n" + "\n".join(f"- {m}" for m in must) + "\n" if must else "")
            + (f"Brand: {kit['name']} (accent #{kit['accent']}).\n" if kit else "")
            + f"\nPattern catalog (choose pattern ids from here only):\n{_catalog_text()}\n\n{_findings_block(findings)}")
+    from . import skills                     # the governed Creative Director skill (plan P7)
+    skills.record_prompt(brief.get("_eid"), getattr(ledger, "task_id", ""), "creative_director", model, msg, 8000, "medium")
     try:
-        text, _, _ = providers.claude(model, DIRECTOR_SYSTEM, [{"role": "user", "content": msg}], ledger, max_tokens=8000,
-                                      effort="medium", json_schema=DIRECTION_SCHEMA)
+        text, _, _ = providers.claude(model, skills.active_text("creative_director", DIRECTOR_SYSTEM), [{"role": "user", "content": msg}],
+                                      ledger, max_tokens=8000, effort="medium", json_schema=DIRECTION_SCHEMA)
         d = providers.parse_json(text)
     except (providers.ProviderError, ValueError):
         return None
@@ -492,13 +497,34 @@ def direct(brief, findings, kit, ledger, model):
     return d
 
 
-def critique(doc, direction, kit, ledger, author_model):
-    """A principal designer from another vendor reviews the source (Part 8, P5). Returns {"model", "scores",
-    "must_fix"}, or None when no reviewer key is set or the review fails: the prototype is never lost to a review."""
+def screenshots(doc, direction, faces=""):
+    """Each screen of the prototype as drawn: the first view, then each screen of the direction reached by clicking its
+    navigation control (plan P5). Rendered by the ia-next-render container (no keys, no data, no internet), never in
+    this process. Returns ([(screen name, png bytes)], [unreachable screen names]), or None when the renderer is down."""
+    names = [str(s.get("name") or "").strip() for s in (direction or {}).get("screens") or [] if isinstance(s, dict)]
+    try:
+        if faces:                            # the brand faces, as served (they are never in the model's file)
+            m = re.search(r"(?i)<head[^>]*>", doc)
+            doc = doc[:m.end()] + f"<style>{faces}</style>" + doc[m.end():] if m else f"<style>{faces}</style>" + doc
+        r = httpx.post(config.RENDER_URL.rstrip("/") + "/shots", json={"html": doc, "screens": [n for n in names if n]},
+                       timeout=120)
+        if r.status_code != 200:
+            return None
+        d = r.json()
+        return ([(s["screen"], base64.b64decode(s["png"])) for s in d.get("shots") or []], list(d.get("unreachable") or []))
+    except Exception:                        # screenshots are best effort: a review from the source alone still runs
+        return None
+
+
+def critique(doc, direction, kit, ledger, author_model, shots=None):
+    """A principal designer from another vendor reviews the source and, when screenshots exist, the screens as drawn
+    (Part 8, P5). Returns {"model", "scores", "must_fix", "looked_at"}, or None when no reviewer key is set or the
+    review fails: the prototype is never lost to a review."""
     model = verify.judge_model_for(author_model)
     vendor = config.vendor_of(model)
     if (vendor == "google" and not config.GEMINI_API_KEY) or (vendor == "openai" and not config.OPENAI_API_KEY):
         return None
+    images = [("image/png", png) for _, png in (shots or [])][:8] if vendor == "google" else []
     prompt = ("Score the prototype from 1 (poor) to 5 (best of breed) on: concept (the direction's screens exist, connect "
               "and serve their jobs), hierarchy (one focal element per screen, clear type and spacing), brand (only the "
               "brand block's colours and fonts, the brand mark present), data_story (charts that explain, computed from "
@@ -506,12 +532,16 @@ def critique(doc, direction, kit, ledger, author_model):
               "run), content (realistic, plain, no implementation or process text), accessibility (labels, focus, "
               "contrast, keyboard). Then list at most 8 must_fix items, each a specific change the builder can make. "
               "Return JSON only.\n\n"
-              f"Brand: {kit['name'] if kit else 'NXT Humans'}\nCreative direction:\n{json.dumps(direction or {}, ensure_ascii=False)}\n\n"
+              + ("SCREENSHOTS follow the source, one per screen, in this order: "
+                 + "; ".join(name for name, _ in (shots or [])[:len(images)]) + ". Judge what is drawn as well as the code: "
+                 "overlapping or clipped text, empty or broken areas, weak contrast, crowded layouts, a missing focal element.\n\n"
+                 if images else "")
+              + f"Brand: {kit['name'] if kit else 'NXT Humans'}\nCreative direction:\n{json.dumps(direction or {}, ensure_ascii=False)}\n\n"
               f"PROTOTYPE SOURCE:\n{doc[:160_000]}")
     try:
         if vendor == "google":
             raw, _, _ = providers.gemini_generate(model, prompt, ledger, system=CRITIC_SYSTEM, json_schema=CRITIQUE_SCHEMA,
-                                                  max_output_tokens=12000)
+                                                  max_output_tokens=12000, images=images)
         else:
             raw, _, _ = providers.openai_text(model, prompt, ledger, system=CRITIC_SYSTEM, max_output_tokens=12000)
         data = providers.parse_json(raw)
@@ -519,15 +549,16 @@ def critique(doc, direction, kit, ledger, author_model):
         return None
     scores = {k: int(v) for k, v in (data.get("scores") or {}).items() if isinstance(v, (int, float))}
     fixes = [f for f in (data.get("must_fix") or []) if isinstance(f, dict) and f.get("fix")][:8]
-    return {"model": model, "scores": scores, "must_fix": fixes}
+    return {"model": model, "scores": scores, "must_fix": fixes, "looked_at": [n for n, _ in (shots or [])[:len(images)]]}
 
 
 def _ask(model, msg, ledger):
     # low effort: the Creative Director has done the planning, and the builder's thinking shares the output limit (17 Nov
     # live runs at medium effort wrote 85,000 to 100,000 tokens per build)
+    from . import skills                     # the governed Prototyper skill (plan P7)
     try:
-        text, _, resp = providers.claude(model, PROTOTYPER_SYSTEM, [{"role": "user", "content": msg}], ledger,
-                                         max_tokens=MAX_TOKENS, effort="low")
+        text, _, resp = providers.claude(model, skills.active_text("prototyper", PROTOTYPER_SYSTEM), [{"role": "user", "content": msg}],
+                                         ledger, max_tokens=MAX_TOKENS, effort="low")
     except providers.BudgetExceeded as e:
         if not getattr(e, "result", None):
             raise
@@ -561,8 +592,10 @@ def build(eid, brief, ledger, tid=None):
     findings = _findings(eid, brief.get("source_ids"))
     model = config.SEATS["artifact"]["primary"]
     kit = brand_kit(brief.get("brand") or "nxt")
-    direction = direct(brief, findings, kit, ledger, model)
+    direction = direct(dict(brief, _eid=eid), findings, kit, ledger, model)
     msg = brief_message(brief, findings, direction, kit)
+    from . import skills
+    skills.record_prompt(eid, tid, "prototyper", model, msg, MAX_TOKENS, "low")
     before = ledger.spent_usd
     doc, problems, cut = _ask(model, msg, ledger)
     one_build = max(0.2, ledger.spent_usd - before)
@@ -577,7 +610,11 @@ def build(eid, brief, ledger, tid=None):
             raise providers.ProviderError("the budget ran out before a valid file came back: " + "; ".join(problems[:3]))
         raise providers.ProviderError("the prototype failed validation twice: " + "; ".join(problems[:5]))
     design = design_problems(doc, kit, direction)
-    review = None if getattr(ledger, "exhausted", False) else critique(doc, direction, kit, ledger, model)
+    shot = screenshots(doc, direction, (kit or {}).get("fonts_css", ""))   # P5: each screen as drawn, for the reviewer
+    if shot:
+        design += [f"the screen \"{n}\" cannot be reached from the navigation: give it a visible control named \"{n}\""
+                   for n in shot[1]]
+    review = None if getattr(ledger, "exhausted", False) else critique(doc, direction, kit, ledger, model, shot[0] if shot else None)
     wanted = list(design)
     if review and (review["must_fix"] or any(v < CRITIQUE_PASS for v in review["scores"].values())):
         wanted += [f"{f.get('where', '')}: {f.get('problem', '')} Fix: {f['fix']}".strip(": ") for f in review["must_fix"]]
@@ -593,7 +630,17 @@ def build(eid, brief, ledger, tid=None):
             design = design_problems(doc, kit, direction)
     doc = _no_em_dash(doc)
     hp = _write(eid, sub + "prototype.html", doc)
+    final = screenshots(doc, direction, (kit or {}).get("fonts_css", "")) if revised else shot   # the screens as shipped
+    screen_files = []
+    for i, (name, png) in enumerate((final or ([], []))[0]):
+        p = store.safe_path(eid, f"{sub}screens/{i:02d}.png")
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "wb") as fh:
+            fh.write(png)
+        screen_files.append({"screen": name, "file": f"{sub}screens/{i:02d}.png"})
     _write(eid, sub + "prototype.json", {
+        "screens_reviewed": (review or {}).get("looked_at") or [], "screenshots": screen_files,
+        "screens_unreachable": (final or ([], []))[1],
         "experience": brief["experience"], "audience": brief.get("audience") or "", "must_include": brief.get("must_include") or [],
         "brand": kit["brand"], "model": model, "bytes": len(doc.encode("utf-8")), "findings_used": len(findings),
         "direction": direction, "review": review, "revised_for_design": revised, "open_design_checks": design,

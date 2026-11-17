@@ -971,8 +971,10 @@ def build(eid, brief, tid, ledger):
             if scope else (rb.get("goal") or eng.get("objective") or ""))
     msg = (f"Audience: {brief.get('audience', '')}\nEngagement: {eng.get('title', '')}\nGoal: {goal}\n"
            f"{ask}\n\nFINDINGS (each quote already checked against its source):\n{fl}\n\nSOURCES:\n{src}")
-    text, _, _ = providers.claude(model, SYSTEM, [{"role": "user", "content": msg}], ledger, max_tokens=32000,
-                                  effort="high", json_schema=SCHEMA)
+    from . import skills                     # the governed Deck Composer skill (plan P7); its message is kept for evaluation
+    skills.record_prompt(eid, tid, "deck_composer", model, msg, 32000, "high")
+    text, _, _ = providers.claude(model, skills.active_text("deck_composer", SYSTEM), [{"role": "user", "content": msg}], ledger,
+                                  max_tokens=32000, effort="high", json_schema=SCHEMA)
     data = providers.parse_json(text)
     slides = normalize(data.get("slides"), sources)
     if not slides:

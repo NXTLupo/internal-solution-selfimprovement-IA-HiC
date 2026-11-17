@@ -18,8 +18,91 @@ from . import config, control, providers, store, verify
 
 SCHEMA = """CREATE TABLE IF NOT EXISTS skill_versions (
   id TEXT PRIMARY KEY, skill TEXT, version INTEGER, text TEXT, status TEXT, reason TEXT, created REAL, eval_json TEXT)"""
-EDITABLE = {"writer"}
-MUST_KEEP = {"writer": ["cite", "quote", "em-dash"]}
+
+# One governed expert skill per creator (plan Part 8, P7). Each entry names the default instructions in code (the
+# seed), the reply schema its builder asks for, and the rules every version must keep. A builder reads the ACTIVE
+# version through active_text(), and records the exact message it sent (record_prompt), so a candidate is evaluated
+# by replaying held-out messages under the incumbent and the candidate (evaluate below).
+REGISTRY = {
+    "writer": {"seed": ("studio", "WRITER_SYSTEM"), "schema": None, "keep": ["cite", "quote", "em-dash"]},
+    "deck_composer": {"seed": ("deckstudio", "SYSTEM"), "schema": ("deckstudio", "SCHEMA"), "keep": ["quote", "em-dash"]},
+    "prototyper": {"seed": ("prototype", "PROTOTYPER_SYSTEM"), "schema": None, "keep": ["brand", "screen", "em-dash"]},
+    "creative_director": {"seed": ("prototype", "DIRECTOR_SYSTEM"), "schema": ("prototype", "DIRECTION_SCHEMA"), "keep": ["brand", "screen"]},
+    "journey_cartographer": {"seed": ("journey", "JOURNEY_SYSTEM"), "schema": ("journey", "JOURNEY_SCHEMA"), "keep": ["verbatim", "quote"]},
+    "social_analyst": {"seed": ("social", "ANALYST_SYSTEM"), "schema": ("social", "SOCIAL_SCHEMA"), "keep": ["quote"]},
+    "transcript_analyst": {"seed": ("transcripts", "ANALYST_SYSTEM"), "schema": ("transcripts", "TRANSCRIPT_FINDINGS_SCHEMA"), "keep": ["quote", "verbatim"]},
+    "theme_namer": {"seed": ("themes", "NAMER_SYSTEM"), "schema": ("themes", "NAME_SCHEMA"), "keep": ["quote"]},
+}
+EDITABLE = set(REGISTRY)
+MUST_KEEP = {k: v["keep"] for k, v in REGISTRY.items()}
+
+
+def _attr(ref):
+    import importlib
+    return getattr(importlib.import_module(f"ia_next.{ref[0]}"), ref[1]) if ref else None
+
+
+def default_text(skill):
+    return _attr(REGISTRY[skill]["seed"])
+
+
+def seed_all():
+    for k in REGISTRY:
+        seed(k, default_text(k))
+
+
+def record_prompt(eid, tid, skill, model, msg, max_tokens, effort):
+    """Keep the exact message a builder sent, so a candidate skill can be evaluated on it later. Never breaks a build."""
+    if not (eid and tid and skill in REGISTRY):
+        return
+    try:
+        import os
+        p = store.safe_path(eid, f"results/tasks/{tid}/prompts/{skill}.json")
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w", encoding="utf-8", newline="\n") as fh:
+            json.dump({"skill": skill, "task_id": tid, "model": model, "msg": msg, "max_tokens": max_tokens,
+                       "effort": effort, "at": time.time()}, fh, ensure_ascii=False)
+    except Exception:
+        pass
+
+
+def prompt_cases(skill, limit=2):
+    """Recorded messages of finished tasks for `skill`, oldest first: the held-out split for a candidate."""
+    import os
+    out = []
+    for r in store.conn().execute("SELECT id, engagement_id FROM tasks WHERE status = 'done' ORDER BY created").fetchall():
+        try:
+            p = store.safe_path(r["engagement_id"], f"results/tasks/{r['id']}/prompts/{skill}.json")
+        except Exception:
+            continue
+        if os.path.isfile(p):
+            with open(p, encoding="utf-8") as fh:
+                out.append(dict(json.load(fh), engagement_id=r["engagement_id"]))
+        if len(out) >= limit:
+            break
+    return out
+
+
+def _reply_text(raw):
+    """The words of a reply for scoring: the string values of a JSON reply, or the visible text of HTML."""
+    try:
+        data = providers.parse_json(raw)
+        parts = []
+
+        def walk(x):
+            if isinstance(x, str):
+                parts.append(x)
+            elif isinstance(x, dict):
+                for v in x.values():
+                    walk(v)
+            elif isinstance(x, list):
+                for v in x:
+                    walk(v)
+        walk(data)
+        return "\n".join(parts)
+    except ValueError:
+        from .artifacts import visible_text
+        return visible_text(raw)
 
 
 def _db():
@@ -50,8 +133,9 @@ def lint(skill, text):
         why.append(f"skill {skill} is not editable")
     if "\u2014" in text:
         why.append("contains an em-dash")
-    if not 200 <= len(text) <= 6000:
-        why.append("length must be 200 to 6,000 characters")
+    top = max(6000, int(1.5 * len(default_text(skill) or ""))) if skill in REGISTRY else 6000
+    if not 200 <= len(text) <= top:
+        why.append(f"length must be 200 to {top:,} characters")
     for k in MUST_KEEP.get(skill, []):
         if k not in text.lower():
             why.append(f"drops the required rule about '{k}'")
@@ -85,6 +169,8 @@ def evaluate(candidate_id, writer_fn, cases=None, ledger=None):
     if control.status_for("evaluate_skill", spec) != "approved":
         a = control.request("spend", "evaluate_skill", spec, f"Evaluate {cand['skill']} v{cand['version']} on held-out work")
         return {"approval": a["status"], "approval_id": a["id"]}
+    if cand["skill"] != "writer":
+        return _evaluate_replay(cand, cases, ledger)
     from . import studio
     incumbent = active_text(cand["skill"], studio.WRITER_SYSTEM)
     ledger = ledger or providers.Ledger(limit_usd=4.0)
@@ -105,6 +191,38 @@ def evaluate(candidate_id, writer_fn, cases=None, ledger=None):
     ev = {"cases": results, "passed": passed, "spent_usd": ledger.spent_usd, "at": time.time()}
     _db().execute("UPDATE skill_versions SET eval_json = ? WHERE id = ?", (json.dumps(ev), candidate_id))
     store.event("skill_evaluated", {"id": candidate_id, "passed": passed})
+    return ev
+
+
+def _evaluate_replay(cand, cases=None, ledger=None):
+    """A creator skill's held-out evaluation: each recorded message is sent again under the incumbent and under the
+    candidate, on the same model and settings; both replies go through the deterministic rung and the cross-vendor
+    judge against that engagement's sources. Same pass rule as the Writer: never worse on a case, better on average."""
+    skill = cand["skill"]
+    incumbent = active_text(skill, default_text(skill))
+    schema = _attr(REGISTRY[skill]["schema"])
+    ledger = ledger or providers.Ledger(limit_usd=6.0)
+    results = []
+    for c in (cases if cases is not None else prompt_cases(skill)):
+        try:
+            sources = json.load(open(store.safe_path(c["engagement_id"], "results/sources.json"), encoding="utf-8"))["sources"]
+        except (FileNotFoundError, ValueError):
+            sources = []
+        row = {"task": c.get("task_id")}
+        for label, system in (("incumbent", incumbent), ("candidate", cand["text"])):
+            raw, _, _ = providers.claude(c["model"], system, [{"role": "user", "content": c["msg"]}], ledger,
+                                         max_tokens=int(c.get("max_tokens") or 16000), effort=c.get("effort") or "medium",
+                                         json_schema=schema)
+            text = _reply_text(raw)
+            row[label] = verify.score(verify.deterministic(text, sources),
+                                      verify.judge(text, {"goal": f"the {skill.replace('_', ' ')}'s output"}, sources, c["model"], ledger))
+        results.append(row)
+    passed = bool(results) and all(r["candidate"] >= r["incumbent"] for r in results) and \
+        sum(r["candidate"] for r in results) > sum(r["incumbent"] for r in results)
+    ev = {"cases": results, "passed": passed, "spent_usd": ledger.spent_usd, "at": time.time(),
+          "note": "" if results else "no finished work of this kind has a recorded message yet"}
+    _db().execute("UPDATE skill_versions SET eval_json = ? WHERE id = ?", (json.dumps(ev), cand["id"]))
+    store.event("skill_evaluated", {"id": cand["id"], "passed": passed})
     return ev
 
 

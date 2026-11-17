@@ -6,6 +6,7 @@ the Studio as a background task, and the agent reports a task as done only when 
 The system prompt and the tool list are fixed for a conversation (cache-stable, plan 6.7); the person's
 memory enters as a snapshot taken when the conversation starts. History is append-only.
 """
+import contextvars
 import hashlib
 import json
 import threading
@@ -51,7 +52,10 @@ TOOLS = [
                                    "budget_usd", "new_research_confirmed", "packs"],
                       "properties": {"engagement_title": STR, "engagement_id": {"type": "string", "description": "Existing engagement id, or empty to create one"},
                                      "audience": STR, "goal": STR, "scope": STR, "structure": STR, "constraints": STR,
-                                     "success": {"type": "array", "items": STR}, "budget_usd": {"type": "number"},
+                                     "success": {"type": "array", "items": STR},
+                                     "budget_usd": {"type": "number", "description": (
+                                         "0 for the standard budget (3.00 USD), which covers a full report. Set another "
+                                         "amount only when the person names a budget.")},
                                      "new_research_confirmed": {"type": "boolean", "description": (
                                          "true only when the person explicitly asked for new research, or said yes after you told "
                                          "them the engagement already has findings; otherwise false")},
@@ -107,7 +111,7 @@ TOOLS.append({"name": "schedule_task", "strict": True,
 # Studio specialists that live in their own modules (plan 6.2 and Phase 6). Each module exposes TOOLS
 # and execute(name, args); the agent's tool list is fixed at import, so it stays cache-stable (plan 6.7).
 SPECIALIST_MODULES = []
-for _name in ("deck", "media", "social", "transcripts", "prototype"):
+for _name in ("deck", "media", "social", "transcripts", "prototype", "artifacts", "themes"):
     try:
         _mod = __import__(f"ia_next.{_name}", fromlist=["TOOLS", "execute"])
         if getattr(_mod, "TOOLS", None) and hasattr(_mod, "execute"):
@@ -291,9 +295,15 @@ def focus_context(engagement_id):
 
 
 def _recall(args):
+    """Memory, this system's evidence index, and the second brain: passages from HiC's manifest ranked against the
+    question, each with its chunk pointer (plan Part 2). The second brain is skipped quietly when HiC is down."""
+    from . import secondbrain
+    from .attachments import current as _att
+    eng = next((f["engagement_id"] for f in _att()["files"]), "")
     return {"memory": memory.recall(args["query"]),
             "evidence": [{"source": e["source_id"], "title": e["title"], "url": e["url"], "excerpt": e["text"][:400]}
-                         for e in store.search_evidence(args["query"], limit=5)]}
+                         for e in store.search_evidence(args["query"], limit=5)],
+            "second_brain": secondbrain.recall(args["query"], engagement=eng)}
 
 
 def _send_email(args):
@@ -306,8 +316,72 @@ def _send_email(args):
     return {"approval": "approved", "sent": False, "message": "approved, but no mail connector is configured in IA Next yet"}
 
 
+# ---- one conversation's spend limit (plan B4) and its own work (plan C5) ------------------------------------------
+_CONV = contextvars.ContextVar("ia_next_conversation", default="")
+
+
+def _paid_estimate(name, args):
+    """About what a tool call will spend, for the conversation's limit; None for a call that costs nothing here."""
+    from . import deck, media, prototype, social, transcripts
+    if name == "start_research_report":
+        b = args.get("budget_usd") or 0
+        return float(b) if b and b > 0 else config.TASK_SPEND_APPROVAL_USD
+    fixed = {"start_deck": deck.DECK_BUDGET_USD, "revise_slide": deck.REVISE_BUDGET_USD, "start_journey_map": 1.0,
+             "start_prototype": prototype.DEFAULT_BUDGET_USD, "start_social_analysis": social.DEFAULT_BUDGET_USD,
+             "analyze_uploads": transcripts.DEFAULT_BUDGET_USD, "generate_image": media.IMAGE_LEDGER_USD}
+    if name in fixed:
+        return fixed[name]
+    if name == "generate_video":
+        return float(args.get("seconds") or 8) * media.VIDEO_USD_PER_SECOND
+    if name == "retry_task":
+        t = store.get_task(str(args.get("task_id") or ""))
+        return float(t["budget_usd"] or 0) if t else None
+    if name == "start_artifact":
+        from . import artifacts
+        return artifacts.ESTIMATE_USD
+    if name == "start_themes":
+        return 0.30
+    return None
+
+
+def _session_guard(name, args):
+    """Paid work that would take this conversation past its limit waits for the person's approval. A call the person
+    approved runs (the approval card re-runs exactly that call, outside any conversation)."""
+    cid = _CONV.get()
+    est = _paid_estimate(name, args) if cid else None
+    if not est:
+        return None
+    spent = store.conversation_spend(cid)
+    limit = config.SESSION_SPEND_LIMIT_USD
+    if spent + est <= limit:
+        return None
+    st = control.status_for(name, args)
+    if st == "approved":
+        return None
+    if st == "denied":
+        return {"error": "the person declined going past this conversation's spend limit; tell them what it would cost"}
+    a = control.request("spend", name, args, f"This conversation has spent {spent:.2f} USD; this work (about {est:.2f} USD) "
+                                             f"would take it past the {limit:.2f} USD limit for one conversation")
+    return {"approval": a["status"], "approval_id": a["id"],
+            "message": f"needs the person's approval: this conversation has spent {spent:.2f} USD of its {limit:.2f} USD limit"}
+
+
+def conversation_work(cid, limit=5):
+    """The work this conversation started, newest first, for the top of each message (C5): "that deck" or "the last
+    one" means this, even after the service restarted."""
+    lines = []
+    for tid in store.conversation_task_ids(cid, limit):
+        t = store.get_task(tid)
+        if t:
+            lines.append(f"{t['kind']} ({t['status']}) [{t['id']}]: {(t.get('summary') or t.get('error') or '')[:140]}")
+    return ("(Work this conversation started, newest first: " + " | ".join(lines) + ")") if lines else ""
+
+
 def execute_tool(name, args):
     try:
+        guard = _session_guard(name, args)
+        if guard:
+            return guard
         if name == "start_research_report":
             return _start_research(args)
         if name == "start_journey_map":
@@ -380,9 +454,13 @@ def turn(cid, text, call=None, attachments=None):
             fresh.resume_note = conv.resume_note
             conv = _CONVS[cid] = fresh
         files = att.verified(attachments)
-        line = att.describe(files)
-        with att.scope(files):
-            return _turn(cid, conv, (line + "\n" + text) if line else text, call)
+        heads = [h for h in (att.describe(files), conversation_work(cid)) if h]
+        token = _CONV.set(cid)
+        try:
+            with att.scope(files):
+                return _turn(cid, conv, "\n".join(heads + [text]), call)
+        finally:
+            _CONV.reset(token)
 
 
 def _turn(cid, conv, text, call):
@@ -392,7 +470,7 @@ def _turn(cid, conv, text, call):
         conv.resume_note = ""
     conv.messages.append({"role": "user", "content": text})
     store.event("user_message", {"conversation": cid, "text": text[:2000]})
-    trace, ledger = [], providers.Ledger(limit_usd=1.0, purpose="agent")
+    trace, ledger = [], providers.Ledger(limit_usd=1.0, purpose=f"agent:{cid}")
     model = config.SEATS["orchestration"]["primary"]
     for step in range(MAX_STEPS):
         if step == MAX_STEPS - 2:
@@ -413,6 +491,8 @@ def _turn(cid, conv, text, call):
         for u in uses:
             out = execute_tool(u.name, dict(u.input))
             trace.append({"tool": u.name, "input": dict(u.input), "output": out})
+            if isinstance(out, dict) and out.get("task_id"):
+                store.link_task(cid, out["task_id"])          # C5 and B4: this conversation's own work
             cap = REPORT_READ_CHARS + 2000 if u.name == "read_report" else TOOL_RESULT_CHARS
             results.append({"type": "tool_result", "tool_use_id": u.id, "content": json.dumps(out, ensure_ascii=False)[:cap],
                             **({"is_error": True} if isinstance(out, dict) and out.get("error") else {})})

@@ -53,7 +53,7 @@ def test_message_passes_its_attachments_to_the_agent(client, turns):
 
 def test_page_sends_the_conversations_files_with_every_message():
     js = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "web", "app.js"), encoding="utf-8").read()
-    assert "body.attachments = files.map" in js and "recordAttachment(file.name, sid, eid)" in js
+    assert "body.attachments = files.map" in js and "if (added.length) recordAttachments(added, eid);" in js   # one line per drop
     assert "if (item.type === 'files') return filesEl(item);" in js
 
 

@@ -37,6 +37,17 @@ def test_a_long_source_is_read_whole_without_hic():
     assert all(len(c["text"]) <= secondbrain.LOCAL_CHUNK_CHARS for c in chunks)
 
 
+def _page(path, chunk_texts):
+    """A wiki page as HiC writes it: frontmatter with each chunk's id and char_span into the body."""
+    body, spans, pos = "", [], 0
+    for t in chunk_texts:
+        spans.append((pos, pos + len(t)))
+        body += t + "\n\n"
+        pos = len(body)
+    front = "---\ntitle: x\nchunks:\n" + "".join(f'  - id: "{path}#c{i}"\n    char_span: [{a}, {b}]\n' for i, (a, b) in enumerate(spans))
+    return front + "---\n" + body
+
+
 def _fake_hic(calls, chunk_texts):
     def call(method, path, timeout, **kw):
         calls.append((method, path, kw.get("json")))
@@ -44,14 +55,11 @@ def _fake_hic(calls, chunk_texts):
             body = kw["json"]
             assert body["kind"] == "upload" and body["engagement"] and body["url"].startswith("ia-next://")
             return {"status": "ok", "wikiPath": f"uploads/{body['engagement']}/abc123.md"}
-        if path == "/api/manifest/chunks-from-selection":
-            p = kw["json"]["source_archive_paths"][0]
-            return {"pages": {p: {"chunk_count": len(chunk_texts)}}, "chunk_ids": [f"{p}#c{i}" for i in range(len(chunk_texts))]}
         if path.startswith("/api/wiki/read-article/"):
             ref = urllib.parse.unquote(path[len("/api/wiki/read-article/"):])
-            i = int(ref.rsplit("#c", 1)[1])
-            return {"wikiPath": ref.split("#")[0], "chunkId": f"c{i}", "chunk": chunk_texts[i]}
-        raise AssertionError(path)
+            assert "#" not in ref                                  # one read of the whole page, not one per chunk
+            return {"wikiPath": ref, "content": _page(ref, chunk_texts)}
+        raise AssertionError(path)                                 # no manifest selection call (it stalled HiC)
     return call
 
 
@@ -63,12 +71,13 @@ def test_sources_are_archived_once_and_read_as_manifest_chunks(monkeypatch):
     chunks, report = secondbrain.material(eid, [src], "retention")
     assert [c["pointer"] for c in chunks] == [f"uploads/{eid}/abc123.md#c0", f"uploads/{eid}/abc123.md#c1"]
     assert report["via"] == {"S2": "manifest"} and report["full_coverage"]
-    assert any("%23c1" in p for _, p, _ in calls)                                  # the pointer travels encoded in the path
+    assert [c["text"] for c in chunks] == ["Annual Giving cannot see retention by cohort.", "Ascend feeds Snowflake."]
+    assert sum(1 for _, p, _ in calls if p.startswith("/api/wiki/read-article/")) == 1
     prompt = secondbrain.as_prompt(chunks)
     assert f'<chunk pointer="uploads/{eid}/abc123.md#c1">' in prompt and '<source id="S2" title="02_Solution_Vision.docx">' in prompt
     calls.clear()
-    secondbrain.material(eid, [src], "retention")
-    assert not any(p == "/api/wiki/write-article" for _, p, _ in calls)          # archived once; read again by pointer
+    again, _ = secondbrain.material(eid, [src], "retention")
+    assert calls == [] and [c["pointer"] for c in again] == [c["pointer"] for c in chunks]   # kept here: HiC is not asked again
     mapping = json.load(open(store.safe_path(eid, secondbrain.MAP_REL), encoding="utf-8"))
     assert mapping["S2"]["wiki_path"] == f"uploads/{eid}/abc123.md"
 

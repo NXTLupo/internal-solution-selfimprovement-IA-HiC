@@ -15,6 +15,8 @@ MEMORY_DIR = os.path.join(DATA_DIR, "memory")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "") or os.environ.get("GOOGLE_API_KEY", "")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+# Plan P5: the renderer that screenshots prototypes (ia-next-render, on an internal network with no internet route).
+RENDER_URL = os.environ.get("IA_NEXT_RENDER_URL", "http://ia-next-render:9500")
 
 # The owner's seat matrix of 2026-11-10 (plan 6.10), as probed on 2026-11-11. No Grok, by the owner.
 # OpenAI Sora is shut down (2026-09-24), so video has a Google primary only.
@@ -41,6 +43,9 @@ UNPRICED = (5.00, 20.0)   # deliberately conservative for models without a recor
 
 # Spend above this many US dollars for one task needs the person's approval (approval class "spend").
 TASK_SPEND_APPROVAL_USD = float(os.environ.get("IA_NEXT_TASK_SPEND_APPROVAL_USD", "3.00"))
+# One conversation may spend this much (its answers plus the work it started) before more paid work needs the
+# person's approval (enhancement plan B4, per-session limit).
+SESSION_SPEND_LIMIT_USD = float(os.environ.get("IA_NEXT_SESSION_LIMIT_USD", "15.00"))
 
 
 def vendor_of(model: str) -> str:

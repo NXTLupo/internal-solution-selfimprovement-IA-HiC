@@ -87,21 +87,51 @@ def archive_upload_later(eid, sid):
     threading.Thread(target=run, daemon=True, name=f"archive-{sid}").start()
 
 
+_SPAN = re.compile(r'id:\s*"[^"\n]*#c(\d+)"\s*\n\s*char_span:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]')
+
+
+def slice_chunks(path, content):
+    """The page's manifest chunks, cut exactly as HiC's read-article cuts one (its _slice_chunk_from_article): each
+    chunk's char_span in the frontmatter indexes the body after the frontmatter. [(pointer, text)] in order."""
+    if not (content or "").startswith("---"):
+        return []
+    fm_end = content.find("\n---", 4)
+    if fm_end < 0:
+        return []
+    front, body = content[:fm_end], content[fm_end + 4:].lstrip("\n")
+    out = {}
+    for m in _SPAN.finditer(front):
+        i, a, b = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if 0 <= a < b <= len(body):
+            out[i] = (f"{path}#c{i}", body[a:b].strip())
+    return [out[i] for i in sorted(out) if out[i][1]]
+
+
 def _manifest_chunks(eid, src):
-    """The source's chunks from the manifest, in document order: [{source_id, title, pointer, text}]."""
+    """The source's chunks from the manifest, in document order: [{source_id, title, pointer, text}].
+
+    17 Nov: this used to call /api/manifest/chunks-from-selection and then one read per chunk. Each selection call made
+    HiC load its whole manifest on its event loop, and during the owner's HiC session those loads stalled HiC's proxy
+    long enough for a worker to be killed. Now: one read of the page, the chunks cut by their manifest spans, and the
+    chunks kept here, so an unchanged source is never read from HiC again."""
     path = archive(eid, src)
     if not path:
         return []
-    sel = hic._call("POST", "/api/manifest/chunks-from-selection", 60, json={"source_archive_paths": [path], "engagement": eid})
-    count = int(((sel.get("pages") or {}).get(path) or {}).get("chunk_count") or 0)
-    out = []
-    for i in range(count):
-        ref = urllib.parse.quote(f"{path}#c{i}", safe="/.")
-        got = hic._call("GET", f"/api/wiki/read-article/{ref}", 30)
-        text = str(got.get("chunk") or "").strip()
-        if text:
-            out.append({"source_id": src["id"], "title": src.get("title") or src["id"], "pointer": f"{path}#c{i}", "text": text})
-    return out
+    digest = _sha(src.get("text") or "")
+    with _LOCK:
+        entry = _map(eid).get(src["id"]) or {}
+    cached = entry.get("chunks") if entry.get("sha256") == digest and entry.get("wiki_path") == path else None
+    if not cached:
+        got = hic._call("GET", "/api/wiki/read-article/" + urllib.parse.quote(path, safe="/."), 30)
+        cached = [{"pointer": p, "text": t} for p, t in slice_chunks(path, str(got.get("content") or ""))]
+        if cached:
+            with _LOCK:
+                m = _map(eid)
+                if (m.get(src["id"]) or {}).get("sha256") == digest:
+                    m[src["id"]]["chunks"] = cached
+                    _save_map(eid, m)
+    return [{"source_id": src["id"], "title": src.get("title") or src["id"], "pointer": c["pointer"], "text": c["text"]}
+            for c in cached]
 
 
 def _local_chunks(src):
@@ -173,6 +203,32 @@ def material(eid, sources, objective="", budget=BUDGET_CHARS):
     picked = [c for c in chunks if id(c) in keep]
     report.update(chunks_used=len(picked), full_coverage=False)
     return picked, report
+
+
+def recall(query, engagement="", k=5):
+    """Passages from the whole second brain (every pack, upload and engagement HiC holds) ranked against the question
+    by HiC (/api/manifest/chunks-by-goal: objective first, the engagement's own chunks boosted), resolved to verbatim
+    text with their pointers. Empty when HiC is down: recall then uses memory and the local evidence index only."""
+    q = (query or "").strip()
+    if not q:
+        return []
+    try:
+        got = hic._call("GET", "/api/manifest/chunks-by-goal", 60,
+                        params={"goal": q, "engagement": engagement or "", "limit": max(k * 4, 20)})
+        pages = got.get("pages") or {}
+        out = []
+        for cid in got.get("chunk_ids") or []:
+            if len(out) >= k:
+                break
+            ref = urllib.parse.quote(cid, safe="/.")
+            r = hic._call("GET", f"/api/wiki/read-article/{ref}", 30)
+            text = str(r.get("chunk") or "").strip()
+            if text:
+                page = pages.get(cid.split("#")[0]) or {}
+                out.append({"pointer": cid, "title": page.get("title") or cid.split("#")[0], "excerpt": text[:900]})
+        return out
+    except hic.HicUnavailable:
+        return []
 
 
 def as_prompt(chunks, esc=lambda s: s):

@@ -358,7 +358,9 @@ def analyze(eid, objective, ledger, brand="nxt"):
     model = config.SEATS["analysis"]["primary"]
     msg = (f"Objective: {objective}\nReddit search query: {collected.get('query', '')}\n\n{body}\n\n"
            "Return 4 to 8 themes and a sentiment label for every post.")
-    text, _, _ = providers.claude(model, ANALYST_SYSTEM, [{"role": "user", "content": msg}], ledger,
+    from . import skills                     # the governed Social Analyst skill (plan P7)
+    skills.record_prompt(eid, getattr(ledger, "task_id", ""), "social_analyst", model, msg, 16000, "medium")
+    text, _, _ = providers.claude(model, skills.active_text("social_analyst", ANALYST_SYSTEM), [{"role": "user", "content": msg}], ledger,
                                   max_tokens=16000, effort="medium", json_schema=SOCIAL_SCHEMA)
     data = providers.parse_json(text)
     themes, dq, dt = check_themes(data.get("themes"), sources)

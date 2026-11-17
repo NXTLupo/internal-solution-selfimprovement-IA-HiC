@@ -47,7 +47,7 @@ Augmentation suite, so you can run both on the same computer at the same time.
 | **Start** | `docker compose -f ia-next/ia-next.compose.yml up -d --build` |
 | **Stop** | `docker compose -f ia-next/ia-next.compose.yml down` (your work is kept) |
 | **Health check** | http://127.0.0.1:9400/health |
-| **Container** | `ia-next` (image `ia-next:0.1`) |
+| **Containers** | `ia-next` (image `ia-next:0.1`, the workspace) and `ia-next-render` (image `ia-next-render:0.1`, Chromium for the prototype design review; no host port) |
 | **Your data** | Docker volume `ia-next-data` (engagements, files, memory, task history) |
 | **Keys** | Read from the repository's root `.env` (the same file the suite uses) |
 | **Reachable from other computers?** | No. It listens on 127.0.0.1 only, your own machine. |
@@ -167,7 +167,7 @@ what changed since you last looked, anything waiting for your approval, and your
 
 ## Ports and addresses
 
-IA Next uses **exactly one port**.
+IA Next publishes **exactly one port**. Its second container, the renderer, publishes none.
 
 | What | Address | Notes |
 |---|---|---|
@@ -175,9 +175,14 @@ IA Next uses **exactly one port**.
 | Health check | http://127.0.0.1:9400/health | Returns JSON; used by Docker's health check every 30 seconds |
 | API | http://127.0.0.1:9400/api/... | The page's own API (tasks, engagements, approvals, spend, digest) |
 
-Inside Docker the container also listens on 9400, on its own private network `ia-next-net`. It is not on the
-suite's network. It reaches HiC only through the host (`host.docker.internal:5012`, HiC's proxy), for the
+Inside Docker the workspace container also listens on 9400, on its own private network `ia-next-net`. It is not on
+the suite's network. It reaches HiC only through the host (`host.docker.internal:5012`, HiC's proxy), for the
 capabilities described in [Using HiC's engine](#using-hics-engine).
+
+| Container | Host port | Networks | Why |
+|---|---|---|---|
+| `ia-next` | 9400 on 127.0.0.1 | `ia-next-net`, `ia-next-render` | The workspace, the agent and the studio |
+| `ia-next-render` | none | `ia-next-render` only (internal: no route to the internet) | Opens each prototype in Chromium and screenshots every screen for the design review. Prototypes are model-written code, so they run here, with no API keys, no data volume and no internet, never inside `ia-next` |
 
 **Changing the port.** If something else on your computer already uses 9400, start IA Next on another host port:
 
@@ -200,15 +205,18 @@ IA Next works on its own when the suite is off.
 |---|---|---|
 | Compose file | `docker-compose-all.yml` | `ia-next/ia-next.compose.yml` |
 | Compose project name | `nxt-humans_ai_cx_workbench` | `ia-next` |
-| Docker network | `nxt-humans-network` | `ia-next-net` |
+| Docker networks | `nxt-humans-network` | `ia-next-net`, and `ia-next-render` (internal) |
+| Containers | 24 | 2 (`ia-next`, `ia-next-render`) |
 | Data | the suite's volumes and `humans-in-control-research/hic-workspace/` | the `ia-next-data` volume |
 | Host ports | 3000, 5001, 5002, 5004, 5010, 5011, 5012, 5013, 5014, 5015, 5050, 6080, 8000, 8080, 8081, 8201, 8500, 8501, 8502, 8503, 8504, 8507, 8508 | **9400** only |
-| Calls into the other system | none | HiC's proxy through the host, optional (reads documents and images today) |
+| Calls into the other system | none | HiC's proxy through the host, optional (documents, data packs, the second brain, themes, the artifact studio) |
 
-**Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every published
-port was listed with `docker ps`: no port is used twice, and IA Next's 9400 is outside the suite's range. (On the
-owner's workstation one more container, a SearXNG search service from a different project, uses 127.0.0.1:8890;
-it belongs to neither system and does not collide with either.)
+**Port check, 17 November 2026 (evening).** With all 24 suite containers and both IA Next containers running
+together (27 containers in all), every published port was listed with `docker ps`: 25 host ports, each used by one
+container; IA Next's 9400 is the only IA Next port and is not in the suite's list; the renderer publishes none. The
+compose files agree: `docker-compose-all.yml` and `ia-next/ia-next.compose.yml` declare no host port in common. (On
+the owner's workstation one more container, a SearXNG search service from a different project, uses
+127.0.0.1:8890; it belongs to neither system and does not collide with either.)
 
 To run both:
 
@@ -244,9 +252,11 @@ starts, and it is never logged or shown.
 | Reading documents and images | PDF (scanned ones too), Word, PowerPoint, Excel, JSON, XML and images dropped into the chat are read by HiC and become sources | Yes; without it the upload says so, and text, subtitle, CSV and audio files still work |
 | Data packs | Name a pack or an industry ("using the healthcare data pack"): research searches that pack's publications in HiC (17 packs, from Advancement & Fundraising to Insurance) before the open web, and adds up to six of the most relevant, dated items as named sources | Yes; without it the run notes that the packs were skipped and searches the web |
 | The second brain | Every upload, and every source a deck or journey map is built from, is archived in HiC's wiki (`/api/wiki/write-article`), where HiC chunks it, records it in the manifest and embeds it. Builders read the evidence back as manifest chunk pointers (`page#c3`), so a document is read whole when it fits, not cut off at its first few thousand characters, and each deck records the pointers it used (`deck.json`, `evidence`) | Yes; without it the source is cut into local chunks of the same size, so coverage stays whole, and the deck records that the local path served it |
+| Recall | When the agent recalls earlier work, it also searches the whole second brain (`/api/manifest/chunks-by-goal`): passages from every pack, upload and engagement HiC holds, ranked against your question, each with its chunk pointer | No; without it recall uses memory and IA Next's own evidence index |
+| Themes | "#themes": HiC's topic model (`/api/topic-model/analyze`: UMAP with a fixed seed, HDBSCAN, a coherence gate) clusters the engagement's manifest chunks; the Theme Analyst names each cluster and quotes one passage, checked against that passage; saved as work with a branded page | Yes |
+| Artifact studio | "#prd", "#roadmap", "#recs" and 16 more kinds: the corpus (findings plus manifest chunks of the named sources) goes to HiC's job store (`/api/jobs`, op `/api/artifact/generate`) and IA Next polls it; IA Next then checks every quoted passage against the sources and has a reviewer from another vendor score it. HiC meters its own model calls, so the card shows an estimate (1.50 USD) marked as one | Yes; decks, journey maps and prototypes still work without it |
 
-When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own. HiC's
-artifact generators and themes are being connected in the same way.
+When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own.
 
 ### Attached files are what the work is built from
 
@@ -289,6 +299,8 @@ You do not need special syntax; describe what you want. Hashtags are a shortcut 
 | Reddit listening | "What are people on r/college saying about academic advising this year?" (needs Reddit keys) |
 | Analysis of your files | Drop interview transcripts, notes, CSV or text files, then: "What do these interviews say about donor follow-up?" |
 | A mind map | "#mindmap of the findings in this engagement." (drawn as a diagram in the reply) |
+| The themes in your material | "What are the themes in the attached documents? #themes" (HiC's topic model finds the clusters; each theme gets a quote checked against its passage) |
+| A document from HiC's artifact studio | "#prd for the Farmers demo from these documents, Northeastern branding." Also #roadmap, #recs, #strategy, #brief, #blueprint, #personas, #competitive, #gap, #arch, #org, #audit, #case-study, #report, #whitepaper, #explainer, a heuristic UX review and a research plan. Quoted passages are checked against the sources and a reviewer from another vendor scores it; open it on its card or download the HTML |
 | An image or a short video | "Make a cover image for this deck." / "Make a five second opening clip." (video always asks for approval) |
 | To find past work | "Show my recent work" or "Open the latest report." |
 
@@ -303,8 +315,30 @@ notice appears when it finishes.
 - Decks are native, editable PowerPoint files (real text, real shapes, sources in the speaker notes), never
   pictures of slides, and each download is named after the deck.
 - Prototypes start from a creative direction (concept, screens, sample data, visual language, chosen from HiC's
-  catalog of 92 AI experience patterns), are built by an expert product-design skill in the brand, reviewed by a
-  designer model from another vendor and revised once; they run sandboxed with no network access.
+  catalog of 92 AI experience patterns) and are built by an expert product-design skill in the brand. The renderer
+  then opens the prototype and screenshots every screen; a designer model from another vendor reviews the screens as
+  drawn as well as the code, a screen the navigation cannot reach becomes a required fix, and the prototype is
+  revised once. The screenshots are kept with the work. Prototypes run sandboxed with no network access.
+- Documents from HiC's artifact studio run in the same sandbox as prototypes (a sandboxed frame and a strict content
+  policy), because they are model-written pages.
+- Work you ask for from attached files is built from those files alone, read whole through the second brain.
+
+### Engagements you do not need to see
+
+Engagements made by automated checks are hidden from the list, never deleted. "Show N hidden engagements" at the
+bottom of the list brings them back; every engagement also has a **Hide** (or **Show**) control on hover. When files
+you drop land in an engagement that is about something else, the "Attached to ..." line in the conversation offers
+**Use a new engagement for these files**: the files are copied into an engagement of their own and the
+conversation follows them.
+
+### Expert skills for every creator
+
+Each creator (the Writer, Deck Composer, Creative Director, Prototyper, Journey Cartographer, Social Analyst,
+Transcript Analyst and Theme Analyst) works from a governed skill: versioned instructions that change only when a
+candidate passes a lint, then a held-out evaluation (past work replayed under the current and the candidate
+instructions, scored by the same checks and a judge from another vendor; it spends, so it asks for approval), and
+then your promotion. `GET /api/skills` lists them; every version is kept, so rolling back is promoting an earlier
+one.
 
 ---
 
@@ -355,6 +389,9 @@ stays sharp and editable; prototypes, journey maps and social pages carry the sa
 - A task stops when it reaches the budget you approved.
 - **Asking before new research.** When an engagement already has findings, the agent builds decks, maps and other
   outputs from them, and asks you before paying for new web research.
+- **A limit for one conversation.** A conversation may spend `IA_NEXT_SESSION_LIMIT_USD` (default 15.00 USD), its
+  answers plus the work it started. Paid work that would take it past that waits for your approval card.
+- **Research budget.** A research report uses the standard 3.00 USD budget unless you name another amount.
 
 ### Stop and Try again
 
@@ -417,7 +454,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 201 tests, all passing.
+On 17 November 2026: 219 tests, all passing.
 
 ### Back up and restore your data
 

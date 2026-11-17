@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS nodes (
   id TEXT PRIMARY KEY, task_id TEXT, specialist TEXT, model TEXT, state TEXT, started REAL, finished REAL,
   result_path TEXT, summary TEXT, error TEXT, seq INTEGER);
 CREATE TABLE IF NOT EXISTS conversations (id TEXT PRIMARY KEY, created REAL, updated REAL, title TEXT, items TEXT);
+CREATE TABLE IF NOT EXISTS conversation_tasks (conversation_id TEXT, task_id TEXT, created REAL, PRIMARY KEY (conversation_id, task_id));
 CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL, engagement_id TEXT, task_id TEXT, kind TEXT, data TEXT);
 CREATE TABLE IF NOT EXISTS approvals (
   id TEXT PRIMARY KEY, cls TEXT, tool TEXT, args_json TEXT, args_hash TEXT, reason TEXT, status TEXT, created REAL, decided REAL);
@@ -50,7 +51,16 @@ def conn():
             _CONN.row_factory = sqlite3.Row
             _CONN.execute("PRAGMA journal_mode=WAL")
             _CONN.executescript(SCHEMA)
+            _migrate(_CONN)
         return _CONN
+
+
+def _migrate(c):
+    """Columns added after a table was first created (17 Nov, plan Part 9 C6: engagements can be hidden, never
+    deleted). Old rows keep the default."""
+    have = {r[1] for r in c.execute("PRAGMA table_info(engagements)")}
+    if "hidden" not in have:
+        c.execute("ALTER TABLE engagements ADD COLUMN hidden INTEGER DEFAULT 0")
 
 
 def reset_for_tests(path):
@@ -89,6 +99,30 @@ def events_after(after_id=0, engagement_id=None, limit=200):
 # ---- conversations (what the person saw, so a past conversation can be reopened) ----------------------
 CONV_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 CONV_ITEMS, CONV_BYTES = 60, 600_000
+
+
+def link_task(cid, tid):
+    """Record that conversation `cid` started task `tid` (plan C5 and B4: "that deck" resolves to this conversation's
+    work, and the conversation's spend includes the work it started)."""
+    if cid and tid:
+        conn().execute("INSERT OR IGNORE INTO conversation_tasks VALUES (?,?,?)", (cid, tid, _now()))
+
+
+def conversation_task_ids(cid, limit=20):
+    return [r[0] for r in conn().execute(
+        "SELECT task_id FROM conversation_tasks WHERE conversation_id = ? ORDER BY created DESC LIMIT ?", (cid, limit))]
+
+
+def conversation_spend(cid):
+    """What conversation `cid` has cost: its own answers (spend labelled agent:<cid>) and the work it started."""
+    c = conn()
+    try:
+        own = c.execute("SELECT COALESCE(SUM(usd), 0) FROM spend WHERE label = ?", (f"agent:{cid}",)).fetchone()[0]
+    except sqlite3.OperationalError:          # no spend recorded yet
+        own = 0.0
+    tasks = c.execute("SELECT COALESCE(SUM(t.spent_usd), 0) FROM tasks t JOIN conversation_tasks ct ON ct.task_id = t.id "
+                      "WHERE ct.conversation_id = ?", (cid,)).fetchone()[0]
+    return round(float(own or 0) + float(tasks or 0), 4)
 
 
 def save_conversation(cid, items):
@@ -138,10 +172,12 @@ def load_conversation(cid):
 
 
 # ---- engagements -------------------------------------------------------------------------------
-def create_engagement(title, objective):
+def create_engagement(title, objective, hidden=False):
+    """`hidden` marks an engagement made by an automated check (C6): kept, searchable by id, out of the person's list."""
     eid = new_id("eng")
     with _LOCK:
-        conn().execute("INSERT INTO engagements VALUES (?,?,?,?)", (eid, title, objective, _now()))
+        conn().execute("INSERT INTO engagements (id, title, objective, created, hidden) VALUES (?,?,?,?,?)",
+                       (eid, title, objective, _now(), 1 if hidden else 0))
     os.makedirs(os.path.join(config.ENGAGEMENTS_DIR, eid, "results"), exist_ok=True)
     os.makedirs(os.path.join(config.ENGAGEMENTS_DIR, eid, "sources"), exist_ok=True)
     event("engagement_created", {"title": title}, eid)
@@ -153,8 +189,18 @@ def get_engagement(eid):
     return dict(r) if r else None
 
 
-def list_engagements():
-    return [dict(r) for r in conn().execute("SELECT * FROM engagements ORDER BY created DESC")]
+def list_engagements(include_hidden=False):
+    q = "SELECT * FROM engagements" + ("" if include_hidden else " WHERE COALESCE(hidden, 0) = 0") + " ORDER BY created DESC"
+    return [dict(r) for r in conn().execute(q)]
+
+
+def set_hidden(eid, hidden):
+    """Hide or show an engagement in the person's list. Nothing is deleted; its work stays reachable by id."""
+    with _LOCK:
+        n = conn().execute("UPDATE engagements SET hidden = ? WHERE id = ?", (1 if hidden else 0, eid)).rowcount
+    if n:
+        event("engagement_hidden" if hidden else "engagement_shown", {}, eid)
+    return bool(n)
 
 
 def workspace(eid):

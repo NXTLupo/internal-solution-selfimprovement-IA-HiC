@@ -23,7 +23,7 @@ URL_KEYS = ("url", "source_url", "link", "canonical_url", "original_url")
 
 
 def library_engagement():
-    for e in store.list_engagements():
+    for e in store.list_engagements(include_hidden=True):
         if e["title"] == LIBRARY_TITLE:
             return e["id"]
     return store.create_engagement(LIBRARY_TITLE, "Read-only copy of the existing HiC wiki, for recall and research seeding")
@@ -105,7 +105,7 @@ def seed_sources(goal, existing_ids, limit=3, pick=None):
 
     Word overlap only gathers candidates. When `pick` is given (the Research Lead passes model_pick), a model
     reads each candidate's title and opening and keeps only the pages that bear on the goal; it may keep none."""
-    eid = next((e["id"] for e in store.list_engagements() if e["title"] == LIBRARY_TITLE), None)
+    eid = next((e["id"] for e in store.list_engagements(include_hidden=True) if e["title"] == LIBRARY_TITLE), None)
     if not eid:
         return []
     terms = key_terms(goal)

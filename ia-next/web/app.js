@@ -153,6 +153,8 @@ const S = {
   busy: false, lastEvent: 0, liveBox: null,
   rated: LS.get('rated', {}),
   notes: LS.get('notes', []),
+  showHidden: !!LS.get('showHidden', false),
+  hiddenCount: 0,
   recentSig: '', engSig: '', bandSig: '',
   reports: new Map(),
 };
@@ -338,22 +340,42 @@ function tickClocks() {
 function renderRail() {
   const counts = new Map();
   for (const t of S.tasks) counts.set(t.engagement_id, (counts.get(t.engagement_id) || 0) + 1);
-  const sig = JSON.stringify([S.focus, S.engs.map((e) => [e.id, e.title, counts.get(e.id) || 0])]);
+  const sig = JSON.stringify([S.focus, S.showHidden, S.hiddenCount, S.engs.map((e) => [e.id, e.title, e.hidden, counts.get(e.id) || 0])]);
   if (sig === S.engSig) return;
   S.engSig = sig;
   const list = $('#engList');
+  // C6: engagements made by automated checks, or hidden by the person, stay out of the list until asked for
+  const toggle = S.hiddenCount ? h('li', null, h('button', {
+    class: 'englist__toggle', type: 'button', 'aria-pressed': String(!!S.showHidden),
+    onclick: () => { S.showHidden = !S.showHidden; LS.set('showHidden', S.showHidden); refreshEngagements(); },
+    text: S.showHidden ? 'Leave out hidden engagements' : `Show ${plural(S.hiddenCount, 'hidden engagement', 'hidden engagements')}`,
+  })) : null;
   if (!S.engs.length) {
-    list.replaceChildren(h('li', { class: 'englist__empty', text: 'No engagements yet. Your first request or upload starts one.' }));
+    list.replaceChildren(h('li', { class: 'englist__empty', text: 'No engagements yet. Your first request or upload starts one.' }), ...(toggle ? [toggle] : []));
     return;
   }
   list.replaceChildren(...S.engs.map((e) => {
     const n = counts.get(e.id) || 0;
-    return h('li', null, h('button', {
+    const title = e.title || 'Untitled engagement';
+    return h('li', { class: `englist__row${e.hidden ? ' englist__row--hidden' : ''}` }, h('button', {
       class: 'eng', type: 'button', 'aria-pressed': String(S.focus === e.id), 'data-eng': e.id,
       onclick: () => { setFocus(S.focus === e.id ? null : e.id); closeRail(); },
-    }, h('span', { class: 'eng__title', text: e.title || 'Untitled engagement' }),
-    h('span', { class: 'eng__meta', text: n ? plural(n, 'piece of work', 'pieces of work') : 'No work yet' })));
-  }));
+    }, h('span', { class: 'eng__title', text: title }),
+    h('span', { class: 'eng__meta', text: (e.hidden ? 'Hidden. ' : '') + (n ? plural(n, 'piece of work', 'pieces of work') : 'No work yet') })),
+    h('button', { class: 'eng__hide', type: 'button', 'aria-label': `${e.hidden ? 'Show' : 'Hide'} ${title}`,
+      text: e.hidden ? 'Show' : 'Hide', onclick: () => hideEngagement(e.id, !e.hidden) }));
+  }), ...(toggle ? [toggle] : []));
+}
+
+async function hideEngagement(eid, hidden) {
+  try {
+    await api(`/api/engagements/${encodeURIComponent(eid)}/hidden`, { method: 'POST', json: { hidden } });
+    if (hidden && S.focus === eid && !S.showHidden) setFocus(null);
+    await refreshEngagements();
+    toast(hidden ? 'Hidden from the list. Nothing was deleted.' : 'Back in the list.');
+  } catch {
+    toast('That did not work. Try again.');
+  }
 }
 
 function setFocus(eid) {
@@ -675,8 +697,12 @@ function thumbFor(t) {
   if (t.status === 'failed') { box.append(h('div', { class: 'thumb__glyph thumb__glyph--failed' }, icon(k.icon))); return box; }
   if (t.status !== 'done') { box.append(h('div', { class: 'thumb__glyph thumb__glyph--working' }, presenceEl({ state: 'working' }))); return box; }
   const view = `/api/tasks/${encodeURIComponent(t.id)}/view`;
-  if (['journey_map', 'deck', 'social'].includes(t.kind)) {
+  if (['journey_map', 'deck', 'social', 'themes'].includes(t.kind)) {
     box.append(h('iframe', { class: 'thumb__frame', src: view, sandbox: '', loading: 'lazy', tabindex: '-1', title: `${k.label} preview`, referrerpolicy: 'no-referrer' }));
+    thumbObserver.observe(box);
+  } else if (t.kind === 'artifact') {
+    // The wrapper page sandboxes HiC's document itself, as it does a prototype.
+    box.append(h('iframe', { class: 'thumb__frame', src: view, loading: 'lazy', tabindex: '-1', title: 'Document preview', referrerpolicy: 'no-referrer' }));
     thumbObserver.observe(box);
   } else if (t.kind === 'prototype') {
     // The wrapper page sandboxes the prototype itself (see the note at the top of this file).
@@ -814,7 +840,7 @@ function paintTask(el, t, opts) {
     kids.push(h('div', { class: 'task__actions' }, stopBtn));
   } else if (t.status === 'done') {
     kids.push(h('p', { class: 'task__outcome' }, h('b', { text: `${k.ready}. ` }), P.outcome(t)));
-    if (t.kind === 'research_report') kids.push(checksEl(t, opts));
+    if (t.kind === 'research_report' || t.kind === 'artifact') kids.push(checksEl(t, opts));
     if (opts.full) kids.push(actionsEl(t, opts), resultEl(t, opts));
     else kids.push(resultEl(t, opts), actionsEl(t, opts));
     kids.push(feedbackEl(t));
@@ -910,9 +936,11 @@ function resultEl(t, opts) {
         list.append(h('li', null, h('button', { class: 'btn btn--quiet', type: 'button', onclick: () => openTask(t.id) }, `See all ${all.length} findings`)));
       }
     }).catch(() => { list.replaceChildren(h('li', { class: 'finding', text: 'The findings could not be loaded.' })); });
-  } else if (['journey_map', 'deck', 'social'].includes(t.kind)) {
+  } else if (['journey_map', 'deck', 'social', 'themes'].includes(t.kind)) {
     // the version stamp makes a re-rendered deck (a brand switch) load fresh instead of from the cache
     wrap.append(h('iframe', { class: 'frame', src: `${view}?v=${encodeURIComponent(t.updated || '')}`, sandbox: '', title: k.label, loading: 'lazy', referrerpolicy: 'no-referrer' }));
+  } else if (t.kind === 'artifact') {
+    wrap.append(h('iframe', { class: 'frame', src: view, title: k.label, loading: 'lazy', referrerpolicy: 'no-referrer' }));
   } else if (t.kind === 'prototype') {
     // The wrapper page sandboxes the prototype itself (see the note at the top of this file).
     wrap.append(h('div', { class: 'framecrop' }, h('iframe', { class: 'frame', src: `${view}?embed=1`, title: 'Prototype', loading: 'lazy', referrerpolicy: 'no-referrer' })));
@@ -933,6 +961,7 @@ function sourceTitles(eid) {
 const OPEN_WORDS = {
   research_report: 'Read the full report', journey_map: 'Open the journey map', deck: 'Open the deck',
   social: 'Open the analysis', transcript: 'See all findings', prototype: 'Open the prototype full size',
+  artifact: 'Open the document', themes: 'Open the themes',
 };
 
 // Enhancement plan B7: the reviewer's verdict as one of three labels, with every check in plain words.
@@ -977,8 +1006,11 @@ function actionsEl(t, opts) {
     row.append(btn);
   }
   if (!opts.full) row.append(h('button', { class: 'btn', type: 'button', onclick: () => openTask(t.id) }, OPEN_WORDS[t.kind] || 'Open'));
-  if (['journey_map', 'deck', 'social', 'prototype'].includes(t.kind)) {
+  if (['journey_map', 'deck', 'social', 'prototype', 'artifact', 'themes'].includes(t.kind)) {
     row.append(h('a', { class: 'btn btn--quiet', href: view, target: '_blank', rel: 'noopener noreferrer' }, icon('external', 'ic--sm'), 'Open in a new tab'));
+  }
+  if (t.kind === 'artifact' && t.status === 'done') {
+    row.append(h('a', { class: 'btn btn--quiet', href: `/api/tasks/${encodeURIComponent(t.id)}/artifact/download` }, 'Download the HTML'));
   }
   return row;
 }
@@ -1309,15 +1341,42 @@ function conversationFiles() {
   return S.items.filter((i) => i.type === 'files').flatMap((i) => i.files || []);
 }
 
-function recordAttachment(name, sid, eid) {
+// One line per drop: files added together move together ("Use a new engagement for these files"). 17 Nov full pass:
+// one line per file let three documents be split into three engagements.
+function recordAttachments(added, eid) {
   const eng = S.engById.get(eid);
-  pushItem({ type: 'files', engagement: eng ? eng.title : '', files: [{ engagement_id: eid, source_id: sid, name, fresh: true }] });
+  pushItem({ type: 'files', engagement: eng ? eng.title : '',
+    files: added.map((f) => ({ engagement_id: eid, source_id: f.source_id, name: f.name, fresh: true })) });
 }
 
 function filesEl(item) {
   const names = (item.files || []).map((f) => f.name).join(', ');
-  return h('div', { class: 'msg msg--files' }, icon('clip', 'ic--sm'),
-    h('span', { text: `Attached${item.engagement ? ` to ${item.engagement}` : ''}: ${names}` }));
+  const label = h('span', { text: `Attached${item.engagement ? ` to ${item.engagement}` : ''}: ${names}` });
+  // C4: files that belong somewhere else get an engagement of their own in one click (copied; nothing is lost)
+  const move = item.files && item.files.length && !item.rehomed ? h('button', {
+    class: 'linkbtn', type: 'button', text: 'Use a new engagement for these files',
+    onclick: async () => {
+      move.disabled = true;
+      try {
+        const from = item.files[0].engagement_id;
+        const r = await api(`/api/engagements/${encodeURIComponent(from)}/uploads/new-engagement`, {
+          method: 'POST', json: { source_ids: item.files.map((f) => f.source_id) } });
+        item.files = item.files.map((f) => ({ ...f, engagement_id: r.engagement_id, source_id: r.source_ids[f.source_id] || f.source_id }));
+        item.engagement = r.title;
+        item.rehomed = true;
+        saveConversation();
+        await refreshEngagements();
+        setFocus(r.engagement_id);
+        label.textContent = `Attached to ${r.title}: ${names}`;
+        move.remove();
+        toast(`The files now have their own engagement: ${r.title}`);
+      } catch {
+        move.disabled = false;
+        toast('Could not start a new engagement for these files. Try again.');
+      }
+    },
+  }) : null;
+  return h('div', { class: 'msg msg--files' }, icon('clip', 'ic--sm'), label, move);
 }
 
 function syncAttachments() {
@@ -1360,8 +1419,7 @@ function uploadOne(file, eid) {
         chip.done(audio ? `Transcribed and added${where}` : `Added${where}`);   // C4: the person sees where the file went
         let sid = '';
         try { sid = String(JSON.parse(xhr.responseText).source_id || ''); } catch { /* the file is added; it just is not listed */ }
-        if (sid) recordAttachment(file.name, sid, eid);
-        resolve(true);
+        resolve(sid ? { name: file.name, source_id: sid } : true);
         return;
       }
       chip.fail(uploadErr(xhr.status));
@@ -1395,7 +1453,13 @@ async function addFiles(fileList) {
     }
   }
   let ok = 0;
-  for (const f of files) if (await uploadOne(f, eid)) ok++;
+  const added = [];
+  for (const f of files) {
+    const r = await uploadOne(f, eid);
+    if (r) ok++;
+    if (r && r.source_id) added.push(r);
+  }
+  if (added.length) recordAttachments(added, eid);
   if (ok) {
     setDockSuggest([{ label: 'Analyze the uploaded files in this engagement', text: 'Analyze the uploaded files in this engagement' }]);
     $('#input').focus();
@@ -1612,8 +1676,9 @@ async function paintSpend(body) {
 
 // ---- refresh -------------------------------------------------------------------------------------
 async function refreshEngagements() {
-  const r = await api('/api/engagements');
+  const r = await api(`/api/engagements${S.showHidden ? '?include_hidden=1' : ''}`);
   S.engs = r.engagements || [];
+  S.hiddenCount = Number(r.hidden_count) || 0;
   S.engById = new Map(S.engs.map((e) => [e.id, e]));
   if (S.focus && !S.engById.has(S.focus)) setFocus(null);
   renderRail();

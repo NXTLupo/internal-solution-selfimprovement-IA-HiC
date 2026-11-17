@@ -147,7 +147,7 @@ def run():
         except Exception as e:
             fails = [f"check could not run: {type(e).__name__}: {str(e)[:120]}"]
         results[t["kind"]].append({"task": t["id"], "pass": not fails, "failures": fails})
-    for e in store.list_engagements():
+    for e in store.list_engagements(include_hidden=True):
         for sub, kind in (("results/images", "image"), ("results/videos", "video")):
             d = store.safe_path(e["id"], sub)
             if os.path.isdir(d):

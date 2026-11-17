@@ -231,10 +231,14 @@ def openai_text(model, prompt, ledger: Ledger = None, system=None, max_output_to
     return text, u, d
 
 
-def gemini_generate(model, prompt, ledger: Ledger = None, system=None, search=False, json_schema=None, max_output_tokens=8192):
+def gemini_generate(model, prompt, ledger: Ledger = None, system=None, search=False, json_schema=None, max_output_tokens=8192,
+                    images=None):
     """generateContent. With search=True the google_search tool grounds the answer; the grounding
-    chunks (uri, title) and supports (text segment -> chunk indices) come back in raw."""
-    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+    chunks (uri, title) and supports (text segment -> chunk indices) come back in raw. `images` is a list of
+    (mime type, bytes) sent after the text (the prototype design review looks at screenshots, plan P5)."""
+    parts = [{"text": prompt}] + [{"inline_data": {"mime_type": m, "data": base64.b64encode(b).decode("ascii")}}
+                                  for m, b in (images or [])]
+    body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"maxOutputTokens": max_output_tokens}}
     if system:
         body["systemInstruction"] = {"parts": [{"text": system}]}

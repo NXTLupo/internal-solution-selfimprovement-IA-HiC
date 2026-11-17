@@ -91,6 +91,21 @@ a { color: var(--teal); text-underline-offset: 2px; }
 .eng__title { font-size: 13.5px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .eng__meta { font-size: 12px; color: var(--rail-muted); }
 .englist__empty { padding: 4px 8px; font-size: 13px; color: var(--rail-muted); }
+/* C6: hide or show an engagement; the control shows on hover or keyboard focus, and always on touch screens */
+.englist__row { position: relative; }
+.englist__row--hidden .eng { opacity: .65; }
+.eng__hide {
+  position: absolute; right: 6px; top: 8px; border: 1px solid var(--rail-line); background: var(--rail);
+  color: var(--rail-muted); font-size: 11.5px; padding: 2px 7px; border-radius: 3px; opacity: 0;
+}
+.englist__row:hover .eng__hide, .eng__hide:focus-visible, .englist__row:focus-within .eng__hide { opacity: 1; }
+@media (hover: none) { .eng__hide { opacity: 1; } }
+.eng__hide:hover { color: var(--rail-ink); }
+.englist__toggle {
+  width: 100%; text-align: left; border: 0; background: transparent; color: var(--rail-muted);
+  font-size: 12.5px; padding: 8px 12px; text-decoration: underline; text-underline-offset: 2px;
+}
+.englist__toggle:hover { color: var(--rail-ink); }
 
 .rail__foot { margin-top: auto; display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid var(--rail-line); }
 .railnav {
@@ -296,13 +311,19 @@ a { color: var(--teal); text-underline-offset: 2px; }
 @keyframes blink { 50% { opacity: .25; } }
 
 /* ---- conversation ------------------------------------------------------------------------------ */
+.linkbtn {
+  border: 0; background: transparent; padding: 0 2px; color: var(--ink-2); font: inherit; font-size: 13px;
+  text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+}
+.linkbtn:hover { color: var(--ink, inherit); }
+.linkbtn:disabled { opacity: .5; cursor: default; }
 .thread { max-width: calc(var(--col) + 2 * var(--gutter)); margin: 0 auto; padding: 28px var(--gutter) 32px; display: flex; flex-direction: column; gap: 30px; }
 .msg--user {
   align-self: flex-end; max-width: 82%; background: var(--mist); border-radius: var(--r); padding: 11px 16px;
   white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 1.5;
 }
 .msg--files {
-  align-self: flex-end; max-width: 82%; display: flex; gap: 8px; align-items: center;
+  align-self: flex-end; max-width: 82%; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
   font-size: 13px; line-height: 1.4; color: var(--muted, inherit); overflow-wrap: anywhere;
 }
 .msg--agent { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 14px; animation: rise .35s var(--ease) both; }

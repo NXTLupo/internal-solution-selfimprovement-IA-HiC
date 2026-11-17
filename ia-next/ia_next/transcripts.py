@@ -333,8 +333,10 @@ def analyze_transcripts(eid, objective, ledger):
     model = config.SEATS["analysis"]["primary"]
     msg = (f"Objective: {objective}\n\n{body}\n\nReturn 6 to 16 findings that answer the objective, drawn from every source "
            "that carries relevant evidence.")
-    text, _, _ = providers.claude(model, ANALYST_SYSTEM, [{"role": "user", "content": msg}], ledger,
-                                  max_tokens=16000, effort="medium", json_schema=TRANSCRIPT_FINDINGS_SCHEMA)
+    from . import skills                     # the governed Transcript Analyst skill (plan P7)
+    skills.record_prompt(eid, getattr(ledger, "task_id", ""), "transcript_analyst", model, msg, 16000, "medium")
+    text, _, _ = providers.claude(model, skills.active_text("transcript_analyst", ANALYST_SYSTEM), [{"role": "user", "content": msg}],
+                                  ledger, max_tokens=16000, effort="medium", json_schema=TRANSCRIPT_FINDINGS_SCHEMA)
     data = providers.parse_json(text)
     kept, dropped, cleared = check_findings(data.get("findings"), uploads)
     off_objective = False
@@ -344,7 +346,7 @@ def analyze_transcripts(eid, objective, ledger):
         # failed with a misleading message. One more pass reports what the files do contain, labelled as such.
         retry = (f"The person asked: {objective}\nThe files below do not seem to answer that. Extract the findings these "
                  f"files DO support (their main themes), with verbatim quotes.\n\n{body}\n\nReturn 4 to 10 findings.")
-        text, _, _ = providers.claude(model, ANALYST_SYSTEM, [{"role": "user", "content": retry}], ledger,
+        text, _, _ = providers.claude(model, skills.active_text("transcript_analyst", ANALYST_SYSTEM), [{"role": "user", "content": retry}], ledger,
                                       max_tokens=16000, effort="medium", json_schema=TRANSCRIPT_FINDINGS_SCHEMA)
         kept, dropped, cleared = check_findings(providers.parse_json(text).get("findings"), uploads)
         off_objective = bool(kept)

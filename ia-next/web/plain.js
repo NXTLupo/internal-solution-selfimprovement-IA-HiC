@@ -26,6 +26,14 @@ export const KINDS = {
     label: 'Prototype', noun: 'This prototype', ready: 'Prototype ready', icon: 'prototype',
     steps: ['Prototyper'],
   },
+  artifact: {
+    label: 'Document', noun: 'This document', ready: 'Document ready', icon: 'report',
+    steps: ['Artifact Studio (HiC)', 'Verifier'],
+  },
+  themes: {
+    label: 'Themes', noun: 'These themes', ready: 'Themes ready', icon: 'social',
+    steps: ['Theme Analyst (HiC topic model)'],
+  },
 };
 
 export function kindOf(kind) {
@@ -44,11 +52,15 @@ export const STEP_INFO = {
   'Transcript Analyst': { does: 'Reads your files for quoted findings', part: 'The file-reading step' },
   Prototyper: { does: 'Builds and checks the clickable page', part: 'The building step' },
   'Media Producer': { does: 'Makes images and short video', part: 'The media step' },
+  'Artifact Studio (HiC)': { does: "Writes the document with HiC's artifact studio", part: "HiC's writing step" },
+  Verifier: { does: 'A model from another vendor scores it against the sources', part: 'The review step' },
+  'Theme Analyst (HiC topic model)': { does: 'Clusters the passages and names each theme with a quote', part: 'The theme step' },
 };
 
 // The studio roster shown on the home page.
 export const ROSTER = ['Brief Lead', 'Research Lead', 'Analyst', 'Writer and Verifier', 'Journey Cartographer',
-  'Deck Composer', 'Social Collector', 'Social Analyst', 'Transcript Analyst', 'Prototyper', 'Media Producer'];
+  'Deck Composer', 'Social Collector', 'Social Analyst', 'Transcript Analyst', 'Prototyper', 'Media Producer',
+  'Artifact Studio (HiC)', 'Theme Analyst (HiC topic model)'];
 
 // ---- states ----------------------------------------------------------------------------------------
 export function stepState(node, taskStatus) {
@@ -83,7 +95,7 @@ export function taskTitle(task, eng) {
   const engTitle = clean(eng && eng.title);
   const fromBrief = {
     research_report: b.goal, journey_map: b.persona, deck: b.audience, social: b.query && `Reddit: ${b.query}`,
-    transcript: b.objective, prototype: b.experience,
+    transcript: b.objective, prototype: b.experience, artifact: b.goal, themes: b.goal,
   }[task.kind];
   return engTitle || clean(fromBrief) || kindOf(task.kind).label;
 }
@@ -199,6 +211,16 @@ export function outcome(task) {
       const f = num(s, /built from (\d+) findings?/);
       return f != null ? `A clickable page built from ${plural(f, 'finding')}, checked before it was saved.` : 'A clickable page, checked before it was saved.';
     }
+    case 'artifact': {
+      const src = num(s, /from (\d+) sources?/), miss = num(s, /(\d+) quoted passages? not found/);
+      if (src == null) break;
+      return `Written from ${plural(src, 'source')}${miss ? `; ${plural(miss, 'quoted passage')} could not be found in the sources` : ', every quoted passage found in its source'}.`;
+    }
+    case 'themes': {
+      const th = num(s, /(\d+) themes?/), q = num(s, /(\d+) with a verbatim quote/);
+      if (th == null) break;
+      return `${plural(th, 'theme')} found in the material${q != null ? `, ${plural(q, 'theme')} with a quote checked against its passage` : ''}.`;
+    }
     default: break;
   }
   return 'Ready to open.';
@@ -245,6 +267,8 @@ export function retryRequest(task) {
     case 'social': return `Run the Reddit analysis again for "${clean(b.query)}"${(b.subreddits || []).length ? ` in ${b.subreddits.map((s) => 'r/' + s).join(', ')}` : ''}.`;
     case 'transcript': return `Analyze the uploaded files in this engagement again: ${clean(b.objective)}`;
     case 'prototype': return `Build this prototype again: ${clean(b.experience)}`;
+    case 'artifact': return `Make this ${clean(b.kind) || 'document'} again: ${clean(b.goal)}`;
+    case 'themes': return `Find the themes in this engagement again: ${clean(b.goal)}`;
     default: return 'Please run that again.';
   }
 }
@@ -284,6 +308,14 @@ export function nextAfterTask(task) {
     case 'prototype': return [
       { label: 'Make a cover image', text: 'Make a cover image that shows this experience in use.' },
       { label: 'Try a simpler version', text: 'Build a second version of this prototype with a simpler first screen.' },
+    ];
+    case 'artifact': return [
+      { label: 'Make a deck', text: `Make a deck from the same material for ${aud}.` },
+      { label: 'Find the themes', text: 'Find the themes in the material of this engagement.' },
+    ];
+    case 'themes': return [
+      { label: 'Make a deck', text: 'Make a deck from these themes and the material behind them.' },
+      { label: 'Write recommendations', text: 'Write prioritized recommendations from this material. #recs' },
     ];
     default: return [];
   }
@@ -328,6 +360,8 @@ const TOOL_WORDS = {
   start_social_analysis: ['Started Reddit listening', 'Could not start Reddit listening'],
   analyze_uploads: ['Started reading your files', 'Could not read your files'],
   start_prototype: ['Started a prototype', 'Could not start the prototype'],
+  start_artifact: ["Started a document in HiC's artifact studio", 'Could not start the document'],
+  start_themes: ['Started finding the themes', 'Could not start finding the themes'],
   generate_image: ['Made an image', 'Could not make the image'],
   generate_video: ['Made a video', 'Could not make the video'],
   task_status: ['Checked progress', 'Could not check progress'],
@@ -374,7 +408,7 @@ function article(label) { return (/^[aeiou]/i.test(label) ? 'an ' : 'a ') + labe
 const TOOL_NAMES = {
   start_research_report: 'a research report', start_social_analysis: 'Reddit listening', start_journey_map: 'a journey map',
   start_deck: 'a deck', start_prototype: 'a prototype', analyze_uploads: 'an analysis of your files',
-  generate_image: 'an image', generate_video: 'a video',
+  generate_image: 'an image', generate_video: 'a video', start_artifact: 'a document', start_themes: 'themes',
 };
 
 export function approvalText(a, threshold) {
