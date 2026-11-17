@@ -275,3 +275,14 @@ def test_research_outputs_stay_with_their_task_and_publish_only_on_success(monke
     assert open(t2["result_path"], encoding="utf-8").read().startswith("# Second report")
     assert open(store.safe_path(eid, "results/report.md"), encoding="utf-8").read().startswith("# Second report")
     assert [s["id"] for s in _json.load(open(store.safe_path(eid, "results/sources.json")))["sources"]] == ["S1", "S2"]
+
+
+def test_a_cited_sources_title_is_a_reference_not_a_naked_number():
+    """16 Nov audit: the writer spelled years out inside titles ("HR Tech twenty twenty-six") to get past the bare-number
+    rule. A cited source's own title is a reference; the writer's own figures are still caught."""
+    sources = [{"id": "S1", "title": "Top 50 Retained Search Firms 2026", "url": "https://e.com/a", "text": "x"}]
+    clean = "Partners rely on the Top 50 Retained Search Firms 2026 ranking when they shortlist [S1]."
+    assert not [f for f in verify.deterministic(clean, sources) if f["rule"] == "naked-number"]
+    claim = "Partners shortlist 50 firms on average according to the Top 50 Retained Search Firms 2026 ranking [S1]."
+    assert [f for f in verify.deterministic(claim, sources) if f["rule"] == "naked-number"]
+    assert "never HR Tech twenty twenty-six" in studio.WRITER_SYSTEM

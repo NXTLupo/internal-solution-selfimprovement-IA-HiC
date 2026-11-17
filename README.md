@@ -378,7 +378,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 162 tests, all passing.
+On 17 November 2026: 163 tests, all passing.
 
 ### Back up and restore your data
 

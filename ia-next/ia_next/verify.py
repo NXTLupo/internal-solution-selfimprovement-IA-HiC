@@ -61,6 +61,12 @@ def deterministic(text, sources):
     # references, not claims (a live run flagged a filing URL's digits).
     body = re.split(r"(?im)^#{1,6}\s*sources\s*$", text)[0]
     stripped = re.sub(r"https?://\S+", " ", QUOTE_RE.sub(" ", body))
+    # A cited source's own title is a reference too ("HR Tech 2026", "Top 50 Search Firms"): its digits are not the
+    # writer's claim (16 Nov audit: the writer spelled years out inside titles to dodge this rule).
+    for s in sources:
+        title = " ".join(str(s.get("title") or "").split())
+        if len(title) >= 8 and re.search(r"\d", title):
+            stripped = re.sub(re.escape(title), " ", stripped, flags=re.I)
     for line in stripped.split("\n"):
         if line.lstrip().startswith("#"):
             continue
