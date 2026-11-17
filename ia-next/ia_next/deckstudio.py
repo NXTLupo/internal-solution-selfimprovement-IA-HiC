@@ -269,6 +269,33 @@ def _fit(text, base, cap):
     return max(base - 6, min(base, int(base * (cap / n) ** 0.5))) if n > cap else base
 
 
+def _wrap_lines(text, per_line):
+    """Lines a paragraph takes when word-wrapped at per_line characters."""
+    lines = 0
+    for para in str(text or "").splitlines() or [""]:
+        lines += 1
+        cur = 0
+        for word in para.split():
+            need = len(word) if cur == 0 else cur + 1 + len(word)
+            if need > per_line and cur:
+                lines += 1
+                cur = len(word)
+            else:
+                cur = need
+    return max(1, lines)
+
+
+def _fit_box(text, w, h, base, floor=None, spacing=1.2):
+    """The largest size from base down to floor at which text, word-wrapped at the brand's body-face width, fits a
+    w by h inch text box (0.1 inch side insets, 0.05 top and bottom)."""
+    floor = floor or base - 5
+    for size in range(base, floor - 1, -1):
+        per_line = max(6, int((w - 0.2) / (D.BODY_WIDTH * size)))
+        if _wrap_lines(text, per_line) * size * spacing / 72 <= h - 0.1:
+            return size
+    return floor
+
+
 def _txt(slide, x, y, w, h, name, lines, size, color, bold=False, italic=False, face=None, anchor=None, align=None, space=4):
     _, tf = D._textbox(slide, x, y, w, h, name, anchor)
     for i, line in enumerate(lines):
@@ -325,6 +352,136 @@ def _photo(slide, path, x, y, w, h):
     return pic
 
 
+# ---- the brand mark ------------------------------------------------------------------------------------
+_PATH_TOKEN = re.compile(r"[MmLlHhVvCcSsQqZz]|[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?")
+
+
+def svg_contours(d, steps=10):
+    """SVG path data to closed polylines (lists of (x, y) points), with cubic and quadratic curves flattened. Covers
+    the commands the brand-token vectors use (M L H V C S Q Z, absolute and relative)."""
+    toks = _PATH_TOKEN.findall(d or "")
+    out, cur, i, cmd = [], [], 0, None
+    x = y = sx = sy = 0.0
+    last_ctrl = None
+
+    def num():
+        nonlocal i
+        v = float(toks[i])
+        i += 1
+        return v
+
+    def close():
+        nonlocal cur
+        if len(cur) > 2:
+            out.append(cur)
+        cur = []
+
+    while i < len(toks):
+        if toks[i].isalpha():
+            cmd = toks[i]
+            i += 1
+            if cmd in "Zz":
+                close()
+                x, y = sx, sy
+                last_ctrl = None
+                continue
+        if cmd is None:
+            break
+        rel = cmd.islower()
+        c = cmd.upper()
+        ox, oy = (x, y) if rel else (0.0, 0.0)
+        if c == "M":
+            close()
+            x, y = ox + num(), oy + num()
+            sx, sy = x, y
+            cur = [(x, y)]
+            cmd = "l" if rel else "L"          # further pairs after a moveto are line-tos
+            last_ctrl = None
+        elif c == "L":
+            x, y = ox + num(), oy + num()
+            cur.append((x, y))
+            last_ctrl = None
+        elif c == "H":
+            x = ox + num()
+            cur.append((x, y))
+            last_ctrl = None
+        elif c == "V":
+            y = oy + num()
+            cur.append((x, y))
+            last_ctrl = None
+        elif c in "CS":
+            if c == "C":
+                x1, y1 = ox + num(), oy + num()
+            else:
+                x1, y1 = (2 * x - last_ctrl[0], 2 * y - last_ctrl[1]) if last_ctrl else (x, y)
+            x2, y2, x3, y3 = ox + num(), oy + num(), ox + num(), oy + num()
+            for k in range(1, steps + 1):
+                t = k / steps
+                m = 1 - t
+                cur.append((m ** 3 * x + 3 * m * m * t * x1 + 3 * m * t * t * x2 + t ** 3 * x3,
+                            m ** 3 * y + 3 * m * m * t * y1 + 3 * m * t * t * y2 + t ** 3 * y3))
+            x, y, last_ctrl = x3, y3, (x2, y2)
+        elif c == "Q":
+            x1, y1, x2, y2 = ox + num(), oy + num(), ox + num(), oy + num()
+            for k in range(1, steps + 1):
+                t = k / steps
+                m = 1 - t
+                cur.append((m * m * x + 2 * m * t * x1 + t * t * x2, m * m * y + 2 * m * t * y1 + t * t * y2))
+            x, y, last_ctrl = x2, y2, None
+        else:
+            break
+    close()
+    return out
+
+
+def brand_mark_size(h_mono, h_word):
+    """Height and width in inches for the brand mark: a near-square monogram sits taller than a long wordmark."""
+    lg = D.LOGO
+    if not lg:
+        return 0.0, 0.0
+    vb = lg["viewbox"]
+    aspect = vb[2] / vb[3]
+    h = h_mono if aspect < 2 else h_word
+    return h, h * aspect
+
+
+def _brand_mark(slide, x, y, h, dark):
+    """The brand's own mark, drawn from the token vector as one native PowerPoint freeform (sharp at any size and
+    editable): NU's red N, the NXT HUMANS wordmark. Returns the width drawn, 0 when the brand has no vector mark."""
+    lg = D.LOGO
+    if not lg:
+        return 0.0
+    vb = lg["viewbox"]
+    scale = Inches(h) / vb[3]
+    contours = [c for d in lg["paths"] for c in svg_contours(d)]
+    if not contours:
+        return 0.0
+    first = contours[0]
+    fb = slide.shapes.build_freeform(first[0][0], first[0][1], scale=scale)
+    fb.add_line_segments(first[1:], close=True)
+    for c in contours[1:]:
+        fb.move_to(*c[0])
+        fb.add_line_segments(c[1:], close=True)
+    shp = fb.convert_to_shape(Inches(x) - int(vb[0] * scale), Inches(y) - int(vb[1] * scale))
+    shp.name = "Brand mark"
+    shp.fill.solid()
+    shp.fill.fore_color.rgb = D._rgb(lg["dark"] if dark else lg["light"])
+    shp.line.fill.background()
+    shp.shadow.inherit = False
+    return h * vb[2] / vb[3]
+
+
+def brand_mark_svg(cls, dark):
+    import html as H
+    lg = D.LOGO
+    if not lg:
+        return ""
+    vb = " ".join(f"{v:g}" for v in lg["viewbox"])
+    fill = lg["dark"] if dark else lg["light"]
+    paths = "".join(f'<path d="{H.escape(p)}" fill="#{fill}"/>' for p in lg["paths"])
+    return f'<svg class="{cls}" viewBox="{vb}" role="img" aria-label="{H.escape(D.BRAND_NAME)}">{paths}</svg>'
+
+
 def _frame_marks(slide, dark=False):
     """A light drafting-frame finish: small registration ticks in the four corners (from the Gemini reference)."""
     col = "3A3A3A" if dark else D.LIGHT
@@ -340,7 +497,7 @@ def _header(slide, s, title_w=11.55):
         _txt(slide, 0.9, 0.34, 8, 0.32, "Kicker", [s["kicker"]], 12, D.CYAN, bold=True, space=0)
     n = len(s["title"])
     size = 30 if n <= 60 else 26 if n <= 75 else 24
-    lines = max(1, math.ceil(n * size * 0.0052 / title_w))        # condensed display face (measured in a render)
+    lines = max(1, math.ceil(n * size * D.TITLE_WIDTH / title_w))  # the brand's title face, measured in renders
     h = lines * size / 72 * 1.18 + 0.1
     D._set_title(slide, s["title"], 0.9, 0.64, title_w, h, size, D.RAIL, MSO_ANCHOR.TOP)
     if s["subtitle"]:
@@ -358,10 +515,10 @@ def _takeaway(slide, text, y=6.12, x=0.9):
     p.alignment = PP_ALIGN.LEFT
     r = p.add_run()
     r.text = "SO WHAT  "
-    D._font(r, D.BODY_FONT, 11, D.RAIL, bold=True, panose=D.PANOSE_ARIAL)
+    D._font(r, D.BODY_FONT, 11, D.ON_ACCENT, bold=True, panose=D.PANOSE_ARIAL)
     r = p.add_run()
     r.text = text
-    D._font(r, D.BODY_FONT, _fit(text, 15, 110), D.RAIL, bold=True, panose=D.PANOSE_ARIAL)
+    D._font(r, D.BODY_FONT, _fit(text, 15, 110), D.ON_ACCENT, bold=True, panose=D.PANOSE_ARIAL)
 
 
 def _footer(slide, n, text, dark, x=0.9):
@@ -389,10 +546,10 @@ def _cover(slide, s, deck_kicker):
     else:
         D._rect(slide, 9.4, 0, 3.933, 7.5, D.TEAL, "Panel")
     if deck_kicker:
-        _txt(slide, 0.9, 1.3, text_w, 0.4, "Kicker", [D._scrub(deck_kicker).upper()[:90]], 12, D.CYAN, bold=True, space=0)
+        _txt(slide, 0.9, 1.3, text_w, 0.4, "Kicker", [D._scrub(deck_kicker).upper()[:90]], 12, D.KICKER_ON_DARK, bold=True, space=0)
     D._rect(slide, 0.9, 1.85, 1.6, 0.09, D.ACCENT, "Accent rule")
     size = 40 if len(s["title"]) <= 60 else 34
-    h = max(1, math.ceil(len(s["title"]) * size * 0.0052 / text_w)) * size / 72 * 1.15 + 0.15
+    h = max(1, math.ceil(len(s["title"]) * size * D.TITLE_WIDTH / text_w)) * size / 72 * 1.15 + 0.15
     D._set_title(slide, s["title"], 0.9, 2.1, text_w, h, size, D.PAPER, MSO_ANCHOR.TOP)
     if s["subtitle"]:
         y = 2.1 + h + 0.3
@@ -414,7 +571,7 @@ def _statement(slide, s):
     y = 2.45
     if s["subtitle"]:
         size = _fit(s["subtitle"], 26 if has_photo else 30, 150)
-        lines = max(1, math.ceil(len(s["subtitle"]) * size * 0.0054 / w))
+        lines = max(1, math.ceil(len(s["subtitle"]) * size * D.TITLE_WIDTH * 1.04 / w))
         h = min(2.8, lines * size / 72 * 1.2 + 0.15)
         # the statement is the team's own claim, so it is never dressed in quotation marks (those mean a source said it)
         text = s["subtitle"].strip("“”\"")
@@ -437,7 +594,7 @@ def _cards(slide, s):
         _txt(slide, cx + 0.25, TOP + 0.15, w - 0.5, 0.75, f"Card {i + 1} number", [f"{i + 1:02d}"], 34, D.TEAL, bold=True, face=D.DISPLAY_FONT, space=0)
         _txt(slide, cx + 0.25, TOP + 0.9, w - 0.5, 0.9, f"Card {i + 1} heading", [c["heading"]], 17 if w > 3 else 15, D.RAIL, bold=True, space=0)
         _txt(slide, cx + 0.25, TOP + 1.8, w - 0.5, BOTTOM - TOP - 1.9, f"Card {i + 1} body", [c["body"]],
-             _fit(c["body"], 14 if w > 3 else 13, 110 if w > 3 else 90), D.INK)
+             _fit_box(c["body"], w - 0.5, BOTTOM - TOP - 1.9, 14 if w > 3 else 13), D.INK)
 
 
 def _layers(slide, s):
@@ -446,7 +603,7 @@ def _layers(slide, s):
     n = len(s["layers"])
     gap = 0.1
     h = (BOTTOM - TOP - gap * (n - 1)) / n
-    fills = [D.RAIL, D.TEAL, "1D6E64", "3F7F7A", "6A9894"][:n]
+    fills = list(D.LAYER_RAMP)[:n]
     for i, ly in enumerate(s["layers"]):
         frac = 0.62 + 0.38 * (i / max(1, n - 1))
         w = width * frac
@@ -510,7 +667,7 @@ def _flow(slide, s):
         _shape(slide, MSO_SHAPE.RECTANGLE, px, TOP + 1.1, pw, BOTTOM - TOP - 1.1, D.BAND, f"Step {i + 1} panel")
         _txt(slide, px + 0.22, TOP + 1.22, pw - 0.44, 0.75, f"Step {i + 1} number", [f"{i + 1:02d}"], 28, D.TEAL, bold=True, face=D.DISPLAY_FONT, space=0)
         _txt(slide, px + 0.22, TOP + 1.9, pw - 0.44, BOTTOM - TOP - 2.0, f"Step {i + 1} detail", [st["body"]],
-             _fit(st["body"], 15 if n <= 4 else 13, 110), D.INK)
+             _fit_box(st["body"], pw - 0.44, BOTTOM - TOP - 2.0, 15 if n <= 4 else 13), D.INK)
 
 
 def _architecture(slide, s):
@@ -599,7 +756,7 @@ def write_pptx(slides, sources, path, deck_title, deck_kicker):
             _statement(slide, s)
         elif L == "closing":
             if s["kicker"]:
-                _txt(slide, 0.9, 0.6, 8, 0.35, "Kicker", [s["kicker"]], 12, D.ACCENT, bold=True, space=0)
+                _txt(slide, 0.9, 0.6, 8, 0.35, "Kicker", [s["kicker"]], 12, D.CLOSING_KICKER, bold=True, space=0)
             D._set_title(slide, s["title"], 0.9, 0.95, 11.5, 1.2, 32, D.PAPER, MSO_ANCHOR.TOP)
             if s["subtitle"]:
                 _txt(slide, 0.9, 2.15, 11.5, 0.7, "Subtitle", [s["subtitle"]], 16, D.LIGHT, space=0)
@@ -618,6 +775,12 @@ def write_pptx(slides, sources, path, deck_title, deck_kicker):
             _footer(slide, n, f"Sources: {cited}" if cited else "", dark, x_text)
         if L not in ("cover", "statement"):
             _frame_marks(slide, dark)
+        if L == "cover":
+            h, _ = brand_mark_size(0.5, 0.32)
+            _brand_mark(slide, 0.9, 0.55, h, True)
+        else:
+            h, w = brand_mark_size(0.34, 0.22)
+            _brand_mark(slide, 12.45 - w, 0.26, h, dark)
         slide.notes_slide.notes_text_frame.text = D.notes_for(s, sources, all_sources=(L == "cover"))
     prs.save(path)
 
@@ -637,7 +800,7 @@ def verify_pptx(path, titles):
         elif s.shapes.index(t) != 0:
             problems.append(f"slide {i} title is not the first shape")
         for sh in s.shapes:
-            if sh.shape_type not in allowed:
+            if sh.shape_type not in allowed and not (sh.shape_type == MSO_SHAPE_TYPE.FREEFORM and sh.name == "Brand mark"):
                 problems.append(f"slide {i} has a {sh.shape_type} object")
             if sh.shape_type == MSO_SHAPE_TYPE.PICTURE and sh.name != "Photo":
                 problems.append(f"slide {i} has a picture outside an image panel")
@@ -712,41 +875,44 @@ def render_html(deck_title, slides, sources, deck_kicker):
                     f'<p class="subt">{e(s["subtitle"])}</p><div class="body{" withside" if side else ""}">{inner}{side}</div>{take}</div>')
         cited = "; ".join(label(by_id[c]) for c in s["cites"] if c in by_id)
         refs = "".join(f"<li>[{e(c)}] {e(label(by_id[c]))}</li>" for c in s["cites"] if c in by_id) or "<li>none cited on this slide</li>"
-        arts.append(f'<article><section class="slide {L}">{body}<footer><span>{("Sources: " + e(cited)) if cited and L != "cover" else ""}</span>'
+        mark = brand_mark_svg("mark", L in ("cover", "closing"))
+        arts.append(f'<article><section class="slide {L}">{body}{mark}<footer><span>{("Sources: " + e(cited)) if cited and L != "cover" else ""}</span>'
                     f'<span>{n}</span></footer></section><details><summary>Speaker notes and sources</summary><p>{e(s["notes"])}</p><ol>{refs}</ol></details></article>')
+    ramp_css = " ".join(".ly:nth-child(%d){background:#%s}" % (i + 1, c) for i, c in enumerate(D.LAYER_RAMP))
     css = f"""
-:root{{--rail:#{D.RAIL};--accent:#{D.ACCENT};--teal:#{D.TEAL};--cyan:#{D.CYAN};--ink:#{D.INK};--muted:#{D.MUTED};--light:#{D.LIGHT};--paper:#{D.PAPER};--band:#{D.BAND}}}
-*{{box-sizing:border-box}} body{{margin:0;padding:24px 16px;background:#EDEDE8;color:var(--ink);font-family:Archivo,Arial,sans-serif}}
-h1{{max-width:1100px;margin:0 auto 18px;font:600 20px Archivo,Arial,sans-serif}} .deck{{max-width:1100px;margin:0 auto;display:grid;gap:28px}}
+:root{{--onaccent:#{D.ON_ACCENT};--rail:#{D.RAIL};--accent:#{D.ACCENT};--teal:#{D.TEAL};--cyan:#{D.CYAN};--ink:#{D.INK};--muted:#{D.MUTED};--light:#{D.LIGHT};--paper:#{D.PAPER};--band:#{D.BAND}}}
+*{{box-sizing:border-box}} body{{margin:0;padding:24px 16px;background:#EDEDE8;color:var(--ink);font-family:"{D.BODY_FONT}",Arial,sans-serif}}
+h1{{max-width:1100px;margin:0 auto 18px;font:600 20px "{D.BODY_FONT}",Arial,sans-serif}} .deck{{max-width:1100px;margin:0 auto;display:grid;gap:28px}}
 .slide{{container-type:inline-size;position:relative;aspect-ratio:16/9;background:var(--paper);overflow:hidden;border-left:2.4cqw solid var(--rail)}}
 .main{{position:absolute;inset:2.6cqw 4.5cqw 5cqw 4cqw;display:grid;grid-template-rows:auto auto auto 1fr auto;gap:.5cqw}}
-.kick{{color:var(--cyan);font-weight:700;font-size:1.05cqw;letter-spacing:.1em}} h2{{margin:0;font:700 2.6cqw/1.1 "Saira Condensed","Arial Narrow",sans-serif;color:var(--rail)}}
+.kick{{color:var(--cyan);font-weight:700;font-size:1.05cqw;letter-spacing:.1em}} h2{{margin:0;font:700 2.6cqw/1.1 "{D.DISPLAY_FONT}","Arial Narrow",sans-serif;color:var(--rail)}}
 .subt{{margin:0 0 .6cqw;color:var(--muted);font-size:1.25cqw;line-height:1.35}} .rule{{display:block;width:9cqw;height:.45cqw;background:var(--accent);margin:.6cqw 0 1cqw}}
 .body{{min-height:0;font-size:1.4cqw;line-height:1.35}} .body.withside{{display:grid;grid-template-columns:1fr 26%;gap:2cqw}}
 .side{{overflow:hidden}} .side img{{width:100%;height:100%;object-fit:cover;display:block}}
-.take{{background:var(--accent);color:var(--rail);font-weight:700;font-size:1.3cqw;padding:.9cqw 1.8cqw}} .take b{{font-size:1cqw;margin-right:1cqw}}
+.take{{background:var(--accent);color:var(--onaccent);font-weight:700;font-size:1.3cqw;padding:.9cqw 1.8cqw}} .take b{{font-size:1cqw;margin-right:1cqw}}
 .cards{{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1.8cqw;height:100%}} .card{{background:var(--band);border-top:.5cqw solid var(--accent);padding:1.4cqw 1.8cqw}}
-.card b{{font:700 3cqw "Saira Condensed",sans-serif;color:var(--teal)}} .card h3{{margin:.4cqw 0;font-size:1.5cqw}} .card p{{margin:0;font-size:1.2cqw}}
+.card b{{font:700 3cqw "{D.DISPLAY_FONT}",sans-serif;color:var(--teal)}} .card h3{{margin:.4cqw 0;font-size:1.5cqw}} .card p{{margin:0;font-size:1.2cqw}}
 .layers{{display:grid;gap:.6cqw;justify-items:center;height:100%;align-content:stretch}} .ly{{background:var(--teal);color:var(--paper);display:grid;align-content:center;text-align:center;padding:.6cqw 2cqw}}
-.ly:first-child{{background:var(--rail)}} .ly b{{font:700 1.8cqw "Saira Condensed",sans-serif}} .ly span{{font-size:1.1cqw;color:var(--light)}}
+.ly:first-child{{background:var(--rail)}} {ramp_css} .ly b{{font:700 1.8cqw "{D.DISPLAY_FONT}",sans-serif}} .ly span{{font-size:1.1cqw;color:var(--light)}}
 table{{width:100%;border-collapse:collapse;font-size:1.15cqw}} th{{background:var(--teal);color:var(--paper);text-align:left;padding:.7cqw 1cqw}}
 td{{padding:.7cqw 1cqw;vertical-align:top}} tr:nth-child(even) td{{background:var(--band)}} td:first-child{{font-weight:700;color:var(--rail)}}
 .flow{{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:.6cqw;height:100%}} .chev{{background:var(--teal);color:var(--paper);font-weight:700;padding:1.4cqw 2cqw;clip-path:polygon(0 0,90% 0,100% 50%,90% 100%,0 100%,10% 50%)}}
 .step:first-child .chev{{clip-path:polygon(0 0,90% 0,100% 50%,90% 100%,0 100%)}} .step:last-child .chev{{background:var(--rail)}} .sp{{background:var(--band);margin-top:.8cqw;padding:1cqw 1.4cqw;height:calc(100% - 6cqw)}}
-.sp b{{font:700 2.2cqw "Saira Condensed",sans-serif;color:var(--teal)}} .sp p{{font-size:1.15cqw;margin:.4cqw 0 0}}
+.sp b{{font:700 2.2cqw "{D.DISPLAY_FONT}",sans-serif;color:var(--teal)}} .sp p{{font-size:1.15cqw;margin:.4cqw 0 0}}
 .arch{{display:grid;grid-template-columns:3.3fr .7fr 3.1fr .7fr 3fr;align-items:center;height:100%}} .lab{{font-size:.85cqw;font-weight:700;color:var(--muted);margin-bottom:.5cqw}}
 .node{{border:1px solid var(--teal);padding:.5cqw 1cqw;margin-bottom:.4cqw;display:grid}} .node b{{font-size:1.1cqw}} .node span{{font-size:.9cqw;color:var(--muted)}}
 .views .node{{background:var(--rail);color:var(--paper)}} .views .node span{{color:var(--light)}} .arr{{color:var(--accent);font-size:3cqw;text-align:center}}
-.core{{background:var(--teal);color:var(--paper);padding:2cqw;display:grid;gap:.8cqw;min-height:20cqw;align-content:center}} .core b{{font:700 2cqw "Saira Condensed",sans-serif}}
+.core{{background:var(--teal);color:var(--paper);padding:2cqw;display:grid;gap:.8cqw;min-height:20cqw;align-content:center}} .core b{{font:700 2cqw "{D.DISPLAY_FONT}",sans-serif}}
 .qs{{display:grid;grid-template-columns:7fr 4fr;gap:2.5cqw;height:100%}} blockquote{{margin:0;background:var(--teal);color:var(--paper);padding:2.5cqw;font-style:italic;font-size:1.8cqw;display:grid;align-content:center}}
 cite{{font-style:normal;font-weight:700;font-size:1cqw;color:var(--light);margin-top:1cqw}}
 .cover,.statement{{border-left:0}} .cover{{background:var(--rail);display:grid;grid-template-columns:55% 45%}} .covtext{{padding:9cqw 4cqw 0 6.5cqw}}
-.cover .kick{{color:var(--cyan)}} .cover h2{{color:var(--paper);font-size:3.6cqw}} .cover .sub{{color:var(--light);font-size:1.5cqw}}
+.cover .kick{{color:#{D.KICKER_ON_DARK}}} .cover h2{{color:var(--paper);font-size:3.6cqw}} .cover .sub{{color:var(--light);font-size:1.5cqw}}
 .ph{{background:var(--teal);overflow:hidden}} .ph img{{width:100%;height:100%;object-fit:cover;display:block}}
-.statement{{display:grid;grid-template-columns:38% 62%}} .sttext{{padding:4cqw 4cqw 0 3.5cqw}} .stmt{{font:700 2.3cqw/1.2 "Saira Condensed",sans-serif;color:var(--teal)}} .sttext p{{font-size:1.25cqw}}
-.closing{{background:var(--teal);border-left:0}} .closing h2,.closing .body,.closing .subt{{color:var(--paper)}} .closing .kick{{color:var(--accent)}}
+.statement{{display:grid;grid-template-columns:38% 62%}} .sttext{{padding:4cqw 4cqw 0 3.5cqw}} .stmt{{font:700 2.3cqw/1.2 "{D.DISPLAY_FONT}",sans-serif;color:var(--teal)}} .sttext p{{font-size:1.25cqw}}
+.closing{{background:var(--teal);border-left:0}} .closing h2,.closing .body,.closing .subt{{color:var(--paper)}} .closing .kick{{color:#{D.CLOSING_KICKER}}}
 footer{{position:absolute;left:4cqw;right:3cqw;bottom:1.2cqw;display:flex;justify-content:space-between;font-size:.8cqw;color:var(--muted)}}
-.cover footer,.closing footer{{color:var(--light)}} details{{font-size:13px;margin-top:6px}}"""
+.cover footer,.closing footer{{color:var(--light)}} .mark{{position:absolute;top:1.5cqw;right:3.3cqw;height:2.4cqw;width:auto}}
+.cover .mark{{top:4cqw;left:6.5cqw;right:auto;height:3.6cqw}} details{{font-size:13px;margin-top:6px}}"""
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{e(deck_title)}</title><style>{css}</style></head><body><h1>{e(deck_title)}</h1><div class="deck">{"".join(arts)}</div></body></html>')
 
@@ -792,15 +958,19 @@ def build(eid, brief, tid, ledger):
         checks.append({"rule": "outline", "detail": f"{len(slides) - 1} slides after the cover for {len(outline)} outline items"})
     checks += [{"rule": "image", "detail": f"slide {i + 1}: {s['image_error']}"} for i, s in enumerate(slides) if s.get("image_error")]
     pptx_path = os.path.join(outdir, "deck.pptx")
-    write_pptx(slides, sources, pptx_path, deck_title, deck_title)
-    problems = verify_pptx(pptx_path, [s["title"] for s in slides])
-    if problems:
-        raise D.DeckCheckError("the PowerPoint failed its re-open check: " + "; ".join(problems[:6]))
     html_path = os.path.join(outdir, "deck.html")
-    with io.open(html_path, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(render_html(deck_title, slides, sources, deck_title))
+    brand = brief.get("brand") or "nxt"
+    with D.use_brand(brand):           # palette and faces for this deck only (16 Nov: "#nu" had been ignored)
+        write_pptx(slides, sources, pptx_path, deck_title, deck_title)
+        problems = verify_pptx(pptx_path, [s["title"] for s in slides])
+        if problems:
+            raise D.DeckCheckError("the PowerPoint failed its re-open check: " + "; ".join(problems[:6]))
+        with io.open(html_path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(render_html(deck_title, slides, sources, deck_title))
+    with io.open(os.path.join(outdir, "sources.json"), "w", encoding="utf-8") as fh:
+        json.dump({"sources": [{k: s_.get(k, "") for k in ("id", "title", "url")} for s_ in sources]}, fh, indent=1, ensure_ascii=False)
     with io.open(os.path.join(outdir, "deck.json"), "w", encoding="utf-8") as fh:
-        json.dump({"deck_title": deck_title, "answer": clean(data.get("answer")), "outline": outline, "model": model,
+        json.dump({"deck_title": deck_title, "answer": clean(data.get("answer")), "outline": outline, "model": model, "brand": brand,
                    "slides": [{k: v for k, v in s.items() if k != "photo"} | {"image": os.path.basename(s["photo"]) if s.get("photo") else ""}
                               for s in slides],
                    "dropped_quotes_not_in_source": dropped, "titles_rewritten": rewritten, "images": images, "checks": checks},
@@ -809,3 +979,66 @@ def build(eid, brief, tid, ledger):
     summary = (f"{len(slides)} slides ({layouts}), {images} images, {sum(1 for s in slides if s['quote'])} verified quotes "
                f"({dropped} dropped), {len(checks)} open checks")
     return pptx_path, html_path, summary
+
+
+# ---- re-render a finished deck in another brand (plan Part 7, BR3) -------------------------------------
+_SLIDE_DEFAULTS = {"kicker": "", "subtitle": "", "points": [], "quote": "", "source_id": "", "cites": [], "takeaway": "",
+                   "notes": "", "cards": [], "layers": [], "steps": []}
+
+
+def _footer_lines(path):
+    prs = Presentation(path)
+    return [[sh.text_frame.text for sh in sl.shapes if sh.has_text_frame and sh.name in ("Sources line", "Quote panel")]
+            + [sl.notes_slide.notes_text_frame.text if sl.has_notes_slide else ""] for sl in prs.slides]
+
+
+def rerender(eid, tid, brand):
+    """Write the deck's PowerPoint and preview again in a brand, from its saved slides and images. No model call.
+    Raises ValueError when the deck cannot be reproduced faithfully (its saved data is missing, or the engagement's
+    sources changed since a deck made before 17 November, which kept no copy of its own)."""
+    outdir = store.safe_path(eid, f"results/decks/{tid}")
+    try:
+        with io.open(os.path.join(outdir, "deck.json"), encoding="utf-8") as fh:
+            meta = json.load(fh)
+    except (OSError, ValueError):
+        raise ValueError("that deck's saved slides are missing, so it cannot be re-rendered; ask for a new deck")
+    slides = []
+    for raw in meta.get("slides") or []:
+        sl = {k: (list(v) if isinstance(v, list) else v) for k, v in _SLIDE_DEFAULTS.items()} | dict(raw)
+        img = os.path.basename(str(sl.pop("image", "") or ""))
+        if img and os.path.isfile(os.path.join(outdir, img)):
+            sl["photo"] = os.path.join(outdir, img)
+        slides.append(sl)
+    if not slides:
+        raise ValueError("that deck has no saved slides; ask for a new deck")
+    snap = os.path.join(outdir, "sources.json")
+    own = os.path.isfile(snap)
+    if own:
+        with io.open(snap, encoding="utf-8") as fh:
+            sources = json.load(fh)["sources"]
+    else:
+        sources = D._load(eid, "results/sources.json")["sources"]
+    deck_title = meta.get("deck_title") or "Deck"
+    pptx_path, html_path = os.path.join(outdir, "deck.pptx"), os.path.join(outdir, "deck.html")
+    tmp = pptx_path + ".rebrand.pptx"
+    with D.use_brand(brand) as b:
+        write_pptx(slides, sources, tmp, deck_title, deck_title)
+        problems = verify_pptx(tmp, [s["title"] for s in slides])
+        if not problems and not own and os.path.isfile(pptx_path) and _footer_lines(tmp) != _footer_lines(pptx_path):
+            problems = ["the engagement's sources changed since this deck was made, so its source lines cannot be "
+                        "reproduced; ask for a new deck in that brand instead"]
+        if problems:
+            os.remove(tmp)
+            raise ValueError("; ".join(problems[:4]))
+        page = render_html(deck_title, slides, sources, deck_title)
+    os.replace(tmp, pptx_path)
+    with io.open(html_path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(page)
+    if not own:
+        with io.open(snap, "w", encoding="utf-8") as fh:
+            json.dump({"sources": [{k: s_.get(k, "") for k in ("id", "title", "url")} for s_ in sources]}, fh, indent=1, ensure_ascii=False)
+    meta["brand"] = b
+    with io.open(os.path.join(outdir, "deck.json"), "w", encoding="utf-8") as fh:
+        json.dump(meta, fh, indent=1, ensure_ascii=False)
+    layouts = ", ".join(dict.fromkeys(s["layout"] for s in slides))
+    return f"{len(slides)} slides ({layouts}), re-rendered with no model call"

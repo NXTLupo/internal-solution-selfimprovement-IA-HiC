@@ -86,7 +86,7 @@ h1{{font-size:22px;margin:0 0 4px}} .persona{{color:#6B6B6B;margin-bottom:16px}}
 <div class="grid">{''.join(cells)}</div><ol class="refs">{refs}</ol></body></html>"""
 
 
-def build(eid, persona, scope, ledger):
+def build(eid, persona, scope, ledger, tid=None):
     """Returns (json_path, html_path, summary). Needs a completed research task in the engagement."""
     findings = _load(eid, "results/findings.json")["findings"]
     sources = _load(eid, "results/sources.json")["sources"]
@@ -104,11 +104,18 @@ def build(eid, persona, scope, ledger):
     j, dropped = check_quotes(j, sources)
     if not j.get("stages"):
         raise providers.ProviderError("the journey map came back with no stages")
-    jp = store.safe_path(eid, "results/journey.json")
-    hp = store.safe_path(eid, "results/journey.html")
+    # B1 (16 Nov audit): the task keeps its own map; the engagement-level copy is the latest successful one
+    sub = f"results/tasks/{tid}/" if tid else "results/"
+    jp = store.safe_path(eid, sub + "journey.json")
+    hp = store.safe_path(eid, sub + "journey.html")
+    os.makedirs(os.path.dirname(jp), exist_ok=True)
     with io.open(jp, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(dict(j, dropped_pains_quote_not_in_source=dropped), fh, indent=1, ensure_ascii=False)
     with io.open(hp, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(render_html(j, sources))
+    if tid:
+        import shutil
+        shutil.copyfile(jp, store.safe_path(eid, "results/journey.json"))
+        shutil.copyfile(hp, store.safe_path(eid, "results/journey.html"))
     pains = sum(len(s["pains"]) for s in j["stages"])
     return jp, hp, f"{len(j['stages'])} stages, {pains} quoted pains ({dropped} dropped: quote not in its source)"

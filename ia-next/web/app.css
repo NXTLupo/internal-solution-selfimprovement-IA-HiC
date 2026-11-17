@@ -66,14 +66,18 @@ a { color: var(--teal); text-underline-offset: 2px; }
 .rail {
   background: var(--rail); color: var(--rail-ink);
   display: flex; flex-direction: column; gap: 22px;
-  padding: 20px 14px 16px; min-height: 0; overflow-y: auto;
+  padding: 20px 14px 16px; min-height: 0; overflow: hidden;
 }
+/* B3 (16 Nov audit): the engagement list scrolls inside its own area and the footer links stay pinned below it,
+   so a long list can never be drawn over (or swallow clicks on) All work, Memory, Schedules and Spend. */
+.rail > .rail__brand, .rail > .rail__new, .rail > .rail__foot { flex: none; }
 .rail__brand { display: flex; align-items: center; gap: 10px; padding: 2px 6px; }
 .rail__mark { width: 30px; height: 30px; display: inline-flex; }
 .rail__name { font: 600 25px/1 var(--font-display); letter-spacing: .01em; }
 .iconbtn.rail__close { margin-left: auto; color: var(--rail-ink); display: none; }
 .rail__new { width: 100%; justify-content: center; }
-.rail__section { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+.rail__section { display: flex; flex-direction: column; gap: 6px; min-height: 0; flex: 1 1 auto; }
+.rail__section > .englist { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-right: 2px; }
 .rail__head { margin: 0; padding: 0 8px; font: 600 15px/1.3 var(--font-body); color: var(--rail-ink); }
 .rail__hint { margin: 0 0 6px; padding: 0 8px; font-size: 12.5px; line-height: 1.45; color: var(--rail-muted); }
 .englist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
@@ -335,6 +339,17 @@ a { color: var(--teal); text-underline-offset: 2px; }
 .md h4, .md h5, .md h6 { font-size: 15.5px; margin: 16px 0 4px; }
 .md blockquote { padding: 2px 0 2px 14px; border-left: 3px solid var(--accent); color: var(--ink-2); }
 .md code { font: 13px var(--font-mono); background: var(--mist); padding: 1px 5px; border-radius: var(--r-sm); }
+/* fenced blocks keep their lines; Mermaid blocks are drawn as diagrams (16 Nov audit) */
+.md pre.md-code { margin: 12px 0; padding: 12px 14px; background: var(--mist); border-radius: var(--r); overflow-x: auto; }
+.md pre.md-code code { padding: 0; background: none; white-space: pre; display: block; }
+.md .md-diagram { margin: 14px 0; padding: 14px; border: 1px solid var(--line); border-radius: var(--r); background: var(--paper); overflow-x: auto; }
+.md .md-diagram pre.mermaid { margin: 0; text-align: center; background: none; white-space: pre; }
+.md .md-diagram pre.mermaid:not([data-processed]) { color: var(--muted); font: 12px var(--font-mono); text-align: left; }
+.md .md-diagram__src { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.md .md-diagram__src pre { margin: 6px 0 0; padding: 10px 12px; background: var(--mist); border-radius: var(--r); overflow-x: auto; }
+.md .md-diagram--failed pre.mermaid { display: none; }
+.md .md-diagram--failed .md-diagram__src { display: block; }
+.md .md-diagram--failed .md-diagram__src::before { content: "This diagram could not be drawn; its source is below."; display: block; margin-bottom: 4px; }
 .md .cite { color: var(--teal); font-size: 10.5px; font-weight: 600; margin-left: 1px; }
 .md a { word-break: break-word; }
 .md hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }

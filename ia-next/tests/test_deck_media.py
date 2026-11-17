@@ -246,7 +246,7 @@ def test_start_deck_tool_validates_and_is_idempotent(monkeypatch):
     out = deck.execute("start_deck", {"engagement_id": eid, "audience": "partners"})
     assert out["task_id"] == "task_x" and started[0][2] == deck.DECK_BUDGET_USD
     assert started[0][3] == hashlib.sha256(json.dumps({"audience": "partners", "engagement_id": eid}, sort_keys=True).encode()).hexdigest()
-    assert deck.TOOLS[0]["strict"] and deck.TOOLS[0]["input_schema"]["required"] == ["engagement_id", "audience", "outline"]
+    assert deck.TOOLS[0]["strict"] and deck.TOOLS[0]["input_schema"]["required"] == ["engagement_id", "audience", "outline", "brand"]
 
 
 # ---- media: video needs approval, images run directly -----------------------------------------------
@@ -355,3 +355,193 @@ def test_image_runs_directly_asks_for_no_text_and_saves_a_png(monkeypatch):
 def test_media_tools_are_strict_and_validate_the_engagement():
     assert [t["name"] for t in media.TOOLS] == ["generate_image", "generate_video"] and all(t["strict"] for t in media.TOOLS)
     assert "no such engagement" in media.execute("generate_image", {"engagement_id": "eng_nope", "prompt": "p"})["error"]
+
+
+def test_deck_renders_in_the_nu_brand_and_restores_nxt(tmp_path):
+    """16 Nov audit: "#nu" produced an NXT deck. A deck rendered in the NU brand uses Lato and NU red with white text
+    on the accent band, and the NXT palette is back afterwards."""
+    import zipfile
+    from ia_next import deckstudio
+    slides = deckstudio.normalize([_studio_slide("cover", "Annual Giving needs one governed cohort workflow"),
+                                   _studio_slide("bullets", "Teams lose a week to manual joins", points=["Excel joins every Monday"])], [])
+    out = str(tmp_path / "nu.pptx")
+    with deck.use_brand("nu"):
+        deckstudio.write_pptx(slides, [], out, "NU deck", "NU deck")
+    xml = "".join(zipfile.ZipFile(out).read(n).decode("utf-8", "ignore") for n in zipfile.ZipFile(out).namelist() if n.startswith("ppt/slides/slide"))
+    assert 'typeface="Lato"' in xml and "C8102E" in xml
+    assert "Saira Condensed" not in xml and 'typeface="Archivo"' not in xml
+    assert deck.ACCENT == "B8B800" and deck.BODY_FONT == "Archivo" and deck.ON_ACCENT == deck.RAIL
+
+
+# ---- brand system parity with HiC (plan Part 7: BR1 to BR5) ---------------------------------------------
+HIC_TOKENS = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                          "humans-in-control-research", "hic-workspace", "design-system", "figma-tokens.json")
+
+
+def test_brands_come_from_the_hic_token_copy():
+    """BR1: colours, faces and the logo vectors come from brand_tokens.json (HiC's design system), not hand values;
+    when HiC's file is present the copy matches it."""
+    nu, nxt = deck.BRANDS["nu"], deck.BRANDS["nxt"]
+    assert (nu["ACCENT"], nu["RAIL"], nu["ON_ACCENT"], nu["DISPLAY_FONT"], nu["BODY_FONT"]) == ("C8102E", "0E1626", "FFFFFF", "Lato", "Lato")
+    assert (nxt["ACCENT"], nxt["DISPLAY_FONT"], nxt["BODY_FONT"], nxt["ON_ACCENT"]) == ("B8B800", "Saira Condensed", "Archivo", "0D0D0D")
+    assert nu["CYAN"] == "C8102E"                    # HiC's NU kicker is red
+    assert deck.contrast(nu["KICKER_ON_DARK"], nu["RAIL"]) >= 4.5 and deck.contrast(nxt["KICKER_ON_DARK"], nxt["RAIL"]) >= 4.5
+    assert nu["LOGO"]["light"] == "C8102E" and nu["LOGO"]["viewbox"] == [0, 0, 64, 53] and nxt["LOGO"]["viewbox"][2:] == [300, 86]
+    assert nu["TITLE_PANOSE"] == deck.PANOSE_ARIAL and nxt["TITLE_PANOSE"] == deck.PANOSE_ARIAL_NARROW and nu["TITLE_WIDTH"] > nxt["TITLE_WIDTH"]
+    assert deck.brand_id("NU") == "nu" and deck.brand_id("deciem") == "nxt" and deck.brand_id(None) == "nxt"
+    if os.path.isfile(HIC_TOKENS):
+        hic = json.load(open(HIC_TOKENS, encoding="utf-8"))
+        for ours, theirs in (("nu", "NU"), ("nxt", "NXT")):
+            assert deck.BRANDS[ours]["ACCENT"] == hic[theirs]["color"]["accent"].lstrip("#").upper()
+            assert deck.BRANDS[ours]["DISPLAY_FONT"] == hic[theirs]["font"]["display"]
+        assert deck.BRANDS["nu"]["LOGO"]["paths"] == [hic["NU"]["logo"]["monogram_path"]]
+
+
+def test_missing_token_file_falls_back_to_the_hand_palettes(tmp_path):
+    b = deck.load_brands(str(tmp_path / "absent.json"))
+    assert b["nu"]["ACCENT"] == "C8102E" and b["nxt"]["ACCENT"] == "B8B800" and b["nu"]["LOGO"] is None
+
+
+def test_svg_path_flattening_handles_absolute_relative_and_curves():
+    from ia_next import deckstudio
+    sq = deckstudio.svg_contours("M0 0H10V10H0Z m20 0 l5 0 l0 5 z")
+    assert sq[0] == [(0.0, 0.0), (10.0, 0.0), (10.0, 10.0), (0.0, 10.0)] and sq[1] == [(20.0, 0.0), (25.0, 0.0), (25.0, 5.0)]
+    curve = deckstudio.svg_contours("M0 0C0 10 10 10 10 0Z", steps=4)[0]
+    assert len(curve) == 5 and curve[-1] == (10.0, 0.0) and max(y for _, y in curve) == pytest.approx(7.5)
+    assert deckstudio.svg_contours("M1e1 0L2.5e1 0L2.5e1 1e1Z")[0][1] == (25.0, 0.0)
+    nu = deckstudio.svg_contours(deck.BRANDS["nu"]["LOGO"]["paths"][0])
+    assert nu and all(0 <= x <= 64 and 0 <= y <= 53 for c in nu for x, y in c)
+
+
+def test_every_slide_carries_the_brand_mark_as_an_editable_vector(tmp_path):
+    """BR2: the brand's own mark on the cover and every slide, as a native freeform (never a picture), red for NU and
+    ink or paper for the NXT wordmark; the file check accepts it and the HTML preview shows the same vector."""
+    from ia_next import deckstudio
+    slides = deckstudio.normalize([_studio_slide("cover", "Annual Giving needs one governed cohort workflow"),
+                                   _studio_slide("bullets", "Teams lose a week to manual joins", points=["Excel joins every Monday"]),
+                                   _studio_slide("closing", "Approve the cohort pilot this term", points=["Name an owner"])], SOURCES)
+    for brand, light, dark in (("nu", "C8102E", "C8102E"), ("nxt", "141414", "FFFFFF")):
+        out = str(tmp_path / f"{brand}.pptx")
+        with deck.use_brand(brand):
+            deckstudio.write_pptx(slides, SOURCES, out, "Deck", "Deck")
+            assert deckstudio.verify_pptx(out, [s["title"] for s in slides]) == []
+            page = deckstudio.render_html("Deck", slides, SOURCES, "Deck")
+        prs = Presentation(out)
+        marks = [[sh for sh in sl.shapes if sh.name == "Brand mark"] for sl in prs.slides]
+        assert all(len(m) == 1 and m[0].shape_type == MSO_SHAPE_TYPE.FREEFORM for m in marks)
+        assert [str(m[0].fill.fore_color.rgb) for m in marks] == [dark, light, dark]
+        cover_mark, body_mark = marks[0][0], marks[1][0]
+        assert cover_mark.left < prs.slide_width / 2 and body_mark.left > prs.slide_width * 0.8 and body_mark.top < 914400 * 0.65
+        assert page.count('class="mark"') == 3 and ("Northeastern University" in page) == (brand == "nu")
+    assert deck.LOGO is deck.BRANDS["nxt"]["LOGO"]
+
+
+def test_a_stray_freeform_still_fails_the_file_check(tmp_path):
+    from ia_next import deckstudio
+    slides = deckstudio.normalize([_studio_slide("bullets", "Teams lose a week to manual joins", points=["Excel joins"])], SOURCES)
+    out = str(tmp_path / "d.pptx")
+    deckstudio.write_pptx(slides, SOURCES, out, "Deck", "Deck")
+    prs = Presentation(out)
+    fb = prs.slides[0].shapes.build_freeform(0, 0, scale=1000)
+    fb.add_line_segments([(100, 0), (100, 100)], close=True)
+    fb.convert_to_shape().name = "Doodle"
+    prs.save(out)
+    assert any("FREEFORM" in p for p in deckstudio.verify_pptx(out, [slides[0]["title"]]))
+
+
+def _finished_deck(monkeypatch, brand="nxt"):
+    eid = store.create_engagement("Advancement", "Where do alumni drop off?")
+    _write_research(eid)
+    raw = [_studio_slide("cover", "Alumni drop off where no team owns the handoff", subtitle="One owner per stage.", takeaway=""),
+           _studio_slide("cards", "Each stage needs one named owner", cards=[{"heading": "Events", "body": "No follow-up owner."},
+                                                                             {"heading": "Giving", "body": "No shared record."}]),
+           _studio_slide("quote", "Partners disagree on whether AI can assess finalists", quote=REAL, source_id="S1", cites=["S1", "S2"])]
+    monkeypatch.setattr(providers, "claude", lambda model, system, messages, ledger, **kw:
+                        (json.dumps({"deck_title": "Alumni handoffs", "answer": "Name owners.", "slides": raw}), None, None))
+    monkeypatch.setattr(providers, "openai_image", lambda *a, **k: (PNG, None))
+    tid, _ = store.create_task(eid, "deck", {"audience": "advancement leaders", "outline": [], "brand": brand}, 3.0)
+    deck.run_deck_task(tid)
+    assert store.get_task(tid)["status"] == "done", store.get_task(tid)["error"]
+    return eid, tid
+
+
+def _slide_xml(path):
+    import zipfile
+    z = zipfile.ZipFile(path)
+    return "".join(z.read(n).decode("utf-8", "ignore") for n in z.namelist() if n.startswith("ppt/slides/slide"))
+
+
+def test_rebrand_rerenders_a_finished_deck_with_no_model_call(monkeypatch):
+    """BR3: "make that deck Northeastern" re-renders the same slides in the NU brand: no model or image call, same
+    titles, source lines and notes, the brief and deck record now say nu, and the tool reports zero spend."""
+    from ia_next import deckstudio
+    eid, tid = _finished_deck(monkeypatch)
+    pptx = store.safe_path(eid, f"results/decks/{tid}/deck.pptx")
+    before = deckstudio._footer_lines(pptx)
+    titles = [sl.shapes.title.text_frame.text for sl in Presentation(pptx).slides]
+    assert 'typeface="Archivo"' in _slide_xml(pptx)
+    monkeypatch.setattr(providers, "claude", lambda *a, **k: pytest.fail("a model was called"))
+    monkeypatch.setattr(providers, "openai_image", lambda *a, **k: pytest.fail("an image was made"))
+    out = deck.execute("rebrand_deck", {"task_id": tid, "brand": "nu"})
+    assert out["brand"] == "nu" and out["spent_usd"] == 0 and "Northeastern University brand" in out["message"]
+    xml = _slide_xml(pptx)
+    assert 'typeface="Lato"' in xml and "C8102E" in xml and 'typeface="Archivo"' not in xml
+    assert [sl.shapes.title.text_frame.text for sl in Presentation(pptx).slides] == titles
+    assert deckstudio._footer_lines(pptx) == before
+    t = store.get_task(tid)
+    assert t["brief"]["brand"] == "nu" and t["status"] == "done"
+    assert json.load(open(store.safe_path(eid, f"results/decks/{tid}/deck.json"), encoding="utf-8"))["brand"] == "nu"
+    assert "Northeastern University" in open(t["result_path"], encoding="utf-8").read()
+    assert not os.path.exists(pptx + ".rebrand.pptx")
+    back = deck.execute("rebrand_deck", {"task_id": tid, "brand": "nxt"})
+    assert back["brand"] == "nxt" and 'typeface="Archivo"' in _slide_xml(pptx)
+
+
+def test_rebrand_refuses_what_it_cannot_reproduce(monkeypatch):
+    eid, tid = _finished_deck(monkeypatch)
+    assert "no deck with that task id" in deck.execute("rebrand_deck", {"task_id": "task_nope", "brand": "nu"})["error"]
+    other, _ = store.create_task(eid, "deck", {"audience": "a"}, 1.0)
+    assert "only a finished deck" in deck.execute("rebrand_deck", {"task_id": other, "brand": "nu"})["error"]
+    # a deck made before decks kept their own source copy, after the engagement's sources changed: refused, file untouched
+    folder = store.safe_path(eid, f"results/decks/{tid}")
+    os.remove(os.path.join(folder, "sources.json"))
+    changed = [dict(SOURCES[0], title="A different report"), SOURCES[1]]
+    with open(store.safe_path(eid, "results/sources.json"), "w", encoding="utf-8") as fh:
+        json.dump({"sources": changed}, fh)
+    pptx = os.path.join(folder, "deck.pptx")
+    stamp = open(pptx, "rb").read()
+    err = deck.execute("rebrand_deck", {"task_id": tid, "brand": "nu"})["error"]
+    assert "sources changed" in err and open(pptx, "rb").read() == stamp and store.get_task(tid)["brief"]["brand"] == "nxt"
+    # with the engagement's sources as they were, the same legacy deck re-renders and keeps a copy from then on
+    _write_research(eid)
+    assert deck.execute("rebrand_deck", {"task_id": tid, "brand": "nu"})["brand"] == "nu"
+    assert os.path.isfile(os.path.join(folder, "sources.json"))
+
+
+def test_brand_requests_reach_the_brand_field():
+    """BR4: the tool says which words mean the NU brand and that the brand never goes in the audience text."""
+    spec = {t["name"]: t for t in deck.TOOLS}
+    d = spec["start_deck"]["description"]
+    assert all(w in d for w in ("Northeastern", "NU", "#nu", "never in audience"))
+    assert spec["rebrand_deck"]["strict"] and spec["rebrand_deck"]["input_schema"]["required"] == ["task_id", "brand"]
+    assert spec["start_deck"]["input_schema"]["properties"]["brand"]["enum"] == ["nu", "nxt"]
+
+
+def test_card_and_step_text_is_fitted_to_its_box_by_the_brand_face():
+    """17 Nov render: in the NU brand (real Lato) the flow slide's step text ran to the panel's bottom edge, because
+    sizes were set from character counts tuned on a narrower substitute face. Text is now fitted to the box."""
+    from ia_next import deckstudio
+    body = "Filters a cohort, previews deduplicated count and completeness, exports if permitted, and drafts reviewed outreach."
+    assert deckstudio._wrap_lines("one two three four", 9) == 3 and deckstudio._wrap_lines("one two three", 13) == 1
+    assert deckstudio._wrap_lines("", 10) == 1
+    with deck.use_brand("nu"):
+        size = deckstudio._fit_box(body, 2.135, 1.55, 15)
+        per_line = int((2.135 - 0.2) / (deck.BODY_WIDTH * size))
+        assert size < 15 and deckstudio._wrap_lines(body, per_line) * size * 1.2 / 72 <= 1.45
+    assert deckstudio._fit_box("Short.", 2.0, 1.5, 15) == 15
+
+
+def test_closing_kicker_reads_on_its_panel_in_every_brand():
+    for b in deck.BRANDS.values():
+        assert deck.contrast(b["CLOSING_KICKER"], b["TEAL"]) >= 4.5
+    assert deck.BRANDS["nu"]["CLOSING_KICKER"] != deck.BRANDS["nu"]["ACCENT"]     # red on navy does not read

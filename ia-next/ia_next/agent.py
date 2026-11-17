@@ -61,8 +61,12 @@ TOOLS = [
     {"name": "send_email", "strict": True, "description": "Send an email. Always needs the person's approval.",
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["to", "subject", "body"],
                       "properties": {"to": STR, "subject": STR, "body": STR}}},
-    {"name": "list_engagements", "strict": True, "description": "List engagements and their recent tasks.",
-     "input_schema": {"type": "object", "additionalProperties": False, "required": [], "properties": {}}},
+    {"name": "list_engagements", "strict": True,
+     "description": ("List engagements. With engagement_id set, return that engagement's complete work list (every task, "
+                     "newest first); with engagement_id empty, list every engagement with its task count and three most "
+                     "recent tasks. Use the focused engagement's own work; never another engagement's unless the person asks."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id"],
+                      "properties": {"engagement_id": STR}}},
 ]
 
 TOOLS.append({"name": "schedule_task", "strict": True,
@@ -168,7 +172,42 @@ def _read_report(args):
         with open(jp, encoding="utf-8") as fh:
             return {"journey_map": json.load(fh), "view": f"/api/tasks/{t['id']}/view"}
     with open(t["result_path"], encoding="utf-8") as fh:
-        return {"report": fh.read()[:20000]}
+        return {"report": fh.read()[:REPORT_READ_CHARS]}       # B2: the whole report (was the first 20,000 characters)
+
+
+# B2 (16 Nov audit): the agent saw 20 engagements with 5 tasks each and the first 20,000 characters of a report, so it
+# said a focused engagement "isn't in my list" and twice used another engagement as evidence.
+REPORT_READ_CHARS = 120_000
+TOOL_RESULT_CHARS = 60_000
+
+
+def _task_line(t):
+    return {"id": t["id"], "kind": t["kind"], "status": t["status"], "summary": (t.get("summary") or t.get("error") or "")[:240],
+            "audience": (t.get("brief") or {}).get("audience") if isinstance(t.get("brief"), dict) else None}
+
+
+def _list_engagements(engagement_id=""):
+    if engagement_id:
+        e = store.get_engagement(engagement_id)
+        if not e:
+            return {"error": "no such engagement; call list_engagements with engagement_id empty to see them all"}
+        tasks = store.list_tasks(engagement_id, 500)
+        return {"engagement": {"id": e["id"], "title": e["title"], "objective": e.get("objective")},
+                "tasks": [_task_line(t) for t in tasks], "task_count": len(tasks)}
+    out = []
+    for e in store.list_engagements():
+        ts = store.list_tasks(e["id"], 500)
+        out.append({"id": e["id"], "title": e["title"], "task_count": len(ts), "recent": [_task_line(t) for t in ts[:3]]})
+    return {"engagements": out, "count": len(out)}
+
+
+def focus_context(engagement_id):
+    """The focused engagement's own work, prepended to each message so the agent never looks elsewhere for it."""
+    tasks = store.list_tasks(engagement_id, 60)
+    if not tasks:
+        return "This engagement has no work yet."
+    lines = [f"- {t['kind']} ({t['status']}) [{t['id']}]: {(t.get('summary') or t.get('error') or '')[:160]}" for t in tasks]
+    return "Its work, newest first:" + chr(10) + chr(10).join(lines)
 
 
 def _recall(args):
@@ -210,7 +249,7 @@ def execute_tool(name, args):
         if name == "send_email":
             return _send_email(args)
         if name == "list_engagements":
-            return {"engagements": [dict(e, tasks=store.list_tasks(e["id"], 5)) for e in store.list_engagements()[:20]]}
+            return _list_engagements(str(args.get("engagement_id") or "").strip())
         if name == "schedule_task":
             from . import schedule
             if args["tool"] in ("schedule_task", "send_email", "forget"):
@@ -248,7 +287,8 @@ def turn(cid, text, call=None):
         for u in uses:
             out = execute_tool(u.name, dict(u.input))
             trace.append({"tool": u.name, "input": dict(u.input), "output": out})
-            results.append({"type": "tool_result", "tool_use_id": u.id, "content": json.dumps(out, ensure_ascii=False)[:20000],
+            cap = REPORT_READ_CHARS + 2000 if u.name == "read_report" else TOOL_RESULT_CHARS
+            results.append({"type": "tool_result", "tool_use_id": u.id, "content": json.dumps(out, ensure_ascii=False)[:cap],
                             **({"is_error": True} if isinstance(out, dict) and out.get("error") else {})})
         conv.messages.append({"role": "user", "content": results})
     msg = "I stopped after the step limit for one turn; the work so far is in the task list."

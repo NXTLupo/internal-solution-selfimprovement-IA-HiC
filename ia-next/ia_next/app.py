@@ -83,7 +83,9 @@ def post_message(cid: str, m: NewMessage):
     eng = store.get_engagement(m.engagement_id) if m.engagement_id else None
     if eng:
         title = " ".join(str(eng["title"] or "").split())[:200]
-        text = f"(Focused engagement: {title} [{eng['id']}])\n{text}"
+        # B2: the focused engagement's own work rides with every message, so the agent never says it "isn't in my
+        # list" and never borrows another engagement's work as evidence
+        text = f"(Focused engagement: {title} [{eng['id']}]. {agent.focus_context(eng['id'])})\n{text}"
     try:
         return agent.turn(cid, text)
     except Exception as e:
@@ -162,7 +164,8 @@ def task_verification(tid: str):
     t = store.get_task(tid)
     if not t:
         raise HTTPException(404, "no such task")
-    p = store.safe_path(t["engagement_id"], "results/verification.json")
+    per_task = os.path.join(os.path.dirname(t["result_path"] or ""), "verification.json")     # B1: the task's own check
+    p = per_task if t["result_path"] and os.path.isfile(per_task) else store.safe_path(t["engagement_id"], "results/verification.json")
     if not os.path.isfile(p):
         raise HTTPException(404, "not verified yet")
     import json
@@ -209,11 +212,11 @@ class Decision(BaseModel):
 @app.post("/api/approvals/{aid}")
 def decide(aid: str, d: Decision):
     try:
-        row = control.decide(aid, d.approve)
+        row, changed = control.decide(aid, d.approve, with_change=True)
     except KeyError:
         raise HTTPException(404, "no such approval")
     started = None
-    if row["status"] == "approved":
+    if changed and row["status"] == "approved":      # only the click that changed pending -> approved launches (B8)
         import json
         args = json.loads(row["args_json"])                                # exactly the approved call
         if row["tool"] == "start_research_report":
@@ -338,8 +341,40 @@ def task_download(tid: str):
         raise HTTPException(404, "no finished deck for this task")
     per_task = os.path.join(os.path.dirname(t["result_path"] or ""), "deck.pptx")
     p = per_task if t["result_path"] and os.path.isfile(per_task) else store.safe_path(t["engagement_id"], "results/deck.pptx")
-    return FileResponse(p, filename="deck.pptx",
+    return FileResponse(p, filename=_deck_filename(t),
                         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
+
+
+class Rebrand(BaseModel):
+    brand: str
+
+
+@app.post("/api/tasks/{tid}/rebrand")
+def task_rebrand(tid: str, body: Rebrand):
+    """Re-render a finished deck in another brand (plan Part 7, BR3): the same slides, words, images and sources, no
+    model call and no cost. Returns the updated task."""
+    from . import deck
+    if body.brand not in deck.BRANDS:
+        raise HTTPException(400, f"brand must be one of: {', '.join(sorted(deck.BRANDS))}")
+    try:
+        return deck.rebrand(tid, body.brand)
+    except ValueError as e:
+        raise HTTPException(409, str(e))
+
+
+def _deck_filename(t):
+    """A download name from the deck's own title (16 Nov audit: every download was "deck.pptx", so decks overwrote
+    each other in Downloads). Falls back to the task id."""
+    import json
+    import re
+    title = ""
+    try:
+        meta = os.path.join(os.path.dirname(t["result_path"] or ""), "deck.json")
+        title = json.load(open(meta, encoding="utf-8")).get("deck_title") or ""
+    except (OSError, ValueError, TypeError):
+        pass
+    slug = re.sub(r"[^A-Za-z0-9]+", "-", title).strip("-")[:70] or f"deck-{t['id'][-8:]}"
+    return f"{slug}.pptx"
 
 
 # ---- schedules ---------------------------------------------------------------------------------

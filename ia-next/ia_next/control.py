@@ -33,16 +33,21 @@ def request(cls, tool, args, reason):
     return dict(store.conn().execute("SELECT * FROM approvals WHERE id = ?", (aid,)).fetchone())
 
 
-def decide(aid, approve: bool):
+def decide(aid, approve: bool, with_change=False):
+    """Approve or deny a pending call. The change is one conditional UPDATE, so of two clicks in the same second
+    (two tabs, a double click) exactly one changes the row; `with_change=True` also returns whether THIS call
+    changed it, and only that call may launch the work (enhancement plan B8)."""
     row = store.conn().execute("SELECT * FROM approvals WHERE id = ?", (aid,)).fetchone()
     if not row:
         raise KeyError(aid)
-    if row["status"] != "pending":
-        return dict(row)
     status = "approved" if approve else "denied"
-    store.conn().execute("UPDATE approvals SET status = ?, decided = ? WHERE id = ?", (status, time.time(), aid))
-    store.event("approval_" + status, {"id": aid, "tool": row["tool"]})
-    return dict(store.conn().execute("SELECT * FROM approvals WHERE id = ?", (aid,)).fetchone())
+    cur = store.conn().execute("UPDATE approvals SET status = ?, decided = ? WHERE id = ? AND status = 'pending'",
+                               (status, time.time(), aid))
+    changed = cur.rowcount == 1
+    if changed:
+        store.event("approval_" + status, {"id": aid, "tool": row["tool"]})
+    out = dict(store.conn().execute("SELECT * FROM approvals WHERE id = ?", (aid,)).fetchone())
+    return (out, changed) if with_change else out
 
 
 def status_for(tool, args):

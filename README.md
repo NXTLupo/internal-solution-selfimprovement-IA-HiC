@@ -1,470 +1,493 @@
-# NXT Humans Intelligence Augmentation Suite
+# IA Next
 
-A Docker-orchestrated microservices platform: a set of specialized CX / research / content AI
-tools, plus an **AI cowork agent** that can *operate those tools for you* through a live,
-watch-it-happen browser (computer use / cobrowse). The flagship surface is **Humans in Control
-(HiC)** — a research workbench that turns a brief plus uploads into consulting-grade deliverables
-(strategy decks, personas, journey maps, service blueprints, PRDs, competitive analyses) using
-multi-model AI (Gemini, Claude, OpenAI).
+**One agent you talk to, with a studio of specialists behind it.**
 
-> **The entire suite — including NXT-Agency (the cowork agent) and the HiC wiki — runs from ONE
-> command on a fresh machine.** This guide is written so a first-time user on **macOS** or
-> **Windows** can go from nothing to a fully working suite by copy-pasting. No prior knowledge of
-> the codebase is assumed.
+IA Next is the next-generation Intelligence Augmentation system from NXT Humans. You open one page, describe
+what you need in plain words, and a personal agent plans the work, hands it to specialists (research, analysis,
+writing, decks, journey maps, prototypes, social listening, images and video), checks every quote against its
+source, asks for your approval before anything costly, and brings the finished work back into the same
+conversation.
 
----
+It runs as **one container on one port (9400)**, completely separate from the original Intelligence
+Augmentation suite, so you can run both on the same computer at the same time.
 
-## Table of contents
-
-1. [What you get](#what-you-get)
-2. [Prerequisites](#prerequisites) (install these first)
-3. [Full fresh-install walkthrough](#full-fresh-install-walkthrough)
-4. [The cowork agent (NXT Intelligence Agent)](#the-cowork-agent-nxt-intelligence-agent)
-5. [Service + port map](#service--port-map)
-6. [Everyday operations](#everyday-operations)
-7. [Troubleshooting](#troubleshooting) (read this if anything looks broken)
-8. [Optional extras](#optional-extras)
-9. [Repository layout](#repository-layout)
+> **You are on the `ia-next-2026-11-17` branch.** This branch is for IA Next. The original suite (Launchpad, HiC,
+> Social Research, Journey Mapper and the rest) has its own branch and guide:
+> [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17).
+> The suite's code is also present in this branch, unchanged, so nothing here stops you running it.
 
 ---
 
-## What you get
+## Contents
 
-After setup, you can open any of these in your browser:
-
-| Open this | URL | What it is |
-|---|---|---|
-| **Launchpad Hub** (start here) | **http://localhost:8000** | The entry hub. Links to every tool + the **cowork chatbot** (bottom-right). |
-| **Humans in Control (HiC)** | **http://localhost:5011** | The flagship research workbench (generates decks, personas, journey maps…). |
-| Social Research Analytics | http://localhost:3000 | Reddit/social sentiment + topic modeling UI. |
-| Journey Mapper | http://localhost:8080 | Turns transcripts/CSVs into interactive journey maps. |
-| Reddit / Social Data Collector | http://localhost:5001 | Collects Reddit, TrustPilot, Play Store data. |
-| Video Analyzer | http://localhost:5002 | Transcribes video/audio (Whisper). |
-| Miro Board Generator | http://localhost:5004 | Generates Miro/Figma boards. |
-| Character / Persona Generator | http://localhost:5010 | Gemini image/video character generation. |
-| Copilot Recipe Generator | http://localhost:5013 | Builds Copilot Studio agent recipes. |
-| Presentation Renderer | http://localhost:5014 | Scroll-driven presentation rendering. |
-| **Cowork agent backend** | http://localhost:8201 | Drives all the above tools for you (Playwright). |
-| **Live browser viewport (noVNC)** | http://localhost:6080 | Watch the cowork agent operate apps in real time. |
-
-Under the hood there are **22 containers** (the apps above, an AI agent orchestrator, MCP tool
-wrappers, two PostgreSQL databases, and the NXT-Agency cowork backend). You don't need to manage
-them individually — Docker Compose handles all of it.
+1. [At a glance](#at-a-glance)
+2. [Which branch should I use?](#which-branch-should-i-use)
+3. [What you need before you start](#what-you-need-before-you-start)
+4. [Start IA Next, step by step](#start-ia-next-step-by-step)
+5. [Ports and addresses](#ports-and-addresses)
+6. [Running IA Next and the original suite side by side](#running-ia-next-and-the-original-suite-side-by-side)
+7. [Using IA Next](#using-ia-next)
+8. [Brands: NXT Humans and Northeastern](#brands-nxt-humans-and-northeastern)
+9. [Approvals and cost](#approvals-and-cost)
+10. [Everyday operations](#everyday-operations)
+11. [Troubleshooting](#troubleshooting)
+12. [How it works](#how-it-works)
+13. [Where the code lives](#where-the-code-lives)
+14. [Security](#security)
+15. [Further reading](#further-reading)
 
 ---
 
-## Prerequisites
+## At a glance
 
-You only need **Docker** and **Git**. Everything else (Node, Python, every dependency, the
-Playwright browser) is built **inside containers** — you do not install them on your machine.
+| | |
+|---|---|
+| **Open it at** | **http://127.0.0.1:9400** (also http://localhost:9400) |
+| **Start** | `docker compose -f ia-next/ia-next.compose.yml up -d --build` |
+| **Stop** | `docker compose -f ia-next/ia-next.compose.yml down` (your work is kept) |
+| **Health check** | http://127.0.0.1:9400/health |
+| **Container** | `ia-next` (image `ia-next:0.1`) |
+| **Your data** | Docker volume `ia-next-data` (engagements, files, memory, task history) |
+| **Keys** | Read from the repository's root `.env` (the same file the suite uses) |
+| **Reachable from other computers?** | No. It listens on 127.0.0.1 only, your own machine. |
+
+---
+
+## Which branch should I use?
+
+| Branch | What it is for | Main address | Guide |
+|---|---|---|---|
+| **`ia-next-2026-11-17`** (this one) | IA Next, the personal agent and its studio | http://127.0.0.1:9400 | This README |
+| `ia-suite-2026-11-17` | The original Intelligence Augmentation suite: Launchpad hub, Humans in Control (HiC), Social Research, Journey Mapper, the cowork agent and the other apps (24 containers) | http://localhost:8000 and http://localhost:5011 | That branch's README |
+
+Both branches were cut from the same commit on 17 November 2026, so each one contains all of the code. The
+difference is which system the branch is developed and documented for. Never merge either branch into `main`.
+
+---
+
+## What you need before you start
+
+You need **Docker Desktop** and **Git**. Python, every library and the PowerPoint tooling are installed inside
+the IA Next container; you do not install them on your computer.
 
 | Requirement | macOS | Windows |
 |---|---|---|
-| **Docker Desktop** (includes Compose v2) | [Download (Mac)](https://www.docker.com/products/docker-desktop/) — Apple Silicon or Intel | [Download (Windows)](https://www.docker.com/products/docker-desktop/) — **enable the WSL 2 backend** when prompted |
-| **Git** | Preinstalled, or `brew install git` | [Git for Windows](https://git-scm.com/download/win) — this also installs **Git Bash** |
-| **Shell to run commands in** | Terminal | **Git Bash** (recommended) or PowerShell |
-| **RAM for Docker** | **16 GB recommended** (8 GB absolute min). Docker Desktop → Settings → Resources → set Memory. | Same (set in Docker Desktop / `.wslconfig`). |
-| **Free disk** | **~35 GB** (the Playwright + PyTorch images are large) | Same |
+| Docker Desktop (includes `docker compose`) | [Download](https://www.docker.com/products/docker-desktop/) | [Download](https://www.docker.com/products/docker-desktop/), with the WSL 2 backend turned on |
+| Git | Preinstalled, or `brew install git` | [Git for Windows](https://git-scm.com/download/win) (installs Git Bash) |
+| Where to type commands | Terminal | **Git Bash** (recommended) or PowerShell |
+| Memory for Docker | 2 GB is enough for IA Next alone; 16 GB if you also run the full suite | Same |
+| Disk | About 2 GB for IA Next | Same |
 
-**Before you start, confirm Docker is installed and running** (run in Terminal / Git Bash):
+Check Docker is running:
 
 ```bash
-docker --version            # e.g. "Docker version 28.x"
-docker compose version      # e.g. "Docker Compose version v2.37" (note the SPACE in "docker compose")
-docker info                 # must succeed; if it errors, open Docker Desktop and wait for it to start
+docker --version
+docker compose version     # note the space: "docker compose", not "docker-compose"
+docker info                # must succeed; if it fails, open Docker Desktop and wait
 ```
 
-> **Windows users:** always use `docker compose` (v2, with a space) — **not** the old
-> `docker-compose` (v1, hyphen). Run every command below in **Git Bash** so the paths work.
+### API keys
 
-You will also need **three AI API keys** (free tiers work to start):
-- **Anthropic** — https://console.anthropic.com
-- **OpenAI** — https://platform.openai.com
-- **Google Gemini** — https://aistudio.google.com/apikey
+IA Next uses three AI providers. Put the keys in a file named `.env` in the **root of the repository** (the
+folder that contains `docker-compose-all.yml`). If you already run the suite, this file exists and IA Next uses
+it as it is.
+
+| Key | Needed for | Required? |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | The agent itself, writing, analysis, decks, journey maps, prototypes | **Yes** |
+| `OPENAI_API_KEY` | Images, audio transcription, and the reviewer from a second vendor | **Yes** |
+| `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) | Web research with Google Search, video | **Yes** |
+| `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT` | Reddit listening | Only for Reddit |
+| `IA_NEXT_TASK_SPEND_APPROVAL_USD` | The spend level above which a task waits for your approval (default `3.00`) | No |
+| `IA_NEXT_CHANNEL_SECRET` | The signed webhook for Slack, Teams or email bridges (off until set) | No |
+| `MICROSOFT_APP_ID`, `MICROSOFT_APP_PASSWORD`, `TEAMS_TENANT_ID` | The Microsoft Teams channel (off until set) | No |
+
+Example `.env` (use your own values; never commit this file, it is already in `.gitignore`):
+
+```env
+ANTHROPIC_API_KEY=sk-ant-...
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=...
+```
 
 ---
 
-## Full fresh-install walkthrough
+## Start IA Next, step by step
 
-Follow every step in order. Each one is copy-paste; nothing is assumed.
-
-### Step 1 — Get the code
+### 1. Get the code
 
 ```bash
 git clone https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC.git
 cd internal-solution-selfimprovement-IA-HiC
-git checkout self-improvement-ia-2026-05-29
+git checkout ia-next-2026-11-17
 ```
 
-This branch is the supported one. A fresh clone already contains **everything**: all app source,
-the **vendored NXT-Agency** cowork backend (`NXT-Agency/`), the **HiC wiki knowledge base**
-(`humans-in-control-research/hic-workspace/wiki/`, ~11,600 markdown files), every manifest, and
-all landing-page graphics. Nothing lives outside this repo.
+### 2. Create the `.env` file
 
-> Do **not** merge to `main` — it runs months behind. Stay on the feature branch above.
+Create `.env` in the repository root with the three required keys (see the table above).
 
-### Step 2 — Create your `.env`
+- macOS or Git Bash: `nano .env`, paste, then Ctrl-O, Enter, Ctrl-X.
+- Windows: `notepad .env`, paste, save. If Notepad adds `.txt`, rename the file to `.env`.
 
-Create a file named exactly **`.env`** in the repo root (same folder as
-`docker-compose-all.yml`). **Three keys are required**; everything else is optional and only
-unlocks specific features.
+### 3. Build and start IA Next
 
-```env
-# ===================== REQUIRED =====================
-ANTHROPIC_API_KEY=sk-ant-...        # https://console.anthropic.com
-OPENAI_API_KEY=sk-...               # https://platform.openai.com
-GEMINI_API_KEY=...                  # https://aistudio.google.com/apikey
-
-# ============ DATABASE (defaults are fine) ==========
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_DB=app
-JWT_SECRET_KEY=change-me
-
-# ============ OPTIONAL — per feature ================
-# Reddit (Social Data Collector :5001, Social Analytics :8081, HiC deep-reddit)
-# Create a "script" app at https://www.reddit.com/prefs/apps
-REDDIT_CLIENT_ID=
-REDDIT_CLIENT_SECRET=
-REDDIT_USER_AGENT=script:nxt-humans:1.0
-REDDIT_REDIRECT_URI=http://localhost:5001/callback
-REDDIT_USERNAME=                    # only needed for Social Analytics (PRAW login)
-REDDIT_PASSWORD=
-
-# Miro Board Generator (:5004)
-MIRO_ACCESS_TOKEN=                  # https://miro.com/app/settings/user-profile/apps
-MIRO_BOARD_ID=
-
-# Other optional integrations
-FIGMA_API_TOKEN=
-TAVILY_API_KEY=                     # web search for the cowork agent
-DEEPSEEK_API_KEY=
-YOUTUBE_API_KEY=
-USE_WHISPER_API=true
-```
-
-**How to create the file:**
-- **macOS / Git Bash:** `nano .env` (paste, then Ctrl-O, Enter, Ctrl-X), or open the repo folder
-  in a text editor and save a new file named `.env`.
-- **Windows:** `notepad .env` → paste the template → Save. (If Notepad adds `.txt`, rename it to
-  just `.env`.)
-
-> 🔒 **Security:** `.env` is gitignored and must **never** be committed. The whole platform reads
-> these keys automatically — `docker compose` auto-loads `.env` from the repo root. The
-> NXT-Agency backend reads the same keys from this one file. **Do not paste keys anywhere else.**
-
-### Step 3 — Build and start the whole suite (one command)
-
-From the repo root:
+From the repository root:
 
 ```bash
-docker compose -f docker-compose-all.yml up -d --build
+docker compose -f ia-next/ia-next.compose.yml up -d --build
 ```
 
-That single command builds and starts **all 22 services**, including the NXT-Agency cowork
-backend.
+The first build takes two to five minutes. Later starts take seconds.
 
-> ⏱️ **First run takes 15-30 minutes.** It downloads/builds large images — the **Playwright**
-> browser image for the cowork agent (~2 GB) and the **CPU PyTorch** image for Social Research.
-> This is normal and only happens once; later starts take seconds. Leave it running.
-
-What this command does for you automatically:
-- `-f docker-compose-all.yml` — **always use this file** (the bare `docker-compose.yml` is only a
-  partial subset).
-- `-d` — run in the background (detached).
-- `--build` — build images (needed on first run and after any code change).
-- The NXT-Agency cowork backend, both databases, all MCP wrappers, and every app come up with no
-  extra steps.
-
-### Step 4 — Wait for boot, then verify
-
-After the command returns, services keep initializing for **2-4 minutes** (the Social Research
-backend and the NXT-Agency backend boot slowly — the latter starts a virtual display + browser
-before its API). Check status:
+### 4. Check it is healthy
 
 ```bash
-docker compose -f docker-compose-all.yml ps
+curl http://127.0.0.1:9400/health
 ```
 
-When things look up, confirm the key endpoints respond (run in Git Bash / Terminal):
+You should see something like:
 
-```bash
-for url in 8000 5011 5012 3000 8081 8500 8080 5001 5002 5004 5010 5013 5014 8201 6080; do
-  printf "  :%-5s -> %s\n" "$url" "$(curl -s -o /dev/null -w '%{http_code}' --max-time 8 http://localhost:$url/)"
-done
+```json
+{"status":"healthy","service":"ia-next","version":"0.1.0","port":9400,
+ "provider_keys_present":{"anthropic":true,"google":true,"openai":true}}
 ```
 
-You want **`200`** (or `30x`) for all. A `000` means that service is still booting — wait a
-minute and re-run. (The NXT-Agency backend on `:8201` is the slowest; give it up to ~60s after
-the others.)
+All three `provider_keys_present` values must be `true`. If one is `false`, that key is missing from `.env`:
+add it and run step 3 again.
 
-**Sanity checks for the two flagship surfaces:**
+PowerShell users can run `Invoke-RestMethod http://127.0.0.1:9400/health` instead of `curl`.
 
-```bash
-curl -I http://localhost:5011/                  # HiC SPA -> 200
-curl http://localhost:5012/api/wiki/index       # HiC proxy -> JSON
-curl http://localhost:8201/health               # cowork backend -> {"status": ...}
-```
+### 5. Open it
 
-**Also open http://localhost:5010** in a browser — you should see the real **Consistent Persona
-Generator** app, not a gray "the React frontend needs to be built" placeholder. (If you ever see
-that placeholder, see [Troubleshooting](#troubleshooting).)
-
-### Step 5 — Databases (automatic — nothing to do)
-
-Both PostgreSQL databases **initialize themselves on first startup**:
-- **Social Research DB** (`ankane/pgvector`, db `app`) — the backend auto-creates all tables +
-  the `pgvector` extension.
-- **NXT-Agency DB** (`postgres:15`, db `ai_assistant`) — the cowork backend runs its migrations
-  on boot.
-
-Verify (optional):
-
-```bash
-docker compose -f docker-compose-all.yml exec social-research-db \
-  psql -U postgres -d app -c '\dt'      # expect 8 tables (reddit_*, users)
-```
-
-If tables are ever missing (e.g. you wiped a volume mid-boot), re-run the initializer:
-`docker compose -f docker-compose-all.yml exec social-research-backend python app/db_init.py`.
-
-### Step 6 — Build the HiC wiki semantic index (one-time, runs in background)
-
-The HiC wiki ships with **~11,600 markdown articles**, but the **embedding index** is generated
-locally on your machine (it's too large to ship — it's gitignored). HiC works without it
-(manifest-chunk retrieval + exact-text grounding are immediate); this step adds **semantic
-search** over the corpus.
-
-The embedder runs **locally** inside `social-research-backend` (no extra API cost), so make sure
-that container is up (Step 4), then trigger the backfill:
-
-```bash
-# macOS / Git Bash:
-curl -X POST http://localhost:5012/api/wiki/chunks-backfill
-
-# Windows PowerShell:
-Invoke-RestMethod -Method Post -Uri http://localhost:5012/api/wiki/chunks-backfill
-```
-
-This embeds all ~11.6k articles and **takes a while** (tens of minutes to a couple hours on CPU).
-It's safe to leave running in the background and keep using everything else. Check progress
-anytime:
-
-```bash
-curl http://localhost:5012/api/wiki/embed-status
-# watch "chunked.articles" climb toward 11601
-```
-
-> If you rebuild or restart the `research-proxy` while it's running, the backfill stops — just
-> re-run the same command; it resumes from where it left off rather than starting over.
-
-### Step 7 — Manifests (already in place — nothing to do)
-
-HiC's manifests (`skill-manifest.json`, `institution-manifest.json`, `wiki/.manifest.json`) ship
-in the clone and are served automatically. No setup needed.
-
-### Step 8 — Open it and use it
-
-- **Launchpad Hub:** http://localhost:8000 — start here. Every tool is linked, and the **cowork
-  chatbot** lives in the bottom-right (see next section).
-- **Humans in Control:** http://localhost:5011 — pick **Research Analysis** / **Design Desk**,
-  type a prompt in the **Analyst Desk** chat, and add an artifact **hashtag** to generate a
-  deliverable, e.g. `#slides #NXT a 6-slide retail strategy deck`. Export as PPTX/PDF.
-  Artifact hashtags: `#slides #journey #blueprint #personas #themes #recommendations #prd
-  #competitive #case-study #roadmap #org #proto #presentation`. Brand tags: `#NXT` or `#NU`.
+Go to **http://127.0.0.1:9400** in your browser. The home page shows the studio's specialists, example requests,
+what changed since you last looked, anything waiting for your approval, and your recent work.
 
 ---
 
-## The cowork agent (NXT Intelligence Agent)
+## Ports and addresses
 
-The blue chat bubble at the bottom-right of the **Launchpad (http://localhost:8000)** is the
-**cowork agent** — an AI that operates the suite's tools *for you* by driving a real browser
-(Playwright computer-use). You can watch it work live.
+IA Next uses **exactly one port**.
 
-**Try it:** open http://localhost:8000, click the chat bubble, and type something like
-*"I need a customer journey map from these interview transcripts"* and attach a file. The agent
-will open Journey Mapper, fill the form, upload your file, and submit it — and you'll see a
-**LIVE BROWSER** panel showing it happen. When the result is ready it sends you a direct link.
+| What | Address | Notes |
+|---|---|---|
+| **IA Next workspace (the page)** | **http://127.0.0.1:9400** | Bound to 127.0.0.1, so only your own computer can reach it |
+| Health check | http://127.0.0.1:9400/health | Returns JSON; used by Docker's health check every 30 seconds |
+| API | http://127.0.0.1:9400/api/... | The page's own API (tasks, engagements, approvals, spend, digest) |
 
-- The agent backend runs at **http://localhost:8201** (`nxt-agency-backend`).
-- The live browser viewport is exposed via **noVNC at http://localhost:6080** if you want to
-  watch the raw session.
-- It can operate Journey Mapper, the Social Data Collector, Video Transcriber, Social Research,
-  Character Generator, Copilot Recipe Builder, and the Miro Board Generator.
+Inside Docker the container also listens on 9400, on its own private network `ia-next-net`. It is not on the
+suite's network and cannot reach the suite's containers.
 
-> Links the agent shows you point at the **user-facing** addresses (e.g. `localhost:8080`), not
-> the internal Docker hostnames — so you can click them directly.
+**Changing the port.** If something else on your computer already uses 9400, start IA Next on another host port:
+
+```bash
+IA_NEXT_PORT=9410 docker compose -f ia-next/ia-next.compose.yml up -d     # then open http://127.0.0.1:9410
+```
+
+(PowerShell: `$env:IA_NEXT_PORT=9410; docker compose -f ia-next/ia-next.compose.yml up -d`.) Pick a port outside
+the suite's list below.
 
 ---
 
-## Service + port map
+## Running IA Next and the original suite side by side
 
-| Service | Host port | Container | Tech |
+The two systems share nothing except the API keys in the root `.env`. You can start, stop and rebuild either
+one without touching the other.
+
+| | Original suite | IA Next |
+|---|---|---|
+| Compose file | `docker-compose-all.yml` | `ia-next/ia-next.compose.yml` |
+| Compose project name | `nxt-humans_ai_cx_workbench` | `ia-next` |
+| Docker network | `nxt-humans-network` | `ia-next-net` |
+| Data | the suite's volumes and `humans-in-control-research/hic-workspace/` | the `ia-next-data` volume |
+| Host ports | 3000, 5001, 5002, 5004, 5010, 5011, 5012, 5013, 5014, 5015, 5050, 6080, 8000, 8080, 8081, 8201, 8500, 8501, 8502, 8503, 8504, 8507, 8508 | **9400** only |
+| Calls into the other system | none | none |
+
+**Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every published
+port was listed with `docker ps`: no port is used twice, and IA Next's 9400 is outside the suite's range. (On the
+owner's workstation one more container, a SearXNG search service from a different project, uses 127.0.0.1:8890;
+it belongs to neither system and does not collide with either.)
+
+To run both:
+
+```bash
+docker compose -f docker-compose-all.yml up -d --build          # the suite (first build 15 to 30 minutes)
+docker compose -f ia-next/ia-next.compose.yml up -d --build     # IA Next
+```
+
+To check for a clash yourself at any time (Git Bash, macOS or Linux):
+
+```bash
+docker ps --format '{{.Ports}}' | tr ',' '\n' | grep -o '[0-9.]*:[0-9]*->' | sort | uniq -d
+```
+
+No output means no host port is published twice.
+
+The only shared thing is brand design: IA Next keeps a **read-only copy** of HiC's design-system tokens
+(`ia-next/ia_next/brand_tokens.json`), refreshed by a script, so its decks match HiC's brands without IA Next
+ever calling the suite. See [Brands](#brands-nxt-humans-and-northeastern).
+
+---
+
+## Using IA Next
+
+### The page
+
+- **Left rail.** *New conversation*; your **Engagements** (one per piece of client work; click one to focus the
+  conversation and your uploads on it); **All work** (every finished output as a card); **Memory** (what the agent
+  remembers about you, which you can read and remove); **Schedules**; **Spend**.
+- **Conversation.** Your messages and the agent's replies. When the agent starts work, a live card shows each
+  specialist's step and the money spent so far. Finished work appears inline: a report you can read, a deck
+  preview with a PowerPoint download, a journey map, a prototype you can click through.
+- **Message box** (pinned at the bottom). Type, drop files, or dictate where your browser supports it. Enter
+  sends; Shift and Enter makes a new line.
+- **Top bar.** The engagement in focus, the system's status, and today's spend.
+
+### Things to ask for
+
+You do not need special syntax; describe what you want. Hashtags are a shortcut the agent also understands.
+
+| You want | Try |
+|---|---|
+| A researched report | "Research how US universities are improving first-year retention in 2026, for a provost." |
+| A deck | "#slides for the provost from this engagement: problem, evidence, options, recommendation, next steps." |
+| A deck in Northeastern branding | "Make a short deck for the Annual Giving team using Northeastern branding." (or `#nu`) |
+| A journey map | "Map the journey of a first-year student who is thinking about leaving." |
+| A clickable prototype | "#proto a dashboard where gift officers see which alumni cohorts to contact next." |
+| Reddit listening | "What are people on r/college saying about academic advising this year?" (needs Reddit keys) |
+| Analysis of your files | Drop interview transcripts, notes, CSV or text files, then: "What do these interviews say about donor follow-up?" |
+| A mind map | "#mindmap of the findings in this engagement." (drawn as a diagram in the reply) |
+| An image or a short video | "Make a cover image for this deck." / "Make a five second opening clip." (video always asks for approval) |
+| To find past work | "Show my recent work" or "Open the latest report." |
+
+Each request runs as a background task. You can keep talking while it works; the card updates by itself, and a
+notice appears when it finishes.
+
+### What every output guarantees
+
+- Every quote is checked word for word against the source it cites; a quote that is not there is removed.
+- Every citation points at a real source you can open.
+- Reports are reviewed by a judge from a different AI vendor than the writer.
+- Decks are native, editable PowerPoint files (real text, real shapes, sources in the speaker notes), never
+  pictures of slides, and each download is named after the deck.
+
+---
+
+## Brands: NXT Humans and Northeastern
+
+Decks render in two brands, taken from HiC's design system (the Figma library behind HiC):
+
+| Brand | Colours | Typeface | Brand mark |
 |---|---|---|---|
-| Launchpad Hub (entry + cowork chat) | 8000 | `launchpad` | Flask + WebSocket proxy |
-| AI Agent orchestrator (MCP) | 8500 | `agent` | FastAPI + AsyncAnthropic |
-| MCP wrappers (reddit/social/journey/video/research) | 8501-8507 | `*-mcp` | JSON-RPC 2.0 |
-| Social Research Frontend | 3000 | `social-research-frontend` | React 19, Vite |
-| Social Research Backend | 8081 | `social-research-backend` | FastAPI, BERTopic, pgvector |
-| Social Research DB | (internal) | `social-research-db` | PostgreSQL 15 + pgvector |
-| Reddit / Social Data Collector | 5001 | `reddit-ripper` | Flask |
-| Video Analyzer | 5002 | `video-analyzer` | FastAPI, Whisper, FFmpeg |
-| Miro Board Generator | 5004 | `miro-generator` | TypeScript CLI |
-| Character / Persona Generator | 5010 | `consistent-character-generator` | Gemini |
-| **HiC Research (SPA)** | **5011** | `hic-research` | React 18, Vite 6, Tailwind |
-| **HiC Research Proxy** | **5012** | `research-proxy` | FastAPI (~16k lines) |
-| Copilot Recipe Generator | 5013 | `copilot-recipe-generator` | FastAPI + Vite |
-| Presentation Renderer | 5014 | `presentation-renderer` | React 19 |
-| Journey Mapper | 8080 | `journey-mapper` | FastAPI, Claude Opus |
-| **NXT-Agency cowork backend** | **8201** | `nxt-agency-backend` | FastAPI + Playwright + noVNC |
-| NXT-Agency live viewport (noVNC) | 6080 | `nxt-agency-backend` | noVNC / x11vnc |
-| NXT-Agency DB | (internal) | `nxt-agency-db` | PostgreSQL 15 |
-| NXT-Agency catalog UI (optional) | 5050 | `nxt-agency-launchpad` | Nginx (needs one-time build, see Optional) |
+| **NXT Humans** (default) | Black rail, chartreuse accent, teal panels | Saira Condensed titles, Archivo text | The NXT HUMANS wordmark |
+| **Northeastern** | Navy rail, Northeastern red accent, white text on red | Lato throughout | The red Northeastern N |
 
-> **Port 3000 is Social Research, not HiC.** In Docker, HiC is **5011** (SPA) + **5012** (proxy).
+The brand mark is drawn on the cover and in the corner of every slide as a native PowerPoint shape, so it stays
+sharp and editable.
+
+- **Ask for it in words:** "Northeastern branding", "Northeastern colours", "NU" or `#nu` all select the
+  Northeastern brand. Anything else is NXT Humans.
+- **Change the brand of a deck you already have, at no cost:** press **Switch to Northeastern brand** (or
+  **Switch to NXT Humans brand**) on the deck's card, or say "Put that deck in Northeastern branding". The same
+  slides, words, images and sources are re-rendered with no new AI call. The card's detail line always names
+  the brand in use.
+- **When HiC's design system changes**, refresh IA Next's copy and rebuild:
+
+  ```bash
+  python ia-next/scripts/sync_brand_tokens.py
+  docker compose -f ia-next/ia-next.compose.yml up -d --build
+  ```
+
+---
+
+## Approvals and cost
+
+- **Spend approval.** A task whose budget is above `IA_NEXT_TASK_SPEND_APPROVAL_USD` (default 3.00 USD) waits
+  for you: an approval card appears in the conversation. Approve or deny it; a denied call is final. One approval
+  covers one exact action, so the agent cannot reuse it for something else.
+- **Send and delete.** Anything leaving the system (for example an email) and anything deleted also needs your
+  approval.
+- **Video** always needs approval, one approval per clip.
+- **Seeing what you spend.** Today's spend is in the top bar; the **Spend** panel shows today, this week and
+  spend by model. Every card shows its own cost.
+- A task stops when it reaches the budget you approved.
 
 ---
 
 ## Everyday operations
 
-```bash
-# Status of everything
-docker compose -f docker-compose-all.yml ps
-
-# Logs (all, or one service)
-docker compose -f docker-compose-all.yml logs -f
-docker compose -f docker-compose-all.yml logs -f nxt-agency-backend
-
-# Restart one service
-docker compose -f docker-compose-all.yml restart agent
-
-# Stop everything (keeps data + built images)
-docker compose -f docker-compose-all.yml down
-
-# Start again later (fast — images already built)
-docker compose -f docker-compose-all.yml up -d
-
-# FULL reset — DESTROYS the databases and the wiki index (you'll redo Step 6)
-docker compose -f docker-compose-all.yml down -v
-```
-
-### Updating HiC after a code change
-
-The HiC SPA container (`research-generator` / `hic-research`) serves a prebuilt static bundle —
-**no hot reload.** After editing anything under `humans-in-control-research/`, rebuild just that
-image and hard-refresh the browser:
+All commands run from the repository root.
 
 ```bash
-docker compose -f docker-compose-all.yml up -d --build research-generator
-# then Cmd+Shift+R (Mac) / Ctrl+Shift+R (Windows) at http://localhost:5011
+# Status
+docker compose -f ia-next/ia-next.compose.yml ps
+
+# Follow the log
+docker compose -f ia-next/ia-next.compose.yml logs -f
+
+# Stop (your work is kept in the ia-next-data volume)
+docker compose -f ia-next/ia-next.compose.yml down
+
+# Start again
+docker compose -f ia-next/ia-next.compose.yml up -d
 ```
 
-The HiC proxy (`research-proxy`) hot-reloads `proxy/app.py`, but rebuild it after changing
-`proxy/requirements.txt`. Restart the MCP agent after MCP service changes:
-`docker compose -f docker-compose-all.yml restart agent`.
+### After changing IA Next's code
+
+The code is built into the image, so rebuild after any change under `ia-next/`:
+
+```bash
+docker compose -f ia-next/ia-next.compose.yml up -d --build
+```
+
+**Do this only when nothing is running.** A restart marks any task still in progress as failed (it is never left
+"running"; you can press Try again). To check:
+
+```bash
+curl -s http://127.0.0.1:9400/api/tasks | python -c "import json,sys; print([t['id'] for t in json.load(sys.stdin)['tasks'] if t['status'] not in ('done','failed')])"
+```
+
+An empty list `[]` means it is safe to rebuild.
+
+### Run the tests
+
+The tests are offline: no network and no AI calls. They run inside the image.
+
+```bash
+# macOS or Linux
+docker run --rm -v "$PWD/ia-next/tests:/app/tests:ro" -v "$PWD/ia-next/ia_next:/app/ia_next:ro" \
+  -v "$PWD/ia-next/web:/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
+
+# Windows Git Bash (the two settings stop Git Bash rewriting the paths)
+cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
+  -v "$(cygpath -w "$PWD/tests"):/app/tests:ro" -v "$(cygpath -w "$PWD/ia_next"):/app/ia_next:ro" \
+  -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
+```
+
+On 17 November 2026: 136 tests, all passing.
+
+### Back up and restore your data
+
+```bash
+# Back up the whole data volume to a dated archive in the current folder
+docker run --rm -v ia-next-data:/data -v "$PWD":/backup ia-next:0.1 tar czf /backup/ia-next-data-backup.tgz -C /data .
+
+# Restore it (stop IA Next first)
+docker compose -f ia-next/ia-next.compose.yml down
+docker run --rm -v ia-next-data:/data -v "$PWD":/backup ia-next:0.1 tar xzf /backup/ia-next-data-backup.tgz -C /data
+docker compose -f ia-next/ia-next.compose.yml up -d
+```
+
+### Start completely fresh
+
+```bash
+docker compose -f ia-next/ia-next.compose.yml down -v     # DELETES every engagement, file, memory and task
+```
 
 ---
 
 ## Troubleshooting
 
-- **`docker info` / `docker compose` fails** → Docker Desktop isn't running. Open it, wait for
-  the whale icon to settle, retry.
-- **First `up --build` seems stuck** → normal; it's building the Playwright (~2 GB) and PyTorch
-  images. Watch with `docker compose -f docker-compose-all.yml logs -f nxt-agency-backend` or
-  `... social-research-backend`.
-- **An endpoint returns `000` right after startup** → that service is still booting (the
-  NXT-Agency backend boots a virtual display + browser first; the Social Research backend has a
-  ~240s start period). Wait a minute, re-check `... ps`.
-- **A page renders blank in your browser (e.g. Journey Mapper at :8080)** → almost always a
-  **stale service worker** your browser registered from a *previous* app on that localhost port.
-  Fix: open **DevTools → Application → Service Workers → Unregister** (or **Clear site data**),
-  then reload. Confirm by opening the page in an **Incognito** window. (The pages now ship a
-  self-heal script that clears stale workers on load, but a one-time manual clear is the
-  definitive fix.)
-- **A service shows a "React frontend needs to be built" placeholder** (e.g. Character Generator
-  :5010) → rebuild + recreate just that service:
-  `docker compose -f docker-compose-all.yml up -d --build --force-recreate consistent-character-generator`.
-- **Cowork chatbot says "Failed to start conversation"** → the `nxt-agency-backend` isn't up yet
-  (it's the slowest to boot). Wait ~60s after the other services, confirm
-  `curl http://localhost:8201/health` returns 200, then reload the Launchpad and try again.
-- **HiC code change not visible at :5011** → you skipped the rebuild (see "Updating HiC" above).
-- **HiC generation/search fails** → proxy (`:5012`) down or a key missing. Check
-  `docker compose -f docker-compose-all.yml logs -f research-proxy` and confirm keys reached the
-  container: `docker compose -f docker-compose-all.yml exec research-proxy env | grep API_KEY`.
-- **Semantic wiki search returns nothing** → run the Step 6 backfill (and make sure
-  `social-research-backend` is up — the local embedder runs there).
-- **Port already in use** → another process owns one of the ports.
-  macOS/Linux: `lsof -ti:PORT | xargs kill -9`. Windows: `netstat -ano | findstr :PORT` then
-  `taskkill /PID <pid> /F`. Or run `python port_scanner.py --fix`.
-- **You forgot `-f docker-compose-all.yml`** → always pass it; the bare file is a partial subset.
+| What you see | What to do |
+|---|---|
+| The page does not open | Run `docker compose -f ia-next/ia-next.compose.yml ps`. If the container is not "healthy", read `... logs -f`. Make sure Docker Desktop is running. |
+| "Port is already allocated" when starting | Something else uses 9400. Start on another port: `IA_NEXT_PORT=9410 docker compose -f ia-next/ia-next.compose.yml up -d`. |
+| `provider_keys_present` shows `false` | That key is missing from the root `.env`. Add it, then run the start command again (the container reads `.env` when it starts). |
+| A task failed after a restart | Restarts mark running tasks as failed. Press **Try again** on the card. |
+| A deck came out in the wrong brand | Press the brand button on the deck's card, or say "Put that deck in Northeastern branding". It costs nothing. |
+| A deck made before 17 November will not switch brand | Older decks did not keep their own copy of their sources. If the engagement's sources have changed since, IA Next refuses rather than write wrong source lines; ask for a new deck in the brand you want. |
+| A research task is waiting | It is probably waiting for your approval: look for the approval card, or open **All work**. |
+| Reddit listening fails | The Reddit keys are missing or wrong in `.env`. |
+| The page looks out of date after an update | Rebuild (see above), then reload the page. |
+| Running both systems is slow | The full suite needs about 16 GB for Docker. IA Next alone needs very little. |
 
 ---
 
-## Optional extras
+## How it works
 
-### NXT-Agency catalog UI (`:5050`)
-
-The cowork **agent** works out of the box (it's the backend at `:8201`). The separate NXT-Agency
-**catalog UI** at `:5050` ships without a prebuilt frontend, so that page is blank until you
-build it once:
-
-```bash
-cd NXT-Agency/agency-agents-launchpad
-npm install && npm run build           # produces dist/ that the :5050 container serves
-cd ../..
-docker compose -f docker-compose-all.yml restart nxt-agency-launchpad
+```
+Your browser ──► IA Next (one FastAPI app on 127.0.0.1:9400)
+                   │
+                   ├─ The agent (one conversation, a fixed set of tools)
+                   │    asks at most one clarifying question, starts background tasks,
+                   │    reports work as done only when the task store says so
+                   │
+                   ├─ The studio (specialists on a background task graph)
+                   │    Brief Lead, Research Lead (Google Search grounding), Analyst,
+                   │    Writer and Verifier, Journey Cartographer, Deck Studio,
+                   │    Social Analyst, Transcript Analyst, Prototyper, Media Producer
+                   │
+                   ├─ Controls: approvals for spend, send and delete; a budget per task
+                   ├─ Verification: quotes checked verbatim, citations resolved,
+                   │    a judge from a second vendor
+                   ├─ Memory: what you have told it, behind a promotion gate you can inspect
+                   └─ Storage: SQLite task graph and files in the ia-next-data volume
+                   │
+                   └──► AI providers (Anthropic, OpenAI, Google) using the keys in .env
 ```
 
-This is **optional** — you do not need it to use the cowork chatbot from the Launchpad.
-
-### Local development (HiC, with hot reload)
-
-Docker is the supported path. For fast iteration on HiC specifically (needs **Node 20+** and
-**Python 3.11**):
-
-```bash
-# Terminal 1 — HiC proxy (required for all AI/search/wiki calls)
-cd humans-in-control-research/proxy
-python -m venv venv && source venv/bin/activate    # Windows Git Bash: source venv/Scripts/activate
-pip install -r requirements.txt && python app.py    # http://localhost:5012
-
-# Terminal 2 — HiC SPA (Vite dev server, hot reload)
-cd humans-in-control-research
-npm install --legacy-peer-deps                      # the flag is REQUIRED
-npm run dev                                          # http://localhost:3000
-```
-
-> In local dev the HiC SPA is on **:3000** (Vite); in Docker it's on **:5011** and **:3000**
-> belongs to Social Research. Before shipping HiC changes run `npm run typecheck` (mandatory),
-> then `npm run build` and `npm run test`.
+Each piece of work is a **task** with **steps**. A step is running, then available with a result file, or failed;
+a step that returns nothing counts as failed. Every output is stored under its own task, so a second report or deck
+never replaces the first.
 
 ---
 
-## Repository layout
+## Where the code lives
 
 ```
-internal-solution-selfimprovement-IA-HiC/
-  docker-compose-all.yml         # THE platform definition (always use this file)
-  README.md                      # this guide
-  launchpad/                     # Flask hub + cowork chat widget (:8000)
-  mcp-services/                  # MCP wrappers + the agent orchestrator
-  internal-solutions-*/          # core apps (socialresearch, video-analyzer, miro, journeymapper, ...)
-  humans-in-control-research/    # HiC: SPA + proxy + hic-workspace wiki (the flagship)
-  NXT-Agency/                    # vendored cowork agent backend (Playwright computer-use)
-  .claude/                       # agent skills, hooks, output-quality rules
-  CLAUDE.md                      # platform architecture + conventions
+ia-next/
+  ia-next.compose.yml     the one compose file for IA Next (port, network, volume)
+  Dockerfile              the image: Python, python-pptx, the app and the page
+  README.md               feature-by-feature status against the transformation plan
+  ia_next/
+    app.py                the web server: page, API routes, downloads, approvals
+    agent.py              the agent: conversation, tool list, engagement focus
+    studio.py             research pipeline: Brief Lead, Research Lead, Analyst, Writer, Verifier
+    deck.py, deckstudio.py   the Deck Studio: slides, native PowerPoint, brands, brand switch
+    brand_tokens.json     read-only copy of HiC's brand tokens (colours, typefaces, logo vectors)
+    journey.py            the Journey Cartographer
+    prototype.py          the Prototyper and its sandbox
+    social.py             Reddit listening
+    transcripts.py        uploads and transcription
+    media.py              images and video
+    verify.py             verification rungs (quotes, citations, bans, judge)
+    control.py            approvals
+    memory.py, reviewer.py   memory and the background memory reviewer
+    schedule.py           scheduled work
+    channels.py, teams.py the signed webhook and the Teams channel
+    library.py            the read-only research library (a copy of HiC's wiki)
+    regression.py         per-application regression checks
+    providers.py          calls to Anthropic, OpenAI and Google, metered
+    store.py              the SQLite task store and the per-engagement file area
+  web/                    the page: index.html, app.js, app.css, md.js, plain.js, vendor/ (Mermaid)
+  scripts/                bake-offs and sync_brand_tokens.py
+  tests/                  the offline test suite
+  regression/, bakeoffs/  recorded reports
 ```
-
-Deeper docs: [CLAUDE.md](CLAUDE.md) (platform topology + port map),
-[humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md) (HiC architecture),
-[humans-in-control-research/hic-workspace/AGENTS.md](humans-in-control-research/hic-workspace/AGENTS.md)
-(wiki schema — read before any wiki read/write).
 
 ---
 
-## License
+## Security
+
+- IA Next listens on **127.0.0.1 only**; other computers on your network cannot reach it.
+- API keys live only in the root `.env`, which is git-ignored. Never paste keys into the page or commit them.
+- Text from web pages and uploads is treated as data, never as instructions to the agent.
+- Prototypes are model-written code: they run only inside a sandboxed frame (`allow-scripts`, no same-origin
+  access) with a strict Content-Security-Policy.
+- Anything that spends above the threshold, sends something out, or deletes something waits for your approval.
+
+---
+
+## Further reading
+
+- [ia-next/README.md](ia-next/README.md): what runs today, section by section, with first live results.
+- [docs/INTELLIGENCE_AUGMENTATION_TRANSFORMATION_PLAN.md](docs/INTELLIGENCE_AUGMENTATION_TRANSFORMATION_PLAN.md):
+  the plan IA Next implements.
+- The original suite's guide: the README on the
+  [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17)
+  branch.
+
+---
 
 Proprietary software. All rights reserved.
 
-*Branch: `self-improvement-ia-2026-05-29` · NXT Humans Intelligence Augmentation Suite*
-</content>
+*Branch `ia-next-2026-11-17` · IA Next 0.1 · NXT Humans*

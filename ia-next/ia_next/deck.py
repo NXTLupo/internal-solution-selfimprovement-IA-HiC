@@ -42,13 +42,158 @@ TITLE_MAX_WORDS, TITLE_MIN_WORDS, TITLE_MAX_CHARS = 12, 4, 90
 MAX_POINTS = 4
 DECK_BUDGET_USD = 2.50          # composer plus up to two photographs
 
-# NXT tokens (non-authoritative mirror in .claude/CLAUDE.md; the owner named these for IA Next).
+# Brand constants. The values on these three lines are FALLBACKS only: at import they are replaced from
+# brand_tokens.json, IA Next's read-only copy of HiC's design system (Figma library iSQhAVM7SI4QHAWB7y9C2z, NXT mode
+# 221:0, NU mode 535:0; refreshed by scripts/sync_brand_tokens.py). They are used as-is only if that file is missing.
 RAIL, ACCENT, TEAL, CYAN = "0D0D0D", "B8B800", "115054", "00B7C3"
 INK, MUTED, LIGHT, PAPER, BAND = "1A1A1A", "6B6B6B", "E4E4DC", "FFFFFF", "F4F4EF"
 DISPLAY_FONT, BODY_FONT = "Saira Condensed", "Archivo"
 # PowerPoint picks a substitute for a missing typeface from its PANOSE hint: these point it at
 # Arial Narrow for the display face and Arial for the body face.
 PANOSE_ARIAL_NARROW, PANOSE_ARIAL = "020B0606020202030204", "020B0604020202020204"
+ON_ACCENT = RAIL                 # text on the accent band (NXT: black on chartreuse)
+KICKER_ON_DARK = CYAN            # kicker text on the dark cover
+TITLE_PANOSE = PANOSE_ARIAL_NARROW
+TITLE_WIDTH = 0.0052             # inches per character per point of title size (wrap estimate)
+BODY_WIDTH = 0.0072              # the same for the body face at regular weight (box fitting)
+CLOSING_KICKER = "E4E4DC"        # kicker text on the closing slide's dark panel
+LAYER_RAMP = [RAIL, TEAL, "1D6E64", "3F7F7A", "6A9894"]
+LOGO = None                      # the brand mark: {"paths", "viewbox", "light", "dark"} from the token copy
+BRAND_NAME = "NXT Humans"
+
+# Average advance of each title face in bold, in inches per character per point, measured in PowerPoint renders and
+# rounded up for word-wrap loss (Saira Condensed: the NXT display face; Lato: NU's single face, measured 0.0062 to 0.0067 on
+# 17 November render; Poppins Bold uppercase: DECIEM's title face).
+_FACE_WIDTH = {"Saira Condensed": 0.0052, "Lato": 0.0068, "Poppins": 0.0092, "Archivo": 0.0068}
+_CONDENSED = {"Saira Condensed"}
+# Body faces at regular weight, same unit. Lato measured 0.0065 on a 17 November render (a 21-character line at 14
+# points spanned 1.91 inches); Archivo is the wider face. PowerPoint substitutes a narrower face on a machine without
+# the brand font, so fitting to the real face keeps text inside its box everywhere.
+_BODY_FACE_WIDTH = {"Archivo": 0.0072, "Lato": 0.0066, "Josefin Sans": 0.0064}
+BRAND_NAMES = {"nxt": "NXT Humans", "nu": "Northeastern University", "deciem": "DECIEM"}
+_TOKENS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brand_tokens.json")
+
+# Hand-copied fallback palettes (16 Nov), used only when brand_tokens.json cannot be read.
+_FALLBACK = {
+    "nxt": {"RAIL": "0D0D0D", "ACCENT": "B8B800", "TEAL": "115054", "CYAN": "00B7C3", "INK": "1A1A1A", "MUTED": "6B6B6B",
+            "LIGHT": "E4E4DC", "PAPER": "FFFFFF", "BAND": "F4F4EF", "ON_ACCENT": "0D0D0D",
+            "DISPLAY_FONT": "Saira Condensed", "BODY_FONT": "Archivo"},
+    "nu": {"RAIL": "0E1626", "ACCENT": "C8102E", "TEAL": "16233C", "CYAN": "1D6E64", "INK": "16233C", "MUTED": "5B6472",
+           "LIGHT": "D9DEE7", "PAPER": "FFFFFF", "BAND": "F2F4F7", "ON_ACCENT": "FFFFFF",
+           "DISPLAY_FONT": "Lato", "BODY_FONT": "Lato"},
+}
+
+
+def _hex(v, default):
+    v = str(v or "").strip().lstrip("#").upper()
+    return v if re.fullmatch(r"[0-9A-F]{6}", v) else default
+
+
+def _lum(h):
+    def ch(c):
+        c = int(c, 16) / 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    return 0.2126 * ch(h[0:2]) + 0.7152 * ch(h[2:4]) + 0.0722 * ch(h[4:6])
+
+
+def contrast(a, b):
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def _mix(a, b, t):
+    return "".join(f"{round(int(a[i:i + 2], 16) * (1 - t) + int(b[i:i + 2], 16) * t):02X}" for i in (0, 2, 4))
+
+
+def _logo(block):
+    """The brand mark as SVG path data: NU's red N monogram, the NXT HUMANS wordmark. None when the brand's mark
+    is a typeset lockup (DECIEM), which the renderer then sets as text."""
+    lg = block.get("logo") or {}
+    if lg.get("monogram_path"):
+        fill = _hex(lg.get("fill"), "C8102E")
+        return {"paths": [lg["monogram_path"]], "viewbox": [float(x) for x in str(lg.get("monogram_viewbox") or "0 0 64 53").split()],
+                "light": fill, "dark": fill}
+    svg = str(lg.get("svg") or "")
+    paths = re.findall(r'<path[^>]*?\sd="([^"]+)"', svg)
+    vb = lg.get("svg_viewbox") or (re.search(r'viewBox="([^"]+)"', svg) or [None, ""])[1]
+    if paths and vb:
+        return {"paths": paths, "viewbox": [float(x) for x in str(vb).split()],
+                "light": _hex(lg.get("on_light"), "141414"), "dark": _hex(lg.get("on_dark"), "FFFFFF")}
+    return None
+
+
+def _from_tokens(name, block, fb):
+    c, f = block.get("color") or {}, block.get("font") or {}
+    b = {"RAIL": _hex(c.get("rail"), fb["RAIL"]), "ACCENT": _hex(c.get("accent"), fb["ACCENT"]),
+         "TEAL": _hex(c.get("teal"), fb["TEAL"]), "CYAN": _hex(c.get("kicker") or c.get("cyan"), fb["CYAN"]),
+         "INK": _hex(c.get("ink"), fb["INK"]), "MUTED": _hex(c.get("secondary") or c.get("muted"), fb["MUTED"]),
+         "LIGHT": _hex(c.get("hairline"), fb["LIGHT"]), "PAPER": _hex(c.get("paper"), fb["PAPER"]),
+         "BAND": _hex(c.get("panel") or c.get("ecru"), fb["BAND"]), "ON_ACCENT": _hex(c.get("on-accent"), fb["ON_ACCENT"]),
+         "DISPLAY_FONT": str(f.get("display") or fb["DISPLAY_FONT"]), "BODY_FONT": str(f.get("body") or fb["BODY_FONT"])}
+    return b
+
+
+def _complete(name, b):
+    """Derived roles: the kicker on the dark cover keeps the brand kicker only when it reads (4.5:1) against the
+    cover, else the hairline tone; the layer ramp steps the brand's dark panel toward paper; title metrics follow
+    the display face."""
+    b["KICKER_ON_DARK"] = b["CYAN"] if contrast(b["CYAN"], b["RAIL"]) >= 4.5 else b["LIGHT"]
+    b["CLOSING_KICKER"] = b["ACCENT"] if contrast(b["ACCENT"], b["TEAL"]) >= 4.5 else b["LIGHT"]
+    b["BODY_WIDTH"] = _BODY_FACE_WIDTH.get(b["BODY_FONT"], 0.0070)
+    b["LAYER_RAMP"] = [b["RAIL"], b["TEAL"]] + [_mix(b["TEAL"], b["PAPER"], t) for t in (0.14, 0.26, 0.36)]
+    b["TITLE_WIDTH"] = _FACE_WIDTH.get(b["DISPLAY_FONT"], 0.0072)
+    b["TITLE_PANOSE"] = PANOSE_ARIAL_NARROW if b["DISPLAY_FONT"] in _CONDENSED else PANOSE_ARIAL
+    b["BRAND_NAME"] = BRAND_NAMES.get(name, name)
+    b.setdefault("LOGO", None)
+    return b
+
+
+def load_brands(path=_TOKENS_PATH):
+    """Brands IA Next renders in, from the token copy. DECIEM is in the copy but not offered until its template
+    chrome (no rail, the typeset lockup, corner art) is built (plan Part 7, BR6)."""
+    try:
+        with open(path, encoding="utf-8") as fh:
+            blocks = json.load(fh)["brands"]
+    except (OSError, ValueError, KeyError):
+        blocks = {}
+    out = {}
+    for name in ("nxt", "nu"):
+        fb = _FALLBACK[name]
+        block = blocks.get(name)
+        b = _from_tokens(name, block, fb) if isinstance(block, dict) else dict(fb)
+        if isinstance(block, dict):
+            b["LOGO"] = _logo(block)
+        out[name] = _complete(name, b)
+    return out
+
+
+BRANDS = load_brands()
+globals().update(BRANDS["nxt"])     # the module constants above now carry the NXT token values
+_BRAND_LOCK = threading.Lock()
+
+
+def brand_id(value):
+    """The brand id for a request value: nxt or nu; anything else is NXT."""
+    v = str(value or "").strip().lower()
+    return v if v in BRANDS else "nxt"
+
+
+class use_brand:
+    """Render one deck in a brand: swaps this module's colour and face constants for the duration, under a lock so
+    two decks rendering at once cannot mix palettes. The model call happens outside; only rendering is serialized."""
+    def __init__(self, brand):
+        self.brand = brand_id(brand)
+
+    def __enter__(self):
+        _BRAND_LOCK.acquire()
+        g = globals()
+        self.saved = {k: g[k] for k in BRANDS["nxt"]}
+        g.update(BRANDS[self.brand])
+        return self.brand
+
+    def __exit__(self, *exc):
+        globals().update(self.saved)
+        _BRAND_LOCK.release()
 
 STR = {"type": "string"}
 DECK_SCHEMA = {
@@ -336,7 +481,7 @@ def _set_title(slide, text, x, y, w, h, size, color, anchor):
     p.alignment = PP_ALIGN.LEFT
     r = p.add_run()
     r.text = text
-    _font(r, DISPLAY_FONT, size, color, bold=True, panose=PANOSE_ARIAL_NARROW)
+    _font(r, DISPLAY_FONT, size, color, bold=True, panose=TITLE_PANOSE)
 
 
 def _quote_band(slide, quote, attribution, y, dark):
@@ -623,12 +768,15 @@ def run_deck_task(tid):
         store.update_task(tid, status="failed", error=msg, spent_usd=ledger.spent_usd)
         store.event("task_failed", {"error": msg}, eid, tid)
         return
-    store.update_task(tid, status="done", result_path=hp, summary=f"Deck ready: {summary}.", spent_usd=ledger.spent_usd)
+    brand = brand_id(brief.get("brand"))
+    store.update_task(tid, status="done", result_path=hp, summary=f"Deck ready in the {BRAND_NAMES[brand]} brand: {summary}.",
+                      spent_usd=ledger.spent_usd)
     store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd, "pptx": f"results/decks/{tid}/deck.pptx"}, eid, tid)
 
 
-def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None):
-    brief = {"audience": audience, "outline": [str(x).strip() for x in (outline or []) if str(x).strip()][:12]}
+def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None, brand="nxt"):
+    brief = {"audience": audience, "outline": [str(x).strip() for x in (outline or []) if str(x).strip()][:12],
+             "brand": brand_id(brand)}
     tid, created = store.create_task(engagement_id, "deck", brief, budget_usd, idem_key)
     if created:
         threading.Thread(target=run_deck_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
@@ -643,15 +791,49 @@ TOOLS = [
                      "(cards, tables, process flows, architecture diagrams, statements with photography, quotes, "
                      "decisions), each with a takeaway, and quotes checked verbatim. When the person lists the slides "
                      "they want (for #slides or any deck request), pass each item in order in outline, in their own "
-                     "words; otherwise pass an empty list. Returns a task id."),
-     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "audience", "outline"],
+                     "words; otherwise pass an empty list. brand is the visual brand: \"nu\" whenever the person mentions "
+                     "Northeastern, Northeastern University, NU, #nu, or Northeastern branding, colours or logo; otherwise "
+                     "\"nxt\" (NXT Humans). Put the brand only in brand, never in audience. Returns a task id."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "audience", "outline", "brand"],
                       "properties": {"engagement_id": STR, "audience": STR,
-                                     "outline": {"type": "array", "items": STR}}}},
+                                     "outline": {"type": "array", "items": STR},
+                                     "brand": {"type": "string", "enum": sorted(BRANDS)}}}},
+    {"name": "rebrand_deck", "strict": True,
+     "description": ("Re-render a finished deck in another brand at no cost and with no new model call: the same slides, "
+                     "words, images and sources, in the new brand's colours, typeface and brand mark. Use it when the "
+                     "person asks to change the brand of a deck that already exists (for example \"make that deck "
+                     "Northeastern\" or \"use the NU brand on it\"); do not start a new deck for that. brand as in "
+                     "start_deck. The task id then serves the re-rendered deck."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id", "brand"],
+                      "properties": {"task_id": STR, "brand": {"type": "string", "enum": sorted(BRANDS)}}}},
 ]
+
+
+def rebrand(tid, brand):
+    """Re-render a finished deck task in a brand (no model call). Returns the updated task row; raises ValueError
+    with a reason the person can read when the task cannot be re-rendered."""
+    t = store.get_task(tid)
+    if not t or t["kind"] != "deck":
+        raise ValueError("no deck with that task id; list_engagements shows each engagement's work")
+    if t["status"] != "done":
+        raise ValueError(f"that deck is {t['status']}; only a finished deck can be re-rendered")
+    from . import deckstudio
+    b = brand_id(brand)
+    summary = deckstudio.rerender(t["engagement_id"], tid, b)
+    brief = dict(t["brief"] or {}, brand=b)
+    store.update_task(tid, brief=json.dumps(brief), summary=f"Deck ready in the {BRAND_NAMES[b]} brand: {summary}.")
+    store.event("task_rebranded", {"brand": b}, t["engagement_id"], tid)
+    return store.get_task(tid)
 
 
 def execute(name, args):
     try:
+        if name == "rebrand_deck":
+            try:
+                t = rebrand(str(args.get("task_id") or ""), args.get("brand"))
+            except ValueError as e:
+                return {"error": str(e)}
+            return {"task_id": t["id"], "brand": t["brief"].get("brand"), "message": t["summary"], "spent_usd": 0}
         if name != "start_deck":
             return {"error": f"unknown tool {name}"}
         eid = str(args.get("engagement_id") or "")
@@ -660,7 +842,8 @@ def execute(name, args):
         if not str(args.get("audience") or "").strip():
             return {"error": "name the audience for the deck"}
         idem = hashlib.sha256(json.dumps(args, sort_keys=True).encode()).hexdigest()
-        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem, args.get("outline") or [])
+        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem, args.get("outline") or [],
+                                       brand_id(args.get("brand")))
         return {"task_id": tid, "engagement_id": eid, "started": created,
                 "message": "started" if created else "an identical task already exists; reporting that one"}
     except Exception as e:

@@ -85,12 +85,18 @@ export function taskTitle(task, eng) {
   return engTitle || clean(fromBrief) || kindOf(task.kind).label;
 }
 
+// The brands a deck renders in (ia_next/deck.py BRAND_NAMES; values from HiC's design system).
+export const BRAND_NAMES = { nxt: 'NXT Humans', nu: 'Northeastern' };
+
 export function taskDetail(task) {
   const b = task.brief || {};
   switch (task.kind) {
     case 'research_report': return b.audience ? `Report for ${lower1(b.audience)}` : 'Researched report';
     case 'journey_map': return b.persona ? `Journey map of ${lower1(b.persona)}` : 'Journey map';
-    case 'deck': return b.audience ? `Deck for ${lower1(b.audience)}` : 'Editable deck';
+    case 'deck': {
+      const brand = BRAND_NAMES[b.brand || 'nxt'] || BRAND_NAMES.nxt;
+      return `${b.audience ? `Deck for ${lower1(b.audience)}` : 'Editable deck'}, ${brand} brand`;
+    }
     case 'social': {
       if (!b.query) return 'Reddit listening';
       const subs = (b.subreddits || []).map((s) => `r/${s}`).join(', ');
@@ -279,6 +285,7 @@ const TOOL_WORDS = {
   start_research_report: ['Started a research report', 'Could not start the report'],
   start_journey_map: ['Started a journey map', 'Could not start the journey map'],
   start_deck: ['Started a deck', 'Could not start the deck'],
+  rebrand_deck: ['Re-rendered the deck in a new brand at no cost', 'Could not change the deck brand'],
   start_social_analysis: ['Started Reddit listening', 'Could not start Reddit listening'],
   analyze_uploads: ['Started reading your files', 'Could not read your files'],
   start_prototype: ['Started a prototype', 'Could not start the prototype'],

@@ -14,6 +14,46 @@ import * as P from './plain.js';
 const SVGNS = 'http://www.w3.org/2000/svg';
 const $ = (sel, root = document) => root.querySelector(sel);
 
+// ---- diagrams in replies (16 Nov audit: #diagram and #mindmap printed raw Mermaid) ---------------------------
+// md.js turns a ```mermaid block into <pre class="mermaid"> (escaped text). The bundled Mermaid library is loaded
+// only when such a block appears, runs with securityLevel "strict", and draws each block once it is in the page.
+// A block that will not draw shows its source instead of an empty frame.
+let mermaidReady = null;
+function loadMermaid() {
+  if (!mermaidReady) {
+    mermaidReady = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = '/static/vendor/mermaid.min.js';
+      s.onload = () => {
+        window.mermaid.initialize({
+          startOnLoad: false, securityLevel: 'strict', theme: 'base',
+          themeVariables: { primaryColor: '#EBF7F8', primaryBorderColor: '#115054', primaryTextColor: '#141414',
+            lineColor: '#115054', secondaryColor: '#F4F4EF', tertiaryColor: '#FFFFFF', fontFamily: 'Archivo, Arial, sans-serif' },
+          flowchart: { curve: 'basis', htmlLabels: false },
+        });
+        resolve(window.mermaid);
+      };
+      s.onerror = () => { mermaidReady = null; reject(new Error('mermaid did not load')); };
+      document.head.append(s);
+    });
+  }
+  return mermaidReady;
+}
+const PENDING_DIAGRAM = 'pre.mermaid:not([data-processed]):not([data-drawing])';
+async function drawDiagrams() {
+  const nodes = [...document.querySelectorAll(PENDING_DIAGRAM)];
+  if (!nodes.length) return;
+  nodes.forEach((n) => n.setAttribute('data-drawing', ''));
+  let m;
+  try { m = await loadMermaid(); } catch { nodes.forEach((n) => n.closest('.md-diagram')?.classList.add('md-diagram--failed')); return; }
+  for (const n of nodes) {
+    try { await m.run({ nodes: [n] }); }
+    catch { n.closest('.md-diagram')?.classList.add('md-diagram--failed'); }
+  }
+}
+new MutationObserver(() => { if (document.querySelector(PENDING_DIAGRAM)) drawDiagrams(); })
+  .observe(document.documentElement, { childList: true, subtree: true });
+
 // ---- small helpers -------------------------------------------------------------------------------
 function h(tag, props, ...kids) {
   const el = document.createElement(tag);
@@ -142,6 +182,14 @@ function fetchTask(tid) {
   return p;
 }
 
+// A finished task changed in place (a deck re-rendered in another brand): forget the cached copy, let every card
+// showing it repaint, and fetch it again.
+function refreshTask(tid) {
+  S.full.delete(tid);
+  document.querySelectorAll(`[data-task="${CSS.escape(tid)}"]`).forEach((el) => { delete el.dataset.painted; });
+  return fetchTask(tid);
+}
+
 function dropWatchers(tid) {
   for (const w of watchers.get(tid) || []) {
     if (w.el.isConnected && w.el.classList.contains('task')) {
@@ -231,7 +279,7 @@ function renderRail() {
   list.replaceChildren(...S.engs.map((e) => {
     const n = counts.get(e.id) || 0;
     return h('li', null, h('button', {
-      class: 'eng', type: 'button', 'aria-pressed': String(S.focus === e.id),
+      class: 'eng', type: 'button', 'aria-pressed': String(S.focus === e.id), 'data-eng': e.id,
       onclick: () => { setFocus(S.focus === e.id ? null : e.id); closeRail(); },
     }, h('span', { class: 'eng__title', text: e.title || 'Untitled engagement' }),
     h('span', { class: 'eng__meta', text: n ? plural(n, 'piece of work', 'pieces of work') : 'No work yet' })));
@@ -761,7 +809,8 @@ function resultEl(t, opts) {
       }
     }).catch(() => { list.replaceChildren(h('li', { class: 'finding', text: 'The findings could not be loaded.' })); });
   } else if (['journey_map', 'deck', 'social'].includes(t.kind)) {
-    wrap.append(h('iframe', { class: 'frame', src: view, sandbox: '', title: k.label, loading: 'lazy', referrerpolicy: 'no-referrer' }));
+    // the version stamp makes a re-rendered deck (a brand switch) load fresh instead of from the cache
+    wrap.append(h('iframe', { class: 'frame', src: `${view}?v=${encodeURIComponent(t.updated || '')}`, sandbox: '', title: k.label, loading: 'lazy', referrerpolicy: 'no-referrer' }));
   } else if (t.kind === 'prototype') {
     // The wrapper page sandboxes the prototype itself (see the note at the top of this file).
     wrap.append(h('div', { class: 'framecrop' }, h('iframe', { class: 'frame', src: `${view}?embed=1`, title: 'Prototype', loading: 'lazy', referrerpolicy: 'no-referrer' })));
@@ -789,6 +838,23 @@ function actionsEl(t, opts) {
   const view = `/api/tasks/${encodeURIComponent(t.id)}/view`;
   if (t.kind === 'deck') {
     row.append(h('a', { class: 'btn btn--accent', href: `/api/tasks/${encodeURIComponent(t.id)}/download`, download: 'deck.pptx' }, icon('download', 'ic--sm'), 'Download PowerPoint'));
+    // Plan Part 7 (BR3): the same slides in the other brand, re-rendered with no model call and no cost.
+    const other = ((t.brief && t.brief.brand) || 'nxt') === 'nu' ? 'nxt' : 'nu';
+    const btn = h('button', { class: 'btn btn--quiet', type: 'button', title: 'Same slides and sources, re-rendered at no cost',
+      onclick: async () => {
+        btn.disabled = true;
+        btn.textContent = `Switching to ${P.BRAND_NAMES[other]}`;
+        try {
+          await api(`/api/tasks/${encodeURIComponent(t.id)}/rebrand`, { method: 'POST', json: { brand: other } });
+          await refreshTask(t.id);
+          toast(`The deck is now in the ${P.BRAND_NAMES[other]} brand.`);
+        } catch (e) {
+          btn.disabled = false;
+          btn.textContent = `Switch to ${P.BRAND_NAMES[other]} brand`;
+          toast((e && e.message) || 'The brand could not be switched.');
+        }
+      } }, `Switch to ${P.BRAND_NAMES[other]} brand`);
+    row.append(btn);
   }
   if (!opts.full) row.append(h('button', { class: 'btn', type: 'button', onclick: () => openTask(t.id) }, OPEN_WORDS[t.kind] || 'Open'));
   if (['journey_map', 'deck', 'social', 'prototype'].includes(t.kind)) {
@@ -844,13 +910,14 @@ function detailsEl(summary, text) {
 
 // ---- conversation ---------------------------------------------------------------------------------
 function normalizeTurn(r) {
-  const rec = { reply: r.reply || '', chips: [], tasks: [], approvals: [], media: [], work: [], raw: '' };
+  const rec = { reply: r.reply || '', chips: [], tasks: [], approvals: [], media: [], work: [], changed: [], raw: '' };
   const listed = [];
   for (const tr of r.trace || []) {
     const out = tr.output && typeof tr.output === 'object' ? tr.output : {};
     rec.chips.push(P.toolChip(tr.tool, out));
     if (typeof out.task_id === 'string' && !rec.tasks.includes(out.task_id)) rec.tasks.push(out.task_id);
     if ((tr.tool === 'task_status' || tr.tool === 'read_report') && !out.error && tr.input && typeof tr.input.task_id === 'string' && !rec.tasks.includes(tr.input.task_id)) rec.tasks.push(tr.input.task_id);
+    if (tr.tool === 'rebrand_deck' && !out.error && typeof out.task_id === 'string') rec.changed.push(out.task_id);
     if (out.approval === 'pending' && typeof out.approval_id === 'string') rec.approvals.push(out.approval_id);
     if (isView(out.view)) rec.media.push({ kind: out.video ? 'video' : 'image', view: out.view });
     if (tr.tool === 'list_engagements' && Array.isArray(out.engagements)) {
@@ -997,6 +1064,7 @@ async function send(text, opts = {}) {
     if (S.focus) body.engagement_id = S.focus;
     const r = await api(`/api/conversations/${encodeURIComponent(S.conv)}/messages`, { method: 'POST', json: body });
     const rec = normalizeTurn(r);
+    rec.changed.forEach(refreshTask);      // cards already on the page show the re-rendered deck, not the cached one
     hideThinking();
     pushItem({ type: 'agent', rec, ask: text });
     setDockSuggest(P.nextAfterReply(rec, text));

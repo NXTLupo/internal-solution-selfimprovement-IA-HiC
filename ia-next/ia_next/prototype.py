@@ -309,8 +309,9 @@ def _ask(model, msg, ledger):
     return doc, problems, cut
 
 
-def build(eid, brief, ledger):
+def build(eid, brief, ledger, tid=None):
     """Write and validate the prototype. Returns (html_path, summary); raises when the file fails twice."""
+    sub = f"results/tasks/{tid}/" if tid else "results/"     # B1: each task keeps its own prototype
     brief = dict(brief or {})
     brief["experience"] = str(brief.get("experience") or "").strip()
     if not brief["experience"]:
@@ -329,15 +330,15 @@ def build(eid, brief, ledger):
         fix += "\n\nReply with the complete corrected file only."
         doc, problems, cut = _ask(model, fix, ledger)
     if problems:
-        _write(eid, "results/prototype.rejected.txt", doc)     # kept for diagnosis; a .txt is never served as a page
+        _write(eid, sub + "prototype.rejected.txt", doc)     # kept for diagnosis; a .txt is never served as a page
         raise providers.ProviderError("the prototype failed validation twice: " + "; ".join(problems[:5]))
     doc = _no_em_dash(doc)
-    hp = _write(eid, "results/prototype.html", doc)
-    _write(eid, "results/prototype.json", {
+    hp = _write(eid, sub + "prototype.html", doc)
+    _write(eid, sub + "prototype.json", {
         "experience": brief["experience"], "audience": brief.get("audience") or "", "must_include": brief.get("must_include") or [],
         "model": model, "bytes": len(doc.encode("utf-8")), "findings_used": len(findings), "repair_rounds": rounds,
         "validation": "passed" if not rounds else "passed after one correction", "csp": PROTOTYPE_CSP,
-        "html": "results/prototype.html", "built": time.time()})
+        "html": sub + "prototype.html", "built": time.time()})
     summary = (f"one self-contained page ({len(doc.encode('utf-8')) // 1000} KB) built from {len(findings)} findings, "
                f"{'validated first time' if not rounds else 'validated after one correction'}")
     return hp, summary
@@ -348,7 +349,9 @@ def html_path_for_task(tid):
     t = store.get_task(tid)
     if not t or t["kind"] != "prototype" or t["status"] != "done":
         return None
-    p = store.safe_path(t["engagement_id"], "results/prototype.html")
+    # B1 (16 Nov audit): each card serves its own page; older tasks (before per-task folders) fall back
+    own = store.safe_path(t["engagement_id"], f"results/tasks/{tid}/prototype.html")
+    p = own if os.path.isfile(own) else store.safe_path(t["engagement_id"], "results/prototype.html")
     return p if os.path.isfile(p) else None
 
 
@@ -362,9 +365,9 @@ def run_prototype_task(tid):
     store.event("task_running", {}, eid, tid)
     nid = store.start_node(tid, "Prototyper", config.SEATS["artifact"]["primary"], 1)
     try:
-        hp, summary = build(eid, brief, ledger)
+        hp, summary = build(eid, brief, ledger, tid)
         store.finish_node(nid, hp, summary)
-        meta = store.safe_path(eid, "results/prototype.json")    # never the HTML: see the module docstring
+        meta = store.safe_path(eid, f"results/tasks/{tid}/prototype.json")    # never the HTML: see the module docstring
         store.update_task(tid, status="done", result_path=meta, summary=f"Prototype ready: {summary}.", spent_usd=ledger.spent_usd)
         store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
     except Exception as e:

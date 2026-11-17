@@ -346,7 +346,8 @@ def test_prototype_gets_one_correction_then_saves_a_clean_file(monkeypatch):
     t = store.get_task(tid)
     assert t["status"] == "done" and t["nodes"][0]["state"] == "available"
     assert t["result_path"].endswith("prototype.json")          # the generic /view route never serves the page
-    page = open(store.safe_path(eid, "results/prototype.html"), encoding="utf-8").read()
+    page = open(prototype.html_path_for_task(tid), encoding="utf-8").read()          # B1: the task's own page
+    assert f"results/tasks/{tid}/prototype.html" in prototype.html_path_for_task(tid).replace("\\", "/")
     assert prototype.validate_html(page) == [] and EM_DASH not in page and ">Next, step<" in page
     assert "<findings>" in seen[0]["messages"][0]["content"] and "script src" in seen[1]["messages"][0]["content"]
     assert seen[0]["model"] == config.SEATS["artifact"]["primary"]

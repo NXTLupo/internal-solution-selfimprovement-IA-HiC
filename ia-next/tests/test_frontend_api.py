@@ -66,7 +66,11 @@ def test_message_with_focus_names_the_engagement_first(client, turns):
     eid = store.create_engagement("Co-op search  prep", "objective")
     r = client.post("/api/conversations/conv_x/messages", json={"text": "Make a deck", "engagement_id": eid})
     assert r.status_code == 200
-    assert turns[-1][1] == f"(Focused engagement: Co-op search prep [{eid}])\nMake a deck"
+    assert turns[-1][1] == f"(Focused engagement: Co-op search prep [{eid}]. This engagement has no work yet.)\nMake a deck"
+    # B2: the focused engagement's own work rides with the message
+    tid, _ = store.create_task(eid, "deck", {"audience": "provost"}, 2.5, "k-focus")
+    client.post("/api/conversations/conv_x/messages", json={"text": "Open the deck", "engagement_id": eid})
+    assert f"Its work, newest first:\n- deck (" in turns[-1][1] and f"[{tid}]" in turns[-1][1]
 
 
 def test_message_with_unknown_or_empty_focus_is_unchanged(client, turns):
@@ -167,3 +171,15 @@ def test_the_imported_library_is_not_listed_as_an_engagement(client):
     listed = [e["id"] for e in client.get("/api/engagements").json()["engagements"]]
     assert listed == [real]
     assert len(client.get("/api/engagements?include_library=1").json()["engagements"]) == 2
+
+
+def test_rebrand_route_validates_the_brand_and_the_task(client):
+    """Plan Part 7 (BR3): the deck card's brand switch. An unknown brand is a 400; a task that is not a finished
+    deck is a 409 with the reason; nothing is spent."""
+    assert client.post("/api/tasks/task_nope/rebrand", json={"brand": "deciem"}).status_code == 400
+    r = client.post("/api/tasks/task_nope/rebrand", json={"brand": "nu"})
+    assert r.status_code == 409 and "no deck with that task id" in r.json()["detail"]
+    eid = store.create_engagement("e", "o")
+    tid, _ = store.create_task(eid, "deck", {"audience": "a", "brand": "nxt"}, 1.0)
+    r = client.post(f"/api/tasks/{tid}/rebrand", json={"brand": "nu"})
+    assert r.status_code == 409 and "only a finished deck" in r.json()["detail"]

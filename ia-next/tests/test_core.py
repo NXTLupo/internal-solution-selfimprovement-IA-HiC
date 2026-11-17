@@ -84,6 +84,16 @@ def test_approval_covers_only_the_exact_call():
     assert control.status_for("send_email", dict(args, to="c@d.com")) is None
 
 
+def test_an_approval_changes_once_so_work_launches_once():
+    """B8: two approvals of one card (two tabs, a double click) change the row once; only that call may launch."""
+    a = control.request("spend", "start_research_report", {"engagement_id": "e", "brief": "b"}, "r")
+    first, changed1 = control.decide(a["id"], True, with_change=True)
+    second, changed2 = control.decide(a["id"], True, with_change=True)
+    late_deny, changed3 = control.decide(a["id"], False, with_change=True)
+    assert changed1 is True and changed2 is False and changed3 is False
+    assert first["status"] == second["status"] == late_deny["status"] == "approved"
+
+
 def test_denied_email_is_never_sent():
     args = {"to": "client@example.com", "subject": "Deck", "body": "attached"}
     first = agent.execute_tool("send_email", args)
@@ -220,3 +230,48 @@ def test_journey_task_without_research_fails_clearly():
     studio.run_journey_task(tid)
     t = store.get_task(tid)
     assert t["status"] == "failed" and "no finished research" in t["error"] and t["nodes"][0]["state"] == "failed"
+
+
+def test_research_outputs_stay_with_their_task_and_publish_only_on_success(monkeypatch):
+    """B1 (16 Nov audit): a second report used to replace the first card's report, and a failed run replaced the
+    engagement's findings and sources. Now each task writes into results/tasks/<tid>/ and its card points there;
+    the engagement-level copies change only when a run succeeds."""
+    import json as _json
+    import os as _os
+    from ia_next import studio
+    eid = store.create_engagement("Search firms", "How do firms use AI?")
+    base = [{"id": "S1", "url": "https://a", "title": "A", "text": "Firms use AI to prepare candidate shortlists."}]
+    studio._write(eid, "results/sources.json", {"sources": base})
+    brief = {"goal": "g", "scope": "s", "audience": "partners", "structure": "x", "constraints": "c"}
+
+    def fake_lead(e, b, ledger, tid=None):
+        srcs = base + [{"id": "S2", "url": "https://b", "title": "B", "text": "Partners judge every finalist themselves."}]
+        return studio._write(e, studio._task_rel(tid, "sources.json"), {"sources": srcs}), "2 sources", srcs
+
+    def fake_analyst(e, b, srcs, ledger, tid=None):
+        f = [{"claim": "Partners judge", "quote": "Partners judge every finalist themselves.", "source_id": "S2", "claim_type": "SUPPORTED_FACT"}]
+        return studio._write(e, studio._task_rel(tid, "findings.json"), {"findings": f}), "1 finding", f
+
+    monkeypatch.setattr(studio, "research_lead", fake_lead)
+    monkeypatch.setattr(studio, "analyst", lambda *a, **k: (_ for _ in ()).throw(providers.ProviderError("analysis failed")))
+    failed, _ = store.create_task(eid, "research_report", brief, 3.0, "k-fail")
+    studio.run_research_task(failed)
+    assert store.get_task(failed)["status"] == "failed"
+    assert [s["id"] for s in _json.load(open(store.safe_path(eid, "results/sources.json")))["sources"]] == ["S1"]
+    assert _os.path.isfile(store.safe_path(eid, f"results/tasks/{failed}/sources.json"))     # its collection is kept
+
+    runs = iter(["# First report\nPartners judge [S2].", "# Second report\nPartners judge [S2]."])
+    monkeypatch.setattr(studio, "analyst", fake_analyst)
+    monkeypatch.setattr(studio, "writer", lambda *a, **k: (next(runs), "fake-writer"))
+    monkeypatch.setattr(studio.verify, "deterministic", lambda draft, sources: [])
+    monkeypatch.setattr(studio.verify, "judge", lambda *a, **k: {"items": [], "judge_model": "fake-judge"})
+    first, _ = store.create_task(eid, "research_report", brief, 3.0, "k-1")
+    studio.run_research_task(first)
+    second, _ = store.create_task(eid, "research_report", brief, 3.0, "k-2")
+    studio.run_research_task(second)
+    t1, t2 = store.get_task(first), store.get_task(second)
+    assert t1["status"] == t2["status"] == "done"
+    assert open(t1["result_path"], encoding="utf-8").read().startswith("# First report")     # the first card keeps its report
+    assert open(t2["result_path"], encoding="utf-8").read().startswith("# Second report")
+    assert open(store.safe_path(eid, "results/report.md"), encoding="utf-8").read().startswith("# Second report")
+    assert [s["id"] for s in _json.load(open(store.safe_path(eid, "results/sources.json")))["sources"]] == ["S1", "S2"]

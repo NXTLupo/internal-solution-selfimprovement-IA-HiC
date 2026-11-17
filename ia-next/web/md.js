@@ -39,7 +39,21 @@ export function inline(s) {
   return t.replace(/\u0000(\d+)\u0000/g, (_, i) => keep[Number(i)]);
 }
 
-const BLOCK_START = /^(#{1,6}\s|\||>\s?|\s*([-*]|\d+\.)\s|---+\s*$)/;
+const BLOCK_START = /^(#{1,6}\s|\||>\s?|\s*([-*]|\d+\.)\s|---+\s*$|\s*`{3,}|\s*~{3,})/;
+const FENCE = /^\s*(`{3,}|~{3,})\s*([\w+-]*)\s*$/;
+
+// 16 Nov audit: the owner's #diagram and #mindmap replies printed their Mermaid source as one run-on paragraph,
+// because fenced blocks were not understood (the lines were joined into a <p>). Fenced blocks now keep every line;
+// a ```mermaid block becomes a diagram placeholder that the page draws with the bundled Mermaid library (the source
+// stays escaped text, Mermaid runs with securityLevel "strict"), with the source one click away.
+function fencedBlock(lang, body) {
+  const src = body.join('\n');
+  if (/^mermaid$/i.test(lang)) {
+    return `<figure class="md-diagram"><pre class="mermaid">${esc(src)}</pre>` +
+      `<details class="md-diagram__src"><summary>Diagram source</summary><pre><code>${esc(src)}</code></pre></details></figure>`;
+  }
+  return `<pre class="md-code"><code${lang ? ` data-lang="${esc(lang)}"` : ''}>${esc(src)}</code></pre>`;
+}
 
 export function renderMarkdown(md) {
   const out = [];
@@ -47,6 +61,15 @@ export function renderMarkdown(md) {
   let i = 0;
   while (i < lines.length) {
     const l = lines[i];
+    const f = l.match(FENCE);
+    if (f) {
+      const body = [];
+      i++;
+      while (i < lines.length && !new RegExp(`^\\s*${f[1][0] === '`' ? '`' : '~'}{${f[1].length},}\\s*$`).test(lines[i])) { body.push(lines[i]); i++; }
+      i++;                                                     // the closing fence (or the end of the reply)
+      out.push(fencedBlock(f[2], body));
+      continue;
+    }
     if (/^#{1,6}\s/.test(l)) {
       const n = Math.min(l.match(/^#+/)[0].length + 1, 6);
       out.push(`<h${n}>${inline(l.replace(/^#+\s*/, ''))}</h${n}>`);

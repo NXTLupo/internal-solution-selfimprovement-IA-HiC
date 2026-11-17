@@ -35,6 +35,21 @@ def _write(eid, rel, data):
     return p
 
 
+# B1 (16 Nov audit): every task writes into its own folder and its card points there, so a rerun never replaces an
+# earlier card's report and a failed run never replaces the engagement's evidence. The engagement-level files under
+# results/ are the LATEST SUCCESSFUL copies (what the deck, journey and prototype read), published only on success.
+def _task_rel(tid, name):
+    return f"results/tasks/{tid}/{name}" if tid else f"results/{name}"
+
+
+def _publish(eid, tid, names):
+    import shutil
+    for name in names:
+        src = store.safe_path(eid, _task_rel(tid, name))
+        if os.path.isfile(src):
+            shutil.copyfile(src, store.safe_path(eid, f"results/{name}"))
+
+
 # ---- Research Lead ----------------------------------------------------------------------------
 def _page_text(url, limit=14000):
     try:
@@ -49,7 +64,7 @@ def _page_text(url, limit=14000):
         return "", url
 
 
-def research_lead(eid, brief, ledger):
+def research_lead(eid, brief, ledger, tid=None):
     model = config.SEATS["search"]["primary"]
     prompt = (f"Research this for a consulting team.\nGoal: {brief['goal']}\nScope: {brief['scope']}\nAudience: {brief['audience']}\n"
               "Search the web for current, specific, attributable evidence from named organizations and publications. "
@@ -97,7 +112,7 @@ def research_lead(eid, brief, ledger):
             break
     if not sources:
         raise providers.ProviderError("search returned no readable sources")
-    path = _write(eid, "results/sources.json", {"summary": text, "sources": existing + sources, "queries": gm.get("webSearchQueries")})
+    path = _write(eid, _task_rel(tid, "sources.json"), {"summary": text, "sources": existing + sources, "queries": gm.get("webSearchQueries")})
     return path, f"{len(sources)} sources collected and read" + (f" ({len(existing)} earlier sources kept)" if existing else ""), existing + sources
 
 
@@ -112,7 +127,7 @@ FINDINGS_SCHEMA = {
 }
 
 
-def analyst(eid, brief, sources, ledger):
+def analyst(eid, brief, sources, ledger, tid=None):
     model = config.SEATS["analysis"]["primary"]
     src = "\n\n".join(f"<source id=\"{s['id']}\" title=\"{s['title']}\">\n{s['text'][:9000]}\n</source>" for s in sources)
     system = ("You are the Analyst on a consulting research team. Extract findings that answer the goal. "
@@ -131,7 +146,7 @@ def analyst(eid, brief, sources, ledger):
             kept.append(f)
         else:
             dropped.append(f)
-    path = _write(eid, "results/findings.json", {"findings": kept, "dropped_quote_not_in_source": dropped})
+    path = _write(eid, _task_rel(tid, "findings.json"), {"findings": kept, "dropped_quote_not_in_source": dropped})
     if not kept:
         raise providers.ProviderError("no finding survived the verbatim-quote check")
     return path, f"{len(kept)} findings with verbatim quotes ({len(dropped)} dropped: quote not in its source)", kept
@@ -191,16 +206,16 @@ def run_research_task(tid):
 
     try:
         missing = validate_brief(brief)
-        node("Brief Lead", "rules", lambda: (_write(eid, "results/brief.json", brief),
+        node("Brief Lead", "rules", lambda: (_write(eid, _task_rel(tid, "brief.json"), brief),
                                              "brief complete" if not missing else f"missing {missing}", None))
         if missing:
             raise ValueError(f"brief is missing {', '.join(missing)}")
-        sources = node("Research Lead", config.SEATS["search"]["primary"], lambda: research_lead(eid, brief, ledger))
-        findings = node("Analyst", config.SEATS["analysis"]["primary"], lambda: analyst(eid, brief, sources, ledger))
+        sources = node("Research Lead", config.SEATS["search"]["primary"], lambda: research_lead(eid, brief, ledger, tid))
+        findings = node("Analyst", config.SEATS["analysis"]["primary"], lambda: analyst(eid, brief, sources, ledger, tid))
 
         def write_and_verify():
             draft, author = writer(eid, brief, findings, sources, ledger)
-            _write(eid, "results/report.draft.md", draft)     # the writer's work survives a failed check
+            _write(eid, _task_rel(tid, "report.draft.md"), draft)     # the writer's work survives a failed check
             f1 = verify.deterministic(draft, sources)
             v1 = verify.judge(draft, brief, sources, author, ledger)
             best = (verify.score(f1, v1), draft, f1, v1, 0)
@@ -213,14 +228,15 @@ def run_research_task(tid):
                 if verify.score(f2, v2) > best[0]:
                     best = (verify.score(f2, v2), draft2, f2, v2, 1)
             sc, text, fnd, ver, rounds = best
-            _write(eid, "results/verification.json", {"score": sc, "deterministic_findings": fnd, "judge": ver, "repair_rounds": rounds,
+            _write(eid, _task_rel(tid, "verification.json"), {"score": sc, "deterministic_findings": fnd, "judge": ver, "repair_rounds": rounds,
                                                       "kept": "repaired" if rounds else "first draft"})
-            path = _write(eid, "results/report.md", text)
+            path = _write(eid, _task_rel(tid, "report.md"), text)
             open_items = len(fnd) + sum(1 for i in ver["items"] if not i.get("pass"))
             return path, f"report written and verified by {ver['judge_model']} (score {sc}, {open_items} open findings)", {"open": open_items}
 
         out = node("Writer and Verifier", config.SEATS["artifact"]["primary"], write_and_verify)
-        report = store.safe_path(eid, "results/report.md")
+        report = store.safe_path(eid, _task_rel(tid, "report.md"))
+        _publish(eid, tid, ("sources.json", "findings.json", "brief.json", "verification.json", "report.md"))
         summary = f"Report ready: {len(findings)} findings from {len(sources)} sources; {out['open']} open verification findings."
         store.update_task(tid, status="done", result_path=report, summary=summary, spent_usd=ledger.spent_usd)
         store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
@@ -239,7 +255,7 @@ def run_journey_task(tid):
     store.update_task(tid, status="running")
     nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], 1)
     try:
-        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger)
+        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger, tid)
         store.finish_node(nid, hp, summary)
         store.update_task(tid, status="done", result_path=hp, summary=f"Journey map ready: {summary}.", spent_usd=ledger.spent_usd)
         store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
