@@ -16626,11 +16626,15 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
         # 2026-10-20 (root-cause audit P0.5): embed the SAME text the manifest chunker chunked (the full page; the
         # chunker strips the frontmatter itself), so vector-store chunk ids and manifest chunk ids address the same
         # spans. Embedding the raw content gave different chunk counts on 150 of 514 sampled pages.
-        embedded = _embed_and_cache_article(h, embed_entry, body=body)
+        # 2026-11-17 (loop-stall watchdog): the full-body embed is a run of blocking HTTP calls with sleep-based retries.
+        # On the event loop it stalled the worker long enough for uvicorn's supervisor to kill it mid-request: a
+        # 14,750-character upload was written and chunked, then the caller got no response and the manifest upsert
+        # below never ran. Both run in a thread now, as the other 31 Oct watchdog fixes do.
+        embedded = await asyncio.to_thread(_embed_and_cache_article, h, embed_entry, body=body)
 
         # 2026-06-03 — incremental manifest upsert at ingest (the body text is in
         # hand, so no re-read). Best-effort; never fails the write.
-        _manifest_upsert(path_rel, text=body)
+        await asyncio.to_thread(_manifest_upsert, path_rel, text=body)
 
         return {
             "status": "ok",

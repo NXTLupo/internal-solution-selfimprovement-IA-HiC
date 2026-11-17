@@ -365,12 +365,26 @@ The two systems are fully separate and can run at the same time:
 | Address | http://localhost:8000 (hub), http://localhost:5011 (HiC) | http://127.0.0.1:9400 |
 | Data | the suite's volumes and `hic-workspace/` | the `ia-next-data` volume |
 | Shared | the API keys in the root `.env` | the same `.env` |
-| Calls into the other system | none | none (it keeps a read-only copy of HiC's brand tokens) |
+| Calls into the other system | none | HiC's research proxy, through the host (`host.docker.internal:5012`), with the token HiC publishes in `hic-workspace/.runtime/config.json` (mounted read-only) |
 
 ```bash
 docker compose -f docker-compose-all.yml up -d --build          # the suite
 docker compose -f ia-next/ia-next.compose.yml up -d --build     # IA Next, then open http://127.0.0.1:9400
 ```
+
+**What IA Next uses from this suite** (owner decision, 17 November 2026: call HiC's proxy through the host rather
+than join `nxt-humans-network`). The networks stay separate; only these HiC routes are called:
+
+| HiC route | What IA Next does with it | What you see in HiC |
+|---|---|---|
+| `POST /api/parse-upload` | Reads PDF, Word, PowerPoint, Excel and image uploads | Nothing new |
+| `GET /api/source-packs/...`, `POST /api/multi-search` | Searches a data pack's publications before the open web | Nothing new |
+| `POST /api/wiki/write-article` | Archives every IA Next upload and every source a deck or journey map is built from (the second brain) | New pages under `hic-workspace/wiki/uploads/eng-<engagement>/`, chunked, in the manifest and embedded, so HiC can retrieve them too |
+| `POST /api/manifest/chunks-from-selection`, `GET /api/wiki/read-article/<page>#cN` | Reads those sources back as manifest chunk pointers | Nothing new |
+
+When the suite is down, IA Next says so and keeps working on its own (local chunks instead of the manifest; text,
+subtitle, CSV and audio uploads only). Restarting the suite's `research-proxy` makes HiC issue a new token; IA Next
+re-reads it on every call, so no IA Next restart is needed.
 
 **Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every
 published port was listed with `docker ps`: no host port is used twice, and IA Next's 9400 is outside
