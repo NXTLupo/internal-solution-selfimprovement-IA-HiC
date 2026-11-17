@@ -337,6 +337,20 @@ def analyze_transcripts(eid, objective, ledger):
                                   max_tokens=16000, effort="medium", json_schema=TRANSCRIPT_FINDINGS_SCHEMA)
     data = providers.parse_json(text)
     kept, dropped, cleared = check_findings(data.get("findings"), uploads)
+    off_objective = False
+    if not data.get("findings"):
+        # 16 Nov audit, "file analysis fails at random on an identical file": in every failed run the objective did not
+        # match the file (a study-guide question on turnover notes), the analyst rightly found nothing, and the task
+        # failed with a misleading message. One more pass reports what the files do contain, labelled as such.
+        retry = (f"The person asked: {objective}\nThe files below do not seem to answer that. Extract the findings these "
+                 f"files DO support (their main themes), with verbatim quotes.\n\n{body}\n\nReturn 4 to 10 findings.")
+        text, _, _ = providers.claude(model, ANALYST_SYSTEM, [{"role": "user", "content": retry}], ledger,
+                                      max_tokens=16000, effort="medium", json_schema=TRANSCRIPT_FINDINGS_SCHEMA)
+        kept, dropped, cleared = check_findings(providers.parse_json(text).get("findings"), uploads)
+        off_objective = bool(kept)
+    if not kept and not dropped:
+        _write(eid, "results/transcript_findings.rejected.json", {"findings": [], "dropped_quote_not_in_source": []})
+        raise providers.ProviderError("the uploaded files contain no quotable evidence for this or any other question")
     if not kept:
         # Earlier findings stay as they were; the rejected reply is kept for diagnosis.
         _write(eid, "results/transcript_findings.rejected.json", {"findings": [], "dropped_quote_not_in_source": dropped})
@@ -345,6 +359,9 @@ def analyze_transcripts(eid, objective, ledger):
         path, web_kept = _merge_analyst_files(eid, uploads, kept, dropped)
     summary = (f"{len(kept)} findings with verbatim quotes from {len(uploads)} uploaded sources "
                f"({len(dropped)} dropped: quote not in its source)")
+    if off_objective:
+        summary = ("the uploaded files do not address the question asked, so these findings cover what the files do "
+                   "contain: " + summary)
     if cleared:
         summary += f"; {cleared} speaker labels cleared because the source does not name them"
     if web_kept:

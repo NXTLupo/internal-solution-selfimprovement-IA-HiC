@@ -133,7 +133,13 @@ def claude(model, system, messages, ledger: Ledger = None, **kw):
     u = Usage(model, resp.usage.input_tokens, resp.usage.output_tokens,
               getattr(resp.usage, "cache_read_input_tokens", 0) or 0, round(time.time() - t0, 2))
     if ledger is not None:
-        ledger.add(u)
+        try:
+            ledger.add(u)
+        except BudgetExceeded as e:
+            # The reply is already paid for: the caller may keep it, it just must not make another call (17 Nov live
+            # run: a complete prototype was discarded because its own call crossed the budget).
+            e.result = ("".join(b.text for b in resp.content if b.type == "text"), u, resp)
+            raise
     if resp.stop_reason == "refusal":
         cat = getattr(getattr(resp, "stop_details", None), "category", None)
         raise ProviderError(f"{model} declined the request (category {cat})")

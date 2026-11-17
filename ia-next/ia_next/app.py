@@ -174,8 +174,9 @@ def task_view(tid: str, embed: int = 0):
         # A prototype is model-written code: it is served with a strict CSP and only inside a sandboxed
         # iframe without allow-same-origin, so it can run its own script and reach nothing else.
         from html import escape
-        bar = "" if embed else "<header>Prototype. It runs on its own and cannot reach your data or the web.</header>"
-        height = "100vh" if embed else "calc(100vh - 34px)"
+        # Part 8 (P4): no text strip above the prototype in either view; the protection is the sandbox and the CSP,
+        # unchanged. The page title names the product when the build recorded one.
+        bar, height = "", "100vh"
         return HTMLResponse(f"""<!doctype html><html><head><meta charset="utf-8"><title>Prototype</title>
 <style>body{{margin:0;font-family:system-ui;background:#0D0D0D;color:#fff}} header{{padding:8px 12px;font-size:12px}} iframe{{border:0;display:block;width:100%;height:{height};background:#fff}}</style></head>
 <body>{bar}

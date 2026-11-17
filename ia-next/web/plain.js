@@ -206,6 +206,7 @@ export function outcome(task) {
 
 const REASONS = [
   [/stopped by you/i, { whole: 'You stopped it. What it had already written is kept.' }],
+  [/no quotable evidence/i, { whole: 'The uploaded files hold no passage that can be quoted as evidence.' }],
   [/interrupted by a restart/i, { whole: 'The service restarted while this was running, so it stopped partway.' }],
   [/no finished research|run a research report first|has a done research/i, { whole: 'It needs a finished research report in the same engagement first.' }],
   [/budget|BudgetExceeded|spend limit|over the approved/i, { whole: 'It reached its spending limit before finishing.' }],

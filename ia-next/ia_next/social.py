@@ -292,9 +292,11 @@ def _link(url):
     return f'<a href="{e}" rel="noopener noreferrer">{e}</a>' if str(url or "").startswith("https://") else e
 
 
-def render_html(result, sources):
+def render_html(result, sources, brand="nxt"):
     """A CSS-only exhibit: one column per sentiment, theme cards with their quotes, the cited posts below.
-    Every piece of text is escaped; there is no script."""
+    Every piece of text is escaped; there is no script. NXT by default, Northeastern on request (Part 8, P6)."""
+    from . import deck
+    kit = deck.brand_kit(brand)
     e = lambda s: html.escape(str(s if s is not None else ""), quote=True)   # noqa: E731
     by_id = {s["id"]: s for s in sources}
     cited = []
@@ -319,8 +321,10 @@ def render_html(result, sources):
     refs = "".join(f'<li id="{e(sid)}">[{e(sid)}] {e(by_id[sid]["title"])}: {_link(by_id[sid]["url"])}</li>' for sid in cited if sid in by_id)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(result.get('title', 'Social analysis'))}</title><style>
-:root{{--rail:#0D0D0D;--accent:#B8B800;--cyan:#00B7C3;--teal:#115054;--warn:#CC6644;--line:#E4E4DC;--ink:#1A1A1A;--muted:#6B6B6B;--paper:#FAFAF7}}
-body{{font-family:Archivo,"Segoe UI",sans-serif;margin:24px;color:var(--ink);background:var(--paper)}}
+{kit['css']}
+:root{{--cyan:var(--cool);--teal:var(--deep)}}
+body{{font-family:var(--font-body);margin:24px;color:var(--ink);background:var(--paper)}}
+.brand-mark{{height:28px;width:auto;color:var(--ink);float:right}}
 h1{{font-size:22px;margin:0 0 4px}} .meta{{color:var(--muted);margin:0 0 4px;font-size:13px}}
 .split{{display:flex;gap:2px;margin:16px 0;font-size:12px}} .seg{{padding:6px 8px;min-width:90px;color:#fff;white-space:nowrap}}
 .seg.positive{{background:var(--teal)}} .seg.mixed{{background:var(--accent);color:var(--rail)}} .seg.negative{{background:var(--warn)}}
@@ -335,14 +339,14 @@ blockquote{{margin:6px 0;padding-left:8px;border-left:2px solid var(--line);font
 .cite{{color:var(--cyan);font-style:normal;text-decoration:none}} .none{{color:#999;font-size:13px}}
 .refs{{font-size:12px;margin-top:20px;overflow-wrap:anywhere}}
 @media (max-width:820px){{.cols{{grid-template-columns:1fr}}}}
-</style></head><body><h1>{e(result.get('title', ''))}</h1>
+</style></head><body>{kit['mark']}<h1>{e(result.get('title', ''))}</h1>
 <p class="meta">Objective: {e(result.get('objective', ''))}</p>
 <p class="meta">Searched {e(subs)} for: {e(result.get('query', ''))} (past year, by relevance). Posts read: {int(result.get('posts', 0))}, with their top comments.</p>
 <div class="split" aria-label="Posts by sentiment">{segs}</div>
 <div class="cols">{''.join(cols)}</div><ol class="refs">{refs}</ol></body></html>"""
 
 
-def analyze(eid, objective, ledger):
+def analyze(eid, objective, ledger, brand="nxt"):
     """Themes with verified quotes and a counted sentiment split. Returns (html_path, summary, result)."""
     collected = _load(eid, "results/social_sources.json")
     sources = (collected.get("sources") or [])[:MAX_POSTS]
@@ -364,7 +368,7 @@ def analyze(eid, objective, ledger):
     _write(eid, "results/social.json", result)
     if not themes:
         raise providers.ProviderError(f"no theme kept a verbatim quote from its post ({dq} quotes dropped)")
-    hp = _write(eid, "results/social.html", render_html(result, sources))
+    hp = _write(eid, "results/social.html", render_html(result, sources, brand))
     quotes = sum(len(t["quotes"]) for t in themes)
     summary = (f"{len(themes)} themes with {quotes} verbatim quotes from {len(sources)} posts "
                f"({dq} quotes dropped: not in their post; {dt} themes dropped: no verified quote)")
@@ -400,7 +404,7 @@ def run_social_task(tid):
         sources = node("Social Collector", "reddit-oauth",
                        lambda: collect(eid, brief["query"], brief.get("subreddits"), brief.get("limit") or DEFAULT_POSTS))
         result = node("Social Analyst", config.SEATS["analysis"]["primary"],
-                      lambda: analyze(eid, brief.get("objective") or brief["query"], ledger))
+                      lambda: analyze(eid, brief.get("objective") or brief["query"], ledger, brief.get("brand") or "nxt"))
         hp = store.safe_path(eid, "results/social.html")
         summary = (f"Social analysis ready: {len(result['themes'])} themes from {len(sources)} Reddit posts; "
                    f"{result['dropped_quotes_not_in_source']} quotes dropped because they were not in their post.")
@@ -412,7 +416,7 @@ def run_social_task(tid):
         store.event("task_failed", {"error": msg, "spent_usd": ledger.spent_usd, "trace": traceback.format_exc()[-800:]}, eid, tid)
 
 
-def start_social_task(engagement_id, title, query, subreddits, objective, budget_usd, idem_key, limit=DEFAULT_POSTS):
+def start_social_task(engagement_id, title, query, subreddits, objective, budget_usd, idem_key, limit=DEFAULT_POSTS, brand="nxt"):
     """Returns (task id, created). An empty engagement id creates the engagement; an unknown one is refused."""
     query = str(query or "").strip()
     if not query:
@@ -426,8 +430,9 @@ def start_social_task(engagement_id, title, query, subreddits, objective, budget
         raise ValueError("no such engagement; list_engagements shows the ids")
     if not eid:
         eid = store.create_engagement((title or f"Social: {query}")[:80], objective or query)
+    from . import deck
     brief = {"query": query, "subreddits": subs, "objective": objective or query,
-             "limit": max(1, min(MAX_POSTS, int(limit or DEFAULT_POSTS)))}
+             "limit": max(1, min(MAX_POSTS, int(limit or DEFAULT_POSTS))), "brand": deck.brand_id(brand)}
     tid, created = store.create_task(eid, "social", brief, budget_usd if budget_usd and budget_usd > 0 else DEFAULT_BUDGET_USD, key)
     if created:
         threading.Thread(target=run_social_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
@@ -436,13 +441,14 @@ def start_social_task(engagement_id, title, query, subreddits, objective, budget
 
 STR = {"type": "string"}
 TOOLS = [
-    {"name": "start_social_analysis", "strict": True,
+    {"name": "start_social_analysis", "strict": False,      # fields checked in code; keeps the strict grammar under the API limit
      "description": "Start a background task in which the Social Analyst collects public Reddit posts and their top comments "
                     "for a query (within named subreddits, or across Reddit), then finds themes carried by verbatim quotes "
                     "checked against the posts, and counts the posts by sentiment. Produces a themes-by-sentiment exhibit. "
-                    "Returns a task id or a pending spend approval.",
+                    "Returns a task id or a pending spend approval. brand is \"nu\" whenever the person mentions "
+                    "Northeastern, NU, #nu or Northeastern branding, otherwise \"nxt\".",
      "input_schema": {"type": "object", "additionalProperties": False,
-                      "required": ["engagement_id", "engagement_title", "query", "subreddits", "objective", "limit", "budget_usd"],
+                      "required": ["engagement_id", "engagement_title", "query", "subreddits", "objective", "limit", "budget_usd", "brand"],
                       "properties": {
                           "engagement_id": {"type": "string", "description": "Existing engagement id, or empty to create one"},
                           "engagement_title": STR,
@@ -451,7 +457,7 @@ TOOLS = [
                                          "description": "Subreddit names without r/, or an empty list to search all of Reddit"},
                           "objective": {"type": "string", "description": "What the analysis must answer"},
                           "limit": {"type": "integer", "description": "Posts to collect, 5 to 50; 25 when unsure"},
-                          "budget_usd": {"type": "number", "description": "Spend cap in USD; 0 for the default"}}}},
+                          "budget_usd": {"type": "number", "description": "Spend cap in USD; 0 for the default"}, "brand": {"type": "string", "enum": ["nu", "nxt"]}}}},
 ]
 
 
@@ -461,7 +467,7 @@ def launch(args):
     tid, created = start_social_task(args.get("engagement_id") or "", args.get("engagement_title") or "", args["query"],
                                      args.get("subreddits") or [], args.get("objective") or "",
                                      float(args.get("budget_usd") or DEFAULT_BUDGET_USD), idem,
-                                     limit=int(args.get("limit") or DEFAULT_POSTS))
+                                     limit=int(args.get("limit") or DEFAULT_POSTS), brand=args.get("brand") or "nxt")
     t = store.get_task(tid)
     return {"task_id": tid, "engagement_id": t["engagement_id"], "started": created,
             "message": "started: collecting Reddit posts, then theme and sentiment analysis" if created

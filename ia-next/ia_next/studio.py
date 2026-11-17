@@ -260,7 +260,7 @@ def run_journey_task(tid):
     store.update_task(tid, status="running")
     nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], 1)
     try:
-        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger, tid)
+        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger, tid, brief.get("brand") or "nxt")
         store.finish_node(nid, hp, summary)
         store.update_task(tid, status="done", result_path=hp, summary=f"Journey map ready: {summary}.", spent_usd=ledger.spent_usd)
         store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
@@ -275,8 +275,10 @@ def run_journey_task(tid):
         store.event("task_failed", {"error": str(e)[:500]}, eid, tid)
 
 
-def start_journey_task(engagement_id, persona, scope, budget_usd, idem_key):
-    tid, created = store.create_task(engagement_id, "journey_map", {"persona": persona, "scope": scope}, budget_usd, idem_key)
+def start_journey_task(engagement_id, persona, scope, budget_usd, idem_key, brand="nxt"):
+    from . import deck
+    tid, created = store.create_task(engagement_id, "journey_map", {"persona": persona, "scope": scope, "brand": deck.brand_id(brand)},
+                                     budget_usd, idem_key)
     if created:
         threading.Thread(target=run_journey_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
     return tid, created

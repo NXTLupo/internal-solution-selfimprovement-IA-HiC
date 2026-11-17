@@ -158,8 +158,9 @@ def test_prototype_wrapper_embed_drops_the_top_line_and_keeps_the_sandbox(client
     store.update_task(tid, status="done", result_path="results/prototype.json")
     full = client.get(f"/api/tasks/{tid}/view").text
     embedded = client.get(f"/api/tasks/{tid}/view?embed=1").text
-    assert "<header>" in full and "sandboxed:" not in full
-    assert "<header>" not in embedded and "height:100vh" in embedded
+    # Part 8 (P4): no text strip above the prototype in either view; the sandbox is unchanged
+    assert "<header>" not in full and "runs on its own" not in full
+    assert "<header>" not in embedded and "height:100vh" in embedded and "height:100vh" in full
     for page in (full, embedded):
         assert 'sandbox="allow-scripts"' in page and "allow-same-origin" not in page
 
@@ -248,3 +249,18 @@ def test_the_agent_picks_up_a_reopened_conversation_after_a_restart():
     agent.turn("conv_r", "Thanks", call=call)                              # only the first turn carries the note
     assert agent._CONVS["conv_r"].messages[-2]["content"] == "Thanks"
     assert agent.resume_note("conv_never") == ""
+
+
+def test_the_file_picker_filter_lists_extensions_only():
+    """17 Nov (owner): Chrome's Open dialog hung ("Not Responding") after the paperclip. The accept list mixed MIME types
+    (text/plain, audio/*) with extensions; Chrome on Windows expands each MIME type into every registered extension.
+    Extensions only, as HiC's working upload does, and the same types the page accepts."""
+    if not os.path.isdir(WEB):
+        pytest.skip("web folder not mounted")
+    page = open(os.path.join(WEB, "index.html"), encoding="utf-8").read()
+    accept = re.search(r'id="fileInput"[^>]*accept="([^"]*)"', page).group(1).split(",")
+    assert accept and all(a.startswith(".") and "/" not in a and "*" not in a for a in accept), accept
+    js = open(os.path.join(WEB, "app.js"), encoding="utf-8").read()
+    exts = set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const TEXT_EXT = \[([^\]]*)\]", js).group(1)))
+    exts |= set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const AUDIO_EXT = \[([^\]]*)\]", js).group(1)))
+    assert {a[1:] for a in accept} == exts

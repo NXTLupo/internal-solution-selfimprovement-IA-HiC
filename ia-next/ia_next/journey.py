@@ -53,8 +53,11 @@ def check_quotes(journey, sources):
     return journey, dropped
 
 
-def render_html(j, sources):
-    """A native exhibit: one CSS-grid column per stage, one row per lane. No absolute positioning."""
+def render_html(j, sources, brand="nxt"):
+    """A native exhibit: one CSS-grid column per stage, one row per lane. No absolute positioning. In the NXT brand by
+    default, the Northeastern brand on request (Part 8, P6)."""
+    from . import deck
+    kit = deck.brand_kit(brand)
     e = html.escape
     stages = j.get("stages", [])
     cols = len(stages) or 1
@@ -73,20 +76,21 @@ def render_html(j, sources):
     refs = "".join(f'<li>[{e(k)}] {e(v["title"])}: <a href="{e(v["url"])}">{e(v["url"])}</a></li>' for k, v in src.items())
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(j.get('title', 'Journey map'))}</title><style>
-:root{{--rail:#0D0D0D;--accent:#B8B800;--teal:#115054;--warn:#CC6644;--line:#E4E4DC}}
-body{{font-family:Archivo,"Segoe UI",sans-serif;margin:24px;color:#1A1A1A;background:#FAFAF7}}
-h1{{font-size:22px;margin:0 0 4px}} .persona{{color:#6B6B6B;margin-bottom:16px}}
+{kit['css']}
+body{{font-family:var(--font-body);margin:24px;color:var(--ink);background:var(--paper)}}
+header{{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}} .brand-mark{{height:28px;width:auto;color:var(--ink)}}
+h1{{font:700 24px/1.2 var(--font-display);margin:0 0 4px}} .persona{{color:var(--muted);margin-bottom:16px}}
 .grid{{display:grid;grid-template-columns:140px repeat({cols},minmax(180px,1fr));gap:6px;overflow-x:auto}}
-.stage{{background:var(--rail);color:#fff;padding:8px;font-weight:600;border-top:3px solid var(--accent)}}
-.lane{{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6B6B6B;padding:8px 4px}}
-.cell{{background:#fff;border:1px solid var(--line);padding:6px 8px;font-size:13px}} .cell ul{{margin:0;padding-left:16px}}
-.pains{{border-left:3px solid var(--warn)}} .opportunities{{border-left:3px solid var(--teal)}} q{{font-style:italic;color:#444}}
-.none{{color:#999;list-style:none}} sup{{color:#00B7C3}} .refs{{font-size:12px;margin-top:20px}}
-</style></head><body><h1>{e(j.get('title', ''))}</h1><div class="persona">Persona: {e(j.get('persona', ''))}</div>
+.stage{{background:var(--rail);color:var(--paper);padding:8px;font-weight:600;border-top:3px solid var(--accent)}}
+.lane{{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:8px 4px}}
+.cell{{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:6px 8px;font-size:13px}} .cell ul{{margin:0;padding-left:16px}}
+.pains{{border-left:3px solid var(--warn)}} .opportunities{{border-left:3px solid var(--deep)}} q{{font-style:italic;color:var(--ink)}}
+.none{{color:var(--muted);list-style:none}} sup{{color:var(--cool)}} .refs{{font-size:12px;margin-top:20px}}
+</style></head><body><header><div><h1>{e(j.get('title', ''))}</h1><div class="persona">Persona: {e(j.get('persona', ''))}</div></div>{kit['mark']}</header>
 <div class="grid">{''.join(cells)}</div><ol class="refs">{refs}</ol></body></html>"""
 
 
-def build(eid, persona, scope, ledger, tid=None):
+def build(eid, persona, scope, ledger, tid=None, brand="nxt"):
     """Returns (json_path, html_path, summary). Needs a completed research task in the engagement."""
     findings = _load(eid, "results/findings.json")["findings"]
     sources = _load(eid, "results/sources.json")["sources"]
@@ -112,7 +116,7 @@ def build(eid, persona, scope, ledger, tid=None):
     with io.open(jp, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(dict(j, dropped_pains_quote_not_in_source=dropped), fh, indent=1, ensure_ascii=False)
     with io.open(hp, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(render_html(j, sources))
+        fh.write(render_html(j, sources, brand))
     if tid:
         import shutil
         shutil.copyfile(jp, store.safe_path(eid, "results/journey.json"))

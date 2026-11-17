@@ -27,10 +27,20 @@ def fresh(tmp_path, monkeypatch):
     yield
 
 
+DIRECTION = {"product_name": "Deadline Hub", "concept": "One list of every co-op deadline", "hero_moment": "Filter by office",
+             "shell": "topbar", "screens": [{"name": "Deadlines", "job": "See what is due", "focal_view": "list",
+                                             "key_interactions": ["filter"], "patterns": ["p-chart", "p-nope"]}],
+             "dataset": {"entity": "deadline", "records": 200, "fields": [{"name": "office", "values": "co-op, registrar"}]},
+             "visual": {"density": "comfortable", "accent_use": "due today", "charts": ["bars"], "motion": "subtle"},
+             "avoid": ["banners"]}
+
+
 def _fake_claude(replies, seen=None, stop="end_turn"):
     replies = list(replies)
 
     def fake(model, system, messages, ledger=None, **kw):
+        if kw.get("json_schema") is prototype.DIRECTION_SCHEMA:      # the Creative Director's step (Part 8)
+            return json.dumps(DIRECTION), providers.Usage(model, 50, 50), SimpleNamespace(stop_reason="end_turn", content=[])
         if seen is not None:
             seen.append({"model": model, "system": system, "messages": messages, "kw": kw})
         return replies.pop(0), providers.Usage(model, 100, 100), SimpleNamespace(stop_reason=stop, content=[])
@@ -339,7 +349,8 @@ def test_prototype_gets_one_correction_then_saves_a_clean_file(monkeypatch):
     bad = CLEAN.replace("</main>", '<script src="https://cdn.example/x.js"></script></main>')
     good = CLEAN.replace(">Next<", ">Next " + EM_DASH + " step<")
     seen = []
-    monkeypatch.setattr(providers, "claude", _fake_claude(["Here is the file:\n```html\n" + bad + "\n```", good], seen))
+    revised = good.replace("<main>", "<main><h1>Deadlines</h1>")
+    monkeypatch.setattr(providers, "claude", _fake_claude(["Here is the file:\n```html\n" + bad + "\n```", good, revised], seen))
     tid, _ = store.create_task(eid, "prototype", {"experience": "Co-op deadline hub", "audience": "first-year students",
                                                   "must_include": ["deadline list"]}, 2.5)
     prototype.run_prototype_task(tid)
@@ -351,6 +362,12 @@ def test_prototype_gets_one_correction_then_saves_a_clean_file(monkeypatch):
     assert prototype.validate_html(page) == [] and EM_DASH not in page and ">Next, step<" in page
     assert "<findings>" in seen[0]["messages"][0]["content"] and "script src" in seen[1]["messages"][0]["content"]
     assert seen[0]["model"] == config.SEATS["artifact"]["primary"]
+    # Part 8: the build followed the creative direction and one design revision was asked for and taken
+    assert '"product_name": "Deadline Hub"' in seen[0]["messages"][0]["content"] and "--accent: #B8B800" in seen[0]["messages"][0]["content"]
+    assert 'screen "Deadlines"' in seen[2]["messages"][0]["content"] and "brand mark is missing" in seen[2]["messages"][0]["content"]
+    meta = json.load(open(store.safe_path(eid, f"results/tasks/{tid}/prototype.json"), encoding="utf-8"))
+    assert meta["revised_for_design"] and meta["builds"] == 3 and meta["direction"]["screens"][0]["patterns"] == ["p-chart"]
+    assert "<h1>Deadlines</h1>" in page
     assert prototype.html_path_for_task(tid).endswith("prototype.html")
 
 
@@ -392,7 +409,128 @@ def test_tool_specs_are_strict_and_unknown_tools_are_refused():
     for mod in (social, transcripts, prototype):
         for t in mod.TOOLS:
             s = t["input_schema"]
-            assert t["strict"] is True and s["additionalProperties"] is False and set(s["required"]) == set(s["properties"])
+            # start_prototype is non-strict on purpose: the strict tool grammar has a size limit (test_lifecycle)
+            assert t["strict"] is True or t["name"] in ("start_prototype", "start_social_analysis")
+            assert s["additionalProperties"] is False and set(s["required"]) == set(s["properties"])
             names.append(t["name"])
         assert "unknown tool" in mod.execute("no_such_tool", {})["error"]
     assert names == ["start_social_analysis", "analyze_uploads", "start_prototype"]
+
+
+# ---- Part 8: creative direction, the expert build, brand and the design review ---------------------------
+def test_brand_kit_carries_the_northeastern_tokens_and_mark():
+    nu, nxt = prototype.brand_kit("nu"), prototype.brand_kit("nxt")
+    assert "--accent: #C8102E" in nu["css"] and "'Lato'" in nu["css"] and "--on-accent: #FFFFFF" in nu["css"]
+    assert 'fill="#C8102E"' in nu["mark"] and "xmlns" not in nu["mark"] and nu["name"] == "Northeastern University"
+    assert "--accent: #B8B800" in nxt["css"] and 'fill="currentColor"' in nxt["mark"] and "'Saira Condensed'" in nxt["css"]
+    assert prototype.validate_html(CLEAN.replace("<main>", "<main>" + nu["mark"])) == []      # the mark passes the validator
+
+
+def test_design_checks_catch_missing_brand_implementation_text_and_repeated_notices():
+    kit = prototype.brand_kit("nu")
+    doc = CLEAN.replace("<main>", "<main><p>Synthetic data. Calculated by the SQL metric layer.</p>" * 3)
+    probs = prototype.design_problems(doc, kit, {"screens": [{"name": "Audience Workbench"}]})
+    joined = " | ".join(probs)
+    assert "brand block is missing" in joined and "brand mark is missing" in joined and "mentions SQL" in joined
+    assert "describes the data layer" in joined and "appears 3 times" in joined and 'screen "Audience Workbench"' in joined
+    good = CLEAN.replace("--accent:#B8B800", "--accent: #C8102E").replace("<main>", "<main><h1>Audience Workbench</h1>" + kit["mark"])
+    assert prototype.design_problems(good, kit, {"screens": [{"name": "Audience Workbench"}]}) == []
+
+
+def test_a_design_review_from_another_vendor_drives_one_revision(monkeypatch):
+    eid = store.create_engagement("e", "o")
+    kit = prototype.brand_kit("nu")
+    first = CLEAN.replace("--accent:#B8B800", "--accent: #C8102E").replace("<main>", "<main><h1>Deadlines</h1>" + kit["mark"])
+    better = first.replace("<h1>Deadlines</h1>", "<h1>Deadlines</h1><svg viewBox='0 0 4 4'><rect width='4' height='2'/></svg>")
+    seen, reviews = [], []
+    monkeypatch.setattr(providers, "claude", _fake_claude([first, better], seen))
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "test-key")
+    monkeypatch.setattr(config, "OPENAI_API_KEY", "test-key")
+
+    def review(model, prompt, ledger=None, **kw):
+        reviews.append((model, prompt))
+        return json.dumps({"scores": {"concept": 4, "hierarchy": 3, "brand": 5, "data_story": 2, "interaction": 4, "content": 5,
+                                      "accessibility": 4},
+                           "must_fix": [{"where": "Deadlines", "problem": "No chart explains the trend", "fix": "Add a bar chart of deadlines by week"}]}), None, {}
+    monkeypatch.setattr(providers, "gemini_generate", review)
+    monkeypatch.setattr(providers, "openai_text", review)
+    tid, _ = store.create_task(eid, "prototype", {"experience": "Co-op deadline hub", "audience": "students", "must_include": [], "brand": "nu"}, 3.0)
+    prototype.run_prototype_task(tid)
+    t = store.get_task(tid)
+    assert t["status"] == "done", t["error"]
+    assert reviews and "Northeastern University" in reviews[0][1] and "PROTOTYPE SOURCE" in reviews[0][1]
+    assert "Add a bar chart of deadlines by week" in seen[1]["messages"][0]["content"]
+    meta = json.load(open(store.safe_path(eid, f"results/tasks/{tid}/prototype.json"), encoding="utf-8"))
+    assert meta["brand"] == "nu" and meta["revised_for_design"] and meta["review"]["scores"]["data_story"] == 2
+    assert "Northeastern University brand" in t["summary"] and "revised once after a design review" in t["summary"]
+
+
+def test_prototype_tool_takes_a_brand_and_builds_one_product_for_many_screens(monkeypatch):
+    started = []
+    monkeypatch.setattr(prototype, "run_prototype_task", lambda tid: started.append(tid))
+    spec = prototype.TOOLS[0]
+    assert spec["strict"] is False and "brand" in spec["input_schema"]["required"]
+    assert "ONE prototype" in spec["description"] and "never start one task per screen" in spec["description"]
+    out = prototype.execute("start_prototype", {"engagement_id": "", "experience": "Alumni giving demo", "audience": "Annual Giving",
+                                                "must_include": ["Leadership Pulse", "Retention Explorer"], "brand": "nu"})
+    assert store.get_task(out["task_id"])["brief"]["brand"] == "nu" and started
+
+
+def test_journey_maps_and_social_analyses_render_in_the_requested_brand():
+    """Part 8 (P6): every artifact in NXT Humans by default and Northeastern on request, with the brand mark."""
+    from ia_next import journey
+    j = {"title": "Donor journey", "persona": "Young alumnus", "stages": [
+        {"name": "Graduate", "goal": "Stay in touch", "actions": ["Opens email"], "touchpoints": ["Email"],
+         "pains": [{"pain": "Too many asks", "quote": "q", "source_id": "S1"}], "opportunities": ["Fewer asks"]}]}
+    srcs = [{"id": "S1", "title": "Interview", "url": "https://e.com/a"}]
+    nu, nxt = journey.render_html(j, srcs, "nu"), journey.render_html(j, srcs)
+    assert "--accent: #C8102E" in nu and 'fill="#C8102E"' in nu and "#B8B800" not in nu
+    assert "--accent: #B8B800" in nxt and 'fill="currentColor"' in nxt
+    result = {"title": "Reddit themes", "themes": [{"name": "Cost", "meaning": "m", "sentiment": "negative",
+                                                   "quotes": [{"quote": "too expensive", "source_id": "S1"}]}],
+              "sentiment_split": {"negative": 1}, "subreddits": ["NEU"]}
+    page = social.render_html(result, srcs, "nu")
+    assert "--accent: #C8102E" in page and "Northeastern University" in page and "<script" not in page
+    assert "#B8B800" not in page
+
+
+def test_a_build_reply_that_crosses_the_budget_is_kept_and_nothing_more_is_called(monkeypatch):
+    """17 Nov live run: a complete prototype was thrown away because its own call pushed the task past its budget.
+    A paid reply is kept; the review and the revision are skipped; nothing else is called."""
+    eid = store.create_engagement("e", "o")
+    kit = prototype.brand_kit("nxt")
+    good = CLEAN.replace("<main>", "<main><h1>Deadlines</h1>" + kit["mark"])
+    calls = []
+
+    def fake(model, system, messages, ledger=None, **kw):
+        if kw.get("json_schema") is prototype.DIRECTION_SCHEMA:
+            return json.dumps(DIRECTION), providers.Usage(model, 50, 50), SimpleNamespace(stop_reason="end_turn", content=[])
+        calls.append(1)
+        e = providers.BudgetExceeded(3.2, 3.0)
+        e.result = (good, providers.Usage(model, 100, 100), SimpleNamespace(stop_reason="end_turn", content=[]))
+        raise e
+    monkeypatch.setattr(providers, "claude", fake)
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "test-key")
+    monkeypatch.setattr(providers, "gemini_generate", lambda *a, **k: pytest.fail("the review ran after the budget was spent"))
+    tid, _ = store.create_task(eid, "prototype", {"experience": "Co-op deadline hub", "audience": "", "must_include": []}, 3.0)
+    prototype.run_prototype_task(tid)
+    t = store.get_task(tid)
+    assert t["status"] == "done", t["error"]
+    assert calls == [1] and "<h1>Deadlines</h1>" in open(prototype.html_path_for_task(tid), encoding="utf-8").read()
+
+
+def test_a_broken_build_that_spends_the_budget_fails_with_a_clear_reason(monkeypatch):
+    eid = store.create_engagement("e", "o")
+    bad = CLEAN.replace("</main>", '<script>fetch("/x")</script></main>')
+
+    def fake(model, system, messages, ledger=None, **kw):
+        if kw.get("json_schema") is prototype.DIRECTION_SCHEMA:
+            return json.dumps(DIRECTION), providers.Usage(model, 50, 50), SimpleNamespace(stop_reason="end_turn", content=[])
+        e = providers.BudgetExceeded(3.2, 3.0)
+        e.result = (bad, providers.Usage(model, 100, 100), SimpleNamespace(stop_reason="end_turn", content=[]))
+        raise e
+    monkeypatch.setattr(providers, "claude", fake)
+    tid, _ = store.create_task(eid, "prototype", {"experience": "x", "audience": "", "must_include": []}, 3.0)
+    prototype.run_prototype_task(tid)
+    t = store.get_task(tid)
+    assert t["status"] == "failed" and "budget ran out before a valid file came back" in t["error"]

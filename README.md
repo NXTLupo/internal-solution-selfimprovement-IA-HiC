@@ -257,7 +257,7 @@ You do not need special syntax; describe what you want. Hashtags are a shortcut 
 | To change one slide | "On that deck, make slide 4's title shorter" (only that slide changes; the others stay exactly as they are) |
 | A deck in Northeastern branding | "Make a short deck for the Annual Giving team using Northeastern branding." (or `#nu`) |
 | A journey map | "Map the journey of a first-year student who is thinking about leaving." |
-| A clickable prototype | "#proto a dashboard where gift officers see which alumni cohorts to contact next." |
+| A clickable prototype | "#proto a dashboard where gift officers see which alumni cohorts to contact next." A product with several screens comes back as ONE connected prototype; add "in Northeastern branding" for the Northeastern brand. |
 | Reddit listening | "What are people on r/college saying about academic advising this year?" (needs Reddit keys) |
 | Analysis of your files | Drop interview transcripts, notes, CSV or text files, then: "What do these interviews say about donor follow-up?" |
 | A mind map | "#mindmap of the findings in this engagement." (drawn as a diagram in the reply) |
@@ -274,20 +274,24 @@ notice appears when it finishes.
 - Reports are reviewed by a judge from a different AI vendor than the writer.
 - Decks are native, editable PowerPoint files (real text, real shapes, sources in the speaker notes), never
   pictures of slides, and each download is named after the deck.
+- Prototypes start from a creative direction (concept, screens, sample data, visual language, chosen from HiC's
+  catalog of 92 AI experience patterns), are built by an expert product-design skill in the brand, reviewed by a
+  designer model from another vendor and revised once; they run sandboxed with no network access.
 
 ---
 
 ## Brands: NXT Humans and Northeastern
 
-Decks render in two brands, taken from HiC's design system (the Figma library behind HiC):
+Decks, prototypes, journey maps and social analyses render in two brands, taken from HiC's design system (the Figma
+library behind HiC):
 
 | Brand | Colours | Typeface | Brand mark |
 |---|---|---|---|
 | **NXT Humans** (default) | Black rail, chartreuse accent, teal panels | Saira Condensed titles, Archivo text | The NXT HUMANS wordmark |
 | **Northeastern** | Navy rail, Northeastern red accent, white text on red | Lato throughout | The red Northeastern N |
 
-The brand mark is drawn on the cover and in the corner of every slide as a native PowerPoint shape, so it stays
-sharp and editable.
+On decks the brand mark is drawn on the cover and in the corner of every slide as a native PowerPoint shape, so it
+stays sharp and editable; prototypes, journey maps and social pages carry the same mark and colours.
 
 - **Ask for it in words:** "Northeastern branding", "Northeastern colours", "NU" or `#nu` all select the
   Northeastern brand. Anything else is NXT Humans.
@@ -379,7 +383,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 165 tests, all passing.
+On 17 November 2026: 171 tests, all passing.
 
 ### Back up and restore your data
 

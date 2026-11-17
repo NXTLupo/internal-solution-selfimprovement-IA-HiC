@@ -243,3 +243,21 @@ def test_finished_analysis_is_used_instead_of_analysing_the_same_files_again(mon
     transcripts.add_text_source(eid, "Interview B", "A second donor described a different experience entirely.", "transcript")
     fresh = transcripts.execute("analyze_uploads", dict(args, objective="Anything new?"))
     assert fresh.get("started")                                     # new uploads: no question needed
+
+
+def test_an_analysis_whose_question_the_files_do_not_answer_reports_what_they_do_contain(monkeypatch):
+    """16 Nov audit, "file analysis fails at random": every failed run asked a question the file did not answer (a
+    study-guide question on turnover notes); the analyst found nothing and the task failed with a misleading message."""
+    from ia_next import transcripts
+    eid = store.create_engagement("Nursing", "o")
+    text = "Interview notes. A charge nurse said: we lose two nurses a month because the night shift has no float pool."
+    transcripts.add_text_source(eid, "Turnover notes", text, "document")
+    replies = [json.dumps({"findings": []}),
+               json.dumps({"findings": [{"claim": "Night shift has no float pool", "quote": "the night shift has no float pool",
+                                         "source_id": "S1", "claim_type": "SUPPORTED_FACT", "speaker": ""}]})]
+    monkeypatch.setattr(providers, "claude", lambda *a, **k: (replies.pop(0), None, None))
+    path, summary, kept = transcripts.analyze_transcripts(eid, "How do nurses use the study guide?", providers.Ledger(limit_usd=1))
+    assert len(kept) == 1 and summary.startswith("the uploaded files do not address the question asked")
+    monkeypatch.setattr(providers, "claude", lambda *a, **k: (json.dumps({"findings": []}), None, None))
+    with pytest.raises(providers.ProviderError, match="no quotable evidence"):
+        transcripts.analyze_transcripts(eid, "Anything?", providers.Ledger(limit_usd=1))

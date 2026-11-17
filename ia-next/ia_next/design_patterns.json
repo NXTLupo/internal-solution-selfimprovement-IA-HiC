@@ -1,0 +1,1490 @@
+{
+ "_source": "humans-in-control-research/hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json (HiC's AI Experience Patterns catalog). Copied by ia-next/scripts/sync_design_patterns.py; do not edit by hand.",
+ "_copied": "2026-11-17",
+ "_catalog_version": 1,
+ "sections": [
+  {
+   "id": "conversation",
+   "label": "Conversation primitives"
+  },
+  {
+   "id": "reasoning",
+   "label": "Reasoning surfaces"
+  },
+  {
+   "id": "decision",
+   "label": "Decision surfaces"
+  },
+  {
+   "id": "generation",
+   "label": "Generation surfaces"
+  },
+  {
+   "id": "oversight",
+   "label": "Oversight & evaluation"
+  },
+  {
+   "id": "configuration",
+   "label": "Configuration & memory"
+  },
+  {
+   "id": "workflow",
+   "label": "Workflow & control"
+  },
+  {
+   "id": "search",
+   "label": "Search & retrieval"
+  },
+  {
+   "id": "data",
+   "label": "Data visualization"
+  },
+  {
+   "id": "trust",
+   "label": "Trust & calibration"
+  },
+  {
+   "id": "promo",
+   "label": "A-Spot promotional banners"
+  },
+  {
+   "id": "promo-modules",
+   "label": "Onboarding · loader · presentation"
+  },
+  {
+   "id": "healthcare",
+   "label": "Healthcare deep dive"
+  },
+  {
+   "id": "counterfactual",
+   "label": "Counterfactual & cohort forecasting"
+  }
+ ],
+ "patterns": [
+  {
+   "id": "p-chat",
+   "name": "Citation-grounded chat",
+   "section": "conversation",
+   "primitives": [
+    "user turn",
+    "assistant turn",
+    "citation pill",
+    "regenerate",
+    "copy"
+   ],
+   "best_for": [
+    "multi-turn Q&A",
+    "research-grounded answers",
+    "evidence-tied responses"
+   ]
+  },
+  {
+   "id": "p-stream",
+   "name": "Streaming token-by-token",
+   "section": "conversation",
+   "primitives": [
+    "pulsing orb",
+    "token cascade",
+    "cursor",
+    "token meter"
+   ],
+   "best_for": [
+    "long generation",
+    "live response",
+    "model awareness"
+   ]
+  },
+  {
+   "id": "p-voice",
+   "name": "Voice input waveform",
+   "section": "conversation",
+   "primitives": [
+    "amplitude bars",
+    "transcript",
+    "stop",
+    "cancel"
+   ],
+   "best_for": [
+    "voice capture",
+    "hands-free input",
+    "dictation"
+   ]
+  },
+  {
+   "id": "p-pills",
+   "name": "Prompt pills",
+   "section": "conversation",
+   "primitives": [
+    "featured pill",
+    "secondary pills",
+    "arrow affordance"
+   ],
+   "best_for": [
+    "next-best-action suggestions",
+    "conversational pivots",
+    "onboarding"
+   ]
+  },
+  {
+   "id": "p-trail",
+   "name": "Agent reasoning trail",
+   "section": "reasoning",
+   "primitives": [
+    "step dot",
+    "tool tag",
+    "step label",
+    "step meta"
+   ],
+   "best_for": [
+    "multi-step agents",
+    "tool-use visibility",
+    "debugging"
+   ]
+  },
+  {
+   "id": "p-synth",
+   "name": "Synthesized answer with chips",
+   "section": "reasoning",
+   "primitives": [
+    "query bar",
+    "answer prose",
+    "source chips"
+   ],
+   "best_for": [
+    "search synthesis",
+    "answer-with-receipts",
+    "RAG output"
+   ]
+  },
+  {
+   "id": "p-dial",
+   "name": "Confidence dial",
+   "section": "reasoning",
+   "primitives": [
+    "SVG ring meter",
+    "percent",
+    "headline",
+    "detail"
+   ],
+   "best_for": [
+    "quantified confidence",
+    "model uncertainty",
+    "match scoring"
+   ]
+  },
+  {
+   "id": "p-kg",
+   "name": "Knowledge graph entity card",
+   "section": "reasoning",
+   "primitives": [
+    "entity type",
+    "name display",
+    "metadata grid",
+    "relationships"
+   ],
+   "best_for": [
+    "entity views",
+    "relationship navigation",
+    "graph exploration"
+   ]
+  },
+  {
+   "id": "p-rec",
+   "name": "Confidence-scored recommendation",
+   "section": "decision",
+   "primitives": [
+    "title",
+    "confidence chip",
+    "why disclosure",
+    "accept",
+    "reject"
+   ],
+   "best_for": [
+    "AI-driven decisions",
+    "match reveals",
+    "next-action picks"
+   ]
+  },
+  {
+   "id": "p-diff",
+   "name": "Inline edit suggestion (diff)",
+   "section": "decision",
+   "primitives": [
+    "removed strike",
+    "added highlight",
+    "AI badge",
+    "accept",
+    "reject"
+   ],
+   "best_for": [
+    "text rewriting",
+    "code suggestions",
+    "review diffs"
+   ]
+  },
+  {
+   "id": "p-input",
+   "name": "Ghost-text autocomplete",
+   "section": "conversation",
+   "primitives": [
+    "typed text",
+    "suggestion",
+    "AI mark",
+    "alt suggestions"
+   ],
+   "best_for": [
+    "smart input",
+    "tab-to-accept",
+    "compose assistance"
+   ]
+  },
+  {
+   "id": "p-multi",
+   "name": "Multi-agent handoff",
+   "section": "workflow",
+   "primitives": [
+    "agent orbs",
+    "arrows",
+    "handoff message"
+   ],
+   "best_for": [
+    "multi-agent pipelines",
+    "specialization handoffs",
+    "orchestration views"
+   ]
+  },
+  {
+   "id": "p-code",
+   "name": "Code generation panel",
+   "section": "generation",
+   "primitives": [
+    "language toggle",
+    "syntax-tinted code",
+    "copy",
+    "deploy"
+   ],
+   "best_for": [
+    "code output",
+    "language switching",
+    "shipping flow"
+   ]
+  },
+  {
+   "id": "p-img",
+   "name": "Image generation studio",
+   "section": "generation",
+   "primitives": [
+    "prompt",
+    "aspect chips",
+    "style picker",
+    "queue"
+   ],
+   "best_for": [
+    "image gen",
+    "creative iteration"
+   ]
+  },
+  {
+   "id": "p-doc-outline",
+   "name": "Document outline builder",
+   "section": "generation",
+   "primitives": [
+    "section list",
+    "drag handle",
+    "expand",
+    "auto-generate"
+   ],
+   "best_for": [
+    "long-form drafts",
+    "structure scaffolding"
+   ]
+  },
+  {
+   "id": "p-slide-draft",
+   "name": "Slide draft preview",
+   "section": "generation",
+   "primitives": [
+    "thumb grid",
+    "current slide",
+    "speaker notes"
+   ],
+   "best_for": [
+    "deck generation",
+    "preview-as-you-build"
+   ]
+  },
+  {
+   "id": "p-eval",
+   "name": "Model evaluation grade card",
+   "section": "oversight",
+   "primitives": [
+    "grade",
+    "criterion rows",
+    "score bars"
+   ],
+   "best_for": [
+    "model QA",
+    "side-by-side scoring"
+   ]
+  },
+  {
+   "id": "p-compare",
+   "name": "Side-by-side compare",
+   "section": "oversight",
+   "primitives": [
+    "two columns",
+    "diff highlight",
+    "verdict"
+   ],
+   "best_for": [
+    "A/B comparisons",
+    "before/after"
+   ]
+  },
+  {
+   "id": "p-halu",
+   "name": "Hallucination flag",
+   "section": "trust",
+   "primitives": [
+    "warning strip",
+    "claim quote",
+    "0-of-N evidence",
+    "remove/reword/override"
+   ],
+   "best_for": [
+    "unverified claims",
+    "trust gates"
+   ]
+  },
+  {
+   "id": "p-cost",
+   "name": "Cost meter / token spend",
+   "section": "oversight",
+   "primitives": [
+    "running total",
+    "budget bar",
+    "per-stage breakdown"
+   ],
+   "best_for": [
+    "spend awareness",
+    "budget gates"
+   ]
+  },
+  {
+   "id": "p-models",
+   "name": "Model picker with capability chips",
+   "section": "configuration",
+   "primitives": [
+    "current selection",
+    "alt list",
+    "capability chips",
+    "cost/1K"
+   ],
+   "best_for": [
+    "model selection",
+    "tradeoff view"
+   ]
+  },
+  {
+   "id": "p-instr",
+   "name": "Custom instructions editor",
+   "section": "configuration",
+   "primitives": [
+    "textarea",
+    "char counter",
+    "template gallery"
+   ],
+   "best_for": [
+    "system-prompt tuning",
+    "user preferences"
+   ]
+  },
+  {
+   "id": "p-mem",
+   "name": "Memory / context recall",
+   "section": "configuration",
+   "primitives": [
+    "memory chips",
+    "remembered facts",
+    "forget"
+   ],
+   "best_for": [
+    "long-term memory",
+    "personalization"
+   ]
+  },
+  {
+   "id": "p-tools",
+   "name": "Tool toggle list",
+   "section": "configuration",
+   "primitives": [
+    "tool name",
+    "toggle",
+    "scope"
+   ],
+   "best_for": [
+    "tool enablement",
+    "agent capability config"
+   ]
+  },
+  {
+   "id": "p-pipe",
+   "name": "Pipeline progress",
+   "section": "workflow",
+   "primitives": [
+    "stage row",
+    "status dot",
+    "elapsed",
+    "running pill"
+   ],
+   "best_for": [
+    "multi-stage jobs",
+    "background tasks"
+   ]
+  },
+  {
+   "id": "p-branch",
+   "name": "Branching decision",
+   "section": "workflow",
+   "primitives": [
+    "decision node",
+    "branch labels",
+    "outcomes"
+   ],
+   "best_for": [
+    "decision trees",
+    "scenario flows"
+   ]
+  },
+  {
+   "id": "p-retry",
+   "name": "Retry & recover",
+   "section": "workflow",
+   "primitives": [
+    "failure callout",
+    "retry button",
+    "fallback options"
+   ],
+   "best_for": [
+    "error recovery",
+    "transient failures"
+   ]
+  },
+  {
+   "id": "p-fanout",
+   "name": "Parallel agent fan-out",
+   "section": "workflow",
+   "primitives": [
+    "parent task",
+    "child agents",
+    "convergence"
+   ],
+   "best_for": [
+    "parallel work",
+    "research swarms"
+   ]
+  },
+  {
+   "id": "p-search",
+   "name": "Semantic search",
+   "section": "search",
+   "primitives": [
+    "query bar",
+    "ranked results",
+    "similarity score"
+   ],
+   "best_for": [
+    "vector search",
+    "find-similar"
+   ]
+  },
+  {
+   "id": "p-facet",
+   "name": "AI-suggested faceted filter",
+   "section": "search",
+   "primitives": [
+    "facet chips",
+    "AI-suggested badge",
+    "active filters"
+   ],
+   "best_for": [
+    "filtered browse",
+    "smart refinement"
+   ]
+  },
+  {
+   "id": "p-chart",
+   "name": "Chart with AI annotation",
+   "section": "data",
+   "primitives": [
+    "chart",
+    "callout arrow",
+    "insight text"
+   ],
+   "best_for": [
+    "data narratives",
+    "auto-insight"
+   ]
+  },
+  {
+   "id": "p-sim",
+   "name": "Find similar",
+   "section": "search",
+   "primitives": [
+    "seed item",
+    "similar list",
+    "similarity bar"
+   ],
+   "best_for": [
+    "recommendations",
+    "exemplar discovery"
+   ]
+  },
+  {
+   "id": "p-perm",
+   "name": "Tool permission gate",
+   "section": "workflow",
+   "primitives": [
+    "lock icon",
+    "scope rows",
+    "allow/always/deny"
+   ],
+   "best_for": [
+    "agent authorization",
+    "HITL safety"
+   ]
+  },
+  {
+   "id": "p-node",
+   "name": "Workflow builder node",
+   "section": "workflow",
+   "primitives": [
+    "input port",
+    "config rows",
+    "output port",
+    "status"
+   ],
+   "best_for": [
+    "visual workflow editing",
+    "node-based composition"
+   ]
+  },
+  {
+   "id": "p-hitl",
+   "name": "Human-in-the-loop approval gate",
+   "section": "workflow",
+   "primitives": [
+    "eyebrow tag",
+    "title",
+    "review block",
+    "approve/edit/escalate"
+   ],
+   "best_for": [
+    "high-stakes outputs",
+    "outbound messages",
+    "irreversible actions"
+   ]
+  },
+  {
+   "id": "p-cot",
+   "name": "Chain-of-thought reveal",
+   "section": "reasoning",
+   "primitives": [
+    "collapse header",
+    "step dots",
+    "step quotes",
+    "tool tags"
+   ],
+   "best_for": [
+    "reasoning transparency",
+    "show-your-work"
+   ]
+  },
+  {
+   "id": "p-cmd",
+   "name": "Slash command palette",
+   "section": "configuration",
+   "primitives": [
+    "search input",
+    "recent section",
+    "suggested section",
+    "shortcuts"
+   ],
+   "best_for": [
+    "keyboard-first UX",
+    "power-user shortcuts"
+   ]
+  },
+  {
+   "id": "p-tldr",
+   "name": "Smart summary (TL;DR)",
+   "section": "generation",
+   "primitives": [
+    "TL;DR tag",
+    "summary prose",
+    "key bullets",
+    "expand button"
+   ],
+   "best_for": [
+    "long-doc summaries",
+    "executive briefs"
+   ]
+  },
+  {
+   "id": "p-rubric",
+   "name": "AI grading rubric",
+   "section": "trust",
+   "primitives": [
+    "overall grade",
+    "criterion rows",
+    "score bars"
+   ],
+   "best_for": [
+    "output quality scoring",
+    "multi-criterion eval"
+   ]
+  },
+  {
+   "id": "p-heat",
+   "name": "Sentiment heatmap",
+   "section": "data",
+   "primitives": [
+    "highlighted clauses",
+    "pos/neu/neg legend"
+   ],
+   "best_for": [
+    "paragraph-level sentiment",
+    "open-text triage"
+   ]
+  },
+  {
+   "id": "p-pers",
+   "name": "Persona / role switcher",
+   "section": "configuration",
+   "primitives": [
+    "persona rows",
+    "avatar",
+    "role tag",
+    "active marker"
+   ],
+   "best_for": [
+    "context switching",
+    "multi-stakeholder views"
+   ]
+  },
+  {
+   "id": "p-budget",
+   "name": "Token budget / context window",
+   "section": "oversight",
+   "primitives": [
+    "used counter",
+    "budget bar",
+    "warn zone",
+    "per-source breakdown"
+   ],
+   "best_for": [
+    "context monitoring",
+    "compaction triggers"
+   ]
+  },
+  {
+   "id": "p-trans",
+   "name": "Multi-speaker transcript",
+   "section": "data",
+   "primitives": [
+    "speaker chip",
+    "timestamp",
+    "utterance"
+   ],
+   "best_for": [
+    "meeting transcripts",
+    "diarized voice content"
+   ]
+  },
+  {
+   "id": "p-triage",
+   "name": "AI-prioritized triage list",
+   "section": "decision",
+   "primitives": [
+    "priority anchor",
+    "subject",
+    "sender",
+    "priority tag"
+   ],
+   "best_for": [
+    "inbox triage",
+    "task prioritization",
+    "alert routing"
+   ]
+  },
+  {
+   "id": "p-kpi",
+   "name": "KPI tile with sparkline",
+   "section": "data",
+   "primitives": [
+    "display number",
+    "delta chip",
+    "sparkline",
+    "baseline foot"
+   ],
+   "best_for": [
+    "dashboard headline metric",
+    "trend at a glance"
+   ]
+  },
+  {
+   "id": "p-cohort",
+   "name": "Cohort retention heatmap",
+   "section": "data",
+   "primitives": [
+    "cohort rows",
+    "week columns",
+    "shaded cells",
+    "warn tint"
+   ],
+   "best_for": [
+    "retention by entry period",
+    "education cohorts",
+    "subscription churn"
+   ]
+  },
+  {
+   "id": "p-course",
+   "name": "Semester-progress course card",
+   "section": "data",
+   "primitives": [
+    "course code",
+    "title",
+    "progress bar",
+    "next deadline anchor"
+   ],
+   "best_for": [
+    "education tiles",
+    "learning dashboards",
+    "course catalogs"
+   ]
+  },
+  {
+   "id": "p-assign",
+   "name": "AI-graded assignment feedback",
+   "section": "trust",
+   "primitives": [
+    "grade chip",
+    "highlighted prose",
+    "rubric scores"
+   ],
+   "best_for": [
+    "education feedback",
+    "essay grading",
+    "code review reports"
+   ]
+  },
+  {
+   "id": "p-donate",
+   "name": "Donation slider with impact",
+   "section": "decision",
+   "primitives": [
+    "amount display",
+    "suggested chips",
+    "slider",
+    "live impact callout"
+   ],
+   "best_for": [
+    "philanthropy flows",
+    "fundraising surfaces",
+    "subscription tier picker"
+   ]
+  },
+  {
+   "id": "p-balance",
+   "name": "Dark account balance card",
+   "section": "data",
+   "primitives": [
+    "balance",
+    "delta",
+    "sparkline",
+    "primary + ghost actions"
+   ],
+   "best_for": [
+    "financial dashboards",
+    "wallet primary surface",
+    "donor accounts"
+   ]
+  },
+  {
+   "id": "p-tx",
+   "name": "AI-categorized transaction row",
+   "section": "data",
+   "primitives": [
+    "merchant icon",
+    "merchant name",
+    "AI category",
+    "amount"
+   ],
+   "best_for": [
+    "transaction lists",
+    "spend review",
+    "budget tools"
+   ]
+  },
+  {
+   "id": "p-sheet",
+   "name": "Mobile bottom sheet",
+   "section": "decision",
+   "primitives": [
+    "drag handle",
+    "title",
+    "option rows",
+    "primary action"
+   ],
+   "best_for": [
+    "mobile pickers",
+    "share-target sheets",
+    "confirmation flows"
+   ]
+  },
+  {
+   "id": "p-video",
+   "name": "Video player with chapter scrub",
+   "section": "generation",
+   "primitives": [
+    "play overlay",
+    "scrub bar",
+    "chapter marks",
+    "chapter list"
+   ],
+   "best_for": [
+    "video learning",
+    "interview playback",
+    "podcast video"
+   ]
+  },
+  {
+   "id": "p-swipe",
+   "name": "Mobile swipe-action row",
+   "section": "decision",
+   "primitives": [
+    "row body",
+    "archive action",
+    "delete action"
+   ],
+   "best_for": [
+    "mobile inbox",
+    "list management",
+    "triage on mobile"
+   ]
+  },
+  {
+   "id": "p-rail",
+   "name": "AI product recommendation rail",
+   "section": "decision",
+   "primitives": [
+    "AI badge",
+    "3-up product cards",
+    "name",
+    "price",
+    "why line"
+   ],
+   "best_for": [
+    "commerce recommendations",
+    "alumni connection rails",
+    "course suggestions"
+   ]
+  },
+  {
+   "id": "p-quote",
+   "name": "Insurance premium quote",
+   "section": "data",
+   "primitives": [
+    "premium hero",
+    "coverage rows with bars",
+    "bind CTA"
+   ],
+   "best_for": [
+    "insurance quotes",
+    "policy configuration",
+    "donation allocation"
+   ]
+  },
+  {
+   "id": "p-avatar",
+   "name": "Digital-human reaction card",
+   "section": "conversation",
+   "primitives": [
+    "centered avatar",
+    "state label",
+    "state dots"
+   ],
+   "best_for": [
+    "voice agents",
+    "digital humans",
+    "training simulators",
+    "character-driven AI"
+   ]
+  },
+  {
+   "id": "p-lesson",
+   "name": "Training lesson step",
+   "section": "generation",
+   "primitives": [
+    "step number",
+    "progress dots",
+    "checklist items",
+    "continue button"
+   ],
+   "best_for": [
+    "onboarding",
+    "micro-courses",
+    "employee training",
+    "co-op prep"
+   ]
+  },
+  {
+   "id": "p-reader",
+   "name": "Long-form article reader",
+   "section": "generation",
+   "primitives": [
+    "progress bar",
+    "eyebrow",
+    "display title",
+    "drop-cap body"
+   ],
+   "best_for": [
+    "editorial articles",
+    "research briefs",
+    "alumni stories",
+    "long-form content"
+   ]
+  },
+  {
+   "id": "p-diary",
+   "name": "Personal diary entry",
+   "section": "generation",
+   "primitives": [
+    "date headline",
+    "mood dots",
+    "italic prose",
+    "tag chips"
+   ],
+   "best_for": [
+    "reflection apps",
+    "mental health surfaces",
+    "longitudinal feedback",
+    "journaling"
+   ]
+  },
+  {
+   "id": "p-sim-pick",
+   "name": "Branching scenario picker",
+   "section": "decision",
+   "primitives": [
+    "scenario header",
+    "choice rows",
+    "predicted outcome rates",
+    "featured choice"
+   ],
+   "best_for": [
+    "training simulators",
+    "decision practice",
+    "scenario-based learning"
+   ]
+  },
+  {
+   "id": "p-quote-pull",
+   "name": "Editorial pull-quote",
+   "section": "generation",
+   "primitives": [
+    "oversized quote glyph",
+    "large body text",
+    "avatar attribution"
+   ],
+   "best_for": [
+    "editorial anchors",
+    "alumni testimonials",
+    "strategic insight callouts"
+   ]
+  },
+  {
+   "id": "p-habit",
+   "name": "Weekly habit grid with streak",
+   "section": "data",
+   "primitives": [
+    "7-day grid",
+    "completion cells",
+    "today anchor",
+    "streak",
+    "goal foot"
+   ],
+   "best_for": [
+    "habit tracking",
+    "study check-ins",
+    "daily standups",
+    "streak gamification"
+   ]
+  },
+  {
+   "id": "p-live",
+   "name": "Live-event audience pulse",
+   "section": "data",
+   "primitives": [
+    "LIVE dot",
+    "viewer count",
+    "60-sec sparkline",
+    "reaction tally"
+   ],
+   "best_for": [
+    "webinars",
+    "alumni livestreams",
+    "town halls",
+    "live-q&a surfaces"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-edu",
+   "name": "Higher-ed admissions A-Spot",
+   "section": "promo",
+   "primitives": [
+    "deadline anchor",
+    "dual CTA",
+    "days-left stat"
+   ],
+   "best_for": [
+    "admissions portals",
+    "early-decision deadlines",
+    "application drives"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-coop",
+   "name": "Co-op / career A-Spot (dark)",
+   "section": "promo",
+   "primitives": [
+    "dark hero",
+    "employer count",
+    "match CTA"
+   ],
+   "best_for": [
+    "co-op cycle openers",
+    "alumni career events",
+    "employer Q&As"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-health",
+   "name": "Healthcare enrollment A-Spot",
+   "section": "promo",
+   "primitives": [
+    "green anchor",
+    "AI savings stat",
+    "pill CTA"
+   ],
+   "best_for": [
+    "benefits open enrollment",
+    "clinic intake",
+    "wellness plans"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-fin",
+   "name": "Finance / investment A-Spot",
+   "section": "promo",
+   "primitives": [
+    "inline bar chart",
+    "peak-month accent",
+    "YTD eyebrow"
+   ],
+   "best_for": [
+    "wealth-mgmt dashboards",
+    "fintech digests",
+    "donor portfolios"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-ecom",
+   "name": "E-commerce promo A-Spot",
+   "section": "promo",
+   "primitives": [
+    "gradient hero",
+    "oversized discount glyph",
+    "limited-drop CTA"
+   ],
+   "best_for": [
+    "shop home",
+    "category pages",
+    "abandoned-cart recovery"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-donate",
+   "name": "Donation campaign A-Spot",
+   "section": "promo",
+   "primitives": [
+    "progress bar w/ marker",
+    "tier amount buttons",
+    "deadline countdown"
+   ],
+   "best_for": [
+    "day-of-giving",
+    "annual campaigns",
+    "alumni outreach",
+    "nonprofit appeals"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-event",
+   "name": "Event registration A-Spot",
+   "section": "promo",
+   "primitives": [
+    "calendar block",
+    "attendee avatar stack",
+    "rsvp CTA"
+   ],
+   "best_for": [
+    "alumni mixers",
+    "webinars",
+    "info sessions",
+    "conference RSVP"
+   ]
+  },
+  {
+   "id": "p-aspot.aspot-course",
+   "name": "Course / cohort launch A-Spot",
+   "section": "promo",
+   "primitives": [
+    "mini-stat row",
+    "avatar roster",
+    "tuition + seats"
+   ],
+   "best_for": [
+    "new course drops",
+    "learning cohorts",
+    "training programs",
+    "certification launches"
+   ]
+  },
+  {
+   "id": "p-info-stat",
+   "name": "Predictive stat infographic",
+   "section": "data",
+   "primitives": [
+    "hero number",
+    "label",
+    "live + forecast bars",
+    "forecast callout"
+   ],
+   "best_for": [
+    "AI-quoted predictions",
+    "trend hero stats",
+    "ad-slot KPI promos"
+   ]
+  },
+  {
+   "id": "p-info-flow",
+   "name": "Process flow infographic",
+   "section": "data",
+   "primitives": [
+    "node chain",
+    "done/active/queued states",
+    "labels"
+   ],
+   "best_for": [
+    "onboarding sequences",
+    "claims journeys",
+    "application funnels",
+    "admissions flow"
+   ]
+  },
+  {
+   "id": "p-info-matrix",
+   "name": "Comparison matrix infographic",
+   "section": "data",
+   "primitives": [
+    "criteria rows",
+    "option columns",
+    "win cell",
+    "AI verdict tag"
+   ],
+   "best_for": [
+    "plan pickers",
+    "vendor selection",
+    "tier comparison ads",
+    "college choice"
+   ]
+  },
+  {
+   "id": "p-info-funnel",
+   "name": "Predictive funnel infographic",
+   "section": "data",
+   "primitives": [
+    "stage rows",
+    "live + predicted bars",
+    "live/pred legend"
+   ],
+   "best_for": [
+    "ad-budget planners",
+    "marketing dashboards",
+    "admission funnel forecast"
+   ]
+  },
+  {
+   "id": "p-info-geo",
+   "name": "Geo heatmap infographic",
+   "section": "data",
+   "primitives": [
+    "map surface",
+    "hot/warm/cool pins",
+    "legend row"
+   ],
+   "best_for": [
+    "regional demand ads",
+    "store locator promos",
+    "alumni density",
+    "campus presence"
+   ]
+  },
+  {
+   "id": "p-hero-aspot",
+   "name": "Multi-vertical hero A-Spot (4 variants)",
+   "section": "promo-modules",
+   "primitives": [
+    "industry-tinted backdrop",
+    "headline + display number",
+    "dual CTA",
+    "supporting strap"
+   ],
+   "best_for": [
+    "sector-specific landing heroes",
+    "education / healthcare / finance / commerce splash"
+   ]
+  },
+  {
+   "id": "p-onboard",
+   "name": "Onboarding flow",
+   "section": "promo-modules",
+   "primitives": [
+    "step rail",
+    "current step content",
+    "skip / next CTAs",
+    "progress dots"
+   ],
+   "best_for": [
+    "first-run onboarding",
+    "feature-introduction tours",
+    "permission-setup flows"
+   ]
+  },
+  {
+   "id": "p-slideshow-loader",
+   "name": "Slideshow loader",
+   "section": "promo-modules",
+   "primitives": [
+    "progressing thumbnails",
+    "active slide highlight",
+    "loader bar"
+   ],
+   "best_for": [
+    "multi-step generation feedback",
+    "loading-as-content",
+    "process visibility"
+   ]
+  },
+  {
+   "id": "p-presentation",
+   "name": "Presentation module",
+   "section": "promo-modules",
+   "primitives": [
+    "title",
+    "subtitle",
+    "key stat",
+    "supporting body"
+   ],
+   "best_for": [
+    "section dividers",
+    "marketing presentations",
+    "in-app announcements"
+   ]
+  },
+  {
+   "id": "p-concept-block",
+   "name": "Abstract concept block",
+   "section": "promo-modules",
+   "primitives": [
+    "geometric backdrop",
+    "concept name",
+    "supporting body"
+   ],
+   "best_for": [
+    "editorial pull surfaces",
+    "topic introductions",
+    "framework explainers"
+   ]
+  },
+  {
+   "id": "p-patient-header",
+   "name": "Patient context strip",
+   "section": "healthcare",
+   "primitives": [
+    "headshot",
+    "MRN",
+    "age/sex",
+    "allergies tag",
+    "acuity dot"
+   ],
+   "best_for": [
+    "clinical app headers",
+    "wrong-patient prevention",
+    "always-on identity"
+   ]
+  },
+  {
+   "id": "p-vitals",
+   "name": "Vitals panel with normal-range zones",
+   "section": "healthcare",
+   "primitives": [
+    "4-up grid",
+    "current value",
+    "normal-range zone",
+    "trend arrow"
+   ],
+   "best_for": [
+    "monitor surfaces",
+    "ICU dashboards",
+    "rounding views"
+   ]
+  },
+  {
+   "id": "p-med-recon",
+   "name": "Medication reconciliation with AI flags",
+   "section": "healthcare",
+   "primitives": [
+    "per-med row",
+    "name + dose + frequency",
+    "AI risk flag",
+    "interaction callout"
+   ],
+   "best_for": [
+    "admission medlists",
+    "pharmacy review",
+    "discharge reconciliation"
+   ]
+  },
+  {
+   "id": "p-care-team",
+   "name": "Care team panel",
+   "section": "healthcare",
+   "primitives": [
+    "role avatars",
+    "name + specialty",
+    "on-call indicator",
+    "page CTA"
+   ],
+   "best_for": [
+    "clinical team coordination",
+    "consult routing",
+    "shift handoff"
+   ]
+  },
+  {
+   "id": "p-symptom-triage",
+   "name": "Symptom triage with differential",
+   "section": "healthcare",
+   "primitives": [
+    "chief complaint",
+    "AI differential list",
+    "confidence bars",
+    "next-step routing"
+   ],
+   "best_for": [
+    "ED triage",
+    "telehealth intake",
+    "nurse-line decision support"
+   ]
+  },
+  {
+   "id": "p-time-machine",
+   "name": "Time machine (dual-track timeline)",
+   "section": "counterfactual",
+   "primitives": [
+    "two parallel tracks",
+    "synchronized week markers",
+    "diverging events",
+    "outcome stat at horizon"
+   ],
+   "best_for": [
+    "path-not-taken visualizations",
+    "counterfactual storytelling",
+    "decision-coaching surfaces",
+    "policy comparisons"
+   ]
+  },
+  {
+   "id": "p-forecast-band",
+   "name": "P10/P50/P90 forecast band",
+   "section": "counterfactual",
+   "primitives": [
+    "P10 floor line",
+    "P50 median line",
+    "P90 ceiling line",
+    "tinted uncertainty band",
+    "horizon ticks"
+   ],
+   "best_for": [
+    "uncertainty-aware predictions",
+    "cohort modeling",
+    "scenario forecasts",
+    "planning under risk"
+   ]
+  },
+  {
+   "id": "p-portfolio-mix",
+   "name": "Portfolio mix slider",
+   "section": "counterfactual",
+   "primitives": [
+    "gradient track",
+    "draggable handle",
+    "policy labels",
+    "live 3-cell readout"
+   ],
+   "best_for": [
+    "policy tradeoff exploration",
+    "what-if dial surfaces",
+    "interactive recommendations",
+    "advisor-coaching tools"
+   ]
+  },
+  {
+   "id": "p-vignette-trio",
+   "name": "Vignette trio (3 anonymized archetypes)",
+   "section": "counterfactual",
+   "primitives": [
+    "3-column grid",
+    "anonymized ID + archetype tag",
+    "headline outcome stat",
+    "2-3 decision bullets"
+   ],
+   "best_for": [
+    "population-as-evidence",
+    "peer-archetype reveals",
+    "alumni cohort comparisons",
+    "decision pattern teaching"
+   ]
+  },
+  {
+   "id": "p-counterfactual",
+   "name": "Counterfactual reveal (before/after shift)",
+   "section": "counterfactual",
+   "primitives": [
+    "counterfactual tag",
+    "if-then sentence with em-highlighted figures",
+    "narrative body",
+    "4-stat pull row"
+   ],
+   "best_for": [
+    "coaching moments",
+    "policy advice surfaces",
+    "what-if explanations",
+    "advisor-grade recommendations"
+   ]
+  }
+ ]
+}
