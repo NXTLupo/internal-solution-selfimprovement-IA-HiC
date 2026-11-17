@@ -240,7 +240,10 @@ ever calling the suite. See [Brands](#brands-nxt-humans-and-northeastern).
   preview with a PowerPoint download, a journey map, a prototype you can click through.
 - **Message box** (pinned at the bottom). Type, drop files, or dictate where your browser supports it. Enter
   sends; Shift and Enter makes a new line.
-- **Top bar.** The engagement in focus, the system's status, and today's spend.
+- **Top bar.** The engagement in focus, the system's status, what this conversation has cost (its answers and the
+  work it started), and today's spend for the whole studio.
+- **Conversations** (in the rail) lists past conversations; click one to reopen it. Conversations are kept on the
+  server, so the agent picks up a reopened conversation even after IA Next restarts.
 
 ### Things to ask for
 
@@ -374,7 +377,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 153 tests, all passing.
+On 17 November 2026: 156 tests, all passing.
 
 ### Back up and restore your data
 

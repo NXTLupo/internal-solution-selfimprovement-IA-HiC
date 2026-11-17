@@ -10,6 +10,7 @@ published (shown to the person) -> acknowledged (the person reacted). A node tha
 """
 import json
 import os
+import re
 import sqlite3
 import threading
 import time
@@ -28,6 +29,7 @@ CREATE TABLE IF NOT EXISTS tasks (
 CREATE TABLE IF NOT EXISTS nodes (
   id TEXT PRIMARY KEY, task_id TEXT, specialist TEXT, model TEXT, state TEXT, started REAL, finished REAL,
   result_path TEXT, summary TEXT, error TEXT, seq INTEGER);
+CREATE TABLE IF NOT EXISTS conversations (id TEXT PRIMARY KEY, created REAL, updated REAL, title TEXT, items TEXT);
 CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL, engagement_id TEXT, task_id TEXT, kind TEXT, data TEXT);
 CREATE TABLE IF NOT EXISTS approvals (
   id TEXT PRIMARY KEY, cls TEXT, tool TEXT, args_json TEXT, args_hash TEXT, reason TEXT, status TEXT, created REAL, decided REAL);
@@ -82,6 +84,57 @@ def events_after(after_id=0, engagement_id=None, limit=200):
     q = "SELECT * FROM events WHERE id > ?" + (" AND engagement_id = ?" if engagement_id else "") + " ORDER BY id LIMIT ?"
     args = (after_id, engagement_id, limit) if engagement_id else (after_id, limit)
     return [dict(r) | {"data": json.loads(r["data"])} for r in conn().execute(q, args)]
+
+
+# ---- conversations (what the person saw, so a past conversation can be reopened) ----------------------
+CONV_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+CONV_ITEMS, CONV_BYTES = 60, 600_000
+
+
+def save_conversation(cid, items):
+    """Keep the page's view of a conversation: its last 60 items, dropping the oldest until it fits 600 KB.
+    The title is the person's first message."""
+    if not CONV_ID.match(cid or ""):
+        raise ValueError("bad conversation id")
+    items = [i for i in (items or []) if isinstance(i, dict)][-CONV_ITEMS:]
+    data = json.dumps(items, ensure_ascii=False)
+    while len(data) > CONV_BYTES and items:
+        items = items[1:]
+        data = json.dumps(items, ensure_ascii=False)
+    first = next((i for i in items if i.get("type") == "user" and str(i.get("text") or "").strip()), None)
+    title = " ".join(str(first.get("text") if first else "").split())[:120]
+    with _LOCK:
+        conn().execute("INSERT INTO conversations (id, created, updated, title, items) VALUES (?,?,?,?,?) "
+                       "ON CONFLICT(id) DO UPDATE SET updated = excluded.updated, title = CASE WHEN excluded.title != '' "
+                       "THEN excluded.title ELSE conversations.title END, items = excluded.items",
+                       (cid, _now(), _now(), title, data))
+    return len(items)
+
+
+def list_conversations(limit=50):
+    rows = conn().execute("SELECT id, created, updated, title, items FROM conversations WHERE items != '[]' "
+                          "ORDER BY updated DESC LIMIT ?", (limit,))
+    out = []
+    for r in rows:
+        try:
+            n = len(json.loads(r["items"] or "[]"))
+        except ValueError:
+            n = 0
+        out.append({"id": r["id"], "created": r["created"], "updated": r["updated"], "title": r["title"] or "", "items": n})
+    return out
+
+
+def load_conversation(cid):
+    if not CONV_ID.match(cid or ""):
+        return None
+    r = conn().execute("SELECT * FROM conversations WHERE id = ?", (cid,)).fetchone()
+    if not r:
+        return None
+    try:
+        items = json.loads(r["items"] or "[]")
+    except ValueError:
+        items = []
+    return {"id": r["id"], "created": r["created"], "updated": r["updated"], "title": r["title"] or "", "items": items}
 
 
 # ---- engagements -------------------------------------------------------------------------------

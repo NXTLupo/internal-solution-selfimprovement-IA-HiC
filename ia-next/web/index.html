@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/static/app.css?v=1">
 </head>
 <body>
+<a class="skip" href="#input">Skip to the message box</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="i-report" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15h6M9.5 18h4"/></symbol>
@@ -37,6 +38,7 @@
     <symbol id="i-retry" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 13.2-4.9L19.5 9M19.5 4.5V9H15M19.5 12a7.5 7.5 0 0 1-13.2 4.9L4.5 15M4.5 19.5V15H9"/></symbol>
     <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 6.5h6l2 2h9v10h-17z"/></symbol>
     <symbol id="i-spend" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M14.6 9.6c-.5-1-1.5-1.6-2.6-1.6-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1.1 0-2.1-.6-2.6-1.6M12 6.5V8M12 16v1.5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/></symbol>
     <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></symbol>
     <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></symbol>
     <symbol id="i-approve" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
@@ -61,6 +63,7 @@
     </div>
 
     <div class="rail__foot">
+      <button class="railnav" type="button" data-panel="history"><svg class="ic"><use href="#i-chat"/></svg>Conversations</button>
       <button class="railnav" type="button" data-panel="work"><svg class="ic"><use href="#i-grid"/></svg>All work</button>
       <button class="railnav" type="button" data-panel="memory"><svg class="ic"><use href="#i-memory"/></svg>Memory</button>
       <button class="railnav" type="button" data-panel="schedules"><svg class="ic"><use href="#i-schedule"/></svg>Schedules</button>
@@ -80,6 +83,7 @@
           <span class="status__mark" id="headMark" aria-hidden="true"></span>
           <span class="status__word" id="statusWord">Ready</span>
         </div>
+        <span class="spendchip convcost" id="convCost" title="What this conversation has cost: its answers and the work it started" hidden><span class="spendchip__label">This conversation</span><span class="mono" id="convCostUsd">0.00 USD</span></span>
         <button class="spendchip" id="spendChip" type="button" data-panel="spend" title="Spend today and this week"><span class="spendchip__label">Today</span><span class="mono" id="spendToday">0.00 USD</span></button>
       </div>
     </header>

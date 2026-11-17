@@ -157,8 +157,33 @@ const S = {
   reports: new Map(),
 };
 
+// The conversation is kept in this browser and on the server, so a past conversation can be reopened from any
+// browser and the agent can pick it up after a restart (Part 1: past conversations could not be reopened).
+let remoteSave = null;
 function saveConversation() {
   LS.set('conv', { id: S.conv, items: S.items.slice(-60) });
+  if (!S.conv) return;
+  clearTimeout(remoteSave);
+  const cid = S.conv;
+  const items = S.items.slice(-60);
+  remoteSave = setTimeout(() => {
+    api(`/api/conversations/${encodeURIComponent(cid)}/items`, { method: 'PUT', json: { items } }).catch(() => { /* kept locally */ });
+  }, 1200);
+}
+
+async function reopenConversation(cid) {
+  try {
+    const c = await api(`/api/conversations/${encodeURIComponent(cid)}`);
+    S.conv = c.id;
+    S.items = Array.isArray(c.items) ? c.items : [];
+    LS.set('conv', { id: S.conv, items: S.items.slice(-60) });
+    closeSheet();
+    if (S.items.length) renderThread(); else showView();
+    updateConvCost();
+    $('#input').focus();
+  } catch {
+    toast('That conversation could not be opened.');
+  }
 }
 
 // ---- notes for the agent (enhancement plan B6) ------------------------------------------------------
@@ -266,7 +291,27 @@ function runningTasks() {
   return ids.size;
 }
 
+// What this conversation has cost so far: its answers plus the work it started (the Today chip is studio-wide).
+function updateConvCost() {
+  let usd = 0;
+  const ids = new Set();
+  for (const it of S.items) {
+    if (it.type !== 'agent') continue;
+    usd += Number(it.usd) || 0;
+    for (const id of (it.rec && it.rec.started) || []) ids.add(id);
+  }
+  for (const id of ids) {
+    const t = S.full.get(id) || S.tasks.find((x) => x.id === id);
+    usd += Number(t && t.spent_usd) || 0;
+  }
+  const box = $('#convCost');
+  if (!box) return;
+  box.hidden = !S.items.length;
+  $('#convCostUsd').textContent = P.usd(usd);
+}
+
 function updatePresence() {
+  updateConvCost();
   const n = runningTasks();
   const state = S.busy ? 'thinking' : n ? 'working' : 'idle';
   document.querySelectorAll('.presence[data-live]').forEach((p) => { p.dataset.state = state; });
@@ -985,7 +1030,7 @@ function detailsEl(summary, text) {
 
 // ---- conversation ---------------------------------------------------------------------------------
 function normalizeTurn(r) {
-  const rec = { reply: r.reply || '', chips: [], tasks: [], approvals: [], media: [], work: [], changed: [], raw: '' };
+  const rec = { reply: r.reply || '', chips: [], tasks: [], approvals: [], media: [], work: [], changed: [], started: [], raw: '' };
   const listed = [];
   for (const tr of r.trace || []) {
     const out = tr.output && typeof tr.output === 'object' ? tr.output : {};
@@ -993,10 +1038,11 @@ function normalizeTurn(r) {
     if (typeof out.task_id === 'string' && !rec.tasks.includes(out.task_id)) rec.tasks.push(out.task_id);
     if ((tr.tool === 'task_status' || tr.tool === 'read_report') && !out.error && tr.input && typeof tr.input.task_id === 'string' && !rec.tasks.includes(tr.input.task_id)) rec.tasks.push(tr.input.task_id);
     if (tr.tool === 'rebrand_deck' && !out.error && typeof out.task_id === 'string') rec.changed.push(out.task_id);
+    if (/^(start_|analyze_uploads$|retry_task$)/.test(tr.tool) && out.started && typeof out.task_id === 'string') rec.started.push(out.task_id);
     if (out.approval === 'pending' && typeof out.approval_id === 'string') rec.approvals.push(out.approval_id);
     if (isView(out.view)) rec.media.push({ kind: out.video ? 'video' : 'image', view: out.view });
     if (tr.tool === 'list_engagements' && Array.isArray(out.engagements)) {
-      for (const e of out.engagements) for (const t of e.tasks || []) if (t && t.id) listed.push(t);
+      for (const e of out.engagements) for (const t of e.tasks || []) if (t && t.id && (!S.focus || e.id === S.focus)) listed.push(t);
     }
   }
   rec.work = listed.sort((a, b) => (b.created || 0) - (a.created || 0)).map((t) => t.id).filter((id) => !rec.tasks.includes(id)).slice(0, 8);
@@ -1097,11 +1143,11 @@ async function ensureConv() {
 let thinkTimer = null;
 function showThinking() {
   const word = h('span', { class: 'thinking__word', text: 'Thinking' });
-  const time = h('span', { class: 'thinking__time mono', text: '0 s' });
+  const time = h('span', { class: 'thinking__time mono', text: '0 s', 'aria-hidden': 'true' });
   const live = h('div', { class: 'live' });
   const el = h('div', { class: 'msg msg--agent', id: 'thinking' },
     h('div', { class: 'msg__avatar' }, presenceEl({ state: 'thinking', live: true })),
-    h('div', { class: 'msg__body' }, h('div', { class: 'thinking', role: 'status' }, word, time), live));
+    h('div', { class: 'msg__body' }, h('div', { class: 'thinking' }, h('span', { role: 'status' }, word), time), live));
   $('#thread').append(el);
   scrollToEnd(true);
   S.liveBox = live;
@@ -1143,7 +1189,7 @@ async function send(text, opts = {}) {
     const rec = normalizeTurn(r);
     rec.changed.forEach(refreshTask);      // cards already on the page show the re-rendered deck, not the cached one
     hideThinking();
-    pushItem({ type: 'agent', rec, ask: text });
+    pushItem({ type: 'agent', rec, ask: text, usd: Number(r.usd) || 0 });
     setDockSuggest(P.nextAfterReply(rec, text));
     if (rec.media.length) loadMedia(S.engs.slice(0, 12).map((e) => e.id));
   } catch (e) {
@@ -1416,6 +1462,22 @@ function openApprovals() {
 }
 
 async function openPanel(name) {
+  if (name === 'history') {
+    const body = h('div', { class: 'panel' }, h('p', { class: 'panel__sub', text: 'Loading.' }));
+    openSheet({ title: 'Past conversations', body });
+    try {
+      const list = (await api('/api/conversations')).conversations || [];
+      body.replaceChildren(list.length
+        ? h('ul', { class: 'convlist' }, list.map((c) => h('li', null, h('button', {
+          class: `convrow${c.id === S.conv ? ' convrow--current' : ''}`, type: 'button', onclick: () => reopenConversation(c.id) },
+          h('span', { class: 'convrow__title', text: c.title || 'Untitled conversation' }),
+          h('span', { class: 'convrow__meta', text: `${c.id === S.conv ? 'Open now, ' : ''}${P.ago(c.updated)}, ${c.items} messages` })))))
+        : h('div', { class: 'empty' }, h('p', { text: 'No past conversations yet.' })));
+    } catch {
+      body.replaceChildren(h('div', { class: 'empty' }, h('p', { text: 'This could not be loaded. Check that the service is running, then open it again.' })));
+    }
+    return;
+  }
   if (name === 'work') {
     const items = workItems();
     openSheet({ title: 'All work', size: 'work', body: items.length ? h('div', { class: 'workgrid' }, items.map(workCard))

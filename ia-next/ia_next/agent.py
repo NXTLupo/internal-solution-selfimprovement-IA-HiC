@@ -114,6 +114,7 @@ class Conversation:
         self.system = SYSTEM.format(user=snap["user"] or "(nothing recorded yet)", memory=snap["memory"] or "(nothing recorded yet)")
         self.messages = []
         self.created = time.time()
+        self.resume_note = ""        # set when a saved conversation is reopened after the agent forgot it (a restart)
 
 
 def new_conversation():
@@ -126,8 +127,32 @@ def new_conversation():
 def get_conversation(cid):
     with _LOCK:
         if cid not in _CONVS:
-            _CONVS[cid] = Conversation(cid)
+            conv = Conversation(cid)
+            conv.resume_note = resume_note(cid)
+            _CONVS[cid] = conv
         return _CONVS[cid]
+
+
+def resume_note(cid, limit=8000):
+    """A reopened conversation the agent no longer holds (after a restart): the person's words and the replies they
+    saw, newest kept, so the next answer continues instead of starting from nothing. Empty for a new conversation."""
+    saved = store.load_conversation(cid)
+    if not saved or not saved["items"]:
+        return ""
+    lines = []
+    for it in saved["items"]:
+        if it.get("type") == "user":
+            lines.append("Person: " + " ".join(str(it.get("text") or "").split()))
+        elif it.get("type") == "agent":
+            rec = it.get("rec") or {}
+            reply = " ".join(str(rec.get("reply") or "").split())
+            done = ", ".join(str(c.get("text")) for c in rec.get("chips") or [] if isinstance(c, dict) and c.get("text"))
+            if reply or done:
+                lines.append("You: " + (f"[{done}] " if done else "") + reply)
+    text = "\n".join(lines)
+    if len(text) > limit:
+        text = "..." + text[-limit:]
+    return ("(This conversation was reopened. What was said before, as the person saw it:\n" + text + "\n)") if text else ""
 
 
 # ---- tool layer: approval classes and data boundaries are enforced here, not in the prompt -------
@@ -316,6 +341,9 @@ def turn(cid, text, call=None):
     `call` is a test seam with the signature of providers.claude."""
     call = call or providers.claude
     conv = get_conversation(cid)
+    if conv.resume_note and not conv.messages:
+        text = conv.resume_note + "\n" + text
+        conv.resume_note = ""
     conv.messages.append({"role": "user", "content": text})
     store.event("user_message", {"conversation": cid, "text": text[:2000]})
     trace, ledger = [], providers.Ledger(limit_usd=1.0)

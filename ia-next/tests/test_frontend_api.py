@@ -206,3 +206,45 @@ def test_notes_come_before_the_focus_line_is_added(client, turns):
     client.post("/api/conversations/c/messages", json={"text": "Go", "engagement_id": eid, "notes": ["Deck [task_1] finished"]})
     sent = turns[-1][1]
     assert sent.startswith(f"(Focused engagement: Co-op prep [{eid}].") and "(Since your last message, in the workspace: Deck [task_1] finished.)\nGo" in sent
+
+
+# ---- conversations kept on the server (Part 1: past conversations could not be reopened) ----------------
+def test_conversations_are_saved_listed_and_reopened(client):
+    items = [{"type": "user", "text": "Make a  deck for the provost"},
+             {"type": "agent", "rec": {"reply": "Started the deck.", "chips": [{"text": "Started a deck"}]}, "usd": 0.05}]
+    assert client.put("/api/conversations/conv_a/items", json={"items": items}).json() == {"saved": 2}
+    client.put("/api/conversations/conv_b/items", json={"items": [{"type": "user", "text": "Second"}]})
+    client.put("/api/conversations/conv_empty/items", json={"items": []})
+    listed = client.get("/api/conversations").json()["conversations"]
+    assert [c["id"] for c in listed] == ["conv_b", "conv_a"]                 # newest first; empty ones left out
+    assert listed[1]["title"] == "Make a deck for the provost" and listed[1]["items"] == 2
+    assert client.get("/api/conversations/conv_a").json()["items"] == items
+    assert client.get("/api/conversations/conv_nope").status_code == 404
+    assert client.put("/api/conversations/bad id!/items", json={"items": []}).status_code == 400
+
+
+def test_a_saved_conversation_keeps_its_newest_items_within_the_size_cap():
+    items = [{"type": "user", "text": f"m{i} " + "x" * 20000} for i in range(80)]
+    kept = store.save_conversation("conv_big", items)
+    saved = store.load_conversation("conv_big")["items"]
+    assert kept == len(saved) <= 60 and saved[-1]["text"].startswith("m79") and len(str(saved)) <= 700_000
+
+
+def test_the_agent_picks_up_a_reopened_conversation_after_a_restart():
+    store.save_conversation("conv_r", [{"type": "user", "text": "Make a deck for the provost"},
+                                       {"type": "agent", "rec": {"reply": "The deck is ready.", "chips": [{"text": "Started a deck"}]}}])
+    agent._CONVS.pop("conv_r", None)                                        # as after a restart
+    seen = []
+
+    def call(model, system, messages, ledger, **kw):
+        seen.append(messages[0]["content"])
+
+        class R:
+            stop_reason, content = "end_turn", []
+        return "ok", None, R()
+    agent.turn("conv_r", "Now shorten it", call=call)
+    assert seen[0].startswith("(This conversation was reopened.") and "Person: Make a deck for the provost" in seen[0]
+    assert "You: [Started a deck] The deck is ready." in seen[0] and seen[0].endswith(")\nNow shorten it")
+    agent.turn("conv_r", "Thanks", call=call)                              # only the first turn carries the note
+    assert agent._CONVS["conv_r"].messages[-2]["content"] == "Thanks"
+    assert agent.resume_note("conv_never") == ""

@@ -78,6 +78,32 @@ def new_conversation():
     return {"id": agent.new_conversation()}
 
 
+class ConvItems(BaseModel):
+    items: list = []
+
+
+@app.get("/api/conversations")
+def conversations():
+    """Past conversations, newest first, so the person can reopen one (Part 1: conversations kept on the server)."""
+    return {"conversations": store.list_conversations()}
+
+
+@app.get("/api/conversations/{cid}")
+def conversation(cid: str):
+    c = store.load_conversation(cid)
+    if not c:
+        raise HTTPException(404, "no such conversation")
+    return c
+
+
+@app.put("/api/conversations/{cid}/items")
+def save_conversation_items(cid: str, body: ConvItems):
+    try:
+        return {"saved": store.save_conversation(cid, body.items)}
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
 @app.post("/api/conversations/{cid}/messages")
 def post_message(cid: str, m: NewMessage):
     if not m.text.strip():
