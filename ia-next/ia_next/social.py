@@ -372,11 +372,12 @@ def analyze(eid, objective, ledger):
 
 
 # ---- the task runner ------------------------------------------------------------------------------
+@store.stoppable
 def run_social_task(tid):
     """Background body: Social Collector, then Social Analyst. Every node ends available or failed."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     seq = 0

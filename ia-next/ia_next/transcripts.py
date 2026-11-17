@@ -355,11 +355,12 @@ def analyze_transcripts(eid, objective, ledger):
 
 
 # ---- the task runner ----------------------------------------------------------------------------
+@store.stoppable
 def run_transcript_task(tid):
     """Background body: one Transcript Analyst node over the engagement's uploads."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     nid = store.start_node(tid, "Transcript Analyst", config.SEATS["analysis"]["primary"], 1)

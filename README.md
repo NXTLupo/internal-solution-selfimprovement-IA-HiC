@@ -310,6 +310,17 @@ sharp and editable.
 - **Seeing what you spend.** Today's spend is in the top bar; the **Spend** panel shows today, this week and
   spend by model. Every card shows its own cost.
 - A task stops when it reaches the budget you approved.
+- **Asking before new research.** When an engagement already has findings, the agent builds decks, maps and other
+  outputs from them, and asks you before paying for new web research.
+
+### Stop and Try again
+
+- **Stop.** A running card has a **Stop** button (or say "stop that"). The server confirms at once and the card
+  shows *Stopping*; the work ends after the step in flight and the card shows *Stopped* with what it spent.
+  Whatever it had already written is kept.
+- **Try again.** A card that did not finish (failed or stopped) has **Try again**. It starts the same request with
+  the same budget. If that budget is above your approval level, an approval card appears first, because one approval
+  covers one action. Pressing Try again twice starts one run, not two.
 
 ---
 
@@ -363,7 +374,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 136 tests, all passing.
+On 17 November 2026: 153 tests, all passing.
 
 ### Back up and restore your data
 

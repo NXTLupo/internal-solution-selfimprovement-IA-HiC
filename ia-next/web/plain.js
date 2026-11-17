@@ -52,11 +52,12 @@ export const ROSTER = ['Brief Lead', 'Research Lead', 'Analyst', 'Writer and Ver
 
 // ---- states ----------------------------------------------------------------------------------------
 export function stepState(node, taskStatus) {
-  if (!node) return taskStatus === 'failed' ? { key: 'skipped', word: 'Not started' } : { key: 'waiting', word: 'Waiting' };
+  const ended = taskStatus === 'failed' || taskStatus === 'stopped';
+  if (!node) return ended ? { key: 'skipped', word: 'Not started' } : { key: 'waiting', word: 'Waiting' };
   if (node.state === 'running') {
-    return taskStatus === 'failed' ? { key: 'failed', word: 'Did not finish' } : { key: 'working', word: 'Working' };
+    return ended ? { key: 'failed', word: taskStatus === 'stopped' ? 'Stopped' : 'Did not finish' } : { key: 'working', word: 'Working' };
   }
-  if (node.state === 'failed') return { key: 'failed', word: 'Did not finish' };
+  if (node.state === 'failed') return { key: 'failed', word: /stopped by you/i.test(node.error || '') ? 'Stopped' : 'Did not finish' };
   if (['available', 'published', 'acknowledged'].includes(node.state)) return { key: 'done', word: 'Done' };
   return { key: 'waiting', word: 'Waiting' };
 }
@@ -65,12 +66,14 @@ export function taskState(status) {
   return {
     queued: { key: 'waiting', word: 'Waiting to start' },
     running: { key: 'working', word: 'Working' },
+    stopping: { key: 'working', word: 'Stopping' },
     done: { key: 'done', word: 'Ready' },
     failed: { key: 'failed', word: 'Did not finish' },
+    stopped: { key: 'failed', word: 'Stopped' },
   }[status] || { key: 'waiting', word: 'Waiting' };
 }
 
-export function isTerminal(status) { return status === 'done' || status === 'failed'; }
+export function isTerminal(status) { return status === 'done' || status === 'failed' || status === 'stopped'; }
 
 // ---- titles --------------------------------------------------------------------------------------
 function clean(s) { return String(s || '').replace(/\s+/g, ' ').trim(); }
@@ -128,6 +131,39 @@ function lower1(s) {
 function num(s, re) { const m = String(s || '').match(re); return m ? Number(m[1]) : null; }
 function plural(n, one, many) { return `${n} ${n === 1 ? one : (many || one + 's')}`; }
 
+// ---- a report's checks (enhancement plan B7) --------------------------------------------------------
+// A report used to say "Ready" whatever its reviewer found (scores 0.30 to 0.79 under one green label). Three labels,
+// set by thresholds on the reviewer's score and the open points, and every check in plain words.
+const CHECK_RULES = {
+  'em-dash': 'uses a banned dash character',
+  slop: 'uses a stock phrase from the banned list',
+  'quote-not-in-source': 'quotes words that are not in the cited source',
+  'unknown-citation': 'cites a source that is not in the source list',
+  'naked-number': 'states a number outside a quoted source',
+};
+export const CHECK_STRONG = 0.85;
+export const CHECK_WEAK = 0.6;
+
+export function checkLevel(v) {
+  const failing = ((v && v.judge && v.judge.items) || []).filter((i) => !i.pass).length;
+  const det = ((v && v.deterministic_findings) || []).length;
+  const score = Number((v && v.score) || 0);
+  const open = failing + det;
+  if (score >= CHECK_STRONG && !open) return { key: 'done', word: 'Checks passed', open };
+  if (score < CHECK_WEAK) return { key: 'failed', word: 'Needs your review', open };
+  return { key: 'waiting', word: 'Points to review', open };
+}
+
+export function checkLines(v) {
+  const out = [];
+  for (const f of (v && v.deterministic_findings) || []) {
+    const detail = clean(f.detail).slice(0, 160);
+    out.push({ pass: false, text: `The report ${CHECK_RULES[f.rule] || 'breaks a writing rule'}${detail ? `: ${detail}` : ''}.` });
+  }
+  for (const i of (v && v.judge && v.judge.items) || []) out.push({ pass: !!i.pass, text: clean(i.criterion), why: clean(i.reason) });
+  return out.sort((a, b) => Number(a.pass) - Number(b.pass));     // open points first
+}
+
 export function outcome(task) {
   const s = task.summary || '';
   switch (task.kind) {
@@ -169,6 +205,7 @@ export function outcome(task) {
 }
 
 const REASONS = [
+  [/stopped by you/i, { whole: 'You stopped it. What it had already written is kept.' }],
   [/interrupted by a restart/i, { whole: 'The service restarted while this was running, so it stopped partway.' }],
   [/no finished research|run a research report first|has a done research/i, { whole: 'It needs a finished research report in the same engagement first.' }],
   [/budget|BudgetExceeded|spend limit|over the approved/i, { whole: 'It reached its spending limit before finishing.' }],
@@ -292,6 +329,8 @@ const TOOL_WORDS = {
   generate_image: ['Made an image', 'Could not make the image'],
   generate_video: ['Made a video', 'Could not make the video'],
   task_status: ['Checked progress', 'Could not check progress'],
+  stop_task: ['Asked the work to stop', 'Could not stop the work'],
+  retry_task: ['Started the work again with the same budget', 'Could not start the work again'],
   read_report: ['Read the finished work', 'Could not open the work'],
   recall: ['Searched memory and evidence', 'Could not search memory'],
   remember: ['Saved to memory', 'Could not save to memory'],
@@ -306,6 +345,7 @@ export function toolChip(tool, out) {
   const [ok, bad] = TOOL_WORDS[tool] || ['Used a tool', 'A tool did not work'];
   if (out.approval === 'pending') return { tool, text: 'Asked for your approval', tone: 'ask' };
   if (out.approval === 'denied') return { tool, text: 'Not done: you declined it', tone: 'muted' };
+  if (out.needs_confirmation) return { tool, text: 'Checked with you before paying for new research', tone: 'ask' };
   if (out.error) return { tool, text: bad, tone: 'bad' };
   if (out.started === false) return { tool, text: 'Found the same work already under way', tone: 'ok' };
   return { tool, text: ok, tone: 'ok' };
@@ -356,6 +396,9 @@ export function approvalText(a, threshold) {
         cost: 'Each run is paid for separately and follows the same budget rules.' };
     case 'send_email':
       return { title: `Approve sending an email to ${clean(args.to)}`, what: clean(args.subject), cost: 'Nothing leaves the system without your approval.' };
+    case 'retry_task':
+      return { title: 'Approve trying the work again', what: 'The same request, with the same budget as before.',
+        cost: `${clean(a.reason)}.` };
     case 'evaluate_skill':
       return { title: 'Approve a test of new writing instructions', what: 'The new instructions are compared with the current ones on past work.', cost: '' };
     default:

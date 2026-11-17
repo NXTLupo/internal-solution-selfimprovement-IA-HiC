@@ -740,12 +740,13 @@ def build(eid, audience, ledger):
 
 
 # ---- the task runner and the agent tool ---------------------------------------------------------------
+@store.stoppable
 def run_deck_task(tid):
     """Background body for a deck: one Deck Composer node over the engagement's findings. The node's result
     is the verified .pptx; the task's result is the HTML preview (servable by /api/tasks/{id}/view)."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     nid = store.start_node(tid, "Deck Composer", config.SEATS["artifact"]["primary"], 1)

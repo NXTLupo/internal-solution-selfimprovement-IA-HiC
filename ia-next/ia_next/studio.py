@@ -181,11 +181,12 @@ def writer(eid, brief, findings, sources, ledger, feedback=None, previous=None, 
 
 
 # ---- the task runner ---------------------------------------------------------------------------
+@store.stoppable
 def run_research_task(tid):
     """Background thread body. Every node ends available or failed; the task ends done or failed."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     seq = 0
@@ -193,6 +194,7 @@ def run_research_task(tid):
     def node(specialist, model, fn):
         nonlocal seq
         seq += 1
+        store.check_stop(tid, ledger.spent_usd)   # a Stop between steps ends the run before the next step
         nid = store.start_node(tid, specialist, model, seq)
         try:
             path, summary, payload = fn()
@@ -246,12 +248,13 @@ def run_research_task(tid):
         store.event("task_failed", {"error": msg, "spent_usd": ledger.spent_usd, "trace": traceback.format_exc()[-800:]}, eid, tid)
 
 
+@store.stoppable
 def run_journey_task(tid):
     """Background body for a journey map: one Journey Cartographer node over the engagement's findings."""
     from . import journey
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
     nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], 1)
     try:

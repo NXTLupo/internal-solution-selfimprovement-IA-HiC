@@ -356,11 +356,12 @@ def html_path_for_task(tid):
 
 
 # ---- the task runner ----------------------------------------------------------------------------------
+@store.stoppable
 def run_prototype_task(tid):
     """Background body: one Prototyper node."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
-    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD)
+    ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     nid = store.start_node(tid, "Prototyper", config.SEATS["artifact"]["primary"], 1)

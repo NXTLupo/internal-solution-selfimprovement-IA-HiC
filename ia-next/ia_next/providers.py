@@ -45,9 +45,11 @@ class Usage:
 
 @dataclass
 class Ledger:
-    """Spend for one task. `limit_usd` is the approved budget; going over raises BudgetExceeded."""
+    """Spend for one task. `limit_usd` is the approved budget; going over raises BudgetExceeded. With `task_id`, a
+    Stop pressed by the person takes effect after the call in flight: the next metered call raises TaskStopped."""
     limit_usd: float = config.TASK_SPEND_APPROVAL_USD
     calls: list = field(default_factory=list)
+    task_id: str = ""
 
     @property
     def spent_usd(self) -> float:
@@ -58,6 +60,9 @@ class Ledger:
         record_spend(u)
         if self.spent_usd > self.limit_usd:
             raise BudgetExceeded(self.spent_usd, self.limit_usd)
+        if self.task_id:
+            from . import store
+            store.check_stop(self.task_id, self.spent_usd)
 
 
 def record_spend(u: Usage):

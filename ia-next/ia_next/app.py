@@ -35,7 +35,9 @@ def _startup():
     store.conn()
     # A task left "running" by a previous process cannot still be running: say so instead of pretending.
     for t in store.list_tasks(limit=500):
-        if t["status"] in ("queued", "running"):
+        if t["status"] == "stopping":                  # the person asked it to stop; the restart finished the job
+            store.finish_stopped(t["id"])
+        elif t["status"] in ("queued", "running"):
             store.update_task(t["id"], status="failed", error="interrupted by a restart; start it again")
             store.event("task_failed", {"error": "interrupted by a restart"}, t["engagement_id"], t["id"])
     from . import schedule
@@ -68,6 +70,7 @@ def seats():
 class NewMessage(BaseModel):
     text: str
     engagement_id: str | None = None      # optional: the engagement the person has focused in the workspace
+    notes: list[str] = []                 # optional: what happened in the workspace since the last message (B6)
 
 
 @app.post("/api/conversations")
@@ -80,6 +83,11 @@ def post_message(cid: str, m: NewMessage):
     if not m.text.strip():
         raise HTTPException(400, "empty message")
     text = m.text.strip()
+    notes = [" ".join(str(n).split())[:300] for n in (m.notes or [])[:8] if str(n).strip()]
+    if notes:
+        # B6: an upload that failed, an approval decided on a card, work that finished or stopped, media made after an
+        # approval. Written by the workspace page, shown to the agent as context, never as the person's request.
+        text = "(Since your last message, in the workspace: " + " ".join(n.rstrip(". ") + "." for n in notes) + ")\n" + text
     eng = store.get_engagement(m.engagement_id) if m.engagement_id else None
     if eng:
         title = " ".join(str(eng["title"] or "").split())[:200]
@@ -224,6 +232,12 @@ def decide(aid: str, d: Decision):
         elif row["tool"] == "start_social_analysis":
             from . import social
             started = social.launch(args)
+        elif row["tool"] == "retry_task":
+            from . import lifecycle
+            try:
+                started = lifecycle.retry(args["task_id"], approved=True, attempt=args.get("attempt"))
+            except (KeyError, ValueError) as e:
+                started = {"error": str(e)}
         elif row["tool"] == "create_schedule":
             from . import schedule
             started = schedule.create(args["tool"], args["args"], args["every_minutes"])
@@ -343,6 +357,35 @@ def task_download(tid: str):
     p = per_task if t["result_path"] and os.path.isfile(per_task) else store.safe_path(t["engagement_id"], "results/deck.pptx")
     return FileResponse(p, filename=_deck_filename(t),
                         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
+
+
+@app.post("/api/tasks/{tid}/stop")
+def task_stop(tid: str):
+    """Stop a running task (enhancement plan B4). The answer is the server's: 'stopping' at once, then 'stopped' once
+    the step in flight returns. 409 when the work has already ended."""
+    from . import lifecycle
+    try:
+        return lifecycle.stop(tid)
+    except KeyError:
+        raise HTTPException(404, "no such task")
+    except ValueError as e:
+        raise HTTPException(409, str(e))
+
+
+@app.post("/api/tasks/{tid}/retry")
+def task_retry(tid: str):
+    """Try a failed or stopped task again with the same brief and budget (B4). Returns the new task id, or a pending
+    approval when the budget is above the threshold."""
+    from . import lifecycle
+    try:
+        out = lifecycle.retry(tid)
+    except KeyError:
+        raise HTTPException(404, "no such task")
+    except ValueError as e:
+        raise HTTPException(409, str(e))
+    if "approval_row" in out:
+        out["approval_row"] = dict(out["approval_row"])
+    return out
 
 
 class Rebrand(BaseModel):

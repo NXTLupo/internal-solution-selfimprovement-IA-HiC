@@ -152,12 +152,35 @@ const S = {
   spend: null, media: new Map(),
   busy: false, lastEvent: 0, liveBox: null,
   rated: LS.get('rated', {}),
+  notes: LS.get('notes', []),
   recentSig: '', engSig: '', bandSig: '',
   reports: new Map(),
 };
 
 function saveConversation() {
   LS.set('conv', { id: S.conv, items: S.items.slice(-60) });
+}
+
+// ---- notes for the agent (enhancement plan B6) ------------------------------------------------------
+// Things that happen in the workspace outside the conversation (an upload that failed, an approval decided on a card,
+// work that finished or was stopped, a video made after approval) ride with the next message, so the agent never
+// analyses another file after a refused upload or says nothing was made when a video is ready.
+function noteForAgent(text) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  if (!t) return;
+  S.notes = [...(S.notes || []), t].slice(-8);
+  LS.set('notes', S.notes);
+}
+
+const PAGE_OPENED = Date.now() / 1000 - 5;      // server event times are seconds; a little slack for clock skew
+
+// Media made in the background joins the saved conversation, so it is still there after a reload.
+function addMediaItem(kind, view, label) {
+  if (!isView(view)) return;
+  if (S.items.some((i) => i.type === 'agent' && i.rec && (i.rec.media || []).some((m) => m.view === view))) return;
+  pushItem({ type: 'agent', rec: { reply: '', chips: [{ tool: 'media', text: label, tone: 'ok' }], tasks: [], approvals: [],
+    media: [{ kind, view }], work: [], changed: [], raw: '' } });
+  noteForAgent(`${label}: ${view.split('/files/')[1]}`);
 }
 
 // ---- watchers: every visible task card and work card follows its task ----------------------------
@@ -226,6 +249,8 @@ async function pollTasks() {
 
 function onTaskFinished(t) {
   const k = P.kindOf(t.kind);
+  const how = t.status === 'done' ? 'finished' : t.status === 'stopped' ? 'was stopped by the person' : 'did not finish';
+  noteForAgent(`${k.label} [${t.id}] ${how}${t.status === 'done' && t.summary ? `: ${t.summary}` : t.error ? `: ${t.error}` : ''}`);
   toast(t.status === 'done' ? `${k.ready}: ${P.taskTitle(t, S.engById.get(t.engagement_id))}` : P.failure(t));
   refreshAll();
 }
@@ -507,6 +532,7 @@ function approvalCard(a) {
         else msg = 'Approved.';
       }
       actions.replaceWith(h('p', { class: 'approval__done', text: msg }));
+      noteForAgent(`The person ${st === 'approved' ? 'approved' : 'declined'}: ${txt.title}${txt.what ? ` (${txt.what})` : ''}`);
       if (st === 'approved' && started.task_id) {
         card.after(card.closest('.thread') ? taskCard(started.task_id) : h('div', { class: 'approval__actions' },
           h('button', { class: 'btn btn--teal', type: 'button', onclick: () => openTask(started.task_id) }, 'Watch it run')));
@@ -537,7 +563,7 @@ async function awaitNewVideo(eid, anchor) {
       S.media.set(eid, m);
       const fresh = (m.videos || []).find((v) => !before.has(v.view));
       if (fresh && isView(fresh.view)) {
-        anchor.after(h('div', { class: 'media' }, h('video', { src: fresh.view, controls: true, preload: 'metadata', playsinline: true })));
+        addMediaItem('video', fresh.view, 'The video you approved is ready');
         S.recentSig = '';
         updateRecent();
         return;
@@ -710,7 +736,7 @@ function paintTask(el, t, opts) {
   const k = P.kindOf(t.kind);
   const eng = S.engById.get(t.engagement_id);
   const st = P.taskState(t.status);
-  const spend = t.status === 'done' || t.status === 'failed' ? `Cost ${P.usd(t.spent_usd)}` : `${P.usd(t.spent_usd)} so far`;
+  const spend = P.isTerminal(t.status) ? `Cost ${P.usd(t.spent_usd)}` : `${P.usd(t.spent_usd)} so far`;
 
   const head = h('div', { class: 'task__head' },
     h('div', { class: 'task__ic', title: k.label }, icon(k.icon)),
@@ -723,21 +749,52 @@ function paintTask(el, t, opts) {
 
   const kids = [head, pipelineEl(t)];
 
-  if (t.status === 'running' || t.status === 'queued') {
+  if (t.status === 'stopping') {
+    kids.push(h('p', { class: 'task__outcome', text: 'Stopping after the current step. What it has written so far is kept.' }));
+  } else if (t.status === 'running' || t.status === 'queued') {
     kids.push(h('p', { class: 'task__outcome' },
       t.status === 'queued' ? 'Waiting to start. ' : h('span', null, 'Working for ', h('span', { class: 'mono', 'data-since': String(t.created), text: P.duration(Date.now() / 1000 - t.created) }), '. '),
       'You can keep talking; this card updates by itself.'));
+    // enhancement plan B4: a Stop the server confirms; the card shows "Stopping" until the step in flight returns
+    const stopBtn = h('button', { class: 'btn btn--quiet', type: 'button', onclick: async () => {
+      stopBtn.disabled = true;
+      try {
+        await api(`/api/tasks/${encodeURIComponent(t.id)}/stop`, { method: 'POST' });
+        toast('Stopping after the current step.');
+      } catch (e) {
+        toast((e && e.message) || 'Could not stop it.');
+      }
+      refreshTask(t.id);
+    } }, icon('close', 'ic--sm'), 'Stop');
+    kids.push(h('div', { class: 'task__actions' }, stopBtn));
   } else if (t.status === 'done') {
     kids.push(h('p', { class: 'task__outcome' }, h('b', { text: `${k.ready}. ` }), P.outcome(t)));
+    if (t.kind === 'research_report') kids.push(checksEl(t, opts));
     if (opts.full) kids.push(actionsEl(t, opts), resultEl(t, opts));
     else kids.push(resultEl(t, opts), actionsEl(t, opts));
     kids.push(feedbackEl(t));
     const next = P.nextAfterTask(t);
     if (next.length) kids.push(suggestEl(next, 'What next', t.engagement_id));
-  } else if (t.status === 'failed') {
-    kids.push(h('div', { class: 'task__fail' },
-      h('p', { text: P.failure(t) }),
-      h('button', { class: 'btn btn--warn', type: 'button', onclick: () => { closeSheet(); send(opts.ask || P.retryRequest(t), { focus: t.engagement_id }); } }, icon('retry', 'ic--sm'), 'Try again')));
+  } else if (t.status === 'failed' || t.status === 'stopped') {
+    // enhancement plan B4: Try again starts the same task with the same budget (it used to re-ask in words and drop it)
+    const retryBtn = h('button', { class: 'btn btn--warn', type: 'button', onclick: async () => {
+      retryBtn.disabled = true;
+      try {
+        const r = await api(`/api/tasks/${encodeURIComponent(t.id)}/retry`, { method: 'POST' });
+        if (r.task_id) {
+          toast('Started again with the same budget.');
+          el.replaceWith(taskCard(r.task_id, opts));
+        } else if (r.approval_row) {
+          toast('Waiting for your approval to spend that budget again.');
+          el.replaceWith(approvalCard(r.approval_row));
+        }
+        refreshAll();
+      } catch (e) {
+        retryBtn.disabled = false;
+        toast((e && e.message) || 'Could not start it again.');
+      }
+    } }, icon('retry', 'ic--sm'), 'Try again');
+    kids.push(h('div', { class: 'task__fail' }, h('p', { text: P.failure(t) }), retryBtn));
   }
   kids.push(detailsEl('Details', rawTask(t)));
   el.replaceChildren(...kids);
@@ -832,6 +889,24 @@ const OPEN_WORDS = {
   research_report: 'Read the full report', journey_map: 'Open the journey map', deck: 'Open the deck',
   social: 'Open the analysis', transcript: 'See all findings', prototype: 'Open the prototype full size',
 };
+
+// Enhancement plan B7: the reviewer's verdict as one of three labels, with every check in plain words.
+function checksEl(t, opts) {
+  const wrap = h('div', { class: 'checks' }, h('p', { class: 'checks__head', text: 'Loading the checks.' }));
+  api(`/api/tasks/${encodeURIComponent(t.id)}/verification`).then((v) => {
+    const lv = P.checkLevel(v);
+    const lines = P.checkLines(v);
+    const who = v.judge && v.judge.judge_model ? `Reviewed by ${v.judge.judge_model}, a model from a different vendor than the writer.` : '';
+    const head = h('div', { class: 'checks__head' }, h('span', { class: `pill pill--${lv.key}`, text: lv.word }),
+      h('span', { class: 'checks__count', text: lv.open ? `${lv.open} point${lv.open === 1 ? '' : 's'} to look at` : 'Nothing open' }));
+    const list = h('ul', { class: 'checks__list' }, lines.map((l) => h('li', { class: `check check--${l.pass ? 'pass' : 'open'}` },
+      icon(l.pass ? 'check' : 'close', 'ic--sm'),
+      h('div', null, h('p', { class: 'check__text', text: l.text }), l.why ? h('p', { class: 'check__why', text: l.why }) : null))));
+    wrap.replaceChildren(head, h('details', { class: 'checks__details', open: !!opts.full && lv.key !== 'done' },
+      h('summary', { text: 'See every check' }), who ? h('p', { class: 'check__why', text: who }) : null, list));
+  }).catch(() => { wrap.replaceChildren(h('p', { class: 'checks__head', text: 'The checks for this report are not available.' })); });
+  return wrap;
+}
 
 function actionsEl(t, opts) {
   const row = h('div', { class: 'task__actions' });
@@ -1062,7 +1137,9 @@ async function send(text, opts = {}) {
     await ensureConv();
     const body = { text };
     if (S.focus) body.engagement_id = S.focus;
+    if (S.notes && S.notes.length) body.notes = S.notes.slice();
     const r = await api(`/api/conversations/${encodeURIComponent(S.conv)}/messages`, { method: 'POST', json: body });
+    if (body.notes) { S.notes = []; LS.del('notes'); }   // the agent has them now
     const rec = normalizeTurn(r);
     rec.changed.forEach(refreshTask);      // cards already on the page show the re-rendered deck, not the cached one
     hideThinking();
@@ -1188,7 +1265,8 @@ function uploadErr(status) {
 }
 
 function uploadOne(file, eid) {
-  const chip = attachmentChip(file);
+  const shown = attachmentChip(file);
+  const chip = { ...shown, fail(text) { shown.fail(text); noteForAgent(`The upload of "${file.name}" did not work (${text}); that file is not in the engagement`); } };
   const audio = AUDIO_EXT.includes(extOf(file.name));
   if (!TEXT_EXT.includes(extOf(file.name)) && !audio) {
     chip.fail('Not a supported file type. Use text, Markdown, subtitles, CSV or audio.');
@@ -1506,7 +1584,15 @@ async function pollEvents() {
         const text = P.eventChip(e);
         if (text) S.liveBox.append(h('span', { class: `chip${e.kind === 'approval_requested' ? ' chip--ask' : ''}`, text }));
       }
-      if ((e.kind === 'image_generated' || e.kind === 'video_generated') && e.engagement_id) mediaEngs.add(e.engagement_id);
+      if ((e.kind === 'image_generated' || e.kind === 'video_generated') && e.engagement_id) {
+        mediaEngs.add(e.engagement_id);
+        // A video is made after an approval, outside any answer: keep it in the conversation so a reload does not lose
+        // it. Images come inside an answer (the reply shows them), and events from before this page opened are history.
+        const path = e.data && e.data.path;
+        if (e.kind === 'video_generated' && !S.busy && path && Number(e.ts || 0) >= PAGE_OPENED) {
+          addMediaItem('video', `/api/engagements/${e.engagement_id}/files/${path}`, 'The video you approved is ready');
+        }
+      }
       if (/^task_/.test(e.kind)) taskChange = true;
     }
     if (mediaEngs.size) loadMedia([...mediaEngs]);

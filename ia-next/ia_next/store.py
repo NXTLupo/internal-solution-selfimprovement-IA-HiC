@@ -132,11 +132,82 @@ def create_task(engagement_id, kind, brief, budget_usd, idem_key=None):
     return tid, True
 
 
-def update_task(tid, **fields):
-    fields["updated"] = _now()
-    cols = ", ".join(f"{k} = ?" for k in fields)
+STOPPED_BY_YOU = "stopped by you"
+ACTIVE = ("queued", "running", "stopping")
+TERMINAL = ("done", "failed", "stopped")
+
+
+class TaskStopped(BaseException):
+    """Raised inside a running task once the person has pressed Stop (enhancement plan B4). A BaseException on
+    purpose: the per-page and per-image `except Exception` handlers inside the specialists must not swallow it and
+    carry on spending. `stoppable` on each task runner turns it into the 'stopped' state."""
+    def __init__(self, spent_usd=0.0):
+        super().__init__(STOPPED_BY_YOU)
+        self.spent_usd = spent_usd
+
+
+def stoppable(run):
+    """Wrap a task runner: a Stop ends the task as 'stopped', with its spend so far and its open step closed."""
+    import functools
+
+    @functools.wraps(run)
+    def wrapped(tid, *a, **k):
+        try:
+            return run(tid, *a, **k)
+        except TaskStopped as e:
+            finish_stopped(tid, e.spent_usd)
+    return wrapped
+
+
+def finish_stopped(tid, spent_usd=0.0):
     with _LOCK:
+        conn().execute("UPDATE nodes SET state = 'failed', finished = ?, error = ? WHERE task_id = ? AND state = 'running'",
+                       (_now(), STOPPED_BY_YOU, tid))
+        conn().execute("UPDATE tasks SET status = 'stopped', error = ?, spent_usd = MAX(COALESCE(spent_usd, 0), ?), updated = ? "
+                       "WHERE id = ? AND status IN ('queued', 'running', 'stopping')", (STOPPED_BY_YOU, spent_usd or 0.0, _now(), tid))
+    t = get_task(tid)
+    if t:
+        event("task_stopped", {"spent_usd": t["spent_usd"]}, t["engagement_id"], tid)
+
+
+def update_task(tid, **fields):
+    """A task the person asked to stop stays 'stopping' while its runner works through the current step: a runner's
+    'running' does not undo the request, and its 'failed' (raised by the stop) is recorded as 'stopped'. Work that
+    finishes anyway is still recorded as done."""
+    fields["updated"] = _now()
+    with _LOCK:
+        if fields.get("status") in ("running", "failed"):
+            row = conn().execute("SELECT status FROM tasks WHERE id = ?", (tid,)).fetchone()
+            if row and row["status"] == "stopping":
+                if fields["status"] == "running":
+                    fields.pop("status")
+                else:
+                    fields["status"], fields["error"] = "stopped", STOPPED_BY_YOU
+        cols = ", ".join(f"{k} = ?" for k in fields)
         conn().execute(f"UPDATE tasks SET {cols} WHERE id = ?", (*fields.values(), tid))
+
+
+def request_stop(tid):
+    """Ask a queued or running task to stop. One conditional UPDATE, so the answer is the server's: True when this
+    call moved it to 'stopping', False when it had already finished or been stopped."""
+    with _LOCK:
+        cur = conn().execute("UPDATE tasks SET status = 'stopping', updated = ? WHERE id = ? AND status IN ('queued', 'running')",
+                             (_now(), tid))
+    if cur.rowcount != 1:
+        return False
+    t = get_task(tid)
+    event("task_stopping", {}, t["engagement_id"], tid)
+    return True
+
+
+def stop_requested(tid):
+    r = conn().execute("SELECT status FROM tasks WHERE id = ?", (tid,)).fetchone()
+    return bool(r) and r["status"] == "stopping"
+
+
+def check_stop(tid, spent_usd=0.0):
+    if tid and stop_requested(tid):
+        raise TaskStopped(spent_usd)
 
 
 def get_task(tid):

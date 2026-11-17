@@ -183,3 +183,26 @@ def test_rebrand_route_validates_the_brand_and_the_task(client):
     tid, _ = store.create_task(eid, "deck", {"audience": "a", "brand": "nxt"}, 1.0)
     r = client.post(f"/api/tasks/{tid}/rebrand", json={"brand": "nu"})
     assert r.status_code == 409 and "only a finished deck" in r.json()["detail"]
+
+
+def test_workspace_notes_ride_with_the_next_message(client, turns):
+    """B6: an upload that failed, an approval decided on a card, work that finished: the page sends them with the
+    next message so the agent knows. Capped, whitespace-collapsed, and placed before the person's words."""
+    client.post("/api/conversations/c/messages", json={"text": "Analyze this", "notes": [
+        'The upload of "brief.pdf" did not work (Not a supported file type); that file is not in the engagement.',
+        "  The person   approved: Approve trying the work again  ", ""]})
+    sent = turns[-1][1]
+    assert sent.startswith('(Since your last message, in the workspace: The upload of "brief.pdf" did not work')
+    assert "The person approved: Approve trying the work again." in sent and sent.endswith(")\nAnalyze this")
+    client.post("/api/conversations/c/messages", json={"text": "x", "notes": ["n" * 900] * 20})
+    sent = turns[-1][1]
+    assert sent.count("n" * 300) == 8 and "n" * 301 not in sent
+    client.post("/api/conversations/c/messages", json={"text": "plain", "notes": []})
+    assert turns[-1][1] == "plain"
+
+
+def test_notes_come_before_the_focus_line_is_added(client, turns):
+    eid = store.create_engagement("Co-op prep", "objective")
+    client.post("/api/conversations/c/messages", json={"text": "Go", "engagement_id": eid, "notes": ["Deck [task_1] finished"]})
+    sent = turns[-1][1]
+    assert sent.startswith(f"(Focused engagement: Co-op prep [{eid}].") and "(Since your last message, in the workspace: Deck [task_1] finished.)\nGo" in sent

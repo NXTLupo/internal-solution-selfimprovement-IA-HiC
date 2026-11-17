@@ -37,17 +37,33 @@ What you know about the person and past work (a snapshot taken when this convers
 STR = {"type": "string"}
 TOOLS = [
     {"name": "start_research_report", "strict": True,
-     "description": "Start a background task in which the studio researches the web, extracts verbatim-quoted findings, writes a cited report and has it verified by another vendor's model. Returns a task id or a pending approval.",
+     "description": ("Start a background task in which the studio researches the web, extracts verbatim-quoted findings, writes "
+                     "a cited report and has it verified by another vendor's model. This is paid work (new web searches). When "
+                     "the engagement already has findings, build decks, maps and other outputs from those instead, unless the "
+                     "person asks for new research. Returns a task id, a pending approval, or a request to confirm with the "
+                     "person first."),
      "input_schema": {"type": "object", "additionalProperties": False,
-                      "required": ["engagement_title", "engagement_id", "audience", "goal", "scope", "structure", "constraints", "success", "budget_usd"],
+                      "required": ["engagement_title", "engagement_id", "audience", "goal", "scope", "structure", "constraints", "success",
+                                   "budget_usd", "new_research_confirmed"],
                       "properties": {"engagement_title": STR, "engagement_id": {"type": "string", "description": "Existing engagement id, or empty to create one"},
                                      "audience": STR, "goal": STR, "scope": STR, "structure": STR, "constraints": STR,
-                                     "success": {"type": "array", "items": STR}, "budget_usd": {"type": "number"}}}},
+                                     "success": {"type": "array", "items": STR}, "budget_usd": {"type": "number"},
+                                     "new_research_confirmed": {"type": "boolean", "description": (
+                                         "true only when the person explicitly asked for new research, or said yes after you told "
+                                         "them the engagement already has findings; otherwise false")}}}},
     {"name": "start_journey_map", "strict": True,
      "description": "Start a background task in which the Journey Cartographer maps one persona's journey (stages, actions, touchpoints, quoted pains, opportunities) from an engagement's finished research. Needs an engagement that has a done research report.",
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "persona", "scope"],
                       "properties": {"engagement_id": STR, "persona": STR, "scope": STR}}},
     {"name": "task_status", "strict": True, "description": "Current status of a task and each specialist step.",
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id"], "properties": {"task_id": STR}}},
+    {"name": "stop_task", "strict": False,      # one string field, checked in code; keeps the strict grammar under the API limit
+     "description": ("Stop a running task when the person asks you to. It stops after the step in flight and keeps what it "
+                     "already wrote; report it as stopping, not stopped, until task_status says stopped."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id"], "properties": {"task_id": STR}}},
+    {"name": "retry_task", "strict": False,      # one string field, checked in code; keeps the strict grammar under the API limit
+     "description": ("Try a failed or stopped task again with the same brief and the same budget. Use it instead of starting the "
+                     "work from scratch when the person says try again. Returns the new task id or a pending approval."),
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id"], "properties": {"task_id": STR}}},
     {"name": "read_report", "strict": True, "description": "Read the finished report of a done task.",
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id"], "properties": {"task_id": STR}}},
@@ -122,6 +138,14 @@ def _start_research(args):
     missing = studio.validate_brief(brief)
     if missing:
         return {"error": f"brief is missing {missing}; ask the person or infer them"}
+    have = _findings_count(args.get("engagement_id") or "")
+    if have and not args.get("new_research_confirmed"):
+        # enhancement plan B4: bare hashtags started paid research unasked in 7 of 14 isolated tests
+        return {"needs_confirmation": True, "existing_findings": have,
+                "message": (f"This engagement already has {have} verified findings. Ask the person whether to build on them "
+                            "(no new search and no research cost) or to run new research with a budget of about "
+                            f"{args['budget_usd']:.2f} USD. Call start_research_report again with new_research_confirmed "
+                            "true only if they choose new research.")}
     if args["budget_usd"] > config.TASK_SPEND_APPROVAL_USD:
         st = control.status_for("start_research_report", args)
         if st != "approved":
@@ -129,6 +153,17 @@ def _start_research(args):
                                 f"Research report budget {args['budget_usd']:.2f} USD is above the {config.TASK_SPEND_APPROVAL_USD:.2f} USD threshold")
             return {"approval": a["status"], "approval_id": a["id"], "message": "needs the person's spend approval" if a["status"] == "pending" else f"approval {a['status']}"}
     return launch_research(args)
+
+
+def _findings_count(eid):
+    """Verified findings an engagement already holds (from research or analysed uploads); 0 when none."""
+    if not eid or not store.get_engagement(eid):
+        return 0
+    try:
+        with open(store.safe_path(eid, "results/findings.json"), encoding="utf-8") as fh:
+            return len(json.load(fh).get("findings") or [])
+    except (OSError, ValueError, AttributeError):
+        return 0
 
 
 def launch_research(args):
@@ -238,6 +273,20 @@ def execute_tool(name, args):
             return {"task_id": tid, "started": created}
         if name == "task_status":
             return _task_status(args)
+        if name in ("stop_task", "retry_task"):
+            from . import lifecycle
+            try:
+                if name == "stop_task":
+                    t = lifecycle.stop(args["task_id"])
+                    return {"task_id": t["id"], "status": t["status"],
+                            "message": "stopping after the step in flight" if t["status"] == "stopping" else "stopped"}
+                out = lifecycle.retry(args["task_id"])
+                out.pop("approval_row", None)
+                return out
+            except KeyError:
+                return {"error": "no such task"}
+            except ValueError as e:
+                return {"error": str(e)}
         if name == "read_report":
             return _read_report(args)
         if name == "recall":
