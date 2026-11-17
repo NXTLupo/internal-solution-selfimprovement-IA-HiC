@@ -411,7 +411,8 @@ def test_tool_specs_are_strict_and_unknown_tools_are_refused():
             s = t["input_schema"]
             # start_prototype is non-strict on purpose: the strict tool grammar has a size limit (test_lifecycle)
             assert t["strict"] is True or t["name"] in ("start_prototype", "start_social_analysis")
-            assert s["additionalProperties"] is False and set(s["required"]) == set(s["properties"])
+            optional = {"source_ids", "whole_engagement"} if t["name"] == "start_prototype" else set()   # C3, 17 Nov
+            assert s["additionalProperties"] is False and set(s["required"]) == set(s["properties"]) - optional
             names.append(t["name"])
         assert "unknown tool" in mod.execute("no_such_tool", {})["error"]
     assert names == ["start_social_analysis", "analyze_uploads", "start_prototype"]

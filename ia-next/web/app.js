@@ -1099,6 +1099,7 @@ function itemEl(item) {
   if (item.type === 'user') return h('div', { class: 'msg msg--user', text: item.text });
   if (item.type === 'agent') return agentEl(item);
   if (item.type === 'error') return errorEl(item);
+  if (item.type === 'files') return filesEl(item);
   return h('div');
 }
 
@@ -1184,8 +1185,11 @@ async function send(text, opts = {}) {
     const body = { text };
     if (S.focus) body.engagement_id = S.focus;
     if (S.notes && S.notes.length) body.notes = S.notes.slice();
+    const files = conversationFiles();
+    if (files.length) body.attachments = files.map((f) => ({ engagement_id: f.engagement_id, source_id: f.source_id, fresh: !!f.fresh }));
     const r = await api(`/api/conversations/${encodeURIComponent(S.conv)}/messages`, { method: 'POST', json: body });
     if (body.notes) { S.notes = []; LS.del('notes'); }   // the agent has them now
+    if (files.some((f) => f.fresh)) { files.forEach((f) => { f.fresh = false; }); saveConversation(); }   // sent with this message
     const rec = normalizeTurn(r);
     rec.changed.forEach(refreshTask);      // cards already on the page show the re-rendered deck, not the cached one
     hideThinking();
@@ -1298,6 +1302,24 @@ function attachmentChip(file) {
   };
 }
 
+// ---- files attached in this conversation (plan Part 9 C2) ----------------------------------------------------------
+// They live in the conversation's items, so they are saved with it and come back when it is reopened. Every message
+// carries the list; files attached since the last message are marked fresh. The agent builds from exactly these.
+function conversationFiles() {
+  return S.items.filter((i) => i.type === 'files').flatMap((i) => i.files || []);
+}
+
+function recordAttachment(name, sid, eid) {
+  const eng = S.engById.get(eid);
+  pushItem({ type: 'files', engagement: eng ? eng.title : '', files: [{ engagement_id: eid, source_id: sid, name, fresh: true }] });
+}
+
+function filesEl(item) {
+  const names = (item.files || []).map((f) => f.name).join(', ');
+  return h('div', { class: 'msg msg--files' }, icon('clip', 'ic--sm'),
+    h('span', { text: `Attached${item.engagement ? ` to ${item.engagement}` : ''}: ${names}` }));
+}
+
 function syncAttachments() {
   const box = $('#attachments');
   box.hidden = !box.childElementCount;
@@ -1332,7 +1354,16 @@ function uploadOne(file, eid) {
     xhr.upload.onprogress = (e) => { if (e.lengthComputable) { const p = Math.round((e.loaded / e.total) * 100); chip.progress(p, `Uploading ${p}%`); } };
     xhr.upload.onload = () => chip.progress(100, audio ? 'Transcribing' : DOC_EXT.includes(extOf(file.name)) ? 'Reading' : 'Adding');
     xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status < 300) { chip.done(audio ? 'Transcribed and added' : 'Added'); resolve(true); return; }
+      if (xhr.status >= 200 && xhr.status < 300) {
+        const eng = S.engById.get(eid);
+        const where = eng ? ` to ${eng.title}` : '';
+        chip.done(audio ? `Transcribed and added${where}` : `Added${where}`);   // C4: the person sees where the file went
+        let sid = '';
+        try { sid = String(JSON.parse(xhr.responseText).source_id || ''); } catch { /* the file is added; it just is not listed */ }
+        if (sid) recordAttachment(file.name, sid, eid);
+        resolve(true);
+        return;
+      }
       chip.fail(uploadErr(xhr.status));
       resolve(false);
     };

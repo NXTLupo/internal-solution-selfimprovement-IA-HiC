@@ -243,9 +243,18 @@ starts, and it is never logged or shown.
 |---|---|---|
 | Reading documents and images | PDF (scanned ones too), Word, PowerPoint, Excel, JSON, XML and images dropped into the chat are read by HiC and become sources | Yes; without it the upload says so, and text, subtitle, CSV and audio files still work |
 | Data packs | Name a pack or an industry ("using the healthcare data pack"): research searches that pack's publications in HiC (17 packs, from Advancement & Fundraising to Insurance) before the open web, and adds up to six of the most relevant, dated items as named sources | Yes; without it the run notes that the packs were skipped and searches the web |
+| The second brain | Every upload, and every source a deck or journey map is built from, is archived in HiC's wiki (`/api/wiki/write-article`), where HiC chunks it, records it in the manifest and embeds it. Builders read the evidence back as manifest chunk pointers (`page#c3`), so a document is read whole when it fits, not cut off at its first few thousand characters, and each deck records the pointers it used (`deck.json`, `evidence`) | Yes; without it the source is cut into local chunks of the same size, so coverage stays whole, and the deck records that the local path served it |
 
-When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own. More
-of HiC's engine (the second brain, its artifact generators) is being connected in the same way.
+When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own. HiC's
+artifact generators and themes are being connected in the same way.
+
+### Attached files are what the work is built from
+
+Files you attach in a conversation are listed with every message you send (the thread shows "Attached to
+<engagement>: file names"). When you ask for work from them ("using the attached documents"), the deck, journey map
+or prototype is built from those files alone, even if the engagement holds other material. The agent cannot start
+such work while ignoring files attached with your message: it must name them, or say you asked for the whole
+engagement. Files nobody has analysed yet are analysed first, as a visible step on the work's card.
 
 ## Using IA Next
 
@@ -336,7 +345,13 @@ stays sharp and editable; prototypes, journey maps and social pages carry the sa
   approval.
 - **Video** always needs approval, one approval per clip.
 - **Seeing what you spend.** Today's spend is in the top bar; the **Spend** panel shows today, this week and
-  spend by model. Every card shows its own cost.
+  spend by model. Every card shows its own cost. `GET /api/spend` also reports today's prompt caching (input read
+  from the cache, input written to it) and what the agent's own turns cost.
+- **Prompt caching.** The tools and system prompt are cached on every Claude call. The agent's tool loop also caches
+  the conversation at its last block, so each step reads the earlier conversation at Claude Opus 5.5's cache price
+  ($0.20 per million tokens instead of $4.00). One-off specialist calls do not cache their message, because a cache
+  write costs 1.25 times the input price and would never be read back. The meter counts cache writes and reads at
+  their real prices.
 - A task stops when it reaches the budget you approved.
 - **Asking before new research.** When an engagement already has findings, the agent builds decks, maps and other
   outputs from them, and asks you before paying for new web research.
@@ -402,7 +417,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 182 tests, all passing.
+On 17 November 2026: 201 tests, all passing.
 
 ### Back up and restore your data
 

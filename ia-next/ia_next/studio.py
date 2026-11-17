@@ -287,9 +287,18 @@ def run_journey_task(tid):
     eid, brief = t["engagement_id"], t["brief"]
     ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
-    nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], 1)
+    from . import transcripts
+    try:                                     # the person's attached files are read before the map is drawn
+        seq = transcripts.run_uploads_first(tid, eid, f"The journey of {brief.get('persona', '')}: {brief.get('scope', '')}", ledger)
+    except Exception as e:
+        msg = f"the attached files could not be analysed, so the journey map was not built from them: {str(e)[:300]}"
+        store.update_task(tid, status="failed", error=msg, spent_usd=ledger.spent_usd)
+        store.event("task_failed", {"error": msg}, eid, tid)
+        return
+    nid = store.start_node(tid, "Journey Cartographer", config.SEATS["analysis"]["primary"], seq)
     try:
-        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger, tid, brief.get("brand") or "nxt")
+        jp, hp, summary = journey.build(eid, brief["persona"], brief["scope"], ledger, tid, brief.get("brand") or "nxt",
+                                        brief.get("source_ids") or [])
         store.finish_node(nid, hp, summary)
         store.update_task(tid, status="done", result_path=hp, summary=f"Journey map ready: {summary}.", spent_usd=ledger.spent_usd)
         store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
@@ -304,10 +313,12 @@ def run_journey_task(tid):
         store.event("task_failed", {"error": str(e)[:500]}, eid, tid)
 
 
-def start_journey_task(engagement_id, persona, scope, budget_usd, idem_key, brand="nxt"):
+def start_journey_task(engagement_id, persona, scope, budget_usd, idem_key, brand="nxt", source_ids=None):
     from . import deck
-    tid, created = store.create_task(engagement_id, "journey_map", {"persona": persona, "scope": scope, "brand": deck.brand_id(brand)},
-                                     budget_usd, idem_key)
+    brief = {"persona": persona, "scope": scope, "brand": deck.brand_id(brand)}
+    if source_ids:
+        brief["source_ids"] = list(source_ids)
+    tid, created = store.create_task(engagement_id, "journey_map", brief, budget_usd, idem_key)
     if created:
         threading.Thread(target=run_journey_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
     return tid, created

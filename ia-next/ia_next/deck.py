@@ -61,12 +61,15 @@ BODY_WIDTH = 0.0072              # the same for the body face at regular weight 
 CLOSING_KICKER = "E4E4DC"        # kicker text on the closing slide's dark panel
 LAYER_RAMP = [RAIL, TEAL, "1D6E64", "3F7F7A", "6A9894"]
 LOGO = None                      # the brand mark: {"paths", "viewbox", "light", "dark"} from the token copy
+LOCKUP = None                    # a typeset lockup instead of a vector mark (DECIEM): its lines, top to bottom
+CHROME_RAIL = True               # the dark rail and dot mark on content slides (DECIEM's template has neither)
+TITLE_CAPS = False               # titles shown in capitals (DECIEM), applied as a font attribute so the text is unchanged
 BRAND_NAME = "NXT Humans"
 
 # Average advance of each title face in bold, in inches per character per point, measured in PowerPoint renders and
 # rounded up for word-wrap loss (Saira Condensed: the NXT display face; Lato: NU's single face, measured 0.0062 to 0.0067 on
 # 17 November render; Poppins Bold uppercase: DECIEM's title face).
-_FACE_WIDTH = {"Saira Condensed": 0.0052, "Lato": 0.0068, "Poppins": 0.0092, "Archivo": 0.0068}
+_FACE_WIDTH = {"Saira Condensed": 0.0052, "Lato": 0.0068, "Poppins": 0.0098, "Archivo": 0.0068}   # Poppins: bold capitals
 _CONDENSED = {"Saira Condensed"}
 # Body faces at regular weight, same unit. Lato measured 0.0065 on a 17 November render (a 21-character line at 14
 # points spanned 1.91 inches); Archivo is the wider face. PowerPoint substitutes a narrower face on a machine without
@@ -148,24 +151,34 @@ def _complete(name, b):
     b["TITLE_PANOSE"] = PANOSE_ARIAL_NARROW if b["DISPLAY_FONT"] in _CONDENSED else PANOSE_ARIAL
     b["BRAND_NAME"] = BRAND_NAMES.get(name, name)
     b.setdefault("LOGO", None)
+    b.setdefault("LOCKUP", None)
+    b.setdefault("CHROME_RAIL", True)
+    b.setdefault("TITLE_CAPS", False)
     return b
 
 
 def load_brands(path=_TOKENS_PATH):
-    """Brands IA Next renders in, from the token copy. DECIEM is in the copy but not offered until its template
-    chrome (no rail, the typeset lockup, corner art) is built (plan Part 7, BR6)."""
+    """Brands IA Next renders in, from the token copy: NXT Humans, Northeastern and DECIEM (plan Part 7, BR6: black
+    canvases, Poppins Bold capitals, Josefin Sans, no rail, the typeset lockup; its corner art is not drawn)."""
     try:
         with open(path, encoding="utf-8") as fh:
             blocks = json.load(fh)["brands"]
     except (OSError, ValueError, KeyError):
         blocks = {}
     out = {}
-    for name in ("nxt", "nu"):
-        fb = _FALLBACK[name]
+    for name in ("nxt", "nu", "deciem"):
         block = blocks.get(name)
+        if name not in _FALLBACK and not isinstance(block, dict):
+            continue                     # DECIEM exists only in the token copy
+        fb = _FALLBACK.get(name) or _FALLBACK["nxt"]
         b = _from_tokens(name, block, fb) if isinstance(block, dict) else dict(fb)
         if isinstance(block, dict):
             b["LOGO"] = _logo(block)
+            lg, f = block.get("logo") or {}, block.get("font") or {}
+            if lg.get("type") == "lockup-text" and lg.get("lockup_lines"):
+                b["LOCKUP"] = [str(x) for x in lg["lockup_lines"]][:3]
+            b["TITLE_CAPS"] = str(f.get("title-transform") or "") == "uppercase"
+            b["CHROME_RAIL"] = not b.get("LOCKUP")         # a template brand (typeset lockup) follows its template: no rail
         out[name] = _complete(name, b)
     return out
 
@@ -176,7 +189,7 @@ _BRAND_LOCK = threading.Lock()
 
 
 def brand_id(value):
-    """The brand id for a request value: nxt or nu; anything else is NXT."""
+    """The brand id for a request value: nxt, nu or deciem; anything else is NXT."""
     v = str(value or "").strip().lower()
     return v if v in BRANDS else "nxt"
 
@@ -247,6 +260,47 @@ DECK_SYSTEM = (
     "Use only the supplied material. Do not invent statistics, quotes, names or examples.")
 
 
+_FONTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+_FONT_CSS_CACHE = {}
+
+
+def font_faces_css(families):
+    """@font-face rules with the brand faces embedded as data URIs (Latin WOFF2 subsets made by
+    scripts/make_brand_fonts.py from HiC's bundled open-licensed fonts), so a page shows the brand typeface on machines
+    without it installed, and inside the prototype sandbox, which blocks web fonts. '' when no subset exists."""
+    import base64
+    key = tuple(sorted(set(f for f in families if f)))
+    if key in _FONT_CSS_CACHE:
+        return _FONT_CSS_CACHE[key]
+    try:
+        with open(os.path.join(_FONTS_DIR, "fonts.json"), encoding="utf-8") as fh:
+            faces = json.load(fh)["faces"]
+    except (OSError, ValueError, KeyError):
+        faces = []
+    rules = []
+    for f in faces:
+        if f["family"] not in key:
+            continue
+        try:
+            with open(os.path.join(_FONTS_DIR, f["file"]), "rb") as fh:
+                data = base64.b64encode(fh.read()).decode("ascii")
+        except OSError:
+            continue
+        rules.append(f"@font-face{{font-family:'{f['family']}';font-weight:{f['weight']};font-style:normal;"
+                     f"font-display:swap;src:url(data:font/woff2;base64,{data}) format('woff2')}}")
+    _FONT_CSS_CACHE[key] = "\n".join(rules)
+    return _FONT_CSS_CACHE[key]
+
+
+def lockup_svg(lines, name, cls="brand-mark", color="currentColor"):
+    """A typeset lockup in a thin box as inline SVG (no xmlns, so prototypes pass their validator). Needs no brand lock."""
+    spans = "".join(f'<tspan x="10" dy="{16 if i else 20}" font-size="{11 if i < len(lines) - 1 else 18}" '
+                    f'font-weight="{700 if i < len(lines) - 1 else 400}">{html.escape(t)}</tspan>' for i, t in enumerate(lines))
+    return (f'<svg class="{cls}" viewBox="0 0 260 64" role="img" aria-label="{html.escape(name)}" style="color:{color}">'
+            f'<rect x="1" y="1" width="258" height="62" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+            f'<text font-family="Poppins, Arial, sans-serif" fill="currentColor">{spans}</text></svg>')
+
+
 def brand_kit(brand):
     """The brand for any HTML artifact (Part 8, P6): CSS custom properties and font stacks, the brand mark markup
     (no xmlns, so prototypes pass their validator) and the brand name, from the same token copy the decks use. The mark
@@ -259,15 +313,19 @@ def brand_kit(brand):
                f"  --paper: #{PAPER}; --panel: #{BAND}; --warn: #{WARN}; --success: #{SUCCESS};\n"
                f"  --font-display: '{DISPLAY_FONT}', {narrow}system-ui, sans-serif;\n"
                f"  --font-body: '{BODY_FONT}', system-ui, -apple-system, 'Segoe UI', sans-serif;\n"
+               f"  --title-transform: {'uppercase' if TITLE_CAPS else 'none'};\n"
                "  --radius: 3px;\n}")
         mark, probe = "", ""
+        if LOCKUP:
+            mark = lockup_svg(LOCKUP, BRAND_NAME)
         if LOGO:
             vb = " ".join(f"{v:g}" for v in LOGO["viewbox"])
             fill = "currentColor" if LOGO["light"] != LOGO["dark"] else f"#{LOGO['light']}"
             mark = (f'<svg class="brand-mark" viewBox="{vb}" role="img" aria-label="{html.escape(BRAND_NAME)}">'
                     + "".join(f'<path d="{html.escape(p)}" fill="{fill}"/>' for p in LOGO["paths"]) + "</svg>")
             probe = LOGO["paths"][0][:32]
-        return {"brand": b, "name": BRAND_NAME, "css": css, "mark": mark, "probe": probe, "accent": ACCENT}
+        return {"brand": b, "name": BRAND_NAME, "css": css, "mark": mark, "probe": probe, "accent": ACCENT,
+                "fonts_css": font_faces_css([DISPLAY_FONT, BODY_FONT])}
 
 
 class DeckCheckError(RuntimeError):
@@ -279,6 +337,51 @@ def _load(eid, rel):
     p = store.safe_path(eid, rel)
     with io.open(p, encoding="utf-8") as fh:
         return json.load(fh)
+
+
+# ---- the sources the person pointed at (plan Part 9 C3, 17 Nov owner failure) -------------------------------------
+_SOURCE_ID = re.compile(r"^S\d{1,4}$")
+
+
+def known_source_ids(eid):
+    """Every source id the engagement has: analysed research and uploads, including uploads not analysed yet."""
+    ids = []
+    for rel in ("results/sources.json", "results/uploaded_sources.json"):
+        try:
+            ids += [s.get("id") for s in (_load(eid, rel).get("sources") or []) if s.get("id")]
+        except (FileNotFoundError, ValueError):
+            pass
+    return list(dict.fromkeys(ids))
+
+
+def clean_source_ids(eid, raw):
+    """The source ids a request names, checked against the engagement. Empty means the whole engagement. Raises
+    ValueError, naming the ids the engagement has, when an id is not one of them: a file the person asked for is
+    never dropped without saying so."""
+    if raw in (None, "", []):
+        return []
+    if isinstance(raw, str):
+        raw = re.split(r"[\s,]+", raw)
+    if not isinstance(raw, list):
+        raise ValueError("source_ids must be a list of source ids such as S2")
+    ids = list(dict.fromkeys(str(x).strip().upper() for x in raw if str(x).strip()))[:40]
+    bad = [i for i in ids if not _SOURCE_ID.match(i)]
+    known = known_source_ids(eid)
+    missing = [i for i in ids if i not in known]
+    if bad or missing:
+        raise ValueError(f"not a source of this engagement: {', '.join(bad + [m for m in missing if m not in bad])}; "
+                         f"its sources are {', '.join(known) or 'none yet'}")
+    return ids
+
+
+def scope_material(findings, sources, source_ids):
+    """Only the findings and sources the person pointed at, when they named or attached particular files; all of
+    them otherwise. On 17 Nov a deck asked to use three attached documents was written from an old test interview
+    in the same engagement."""
+    keep = set(source_ids or [])
+    if not keep:
+        return findings, sources
+    return ([f for f in findings if f.get("source_id") in keep], [s for s in sources if s.get("id") in keep])
 
 
 _CITE_IN_TEXT = re.compile(r"\s*\[(S\d+)\]")
@@ -508,6 +611,8 @@ def _set_title(slide, text, x, y, w, h, size, color, anchor):
     r = p.add_run()
     r.text = text
     _font(r, DISPLAY_FONT, size, color, bold=True, panose=TITLE_PANOSE)
+    if TITLE_CAPS:
+        r._r.get_or_add_rPr().set("cap", "all")
 
 
 def _quote_band(slide, quote, attribution, y, dark):
@@ -775,7 +880,15 @@ def run_deck_task(tid):
     ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
-    nid = store.start_node(tid, "Deck Composer", config.SEATS["artifact"]["primary"], 1)
+    from . import transcripts
+    try:                                     # the person's attached files are read before the deck is written
+        seq = transcripts.run_uploads_first(tid, eid, f"{brief.get('audience', '')}. " + "; ".join(brief.get("outline") or []), ledger)
+    except Exception as e:
+        msg = f"the attached files could not be analysed, so the deck was not built from them: {str(e)[:300]}"
+        store.update_task(tid, status="failed", error=msg, spent_usd=ledger.spent_usd)
+        store.event("task_failed", {"error": msg}, eid, tid)
+        return
+    nid = store.start_node(tid, "Deck Composer", config.SEATS["artifact"]["primary"], seq)
     try:
         from . import deckstudio
         pp, hp, summary = deckstudio.build(eid, brief, tid, ledger)
@@ -801,9 +914,11 @@ def run_deck_task(tid):
     store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd, "pptx": f"results/decks/{tid}/deck.pptx"}, eid, tid)
 
 
-def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None, brand="nxt"):
+def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None, brand="nxt", source_ids=None):
     brief = {"audience": audience, "outline": [str(x).strip() for x in (outline or []) if str(x).strip()][:12],
              "brand": brand_id(brand)}
+    if source_ids:
+        brief["source_ids"] = list(source_ids)
     tid, created = store.create_task(engagement_id, "deck", brief, budget_usd, idem_key)
     if created:
         threading.Thread(target=run_deck_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
@@ -811,7 +926,7 @@ def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None,
 
 
 TOOLS = [
-    {"name": "start_deck", "strict": True,
+    {"name": "start_deck", "strict": False,      # fields checked in code; keeps the strict grammar under the API limit
      "description": ("Start a background task in which the Deck Studio builds a native, editable 16:9 PowerPoint "
                      "(plus an HTML preview) for the named audience from an engagement's findings (a finished research "
                      "report or analysed uploads): a cover stating the answer, then typed slides drawn natively "
@@ -820,11 +935,19 @@ TOOLS = [
                      "they want (for #slides or any deck request), pass each item in order in outline, in their own "
                      "words; otherwise pass an empty list. brand is the visual brand: \"nu\" whenever the person mentions "
                      "Northeastern, Northeastern University, NU, #nu, or Northeastern branding, colours or logo; otherwise "
-                     "\"nxt\" (NXT Humans). Put the brand only in brand, never in audience. Returns a task id."),
+                     "\"deciem\" for DECIEM, The Abnormal Beauty Company or #deciem; otherwise \"nxt\" (NXT Humans). Put the brand only in brand, never in audience. "
+                     "source_ids: when the person attaches files or names particular documents or sources (for example "
+                     "\"using the attached documents\"), pass exactly those sources' ids (S2, S3 and so on) and the deck is "
+                     "built from them alone; files they attached earlier in the conversation count when they refer to them. "
+                     "Otherwise pass an empty list and the deck uses the whole engagement. Returns a task id."),
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "audience", "outline", "brand"],
                       "properties": {"engagement_id": STR, "audience": STR,
                                      "outline": {"type": "array", "items": STR},
-                                     "brand": {"type": "string", "enum": sorted(BRANDS)}}}},
+                                     "brand": {"type": "string", "enum": sorted(BRANDS)},
+                                     "source_ids": {"type": "array", "items": STR},
+                                     "whole_engagement": {"type": "boolean", "description": (
+                                         "true only when files were attached with this message but the person asked "
+                                         "for the whole engagement's material")}}}},
     {"name": "revise_slide", "strict": False,      # simple fields checked in code; keeps the strict grammar under the API limit
      "description": ("Change one slide of a finished deck in place: only that slide is rewritten, as the person asks; every "
                      "other slide stays exactly as it is and the slide keeps its picture. Use it for requests like \"change "
@@ -899,9 +1022,20 @@ def execute(name, args):
             return {"error": "no such engagement; list_engagements shows the ids"}
         if not str(args.get("audience") or "").strip():
             return {"error": "name the audience for the deck"}
+        outline = args.get("outline") or []
+        if not isinstance(outline, list):
+            return {"error": "outline must be a list of slide descriptions, or an empty list"}
+        try:
+            ids = clean_source_ids(eid, args.get("source_ids"))
+        except ValueError as e:
+            return {"error": str(e)}
+        from . import attachments
+        refused = attachments.unnamed_fresh(eid, ids, bool(args.get("whole_engagement")))
+        if refused:
+            return refused
         idem = hashlib.sha256(json.dumps(args, sort_keys=True).encode()).hexdigest()
-        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem, args.get("outline") or [],
-                                       brand_id(args.get("brand")))
+        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem, outline,
+                                       brand_id(args.get("brand")), ids)
         return {"task_id": tid, "engagement_id": eid, "started": created,
                 "message": "started" if created else "an identical task already exists; reporting that one"}
     except Exception as e:

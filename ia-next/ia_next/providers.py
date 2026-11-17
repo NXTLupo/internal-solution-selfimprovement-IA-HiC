@@ -27,6 +27,12 @@ def anthropic_client():
     return _anthropic_client
 
 
+# Cache prices as a share of the model's input price. Reads: Claude Opus 5.5 bills $0.20 per million against $4.00
+# input (0.05); other models are metered at the usual 0.1. Writes to a 5-minute entry bill 1.25 times input.
+CACHE_READ_SHARE = {"claude-opus-5-5": 0.05}
+CACHE_WRITE_SHARE = 1.25
+
+
 @dataclass
 class Usage:
     model: str
@@ -35,21 +41,25 @@ class Usage:
     cache_read_tokens: int = 0
     seconds: float = 0.0
     extra_usd: float = 0.0     # per-call charges that are not token-priced (images, video)
+    cache_write_tokens: int = 0
 
     @property
     def usd(self) -> float:
         inp, out = config.PRICES.get(self.model, config.UNPRICED)
         return round(self.input_tokens / 1e6 * inp + self.output_tokens / 1e6 * out
-                     + self.cache_read_tokens / 1e6 * inp * 0.1 + self.extra_usd, 6)
+                     + self.cache_read_tokens / 1e6 * inp * CACHE_READ_SHARE.get(self.model, 0.1)
+                     + self.cache_write_tokens / 1e6 * inp * CACHE_WRITE_SHARE + self.extra_usd, 6)
 
 
 @dataclass
 class Ledger:
     """Spend for one task. `limit_usd` is the approved budget; going over raises BudgetExceeded. With `task_id`, a
-    Stop pressed by the person takes effect after the call in flight: the next metered call raises TaskStopped."""
+    Stop pressed by the person takes effect after the call in flight: the next metered call raises TaskStopped.
+    `purpose` labels spend that belongs to no task (the agent's own turns), so the spend table says where money went."""
     limit_usd: float = config.TASK_SPEND_APPROVAL_USD
     calls: list = field(default_factory=list)
     task_id: str = ""
+    purpose: str = ""
 
     @property
     def spent_usd(self) -> float:
@@ -57,7 +67,7 @@ class Ledger:
 
     def add(self, u: Usage):
         self.calls.append(u)
-        record_spend(u)
+        record_spend(u, self.task_id or self.purpose)
         if self.spent_usd > self.limit_usd:
             raise BudgetExceeded(self.spent_usd, self.limit_usd)
         if self.task_id:
@@ -65,16 +75,28 @@ class Ledger:
             store.check_stop(self.task_id, self.spent_usd)
 
 
-def record_spend(u: Usage):
-    """Every metered call lands in the spend table, so spend by day and by model is visible (plan 6.7).
+def _spend_table(c):
+    """The spend table, with the columns added on 17 Nov (cache writes, and the task or purpose a call served)
+    added to a table created before them. Rows written earlier keep empty values there."""
+    c.execute("CREATE TABLE IF NOT EXISTS spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
+              "cache_read_tokens INTEGER, usd REAL, seconds REAL)")
+    have = {r[1] for r in c.execute("PRAGMA table_info(spend)")}
+    for col, kind in (("cache_write_tokens", "INTEGER DEFAULT 0"), ("label", "TEXT DEFAULT ''")):
+        if col not in have:
+            c.execute(f"ALTER TABLE spend ADD COLUMN {col} {kind}")
+
+
+def record_spend(u: Usage, label: str = ""):
+    """Every metered call lands in the spend table, so spend by day, by model and by task is visible (plan 6.7).
     Recording never breaks a call."""
     try:
         from . import store
         c = store.conn()
-        c.execute("CREATE TABLE IF NOT EXISTS spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
-                  "cache_read_tokens INTEGER, usd REAL, seconds REAL)")
-        c.execute("INSERT INTO spend VALUES (?,?,?,?,?,?,?)",
-                  (time.time(), u.model, u.input_tokens, u.output_tokens, u.cache_read_tokens, u.usd, u.seconds))
+        _spend_table(c)
+        c.execute("INSERT INTO spend (ts, model, input_tokens, output_tokens, cache_read_tokens, usd, seconds, "
+                  "cache_write_tokens, label) VALUES (?,?,?,?,?,?,?,?,?)",
+                  (time.time(), u.model, u.input_tokens, u.output_tokens, u.cache_read_tokens, u.usd, u.seconds,
+                   u.cache_write_tokens, label or ""))
     except Exception:
         pass
 
@@ -92,8 +114,13 @@ class ProviderError(RuntimeError):
 CLAUDE_REJECTED = ("temperature", "top_p", "top_k")
 
 
-def claude_body(model, system, messages, max_tokens=16000, effort="medium", tools=None, json_schema=None):
-    """Build a Messages body that the Claude 5.x family accepts. Pure, so it is unit-tested."""
+def claude_body(model, system, messages, max_tokens=16000, effort="medium", tools=None, json_schema=None,
+                cache_messages=False):
+    """Build a Messages body that the Claude 5.x family accepts. Pure, so it is unit-tested.
+    The tools and the system prompt are always cached: every system prompt here is a fixed text, so a later call with
+    the same one reads it. `cache_messages` adds a cache point on the last message block; only a caller that sends the
+    same messages again soon (the agent's tool loop) should ask for it, because a cache write costs 1.25 times input
+    and a one-off message is never read back."""
     body = {
         "model": model, "max_tokens": max_tokens, "messages": messages,
         "thinking": {"type": "adaptive"},
@@ -102,6 +129,37 @@ def claude_body(model, system, messages, max_tokens=16000, effort="medium", tool
     if system:
         # Stable system prompt first, cached; volatile content always comes after it (plan 6.7).
         body["system"] = [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}]
+    if messages and cache_messages:
+        body["messages"] = _cache_last_message(messages)
+    return _finish_body(body, tools, json_schema)
+
+
+def _cache_last_message(messages):
+    """A cache point on the last block of the last message (17 Nov: the agent's tool loop resent the whole
+    conversation, report reads included, uncached on every step: 6.6 million input tokens in a week). The next step
+    of the turn, and a next turn within five minutes, read that prefix at a twentieth of the input price on Opus 5.5.
+    The caller's list is never changed."""
+    msgs = list(messages)
+    last = dict(msgs[-1])
+    content = last.get("content")
+    if isinstance(content, str):
+        if not content:
+            return msgs
+        content = [{"type": "text", "text": content}]
+    elif isinstance(content, list) and content:
+        content = [dict(b) if isinstance(b, dict) else b for b in content]
+    else:
+        return msgs
+    tail = content[-1]
+    if not isinstance(tail, dict) or tail.get("type") in ("thinking", "redacted_thinking"):
+        return msgs
+    content[-1] = dict(tail, cache_control={"type": "ephemeral"})
+    last["content"] = content
+    msgs[-1] = last
+    return msgs
+
+
+def _finish_body(body, tools, json_schema):
     if tools:
         body["tools"] = tools
         body["tool_choice"] = {"type": "auto"}
@@ -131,7 +189,8 @@ def claude(model, system, messages, ledger: Ledger = None, **kw):
     except anthropic.APIConnectionError as e:
         raise ProviderError(f"{model} unreachable") from e
     u = Usage(model, resp.usage.input_tokens, resp.usage.output_tokens,
-              getattr(resp.usage, "cache_read_input_tokens", 0) or 0, round(time.time() - t0, 2))
+              getattr(resp.usage, "cache_read_input_tokens", 0) or 0, round(time.time() - t0, 2),
+              cache_write_tokens=getattr(resp.usage, "cache_creation_input_tokens", 0) or 0)
     if ledger is not None:
         try:
             ledger.add(u)
@@ -193,8 +252,11 @@ def gemini_generate(model, prompt, ledger: Ledger = None, system=None, search=Fa
     cand = (d.get("candidates") or [{}])[0]
     text = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", []) if not p.get("thought"))
     um = d.get("usageMetadata") or {}
-    u = Usage(model, um.get("promptTokenCount", 0), (um.get("candidatesTokenCount", 0) or 0) + (um.get("thoughtsTokenCount", 0) or 0),
-              um.get("cachedContentTokenCount", 0) or 0, round(time.time() - t0, 2))
+    cached = um.get("cachedContentTokenCount", 0) or 0
+    # promptTokenCount already includes the cached tokens; they are metered once, at the cache rate
+    u = Usage(model, max(0, (um.get("promptTokenCount", 0) or 0) - cached),
+              (um.get("candidatesTokenCount", 0) or 0) + (um.get("thoughtsTokenCount", 0) or 0),
+              cached, round(time.time() - t0, 2))
     if ledger is not None:
         ledger.add(u)
     return text, u, d

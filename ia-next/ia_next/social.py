@@ -321,6 +321,7 @@ def render_html(result, sources, brand="nxt"):
     refs = "".join(f'<li id="{e(sid)}">[{e(sid)}] {e(by_id[sid]["title"])}: {_link(by_id[sid]["url"])}</li>' for sid in cited if sid in by_id)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(result.get('title', 'Social analysis'))}</title><style>
+{kit['fonts_css']}
 {kit['css']}
 :root{{--cyan:var(--cool);--teal:var(--deep)}}
 body{{font-family:var(--font-body);margin:24px;color:var(--ink);background:var(--paper)}}
@@ -446,7 +447,7 @@ TOOLS = [
                     "for a query (within named subreddits, or across Reddit), then finds themes carried by verbatim quotes "
                     "checked against the posts, and counts the posts by sentiment. Produces a themes-by-sentiment exhibit. "
                     "Returns a task id or a pending spend approval. brand is \"nu\" whenever the person mentions "
-                    "Northeastern, NU, #nu or Northeastern branding, otherwise \"nxt\".",
+                    "Northeastern, NU, #nu or Northeastern branding; \"deciem\" for DECIEM, The Abnormal Beauty Company or #deciem; otherwise \"nxt\".",
      "input_schema": {"type": "object", "additionalProperties": False,
                       "required": ["engagement_id", "engagement_title", "query", "subreddits", "objective", "limit", "budget_usd", "brand"],
                       "properties": {
@@ -457,7 +458,7 @@ TOOLS = [
                                          "description": "Subreddit names without r/, or an empty list to search all of Reddit"},
                           "objective": {"type": "string", "description": "What the analysis must answer"},
                           "limit": {"type": "integer", "description": "Posts to collect, 5 to 50; 25 when unsure"},
-                          "budget_usd": {"type": "number", "description": "Spend cap in USD; 0 for the default"}, "brand": {"type": "string", "enum": ["nu", "nxt"]}}}},
+                          "budget_usd": {"type": "number", "description": "Spend cap in USD; 0 for the default"}, "brand": {"type": "string", "enum": ["deciem", "nu", "nxt"]}}}},
 ]
 
 

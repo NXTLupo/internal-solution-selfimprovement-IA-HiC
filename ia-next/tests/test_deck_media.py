@@ -246,7 +246,12 @@ def test_start_deck_tool_validates_and_is_idempotent(monkeypatch):
     out = deck.execute("start_deck", {"engagement_id": eid, "audience": "partners"})
     assert out["task_id"] == "task_x" and started[0][2] == deck.DECK_BUDGET_USD
     assert started[0][3] == hashlib.sha256(json.dumps({"audience": "partners", "engagement_id": eid}, sort_keys=True).encode()).hexdigest()
-    assert deck.TOOLS[0]["strict"] and deck.TOOLS[0]["input_schema"]["required"] == ["engagement_id", "audience", "outline", "brand"]
+    # non-strict since 17 Nov (source_ids and whole_engagement are optional; the strict grammar has a size limit)
+    schema = deck.TOOLS[0]["input_schema"]
+    assert deck.TOOLS[0]["strict"] is False and schema["required"] == ["engagement_id", "audience", "outline", "brand"]
+    assert {"source_ids", "whole_engagement"} <= set(schema["properties"]) and schema["additionalProperties"] is False
+    assert started[0][6] == []                                     # no files named: the whole engagement
+    assert "outline must be a list" in deck.execute("start_deck", {"engagement_id": eid, "audience": "p", "outline": "x"})["error"]
 
 
 # ---- media: video needs approval, images run directly -----------------------------------------------
@@ -388,7 +393,7 @@ def test_brands_come_from_the_hic_token_copy():
     assert deck.contrast(nu["KICKER_ON_DARK"], nu["RAIL"]) >= 4.5 and deck.contrast(nxt["KICKER_ON_DARK"], nxt["RAIL"]) >= 4.5
     assert nu["LOGO"]["light"] == "C8102E" and nu["LOGO"]["viewbox"] == [0, 0, 64, 53] and nxt["LOGO"]["viewbox"][2:] == [300, 86]
     assert nu["TITLE_PANOSE"] == deck.PANOSE_ARIAL and nxt["TITLE_PANOSE"] == deck.PANOSE_ARIAL_NARROW and nu["TITLE_WIDTH"] > nxt["TITLE_WIDTH"]
-    assert deck.brand_id("NU") == "nu" and deck.brand_id("deciem") == "nxt" and deck.brand_id(None) == "nxt"
+    assert deck.brand_id("NU") == "nu" and deck.brand_id("deciem") == "deciem" and deck.brand_id("other") == "nxt" and deck.brand_id(None) == "nxt"
     if os.path.isfile(HIC_TOKENS):
         hic = json.load(open(HIC_TOKENS, encoding="utf-8"))
         for ours, theirs in (("nu", "NU"), ("nxt", "NXT")):
@@ -524,7 +529,7 @@ def test_brand_requests_reach_the_brand_field():
     d = spec["start_deck"]["description"]
     assert all(w in d for w in ("Northeastern", "NU", "#nu", "never in audience"))
     assert spec["rebrand_deck"]["strict"] and spec["rebrand_deck"]["input_schema"]["required"] == ["task_id", "brand"]
-    assert spec["start_deck"]["input_schema"]["properties"]["brand"]["enum"] == ["nu", "nxt"]
+    assert spec["start_deck"]["input_schema"]["properties"]["brand"]["enum"] == ["deciem", "nu", "nxt"]
 
 
 def test_card_and_step_text_is_fitted_to_its_box_by_the_brand_face():
@@ -593,3 +598,175 @@ def test_revise_refuses_what_it_cannot_do(monkeypatch):
     assert "no deck with that task id" in deck.execute("revise_slide", {"task_id": "task_nope", "slide_number": 1, "instruction": "x"})["error"]
     spec = next(t for t in deck.TOOLS if t["name"] == "revise_slide")
     assert spec["strict"] is False and spec["input_schema"]["required"] == ["task_id", "slide_number", "instruction"]
+
+
+def test_deck_renders_in_the_deciem_brand(tmp_path):
+    """Part 7 BR6: DECIEM from the token copy: Poppins Bold capitals (a font attribute, so the text and the file check
+    are unchanged), Josefin Sans body, pink accent, no rail or dot mark, the typeset lockup on the cover."""
+    import zipfile
+    from ia_next import deckstudio
+    b = deck.BRANDS["deciem"]
+    assert (b["DISPLAY_FONT"], b["BODY_FONT"], b["ACCENT"], b["TITLE_CAPS"], b["CHROME_RAIL"]) == ("Poppins", "Josefin Sans", "FB48C4", True, False)
+    assert b["LOCKUP"] == ["THE ABNORMAL BEAUTY COMPANY.", "DECIEM"] and b["LOGO"] is None
+    slides = deckstudio.normalize([_studio_slide("cover", "Barrier repair leads the routine conversation"),
+                                   _studio_slide("bullets", "Shoppers ask for fewer steps", points=["Two-step routines"])], SOURCES)
+    out = str(tmp_path / "deciem.pptx")
+    with deck.use_brand("deciem"):
+        deckstudio.write_pptx(slides, SOURCES, out, "Deck", "Deck")
+        assert deckstudio.verify_pptx(out, [s["title"] for s in slides]) == []
+        page = deckstudio.render_html("Deck", slides, SOURCES, "Deck")
+    prs = Presentation(out)
+    names = [[sh.name for sh in sl.shapes] for sl in prs.slides]
+    assert "Brand lockup" in names[0] and "Rail" not in names[1] and "Dot mark" not in names[1]
+    xml = "".join(zipfile.ZipFile(out).read(n).decode("utf-8", "ignore") for n in zipfile.ZipFile(out).namelist() if n.startswith("ppt/slides/slide"))
+    assert 'typeface="Poppins"' in xml and 'cap="all"' in xml and "FB48C4" in xml
+    assert prs.slides[1].shapes.title.text_frame.text == "Shoppers ask for fewer steps"          # text unchanged
+    assert "text-transform:uppercase" in page and "THE ABNORMAL BEAUTY COMPANY." in page and "border-left:0 solid" in page
+    assert deck.ACCENT == "B8B800" and deck.CHROME_RAIL is True and deck.LOCKUP is None             # NXT restored
+
+
+def test_a_deck_reads_new_uploads_before_it_is_written(monkeypatch):
+    """17 Nov owner failure: three documents attached for a product vision deck went into an engagement whose findings
+    came from an old test interview; the deck was built from those findings and had nothing to do with the documents.
+    Uploads the findings do not cover are now analysed first, as a visible step, and the deck is composed from them."""
+    from ia_next import deckstudio, transcripts
+    eid = store.create_engagement("Pipeline check", "o")
+    transcripts.add_text_source(eid, "Partner interview (test)", "The partner said researchers use AI to build the longlist.", "transcript")
+    old, _ = store.create_task(eid, "transcript", {"objective": "o"}, 1.0)
+    for name, data in (("findings.json", {"findings": [{"claim": "AI builds longlists", "quote": "researchers use AI to build the longlist",
+                                                        "source_id": "S1", "claim_type": "SUPPORTED_FACT"}]}),
+                       ("sources.json", {"sources": [{"id": "S1", "title": "Partner interview (test)", "url": "", "text": "x"}]})):
+        with open(store.safe_path(eid, f"results/{name}"), "w", encoding="utf-8") as fh:
+            json.dump(data, fh)
+    store.update_task(old, status="done")
+    import time as _t
+    _t.sleep(0.01)
+    brief_text = "Annual Giving cannot see donor retention by cohort without manual Excel joins."
+    transcripts.add_text_source(eid, "01_Advancement_Farmers_Demo_Product_Brief.docx", brief_text, "document")
+    seen = {}
+
+    def fake(model, system, messages, ledger, **kw):
+        if kw.get("json_schema") is transcripts.TRANSCRIPT_FINDINGS_SCHEMA:     # the analysis reads every upload, the old one too
+            return json.dumps({"findings": [
+                {"claim": "Retention is invisible without manual joins", "quote": "cannot see donor retention by cohort",
+                 "source_id": "S2", "claim_type": "SUPPORTED_FACT", "speaker": ""},
+                {"claim": "AI builds longlists", "quote": "researchers use AI to build the longlist",
+                 "source_id": "S1", "claim_type": "SUPPORTED_FACT", "speaker": ""}]}), None, None
+        if kw.get("json_schema") is deckstudio.SCHEMA:
+            seen["msg"] = messages[0]["content"]
+            return json.dumps({"deck_title": "Farmers demo", "answer": "a", "slides": [
+                _studio_slide("cover", "Annual Giving needs cohort retention without manual joins")]}), None, None
+        return json.dumps({"titles": []}), None, None
+    monkeypatch.setattr(providers, "claude", fake)
+    monkeypatch.setattr(providers, "openai_image", lambda *a, **k: (PNG, None))
+    # the agent passes the attached file's id (C2/C3); the deck is built from it alone
+    tid, _ = store.create_task(eid, "deck", {"audience": "product leadership", "outline": [], "brand": "nu", "source_ids": ["S2"]}, 2.5)
+    deck.run_deck_task(tid)
+    t = store.get_task(tid)
+    assert t["status"] == "done", t["error"]
+    assert [n["specialist"] for n in t["nodes"]] == ["Transcript Analyst", "Deck Composer"]
+    assert "cannot see donor retention by cohort" in seen["msg"] and "researchers use AI to build the longlist" not in seen["msg"]
+    assert "Partner interview" not in seen["msg"]             # neither its findings nor its source text
+    assert transcripts.unanalysed_uploads(eid) == []          # the next deck does not analyse again
+    sources = json.load(open(store.safe_path(eid, f"results/decks/{tid}/sources.json"), encoding="utf-8"))["sources"]
+    assert [s["id"] for s in sources] == ["S2"]               # revisions and re-brands keep the same scope
+
+
+def _engagement_with_old_and_new_uploads():
+    from ia_next import transcripts
+    eid = store.create_engagement("Pipeline check", "o")
+    transcripts.add_text_source(eid, "Partner interview (test)", "The partner said researchers use AI to build the longlist.", "transcript")
+    transcripts.add_text_source(eid, "02_Solution_Vision.docx", "One view of donor retention by cohort for Annual Giving.", "document")
+    return eid
+
+
+def test_source_ids_are_checked_against_the_engagement():
+    eid = _engagement_with_old_and_new_uploads()
+    assert deck.clean_source_ids(eid, ["s2"]) == ["S2"] and deck.clean_source_ids(eid, "S1, S2") == ["S1", "S2"]
+    assert deck.clean_source_ids(eid, []) == []
+    with pytest.raises(ValueError) as e:
+        deck.clean_source_ids(eid, ["S2", "S9"])
+    assert "S9" in str(e.value) and "S1, S2" in str(e.value)        # the error names what the engagement has
+
+
+def test_work_cannot_ignore_files_attached_with_the_message():
+    """C2: with files attached to this message, the agent must name them in source_ids, or say the person asked for the
+    whole engagement; the deck is never silently built from something else."""
+    from ia_next import attachments
+    eid = _engagement_with_old_and_new_uploads()
+    files = attachments.verified([{"engagement_id": eid, "source_id": "S2", "fresh": True, "title": "forged title"},
+                                  {"engagement_id": eid, "source_id": "S7", "fresh": True},         # no such upload: dropped
+                                  {"engagement_id": "eng_nope", "source_id": "S1", "fresh": True}])
+    assert files == [{"engagement_id": eid, "source_id": "S2", "title": "02_Solution_Vision.docx", "fresh": True}]
+    started = []
+    import threading as _th
+
+    class NoThread:
+        def __init__(self, *a, **k):
+            started.append(k.get("args"))
+
+        def start(self):
+            pass
+    orig = _th.Thread
+    deck.threading.Thread = NoThread
+    try:
+        with attachments.scope(files):
+            refused = deck.execute("start_deck", {"engagement_id": eid, "audience": "a", "outline": [], "brand": "nu"})
+            assert "02_Solution_Vision.docx" in refused["error"] and "S2" in refused["error"] and not started
+            ok = deck.execute("start_deck", {"engagement_id": eid, "audience": "a", "outline": [], "brand": "nu", "source_ids": ["S2"]})
+            assert ok.get("started") is True
+            assert store.get_task(ok["task_id"])["brief"]["source_ids"] == ["S2"]
+            whole = deck.execute("start_deck", {"engagement_id": eid, "audience": "b", "outline": [], "brand": "nu", "whole_engagement": True})
+            assert whole.get("started") is True and "source_ids" not in store.get_task(whole["task_id"])["brief"]
+            bad = deck.execute("start_deck", {"engagement_id": eid, "audience": "c", "outline": [], "brand": "nu", "source_ids": ["S5"]})
+            assert "not a source of this engagement: S5" in bad["error"]
+        # files attached earlier in the conversation (not fresh) do not block work on the whole engagement
+        with attachments.scope([dict(files[0], fresh=False)]):
+            assert deck.execute("start_deck", {"engagement_id": eid, "audience": "d", "outline": [], "brand": "nu"}).get("started")
+    finally:
+        deck.threading.Thread = orig
+
+
+def test_the_agent_sees_the_attached_files_and_the_guard_holds_in_a_turn(monkeypatch):
+    from types import SimpleNamespace
+    from ia_next import agent
+    eid = _engagement_with_old_and_new_uploads()
+    monkeypatch.setattr(deck.threading, "Thread", lambda *a, **k: SimpleNamespace(start=lambda: None))
+    calls = []
+
+    def fake(model, system, messages, ledger, **kw):
+        calls.append(messages[-1]["content"])
+        if len(calls) == 1:
+            return "", None, SimpleNamespace(stop_reason="tool_use", content=[SimpleNamespace(
+                type="tool_use", id="t1", name="start_deck", input={"engagement_id": eid, "audience": "a", "outline": [], "brand": "nu"},
+                model_dump=lambda **k: {"type": "tool_use", "id": "t1", "name": "start_deck", "input": {}})])
+        return "ok", None, SimpleNamespace(stop_reason="end_turn", content=[{"type": "text", "text": "ok"}])
+    cid = agent.new_conversation()
+    agent.turn(cid, "Using the attached document, make a deck", call=fake,
+               attachments=[{"engagement_id": eid, "source_id": "S2", "fresh": True}])
+    first = calls[0]
+    assert "\"02_Solution_Vision.docx\" is source S2 in engagement " + eid + " (attached with this message)" in first
+    assert "02_Solution_Vision.docx" in json.dumps(calls[1]) and "source_ids" in json.dumps(calls[1])   # the refusal came back
+
+
+def test_journey_and_prototype_use_only_the_named_sources(monkeypatch):
+    from ia_next import journey, prototype
+    eid = _engagement_with_old_and_new_uploads()
+    for name, data in (("findings.json", {"findings": [
+            {"claim": "old", "quote": "researchers use AI to build the longlist", "source_id": "S1", "claim_type": "SUPPORTED_FACT"},
+            {"claim": "new", "quote": "One view of donor retention by cohort", "source_id": "S2", "claim_type": "SUPPORTED_FACT"}]}),
+            ("sources.json", {"sources": [{"id": "S1", "title": "Partner interview (test)", "url": "", "text": "researchers use AI to build the longlist"},
+                                          {"id": "S2", "title": "02_Solution_Vision.docx", "url": "", "text": "One view of donor retention by cohort"}]})):
+        with open(store.safe_path(eid, f"results/{name}"), "w", encoding="utf-8") as fh:
+            json.dump(data, fh)
+    assert [f["source_id"] for f in prototype._findings(eid, ["S2"])] == ["S2"]
+    assert len(prototype._findings(eid)) == 2
+    seen = {}
+
+    def fake(model, system, messages, ledger, **kw):
+        seen["msg"] = messages[0]["content"]
+        raise providers.ProviderError("stop here")
+    monkeypatch.setattr(providers, "claude", fake)
+    with pytest.raises(providers.ProviderError):
+        journey.build(eid, "Annual Giving officer", "retention", providers.Ledger(limit_usd=1), source_ids=["S2"])
+    assert "donor retention" in seen["msg"] and "longlist" not in seen["msg"]

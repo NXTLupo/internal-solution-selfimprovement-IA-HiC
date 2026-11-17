@@ -434,10 +434,15 @@ def design_problems(doc, kit, direction):
     return out
 
 
-def _findings(eid):
-    """The engagement's verified findings, when a research or transcript task has written them."""
+def _findings(eid, source_ids=None):
+    """The engagement's verified findings, when a research or transcript task has written them; only those from the
+    sources the person named or attached, when they did (C3)."""
     data = _load(eid, "results/findings.json", {}) if store.get_engagement(eid) else {}
-    return (data.get("findings") or [])[:MAX_FINDINGS]
+    found = data.get("findings") or []
+    if source_ids:
+        keep = set(source_ids)
+        found = [f for f in found if f.get("source_id") in keep]
+    return found[:MAX_FINDINGS]
 
 
 def _findings_block(findings):
@@ -553,7 +558,7 @@ def build(eid, brief, ledger, tid=None):
     brief["experience"] = str(brief.get("experience") or "").strip()
     if not brief["experience"]:
         raise ValueError("the brief needs an experience to prototype")
-    findings = _findings(eid)
+    findings = _findings(eid, brief.get("source_ids"))
     model = config.SEATS["artifact"]["primary"]
     kit = brand_kit(brief.get("brand") or "nxt")
     direction = direct(brief, findings, kit, ledger, model)
@@ -625,7 +630,15 @@ def run_prototype_task(tid):
     ledger = providers.Ledger(limit_usd=t["budget_usd"] or DEFAULT_BUDGET_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
-    nid = store.start_node(tid, "Prototyper", config.SEATS["artifact"]["primary"], 1)
+    from . import transcripts
+    try:                                     # the person's attached files are read before the prototype is built
+        seq = transcripts.run_uploads_first(tid, eid, f"{brief.get('experience', '')} for {brief.get('audience', '')}", ledger)
+    except Exception as e:
+        msg = f"the attached files could not be analysed, so the prototype was not built from them: {str(e)[:300]}"
+        store.update_task(tid, status="failed", error=msg, spent_usd=ledger.spent_usd)
+        store.event("task_failed", {"error": msg}, eid, tid)
+        return
+    nid = store.start_node(tid, "Prototyper", config.SEATS["artifact"]["primary"], seq)
     try:
         hp, summary = build(eid, brief, ledger, tid)
         store.finish_node(nid, hp, summary)
@@ -639,7 +652,7 @@ def run_prototype_task(tid):
         store.event("task_failed", {"error": msg, "spent_usd": ledger.spent_usd, "trace": traceback.format_exc()[-800:]}, eid, tid)
 
 
-def start_prototype_task(engagement_id, experience, audience, must_include, budget_usd, idem_key, brand="nxt"):
+def start_prototype_task(engagement_id, experience, audience, must_include, budget_usd, idem_key, brand="nxt", source_ids=None):
     """Returns (task id, created). An empty engagement id creates the engagement; an unknown one is refused."""
     experience = str(experience or "").strip()
     if not experience:
@@ -656,6 +669,8 @@ def start_prototype_task(engagement_id, experience, audience, must_include, budg
     brief = {"experience": experience, "audience": str(audience or "").strip(),
              "must_include": [str(x).strip()[:300] for x in (must_include or []) if str(x).strip()][:12],
              "brand": deck.brand_id(brand)}
+    if source_ids:
+        brief["source_ids"] = list(source_ids)
     tid, created = store.create_task(eid, "prototype", brief, budget_usd if budget_usd and budget_usd > 0 else DEFAULT_BUDGET_USD, key)
     if created:
         threading.Thread(target=run_prototype_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
@@ -670,7 +685,7 @@ TOOLS = [
                      "engagement's verified findings, reviewed by a designer from another vendor and revised once. A product "
                      "with several screens is ONE prototype: list its screens in must_include, in order; never start one "
                      "task per screen. brand is \"nu\" whenever the person mentions Northeastern, Northeastern University, "
-                     "NU, #nu or Northeastern branding, otherwise \"nxt\" (NXT Humans). The page has no network access and "
+                     "NU, #nu or Northeastern branding; \"deciem\" for DECIEM, The Abnormal Beauty Company or #deciem; otherwise \"nxt\" (NXT Humans). The page has no network access and "
                      "is checked before it is saved."),
      "input_schema": {"type": "object", "additionalProperties": False,
                       "required": ["engagement_id", "experience", "audience", "must_include", "brand"],
@@ -680,7 +695,13 @@ TOOLS = [
                           "experience": {"type": "string", "description": "The experience to prototype"},
                           "audience": {"type": "string", "description": "Who uses it"},
                           "must_include": {"type": "array", "items": STR, "description": "Screens, features or content it must show"},
-                          "brand": {"type": "string", "enum": ["nu", "nxt"]}}}},
+                          "brand": {"type": "string", "enum": ["deciem", "nu", "nxt"]},
+                          "source_ids": {"type": "array", "items": STR, "description": (
+                              "Ids of the files the person attached or named for this prototype (S2, S3 and so on); "
+                              "the prototype then uses findings from them alone. Otherwise an empty list.")},
+                          "whole_engagement": {"type": "boolean", "description": (
+                              "true only when files were attached with this message but the person asked for the whole "
+                              "engagement's material")}}}},
 ]
 
 
@@ -693,8 +714,18 @@ def execute(name, args):
         eid = args.get("engagement_id") or ""
         if eid and not store.get_engagement(eid):
             return {"error": "no such engagement; list_engagements shows the ids"}
+        from . import attachments, deck
+        ids = []
+        if eid:
+            try:
+                ids = deck.clean_source_ids(eid, args.get("source_ids"))
+            except ValueError as e:
+                return {"error": str(e)}
+            refused = attachments.unnamed_fresh(eid, ids, bool(args.get("whole_engagement")))
+            if refused:
+                return refused
         tid, created = start_prototype_task(eid, args["experience"], args.get("audience") or "", args.get("must_include") or [],
-                                            DEFAULT_BUDGET_USD, _idem(name, args), args.get("brand") or "nxt")
+                                            DEFAULT_BUDGET_USD, _idem(name, args), args.get("brand") or "nxt", ids)
         t = store.get_task(tid)
         return {"task_id": tid, "engagement_id": t["engagement_id"], "started": created,
                 "message": "started" if created else "an identical task already exists; reporting that one"}

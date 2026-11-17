@@ -76,6 +76,7 @@ def render_html(j, sources, brand="nxt"):
     refs = "".join(f'<li>[{e(k)}] {e(v["title"])}: <a href="{e(v["url"])}">{e(v["url"])}</a></li>' for k, v in src.items())
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(j.get('title', 'Journey map'))}</title><style>
+{kit['fonts_css']}
 {kit['css']}
 body{{font-family:var(--font-body);margin:24px;color:var(--ink);background:var(--paper)}}
 header{{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}} .brand-mark{{height:28px;width:auto;color:var(--ink)}}
@@ -90,13 +91,19 @@ h1{{font:700 24px/1.2 var(--font-display);margin:0 0 4px}} .persona{{color:var(-
 <div class="grid">{''.join(cells)}</div><ol class="refs">{refs}</ol></body></html>"""
 
 
-def build(eid, persona, scope, ledger, tid=None, brand="nxt"):
+def build(eid, persona, scope, ledger, tid=None, brand="nxt", source_ids=None):
     """Returns (json_path, html_path, summary). Needs a completed research task in the engagement."""
     findings = _load(eid, "results/findings.json")["findings"]
     sources = _load(eid, "results/sources.json")["sources"]
+    from . import deck
+    findings, sources = deck.scope_material(findings, sources, source_ids)    # only the files the person named (C3)
+    if source_ids and not sources:
+        raise ValueError(f"the named sources ({', '.join(source_ids)}) have not been read into this engagement yet")
     model = config.SEATS["analysis"]["primary"]
     fl = "\n".join(f"- [{f['source_id']}] {f['claim']} | quote: \"{f['quote']}\"" for f in findings)
-    src = "\n\n".join(f"<source id=\"{s['id']}\">\n{s['text'][:7000]}\n</source>" for s in sources)
+    from . import secondbrain                   # sources read as manifest chunks from HiC's wiki (plan Part 2)
+    chunks, _evidence = secondbrain.material(eid, sources, f"{persona} {scope}")
+    src = secondbrain.as_prompt(chunks)
     system = ("You are the Journey Cartographer on a consulting research team. Build a journey map for the named persona "
               "from the findings and sources: 4 to 7 stages in the order the persona lives them. Actions and touchpoints are short "
               "phrases. Every pain has a VERBATIM quote copied exactly from one source and that source's id. Opportunities are "

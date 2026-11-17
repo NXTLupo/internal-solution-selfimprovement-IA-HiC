@@ -25,15 +25,36 @@ def client():
     return TestClient(app_module.app)          # not a context manager: no startup thread, no scheduler
 
 
+class _Turns(list):
+    """(conversation, text) per turn; .attachments holds what each turn received as attachments."""
+    def __init__(self):
+        super().__init__()
+        self.attachments = []
+
+
 @pytest.fixture
 def turns(monkeypatch):
-    seen = []
+    seen = _Turns()
 
-    def fake_turn(cid, text, call=None):
+    def fake_turn(cid, text, call=None, attachments=None):
         seen.append((cid, text))
+        seen.attachments.append(attachments)
         return {"reply": "ok", "trace": [], "usd": 0.0}
     monkeypatch.setattr(agent, "turn", fake_turn)
     return seen
+
+
+def test_message_passes_its_attachments_to_the_agent(client, turns):
+    cid = client.post("/api/conversations").json()["id"]
+    files = [{"engagement_id": "eng_x", "source_id": "S2", "fresh": True}]
+    assert client.post(f"/api/conversations/{cid}/messages", json={"text": "deck from these", "attachments": files}).status_code == 200
+    assert turns.attachments[-1] == files                         # the agent layer verifies them against the engagement
+
+
+def test_page_sends_the_conversations_files_with_every_message():
+    js = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "web", "app.js"), encoding="utf-8").read()
+    assert "body.attachments = files.map" in js and "recordAttachment(file.name, sid, eid)" in js
+    assert "if (item.type === 'files') return filesEl(item);" in js
 
 
 # ---- the page and its assets -------------------------------------------------------------------
@@ -177,7 +198,7 @@ def test_the_imported_library_is_not_listed_as_an_engagement(client):
 def test_rebrand_route_validates_the_brand_and_the_task(client):
     """Plan Part 7 (BR3): the deck card's brand switch. An unknown brand is a 400; a task that is not a finished
     deck is a 409 with the reason; nothing is spent."""
-    assert client.post("/api/tasks/task_nope/rebrand", json={"brand": "deciem"}).status_code == 400
+    assert client.post("/api/tasks/task_nope/rebrand", json={"brand": "acme"}).status_code == 400
     r = client.post("/api/tasks/task_nope/rebrand", json={"brand": "nu"})
     assert r.status_code == 409 and "no deck with that task id" in r.json()["detail"]
     eid = store.create_engagement("e", "o")
@@ -265,3 +286,27 @@ def test_the_file_picker_filter_lists_extensions_only():
     exts |= set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const AUDIO_EXT = \[([^\]]*)\]", js).group(1)))
     exts |= set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const DOC_EXT = \[([^\]]*)\]", js).group(1)))
     assert {a[1:] for a in accept} == exts
+
+
+def test_brand_faces_are_embedded_as_data_uris_in_pages_and_prototypes(client):
+    """Part 8: Lato and the NXT faces are missing on most machines and the prototype sandbox blocks web fonts, so the
+    brand faces are embedded as data URIs: in the journey and social pages when written, and in a prototype when served."""
+    from ia_next import deck, journey, prototype
+    nu = deck.brand_kit("nu")["fonts_css"]
+    assert "font-family:'Lato'" in nu and "data:font/woff2;base64," in nu and "Saira" not in nu
+    nxt = deck.brand_kit("nxt")["fonts_css"]
+    assert "font-family:'Saira Condensed'" in nxt and "font-family:'Archivo'" in nxt and "font-weight:700" in nxt
+    page = journey.render_html({"title": "t", "persona": "p", "stages": []}, [], "nu")
+    assert "font-family:'Lato'" in page
+    eid = store.create_engagement("e", "o")
+    tid, _ = store.create_task(eid, "prototype", {"experience": "x", "audience": "", "must_include": []}, 1.0)
+    folder = store.safe_path(eid, f"results/tasks/{tid}")
+    os.makedirs(folder, exist_ok=True)
+    with open(os.path.join(folder, "prototype.html"), "w", encoding="utf-8") as fh:
+        fh.write("<!doctype html><html><head><title>x</title></head><body><p>hi</p></body></html>")
+    with open(os.path.join(folder, "prototype.json"), "w", encoding="utf-8") as fh:
+        fh.write('{"brand": "nu"}')
+    store.update_task(tid, status="done", result_path=os.path.join(folder, "prototype.json"))
+    r = client.get(f"/api/tasks/{tid}/prototype")
+    assert r.status_code == 200 and "font-family:'Lato'" in r.text and r.text.index("@font-face") < r.text.index("<title>")
+    assert r.headers["content-security-policy"] == prototype.PROTOTYPE_CSP and "font-src data:" in prototype.PROTOTYPE_CSP

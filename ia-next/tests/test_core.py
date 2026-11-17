@@ -29,6 +29,76 @@ def test_claude_body_never_carries_rejected_fields():
     assert b["system"][0]["cache_control"] == {"type": "ephemeral"}
 
 
+def test_only_the_agent_loop_caches_its_messages():
+    """17 Nov: a cache write costs 1.25 times input, so a one-off specialist message is not cached; the agent's tool
+    loop, which sends the same conversation again on every step, is. The caller's messages are never changed."""
+    msgs = [{"role": "user", "content": "first"},
+            {"role": "assistant", "content": [{"type": "text", "text": "ok"}, {"type": "tool_use", "id": "t1", "name": "x", "input": {}}]},
+            {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "t1", "content": "{}"}]}]
+    before = json.dumps(msgs, sort_keys=True)
+    one_off = providers.claude_body("claude-opus-5-5", "sys", msgs)
+    assert "cache_control" not in json.dumps(one_off["messages"])
+    loop = providers.claude_body("claude-opus-5-5", "sys", msgs, cache_messages=True)
+    assert loop["messages"][-1]["content"][-1]["cache_control"] == {"type": "ephemeral"}
+    assert json.dumps(loop["messages"]).count("cache_control") == 1        # one point on messages; the system has its own
+    assert json.dumps(msgs, sort_keys=True) == before
+    plain = providers.claude_body("claude-opus-5-5", "sys", [{"role": "user", "content": "hello"}], cache_messages=True)
+    assert plain["messages"][0]["content"] == [{"type": "text", "text": "hello", "cache_control": {"type": "ephemeral"}}]
+    thought = [{"role": "assistant", "content": [{"type": "thinking", "thinking": "t", "signature": "s"}]}]
+    assert providers.claude_body("claude-opus-5-5", "", thought, cache_messages=True)["messages"] == thought  # thinking is never marked
+
+
+def test_agent_turns_ask_for_message_caching(monkeypatch):
+    seen = {}
+
+    def fake(model, system, messages, ledger, **kw):
+        seen.update(kw)
+        return "hi", None, SimpleNamespace(stop_reason="end_turn", content=[{"type": "text", "text": "hi"}])
+    agent.turn(agent.new_conversation(), "hello", call=fake)
+    assert seen.get("cache_messages") is True and seen.get("effort") == "medium"   # effort pinned: a change would miss
+
+
+def test_meter_prices_cache_reads_and_writes():
+    """Opus 5.5 reads its cache at 0.05 of input ($0.20 of $4.00 per million) and every 5-minute write costs 1.25 times
+    input; before 17 Nov writes were not metered at all and Opus reads were metered at double."""
+    u = providers.Usage("claude-opus-5-5", cache_read_tokens=1_000_000, cache_write_tokens=1_000_000)
+    assert u.usd == pytest.approx(0.20 + 5.00)
+    assert providers.Usage("claude-sonnet-5-5", cache_read_tokens=1_000_000).usd == pytest.approx(0.20)   # 0.1 of $2.00
+
+
+def test_spend_rows_carry_cache_writes_and_who_spent(tmp_path):
+    c = store.conn()
+    c.execute("DROP TABLE IF EXISTS spend")
+    c.execute("CREATE TABLE spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
+              "cache_read_tokens INTEGER, usd REAL, seconds REAL)")                     # a table from before 17 Nov
+    c.execute("INSERT INTO spend VALUES (1, 'claude-opus-5-5', 10, 10, 0, 0.1, 1)")
+    providers.Ledger(limit_usd=5, purpose="agent").add(providers.Usage("claude-opus-5-5", 100, 10, 400, cache_write_tokens=300))
+    providers.Ledger(limit_usd=5, task_id="task_x").add(providers.Usage("claude-opus-5-5", 100, 10))
+    rows = c.execute("SELECT label, cache_read_tokens, cache_write_tokens FROM spend ORDER BY ts").fetchall()
+    assert [tuple(r) for r in rows] == [("", 0, 0), ("agent", 400, 300), ("task_x", 0, 0)]
+
+
+def test_spend_view_shows_cache_share():
+    from fastapi.testclient import TestClient
+    from ia_next import app as appmod
+    providers.Ledger(limit_usd=5, purpose="agent").add(providers.Usage("claude-opus-5-5", 1000, 10, 3000, cache_write_tokens=0))
+    d = TestClient(appmod.app).get("/api/spend").json()
+    assert d["today_cache"]["read_from_cache"] == 3000 and d["today_cache"]["share_from_cache"] == 0.75
+    assert d["today_agent_turns"]["calls"] == 1
+
+
+def test_gemini_cached_tokens_are_metered_once(monkeypatch):
+    class R:
+        status_code = 200
+
+        def json(self):
+            return {"candidates": [{"content": {"parts": [{"text": "ok"}]}}],
+                    "usageMetadata": {"promptTokenCount": 1000, "cachedContentTokenCount": 600, "candidatesTokenCount": 5}}
+    monkeypatch.setattr(providers.httpx, "post", lambda *a, **k: R())
+    _, u, _ = providers.gemini_generate("gemini-4-carbon", "p")
+    assert (u.input_tokens, u.cache_read_tokens) == (400, 600)
+
+
 def test_openai_body_has_no_temperature():
     assert "temperature" not in providers.openai_body("gpt-6-luna", "hi")
 

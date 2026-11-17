@@ -371,6 +371,37 @@ def analyze_transcripts(eid, objective, ledger):
     return path, summary, kept
 
 
+
+# ---- uploads first (17 Nov owner failure) -----------------------------------------------------------------
+def unanalysed_uploads(eid):
+    """Uploads the analysed material does not hold yet. Decks, journey maps and prototypes work from analysed findings,
+    so these would otherwise be ignored. Every analysis writes each upload it read into results/sources.json, so an
+    upload is analysed exactly when its id is there (an upload id always names the same text). 17 Nov: the earlier
+    time comparison missed three new documents because an older analysis task had been updated after they arrived."""
+    ups = uploaded_sources(eid)
+    if not ups:
+        return []
+    have = {s.get("id") for s in _load(eid, "results/sources.json", {}).get("sources") or []}
+    return [u for u in ups if u["id"] not in have]
+
+
+def run_uploads_first(tid, eid, objective, ledger, seq=1):
+    """When the engagement has uploads its findings do not cover, analyse them as a visible Transcript Analyst step of
+    task `tid` before the main step. Returns the next step number. Raises when the analysis fails, so the work is not
+    built from findings that ignore what the person attached."""
+    pending = unanalysed_uploads(eid)
+    if not pending:
+        return seq
+    nid = store.start_node(tid, "Transcript Analyst", config.SEATS["analysis"]["primary"], seq)
+    try:
+        path, summary, _ = analyze_transcripts(eid, objective, ledger)
+    except Exception as e:
+        store.finish_node(nid, None, None, error=f"the attached files could not be analysed: {str(e)[:300]}")
+        raise
+    _write(eid, "results/uploads_analysed.json", {"at": time.time(), "task_id": tid, "sources": [u["id"] for u in pending]})
+    store.finish_node(nid, path, f"read {len(pending)} new upload(s) first: " + summary)
+    return seq + 1
+
 # ---- the task runner ----------------------------------------------------------------------------
 @store.stoppable
 def run_transcript_task(tid):

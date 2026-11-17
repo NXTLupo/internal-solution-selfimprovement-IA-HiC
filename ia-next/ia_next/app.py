@@ -4,6 +4,7 @@ Bound to 127.0.0.1:9400 by its compose file, on its own network. It shares nothi
 Intelligence Augmentation suite except the provider keys read from the workbench's root .env.
 """
 import os
+import re
 import threading
 
 from fastapi import FastAPI, HTTPException
@@ -71,6 +72,7 @@ class NewMessage(BaseModel):
     text: str
     engagement_id: str | None = None      # optional: the engagement the person has focused in the workspace
     notes: list[str] = []                 # optional: what happened in the workspace since the last message (B6)
+    attachments: list[dict] = []          # optional: files attached in this conversation, {engagement_id, source_id, fresh} (C2)
 
 
 @app.post("/api/conversations")
@@ -121,7 +123,7 @@ def post_message(cid: str, m: NewMessage):
         # list" and never borrows another engagement's work as evidence
         text = f"(Focused engagement: {title} [{eng['id']}]. {agent.focus_context(eng['id'])})\n{text}"
     try:
-        return agent.turn(cid, text)
+        return agent.turn(cid, text, attachments=m.attachments)
     except Exception as e:
         store.event("agent_error", {"conversation": cid, "error": str(e)[:400]})
         raise HTTPException(502, f"the agent could not answer: {str(e)[:300]}")
@@ -333,7 +335,22 @@ def task_prototype(tid: str):
     t = store.get_task(tid)
     if not t or t["status"] != "done" or t["kind"] != "prototype":
         raise HTTPException(404, "no finished prototype for this task")
-    return FileResponse(prototype.html_path_for_task(tid), media_type="text/html", headers=dict(prototype.PROTOTYPE_HEADERS))
+    path = prototype.html_path_for_task(tid)
+    with open(path, encoding="utf-8") as fh:
+        doc = fh.read()
+    try:                                       # Part 8: the brand faces, embedded at serve time (never in the model's file)
+        import json as _json
+        from . import deck
+        with open(os.path.join(os.path.dirname(path), "prototype.json"), encoding="utf-8") as fh:
+            brand = _json.load(fh).get("brand") or "nxt"
+        faces = deck.brand_kit(brand)["fonts_css"]
+    except (OSError, ValueError):
+        faces = ""
+    if faces:
+        style = f"<style>{faces}</style>"
+        m = re.search(r"(?i)<head[^>]*>", doc)
+        doc = doc[:m.end()] + style + doc[m.end():] if m else style + doc
+    return HTMLResponse(doc, headers=dict(prototype.PROTOTYPE_HEADERS))
 
 
 class NewEngagement(BaseModel):
@@ -355,7 +372,7 @@ AUDIO = (".mp3", ".m4a", ".wav", ".webm", ".mp4", ".mpeg", ".mpga", ".ogg")
 async def upload(eid: str, file: UploadFile = File(...), title: str = Form("")):
     """A transcript, a document as text, or an audio recording (transcribed). Uploads are sources: data,
     quoted and cited, never instructions."""
-    from . import providers, transcripts
+    from . import providers, secondbrain, transcripts
     if not store.get_engagement(eid):
         raise HTTPException(404, "no such engagement")
     name = (file.filename or "upload").lower()
@@ -364,12 +381,16 @@ async def upload(eid: str, file: UploadFile = File(...), title: str = Form("")):
         if len(data) > 25 * 1024 * 1024:
             raise HTTPException(413, "audio over 25 MB; split the recording")
         try:
-            return transcripts.transcribe_audio(eid, file.filename, data, providers.Ledger(limit_usd=2.0))
+            out = transcripts.transcribe_audio(eid, file.filename, data, providers.Ledger(limit_usd=2.0))
         except Exception as ex:
             raise HTTPException(502, f"transcription failed: {str(ex)[:200]}")
+        if isinstance(out, dict) and out.get("source_id"):
+            secondbrain.archive_upload_later(eid, out["source_id"])
+        return out
     if name.endswith((".txt", ".md", ".vtt", ".srt", ".csv")):
         text = data.decode("utf-8", errors="replace")
         sid = transcripts.add_text_source(eid, title or file.filename, text, "transcript" if name.endswith((".vtt", ".srt")) else "document")
+        secondbrain.archive_upload_later(eid, sid)          # into the second brain (plan Part 2)
         return {"source_id": sid, "chars": len(text)}
     from . import hic
     if name.endswith(hic.DOC_EXT):
@@ -381,6 +402,7 @@ async def upload(eid: str, file: UploadFile = File(...), title: str = Form("")):
         except ValueError as ex:
             raise HTTPException(422, f"nothing readable in {file.filename}: {str(ex)[:160]}")
         sid = transcripts.add_text_source(eid, title or file.filename, got["text"], "document")
+        secondbrain.archive_upload_later(eid, sid)          # into the second brain (plan Part 2)
         return {"source_id": sid, "chars": len(got["text"]), "read_by": "HiC", "method": got["method"]}
     raise HTTPException(415, "send a document (.pdf .docx .pptx .xlsx), an image, a text file (.txt .md .vtt .srt .csv) "
                              "or audio (.mp3 .m4a .wav .webm .mp4 .ogg)")
@@ -485,16 +507,26 @@ def calibration():
 def spend():
     """Spend by day and by model from every metered call (plan 6.7: a meter the person can read)."""
     import time as _t
+    from . import providers
     c = store.conn()
-    c.execute("CREATE TABLE IF NOT EXISTS spend (ts REAL, model TEXT, input_tokens INTEGER, output_tokens INTEGER, "
-              "cache_read_tokens INTEGER, usd REAL, seconds REAL)")
+    providers._spend_table(c)
     day0 = _t.time() - (_t.time() % 86400)
+    week0 = day0 - 6 * 86400
     today = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ?", (day0,)).fetchone()
-    week = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ?", (day0 - 6 * 86400,)).fetchone()
+    week = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ?", (week0,)).fetchone()
     by_model = [dict(r) for r in c.execute("SELECT model, COUNT(*) calls, ROUND(SUM(usd),4) usd, ROUND(AVG(seconds),1) avg_seconds "
-                                           "FROM spend WHERE ts >= ? GROUP BY model ORDER BY usd DESC", (day0 - 6 * 86400,))]
+                                           "FROM spend WHERE ts >= ? GROUP BY model ORDER BY usd DESC", (week0,))]
+    # prompt caching at work: of the input the models read today, how much came from the cache (17 Nov)
+    cache = c.execute("SELECT COALESCE(SUM(input_tokens),0) fresh, COALESCE(SUM(cache_read_tokens),0) cached, "
+                      "COALESCE(SUM(cache_write_tokens),0) written FROM spend WHERE ts >= ?", (day0,)).fetchone()
+    total_in = cache["fresh"] + cache["cached"] + cache["written"]
+    agent = c.execute("SELECT COALESCE(SUM(usd),0) s, COUNT(*) n FROM spend WHERE ts >= ? AND label = 'agent'", (day0,)).fetchone()
     return {"today_usd": round(today["s"], 4), "today_calls": today["n"], "week_usd": round(week["s"], 4), "week_calls": week["n"],
-            "by_model_7d": by_model, "note": "models without a published price are metered at a conservative placeholder"}
+            "by_model_7d": by_model,
+            "today_cache": {"input_tokens": total_in, "read_from_cache": cache["cached"], "written_to_cache": cache["written"],
+                            "share_from_cache": round(cache["cached"] / total_in, 3) if total_in else 0.0},
+            "today_agent_turns": {"usd": round(agent["s"], 4), "calls": agent["n"]},
+            "note": "models without a published price are metered at a conservative placeholder"}
 
 
 @app.get("/api/digest")

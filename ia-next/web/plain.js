@@ -89,7 +89,7 @@ export function taskTitle(task, eng) {
 }
 
 // The brands a deck renders in (ia_next/deck.py BRAND_NAMES; values from HiC's design system).
-export const BRAND_NAMES = { nxt: 'NXT Humans', nu: 'Northeastern' };
+export const BRAND_NAMES = { nxt: 'NXT Humans', nu: 'Northeastern', deciem: 'DECIEM' };
 
 export function taskDetail(task) {
   const b = task.brief || {};

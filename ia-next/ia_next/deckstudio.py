@@ -471,10 +471,29 @@ def _brand_mark(slide, x, y, h, dark):
     return h * vb[2] / vb[3]
 
 
+def _lockup(slide, x, y, dark):
+    """A typeset lockup in a thin box (DECIEM's template mark), as native, editable text."""
+    lines = D.LOCKUP or []
+    box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(2.6), Inches(0.72))
+    box.name = "Brand lockup"
+    box.line.color.rgb = D._rgb(D.PAPER if dark else D.INK)
+    box.line.width = Pt(1)
+    tf = D._frame(box.text_frame, MSO_ANCHOR.MIDDLE)
+    tf.margin_left = tf.margin_right = Inches(0.12)
+    for i, t in enumerate(lines):
+        p = D._para(tf, i == 0)
+        r = p.add_run()
+        r.text = t
+        last = i == len(lines) - 1
+        D._font(r, D.DISPLAY_FONT, 15 if last else 8, D.PAPER if dark else D.INK, bold=not last, panose=D.PANOSE_ARIAL)
+
+
 def brand_mark_svg(cls, dark):
     import html as H
     lg = D.LOGO
     if not lg:
+        if D.LOCKUP and dark:            # DECIEM: the lockup on dark canvases only, as its template does
+            return D.lockup_svg(D.LOCKUP, D.BRAND_NAME, cls=cls, color=f"#{D.PAPER}")
         return ""
     vb = " ".join(f"{v:g}" for v in lg["viewbox"])
     fill = lg["dark"] if dark else lg["light"]
@@ -491,8 +510,9 @@ def _frame_marks(slide, dark=False):
 
 
 def _header(slide, s, title_w=11.55):
-    D._rect(slide, 0, 0, 0.32, 7.5, D.RAIL, "Rail")
-    D._rect(slide, 0.08, 0.5, 0.16, 0.16, D.ACCENT, "Dot mark")
+    if D.CHROME_RAIL:
+        D._rect(slide, 0, 0, 0.32, 7.5, D.RAIL, "Rail")
+        D._rect(slide, 0.08, 0.5, 0.16, 0.16, D.ACCENT, "Dot mark")
     if s["kicker"]:
         _txt(slide, 0.9, 0.34, 8, 0.32, "Kicker", [s["kicker"]], 12, D.CYAN, bold=True, space=0)
     n = len(s["title"])
@@ -561,7 +581,7 @@ def _statement(slide, s):
     x0 = 5.55 if has_photo else 0.9
     if has_photo:
         _photo(slide, s["photo"], 0, 0, 5.1, 7.5)
-    else:
+    elif D.CHROME_RAIL:
         D._rect(slide, 0, 0, 0.32, 7.5, D.RAIL, "Rail")
     if s["kicker"]:
         _txt(slide, x0, 0.6, 6.9, 0.35, "Kicker", [s["kicker"]], 12, D.CYAN, bold=True, space=0)
@@ -778,6 +798,8 @@ def write_pptx(slides, sources, path, deck_title, deck_kicker):
         if L == "cover":
             h, _ = brand_mark_size(0.5, 0.32)
             _brand_mark(slide, 0.9, 0.55, h, True)
+            if D.LOCKUP:
+                _lockup(slide, 0.9, 0.42, True)
         else:
             h, w = brand_mark_size(0.34, 0.22)
             _brand_mark(slide, 12.45 - w, 0.26, h, dark)
@@ -879,13 +901,14 @@ def render_html(deck_title, slides, sources, deck_kicker):
         arts.append(f'<article><section class="slide {L}">{body}{mark}<footer><span>{("Sources: " + e(cited)) if cited and L != "cover" else ""}</span>'
                     f'<span>{n}</span></footer></section><details><summary>Speaker notes and sources</summary><p>{e(s["notes"])}</p><ol>{refs}</ol></details></article>')
     ramp_css = " ".join(".ly:nth-child(%d){background:#%s}" % (i + 1, c) for i, c in enumerate(D.LAYER_RAMP))
-    css = f"""
+    fonts = D.font_faces_css([D.DISPLAY_FONT, D.BODY_FONT])
+    css = fonts + f"""
 :root{{--onaccent:#{D.ON_ACCENT};--rail:#{D.RAIL};--accent:#{D.ACCENT};--teal:#{D.TEAL};--cyan:#{D.CYAN};--ink:#{D.INK};--muted:#{D.MUTED};--light:#{D.LIGHT};--paper:#{D.PAPER};--band:#{D.BAND}}}
 *{{box-sizing:border-box}} body{{margin:0;padding:24px 16px;background:#EDEDE8;color:var(--ink);font-family:"{D.BODY_FONT}",Arial,sans-serif}}
 h1{{max-width:1100px;margin:0 auto 18px;font:600 20px "{D.BODY_FONT}",Arial,sans-serif}} .deck{{max-width:1100px;margin:0 auto;display:grid;gap:28px}}
-.slide{{container-type:inline-size;position:relative;aspect-ratio:16/9;background:var(--paper);overflow:hidden;border-left:2.4cqw solid var(--rail)}}
+.slide{{container-type:inline-size;position:relative;aspect-ratio:16/9;background:var(--paper);overflow:hidden;border-left:{'2.4cqw' if D.CHROME_RAIL else '0'} solid var(--rail)}}
 .main{{position:absolute;inset:2.6cqw 4.5cqw 5cqw 4cqw;display:grid;grid-template-rows:auto auto auto 1fr auto;gap:.5cqw}}
-.kick{{color:var(--cyan);font-weight:700;font-size:1.05cqw;letter-spacing:.1em}} h2{{margin:0;font:700 2.6cqw/1.1 "{D.DISPLAY_FONT}","Arial Narrow",sans-serif;color:var(--rail)}}
+.kick{{color:var(--cyan);font-weight:700;font-size:1.05cqw;letter-spacing:.1em}} h2{{margin:0;font:700 2.6cqw/1.1 "{D.DISPLAY_FONT}","Arial Narrow",sans-serif;color:var(--rail);text-transform:{'uppercase' if D.TITLE_CAPS else 'none'}}}
 .subt{{margin:0 0 .6cqw;color:var(--muted);font-size:1.25cqw;line-height:1.35}} .rule{{display:block;width:9cqw;height:.45cqw;background:var(--accent);margin:.6cqw 0 1cqw}}
 .body{{min-height:0;font-size:1.4cqw;line-height:1.35}} .body.withside{{display:grid;grid-template-columns:1fr 26%;gap:2cqw}}
 .side{{overflow:hidden}} .side img{{width:100%;height:100%;object-fit:cover;display:block}}
@@ -923,6 +946,10 @@ def build(eid, brief, tid, ledger):
     analysed uploads): raises FileNotFoundError otherwise."""
     findings = D._load(eid, "results/findings.json")["findings"]
     sources = D._load(eid, "results/sources.json")["sources"]
+    scope = brief.get("source_ids") or []
+    findings, sources = D.scope_material(findings, sources, scope)
+    if scope and not sources:
+        raise ValueError(f"the named sources ({', '.join(scope)}) have not been read into this engagement yet")
     try:
         rb = D._load(eid, "results/brief.json")
     except (FileNotFoundError, ValueError):
@@ -931,10 +958,18 @@ def build(eid, brief, tid, ledger):
     model = config.SEATS["artifact"]["primary"]
     outline = [str(x).strip() for x in (brief.get("outline") or []) if str(x).strip()]
     fl = "\n".join(f"<finding source=\"{f['source_id']}\">{f['claim']} | quote: \"{f['quote']}\"</finding>" for f in findings)
-    src = "\n\n".join(f"<source id=\"{s['id']}\" title=\"{s.get('title', '')}\">\n{s['text'][:12000]}\n</source>" for s in sources)
+    # the second brain (plan Part 2): each source archived in HiC's wiki and read back as manifest chunks, whole when it
+    # fits (17 Nov: the first 12,000 characters of each source were all the composer saw)
+    from . import secondbrain
+    chunks, evidence = secondbrain.material(eid, sources, " ".join([brief.get("audience", "")] + outline))
+    src = secondbrain.as_prompt(chunks)
     ask = (f"OUTLINE (one slide per item after the cover, in this order):\n" + "\n".join(f"{i + 1}. {o}" for i, o in enumerate(outline))
            if outline else "OUTLINE: none given.")
-    msg = (f"Audience: {brief.get('audience', '')}\nEngagement: {eng.get('title', '')}\nGoal: {rb.get('goal') or eng.get('objective') or ''}\n"
+    # with named sources, the engagement's research goal may be about something else (17 Nov: a test interview's goal):
+    # the person's request is the goal then
+    goal = ("the outline below, from the sources below, which the person named; nothing else in the engagement applies"
+            if scope else (rb.get("goal") or eng.get("objective") or ""))
+    msg = (f"Audience: {brief.get('audience', '')}\nEngagement: {eng.get('title', '')}\nGoal: {goal}\n"
            f"{ask}\n\nFINDINGS (each quote already checked against its source):\n{fl}\n\nSOURCES:\n{src}")
     text, _, _ = providers.claude(model, SYSTEM, [{"role": "user", "content": msg}], ledger, max_tokens=32000,
                                   effort="high", json_schema=SCHEMA)
@@ -973,7 +1008,9 @@ def build(eid, brief, tid, ledger):
         json.dump({"deck_title": deck_title, "answer": clean(data.get("answer")), "outline": outline, "model": model, "brand": brand,
                    "slides": [{k: v for k, v in s.items() if k != "photo"} | {"image": os.path.basename(s["photo"]) if s.get("photo") else ""}
                               for s in slides],
-                   "dropped_quotes_not_in_source": dropped, "titles_rewritten": rewritten, "images": images, "checks": checks},
+                   "dropped_quotes_not_in_source": dropped, "titles_rewritten": rewritten, "images": images, "checks": checks,
+                   "source_ids": scope,
+                   "evidence": dict(evidence, pointers=[c["pointer"] for c in chunks if c["pointer"]])},
                   fh, indent=1, ensure_ascii=False)
     layouts = ", ".join(dict.fromkeys(s["layout"] for s in slides))
     summary = (f"{len(slides)} slides ({layouts}), {images} images, {sum(1 for s in slides if s['quote'])} verified quotes "
