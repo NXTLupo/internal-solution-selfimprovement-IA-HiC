@@ -1037,7 +1037,7 @@ function normalizeTurn(r) {
     rec.chips.push(P.toolChip(tr.tool, out));
     if (typeof out.task_id === 'string' && !rec.tasks.includes(out.task_id)) rec.tasks.push(out.task_id);
     if ((tr.tool === 'task_status' || tr.tool === 'read_report') && !out.error && tr.input && typeof tr.input.task_id === 'string' && !rec.tasks.includes(tr.input.task_id)) rec.tasks.push(tr.input.task_id);
-    if (tr.tool === 'rebrand_deck' && !out.error && typeof out.task_id === 'string') rec.changed.push(out.task_id);
+    if ((tr.tool === 'rebrand_deck' || tr.tool === 'revise_slide') && !out.error && typeof out.task_id === 'string') rec.changed.push(out.task_id);
     if (/^(start_|analyze_uploads$|retry_task$)/.test(tr.tool) && out.started && typeof out.task_id === 'string') rec.started.push(out.task_id);
     if (out.approval === 'pending' && typeof out.approval_id === 'string') rec.approvals.push(out.approval_id);
     if (isView(out.view)) rec.media.push({ kind: out.video ? 'video' : 'image', view: out.view });

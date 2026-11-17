@@ -323,6 +323,7 @@ const TOOL_WORDS = {
   start_journey_map: ['Started a journey map', 'Could not start the journey map'],
   start_deck: ['Started a deck', 'Could not start the deck'],
   rebrand_deck: ['Re-rendered the deck in a new brand at no cost', 'Could not change the deck brand'],
+  revise_slide: ['Revised one slide; the others are unchanged', 'Could not revise the slide'],
   start_social_analysis: ['Started Reddit listening', 'Could not start Reddit listening'],
   analyze_uploads: ['Started reading your files', 'Could not read your files'],
   start_prototype: ['Started a prototype', 'Could not start the prototype'],

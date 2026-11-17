@@ -41,6 +41,7 @@ MIN_SLIDES, MAX_SLIDES = 6, 10
 TITLE_MAX_WORDS, TITLE_MIN_WORDS, TITLE_MAX_CHARS = 12, 4, 90
 MAX_POINTS = 4
 DECK_BUDGET_USD = 2.50          # composer plus up to two photographs
+REVISE_BUDGET_USD = 0.75        # one slide revised: one composer call and at most one title repair
 
 # Brand constants. The values on these three lines are FALLBACKS only: at import they are replaced from
 # brand_tokens.json, IA Next's read-only copy of HiC's design system (Figma library iSQhAVM7SI4QHAWB7y9C2z, NXT mode
@@ -799,6 +800,13 @@ TOOLS = [
                       "properties": {"engagement_id": STR, "audience": STR,
                                      "outline": {"type": "array", "items": STR},
                                      "brand": {"type": "string", "enum": sorted(BRANDS)}}}},
+    {"name": "revise_slide", "strict": False,      # simple fields checked in code; keeps the strict grammar under the API limit
+     "description": ("Change one slide of a finished deck in place: only that slide is rewritten, as the person asks; every "
+                     "other slide stays exactly as it is and the slide keeps its picture. Use it for requests like \"change "
+                     "slide 3 to a table\" or \"make the title on slide 2 shorter\"; do not rebuild the deck for that. "
+                     "slide_number counts the cover as 1. Costs one model call."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id", "slide_number", "instruction"],
+                      "properties": {"task_id": STR, "slide_number": {"type": "integer"}, "instruction": STR}}},
     {"name": "rebrand_deck", "strict": True,
      "description": ("Re-render a finished deck in another brand at no cost and with no new model call: the same slides, "
                      "words, images and sources, in the new brand's colours, typeface and brand mark. Use it when the "
@@ -808,6 +816,24 @@ TOOLS = [
      "input_schema": {"type": "object", "additionalProperties": False, "required": ["task_id", "brand"],
                       "properties": {"task_id": STR, "brand": {"type": "string", "enum": sorted(BRANDS)}}}},
 ]
+
+
+def revise(tid, number, instruction):
+    """Revise one slide of a finished deck (plan Part 6). Returns the updated task; the cost is added to the task."""
+    t = store.get_task(tid)
+    if not t or t["kind"] != "deck":
+        raise ValueError("no deck with that task id; list_engagements shows each engagement's work")
+    if t["status"] != "done":
+        raise ValueError(f"that deck is {t['status']}; only a finished deck can be revised")
+    from . import deckstudio
+    ledger = providers.Ledger(limit_usd=REVISE_BUDGET_USD)
+    try:
+        summary = deckstudio.revise_slide(t["engagement_id"], tid, int(number), instruction, ledger)
+    finally:
+        store.update_task(tid, spent_usd=round((t["spent_usd"] or 0) + ledger.spent_usd, 6))
+    store.update_task(tid, summary=f"Deck ready in the {BRAND_NAMES[brand_id(t['brief'].get('brand'))]} brand: {summary}.")
+    store.event("task_revised", {"slide": int(number), "spent_usd": ledger.spent_usd}, t["engagement_id"], tid)
+    return store.get_task(tid), ledger.spent_usd
 
 
 def rebrand(tid, brand):
@@ -829,6 +855,12 @@ def rebrand(tid, brand):
 
 def execute(name, args):
     try:
+        if name == "revise_slide":
+            try:
+                t, usd = revise(str(args.get("task_id") or ""), int(args.get("slide_number") or 0), args.get("instruction"))
+            except (ValueError, TypeError) as e:
+                return {"error": str(e)}
+            return {"task_id": t["id"], "message": t["summary"], "spent_usd": round(usd, 4)}
         if name == "rebrand_deck":
             try:
                 t = rebrand(str(args.get("task_id") or ""), args.get("brand"))

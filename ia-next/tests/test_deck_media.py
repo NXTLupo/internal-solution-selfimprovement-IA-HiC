@@ -545,3 +545,51 @@ def test_closing_kicker_reads_on_its_panel_in_every_brand():
     for b in deck.BRANDS.values():
         assert deck.contrast(b["CLOSING_KICKER"], b["TEAL"]) >= 4.5
     assert deck.BRANDS["nu"]["CLOSING_KICKER"] != deck.BRANDS["nu"]["ACCENT"]     # red on navy does not read
+
+
+# ---- revise one slide in place (plan Part 6) -------------------------------------------------------------
+def test_revise_changes_only_the_named_slide_keeps_its_picture_and_the_previous_version(monkeypatch):
+    """16 Nov audit: "change slide 3" rebuilt all nine slides and reworded untouched ones. One slide is rewritten; the
+    others stay exactly as they were; a fabricated quote is still dropped; the cost lands on the deck task."""
+    from ia_next import deckstudio
+    eid, tid = _finished_deck(monkeypatch)
+    folder = store.safe_path(eid, f"results/decks/{tid}")
+    before = json.load(open(os.path.join(folder, "deck.json"), encoding="utf-8"))
+    seen = {}
+
+    def reviser(model, system, messages, ledger, **kw):
+        if kw.get("json_schema") is deckstudio.REVISE_SCHEMA:
+            seen["msg"] = messages[0]["content"]
+            ledger.add(providers.Usage(model=model, input_tokens=5000, output_tokens=800))
+            return json.dumps({"slide": _studio_slide(
+                "table", "Each stage needs one named owner and a handoff date", kicker="owners",
+                table={"columns": ["Stage", "Owner"], "rows": [["Events", "Alumni Relations"], ["Giving", "Annual Giving"]]},
+                quote="Partners hate every AI tool they have tried.", source_id="S1")}), None, None
+        raise AssertionError("only the revision call is expected")
+    monkeypatch.setattr(providers, "claude", reviser)
+    monkeypatch.setattr(providers, "openai_image", lambda *a, **k: pytest.fail("a new image was made"))
+    out = deck.execute("revise_slide", {"task_id": tid, "slide_number": 2, "instruction": "Make slide 2 a table of owners"})
+    assert "slide 2 revised" in out["message"] and out["spent_usd"] > 0, out
+    assert "Make slide 2 a table of owners" in seen["msg"] and '"layout": "cards"' in seen["msg"]
+    after = json.load(open(os.path.join(folder, "deck.json"), encoding="utf-8"))
+    assert after["slides"][0] == before["slides"][0] and after["slides"][2] == before["slides"][2]
+    s2 = after["slides"][1]
+    assert s2["layout"] == "table" and s2["title"] == "Each stage needs one named owner and a handoff date"
+    assert s2["quote"] == "" and after["revisions"][0]["dropped_quotes_not_in_source"] == 1      # not in its source
+    assert s2["image"] == before["slides"][1]["image"]
+    assert json.load(open(os.path.join(folder, "deck.v1.json"), encoding="utf-8")) == before
+    prs = Presentation(os.path.join(folder, "deck.pptx"))
+    assert len(prs.slides) == 3 and prs.slides[1].shapes.title.text_frame.text == s2["title"]
+    assert any(sh.has_table for sh in prs.slides[1].shapes)
+    t = store.get_task(tid)
+    assert t["spent_usd"] > 0 and "slide 2 revised" in t["summary"] and t["status"] == "done"
+
+
+def test_revise_refuses_what_it_cannot_do(monkeypatch):
+    eid, tid = _finished_deck(monkeypatch)
+    monkeypatch.setattr(providers, "claude", lambda *a, **k: pytest.fail("a model was called"))
+    assert "slides 1 to 3" in deck.execute("revise_slide", {"task_id": tid, "slide_number": 9, "instruction": "x"})["error"]
+    assert "say what to change" in deck.execute("revise_slide", {"task_id": tid, "slide_number": 2, "instruction": "  "})["error"]
+    assert "no deck with that task id" in deck.execute("revise_slide", {"task_id": "task_nope", "slide_number": 1, "instruction": "x"})["error"]
+    spec = next(t for t in deck.TOOLS if t["name"] == "revise_slide")
+    assert spec["strict"] is False and spec["input_schema"]["required"] == ["task_id", "slide_number", "instruction"]

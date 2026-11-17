@@ -254,6 +254,7 @@ You do not need special syntax; describe what you want. Hashtags are a shortcut 
 |---|---|
 | A researched report | "Research how US universities are improving first-year retention in 2026, for a provost." |
 | A deck | "#slides for the provost from this engagement: problem, evidence, options, recommendation, next steps." |
+| To change one slide | "On that deck, make slide 4's title shorter" (only that slide changes; the others stay exactly as they are) |
 | A deck in Northeastern branding | "Make a short deck for the Annual Giving team using Northeastern branding." (or `#nu`) |
 | A journey map | "Map the journey of a first-year student who is thinking about leaving." |
 | A clickable prototype | "#proto a dashboard where gift officers see which alumni cohorts to contact next." |
@@ -378,7 +379,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 163 tests, all passing.
+On 17 November 2026: 165 tests, all passing.
 
 ### Back up and restore your data
 
