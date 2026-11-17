@@ -11,7 +11,15 @@ system prompt as a snapshot taken at the start of a conversation, so the cached 
 and one consolidation pass may not remove more than MAX_LOSS of the entries already there.
 The person's explicit "remember this" is promoted at once (it is their instruction, not inference);
 edits and removals proposed by the system wait for the person (plan 6.4, from Hermes).
+
+Per person (enhancement plan B5, 16 Nov audit: "someone else's preferences steer your deck; a forgotten fact
+returns"): the workspace owner's memory lives in MEMORY_DIR; a person who reaches the agent through a channel (Teams,
+the signed webhook) has their own files under MEMORY_DIR/people/<hash of their person key>. The current person is a
+context variable the agent sets for the length of a turn. Candidates are never shown to the agent, and forgetting a
+phrase also removes matching candidates and keeps the phrase, so the reviewer cannot bring it back.
 """
+import contextvars
+import hashlib
 import io
 import json
 import os
@@ -29,11 +37,39 @@ MAX_LOSS = 0.25
 SEP = "\n- "
 
 _LOCK = threading.RLock()
+OWNER = "owner"
+_PERSON = contextvars.ContextVar("ia_next_memory_person", default=OWNER)
+
+
+class as_person:
+    """Read and write one person's memory for the length of a `with` block (the workspace owner by default)."""
+    def __init__(self, person_key):
+        self.key = str(person_key or OWNER)
+
+    def __enter__(self):
+        self.token = _PERSON.set(self.key)
+        return self.key
+
+    def __exit__(self, *exc):
+        _PERSON.reset(self.token)
+
+
+def current_person():
+    return _PERSON.get()
+
+
+def _dir():
+    p = _PERSON.get()
+    if p == OWNER:
+        return config.MEMORY_DIR
+    return os.path.join(config.MEMORY_DIR, "people", hashlib.sha256(p.encode("utf-8")).hexdigest()[:20])
 
 
 def _p(name):
     config.ensure_dirs()
-    return os.path.join(config.MEMORY_DIR, name)
+    d = _dir()
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, name)
 
 
 def _read(name):
@@ -80,22 +116,46 @@ def remember_now(text, source, kind="memory"):
 
 
 def forget(match):
-    """Remove every entry containing `match` (case-insensitive). The person sees exactly what went."""
+    """Remove every entry containing `match` (case-insensitive), and every candidate note containing it, and keep the
+    phrase so the background reviewer cannot propose it again (B5: a forgotten fact used to return through the
+    promotion gate). The person sees exactly what went."""
+    m = " ".join(str(match or "").split()).lower()
+    if len(m) < 3:
+        return {"removed": [], "error": "say a little more about what to forget (at least three characters)"}
     removed = []
     with _LOCK:
         for name, title, cap in (("MEMORY.md", "What the agent has learned", MEMORY_CAP), ("USER.md", "About the person", USER_CAP)):
             items = entries(name)
-            keep = [i for i in items if match.lower() not in i.lower()]
-            removed += [i for i in items if match.lower() in i.lower()]
+            keep = [i for i in items if m not in i.lower()]
+            removed += [i for i in items if m in i.lower()]
             if len(keep) != len(items):
                 _write(name, _render(title, keep, cap)[0])
-    _audit("forget", {"match": match, "removed": removed})
-    return {"removed": removed}
+        notes = _notes()
+        dropped = [n["text"] for n in notes if m in n["text"].lower()]
+        if dropped:
+            _save_notes([n for n in notes if m not in n["text"].lower()])
+        gone = _forgotten()
+        if m not in gone:
+            _write("forgotten.json", json.dumps(gone + [m], ensure_ascii=False))
+    _audit("forget", {"match": match, "removed": removed, "candidates_removed": dropped})
+    return {"removed": removed, "candidates_removed": dropped}
+
+
+def _forgotten():
+    try:
+        return [str(x) for x in json.loads(_read("forgotten.json") or "[]")]
+    except ValueError:
+        return []
 
 
 # ---- candidates and the promotion gate ---------------------------------------------------------
 def propose(text, score, source_line, untrusted=False):
-    """A candidate note from the background reviewer. It is stored, never injected, until promoted."""
+    """A candidate note from the background reviewer. It is stored, never injected, until promoted. A note that
+    contains a phrase the person asked to forget is dropped."""
+    low = text.strip().lower()
+    if any(f in low for f in _forgotten()):
+        _audit("propose_dropped", {"text": text, "why": "the person asked to forget this"})
+        return {"dropped": "forgotten", "text": text.strip()}
     rec = {"id": f"note_{int(time.time() * 1000)}", "text": text.strip(), "score": float(score), "source_line": source_line,
            "untrusted": bool(untrusted), "recalls": 0, "queries": [], "created": time.time()}
     with _LOCK, io.open(_p("notes.jsonl"), "a", encoding="utf-8", newline="\n") as fh:
@@ -170,7 +230,8 @@ def consolidate():
 
 
 def recall(query, limit=6):
-    """Entries and candidate notes that share words with the query. Recording recalls feeds the gate."""
+    """Promoted entries that share words with the query. Candidate notes that match are counted toward the gate
+    (recalls and distinct queries) but never returned: an unpromoted inference must not steer the agent (B5)."""
     words = {w for w in "".join(c.lower() if c.isalnum() else " " for c in query).split() if len(w) > 3}
     if not words:
         return []
@@ -184,7 +245,6 @@ def recall(query, limit=6):
         score = len(words & set("".join(c.lower() if c.isalnum() else " " for c in n["text"]).split()))
         if score:
             record_recall(n["id"], query)
-            hits.append({"from": "candidate", "text": n["text"], "score": score, "id": n["id"]})
     return sorted(hits, key=lambda h: -h["score"])[:limit]
 
 

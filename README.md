@@ -234,7 +234,8 @@ ever calling the suite. See [Brands](#brands-nxt-humans-and-northeastern).
 
 - **Left rail.** *New conversation*; your **Engagements** (one per piece of client work; click one to focus the
   conversation and your uploads on it); **All work** (every finished output as a card); **Memory** (what the agent
-  remembers about you, which you can read and remove); **Schedules**; **Spend**.
+  remembers about you, which you can read and remove; a removed fact stays removed, and people who reach the agent
+  through a channel have memory of their own); **Schedules**; **Spend**.
 - **Conversation.** Your messages and the agent's replies. When the agent starts work, a live card shows each
   specialist's step and the money spent so far. Finished work appears inline: a report you can read, a deck
   preview with a PowerPoint download, a journey map, a prototype you can click through.
@@ -377,7 +378,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 156 tests, all passing.
+On 17 November 2026: 162 tests, all passing.
 
 ### Back up and restore your data
 

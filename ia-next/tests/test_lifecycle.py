@@ -221,3 +221,25 @@ def test_the_strict_tool_grammar_stays_within_what_the_api_accepted():
     for t in agent.TOOLS:
         s = t["input_schema"]
         assert s["additionalProperties"] is False and set(s["required"]) <= set(s["properties"]), t["name"]
+
+
+def test_finished_analysis_is_used_instead_of_analysing_the_same_files_again(monkeypatch):
+    """Part 1: the owner's #diagram prompt started a new paid analysis instead of reading the 15 verified findings.
+    With nothing uploaded since the last finished analysis, the tool asks first."""
+    from ia_next import transcripts
+    monkeypatch.setattr(transcripts, "run_transcript_task", lambda tid: None)
+    eid = store.create_engagement("Advancement", "o")
+    transcripts.add_text_source(eid, "Interview A", "Donors said the follow-up came too late to matter.", "transcript")
+    args = {"engagement_id": eid, "objective": "What do donors say about follow-up?", "reanalyze_confirmed": False}
+    first = transcripts.execute("analyze_uploads", args)
+    store.update_task(first["task_id"], status="done")
+    with open(store.safe_path(eid, "results/findings.json"), "w", encoding="utf-8") as fh:
+        json.dump({"findings": [{"claim": "c"}] * 15}, fh)
+    asked = transcripts.execute("analyze_uploads", dict(args, objective="Draw the donor journey as a diagram"))
+    assert asked["needs_confirmation"] and asked["existing_findings"] == 15 and asked["existing_task_id"] == first["task_id"]
+    again = transcripts.execute("analyze_uploads", dict(args, objective="Draw the donor journey as a diagram", reanalyze_confirmed=True))
+    assert again["started"] and again["task_id"] != first["task_id"]
+    store.update_task(again["task_id"], status="done")
+    transcripts.add_text_source(eid, "Interview B", "A second donor described a different experience entirely.", "transcript")
+    fresh = transcripts.execute("analyze_uploads", dict(args, objective="Anything new?"))
+    assert fresh.get("started")                                     # new uploads: no question needed

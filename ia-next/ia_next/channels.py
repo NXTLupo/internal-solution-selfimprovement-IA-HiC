@@ -29,6 +29,14 @@ def verify_signature(raw: bytes, signature: str) -> bool:
     return hmac.compare_digest(expected, signature.strip().lower())
 
 
+def person_for(conversation_id):
+    """The channel person a conversation belongs to, or None for the workspace owner's own conversations (B5)."""
+    c = store.conn()
+    c.execute(SCHEMA)
+    r = c.execute("SELECT person_key FROM channel_links WHERE conversation_id = ?", (conversation_id,)).fetchone()
+    return r["person_key"] if r else None
+
+
 def conversation_for(person_key, channel, new_conversation):
     """The one conversation for this person across every channel."""
     c = store.conn()

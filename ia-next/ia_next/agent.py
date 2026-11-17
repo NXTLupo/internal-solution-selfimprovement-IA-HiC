@@ -110,6 +110,7 @@ _LOCK = threading.RLock()
 class Conversation:
     def __init__(self, cid):
         self.id = cid
+        self.person = memory.current_person()
         snap = memory.snapshot()
         self.system = SYSTEM.format(user=snap["user"] or "(nothing recorded yet)", memory=snap["memory"] or "(nothing recorded yet)")
         self.messages = []
@@ -337,10 +338,21 @@ def execute_tool(name, args):
 
 
 def turn(cid, text, call=None):
-    """One user turn: the tool loop until the model stops calling tools or MAX_STEPS is reached.
-    `call` is a test seam with the signature of providers.claude."""
+    """One user turn, as the person the conversation belongs to: the workspace owner, or the channel person linked to
+    it (B5: each person's memory is their own). `call` is a test seam with the signature of providers.claude."""
+    from . import channels
+    person = channels.person_for(cid) or memory.OWNER
+    with memory.as_person(person):
+        conv = get_conversation(cid)
+        if conv.person != person and not conv.messages:      # created before its channel link was written
+            fresh = Conversation(cid)
+            fresh.resume_note = conv.resume_note
+            conv = _CONVS[cid] = fresh
+        return _turn(cid, conv, text, call)
+
+
+def _turn(cid, conv, text, call):
     call = call or providers.claude
-    conv = get_conversation(cid)
     if conv.resume_note and not conv.messages:
         text = conv.resume_note + "\n" + text
         conv.resume_note = ""

@@ -9,6 +9,7 @@ facts about the person or their work as candidate notes. Rules:
   (score, repeated recall by distinct queries, a source line, at most a quarter of entries lost);
 - the reviewer may only add candidates; edits and removals are the person's.
 """
+import contextvars
 import json
 import threading
 
@@ -74,7 +75,9 @@ def after_turn(cid, messages, call=None):
         def work():
             _safe(review, cid, snapshot, call)
             _safe(memory.consolidate)                 # promotion pass: only notes that clear the gate move
-        threading.Thread(target=work, daemon=True).start()
+        # the turn's person (B5) travels into the background thread, so the notes land in that person's memory
+        ctx = contextvars.copy_context()
+        threading.Thread(target=ctx.run, args=(work,), daemon=True).start()
     return due
 
 

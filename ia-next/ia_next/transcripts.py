@@ -401,11 +401,23 @@ TOOLS = [
      "description": "Start a background task in which the Transcript Analyst reads the transcripts and documents uploaded to "
                     "an engagement and extracts findings with verbatim quotes (and the speaker, when the source names one), "
                     "each checked against its source. The findings feed the Writer, Journey Cartographer and Deck Composer. "
-                    "Needs an engagement with at least one upload.",
-     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "objective"],
+                    "Needs an engagement with at least one upload. When the uploads were already analysed and nothing new "
+                    "was uploaded since, use the existing findings (read them, or build the deck, map or diagram from "
+                    "them) instead of analysing again.",
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "objective", "reanalyze_confirmed"],
                       "properties": {"engagement_id": STR,
-                                     "objective": {"type": "string", "description": "What the findings must answer"}}}},
+                                     "objective": {"type": "string", "description": "What the findings must answer"},
+                                     "reanalyze_confirmed": {"type": "boolean", "description": (
+                                         "true only when the person asked to analyse the same files again; otherwise false")}}}},
 ]
+
+
+def _finished_analysis_since(eid, newest_upload):
+    """The newest finished upload analysis in this engagement started after the newest upload, or None."""
+    for t in store.list_tasks(engagement_id=eid, limit=200):
+        if t["kind"] == "transcript" and t["status"] == "done" and float(t["created"] or 0) >= newest_upload:
+            return t
+    return None
 
 
 def execute(name, args):
@@ -420,6 +432,13 @@ def execute(name, args):
         if not uploads:
             return {"error": "this engagement has no uploaded transcripts or documents yet; ask the person to upload one"}
         objective = str(args.get("objective") or "").strip() or eng.get("objective") or ""
+        done = _finished_analysis_since(eid, max(float(u.get("added") or 0) for u in uploads))
+        if done and not args.get("reanalyze_confirmed"):
+            n = len(_load(eid, "results/findings.json", {"findings": []}).get("findings") or [])
+            return {"needs_confirmation": True, "existing_task_id": done["id"], "existing_findings": n,
+                    "message": (f"These uploads were already analysed ({n} verified findings, task {done['id']}) and nothing "
+                                "new was uploaded since. Use those findings for what the person asked. Analyse again only if "
+                                "the person asks for a fresh analysis; then call again with reanalyze_confirmed true.")}
         # New uploads make a new task: the key includes which sources exist.
         idem = _idem(name, {"engagement_id": eid, "objective": objective}, sorted(s.get("sha256") or s["id"] for s in uploads))
         tid, created = start_transcript_task(eid, objective, DEFAULT_BUDGET_USD, idem)
