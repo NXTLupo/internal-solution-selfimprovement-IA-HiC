@@ -18,6 +18,9 @@ const CONNECTIVE = new Set([
     'slides:thesis-interstitial', 'slides:scene',
 ]);
 
+/** The smallest body-slide count the visual and geometry floors govern (was 6 until 2026-11-16). */
+export const MIN_FLOOR_BODY = 4;
+
 const VISUAL = new Set([
     'slides:stat-row', 'slides:evidence-table', 'slides:aggregate-roadmap',
     'slides:infographic-exhibit', 'slides:quadrant', 'slides:flow-arc',
@@ -26,6 +29,7 @@ const VISUAL = new Set([
     // Stage 3 (2026-10-01): the PRD projections are ledgers, signal tables and a trace matrix.
     'slides:prd-ledger', 'slides:prd-signals', 'slides:prd-trace',
 ]);
+
 
 /**
  * 2026-10-23 (#slides elevation, owner: "information poor"): a DENSITY FLOOR per body slide, measured on the
@@ -150,8 +154,23 @@ export interface DeckPlanGateOptions {
     /** Fences that carry the user's attached document are the client's own slides: the drawn floor does not count them. */
     isAttachedFence?: (fence: string) => boolean;
 }
-/** Archetypes whose body is a drawn visual, not a table or a text grid. */
+/**
+ * Archetypes whose body is a drawn visual, not a table or a text grid.
+ *
+ * 2026-11-09 (owner, comparing "The Architecture of Agency"): A TABLE IS NOT A PICTURE. The VISUAL
+ * set counts `evidence-table` and the three PRD projections, all ruled tables, so a deck built from
+ * them satisfied the visual floor while drawing nothing. This set is the geometry subset, now also
+ * used by the always-on geometry floor; `means-matters` and `comparison-panels` join it because
+ * both lay out proportional panels rather than cells.
+ */
 const DRAWN = new Set(['slides:infographic-exhibit', 'slides:flow-arc', 'slides:milestone-timeline', 'slides:ranked-bars', 'slides:quadrant']);
+
+/**
+ * The geometry floor's set: DRAWN plus the proportional-panel archetypes. Kept SEPARATE from DRAWN
+ * because `isDrawnFence` and the opt-in per-slide drawnFloor have established semantics that a
+ * wider set would silently change.
+ */
+const GEOMETRY = new Set([...DRAWN, 'slides:means-matters', 'slides:comparison-panels', 'slides:aggregate-roadmap']);
 /**
  * 2026-10-27 (run 44: an infographic-exhibit holding only before/after text panels counted as a drawing): an exhibit is
  * drawn when it carries a flowchart (nodes and edges) or a step flow; text panels, quote lists and stat tiles are not.
@@ -161,8 +180,12 @@ export function isDrawnFence(template: string, body: string): boolean {
     if (template !== 'slides:infographic-exhibit') return true;
     try {
         const p = JSON.parse(body);
+        // 2026-11-16: the architecture, funnel/pyramid and concept-cluster families are drawings too.
         return (Array.isArray(p?.nodes) && p.nodes.length >= 3 && Array.isArray(p?.edges) && p.edges.length >= 2)
-            || (Array.isArray(p?.steps) && p.steps.length >= 3);
+            || (Array.isArray(p?.steps) && p.steps.length >= 3)
+            || (Array.isArray(p?.architecture?.sources) && p.architecture.sources.length >= 2 && Array.isArray(p?.architecture?.views) && p.architecture.views.length >= 1)
+            || [p?.funnel, p?.pyramid, p?.stages].some((a: unknown) => Array.isArray(a) && a.length >= 3)
+            || (Array.isArray(p?.clusters) && p.clusters.length >= 1);
     } catch { return false; }
 }
 
@@ -218,15 +241,46 @@ export function evaluateDeckPlan(replyText: string, opts: DeckPlanGateOptions = 
     //    must argue visually, not in text columns. Floor: 40% of body slides visual,
     //    raisable per-session by a user directive (V2; clamped so a bad parse can
     //    never demand an all-visual or sub-default deck).
-    const visualFloor = Math.min(0.7, Math.max(0.4, opts.visualQuotaFloor ?? 0.4));
+    // 2026-11-09 OWNER DIRECTIVE (supersedes the 2026-07-09 40% floor): "#slides is THE most
+    // critical artifact and MUST be polished to a high degree... any prior rules preventing the
+    // perfect execution of these slides must be reconsidered vis a vis Gemini Notebook slides
+    // quality." The measured Gemini deck carries artwork on 15 of 15 slides; a 40% floor let HiC
+    // ship a majority-text deck and still pass. The default floor is now 0.7 and the ceiling 1.0,
+    // so an explicit "every slide" request can demand all of them.
+    const visualFloor = Math.min(1, Math.max(0.4, opts.visualQuotaFloor ?? 0.7));
     report.visualFloorApplied = visualFloor;
-    if (body.length >= 6 && report.visualRatio < visualFloor) {
+    // 2026-11-16 (owner's 5-slide outline deck "SUCKS ... no visuals at all"): both floors used to start at six body
+    // slides, so an outline deck of five was never asked for a single drawing. They now govern any deck of four or
+    // more body slides (MIN_FLOOR_BODY); a user-requested table still counts as visual, and the geometry floor still
+    // needs only 40% drawn, so a five-slide deck needs two drawn slides.
+    if (body.length >= MIN_FLOOR_BODY && report.visualRatio < visualFloor) {
         const texty = body.filter(t => !VISUAL.has(t));
         report.violations.push(
-            `only ${visualBody.length} of ${body.length} body slides are visual (${Math.round(report.visualRatio * 100)}%; floor ${Math.round(visualFloor * 100)}%${visualFloor > 0.4 ? ', raised by the user\'s explicit request for more graphics' : ''}). ` +
+            `only ${visualBody.length} of ${body.length} body slides are visual (${Math.round(report.visualRatio * 100)}%; floor ${Math.round(visualFloor * 100)}%${visualFloor > 0.7 ? ', raised by the user\'s explicit request for more graphics' : ''}). ` +
             `Convert text-column slides (${[...new Set(texty)].join(', ')}) whose content has SHAPE: a sequence -> slides:flow-arc, ` +
             `a comparison -> slides:comparison-panels or slides:evidence-table, hard numbers -> slides:means-matters or slides:stat-row, ` +
             `a distribution/ranking -> slides:ranked-bars, positioning -> slides:quadrant, phased time -> slides:milestone-timeline`);
+    }
+
+    // 5a. GEOMETRY FLOOR (2026-11-09, owner directive): always on, independent of the opt-in
+    //     drawnFloor below. A deck may satisfy the visual floor entirely with ruled tables
+    //     (evidence-table, prd-ledger, prd-signals, prd-trace are all in VISUAL), which is how a
+    //     deck passes the gate and still reads as text. At least 40% of body slides must carry
+    //     DRAWN geometry the reader interprets by shape, not by reading cells.
+    if (body.length >= MIN_FLOOR_BODY) {
+        const drawnBody = body.filter(t => GEOMETRY.has(t));
+        const drawnRatio = drawnBody.length / body.length;
+        if (drawnRatio < 0.4) {
+            const tabular = body.filter(t => VISUAL.has(t) && !GEOMETRY.has(t));
+            report.violations.push(
+                `only ${drawnBody.length} of ${body.length} body slides carry DRAWN geometry (${Math.round(drawnRatio * 100)}%; floor 40%). ` +
+                (tabular.length
+                    ? `A table is not a picture: ${[...new Set(tabular)].join(', ')} count as visual but draw nothing. `
+                    : '') +
+                `Give the argument a shape: proportion or filtering -> slides:ranked-bars or slides:means-matters, ` +
+                `sequence -> slides:flow-arc, positioning -> slides:quadrant, phased time -> slides:milestone-timeline, ` +
+                `a composed exhibit -> slides:infographic-exhibit`);
+        }
     }
 
     // 5b. DRAWN FLOOR (2026-10-27): a per-slide visualization ask is met by drawings, counted on the research slides.

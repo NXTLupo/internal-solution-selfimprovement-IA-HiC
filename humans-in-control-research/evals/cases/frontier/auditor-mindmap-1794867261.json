@@ -1,0 +1,15 @@
+{
+  "id": "auditor-mindmap-1794867261",
+  "set": "frontier",
+  "kind": "mindmap",
+  "input": {
+    "objective": "(see verdict row)",
+    "prompt": "#mindmap"
+  },
+  "origin": {
+    "type": "auditor_withhold",
+    "ref": "1794867261",
+    "added": "2026-11-16",
+    "note": "[\"evidence_anchoring\"]"
+  }
+}

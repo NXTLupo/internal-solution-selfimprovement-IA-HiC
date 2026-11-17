@@ -12,7 +12,7 @@ from util.image_processing.image_detector import (
     extract_reddit_image_url,
     is_reddit_image_url
 )
-from util.llm_models.openai import get_image_description_completion
+from util.llm_models.claude import get_image_description_completion
 from util.prompts.topic_prompt import get_image_description_prompt
 
 class RedditContentProcessor:
@@ -24,7 +24,7 @@ class RedditContentProcessor:
     - Gallery URLs: https://www.reddit.com/gallery/1l160b0 (processes first image only)
     - Reddit post URLs with images: https://www.reddit.com/r/sub/comments/id/title/
     
-    Skips preview.redd.it URLs as openai dont accept them.
+    Skips preview.redd.it URLs (signed, short-lived links the vision API cannot fetch).
     """
     
     def __init__(self):
@@ -139,7 +139,7 @@ class RedditContentProcessor:
                 self.processed_urls[image_url] = None
                 return None
                 
-            # Get image description using GPT-4o
+            # Get image description using Claude Opus 5.5 vision
             prompt_text = get_image_description_prompt()
             description = get_image_description_completion(image_url, prompt_text)
             

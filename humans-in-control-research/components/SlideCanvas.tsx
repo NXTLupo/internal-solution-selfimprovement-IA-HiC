@@ -596,6 +596,26 @@ export const SlideCanvas: React.FC<Props> = ({
     // because the preview applies CSS scale() that would skew captured rects.
     const handleExportPPTX = async () => {
         setExporting(true);
+        // 2026-11-16 (owner: "#arch ... is NOT a diagram", then "remains editable in powerpoint"): an architecture
+        // map with named connections exports as a native connector diagram (shapes, routed lines, text notes).
+        const _am = (slide as any).architectureMap;
+        if (String(slide.template || '').toLowerCase() === 'architecture-map' && Array.isArray(_am?.connections) && _am.connections.length) {
+            try {
+                const { buildDiagramSpec } = await import('../services/diagramSpec');
+                const { exportArchPptx } = await import('../services/goldArtifact');
+                const spec = buildDiagramSpec(slide as any);
+                if (spec) {
+                    // named sources only: a raw manifest pointer is evidence binding, never reader-facing text
+                    const named = (slide.sources || []).map(String).filter(x => x.trim() && !/\.md#c\d+|^\s*\[/.test(x));
+                    const notes = named.length ? `Sources:\n${named.join('\n')}` : '';
+                    await exportArchPptx(spec, String(slide.brand || 'nxt'), notes, `${fileBase()}.pptx`);
+                    setExporting(false);
+                    return;
+                }
+            } catch (e) {
+                console.error('[slide-export] native architecture export failed; using the stage export', e);
+            }
+        }
         // 2026-06-11 - ONE-ENGINE REWIRE. PRIMARY path is now the same gold
         // stage pipeline the deck export uses: emit a fresh 1920x1080 #stage
         // from SlideData via slideDataToStageHtml and ship through
@@ -718,8 +738,24 @@ export const SlideCanvas: React.FC<Props> = ({
 
     const fileBase = () => slide.title.replace(/[^a-zA-Z0-9 ]/g, '').substring(0, 40).trim().replace(/\s+/g, '_') || 'slide';
 
+    // 2026-11-16 (owner's #arch PNG and PDF were unreadable: html2canvas painted NU's Lato text in a fallback face
+    // at Lato's positions): the proxy renders the same stage HTML in Chromium; html2canvas stays only as a fallback.
+    const exportViaProxy = async (format: 'png' | 'pdf'): Promise<boolean> => {
+        try {
+            const html = stageHtml || slideDataToStageHtml(slide as any, deckPos);
+            if (!html) return false;
+            const { exportGoldImage } = await import('../services/goldArtifact');
+            await exportGoldImage([html], format, `${fileBase()}.${format}`);
+            return true;
+        } catch (e) {
+            console.error(`[slide-export] proxy ${format} export failed; falling back to the in-browser capture`, e);
+            return false;
+        }
+    };
+
     const handleExportPNG = async () => {
         setExporting(true);
+        if (await exportViaProxy('png')) { setExporting(false); return; }
         try {
             const canvas = await captureSlideAtNaturalSize();
             if (!canvas) return;
@@ -733,6 +769,7 @@ export const SlideCanvas: React.FC<Props> = ({
 
     const handleExportPDF = async () => {
         setExporting(true);
+        if (await exportViaProxy('pdf')) { setExporting(false); return; }
         try {
             const canvas = await captureSlideAtNaturalSize();
             if (!canvas) return;

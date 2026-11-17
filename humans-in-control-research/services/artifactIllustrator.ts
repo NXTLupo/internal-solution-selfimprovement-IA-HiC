@@ -120,8 +120,144 @@ function cleanDiagramText(v: unknown): string {
         .trim();
 }
 
+// ---------------------------------------------------------------------------
+// 2026-11-09 (owner: "the #infographics are terrible"): the theme fallback shipped FIVE cards
+// that all said the same thing ("Students demand Bring-Your-Own-AI context layers over
+// institution-locked tools", "User Demand for Portable Context Layers Over Locked Institutional
+// Interfaces", ...), numbered 01-05 as if they were a sequence. Three separate defects, all
+// fixed here rather than in a prompt, because a fallback must be right without a model:
+//   1) near-duplicate theme names were never de-duplicated,
+//   2) unordered themes were rendered as a process flow, which asserts an order,
+//   3) full-sentence theme names were dropped into 3-6 word card slots, so the type cramped.
+// ---------------------------------------------------------------------------
+
+/**
+ * Crude suffix stemmer. Exact tokens are not enough to see a paraphrase: the owner's five cards
+ * scored only 0.30 overlap on raw tokens because one said "institution-locked tools" and another
+ * "Locked Institutional Interfaces". Folding institution/institutional and tool/tools is what
+ * makes a restatement measurable.
+ */
+function stem(w: string): string {
+    let s = w;
+    // Order matters and is load-bearing: stripping 'ional' first turned "institutional" into
+    // "institut" while "institution" stayed whole, so the two never matched and the owner's five
+    // restatements scored only 0.30. Strip 'al' instead, which folds them both to "institution".
+    for (const suf of ['ization', 'isation', 'ities', 'ance', 'ence', 'ment', 'ness', 'ing', 'ity', 'ial', 'ive', 'ally', 'al', 'es', 'ed', 's']) {
+        if (s.length > suf.length + 3 && s.endsWith(suf)) { s = s.slice(0, -suf.length); break; }
+    }
+    return s;
+}
+
+/** Content words of a label, stemmed, for comparing what two labels are actually ABOUT. */
+function conceptTokens(s: string): Set<string> {
+    const STOP = new Set(['the', 'and', 'for', 'over', 'with', 'from', 'into', 'their', 'your', 'our',
+        'are', 'is', 'to', 'of', 'in', 'on', 'a', 'an', 'as', 'by', 'that', 'this', 'than', 'then',
+        'demand', 'demands', 'want', 'wants', 'need', 'needs', 'user', 'users', 'student', 'students']);
+    const words = String(s || '').toLowerCase().match(/[a-z]{3,}/g) || [];
+    return new Set(words.filter(w => !STOP.has(w)).map(stem).filter(w => w.length >= 3));
+}
+
+/** Jaccard overlap of two labels' content words: 1.0 means they say the same thing. */
+export function conceptOverlap(a: string, b: string): number {
+    const A = conceptTokens(a), B = conceptTokens(b);
+    if (A.size === 0 || B.size === 0) return 0;
+    let shared = 0;
+    for (const w of A) if (B.has(w)) shared += 1;
+    return shared / (A.size + B.size - shared);
+}
+
+/**
+ * Keep only labels that say DIFFERENT things. The first wording of a concept wins; any later
+ * label overlapping it by `threshold` or more is dropped, because five restatements of one idea
+ * is one idea, and drawing it five times tells the reader nothing.
+ */
+/*
+ * Threshold measured, not guessed (2026-11-09). On the owner's five restatements the pairwise
+ * stemmed overlap sits between 0.30 and 0.50; on three genuinely different themes from the same
+ * session it sits between 0.00 and 0.06. 0.3 is inside that gap with room on both sides.
+ */
+export function distinctConcepts(labels: string[], threshold = 0.3): string[] {
+    const kept: string[] = [];
+    for (const raw of labels) {
+        const label = String(raw || '').trim();
+        if (!label) continue;
+        if (kept.some(k => conceptOverlap(k, label) >= threshold)) continue;
+        kept.push(label);
+    }
+    return kept;
+}
+
+/**
+ * Split one long label into a short card name and the rest as its caption, so a full-sentence
+ * theme does not get crammed into a heading slot. Cuts on a clause boundary when there is one.
+ */
+export function splitLabelForCard(label: string, maxWords = 6): { name: string; detail?: string } {
+    const text = String(label || '').replace(/\s+/g, ' ').trim();
+    if (!text) return { name: '' };
+    const words = text.split(' ');
+    if (words.length <= maxWords) return { name: text.replace(/[.,;:]+$/, '') };
+
+    // A non-greedy clause regex was tried here first and produced an EMPTY name on one live
+    // theme and a one-word name on another, so the cut is now done by explicit search: find the
+    // earliest clause marker that leaves a usable head, else take the first `maxWords` words.
+    const detail = text.replace(/[.]+$/, '') + '.';
+    const MARKERS = [', ', '; ', ': ', ' rather than ', ' instead of ', ' over ', ' across ', ' because ', ' while ', ' when ', ' but '];
+    let best = -1;
+    for (const m of MARKERS) {
+        const at = text.toLowerCase().indexOf(m);
+        if (at <= 0) continue;
+        const headWords = text.slice(0, at).trim().split(' ').length;
+        if (headWords >= 2 && headWords <= maxWords + 2 && (best < 0 || at < best)) best = at;
+    }
+    const head = best > 0 ? text.slice(0, best).trim() : words.slice(0, maxWords).join(' ');
+    const name = head.replace(/[.,;:]+$/, '').trim();
+    return name ? { name, detail } : { name: words.slice(0, maxWords).join(' '), detail };
+}
+
+/**
+ * The #infographic fallback when the model returns nothing structurable: the session's own
+ * DISTINCT themes as a concept cluster (no sequence asserted), short names with the full theme
+ * sentence as the caption. Returns null when fewer than three distinct ideas survive, because
+ * two restatements of one theme is not an exhibit.
+ */
+export function themeClusterSpecFrom(themeNames: string[]): Record<string, unknown> | null {
+    const distinct = distinctConcepts(themeNames).slice(0, 4);
+    if (distinct.length < 3) return null;
+    // NOT `.map(splitLabelForCard)`: Array.map passes the index as the second argument, which
+    // became `maxWords`, so card 0 got a zero-word name and card 1 a one-word name.
+    const nodes = distinct.map(label => splitLabelForCard(label)).filter(n => n.name);
+    if (nodes.length < 3) return null;
+    return { kind: 'concept-cluster', groups: [{ heading: '', nodes }] };
+}
+
 export function infographicSpecFrom(el: unknown, concept: string): Record<string, unknown> | null {
     const o = (el && typeof el === 'object') ? el as Record<string, unknown> : {};
+    // -1) 2026-11-16 (owner's #slides "Data Architecture" slide drew a Mermaid tangle: edge labels over the
+    //     PRODUCT VIEWS label, four views in one node). Named sources feeding one governed layer feeding named
+    //     views is an ARCHITECTURE, drawn as three collision-free columns with every label inside its box
+    //     (the Gemini Notebook diagram grammar). Its own key, never top-level `sources` (citations use that).
+    {
+        const a = o['architecture'];
+        if (a && typeof a === 'object' && !Array.isArray(a)) {
+            const r = a as Record<string, unknown>;
+            const cards = (raw: unknown, limit: number) => (Array.isArray(raw) ? raw : []).map((x) => {
+                if (typeof x === 'string') { const name = cleanDiagramText(x); return name ? { name } : null; }
+                if (x && typeof x === 'object') {
+                    const xr = x as Record<string, unknown>;
+                    const name = cleanDiagramText(xr.name ?? xr.label ?? xr.title ?? '');
+                    const detail = cleanDiagramText(xr.detail ?? xr.description ?? '');
+                    return name ? (detail ? { name, detail } : { name }) : null;
+                }
+                return null;
+            }).filter(Boolean).slice(0, limit);
+            const sources = cards(r.sources, 7), views = cards(r.views, 5);
+            const lr = (r.layer && typeof r.layer === 'object') ? r.layer as Record<string, unknown> : {};
+            const items = (Array.isArray(lr.items) ? lr.items : []).map(i => cleanDiagramText(i)).filter(Boolean).slice(0, 4);
+            if (sources.length >= 2 && views.length >= 1) {
+                return { kind: 'data-architecture', sources, views, layer: { name: cleanDiagramText(lr.name ?? '') || 'Governed data layer', items } };
+            }
+        }
+    }
     // 0) 2026-10-23: a structured graph (nodes + edges, optional groups) renders as a NATIVE flowchart (Mermaid
     //    layout in the proxy's Chromium): decision trees, system flows, operating models, escalation paths.
     if (Array.isArray(o['nodes']) && Array.isArray(o['edges'])) {
@@ -145,6 +281,80 @@ export function infographicSpecFrom(el: unknown, concept: string): Record<string
             if (Array.isArray(o['groups'])) spec['groups'] = o['groups'];
             if (typeof o['direction'] === 'string') spec['direction'] = o['direction'];
             return spec;
+        }
+    }
+    // 0.5) 2026-11-09 (plans/gemini-notebook-parity-closeout-2026-11-09.md WS-D2): a CONCEPT
+    //      CLUSTER, the shape the live Gemini comparison drew and HiC had no family for: related
+    //      mechanisms grouped under headings, with no sequence between them. Checked before the
+    //      process-flow branch because a cluster's items are NOT steps; routing them to
+    //      process-flow draws arrows that assert an order the evidence does not support.
+    {
+        const rawGroups = o['clusters'] ?? o['conceptGroups'] ?? o['themesGrouped'];
+        if (Array.isArray(rawGroups)) {
+            const groups = (rawGroups as unknown[]).map((g) => {
+                if (!g || typeof g !== 'object') return null;
+                const r = g as Record<string, unknown>;
+                const heading = cleanDiagramText(r.heading ?? r.title ?? r.name ?? '');
+                const rawNodes = Array.isArray(r.nodes) ? r.nodes : (Array.isArray(r.items) ? r.items : []);
+                const nodes = (rawNodes as unknown[]).map((n) => {
+                    if (typeof n === 'string') {
+                        const nm = cleanDiagramText(n);
+                        return nm ? { name: nm } : null;
+                    }
+                    if (n && typeof n === 'object') {
+                        const nr = n as Record<string, unknown>;
+                        const name = cleanDiagramText(nr.name ?? nr.title ?? nr.label ?? '');
+                        const detail = cleanDiagramText(nr.detail ?? nr.description ?? nr.caption ?? '');
+                        return name ? (detail ? { name, detail } : { name }) : null;
+                    }
+                    return null;
+                }).filter(Boolean).slice(0, 4);
+                return nodes.length > 0 ? { heading, nodes } : null;
+            }).filter(Boolean).slice(0, 2);
+            const total = groups.reduce((n, g) => n + ((g as { nodes: unknown[] }).nodes.length), 0);
+            if (groups.length >= 1 && total >= 3) return { kind: 'concept-cluster', groups };
+        }
+    }
+    // 0.6) 2026-11-09 (closeout plan E2 items 3-4): CONTAINMENT + PROPORTION shapes. A funnel is not
+    //      a process flow: a flow asserts order, a funnel asserts progressive LOSS, and the shape
+    //      itself carries that claim. Checked before process-flow for the same reason clusters are.
+    {
+        // 2026-11-16: a `pyramid` key draws the pyramid family (narrowest first); it was unreachable before.
+        const rawFunnel = o['funnel'] ?? o['pyramid'] ?? o['stages'];
+        if (Array.isArray(rawFunnel)) {
+            const stages = (rawFunnel as unknown[]).map((x) => {
+                if (typeof x === 'string') {
+                    const nm = cleanDiagramText(x);
+                    return nm ? { name: nm } : null;
+                }
+                if (x && typeof x === 'object') {
+                    const r = x as Record<string, unknown>;
+                    const name = cleanDiagramText(r.name ?? r.title ?? r.label ?? '');
+                    const detail = cleanDiagramText(r.detail ?? r.description ?? r.body ?? '');
+                    return name ? (detail ? { name, detail } : { name }) : null;
+                }
+                return null;
+            }).filter(Boolean).slice(0, 5);
+            if (stages.length >= 3) return { kind: Array.isArray(o['pyramid']) && !Array.isArray(o['funnel']) ? 'pyramid' : 'funnel', stages };
+        }
+        const rawNested = o['nested'] ?? o['layers'];
+        if (Array.isArray(rawNested) && !Array.isArray(o['funnel'])) {
+            const layers = (rawNested as unknown[]).map((x) => {
+                if (typeof x === 'string') {
+                    const nm = cleanDiagramText(x);
+                    return nm ? { name: nm } : null;
+                }
+                if (x && typeof x === 'object') {
+                    const r = x as Record<string, unknown>;
+                    // A layered ARCHITECTURE map also uses `layers`, but its entries carry nodes;
+                    // those belong to the arch family, not to a containment diagram.
+                    if (Array.isArray((r as any).nodes)) return null;
+                    const name = cleanDiagramText(r.name ?? r.title ?? r.label ?? '');
+                    return name ? { name } : null;
+                }
+                return null;
+            }).filter(Boolean).slice(0, 4);
+            if (layers.length >= 2) return { kind: 'nested', layers };
         }
     }
     // 1) process-flow from actions/steps/phases (the mechanism the element proposes).

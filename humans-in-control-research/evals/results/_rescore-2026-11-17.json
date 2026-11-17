@@ -1,0 +1,40 @@
+{
+  "started_at": "2026-11-17T01:15:02.710394Z",
+  "finished_at": "2026-11-17T01:15:09.027116Z",
+  "window_hours": 24.0,
+  "artifacts": 2,
+  "failures": 2,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [],
+    "skipped_existing": 258,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 2,
+    "verdicts": 1278,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": [
+    {
+      "artifact_id": "slides_1794868275046",
+      "run_id": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th",
+      "kind": "slides",
+      "failures": [
+        "title:too_long@slide_1794868275078_rdenjv",
+        "title:too_long@slide_1794868275080_114ysf",
+        "title:too_long@slide_1794868275080_g3iyfh"
+      ]
+    },
+    {
+      "artifact_id": "architecture-map_1794874296269",
+      "run_id": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th",
+      "kind": "arch",
+      "failures": [
+        "title:too_long@slide_1794874296280_5ou0z7"
+      ]
+    }
+  ]
+}

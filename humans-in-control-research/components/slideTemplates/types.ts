@@ -578,6 +578,8 @@ export interface ArchitectureMapData {
         nodes: Array<{ name: string; type?: string; description?: string }>;
     }>;
     flowSummary?: string;             // one-line description of data flow
+    /** 2026-11-16: the named flows between components; the #arch diagram draws one arrow per entry. */
+    connections?: Array<{ from: string; to: string; label?: string }>;
 }
 
 // === PRD FEATURE CARD ===

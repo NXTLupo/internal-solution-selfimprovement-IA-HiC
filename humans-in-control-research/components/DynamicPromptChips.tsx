@@ -40,6 +40,7 @@ const KIND_GLYPH: Record<SuggestionKind, string> = {
     'synthesis': '∑',
     'slide-request': '▦',
     'evidence-probe': '',
+    'report-format': '',
 };
 
 // 2026-05-12 - Map each suggestion kind to the directive that would
@@ -60,6 +61,10 @@ const KIND_HASHTAG: Record<SuggestionKind, string | null> = {
     'synthesis': null,
     'slide-request': '#presentation',
     'evidence-probe': null,                 // open-ended prose answer is fine
+    // 2026-11-09 (closeout plan WS-B2b): a report-format chip ALREADY carries its own
+    // hashtag in the text (suggestReportFormats writes "#faq <objective>"), so prepending
+    // another directive here would produce two hashtags in one composer line.
+    'report-format': null,
 };
 
 const PHASE_LABEL: Record<CollectionPhase, string> = {

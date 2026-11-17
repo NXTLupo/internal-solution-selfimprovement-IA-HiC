@@ -182,6 +182,40 @@ The sentiment analysis pipeline includes:
 6. LLM-based sentiment analysis
 7. Point merging and categorization
 
+### LLM models (2026-11-09)
+Every LLM analysis call goes through `backend/util/llm_models/claude.py` on **`claude-opus-5-5`**:
+topic summaries (`BertTopic.summarize_topics`), sentiment evidence (`extract_sentiment_evidence`),
+image descriptions (`image_processing/content_processor`), RAG chat + its keyword extraction
+(`api_pgvector`), and the LLM Analyzer chunks/merges/AI summary (`api_llm_analyzer`).
+- Override with `SOCIAL_RESEARCH_CLAUDE_MODEL`. `CLAUDE4_MODEL` is deliberately ignored (the
+  workbench root `.env` pins it to a retired snapshot that 404s).
+- Opus 5.5 rejects `temperature`/`top_p`/`top_k` and always thinks: `claude.py` drops the
+  `temperature` argument callers still pass, reads text by block type (a response starts with a
+  `thinking` block), uses `max_tokens=16000`, sets `output_config.effort`, and enables the
+  server-side refusal fallback (`fallbacks: "default"`).
+- `util/llm_models/deepseek.py` is a stub returning `""`; the legacy `deepseek-r1` analyzer value is
+  mapped to Opus 5.5 in `process_chunk`.
+- Non-LLM models are unchanged: BERTopic + `all-mpnet-base-v2` embeddings, CardiffNLP RoBERTa
+  sentiment (one cached pipeline per process).
+
+### Topic-modeling run lifecycle and triage
+`POST /api/topic-model/analyze-async` creates a `reddit_jobs` row and runs
+`process_topic_model_job` in a thread: fetch (8%) -> save/retrieve posts (9%) -> BERTopic (50%)
+-> similarities (60%) -> Claude topic summaries (70%) -> RoBERTa per-post sentiment + Claude
+evidence (75-90%) -> pgvector index + save into `reddit_results` where `id` = the project id in
+the `/topic-modeling/<projectId>` URL (99-100%).
+- Keyword runs: Reddit relevance search (the UI Sort By is ignored), limited to the date range,
+  plus stored posts whose title/body/stored comments mention the keyword (whole word, case-insensitive),
+  newest first. Reddit search does not index comments. The post browser
+  `/reddit-browser/subreddit/<name>?q=&start=&end=` applies the same whole-word rule; keyword results
+  link to it.
+- Triage: `select id,status,progress,message,error,parameters from reddit_jobs order by created_at desc`
+  in `social-research-db` (database `app`); backend logs; per-run artifacts in `backend/log_topic/`
+  (shared by all jobs and wiped at each job start).
+- The backend runs gunicorn with the source volume-mounted: `docker compose -f docker-compose-all.yml
+  restart social-research-backend` reloads code, and kills any running job (it is marked orphaned).
+  Check `reddit_jobs` for `processing` rows first.
+
 ## Common Issues and Solutions
 
 - **Memory errors in Docker**: Adjust memory limits in docker-compose.yml

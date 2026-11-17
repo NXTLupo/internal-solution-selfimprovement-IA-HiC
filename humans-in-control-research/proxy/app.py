@@ -5273,10 +5273,56 @@ def _audio_dir() -> str:
     return d
 
 
+
+# =============================================================================
+# TTS FALLBACK (2026-11-09, closeout plan WS-B3). The ElevenLabs 401 that degraded
+# #audio-overview was NOT a bad key: the key authenticates and the account is simply out of
+# characters on the free tier, and ElevenLabs answers TTS with 401 once the allowance is gone.
+# Rather than leave the capability waiting on a billing decision, a spent quota now falls back to
+# OpenAI speech, whose key is already configured for chat. Two provider voices keep the two-speaker
+# shape. The caller is told which provider spoke, so a degraded render is never silent about it.
+# =============================================================================
+class _TtsExhausted(Exception):
+    """The primary voice provider cannot render this run (quota, plan or refusal)."""
+
+
+_OPENAI_TTS_VOICE_A = os.environ.get("OPENAI_TTS_VOICE_A", "alloy")
+_OPENAI_TTS_VOICE_B = os.environ.get("OPENAI_TTS_VOICE_B", "onyx")
+
+
+async def _openai_speak_turns(turns: list) -> tuple:
+    """Render dialogue turns with OpenAI speech. Returns (audio_bytes, voices_used, error)."""
+    key = os.environ.get("OPENAI_API_KEY", "")
+    if not key:
+        return b"", 0, "OPENAI_API_KEY is not configured, so no fallback provider is available"
+    audio = bytearray()
+    used = set()
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(120.0, connect=15.0)) as client:
+            for t in turns:
+                is_b = str(t.get("speaker") or "").strip().lower() in ("b", "2", "skeptic", "partner")
+                voice = _OPENAI_TTS_VOICE_B if is_b else _OPENAI_TTS_VOICE_A
+                text = str(t.get("text") or "").strip()[:_TTS_MAX_TURN_CHARS]
+                if not text:
+                    continue
+                r = await client.post(
+                    "https://api.openai.com/v1/audio/speech",
+                    headers={"Authorization": f"Bearer {key}", "content-type": "application/json"},
+                    json={"model": "gpt-4o-mini-tts", "voice": voice, "input": text, "response_format": "mp3"},
+                )
+                if r.status_code >= 300:
+                    return b"", 0, f"OpenAI speech refused ({r.status_code}): {(r.text or '')[:160]}"
+                audio += r.content
+                used.add(voice)
+    except httpx.HTTPError as e:
+        return b"", 0, f"OpenAI speech unreachable: {e}"
+    return bytes(audio), len(used), ""
+
+
 @app.post("/api/tts/dialogue")
 async def tts_dialogue(request: Request):
-    if not _ELEVENLABS_API_KEY:
-        return JSONResponse({"error": "ELEVENLABS_API_KEY is not configured on the proxy"}, status_code=503)
+    if not _ELEVENLABS_API_KEY and not os.environ.get("OPENAI_API_KEY", ""):
+        return JSONResponse({"error": "no TTS provider is configured on the proxy"}, status_code=503)
     try:
         body = await request.json()
     except Exception:
@@ -5326,8 +5372,7 @@ async def tts_dialogue(request: Request):
                 is_b = str(t.get("speaker") or "").strip().lower() in ("b", "2", "skeptic", "partner")
                 usable = [v for v in candidates if v not in blocked]
                 if not usable:
-                    return JSONResponse({"error": "TTS provider refused every candidate voice (plan limits)",
-                                         "detail": "all candidate voices returned payment/permission errors"}, status_code=502)
+                    raise _TtsExhausted("every candidate voice returned a payment or permission error")
                 order = (usable[1:2] + usable[:1]) if is_b and len(usable) > 1 else usable[:1]
                 order += [v for v in usable if v not in order]
                 text = str(t.get("text") or "").strip()[:_TTS_MAX_TURN_CHARS]
@@ -5342,20 +5387,35 @@ async def tts_dialogue(request: Request):
                     break
                 if r is None or r.status_code >= 300:
                     detail = ((r.text if r is not None else "") or "")[:200]
-                    logger.warning(f"[tts] ElevenLabs refused a turn ({r.status_code if r is not None else 'n/a'}): {detail}")
-                    return JSONResponse({"error": f"TTS provider refused ({r.status_code if r is not None else 'n/a'})",
-                                         "detail": detail}, status_code=502)
+                    code = r.status_code if r is not None else "n/a"
+                    logger.warning(f"[tts] ElevenLabs refused a turn ({code}): {detail}")
+                    raise _TtsExhausted(f"ElevenLabs refused ({code}): {detail}")
                 voices_used.add(order[0] if order[0] not in blocked else next(v for v in order if v not in blocked))
                 audio += r.content
-    except httpx.HTTPError as e:
-        return JSONResponse({"error": f"TTS provider unreachable: {e}"}, status_code=502)
+    except (_TtsExhausted, httpx.HTTPError) as e:
+        # The primary provider is out of quota, plan-blocked or unreachable. Render with the
+        # fallback rather than returning no audio at all.
+        logger.warning(f"[tts] primary provider unavailable ({e}); falling back to OpenAI speech")
+        fb_audio, fb_voices, fb_err = await _openai_speak_turns(turns)
+        if not fb_audio:
+            return JSONResponse({"error": "every TTS provider refused",
+                                 "detail": f"primary: {e}; fallback: {fb_err}"}, status_code=502)
+        out_path = os.path.join(_audio_dir(), f"{slug}.mp3")
+        with open(out_path, "wb") as f:
+            f.write(fb_audio)
+        logger.info(f"[tts] dialogue '{slug}' rendered by the FALLBACK provider: {len(turns)} turns, "
+                    f"{fb_voices} voice(s) -> {len(fb_audio)} bytes")
+        return {"url": f"/api/artifacts/audio/{slug}.mp3", "slug": slug, "bytes": len(fb_audio),
+                "turns": len(turns), "voices": fb_voices, "provider": "openai",
+                "degraded": "the primary voice provider was unavailable, so a fallback voice spoke this overview",
+                "seconds": round(time.time() - t0, 1)}
     out_path = os.path.join(_audio_dir(), f"{slug}.mp3")
     with open(out_path, "wb") as f:
         f.write(bytes(audio))
     logger.info(f"[tts] dialogue '{slug}': {len(turns)} turns, {len(voices_used)} voice(s) -> {len(audio)} bytes in {time.time() - t0:.1f}s"
                 + (f" (blocked: {len(blocked)})" if blocked else ""))
     return {"url": f"/api/artifacts/audio/{slug}.mp3", "slug": slug, "bytes": len(audio), "turns": len(turns),
-            "voices": len(voices_used), "seconds": round(time.time() - t0, 1)}
+            "voices": len(voices_used), "provider": "elevenlabs", "seconds": round(time.time() - t0, 1)}
 
 
 # =============================================================================
@@ -22113,6 +22173,80 @@ async def gold_export_pptx_multi(payload: dict):
     )
 
 
+@app.post("/api/gold/export-arch-pptx")
+async def gold_export_arch_pptx(payload: dict):
+    """#arch as a NATIVE editable PowerPoint diagram (2026-11-16; see arch_native_pptx.py): typed component shapes,
+    routed connection lines with arrowheads and text notes, all editable.
+
+    Payload: { "spec": <diagram spec: layers, connections, title, flowSummary>, "brand": "nxt" | "nu" | "deciem",
+               "notes": "speaker notes (sources)", "filename": "x.pptx" }
+    """
+    import asyncio
+    import tempfile
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+
+    spec = payload.get("spec")
+    if not isinstance(spec, dict) or not isinstance(spec.get("layers"), list):
+        raise HTTPException(status_code=400, detail="payload.spec must carry layers")
+    name = re.sub(r"[^A-Za-z0-9._-]", "_", str(payload.get("filename") or "architecture.pptx"))[:120]
+    if not name.lower().endswith(".pptx"):
+        name += ".pptx"
+    pal = _diagram_palette(str(payload.get("brand") or "nxt"), "light")
+    clean = {**spec, "title": _scrub_diag_text(spec.get("title")), "flowSummary": _scrub_diag_text(spec.get("flowSummary")),
+             "layers": [{"name": _scrub_diag_text(ly.get("name")), "nodes": [{"name": _scrub_diag_text(n.get("name") or n.get("label")), "type": _scrub_diag_text(n.get("type")),
+                                                                  "description": _scrub_diag_text(n.get("description") or n.get("desc"))}
+                                                                 for n in (ly.get("nodes") or []) if isinstance(n, dict)]}
+                        for ly in spec["layers"] if isinstance(ly, dict)],
+             "connections": [{"from": _scrub_diag_text(c.get("from")), "to": _scrub_diag_text(c.get("to")), "label": _scrub_diag_text(c.get("label"))}
+                             for c in (spec.get("connections") or []) if isinstance(c, dict)]}
+    out_path = os.path.join(tempfile.mkdtemp(prefix="hic-arch-pptx-"), name)
+    try:
+        from arch_native_pptx import build_arch_pptx
+        counts = await asyncio.to_thread(build_arch_pptx, clean, pal, out_path, str(payload.get("notes") or ""))
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    except Exception as e:
+        logger.exception("arch pptx export failed")
+        raise HTTPException(status_code=500, detail=f"architecture export failed: {e}")
+    return FileResponse(out_path, filename=name,
+                        media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                        headers={"X-Arch-Counts": ",".join(f"{k}={v}" for k, v in counts.items())})
+
+
+@app.post("/api/gold/export-image")
+async def gold_export_image(payload: dict):
+    """PNG or PDF of #stage 1920x1080 HTML, rendered by Chromium (2026-11-16; see stage_raster_export.py: the SPA's
+    html2canvas exports painted NU's Lato text in a fallback face at Lato's positions and the words collided).
+
+    Payload: { "slides": ["<#stage html>", ...], "format": "png" | "pdf", "filename": "x.png" (optional) }
+    PNG returns the first slide at 3840x2160; PDF returns every slide as a vector-text page.
+    """
+    import asyncio
+    from fastapi import HTTPException
+    from fastapi.responses import Response
+
+    stages = payload.get("slides")
+    fmt = str(payload.get("format") or "png").lower()
+    if fmt not in ("png", "pdf"):
+        raise HTTPException(status_code=400, detail="format must be png or pdf")
+    if not isinstance(stages, list) or not stages or not all(isinstance(h, str) and h.strip() for h in stages):
+        raise HTTPException(status_code=400, detail="payload must include non-empty 'slides' (list of #stage HTML strings)")
+    if len(stages) > 60:
+        raise HTTPException(status_code=400, detail="at most 60 slides per export")
+    name = re.sub(r"[^A-Za-z0-9._-]", "_", str(payload.get("filename") or f"slide.{fmt}"))[:120]
+    if not name.lower().endswith("." + fmt):
+        name += "." + fmt
+    try:
+        from stage_raster_export import stages_to_pdf, stages_to_png
+        data = await asyncio.to_thread(stages_to_pdf if fmt == "pdf" else stages_to_png, stages)
+    except Exception as e:
+        logger.exception("gold image export failed")
+        raise HTTPException(status_code=500, detail=f"image export failed: {e}")
+    return Response(content=data, media_type="application/pdf" if fmt == "pdf" else "image/png",
+                    headers={"Content-Disposition": f'attachment; filename="{name}"'})
+
+
 @app.post("/api/gold/export-pptx")
 async def gold_export_pptx(payload: dict):
     """Convert GOLD-language HTML (a self-contained 1920x1080 #stage document) into an
@@ -24911,10 +25045,44 @@ def _photo_prompt(concept: str, slot: str, brand: str = "nxt", scene: Optional[d
     )
 
 
-def _illustration_prompt(concept: str, brand: str, canvas: str) -> str:
+# 2026-11-09 (owner directive): the selectable drawn-illustration styles. Mirrors
+# services/imageryStyles.ts; each value says what to DRAW and never names a colour value, because
+# _illus_palette() supplies the brand hexes per brand and canvas.
+_ILLUS_STYLE_DIRECTIVE = {
+    "isometric": (
+        "a clean isometric technical illustration at a true 30 degree axonometric angle, built from "
+        "layered flat planes and simple extruded volumes, even line weight on every edge, matte flat "
+        "fills, NO gradients, NO cast shadows, NO reflections, NO perspective vanishing points"
+    ),
+    "blueprint": (
+        "a technical schematic drawing in thin even construction lines on a faint drafting grid "
+        "ground, with small registration ticks and plain dimension marks, one flat accent fill used "
+        "sparingly to pick out the subject, NO shading, NO realism, NO texture"
+    ),
+    "collage": (
+        "a flat editorial cut-paper collage built from bold simple geometric shapes with hard clean "
+        "edges and slight paper overlap, one clear subject, NO photographic texture, NO gradients, "
+        "NO drop shadows"
+    ),
+}
+_ILLUS_STYLE_IDS = ("line", "photo-background", "photo-portrait", "photo-scene") + tuple(_ILLUS_STYLE_DIRECTIVE)
+
+
+def _illustration_prompt(concept: str, brand: str, canvas: str, style: str = "line") -> str:
     brand = _norm_brand(brand)
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
     la = _illus_palette(brand, canvas)
+    # 2026-11-09 (owner directive): a non-default drawn style replaces the continuous-line body while
+    # keeping the shared bans and the brand palette, so every style lands inside NXT/NU/DECIEM.
+    _sd = _ILLUS_STYLE_DIRECTIVE.get(str(style or "").lower())
+    if _sd:
+        return (
+            f"A minimalist vector illustration depicting: {concept.strip()}. "
+            f"{_sd}. Drawn in {la['line']} line work with flat shapes of {la['blobs']}. "
+            "ONE single subject only - do NOT fuse or collage unrelated objects. "
+            "Pure WHITE background ONLY - NO background fill, NO ground, NO box, NO frame. "
+            "Absolutely NO text, NO words, NO letters, NO numbers, NO logos, NO watermarks anywhere."
+        )
     # HOUSE STYLE (user-locked 2026-06-17): fluid CONTINUOUS single-line art + bold flat color shapes
     # sitting OFF-REGISTER behind the line, hyper-minimalist, on white (knocked out to transparent),
     # in the brand palette. Mirrors the reference prompt the user supplied. The single unbroken line
@@ -25162,7 +25330,16 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
         variant = max(0, int(variant))
     except Exception:
         variant = 0
-    style = style if style in ("line", "photo-background", "photo-portrait", "photo-scene") else "line"
+    # 2026-11-09 OWNER DIRECTIVE ("a few different professional styles of imagery for the user to
+    # choose from"): the drawn styles are now a SET, not one locked house treatment. Each id maps to
+    # a directive in _ILLUS_STYLE_DIRECTIVE below; colours still come from the brand token mirror, so
+    # a style never carries a hex. "duotone" is photographic and routes through the photo pipeline.
+    if style == "duotone":
+        style = "photo-scene"
+        _duotone = True
+    else:
+        _duotone = False
+    style = style if style in _ILLUS_STYLE_IDS else "line"
     is_photo = style.startswith("photo-")
     # DF-V1 (2026-08-20, plans/deerflow-harness-transfer-2026-08-20.md): REFERENCE
     # CHAINING. deer-flow's ppt-generation skill generates slide art strictly one
@@ -25252,7 +25429,7 @@ async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str =
                 return {**res, "diagram": True}
         return {"url": "", "dataUri": "", "id": iid, "reused": False, "abstract": True}
     prompt = (_photo_prompt(visual_concept, photo_slot, brand, scene) if is_photo
-              else _illustration_prompt(visual_concept, brand, canvas))
+              else _illustration_prompt(visual_concept, brand, canvas, style))
     if brand_hint:
         prompt = prompt + " Brand visual language: " + brand_hint
     if ref_b64:
@@ -25437,7 +25614,7 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v32-pflow-icons-whole-word"
+_DIAGRAM_STYLE_VERSION = "v34-arch-connectors"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)

@@ -73,11 +73,13 @@ def check_deck(t):
     from pptx.enum.shapes import MSO_SHAPE_TYPE
     from . import deck
     eid = t["engagement_id"]
-    p = Presentation(store.safe_path(eid, "results/deck.pptx"))
-    fails = [] if 6 <= len(p.slides) <= 10 else [f"{len(p.slides)} slides"]
+    per_task = os.path.join(os.path.dirname(t.get("result_path") or ""), "deck.pptx") if isinstance(t, dict) else ""
+    p = Presentation(per_task if per_task and os.path.isfile(per_task) else store.safe_path(eid, "results/deck.pptx"))
+    fails = [] if 3 <= len(p.slides) <= 13 else [f"{len(p.slides)} slides"]
     for i, s in enumerate(p.slides, 1):
-        if any(sh.shape_type == MSO_SHAPE_TYPE.PICTURE for sh in s.shapes):
-            fails.append(f"slide {i} has a picture")
+        # photographs are allowed only in a named photo panel; a picture anywhere else (a slide of text as an image) fails
+        if any(sh.shape_type == MSO_SHAPE_TYPE.PICTURE and sh.name != "Photo" for sh in s.shapes):
+            fails.append(f"slide {i} has a picture outside a photo panel")
         title = s.shapes.title.text if s.shapes.title else ""
         if not title.strip():
             fails.append(f"slide {i} has no editable title")

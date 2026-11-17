@@ -1,0 +1,26 @@
+{
+  "id": "slides-slides_1794868275046",
+  "set": "frontier",
+  "kind": "slides",
+  "input": {
+    "objective": "Analyze the attached documents and compose a single #slides deck that distills the problem statement, solution vision, and product definition, supported by the objectives of the engagement",
+    "prompt": "#slides",
+    "engagement": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th/artifacts/slides_1794868275046.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "slides_1794868275046",
+    "added": "2026-11-17",
+    "note": "chainPass=false; failing: chain:titles partial (schema_invalid); chain:claims partial (schema_invalid); title:too_long x3"
+  }
+}

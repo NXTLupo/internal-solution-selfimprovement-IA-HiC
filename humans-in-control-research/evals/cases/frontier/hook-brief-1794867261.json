@@ -1,0 +1,20 @@
+{
+  "id": "hook-brief-1794867261",
+  "set": "frontier",
+  "kind": "brief",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#brief"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-11-16",
+    "note": "artifact missing 2/2 required modules — structurally not a brief"
+  }
+}

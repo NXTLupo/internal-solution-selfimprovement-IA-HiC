@@ -21,16 +21,16 @@ chunks:
 
 ### Current Benchmark Status
 
-* **Maturity Models Benchmark**: Benchmark data is currently speculative and requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/cx-maturity.md].
-* **Technology Adoption Benchmark**: Benchmark data is currently speculative and requires the ingestion of primary sources to verify evidence entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/digital-transformation.md].
+* **Maturity Models Benchmark**: Benchmark status is currently speculative and requires the ingestion of primary source documents to verify entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/cx-maturity.md].
+* **Technology Adoption Benchmark**: Benchmark status is currently speculative and requires the ingestion of primary source documents to verify entries and upgrade the benchmark status to partially evidenced or evidenced [evidence/digital-transformation.md].
 
 ### Validation Confidence Framework
 
-The validation framework utilizes confidence levels—including hypothesis, partially evidenced, and evidenced—to categorize how well a finding is supported by source evidence [evidence/cx-maturity.md] [evidence/digital-transformation.md].
+The validation framework categorizes finding support using defined confidence levels, including hypothesis, partially evidenced, and evidenced [evidence/cx-maturity.md] [evidence/digital-transformation.md].
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-Primary source evidence ingestion is required across pending categories to transition benchmark statuses [evidence/cx-maturity.md] [evidence/digital-transformation.md]:
+Primary source ingestion across pending categories is required to transition benchmark statuses [evidence/cx-maturity.md] [evidence/digital-transformation.md]:
 
-* **CX Maturity**: Ingestion is required for organizational maturity correlations, organizational structures, employee impacts, and maturity-to-revenue relationships [evidence/cx-maturity.md].
-* **Digital Transformation**: Ingestion is required for transformation failure factors, change management, technology adoption, and culture [evidence/digital-transformation.md].
+* **CX Maturity**: Primary source ingestion is required for organizational maturity correlations, organizational structures, employee impacts, and maturity-to-revenue relationships [evidence/cx-maturity.md].
+* **Digital Transformation**: Primary source ingestion is required for transformation failure factors, change management, technology adoption, and culture [evidence/digital-transformation.md].

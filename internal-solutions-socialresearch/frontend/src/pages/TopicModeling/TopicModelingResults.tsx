@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { AnalysisTab } from './Dashboard/AnalysisTab';
 import TopicDetailModal from './Dashboard/TopicDetailModal';
 import { TrendingUp, Map, MessageSquare, XCircle, CheckCircle2, Circle, Clock } from 'lucide-react';
@@ -18,6 +19,7 @@ interface TopicModelingResultsProps {
   currentSubreddit?: string; // Add a prop for the explicitly passed subreddit
   jobProgress?: number | null; // Add prop for job progress
   jobMessage?: string; // Add prop for job message
+  matchingPostsUrl?: string; // post browser pre-filtered to this run's keyword and dates
 }
 
 // Define the processing stages for topic modeling
@@ -37,7 +39,8 @@ export const TopicModelingResults = ({
   onAnalyze,
   currentSubreddit,
   jobProgress,
-  jobMessage
+  jobMessage,
+  matchingPostsUrl
 }: TopicModelingResultsProps) => {
   const [activeView, setActiveView] = useState('topics'); 
   
@@ -311,9 +314,17 @@ export const TopicModelingResults = ({
       
       {/* Display keyword if present */}
       {topicData?.keyword && (
-        <div className="bg-[#fafafa] p-3 mb-3 rounded-lg border border-[#e5e5e5]">
-          <span className="text-[#525252]">Results filtered by keyword: </span>
-          <span className="text-blue-400 font-semibold">{topicData.keyword}</span>
+        <div className="bg-[#fafafa] p-3 mb-3 rounded-lg border border-[#e5e5e5] flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span className="text-[#525252]">Results filtered by keyword: </span>
+            <span className="text-blue-400 font-semibold">{topicData.keyword}</span>
+            <span className="text-[#525252]"> ({topicData.total_documents} posts analyzed)</span>
+          </div>
+          {matchingPostsUrl && (
+            <Link to={matchingPostsUrl} className="text-sm font-medium text-[#115054] hover:underline">
+              View posts mentioning "{topicData.keyword}"
+            </Link>
+          )}
         </div>
       )}
       

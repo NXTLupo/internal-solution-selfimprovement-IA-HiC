@@ -56,3 +56,6 @@
 
 
 {"ts":"2026-11-09T13:36:53.588Z","panel_kind":"infographic","kind":"none","rubric_id":"missing","rubric_version":"0","scores":{},"blocking":[],"below_floor":[],"verdict":"fail","rebuilds":0,"critic_errors":[],"deterministic_failures":["no rubric registered for kind 'infographic' (index v1.0.0)"],"findings":[],"experts_fired":["anti-slop-auditor","structural-conformance"],"cost_usd":0}
+
+
+{"ts":"2026-11-09T18:48:28.081Z","panel_kind":"infographic","kind":"none","rubric_id":"missing","rubric_version":"0","scores":{},"blocking":[],"below_floor":[],"verdict":"fail","rebuilds":0,"critic_errors":[],"deterministic_failures":["no rubric registered for kind 'infographic' (index v1.0.0)"],"findings":[],"experts_fired":["anti-slop-auditor","structural-conformance"],"cost_usd":0}

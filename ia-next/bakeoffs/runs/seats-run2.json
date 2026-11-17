@@ -1,0 +1,77 @@
+{
+ "run": "2026-11-11 23:50",
+ "task": "task_6c0e941e8289",
+ "note": "One run per model: a first reading, not a verdict.",
+ "seats": {
+  "deep_reasoning": [
+   {
+    "model": "claude-fable-5-2",
+    "seconds": 15.2,
+    "deterministic_findings": 0,
+    "judge": "gemini-4-carbon",
+    "judge_score": 0.286,
+    "score": 0.286,
+    "words": 162,
+    "usd": 0.24725
+   },
+   {
+    "model": "claude-opus-5-5",
+    "seconds": 10.9,
+    "deterministic_findings": 1,
+    "judge": "gemini-4-carbon",
+    "judge_score": 0.286,
+    "score": 0.236,
+    "words": 161,
+    "usd": 0.170882
+   },
+   {
+    "model": "gpt-6-astra",
+    "seconds": 13.2,
+    "deterministic_findings": 0,
+    "judge": "gemini-4-carbon",
+    "judge_score": 0.571,
+    "score": 0.571,
+    "words": 154,
+    "usd": 0.180735
+   }
+  ],
+  "search": [
+   {
+    "model": "gemini-4-argon",
+    "seconds": 39.2,
+    "grounding_chunks": 13,
+    "readable_sources": 3,
+    "distinct_domains": 2,
+    "usd": 0.044935
+   },
+   {
+    "model": "gemini-3.5-flash",
+    "seconds": 25.0,
+    "grounding_chunks": 15,
+    "readable_sources": 9,
+    "distinct_domains": 9,
+    "usd": 0.081555
+   }
+  ],
+  "fast": [
+   {
+    "model": "gpt-6-luna",
+    "accuracy": 0.833,
+    "mean_seconds": 1.58,
+    "usd": 0.01173
+   },
+   {
+    "model": "claude-haiku-5-5",
+    "accuracy": 0.833,
+    "mean_seconds": 0.75,
+    "usd": 0.000113
+   },
+   {
+    "model": "gemini-3.5-flash",
+    "accuracy": 0.833,
+    "mean_seconds": 3.25,
+    "usd": 0.058545
+   }
+  ]
+ }
+}

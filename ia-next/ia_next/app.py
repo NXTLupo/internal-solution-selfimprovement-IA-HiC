@@ -9,12 +9,24 @@ import threading
 from fastapi import FastAPI, HTTPException
 from fastapi import File, Form, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, PlainTextResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from . import __version__, agent, config, control, memory, store
 
 app = FastAPI(title="IA Next", version=__version__)
 WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "web")
+
+
+class _RevalidatedStatic(StaticFiles):
+    """The workspace page's CSS and JS. Browsers revalidate on every load (ETag), so a deploy is never stale."""
+    def file_response(self, *args, **kwargs):
+        resp = super().file_response(*args, **kwargs)
+        resp.headers["Cache-Control"] = "no-cache"
+        return resp
+
+
+app.mount("/static", _RevalidatedStatic(directory=WEB, check_dir=False), name="static")
 
 
 @app.on_event("startup")
@@ -55,6 +67,7 @@ def seats():
 
 class NewMessage(BaseModel):
     text: str
+    engagement_id: str | None = None      # optional: the engagement the person has focused in the workspace
 
 
 @app.post("/api/conversations")
@@ -66,8 +79,13 @@ def new_conversation():
 def post_message(cid: str, m: NewMessage):
     if not m.text.strip():
         raise HTTPException(400, "empty message")
+    text = m.text.strip()
+    eng = store.get_engagement(m.engagement_id) if m.engagement_id else None
+    if eng:
+        title = " ".join(str(eng["title"] or "").split())[:200]
+        text = f"(Focused engagement: {title} [{eng['id']}])\n{text}"
     try:
-        return agent.turn(cid, m.text.strip())
+        return agent.turn(cid, text)
     except Exception as e:
         store.event("agent_error", {"conversation": cid, "error": str(e)[:400]})
         raise HTTPException(502, f"the agent could not answer: {str(e)[:300]}")
@@ -79,8 +97,14 @@ def events(after: int = 0, engagement_id: str = None):
 
 
 @app.get("/api/engagements")
-def engagements():
-    return {"engagements": store.list_engagements()}
+def engagements(include_library: int = 0):
+    """Client engagements. The imported research library is a background store, not an engagement, so it is
+    left out unless asked for; the agent and evidence search still use it."""
+    from .library import LIBRARY_TITLE
+    rows = store.list_engagements()
+    if not include_library:
+        rows = [e for e in rows if e["title"] != LIBRARY_TITLE]
+    return {"engagements": rows}
 
 
 @app.get("/api/tasks")
@@ -106,16 +130,19 @@ def task_report(tid: str):
 
 
 @app.get("/api/tasks/{tid}/view")
-def task_view(tid: str):
-    """A finished HTML exhibit (a journey map), served as a page."""
+def task_view(tid: str, embed: int = 0):
+    """A finished HTML exhibit (a journey map), served as a page. embed=1 drops the prototype page's top line,
+    for the workspace, which frames the prototype inside its own card."""
     t = store.get_task(tid)
     if t and t["status"] == "done" and t["kind"] == "prototype":
         # A prototype is model-written code: it is served with a strict CSP and only inside a sandboxed
         # iframe without allow-same-origin, so it can run its own script and reach nothing else.
         from html import escape
+        bar = "" if embed else "<header>Prototype. It runs on its own and cannot reach your data or the web.</header>"
+        height = "100vh" if embed else "calc(100vh - 34px)"
         return HTMLResponse(f"""<!doctype html><html><head><meta charset="utf-8"><title>Prototype</title>
-<style>body{{margin:0;font-family:system-ui;background:#0D0D0D;color:#fff}} header{{padding:8px 12px;font-size:12px}} iframe{{border:0;display:block;width:100%;height:calc(100vh - 34px);background:#fff}}</style></head>
-<body><header>Prototype (sandboxed: it can run its own script and nothing else)</header>
+<style>body{{margin:0;font-family:system-ui;background:#0D0D0D;color:#fff}} header{{padding:8px 12px;font-size:12px}} iframe{{border:0;display:block;width:100%;height:{height};background:#fff}}</style></head>
+<body>{bar}
 <iframe sandbox="allow-scripts" referrerpolicy="no-referrer" src="/api/tasks/{escape(tid)}/prototype"></iframe></body></html>""",
                             headers={"Cache-Control": "no-store"})
     if not t or t["status"] != "done" or not (t["result_path"] or "").endswith(".html"):
@@ -229,6 +256,32 @@ def engagement_file(eid: str, rel: str):
     return FileResponse(p, headers=headers)
 
 
+MEDIA_KINDS = {"images": (".png", ".jpg", ".jpeg", ".webp", ".gif"), "videos": (".mp4", ".webm", ".mov")}
+
+
+@app.get("/api/engagements/{eid}/media")
+def engagement_media(eid: str):
+    """The images and videos the Media Producer saved for an engagement, newest first, with their view URLs."""
+    if not store.get_engagement(eid):
+        raise HTTPException(404, "no such engagement")
+    out = {}
+    for kind, exts in MEDIA_KINDS.items():
+        rel_dir = f"results/{kind}"
+        d = store.safe_path(eid, rel_dir)
+        items = []
+        if os.path.isdir(d):
+            for name in os.listdir(d):
+                p = os.path.join(d, name)
+                if not name.lower().endswith(exts) or not os.path.isfile(p) or os.path.getsize(p) == 0:
+                    continue
+                rel = f"{rel_dir}/{name}"
+                st = os.stat(p)
+                items.append({"name": name, "path": rel, "view": f"/api/engagements/{eid}/files/{rel}",
+                              "bytes": st.st_size, "modified": st.st_mtime})
+        out[kind] = sorted(items, key=lambda i: -i["modified"])
+    return {"engagement_id": eid, **out}
+
+
 @app.get("/api/tasks/{tid}/prototype")
 def task_prototype(tid: str):
     """The prototype document itself, only ever loaded by the sandboxed iframe in /view."""
@@ -283,7 +336,8 @@ def task_download(tid: str):
     t = store.get_task(tid)
     if not t or t["status"] != "done" or t["kind"] != "deck":
         raise HTTPException(404, "no finished deck for this task")
-    p = store.safe_path(t["engagement_id"], "results/deck.pptx")
+    per_task = os.path.join(os.path.dirname(t["result_path"] or ""), "deck.pptx")
+    p = per_task if t["result_path"] and os.path.isfile(per_task) else store.safe_path(t["engagement_id"], "results/deck.pptx")
     return FileResponse(p, filename="deck.pptx",
                         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
 

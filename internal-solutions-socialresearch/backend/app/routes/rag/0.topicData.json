@@ -2,82 +2,42 @@
   "positive": [
     {
       "id": 3,
-      "one_sentence_summary": "Aspiring small business owners discuss the challenges, costs, and practical realities of opening and operating local food, retail, and hospitality ventures in physical storefronts.",
-      "short_summary": "Brick-and-mortar food concepts face steep operational reality"
+      "one_sentence_summary": "Students discuss how to fit co-op work experiences into their degree plans and how to handle the timing and uncertainty of job and return offers.",
+      "short_summary": "Co-op timing clashes with degree plans and offers"
     },
     {
       "id": 5,
-      "one_sentence_summary": "Small local service businesses are seeking practical, prioritized digital marketing strategies, with Google Business Profile optimization and customer review generation consistently identified as the most impactful starting points for building online visibility and trust.",
-      "short_summary": "Google reviews and GBP drive local service growth"
+      "one_sentence_summary": "Discussions about social life and campus culture at a co-op-oriented university, covering the challenge of making friends amid rotating co-op schedules, the career-driven character of the student body, and the availability and erosion of free student perks.",
+      "short_summary": "Co-op cycles disrupt friendships and campus community"
     },
     {
-      "id": 10,
-      "one_sentence_summary": "These discussions revolve around the challenges and strategies involved in turning creative hobbies and handmade crafts into small businesses, covering platform selection, audience building, pricing, and product differentiation.",
-      "short_summary": "Hobbyists struggle to monetize handmade art and crafts"
-    },
-    {
-      "id": 12,
-      "one_sentence_summary": "Entrepreneurs discuss the challenges and strategies of building scalable, recurring-revenue service businesses, covering pricing, client acquisition, operational structure, and membership model design.",
-      "short_summary": "Recurring revenue beats one-off work in service businesses"
-    },
-    {
-      "id": 14,
-      "one_sentence_summary": "Discussions revolve around the challenges and strategies of launching small clothing and merchandise brands, balancing strong design identity with practical business decisions around production, marketing, and brand presentation.",
-      "short_summary": "Design ambitions clash with small apparel brand realities"
+      "id": 6,
+      "one_sentence_summary": "Students discuss the challenges of finding healthcare, hospital, and biotech co-op placements, especially with limited experience, and share strategies for breaking into these competitive fields.",
+      "short_summary": "Healthcare and biotech co-ops prove hard to land"
     }
   ],
   "neutral": [
     {
-      "id": 1,
-      "one_sentence_summary": "Service business owners and freelancers discuss the challenges of acquiring clients through cold outreach and marketing, debating the effectiveness of various strategies while emphasizing that warm networking and niche relevance consistently outperform high-volume, generic approaches.",
-      "short_summary": "Cold outreach volume fails; relevance and warm networks win"
+      "id": 0,
+      "one_sentence_summary": "Discussions about a university's cooperative education program, focusing on international students' concerns over co-op availability, competitiveness, visa limits, and return on tuition cost, alongside commemorative posts honoring a former student whose co-op success symbolized her promise.",
+      "short_summary": "International students question Northeastern co-op payoff"
     },
     {
       "id": 4,
-      "one_sentence_summary": "Entrepreneurs launching small brands or import businesses face recurring challenges around finding reliable suppliers and manufacturers willing to accommodate low order quantities, while also managing quality control, regulatory compliance, and international logistics.",
-      "short_summary": "Small orders and low MOQs block new brand sourcing"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Small business owners and entrepreneurs are actively debating the costs, platforms, and strategic value of building a professional website versus relying on free or third-party online presences.",
-      "short_summary": "Small businesses unsure websites justify the cost"
-    },
-    {
-      "id": 9,
-      "one_sentence_summary": "Small business owners and field service operators discuss the challenges of finding the right workflow management or CRM tools to replace fragmented, spreadsheet-based systems for tracking jobs, leads, and team activity.",
-      "short_summary": "Spreadsheets and generic tools fail field ops"
+      "one_sentence_summary": "Students ask whether co-op start dates can be pushed back to fit around other commitments such as summer internships, and responses say flexibility depends on employer size, candidate strength, and the hiring channel.",
+      "short_summary": "Delayed co-op starts depend on employer flexibility"
     }
   ],
   "negative": [
     {
       "id": 2,
-      "one_sentence_summary": "Small business owners are actively comparing and troubleshooting accounting, bookkeeping, and point-of-sale software, weighing usability, integration complexity, cost, and long-term scalability against the practical demands of running lean operations.",
-      "short_summary": "Small business software setup creates costly friction early"
+      "one_sentence_summary": "Students discuss how co-op programs affect course scheduling, reduced-courseload petitions, graduation timelines, financial aid coverage, and work authorization for international students, often seeking guidance from advisors and administrative offices.",
+      "short_summary": "Co-op plans clash with courseload and CPT rules"
     },
     {
-      "id": 0,
-      "one_sentence_summary": "These discussions revolve around the challenges, decisions, and trade-offs involved in starting or growing a business, particularly the tension between pursuing entrepreneurship and maintaining the stability of traditional employment.",
-      "short_summary": "Job security vs. entrepreneurship pulls people in both directions"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Discussions focus on the widespread difficulties small business owners and buyers face when seeking SBA loans and working capital financing, particularly around lender requirements, financial documentation, creditworthiness, and the risks of acquiring businesses with unverified financials.",
-      "short_summary": "SBA loan hurdles derail small business acquisitions"
-    },
-    {
-      "id": 8,
-      "one_sentence_summary": "Small business owners discuss how disorganized workflows, repetitive administrative tasks, and the absence of shared systems create operational bottlenecks that worsen as businesses grow.",
-      "short_summary": "Admin chaos in small businesses stalls growth"
-    },
-    {
-      "id": 11,
-      "one_sentence_summary": "Small business owners discuss the challenges of managing client payments, contracts, and quotes, including protecting against payment scams, scope-of-work disputes, and the inefficiency of competitive bidding processes.",
-      "short_summary": "Client payment disputes and scams strain small business owners"
-    },
-    {
-      "id": 13,
-      "one_sentence_summary": "Businesses and entrepreneurs discuss the persistent challenges of collecting customer reviews, evaluating review platforms, and developing strategies to reduce friction in the review request process.",
-      "short_summary": "Getting customers to actually leave reviews remains unsolved"
+      "id": 1,
+      "one_sentence_summary": "Students discuss how hard it is to land co-op placements in a tough job market, including heavy application volume with few interviews, strategies for improving their chances, the mental health toll of the search, and disappointment with unfulfilling co-op roles.",
+      "short_summary": "Hundreds of co-op applications yield few interviews"
     }
   ]
 }

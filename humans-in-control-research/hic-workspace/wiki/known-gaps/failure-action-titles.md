@@ -6,19 +6,19 @@ source: eval-frontier
 family: action-titles
 applies_to: generation
 kinds: [arch, brief, case-study, journey, persona, slides, strategy, themes]
-cases: 75
-updated: 2026-11-09
-source_hash: 673a37d15c0a6d0a
+cases: 126
+updated: 2026-11-17
+source_hash: 8e50e702b558b105
 chunks:
   - id: "known-gaps/failure-action-titles.md#c0"
-    char_span: [0, 459]
+    char_span: [0, 460]
     sentence_count: 3
     key_terms: [judgment, titles, state, topic, slide-title-lab, deck-composer, deliverable, case-study]
     concepts: [judgment, titles, state, topic]
     token_count: 113
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c1"
-    char_span: [557, 806]
+    char_span: [558, 807]
     sentence_count: 1
     key_terms: [blocking, frontier, repair, round, case, row, persona-persona-, persona-]
     concepts: [blocking, frontier, repair, round]
@@ -27,7 +27,7 @@ chunks:
     token_count: 76
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c2"
-    char_span: [905, 1791]
+    char_span: [906, 1792]
     sentence_count: 1
     key_terms: [blocking, frontier, repair, round, case, row, slides-, slides]
     concepts: [blocking, frontier, repair, round, slides-]
@@ -36,7 +36,7 @@ chunks:
     token_count: 273
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c3"
-    char_span: [1890, 2977]
+    char_span: [1891, 2978]
     sentence_count: 1
     key_terms: [blocking, frontier, repair, case, round, row, persona-persona-, persona-]
     concepts: [blocking, frontier, repair, persona-persona-, round]
@@ -45,7 +45,7 @@ chunks:
     token_count: 335
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c4"
-    char_span: [3076, 3309]
+    char_span: [3077, 3310]
     sentence_count: 1
     key_terms: [blocking, frontier, slides-, repair, slides, round, case, row]
     concepts: [blocking, frontier, slides-, repair, slides]
@@ -54,7 +54,7 @@ chunks:
     token_count: 74
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c5"
-    char_span: [3408, 5252]
+    char_span: [3409, 5253]
     sentence_count: 1
     key_terms: [blocking, frontier, slides-, slides, case, row, repair, round]
     concepts: [blocking, frontier, slides-, slides, repair]
@@ -63,38 +63,65 @@ chunks:
     token_count: 430
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c6"
-    char_span: [5278, 6550]
+    char_span: [5279, 6551]
     sentence_count: 1
     key_terms: [first-year, readiness, frontier, partner, titles, case, brief, co-op]
     concepts: [first-year, readiness, frontier, partner, titles]
-    related_chunks: ["known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c8"]
+    related_chunks: ["known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c8", "known-gaps/failure-action-titles.md#c9", "known-gaps/failure-action-titles.md#c10", "known-gaps/failure-action-titles.md#c11"]
     section: "2026-10-31 | unknown"
     token_count: 374
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c7"
-    char_span: [6649, 8561]
+    char_span: [6650, 8562]
     sentence_count: 1
     key_terms: [frontier, first-year, readiness, partner, case, titles, brief, co-op]
     concepts: [frontier, first-year, readiness, partner, titles]
-    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c8"]
+    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c8", "known-gaps/failure-action-titles.md#c9", "known-gaps/failure-action-titles.md#c10", "known-gaps/failure-action-titles.md#c11"]
     section: "2026-11-03 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for / 2026-11-03 | unknown / 2026-11-04 | unknown / 2026-11-06 | unknown / 2026-11-07 | unknown"
     token_count: 510
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-action-titles.md#c8"
-    char_span: [8587, 9835]
+    char_span: [8588, 9658]
     sentence_count: 1
     key_terms: [first-year, readiness, frontier, partner, titles, brief, co-op, case]
     concepts: [first-year, readiness, frontier, partner, titles]
-    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c7"]
+    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c9", "known-gaps/failure-action-titles.md#c10", "known-gaps/failure-action-titles.md#c11"]
     section: "2026-11-08 | unknown"
-    token_count: 360
+    token_count: 315
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-action-titles.md#c9"
+    char_span: [9756, 11255]
+    sentence_count: 1
+    key_terms: [frontier, first-year, readiness, case, partner, titles, brief, co-op]
+    concepts: [frontier, first-year, readiness, partner, titles]
+    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c8", "known-gaps/failure-action-titles.md#c10", "known-gaps/failure-action-titles.md#c11"]
+    section: "2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student / 2026-11-09 | unknown"
+    token_count: 437
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-action-titles.md#c10"
+    char_span: [11281, 12552]
+    sentence_count: 1
+    key_terms: [first-year, readiness, frontier, partner, titles, case, brief, co-op]
+    concepts: [first-year, readiness, frontier, partner, titles]
+    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c8", "known-gaps/failure-action-titles.md#c9", "known-gaps/failure-action-titles.md#c11"]
+    section: "2026-11-10 | unknown"
+    token_count: 374
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-action-titles.md#c11"
+    char_span: [12578, 14580]
+    sentence_count: 1
+    key_terms: [frontier, first-year, readiness, partner, case, titles, brief, co-op]
+    concepts: [frontier, first-year, readiness, partner, titles]
+    related_chunks: ["known-gaps/failure-action-titles.md#c6", "known-gaps/failure-action-titles.md#c7", "known-gaps/failure-action-titles.md#c8", "known-gaps/failure-action-titles.md#c9", "known-gaps/failure-action-titles.md#c10"]
+    section: "2026-11-11 | unknown"
+    token_count: 512
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Slide titles that state a topic, not a judgment
 
 What fails: Titles fail the Partner Test: they name a topic instead of stating a conclusion.
 
-Seen in 75 frontier eval case(s) across 5 engagement(s); deliverable kinds: brief (41), slides (20), persona (5), case-study (3), themes (3), arch (1), journey (1), strategy (1).
+Seen in 126 frontier eval case(s) across 7 engagement(s); deliverable kinds: brief (88), slides (22), persona (5), themes (4), case-study (3), arch (2), journey (1), strategy (1).
 
 What the harness does about it: slide-title-lab and deck-composer state each title as a judgment about the subject.
 
@@ -194,5 +221,52 @@ What the harness does about it: slide-title-lab and deck-composer state each tit
 - brief 1794181129: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794181129)
 - brief 1794181130: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794181130)
 
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- slides slides_1794196862137: 2 blocking row(s) (frontier case slides-slides_1794196862137)
+- themes theme-overview_1794204536109: 1 blocking row(s) (frontier case themes-theme-overview_1794204536109)
+
 ## 2026-11-09 | unknown
 - brief 1794182503: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794182503)
+- brief 1794184528: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794184528)
+- brief 1794185464: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794185464)
+- brief 1794185595: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794185595)
+- brief 1794185607: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794185607)
+- brief 1794186116: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794186116)
+- brief 1794186117: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794186117)
+- brief 1794194876: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794194876)
+- and 16 more case(s) of this family on this day
+
+## 2026-11-10 | unknown
+- brief 1794270786: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794270786)
+- brief 1794272234: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794272234)
+- brief 1794274060: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794274060)
+- brief 1794275736: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794275736)
+- brief 1794276688: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794276688)
+- brief 1794277604: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794277604)
+- brief 1794277605: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794277605)
+- brief 1794277607: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794277607)
+- and 6 more case(s) of this family on this day
+
+## 2026-11-11 | unknown
+- brief 1794374967: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794374967)
+- brief 1794406193: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794406193)
+- brief 1794406194: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794406194)
+- brief 1794408459: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794408459)
+
+## 2026-11-12 | unknown
+- brief 1794497621: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794497621)
+
+## 2026-11-16 | analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th
+- slides slides_1794868275046: 3 blocking row(s) (frontier case slides-slides_1794868275046)
+
+## 2026-11-16 | unknown
+- brief 1794842514: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794842514)
+- brief 1794867261: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794867261)
+- brief 1794867262: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794867262)
+- brief 1794868069: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794868069)
+
+## 2026-11-17 | analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th
+- arch architecture-map_1794874296269: 1 blocking row(s) (frontier case arch-architecture-map_1794874296269)
+
+## 2026-11-17 | unknown
+- brief 1794875404: action_titles: 1/2 titles fail the Partner Test: "first-year co-op readiness" (topic_label) (frontier case auditor-brief-1794875404)

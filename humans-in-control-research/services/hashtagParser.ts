@@ -308,8 +308,10 @@ export function parsePrototypeDirective(message: string): PrototypeDirective {
 // specific structural prompt overlay.
 // 2026-11-03 - NotebookLM Studio formats (#faq, #studyguide, #chronology, #flashcards, #quiz,
 // #datatable, #critique) per plans/notebooklm-studio-reverse-engineering-2026-11-03.md W3.
+// 2026-11-09 - #blogpost (plans/gemini-notebook-parity-closeout-2026-11-09.md WS-B2a): the
+// readable register, the one report format the live Gemini Notebook run offered and HiC lacked.
 export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches' | '#whitepaper' | '#questionnaire' | '#prd'
-    | '#faq' | '#studyguide' | '#chronology' | '#flashcards' | '#quiz' | '#datatable' | '#critique';
+    | '#faq' | '#studyguide' | '#chronology' | '#flashcards' | '#quiz' | '#datatable' | '#critique' | '#blogpost' | '#dossier';
 
 export interface ArtifactDirective {
     triggered: boolean;
@@ -353,6 +355,8 @@ const HTML_GENERATOR_LABELS: Record<ArtifactGenerator, string> = {
     '#quiz': 'knowledge quiz',
     '#datatable': 'evidence data table',
     '#critique': 'evidence critique',
+    '#blogpost': 'blog post',
+    '#dossier': 'evidence dossier',
 };
 
 /** The typed aliases that trigger one HTML generator. `#whitepaper` is its own generator inside the report

@@ -1,0 +1,15 @@
+{
+  "id": "auditor-brief-1794280479",
+  "set": "frontier",
+  "kind": "brief",
+  "input": {
+    "objective": "(see verdict row)",
+    "prompt": "#brief"
+  },
+  "origin": {
+    "type": "auditor_withhold",
+    "ref": "1794280479",
+    "added": "2026-11-10",
+    "note": "[\"action_titles: 1/2 titles fail the Partner Test: \\\"first-year co-op readiness\\\" (topic_label)\"]"
+  }
+}

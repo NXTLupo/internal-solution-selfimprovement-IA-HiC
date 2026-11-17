@@ -32,11 +32,20 @@ def _e(s) -> str:
     return _html.escape(str(s or ""), quote=True)
 
 
-def _font_face_css() -> str:
+def _font_face_css(brand: str = "") -> str:
     """@font-face the local brand TTFs by absolute file:// path (Chromium reads file URLs when
-    the doc is loaded from a temp .html file)."""
+    the doc is loaded from a temp .html file).
+
+    2026-11-09 (owner: "why are you using Deciem rules in NXT template?" / "#NXT!"): every exhibit
+    used to register ALL THREE brands' faces, so an NXT document declared DECIEM Display, DECIEM
+    Body, DECIEM Label, DECIEM Mono and NU Single alongside its own. No DECIEM colour or face was
+    ever APPLIED to an NXT exhibit (verified), but declaring another brand's type in an NXT document
+    is wrong on its face and makes the output impossible to audit. Registration is now scoped to the
+    active brand; an unknown brand still gets everything, so nothing can lose its fonts.
+    """
+    want = {"nxt": "NXT ", "nu": "NU ", "deciem": "DECIEM "}.get(str(brand or "").strip().lower())
     out = []
-    faces = _DIAGRAM_FONT_FACES
+    faces = _DIAGRAM_FONT_FACES if not want else [f for f in _DIAGRAM_FONT_FACES if f[0].startswith(want)]
     for fam, fn, wt in faces:
         p = os.path.join(_FONT_DIR, fn).replace("\\", "/")
         if os.path.exists(p):
@@ -52,11 +61,17 @@ def _font_face_css() -> str:
 # faces below apply, so NXT and NU exhibits render exactly as before. DECIEM passes
 # the 'DECIEM Display' / 'DECIEM Body' / 'DECIEM Mono' @font-face slots registered in
 # brand_fonts.DIAGRAM_FONT_FACES (Poppins display + label / Josefin Sans body / Nunito mono).
+# 2026-11-09 FONT BUG (owner: "doesnt use our fonts!"): these values are what the CSS ASKS FOR, and
+# they must match the families _font_face_css() REGISTERS ('NXT Title', 'NXT Body', 'NXT Display',
+# 'NXT Mono'). They asked for 'Archivo' and 'Saira Condensed', which are not registered anywhere, so
+# Chromium fell back to its default SERIF for every NXT and NU exhibit title and body. Only DECIEM
+# looked right, because DECIEM is the one brand that passes css_* keys explicitly. The real font
+# names stay as a second choice for any environment where the family is installed system-wide.
 _DEFAULT_FACES = {
-    "css_body": "'Archivo'",
-    "css_title": "'Archivo'",
-    "css_disp": "'Saira Condensed'",
-    "css_mono": "'NXT Mono'",
+    "css_body": "'NXT Body','Archivo',system-ui,sans-serif",
+    "css_title": "'NXT Title','Archivo',system-ui,sans-serif",
+    "css_disp": "'NXT Display','Saira Condensed',system-ui,sans-serif",
+    "css_mono": "'NXT Mono','IBM Plex Mono',ui-monospace,monospace",
     "title_transform": "none",
     # label slot weight / transform: NXT and NU kickers stay 400 upper-tracked; DECIEM passes 700
     # because the template sets every label in Poppins Bold.
@@ -177,7 +192,7 @@ def _shell(pal: dict, kicker: str, title: str, body_html: str, takeaway: str) ->
     rail_on = bool(fc.get("rail_chrome", True))
     rail_html = (f'<div class="rail"><div class="dots">{dots}</div></div>') if rail_on else ""
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
-{_font_face_css()}
+{_font_face_css(pal.get('brand', ''))}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};overflow:hidden}}
 .exhibit{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};display:flex;position:relative;
@@ -379,14 +394,305 @@ def _arch_body(spec: dict, pal: dict) -> str:
                          + (f'<div class="td">{_e(desc)}</div>' if desc else '') + '</div></div>')
         lab = f'<div class="tierlab">{_e(nm)}</div>' if nm else ''
         tiers.append(f'<div class="tier">{lab}' + "".join(cards) + '</div>')
-    conn = f'<div class="tierconn"><svg width="14" height="30" viewBox="0 0 14 30" fill="none" stroke="{pal["hairline"]}" stroke-width="1.5"><path d="M7 0 V24"/><path d="M3 20 L7 25 L11 20"/></svg></div>'
+    # 2026-11-09 (closeout plan E2 item 5): ANNOTATED connectors. The exhibit could draw one
+    # unlabelled arrow between tiers and nothing else, because the graphic-collision ban pushed every
+    # family to collision-free grids, so an architecture slide could not say WHAT moves between two
+    # tiers. The label now rides the connector's own flex cell, never over a node, so the ban holds.
+    # A layer names its outgoing flow with `flowTo` / `flow` / `edgeLabel`.
+    def _conn(label: str = "") -> str:
+        arrow = (f'<svg width="14" height="30" viewBox="0 0 14 30" fill="none" stroke="{pal["hairline"]}" '
+                 f'stroke-width="1.5"><path d="M7 0 V24"/><path d="M3 20 L7 25 L11 20"/></svg>')
+        lab = f'<span class="tcl">{_e(label)}</span>' if label else ''
+        return f'<div class="tierconn">{arrow}{lab}</div>'
+
+    flows = []
+    for ly in layers[:5]:
+        if isinstance(ly, dict):
+            flows.append(_s(ly.get("flowTo")) or _s(ly.get("flow")) or _s(ly.get("edgeLabel")))
+        else:
+            flows.append("")
     parts = []
     for i, t in enumerate(tiers):
         if i:
-            parts.append(conn)
+            parts.append(_conn(flows[i - 1] if i - 1 < len(flows) else ""))
         parts.append(t)
     # flowSummary becomes the bottom takeaway band (see diagram_html), not an inline caption.
     return '<div class="tree">' + "".join(parts) + '</div>'
+
+
+_ARCH_STORE_RE = re.compile(r"\b(data|store|database|db|warehouse|lake|snowflake|log|register|registry|cache|redis|ledger|repository|views?)\b", re.I)
+
+
+def _archflow_body(spec: dict, pal: dict) -> str:
+    """#arch as a REAL architecture diagram (2026-11-16, owner: "It is NOT a diagram!"; built against the Gemini
+    Notebook reference, slide 12 "The Central Identity Gateway Architecture" and slide 8's hub): one row per layer,
+    each component a typed shape (a cylinder for a data store, a box with its brand glyph otherwise), arrows from
+    component to component for every named connection, routed orthogonally through the gutter between rows (a
+    side lane for links that skip a layer) so no arrow crosses a box, and a short note of what moves on each arrow,
+    placed on its own track where no other line passes. Layout is computed here, never by the model.
+
+    Spec: {"layers": [{"name", "nodes": [{"name", "type", "description"}]}],
+           "connections": [{"from": node name, "to": node name, "label": "what moves"}], "subtitle"?: str}
+    """
+    import math
+    ink, grey, kick, paper, hair = pal["ink"], pal["grey"], pal["kicker"], pal["paper"], pal["hairline"]
+    teal, accent = pal.get("teal") or ink, pal["accent"]
+    layers = []
+    for ly in _list(spec.get("layers"))[:5]:
+        if not isinstance(ly, dict):
+            continue
+        nodes = []
+        for nd in _list(ly.get("nodes"))[:5]:
+            nd = nd if isinstance(nd, dict) else {"name": _s(nd)}
+            nm = _s(nd.get("name") or nd.get("label"))
+            if nm:
+                nodes.append({"name": nm, "type": _s(nd.get("type")), "desc": _s(nd.get("description") or nd.get("desc"))})
+        if nodes:
+            layers.append({"name": _s(ly.get("name")), "nodes": nodes})
+    if len(layers) < 2:
+        return ""
+
+    def norm(t):
+        return re.sub(r"[^a-z0-9]+", " ", str(t or "").lower()).strip()
+
+    index = {}
+    for li, ly in enumerate(layers):
+        for ni, nd in enumerate(ly["nodes"]):
+            index[norm(nd["name"])] = (li, ni)
+
+    def find(name):
+        k = norm(name)
+        if not k:
+            return None
+        if k in index:
+            return index[k]
+        hits = [v for key, v in index.items() if key.startswith(k) or k.startswith(key) or (len(k) > 5 and k in key)]
+        return hits[0] if len(hits) == 1 else None
+
+    edges, seen = [], set()
+    for c in _list(spec.get("connections") or spec.get("edges"))[:24]:
+        if not isinstance(c, dict):
+            continue
+        a, b = find(c.get("from") or c.get("source")), find(c.get("to") or c.get("target"))
+        if not a or not b or a == b or (a, b) in seen:
+            continue
+        seen.add((a, b))
+        lab = _s(c.get("label"))
+        edges.append({"a": a, "b": b, "label": lab[:30] if len(lab) <= 30 else lab[:30].rsplit(" ", 1)[0]})
+    if not edges:
+        return ""
+
+    # ---- geometry (design units; the SVG scales to the frame) --------------------------------------------
+    W, LW, NH, GAPX, TRK, CL = 1164, 150, 74, 22, 17, 16
+    skip = [e for e in edges if abs(e["a"][0] - e["b"][0]) > 1]
+    corridor = (len(skip) * CL + 14) if skip else 0
+    X0, X1 = LW + 14, W - corridor - 6
+    rows = []
+    for ly in layers:
+        n = len(ly["nodes"])
+        nw = min(250, (X1 - X0 - GAPX * (n - 1)) / n)
+        total = n * nw + GAPX * (n - 1)
+        left = X0 + (X1 - X0 - total) / 2
+        rows.append({"x": [left + i * (nw + GAPX) for i in range(n)], "w": nw})
+
+    # sides: an edge leaves its source on the side facing the target and enters the target on the side facing back
+    ports = {}   # (li, ni, side) -> list of edge ids, ordered later by the other end's x
+
+    def port(li, ni, side, eid):
+        ports.setdefault((li, ni, side), []).append(eid)
+    for k, e in enumerate(edges):
+        (la, na), (lb, nb) = e["a"], e["b"]
+        up = la > lb
+        e["sa"], e["sb"] = ("top", "bottom") if up else ("bottom", "top")
+        if la == lb:      # a link inside one layer runs through the gap below it and enters from underneath
+            e["sa"] = e["sb"] = "bottom"
+        port(la, na, e["sa"], k)
+        port(lb, nb, e["sb"], k)
+
+    def cx(li, ni):
+        return rows[li]["x"][ni] + rows[li]["w"] / 2
+
+    # gutter g sits between row g and row g+1; collect each edge's horizontal runs per gutter
+    lanes = {}
+    for k, e in enumerate(skip):
+        e["lane"] = X1 + 10 + k * CL + CL / 2
+    runs = {}   # gutter -> list of (edge id, which run)
+
+    def gut_of(li, side):
+        return li - 1 if side == "top" else li
+    for k, e in enumerate(edges):
+        ga, gb = gut_of(e["a"][0], e["sa"]), gut_of(e["b"][0], e["sb"])
+        e["ga"], e["gb"] = ga, gb
+        runs.setdefault(ga, []).append((k, "a"))
+        if gb != ga:
+            runs.setdefault(gb, []).append((k, "b"))
+
+    # anchor x on each port, spread along the box edge and ordered by where the far end lies
+    for (li, ni, side), eids in ports.items():
+        far = []
+        for k in eids:
+            e = edges[k]
+            other = e["b"] if e["a"] == (li, ni) and e["sa"] == side else e["a"]
+            far.append((e["lane"] if e.get("lane") is not None else cx(*other), k))
+        far.sort()
+        x, w = rows[li]["x"][ni], rows[li]["w"]
+        for j, (_, k) in enumerate(far):
+            ax = x + w * (j + 1) / (len(far) + 1)
+            if edges[k]["a"] == (li, ni) and edges[k]["sa"] == side:
+                edges[k]["xa"] = ax
+            else:
+                edges[k]["xb"] = ax
+
+    # track assignment: interval colouring of each gutter's horizontal runs
+    gtracks = {}
+    for g, items in runs.items():
+        spans = []
+        for k, which in items:
+            e = edges[k]
+            if e.get("lane") is not None:
+                xs = (e["xa"], e["lane"]) if which == "a" else (e["lane"], e["xb"])
+            else:
+                xs = (e["xa"], e["xb"])
+            spans.append((min(xs) - 6, max(xs) + 6, k, which))
+        spans.sort()
+        ends = []
+        for lo, hi, k, which in spans:
+            t = next((i for i, end in enumerate(ends) if end < lo), None)
+            if t is None:
+                ends.append(hi)
+                t = len(ends) - 1
+            else:
+                ends[t] = hi
+            edges[k]["t" + which] = t
+        gtracks[g] = max(1, len(ends))
+
+    # vertical positions: rows and gutters (a gutter grows with its tracks so labels never stack)
+    y = 4
+    gy = {}
+    if -1 in gtracks:
+        gy[-1] = y
+        y += 26 + gtracks[-1] * TRK
+    rowy = []
+    for li in range(len(layers)):
+        rowy.append(y)
+        y += NH
+        if li < len(layers) - 1:
+            gy[li] = y
+            y += max(50, 26 + gtracks.get(li, 1) * TRK)
+    if len(layers) - 1 in gtracks:
+        gy[len(layers) - 1] = y
+        y += 26 + gtracks[len(layers) - 1] * TRK
+    H = y + 4
+
+    def track_y(g, t):
+        return gy[g] + 22 + t * TRK   # clear of an arrowhead entering the row above
+
+    def side_y(li, side):
+        return rowy[li] if side == "top" else rowy[li] + NH
+
+    # ---- paths -------------------------------------------------------------------------------------------
+    paths, verticals, hruns = [], [], []
+    for k, e in enumerate(edges):
+        (la, _), (lb, _) = e["a"], e["b"]
+        ya, yb = side_y(la, e["sa"]), side_y(lb, e["sb"])
+        ta = track_y(e["ga"], e["ta"])
+        if e.get("lane") is not None:
+            tb = track_y(e["gb"], e["tb"])
+            pts = [(e["xa"], ya), (e["xa"], ta), (e["lane"], ta), (e["lane"], tb), (e["xb"], tb), (e["xb"], yb)]
+            hruns += [(e["ga"], e["ta"], min(e["xa"], e["lane"]), max(e["xa"], e["lane"]), k),
+                      (e["gb"], e["tb"], min(e["lane"], e["xb"]), max(e["lane"], e["xb"]), k)]
+        else:
+            pts = [(e["xa"], ya), (e["xa"], ta), (e["xb"], ta), (e["xb"], yb)]
+            hruns.append((e["ga"], e["ta"], min(e["xa"], e["xb"]), max(e["xa"], e["xb"]), k))
+        for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+            if abs(x1 - x2) < 0.5:
+                verticals.append((x1, min(y1, y2), max(y1, y2), k))
+        e["pts"] = pts
+        d = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+        paths.append(f'<path d="{d}" fill="none" stroke="{teal}" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ah)"/>')
+
+    # ---- labels: on the edge's longest horizontal run, slid clear of every other line and label ----------
+    labels, boxes = [], []
+    for k, e in enumerate(edges):
+        if not e["label"]:
+            continue
+        lw = len(e["label"]) * 6.1 + 12
+        mine = sorted([r for r in hruns if r[4] == k], key=lambda r: r[2] - r[3])
+        placed = False
+        for g, t, lo, hi, _ in mine:
+            ty = track_y(g, t)
+            for frac in (0.5, 0.3, 0.7, 0.15, 0.85):
+                mx = lo + (hi - lo) * frac
+                bx0, bx1, by0, by1 = mx - lw / 2, mx + lw / 2, ty - 8, ty + 8
+                if bx0 < X0 - 10 or bx1 > W:
+                    continue
+                # a short run carries its note ON its own line (the usual diagram convention); only OTHER
+                # edges' lines and other notes count as collisions
+                clash = any(vx > bx0 - 3 and vx < bx1 + 3 and v0 < by1 and v1 > by0 for vx, v0, v1, kk in verticals if kk != k)
+                clash = clash or any(not (bx1 < c0 or bx0 > c1 or by1 < d0 or by0 > d1) for c0, c1, d0, d1 in boxes)
+                clash = clash or any(kk != k and abs(track_y(gg, tt) - ty) < 15 and not (bx1 < h0 or bx0 > h1) for gg, tt, h0, h1, kk in hruns)
+                if not clash:
+                    boxes.append((bx0, bx1, by0, by1))
+                    e["note"] = {"x": mx, "y": ty, "w": lw}
+                    labels.append(f'<rect x="{bx0:.1f}" y="{by0:.1f}" width="{lw:.1f}" height="16" rx="2" fill="{paper}" stroke="{hair}" stroke-width="0.8"/>'
+                                  f'<text x="{mx:.1f}" y="{ty + 3.6:.1f}" text-anchor="middle" class="al">{_e(e["label"])}</text>')
+                    placed = True
+                    break
+            if placed:
+                break
+
+    if spec.get("_geometry"):      # the same layout, handed to the native PowerPoint builder
+        return {"W": W, "H": H, "LW": LW, "NH": NH, "layers": layers, "rows": rows, "rowy": rowy, "edges": edges}
+
+    # ---- rows, layer labels and component shapes ---------------------------------------------------------
+    parts = []
+    for li, ly in enumerate(layers):
+        ry = rowy[li]
+        if li % 2 == 0:
+            parts.append(f'<rect x="0" y="{ry - 6}" width="{W}" height="{NH + 12}" fill="{pal["wash_cool"]}" opacity="0.55"/>')
+        parts.append(f'<foreignObject x="0" y="{ry}" width="{LW}" height="{NH}"><div xmlns="http://www.w3.org/1999/xhtml" class="alay">{_e(ly["name"])}</div></foreignObject>')
+        for ni, nd in enumerate(ly["nodes"]):
+            x, w = rows[li]["x"][ni], rows[li]["w"]
+            store = bool(_ARCH_STORE_RE.search(nd["type"] + " " + nd["name"])) and "external" not in nd["type"].lower()
+            if store:
+                ey = 7
+                parts.append(f'<path d="M{x:.1f},{ry + ey} a{w / 2:.1f},{ey} 0 0 1 {w:.1f},0 V{ry + NH - ey} a{w / 2:.1f},{ey} 0 0 1 -{w:.1f},0 Z" fill="{paper}" stroke="{kick}" stroke-width="1.6"/>'
+                             f'<path d="M{x:.1f},{ry + ey} a{w / 2:.1f},{ey} 0 0 0 {w:.1f},0" fill="none" stroke="{kick}" stroke-width="1.6"/>')
+                ty0 = ry + ey * 2 + 1
+            else:
+                ext = "external" in nd["type"].lower()
+                parts.append(f'<rect x="{x:.1f}" y="{ry}" width="{w:.1f}" height="{NH}" rx="4" fill="{ink if ext else paper}" stroke="{ink if ext else kick}" stroke-width="1.6"/>')
+                ty0 = ry + 5
+            ext = "external" in nd["type"].lower() and not store
+            col = paper if ext else ink
+            icon = _svg(_icon(nd["name"] + " " + nd["type"]), 18, accent if ext else kick)
+            chip = f'<span class="aty">{_e(nd["type"])}</span>' if nd["type"] else ""
+            parts.append(f'<foreignObject x="{x + 8:.1f}" y="{ty0:.1f}" width="{w - 16:.1f}" height="{ry + NH - ty0 - 3:.1f}">'
+                         f'<div xmlns="http://www.w3.org/1999/xhtml" class="anb{" ext" if ext else ""}"><div class="anh">{icon}<b style="color:{col}">{_e(nd["name"])}</b></div>'
+                         f'{chip}<div class="and">{_e(nd["desc"])}</div></div></foreignObject>')
+
+    defs = (f'<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+            f'<path d="M0,0 L10,5 L0,10 z" fill="{teal}"/></marker></defs>')
+    css = (f'<style>.archflow{{flex:1;min-height:0;width:100%}}.archflow>svg{{width:100%;height:100%;display:block}}.anh svg{{width:18px;height:18px}}'
+           f'.asub{{font-family:{_faces(pal)["css_body"]};font-size:15px;line-height:1.35;color:{grey};margin:-6px 0 8px 0;max-width:1080px}}'
+           f'.alay{{height:100%;display:flex;align-items:center;font-family:{_faces(pal)["css_mono"]},monospace;font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:{grey};line-height:1.3;padding-right:8px}}'
+           f'.anb{{height:100%;overflow:hidden;font-family:{_faces(pal)["css_body"]}}}.anh{{display:flex;align-items:center;gap:6px}}.anh svg{{flex:0 0 auto}}'
+           f'.anb b{{font-family:{_faces(pal)["css_title"]};font-size:13.5px;line-height:1.12;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}'
+           f'.aty{{display:inline-block;font-family:{_faces(pal)["css_mono"]},monospace;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:{kick};margin:2px 0 1px 24px}}'
+           f'.anb.ext .aty{{color:{accent}}}'
+           f'.and{{font-size:10px;line-height:1.22;color:{grey};margin-left:24px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}'
+           f'.anb.ext .and{{color:{hair}}}'
+           f'.al{{font-family:{_faces(pal)["css_mono"]},monospace;font-size:10px;fill:{ink};letter-spacing:.2px}}</style>')
+    sub = _s(spec.get("subtitle"))
+    svg = (f'<svg viewBox="0 0 {W} {H:.0f}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">{defs}'
+           + "".join(parts) + "".join(paths) + "".join(labels) + '</svg>')
+    return css + (f'<div class="asub">{_e(sub)}</div>' if sub else "") + f'<div class="archflow">{svg}</div>'
+
+
+def archflow_geometry(spec: dict, pal: dict):
+    """The #arch layered layout as geometry (rows, boxes, routed edges, placed notes) for native PowerPoint, or None."""
+    g = _archflow_body(dict(spec, _geometry=True), pal)
+    return g if isinstance(g, dict) else None
 
 
 def _mind_body(spec: dict, pal: dict) -> str:
@@ -424,7 +730,7 @@ def _mind_body(spec: dict, pal: dict) -> str:
 
 _KICK_FALLBACK = {
     "journey": "Customer Journey", "journey-map": "Customer Journey", "flow": "Customer Journey",
-    "funnel": "Customer Journey", "arch": "System Architecture", "architecture": "System Architecture",
+    "funnel": "Conversion Funnel", "pyramid": "Priority Pyramid", "nested": "Containment Model", "arch": "System Architecture", "architecture": "System Architecture", "data-architecture": "Data Architecture",
     "tech-architecture": "System Architecture", "architecture-map": "System Architecture",
     "mindmap": "Mind Map", "mind-map": "Mind Map", "blueprint": "Service Blueprint",
     "service-blueprint": "Service Blueprint",
@@ -485,21 +791,129 @@ _INFO_CSS = """
 .rbar .rtrack{background:__HAIR__;border-radius:2px;height:20px;position:relative}
 .rbar .rfill{background:__ACCENT__;height:20px;border-radius:2px}
 .rbar .rn{font-family:__FMONO__;font-size:15px;letter-spacing:.6px;color:__GREY__;margin-top:3px;grid-column:2}
+/* 2026-11-09 (plans/gemini-notebook-parity-closeout-2026-11-09.md WS-D2): the CONCEPT CLUSTER.
+   The live Gemini Notebook comparison drew six related mechanisms grouped under two headings, a
+   shape none of the five earlier families covers: a stat row has no grouping, a process flow
+   implies sequence, a comparison implies two sides. Rendered in house style, so flat orthographic
+   on real type, no isometric depth and no decorative shadow; the relationship is carried by the
+   group rail and the shared icon system, never by faked 3D. CSS grid, so collisions are
+   impossible by construction (graphic-collision ban). */
+.ccl{display:flex;gap:26px;width:100%;height:100%;align-items:stretch;justify-content:center}
+.ccgroup{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+.ccgroup>.cch{font-family:__FMONO__,monospace;font-size:calc(16px * var(--gs,1));letter-spacing:1.8px;
+  text-transform:uppercase;color:__GREY__;padding-bottom:9px;border-bottom:2px solid __ACCENT__}
+.ccnodes{display:grid;grid-template-columns:repeat(var(--cols,2),minmax(0,1fr));gap:14px;flex:1;align-content:stretch}
+.ccnode{min-width:0;border:1px solid __HAIR__;border-radius:4px;background:__PAPER__;
+  padding:22px 22px 20px;display:flex;flex-direction:column;gap:12px;position:relative;justify-content:flex-end}
+.ccnode:before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:__KICK__;border-radius:4px 0 0 4px}
+/* The glyph anchors the card's upper field; name and caption sit low (the GOLD card anatomy the
+   process-flow family established), so a sparse cluster reads as composed rather than top-heavy. */
+.ccnode .ccico{line-height:0;margin-bottom:auto}
+/* 2026-11-09 (owner directive: infographics carry real graphics): the generated illustration owns
+   the card's upper field at a size a reader sees, name and caption anchor below it. */
+.ccnode .ccart{line-height:0;margin-bottom:auto;display:flex;align-items:flex-start;justify-content:center}
+.ccnode .ccart img{width:100%;max-width:260px;height:auto;max-height:230px;object-fit:contain;display:block}
+.ccnode .ccn{font-family:__FTITLE__;font-weight:700;font-size:calc(21px * var(--gs,1));line-height:1.2;color:__INK__}
+.ccnode .ccd{font-family:__FBODY__;font-size:calc(17px * var(--gs,1));line-height:1.42;color:__GREY__}
+.ccl.one .ccgroup>.cch{border-bottom-color:__KICK__}
+/* 2026-11-09 (owner, comparing Gemini's best slide): CONTAINMENT + PROPORTION shapes. The brick canon
+   was grids, rows and arcs only, so a funnel, a pyramid and a nested set could not be drawn at all,
+   and "funnel" was aliased to a journey swimlane. Bands stack vertically and their width is set by
+   clip-path, so the geometry carries the claim (narrowing = filtering) and collisions are impossible.
+   Typography sits INSIDE the band, which is the other thing Gemini does and HiC could not. */
+/* 2026-11-09 v3: built to the REAL design-system component, NXT Humans `viz/funnelFlow`
+   (Figma iSQhAVM7SI4QHAWB7y9C2z node 764:349), read via the Figma MCP instead of invented. v1 and v2
+   were both wrong because I designed a funnel that the design system already defines. The canon:
+   a DARK RAIL ground, bands drawn as CYAN HAIRLINE OUTLINES over a near-empty fill, the ACCENT
+   reserved for the FINAL band (what survives), L-shaped registration marks at the four corners, and
+   a faint dot grid behind. Type sits inside the band, light on dark. */
+.fnlwrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;
+  background:__RAIL__;background-image:radial-gradient(__DOT__ 1px,transparent 1px);background-size:26px 26px;
+  padding:34px 30px;box-sizing:border-box;overflow:hidden}
+.fnlwrap .reg{position:absolute;width:26px;height:26px;border:1.5px solid __REG__;opacity:.55}
+.fnlwrap .reg.tl{top:16px;left:16px;border-right:0;border-bottom:0}
+.fnlwrap .reg.tr{top:16px;right:16px;border-left:0;border-bottom:0}
+.fnlwrap .reg.bl{bottom:16px;left:16px;border-right:0;border-top:0}
+.fnlwrap .reg.br{bottom:16px;right:16px;border-left:0;border-top:0}
+.fnlgrid{display:grid;grid-template-columns:168px minmax(0,1fr) 28%;gap:0 16px;align-items:stretch;
+  width:100%;max-width:1420px;z-index:1}
+.fnl{display:flex;flex-direction:column;gap:5px;min-width:0}
+/* index gutter: stage number + a rule that ties it to the band */
+.fnlidx{display:flex;flex-direction:column;gap:5px}
+.fnlidx .ix{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:10px;min-height:96px;text-align:right}
+.fnlidx .ix b{font-family:__FMONO__;font-weight:400;font-size:15px;letter-spacing:1.6px;color:__ONRAIL__;opacity:.5;flex:0 0 auto}
+.fnlidx .ix s{text-decoration:none;font-family:__FMONO__;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+  color:__REG__;opacity:.9;line-height:1.35;max-width:96px}
+.fnlidx .ix i{display:block;width:14px;height:1px;background:__REG__;opacity:.5}
+/* annotation rail: the implication of each stage, aligned to its band */
+.fnlgrid.withart{grid-template-columns:116px 168px minmax(0,1fr) 26%}
+.fnlart{display:flex;flex-direction:column;gap:5px}
+.fnlart .aw{flex:1 1 0;min-height:96px;display:flex;align-items:center;justify-content:center}
+.fnlart .aw img{max-width:100%;max-height:92px;width:auto;height:auto;display:block;opacity:.95}
+.fnlnotes{display:flex;flex-direction:column;gap:5px}
+.fnlnotes .nt{flex:1 1 0;display:flex;align-items:center;gap:10px;min-height:96px}
+.fnlnotes .nt i{display:block;width:16px;height:1px;background:__REG__;opacity:.5;flex:0 0 16px}
+.fnlnotes .nt span{font-family:__FBODY__;font-size:16px;line-height:1.45;color:__ONRAIL__;opacity:.72}
+.fnlnotes .nt.none i{opacity:.18}
+/* drop marker: what the stage removes, read between the bands */
+.fnl .fband .drop{display:block;margin-top:9px;font-family:__FMONO__;font-size:calc(13px * var(--fs,1));
+  letter-spacing:1.6px;text-transform:uppercase;color:__REG__;opacity:.9}
+.fnl .fband.last .drop{color:__ONACCENT__;opacity:.7}
+.fnl .fedge{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fnl .fband{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:18px 10% 20px;box-sizing:border-box;min-height:96px}
+.fnl .fband .fbl{font-family:__FMONO__;font-weight:400;font-size:calc(19px * var(--fs,1));
+  letter-spacing:2.2px;text-transform:uppercase;line-height:1.2;color:__ONRAIL__}
+.fnl .fband .fbd{font-family:__FBODY__;font-size:calc(18px * var(--fs,1));line-height:1.45;
+  margin-top:7px;color:__ONRAIL__;opacity:.78}
+.fnl .fband.last .fbl,.fnl .fband.last .fbd{color:__ONACCENT__}
+.fnl .fband.last .fbd{opacity:.86}
+.nst{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%}
+.nst .nring{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  border:2px solid __HAIR__;border-radius:6px;padding:16px 20px;width:100%;box-sizing:border-box}
+.nst .nring>.nlabel{font-family:__FMONO__,monospace;font-size:calc(15px * var(--fs,1));letter-spacing:1.6px;
+  text-transform:uppercase;color:__GREY__;margin-bottom:12px}
+.nst .nring>.ncore{font-family:__FTITLE__;font-weight:700;font-size:calc(24px * var(--fs,1));line-height:1.2;color:__INK__;text-align:center}
 .compo{display:flex;flex-direction:column;gap:14px;width:100%;justify-content:center}
 .cbar{display:flex;height:42px;border-radius:3px;overflow:hidden}
 .cseg{height:100%}
 .clegend{display:flex;gap:18px;flex-wrap:wrap}
 .cleg{display:flex;align-items:center;gap:8px;font-family:__FBODY__;font-size:17px;color:__INK__}
 .cleg i{width:12px;height:12px;display:block}
+/* 2026-11-16 (owner's #slides "Data Architecture" slide drew a Mermaid tangle: edge labels over the
+   PRODUCT VIEWS label, four views crammed into one node). ARCHITECTURE: named sources -> one governed
+   layer -> named views, as a CSS grid so nothing can collide; every label sits INSIDE its box (the
+   Gemini Notebook diagram grammar), and the arrows own their grid cells. */
+.archx{display:grid;grid-template-columns:1fr 64px 0.9fr 64px 0.9fr;align-items:stretch;width:100%;height:100%}
+.archx .acol{display:flex;flex-direction:column;gap:10px;min-width:0}
+.archx .acards{flex:1;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.archx .alab{font-family:__FMONO__,monospace;font-size:15px;letter-spacing:1.6px;text-transform:uppercase;color:__GREY__;margin-bottom:2px}
+.archx .anode{border:2px solid __KICK__;border-radius:4px;background:__PAPER__;padding:10px 16px;min-width:0}
+.archx .anode b{display:block;font-family:__FTITLE__;font-weight:700;font-size:20px;line-height:1.2;color:__INK__}
+.archx .anode span{display:block;font-family:__FBODY__;font-size:16px;line-height:1.3;color:__GREY__;margin-top:3px}
+.archx .aview{background:__RAIL__;border-color:__RAIL__}
+.archx .aview b{color:__ONRAIL__}
+.archx .aview span{color:__ONRAIL__;opacity:.78}
+.archx .aarrow{display:flex;align-items:center;justify-content:center}
+.archx .acore{flex:1;background:__TEAL__;border-radius:4px;padding:26px 24px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.archx .acore b{font-family:__FDISP__;font-weight:600;font-size:34px;line-height:1.08;color:__ONRAIL__}
+.archx .acore li{list-style:none;font-family:__FBODY__;font-size:18px;line-height:1.35;color:__ONRAIL__;padding-left:20px;position:relative}
+.archx .acore li:before{content:'';position:absolute;left:0;top:8px;width:9px;height:9px;background:__ACCENT__}
 """
 
 
 def _info_css(pal: dict) -> str:
     css = _INFO_CSS
     fc = _faces(pal)
-    for key, val in (("__HAIR__", pal["hairline"]), ("__PAPER__", pal["paper"]), ("__INK__", pal["ink"]),
+    for key, val in (("__RAIL__", pal.get("rail") or pal["ink"]),
+                     ("__DOT__", _hex_tint(pal.get("rail") or pal["ink"], 0.14)),
+                     ("__REG__", pal.get("cyan") or pal["kicker"]),
+                     ("__ONRAIL__", pal.get("paper") or "#FFFFFF"),
+                     ("__ONACCENT__", pal.get("band_text") or pal["ink"]),
+                     ("__HAIR__", pal["hairline"]), ("__PAPER__", pal["paper"]), ("__INK__", pal["ink"]),
                      ("__GREY__", pal["grey"]), ("__KICK__", pal["kicker"]), ("__ACCENT__", pal["accent"]),
                      ("__WASHCOOL__", pal["wash_cool"]),
+                     ("__TEAL__", pal.get("teal") or pal.get("rail") or pal["ink"]),
                      ("__FTITLE__", fc["css_title"]), ("__FBODY__", fc["css_body"]),
                      ("__FDISP__", fc["css_disp"]), ("__FMONO__", fc["css_mono"])):
         css = css.replace(key, val)
@@ -609,6 +1023,285 @@ def _comparison_body(spec: dict, pal: dict) -> str:
            "for(let i=0;i<12;i++){const n=+(cs+0.05).toFixed(2);w.style.setProperty('--cs',String(n));if(full()>0.85||n>1.6){w.style.setProperty('--cs',String(cs));break;}cs=n;}};"
            "(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);})();</script>")
     return f'<div class="cmpwrap">{"".join(panels)}</div>{fit}'
+
+
+# Function words that must never drive an icon match. Measured defect (2026-11-09 probe): the
+# preposition "over" in "Shared memory over messaging" partial-matched the tag "oversight" and
+# put a governance glyph on a memory-architecture node; "when" in a caption matched "time" and
+# put a CLOCK on "Proof-based task settlement". Concept words only.
+_ICON_STOPWORDS = frozenset("""
+over with from into that this than then each other others their your about based using under
+after before while where which when what more most across through within without every only
+also must shall will have been they them there here such very much many both same own
+""".split())
+
+
+def _icon_for_concept(name: str, exclude) -> str | None:
+    """The icon for an abstract concept node, or None.
+
+    Two rules, both learned from a live probe: match on the node NAME only (a caption's incidental
+    nouns outscore the concept), and drop function words first. A node whose concept has no
+    confident glyph carries no glyph, per the standing content-true-icon rule: a wrong icon is
+    worse than no icon, because the reader trusts it.
+    """
+    words = [w for w in re.findall(r"[A-Za-z]{3,}", name or "") if w.lower() not in _ICON_STOPWORDS]
+    if not words:
+        return None
+    return _icon_best_name(" ".join(words), exclude=exclude, min_score=3)
+
+
+def _concept_cluster_body(spec: dict, pal: dict) -> str:
+    """Grouped related concepts: 1-2 groups, 2-4 nodes each, icon + name + mechanism caption.
+
+    2026-11-09 (closeout plan WS-D2). Spec shape:
+      {"kind": "concept-cluster",
+       "groups": [{"heading": "...", "nodes": [{"name": "...", "detail": "..."}, ...]}, ...]}
+    A flat list of `nodes` with no groups is accepted and renders as one unheaded group, so a
+    caller that only has six related items still gets this family rather than a misfit stat row.
+    """
+    groups = [g for g in _list(spec.get("groups")) if isinstance(g, dict)][:2]
+    if not groups:
+        loose = [n if isinstance(n, dict) else {"name": _s(n)} for n in _list(spec.get("nodes"))][:6]
+        if not loose:
+            return ""
+        groups = [{"heading": "", "nodes": loose}]
+
+    # Resolve icons for the WHOLE exhibit first, then show them ALL or NONE. A cluster where some
+    # cards carry a glyph and others sit bare reads as a rendering bug, and filling the gaps with
+    # a fallback glyph would break the content-true rule. So the exhibit either has a coherent
+    # icon system (every node confidently matched, each glyph distinct) or it has none.
+    resolved: list[list[tuple[str, str, str | None, str]]] = []
+    used_icons: set[str] = set()
+    all_matched = True
+    for g in groups:
+        nodes = [n if isinstance(n, dict) else {"name": _s(n)} for n in _list(g.get("nodes"))][:4]
+        row: list[tuple[str, str, str | None, str]] = []
+        for n in nodes:
+            name = _s(n.get("name")) or _s(n.get("label"))
+            detail = _s(n.get("detail")) or _s(n.get("description")) or _s(n.get("caption"))
+            # 2026-11-09 (owner directive): a generated illustration for this node, when the
+            # caller attached one. Artwork outranks a glyph on every card that has it.
+            art = _s(n.get("image")) or _s(n.get("art")) or _s(n.get("illustration"))
+            icon = _icon_for_concept(name, exclude=frozenset(used_icons))
+            if icon:
+                used_icons.add(icon)
+            elif not art:
+                all_matched = False
+            row.append((name, detail, icon, art))
+        resolved.append(row)
+
+    panels = []
+    for g, row in zip(groups, resolved):
+        cells = []
+        for name, detail, icon, art in row:
+            # 2026-11-09 (owner: "#infographics requires images/graphics! NOT JUST GLYPHS AND
+            # ICONS"): when the caller attached a generated illustration for this node, the card
+            # draws the ARTWORK at a size a reader actually sees. The glyph path remains only as
+            # the no-artwork case, so an exhibit is never worse than it was.
+            if art:
+                i_html = f'<div class="ccart"><img alt="" src="{_e(art)}"/></div>'
+            else:
+                i_html = (f'<div class="ccico">{_svg(_glyph(icon), 40, pal["kicker"], sw=1.5)}</div>'
+                          if (icon and all_matched) else "")
+            d_html = f'<div class="ccd">{_e(detail)}</div>' if detail else ""
+            cells.append(f'<div class="ccnode">{i_html}<div class="ccn">{_e(name)}</div>{d_html}</div>')
+        cols = 2 if len(cells) > 2 else 1
+        head = f'<div class="cch">{_e(_s(g.get("heading")))}</div>' if _s(g.get("heading")) else ""
+        panels.append(f'<div class="ccgroup">{head}<div class="ccnodes" style="--cols:{cols}">{"".join(cells)}</div></div>')
+
+    one = " one" if len(panels) == 1 else ""
+    # Same fill rule as the comparison and stat-row families: grow the type in steps until the
+    # fullest node is about 85% full, so a sparse cluster does not sit tiny in a big frame.
+    fit = ("<script>(function(){const w=document.querySelector('.ccl');if(!w)return;"
+           "const run=()=>{let gs=1;const full=()=>Math.max(...Array.from(w.querySelectorAll('.ccnode')).map(c=>{let h=0;for(const k of c.children)h+=k.offsetHeight;return h/Math.max(1,c.clientHeight-38);}));"
+           "if(full()>0.98){for(let i=0;i<6&&full()>0.98;i++){gs=+(gs-0.05).toFixed(2);w.style.setProperty('--gs',String(gs));}return;}"
+           "for(let i=0;i<12;i++){const n=+(gs+0.05).toFixed(2);w.style.setProperty('--gs',String(n));if(full()>0.85||n>1.5){w.style.setProperty('--gs',String(gs));break;}gs=n;}};"
+           "(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);})();</script>")
+    return f'<div class="ccl{one}">{"".join(panels)}</div>{fit}'
+
+
+def _hex_tint(hex_colour: str, amount: float) -> str:
+    """Mix a brand hex toward paper. 0.0 = the colour, 1.0 = white. Keeps the hue, drops the shout."""
+    h = str(hex_colour or "").lstrip("#")
+    if len(h) != 6:
+        return hex_colour
+    try:
+        r, g, b = (int(h[k:k + 2], 16) for k in (0, 2, 4))
+    except ValueError:
+        return hex_colour
+    a = min(1.0, max(0.0, amount))
+    r = round(r + (255 - r) * a)
+    g = round(g + (255 - g) * a)
+    b = round(b + (255 - b) * a)
+    return f"#{r:02X}{g:02X}{b:02X}"
+
+
+def _band_tints(pal: dict, n: int) -> list:
+    """Band fills for the funnel, per the `viz/funnelFlow` canon: near-empty dark panels, not colour.
+
+    2026-11-09 v3. The design-system component draws each band as a CYAN HAIRLINE OUTLINE over a
+    barely-lifted dark fill, and spends the accent only on the final band. Earlier versions filled
+    every band with a saturated brand hue, which is what read as childish.
+    """
+    rail = pal.get("rail") or pal["ink"]
+    if n <= 0:
+        return []
+    return [_hex_tint(rail, 0.10 + (0.05 * i / max(1, n - 1))) for i in range(n)]
+
+
+def _funnel_body(spec: dict, pal: dict, invert: bool = False) -> str:
+    """A funnel (widest first) or pyramid (narrowest first), labels INSIDE each band.
+
+    2026-11-09 (closeout plan E2 items 3 and 4). Spec:
+      {"kind": "funnel"|"pyramid", "stages":[{"name": "...", "detail": "..."}, ...]}
+    `steps`/`bands`/`layers` are accepted too, because callers already use those names elsewhere.
+    """
+    raw = (_list(spec.get("stages")) or _list(spec.get("bands"))
+           or _list(spec.get("steps")) or _list(spec.get("layers")))
+    stages = []
+    for x in raw[:5]:
+        if isinstance(x, dict):
+            nm = _s(x.get("name")) or _s(x.get("title")) or _s(x.get("label"))
+            dt = _s(x.get("detail")) or _s(x.get("description")) or _s(x.get("body"))
+        else:
+            nm, dt = _s(x), ""
+        if nm:
+            nt = (_s(x.get("note")) or _s(x.get("implication")) or _s(x.get("soWhat"))) if isinstance(x, dict) else ""
+            dp = (_s(x.get("drop")) or _s(x.get("loss")) or _s(x.get("removes"))) if isinstance(x, dict) else ""
+            art = (_s(x.get("image")) or _s(x.get("art")) or _s(x.get("illustration"))) if isinstance(x, dict) else ""
+            # A narrowing band cannot hold a sentence: the lower bands are a third of the width and
+            # long text wrapped past the frame (live defect: band 1's label clipped at the top, band
+            # 3's last word cut off at the bottom). Consulting convention applies instead: the SHAPE
+            # carries a short phrase, the MARGIN carries the sentence. A long detail moves to the
+            # note rail rather than being truncated, so no evidence is lost.
+            if len(dt) > 86:
+                nt = nt or dt
+                dt = ""
+            stages.append((nm, dt, nt, dp, art))
+    if len(stages) < 2:
+        return ""
+
+    n = len(stages)
+    fills = _band_tints(pal, n)
+    # Widest band 100%, narrowest 38%: wide enough at the tip to hold a label, which is why the
+    # geometry can carry text at all. A pyramid is the same geometry read upward.
+    widths = [100 - (62 * i / max(1, n - 1)) for i in range(n)]
+    if invert:
+        widths = list(reversed(widths))
+    edge = pal.get("cyan") or pal["kicker"]
+    accent = pal.get("accent") or pal["kicker"]
+    rows = []
+    for i, ((nm, dt, _nt, dp, _art), w, fill) in enumerate(zip(stages, widths, fills)):
+        inset = (100 - w) / 2
+        next_w = widths[i + 1] if i + 1 < n else max(22.0, w - 16)
+        next_inset = (100 - next_w) / 2
+        clip = (f"polygon({inset:.2f}% 0, {100 - inset:.2f}% 0, "
+                f"{100 - next_inset:.2f}% 100%, {next_inset:.2f}% 100%)")
+        last = (i == n - 1)
+        # The band EDGE is drawn as an SVG polyline sized in percentages, so the hairline survives the
+        # clip (a CSS border would be clipped away with the corners) and never thickens with scale.
+        pts = (f"{inset:.2f},0 {100 - inset:.2f},0 {100 - next_inset:.2f},100 {next_inset:.2f},100")
+        outline = ("" if last else
+                   f'<svg class="fedge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">'
+                   f'<polygon points="{pts}" fill="none" stroke="{edge}" stroke-width="0.45"'
+                   f' vector-effect="non-scaling-stroke"/></svg>')
+        bg = accent if last else fill
+        d_html = f'<div class="fbd">{_e(dt)}</div>' if dt else ""
+        # Text is inset to the band's NARROW edge, so a sentence can never run outside the
+        # trapezoid and get clipped mid-word (live defect on v3: "...against the postin").
+        pad = f"calc({next_inset:.2f}% + 22px)"
+        rows.append(
+            f'<div class="fband{" last" if last else ""}" style="background:{bg};'
+            f'clip-path:{clip};-webkit-clip-path:{clip};padding-left:{pad};padding-right:{pad}">{outline}'
+            f'<div class="fbl">{_e(nm)}</div>{d_html}</div>')
+    fit = ("<script>(function(){const w=document.querySelector('.fnl');if(!w)return;"
+           "const run=()=>{let fs=1;const over=()=>Array.from(w.querySelectorAll('.fband')).some(b=>b.scrollHeight>b.clientHeight+2);"
+           "for(let i=0;i<8&&over();i++){fs=+(fs-0.06).toFixed(2);w.style.setProperty('--fs',String(fs));}};"
+           "(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);})();</script>")
+    regs = ''.join(f'<span class="reg {c}"></span>' for c in ("tl", "tr", "bl", "br"))
+    # Index gutter and annotation rail turn three trapezoids into an analysis: the stage number ties
+    # to the band, and the note states the IMPLICATION of that stage rather than restating it.
+    idx = ''.join(
+        f'<div class="ix">{f"<s>{_e(dp)}</s>" if dp else ""}<b>{i + 1:02d}</b><i></i></div>'
+        for i, (_n, _d, _t, dp, _a) in enumerate(stages))
+    notes = ''.join(
+        (f'<div class="nt"><i></i><span>{_e(nt)}</span></div>' if nt else '<div class="nt none"><i></i></div>')
+        for (_nm, _dt, nt, _dp, _a) in stages)
+    # 2026-11-09 (owner: the exhibit "does not yet have the illustrative richness"): each stage may
+    # carry a GENERATED ILLUSTRATION, drawn in the gutter where the column width is constant, so the
+    # artwork is never clipped by the narrowing shape. Absent artwork simply leaves the cell empty,
+    # so an exhibit without images is exactly what it was before.
+    arts = ''.join(
+        (f'<div class="aw"><img alt="" src="{_e(a)}"/></div>' if a else '<div class="aw"></div>')
+        for (_n, _d, _t, _dp, a) in stages)
+    has_art = any(a for (_n, _d, _t, _dp, a) in stages)
+    art_col = f'<div class="fnlart">{arts}</div>' if has_art else ''
+    grid = (f'<div class="fnlgrid{" withart" if has_art else ""}">{art_col}'
+            f'<div class="fnlidx">{idx}</div>'
+            f'<div class="fnl">{"".join(rows)}</div>'
+            f'<div class="fnlnotes">{notes}</div></div>')
+    return f'<div class="fnlwrap">{regs}{grid}</div>{fit}'
+
+
+def _pyramid_body(spec: dict, pal: dict) -> str:
+    return _funnel_body(spec, pal, invert=True)
+
+
+def _nested_body(spec: dict, pal: dict) -> str:
+    """Concentric containment: each layer encloses the next, outermost first, innermost is the core.
+
+    Spec: {"kind": "nested", "layers":[{"name": "..."}, ...]} - 2 to 4 layers.
+    """
+    raw = _list(spec.get("layers")) or _list(spec.get("rings")) or _list(spec.get("stages"))
+    names = []
+    for x in raw[:4]:
+        nm = _s(x.get("name")) if isinstance(x, dict) else _s(x)
+        if isinstance(x, dict) and not nm:
+            nm = _s(x.get("title")) or _s(x.get("label"))
+        if nm:
+            names.append(nm)
+    if len(names) < 2:
+        return ""
+    html = f'<div class="ncore">{_e(names[-1])}</div>'
+    for nm in reversed(names[:-1]):
+        html = f'<div class="nring"><div class="nlabel">{_e(nm)}</div>{html}</div>'
+    return f'<div class="nst">{html}</div>'
+
+
+def _architecture_body(spec: dict, pal: dict) -> str:
+    """Sources feed one governed layer that feeds the product views; labels inside every box.
+
+    Spec: {"kind": "architecture", "sources": [{"name", "detail"}], "layer": {"name", "items": [...]},
+           "views": [{"name", "detail"}]} - 2 to 7 sources, 1 to 5 views.
+    """
+    def nodes(raw, limit):
+        out = []
+        for x in _list(raw)[:limit]:
+            nm = _s(x.get("name") or x.get("label") or x.get("title")) if isinstance(x, dict) else _s(x)
+            dt = _s(x.get("detail") or x.get("description")) if isinstance(x, dict) else ""
+            if nm:
+                out.append((nm, dt))
+        return out
+
+    src, views = nodes(spec.get("sources"), 7), nodes(spec.get("views"), 5)
+    layer = spec.get("layer") if isinstance(spec.get("layer"), dict) else {}
+    lname = _s(layer.get("name")) or "Governed data layer"
+    items = [_s(i) for i in _list(layer.get("items"))[:4] if _s(i)]
+    if len(src) < 2 or not views:
+        return ""
+
+    def col(label, rows, cls=""):
+        cards = "".join(f'<div class="anode {cls}"><b>{_e(n)}</b>' + (f'<span>{_e(d)}</span>' if d else "") + '</div>'
+                        for n, d in rows)
+        return f'<div class="acol"><div class="alab">{_e(label)}</div><div class="acards">{cards}</div></div>'
+
+    arrow = (f'<div class="aarrow"><svg width="46" height="34" viewBox="0 0 46 34" fill="{pal["accent"]}">'
+             f'<path d="M0 11 H28 V2 L46 17 L28 32 V23 H0 Z"/></svg></div>')
+    core = (f'<div class="acol"><div class="alab">{_e(_s(spec.get("layerLabel")) or "Governed layer")}</div>'
+            f'<div class="acore"><b>{_e(lname)}</b>' + ("<ul>" + "".join(f"<li>{_e(i)}</li>" for i in items) + "</ul>" if items else "")
+            + '</div></div>')
+    return (f'<div class="archx">{col(_s(spec.get("sourcesLabel")) or "Source systems", src)}{arrow}{core}{arrow}'
+            f'{col(_s(spec.get("viewsLabel")) or "Product views", views, "aview")}</div>')
 
 
 def _ranked_bars_body(spec: dict, pal: dict) -> str:
@@ -800,6 +1493,18 @@ _INFO_BODIES = {
     "comparison": _comparison_body,
     "ranked-bars": _ranked_bars_body,
     "composition": _composition_body,
+    # 2026-11-09 (closeout plan WS-D2)
+    "concept-cluster": _concept_cluster_body,
+    # 2026-11-09 (closeout plan E2 items 3-4): containment + proportion shapes.
+    "funnel": _funnel_body,
+    "pyramid": _pyramid_body,
+    "nested": _nested_body,
+    "concept_cluster": _concept_cluster_body,
+    "cluster": _concept_cluster_body,
+    # 2026-11-16: in-slide architecture (sources -> governed layer -> views), never a Mermaid tangle.
+    # "architecture" stays the full-page tiered exhibit (_arch_body, a layers-of-nodes spec); diagram_html
+    # remaps it here only when the spec carries sources and views.
+    "data-architecture": _architecture_body,
 }
 
 
@@ -815,7 +1520,7 @@ def _chromeless_shell(pal: dict, body_html: str, w: int, h: int, zoom: float | N
     dh = int(round(h / k))
     FB = _faces(pal)["css_body"]
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
-{_font_face_css()}
+{_font_face_css(pal.get('brand', ''))}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:{w}px;height:{h}px;background:{pal['paper']};overflow:hidden}}
 .exhibit{{width:{dw}px;height:{dh}px;zoom:{k};background:{pal['paper']};display:flex;align-items:stretch;
@@ -827,6 +1532,8 @@ html,body{{width:{w}px;height:{h}px;background:{pal['paper']};overflow:hidden}}
 
 def diagram_html(spec: dict, pal: dict) -> str:
     kind = (spec.get("kind") or "flow").lower()
+    if kind in ("arch", "architecture") and _list(spec.get("sources")) and _list(spec.get("views")):
+        kind = "data-architecture"
     kicker = _s(spec.get("kicker")) or _KICK_FALLBACK.get(kind, "")
     title = _s(spec.get("title"))
     # takeaway band: explicit takeaway, else flowSummary (architecture) so the band is never empty
@@ -841,10 +1548,20 @@ def diagram_html(spec: dict, pal: dict) -> str:
             # 2x, every graph became a strip); the flowchart renders at zoom 1 and is captured at its own size.
             return _chromeless_shell(pal, body, w, h, zoom=1.0 if kind == "flowchart" else None)
         return _shell_with_info_css(pal, kicker, title, body, takeaway)
-    if kind in ("journey", "journey-map", "flow", "funnel", "blueprint", "service-blueprint"):
+    # 2026-11-09: "funnel" removed - it is a real funnel now (_funnel_body), not a journey swimlane.
+    if kind in ("journey", "journey-map", "flow", "blueprint", "service-blueprint"):
         body = _journey_body(spec, pal)
     elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
-        body = _arch_body(spec, pal)
+        # 2026-11-16: with named connections #arch is a real connector diagram (the flow summary becomes its
+        # subtitle, so the band carries only an explicit takeaway); without them, the tier view as before.
+        flow = ""
+        if _list(spec.get("connections")):
+            sub = _s(spec.get("subtitle")) or _s(spec.get("flowSummary"))
+            flow = _archflow_body({**spec, "subtitle": sub}, pal)
+        if flow:
+            body, takeaway = flow, _s(spec.get("takeaway"))
+        else:
+            body = _arch_body(spec, pal)
     elif kind in ("mindmap", "mind-map"):
         body = _mind_body(spec, pal)
     else:

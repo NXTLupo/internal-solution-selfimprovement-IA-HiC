@@ -169,3 +169,10 @@ ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+
+# Tool debris (16 Nov audit): browser-tool page snapshots and a reverse-engineering scratch folder that holds a
+# downloaded third-party repository. Not project source.
+snap-*.yml/
+snap-*.yml
+.tmp-rea-analysis/
+.playwright-mcp/

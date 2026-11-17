@@ -203,7 +203,7 @@ export const AISummaryBox = ({
             title="Select AI model"
           >
             <option value="openai">GPT-4o</option>
-            <option value="claude">Claude 3.7 Sonnet</option>
+            <option value="claude">Claude Opus 5.5</option>
             <option value="gemini">Gemini 2.5 Pro</option>
           </select>
           {/* Refresh button */}

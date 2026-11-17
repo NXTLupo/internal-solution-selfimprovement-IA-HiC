@@ -134,31 +134,33 @@ describe('describeEnforcement - the visible echo-back', () => {
 });
 
 describe('deckPlanGate visualQuotaFloor parameterization (V2)', () => {
-    // 10 body slides, 4 visual (40%): passes the default floor, fails a raised one.
+    // 2026-11-09 (owner directive): the default floor moved 0.4 -> 0.7 and the ceiling 0.7 -> 1.0,
+    // because the measured Gemini deck carries artwork on 15 of 15 slides and a 40% floor let a
+    // majority-text deck pass. This fixture clears the new default and fails a raised one.
     const deck = [
         'slides:cover',
-        'slides:numbered-themes', 'slides:stat-row', 'slides:org-model',
-        'slides:evidence-table', 'slides:role-needs', 'slides:problem-diptych',
-        'slides:ranked-bars', 'slides:block-quote', 'slides:quadrant',
+        'slides:stat-row', 'slides:evidence-table', 'slides:ranked-bars',
+        'slides:quadrant', 'slides:flow-arc', 'slides:means-matters',
+        'slides:milestone-timeline', 'slides:comparison-panels', 'slides:block-quote',
         'slides:recommendation',
     ].map(t => `:::slide template=${t}\n{}\n:::`).join('\n');
 
-    it('passes the visual quota at the 0.4 default', () => {
+    it('passes the visual quota at the 0.7 default', () => {
         const plan = evaluateDeckPlan(deck);
         expect(plan.isDeck).toBe(true);
-        expect(plan.visualFloorApplied).toBe(0.4);
+        expect(plan.visualFloorApplied).toBe(0.7);
         expect(plan.violations.some(v => v.includes('are visual'))).toBe(false);
     });
 
-    it('fails the visual quota when the session floor is raised to 0.55', () => {
-        const plan = evaluateDeckPlan(deck, { visualQuotaFloor: 0.55 });
-        expect(plan.visualFloorApplied).toBe(0.55);
+    it('fails the visual quota when the session floor is raised to 0.9', () => {
+        const plan = evaluateDeckPlan(deck, { visualQuotaFloor: 0.9 });
+        expect(plan.visualFloorApplied).toBe(0.9);
         expect(plan.violations.some(v => v.includes('are visual'))).toBe(true);
         expect(plan.violations.some(v => v.includes("user's explicit request"))).toBe(true);
     });
 
-    it('clamps an out-of-range floor into [0.4, 0.7]', () => {
+    it('clamps an out-of-range floor into [0.4, 1.0]', () => {
         expect(evaluateDeckPlan(deck, { visualQuotaFloor: 0.1 }).visualFloorApplied).toBe(0.4);
-        expect(evaluateDeckPlan(deck, { visualQuotaFloor: 0.95 }).visualFloorApplied).toBe(0.7);
+        expect(evaluateDeckPlan(deck, { visualQuotaFloor: 1.4 }).visualFloorApplied).toBe(1);
     });
 });

@@ -6,19 +6,19 @@ source: eval-frontier
 family: claim-ledger
 applies_to: generation
 kinds: [arch, audit, blueprint, case-study, compete, gap, journey, org, persona, prd, recommendations, roadmap, slides, strategy, themes]
-cases: 128
-updated: 2026-11-06
-source_hash: 2aebc8010de031a3
+cases: 139
+updated: 2026-11-17
+source_hash: 8414b749d83d76ee
 chunks:
   - id: "known-gaps/failure-claim-ledger.md#c0"
-    char_span: [0, 584]
+    char_span: [0, 585]
     sentence_count: 3
     key_terms: [claims, ledger, recommendations, declarative, deliverable, unsupported, case-study, engagement]
     concepts: [claims, ledger]
     token_count: 141
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c1"
-    char_span: [681, 934]
+    char_span: [682, 935]
     sentence_count: 1
     key_terms: [persona-persona-, frontier, persona-, partial, persona, claims, chain, case]
     concepts: [persona-persona-, frontier, persona-, partial, persona]
@@ -27,7 +27,7 @@ chunks:
     token_count: 68
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c2"
-    char_span: [1032, 1527]
+    char_span: [1033, 1528]
     sentence_count: 1
     key_terms: [frontier, partial, claims, chain, case, recommendations-, recommendations, prd]
     concepts: [frontier, partial, claims, recommendations-, chain]
@@ -36,7 +36,7 @@ chunks:
     token_count: 136
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c3"
-    char_span: [1626, 1865]
+    char_span: [1627, 1866]
     sentence_count: 1
     key_terms: [frontier, partial, claims, chain, case, persona-persona-, persona-, persona]
     concepts: [frontier, partial, claims, chain]
@@ -45,7 +45,7 @@ chunks:
     token_count: 66
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c4"
-    char_span: [1964, 3269]
+    char_span: [1965, 3270]
     sentence_count: 1
     key_terms: [frontier, partial, claims, case, chain, arch-architecture-, architecture-, arch]
     concepts: [frontier, partial, claims, arch-architecture-, chain]
@@ -54,7 +54,7 @@ chunks:
     token_count: 331
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c5"
-    char_span: [3368, 4472]
+    char_span: [3369, 4473]
     sentence_count: 1
     key_terms: [frontier, partial, case-study-case-, claims, case, chain, case-study, case-]
     concepts: [case-study-case-, frontier, partial, claims, chain]
@@ -63,7 +63,7 @@ chunks:
     token_count: 313
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c6"
-    char_span: [4571, 4796]
+    char_span: [4572, 4797]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, claims, slides, chain, case]
     concepts: [frontier, partial, slides-, claims, slides]
@@ -72,7 +72,7 @@ chunks:
     token_count: 64
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c7"
-    char_span: [4895, 6803]
+    char_span: [4896, 6804]
     sentence_count: 1
     key_terms: [frontier, partial, claims, chain, slides-, case, slides, persona-persona-]
     concepts: [frontier, partial, claims, slides-, chain]
@@ -81,7 +81,7 @@ chunks:
     token_count: 419
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c8"
-    char_span: [6902, 7353]
+    char_span: [6903, 7354]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, claims, slides, chain, case]
     concepts: [frontier, partial, slides-, claims, slides]
@@ -90,7 +90,7 @@ chunks:
     token_count: 128
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c9"
-    char_span: [7452, 8355]
+    char_span: [7453, 8356]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, claims, slides, chain, case]
     concepts: [frontier, partial, slides-, claims, slides]
@@ -99,7 +99,7 @@ chunks:
     token_count: 256
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c10"
-    char_span: [8454, 9405]
+    char_span: [8455, 9406]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, claims, slides, case, chain, family]
     concepts: [frontier, partial, slides-, claims, slides]
@@ -108,7 +108,7 @@ chunks:
     token_count: 270
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-claim-ledger.md#c11"
-    char_span: [9504, 11348]
+    char_span: [9505, 11349]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, claims, slides, chain, case, unknown]
     concepts: [frontier, partial, slides-, claims, slides]
@@ -116,12 +116,30 @@ chunks:
     section: "2026-10-31 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-10-31 | analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals / 2026-10-31 | generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ / 2026-11-03 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for"
     token_count: 414
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-claim-ledger.md#c12"
+    char_span: [11447, 12012]
+    sentence_count: 1
+    key_terms: [frontier, partial, claims, chain, case, themes-theme-, theme-, themes]
+    concepts: [frontier, partial, claims, chain, themes-theme-]
+    related_chunks: ["known-gaps/failure-claim-ledger.md#c1", "known-gaps/failure-claim-ledger.md#c2", "known-gaps/failure-claim-ledger.md#c3", "known-gaps/failure-claim-ledger.md#c4", "known-gaps/failure-claim-ledger.md#c5"]
+    section: "2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 171
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-claim-ledger.md#c13"
+    char_span: [12110, 12930]
+    sentence_count: 1
+    key_terms: [frontier, partial, claims, chain, case, prd, prd-, unknown]
+    concepts: [frontier, partial, claims, chain, unknown]
+    related_chunks: ["known-gaps/failure-claim-ledger.md#c1", "known-gaps/failure-claim-ledger.md#c2", "known-gaps/failure-claim-ledger.md#c3", "known-gaps/failure-claim-ledger.md#c4", "known-gaps/failure-claim-ledger.md#c5"]
+    section: "2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 203
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Claims the ledger could not support
 
 What fails: The claim ledger stage finished partial: declarative claims without a supporting pointer were narrowed or withheld.
 
-Seen in 128 frontier eval case(s) across 5 engagement(s); deliverable kinds: slides (52), persona (13), gap (9), recommendations (9), journey (8), prd (7), case-study (6), arch (5), themes (5), org (4), blueprint (3), roadmap (3), compete (2), audit (1), strategy (1).
+Seen in 139 frontier eval case(s) across 7 engagement(s); deliverable kinds: slides (54), persona (13), prd (13), gap (9), recommendations (9), journey (8), themes (7), arch (6), case-study (6), org (4), blueprint (3), roadmap (3), compete (2), audit (1), strategy (1).
 
 What the harness does about it: Generate from manifest chunk pointers and state an unsupported point as a judgment, not a fact.
 
@@ -240,3 +258,22 @@ What the harness does about it: Generate from manifest chunk pointers and state 
 ## 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for
 - slides slides_1793733775667: chain:claims partial (schema_invalid) (frontier case slides-slides_1793733775667)
 - slides slides_1793735955307: chain:claims partial (schema_invalid) (frontier case slides-slides_1793735955307)
+
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794198443833: chain:claims partial (schema_invalid) (frontier case prd-prd_1794198443833)
+- prd prd_1794202962064: chain:claims partial (unknown) (frontier case prd-prd_1794202962064)
+- slides slides_1794196862137: chain:claims partial (schema_invalid) (frontier case slides-slides_1794196862137)
+- themes theme-overview_1794198288221: chain:claims partial (schema_invalid) (frontier case themes-theme-overview_1794198288221)
+- themes theme-overview_1794204536109: chain:claims partial (schema_invalid) (frontier case themes-theme-overview_1794204536109)
+
+## 2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794278892579: chain:claims partial (unknown) (frontier case prd-prd_1794278892579)
+- prd prd_1794279962606: chain:claims partial (unknown) (frontier case prd-prd_1794279962606)
+- prd prd_1794283122759: chain:claims partial (schema_invalid) (frontier case prd-prd_1794283122759)
+- prd prd_1794284161769: chain:claims partial (unknown) (frontier case prd-prd_1794284161769)
+
+## 2026-11-16 | analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th
+- slides slides_1794868275046: chain:claims partial (schema_invalid) (frontier case slides-slides_1794868275046)
+
+## 2026-11-17 | analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th
+- arch architecture-map_1794874296269: chain:claims partial (schema_invalid) (frontier case arch-architecture-map_1794874296269)

@@ -813,9 +813,16 @@ const DIRECTIVES_COPY: HashtagDirective[] = [
         description:
             'The model writes ONE structurable element from the grounded corpus (4-6 steps, a before/after pair, or stats whose values ride verbatim quoted passages); infographicSpecFrom builds the spec and the proxy\'s native renderer (/api/ai/diagram, the E4 infographic families) draws it as a PNG. A leading aspect word steers the frame: landscape (default), portrait, or square. No figure appears unless a corpus quote carries it.',
         combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        modifiers: [
+            { token: 'aspect', description: 'Frame shape', values: 'landscape (default) | portrait | square' },
+            // 2026-11-09 (owner): selectable professional imagery styles, available on EVERY artifact.
+            { token: 'style', description: 'Imagery style, all brand-token bound', values: 'line (default, continuous accent line) | isometric (layered technical planes) | blueprint (schematic on a drafting grid) | duotone (two-colour documentary photography) | collage (flat cut-paper blocks)' },
+        ],
         examples: [
             '#infographic the permission ladder students expect before connecting an assistant',
             '#infographic portrait how the connector handles a write request',
+            '#infographic isometric how a student connects an assistant to campus services',
+            '#report blueprint the co-op connector architecture',
         ],
         requiresContext: true,
         usesVerbalizedSampling: false,
@@ -854,6 +861,40 @@ const DIRECTIVES_COPY: HashtagDirective[] = [
         requiresContext: true,
         usesVerbalizedSampling: true,
         introduced: '2026-11-03',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#dossier',
+        name: 'Evidence Dossier',
+        category: 'consulting-deliverable',
+        summary: 'A strategic report that carries the supporting artifacts inside it, inlined and still readable.',
+        description:
+            'Writes 1200-2500 words of argument and embeds 2-4 artifacts already saved in the gallery, each placed in the section whose claim it proves. The prose introduces what each artifact establishes rather than repeating its contents. Embedded artifacts are inlined under shadow roots, not iframes, so the page stays selectable, searchable and relaunchable. Added after the live Gemini Notebook comparison, whose interactive report embeds studio content behind a cross-origin iframe its own host page cannot read.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#dossier the case for redesigning first-year advising',
+            '#dossier what the co-op evidence supports, with the table and the journey map #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-09',
+        outputType: 'html_artifact',
+    },
+    {
+        id: '#blogpost',
+        name: 'Blog Post',
+        category: 'consulting-deliverable',
+        summary: 'The readable register: short paragraphs and a worked example, with the citation protocol intact.',
+        description:
+            'Writes 900-1600 words in a readable register: the judgment stated in the first two sentences, 3-5 short sections each advancing one cited claim, and a closing that names what to do or watch. Shorter paragraphs and second person are allowed; the pointer citations, the verbatim-quote rule and the ban on numbers outside quotes are not relaxed. Added after the live Gemini Notebook comparison showed Blog Post was the one report register HiC lacked.',
+        combinesWith: ['#NXT', '#NU', '#DECIEM'],
+        examples: [
+            '#blogpost what the co-op evidence says about first-year advising',
+            '#blogpost how the advancement team should read the donor research #NXT',
+        ],
+        requiresContext: true,
+        usesVerbalizedSampling: true,
+        introduced: '2026-11-09',
         outputType: 'html_artifact',
     },
     {

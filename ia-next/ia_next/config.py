@@ -20,7 +20,7 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 # OpenAI Sora is shut down (2026-09-24), so video has a Google primary only.
 SEATS = {
     "orchestration": {"primary": "claude-opus-5-5", "secondary": "gemini-4-carbon"},
-    "deep_reasoning": {"primary": "claude-fable-5-2", "secondary": "gpt-6-astra"},
+    "deep_reasoning": {"primary": "gpt-6-astra", "secondary": "claude-fable-5-2"},   # owner, 2026-11-11, after the 3-run bake-off
     "research": {"primary": "gemini-4-carbon", "secondary": "claude-opus-5-5"},
     "search": {"primary": "gemini-4-argon", "secondary": None},
     "artifact": {"primary": "claude-opus-5-5", "secondary": "claude-sonnet-5-5"},

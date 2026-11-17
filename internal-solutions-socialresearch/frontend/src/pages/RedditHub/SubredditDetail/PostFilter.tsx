@@ -20,6 +20,8 @@ export interface PostFilterData {
   maxUpvotes: number;
   minComments: number;
   maxComments: number;
+  startDate: string; // YYYY-MM-DD (UTC), '' = no lower bound
+  endDate: string;   // YYYY-MM-DD (UTC), inclusive, '' = no upper bound
 }
 
 interface PostFilterProps {
@@ -27,13 +29,15 @@ interface PostFilterProps {
   filterData: PostFilterData;
 }
 
-const defaultFilterData: PostFilterData = {
+export const defaultFilterData: PostFilterData = {
   searchTerm: '',
   sortBy: 'newest',
   minUpvotes: 0,
   maxUpvotes: 10000,
   minComments: 0,
   maxComments: 1000,
+  startDate: '',
+  endDate: '',
 };
 
 export const PostFilter = ({ 
@@ -76,7 +80,9 @@ export const PostFilter = ({
            filterData.minUpvotes !== 0 ||
            filterData.maxUpvotes !== 10000 ||
            filterData.minComments !== 0 ||
-           filterData.maxComments !== 1000;
+           filterData.maxComments !== 1000 ||
+           filterData.startDate !== '' ||
+           filterData.endDate !== '';
   };
 
   return (
@@ -106,14 +112,15 @@ export const PostFilter = ({
           {/* Search Term */}
           <div className="flex flex-col">
             <label htmlFor="searchTerm" className="mb-2 font-medium text-[#525252]">
-              Search Posts:
+              Keyword:
             </label>
             <input
               id="searchTerm"
               type="text"
               value={filterData.searchTerm}
               onChange={(e) => updateFilter({ searchTerm: e.target.value })}
-              placeholder="Search by title, content, or author..."
+              placeholder="Whole word, in titles, posts and comments"
+              title="Whole-word match: 'AI' finds AI or ai, not 'said' or 'email'"
               className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac]"
               style={{ backgroundColor: '#ffffff' }}
               autoComplete="off"
@@ -227,6 +234,34 @@ export const PostFilter = ({
                   />
                 </div>
               </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          {/* Date Range */}
+          <div className="flex flex-col">
+            <label htmlFor="startDate" className="mb-2 font-medium text-[#525252]">From Date:</label>
+            <input
+              id="startDate"
+              type="date"
+              value={filterData.startDate}
+              max={filterData.endDate || undefined}
+              onChange={(e) => updateFilter({ startDate: e.target.value })}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+              style={{ backgroundColor: '#ffffff' }}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="endDate" className="mb-2 font-medium text-[#525252]">To Date:</label>
+            <input
+              id="endDate"
+              type="date"
+              value={filterData.endDate}
+              min={filterData.startDate || undefined}
+              onChange={(e) => updateFilter({ endDate: e.target.value })}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+              style={{ backgroundColor: '#ffffff' }}
+            />
           </div>
         </div>
       </div>

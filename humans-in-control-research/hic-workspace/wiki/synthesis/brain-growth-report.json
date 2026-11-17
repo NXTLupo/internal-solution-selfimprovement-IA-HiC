@@ -1,9 +1,9 @@
 {
- "ran_at": "2026-11-09T00:11:30.057790Z",
+ "ran_at": "2026-11-17T00:39:29.329979Z",
  "trigger": "daily",
  "dry_run": false,
  "known_gaps": {
-  "cases": 622,
+  "cases": 1180,
   "pages": [
    "known-gaps/failure-action-titles.md",
    "known-gaps/failure-claim-ledger.md",
@@ -14,6 +14,7 @@
    "known-gaps/failure-grade.md",
    "known-gaps/failure-independence-inflated.md",
    "known-gaps/failure-lexical.md",
+   "known-gaps/failure-naked-figure.md",
    "known-gaps/failure-pointer-binding.md",
    "known-gaps/failure-prose.md",
    "known-gaps/failure-provenance.md",
@@ -24,20 +25,21 @@
   ],
   "written": [
    "known-gaps/failure-action-titles.md",
+   "known-gaps/failure-claim-ledger.md",
    "known-gaps/failure-evidence-anchoring.md",
    "known-gaps/failure-evidence-density.md",
-   "known-gaps/failure-unsourced-fact.md"
+   "known-gaps/failure-pointer-binding.md"
   ],
   "unchanged": [
-   "known-gaps/failure-claim-ledger.md",
    "known-gaps/failure-deck-quality.md",
    "known-gaps/failure-exhibits.md",
    "known-gaps/failure-grade.md",
    "known-gaps/failure-independence-inflated.md",
    "known-gaps/failure-lexical.md",
-   "known-gaps/failure-pointer-binding.md",
+   "known-gaps/failure-naked-figure.md",
    "known-gaps/failure-prose.md",
    "known-gaps/failure-provenance.md",
+   "known-gaps/failure-unsourced-fact.md",
    "known-gaps/failure-unsupported-modality.md",
    "known-gaps/failure-unverified-identifier.md",
    "known-gaps/failure-unverified-quote.md"
@@ -46,9 +48,11 @@
   "retired_candidates": []
  },
  "engagements": {
-  "pages": 51,
+  "pages": 53,
   "backfilled": [],
-  "consolidated": []
+  "consolidated": [
+   "engagements/analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th.md"
+  ]
  },
  "patterns": [
   {
@@ -78,7 +82,7 @@
   {
    "type": "research",
    "industry": "higher_ed",
-   "engagements": 21,
+   "engagements": 22,
    "due": false,
    "pattern_path": "synthesis/patterns/research-higher-ed.md",
    "pattern_exists": true

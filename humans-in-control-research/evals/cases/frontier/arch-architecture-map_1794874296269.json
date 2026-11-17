@@ -1,0 +1,26 @@
+{
+  "id": "arch-architecture-map_1794874296269",
+  "set": "frontier",
+  "kind": "arch",
+  "input": {
+    "objective": "Analyze the attached documents and compose a single #slides deck that distills the problem statement, solution vision, and product definition, supported by the objectives of the engagement",
+    "prompt": "#arch",
+    "engagement": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th"
+  },
+  "fixture": {
+    "output": null,
+    "source_ref": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th/artifacts/architecture-map_1794874296269.air.json"
+  },
+  "expected": {
+    "trajectory": {
+      "max_repair_rounds": 2,
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "failed_air",
+    "ref": "architecture-map_1794874296269",
+    "added": "2026-11-17",
+    "note": "chainPass=false; failing: chain:titles partial (schema_invalid); chain:bindPointers partial (unknown); chain:claims partial (schema_invalid); title:too_long x1"
+  }
+}

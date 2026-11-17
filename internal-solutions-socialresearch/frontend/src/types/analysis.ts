@@ -20,7 +20,8 @@ export interface AnalysisFormData {
   keyword: string;
   mergeMethod: 'deepseek' | 'sbert' | 'openai';
   chunkSize: number;
-  analysisModel: 'deepseek-r1' | 'openai-4';
+  // 'deepseek-r1' is a legacy saved value; the backend runs it on Claude Opus 5.5
+  analysisModel: 'claude-opus-5-5' | 'openai-4' | 'deepseek-r1';
   maxWorkers: number;
 }
 

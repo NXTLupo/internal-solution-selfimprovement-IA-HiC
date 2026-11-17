@@ -158,7 +158,7 @@ function SentimentAnalysis() {
     keyword: reduxFormData.keyword || '',
     mergeMethod: reduxFormData.mergeMethod || 'deepseek',
     chunkSize: reduxFormData.chunkSize || 30000,
-    analysisModel: reduxFormData.analysisModel || 'deepseek-r1',
+    analysisModel: reduxFormData.analysisModel || 'claude-opus-5-5',
     maxWorkers: validMaxWorkers,
   });
 
@@ -206,7 +206,7 @@ function SentimentAnalysis() {
       keyword: reduxFormData.keyword || '',
       mergeMethod: reduxFormData.mergeMethod || 'deepseek',
       chunkSize: reduxFormData.chunkSize || 30000,
-      analysisModel: reduxFormData.analysisModel || 'deepseek-r1',
+      analysisModel: reduxFormData.analysisModel || 'claude-opus-5-5',
       maxWorkers: validMaxWorkers,
     });
   }, [reduxFormData]);

@@ -1,60 +1,411 @@
 {
   "keywords": [
-    "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-    "to use 'response_format' of type 'json_object'.'",
-    "'type': 'invalid_request_error'",
-    "'param': 'messages'",
-    "'code': None}}\"}"
+    "visa",
+    "CPT",
+    "work authorization"
   ],
   "keyword_post_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-      "post_ids": []
+      "keyword": "visa",
+      "post_ids": [
+        "1wml31d",
+        "1w7iz8d",
+        "1w4sepz",
+        "1xxe8u2",
+        "1vb8bn9",
+        "1wwa7d4",
+        "1wwd4sp",
+        "1xrdctk",
+        "1xdkyqt",
+        "1w6pdno"
+      ]
     },
     {
-      "keyword": "to use 'response_format' of type 'json_object'.",
-      "post_ids": []
+      "keyword": "CPT",
+      "post_ids": [
+        "1x6w217",
+        "1wbl1n6",
+        "1xxe8u2",
+        "1vb8bn9",
+        "1u8q22q",
+        "1vnplvc",
+        "1tp3kx5"
+      ]
     },
     {
-      "keyword": "type': 'invalid_request_error",
-      "post_ids": []
-    },
-    {
-      "keyword": "param': 'messages",
-      "post_ids": []
-    },
-    {
-      "keyword": "code': None}}\"}",
+      "keyword": "work authorization",
       "post_ids": []
     }
   ],
   "keyword_comment_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-      "comment_ids": [],
-      "post_ids": []
+      "keyword": "visa",
+      "comment_ids": [
+        "19rxozndkl6jo",
+        "penjgnb",
+        "pbiaeqs",
+        "p7vhnmx",
+        "p7vm4w4",
+        "pakg50q",
+        "pakowwk",
+        "p7d8gji"
+      ],
+      "post_ids": [
+        "1xhptsp",
+        "1x0jd5l",
+        "1wml31d",
+        "1w7iz8d",
+        "1w7iz8d",
+        "1w7iz8d",
+        "1w7iz8d",
+        "1w4sepz"
+      ]
     },
     {
-      "keyword": "to use 'response_format' of type 'json_object'.",
-      "comment_ids": [],
-      "post_ids": []
+      "keyword": "CPT",
+      "comment_ids": [
+        "pblbcxs",
+        "p9g5c4w",
+        "p5uhuyh",
+        "p5wj0w7",
+        "oo73xdl",
+        "omry5y8",
+        "omtqk2y",
+        "p3jcq49",
+        "p3kl4qh"
+      ],
+      "post_ids": [
+        "1wo77dg",
+        "1wbl1n6",
+        "1vy6a0u",
+        "1vy6a0u",
+        "1tp3kx5",
+        "1thn15i",
+        "1thn15i",
+        "1vnplvc",
+        "1vnplvc"
+      ]
     },
     {
-      "keyword": "type': 'invalid_request_error",
-      "comment_ids": [],
-      "post_ids": []
-    },
-    {
-      "keyword": "param': 'messages",
-      "comment_ids": [],
-      "post_ids": []
-    },
-    {
-      "keyword": "code': None}}\"}",
-      "comment_ids": [],
-      "post_ids": []
+      "keyword": "work authorization",
+      "comment_ids": [
+        "19rw8dby2l9er"
+      ],
+      "post_ids": [
+        "1xjo657"
+      ]
     }
   ],
-  "post_ids": [],
-  "posts": []
+  "post_ids": [
+    "1wml31d",
+    "1w7iz8d",
+    "1w4sepz",
+    "1xxe8u2",
+    "1vb8bn9",
+    "1wwa7d4",
+    "1wwd4sp",
+    "1xrdctk",
+    "1xdkyqt",
+    "1w6pdno"
+  ],
+  "posts": [
+    {
+      "id": "1wml31d",
+      "title": "Missing classes for neu london scholars",
+      "content": "so they told us that skipping classes and getting bellow i think 70% attendance means that your visa will be removed. I am currently kinda sick but am too scared to miss classes. Have anyone else had experience with missing classes as a london cholar? they say to put evidence in the seats app but what do i put for a mild cough and cold? also if i miss a class what happens? do i get a notification or what?",
+      "matched_in": [
+        "post",
+        "comment"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": [
+        {
+          "id": "pbiaeqs",
+          "body": "Was at London last year, do not worry. You can miss 2 classes a week and your attendance will still be 75% for the week. If you have below 70% for 2 weeks IN A ROW then you will get a warning and then if u have 4 weeks in A ROW then you will get another warning and a meeting, and then 6 weeks in a row is another meeting and the last warning and then 8 weeks IN A ROW is visa removal. So basically you can miss 2 classes a week for the whole year and nothing will happen. Basically impossible to get your visa revoked unless you miss 3 classes a week for 8 weeks. Just stick to missing 2 a week and maybe you can skip 3 one week and then only miss 1 class the next week and you will be at 70%",
+          "author": "Proud-Affect8457",
+          "matched": true
+        },
+        {
+          "id": "pbjsokj",
+          "body": "Thank you!",
+          "author": "Ok-Gas-3757",
+          "matched": false
+        },
+        {
+          "id": "pbjsrha",
+          "body": "What did you put for request in absense in seats tho? And did you email your professors everytime?",
+          "author": "Ok-Gas-3757",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "id": "1w7iz8d",
+      "title": "flight is monday and still no visa decision, anyone else dealt with this?",
+      "content": "so my flight to london is this monday and i still havent gotten a decision on my uk student visa. did biometrics july 29 so its already way past the standard 3 week processing time. got the \"taking longer than usual\" email about 2 weeks ago saying they don't need anything else from me. submitted an enquiry and they told me it's \"under active consideration\" and awaiting a decision, nothing needed from me unless they reach out. tried calling but couldn't get through.\n\ndoes ukvi ever give decisions on weekends or is it strictly mon-fri? trying to figure out if theres any chance i hear back before monday or if im basically out of luck. anyone been in a similar spot and it worked out ok?",
+      "matched_in": [
+        "post",
+        "comment"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": [
+        {
+          "id": "p7vhnmx",
+          "body": "Heh, hello fellow Husky. Sorry to hear that you’re still having issues with this. Have you talked to OGS? Is London campus on same schedule as Boston with classes starting Wednesday? Maybe do reach out to Professors and start remotely? I had a class last fall with an International student who started in person 2 weeks late because of Donnie Trump administration issues with getting his visa ",
+          "author": "BostonNU",
+          "matched": true
+        },
+        {
+          "id": "p7vm4w4",
+          "body": "Thanks for the help, yes i contacted OGS they said they cant really do anythig but they will help me if i get my visa later! No i think for us the calsses start on 14th september i was more so bummed out i would not be able to do the welcome week activities and that it may be harder to make friends since i wont be there for welcome week\n\n",
+          "author": "Ok-Gas-3757",
+          "matched": true
+        },
+        {
+          "id": "p85r6t2",
+          "body": "That’s a sign to skip the school and the loan burden",
+          "author": "saketh_gangam",
+          "matched": false
+        },
+        {
+          "id": "pakg50q",
+          "body": "OP, how did things go? You get your Visa and in London now?",
+          "author": "BostonNU",
+          "matched": true
+        },
+        {
+          "id": "pakowwk",
+          "body": "Got the visa literally 10 hours before my flight and made it in time! a fellow redditor really helped out. If enouogh people ask ill write a whole thing about EVERYTHING i did cause it was a lot lol",
+          "author": "Ok-Gas-3757",
+          "matched": true
+        }
+      ]
+    },
+    {
+      "id": "1w4sepz",
+      "title": "My visa is not here and I leave for London in 6 days!",
+      "content": "So as the title suggests my flight for London is in 6 days so this Monday. And I still haven’t received my London visa. I took the biometric appointment on 29th July so it’s been way more than 3weeks. They did email me saying that the visa is taking time and they don’t need anything from me about 2 weeks ago. I’m just stressed and wondering if I’ll get it in time. I was wondering if anyone else has had a similar experience.",
+      "matched_in": [
+        "post",
+        "comment"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": [
+        {
+          "id": "p7d8gji",
+          "body": "UK can be very quick in visa processing. You might get it by tomorrow if it's approved today. I heard there is an expedited option too in case you want to try it.",
+          "author": "randomuserbos2025",
+          "matched": true
+        },
+        {
+          "id": "p7f3ihh",
+          "body": "see the dm I just sent you",
+          "author": "axxeler",
+          "matched": false
+        },
+        {
+          "id": "p79xyxd",
+          "body": "Have you considered going in person to the British consulate?",
+          "author": "BostonNU",
+          "matched": false
+        },
+        {
+          "id": "p7ame2i",
+          "body": "I don’t think the consulate would be able to do anything since ukvi makes the decision no?",
+          "author": "Ok-Gas-3757",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "id": "1xxe8u2",
+      "title": "Does co-op actually make Northeastern affordable for international student ?",
+      "content": "Hi everyone,\n\n\n\nI’m an international student looking at Northeastern for MS in Computer Science , and the co-op program is a big part of why it’s on my list. I’d really like to hear from people who have been through it, especially other international students.\n\n\n\nFrom the outside, co-op looks like a great way to gain real work experience while offsetting the cost of tuition, but I want to understand how it plays out in practice. A few things I’m curious about:\n\n\n\nHow much of your tuition did co-op earnings realistically cover? Did it make a noticeable difference, or was it more of a “helps with living expenses” situation?\n\nHow hard was it to land a paid co-op as an international student? Did visa/CPT constraints limit your options?\n\nWere there any hidden costs or surprises (tuition during co-op semesters, fees, relocation, timing issues, etc.)?\n\nWas the co-op pay enough to live on, especially in expensive cities like Boston or the Bay Area?\n\nWould you still choose Northeastern for the co-op if you were making the decision again, given the total cost?\n\n\n\nI’m not looking for a sales pitch in either direction. Honest experiences, good or bad, would help a lot. If you’re willing to share rough numbers or your timeline, even better.\n\n\n\nThanks in advance!",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa",
+        "CPT"
+      ],
+      "comments": [
+        {
+          "id": "19spb8pwsww8w",
+          "body": "Nothing is affordable about studying in northeastern without a grant/scholarship as an international student. Coop makes some money sure but you’re at a temporary entry level position.",
+          "author": "Gon_Snow",
+          "matched": false
+        },
+        {
+          "id": "19spd0kxc30w2",
+          "body": "I agree with this. Are you trying to compare it with some other school in particular? Depends on that too.\n\nAlso, getting a coop in this market (especially for international students) is not as easy as the stats make it sound.\n\nI wouldn’t count on getting a coop as a way to make Northeastern affordable tbh because it’s not guaranteed given the market and other factors.\n\nGood luck!",
+          "author": "Dependent-Judge-2657",
+          "matched": false
+        },
+        {
+          "id": "19spbe4g08k03",
+          "body": "Fair point, it’s hard to call Northeastern affordable for internationals without funding.\n\nOn conversion, Northeastern says more than half of graduates get a full-time offer from a co-op employer. One guide puts it at 52% for master’s students. But these are university numbers and don’t separate international students, whose odds are probably lower because of sponsorship.\n\nDo you know how it went for internationals? Did your co-op employer offer a return role and sponsor?",
+          "author": "One_Magazine_8629",
+          "matched": false
+        },
+        {
+          "id": "19sphp0zekj0l",
+          "body": "Yes many pay off an entire semesters fees with the coop earnings ",
+          "author": "redditismysoulmate",
+          "matched": false
+        },
+        {
+          "id": "19sq2l6ocn8lg",
+          "body": "lol read that carefully OP",
+          "author": "AdWonderful5920",
+          "matched": false
+        },
+        {
+          "id": "19spqfwqy1tts",
+          "body": "I think a lot of international students are hoping the coops would relief their financial stress when choosing NEU, but I don’t think it’s realistic especially for international students to find a coop in this job environment.",
+          "author": "Appropriate_Bad_8588",
+          "matched": false
+        },
+        {
+          "id": "19spb8pwsww8w",
+          "body": "Nothing is affordable about studying in northeastern without a grant/scholarship as an international student. Coop makes some money sure but you’re at a temporary entry level position.",
+          "author": "Gon_Snow",
+          "matched": false
+        },
+        {
+          "id": "19spd0kxc30w2",
+          "body": "I agree with this. Are you trying to compare it with some other school in particular? Depends on that too.\n\nAlso, getting a coop in this market (especially for international students) is not as easy as the stats make it sound.\n\nI wouldn’t count on getting a coop as a way to make Northeastern affordable tbh because it’s not guaranteed given the market and other factors.\n\nGood luck!",
+          "author": "Dependent-Judge-2657",
+          "matched": false
+        },
+        {
+          "id": "19spbe4g08k03",
+          "body": "Fair point, it’s hard to call Northeastern affordable for internationals without funding.\n\nOn conversion, Northeastern says more than half of graduates get a full-time offer from a co-op employer. One guide puts it at 52% for master’s students. But these are university numbers and don’t separate international students, whose odds are probably lower because of sponsorship.\n\nDo you know how it went for internationals? Did your co-op employer offer a return role and sponsor?",
+          "author": "One_Magazine_8629",
+          "matched": false
+        },
+        {
+          "id": "19sphp0zekj0l",
+          "body": "Yes many pay off an entire semesters fees with the coop earnings ",
+          "author": "redditismysoulmate",
+          "matched": false
+        },
+        {
+          "id": "19sq2l6ocn8lg",
+          "body": "lol read that carefully OP",
+          "author": "AdWonderful5920",
+          "matched": false
+        },
+        {
+          "id": "19spqfwqy1tts",
+          "body": "I think a lot of international students are hoping the coops would relief their financial stress when choosing NEU, but I don’t think it’s realistic especially for international students to find a coop in this job environment.",
+          "author": "Appropriate_Bad_8588",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "id": "1vb8bn9",
+      "title": "Can London Scholars students do co op in the second semester of sophomore year?",
+      "content": "I will be a Northeastern London Scholars student. I’ll spend my first year in London, then move to the Boston campus for my second year on an F-1 visa.\n\nSome Northeastern students can start co op in the spring semester of their second year. Would I also be eligible to do that, or would the F-1 CPT one academic year requirement mean I have to wait until fall of my third year?\n\nHas anyone in London Scholars been able to start co-op during spring of sophomore year?",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa",
+        "CPT"
+      ],
+      "comments": [
+        {
+          "id": "p0sfwr2",
+          "body": "depends what co-op cycle you are assigned to. ",
+          "author": "RadomChinese",
+          "matched": false
+        },
+        {
+          "id": "p4xu96z",
+          "body": "How and when will I know?",
+          "author": "Ok-Gas-3757",
+          "matched": false
+        },
+        {
+          "id": "p0sfwr2",
+          "body": "depends what co-op cycle you are assigned to. ",
+          "author": "RadomChinese",
+          "matched": false
+        },
+        {
+          "id": "p4xu96z",
+          "body": "How and when will I know?",
+          "author": "Ok-Gas-3757",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "id": "1wwa7d4",
+      "title": "NEU students: what was your last UHCS visit actually like? (student project, not a complaint thread)",
+      "content": "**Quick survey: your honest UHCS experiences (for a class project)**\n\nHey all,a few of us are working on a project looking at University Health and Counseling Services and want real student experiences, not just what's on the website. No wrong answers, and feel free to be blunt.\n\nIf you've used UHCS (medical or mental health side), we'd love to hear:\n\n* What was the actual process like, booking, triage call, walk-in, whatever applied to you?\n* What was the most frustrating part, if any?\n* Was there anything that worked *well* that surprised you?\n* Anything that happened outside normal hours (evenings, weekends) what did you do?\n* If you have an international/visa status, any experience with medical documentation (RCL, leave of absence, etc.)?\n* Anything about communication like follow-ups, getting results, knowing what to do next?\n\nTotally fine to DM instead of commenting if you'd rather keep it private. Thanks!",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": []
+    },
+    {
+      "id": "1wwd4sp",
+      "title": "[General Question] Commerce → MSCS: Has anyone with a similar non-CS background received F-1 approval? What questions did the visa officer ask about the academic/career transition and CS preparation? Any 2025–26 Indian student experiences would be greatly appreciated.",
+      "content": "",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": []
+    },
+    {
+      "id": "1xrdctk",
+      "title": "SMU Cox MSBA vs Northeastern MSBA — which one? Also, thoughts on SMU's new MS in AI for Business?",
+      "content": "International student 3.5 years in payments at a bank. Goal: work in payments (Visa, Mastercard, JPMorgan), ideally in Dallas.\n\n**SMU Cox:** admitted to MSBA, partial scholarship, Dallas network\n\n**Northeastern (D'Amore-McKim):** admitted to MSBA, scholarship in review, but the co-op looks strong.\n\nWhich would you pick for recruiting and sponsorship?   \nIs Northeastern's co-op worth being in Boston instead of Dallas?\n\nAlso, anyone know anything about SMU's new **MS in AI for Business**? Worth it over the MSBA, or too new to tell?  \nThanks!",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": []
+    },
+    {
+      "id": "1xdkyqt",
+      "title": "Northeastern for MSF? For fall 2027?",
+      "content": " What do you think about the course and visa situation?",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": []
+    },
+    {
+      "id": "1w6pdno",
+      "title": "Boston federal judge blasts Trump administration’s changes to international student visas",
+      "content": "Found this very interesting synopsis of arguments in federal court and the dismal reception the Trump administration's arguments were received by the federal judge. This should be of interest to all of our international Huskies ",
+      "matched_in": [
+        "post"
+      ],
+      "matching_keywords": [
+        "visa"
+      ],
+      "comments": []
+    }
+  ]
 }

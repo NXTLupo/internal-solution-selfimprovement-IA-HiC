@@ -40,7 +40,7 @@ LAYOUTS = ["title", "bullets", "quote", "two-column", "closing"]
 MIN_SLIDES, MAX_SLIDES = 6, 10
 TITLE_MAX_WORDS, TITLE_MIN_WORDS, TITLE_MAX_CHARS = 12, 4, 90
 MAX_POINTS = 4
-DECK_BUDGET_USD = 1.50
+DECK_BUDGET_USD = 2.50          # composer plus up to two photographs
 
 # NXT tokens (non-authoritative mirror in .claude/CLAUDE.md; the owner named these for IA Next).
 RAIL, ACCENT, TEAL, CYAN = "0D0D0D", "B8B800", "115054", "00B7C3"
@@ -605,7 +605,8 @@ def run_deck_task(tid):
     store.event("task_running", {}, eid, tid)
     nid = store.start_node(tid, "Deck Composer", config.SEATS["artifact"]["primary"], 1)
     try:
-        pp, hp, summary = build(eid, brief["audience"], ledger)
+        from . import deckstudio
+        pp, hp, summary = deckstudio.build(eid, brief, tid, ledger)
     except FileNotFoundError:
         msg = "this engagement has no finished research yet; run a research report first"
         store.finish_node(nid, None, None, error=msg)
@@ -623,11 +624,12 @@ def run_deck_task(tid):
         store.event("task_failed", {"error": msg}, eid, tid)
         return
     store.update_task(tid, status="done", result_path=hp, summary=f"Deck ready: {summary}.", spent_usd=ledger.spent_usd)
-    store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd, "pptx": "results/deck.pptx"}, eid, tid)
+    store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd, "pptx": f"results/decks/{tid}/deck.pptx"}, eid, tid)
 
 
-def start_deck_task(engagement_id, audience, budget_usd, idem_key):
-    tid, created = store.create_task(engagement_id, "deck", {"audience": audience}, budget_usd, idem_key)
+def start_deck_task(engagement_id, audience, budget_usd, idem_key, outline=None):
+    brief = {"audience": audience, "outline": [str(x).strip() for x in (outline or []) if str(x).strip()][:12]}
+    tid, created = store.create_task(engagement_id, "deck", brief, budget_usd, idem_key)
     if created:
         threading.Thread(target=run_deck_task, args=(tid,), daemon=True, name=f"task-{tid}").start()
     return tid, created
@@ -635,12 +637,16 @@ def start_deck_task(engagement_id, audience, budget_usd, idem_key):
 
 TOOLS = [
     {"name": "start_deck", "strict": True,
-     "description": ("Start a background task in which the Deck Composer builds a native, editable 16:9 PowerPoint "
-                     "(plus an HTML preview) for the named audience from an engagement's finished research: 6 to 10 "
-                     "slides with action titles, and quotes checked verbatim against their sources. Needs an "
-                     "engagement that has a done research report. Returns a task id."),
-     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "audience"],
-                      "properties": {"engagement_id": STR, "audience": STR}}},
+     "description": ("Start a background task in which the Deck Studio builds a native, editable 16:9 PowerPoint "
+                     "(plus an HTML preview) for the named audience from an engagement's findings (a finished research "
+                     "report or analysed uploads): a cover stating the answer, then typed slides drawn natively "
+                     "(cards, tables, process flows, architecture diagrams, statements with photography, quotes, "
+                     "decisions), each with a takeaway, and quotes checked verbatim. When the person lists the slides "
+                     "they want (for #slides or any deck request), pass each item in order in outline, in their own "
+                     "words; otherwise pass an empty list. Returns a task id."),
+     "input_schema": {"type": "object", "additionalProperties": False, "required": ["engagement_id", "audience", "outline"],
+                      "properties": {"engagement_id": STR, "audience": STR,
+                                     "outline": {"type": "array", "items": STR}}}},
 ]
 
 
@@ -654,7 +660,7 @@ def execute(name, args):
         if not str(args.get("audience") or "").strip():
             return {"error": "name the audience for the deck"}
         idem = hashlib.sha256(json.dumps(args, sort_keys=True).encode()).hexdigest()
-        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem)
+        tid, created = start_deck_task(eid, str(args["audience"]).strip(), DECK_BUDGET_USD, idem, args.get("outline") or [])
         return {"task_id": tid, "engagement_id": eid, "started": created,
                 "message": "started" if created else "an identical task already exists; reporting that one"}
     except Exception as e:

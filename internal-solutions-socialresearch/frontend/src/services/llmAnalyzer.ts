@@ -46,6 +46,9 @@ export interface AnalysisOptions {
   model: string;
   maxWorkers: number;
   projectId?: string;
+  limit?: number;
+  sort?: string;
+  time?: string;
 }
 
 // Using the types from api.ts instead of these local interfaces
@@ -84,7 +87,10 @@ export const analyzeSentiment = async (
   applicationName: string,
   options: AnalysisOptions,
 ): Promise<JobSubmitResponse> => {
-  const endpoint = `${API_BASE_URL}/api/llm-analyzer/analyze-sentiment/${searchId}`;
+  // 2026-11-16: the search-id route (`/analyze-sentiment/<searchId>`) is a stub that never starts an analysis and
+  // never creates its job row, so every status check returned "Job not found". The route below creates the job and
+  // runs the analysis (it fetches the posts itself from subreddit, query, limit, sort and time).
+  const endpoint = `${API_BASE_URL}/api/llm-analyzer/analyze-sentiment`;
 
   // Get subreddit and query from Redux store
   const state = store.getState();
@@ -101,6 +107,10 @@ export const analyzeSentiment = async (
         application_name: applicationName,
         subreddit: subreddit,  // ADD subreddit from Redux
         query: query,          // ADD query from Redux
+        search_id: searchId,
+        limit: options.limit,
+        sort: options.sort,
+        time: options.time,
         filter_type: options.filterType,
         keyword: options.keyword,
         merge_method: options.mergeMethod,

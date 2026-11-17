@@ -6,9 +6,9 @@ source: eval-frontier
 family: evidence-anchoring
 applies_to: generation
 kinds: [arch, audit, blueprint, case-study, compete, deep-research, gap, journey, meta-themes, mindmap, org, persona, persona-card, prd, prd-feature, recommendations, roadmap, slides, strategy, themes]
-cases: 251
-updated: 2026-11-09
-source_hash: 1e7754a2af3e73c9
+cases: 395
+updated: 2026-11-17
+source_hash: ddb99e8a8700ae46
 chunks:
   - id: "known-gaps/failure-evidence-anchoring.md#c0"
     char_span: [0, 586]
@@ -103,7 +103,7 @@ chunks:
     sentence_count: 1
     key_terms: [deep-research, frontier, case, auditor-deep-research-1793460591, auditor-deep-research-1793462194, auditor-deep-research-1793464441, auditor-deep-research-1793469629, auditor-deep-research-1793470675]
     concepts: [deep-research, frontier]
-    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14"]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14", "known-gaps/failure-evidence-anchoring.md#c16", "known-gaps/failure-evidence-anchoring.md#c17", "known-gaps/failure-evidence-anchoring.md#c18"]
     section: "2026-10-31 | unknown"
     token_count: 246
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
@@ -137,16 +137,69 @@ chunks:
     sentence_count: 1
     key_terms: [deep-research, frontier, case, auditor-deep-research-1794145066, auditor-deep-research-1794145067, auditor-deep-research-1794158806, auditor-deep-research-1794177289, auditor-deep-research-1794178718]
     concepts: [deep-research, frontier]
-    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11"]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c16", "known-gaps/failure-evidence-anchoring.md#c17", "known-gaps/failure-evidence-anchoring.md#c18"]
     section: "2026-11-08 | unknown"
     token_count: 245
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-evidence-anchoring.md#c15"
-    char_span: [16191, 16462]
+    char_span: [16263, 16762]
     sentence_count: 1
-    key_terms: [frontier, auditor-deep-research-1794182503, auditor-meta-themes-1794182503, case, auditor-mindmap-1794182503, deep-research, meta-themes, mindmap]
-    concepts: [frontier]
+    key_terms: [evidenceslots, frontier, partial, chain, case, themes-theme-, theme-, themes]
+    concepts: [evidenceslots, frontier, partial, chain, themes-theme-]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c1", "known-gaps/failure-evidence-anchoring.md#c2", "known-gaps/failure-evidence-anchoring.md#c3", "known-gaps/failure-evidence-anchoring.md#c4", "known-gaps/failure-evidence-anchoring.md#c5"]
+    section: "2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 141
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c16"
+    char_span: [16788, 17604]
+    sentence_count: 1
+    key_terms: [deep-research, frontier, case, auditor-deep-research-1794182503, auditor-deep-research-1794184528, auditor-deep-research-1794185464, auditor-deep-research-1794185595, auditor-deep-research-1794185607]
+    concepts: [deep-research, frontier]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14", "known-gaps/failure-evidence-anchoring.md#c17", "known-gaps/failure-evidence-anchoring.md#c18"]
     section: "2026-11-09 | unknown"
+    token_count: 246
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c17"
+    char_span: [17702, 18651]
+    sentence_count: 1
+    key_terms: [deep-research, frontier, case, auditor-deep-research-1794270786, auditor-deep-research-1794272234, auditor-deep-research-1794274060, auditor-deep-research-1794275736, auditor-deep-research-1794276688]
+    concepts: [deep-research, frontier]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14", "known-gaps/failure-evidence-anchoring.md#c16", "known-gaps/failure-evidence-anchoring.md#c18"]
+    section: "2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student / 2026-11-10 | unknown"
+    token_count: 282
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c18"
+    char_span: [18677, 19468]
+    sentence_count: 1
+    key_terms: [frontier, case, deep-research, meta-themes, auditor-deep-research-1794374967, auditor-deep-research-1794406193, auditor-deep-research-1794406194, auditor-deep-research-1794408459]
+    concepts: [frontier, deep-research, meta-themes]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14", "known-gaps/failure-evidence-anchoring.md#c16", "known-gaps/failure-evidence-anchoring.md#c17"]
+    section: "2026-11-11 | unknown"
+    token_count: 241
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c19"
+    char_span: [19494, 19765]
+    sentence_count: 1
+    key_terms: [frontier, auditor-deep-research-1794497621, auditor-meta-themes-1794497621, case, auditor-mindmap-1794497621, deep-research, meta-themes, mindmap]
+    concepts: [frontier]
+    section: "2026-11-12 | unknown"
+    token_count: 84
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c20"
+    char_span: [19791, 20590]
+    sentence_count: 1
+    key_terms: [frontier, case, deep-research, meta-themes, auditor-deep-research-1794842514, auditor-deep-research-1794867261, auditor-deep-research-1794867262, auditor-deep-research-1794868069]
+    concepts: [frontier, deep-research, meta-themes]
+    related_chunks: ["known-gaps/failure-evidence-anchoring.md#c10", "known-gaps/failure-evidence-anchoring.md#c11", "known-gaps/failure-evidence-anchoring.md#c14", "known-gaps/failure-evidence-anchoring.md#c16", "known-gaps/failure-evidence-anchoring.md#c17"]
+    section: "2026-11-16 | unknown"
+    token_count: 242
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-anchoring.md#c21"
+    char_span: [20616, 20887]
+    sentence_count: 1
+    key_terms: [frontier, auditor-deep-research-1794875404, auditor-meta-themes-1794875404, case, auditor-mindmap-1794875404, deep-research, meta-themes, mindmap]
+    concepts: [frontier]
+    section: "2026-11-17 | unknown"
     token_count: 84
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
@@ -154,7 +207,7 @@ chunks:
 
 What fails: The deliverable's claims were not tied to evidence pointers.
 
-Seen in 251 frontier eval case(s) across 6 engagement(s); deliverable kinds: slides (53), deep-research (42), meta-themes (41), mindmap (40), persona (13), gap (9), recommendations (9), journey (7), case-study (6), prd (6), arch (5), themes (5), org (4), blueprint (3), roadmap (3), audit (1), compete (1), persona-card (1), prd-feature (1), strategy (1).
+Seen in 395 frontier eval case(s) across 7 engagement(s); deliverable kinds: deep-research (89), mindmap (87), meta-themes (86), slides (54), persona (13), gap (9), recommendations (9), prd (8), journey (7), themes (7), case-study (6), arch (5), org (4), blueprint (3), roadmap (3), audit (1), compete (1), persona-card (1), prd-feature (1), strategy (1).
 
 What the harness does about it: Generate from manifest chunk pointers and keep one pointer per claim.
 
@@ -335,7 +388,65 @@ What the harness does about it: Generate from manifest chunk pointers and keep o
 - meta-themes 1794145066: evidence_anchoring (frontier case auditor-meta-themes-1794145066)
 - and 11 more case(s) of this family on this day
 
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794198443833: chain:evidenceSlots partial (schema_invalid) (frontier case prd-prd_1794198443833)
+- slides slides_1794196862137: chain:evidenceSlots partial (schema_invalid) (frontier case slides-slides_1794196862137)
+- themes theme-overview_1794198288221: chain:evidenceSlots partial (schema_invalid) (frontier case themes-theme-overview_1794198288221)
+- themes theme-overview_1794204536109: chain:evidenceSlots partial (schema_invalid) (frontier case themes-theme-overview_1794204536109)
+
 ## 2026-11-09 | unknown
 - deep-research 1794182503: evidence_anchoring (frontier case auditor-deep-research-1794182503)
-- meta-themes 1794182503: evidence_anchoring (frontier case auditor-meta-themes-1794182503)
-- mindmap 1794182503: evidence_anchoring (frontier case auditor-mindmap-1794182503)
+- deep-research 1794184528: evidence_anchoring (frontier case auditor-deep-research-1794184528)
+- deep-research 1794185464: evidence_anchoring (frontier case auditor-deep-research-1794185464)
+- deep-research 1794185595: evidence_anchoring (frontier case auditor-deep-research-1794185595)
+- deep-research 1794185607: evidence_anchoring (frontier case auditor-deep-research-1794185607)
+- deep-research 1794186116: evidence_anchoring (frontier case auditor-deep-research-1794186116)
+- deep-research 1794186117: evidence_anchoring (frontier case auditor-deep-research-1794186117)
+- deep-research 1794194876: evidence_anchoring (frontier case auditor-deep-research-1794194876)
+- and 63 more case(s) of this family on this day
+
+## 2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794283122759: chain:evidenceSlots partial (schema_invalid) (frontier case prd-prd_1794283122759)
+
+## 2026-11-10 | unknown
+- deep-research 1794270786: evidence_anchoring (frontier case auditor-deep-research-1794270786)
+- deep-research 1794272234: evidence_anchoring (frontier case auditor-deep-research-1794272234)
+- deep-research 1794274060: evidence_anchoring (frontier case auditor-deep-research-1794274060)
+- deep-research 1794275736: evidence_anchoring (frontier case auditor-deep-research-1794275736)
+- deep-research 1794276688: evidence_anchoring (frontier case auditor-deep-research-1794276688)
+- deep-research 1794277604: evidence_anchoring (frontier case auditor-deep-research-1794277604)
+- deep-research 1794277605: evidence_anchoring (frontier case auditor-deep-research-1794277605)
+- deep-research 1794277607: evidence_anchoring (frontier case auditor-deep-research-1794277607)
+- and 34 more case(s) of this family on this day
+
+## 2026-11-11 | unknown
+- deep-research 1794374967: evidence_anchoring (frontier case auditor-deep-research-1794374967)
+- deep-research 1794406193: evidence_anchoring (frontier case auditor-deep-research-1794406193)
+- deep-research 1794406194: evidence_anchoring (frontier case auditor-deep-research-1794406194)
+- deep-research 1794408459: evidence_anchoring (frontier case auditor-deep-research-1794408459)
+- meta-themes 1794374967: evidence_anchoring (frontier case auditor-meta-themes-1794374967)
+- meta-themes 1794406194: evidence_anchoring (frontier case auditor-meta-themes-1794406194)
+- meta-themes 1794408459: evidence_anchoring (frontier case auditor-meta-themes-1794408459)
+- mindmap 1794374967: evidence_anchoring (frontier case auditor-mindmap-1794374967)
+- and 3 more case(s) of this family on this day
+
+## 2026-11-12 | unknown
+- deep-research 1794497621: evidence_anchoring (frontier case auditor-deep-research-1794497621)
+- meta-themes 1794497621: evidence_anchoring (frontier case auditor-meta-themes-1794497621)
+- mindmap 1794497621: evidence_anchoring (frontier case auditor-mindmap-1794497621)
+
+## 2026-11-16 | unknown
+- deep-research 1794842514: evidence_anchoring (frontier case auditor-deep-research-1794842514)
+- deep-research 1794867261: evidence_anchoring (frontier case auditor-deep-research-1794867261)
+- deep-research 1794867262: evidence_anchoring (frontier case auditor-deep-research-1794867262)
+- deep-research 1794868069: evidence_anchoring (frontier case auditor-deep-research-1794868069)
+- meta-themes 1794842514: evidence_anchoring (frontier case auditor-meta-themes-1794842514)
+- meta-themes 1794867261: evidence_anchoring (frontier case auditor-meta-themes-1794867261)
+- meta-themes 1794867262: evidence_anchoring (frontier case auditor-meta-themes-1794867262)
+- meta-themes 1794868069: evidence_anchoring (frontier case auditor-meta-themes-1794868069)
+- and 4 more case(s) of this family on this day
+
+## 2026-11-17 | unknown
+- deep-research 1794875404: evidence_anchoring (frontier case auditor-deep-research-1794875404)
+- meta-themes 1794875404: evidence_anchoring (frontier case auditor-meta-themes-1794875404)
+- mindmap 1794875404: evidence_anchoring (frontier case auditor-mindmap-1794875404)

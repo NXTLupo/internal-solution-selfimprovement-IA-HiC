@@ -384,3 +384,86 @@ Skill: `C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-iYFT69/SKILL.md` p
   "discrimination_after": 1.1
 }
 ```
+
+
+## Epoch 27 - 2026-11-10 16:22:07 UTC (TOMBSTONE, not a real epoch)
+
+Epochs 14 through 27 were written to this ledger between 2026-11-09 (commit `ddea250af`) and
+2026-11-10 and were DESTROYED before being committed. Cause: an automated session ran
+`git checkout --` on this file to undo a single appended test record and reverted the whole file to
+HEAD, discarding fourteen uncommitted records. They were never staged, so no git object holds them;
+the research-proxy container bind-mounts this same file, so it held no second copy; no volume
+shadow copy existed. The records are unrecoverable.
+
+This tombstone exists so `record_epoch` (which computes the next id as `max(existing) + 1`)
+allocates 28 next, instead of reissuing 14 and creating two different records under one id. Nothing
+referenced the lost ids and no `_versions/` archive corresponds to them, so no skill state depends
+on them; the loss is historical record only.
+
+Treat any claim citing an epoch between 14 and 27 as unverifiable.
+
+```json
+{
+  "epoch_id": 27,
+  "layer": "tombstone",
+  "lost_epoch_ids": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+  "cause": "git checkout -- on a shared file with uncommitted work",
+  "recoverable": false,
+  "last_good_commit": "ddea250af",
+  "recorded_at": "2026-11-10 16:22:07 UTC"
+}
+```
+
+
+## Epoch 28 - 2026-11-11 03:50:55 UTC
+
+Skill: `C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-9FOq2G/SKILL.md` promoted from `C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-9FOq2G/SKILL.candidate-1.md` (batch `b1`, verdict APPROVE).
+
+```json
+{
+  "epoch_id": 28,
+  "layer": "skill",
+  "skill": "persona-architect",
+  "file_path": "C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-9FOq2G/SKILL.md",
+  "deliverable_class": "#slides",
+  "candidate_path": "C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-9FOq2G/SKILL.candidate-1.md",
+  "batch_id": "b1",
+  "hypothesis": "",
+  "baseline_vector": {
+    "held_out": 1
+  },
+  "target_dims": [
+    "held_out"
+  ],
+  "floor_dims": [],
+  "discrimination_before": 1,
+  "discrimination_after": 1.1
+}
+```
+
+
+## Epoch 29 - 2026-11-11 14:40:48 UTC
+
+Skill: `C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-YvqDiH/SKILL.md` promoted from `C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-YvqDiH/SKILL.candidate-1.md` (batch `b1`, verdict APPROVE).
+
+```json
+{
+  "epoch_id": 29,
+  "layer": "skill",
+  "skill": "persona-architect",
+  "file_path": "C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-YvqDiH/SKILL.md",
+  "deliverable_class": "#slides",
+  "candidate_path": "C:/Users/JONATH~1/AppData/Local/Temp/skillopt-promote-YvqDiH/SKILL.candidate-1.md",
+  "batch_id": "b1",
+  "hypothesis": "",
+  "baseline_vector": {
+    "held_out": 1
+  },
+  "target_dims": [
+    "held_out"
+  ],
+  "floor_dims": [],
+  "discrimination_before": 1,
+  "discrimination_after": 1.1
+}
+```

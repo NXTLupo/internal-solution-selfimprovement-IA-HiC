@@ -5,10 +5,14 @@ import {
     rememberPrdWorkbook, redownloadPrdWorkbook, hasPrdWorkbook, stripPointers,
 } from './prdXlsx';
 
+// 2026-11-16: the body is plain bytes with a Content-Type header, not a Blob. Under the jsdom environment `Blob` is
+// jsdom's, which has no stream(), while `Response` is Node's, which streams its body: `new Response(jsdomBlob)` threw
+// "object.stream is not a function" before any assertion ran. resp.blob() still yields the typed workbook.
 function okResponse(bytes = 'PK', headers: Record<string, string> = {}) {
-    return new Response(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), {
+    return new Response(bytes, {
         status: 200,
-        headers: { 'Content-Disposition': 'attachment; filename="growers-requirements-nxt.xlsx"', 'X-Requirement-Count': '4', ...headers },
+        headers: { 'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                   'Content-Disposition': 'attachment; filename="growers-requirements-nxt.xlsx"', 'X-Requirement-Count': '4', ...headers },
     });
 }
 

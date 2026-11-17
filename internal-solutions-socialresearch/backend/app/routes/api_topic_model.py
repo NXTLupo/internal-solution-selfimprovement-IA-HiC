@@ -16,6 +16,7 @@ from app.db.service.topic_model_service import (
 )
 from app.db.config.database import SessionLocal
 from app.repositories.reddit_repository import RedditRepository
+from app.db.models.reddit_models import RedditAnalysisResult
 from dotenv import load_dotenv
 from threading import Thread, Event
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -23,7 +24,9 @@ from app.repositories.jobs_repositories import JobsRepository, update_job_status
 import traceback
 import logging
 import gc
-from util.data_source.reddit_fetcher_topic_model import fetch_reddit_posts, fetch_reddit_posts_with_keyword
+from util.data_source.reddit_fetcher_topic_model import (
+    fetch_reddit_posts, fetch_reddit_posts_with_keyword, normalize_subreddit, keyword_regex, post_mentions_keyword
+)
 from util.llm_models.pgvector.pgvector import index_data_in_pgvector
 
 topic_model_bp = Blueprint('topic_model', __name__)
@@ -42,7 +45,7 @@ def analyze_topic_model_async():
     Creates a job and processes it in the background.
     """
     data = request.get_json()
-    subreddit = data.get('subreddit')
+    subreddit = normalize_subreddit(data.get('subreddit'))  # 'r/neu' -> 'neu' (PRAW 404s on the prefix)
     num_posts = data.get('num_posts', 800)
     max_comments_per_post = data.get('max_comments', 3)
     index_in_pgvector = data.get('index_in_pgvector', True)
@@ -90,6 +93,16 @@ def analyze_topic_model_async():
         # Create a job record in database
         db = SessionLocal()
         try:
+            # reddit_jobs.analysis_id is a foreign key to reddit_results. The SPA creates the
+            # project row first (POST /projects); API callers such as social-mcp send no
+            # project_id, so create the same empty 'topic' project here or the job insert fails.
+            if not db.query(RedditAnalysisResult.id).filter(RedditAnalysisResult.id == project_id).first():
+                db.add(RedditAnalysisResult(
+                    id=project_id, user_id=user_id, type='topic', data={}, subreddit=subreddit,
+                    topic='', post_count=0, sort_by='', time_period='', created_at=datetime.utcnow()
+                ))
+                db.commit()
+
             # Create JobsRepository instance
             jobs_repo = JobsRepository(db)
             
@@ -116,12 +129,13 @@ def analyze_topic_model_async():
                 parameters=job_parameters
             )
         except Exception as e:
+            db.rollback()
             print(f"Error creating job in database: {str(e)}")
             return jsonify({'error': f'Failed to create job: {str(e)}'}), 500
         finally:
             db.close()
-            # Explicitly dispose of the session after use
-            del jobs_repo
+            # Explicitly dispose of the session after use (unbound if the project insert failed)
+            jobs_repo = None
             gc.collect()
         
         # Start background thread to process the job
@@ -275,9 +289,24 @@ def process_topic_model_job(
             if check_cancellation():
                 return [], {}
             
-            # For keyword searches, we only want to analyze the posts directly from the API
-            raw_reddit_data = new_posts_from_api
-            existing_post_ids = set(post['id'] for post in new_posts_from_api)
+            # Reddit search only indexes post titles and bodies. Add stored posts in the date
+            # range whose title, body or stored comments mention the keyword (collected by
+            # earlier runs on this subreddit), then keep newest first up to num_posts.
+            stored_posts, _ = retrieve_posts_from_database(subreddit, log_dir, startDate, endDate)
+            pattern = keyword_regex(keyword)
+            search_ids = {post['id'] for post in new_posts_from_api}
+            stored_matches = [post for post in stored_posts
+                              if post['id'] not in search_ids and post_mentions_keyword(post, pattern)]
+            for post in stored_matches:
+                # Documents keep only the first max_comments_per_post comments: put the ones
+                # that mention the keyword first so the analyzed text contains the match
+                post['comments'] = sorted(post.get('comments') or [],
+                                          key=lambda c: not pattern.search(c.get('body') or ''))
+            raw_reddit_data = sorted(new_posts_from_api + stored_matches,
+                                     key=lambda post: post.get('created_utc') or 0, reverse=True)[:num_posts]
+            existing_post_ids = set(post['id'] for post in raw_reddit_data)
+            print(f"[topic_model.py] Keyword '{keyword}': {len(new_posts_from_api)} from Reddit search + "
+                  f"{len(stored_matches)} stored posts mentioning it = {len(raw_reddit_data)} to analyze")
             
             # Log step 2: Data collection complete for keyword search
             log_data_collection_complete(log_dir, subreddit, new_posts_from_api, raw_reddit_data, startDate, endDate)
@@ -316,7 +345,15 @@ def process_topic_model_job(
             return [], {}
             
         documents, post_ids, scores, post_data = process_posts_for_analysis(raw_reddit_data, max_comments_per_post)
-        
+
+        if not documents:
+            scope = f"r/{subreddit}" + (f" matching '{keyword}'" if keyword else "")
+            window = f" between {startDate or 'the start'} and {endDate or 'today'}" if (startDate or endDate) else ""
+            raise ValueError(
+                f"No analyzable posts found for {scope}{window} ({len(raw_reddit_data)} fetched). "
+                "Widen the date range, use a broader keyword, or remove the keyword."
+            )
+
         # Log sample data
         log_post_samples(log_dir, post_data, documents)
 

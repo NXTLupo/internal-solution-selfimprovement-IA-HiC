@@ -119,6 +119,52 @@ export async function exportGoldPptx(html: string, filename: string, proxyBase =
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
 
+/** #arch as a NATIVE editable PowerPoint diagram (2026-11-16): typed component shapes, routed connection lines
+ *  and text notes the user can edit, from the diagram spec (services/diagramSpec.buildDiagramSpec). */
+export async function exportArchPptx(spec: unknown, brand: string, notes: string, filename: string, proxyBase = ''): Promise<void> {
+    const base = proxyBase || (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
+    const resp = await fetch(`${base}/api/gold/export-arch-pptx`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ spec, brand, notes, filename }),
+        signal: AbortSignal.timeout(60_000),
+    });
+    if (!resp.ok) {
+        const msg = await resp.text().catch(() => '');
+        throw new Error(`architecture export failed (${resp.status}): ${msg.slice(0, 200)}`);
+    }
+    const blob = await pptxBlob(resp);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename.endsWith('.pptx') ? filename : `${filename}.pptx`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+
+/** PNG or PDF of #stage 1920x1080 HTML, rendered by the proxy's Chromium (2026-11-16).
+ *  The html2canvas path painted the brand web font (e.g. NU's Lato) in a fallback face at Lato's measured
+ *  positions, so words collided; the proxy renders in the page that laid the text out, and its PDF keeps
+ *  real vector text. Throws on failure so the caller can fall back. */
+export async function exportGoldImage(htmlList: string[], format: 'png' | 'pdf', filename: string, proxyBase = ''): Promise<void> {
+    const base = proxyBase || (typeof window !== 'undefined' ? 'http://127.0.0.1:5012' : '');
+    const resp = await fetch(`${base}/api/gold/export-image`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slides: htmlList.map(scrubStageHtmlText), format, filename }),
+        signal: AbortSignal.timeout(120_000),
+    });
+    if (!resp.ok) {
+        const msg = await resp.text().catch(() => '');
+        throw new Error(`image export failed (${resp.status}): ${msg.slice(0, 200)}`);
+    }
+    const blob = await resp.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename.endsWith(`.${format}`) ? filename : `${filename}.${format}`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+
 /** Export a LIST of #stage 1920x1080 HTML docs to ONE editable multi-slide .pptx.
  *
  *  Structural primitive - the chat's "Export Deck PPTX" button routes through this,

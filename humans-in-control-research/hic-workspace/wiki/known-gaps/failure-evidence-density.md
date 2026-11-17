@@ -6,9 +6,9 @@ source: eval-frontier
 family: evidence-density
 applies_to: generation
 kinds: [brief, case-study, gap-analysis, persona, recommendation, strategy]
-cases: 245
-updated: 2026-11-09
-source_hash: 447f42e85fbaa4c1
+cases: 514
+updated: 2026-11-17
+source_hash: 4e38e0a11a634d88
 chunks:
   - id: "known-gaps/failure-evidence-density.md#c0"
     char_span: [0, 517]
@@ -73,12 +73,57 @@ chunks:
     token_count: 298
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-evidence-density.md#c7"
-    char_span: [6216, 7019]
+    char_span: [6216, 7233]
     sentence_count: 1
-    key_terms: [generation, evidence, frontier, density, below, floor, hook-recommendation-1794182503, case]
-    concepts: [generation, evidence, frontier, density, hook-recommendation-1794182503]
+    key_terms: [generation, evidence, frontier, density, case, below, brief, floor]
+    concepts: [generation, evidence, frontier, density, below]
     related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
     section: "2026-11-09 | unknown"
+    token_count: 286
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-density.md#c8"
+    char_span: [7259, 8275]
+    sentence_count: 1
+    key_terms: [generation, evidence, frontier, density, case, below, brief, floor]
+    concepts: [generation, evidence, frontier, density, below]
+    related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
+    section: "2026-11-10 | unknown"
+    token_count: 286
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-density.md#c9"
+    char_span: [8301, 9404]
+    sentence_count: 1
+    key_terms: [generation, evidence, frontier, density, case, below, floor, hook-gap-analysis-1794374967]
+    concepts: [generation, evidence, frontier, density, below]
+    related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
+    section: "2026-11-11 | unknown"
+    token_count: 300
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-density.md#c10"
+    char_span: [9430, 10233]
+    sentence_count: 1
+    key_terms: [generation, evidence, frontier, density, below, floor, hook-recommendation-1794497620, case]
+    concepts: [generation, evidence, frontier, density, hook-recommendation-1794497620]
+    related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
+    section: "2026-11-12 | unknown"
+    token_count: 211
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-density.md#c11"
+    char_span: [10259, 11377]
+    sentence_count: 1
+    key_terms: [generation, evidence, frontier, density, case, below, floor, case-study]
+    concepts: [generation, evidence, frontier, density, below]
+    related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
+    section: "2026-11-16 | unknown"
+    token_count: 304
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-evidence-density.md#c12"
+    char_span: [11403, 12206]
+    sentence_count: 1
+    key_terms: [generation, evidence, frontier, density, below, floor, hook-recommendation-1794875404, case]
+    concepts: [generation, evidence, frontier, density, hook-recommendation-1794875404]
+    related_chunks: ["known-gaps/failure-evidence-density.md#c0", "known-gaps/failure-evidence-density.md#c1", "known-gaps/failure-evidence-density.md#c2", "known-gaps/failure-evidence-density.md#c3", "known-gaps/failure-evidence-density.md#c4"]
+    section: "2026-11-17 | unknown"
     token_count: 211
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
@@ -86,7 +131,7 @@ chunks:
 
 What fails: The corpus carried too little named evidence for the deliverable before generation started.
 
-Seen in 245 frontier eval case(s) across 1 engagement(s); deliverable kinds: case-study (44), gap-analysis (43), persona (43), recommendation (41), brief (37), strategy (37).
+Seen in 514 frontier eval case(s) across 1 engagement(s); deliverable kinds: persona (91), case-study (90), gap-analysis (88), recommendation (85), brief (80), strategy (80).
 
 What the harness does about it: evidence-density-pre-checker names the upstream remediation (query expansion, analogues, framework pages) to run before generating.
 
@@ -149,8 +194,60 @@ What the harness does about it: evidence-density-pre-checker names the upstream 
 
 ## 2026-11-09 | unknown
 - brief hook-brief-1794182503: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794182503)
-- case-study hook-case-study-1794182503: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794182503)
-- gap-analysis hook-gap-analysis-1794182503: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794182503)
-- persona hook-persona-1794182503: Evidence density 0.72 below floor before generation (frontier case hook-persona-1794182503)
-- recommendation hook-recommendation-1794182503: Evidence density 0.72 below floor before generation (frontier case hook-recommendation-1794182503)
-- strategy hook-strategy-1794182503: Evidence density 0.72 below floor before generation (frontier case hook-strategy-1794182503)
+- brief hook-brief-1794184528: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794184528)
+- brief hook-brief-1794185464: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794185464)
+- brief hook-brief-1794185595: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794185595)
+- brief hook-brief-1794185607: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794185607)
+- brief hook-brief-1794186116: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794186116)
+- brief hook-brief-1794194875: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794194875)
+- brief hook-brief-1794194876: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794194876)
+- and 130 more case(s) of this family on this day
+
+## 2026-11-10 | unknown
+- brief hook-brief-1794270785: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794270785)
+- brief hook-brief-1794270786: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794270786)
+- brief hook-brief-1794272234: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794272234)
+- brief hook-brief-1794274059: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794274059)
+- brief hook-brief-1794275736: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794275736)
+- brief hook-brief-1794276688: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794276688)
+- brief hook-brief-1794277604: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794277604)
+- brief hook-brief-1794277607: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794277607)
+- and 80 more case(s) of this family on this day
+
+## 2026-11-11 | unknown
+- brief hook-brief-1794374967: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794374967)
+- brief hook-brief-1794406193: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794406193)
+- brief hook-brief-1794408459: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794408459)
+- case-study hook-case-study-1794374967: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794374967)
+- case-study hook-case-study-1794406193: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794406193)
+- case-study hook-case-study-1794408459: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794408459)
+- gap-analysis hook-gap-analysis-1794374967: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794374967)
+- gap-analysis hook-gap-analysis-1794406193: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794406193)
+- and 10 more case(s) of this family on this day
+
+## 2026-11-12 | unknown
+- brief hook-brief-1794497620: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794497620)
+- case-study hook-case-study-1794497620: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794497620)
+- gap-analysis hook-gap-analysis-1794497620: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794497620)
+- persona hook-persona-1794497620: Evidence density 0.72 below floor before generation (frontier case hook-persona-1794497620)
+- recommendation hook-recommendation-1794497620: Evidence density 0.72 below floor before generation (frontier case hook-recommendation-1794497620)
+- strategy hook-strategy-1794497620: Evidence density 0.72 below floor before generation (frontier case hook-strategy-1794497620)
+
+## 2026-11-16 | unknown
+- brief hook-brief-1794842514: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794842514)
+- brief hook-brief-1794868069: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794868069)
+- case-study hook-case-study-1794842514: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794842514)
+- case-study hook-case-study-1794867261: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794867261)
+- case-study hook-case-study-1794867262: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794867262)
+- case-study hook-case-study-1794868069: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794868069)
+- gap-analysis hook-gap-analysis-1794842514: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794842514)
+- gap-analysis hook-gap-analysis-1794867261: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794867261)
+- and 11 more case(s) of this family on this day
+
+## 2026-11-17 | unknown
+- brief hook-brief-1794875404: Evidence density 0.33 below floor before generation (frontier case hook-brief-1794875404)
+- case-study hook-case-study-1794875404: Evidence density 0.72 below floor before generation (frontier case hook-case-study-1794875404)
+- gap-analysis hook-gap-analysis-1794875404: Evidence density 0.72 below floor before generation (frontier case hook-gap-analysis-1794875404)
+- persona hook-persona-1794875404: Evidence density 0.72 below floor before generation (frontier case hook-persona-1794875404)
+- recommendation hook-recommendation-1794875404: Evidence density 0.72 below floor before generation (frontier case hook-recommendation-1794875404)
+- strategy hook-strategy-1794875404: Evidence density 0.72 below floor before generation (frontier case hook-strategy-1794875404)

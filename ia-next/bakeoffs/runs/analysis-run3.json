@@ -1,0 +1,49 @@
+{
+ "seat": "analysis",
+ "task": "task_6c0e941e8289",
+ "sources": 8,
+ "run": "2026-11-12 00:06",
+ "note": "One run per model on one engagement: a first reading, not a bake-off verdict.",
+ "results": [
+  {
+   "model": "claude-sonnet-5-5",
+   "findings": 13,
+   "verbatim_ok": 13,
+   "survival": 1.0,
+   "distinct_sources_cited": 5,
+   "seconds": 12.4,
+   "usd": 0.065464,
+   "price_note": "list price"
+  },
+  {
+   "model": "gpt-6.1-terra",
+   "findings": 13,
+   "verbatim_ok": 13,
+   "survival": 1.0,
+   "distinct_sources_cited": 5,
+   "seconds": 20.0,
+   "usd": 0.10129,
+   "price_note": "metered at a conservative placeholder price"
+  },
+  {
+   "model": "gemini-3.5-flash",
+   "findings": 9,
+   "verbatim_ok": 9,
+   "survival": 1.0,
+   "distinct_sources_cited": 4,
+   "seconds": 23.2,
+   "usd": 0.15607,
+   "price_note": "metered at a conservative placeholder price"
+  },
+  {
+   "model": "gemini-4-carbon",
+   "findings": 14,
+   "verbatim_ok": 14,
+   "survival": 1.0,
+   "distinct_sources_cited": 5,
+   "seconds": 70.6,
+   "usd": 0.21302,
+   "price_note": "metered at a conservative placeholder price"
+  }
+ ]
+}

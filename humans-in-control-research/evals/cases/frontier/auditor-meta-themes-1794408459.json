@@ -1,0 +1,15 @@
+{
+  "id": "auditor-meta-themes-1794408459",
+  "set": "frontier",
+  "kind": "meta-themes",
+  "input": {
+    "objective": "(see verdict row)",
+    "prompt": "#meta-themes"
+  },
+  "origin": {
+    "type": "auditor_withhold",
+    "ref": "1794408459",
+    "added": "2026-11-11",
+    "note": "[\"evidence_anchoring\"]"
+  }
+}

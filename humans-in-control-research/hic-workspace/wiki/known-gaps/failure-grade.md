@@ -6,19 +6,19 @@ source: eval-frontier
 family: grade
 applies_to: generation
 kinds: [arch, audit, blueprint, case-study, compete, gap, journey, org, persona, persona-card, prd, prd-feature, recommendations, roadmap, slides, strategy, themes]
-cases: 121
-updated: 2026-10-31
-source_hash: fedfcc9cd54734ec
+cases: 126
+updated: 2026-11-11
+source_hash: 26f924160c8cfbd9
 chunks:
   - id: "known-gaps/failure-grade.md#c0"
-    char_span: [0, 603]
+    char_span: [0, 604]
     sentence_count: 3
     key_terms: [claims, factual, carry, recommendations, persona-card, deliverable, prd-feature, superficial]
     concepts: [claims, factual, carry]
     token_count: 151
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c1"
-    char_span: [700, 3287]
+    char_span: [701, 3288]
     sentence_count: 1
     key_terms: [frontier, partial, chain, grade, case, slides-, slides, persona-persona-]
     concepts: [frontier, partial, chain, grade, slides-]
@@ -27,7 +27,7 @@ chunks:
     token_count: 505
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c2"
-    char_span: [3386, 4484]
+    char_span: [3387, 4485]
     sentence_count: 1
     key_terms: [frontier, partial, case, chain, grade, arch-architecture-, architecture-, arch]
     concepts: [frontier, partial, arch-architecture-, chain, grade]
@@ -36,7 +36,7 @@ chunks:
     token_count: 296
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c3"
-    char_span: [4583, 5679]
+    char_span: [4584, 5680]
     sentence_count: 1
     key_terms: [frontier, partial, case-study-case-, case, chain, grade, case-study, case-]
     concepts: [case-study-case-, frontier, partial, chain, grade]
@@ -45,7 +45,7 @@ chunks:
     token_count: 313
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c4"
-    char_span: [5778, 6001]
+    char_span: [5779, 6002]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, slides, chain, grade, case]
     concepts: [frontier, partial, slides-, slides, chain]
@@ -54,7 +54,7 @@ chunks:
     token_count: 64
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c5"
-    char_span: [6100, 7883]
+    char_span: [6101, 7884]
     sentence_count: 1
     key_terms: [frontier, partial, chain, grade, slides-, case, slides, persona-persona-]
     concepts: [frontier, partial, chain, grade, slides-]
@@ -63,7 +63,7 @@ chunks:
     token_count: 387
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c6"
-    char_span: [7982, 8429]
+    char_span: [7983, 8430]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, slides, chain, grade, case]
     concepts: [frontier, partial, slides-, slides, chain]
@@ -72,7 +72,7 @@ chunks:
     token_count: 128
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c7"
-    char_span: [8528, 9423]
+    char_span: [8529, 9424]
     sentence_count: 1
     key_terms: [frontier, partial, slides-, slides, chain, grade, case]
     concepts: [frontier, partial, slides-, slides, chain]
@@ -81,20 +81,20 @@ chunks:
     token_count: 256
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-grade.md#c8"
-    char_span: [9522, 10675]
+    char_span: [9523, 11370]
     sentence_count: 1
-    key_terms: [frontier, partial, slides-, slides, case, chain, grade, family]
-    concepts: [frontier, partial, slides-, slides, chain]
+    key_terms: [frontier, partial, chain, grade, case, slides-, slides, prd]
+    concepts: [frontier, partial, chain, grade, slides-]
     related_chunks: ["known-gaps/failure-grade.md#c1", "known-gaps/failure-grade.md#c2", "known-gaps/failure-grade.md#c3", "known-gaps/failure-grade.md#c4", "known-gaps/failure-grade.md#c5"]
     section: "2026-10-27 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
-    token_count: 302
+    token_count: 477
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Unverified or superficial factual claims
 
 What fails: The grading stage found factual claims it could not verify, or claims too shallow to carry the argument.
 
-Seen in 121 frontier eval case(s) across 5 engagement(s); deliverable kinds: slides (44), persona (13), gap (9), recommendations (9), journey (8), case-study (6), prd (6), arch (5), themes (5), org (4), blueprint (3), roadmap (3), compete (2), audit (1), persona-card (1), prd-feature (1), strategy (1).
+Seen in 126 frontier eval case(s) across 6 engagement(s); deliverable kinds: slides (44), persona (13), prd (11), gap (9), recommendations (9), journey (8), case-study (6), arch (5), themes (5), org (4), blueprint (3), roadmap (3), compete (2), audit (1), persona-card (1), prd-feature (1), strategy (1).
 
 What the harness does about it: Anchor each factual sentence to a quoted passage; cut claims the corpus cannot carry.
 
@@ -208,3 +208,12 @@ What the harness does about it: Anchor each factual sentence to a quoted passage
 
 ## 2026-10-31 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th
 - slides slides_1793460733471: chain:grade partial (schema_invalid) (frontier case slides-slides_1793460733471)
+
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794202962064: chain:grade partial (schema_invalid) (frontier case prd-prd_1794202962064)
+
+## 2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794278892579: chain:grade partial (schema_invalid) (frontier case prd-prd_1794278892579)
+- prd prd_1794279962606: chain:grade partial (schema_invalid) (frontier case prd-prd_1794279962606)
+- prd prd_1794283122759: chain:grade partial (schema_invalid) (frontier case prd-prd_1794283122759)
+- prd prd_1794284161769: chain:grade partial (schema_invalid) (frontier case prd-prd_1794284161769)

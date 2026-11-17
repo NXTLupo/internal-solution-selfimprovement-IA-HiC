@@ -162,10 +162,20 @@ violations named). Satisfy these floors in the first pass:
   stat-row, evidence-table, aggregate-roadmap, infographic-exhibit, quadrant, flow-arc,
   milestone-timeline, means-matters, ranked-bars, comparison-panels. Everything else is a
   text-column body archetype.
-- VISUAL FLOOR (the core lever): when the deck has 6+ BODY slides (non-connective), at least
-  40% of body slides MUST be VISUAL archetypes. Content with SHAPE (a sequence, a comparison, a
-  ranking, a position, a timeline, hard numbers) lands on its matching visual archetype, never a
-  text-column layout.
+- VISUAL FLOOR (the core lever; raised 40% -> 70% on 2026-11-09 by owner directive): when the deck
+  has 6+ BODY slides (non-connective), at least 70% of body slides MUST be VISUAL archetypes.
+  Content with SHAPE (a sequence, a comparison, a ranking, a position, a timeline, hard numbers)
+  lands on its matching visual archetype, never a text-column layout. The benchmark is the Gemini
+  Notebook deck, which carries artwork on every slide; a majority-text deck is a defect now, not a
+  style choice. If content will not fit a visual archetype, the content is wrong for the slide:
+  split it, or cut it, rather than falling back to a text column.
+- ONE VISUAL LANGUAGE: the same illustration treatment, stroke weight and palette across the deck.
+  Three consecutive slides in three different visual idioms read as three decks stapled together.
+- WHAT NEVER TRADES AWAY FOR LOOKS: the deck exports as NATIVE EDITABLE PPTX (real text frames and
+  shapes). The measured Gemini deck is 15 full-slide rasters with zero text runs, so it cannot be
+  edited, searched or made accessible; matching its appearance by rasterizing ours would surrender
+  the one advantage it cannot answer. Citations, the claim-ledger gate and the prose gates also
+  stay exactly as they are.
 - VARIETY: decks of 8+ slides need at least min(5, max(3, floor(slideCount / 3))) distinct
   archetypes; target 5+ distinct in any real deck. A deck that is mostly one archetype is wrong.
 - ADJACENCY: never the same BODY archetype twice in a row (connective slides are exempt). Vary

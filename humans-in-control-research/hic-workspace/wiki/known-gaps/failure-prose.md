@@ -6,9 +6,9 @@ source: eval-frontier
 family: prose
 applies_to: generation
 kinds: [arch, audit, org, prd, slides, themes]
-cases: 19
-updated: 2026-11-01
-source_hash: 89cb6b42ee62c135
+cases: 21
+updated: 2026-11-11
+source_hash: 76ee50d095595544
 chunks:
   - id: "known-gaps/failure-prose.md#c0"
     char_span: [0, 407]
@@ -27,20 +27,20 @@ chunks:
     token_count: 484
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-prose.md#c2"
-    char_span: [2959, 3714]
+    char_span: [2959, 4136]
     sentence_count: 1
-    key_terms: [frontier, partial, slides-, slides, chain, prose, case]
-    concepts: [frontier, partial, slides-, slides, chain]
+    key_terms: [frontier, partial, chain, prose, case, slides-, slides, themes-theme-]
+    concepts: [frontier, partial, chain, prose, slides-]
     related_chunks: ["known-gaps/failure-prose.md#c1"]
     section: "2026-10-27 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th"
-    token_count: 165
+    token_count: 237
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Prose that fails the writing signal
 
 What fails: The prose stage flagged cadence, missing actors, copula avoidance or dilution.
 
-Seen in 19 frontier eval case(s) across 4 engagement(s); deliverable kinds: slides (10), arch (4), themes (2), audit (1), org (1), prd (1).
+Seen in 21 frontier eval case(s) across 5 engagement(s); deliverable kinds: slides (10), arch (4), themes (3), prd (2), audit (1), org (1).
 
 What the harness does about it: human-voice-editor: name the actor, use a plain verb, delete words that add no fact.
 
@@ -84,3 +84,9 @@ What the harness does about it: human-voice-editor: name the actor, use a plain 
 ## 2026-10-31 | generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ
 - slides slides_1793479351383: chain:prose partial (schema_invalid) (frontier case slides-slides_1793479351383)
 - slides slides_1793480190892: chain:prose partial (schema_invalid) (frontier case slides-slides_1793480190892)
+
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- themes theme-overview_1794198288221: chain:prose partial (schema_invalid) (frontier case themes-theme-overview_1794198288221)
+
+## 2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794278892579: chain:prose partial (schema_invalid) (frontier case prd-prd_1794278892579)

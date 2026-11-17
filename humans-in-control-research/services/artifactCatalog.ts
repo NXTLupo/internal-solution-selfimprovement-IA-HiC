@@ -130,6 +130,18 @@ export const ARTIFACT_CATALOG: ArtifactCatalogEntry[] = [
     { id: 'quiz', aliases: ['#quiz', '#quizzes'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'schema', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'datatable', aliases: ['#datatable', '#datatables', '#data-table', '#data-tables'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'schema', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
     { id: 'critique', aliases: ['#critique', '#critiques'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'evidence', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-09 (plans/gemini-notebook-parity-closeout-2026-11-09.md, WS-B2a): the one report
+    // REGISTER the family lacked, found in the live Gemini Notebook run (its Reports dialog offers
+    // Blog Post beside Briefing Doc and Study Guide). Register only: narrative lede, second-person
+    // address, shorter paragraphs. The citation protocol, claim-ledger gate and Quantitative Claim
+    // Rule are UNCHANGED, so a readable register never becomes a license for hype.
+    { id: 'blogpost', aliases: ['#blogpost', '#blog-post', '#blogposts', '#blog'], templateId: null, ownerSkill: 'html-deliverable-composer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
+    // 2026-11-09 (closeout plan WS-B1): the report that EMBEDS artifacts already in the gallery.
+    // Gemini Notebook's interactive report does this behind a cross-origin iframe, so its host
+    // page cannot read its own content; #dossier inlines each artifact under a declarative shadow
+    // root instead (services/dossierEmbed.ts), same document, same origin, selectable and
+    // relaunchable. The prose still rides the HTML chain, so every gate applies.
+    { id: 'dossier', aliases: ['#dossier', '#dossiers', '#interactive-report'], templateId: null, ownerSkill: 'strategic-report-writer', tier: 'narrative', modality: 'html', editability: 'html_document', routingClass: 'evidence_pro', imageBearing: false },
 
     // ---- Graph / cross-engagement / dialogue (the NotebookLM kinds; rendered in the Design Desk) ----
     { id: 'mindmap', aliases: ['#mindmap', '#mindmaps', '#mind-map', '#mind-maps'], templateId: null, ownerSkill: 'mind-map-architect', tier: 'schema', modality: 'analysis', editability: 'spa_only', routingClass: 'evidence_pro', imageBearing: false },

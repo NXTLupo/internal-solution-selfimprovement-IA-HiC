@@ -28,6 +28,21 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from util.prompts.topic_prompt import get_openai_generate_topic_prompt
 from util.llm_models.openai import get_openai_completion
 from util.llm_models.claude import get_claude_completion_with_json
+import threading
+
+# One shared RoBERTa sentiment pipeline per process. Building it per call reloaded the
+# model from disk for every post at the 80% step (hundreds of loads per run).
+_ROBERTA_SENTIMENT = None
+_ROBERTA_SENTIMENT_LOCK = threading.Lock()
+
+def _get_roberta_sentiment_pipeline():
+    global _ROBERTA_SENTIMENT
+    if _ROBERTA_SENTIMENT is None:
+        with _ROBERTA_SENTIMENT_LOCK:
+            if _ROBERTA_SENTIMENT is None:
+                _ROBERTA_SENTIMENT = pipeline("sentiment-analysis", model="CardiffNLP/twitter-roberta-base-sentiment",
+                                              top_k=None, truncation=True, max_length=512)
+    return _ROBERTA_SENTIMENT
 
 
 
@@ -363,7 +378,7 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
         # every call to this analyzer is hard-capped at RoBERTa's 512 tokens,
         # version-robustly (call-time kwargs do not forward on all transformers
         # versions). Belt-and-suspenders with the per-call kwargs below.
-        sentiment_analyzer = pipeline("sentiment-analysis", model=model1, top_k=None, truncation=True, max_length=512)
+        sentiment_analyzer = _get_roberta_sentiment_pipeline()  # model1, cached
         debug_file.write("Sentiment analyzer initialized successfully\n\n")
         
         # Analyze sentiment for each document (limited to first 512 tokens due to BERT limitations)
@@ -543,7 +558,7 @@ def analyze_topic_sentiment_weighted(topic_posts, topic_id, temp_dir):
     """Weighted topic sentiment over structured post+comment units.
     Returns: (category:str, score:float, meta:dict)."""
     debug_path = os.path.join(temp_dir, f"topic_{topic_id}_weighted_sentiment.txt")
-    analyzer = pipeline("sentiment-analysis", model="CardiffNLP/twitter-roberta-base-sentiment", top_k=None, truncation=True, max_length=512)
+    analyzer = _get_roberta_sentiment_pipeline()
     try:
         units = []            # (compound, weight)
         author_counts = {}    # author -> units seen (for the 1/sqrt(n) cap)

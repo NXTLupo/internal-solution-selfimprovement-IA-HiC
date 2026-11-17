@@ -195,17 +195,10 @@ def get_result(subreddit: str, prompt: str, topicData: dict, model: str) -> dict
     debug_print("4.prompt.json", prompt_with_topics)
     messages = [{"role": "user", "content": prompt_with_topics}]
     
-    # Get LLM response
-    if model == "claude":
-        llm_response = get_claude_completion(messages, temperature=0.6)
-    elif model == "openai-4o":
-        llm_response = get_openai_completion(messages, temperature=0.6)
-    elif model == "gemini-1.5-pro":
-        llm_response = get_openai_completion(messages, temperature=0.6)
-    elif model == "gemini-2.5":
-        llm_response = get_openai_completion(messages, temperature=0.6)
-    else:
-        llm_response = get_openai_completion(messages, temperature=0.6)
+    # Get LLM response from Claude Opus 5.5 (util/llm_models/claude.py). The `model` form
+    # field is legacy: the markdown answer prompt cannot run through get_openai_completion,
+    # which forces JSON mode.
+    llm_response = get_claude_completion(messages)
     
     debug_print("5.response.json", llm_response)
     
@@ -340,8 +333,8 @@ def get_keyword_response(subreddit: str, prompt: str, number_of_documents: int):
     # Extract keywords from the prompt
     keyword_prompt = extract_keywords_from_prompt(prompt)
     
-    # Get the keywords from OpenAI
-    keyword_response = get_openai_completion(messages=[{"role": "user", "content": keyword_prompt}], temperature=0.6)
+    # Get the keywords from Claude (plain comma-separated text; low effort, it is a short extraction)
+    keyword_response = get_claude_completion(messages=[{"role": "user", "content": keyword_prompt}], effort="low", max_tokens=2000)
     debug_print("5.llm_keywords_results.json", keyword_response)
     
     # Parse the keywords from the response

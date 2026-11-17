@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { DatabasePost } from '../../../types/reddit';
 import CommentThread from './CommentThread.tsx';
+import { Highlight } from './keywordMatch';
 
 interface PostCardProps {
   post: DatabasePost;
   showComments?: boolean;
+  highlight?: string;          // keyword to mark in the title, body and comments
+  matchedInComments?: boolean; // the keyword appears only in this post's comments
 }
 
-function PostCard({ post, showComments = false }: PostCardProps) {
+function PostCard({ post, showComments = false, highlight, matchedInComments = false }: PostCardProps) {
   const [showCommentsState, setShowCommentsState] = useState(showComments);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showExpandButton, setShowExpandButton] = useState(false);
@@ -87,12 +90,17 @@ function PostCard({ post, showComments = false }: PostCardProps) {
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
             <h2 className="text-xl font-semibold text-[#141414] mb-2 leading-tight">
-              {post.title}
+              <Highlight text={post.title} term={highlight} />
             </h2>
             <div className="flex items-center gap-4 text-sm text-[#525252]">
               <span>u/{post.author || 'Unknown'}</span>
               <span>•</span>
               <span>{formatTimeAgo(post.created_utc)}</span>
+              {matchedInComments && highlight && (
+                <span className="text-xs bg-[#fef3c7] text-[#92400e] px-2 py-0.5 rounded">
+                  "{highlight.trim()}" appears in the comments
+                </span>
+              )}
             </div>
           </div>
           
@@ -129,7 +137,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
                 overflow: !isExpanded ? 'hidden' : 'visible'
               }}
             >
-              {post.content}
+              <Highlight text={post.content} term={highlight} />
             </div>
             {showExpandButton && (
               <button
@@ -149,7 +157,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
             className="flex items-center gap-2 text-[#525252] hover:text-[#141414] transition-colors text-sm"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.003 8.003 0 01-7.799-6.778c0-.001 0-.001 0-.002L4 12h.01c0-4.418 3.582 8-8s8 3.582 8 8z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.003 8.003 0 01-7.799-6.778c0-.001 0-.001 0-.002L4 12h.01c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
             </svg>
             {showCommentsState ? 'Hide Comments' : `Show Comments (${totalComments})`}
           </button>
@@ -180,7 +188,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
                   Comments ({totalComments})
                 </h3>
                 {post.comments.map((comment) => (
-                  <CommentThread key={comment.id} comment={comment} />
+                  <CommentThread key={comment.id} comment={comment} highlight={highlight} />
                 ))}
               </div>
             ) : (

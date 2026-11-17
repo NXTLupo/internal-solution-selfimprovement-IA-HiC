@@ -1,9 +1,8 @@
 
-## 2026-11-09T01:12:02.250Z · themes · themes_1794186722250
+## 2026-11-16T22:25:02.334Z · themes · themes_1794867902334
 
-**Quality up 2 points (now 61/100) - improvement attributable to corpus or context shift.**
+**Quality down 10 points (now 51/100). No new rules this run; corpus or context regressed.**
 
-Overall: 61/100 (prior 59/100, delta +2)
+Overall: 51/100 (prior 61/100, delta -10)
 
-Improved: Citation diversity (+17), Content budgets (+8).
-Regressed: Meta-narration (-8), Density (-5).
+Regressed: Meta-narration (-32), Citation diversity (-26), Content budgets (-8).

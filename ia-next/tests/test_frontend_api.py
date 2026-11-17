@@ -1,0 +1,169 @@
+"""Offline tests for the workspace page's API additions: static assets, engagement focus on a message, and the
+media listing. No network and no model calls: agent.turn is replaced by a recorder."""
+import os
+import re
+import sys
+
+import pytest
+from fastapi.testclient import TestClient
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from ia_next import agent, app as app_module, config, store  # noqa: E402
+
+WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "web")
+
+
+@pytest.fixture(autouse=True)
+def fresh(tmp_path):
+    store.reset_for_tests(str(tmp_path / "t.sqlite3"))
+    config.ensure_dirs()
+    yield
+
+
+@pytest.fixture
+def client():
+    return TestClient(app_module.app)          # not a context manager: no startup thread, no scheduler
+
+
+@pytest.fixture
+def turns(monkeypatch):
+    seen = []
+
+    def fake_turn(cid, text, call=None):
+        seen.append((cid, text))
+        return {"reply": "ok", "trace": [], "usd": 0.0}
+    monkeypatch.setattr(agent, "turn", fake_turn)
+    return seen
+
+
+# ---- the page and its assets -------------------------------------------------------------------
+def test_index_is_served_without_caching(client):
+    r = client.get("/")
+    assert r.status_code == 200 and "text/html" in r.headers["content-type"]
+    assert r.headers["cache-control"] == "no-store"
+
+
+def test_static_serves_web_files_and_revalidates(client):
+    r = client.get("/static/index.html")
+    assert r.status_code == 200
+    assert r.headers["cache-control"] == "no-cache"
+
+
+def test_static_never_serves_outside_the_web_folder(client):
+    for path in ("/static/../ia_next/app.py", "/static/%2e%2e/ia_next/app.py", "/static/..%2fia_next%2fapp.py"):
+        r = client.get(path)
+        assert r.status_code == 404 or "FastAPI" not in r.text, path
+
+
+# ---- engagement focus on a message -------------------------------------------------------------
+def test_message_without_focus_is_passed_unchanged(client, turns):
+    r = client.post("/api/conversations/conv_x/messages", json={"text": "  What can you do?  "})
+    assert r.status_code == 200 and r.json()["reply"] == "ok"
+    assert turns == [("conv_x", "What can you do?")]
+
+
+def test_message_with_focus_names_the_engagement_first(client, turns):
+    eid = store.create_engagement("Co-op search  prep", "objective")
+    r = client.post("/api/conversations/conv_x/messages", json={"text": "Make a deck", "engagement_id": eid})
+    assert r.status_code == 200
+    assert turns[-1][1] == f"(Focused engagement: Co-op search prep [{eid}])\nMake a deck"
+
+
+def test_message_with_unknown_or_empty_focus_is_unchanged(client, turns):
+    client.post("/api/conversations/c/messages", json={"text": "hello", "engagement_id": "eng_nope"})
+    client.post("/api/conversations/c/messages", json={"text": "hello", "engagement_id": ""})
+    client.post("/api/conversations/c/messages", json={"text": "hello", "engagement_id": None})
+    assert [t for _, t in turns] == ["hello", "hello", "hello"]
+
+
+def test_empty_message_is_still_refused(client, turns):
+    assert client.post("/api/conversations/c/messages", json={"text": "   ", "engagement_id": ""}).status_code == 400
+    assert turns == []
+
+
+# ---- media listing -----------------------------------------------------------------------------
+def _write(eid, rel, data=b"x"):
+    p = store.safe_path(eid, rel)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, "wb") as fh:
+        fh.write(data)
+    return p
+
+
+def test_media_lists_images_and_videos_with_view_urls_that_serve(client):
+    eid = store.create_engagement("e", "o")
+    _write(eid, "results/images/img_a.png", b"\x89PNG....")
+    _write(eid, "results/videos/vid_b.mp4", b"....ftyp")
+    _write(eid, "results/images/notes.txt", b"not media")
+    _write(eid, "results/images/empty.png", b"")
+    r = client.get(f"/api/engagements/{eid}/media")
+    assert r.status_code == 200
+    body = r.json()
+    assert [i["name"] for i in body["images"]] == ["img_a.png"]
+    assert [v["name"] for v in body["videos"]] == ["vid_b.mp4"]
+    assert body["images"][0]["view"] == f"/api/engagements/{eid}/files/results/images/img_a.png"
+    assert client.get(body["images"][0]["view"]).status_code == 200
+    assert client.get(body["videos"][0]["view"]).status_code == 200
+
+
+def test_media_for_an_engagement_without_media_is_empty(client):
+    eid = store.create_engagement("e", "o")
+    assert client.get(f"/api/engagements/{eid}/media").json() == {"engagement_id": eid, "images": [], "videos": []}
+
+
+def test_media_for_an_unknown_engagement_is_404(client):
+    assert client.get("/api/engagements/eng_nope/media").status_code == 404
+
+
+# ---- the page's own rules (checked when the web folder is present) --------------------------------
+def _web_files():
+    if not os.path.isdir(WEB):
+        return []
+    return [os.path.join(WEB, n) for n in os.listdir(WEB) if n.endswith((".html", ".css", ".js"))]
+
+
+def test_web_files_have_no_em_dash_and_never_allow_same_origin_frames():
+    files = _web_files()
+    if not files:
+        pytest.skip("web folder not mounted")
+    for p in files:
+        text = open(p, encoding="utf-8").read()
+        assert chr(0x2014) not in text, p
+        assert "allow-same-origin" not in text, p
+
+
+def test_web_files_load_scripts_only_from_pinned_allowed_hosts():
+    files = _web_files()
+    if not files:
+        pytest.skip("web folder not mounted")
+    for p in files:
+        text = open(p, encoding="utf-8").read()
+        for src in re.findall(r"<script[^>]+src=\"([^\"]+)\"", text):
+            if src.startswith(("/", "./")):
+                continue
+            assert re.match(r"https://(cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net/npm|unpkg\.com)/", src), src
+            assert re.search(r"@\d+\.\d+\.\d+|/\d+\.\d+\.\d+/", src), src
+        for href in re.findall(r"<link[^>]+href=\"(https?://[^\"]+)\"", text):
+            assert re.match(r"https://fonts\.(googleapis|gstatic)\.com(/|$)", href), href
+
+
+# ---- the prototype wrapper page --------------------------------------------------------------
+def test_prototype_wrapper_embed_drops_the_top_line_and_keeps_the_sandbox(client):
+    eid = store.create_engagement("e", "o")
+    tid, _ = store.create_task(eid, "prototype", {"experience": "x", "audience": "", "must_include": []}, 1.0)
+    store.update_task(tid, status="done", result_path="results/prototype.json")
+    full = client.get(f"/api/tasks/{tid}/view").text
+    embedded = client.get(f"/api/tasks/{tid}/view?embed=1").text
+    assert "<header>" in full and "sandboxed:" not in full
+    assert "<header>" not in embedded and "height:100vh" in embedded
+    for page in (full, embedded):
+        assert 'sandbox="allow-scripts"' in page and "allow-same-origin" not in page
+
+
+def test_the_imported_library_is_not_listed_as_an_engagement(client):
+    from ia_next import library
+    library.library_engagement()
+    real = store.create_engagement("Client work", "o")
+    listed = [e["id"] for e in client.get("/api/engagements").json()["engagements"]]
+    assert listed == [real]
+    assert len(client.get("/api/engagements?include_library=1").json()["engagements"]) == 2

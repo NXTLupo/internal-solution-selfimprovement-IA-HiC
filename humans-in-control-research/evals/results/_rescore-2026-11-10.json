@@ -1,0 +1,371 @@
+{
+  "started_at": "2026-11-10T04:23:53.044351Z",
+  "finished_at": "2026-11-10T04:24:05.373943Z",
+  "window_hours": 24.0,
+  "artifacts": 91,
+  "failures": 29,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "hook-roadmap-1794284644",
+      "hook-brief-1794284644",
+      "hook-brief-1794284645",
+      "hook-persona-1794284645",
+      "hook-gap-analysis-1794284645",
+      "hook-case-study-1794284645",
+      "hook-recommendation-1794284645",
+      "hook-strategy-1794284645",
+      "auditor-mindmap-1794284645",
+      "auditor-brief-1794284645",
+      "auditor-deep-research-1794284645",
+      "auditor-meta-themes-1794284645"
+    ],
+    "skipped_existing": 243,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 1171,
+    "judges": {}
+  },
+  "epoch_proposal_id": "prop_1793474680_1",
+  "failed": [
+    {
+      "artifact_id": "theme-overview_1794198288221",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "themes",
+      "failures": [
+        "evidence:unsupported_p0@slide_1794198288239_kum8bn",
+        "prose:actors"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794198443833",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "evidence:unsupported_p0@prd_root_gaps_1794198535295"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794198719767",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "claim:UNSOURCED_FACT@r4",
+        "claim:UNSUPPORTED_MODALITY@r35",
+        "claim:UNSOURCED_FACT@r64",
+        "claim:UNSOURCED_FACT@r69",
+        "claim:UNSOURCED_FACT@r70",
+        "claim:UNSOURCED_FACT@r76",
+        "claim:UNSOURCED_FACT@r81",
+        "claim:UNSOURCED_FACT@r86",
+        "claim:UNSOURCED_FACT@r96",
+        "claim:UNSOURCED_FACT@r101",
+        "claim:UNSOURCED_FACT@r116",
+        "claim:UNVERIFIED_IDENTIFIER@r335"
+      ]
+    },
+    {
+      "artifact_id": "explainer_1794199630806",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "explainer",
+      "failures": [
+        "claim:UNSOURCED_FACT@r42"
+      ]
+    },
+    {
+      "artifact_id": "studyguide_1794200357083",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "study-guide",
+      "failures": [
+        "claim:UNSOURCED_FACT@r31",
+        "claim:UNSOURCED_FACT@r109",
+        "claim:UNSOURCED_FACT@r116"
+      ]
+    },
+    {
+      "artifact_id": "quiz_1794201946690",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "quiz",
+      "failures": [
+        "claim:UNSOURCED_FACT@r16",
+        "claim:UNSOURCED_FACT@r39",
+        "claim:UNSOURCED_FACT@r55",
+        "claim:UNSOURCED_FACT@r104",
+        "claim:UNSOURCED_FACT@r124",
+        "claim:UNSOURCED_FACT@r128",
+        "claim:UNSOURCED_FACT@r132"
+      ]
+    },
+    {
+      "artifact_id": "whitepaper_1794202303908",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "report",
+      "failures": [
+        "claim:UNSOURCED_FACT@r30",
+        "claim:UNSOURCED_FACT@r60",
+        "claim:UNSOURCED_FACT@r145"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794202962064",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": []
+    },
+    {
+      "artifact_id": "prd_1794203207634",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "claim:UNVERIFIED_IDENTIFIER@r356",
+        "claim:UNVERIFIED_IDENTIFIER@r356",
+        "claim:UNVERIFIED_IDENTIFIER@r363",
+        "claim:UNVERIFIED_IDENTIFIER@r363",
+        "claim:UNVERIFIED_IDENTIFIER@r392",
+        "claim:UNVERIFIED_IDENTIFIER@r406",
+        "claim:UNVERIFIED_IDENTIFIER@r442",
+        "claim:UNVERIFIED_IDENTIFIER@r594",
+        "claim:UNVERIFIED_IDENTIFIER@r604",
+        "claim:UNVERIFIED_IDENTIFIER@r621",
+        "claim:UNVERIFIED_IDENTIFIER@r713",
+        "claim:UNVERIFIED_IDENTIFIER@r720"
+      ]
+    },
+    {
+      "artifact_id": "theme-overview_1794204536109",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "themes",
+      "failures": [
+        "evidence:unsupported_p0@slide_1794204536127_vjsp9q",
+        "title:too_long@slide_1794204536127_vjsp9q"
+      ]
+    },
+    {
+      "artifact_id": "report_1794204665168",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "report",
+      "failures": [
+        "claim:UNVERIFIED_QUOTE@r119",
+        "claim:UNVERIFIED_QUOTE@r213",
+        "claim:UNVERIFIED_QUOTE@r214"
+      ]
+    },
+    {
+      "artifact_id": "report_1794206078266",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "report",
+      "failures": [
+        "claim:UNSOURCED_FACT@r11",
+        "claim:UNSOURCED_FACT@r12",
+        "claim:UNSOURCED_FACT@r29",
+        "claim:UNSOURCED_FACT@r65",
+        "claim:UNSOURCED_FACT@r70"
+      ]
+    },
+    {
+      "artifact_id": "report_1794207381855",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "report",
+      "failures": [
+        "claim:UNSOURCED_FACT@r10",
+        "claim:UNSOURCED_FACT@r12",
+        "claim:UNVERIFIED_QUOTE@r28",
+        "claim:INDEPENDENCE_INFLATED@r28",
+        "claim:UNSOURCED_FACT@r37",
+        "claim:UNSOURCED_FACT@r44",
+        "claim:UNSOURCED_FACT@r64",
+        "claim:UNSOURCED_FACT@r69",
+        "claim:INDEPENDENCE_INFLATED@r87",
+        "claim:UNSOURCED_FACT@r146"
+      ]
+    },
+    {
+      "artifact_id": "blogpost_1794249244527",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "blogpost",
+      "failures": [
+        "claim:UNSOURCED_FACT@r26"
+      ]
+    },
+    {
+      "artifact_id": "brief_1794271881406",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "brief",
+      "failures": [
+        "claim:UNVERIFIED_QUOTE@r8"
+      ]
+    },
+    {
+      "artifact_id": "faq_1794272482814",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "faq",
+      "failures": [
+        "claim:INDEPENDENCE_INFLATED@r35",
+        "claim:NAKED_FIGURE@r53"
+      ]
+    },
+    {
+      "artifact_id": "datatable_1794274317915",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "datatable",
+      "failures": [
+        "claim:INDEPENDENCE_INFLATED@r15"
+      ]
+    },
+    {
+      "artifact_id": "quiz_1794276212181",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "quiz",
+      "failures": [
+        "claim:UNSOURCED_FACT@r13",
+        "claim:UNSOURCED_FACT@r21",
+        "claim:UNVERIFIED_QUOTE@r40",
+        "claim:UNSOURCED_FACT@r43",
+        "claim:UNSOURCED_FACT@r61",
+        "claim:UNSOURCED_FACT@r63",
+        "claim:UNSOURCED_FACT@r69"
+      ]
+    },
+    {
+      "artifact_id": "quiz_1794277112561",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "quiz",
+      "failures": [
+        "claim:UNSOURCED_FACT@r14",
+        "claim:UNSOURCED_FACT@r16",
+        "claim:INDEPENDENCE_INFLATED@r19",
+        "claim:NAKED_FIGURE@r25",
+        "claim:INDEPENDENCE_INFLATED@r28",
+        "claim:UNSOURCED_FACT@r31",
+        "claim:UNSOURCED_FACT@r34",
+        "claim:UNSOURCED_FACT@r50",
+        "claim:INDEPENDENCE_INFLATED@r51",
+        "claim:UNSOURCED_FACT@r61",
+        "claim:UNSOURCED_FACT@r75",
+        "claim:UNSOURCED_FACT@r78"
+      ]
+    },
+    {
+      "artifact_id": "questionnaire_1794277448571",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "questionnaire",
+      "failures": [
+        "claim:UNSOURCED_FACT@r5",
+        "claim:NAKED_FIGURE@r60"
+      ]
+    },
+    {
+      "artifact_id": "approaches_1794277710016",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "approaches",
+      "failures": [
+        "claim:NAKED_FIGURE@r3",
+        "claim:NAKED_FIGURE@r4",
+        "claim:UNSOURCED_FACT@r11",
+        "claim:NAKED_FIGURE@r22",
+        "claim:UNSOURCED_FACT@r32",
+        "claim:UNVERIFIED_IDENTIFIER@r54",
+        "claim:UNSOURCED_FACT@r60",
+        "claim:INDEPENDENCE_INFLATED@r65",
+        "claim:INDEPENDENCE_INFLATED@r73"
+      ]
+    },
+    {
+      "artifact_id": "playground_1794278146809",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "playground",
+      "failures": [
+        "claim:INDEPENDENCE_INFLATED@r4",
+        "claim:NAKED_FIGURE@r20"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794278892579",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "prose:actors"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794279168716",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "claim:UNSOURCED_FACT@r4",
+        "claim:UNVERIFIED_IDENTIFIER@r18",
+        "claim:UNSOURCED_FACT@r41",
+        "claim:UNSOURCED_FACT@r45",
+        "claim:UNVERIFIED_IDENTIFIER@r305",
+        "claim:UNVERIFIED_IDENTIFIER@r312",
+        "claim:UNVERIFIED_QUOTE@r396",
+        "claim:UNVERIFIED_IDENTIFIER@r408",
+        "claim:UNVERIFIED_IDENTIFIER@r444",
+        "claim:UNVERIFIED_IDENTIFIER@r553",
+        "claim:UNVERIFIED_IDENTIFIER@r560",
+        "claim:UNVERIFIED_IDENTIFIER@r775"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794279962606",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": []
+    },
+    {
+      "artifact_id": "prd_1794280192856",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "claim:UNVERIFIED_IDENTIFIER@r22",
+        "claim:UNVERIFIED_IDENTIFIER@r276",
+        "claim:UNVERIFIED_IDENTIFIER@r283",
+        "claim:UNVERIFIED_IDENTIFIER@r339",
+        "claim:UNVERIFIED_IDENTIFIER@r339",
+        "claim:UNVERIFIED_IDENTIFIER@r367",
+        "claim:UNVERIFIED_IDENTIFIER@r374",
+        "claim:UNVERIFIED_IDENTIFIER@r539",
+        "claim:UNSUPPORTED_MODALITY@r614",
+        "claim:UNVERIFIED_IDENTIFIER@r684",
+        "claim:UNVERIFIED_IDENTIFIER@r691",
+        "claim:UNVERIFIED_IDENTIFIER@r728"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794283122759",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "evidence:unsupported_p0@prd_root_journey_1794283198686"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794283409964",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": [
+        "claim:UNVERIFIED_IDENTIFIER@r31",
+        "claim:UNSOURCED_FACT@r63",
+        "claim:UNSOURCED_FACT@r98",
+        "claim:UNVERIFIED_QUOTE@r389",
+        "claim:UNVERIFIED_QUOTE@r858",
+        "claim:UNVERIFIED_IDENTIFIER@r1189",
+        "claim:UNSOURCED_FACT@r1356",
+        "claim:UNSOURCED_FACT@r1357",
+        "claim:UNSOURCED_FACT@r1358",
+        "claim:UNSOURCED_FACT@r1359",
+        "claim:UNVERIFIED_QUOTE@r1731",
+        "claim:UNVERIFIED_QUOTE@r1847"
+      ]
+    },
+    {
+      "artifact_id": "prd_1794284161769",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "prd",
+      "failures": []
+    }
+  ]
+}

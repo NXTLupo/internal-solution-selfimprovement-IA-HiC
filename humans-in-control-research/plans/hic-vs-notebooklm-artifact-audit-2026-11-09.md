@@ -21,7 +21,7 @@ Grades: AHEAD (HiC beats the NotebookLM clause), PAR, BEHIND, with the evidence 
 | Clause | NotebookLM | HiC today | Grade + evidence |
 |---|---|---|---|
 | S1 Audio Overview | two-host podcast; 4 formats | #audio-overview: two-voice MP3 (ElevenLabs) + cited transcript + deterministic figure/citation verifier (verifyDialogTurns) + 4 formats as of TODAY (leading format word: brief / critique / debate / default long form) | AHEAD on grounding + verification (NotebookLM audio cites nothing; HiC's transcript is pointer-cited and figure-gated: live run 2026-11-08 shipped zero fabricated figures on an empty corpus); PAR on formats (shipped this audit); BEHIND on interactive join (NotebookLM lets the listener interrupt; HiC has no live mode) |
-| S2 Video Overview | narrated slideshow, 2 lengths | #video-overview wired + proven live 2026-11-03 (W9) | PAR; length steering rides the prompt |
+| S2 Video Overview | narrated slideshow; LIVE: 3 formats (Cinematic / Short / Explainer) + a producer-notes review step | #video-overview wired + proven live 2026-11-03 (W9) | PAR on capability (graded vs live output, WS-A2); Gemini ahead on format pickers and the pre-render review checkpoint |
 | S3 Briefing doc | ~2-3K words, no citations | #brief: chain line 2026-11-09 "14 pointers resolved, 9 origins, 0 blocking, prose 0.98"; copy read | AHEAD (cited + gated + critic-schooled) |
 | S3 Explainer | report format | #explainer: "21 ptr / 11 org / 1 blk / prose 0.99"; judgment title, 2 contrast hits in 104 sentences | AHEAD |
 | S3 FAQ | report format | #faq: "30 ptr / 20 org / 0 blk / prose 0.99"; real student questions, named-source answers | AHEAD |
@@ -30,11 +30,11 @@ Grades: AHEAD (HiC beats the NotebookLM clause), PAR, BEHIND, with the evidence 
 | S3 Critique | weaknesses in sources | #critique: "54 ptr / 20 org / 0 blk / prose 0.98"; honest independence-aware verdict quoted in the prose plan | AHEAD |
 | S3 Debate | multiple perspectives | #brief-dialog debate format (today) + the long-standing two-voice engine with verified citations | AHEAD on grounding |
 | S4 Mind Map | interactive nested map, click-to-chat | #mindmap: radial renderer + click-to-chat; needs >= 3 themes | PAR (persistence gap: IndexedDB only, see U2) |
-| S5 Flashcards | term cards; count/familiarity steering | #flashcards wired (W3) + W8 smoke-proven; steering rides the prompt text | PAR (steering is prompt-native, not a picker) |
+| S5 Flashcards | term cards; LIVE: 50 cards, per-card Got It / Missed It tracking, an Explain button into chat, iframe-hosted | #flashcards wired (W3) + W8 smoke-proven; pointer citation per card, native details reveal, gallery HTML | PAR on content (graded vs live output, WS-A3); Gemini ahead on study mechanics (familiarity tracking + explain); HiC ahead on citations and portability |
 | S6 Quiz | MCQ + explanations | #quiz: "33 ptr / 13 org / 23 narrowed / prose 0.97"; every answer carries the pointer + why-the-distractor-is-wrong | AHEAD |
 | S7 Data Table | entities x attributes | #datatable: "66 ptr / 14 org / 0 blk / prose 1.00"; VS-picked table shape, Sources column per row | AHEAD |
-| S8 Infographic | standalone, 3 aspect ratios | #infographic shipped during this audit: content-true element + native renderer + 3 aspect words | PAR (solved below) |
-| S9 Slide Deck | detailed/presenter, PDF | #slides DECK MODE + native editable PPTX + archetype registry + chain gates (deck AIR 2026-11-09: prose 0.994, slop_sites 0, layout 6/6) | AHEAD |
+| S8 Infographic | standalone; LIVE: 3 orientations + a visual-style carousel + 3 density levels; zero naked figures; no citations | #infographic shipped during this audit: content-true element + native renderer + 3 aspect words + pointer citations + gallery | PAR on capability (graded vs live output, WS-A4); Gemini AHEAD on visual richness; HiC AHEAD on provenance and reuse |
+| S9 Slide Deck | detailed/presenter, PDF + PPTX; LIVE MEASUREMENT: the .pptx is 15 slides of 15 full-slide RASTERS, text_runs=0, shapes=0 | #slides DECK MODE + native editable PPTX + archetype registry + chain gates (deck AIR 2026-11-09: prose 0.994, slop_sites 0, layout 6/6) | AHEAD, by the widest margin in the audit (WS-A1): Gemini's deck cannot be edited, searched or re-themed at all; Gemini ahead only on illustration quality |
 | S10 (weakness) | studio outputs carry NO citations | every HiC artifact keeps the citation protocol + claim-ledger gate + NAKED_FIGURE + prose signal + repair-safety filter | AHEAD (the central structural win) |
 | N1 Upload intelligence | instant summary + questions per source | sourceIntelligence.ts (W6) | PAR |
 | C1 Citation chips | chips resolve to the passage | W1: pointer-preserving chips + passage viewer | PAR |
@@ -378,3 +378,135 @@ attribution; HiC keeps the provenance win (per-turn chunk citations in #audio-ov
 #brief-dialog) but its TTS leg was degraded on audit day (ElevenLabs 401, owner key item), so
 NotebookLM shipped 23 minutes of real audio while HiC shipped a cited transcript with an honest
 degradation notice. Closing that key restores the full head-to-head.
+
+## WORKSTREAM A: the four remaining live comparisons (2026-11-09, same notebook)
+
+Executed per `plans/gemini-notebook-parity-closeout-2026-11-09.md`. All four queued in one pass
+on the same 12 ingested sources, scored on arrival.
+
+### A4. #infographic vs Infographic (matrix row S8: PAR -> graded vs live output)
+
+Gemini's dialog exposes MORE steering than the spec recorded: orientation (Landscape / Portrait /
+Square, exactly HiC's three aspect words), a visual-style carousel (Auto-select, Kawaii, Clay and
+more), a density radio (Concise / Standard / Detailed BETA), and a free-text style/focus prompt.
+Output: "Production AI Architecture: Multi-Agent Patterns & Operational Guardrails", one
+landscape illustrated canvas, six content-true nodes (Shared Memory Over Messaging; Unified
+Central Identity Gateways; Proof-Based Task Settlement; Mandatory Human Approval Gates; Synthetic
+Training Mitigates Sycophancy; Automated Background Execution Loops), each with a one-sentence
+mechanism caption.
+- Content-trueness: PASSES. Every node traces to a real mechanism in the corpus; nothing invented.
+- Figures: ZERO naked figures. Gemini's infographic PASSES the Quantitative Claim Rule, the only
+  output of the six that does so without the rule being enforced.
+- Citations: none on the canvas; "View 12 sources" is notebook-level, not per-element.
+- Title: topic label with an ampersand, not an action title.
+- Export: image only, plus share and open-in-new-tab.
+- Visual quality: genuinely strong, a cohesive illustrated icon system across all six nodes.
+VERDICT, stated honestly: Gemini's infographic is better looking than HiC's native render and is
+figure-clean. HiC keeps per-element pointer citations, the gallery dual-write and relaunch, and
+the native renderer's determinism. CHANGE TO THE MATRIX: S8 moves from "PAR (solved)" to "PAR on
+capability, Gemini AHEAD on visual richness, HiC AHEAD on provenance and reuse". The visual gap
+is a real finding and belongs in the closeout plan as an uplift candidate, not a tie.
+
+### A3. #flashcards vs Flashcards (matrix row S5: PAR -> graded vs live output)
+
+"AI Flashcards", 50 cards in a cross-origin iframe. Card 1 front: "What four elements form the
+ideal prompt structure for delegating research tasks to an AI agent?" Back: "Task + source scope
++ completion criteria + delivery format." Accurate to the source.
+- Citations: none per card.
+- THREE capabilities HiC's #flashcards does not have, all found live:
+  1. Familiarity tracking: per-card "Got It" and "Missed It" counters, a study-session state the
+     card deck itself keeps.
+  2. An "Explain" button on the answer face that pipes the card back into notebook chat.
+  3. Volume: 50 cards against HiC's 16-30 budget.
+- HiC keeps: a pointer citation per card, native `<details>` reveal (printable, no iframe), the
+  HTML in the gallery, and relaunch on any machine.
+VERDICT: PAR on content; Gemini AHEAD on study mechanics (tracking + explain); HiC AHEAD on
+provenance and portability. The two mechanics are small, bounded uplift candidates.
+
+### A1. #slides vs Slide Deck (matrix row S9) - THE DECISIVE RESULT OF THE WHOLE AUDIT
+
+Gemini's dialog: format (Detailed Deck / Presenter Slides), length (Short / Default / Long),
+language, source scoping, and an optional "Review slide outline" step. Generated with the
+defaults. Output: "The Architecture of Agency", 15 slides, handsome isometric illustration on
+every slide, alt text that genuinely describes each diagram.
+
+THE FINDING, measured not eyeballed. Downloaded the .pptx Gemini offers and read its XML:
+
+```
+ALL 15 SLIDES: text_runs=0  pictures=15  shapes=0     (14.8 MB)
+```
+
+Every slide is ONE full-slide raster image. Zero text runs, zero shapes, across the entire deck.
+Nothing is editable, selectable, searchable, re-themable or reflowable. The title cannot be
+corrected, a number cannot be updated, the client's brand cannot be applied, and a screen reader
+gets the alt text or nothing. The PDF export is the same pictures in a different wrapper.
+
+This is precisely the failure mode `proxy/gold_pptx_export.py` exists to prevent: its contract is
+"native shapes/text/pictures, never full-slide rasters". HiC's #slides walks the stage HTML
+geometry and emits real text frames, real shapes and per-variant chrome layouts, so a partner can
+open the deck and edit the words.
+
+VERDICT: HiC AHEAD, by the widest margin in the audit, and on the dimension that decides whether
+a deck can be used in client work at all. Gemini AHEAD on illustration quality: its isometric
+diagram system is better looking than anything HiC renders today, and that is worth copying as a
+visual target, not as an architecture. Matrix row S9 stays AHEAD, now with live measurement
+behind it rather than an inference from the spec.
+
+### A2. #video-overview vs Video Overview (matrix row S2)
+
+Gemini's dialog offers THREE formats, not the two lengths the spec recorded: Cinematic (default),
+Short (New!), Explainer, plus language, source scoping and an optional "Review producer notes"
+step. Generated Cinematic. Output arrived as "Managing Meta's Muse AI: Your First Task Setup".
+Format steering is therefore richer than HiC's, where length and register ride the prompt text.
+HiC's #video-overview remains PAR on capability and keeps the citation discipline in its script.
+The honest note: Gemini's producer-notes and slide-outline review steps are a real pattern HiC
+lacks, a human checkpoint between the plan and the render, which is worth considering for the
+longest-running HiC generations.
+
+#### A2 addendum: the video, transcribed and scored (same Whisper path as the audio)
+
+Downloaded the mp4 and transcribed it through the Video Analyzer (job 96a6e3e9): 5:07, 841 spoken
+words. Two findings, one of them serious.
+
+SOURCE COLLAPSE (the serious one). The notebook holds 12 ingested sources spanning Alphabet's
+earnings, NVIDIA's identity architecture, Anthropic's sycophancy study, multi-agent operations,
+ATS screening and student account ownership. The Cinematic Video Overview used ONE of them: the
+r/MuseAgent beginner guide. It is a product tutorial for Meta Muse ("Start by logging in at
+muse.ai", "locate the two primary areas we will use, the chat input box, and the settings gear
+icon"), not an overview of the corpus. The same notebook's deck covered all twelve. A researcher
+who generated only the video would conclude the corpus was about one Reddit post.
+
+VOICE. The opening line is "We are going to use Meta's Muse AI to take raw web links and turn
+them into a clean, downloadable research table", followed by "We are keeping the setup simple
+today". Both are on HiC's meta-narration ban list verbatim ("We are going to", "Today we will").
+Zero source attributions beyond naming the product. Zero figures, so the figure rule passes.
+
+VERDICT for S2 refined: HiC AHEAD on corpus fidelity, which matters more than format pickers.
+HiC's #video-overview is corpus-wide by contract and its script carries citations; Gemini's
+Cinematic format silently narrowed a 12-source research corpus to a single how-to and announced
+itself in the first sentence. Gemini stays ahead on render quality and on offering a pre-render
+review checkpoint.
+
+## ARTIFACT-QUALITY PARITY: what changed after the live run (2026-11-09)
+
+Owner directive after Workstream A: "Ensure HiC achieves absolute parity with Gemini Notebook
+quality of artifacts." The live run is the only honest input, and it named three gaps. Two were
+closed the same day; the third is recorded with scope. Details and file-level scope in
+`plans/gemini-notebook-parity-closeout-2026-11-09.md`, Workstream D.
+
+| Measured gap | Status | What shipped |
+|---|---|---|
+| Flashcards: Gemini tracks Got It / Missed It per card; HiC's deck could be read but not worked | CLOSED | `services/flashcardStudyEngine.ts`: the model adds ONE attribute per card, code synthesizes the controls, progress strip and script. Idempotent, no-ops on other artifacts, degrades under `<noscript>`, storage-safe, token-bound. 16 tests. |
+| Infographic: Gemini's grouped illustrated cluster has no HiC equivalent | CLOSED | A new NATIVE family, `concept-cluster`, in `proxy/nxt_diagram_render.py` + a cluster branch in `infographicSpecFrom` ahead of process-flow + `clusters` offered in the element prompt + style version bumped to v33. 22 tests. |
+| Deck and video: Gemini offers a pre-render review checkpoint ("Review slide outline", "Review producer notes") | RECORDED, not built | A human checkpoint before an expensive render. Workflow capability, not artifact quality; scoped in the closeout plan as D3. |
+
+Two corrections to the earlier reading of this gap, both forced by evidence rather than taste:
+1. "Make HiC look isometric" was the WRONG conclusion. The native renderer's house style
+   explicitly forbids isometric depth and decorative shadow, and standing rule D17 forbids buying
+   exhibit visuals from an image model. Measuring Gemini's infographic showed the gap is
+   STRUCTURAL (a grouped cluster with no sequence), so the fix is a family, not a finish.
+2. The first cluster render exposed an icon-honesty defect that would have shipped a misleading
+   graphic: a CLOCK on "Proof-based task settlement". A scoring probe found captions outvote the
+   concept and function words partial-match tags. The family now matches the node name only,
+   strips function words, requires a real tag hit, and shows icons for the whole exhibit or for
+   none of it, because a partial set reads as a bug and a fallback glyph breaks content-true.

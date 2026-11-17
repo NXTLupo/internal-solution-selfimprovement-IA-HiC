@@ -34,7 +34,8 @@ it('places the flowchart across the full 1622x600 exhibit slot with the band and
         ? 'data:image/png;base64,' + fs.readFileSync(pngPath).toString('base64')
         : 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="3244" height="1200"/>');
     const html = composeSlide('infographic-exhibit', pay, 'nxt') as string;
-    expect(html).toContain('left:196px;top:226px;width:1622px;height:600px');
+    // 2026-11-16: the slot keeps its full 1622x600 size and moves down 24px to make room for the subtitle line
+    expect(html).toContain('left:196px;top:250px;width:1622px;height:600px');
     expect(html).not.toContain('Decisions');
     expect(html).toContain('PLACEMENT BOUNDARY');
     const dir = process.env.ARCHETYPE_RENDER_DIR;

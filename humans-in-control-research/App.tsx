@@ -7,7 +7,7 @@ import { providerAvailable } from './services/proxyConfig';
 import { getSessionConstraints, isSourceExcluded } from './services/sessionConstraints';
 import { currentEngagementSlug as cpCurrentEngagementSlug } from './services/wikiPointerResolver';
 import { registerSourceIntel, sourceGuideLine } from './services/sourceIntelligence';
-import { engagementSlug as runEngagementSlug, setEngagementSlug, setResearchGoal, cachedOnlyMode, setCachedOnlyMode, blendMode, setBlendMode, runMode, setRunMode, planSubQuestions, setCorpusComposition, setKnowledgeGaps, beginRun, setStage, emitRunManifest } from './services/runState';
+import { engagementSlug as runEngagementSlug, setEngagementSlug, setResearchGoal as setRunStateResearchGoal, cachedOnlyMode, setCachedOnlyMode, blendMode, setBlendMode, runMode, setRunMode, planSubQuestions, setCorpusComposition, setKnowledgeGaps, beginRun, setStage, emitRunManifest } from './services/runState';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
 import { ResearchPlanEditor } from './components/ResearchPlanEditor';
@@ -2159,7 +2159,9 @@ const App = () => {
         // into an artifacts folder and a state folder.
         const slug = goal ? engagementSlugFor(goal) : '';
         setEngagementSlug(slug || '');
-        setResearchGoal(goal || '');
+        // 2026-11-16: the run-state setter, NOT the textbox's useState setter of the same name. Writing the
+        // trimmed goal back into the field removed every space as it was typed.
+        setRunStateResearchGoal(goal || '');
         if (slug) {
             // Warm commitment cache - fire and forget. Failure is safe (no
             // commitment = chain head stays default).

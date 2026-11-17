@@ -1,211 +1,41 @@
 [
   {
-    "id": "1u13skf",
-    "title": "Nobody talks enough about how weird startup progress actually looks.",
-    "content": "You can work 12 hours a day for a month and feel like nothing happened.\n\nNo new customers.\n\nNo big announcement.\n\nNo viral post.\n\nNo breakthrough.\n\nThen one random week changes everything.\n\nA customer replies. A partnership appears. Someone recommends your product. An investor responds. And suddenly it looks like things are moving.\n\nFrom the outside, people call it luck.\n\nFrom the inside, you know it was built on hundreds of boring days that nobody saw. I think that's why so many founders quit too early. Not because they're incapable. Because progress is invisible for much longer than most people expect.\n\nWhat's the longest you've worked on something before seeing real signs that it was actually working?",
-    "score": 0,
-    "created_utc": 1781008706.0,
-    "comments": [
-      {
-        "id": "oqmwl5v",
-        "body": "Is every post *and* reply in this subreddit just ChatGPT now? ",
-        "score": 6,
-        "created_utc": 1781011036.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "oqn88dn",
-            "body": "I joined small business because I’m considering starting a little boutique service for home/biz organization. But every-time I’m on here I realize it’s either all AI or everyone is in tech or digital whatever the  hell. 😭",
-            "score": 2,
-            "created_utc": 1781014429.0,
-            "parent_comment_id": "oqmwl5v",
-            "replies": []
-          },
-          {
-            "id": "oqo13em",
-            "body": "It’s every subreddit. The other day I read someone post and they were talking about chat gpt being judgmental because they asked chat gpt if they should replace their battery even though they knew their battery was old and didn’t hold a charge? I’m just like chat GPT isn’t the only one judging you right now, trust me ",
-            "score": 2,
-            "created_utc": 1781021933.0,
-            "parent_comment_id": "oqmwl5v",
-            "replies": []
-          }
-        ]
-      },
-      {
-        "id": "oqmyejs",
-        "body": "if the title starts \"nobody talks about,\" it's someone from india who will ask a generic \"who else\" or \"what do you think\" or \"how did you solve this\" and then try to sell you something when you reply\n\nso tired of this very low quality spam strategy.  it never works and they never stop",
-        "score": 2,
-        "created_utc": 1781011583.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "oqpslhs",
-            "body": "There has been an increase in low value, low effort posts from India based users and otherwise.  \n\nPeople simply do not read nor respect the rules.  ",
-            "score": 1,
-            "created_utc": 1781038836.0,
-            "parent_comment_id": "oqmyejs",
-            "replies": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "1u35az0",
-    "title": "Opinions on financing options for franchise opportunities",
-    "content": "I’m looking into a few franchising opportunities and looking at financing. I don’t have the cash in full for any of them, so I’d either need to take out a loan to cover part of the startup costs, or dip into my retirement accounts. As I understand, my options are SBA loans, personal business loans, or ROBS program. \n\nI don’t have any entrepreneurs in my life that I can ask, so I’m looking for opinions on the pros and cons of these funding options for franchising opportunities. Are any better than others? Are any considered terrible ideas? Any other insight you can share on funding I’d appreciate. ",
+    "id": "1xhblex",
+    "title": "Housing Waiver",
+    "content": "I’m currently a first year student, and I want to live off campus next semester(Spring 2027)\n\nWhat is the best reason to apply residency waiver request? I’m not sure if allergy can be a good reason.",
     "score": 3,
-    "created_utc": 1781198350.0,
+    "created_utc": 1793152566.0,
     "comments": [
       {
-        "id": "or2rdvv",
-        "body": "SBA loan is the move. ROBS is legal but if the business fails, your retirement goes with it. Too much risk stacked on top of an already risky bet.",
-        "score": 2,
-        "created_utc": 1781200186.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "or92xg9",
-            "body": "SBA isn't any less risk than ROBS.\n\nYou provide a personal guarantee for the SBA loan, so they absolutely can and will come after your retirement assets if you default. \n\nThat said, it is still a better option for most people, since the rate on the SBA loan is probably less than what your retirement funds will earn, especially when you consider the tax implications of withdrawing those funds in retirement.",
-            "score": 1,
-            "created_utc": 1781279934.0,
-            "parent_comment_id": "or2rdvv",
-            "replies": []
-          }
-        ]
-      },
-      {
-        "id": "or47fof",
-        "body": "You ask the franchise. \n\nAnd no matter what you do, don't respond to people here trying to DM you, if you value your sanity.\n\nAlmost all franchises have a list of preferred lenders that they work with. They will also be able to tell you how much you'll need in cash. \n\nFor instance, they may say that you need a net worth of $500,000 with $100,000 available in cash, with an expected up front cost of $300,000. \n\nTypically they're expecting you to borrow the difference between the required cash on hand and the rest of the up front cost with one of their preferred lenders. \n\nIf you're a tire kicker with zero cash, you're not going to get very far in the process. At least not with any franchise that would amount to much more than just buying yourself a job.",
-        "score": 2,
-        "created_utc": 1781214261.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "or8ze50",
-            "body": "I’m currently looking at a few smaller franchises, none of which have a net worth requirement, just require proof of your ability to fully fund the start up costs. I’ve talked with each about funding and they all kinda don’t seem to care how you do it. My experience has felt fairly salesy so far. They have preferred lenders but as long as you can get the money it doesn’t matter to them how you do it. So that’s why I am looking for outside opinions here",
-            "score": 1,
-            "created_utc": 1781279009.0,
-            "parent_comment_id": "or47fof",
-            "replies": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "1u2laq7",
-    "title": "I built something that solves a real problem, got \"wow that's great\" from everyone who tried it - and still can't get paying customers. Is this normal?",
-    "content": "Looking for honest feedback from people who've been through the grind of early-stage business.\n\nI spent about a year building a software tool for online sellers. The problem it solves is real - I know because I talked to dozens of people in that space before writing a single line of code. Not guessing, actual conversations.\n\nHere's where I'm completely stuck:\n\nPeople who see a demo say *\"this is exactly what I needed\"*\n\nThey sign up for the free trial\n\nMost don't come back after the first session\n\nAlmost nobody converts to paid\n\nI've tried adjusting pricing. Rewrote the onboarding three times. Published content, launched on Product Hunt, posted on Indie Hackers, tried Reddit. Nothing sticks into a consistent flow of returning users.\n\nSo I keep asking myself -is this:\n\n**a) A product problem** \\- it doesn't solve the pain well enough, even though people say it does\n\n**b) A distribution problem** \\- I'm somehow reaching people who don't actually feel this pain acutely\n\n**c) A habit problem** \\- the use case just isn't frequent enough to build a routine around\n\n**d) Something I'm not even seeing yet**\n\nHas anyone been through something like this with their own business? What changed when things finally clicked? Or honestly — what did you learn if they never did?",
-    "score": 3,
-    "created_utc": 1781141795.0,
-    "comments": [
-      {
-        "id": "oqyg7ux",
-        "body": "Yeah, this is normal, but demo compliments are weak signal. The real signal is whether people hit the pain, use the product for the core job, and come back without you nudging them.\n\nI would stop changing pricing and onboarding for a week and map the dropoff brutally: signup, first useful action, second session, and any moment that made the paid user behave differently from everyone else. Then talk to 10 people who vanished after the first session and ask what they expected to happen versus what actually happened.\n\nA lot of products in this spot turn out to have one of three problems: the pain is real but too occasional, the product shows up too late in the workflow, or the free version already gives enough relief. Those look the same from the outside, but the fix is very different.",
-        "score": 20,
-        "created_utc": 1781143594.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "oqyq2t5",
-            "body": "This is genuinely helpful, thank you. The brutal mapping part hits hard... I've been optimizing onboarding based on assumptions instead of actually watching where people disappear. One thing I should have mentioned upfront: I don't even have consistent traffic yet. We're talking tens of visitors a week, not hundreds. So the dropoff patterns are hard to read statistically/ sample size is just too small to know if I'm seeing a real pattern or noise. Which makes me wonder if the whole conversion problem is actually premature. Maybe the real problem is step zero -I haven't found the channel that reliably puts the product in front of people who actually feel this pain right now. Did you figure out distribution before you fixed retention? Or did you have to do both at the same time?",
-            "score": 4,
-            "created_utc": 1781147033.0,
-            "parent_comment_id": "oqyg7ux",
-            "replies": []
-          }
-        ]
-      },
-      {
-        "id": "oqykkb8",
-        "body": "Let me guess... lead generation?\n\nIf B2B, your issue is not about solving a problem. Your issue is about trust.\n\nI tell you, \"Take my Magnesium glycinate supplement, and it will solve your sleep issue.\" You nod at me, try it one day, and leave it on the counter to rot.\n\nA doctor gives you the cheapest kind of Magnesium with some other useless medicine, and you take it three times a day for 15 days like it's a religion.\n\nIn the B2B space... trust is so important... we made a breakthrough when we started participating in tech exhibitions and meet clients face to face and arrange follow up meetings.\n\nIn fact many accepted to sign with us because they saw how enthusiastic I was and how I believed in the product.",
-        "score": 5,
-        "created_utc": 1781145062.0,
-        "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "or0z4tc",
-            "body": "So freaking true.  I'm in B2B engineering services (early stage, still finding my footing and ideal client).  It doesn't matter how polished your one pagers are, or your email structure, or whatever the hell else you are probably stressing over.  It's all about trust, and in B2B I've found it comes in three varieties, in order of effectiveness:\n\n1. People who already know you\n2. People who already know you and endorse you through referrals\n3. Cold outreach that is succesful yet still takes 6+ months to convert\n\nAnd even 1 and 2 still take months to close.  Timelines are far longer than I ever would have guessed.  It's been a learning experience and I'm still not sure if I'm doing it correctly.\n\nThen you have the ghosting.  Develop some trust and a potential client asks for a proposal.  You spend time developing something you think solves their issue and then....nothing.  Not even a \"hey, received will get back to you.\"  Just literally nothing.  And so now you don't know if it was on the mark or not...which is infuriating and makes it really difficult to make any adjustments.\n\nOh and then two months later they come back to you again, ask for something new and you provide it.  Never comment on the last proposal so you have no idea if your pricing was in line, which at this point you assume it was else they wouldn't reengage.  But you aren't sure.  And so then you provide something new to an urgent request and then...complete silence for weeks.\n\nI have a retainer PO right now that a client hasn't used any of in four months since signing.  They requested it, I constructed it, they bought it.  And then never used it.  Complete silence for months after multiple attempts from me to see where things stand.  Even no response to \"hey, this window of use has expired at three months.  Happy to roll over I just need some input as to where things stand because right now I'm holding these hours for you and have other projects spinning up I need to structure around.\"  And literally no response.\n\nB2B has been an infuriating learning experience but the #1 thing that obviously matters above all else is trust.  And I've built trust from scratch but getting it to convert I've determined is a 6-12 months process.   And even then, the lack of communication and general ways people conduct business continues to surprise me in a bad way.\n\nThe thing is, anything you do in B2B - whoever your target is has to accept the additional cognitive load you are already putting onto their probably already overloaded brain.  So I get it, just simply responding to a proposal (especially negatively) is a giant pain in the ass because I've been on the other side of that transaction at a large corp.  And there's no way around it other than showing up at the exact right moment with a solution to an extremely acute need that they HAVE to act on.",
-            "score": 2,
-            "created_utc": 1781182510.0,
-            "parent_comment_id": "oqykkb8",
-            "replies": []
-          },
-          {
-            "id": "oqyqw9o",
-            "body": "Yeah I get what you're saying about trust... that's fair. But here's the thing with SaaS. There's no 'doctor' prescribing anything. Just a bunch of identical landing pages, widgets, and 'Start free trial' buttons. And what I don’t understand is: how do I get noticed at all? Not listened to- that comes later. Just *noticed*. Among hundreds of other 'AI-powered automation platforms.' You talk about exhibitions, face-to-face meetings, passion. Okay. But how do I make someone open my email? Click on my site? Not just scroll past, but actually stop for a second? I can believe in my product like crazy, but if the first contact is a void where nobody even sees me… that’s what I don’t get.",
-            "score": 0,
-            "created_utc": 1781147331.0,
-            "parent_comment_id": "oqykkb8",
-            "replies": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "1u2ei36",
-    "title": "The Pricing Increase Catch-22: Afraid to Lose Loyal Customers but Can't Cover Rising Costs",
-    "content": "Long-time customers rely heavily on  my products, which feels great, but whenever I try to raise prices to cover increasing costs, I fear losing them. If I don’t increase prices, my margins shrink and sustainability is in question.  \n  \nI’ve tried soft communication and incremental hikes, but feedback ranges from acceptance to quiet drop-offs.  \n  \nHow do others manage price changes without damaging key customer relationships?",
-    "score": 1,
-    "created_utc": 1781124614.0,
-    "comments": [
-      {
-        "id": "oqwtjhb",
-        "body": "Fearing a customer exodus during a price hike usually means the perceived value isn't strong enough yet. Instead of holding back on prices, focus on strengthening your core value, improving customer loyalty, and clearly communicating the benefits they receive.",
-        "score": 14,
-        "created_utc": 1781124758.0,
-        "parent_comment_id": null,
-        "replies": []
-      },
-      {
-        "id": "oqwv2cu",
-        "body": "Do it. You'll damage 10-20% of client relationships if you raise prices significantly, and they are likely to be your weakest or most annoying accounts anyway. That's just business. \n\nOr you can keep prices low and ruin 100% of client relationships when you fold. ",
-        "score": 11,
-        "created_utc": 1781125187.0,
-        "parent_comment_id": null,
-        "replies": []
-      }
-    ]
-  },
-  {
-    "id": "1u1z87a",
-    "title": "Would you choose a simpler POS over one with more features",
-    "content": "I’ve spent the last several months building a point of sale system and it challenged assumptions I had about what small business actually want.\n\nMost POS systems seem to push accounts, subscriptions, cloud sync, onboarding and a lot of setup before you can make your first sale.\n\nMy approach was the opposite: no account creation, no login, import products from a spreadsheet and start selling immediately. Data stays local unless business chooses otherwise.\n\nMy Question for small business owners is:\n\nWould a POS system with no login and local first storage make you likely or less likely to use it?\n\nOn one hand it removes friction and privacy concerns on the other hand I wonder whether business owners actually expect cloud accounts, remote backups and user management as standard features.\n\nIf you run a small retail shop, market stall or similar operation, what would be the biggest factor that determines whether you’d trust a POS system enough to use it for real transactions? ",
-    "score": 1,
-    "created_utc": 1781090183.0,
-    "comments": [
-      {
-        "id": "oqtgsvs",
-        "body": "If there computer gets a virus / breached what happens to all there client data?\n\nSquare is free and secure. ",
+        "id": "19rry6tahhyw0",
+        "body": "Genuinely, all you need is a signed lease. That’s all I needed to get mine approved.",
         "score": 4,
-        "created_utc": 1781091093.0,
+        "created_utc": 1793182034.0,
         "parent_comment_id": null,
         "replies": [
           {
-            "id": "oqthha6",
-            "body": "Back up always and save it on separate drive or even google cloud but you do have a point ",
+            "id": "19rtcoh98myg5",
+            "body": "Thank you very much, that’s really helpful!",
             "score": 1,
-            "created_utc": 1781091355.0,
-            "parent_comment_id": "oqtgsvs",
+            "created_utc": 1793249955.0,
+            "parent_comment_id": "19rry6tahhyw0",
             "replies": []
           }
         ]
       },
       {
-        "id": "oqtihv0",
-        "body": "I consult in the payments industry. You're asking the wrong crowd. Reddit users are disproportionately tech literate and skew younger. Most retail business operators are less tech-savvy and older. You're going to lose them at \"upload a spreadsheet.\"\n\nI'll give some feedback on your product strategy here, but before I go into it: you should have investigated the space _before_ spending months in development, because you're going in a radical direction against very large, veteran organizations with what seems like a niche solution to an unrealized problem.\n\nFirst, payments aren't local or private. Payment processing requires data sharing with a lot of involved parties, not the least of which is Visa or Mastercard. To get set up as a merchant you basically give up a full disclosure of the business and its owners, so \"no account\" is only technically feasible for a small sliver of the overall service ecosystem. And the act of processing payments necessitates a data transfer from the business to the clearinghouse system, so again, you're slicing a tiny sliver of privacy out of a very non-private practice.\n\nSecond, POS software is bundled with the hardware or the ISO. Unless you plan to spin up an entire sales division, you're going to have a tough time convincing ISOs to offer your software over more lucrative (and familiar, and safer) alternatives.\n\nThird, those subscription fees are a consumer-driven phenomenon. They cover PCI and data security insurance, compliance maintenance, active account overrides from data processors, and other miscellaneous costs. They also subsidize the cost of equipment and software necessary to get merchants operating. Without them, you'd just run into the other end of the processing world: transaction volume minimums. For small operators, subscriptions are a better alternative to up-front hardware and software costs which, for a POS, could be thousands of dollars.\n\nI think you are running up hill on this product. It doesn't seem to solve for a problem that the market is experiencing in any meaningful volume.",
-        "score": 3,
-        "created_utc": 1781091743.0,
+        "id": "19rrcfvf1d143",
+        "body": "Sick family member you need to take care of.",
+        "score": 2,
+        "created_utc": 1793152778.0,
         "parent_comment_id": null,
         "replies": [
           {
-            "id": "oqtlgjg",
-            "body": "Thanks for the feedback advice, it’s seems you have extremely good experience in the industry, if I may ask if I can DM you about the POS ‘maybe you can have a look and tell me from your point of view what do you think 🤔 ",
+            "id": "19rtcqryluxuq",
+            "body": "I’m an international student, so take care of family members might not work for me🥲",
             "score": 1,
-            "created_utc": 1781092820.0,
-            "parent_comment_id": "oqtihv0",
+            "created_utc": 1793250041.0,
+            "parent_comment_id": "19rrcfvf1d143",
             "replies": []
           }
         ]
@@ -213,33 +43,186 @@
     ]
   },
   {
-    "id": "1u1edrl",
-    "title": "Startup Loan Difficulties - Even with experience?",
-    "content": "Trying to talk through it with some people instead of ChatGPT suggestions.\n\nI’m trying to source startup funding as all the private credit or investor people I’ve talked to want equity. I do not want to give up equity. I will keep it vague, but can anyone help me understand why my profile isn’t as close to a “sure thing” as SBA or equipment loan companies would want?\n\n15 years industry experience, currently Vice President level\n\nWorked BD and Sales side growing current company from $2m to $140m revenue nationally for the last ten years\n\n$180k liquid cash\n\n$250k equity (can’t really tap as home is worth ~$900k)\n\n300-500k income per year for the last 3 years which will continue\n\nLooking to source an equipment loan in the industry I’ve worked in to help my clients (does not compete with current employer, they support it fully). This isn’t some pivot to opening a restaurant.\n\nWhat am I missing? I have clients who will give me rental contracts provided I have the gear. Every single lender has told me they don’t do $500k-750k without two years of business history.",
+    "id": "1x6w217",
+    "title": "International Student: CPT Guidance on Co-op (Undergrad). Is Optional Co-op still allowed?",
+    "content": "Say it’s NOT required to get a co-op to graduate, will I still be allowed to be on co-op anymore? ",
+    "score": 1,
+    "created_utc": 1792094683.0,
+    "comments": [
+      {
+        "id": "ph1f5u2",
+        "body": "OGS is the only place you should be seeking information about anything that relates to international student status. [https://international.northeastern.edu/ogs/contact/](https://international.northeastern.edu/ogs/contact/)",
+        "score": 2,
+        "created_utc": 1792121634.0,
+        "parent_comment_id": null,
+        "replies": []
+      },
+      {
+        "id": "ph0bl18",
+        "body": "According to new rules most likely no, but ask your advisor not Reddit ",
+        "score": 1,
+        "created_utc": 1792109044.0,
+        "parent_comment_id": null,
+        "replies": []
+      }
+    ]
+  },
+  {
+    "id": "1x0jd5l",
+    "title": "Accepted for CPS, NEU",
+    "content": "Hey, Husky's\n\nI got admission into CPS, NEU Boston campus for Spring intake. However, I haven't received the I-20 yet, I have raised a request in my graduation application portal but theres no response yet. Could someone please help me how to get the I-20? Should I submit my financial ability to OGS in order to get I-20? \n\nAlso, regarding the stay. I request some help about the places/residential places to stay. Kindly, reach me out directly in dm or reply to this thread. Your help will be much appreciated. ",
+    "score": 0,
+    "created_utc": 1791439747.0,
+    "comments": [
+      {
+        "id": "penjgnb",
+        "body": "Per Claude:\n\n**1. Be admitted and confirm enrollment**  \nAfter admission, the student must **accept/confirm enrollment** and complete the required items in Northeastern’s admissions portal. Northeastern generally requires any enrollment deposit to be paid before the I-20 request becomes available.   \n**2. Request the I-20 through myOGS**  \nOnce eligible, the student accesses **myOGS** and submits the electronic **Initial I-20 Request**.  \nThe student generally uploads:  \nPassport identification page  \nProof of sufficient financial resources for the program  \nCurrency conversion if financial documents aren’t in U.S. dollars  \nSponsor letter/affidavit if the sponsor is a non-blood relative  \nThe financial documentation must demonstrate funds sufficient for Northeastern’s estimated tuition/fees and living expenses.   \nNortheastern’s current pre-arrival materials say **initial I-20 processing is approximately 15 business days**, although it can fluctuate during busy periods.   \n**3. Northeastern issues the I-20**  \nThe I-20 is the university-issued **Certificate of Eligibility for F-1 status**. It contains the student’s SEVIS ID and program information.  \n**The I-20 is not the F-1 visa.** The sequence is:  \n**Northeastern admission → I-20 → SEVIS fee → DS-160 → visa interview → F-1 visa → travel to U.S.**  \nNortheastern specifically lists this sequence on its current F-1 visa page.   \n**4. Pay the I-901 SEVIS fee**  \nAfter receiving the I-20, the student generally pays the **I-901 SEVIS fee**. A SEVIS transfer student generally doesn’t pay it again.   \n**5. Complete the DS-160**  \nThe student completes the U.S. Department of State’s **DS-160 Online Nonimmigrant Visa Application** and pays the applicable visa application fee.  \nNortheastern says the student should have the following available:  \nI-20  \nPassport  \nSEVIS I-901 receipt  \nNortheastern admission/acceptance letter  \nFinancial documentation  \nDS-160 confirmation  \nRequired photograph   \n**6. Schedule the F-1 visa interview**  \nThe student schedules an appointment with a U.S. embassy/consulate.  \n**Important current rule:** Northeastern’s September 2026 guidance says that, since September 6, 2025, F/J visa applicants generally must schedule their interview in their **country of nationality or residence**.   \n**7. Attend the interview**  \nThe consular officer decides whether to issue the F-1 visa. The student should be prepared to explain:  \nWhy Northeastern  \nWhat program they will study  \nHow the education will be financed  \nTheir academic background  \nTheir plans after completing their studies  \nAdditional documentation can be requested, including academic records and evidence relevant to the student’s intent to depart the U.S. after the authorized period of study.   \n**8. Receive the F-1 visa and travel**  \nOnce approved, the F-1 visa is placed in the passport.  \nNortheastern says F-1 students can apply for the visa **up to 120 days before the I-20 program start date**.   \nThe student then travels to the U.S. with the required immigration documents, including the passport with F-1 visa and I-20.  \n**9. Complete Northeastern’s immigration clearance after arrival**  \nAfter arriving in the U.S., the student must complete Northeastern OGS’s **Online Immigration Clearance**. For a new student with an initial I-20, Northeastern currently requires this within **30 days of the program start date**. The student provides the passport, F-1 visa, I-94 and U.S. address. ",
+        "score": 2,
+        "created_utc": 1791472412.0,
+        "parent_comment_id": null,
+        "replies": [
+          {
+            "id": "penkzyb",
+            "body": "Thank you very much!!",
+            "score": 1,
+            "created_utc": 1791472796.0,
+            "parent_comment_id": "penjgnb",
+            "replies": []
+          }
+        ]
+      },
+      {
+        "id": "penktpx",
+        "body": "For CPS Graduate programs, they list the following for financial requirements \n\n**I-20 calculation**  \n**Amount**  \nTuition & fees  \n**$24,192**  \nLiving expenses  \n**$27,728**  \n**Total funds required**  \n**$51,920**",
+        "score": 2,
+        "created_utc": 1791472753.0,
+        "parent_comment_id": null,
+        "replies": []
+      }
+    ]
+  },
+  {
+    "id": "1wo77dg",
+    "title": "Anyone else received an OGS warning about taking an online certificate while on OPT?",
+    "content": "I’m on F-1 OPT/cap-gap, and my H-1B starts October 1. I’ve been taking a part-time online graduate certificate at Northeastern for about 1.5 years. Before enrolling, I spoke with OGS and my immigration attorney, and I was told it shouldn’t be an issue since it’s online, non-degree, and doesn’t provide F-1 status.\n\nYesterday, OGS suddenly told me that it could affect my OPT and asked me to withdraw from the program and both courses.\n\nHas anyone dealt with something similar? What happened after you withdrew? Did it affect your OPT, cap-gap, or H-1B?",
     "score": 2,
-    "created_utc": 1781031653.0,
+    "created_utc": 1790172890.0,
     "comments": [
       {
-        "id": "oqp4hjo",
-        "body": "Check your dm",
+        "id": "pblbcxs",
+        "body": "The CPT guidelines are a moving target.  Check with OGS and don’t rely on information  posted here, things are changing by the hour.",
         "score": 1,
-        "created_utc": 1781032242.0,
+        "created_utc": 1790180050.0,
         "parent_comment_id": null,
         "replies": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "1wgneah",
+    "title": "Transfer question",
+    "content": "",
+    "score": 2,
+    "created_utc": 1789438544.0,
+    "comments": [
       {
-        "id": "oqp6mvw",
-        "body": "Startups are next to impossible to get loans for, I’ve always just borrowed against an asset like a house. ",
+        "id": "paabafy",
+        "body": "I did. Youll just have to take it later on .Dw too much about it\n\n",
         "score": 1,
-        "created_utc": 1781032822.0,
+        "created_utc": 1789609653.0,
+        "parent_comment_id": null,
+        "replies": []
+      }
+    ]
+  },
+  {
+    "id": "1wgjl00",
+    "title": "Clinical Research co-ops Question",
+    "content": "I understand that Patient Care clinical co-ops are historically released after Indigenous Peoples' Day. However, I was wondering when CRC or CRA positions are released during that time frame as well. \n\nCurrently, there are only a handful of them on Nuworks, and I was curious as to whether there will be more posted or if they will be posted with the PCA positions during October.\n\nThis will be my second co-op, for context.\n\nThanks in advance",
+    "score": 2,
+    "created_utc": 1789428245.0,
+    "comments": [
+      {
+        "id": "pbdn7s9",
+        "body": "They will be posted with PCA",
+        "score": 1,
+        "created_utc": 1790089568.0,
+        "parent_comment_id": null,
+        "replies": []
+      }
+    ]
+  },
+  {
+    "id": "1wbl1n6",
+    "title": "CPT rule change????",
+    "content": "I recently got a fall co-op and I'm supposed to start next week (haven't received CPT yet) but I received the email about CPT changes yesterday and now apparently can't do the co-op. All my employer documents and contracts are signed. What am I supposed to do now?",
+    "score": 6,
+    "created_utc": 1788959127.0,
+    "comments": [
+      {
+        "id": "p8r59iq",
+        "body": "Whats that rule change I didnt get any email or announcements ",
+        "score": 2,
+        "created_utc": 1788964411.0,
         "parent_comment_id": null,
         "replies": [
           {
-            "id": "oqp7g0c",
-            "body": "I’m totally okay securing the loan with house as collateral or whatever personal guarantee. That’s why it’s so mind boggling to me.",
+            "id": "p8siwiw",
+            "body": "You can only get authorized for the co-ops that are strictly required, meaning only 1 for most programs ",
+            "score": 3,
+            "created_utc": 1788977190.0,
+            "parent_comment_id": "p8r59iq",
+            "replies": []
+          }
+        ]
+      },
+      {
+        "id": "p9g5c4w",
+        "body": "I just got rejected a 2nd cpt yesterday",
+        "score": 2,
+        "created_utc": 1789256059.0,
+        "parent_comment_id": null,
+        "replies": [
+          {
+            "id": "p9w6cub",
+            "body": "I'm sorry, is there any action you're taking?",
             "score": 1,
-            "created_utc": 1781033042.0,
-            "parent_comment_id": "oqp6mvw",
+            "created_utc": 1789445022.0,
+            "parent_comment_id": "p9g5c4w",
+            "replies": []
+          }
+        ]
+      },
+      {
+        "id": "p8rfd4s",
+        "body": "You can still do coop just no more than 1",
+        "score": 4,
+        "created_utc": 1788967077.0,
+        "parent_comment_id": null,
+        "replies": []
+      }
+    ]
+  },
+  {
+    "id": "1vb8bn9",
+    "title": "Can London Scholars students do co op in the second semester of sophomore year?",
+    "content": "I will be a Northeastern London Scholars student. I’ll spend my first year in London, then move to the Boston campus for my second year on an F-1 visa.\n\nSome Northeastern students can start co op in the spring semester of their second year. Would I also be eligible to do that, or would the F-1 CPT one academic year requirement mean I have to wait until fall of my third year?\n\nHas anyone in London Scholars been able to start co-op during spring of sophomore year?",
+    "score": 1,
+    "created_utc": 1785450313.0,
+    "comments": [
+      {
+        "id": "p0sfwr2",
+        "body": "depends what co-op cycle you are assigned to. ",
+        "score": 1,
+        "created_utc": 1785461896.0,
+        "parent_comment_id": null,
+        "replies": [
+          {
+            "id": "p4xu96z",
+            "body": "How and when will I know?",
+            "score": 1,
+            "created_utc": 1787275193.0,
+            "parent_comment_id": "p0sfwr2",
             "replies": []
           }
         ]
@@ -247,45 +230,60 @@
     ]
   },
   {
-    "id": "1u1jvp0",
-    "title": "Small businesses probably lose more money in follow-up gaps than they realize",
-    "content": "**I’m starting to think a lot of small businesses don’t lose the customer before the first message.**\n\n\n\nThey lose them after it.\n\n\n\nSomeone asks for a quote while the owner is busy doing the actual work. Someone asks one small question and the reply happens hours later. Someone says “maybe next week” and nobody follows up because it didn’t feel urgent at the time. A detail gets buried in texts, emails, DMs, or some note that made sense for about five minutes.\n\n\n\nThen the customer disappears.\n\n\n\nNo angry review. No dramatic failure. Just a warm lead slowly going cold because the process was living in someone’s memory.\n\n\n\nI’m curious how other small business owners handle this without making it overly complicated.\n\n\n\nDo you keep leads and follow-ups in a CRM, a spreadsheet, calendar reminders, text threads, or just some ugly system that works well enough?",
-    "score": 0,
-    "created_utc": 1781043795.0,
+    "id": "1vnplvc",
+    "title": "How will this DHS memo affect co-op at Northeastern?",
+    "content": "This is a UC Berkeley International Office (BIO) notice dated August 13, 2026, informing students that an ICE guidance memo received August 12 narrows CPT authorization to cases where the internship is required for all students to earn the degree. As a result, BIO is temporarily suspending all \"Course Credit CPT\" applications (integral to the program but not a degree requirement) while continuing to process \"Degree-Requirement\" CPT as normal. The office says it is consulting legal counsel and notes possible legal challenges that could allow course-credit CPT processing to resume.",
+    "score": 1,
+    "created_utc": 1786660542.0,
     "comments": [
       {
-        "id": "oqqh96k",
-        "body": "Why does every post on this thread  feel like AI slop? Is there a human being alive who talks like this \n“Then the customer disappears.”  \n\nLike, it’s pulled straight from a terrible LinkedIn Post.  What is happening here?",
-        "score": 3,
-        "created_utc": 1781046423.0,
+        "id": "p4i6too",
+        "body": "International students you will now require a breathing license, approved by DHS. ",
+        "score": 1,
+        "created_utc": 1787090521.0,
         "parent_comment_id": null,
-        "replies": [
-          {
-            "id": "oqsoh1l",
-            "body": "And to think that future AI models will be trained on this AI slop data, effectively nerfing those models.",
-            "score": 1,
-            "created_utc": 1781077529.0,
-            "parent_comment_id": "oqqh96k",
-            "replies": []
-          }
-        ]
+        "replies": []
       },
       {
-        "id": "or4qcls",
-        "body": "This is such a real problem, and I think you've diagnosed it exactly right. It's not the first message that loses them; it's everything that happens after.\n\nWhat I’ve seen actually help is when the follow-up runs on its own. Automated reminders that go out to the right lead at the right time, so you're not relying on memory or a note that made sense for five minutes. The warm lead doesn't go cold because the system reaches out to them before you even realize you forgot.\n\nWhat's your setup right now? Curious whether you're using something structured or one of those ugly-but-functional systems you mentioned. ",
+        "id": "p3jcq49",
+        "body": "ETA: for international students who require CPT authorization to work off campus.\n\nHere’s the memo from ICE to DSOs across the US: https://www.ice.gov/doclib/sevis/pdf/bcm260801.pdf",
+        "score": 4,
+        "created_utc": 1786660570.0,
+        "parent_comment_id": null,
+        "replies": []
+      },
+      {
+        "id": "p3kl4qh",
+        "body": "Northeastern’s current OGS CPT policy already describes CPT as experiential learning that is “necessary and integral, or required” as part of an academic program. It specifically says CPT authorization is required for every co-op/internship/etc.  \n\nAnd Northeastern explicitly says international students can participate in co-op with CPT authorization.  \n\nSo, at least on the face of the current Northeastern policy:\n\nICE’s new memo doesn’t contradict Northeastern’s co-op system.  \nGot it from ChatGPT ",
         "score": 1,
-        "created_utc": 1781220364.0,
+        "created_utc": 1786675061.0,
         "parent_comment_id": null,
         "replies": []
       }
     ]
   },
   {
-    "id": "1u6gxg8",
-    "title": "I published a voice assisted app to help small businesses handle orders",
-    "content": "I am a small business app developer and I have published a voice assisted app to help small businesses handle orders in situations when a voice assistant app to take orders is useful (i.e. staff with disabilities to write orders, limited crew, ordering corner/kitchen is distant from customer, etc). The app is called Orders SAB (Speech Assisted Business) and here a demo 👉 [https://youtube.com/shorts/BuzWs3fyktc?si=EzRjA5bhFuCsWdA0](https://youtube.com/shorts/BuzWs3fyktc?si=EzRjA5bhFuCsWdA0)",
+    "id": "1wwd4sp",
+    "title": "[General Question] Commerce → MSCS: Has anyone with a similar non-CS background received F-1 approval? What questions did the visa officer ask about the academic/career transition and CS preparation? Any 2025–26 Indian student experiences would be greatly appreciated.",
+    "content": "",
     "score": 0,
-    "created_utc": 1781530804.0,
+    "created_utc": 1790998455.0,
+    "comments": []
+  },
+  {
+    "id": "1xf5vnm",
+    "title": "Graduate Admissions",
+    "content": "As per the link - [https://graduate.northeastern.edu/programs/mscs-computer-science/master-of-science-in-computer-science-boston/](https://graduate.northeastern.edu/programs/mscs-computer-science/master-of-science-in-computer-science-boston/)  \nMinimum CGPA requirements for admission state 8.0 on 10.0 scale. Is this a new requirement for spring / fall 2027 admissions? ",
+    "score": 0,
+    "created_utc": 1792943563.0,
+    "comments": []
+  },
+  {
+    "id": "1w6pdno",
+    "title": "Boston federal judge blasts Trump administration’s changes to international student visas",
+    "content": "Found this very interesting synopsis of arguments in federal court and the dismal reception the Trump administration's arguments were received by the federal judge. This should be of interest to all of our international Huskies ",
+    "score": 9,
+    "created_utc": 1788482405.0,
     "comments": []
   }
 ]

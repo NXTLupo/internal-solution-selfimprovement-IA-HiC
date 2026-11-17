@@ -26,7 +26,7 @@ import {
     stripModelChrome, evaluateClaimLedger, applyDeterministicFixes, buildNarrowingInstruction, ledgerSummaryLine,
     type ClaimLedger, type ClaimGateContext, type GateChunk, type LedgerFinding,
 } from './claimLedgerGate';
-import { renderPointerCitationsHtml, formatCitationLabel, lookupPageMeta, lookupPointerUrl, lookupSourceUrl, formatCitationDate, prettifyPagePath } from './citationPointerRegistry';
+import { renderPointerCitationsHtml, shortCiteLabel, formatCitationLabel, lookupPageMeta, lookupPointerUrl, lookupSourceUrl, formatCitationDate, prettifyPagePath } from './citationPointerRegistry';
 import { lookupFrontmatterUrl, type PageFetcher } from './citationVerifier';
 import { callAIWithRetry } from './aiRetryClient';
 import { DEFAULT_MODELS } from './aiRouter';
@@ -201,8 +201,26 @@ const REPAIR_BREAKAGE_RES: RegExp[] = [
     // evidence-narration the writing contract bans ("The text highlights ...")
     /\b[Tt]he (?:text|setup|post|comment|material|content|passage) (?:highlights|relies|reports|indicates|suggests|shows|reflects)\b/,
 ];
+/**
+ * 2026-11-09 (owner, on a live #quiz: "this isnt proper English? It's jibberish! Not even a
+ * sentence!! SLOP!"). The voice repair rewrote a question stem into a gerund fragment:
+ *     Which part of the Student Hub lets one student look up personal profile information?
+ *     -> Reviewing which part of the Student Hub lets one student look up personal profile
+ * A question is a GRAMMATICAL FORM, not a style choice. The voice stage may tighten a stem; it may
+ * not stop it being a question. Two of fifteen stems shipped broken this way.
+ */
+function sentenceTypeHeld(originalText: string, replacement: string): boolean {
+    const o = originalText.trim(), r = replacement.trim();
+    if (!o.endsWith('?')) return true;
+    if (!r.endsWith('?')) return false;
+    // A question that no longer starts with a question word or an auxiliary is a fragment wearing
+    // a question mark ("Reviewing which part ...?"). Keep the interrogative opener.
+    return /^(?:who|whose|whom|what|which|when|where|why|how|is|are|was|were|do|does|did|can|could|should|would|will|may|might|must|has|have|had|in|on|at|under|according|before|after|given|if|your|you|a|an|the)\b/i.test(r);
+}
+
 function repairIsSafe(originalText: string, replacement: string): boolean {
     for (const re of REPAIR_BREAKAGE_RES) if (re.test(replacement)) return false;
+    if (!sentenceTypeHeld(originalText, replacement)) return false;
     // Unbalanced quotation marks (straight or curly) ship an unclosed quote.
     if ((replacement.match(/"/g) || []).length % 2 !== 0) return false;
     if ((replacement.match(/“/g) || []).length !== (replacement.match(/”/g) || []).length) return false;
@@ -216,6 +234,36 @@ function repairIsSafe(originalText: string, replacement: string): boolean {
     return true;
 }
 /** Conservative article agreement for the exact class the repair model emits ("a accessible log"). */
+/**
+ * Mark a reported quote that the model left bare.
+ *
+ * 2026-11-09 (owner: a #blogpost read as "complete AI slop writing"). The model marks MOST quotes
+ * with `<q>`, and the artifact CSS renders those correctly. The failures are the ones it leaves
+ * bare after a reporting colon, which then splice into the author's own voice and garble the
+ * sentence. From the flagged artifact, verbatim:
+ *     A commenter described recruiters this way: Max they spend 15 seconds checking that you
+ *     have no glaring red flags, your college and other basic signals.
+ * The capital "Max" mid-sentence is somebody else's words presented as ours, and any figure
+ * inside it reads as our own assertion, which is exactly what the Quantitative Claim Rule forbids.
+ *
+ * The repair is deliberately narrow: only a colon introduced by an explicit REPORTING phrase, only
+ * when the tail is not already quoted or tagged, and only up to the end of that sentence group.
+ * Everything else is left alone, because a colon usually introduces a list, not a quotation.
+ */
+export function markReportedQuotes(html: string): { html: string; marked: number } {
+    if (!html) return { html, marked: 0 };
+    let marked = 0;
+    // "<reporting phrase>: <tail>" where the tail runs to the end of the text node.
+    const REPORTED = /\b((?:described?|describes|put it|puts it|said|says|wrote|writes|reported|reports|worded it|in [A-Z][\w'’]*\s+words|this way|the observation that|advice on [a-z ]+ is[\w ]*)\s*:\s*)(?![“"'<])([A-Z][^<]{18,400}?[.!?])(?=\s*(?:<|$))/g;
+    const out = html.replace(REPORTED, (_m, lead: string, quote: string) => {
+        // Never double-wrap, and never swallow a citation chip into the quote.
+        if (/<\/?q[ >]/.test(quote) || /hic-cite/.test(quote)) return _m;
+        marked += 1;
+        return `${lead}<q>${quote}</q>`;
+    });
+    return { html: out, marked };
+}
+
 function fixArticles(text: string): string {
     return text.replace(/\b([Aa]) (accessible|established|explicit|important|open|existing|additional|internal|external|official|individual|automated|approved|updated|integrated|independent|essential|entire|early|easy|active|annual|audit|auditable)\b/g,
         (_m, a: string, w: string) => `${a === 'A' ? 'An' : 'an'} ${w}`);
@@ -232,6 +280,15 @@ function applySentenceRepairs(html: string, ledger: ClaimLedger, repaired: Recor
         // suffix, then re-attach exactly the pointers the block already carried.
         const cleaned = fixArticles(stripCitationArtifacts(scrubRewrite(raw)).trim());
         if (cleaned.length < 8 || cleaned === row.text) continue;
+        // 2026-11-09, same live #quiz: the replacement is `escapeHtml(cleaned)`, so every inline tag
+        // inside the row is DESTROYED. The model returns plain prose, so a rewritten option lost its
+        // `<b>B</b>` letter: six of fifteen questions came back with missing labels and one lost all
+        // four. A row carrying inline markup is not a plain prose span and is left alone. Pointer
+        // brackets are exempt: the loop re-attaches those itself, just below.
+        if (/<(?:b|strong|em|i|q|a|code|abbr|mark|span|sup|sub)\b/i.test(row.rawInner)) {
+            console.warn(`[html-chain] repair skipped for ${row.id}: the span carries inline markup the rewrite would drop`);
+            continue;
+        }
         if (!repairIsSafe(row.text, cleaned)) { console.warn(`[html-chain] repair rejected for ${row.id}: rewrite reads broken or damages a quote`); continue; }
         const pointerSuffix = row.pointers.length ? ` [${row.pointers.join(', ')}]` : '';
         const replacement = `${escapeHtml(cleaned)}${pointerSuffix}`;
@@ -247,7 +304,9 @@ function applySentenceRepairs(html: string, ledger: ClaimLedger, repaired: Recor
 // Citations and the source index
 // ---------------------------------------------------------------------------
 
-const CITE_STYLE = '<style id="hic-cite-style">.hic-cites{font-family:var(--nxt-mono,var(--font-mono,ui-monospace,monospace));font-size:0.82em;color:var(--nxt-text-secondary,inherit);}.hic-cite{text-decoration:none;border-bottom:1px solid currentColor;}.hic-cite:hover{color:var(--nxt-teal,inherit);}.hic-sources ol{padding-left:1.4em;}.hic-sources li{margin:0 0 .45em 0;font-size:0.92em;line-height:1.45;}.hic-sources .hic-src-kind{font-family:var(--nxt-mono,ui-monospace,monospace);font-size:0.8em;color:var(--nxt-text-secondary,inherit);margin-left:.5em;}</style>';
+// 2026-11-09: the inline citation is a SUPERSCRIPT chip, not a parenthetical that breaks the
+// sentence. Full label rides the title attribute; the appendix carries every source in full.
+const CITE_STYLE = '<style id="hic-cite-style">.hic-cites{font-family:var(--nxt-mono,var(--font-mono,ui-monospace,monospace));font-size:0.62em;line-height:0;vertical-align:super;white-space:nowrap;color:var(--nxt-teal,#115054);}.hic-cites+.hic-cites{margin-left:.15em;}.hic-cite{text-decoration:none;border-bottom:none;padding:0 .12em;}.hic-cite:hover{color:var(--nxt-teal,inherit);}.hic-sources ol{padding-left:1.4em;}.hic-sources li{margin:0 0 .45em 0;font-size:0.92em;line-height:1.45;}.hic-sources .hic-src-kind{font-family:var(--nxt-mono,ui-monospace,monospace);font-size:0.8em;color:var(--nxt-text-secondary,inherit);margin-left:.5em;}</style>';
 
 // ---- reader-facing source labels (2026-10-01, B8) ----------------------------------------------------
 //
@@ -316,10 +375,27 @@ function citationLabelFor(pointer: string, declared?: DeclaredSourceLabels): str
 
 const CITE_GROUP_RE = /\[\s*((?:[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)(?:\s*[,;]\s*[\w.\\-]+\/[\w./\\-]+\.md(?:#c\d+)?)*)(?:\s*[,;]\s*[^\]\n]{1,80})?\s*\]/gi;
 
-/** Pointer groups as linked, dated citations with reader-facing labels; then the registry strips any stray pointer. */
+/**
+ * Pointer groups as linked citations; then the registry strips any stray pointer.
+ *
+ * 2026-11-09: this renderer had drifted from `renderPointerCitationsHtml`, which already prints a
+ * short superscript chip. Here a chip still printed the WHOLE label wrapped in its own parentheses,
+ * so a label that carries its own parenthetical came out doubled - a live brief shipped
+ * "(Anthropic documentation (live documentation, retrieved Nov 2026))" next to a pull quote. One
+ * shape for both renderers: a superscript chip carrying the source NAME, the full label in the
+ * hover title, the date and connector in the appendix. Repeats inside one block are dropped, since
+ * the appendix lists every source once and a chip repeated mid-paragraph is noise, not provenance.
+ */
 function renderCitations(html: string, declared: DeclaredSourceLabels): string {
     const escA = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    const out = String(html || '').replace(CITE_GROUP_RE, (_m, group: string) => {
+    const src = String(html || '');
+    let blockSeen = new Set<string>();
+    let lastIndex = -1;
+    const out = src.replace(CITE_GROUP_RE, (_m, group: string, offset: number) => {
+        if (lastIndex >= 0 && /<\/(?:p|li|h[1-6]|blockquote|section|div|figcaption)>/i.test(src.slice(lastIndex, offset))) {
+            blockSeen = new Set<string>();
+        }
+        lastIndex = offset;
         const seen = new Set<string>();
         const parts: string[] = [];
         for (const raw of group.split(/[,;]/)) {
@@ -328,12 +404,15 @@ function renderCitations(html: string, declared: DeclaredSourceLabels): string {
             const label = citationLabelFor(ptr, declared);
             if (!label || seen.has(label)) continue;
             seen.add(label);
+            const short = shortCiteLabel(label);
+            if (blockSeen.has(short)) continue;
+            blockSeen.add(short);
             const url = lookupPointerUrl(ptr) || lookupPageMeta(ptr)?.url || '';
             parts.push(url
-                ? `<a class="hic-cite" href="${escA(url)}" target="_blank" rel="noopener noreferrer" data-pointer="${escA(ptr)}">${escA(label)}</a>`
-                : `<span class="hic-cite" data-pointer="${escA(ptr)}">${escA(label)}</span>`);
+                ? `<a class="hic-cite" href="${escA(url)}" target="_blank" rel="noopener noreferrer" title="${escA(label)}" data-pointer="${escA(ptr)}">${escA(short)}</a>`
+                : `<span class="hic-cite" title="${escA(label)}" data-pointer="${escA(ptr)}">${escA(short)}</span>`);
         }
-        return parts.length ? ` <span class="hic-cites">(${parts.join('; ')})</span>` : '';
+        return parts.length ? `<sup class="hic-cites">${parts.join(' ')}</sup>` : '';
     });
     return renderPointerCitationsHtml(out);
 }
@@ -546,6 +625,13 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
         }
     }
 
+    // 4.9 Quotation marking, BEFORE citations so a citation chip is never swallowed into a quote.
+    // 2026-11-09 (owner: a #blogpost read as slop): the model leaves some reported quotes bare
+    // after a colon, and a bare quote reads as the author's own assertion.
+    const _quoteFix = markReportedQuotes(html);
+    html = _quoteFix.html;
+    if (_quoteFix.marked > 0) progress(`marking ${_quoteFix.marked} reported quote(s)`);
+
     // 5. Citations and the source index.
     const pointers = collectPointers(html);
     html = renderCitations(html, declared);
@@ -574,3 +660,6 @@ export async function runHtmlArtifactChain(inputHtml: string, opts: HtmlChainOpt
         proseBlocksRepaired,
     };
 }
+
+/** Internals the chain tests drive directly. Not part of the chain's public surface. */
+export const __testables = { repairIsSafe, sentenceTypeHeld, applySentenceRepairs };

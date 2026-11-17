@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { DatabaseComment } from '../../../types/reddit';
+import { Highlight } from './keywordMatch';
 
 interface CommentThreadProps {
   comment: DatabaseComment;
   depth?: number;
+  highlight?: string;
 }
 
-function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
+function CommentThread({ comment, depth = 0, highlight }: CommentThreadProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -98,7 +100,7 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
         {!isCollapsed && comment.body && (
           <div className="mb-3">
             <div className="text-[#525252] text-sm leading-relaxed">
-              {isExpanded ? comment.body : truncateContent(comment.body)}
+              <Highlight text={isExpanded ? comment.body : truncateContent(comment.body)} term={highlight} />
             </div>
             {comment.body.length > 200 && (
               <button
@@ -125,8 +127,9 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
           {comment.replies.map((reply) => (
             <CommentThread 
               key={reply.id} 
-              comment={reply} 
-              depth={depth + 1} 
+              comment={reply}
+              depth={depth + 1}
+              highlight={highlight}
             />
           ))}
         </div>

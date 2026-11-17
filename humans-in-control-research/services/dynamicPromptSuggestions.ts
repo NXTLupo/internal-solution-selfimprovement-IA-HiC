@@ -29,7 +29,8 @@ export type SuggestionKind =
     | 'comparison'          // Compare two entities (institutions / vendors / programs)
     | 'synthesis'           // Cross-cutting "so what" question
     | 'slide-request'       // Generate a specific slide from current data
-    | 'evidence-probe';     // Test whether evidence exists for a hypothesis
+    | 'evidence-probe'      // Test whether evidence exists for a hypothesis
+    | 'report-format';      // Propose a report FORMAT the corpus shape actually supports
 
 export interface PromptSuggestion {
     text: string;
@@ -87,6 +88,98 @@ function describeUploadedFile(f: { name: string; parsedText?: string }): string 
     // Fall back to filename (trimmed + stripped of extension)
     const base = f.name.replace(/\.[^.]+$/, '');
     return base.length > 60 ? base.slice(0, 58) + '...' : base;
+}
+
+// --- CORPUS-SUGGESTED REPORT FORMATS (2026-11-09, closeout plan WS-B2b) ---
+//
+// The live Gemini Notebook run proposed report templates from the sources it held
+// (it offered "Architecture Specification" because the corpus carried an NVIDIA
+// platform-architecture blog). HiC had the formats but no suggestion surface.
+//
+// DETERMINISTIC ON PURPOSE: this reads the corpus SHAPE (source titles, names and
+// upload labels already in SuggestionState) and maps it to formats HiC can actually
+// produce. No model call, no token cost, no nondeterminism: the same corpus always
+// proposes the same formats, which the determinism rule for cached runs requires.
+
+interface FormatRule {
+    /** The hashtag the chip types into the composer. */
+    tag: string;
+    /** Why this corpus shape supports this format (chip tooltip). */
+    rationale: string;
+    /** Signals in the corpus text that make this format a fit. */
+    match: RegExp;
+}
+
+// Ordered by specificity: the narrower shapes win the two slots before the generics.
+const FORMAT_RULES: FormatRule[] = [
+    { tag: '#chronology', rationale: 'The sources are dated news, so a source chronology can order what happened', match: /\b(ars technica|techcrunch|reuters|bloomberg|venturebeat|the verge|wired|press release|earnings|quarterly)\b/i },
+    { tag: '#explainer', rationale: 'The sources include technical platform writing, so an explainer can carry the mechanism', match: /\b(developer|technical blog|docs|documentation|architecture|kubernetes|api|sdk|engineering)\b/i },
+    { tag: '#faq', rationale: 'The sources are discussion threads, so an FAQ can answer the questions people actually asked', match: /\b(reddit|r\/[a-z]+|forum|thread|comments|stack overflow|discord)\b/i },
+    { tag: '#critique', rationale: 'The sources include research papers, so a critique can weigh what they establish', match: /\b(arxiv|journal|study|research|openalex|pubmed|doi|peer.?review)\b/i },
+    { tag: '#studyguide', rationale: 'The corpus includes transcripts, so a study guide can turn them into teachable modules', match: /\b(transcript|interview|call recording|webinar|podcast|youtube)\b/i },
+    { tag: '#datatable', rationale: 'The sources name comparable entities, so a data table can line them up with their quotes', match: /\b(vendor|competitor|comparison|versus|pricing|benchmark|matrix)\b/i },
+];
+
+/**
+ * Reserve the last slot of a chip set for ONE corpus-matched report format, once the
+ * corpus exists (post-collection). Keeps the question chips the researcher came for and
+ * still names a format the sources support, which is the parity item from the live run.
+ */
+export function withReportFormats(
+    base: PromptSuggestion[],
+    phase: CollectionPhase,
+    state: SuggestionState,
+    maxSuggestions: number,
+): PromptSuggestion[] {
+    if (phase !== 'post-collection' || maxSuggestions < 2) return base.slice(0, maxSuggestions);
+    const formats = suggestReportFormats(state, 1);
+    if (formats.length === 0) return base.slice(0, maxSuggestions);
+    // Never duplicate a format the model already proposed.
+    const already = new Set(base.map(s => (s.text.match(/#[a-z-]+/i)?.[0] || '').toLowerCase()));
+    const fresh = formats.filter(f => !already.has((f.text.match(/#[a-z-]+/i)?.[0] || '').toLowerCase()));
+    if (fresh.length === 0) return base.slice(0, maxSuggestions);
+    return [...base.slice(0, maxSuggestions - 1), fresh[0]];
+}
+
+/** Formats proposed when nothing more specific matches: the two the family always supports. */
+const DEFAULT_FORMAT_RULES: FormatRule[] = [
+    { tag: '#brief', rationale: 'A stakeholder brief is the shortest route from this corpus to a decision', match: /.^/ },
+    { tag: '#blogpost', rationale: 'A blog post puts the judgment in a readable register without loosening the citations', match: /.^/ },
+];
+
+/** One searchable string of everything the corpus is made of: upload labels, feed names, item titles. */
+function corpusShapeText(state: SuggestionState): string {
+    const parts: string[] = [];
+    for (const f of state.uploadedFiles || []) parts.push(describeUploadedFile(f), f.name);
+    for (const r of state.liveSourceResults || []) {
+        if (r?.source) parts.push(r.source);
+        for (const it of r?.items || []) {
+            if (it?.sourceName) parts.push(it.sourceName);
+            if (it?.title) parts.push(it.title);
+        }
+    }
+    return parts.join(' \n ');
+}
+
+/**
+ * Propose report formats this corpus can actually support. Returns at most `max`
+ * (default 2) suggestions, most specific first, with the generic pair as backfill.
+ * Pure: same corpus in, same formats out.
+ */
+export function suggestReportFormats(state: SuggestionState, max = 2): PromptSuggestion[] {
+    const text = corpusShapeText(state);
+    if (!text.trim()) return [];
+    const objective = extractResearchObjective(state.researchGoal) || 'this corpus';
+    const topic = objective.length > 70 ? objective.slice(0, 68).trim() : objective;
+
+    const matched = FORMAT_RULES.filter(r => r.match.test(text));
+    const chosen = [...matched, ...DEFAULT_FORMAT_RULES].slice(0, Math.max(0, max));
+
+    return chosen.map(r => ({
+        text: `${r.tag} ${topic}`,
+        kind: 'report-format' as const,
+        rationale: r.rationale,
+    }));
 }
 
 // --- PHASE DETECTION ---
@@ -170,7 +263,7 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
         const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || data?.text || '';
         const parsed = parseSuggestionsFromResponse(text);
         if (parsed.length === 0) return fallbackSuggestions(phase, state, maxSuggestions);
-        return parsed.slice(0, maxSuggestions);
+        return withReportFormats(parsed, phase, state, maxSuggestions);
     } catch (err: any) {
         // Abort errors are EXPECTED - they fire when the component's state
         // fingerprint changes and a new effect run cancels the in-flight
@@ -448,5 +541,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
         out.push({ text: 'What is the single most defensible strategic recommendation?', kind: 'synthesis' });
         out.push({ text: 'Which theme has the thinnest evidence base?', kind: 'evidence-probe' });
     }
-    return out.slice(0, n);
+    // The degraded path keeps the format suggestion too, so a provider failure never
+    // silently removes the capability (closeout plan WS-B2b).
+    return withReportFormats(out, phase, state, n);
 }

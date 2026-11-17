@@ -2,177 +2,137 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IA Next</title>
-<style>
-  :root { --rail:#0D0D0D; --accent:#B8B800; --cool:#00B7C3; --teal:#115054; --warn:#CC6644; --ink:#1A1A1A; --muted:#6B6B6B; --line:#E4E4DC; --bg:#FAFAF7; --panel:#FFFFFF; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family: Archivo, "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--bg); }
-  header { background:var(--rail); color:#fff; padding:12px 16px; display:flex; align-items:center; gap:12px; }
-  header b { font-family:"Saira Condensed", "Arial Narrow", sans-serif; letter-spacing:1px; font-size:18px; }
-  header span { color:var(--accent); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
-  main { display:grid; grid-template-columns: minmax(0,1fr) 340px; gap:16px; padding:16px; max-width:1400px; margin:0 auto; }
-  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
-  section { background:var(--panel); border:1px solid var(--line); border-radius:2px; }
-  h2 { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin:0; padding:10px 12px; border-bottom:1px solid var(--line); }
-  #chat { display:flex; flex-direction:column; min-height:70vh; }
-  #log { flex:1; overflow:auto; padding:12px; display:flex; flex-direction:column; gap:10px; }
-  .msg { max-width:85%; padding:10px 12px; border-radius:2px; white-space:pre-wrap; line-height:1.45; font-size:14px; }
-  .user { align-self:flex-end; background:#EEF6F6; }
-  .agent { align-self:flex-start; background:#fff; border:1px solid var(--line); border-left:3px solid var(--accent); }
-  .tool { align-self:flex-start; font-family:"IBM Plex Mono", Consolas, monospace; font-size:11px; color:var(--muted); }
-  form { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
-  textarea { flex:1; min-height:56px; font:inherit; padding:8px; border:1px solid var(--line); border-radius:2px; }
-  button { font:inherit; font-size:12px; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--teal); background:var(--teal); color:#fff; padding:8px 14px; border-radius:2px; cursor:pointer; }
-  button.ghost { background:#fff; color:var(--teal); }
-  button.deny { border-color:var(--warn); background:#fff; color:var(--warn); }
-  aside { display:flex; flex-direction:column; gap:16px; }
-  .list { padding:8px 12px; font-size:13px; display:flex; flex-direction:column; gap:8px; max-height:40vh; overflow:auto; }
-  .task { border:1px solid var(--line); padding:8px; border-radius:2px; }
-  .status { font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:1px 6px; border-radius:2px; }
-  .done { background:#E8F6F7; color:var(--teal); } .failed { background:#FBEDE8; color:var(--warn); } .running, .queued { background:#F6F6E0; color:#6B6B00; }
-  .steps { margin:6px 0 0; padding-left:16px; color:var(--muted); font-size:12px; }
-  pre { white-space:pre-wrap; font-size:12px; margin:0; }
-  #reporttext { max-width:860px; margin:12px auto; font-size:15px; line-height:1.55; }
-  #reporttext h2 { font-size:22px; text-transform:none; letter-spacing:0; color:var(--ink); border:0; padding:0; margin:18px 0 8px; }
-  #reporttext h3 { font-size:17px; margin:18px 0 6px; color:var(--teal); }
-  #reporttext table { border-collapse:collapse; width:100%; font-size:13px; margin:8px 0; }
-  #reporttext th, #reporttext td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
-  #reporttext th { background:#F3F3EE; }
-  #reporttext .cite { color:var(--cool); font-size:10px; }
-  #reporttext a { color:var(--teal); word-break:break-all; }
-  #report { display:none; position:fixed; inset:5vh 5vw; background:#fff; border:1px solid var(--line); padding:16px; overflow:auto; z-index:10; box-shadow:0 0 0 100vmax rgba(0,0,0,.35); }
-</style>
+<meta name="description" content="Your research partner, with a studio of specialists behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@500;600&display=swap">
+<link rel="stylesheet" href="/static/app.css?v=1">
 </head>
 <body>
-<header><b>IA NEXT</b><span>One agent, a studio behind it</span><span id="health" style="margin-left:auto;color:#999"></span></header>
-<main>
-  <section id="chat">
-    <h2>Conversation</h2>
-    <div id="log" aria-live="polite"></div>
-    <form id="f"><textarea id="t" placeholder="Ask a question, or ask for a researched report." aria-label="Message"></textarea><button id="send">Send</button></form>
-  </section>
-  <aside>
-    <section><h2>Since you last looked</h2><div id="digest" class="list"><span style="color:#999">Nothing new.</span></div></section>
-    <section><h2>Approvals</h2><div id="approvals" class="list"><span style="color:#999">None waiting.</span></div></section>
-    <section><h2>Tasks</h2><div id="tasks" class="list"></div></section>
-    <section><h2>Schedules</h2><div id="schedules" class="list"><span style="color:#999">None.</span></div></section>
-    <section><h2>Memory</h2><div class="list"><pre id="memory"></pre>
-      <div style="display:flex;gap:6px"><input id="fm" placeholder="Text to forget" style="flex:1;font:inherit;padding:4px" aria-label="Text to forget"><button class="ghost" id="forget">Forget</button></div></div></section>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-report" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15h6M9.5 18h4"/></symbol>
+    <symbol id="i-journey" viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="12" cy="7" r="2"/><circle cx="19" cy="15" r="2"/><path d="M6.4 15.4 10.6 8.6M13.6 8.3l3.9 5.3"/></symbol>
+    <symbol id="i-deck" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1"/><path d="M12 16.5V20M8.5 20h7"/><path d="M7 8.5h6M7 11.5h10"/></symbol>
+    <symbol id="i-social" viewBox="0 0 24 24"><path d="M3.5 5h11v8H9l-3 3v-3H3.5z"/><path d="M14.5 9h6v8h-2v3l-3-3h-4v-2"/></symbol>
+    <symbol id="i-transcript" viewBox="0 0 24 24"><path d="M4 12h1M7.5 9v6M11 5.5v13M14.5 8.5v7M18 6.5v11M21 10.5v3"/></symbol>
+    <symbol id="i-prototype" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="1"/><path d="M3 8h18"/><path d="m11 11 6.5 2.6-2.8 1-1 2.8z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-schedule" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-memory" viewBox="0 0 24 24"><path d="M7 3.5h10v17l-5-3.8-5 3.8z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24"><path d="M19.5 11.5 12.2 18.8a4.8 4.8 0 0 1-6.8-6.8l7.7-7.7a3.2 3.2 0 0 1 4.5 4.5l-7.7 7.7a1.6 1.6 0 0 1-2.3-2.3l7-7"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M7 13V4H4v9zM7 13l4 7c1.5 0 2.5-1 2.2-2.6L12.6 14H19a2 2 0 0 0 2-2.3l-1.2-6A2 2 0 0 0 17.8 4H7"/></symbol>
+    <symbol id="i-retry" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 13.2-4.9L19.5 9M19.5 4.5V9H15M19.5 12a7.5 7.5 0 0 1-13.2 4.9L4.5 15M4.5 19.5V15H9"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 6.5h6l2 2h9v10h-17z"/></symbol>
+    <symbol id="i-spend" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M14.6 9.6c-.5-1-1.5-1.6-2.6-1.6-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1.1 0-2.1-.6-2.6-1.6M12 6.5V8M12 16v1.5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></symbol>
+    <symbol id="i-approve" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.5 5.5v13l10.5-6.5z"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <nav class="rail" id="rail" aria-label="Workspace">
+    <div class="rail__brand">
+      <span class="rail__mark" id="railMark" aria-hidden="true"></span>
+      <span class="rail__name">IA Next</span>
+      <button class="iconbtn rail__close" id="railClose" type="button" aria-label="Close menu"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+    <button class="btn btn--accent rail__new" id="newConv" type="button"><svg class="ic"><use href="#i-plus"/></svg>New conversation</button>
+
+    <div class="rail__section">
+      <h2 class="rail__head" id="engHead">Engagements</h2>
+      <p class="rail__hint">Pick one to focus the conversation and your uploads on it.</p>
+      <ul class="englist" id="engList" aria-labelledby="engHead"></ul>
+    </div>
+
+    <div class="rail__foot">
+      <button class="railnav" type="button" data-panel="work"><svg class="ic"><use href="#i-grid"/></svg>All work</button>
+      <button class="railnav" type="button" data-panel="memory"><svg class="ic"><use href="#i-memory"/></svg>Memory</button>
+      <button class="railnav" type="button" data-panel="schedules"><svg class="ic"><use href="#i-schedule"/></svg>Schedules</button>
+      <button class="railnav" type="button" data-panel="spend"><svg class="ic"><use href="#i-spend"/></svg>Spend<span class="railnav__value" id="railSpend"></span></button>
+    </div>
+  </nav>
+  <div class="scrim" id="railScrim" hidden></div>
+
+  <main class="main" id="main">
+    <header class="topbar">
+      <button class="iconbtn topbar__menu" id="menuBtn" type="button" aria-label="Open menu" aria-controls="rail" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <span class="topbar__brand">IA Next</span>
+      <div class="focus" id="focusBox"></div>
+      <div class="topbar__right">
+        <button class="apprchip" id="pendingBar" type="button" hidden></button>
+        <div class="status" id="statusBox" aria-live="polite">
+          <span class="status__mark" id="headMark" aria-hidden="true"></span>
+          <span class="status__word" id="statusWord">Ready</span>
+        </div>
+        <button class="spendchip" id="spendChip" type="button" data-panel="spend" title="Spend today and this week"><span class="spendchip__label">Today</span><span class="mono" id="spendToday">0.00 USD</span></button>
+      </div>
+    </header>
+
+    <div class="scroll" id="scroll">
+      <section class="home" id="home" aria-label="Start here"></section>
+      <section class="thread" id="thread" aria-label="Conversation" aria-live="polite" hidden></section>
+    </div>
+
+    <div class="dock" id="dock">
+      <div class="dock__inner">
+        <div class="attachments" id="attachments" hidden></div>
+        <div class="dock__suggest" id="dockSuggest" hidden></div>
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="input">Message</label>
+          <textarea id="input" rows="1" placeholder="Ask a question, or describe the work you need"></textarea>
+          <div class="composer__bar">
+            <div class="composer__tools">
+              <button class="iconbtn" id="attachBtn" type="button" aria-label="Attach files" title="Attach transcripts, documents or audio"><svg class="ic"><use href="#i-clip"/></svg></button>
+              <button class="iconbtn" id="micBtn" type="button" aria-label="Dictate" aria-pressed="false" title="Dictate" hidden><svg class="ic"><use href="#i-mic"/></svg></button>
+              <span class="composer__hint" id="composerHint">Enter to send, Shift and Enter for a new line</span>
+            </div>
+            <button class="sendbtn" id="sendBtn" type="submit" aria-label="Send" disabled><svg class="ic"><use href="#i-send"/></svg></button>
+          </div>
+          <input type="file" id="fileInput" multiple hidden accept=".txt,.md,.vtt,.srt,.csv,.mp3,.m4a,.wav,.webm,.mp4,.ogg,text/plain,text/markdown,text/csv,audio/*">
+        </form>
+      </div>
+    </div>
+
+    <div class="dropzone" id="dropzone" hidden>
+      <div class="dropzone__card">
+        <svg class="ic dropzone__ic"><use href="#i-upload"/></svg>
+        <p class="dropzone__title" id="dropTitle">Drop files to add them</p>
+        <p class="dropzone__sub">Transcripts, notes and documents (.txt .md .vtt .srt .csv) or audio (.mp3 .m4a .wav .webm .mp4 .ogg) up to 25 MB.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__scrim" data-close></div>
+  <aside class="sheet__panel" id="sheetPanel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <header class="sheet__head">
+      <h2 class="sheet__title" id="sheetTitle"></h2>
+      <div class="sheet__actions" id="sheetActions"></div>
+      <button class="iconbtn" type="button" data-close aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet__body" id="sheetBody"></div>
   </aside>
-</main>
-<div id="report"><button class="ghost" onclick="report.style.display='none'">Close</button><article id="reporttext"></article></div>
-<script>
-// A small Markdown renderer for reports. Everything is HTML-escaped first, so text that came from web
-// sources can never inject markup; only headings, lists, tables, bold, links and paragraphs are rendered.
-function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function inline(s) {
-  return esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
-    .replace(/(https?:\/\/[^\s<)|]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
-    .replace(/\[(S\d+)\]/g, '<sup class="cite">[$1]</sup>');
-}
-function renderMarkdown(md) {
-  const out = []; const lines = md.split('\n'); let i = 0;
-  while (i < lines.length) {
-    const l = lines[i];
-    if (/^#{1,6}\s/.test(l)) { const n = l.match(/^#+/)[0].length; out.push(`<h${Math.min(n + 1, 6)}>${inline(l.replace(/^#+\s*/, ''))}</h${Math.min(n + 1, 6)}>`); i++; continue; }
-    if (/^\|/.test(l)) {
-      const rows = []; while (i < lines.length && /^\|/.test(lines[i])) { rows.push(lines[i]); i++; }
-      const cells = (r) => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
-      const body = rows.filter(r => !/^\|\s*-/.test(r));
-      out.push('<table>' + body.map((r, k) => '<tr>' + cells(r).map(c => k === 0 ? `<th>${inline(c)}</th>` : `<td>${inline(c)}</td>`).join('') + '</tr>').join('') + '</table>');
-      continue;
-    }
-    if (/^\s*([-*]|\d+\.)\s/.test(l)) {
-      const ordered = /^\s*\d+\./.test(l); const items = [];
-      while (i < lines.length && /^\s*([-*]|\d+\.)\s/.test(lines[i])) { items.push(`<li>${inline(lines[i].replace(/^\s*([-*]|\d+\.)\s/, ''))}</li>`); i++; }
-      out.push(ordered ? `<ol>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`); continue;
-    }
-    if (l.trim()) { const para = []; while (i < lines.length && lines[i].trim() && !/^(#|\||\s*([-*]|\d+\.)\s)/.test(lines[i])) { para.push(lines[i]); i++; } out.push(`<p>${inline(para.join(' '))}</p>`); continue; }
-    i++;
-  }
-  return out.join('\n');
-}
-let conv = null;
-const $ = (id) => document.getElementById(id);
-const api = async (p, o) => { const r = await fetch(p, o); if (!r.ok) throw new Error((await r.text()).slice(0, 300)); return r.headers.get('content-type')?.includes('json') ? r.json() : r.text(); };
-function add(cls, text) { const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text; $('log').appendChild(d); d.scrollIntoView({block:'end'}); return d; }
-async function ensureConv() { if (!conv) conv = (await api('/api/conversations', {method:'POST'})).id; return conv; }
-$('f').onsubmit = async (e) => {
-  e.preventDefault(); const text = $('t').value.trim(); if (!text) return;
-  $('t').value = ''; add('user', text); $('send').disabled = true; const wait = add('tool', 'working...');
-  try {
-    const r = await api(`/api/conversations/${await ensureConv()}/messages`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})});
-    wait.remove();
-    for (const t of r.trace) add('tool', `${t.tool} -> ${JSON.stringify(t.output).slice(0, 220)}`);
-    add('agent', r.reply);
-  } catch (err) { wait.textContent = 'Error: ' + err.message; }
-  $('send').disabled = false; refresh();
-};
-async function refresh() {
-  try {
-    const [h, ts, ap, mem] = await Promise.all([api('/health'), api('/api/tasks'), api('/api/approvals'), api('/api/memory')]);
-    const sp = await api('/api/spend');
-    $('health').textContent = `${h.status} · spent today ${sp.today_usd.toFixed(2)} USD · v${h.version}`;
-    const dg = await api('/api/digest');
-    const items = [];
-    for (const s of dg.finished) items.push(`Finished: ${s}`);
-    for (const f of dg.failed) items.push(`Failed: ${f}`);
-    if (dg.pending_approvals) items.push(`${dg.pending_approvals} approval(s) waiting for you`);
-    for (const p of dg.paused_schedules) items.push(`Schedule paused (${p.tool}): ${p.error || ''}`);
-    if (dg.new_memory_candidates) items.push(`${dg.new_memory_candidates} new memory candidate(s), promoted only through the gate`);
-    $('digest').innerHTML = '';
-    if (!items.length) $('digest').innerHTML = '<span style="color:#999">Nothing new.</span>';
-    for (const it of items) { const div = document.createElement('div'); div.textContent = it; $('digest').appendChild(div); }
-    if (items.length) { const b = document.createElement('button'); b.className = 'ghost'; b.textContent = 'Mark as read';
-      b.onclick = async () => { await api('/api/digest/seen', {method:'POST'}); refresh(); }; $('digest').appendChild(b); }
-    $('tasks').innerHTML = ts.tasks.length ? '' : '<span style="color:#999">No tasks yet.</span>';
-    for (const t of ts.tasks.slice(0, 12)) {
-      const d = document.createElement('div'); d.className = 'task';
-      d.innerHTML = `<span class="status ${t.status}">${t.status}</span> <small>${t.id}</small><div>${(t.summary || t.error || '').replace(/</g,'&lt;')}</div><small>spent ${Number(t.spent_usd||0).toFixed(2)} USD</small>`;
-      const label = {journey_map: 'Open journey map', deck: 'Open deck preview', social: 'Open social analysis', prototype: 'Open prototype'}[t.kind];
-      if (t.status === 'done' && label) {
-        const a = document.createElement('a'); a.href = `/api/tasks/${t.id}/view`; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; d.appendChild(a);
-        if (t.kind === 'deck') { const p = document.createElement('a'); p.href = `/api/tasks/${t.id}/download`; p.textContent = ' · Download PowerPoint'; d.appendChild(p); }
-      }
-      else if (t.status === 'done' && t.kind === 'research_report') { const b = document.createElement('button'); b.className='ghost'; b.textContent='Open report'; b.onclick = async () => { $('reporttext').innerHTML = renderMarkdown(await api(`/api/tasks/${t.id}/report`)); $('report').style.display='block'; }; d.appendChild(b); }
-      if (t.status === 'done') {
-        // Plan 6.5: a person's thumbs calibrate the judges; they change no prompt.
-        const fb = document.createElement('span'); fb.style.marginLeft = '8px';
-        for (const [glyph, lab, tip] of [['\u{1F44D}', 'approved', 'This was right'], ['\u{1F44E}', 'rejected', 'This was wrong']]) {
-          const b = document.createElement('button'); b.className = 'ghost'; b.textContent = glyph; b.title = tip; b.setAttribute('aria-label', tip);
-          b.style.padding = '2px 6px';
-          b.onclick = async () => { const reason = prompt(lab === 'rejected' ? 'What was wrong? (optional)' : 'What worked? (optional)') || '';
-            await api(`/api/tasks/${t.id}/label`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({label: lab, reason})});
-            fb.textContent = ' Thanks, recorded.'; };
-          fb.appendChild(b);
-        }
-        d.appendChild(fb);
-      }
-      const full = await api(`/api/tasks/${t.id}`); const ul = document.createElement('ul'); ul.className='steps';
-      for (const n of full.nodes) { const li = document.createElement('li'); li.textContent = `${n.specialist}: ${n.state}${n.summary ? ' · ' + n.summary : ''}${n.error ? ' · ' + n.error : ''}`; ul.appendChild(li); }
-      d.appendChild(ul); $('tasks').appendChild(d);
-    }
-    $('approvals').innerHTML = ap.pending.length ? '' : '<span style="color:#999">None waiting.</span>';
-    for (const a of ap.pending) {
-      const d = document.createElement('div'); d.className='task'; d.innerHTML = `<b>${a.cls}</b> · ${a.tool}<div>${a.reason.replace(/</g,'&lt;')}</div>`;
-      for (const [label, ok] of [['Approve', true], ['Deny', false]]) { const b = document.createElement('button'); b.textContent = label; if (!ok) b.className='deny'; b.onclick = async () => { await api(`/api/approvals/${a.id}`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({approve: ok})}); refresh(); }; d.appendChild(b); }
-      $('approvals').appendChild(d);
-    }
-    $('memory').textContent = (mem.user || '') + '\n' + (mem.memory || '') || 'Nothing remembered yet.';
-    const sc = await api('/api/schedules');
-    $('schedules').innerHTML = sc.schedules.length ? '' : '<span style="color:#999">None.</span>';
-    for (const s of sc.schedules) {
-      const d = document.createElement('div'); d.className = 'task';
-      d.innerHTML = `<span class="status ${s.status === 'active' ? 'done' : 'failed'}">${s.status}</span> ${s.tool.replace(/</g,'&lt;')} every ${s.every_minutes} min<div><small>${(s.last_error || '').replace(/</g,'&lt;')}</small></div>`;
-      const b = document.createElement('button'); b.className = 'ghost'; b.textContent = s.status === 'active' ? 'Pause' : 'Resume';
-      b.onclick = async () => { await api(`/api/schedules/${s.id}/${s.status === 'active' ? 'pause' : 'resume'}`, {method:'POST'}); refresh(); };
-      d.appendChild(b); $('schedules').appendChild(d);
-    }
-  } catch (err) { $('health').textContent = 'unreachable'; }
-}
-$('forget').onclick = async () => { const m = $('fm').value.trim(); if (m.length < 3) return; const r = await api('/api/memory/forget', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({match:m})}); add('tool', `forgot ${r.removed.length} entr${r.removed.length === 1 ? 'y' : 'ies'}`); $('fm').value=''; refresh(); };
-refresh(); setInterval(refresh, 5000);
-</script>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module" src="/static/app.js?v=1"></script>
 </body>
 </html>

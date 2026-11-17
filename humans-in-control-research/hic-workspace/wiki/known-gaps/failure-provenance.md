@@ -6,9 +6,9 @@ source: eval-frontier
 family: provenance
 applies_to: generation
 kinds: [arch, audit, blueprint, case-study, gap, journey, org, persona, persona-card, prd, prd-feature, recommendations, roadmap, slides, strategy, themes]
-cases: 117
-updated: 2026-11-06
-source_hash: e486c2291d49038b
+cases: 121
+updated: 2026-11-10
+source_hash: 9de1544c1a00f7e2
 chunks:
   - id: "known-gaps/failure-provenance.md#c0"
     char_span: [0, 563]
@@ -99,20 +99,20 @@ chunks:
     token_count: 238
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-provenance.md#c10"
-    char_span: [10594, 12153]
+    char_span: [10594, 12738]
     sentence_count: 1
-    key_terms: [provenance, frontier, partial, slides-, slides, chain, case]
-    concepts: [provenance, frontier, partial, slides-, slides]
+    key_terms: [provenance, frontier, partial, chain, case, slides-, slides, themes-theme-]
+    concepts: [provenance, frontier, partial, chain, slides-]
     related_chunks: ["known-gaps/failure-provenance.md#c1", "known-gaps/failure-provenance.md#c2", "known-gaps/failure-provenance.md#c3", "known-gaps/failure-provenance.md#c4", "known-gaps/failure-provenance.md#c5"]
-    section: "2026-10-31 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-10-31 | analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals / 2026-10-31 | generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ / 2026-11-03 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for"
-    token_count: 340
+    section: "2026-10-31 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-10-31 | analyze-the-executive-search-industry-to-map-current-trends-against-dsg-globals / 2026-10-31 | generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ / 2026-11-03 | analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th / 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for / 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 485
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Citations whose provenance did not resolve
 
 What fails: The provenance stage could not tie every citation to a named source.
 
-Seen in 117 frontier eval case(s) across 5 engagement(s); deliverable kinds: slides (49), persona (13), recommendations (9), gap (8), journey (8), arch (5), themes (5), case-study (4), org (4), prd (3), roadmap (3), blueprint (2), audit (1), persona-card (1), prd-feature (1), strategy (1).
+Seen in 121 frontier eval case(s) across 6 engagement(s); deliverable kinds: slides (50), persona (13), recommendations (9), gap (8), journey (8), themes (7), arch (5), case-study (4), org (4), prd (4), roadmap (3), blueprint (2), audit (1), persona-card (1), prd-feature (1), strategy (1).
 
 What the harness does about it: Cite only pointers retrieval returned for this run; the resolver relabels or drops the rest.
 
@@ -241,3 +241,9 @@ What the harness does about it: Cite only pointers retrieval returned for this r
 ## 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for
 - slides slides_1793733775667: chain:provenance partial (schema_invalid) (frontier case slides-slides_1793733775667)
 - slides slides_1793735955307: chain:provenance partial (schema_invalid) (frontier case slides-slides_1793735955307)
+
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794198443833: chain:provenance partial (schema_invalid) (frontier case prd-prd_1794198443833)
+- slides slides_1794196862137: chain:provenance partial (schema_invalid) (frontier case slides-slides_1794196862137)
+- themes theme-overview_1794198288221: chain:provenance partial (schema_invalid) (frontier case themes-theme-overview_1794198288221)
+- themes theme-overview_1794204536109: chain:provenance partial (schema_invalid) (frontier case themes-theme-overview_1794204536109)

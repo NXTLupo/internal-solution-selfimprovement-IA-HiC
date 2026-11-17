@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-11-09",
+  "updated": "2026-11-17",
   "rule": "A judge with kind=llm may block only when human_agreement.n >= 30 and human_agreement.kappa >= 0.4. Deterministic judges encode a rule and may block. The nightly agreement job (/api/eval/judge-agreement) fills human_agreement from evals/labels.jsonl joined with evals/verdicts.jsonl.",
   "judges": [
     {

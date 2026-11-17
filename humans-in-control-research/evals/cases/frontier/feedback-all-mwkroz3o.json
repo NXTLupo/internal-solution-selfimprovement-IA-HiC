@@ -1,0 +1,20 @@
+{
+  "id": "feedback-all-mwkroz3o",
+  "set": "frontier",
+  "kind": "all",
+  "input": {
+    "objective": "Analyze the attached documents and compose a single #slides deck that distills the problem statement, solution vision, and product definition, supported by the objectives of the engagement",
+    "prompt": "#slides #NU create a product vision deck that has the following slides: 1. Problem Statement (a concise statement that consolidates the many issues into one statement that combines the many articulated problems elegantly), 2. Product principles: Breaks down the problem statement into principles to overcome each issue, 3. Product vision statement: a concise statement that describes an aspirational future state that supports the objectives to solve the problems, 4. Product requirements: A concise table that outlines the necessary features and functionality to support the vision, 5. Data Architecture - A diagram that shows how the many data sources to support the product views must be pulled from the various sources (named)"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "user_report",
+    "ref": "chat:analyst",
+    "added": "2026-11-17",
+    "note": "rule: #slides #NU create a product vision deck that has the following slides: 1. Problem Statement (a concise statement that consolidates the many issues into one statement that combines the many articulated problems elegantly; corrected reply: Copy edit: 30 fields read; 13 rewritten as complete business sentences."
+  }
+}

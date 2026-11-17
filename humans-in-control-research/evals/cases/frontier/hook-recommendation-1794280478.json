@@ -1,0 +1,20 @@
+{
+  "id": "hook-recommendation-1794280478",
+  "set": "frontier",
+  "kind": "recommendation",
+  "input": {
+    "objective": "(see rejection row)",
+    "prompt": "#recommendation"
+  },
+  "expected": {
+    "trajectory": {
+      "no_fail_open": true
+    }
+  },
+  "origin": {
+    "type": "hook_rejection",
+    "ref": "",
+    "added": "2026-11-10",
+    "note": "Evidence density 0.72 below floor before generation"
+  }
+}

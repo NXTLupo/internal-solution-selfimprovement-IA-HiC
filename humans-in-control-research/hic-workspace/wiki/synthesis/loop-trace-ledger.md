@@ -24,3 +24,4 @@ directives = V4 constraint enforcement events; models/steps = distinct counts.
 | 2026-10-09 17:13 | generate-a-comprehensive-product-requirements-do | 296 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 64 | 0.0 | stale |
 | 2026-11-09 04:31 | identify-high-converting-email-design-patterns-a | 2 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 0.0 | stale |
 | 2026-11-09 04:31 | analyze-the-2026-ai-software-development-and-con | 11 | 2 | 0 | 0 | 0 | 0 | 0 | 2 | 11 | 36358.0 | stale |
+| 2026-11-16 22:15 | 1-understand-emerging-northeastern-university-st | 71 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 19 | 0.0 | stale |

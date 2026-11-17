@@ -203,7 +203,10 @@ export const useRedditAnalysis = () => {
           chunkSize,
           model: analysisModel,
           maxWorkers,
-          projectId
+          projectId,
+          limit: postLimit,
+          sort,
+          time: timeFilter
         },
       );
       

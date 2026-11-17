@@ -28,7 +28,7 @@ const initialState: SentimentAnalysisState = {
   filterType: 'cluster',
   keyword: '',
   chunkSize: 30000,
-  analysisModel: 'openai-4',
+  analysisModel: 'claude-opus-5-5',
   mergeMethod: 'openai',
   maxWorkers: 3,
   // New fields

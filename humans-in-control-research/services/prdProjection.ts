@@ -388,6 +388,103 @@ function prdBrandTokens(brand: BrandId): PrdDocTokens {
     };
 }
 
+/**
+ * VISUAL SLOTS FOR THE PRD (2026-11-09).
+ *
+ * Every other HTML artifact gets pictures because the MODEL places `[[visual: ...]]` directives and
+ * the chain renders them. The PRD cannot: its HTML is PROJECTED from the AIR by this file, so there
+ * is no model-written prose to carry a directive, and a regenerated #prd came back with 0 images
+ * while every other kind came back with 3. Measured across the stored library, #prd was the largest
+ * block of image-free artifacts (19 files).
+ *
+ * The slots are built from the PRD's OWN fields, so each picture depicts this document's subject
+ * rather than a stock idea: the primary persona at the moment of the pain, and the job story's
+ * concrete action. A field that is missing yields no slot, so a thin AIR simply gets fewer
+ * pictures and never a placeholder.
+ */
+function visualSlot(concept: string): string {
+    let c = String(concept || '').replace(/\s+/g, ' ').trim().replace(/[\[\]]/g, '');
+    // Trim on a word boundary: the first version cut a caption mid-word.
+    if (c.length > 200) c = c.slice(0, 200).replace(/\s+\S*$/, '');
+    c = c.replace(/[,;:\s]+$/, '');
+    // The renderer needs a real description; anything shorter is not a picture.
+    return c.length >= 24 ? `\n[[visual: ${c}]]\n` : '';
+}
+
+/**
+ * SHAPE GATE. A field is used only when it LOOKS like what the template needs; see this module's
+ * header note. `role` must read as a name for a person, not a predicate, and `stageOfStruggle` as
+ * a short phrase naming a moment, not a sentence about one.
+ */
+function isNounPhrase(text: string): boolean {
+    const t = String(text || '').trim();
+    if (!t || t.length > 48) return false;
+    if (t.split(/\s+/).length > 6) return false;
+    if (/[.!?;:]/.test(t)) return false;
+    if (/\b(?:I|my|me|we|our|you|your)\b/i.test(t)) return false;
+    if (/^(?:when|while|after|before|if|because|so|and|but|that|which)\b/i.test(t)) return false;
+    // A leading finite verb means it is a predicate, not a name for a person.
+    if (/^(?:is|are|was|were|has|have|had|does|do|did|needs?|wants?|builds?|keeps?|makes?|uses?|runs?|works?|struggles?|cannot|can)\b/i.test(t)) return false;
+    return true;
+}
+
+/** A short phrase naming a moment, not a sentence about one. */
+function isShortPhrase(text: string): boolean {
+    const t = String(text || '').trim();
+    if (!t || t.length > 60) return false;
+    if (t.split(/\s+/).length > 8) return false;
+    if (/[.!?;]/.test(t)) return false;
+    if (/\b(?:I|my|me|we|our)\b/i.test(t)) return false;
+    if (/^(?:when|while|after|before|if|because)\b/i.test(t)) return false;
+    return true;
+}
+
+/** The persona's own words for who they are, preferring the role over the label. */
+function sceneSubject(role: string, name: string, fallback: string): string {
+    const r = String(role || '').trim().replace(/[.\s]+$/, '');
+    // Article agreement: a live caption read "A owner-operator". A vowel-initial role takes "An".
+    if (isNounPhrase(r)) {
+        if (/^(a|an|the)\b/i.test(r)) return r;
+        const head = `${r.charAt(0).toLowerCase()}${r.slice(1)}`;
+        return `${/^[aeiou]/i.test(head) ? 'An' : 'A'} ${head}`;
+    }
+    const n = String(name || '').trim();
+    if (isNounPhrase(n)) return n;
+    const f = String(fallback || '').trim();
+    return isNounPhrase(f) ? f : '';
+}
+
+/** One scene from the persona's own stage of struggle, used only when that field is a phrase. */
+function problemVisual(s: PrdAir['sections'], subject: string, stageOfStruggle: string): string {
+    const stage = String(stageOfStruggle || '').trim().replace(/[.\s]+$/, '');
+    if (!subject || !isShortPhrase(stage)) return '';
+    return visualSlot(`${subject} working alone at the point of ${stage}`);
+}
+
+/**
+ * One scene from the first job story. "about to" takes the bare infinitive `iWantTo` correctly.
+ *
+ * A job story is written in the FIRST person ("I want to see what changed on my farm"), and a
+ * caption describes someone from outside, so a live caption read "An owner-operator about to see
+ * what changed on my farm". The pronouns are moved to the third person.
+ */
+function thirdPerson(text: string): string {
+    return String(text || '')
+        .replace(/\bmy\b/gi, 'their')
+        .replace(/\bmine\b/gi, 'theirs')
+        .replace(/\bmyself\b/gi, 'themselves')
+        .replace(/\bI\b/g, 'they')
+        .replace(/\bme\b/gi, 'them');
+}
+
+function jobVisual(s: PrdAir['sections'], subject: string): string {
+    const j = (s.usersAndJobs.jobStories || [])[0];
+    if (!j || !subject) return '';
+    const act = thirdPerson(String(j.iWantTo || '')).trim().replace(/[.\s]+$/, '');
+    if (!act) return '';
+    return visualSlot(`${subject} about to ${act}`);
+}
+
 export function projectPrdAirToHtml(air: PrdAir, opts: { brand?: BrandId; generatedAtIso?: string } = {}): string {
     const brand: BrandId = opts.brand || air.brand || 'nxt';
     const T = prdBrandTokens(brand);
@@ -424,11 +521,15 @@ export function projectPrdAirToHtml(air: PrdAir, opts: { brand?: BrandId; genera
     const problemQ = qOf(s.problem.quoteIds);
     const whyNowQ = qOf(s.whyNow.quoteIds);
 
+    // The primary persona's name feeds the visual slots below, so a picture names a real actor.
+    const _p0 = personas.get((s.usersAndJobs.primaryPersonaIds || [])[0] || '');
+    const _sceneSubject = sceneSubject(String(_p0?.role || ''), String(_p0?.name || ''), String(s.thesis.user || ''));
+    const _sceneStage = String(_p0?.stageOfStruggle || '');
     const tier1 = [
         section(1, labelOf[0].label, `<p class="prd-thesis">${esc(s.thesis.statement)}</p><dl class="prd-dl"><dt>User</dt><dd${SPEC}>${esc(s.thesis.user)}</dd><dt>Pain</dt><dd>${esc(s.thesis.pain)}${cites(problemQ)}</dd><dt>Decision requested</dt><dd${SPEC}>${esc(s.thesis.decisionRequested)}</dd><dt>What it does</dt><dd${SPEC}>${esc(s.thesis.whatItDoes)}</dd>${s.thesis.governingThemeId ? `<dt>Governing theme</dt><dd${REF}>${esc(themes.get(s.thesis.governingThemeId)?.name || s.thesis.governingThemeId)}</dd>` : ''}</dl>`, 1),
-        section(2, labelOf[1].label, `<p class="prd-prose">${esc([s.problem.story.user, s.problem.story.need, s.problem.story.insight].filter(Boolean).join(' '))}${cites(problemQ)}</p>${qs(s.problem.quoteIds)}`, 1),
+        section(2, labelOf[1].label, `<p class="prd-prose">${esc([s.problem.story.user, s.problem.story.need, s.problem.story.insight].filter(Boolean).join(' '))}${cites(problemQ)}</p>${qs(s.problem.quoteIds)}${problemVisual(s, _sceneSubject, _sceneStage)}`, 1),
         section(3, labelOf[2].label, `<p class="prd-prose">${esc(s.whyNow.statement)}${cites(whyNowQ)}</p>${s.whyNow.change ? `<p class="prd-prose"><strong>The change:</strong> ${esc(s.whyNow.change)}${cites(whyNowQ)}</p>` : ''}${qs(s.whyNow.quoteIds)}`, 1),
-        section(4, labelOf[3].label, `${s.usersAndJobs.primaryPersonaIds.map(id => { const p = personas.get(id); return p ? `<p class="prd-prose"><strong>${esc(p.name)}</strong>${p.role ? `, ${esc(p.role)}` : ''}${p.stageOfStruggle ? `: struggles most at ${esc(String(p.stageOfStruggle).replace(/[.\s]+$/, ''))}` : ''}.${cites(painQuotes(g.pains.filter(x => x.personaIds.includes(p.id)).map(x => x.id)))}</p>` : ''; }).join('')}${s.usersAndJobs.jobStories.map(j => `<div class="prd-job"><span class="prd-label">${esc(personas.get(j.personaId)?.name || 'User')}</span><p class="prd-prose">When ${esc(j.when)}, I want to ${esc(j.iWantTo)}, so I can ${esc(j.soICan)}.${cites(qOf(j.quoteIds))}</p>${qs(j.quoteIds)}</div>`).join('')}`, 1),
+        section(4, labelOf[3].label, `${s.usersAndJobs.primaryPersonaIds.map(id => { const p = personas.get(id); return p ? `<p class="prd-prose"><strong>${esc(p.name)}</strong>${p.role ? `, ${esc(p.role)}` : ''}${p.stageOfStruggle ? `: struggles most at ${esc(String(p.stageOfStruggle).replace(/[.\s]+$/, ''))}` : ''}.${cites(painQuotes(g.pains.filter(x => x.personaIds.includes(p.id)).map(x => x.id)))}</p>` : ''; }).join('')}${s.usersAndJobs.jobStories.map(j => `<div class="prd-job"><span class="prd-label">${esc(personas.get(j.personaId)?.name || 'User')}</span><p class="prd-prose">When ${esc(j.when)}, I want to ${esc(j.iWantTo)}, so I can ${esc(j.soICan)}.${cites(qOf(j.quoteIds))}</p>${qs(j.quoteIds)}</div>`).join('')}${jobVisual(s, _sceneSubject)}`, 1),
         section(5, labelOf[4].label, `<h3 class="prd-h3">Goals</h3>${list(s.goalsNonGoalsAppetite.goals.map(gl => gl.text), '', SPEC)}<h3 class="prd-h3">Non-goals</h3>${list(s.goalsNonGoalsAppetite.nonGoals.map(n => `${head(n.text)}: ${tail(n.reason)}`))}<h3 class="prd-h3">Appetite</h3>${targetHtml({ ...s.goalsNonGoalsAppetite.appetite, rationale: undefined })}${s.goalsNonGoalsAppetite.appetite.rationale ? `<p class="prd-prose">${esc(s.goalsNonGoalsAppetite.appetite.rationale)}${targetCite(s.goalsNonGoalsAppetite.appetite)}</p>` : ''}`, 1),
         section(6, labelOf[5].label, `<table class="prd-table"><thead><tr><th>Signal</th><th>Instrument</th><th>Population</th><th>Direction</th><th>Baseline status</th><th>Type</th><th>Guardrail</th></tr></thead><tbody>${g.signals.map(m => `<tr><td${SPEC}>${esc(m.signal)}${cites(m.requirementIds.flatMap(rid => { const r = reqById.get(rid); return r ? quotesForRequirement(r, air) : []; }), 4)}</td><td${SPEC}>${esc(m.instrument)}</td><td${REF}>${esc([m.population.personaId ? personas.get(m.population.personaId)?.name : '', m.population.stage].filter(Boolean).join(' · '))}</td><td>${esc(m.direction)}</td><td>${esc(m.baselineStatus)}</td><td>${esc(m.type)}</td><td${SPEC}>${esc(m.guardrail.statement)}${m.guardrail.rollbackAuthority ? `<br><span class="prd-meta">Rollback: ${esc(m.guardrail.rollbackAuthority)}</span>` : ''}</td></tr>`).join('')}</tbody></table>`, 1),
     ].join('');

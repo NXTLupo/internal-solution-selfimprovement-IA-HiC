@@ -1,6 +1,6 @@
 {
-  "started_at": "2026-11-09T00:06:21.585Z",
-  "finished_at": "2026-11-09T00:06:33.631Z",
+  "started_at": "2026-11-17T00:34:28.958Z",
+  "finished_at": "2026-11-17T00:34:46.582Z",
   "trigger": "daily",
   "stale_candidates": 0,
   "consolidation_groups": 1,
@@ -19,6 +19,6 @@
     "refusals": [
       "consolidation: consolidated fact fails the admission gate"
     ],
-    "total": 26
+    "total": 30
   }
 }

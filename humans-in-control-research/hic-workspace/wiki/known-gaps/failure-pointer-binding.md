@@ -5,20 +5,20 @@ type: known-gap
 source: eval-frontier
 family: pointer-binding
 applies_to: generation
-kinds: [case-study, compete, gap, journey, org, persona, persona-card, prd, prd-feature, recommendations, slides]
-cases: 40
-updated: 2026-11-04
-source_hash: 0a92aefc53df72a3
+kinds: [arch, case-study, compete, gap, journey, org, persona, persona-card, prd, prd-feature, recommendations, slides]
+cases: 47
+updated: 2026-11-17
+source_hash: 89009e81e1a85d67
 chunks:
   - id: "known-gaps/failure-pointer-binding.md#c0"
-    char_span: [0, 468]
+    char_span: [0, 479]
     sentence_count: 3
     key_terms: [pointer, claim, pointer-binding, recommendations, persona-card, deliverable, prd-feature, case-study]
     concepts: [pointer, claim]
-    token_count: 116
+    token_count: 120
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c1"
-    char_span: [565, 2899]
+    char_span: [576, 2910]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, unknown, chain, case, slides-, slides]
     concepts: [bindpointers, frontier, partial, unknown, chain]
@@ -27,7 +27,7 @@ chunks:
     token_count: 491
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c2"
-    char_span: [2998, 3991]
+    char_span: [3009, 4002]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, unknown, case, chain, gap-gap-, case-study-case-]
     concepts: [bindpointers, frontier, partial, unknown, chain]
@@ -36,7 +36,7 @@ chunks:
     token_count: 305
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c3"
-    char_span: [4090, 4313]
+    char_span: [4101, 4324]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -45,7 +45,7 @@ chunks:
     token_count: 66
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c4"
-    char_span: [4412, 4635]
+    char_span: [4423, 4646]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -54,7 +54,7 @@ chunks:
     token_count: 66
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c5"
-    char_span: [4734, 5069]
+    char_span: [4745, 5080]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -63,7 +63,7 @@ chunks:
     token_count: 99
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c6"
-    char_span: [5167, 5502]
+    char_span: [5178, 5513]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -72,7 +72,7 @@ chunks:
     token_count: 99
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c7"
-    char_span: [5601, 5824]
+    char_span: [5612, 5835]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -81,7 +81,7 @@ chunks:
     token_count: 66
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
   - id: "known-gaps/failure-pointer-binding.md#c8"
-    char_span: [5922, 6145]
+    char_span: [5933, 6156]
     sentence_count: 1
     key_terms: [bindpointers, frontier, partial, slides-, unknown, slides, chain, case]
     concepts: [bindpointers, frontier, partial, slides-, unknown]
@@ -89,12 +89,30 @@ chunks:
     section: "2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for"
     token_count: 66
     sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-pointer-binding.md#c9"
+    char_span: [6254, 6465]
+    sentence_count: 1
+    key_terms: [bindpointers, frontier, partial, unknown, chain, case, slides-, slides]
+    concepts: [bindpointers, frontier, partial, unknown, chain]
+    related_chunks: ["known-gaps/failure-pointer-binding.md#c1", "known-gaps/failure-pointer-binding.md#c2", "known-gaps/failure-pointer-binding.md#c3", "known-gaps/failure-pointer-binding.md#c4", "known-gaps/failure-pointer-binding.md#c5"]
+    section: "2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 69
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
+  - id: "known-gaps/failure-pointer-binding.md#c10"
+    char_span: [6563, 7188]
+    sentence_count: 1
+    key_terms: [bindpointers, frontier, partial, unknown, chain, case, prd, prd-]
+    concepts: [bindpointers, frontier, partial, unknown, chain]
+    related_chunks: ["known-gaps/failure-pointer-binding.md#c1", "known-gaps/failure-pointer-binding.md#c2", "known-gaps/failure-pointer-binding.md#c3", "known-gaps/failure-pointer-binding.md#c4", "known-gaps/failure-pointer-binding.md#c5"]
+    section: "2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student"
+    token_count: 179
+    sources: [{"n":"eval-frontier","u":"","kind":"known-gap"}]
 ---
 # Recurring failure: Claims left without a bound pointer
 
 What fails: The pointer-binding stage could not attach a corpus pointer to every claim.
 
-Seen in 40 frontier eval case(s) across 5 engagement(s); deliverable kinds: slides (18), prd (5), org (4), gap (3), case-study (2), journey (2), persona (2), compete (1), persona-card (1), prd-feature (1), recommendations (1).
+Seen in 47 frontier eval case(s) across 7 engagement(s); deliverable kinds: slides (19), prd (10), org (4), gap (3), case-study (2), journey (2), persona (2), arch (1), compete (1), persona-card (1), prd-feature (1), recommendations (1).
 
 What the harness does about it: Keep one evidence pointer per claim in the generated payload.
 
@@ -164,3 +182,16 @@ What the harness does about it: Keep one evidence pointer per claim in the gener
 ## 2026-11-03 | identify-high-converting-email-design-patterns-and-product-marketing-trends-for
 - slides slides_1793733775667: chain:bindPointers partial (unknown) (frontier case slides-slides_1793733775667)
 - slides slides_1793735955307: chain:bindPointers partial (unknown) (frontier case slides-slides_1793735955307)
+
+## 2026-11-09 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794202962064: chain:bindPointers partial (unknown) (frontier case prd-prd_1794202962064)
+- slides slides_1794196862137: chain:bindPointers partial (unknown) (frontier case slides-slides_1794196862137)
+
+## 2026-11-10 | 1-understand-emerging-northeastern-university-student-and-other-college-student
+- prd prd_1794278892579: chain:bindPointers partial (unknown) (frontier case prd-prd_1794278892579)
+- prd prd_1794279962606: chain:bindPointers partial (unknown) (frontier case prd-prd_1794279962606)
+- prd prd_1794283122759: chain:bindPointers partial (unknown) (frontier case prd-prd_1794283122759)
+- prd prd_1794284161769: chain:bindPointers partial (unknown) (frontier case prd-prd_1794284161769)
+
+## 2026-11-17 | analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th
+- arch architecture-map_1794874296269: chain:bindPointers partial (unknown) (frontier case arch-architecture-map_1794874296269)

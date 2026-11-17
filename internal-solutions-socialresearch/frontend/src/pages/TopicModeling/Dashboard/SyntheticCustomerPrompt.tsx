@@ -14,7 +14,7 @@ const SyntheticCustomerPrompt = () => {
   const [postTopic, setPostTopic] = useState<Topic | null>(null);
   const [isLoadingPost, setIsLoadingPost] = useState(false);
   const [localChatHistory, setLocalChatHistory] = useState<ChatMessage[]>([]);
-  const [selectedModel, setSelectedModel] = useState<string>('openai');
+  const [selectedModel, setSelectedModel] = useState<string>('claude');
   const dispatch = useDispatch();
   
   // Get state from Redux
@@ -27,10 +27,9 @@ const SyntheticCustomerPrompt = () => {
   
   // Available LLM models
   const availableLLMModels = useMemo(() => {
+    // The RAG endpoint answers with Claude Opus 5.5 (backend util/llm_models/claude.py)
     return [
-      { id: 'openai', name: 'GPT 4o' },
-      { id: 'claude', name: 'Claude 4' },
-      { id: 'gemini', name: 'Gemini 2.5 Pro' }
+      { id: 'claude', name: 'Claude Opus 5.5' }
     ];
   }, []);
   
@@ -54,7 +53,7 @@ const SyntheticCustomerPrompt = () => {
         prompt: userPrompt,
         subreddit: subreddit,
         topicData: topicData,
-        llm_provider: selectedModel
+        model: selectedModel
       });
       
       return response;

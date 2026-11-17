@@ -1,25 +1,25 @@
 {
-  "started_at": "2026-11-09T13:44:15.341755Z",
-  "finished_at": "2026-11-09T13:44:49.738043Z",
+  "started_at": "2026-11-09T18:55:49.243989Z",
+  "finished_at": "2026-11-09T18:55:57.820780Z",
   "window_hours": 24.0,
-  "artifacts": 39,
-  "failures": 19,
+  "artifacts": 40,
+  "failures": 20,
   "failure_threshold": 5,
   "frontier_seeded": {
     "created": [
-      "hook-roadmap-1794231889",
-      "hook-brief-1794231889",
-      "hook-persona-1794231889",
-      "hook-gap-analysis-1794231889",
-      "hook-case-study-1794231889",
-      "hook-recommendation-1794231889",
-      "hook-strategy-1794231889",
-      "auditor-mindmap-1794231889",
-      "auditor-brief-1794231889",
-      "auditor-deep-research-1794231889",
-      "auditor-meta-themes-1794231889"
+      "hook-roadmap-1794250557",
+      "hook-brief-1794250557",
+      "hook-persona-1794250557",
+      "hook-gap-analysis-1794250557",
+      "hook-case-study-1794250557",
+      "hook-recommendation-1794250557",
+      "hook-strategy-1794250557",
+      "auditor-mindmap-1794250557",
+      "auditor-brief-1794250557",
+      "auditor-deep-research-1794250557",
+      "auditor-meta-themes-1794250557"
     ],
-    "skipped_existing": 228,
+    "skipped_existing": 229,
     "refreshed_notes": [],
     "errors": []
   },
@@ -274,6 +274,14 @@
         "claim:UNSOURCED_FACT@r69",
         "claim:INDEPENDENCE_INFLATED@r87",
         "claim:UNSOURCED_FACT@r146"
+      ]
+    },
+    {
+      "artifact_id": "blogpost_1794249244527",
+      "run_id": "1-understand-emerging-northeastern-university-student-and-other-college-student",
+      "kind": "blogpost",
+      "failures": [
+        "claim:UNSOURCED_FACT@r26"
       ]
     }
   ]

@@ -579,5 +579,29 @@
     "status": "candidate",
     "heldout_win": false,
     "origin": "chat:analyst"
+  },
+  {
+    "id": "cr_4dcdb011",
+    "text": "#slides create a product vision deck that has the following slides: 1. Problem Statement (a concise statement that consolidates the many issues into one statement that combines the many articulated problems elegantly), 2",
+    "sectionScope": null,
+    "created": "2026-11-16T22:16:30.369Z",
+    "applications": 0,
+    "negativeSignalsAfter": 0,
+    "confidence": 0.55,
+    "status": "candidate",
+    "heldout_win": false,
+    "origin": "chat:analyst"
+  },
+  {
+    "id": "cr_5b3220f2",
+    "text": "#slides #NU create a product vision deck that has the following slides: 1. Problem Statement (a concise statement that consolidates the many issues into one statement that combines the many articulated problems elegantly",
+    "sectionScope": null,
+    "created": "2026-11-17T14:08:03.270Z",
+    "applications": 0,
+    "negativeSignalsAfter": 0,
+    "confidence": 0.55,
+    "status": "candidate",
+    "heldout_win": false,
+    "origin": "chat:analyst"
   }
 ]

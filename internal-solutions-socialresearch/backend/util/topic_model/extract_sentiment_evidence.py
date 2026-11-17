@@ -2,7 +2,7 @@ import json
 import os
 import gc
 from util.prompts.topic_prompt import get_sentiment_evidence_prompt
-from util.llm_models.openai import get_openai_completion
+from util.llm_models.claude import get_claude_completion_with_json
 from util.topic_model.BertTopic import analyze_topic_sentiment
 
 
@@ -74,10 +74,10 @@ def extract_sentiment_evidence(topic_docs, topic_posts, post_ids, temp_dir, max_
         print(f"[extract_sentiment_evidence.py] Extracting sentiment evidence from {len(sample_docs)} documents")
         print(f"[extract_sentiment_evidence.py] Generated prompt : {analysis_prompt}")
         
-        # Call the OpenAI API with JSON parsing
+        # Call Claude Opus 5.5 with JSON parsing
         message = [{"role": "user", "content": analysis_prompt}]
 
-        evidence_response = get_openai_completion(message, temperature=0.1)
+        evidence_response = get_claude_completion_with_json(message)
         
         # Log the response for debugging
         response_file_path = os.path.join(log_dir, f'sentiment_evidence_response_{hash(str(post_ids))}.txt')

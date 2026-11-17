@@ -66,6 +66,21 @@ def research_lead(eid, brief, ledger):
         existing = []
     start = max([int(s["id"][1:]) for s in existing if str(s.get("id", "")).startswith("S") and s["id"][1:].isdigit()] or [0])
     sources, seen = [], {s.get("url") for s in existing}
+    # The firm's own library first (plan 6.4): the most relevant imported pages join as cited sources.
+    try:
+        from . import library
+        for lib in library.seed_sources(f"{brief['goal']} {brief['scope']}", {s.get("library") for s in existing},
+                                        pick=lambda g, c: library.model_pick(g, c, ledger)):
+            if lib["url"] in seen:
+                continue
+            seen.add(lib["url"])
+            lib["id"] = f"S{start + len(sources) + 1}"
+            sources.append(lib)
+            store.add_evidence(eid, lib["id"], lib["url"], lib["title"], lib["text"])
+    except providers.BudgetExceeded:
+        raise
+    except Exception as e:                       # the library is a bonus; the web search still runs
+        store.event("library_seed_skipped", {"error": str(e)[:200]}, eid)
     for ch in chunks:
         web = ch.get("web") or {}
         uri, title = web.get("uri"), web.get("title") or ""

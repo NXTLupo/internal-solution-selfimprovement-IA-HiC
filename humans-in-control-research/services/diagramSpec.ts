@@ -69,11 +69,16 @@ export function buildDiagramSpec(slide: AnySlide): any | null {
         const d = slide.architectureMap || {};
         const layers = asList(d.layers).map((ly: any) => ({
             name: s(ly.name),
-            nodes: asList(ly.nodes).map((n: any) => ({ label: s(n.name || n.label), desc: s(n.description || n.desc || n.type) }))
-                .filter((n: any) => n.label),
+            nodes: asList(ly.nodes).map((n: any) => ({
+                label: s(n.name || n.label), desc: s(n.description || n.desc || n.type),
+                // 2026-11-16: the connector diagram needs the name, the type (it picks the shape) and the description apart
+                name: s(n.name || n.label), type: s(n.type), description: s(n.description || n.desc),
+            })).filter((n: any) => n.label),
         })).filter((ly: any) => ly.nodes.length);
         if (!layers.length) return null;
-        return { kind: 'architecture', title, layers, flowSummary: s(d.flowSummary) };
+        const connections = asList(d.connections).map((c: any) => ({ from: s(c?.from), to: s(c?.to), label: s(c?.label) }))
+            .filter((c: any) => c.from && c.to);
+        return { kind: 'architecture', title, layers, flowSummary: s(d.flowSummary), ...(connections.length ? { connections } : {}) };
     }
 
     if (kind === 'mindmap') {

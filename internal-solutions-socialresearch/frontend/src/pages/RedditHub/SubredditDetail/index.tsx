@@ -1,7 +1,8 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSubredditDetail } from '../../../hooks/useReddit';
 import PostCard from './PostCard.tsx';
-import { PostFilter, PostFilterData } from './PostFilter.tsx';
+import { PostFilter, PostFilterData, defaultFilterData } from './PostFilter.tsx';
+import { keywordRegex, keywordMatchLocation } from './keywordMatch';
 import { useState, useEffect, useRef } from 'react';
 import { DatabasePost, DatabaseComment } from '../../../types/reddit';
 import {
@@ -27,14 +28,14 @@ function SubredditDetail() {
   const [showExportDropdown, setShowExportDropdown] = useState(false);
   const exportDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Initialize filter data with default values
+  // Initialize filter data; ?q=&start=&end= (sent by the topic-modeling page) pre-filter
+  // to the analysis keyword and date range, newest first
+  const [searchParams] = useSearchParams();
   const [filterData, setFilterData] = useState<PostFilterData>({
-    searchTerm: '',
-    sortBy: 'newest',
-    minUpvotes: 0,
-    maxUpvotes: 10000,
-    minComments: 0,
-    maxComments: 1000,
+    ...defaultFilterData,
+    searchTerm: searchParams.get('q') || '',
+    startDate: searchParams.get('start') || '',
+    endDate: searchParams.get('end') || '',
   });
 
   // Handle clicking outside the dropdown to close it
@@ -80,12 +81,30 @@ function SubredditDetail() {
   };
 
   // Enhanced filtering logic
+  const keywordRe = keywordRegex(filterData.searchTerm);
+  // Dates are UTC days, matching how the backend filters a run's date range
+  const startTs = filterData.startDate ? Date.parse(`${filterData.startDate}T00:00:00Z`) / 1000 : null;
+  const endTs = filterData.endDate ? Date.parse(`${filterData.endDate}T23:59:59Z`) / 1000 : null;
+  const commentOnlyMatches = new Set<string>();
+
+  const inDateRange = (post: DatabasePost) =>
+    (startTs === null || (post.created_utc || 0) >= startTs) &&
+    (endTs === null || (post.created_utc || 0) <= endTs);
+
   const filteredPosts = subredditDetail?.posts.filter(post => {
-    // Search term filter
-    if (filterData.searchTerm && !post.title.toLowerCase().includes(filterData.searchTerm.toLowerCase()) &&
-        !post.content?.toLowerCase().includes(filterData.searchTerm.toLowerCase()) &&
-        !post.author?.toLowerCase().includes(filterData.searchTerm.toLowerCase())) {
+    if (!inDateRange(post)) {
       return false;
+    }
+
+    // Keyword filter: whole word, in the title, body, author or stored comments
+    if (keywordRe) {
+      const location = keywordMatchLocation(post, keywordRe);
+      if (!location) {
+        return false;
+      }
+      if (location === 'comments') {
+        commentOnlyMatches.add(post.id);
+      }
     }
 
     // Upvotes filter
@@ -503,22 +522,44 @@ function SubredditDetail() {
           filterData={filterData}
         />
 
+        {/* Keyword match summary */}
+        {keywordRe && (
+          <div className="mt-4 p-3 rounded-lg border border-[#e5e5e5] bg-[#fafafa] text-sm text-[#525252]">
+            <span className="font-semibold text-[#141414]">{sortedPosts.length}</span> of{' '}
+            {(subredditDetail.posts || []).filter(inDateRange).length} stored posts
+            {(filterData.startDate || filterData.endDate) && (
+              <> from {filterData.startDate || 'the start'} to {filterData.endDate || 'today'}</>
+            )}{' '}
+            mention <span className="font-semibold text-[#141414]">"{filterData.searchTerm.trim()}"</span>
+            {commentOnlyMatches.size > 0 && (
+              <> ({sortedPosts.length - commentOnlyMatches.size} in the post, {commentOnlyMatches.size} only in stored comments)</>
+            )}
+            . Whole-word match; up to 3 top comments per post are stored.
+          </div>
+        )}
+
         {/* Posts */}
         <div className="space-y-6 mt-6">
           {sortedPosts.length === 0 ? (
             <div className="bg-white rounded-lg p-8 border border-[#e5e5e5] text-center">
               <div className="text-[#525252]">
-                {filterData.searchTerm || 
+                {filterData.searchTerm || filterData.startDate || filterData.endDate ||
                  filterData.sortBy !== 'newest' || filterData.minUpvotes > 0 || filterData.maxUpvotes < 10000 ||
                  filterData.minComments > 0 || filterData.maxComments < 1000
-                  ? 'No posts match your filter criteria.' 
+                  ? 'No posts match your filter criteria.'
                   : 'No posts found for this subreddit.'}
               </div>
             </div>
           ) : (
             <>
               {sortedPosts.map((post) => (
-                <PostCard key={post.id} post={post} showComments={showAllComments} />
+                <PostCard
+                  key={post.id}
+                  post={post}
+                  showComments={showAllComments || commentOnlyMatches.has(post.id)}
+                  highlight={keywordRe ? filterData.searchTerm : undefined}
+                  matchedInComments={commentOnlyMatches.has(post.id)}
+                />
               ))}
             </>
           )}

@@ -146,11 +146,56 @@ export function formatCitationLabel(pointer: string): string {
  * chain (reader surface) where `resolveManifestPointers` (plain "(Source: X)" text) would throw the
  * address away. Unresolvable pointers render as nothing: a file path never reaches the reader.
  */
-export function renderPointerCitationsHtml(html: string): string {
-    if (!html || html.indexOf('.md#c') === -1) return html;
+/**
+ * The SHORT form of a citation label, for the inline marker.
+ *
+ * 2026-11-09 (owner: a #blogpost read as "complete AI slop writing"): the inline citation printed
+ * its whole label, so a single paragraph carried "(Reddit Deep: r/jobs (Mar 2026))" three times
+ * and the prose was unreadable between the chips. The reader needs to know WHO said it, which is
+ * the source name; the connector prefix and the date belong in the appendix and the hover title.
+ * Gemini Notebook's equivalent is a one-glyph chip, so this is also the parity move.
+ */
+export function shortCiteLabel(label: string): string {
+    let s = String(label || '').trim();
+    s = s.replace(/\s*\([^)]*\)\s*$/, '').trim();          // trailing "(Mar 2026)" / "(live documentation...)"
+    s = s.replace(/^Reddit Deep:\s*/i, '').trim();          // connector prefix: the subreddit is the name
+    s = s.replace(/\s+documentation$/i, '').trim();         // "Anthropic documentation" -> "Anthropic"
+    return s || String(label || '').trim();
+}
+
+/**
+ * Lift <style>/<script>/<pre>/<code> out so the prose tidy below cannot reach them.
+ *
+ * 2026-11-09, SECOND site of the same defect. The tidy at the end of this function,
+ * `/ +([.,;:])/g`, deleted the space in every descendant CSS selector of a generated artifact
+ * (`.chron .era` became `.chron.era`, which matches nothing), so the document rendered unstyled
+ * and its SVG exhibits fell back to the default black fill. Fixing `scrubArtifactHtmlMeta` alone
+ * looked like it worked, because this function returns early when the document carries no `.md#c`
+ * pointer: a #blogpost and a #datatable came back clean and a #chronology did not. Measured, not
+ * inferred: the chronology shipped 8 dead rules on a run made after the first fix.
+ */
+function maskNonProse(html: string): { masked: string; restore: (s: string) => string } {
+    const kept: string[] = [];
+    const masked = html.replace(/<(style|script|pre|code|textarea)\b[^>]*>[\s\S]*?<\/\1\s*>/gi,
+        m => `\u0000HICNP${kept.push(m) - 1}\u0000`);
+    return { masked, restore: (s: string) => s.replace(/\u0000HICNP(\d+)\u0000/g, (_m, i) => kept[Number(i)] ?? '') };
+}
+
+export function renderPointerCitationsHtml(rawHtml: string): string {
+    if (!rawHtml || rawHtml.indexOf('.md#c') === -1) return rawHtml;
+    const { masked: html, restore } = maskNonProse(rawHtml);
     const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    return html
-        .replace(POINTER_GROUP_RE, (_m, group: string) => {
+    // A pointer already cited in THIS paragraph is not printed again: the appendix carries every
+    // source once, and repeating one chip mid-paragraph is noise, not provenance.
+    let paraSeen = new Set<string>();
+    let lastIndex = -1;
+    return restore(html
+        .replace(POINTER_GROUP_RE, (_m, group: string, offset: number) => {
+            // Reset the per-paragraph memory when a block boundary sits between the two groups.
+            if (lastIndex >= 0 && /<\/(?:p|li|h[1-6]|blockquote|section|div)>/i.test(html.slice(lastIndex, offset))) {
+                paraSeen = new Set<string>();
+            }
+            lastIndex = offset;
             const seen = new Set<string>();
             const parts: string[] = [];
             for (const raw of group.split(/[,;]/)) {
@@ -159,16 +204,19 @@ export function renderPointerCitationsHtml(html: string): string {
                 const label = formatCitationLabel(ptr);
                 if (!label || seen.has(label)) continue;
                 seen.add(label);
+                const short = shortCiteLabel(label);
+                if (paraSeen.has(short)) continue;
+                paraSeen.add(short);
                 const url = lookupPointerUrl(ptr) || lookupPageMeta(ptr)?.url || '';
                 parts.push(url
-                    ? `<a class="hic-cite" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-pointer="${esc(ptr)}">${esc(label)}</a>`
-                    : `<span class="hic-cite" data-pointer="${esc(ptr)}">${esc(label)}</span>`);
+                    ? `<a class="hic-cite" href="${esc(url)}" target="_blank" rel="noopener noreferrer" title="${esc(label)}" data-pointer="${esc(ptr)}">${esc(short)}</a>`
+                    : `<span class="hic-cite" title="${esc(label)}" data-pointer="${esc(ptr)}">${esc(short)}</span>`);
             }
-            return parts.length ? ` <span class="hic-cites">(${parts.join('; ')})</span>` : '';
+            return parts.length ? `<sup class="hic-cites">${parts.join(' ')}</sup>` : '';
         })
         .replace(/(?<!\[)[\w./\-]+\.md#c\d+/gi, '')
         .replace(/ {2,}/g, ' ')
-        .replace(/ +([.,;:])/g, '$1');
+        .replace(/ +([.,;:])/g, '$1'));
 }
 
 /** Register the REAL source name(s) for one chunk pointer (path#cN). Idempotent; first non-empty wins. */

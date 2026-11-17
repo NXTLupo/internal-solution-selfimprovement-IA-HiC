@@ -21,6 +21,13 @@ evidence line that earns its place).** A step without its description, a stat wi
 a bar without its basis is slop. If the corpus cannot fill the substance layer for an element,
 cut the element; if fewer than 3 elements survive, do not emit the infographic at all.
 
+## Every exhibit slide carries a subtitle (2026-11-16)
+
+Beside `kicker`, `title` and `takeaway`, every `slides:infographic-exhibit` payload carries `subtitle`: one or two
+plain sentences (at most 30 words) under the action title that explain the claim with its specific mechanism or
+evidence, so the slide reads on its own (the Gemini Notebook deck does this on every slide). Never a restatement of
+the title, never a description of the diagram ("this diagram shows").
+
 ## Family selection - match the slide's data shape, never default
 
 | The slide's content is... | Family | Payload core |
@@ -31,8 +38,38 @@ cut the element; if fewer than 3 elements survive, do not emit the infographic a
 | A ranked set (severity, frequency, priority) | `ranked-bars` | `items[]` |
 | A labeled mix or distribution | `composition` | `segments[]` |
 | A decision tree, system flow, operating model or escalation path with branches | `flowchart` | `nodes[]` + `edges[]` (+ `groups[]`) |
+| Named data sources or systems feeding one shared layer that feeds named screens, products or teams | `architecture` | `architecture: { sources[], layer, views[] }` |
+| Progressive loss or filtering across 3-5 stages (applicants to hires, visitors to donors) | `funnel` | `funnel[]` |
+| A hierarchy or foundation the rest depends on, narrowest first (3-5 levels) | `pyramid` | `pyramid[]` |
+| Containment: each layer encloses the next (2-4 rings, outermost first) | `nested` | `nested[]` |
+| Related mechanisms grouped under 1-2 headings, no order between them | `concept-cluster` | `clusters[]` |
 
 Across one deck, two infographics use two DIFFERENT families.
+
+The shape must carry the claim (the Gemini Notebook lesson, 2026-11-16): a reader should get the argument from
+the geometry before reading a word. Labels live INSIDE the shapes. A data or system architecture is NEVER a
+`flowchart`: a flowchart is for branching decisions, and drawing sources-to-views through it produced edge labels
+printed over other labels and several views crammed into one node.
+
+### architecture (2026-11-16)
+```json
+"architecture": {
+  "sources": [{ "name": "Ascend", "detail": "gifts, donors, affiliations" }],    // 2-7, the REAL system names, detail <=40 chars
+  "layer": { "name": "Governed data layer", "items": ["Match constituents on stable keys"] },  // 1-4 jobs, <=45 chars each
+  "views": [{ "name": "Leadership Pulse", "detail": "are we on track" }]          // 1-5, each screen or product its own box
+}
+```
+One box per source and per view: never merge several views into one node. Every name comes from the evidence.
+
+### funnel / pyramid
+`funnel: [{ "name": <stage, <=30 chars>, "detail": <what is lost or filtered here, <=80 chars> }]`, widest first;
+`pyramid: [...]` the same shape, narrowest (top) first. 3-5 entries.
+
+### nested
+`nested: [{ "name": <ring, <=40 chars> }]`, outermost first, the last entry is the core. 2-4 entries.
+
+### concept-cluster
+`clusters: [{ "heading": <group name>, "nodes": [{ "name", "detail" }] }]`, 1-2 groups, 3-8 nodes in all.
 
 ## Per-family depth contracts
 

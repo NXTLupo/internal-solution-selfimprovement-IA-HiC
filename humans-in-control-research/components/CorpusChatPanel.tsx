@@ -65,6 +65,13 @@ import { detectDomain } from '../services/evidenceSlots';
 // DF-I1: project chat-generated artifacts so the autosave can persist them.
 import { projectDurableArtifacts, subscribeDurableArtifacts, adoptDurableSlides, slideBatchKey } from '../services/sessionService';
 import DynamicPromptChips from './DynamicPromptChips';
+// 2026-11-09 (owner: "All writing on all artifacts must leverage ANTI-AI SLOP patterned writing"):
+// the ONE writing contract, shared with the chat path so the two surfaces cannot drift apart.
+import { ANTI_SLOP_CONTRACT } from '../services/antiSlopContract';
+// 2026-11-09: 22 of 24 audited artifacts contained zero images because the prompt never asked.
+import { VISUAL_CONTRACT, renderArtifactVisuals } from '../services/artifactVisuals';
+// 2026-11-09 (owner): selectable professional imagery styles, shared by EVERY artifact.
+import { parseImageryStyle } from '../services/imageryStyles';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
 // 2026-05-23 - P2.5: FeedbackReceipt was imported but never rendered. The
@@ -324,16 +331,22 @@ const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> =
         const _raw = (cleanPrompt || ctx.researchGoal || 'Research finding').trim();
         const _am = _raw.match(/^\s*(landscape|portrait|square)\b[:,.\-]?\s*/i);
         const aspect = (_am ? _am[1].toLowerCase() : 'landscape') as 'landscape' | 'portrait' | 'square';
-        const topic = (_am ? _raw.slice(_am[0].length) : _raw).split(/\n/)[0].slice(0, 140).trim();
+        const _afterAspect = (_am ? _raw.slice(_am[0].length) : _raw).split('\n')[0];
+        // 2026-11-09 (owner): the reader picks the imagery style with one word.
+        const { style: _imgStyle, rest: _styleRest } = parseImageryStyle(_afterAspect);
+        const topic = _styleRest.slice(0, 140).trim();
         const frame = aspect === 'portrait' ? { w: 1080, h: 1920 } : aspect === 'square' ? { w: 1350, h: 1350 } : { w: 1920, h: 1080 };
 
         const { callAIWithRetry } = await import('../services/aiRetryClient');
         const sys = [
             'You design ONE infographic element from research evidence. Return ONLY a JSON object:',
             '{"title": "<complete-sentence judgment about the subject, at most 12 words, no figures>",',
-            ' "steps": [{"title": "<3-6 words>", "description": "<one plain sentence>"}] OR "before"/"after" objects OR "stats": [{"label": "<short>", "value": "<verbatim from a quoted corpus passage>"}],',
+            ' "steps": [{"title": "<3-6 words>", "description": "<one plain sentence>"}] OR "before"/"after" objects OR "stats": [{"label": "<short>", "value": "<verbatim from a quoted corpus passage>"}] OR "clusters": [{"heading": "<2-4 words>", "nodes": [{"name": "<3-6 words>", "detail": "<one plain sentence naming the mechanism>"}]}] OR "funnel": [{"name": "<3-6 words>", "detail": "<one plain sentence>"}] (a narrowing sequence where each stage removes some of what entered) OR "nested": [{"name": "<outermost>"}, ..., {"name": "<innermost core>"}] (containment: each layer encloses the next),',
             ' "citations": ["<bracketed corpus token copied character for character>"]}',
-            'Pick the ONE family the corpus best supports (4-6 steps, or a before/after pair, or 3-5 stats).',
+            'Pick the ONE family the corpus best supports (4-6 steps, or a before/after pair, or 3-5 stats, or 1-2 clusters of 2-4 related mechanisms, or 3-5 funnel stages, or 2-4 nested layers).',
+            'CHOOSE FUNNEL when the evidence describes PROGRESSIVE LOSS: a population entering a process and a smaller one leaving it (screening, eligibility, adoption, attrition). The shape itself carries the claim, so do not also write the word funnel in the title.',
+            'CHOOSE NESTED when the evidence describes CONTAINMENT: one thing sitting inside another (a record inside a service inside an institution, a permission inside a scope).',
+            'CHOOSE CLUSTERS when the corpus supports several RELATED mechanisms with no order between them (an operating model, a set of controls, the parts of an architecture). Steps assert a sequence, so using steps for unordered items draws arrows the evidence does not support.',
             'A stat value exists ONLY where a corpus passage carries it verbatim; with no such passages, use steps or a comparison instead. Plain business language, named actors, no metaphors.',
             'SUBJECT DISCIPLINE (HARD): the title and every field are about the SUBJECT, never about the corpus, the evidence, the data or its availability ("The provided corpus contains no evidence..." is an instant failure). When the material is thin, derive general steps the subject itself implies and keep the title a plain judgment about the subject.',
         ].join('\n');
@@ -353,22 +366,80 @@ const UPLIFT_HANDLERS: Record<string, (a: UpliftArgs) => Promise<UpliftBuilt>> =
         const { infographicSpecFrom } = await import('../services/artifactIllustrator');
         // Deterministic subject-discipline net: a title about the corpus/evidence never ships;
         // the user's own subject line stands in (prompt rules can be bypassed; this cannot).
-        const _metaTitle = /\b(corpus|evidence|data|sources?)\b.{0,40}\b(contains?|provides?|lacks?|carries|is (?:thin|limited|unavailable)|no evidence|not (?:carry|contain))|\bno (?:evidence|data|sources?)\b/i;
+        // 2026-11-09 widened after the owner surfaced a shipped exhibit titled "The provided
+        // corpus contains no evidence regarding student permission ladders": the first clause
+        // caught that, but near misses ("the corpus cannot substantiate", "the material does not
+        // establish", "insufficient data to") slipped through. A title about what the research
+        // lacks is never a title about the subject.
+        const _metaTitle = /\b(corpus|evidence|data|sources?|material|research|findings?)\b.{0,40}\b(contains?|provides?|lacks?|carries|supports?|establishes?|substantiates?|is (?:thin|limited|unavailable|insufficient)|no evidence|(?:does |do |can)?not (?:carry|contain|support|establish|substantiate|show))|\bno (?:evidence|data|sources?)\b|\b(?:insufficient|limited|inconclusive|unavailable)\s+(?:evidence|data|sources?|material)\b|\b(?:cannot|can't|could not|unable to)\s+(?:substantiate|establish|confirm|verify|determine)\b/i;
         const _rawTitle = String(el?.title || '').trim();
         const title = (_rawTitle && !_metaTitle.test(_rawTitle) ? _rawTitle : topic).slice(0, 110);
         let spec = el ? infographicSpecFrom(el, title) : null;
         let receipt: string | undefined;
         if (!spec) {
-            // Content-true fallback: the session's own theme names as a process row.
+            // 2026-11-09: the fallback used to map theme names straight into a PROCESS ROW, which
+            // numbered unordered themes 01-05 and repeated one idea five times in slightly
+            // different words. It now de-duplicates by meaning and draws a concept cluster, which
+            // asserts no order. Fewer than three distinct ideas produces no exhibit at all.
+            const { themeClusterSpecFrom } = await import('../services/artifactIllustrator');
             const themeNames = (Array.isArray((ctx as any).themes) ? (ctx as any).themes : [])
-                .map((t: any) => String(t?.name || t?.title || '').trim()).filter(Boolean).slice(0, 5);
-            if (themeNames.length >= 3) {
-                spec = infographicSpecFrom({ steps: themeNames.map((n: string) => ({ title: n })) }, title);
-                receipt = 'The corpus gave no structurable element for this subject, so the infographic shows the session themes instead.';
+                .map((t: any) => String(t?.name || t?.title || '').trim()).filter(Boolean).slice(0, 12);
+            const fallback = themeClusterSpecFrom(themeNames);
+            if (fallback) {
+                spec = fallback;
+                receipt = 'Drawn from the session themes for this subject.';
             }
         }
         if (!spec) throw new Error('No structurable substance for an infographic: run after themes exist, or name a process, comparison, or quoted figures in the prompt.');
         (spec as any)['frame'] = frame;
+
+        // 2026-11-09 OWNER DIRECTIVE, supersedes the earlier glyph-only rule for this artifact:
+        // "#infographics requires images/graphics! NOT JUST GLYPHS AND ICONS" and "whatever the
+        // Gemini notebook artifact has that ours lacks MUST BE INCLUDED IN OURS". Gemini's
+        // infographic draws illustrated artwork per node; HiC drew a 40px line glyph. So every
+        // node now gets a generated brand illustration, built from THAT NODE'S OWN WORDS so the
+        // artwork stays content-true. Best-effort per node: an image that fails leaves the card
+        // on its glyph rather than failing the exhibit.
+        let _artCount = 0;
+        // Every exhibit family that can carry artwork contributes its elements here: cluster nodes,
+        // funnel/pyramid stages, nested layers and process steps. 2026-11-09 (owner: the exhibit
+        // "does not yet have the illustrative richness of the Gemini reference").
+        const _artNodes: any[] = ([] as any[]).concat(
+            Array.isArray((spec as any).groups)
+                ? (spec as any).groups.flatMap((g: any) => Array.isArray(g?.nodes) ? g.nodes : [])
+                : [],
+            Array.isArray((spec as any).stages) ? (spec as any).stages : [],
+            Array.isArray((spec as any).layers) ? (spec as any).layers : [],
+            Array.isArray((spec as any).steps) ? (spec as any).steps : [],
+        );
+        if (_artNodes.length > 0) {
+            await Promise.all(_artNodes.slice(0, 8).map(async (n: any) => {
+                const conceptText = [String(n?.name || n?.title || '').trim(), String(n?.detail || n?.description || '').trim()]
+                    .filter(Boolean).join('. ').slice(0, 300);
+                if (!conceptText) return;
+                try {
+                    const ir = await fetch(`${UPLIFT_PROXY_BASE}/api/ai/illustration`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            concept: conceptText,
+                            brand: String(brand || 'nxt').toLowerCase(),
+                            canvas: 'light',
+                            slot: 'side',
+                            style: _imgStyle.id,
+                            literal: true,
+                        }),
+                    });
+                    if (!ir.ok) return;
+                    const ij = await ir.json();
+                    const art = (typeof ij?.dataUri === 'string' && ij.dataUri)
+                        ? ij.dataUri
+                        : (typeof ij?.url === 'string' && ij.url ? `${UPLIFT_PROXY_BASE}${ij.url}` : '');
+                    if (art) { n.image = art; _artCount += 1; }
+                } catch { /* a card without artwork still renders */ }
+            }));
+            console.log(`[#infographic] node artwork: ${_artCount}/${_artNodes.length}`);
+        }
 
         const resp = await fetch(`${UPLIFT_PROXY_BASE}/api/ai/diagram`, {
             method: 'POST',
@@ -5464,6 +5535,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
     const handleExportDeckPDF = useCallback(async () => {
         if (slides.length === 0) return;
+        // 2026-11-16 (the html2canvas capture painted brand web fonts in a fallback face at the brand font's
+        // positions, so words collided): the proxy renders every slide's #stage HTML in Chromium into one PDF
+        // with real, selectable text. The capture below stays only as the fallback.
+        try {
+            const { slideDataToStageHtml, deckPositions } = await import('../services/slideToStageHtml');
+            const { exportGoldImage } = await import('../services/goldArtifact');
+            const pos = deckPositions(slides as any[]);
+            const list = slides.map((s, i) => { try { return slideDataToStageHtml(s as any, pos[i]); } catch { return ''; } }).filter(Boolean);
+            if (list.length) {
+                await exportGoldImage(list, 'pdf', `deck_${new Date().toISOString().split('T')[0]}_${list.length}_slides.pdf`);
+                return;
+            }
+        } catch (e) {
+            console.error('[Deck PDF] proxy export failed; falling back to the in-browser capture', e);
+        }
         // Capture each slide's DOM (rendered in the chat) and compose into a multi-page PDF.
         // Each slide element has id `slide-capture-{id}` set below.
         try {
@@ -6486,11 +6572,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const _qualityType = (directive.generator === '#report' || directive.generator === '#whitepaper')
                     ? 'STRATEGIC_REPORT'
                     : (directive.generator === '#prd' ? 'PRD' : 'HTML_DOCUMENT');
-                const [vsResp, htmlResp, qualityResp] = await Promise.all([
+                // 2026-11-09: the chain hardcoded `html-deliverable-composer` and IGNORED the
+                // catalog entry's own ownerSkill, so #report and #dossier never loaded
+                // `strategic-report-writer` and #questionnaire never loaded its author skill. The
+                // owner skill now loads beside the generic composer whenever it differs.
+                const _ownerSkill = catalogEntryFor(directive.generator)?.ownerSkill || '';
+                const [vsResp, htmlResp, qualityResp, ownerResp] = await Promise.all([
                     fetch('/skills/verbalized-sampling/SKILL.md').then(r => r.ok ? r.text() : ''),
                     fetch('/skills/html-deliverable-composer/SKILL.md').then(r => r.ok ? r.text() : ''),
                     loadComposedQualitySkills(_qualityType).catch(() => ''),
+                    (_ownerSkill && _ownerSkill !== 'html-deliverable-composer')
+                        ? fetch(`/skills/${_ownerSkill}/SKILL.md`).then(r => r.ok ? r.text() : '').catch(() => '')
+                        : Promise.resolve(''),
                 ]);
+                if (ownerResp.length > 0) console.log(`[${directive.generator}] Loaded owner skill ${_ownerSkill} SKILL.md (${ownerResp.length} chars)`);
+                else if (_ownerSkill && _ownerSkill !== 'html-deliverable-composer') console.warn(`[${directive.generator}] owner skill "${_ownerSkill}" is declared in the catalog but no SKILL.md could be read; it contributes nothing.`);
                 if (htmlResp.length > 0) console.log(`[${directive.generator}] Loaded html-deliverable-composer SKILL.md (${htmlResp.length} chars)`);
                 if (vsResp.length > 0) console.log(`[${directive.generator}] Loaded verbalized-sampling SKILL.md (${vsResp.length} chars)`);
                 if (qualityResp.length > 0) console.log(`[${directive.generator}] Loaded quality-skill composition ${_qualityType} (${qualityResp.length} chars)`);
@@ -6594,9 +6690,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     '#faq': 'Produce an FAQ DOCUMENT answering the questions the corpus can actually settle about the subject. 12-20 question/answer pairs grouped under 3-5 thematic section headings. Each question is a real stakeholder question in plain words (who/what/why/how), never a topic label. Each answer is 2-5 sentences, declarative, grounded: every evidence sentence carries its corpus pointer, and at least half the answers include a verbatim cited quote from a named source. Order sections from orientation questions to decision questions. If the corpus cannot answer a candidate question, omit that question entirely and silently. Primary VS layer: question taxonomy - enumerate 5 grouping schemes (by stakeholder, by lifecycle stage, by decision, by objection, by system) and commit.',
                     '#studyguide': 'Produce a STUDY GUIDE for someone who must master this corpus. Structure: (1) a one-paragraph orientation stating what the material covers and the single most important judgment it supports; (2) 4-7 topic modules, each with: the core idea in 2-4 sentences, 3-6 key terms each defined in one plain sentence, one verbatim cited quote that anchors the module, and 2-3 self-check questions WITH model answers inside a <details><summary>Answer</summary>...</details> reveal; (3) a closing synthesis module connecting the topics into one argument. Every evidence sentence carries its corpus pointer. Qualitative language only; numbers appear only inside cited quotes. Primary VS layer: module sequence - enumerate 5 orderings (chronological, foundational-to-advanced, problem-to-solution, actor-centered, system-centered) and commit.',
                     '#chronology': 'Produce a SOURCE CHRONOLOGY: a dated timeline of events drawn FROM the corpus, never a forward-looking plan. 10-25 entries in strict date order, each entry: the date exactly as the cited chunk provenance or chunk text states it (year, month-year, or full date; never invented precision), a one-sentence event statement naming the actor and the action, and the corpus pointer. Where sources disagree on a date, keep both with their citations. Group entries under 3-6 era headings whose titles state what changed in that era. Lay the entries out as a vertical timeline (CSS border-left rail with date markers, no SVG). Entries whose date cannot be established from a cited chunk are omitted. Primary VS layer: era segmentation.',
-                    '#flashcards': 'Produce a FLASHCARD SET for active recall over this corpus. 16-30 cards grouped under 3-5 topic headings. Each card is a <details> element: the <summary> face carries the prompt (a term to define, a question to answer, or a claim to evaluate), the body carries the answer in 1-3 plain sentences plus the corpus pointer that grounds it, and, where a verbatim quote IS the best answer, the quote with its named source. Mix card types: term-definition, question-answer, who-said-this quote attribution, and claim-evaluation. Face text never gives away the answer. Card bodies are grounded; a card the corpus cannot answer is omitted. Style the summary faces as tactile cards (border, radius 2-4px, pointer cursor, generous padding). Primary VS layer: card-type mix.',
+                    '#flashcards': 'Produce a FLASHCARD SET for active recall over this corpus. 16-30 cards grouped under 3-5 topic headings. Each card is a <details> element: the <summary> face carries the prompt (a term to define, a question to answer, or a claim to evaluate), the body carries the answer in 1-3 plain sentences plus the corpus pointer that grounds it, and, where a verbatim quote IS the best answer, the quote with its named source. Mix card types: term-definition, question-answer, who-said-this quote attribution, and claim-evaluation. Face text never gives away the answer. Card bodies are grounded; a card the corpus cannot answer is omitted. Style the summary faces as tactile cards (border, radius 2-4px, pointer cursor, generous padding). STUDY MECHANICS (2026-11-09 parity, required and the ONLY thing you add for it): give every card <details> a unique data-card attribute, for example <details data-card="c1">. Write NO buttons, NO progress bar and NO script for study mode: the runtime synthesizes all of it from those ids. Primary VS layer: card-type mix.',
                     '#quiz': 'Produce a KNOWLEDGE QUIZ over this corpus. 10-16 multiple-choice questions grouped under 2-4 section headings, ordered easy to hard. Each question: a plain-words stem about the subject (never "according to the corpus"), four options labeled A-D with exactly one correct, and a <details><summary>Answer</summary>...</details> reveal containing the correct letter, a 1-3 sentence explanation of WHY it is correct, the corpus pointer that grounds it, and one sentence on why the strongest distractor is wrong. Distractors are plausible and drawn from real adjacent facts in the corpus, never absurd. A question the corpus cannot ground is omitted. Primary VS layer: cognitive-level mix (recall / comprehension / application / analysis) - state the mix and commit.',
                     '#datatable': 'Produce an EVIDENCE DATA TABLE: structured comparison extracted across the corpus. First, VS-enumerate 5 candidate table shapes (entities x attributes) that the corpus can actually populate - e.g. vendors x capabilities, stakeholders x concerns, systems x integration status, initiatives x outcomes - and commit to the one with the densest evidence. Then emit: a one-paragraph lead stating the judgment the table supports; ONE primary HTML table, 4-12 rows x 3-7 columns, header row + row-label column, every cell either a short grounded phrase or a verbatim cited fragment, and a final Sources column carrying the corpus pointer(s) per row; below the table, 3-5 reading notes stating the pattern each notable row or column shows. Cells the corpus cannot fill read "not evidenced" (plain, lowercase), never a guess. No fabricated values; numbers only inside cited quotes.',
+                    '#dossier': 'Produce an EVIDENCE DOSSIER: a strategic report that carries the supporting artifacts inside it. Length 1200-2500 words of visible prose AROUND the embedded artifacts. Structure: (1) a diagnostic action-title and a 150-250 word verdict stating what the body of evidence establishes and the decision it supports; (2) 3-5 argument sections, each stating one claim with its corpus pointers and at least one verbatim cited quote, and each introducing then embedding the ONE gallery artifact that carries its proof (write the introduction first, stating what the reader should take from the artifact, then the embed directive on its own line); (3) a closing section naming what to do next and what would change the recommendation. The embedded artifacts are evidence the reader can inspect, so the prose never repeats their contents cell by cell: it states what they show and why it matters. Never describe the embedding itself, never write "embedded below", "the table below", "as shown", or any reference to the document mechanics; introduce the artifact by what it establishes. Every figure rides inside a cited quote. Primary VS layer: the argument sequence - enumerate 5 orderings and commit.',
+                    '#blogpost': 'Produce a BLOG POST: the readable register, not a loosened evidence standard. Length 900-1600 words of visible prose. Structure: (1) an opening that states the judgment in the first two sentences, grounded in a concrete situation a named actor faces, never a question, never a scene-setter, never "imagine"; (2) 3-5 body sections under short plain subheadings, each advancing one claim with its corpus pointer and at least one verbatim cited quote; (3) a closing that names what the reader should do or watch, stated as a judgment rather than a summary. Register rules: shorter paragraphs (2-4 sentences), second person allowed when addressing the reader directly, contractions allowed, one concrete worked example preferred over abstraction. HARD LIMITS, unchanged from every other artifact: every evidence sentence carries its pointer; numbers appear ONLY inside cited quotes with attribution; no greeting, no "in this post", no reference to the post itself or to the research process; no rhetorical questions as transitions; no "not just X, it is Y" parallelism; no triads; no hook-and-tease openings. The readable register means plain sentences a person would say out loud, NOT marketing voice. Primary VS layer: the opening judgment - enumerate 5 candidate first sentences (the mechanism, the actor, the consequence, the contrast, the stake) and commit to one.',
                     '#critique': 'Produce an EVIDENCE CRITIQUE of the corpus material on this subject: where the sources are strong, where they are weak, and what a decision-maker should trust. Structure: (1) a verdict paragraph stating what the body of evidence does and does not establish; (2) STRENGTHS - 3-5 named convergences, each citing at least two INDEPENDENT sources (different authors or organizations) with pointers; (3) WEAKNESSES - 3-6 specific failures, each naming the source and the defect (single-origin claim repeated across outlets, correlation stated as causation, vendor self-report, stale date, population mismatch), each with its pointer; (4) CONTESTED GROUND - claims where sources disagree, both sides quoted with citations; (5) WHAT TO TRUST - a closing ranking of which findings are decision-grade and which need verification. The critique targets the SOURCES, never the research process or the corpus apparatus; name authors, outlets, and documents. Primary VS layer: critique framework.',
                     '#approaches': `Produce a NATIVE VS-MULTI approach picker. Generate exactly 6 distinct approaches in a 2×3 HTML grid: row 1 = 3 Defensible Consensus approaches (probabilities in full distribution), row 2 = 3 Non-Obvious Bets (probability < 0.05, explicitly distinct from row 1 by named axis: persona, mechanism, data source, temporal scope, or metaphor). Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. The two rows are visually differentiated (chartreuse-bordered consensus, cyan-bordered bets).`,
                 };
@@ -6621,7 +6719,28 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     'TITLES AND CHROME (2026-11-09 QA). A heading carries neither a figure nor a citation: the title states the judgment, the body sentence carries the evidence. Never render a Confidence column, confidence rating, verdict-strength label, or any epistemic bookkeeping as visible content, in tables included. When restating a named study\'s numbers, quote the study\'s sentence verbatim so the figures ride inside the quotation marks; a paraphrase that keeps the numbers is a violation. Never paste a source sentence as your own unquoted prose.',
                 ].join('\n');
 
-                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== DERIVED THEME OUTLINE (${themesArr.length} themes; an outline aid, NOT citable; cite CORPUS pointers only) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== EVIDENCE CONTRACT (binding on every sentence; checked deterministically after generation) ===\n${evidenceContract}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content: the artifact's <main> content. Do NOT wrap in <html>/<head>/<body>. Do NOT emit any footer, button, "Copy as prompt", "Save as PDF", "Open in chat", export bar, "Generation audit", verbalized-sampling commentary, artifact metadata, JSON script, or run / version chrome: the runtime owns every one of those and strips any you write. Put the <vs_thinking> block FIRST (it is removed before render), then the document, and nothing after the document.`;
+                // 2026-11-09 (closeout plan WS-B1): #dossier is the only directive that may embed
+                // artifacts already in the gallery, so it is the only one that gets their slugs.
+                // The model picks which to embed and where; services/dossierEmbed.ts resolves the
+                // directives deterministically after generation, so an invented slug cannot leak.
+                let galleryBlock = '';
+                if (directive.generator === '#dossier') {
+                    try {
+                        const { listArtifacts: _listGallery } = await import('../services/artifactLibrary');
+                        const _lib = await _listGallery();
+                        const _rows = (_lib?.results || [])
+                            .filter(r => r?.slug && r.slug !== 'index')
+                            .slice(0, 24)
+                            .map(r => `- ${r.slug} | ${r.generator || 'artifact'} | ${(r.title || '').slice(0, 80)}`);
+                        galleryBlock = _rows.length > 0
+                            ? `\n\n=== ARTIFACTS AVAILABLE TO EMBED (gallery; use the EXACT slug) ===\n${_rows.join('\n')}\nEmbed with a directive on its own line: [[embed:<slug>]]. Embed 2-4 of these, each placed in the section whose argument it supports, and introduce each one in the prose BEFORE the directive (state what the reader should take from it). Never invent a slug; never write the slug in visible text.`
+                            : '\n\n=== ARTIFACTS AVAILABLE TO EMBED ===\nNone are saved yet, so write the document as a standalone report with no embed directives.';
+                    } catch {
+                        galleryBlock = '';
+                    }
+                }
+
+                const userPayload = `USER REQUEST (verbatim - this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped - refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}${galleryBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== DERIVED THEME OUTLINE (${themesArr.length} themes; an outline aid, NOT citable; cite CORPUS pointers only) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== EVIDENCE CONTRACT (binding on every sentence; checked deterministically after generation) ===\n${evidenceContract}\n\n${ANTI_SLOP_CONTRACT}\n\n${VISUAL_CONTRACT}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content: the artifact's <main> content. Do NOT wrap in <html>/<head>/<body>. Do NOT emit any footer, button, "Copy as prompt", "Save as PDF", "Open in chat", export bar, "Generation audit", verbalized-sampling commentary, artifact metadata, JSON script, or run / version chrome: the runtime owns every one of those and strips any you write. Put the <vs_thinking> block FIRST (it is removed before render), then the document, and nothing after the document.`;
 
                 // Phase 1.4 (intent-realization-plan) - this artifact/hashtag path
                 // previously BYPASSED loadGenerationContext: framework spec, anti-
@@ -7017,6 +7136,86 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                     _htmlCoverageLines = _cov.lines;
                 }
 
+                // 2026-11-09 (closeout plan WS-B1): resolve #dossier embeds AFTER the claim chain and
+                // the coverage appendix, never before. Each embedded artifact was already gated when it
+                // was generated, so re-running the gate over inlined content would re-judge settled
+                // evidence and let an embedded <h1> hijack this document's title.
+                let _dossierEmbedLine = '';
+                if (directive.generator === '#dossier') {
+                    try {
+                        const { resolveDossierEmbeds, DOSSIER_EMBED_STYLES } = await import('../services/dossierEmbed');
+                        const { getArtifact: _getGalleryArtifact } = await import('../services/artifactLibrary');
+                        const _res = await resolveDossierEmbeds(htmlBody, async (slug) => {
+                            const a = await _getGalleryArtifact(slug);
+                            return a ? { slug: a.slug, title: a.title, generator: a.generator, html_source: a.html_source } : null;
+                        });
+                        htmlBody = _res.embedded.length > 0
+                            ? `<style>${DOSSIER_EMBED_STYLES}</style>\n${_res.html}`
+                            : _res.html;
+                        _dossierEmbedLine = _res.embedded.length > 0
+                            ? `embedded ${_res.embedded.length} artifact${_res.embedded.length === 1 ? '' : 's'}`
+                            : 'no artifacts embedded';
+                        if (_res.missing.length > 0) _dossierEmbedLine += `, ${_res.missing.length} requested slug${_res.missing.length === 1 ? '' : 's'} not in the gallery`;
+                        console.log(`[#dossier] embeds: ${_dossierEmbedLine} (embedded=${_res.embedded.join(',') || 'none'}; missing=${_res.missing.join(',') || 'none'})`);
+                    } catch (e: any) {
+                        console.warn('[#dossier] embed resolution failed; the report ships as standalone prose:', e?.message || e);
+                    }
+                }
+
+                // 2026-11-09 (closeout plan WS-D1): the flashcard study engine is injected by CODE,
+                // after every gate, so a deck behaves identically on every run. The model only emits
+                // the markup contract. Safe to call on any artifact: it no-ops unless the contract
+                // is present, and it is idempotent so a #refine pass cannot stack two engines.
+                // 2026-11-09 OWNER DIRECTIVE, applied to EVERY artifact: 22 of 24 audited artifacts
+                // contained ZERO images because the prompt never asked for one and the chain had no
+                // step that could make one. The model now places [[visual: ...]] directives (see the
+                // VISUAL CONTRACT in the payload) and they are rendered HERE, after every gate, so
+                // the pictures cannot be re-judged as prose or swallow a citation chip. The reader's
+                // chosen imagery style rides each call; a figure that cannot be drawn is removed.
+                let _visualLine = '';
+                try {
+                    const { style: _artStyle } = parseImageryStyle(directive.topic || '');
+                    const _vis = await renderArtifactVisuals(htmlBody, async (concept) => {
+                        const r = await fetch(`${UPLIFT_PROXY_BASE}/api/ai/illustration`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                concept,
+                                brand: String(directive.brand || 'nxt').toLowerCase(),
+                                canvas: 'light',
+                                slot: 'side',
+                                style: _artStyle.id,
+                                literal: true,
+                            }),
+                        });
+                        if (!r.ok) return '';
+                        const j = await r.json();
+                        return (typeof j?.dataUri === 'string' && j.dataUri)
+                            ? j.dataUri
+                            : (typeof j?.url === 'string' && j.url ? `${UPLIFT_PROXY_BASE}${j.url}` : '');
+                    });
+                    if (_vis.requested > 0) {
+                        htmlBody = _vis.html;
+                        _visualLine = `${_vis.rendered}/${_vis.requested} visual(s) in ${_artStyle.id} style`;
+                        console.log(`[${directive.generator}] artifact visuals: ${_visualLine}`);
+                    }
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] artifact visuals skipped:`, e?.message || e);
+                }
+
+                let _studyEngineLine = '';
+                try {
+                    const { injectFlashcardStudyEngine } = await import('../services/flashcardStudyEngine');
+                    const _fc = injectFlashcardStudyEngine(htmlBody);
+                    if (_fc.injected) {
+                        htmlBody = _fc.html;
+                        _studyEngineLine = `${_fc.cards} cards trackable`;
+                        console.log(`[${directive.generator}] study engine injected over ${_fc.cards} cards`);
+                    }
+                } catch (e: any) {
+                    console.warn(`[${directive.generator}] study engine injection skipped:`, e?.message || e);
+                }
+
                 // Derive a slug + title. Title = first <h1> if present, else the topic.
                 // 2026-07-02 live-defect fix: the old hard .slice(0,120) cut mid-word
                 // ("...lenders price smallh") and stripTags never decoded entities, so a
@@ -7061,7 +7260,7 @@ SUBJECT DISCIPLINE (HARD, 2026-08-13 live defect): the artifact is about its SUB
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
                     model: _lastServedModel as any,
-                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Claim check: ${_htmlChainSummary}. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.${_htmlCoverageLines.length ? `\n\n${_htmlCoverageLines.join('\n')}` : ''}`,
+                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Claim check: ${_htmlChainSummary}.${_dossierEmbedLine ? ` Embeds: ${_dossierEmbedLine}.` : ''}${_studyEngineLine ? ` Study mode: ${_studyEngineLine}.` : ''}${_visualLine ? ` Imagery: ${_visualLine}.` : ''} Run \`#refine ${saved.slug}: <your tweak>\` to iterate.${_htmlCoverageLines.length ? `\n\n${_htmlCoverageLines.join('\n')}` : ''}`,
                     artifactUrl: `http://127.0.0.1:5012${saved.view_url}`,
                     artifactMeta: {
                         slug: saved.slug,

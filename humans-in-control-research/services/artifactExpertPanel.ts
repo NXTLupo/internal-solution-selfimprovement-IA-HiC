@@ -695,6 +695,8 @@ export async function runExpertPanel<T>(opts: ExpertPanelOpts<T>): Promise<Exper
  * new structure with banned glyphs removed. Layout glyphs (U+25xx bullets,
  * U+21xx arrows) are preserved. */
 const _EMOJI_RE_INPLACE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
+/** Non-global twin: `test` on a /g regex is stateful and would skip every other call. */
+const _EMOJI_PRESENT_INPLACE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/u;
 export function stripEmDashesInPlace<T>(obj: T): T {
     if (obj === null || obj === undefined) return obj;
     if (typeof obj === 'string') {
@@ -708,7 +710,14 @@ export function stripEmDashesInPlace<T>(obj: T): T {
         // (.claude/CLAUDE.md: "ASCII hyphens in compound words remain fine"). Mirror
         // the proxy's proven-clean rules: spaced em/en-dash -> ", "; word-joined ->
         // ASCII hyphen; any remaining -> ", ". NEVER touch the ASCII hyphen.
-        return (obj as string)
+        // 2026-11-09: the tidy on the last two lines cleans up after THIS function's own deletions.
+        // It used to run unconditionally, so a string with no dash and no emoji still came back
+        // changed, and on an artifact's `html` field that rewrote every descendant CSS selector
+        // (`.chron .era` -> `.chron.era`, which matches nothing) and shipped the document unstyled.
+        // A string with nothing to strip now returns byte-identical.
+        const s = obj as string;
+        if (!/[—–]/.test(s) && !_EMOJI_PRESENT_INPLACE.test(s)) return obj;
+        return s
             .replace(/\s+[—–]\s+/g, ', ')
             .replace(/(\w)[—–](\w)/g, '$1-$2')
             .replace(/[—–]/g, ', ')

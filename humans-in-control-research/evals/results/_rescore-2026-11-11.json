@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-11T14:47:09.021976Z",
+  "finished_at": "2026-11-11T14:47:39.608141Z",
+  "window_hours": 24.0,
+  "artifacts": 0,
+  "failures": 0,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "hook-roadmap-1794408459",
+      "hook-brief-1794408459",
+      "hook-persona-1794408459",
+      "hook-gap-analysis-1794408459",
+      "hook-case-study-1794408459",
+      "hook-recommendation-1794408459",
+      "hook-strategy-1794408459",
+      "auditor-mindmap-1794408459",
+      "auditor-brief-1794408459",
+      "auditor-deep-research-1794408459",
+      "auditor-meta-themes-1794408459"
+    ],
+    "skipped_existing": 245,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 1171,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": []
+}

@@ -459,8 +459,8 @@ export const AnalysisForm = ({
                     className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
                     style={{ backgroundColor: '#ffffff' }}
                   >
-                    <option value="deepseek-r1">DeepSeek-R1</option>
-                    <option value="openai-4">OpenAI-4o(default)</option>
+                    <option value="claude-opus-5-5">Claude Opus 5.5 (default)</option>
+                    <option value="openai-4">OpenAI GPT-4o</option>
                   </select>
                 </div>
 

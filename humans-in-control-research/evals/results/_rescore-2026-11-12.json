@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-11-12T15:33:05.780330Z",
+  "finished_at": "2026-11-12T15:33:41.194460Z",
+  "window_hours": 24.0,
+  "artifacts": 0,
+  "failures": 0,
+  "failure_threshold": 5,
+  "frontier_seeded": {
+    "created": [
+      "hook-recommendation-1794497620",
+      "hook-strategy-1794497620",
+      "auditor-mindmap-1794497621",
+      "auditor-brief-1794497621",
+      "auditor-deep-research-1794497621",
+      "auditor-meta-themes-1794497621"
+    ],
+    "skipped_existing": 250,
+    "refreshed_notes": [],
+    "errors": []
+  },
+  "judge_agreement": {
+    "labels": 1,
+    "verdicts": 1171,
+    "judges": {}
+  },
+  "epoch_proposal_id": null,
+  "failed": []
+}

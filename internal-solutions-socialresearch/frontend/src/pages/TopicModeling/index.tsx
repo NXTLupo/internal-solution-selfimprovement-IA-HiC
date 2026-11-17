@@ -391,6 +391,16 @@ function TopicModeling() {
     );
   }
 
+  // Post browser pre-filtered to this run: its keyword (the analyzed one, else the form's)
+  // and its date range, newest first
+  const browseParams = new URLSearchParams();
+  const browseKeyword = topicData?.keyword || formData.keyword;
+  if (browseKeyword) browseParams.set('q', browseKeyword);
+  if (formData.startDate) browseParams.set('start', formData.startDate);
+  if (formData.endDate) browseParams.set('end', formData.endDate);
+  const browsePostsUrl = `/reddit-browser/subreddit/${encodeURIComponent(formData.subreddit)}` +
+    (browseParams.toString() ? `?${browseParams.toString()}` : '');
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
       {/* Header */}
@@ -420,7 +430,7 @@ function TopicModeling() {
               <button
                 onClick={() => {
                   if (formData.subreddit) {
-                    navigate(`/reddit-browser/subreddit/${formData.subreddit}`);
+                    navigate(browsePostsUrl);
                   }
                 }}
                 disabled={!formData.subreddit}
@@ -511,6 +521,7 @@ function TopicModeling() {
             currentSubreddit={formData.subreddit}
             jobProgress={jobProgress}
             jobMessage={jobMessage}
+            matchingPostsUrl={formData.subreddit ? browsePostsUrl : undefined}
           />
         </ErrorBoundary>
       </div>

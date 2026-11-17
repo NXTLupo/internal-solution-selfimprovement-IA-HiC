@@ -276,11 +276,15 @@ def test_diagram_html_nxt_faces_unchanged():
     rules = doc.split("*{box-sizing", 1)[1]
     assert "'Archivo'" in rules and "'Saira Condensed'" in rules and "'NXT Mono'" in rules
     assert "'DECIEM Body'" not in rules and "'DECIEM Display'" not in rules and "'DECIEM Mono'" not in rules
-    assert "font-family:'Archivo';font-weight:700;font-size:33px" in doc
+    # 2026-11-09 FONT BUG FIX: the CSS used to request 'Archivo', a family @font-face never
+    # registered, so every NXT and NU exhibit fell back to the default serif. It now leads with the
+    # REGISTERED family and keeps the real font name as a fallback. This test pinned the bug.
+    assert "font-family:'NXT Title','Archivo'" in doc
+    assert "font-weight:700;font-size:33px" in doc
     assert "text-transform:none" not in doc
     info = ndr.diagram_html({"kind": "stat-row", "stats": [{"value": "Quote", "label": "Reddit r/SkincareAddiction"}],
                              "chrome": "none", "frame": {"w": 984, "h": 580}}, _pal())
-    assert "font-family:'Archivo',system-ui,sans-serif" in info
+    assert "font-family:'NXT Body','Archivo',system-ui,sans-serif" in info
     assert "__FBODY__" not in info and "__FTITLE__" not in info and "__FDISP__" not in info and "__FMONO__" not in info
 
 

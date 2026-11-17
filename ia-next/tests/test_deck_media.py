@@ -36,6 +36,10 @@ FINDINGS = [
 ]
 
 
+import base64 as _b64
+PNG = _b64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==')
+
+
 def _slide(layout, title, points=None, quote="", source_id="", cites=None, notes="Say the point plainly."):
     return {"layout": layout, "title": title, "points": points if points is not None else ["Firms prepare shortlists with AI", "Partners still judge finalists"],
             "quote": quote, "source_id": source_id, "cites": cites if cites is not None else ["S1"], "notes": notes}
@@ -149,32 +153,81 @@ def _write_research(eid):
             json.dump(data, fh)
 
 
+def _studio_slide(layout, title, **kw):
+    base = {"layout": layout, "kicker": "", "title": title, "subtitle": "", "takeaway": "Partners should decide where AI stops.",
+            "points": [], "cards": [], "table": {"columns": [], "rows": []}, "steps": [],
+            "arch": {"sources": [], "layer": {"name": "", "items": []}, "views": []},
+            "quote": "", "source_id": "", "cites": ["S1"], "image_prompt": "", "notes": "Say the point plainly."}
+    base.update(kw)
+    return base
+
+
 def test_deck_task_end_to_end_with_a_fake_model(monkeypatch):
+    """The Deck Studio: outline honoured, typed native layouts, pointers stripped, fabricated quote dropped, a bad title
+    repaired (never dropped), photos only in photo panels, every output under results/decks/<task id>/."""
+    from ia_next import deckstudio
     eid = store.create_engagement("Executive search", "How should search firms use AI in assessment?")
     _write_research(eid)
-    raw = _good_slides()
-    raw[2]["quote"] = "Partners hate every AI tool they have tried."           # fabricated: dropped
-    raw.insert(5, _slide("bullets", "Firms cut screening time by 40 percent"))   # digit: rewritten
-    raw[1]["points"] = ["Firms prepare shortlists with AI [S1]", "Partners \u2014 not software \u2014 judge finalists"]
+    raw = [
+        _studio_slide("cover", "Search firms split on letting AI judge finalists", subtitle="Clients pay for partner judgment.",
+                      takeaway="", image_prompt="partners reviewing a shortlist at a table"),
+        _studio_slide("cards", "Firms already use AI to prepare candidate shortlists", kicker="problem statement",
+                      subtitle="Sourcing tools draft the long list; partners still judge who reaches the client.",
+                      image_prompt="a recruiter's desk with a printed shortlist and a laptop",
+                      cards=[{"heading": "Sourcing is automated", "body": "Firms prepare shortlists with AI [articles/client-uploads/x.md#c0]."},
+                             {"heading": "Judgment is not", "body": "Partners \u2014 not software \u2014 judge finalists."}]),
+        _studio_slide("table", "Firms cut screening time by 40 percent",
+                      table={"columns": ["Stage", "AI role", "Partner role"],
+                             "rows": [["Sourcing", "Builds the long list", "Approves it"], ["Assessment", "Summarises interviews", "Judges finalists"]]}),
+        _studio_slide("quote", "Partners disagree on whether AI can assess finalists", quote="Partners hate every AI tool they have tried.",
+                      source_id="S1", points=["Clients expect human judgment."]),
+        _studio_slide("architecture", "One shared record feeds every partner view",
+                      arch={"sources": [{"name": "Applicant tracker", "detail": "candidates"}, {"name": "Interview notes", "detail": "assessments"}],
+                            "layer": {"name": "Shared candidate record", "items": ["Deduplicated profiles"]},
+                            "views": [{"name": "Partner shortlist", "detail": "finalists"}]}),
+    ]
+    seen = {}
 
     def fake(model, system, messages, ledger, **kw):
-        if kw["json_schema"] is deck.DECK_SCHEMA:
+        if kw["json_schema"] is deckstudio.SCHEMA:
+            seen["msg"] = messages[0]["content"]
             assert model == config.SEATS["artifact"]["primary"] and "<source id=\"S1\"" in messages[0]["content"]
-            return json.dumps({"deck_title": "Search firms and AI", "slides": raw}), None, None
-        return json.dumps({"titles": [{"index": 5, "title": "Firms screen candidates faster with AI shortlists"}]}), None, None
+            return json.dumps({"deck_title": "Search firms and AI", "answer": "AI prepares, partners judge.", "slides": raw}), None, None
+        return json.dumps({"titles": [{"index": 2, "title": "Firms screen candidates faster with AI shortlists"}]}), None, None
 
+    photos = []
     monkeypatch.setattr(providers, "claude", fake)
-    tid, _ = store.create_task(eid, "deck", {"audience": "managing partners"}, 1.0)
+    monkeypatch.setattr(providers, "openai_image", lambda model, prompt, ledger=None, size="1536x1024": (photos.append(prompt) or (PNG, None)))
+    tid, _ = store.create_task(eid, "deck", {"audience": "managing partners", "outline": ["Problem", "Roles table", "Tension", "Data flow"]}, 3.0)
     deck.run_deck_task(tid)
     t = store.get_task(tid)
     assert t["status"] == "done", t["error"]
-    assert t["nodes"][0]["state"] == "available" and t["nodes"][0]["result_path"].endswith("deck.pptx")
-    assert t["result_path"].endswith("deck.html")
-    data = json.load(open(store.safe_path(eid, "results/deck.json"), encoding="utf-8"))
-    assert data["dropped_quotes_not_in_source"] == 1 and data["titles_rewritten"] == 1 and len(data["slides"]) == 7
+    assert "OUTLINE (one slide per item" in seen["msg"] and "4. Data flow" in seen["msg"]
+    assert t["result_path"].endswith(f"results/decks/{tid}/deck.html") and t["nodes"][0]["result_path"].endswith(f"decks/{tid}/deck.pptx")
+    data = json.load(open(store.safe_path(eid, f"results/decks/{tid}/deck.json"), encoding="utf-8"))
+    assert [s["layout"] for s in data["slides"]] == ["cover", "cards", "table", "bullets", "architecture"]   # quote slide lost its fabricated quote
+    assert data["dropped_quotes_not_in_source"] == 1 and data["titles_rewritten"] == 1 and len(data["slides"]) == 5
+    assert data["slides"][2]["title"] == "Firms screen candidates faster with AI shortlists" and data["images"] == 2 and len(photos) == 2
+    assert "technical line illustration" in photos[1] and "technical line illustration" not in photos[0]   # cover photo, then the illustration
+    assert all("No text anywhere" in p for p in photos)
     text = json.dumps(data, ensure_ascii=False) + open(t["result_path"], encoding="utf-8").read()
-    assert "\u2014" not in text and "[S1]" not in data["slides"][1]["points"][0]
-    assert len(Presentation(t["nodes"][0]["result_path"]).slides) == 7
+    assert "\u2014" not in text and ".md#c0" not in text and data["slides"][1]["kicker"] == "PROBLEM STATEMENT"
+    prs = Presentation(t["nodes"][0]["result_path"])
+    assert len(prs.slides) == 5
+    pics = [sh for sl in prs.slides for sh in sl.shapes if sh.shape_type == 13]
+    assert len(pics) == 2 and {p.name for p in pics} == {"Photo"}
+    assert any(sh.has_table for sh in prs.slides[2].shapes)
+    cover = prs.slides[0]           # the title is the first shape and nothing full-slide is drawn over it
+    assert list(cover.shapes)[0] == cover.shapes.title and cover.shapes.title.text_frame.text.startswith("Search firms")
+    assert not [sh for sh in cover.shapes if sh.width >= prs.slide_width * 0.95 and sh.height >= prs.slide_height * 0.95]
+    assert any(sh.name == "Subtitle" for sh in prs.slides[1].shapes)
+
+
+def test_deck_label_and_layers_fallback():
+    from ia_next import deckstudio
+    assert deckstudio.label({"title": "01_Advancement_Farmers_Demo_Product_Brief.txt"}) == "Advancement Farmers Demo Product Brief"
+    s = deckstudio.normalize([{"layout": "layers", "title": "t", "layers": [{"label": "Only one", "body": "b"}]}], [])
+    assert s[0]["layout"] == "bullets"          # a stack needs three bands; too few falls back rather than render empty
 
 
 def test_deck_task_without_research_fails_clearly():
@@ -193,7 +246,7 @@ def test_start_deck_tool_validates_and_is_idempotent(monkeypatch):
     out = deck.execute("start_deck", {"engagement_id": eid, "audience": "partners"})
     assert out["task_id"] == "task_x" and started[0][2] == deck.DECK_BUDGET_USD
     assert started[0][3] == hashlib.sha256(json.dumps({"audience": "partners", "engagement_id": eid}, sort_keys=True).encode()).hexdigest()
-    assert deck.TOOLS[0]["strict"] and deck.TOOLS[0]["input_schema"]["required"] == ["engagement_id", "audience"]
+    assert deck.TOOLS[0]["strict"] and deck.TOOLS[0]["input_schema"]["required"] == ["engagement_id", "audience", "outline"]
 
 
 # ---- media: video needs approval, images run directly -----------------------------------------------

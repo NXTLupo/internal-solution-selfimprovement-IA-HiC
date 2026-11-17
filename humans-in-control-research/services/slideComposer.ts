@@ -2469,12 +2469,15 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
             { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
             { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
+            // 2026-11-16 (Gemini Notebook grammar, REA): a one-to-two-line explanatory SUBTITLE under the action
+            // title, so the exhibit reads on its own; absent subtitle renders nothing.
+            { x: 196, y: 196, w: 1600, color: 'body', font: 'body', size: SCALE.body, leading: 1.25, prose: true, payload: 'subtitle', fitH: 48 },
             // S5c FAIL-VISIBLE (2026-08-14, owner live deck shipped a white void):
             // the BASE spec renders the payload's OWN structured fields as native
             // text cards, so the zone is never empty; the native panel IMAGE is
             // the variant below (when exhibitImage fills, it replaces these).
             {
-                kind: 'columns', array: 'steps', count: 5, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 300, baseY: 250,
+                kind: 'columns', array: 'steps', count: 5, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 300, baseY: 262,
                 card: { y: 0, w: 300, h: 540, bg: 'ecru', rule: 4, ruleColor: 'accent' },
                 cells: [
                     { dx: 20, dy: 24, w: 260, color: 'accent', font: 'display', size: 'title', key: 'number' },
@@ -2483,7 +2486,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 ],
             },
             {
-                kind: 'columns', array: 'stats', count: 4, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 380, baseY: 250,
+                kind: 'columns', array: 'stats', count: 4, baseX: 196, pitchX: 0, fillW: 1622, gap: 24, w: 380, baseY: 262,
                 card: { y: 0, w: 380, h: 540, bg: 'ecru', rule: 4, ruleColor: 'accent' },
                 cells: [
                     { dx: 24, dy: 40, w: 330, color: 'accent', font: 'display', size: 'display', key: 'figure' },
@@ -2502,7 +2505,8 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
                 { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
                 { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
-                { kind: 'image', x: 196, y: 226, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
+                { x: 196, y: 196, w: 1600, color: 'body', font: 'body', size: SCALE.body, leading: 1.25, prose: true, payload: 'subtitle', fitH: 48 },
+                { kind: 'image', x: 196, y: 250, w: 1622, h: 600, payload: 'exhibitImage', fit: 'contain' },
                 { kind: 'rect', x: 196, y: 858, w: 1622, h: 100, color: 'accent' },
                 { x: 228, y: 878, w: 200, color: 'onAccent', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.85, upper: true, payload: 'takeaway.label' },
                 { x: 440, y: 876, w: 1340, color: 'onAccent', font: 'heading', size: SCALE.bodyReadable, weight: 700, leading: 1.2, payload: 'takeaway.statement', fitH: 68 },

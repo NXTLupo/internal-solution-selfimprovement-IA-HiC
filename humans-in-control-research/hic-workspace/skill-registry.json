@@ -414,8 +414,8 @@
    "model_invocable": true,
    "version": "1.1",
    "status": "active",
-   "sha": "043bd5df69561c5c",
-   "bytes": 40804,
+   "sha": "ccc0ad3a072f5e9a",
+   "bytes": 41762,
    "triggers": [
     "deck",
     "presentation",
@@ -882,8 +882,8 @@
    "model_invocable": true,
    "version": "1.0",
    "status": "active",
-   "sha": "37272dd84c7fba72",
-   "bytes": 5508,
+   "sha": "86ac438ef853538e",
+   "bytes": 6957,
    "surfaces": [
     "platform-agent"
    ],
@@ -919,8 +919,8 @@
    "model_invocable": false,
    "version": "1.0",
    "status": "active",
-   "sha": "82b87f1975c6eb2a",
-   "bytes": 6862
+   "sha": "2c4af0bdc59bc449",
+   "bytes": 9330
   },
   {
    "id": "journey-illustrator",

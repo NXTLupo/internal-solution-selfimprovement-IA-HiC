@@ -61,11 +61,36 @@ Binding rules:
 - EXEMPLAR topic cover: `16:7` - full-bleed dark; `DS/LogoMark 16:2` (wordmark, Saira Condensed
   600); cover-bg `DS/ImageSlot 16:4` (rect named `img-slot`, content-true topic image filled at
   runtime, ~28% opacity under text); kicker; title header (display tier); audience line.
+- COVER SUBTITLE (2026-11-09): under the deck title, ONE descriptive line naming what the deck
+  covers and for whom. Not a greeting, not "this deck", not a restatement of the title.
 - Deck body archetypes: the `slides:` registry (see slides-component-manifest.md) - diagram
   bricks canon: quadrant `4:2`, ranked-bars `4:29`, flow-arc `5:9`, milestone-timeline `5:42`,
   means-matters `6:15`, comparison-panels `6:32`. Chrome: `DS/SlideFrame 3:124`.
 - COMPONENTS: DS/Kicker `3:108` · DS/TakeawayBand `3:113` · DS/StatTile `3:115` ·
   DS/SourceLine `3:111` · DS/LogoMark `16:2` · DS/ImageSlot `16:4`.
+
+### IMAGERY IS MANDATORY on #slides (2026-11-09, owner directive; supersedes any earlier reading
+### that only the cover carries a visual)
+The owner's standard is the live Gemini Notebook deck, where EVERY slide carries artwork in ONE
+visual language. Measured against it, a HiC deck of text panels and a single cover image fails.
+- EVERY content slide carries a content-true visual: a generated brand illustration, a native
+  exhibit (journey / arch / mindmap / blueprint / concept-cluster), a photographic-lane image, or
+  a data graphic the slide's own numbers support. A text-only content slide is a defect unless
+  the slide is a deliberate section divider or the single THESIS slide.
+- ONE VISUAL LANGUAGE across the deck: the same illustration treatment, stroke weight and palette
+  on every slide. Mixing a line illustration, a photo and a flat diagram across three consecutive
+  slides reads as three decks stapled together.
+- DENSITY FLOOR: a content slide fills its frame. A panel holding one short line in a large empty
+  field is the sparse-panel defect the owner named; either the content grows to earn the frame or
+  the archetype changes to one that fits what the slide actually has.
+- NEVER at the cost of the structural advantage: the deck still exports as NATIVE EDITABLE PPTX
+  (real text frames and shapes, never full-slide rasters), every claim keeps its pointer citation,
+  and the claim-ledger and prose gates still run. Gemini's deck is 15 full-slide images with zero
+  text runs; matching its looks by rasterizing ours would trade the one thing it cannot do.
+- WRITING BAR UNCHANGED AND RESTATED: action titles carrying a judgment, the Quantitative Claim
+  Rule (numbers only inside cited quotes), the banned-phrase lexicon, the actor rule and the
+  semantic-coherence rule all bind on every slide. Visual rules relaxed here; writing rules did
+  not.
 
 ## #themes
 - COMPONENT: `DS/ThemeCard 17:43`, variants Layout=Spotlight `17:2` / Half `17:13` / Third

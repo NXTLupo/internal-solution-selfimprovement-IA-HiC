@@ -788,13 +788,30 @@ export function filterSourceList<T>(arr: T[]): T[] {
 // trailing whitespace the removal can leave (e.g. "Pong! " → "Pong!").
 const EMOJI_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu;
 
+/** Non-global twin of EMOJI_RE: `test` on a /g regex is stateful and would skip every other call. */
+const EMOJI_PRESENT_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{2B00}-\u{2BFF}\u{231A}-\u{231B}\u{23E0}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/u;
+
+/**
+ * 2026-11-09, THIRD site of the CSS-selector defect, and the reason to fix the primitive instead
+ * of the callers. The tidy below exists only to clean up after an emoji was removed, but it ran
+ * unconditionally, so every caller that passes a whole HTML document (`artifactChain.scrubStrings`
+ * walks every string in the artifact) rewrote `.chron .era` to `.chron.era`, which matches nothing.
+ * It uses ` +` and `[ \t]`, which is why the newline before each selector survived and the damage
+ * read as the model's own markup rather than as a scrub.
+ *
+ * Two guards now: a document with no emoji comes back byte-identical, and when an emoji IS present
+ * the tidy is kept off <style>, <script>, <pre> and <code>. Same discipline as `goldArtifact.ts`.
+ */
 export function stripEmoji(text: string): string {
     if (!text) return text;
-    let cleaned = text.replace(EMOJI_RE, '');
+    if (!EMOJI_PRESENT_RE.test(text)) return text;
+    const { masked, restore } = maskNonProseRegions(text);
     // Collapse the orphaned double-spaces / dangling space-before-punctuation
     // that emoji removal leaves behind, without touching newlines.
-    cleaned = cleaned.replace(/[ \t]{2,}/g, ' ').replace(/ +([.,;:!?])/g, '$1');
-    return cleaned;
+    const cleaned = masked.replace(EMOJI_RE, '')
+        .replace(/[ \t]{2,}/g, ' ')
+        .replace(/ +([.,;:!?])/g, '$1');
+    return restore(cleaned);
 }
 
 /**
@@ -812,14 +829,16 @@ export function stripEmoji(text: string): string {
 const PROVIDER_ARTIFACT_TAG_RE =
     /\[?\(?\s*(?:oaicite|oai_citation|contentReference|attached_file)(?::[\w\-\/]*(?:\.[\w\-\/]+)*)?\s*\]?\)?/gi;
 const TURN_SEARCH_TAG_RE = /\[?\(?\s*turn\d+(?:search|view|file)\d+\s*\]?\)?/gi;
+/** Same two guards as `stripEmoji`: no tag present means no rewrite, and CSS/JS is never touched. */
 export function stripProviderArtifactTags(text: string): string {
     if (!text) return text;
-    return text
+    if (!/oaicite|oai_citation|contentReference|attached_file|turn\d+(?:search|view|file)\d+/i.test(text)) return text;
+    const { masked, restore } = maskNonProseRegions(text);
+    return restore(masked
         .replace(PROVIDER_ARTIFACT_TAG_RE, ' ')
         .replace(TURN_SEARCH_TAG_RE, ' ')
-        .replace(/[ 	]{2,}/g, ' ')
-        .replace(/ +([.,;:!?])/g, '$1')
-        .trim();
+        .replace(/[ \t]{2,}/g, ' ')
+        .replace(/ +([.,;:!?])/g, '$1')).trim();
 }
 
 /** Combined hygiene: strip em-dashes, emoji AND provider artifact tags. Use at every text chokepoint. */
@@ -994,11 +1013,39 @@ const ARTIFACT_META_PHRASE_STRIPS: Array<[RegExp, string]> = [
     [/\b[Tt]his\s+(?:(?:strategic|strategy|comprehensive|consulting|executive|technical|final)\s+)?(?:product\s+requirements\s+document(?:\s*\(PRD\))?|PRD|document|strategy|roadmap|plan|assessment|deck|report|analysis|brief|artifact|whitepaper|white\s+paper|explainer|overview|synthesis|exhibit|presentation|paper)\s+(?:defines?|outlines?|presents?|provides?|covers?|describes?|lays?\s+out|sets?\s+out|maps?\s+out|details?|synthesi[sz]es|summari[sz]es|examines|explores|analy[sz]es|captures|consolidates|translates|documents|offers)\s+/g, ''],
 ];
 
+/**
+ * NON-PROSE REGIONS (2026-11-09, owner: "that file is still AI slop looking and not professional
+ * and lacks much graphical content", then "that black isometric stack is awful").
+ *
+ * Both complaints were ONE defect, and it was not a writing defect. The prose scrubs below are
+ * prose rules, and a <style> or <script> block is not prose. The space-before-punctuation tidy at
+ * the end of `scrubArtifactHtmlMeta` ran over the whole document, so every DESCENDANT CSS selector
+ * in a generated artifact lost its combinator: `.brief .stack` became `.brief.stack`, which means
+ * "an element carrying BOTH classes" and therefore matches nothing. The artifacts shipped with
+ * dead stylesheets: unstyled serif text, collapsed grids, and inline SVG exhibits falling back to
+ * the SVG default `fill` - which is BLACK. That is what the black isometric stack was. Measured on
+ * the stored library the day this was found: 34 of the 69 artifacts carrying a <style> block.
+ *
+ * The mask covers the whole scrub rather than the final tidy alone, because the cliche swaps and
+ * the markdown-bold unwrap can corrupt a class name or a JS identifier in exactly the same way.
+ */
+const NON_PROSE_BLOCK_RE = /<(style|script|pre|code|textarea)\b[^>]*>[\s\S]*?<\/\1\s*>/gi;
+const NON_PROSE_SLOT_RE = /\u0000HICNP(\d+)\u0000/g;
+
+/** Lift <style>/<script>/<pre>/<code>/<textarea> out of `html` so prose rules cannot reach them. */
+export function maskNonProseRegions(html: string): { masked: string; restore: (s: string) => string } {
+    const kept: string[] = [];
+    const masked = String(html).replace(NON_PROSE_BLOCK_RE, (m) => `\u0000HICNP${kept.push(m) - 1}\u0000`);
+    // Function replacement, so a `$&` or `$1` inside the kept markup is never re-interpreted.
+    return { masked, restore: (s: string) => s.replace(NON_PROSE_SLOT_RE, (_m, i) => kept[Number(i)] ?? '') };
+}
+
 /** HTML-safe meta/process-reference scrub for generated HTML artifacts. Safe to
  *  run on a complete <!doctype html>...</html> document (no greedy patterns). */
 export function scrubArtifactHtmlMeta(html: string): string {
     if (!html || typeof html !== 'string') return html;
-    let out = html;
+    const { masked, restore } = maskNonProseRegions(html);
+    let out = masked;
     for (const [re, sub] of ARTIFACT_META_PHRASE_STRIPS) out = out.replace(re, sub);
     // 2026-11-09 (independent QA): a live #report shipped "front door" three times, one of them a
     // section title. The cliche-metaphor swaps existed for slide titles and never ran on the HTML
@@ -1012,8 +1059,9 @@ export function scrubArtifactHtmlMeta(html: string): string {
     // attribution - strip them on the HTML-artifact path too (previously only chat surfaces ran this).
     out = stripModelNameAsSource(out);
     // Only fix space-before-punctuation that our deletions may have created;
-    // never touch other whitespace (protects <pre>/code).
-    return out.replace(/ +([.,;:])/g, '$1');
+    // never touch other whitespace. The mask above keeps this off CSS selectors
+    // (".brief .stack") and code, where the space is load-bearing.
+    return restore(out.replace(/ +([.,;:])/g, '$1'));
 }
 
 // 2026-06-23 - CHAT-REPLY META SCRUB (fixes the Analyst-Desk #slides escape).

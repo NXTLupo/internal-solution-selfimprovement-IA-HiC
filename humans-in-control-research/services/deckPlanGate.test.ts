@@ -15,15 +15,29 @@ describe('deckPlanGate', () => {
         expect(evaluateDeckPlan('plain prose answer').isDeck).toBe(false);
         expect(evaluateDeckPlan(fence('slides:cover') + fence('slides:stat-row')).isDeck).toBe(false);
     });
-    it('passes a varied visual deck', () => {
+    // 2026-11-09 (owner directive, deck-composer floor raised 40% -> 70%): a deck now clears the
+    // gate only when MOST body slides are drawn. The measured Gemini deck carries artwork on 15 of
+    // 15 slides, and at 40% HiC could ship a majority-text deck and still pass.
+    it('passes a varied visual deck at the 70% floor', () => {
         const deck = [
             'slides:cover', 'slides:agenda', 'slides:means-matters', 'slides:flow-arc',
-            'slides:numbered-themes', 'slides:evidence-table', 'slides:section-divider',
-            'slides:infographic-exhibit', 'slides:block-quote', 'slides:thesis-interstitial',
+            'slides:ranked-bars', 'slides:evidence-table', 'slides:section-divider',
+            'slides:infographic-exhibit', 'slides:quadrant', 'slides:block-quote',
+            'slides:thesis-interstitial',
         ].map(t => (/cover|agenda|divider|interstitial/.test(t) ? fence(t) : dense(t))).join('');
         const r = evaluateDeckPlan(deck);
         expect(r.pass).toBe(true);
-        expect(r.visualRatio).toBeGreaterThanOrEqual(0.4);
+        expect(r.visualRatio).toBeGreaterThanOrEqual(0.7);
+    });
+
+    it('fails a half-visual deck that the old 40% floor would have passed', () => {
+        const deck = [
+            'slides:cover', 'slides:means-matters', 'slides:flow-arc', 'slides:ranked-bars',
+            'slides:numbered-themes', 'slides:block-quote', 'slides:evidence-grid',
+        ].map(t => (/cover/.test(t) ? fence(t) : dense(t))).join('');
+        const r = evaluateDeckPlan(deck);
+        expect(r.visualRatio).toBeLessThan(0.7);
+        expect(r.violations.join(' ')).toContain('body slides are visual');
     });
     it('density floor (2026-10-23): bare-label body slides are named, dense ones pass', () => {
         const thinDeck = ['slides:cover', 'slides:means-matters', 'slides:flow-arc', 'slides:evidence-table', 'slides:quadrant', 'slides:block-quote'].map(fence).join('');
@@ -78,7 +92,7 @@ describe('deckPlanGate', () => {
         ].map(fence).join('');
         const r = evaluateDeckPlan(deck);
         expect(r.pass).toBe(false);
-        expect(r.violations.join(' ')).toContain('floor 40%');
+        expect(r.violations.join(' ')).toContain('floor 70%');
         expect(buildDeckRepairInstruction(r)).toContain('composition gate');
     });
     it('flags adjacency and the numbered-themes clamp', () => {
@@ -176,5 +190,25 @@ describe('drawn floor (2026-10-27: "a workflow visualization for each slide")', 
         expect(r.violations.some(v => v.includes('1 of 5 research body slides carry a DRAWN visual'))).toBe(true);
         const drawnDeck = [fence('slides:cover'), ...['slides:flow-arc', 'slides:infographic-exhibit', 'slides:ranked-bars', 'slides:evidence-table', 'slides:quadrant'].map(t => fence(t)), ...attached].join('\n');
         expect(evaluateDeckPlan(drawnDeck, { drawnFloor: 0.6, isAttachedFence: f => f.includes('ATTACHED') }).violations.some(v => v.includes('DRAWN'))).toBe(false);
+    });
+});
+
+// 2026-11-09 (owner, comparing "The Architecture of Agency"): a table is not a picture.
+describe('geometry floor', () => {
+    it('fails an all-table deck that satisfies the visual floor but draws nothing', () => {
+        const deck = [fence('slides:cover'), ...Array.from({ length: 6 }, () => dense('slides:evidence-table'))].join('');
+        const r = evaluateDeckPlan(deck);
+        const v = r.violations.find(x => x.includes('DRAWN geometry'));
+        expect(v).toBeDefined();
+        expect(v!).toContain('A table is not a picture');
+    });
+
+    it('passes once the argument carries real shapes', () => {
+        const deck = [fence('slides:cover'),
+            dense('slides:flow-arc'), dense('slides:ranked-bars'), dense('slides:quadrant'),
+            dense('slides:means-matters'), dense('slides:evidence-table'), dense('slides:comparison-panels'),
+        ].join('');
+        const r = evaluateDeckPlan(deck);
+        expect(r.violations.some(x => x.includes('DRAWN geometry'))).toBe(false);
     });
 });
