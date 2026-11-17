@@ -52,8 +52,8 @@
       "agent_nxt-agency-delegation-1793469930"
     ],
     "surface": "platform-agent",
-    "lastAccessedAt": "2026-11-17T14:07:08.257Z",
-    "accessCount": 184
+    "lastAccessedAt": "2026-11-17T15:01:17.482Z",
+    "accessCount": 187
   },
   {
     "id": "fbxukoh",
@@ -145,8 +145,8 @@
       "nxt_agency_07dd80c1-1453-4928-8d2f-2367424cd44c"
     ],
     "surface": "nxt-agency",
-    "lastAccessedAt": "2026-11-17T14:14:56.247Z",
-    "accessCount": 58
+    "lastAccessedAt": "2026-11-17T15:01:17.482Z",
+    "accessCount": 59
   },
   {
     "id": "f1dk610e",
@@ -199,8 +199,8 @@
       "nxt_agency_51ffc95b-e694-4780-9a58-376aaeeea754"
     ],
     "surface": "nxt-agency",
-    "lastAccessedAt": "2026-11-17T04:28:09.206Z",
-    "accessCount": 94
+    "lastAccessedAt": "2026-11-17T14:57:43.623Z",
+    "accessCount": 96
   },
   {
     "id": "f1szwylb",
@@ -388,8 +388,8 @@
     ],
     "engagement": "generate-a-comprehensive-product-requirements-document-prd-for-northeastern-univ",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-11T02:05:06.854Z",
-    "accessCount": 4
+    "lastAccessedAt": "2026-11-17T14:35:47.174Z",
+    "accessCount": 5
   },
   {
     "id": "fgoh88h",
@@ -426,8 +426,8 @@
     ],
     "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-17T14:07:08.257Z",
-    "accessCount": 25
+    "lastAccessedAt": "2026-11-17T15:01:17.482Z",
+    "accessCount": 27
   },
   {
     "id": "f1o9wvcj",
@@ -445,8 +445,8 @@
     ],
     "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-17T14:14:56.247Z",
-    "accessCount": 22
+    "lastAccessedAt": "2026-11-17T14:35:47.174Z",
+    "accessCount": 23
   },
   {
     "id": "f1opij9o",
@@ -464,8 +464,8 @@
     ],
     "engagement": "identify-high-converting-email-design-patterns-and-product-marketing-trends-for",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-16T22:11:27.132Z",
-    "accessCount": 6
+    "lastAccessedAt": "2026-11-17T14:35:47.174Z",
+    "accessCount": 7
   },
   {
     "id": "fxeaq2q",
@@ -483,8 +483,8 @@
     ],
     "engagement": "analyze-the-2026-ai-software-development-and-consulting-landscape-to-identify-th",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-11T02:05:06.854Z",
-    "accessCount": 10
+    "lastAccessedAt": "2026-11-17T14:35:47.174Z",
+    "accessCount": 11
   },
   {
     "id": "f6e6fpe",
@@ -521,8 +521,8 @@
     ],
     "engagement": "1-understand-emerging-northeastern-university-student-and-other-college-student",
     "surface": "spa",
-    "lastAccessedAt": "2026-11-17T14:14:56.247Z",
-    "accessCount": 46
+    "lastAccessedAt": "2026-11-17T14:35:47.174Z",
+    "accessCount": 47
   },
   {
     "id": "ftoge88",
@@ -561,5 +561,22 @@
     "surface": "spa",
     "lastAccessedAt": "2026-11-17T14:10:00.169Z",
     "accessCount": 3
+  },
+  {
+    "id": "fil4yn6",
+    "content": "The slides for \"Analyze the attached documents and compose a single #slides deck that distills the problem statement, solution vision, and product definition, supported by the objectives of the engagement\" argued: Annual Giving's constraint is the step from a question to a trusted audience, so the product is one governed cohort workflow.",
+    "category": "knowledge",
+    "confidence": 0.8,
+    "scope": "engagement",
+    "durability": "durable",
+    "authority": "descriptive",
+    "createdAt": "2026-11-17T14:19:08.743Z",
+    "expectedValidDays": 180,
+    "confirmationCount": 0,
+    "sourceRunIds": [
+      "run_mwkrq0qf_lo7xrt"
+    ],
+    "engagement": "analyze-the-attached-documents-and-compose-a-single-slides-deck-that-distills-th",
+    "surface": "spa"
   }
 ]
