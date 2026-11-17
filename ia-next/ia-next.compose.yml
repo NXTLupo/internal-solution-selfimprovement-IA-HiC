@@ -23,10 +23,16 @@ services:
     environment:
       - IA_NEXT_PORT=9400
       - IA_NEXT_DATA=/data
+      - IA_NEXT_HIC_URL=http://host.docker.internal:5012
     ports:
       - "127.0.0.1:${IA_NEXT_PORT:-9400}:9400"
     volumes:
       - ia-next-data:/data
+      # Part 2 (owner decision 17 Nov): IA Next calls HiC's proxy through the host with the token HiC publishes here.
+      # Read-only; IA Next reads only config.json. Without the suite running, IA Next still works on its own.
+      - ../humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - ia-next-net
     healthcheck:

@@ -1279,6 +1279,8 @@ function wireVoice() {
 // ---- uploads ---------------------------------------------------------------------------------------
 const TEXT_EXT = ['.txt', '.md', '.vtt', '.srt', '.csv'];
 const AUDIO_EXT = ['.mp3', '.m4a', '.wav', '.webm', '.mp4', '.ogg'];
+// Part 2: read by HiC through the host (PDF, scanned PDF, Word, PowerPoint, Excel, images); needs the suite running.
+const DOC_EXT = ['.pdf', '.docx', '.doc', '.pptx', '.ppt', '.xlsx', '.xls', '.json', '.xml', '.png', '.jpg', '.jpeg', '.gif', '.webp'];
 const extOf = (name) => (String(name).toLowerCase().match(/\.[a-z0-9]+$/) || [''])[0];
 
 function attachmentChip(file) {
@@ -1306,6 +1308,8 @@ function uploadErr(status) {
   if (status === 415) return 'Not a supported file type.';
   if (status === 502) return 'The recording could not be transcribed. Try a clearer or shorter file.';
   if (status === 404) return 'The engagement could not be found.';
+  if (status === 503) return 'Reading this kind of file needs HiC running. Text, CSV and audio work without it.';
+  if (status === 422) return 'No readable text was found in this file.';
   if (status === 0) return 'The upload did not reach the service.';
   return 'The upload failed. Try again.';
 }
@@ -1314,8 +1318,8 @@ function uploadOne(file, eid) {
   const shown = attachmentChip(file);
   const chip = { ...shown, fail(text) { shown.fail(text); noteForAgent(`The upload of "${file.name}" did not work (${text}); that file is not in the engagement`); } };
   const audio = AUDIO_EXT.includes(extOf(file.name));
-  if (!TEXT_EXT.includes(extOf(file.name)) && !audio) {
-    chip.fail('Not a supported file type. Use text, Markdown, subtitles, CSV or audio.');
+  if (!TEXT_EXT.includes(extOf(file.name)) && !DOC_EXT.includes(extOf(file.name)) && !audio) {
+    chip.fail('Not a supported file type. Use a document, an image, text, subtitles, CSV or audio.');
     return Promise.resolve(false);
   }
   if (file.size > 25 * 1024 * 1024) {
@@ -1326,7 +1330,7 @@ function uploadOne(file, eid) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', `/api/engagements/${encodeURIComponent(eid)}/uploads`);
     xhr.upload.onprogress = (e) => { if (e.lengthComputable) { const p = Math.round((e.loaded / e.total) * 100); chip.progress(p, `Uploading ${p}%`); } };
-    xhr.upload.onload = () => chip.progress(100, audio ? 'Transcribing' : 'Adding');
+    xhr.upload.onload = () => chip.progress(100, audio ? 'Transcribing' : DOC_EXT.includes(extOf(file.name)) ? 'Reading' : 'Adding');
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) { chip.done(audio ? 'Transcribed and added' : 'Added'); resolve(true); return; }
       chip.fail(uploadErr(xhr.status));
@@ -1344,7 +1348,7 @@ async function addFiles(fileList) {
   const files = [...(fileList || [])];
   if (!files.length) return;
   let eid = S.focus && S.engById.has(S.focus) ? S.focus : null;
-  const usable = files.filter((f) => TEXT_EXT.includes(extOf(f.name)) || AUDIO_EXT.includes(extOf(f.name)));
+  const usable = files.filter((f) => TEXT_EXT.includes(extOf(f.name)) || DOC_EXT.includes(extOf(f.name)) || AUDIO_EXT.includes(extOf(f.name)));
   if (!eid && usable.length) {
     const title = P.engagementTitleFromFile(usable[0].name);
     try {

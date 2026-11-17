@@ -263,4 +263,5 @@ def test_the_file_picker_filter_lists_extensions_only():
     js = open(os.path.join(WEB, "app.js"), encoding="utf-8").read()
     exts = set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const TEXT_EXT = \[([^\]]*)\]", js).group(1)))
     exts |= set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const AUDIO_EXT = \[([^\]]*)\]", js).group(1)))
+    exts |= set(re.findall(r"'\.([a-z0-9]+)'", re.search(r"const DOC_EXT = \[([^\]]*)\]", js).group(1)))
     assert {a[1:] for a in accept} == exts

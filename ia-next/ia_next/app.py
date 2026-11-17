@@ -371,7 +371,19 @@ async def upload(eid: str, file: UploadFile = File(...), title: str = Form("")):
         text = data.decode("utf-8", errors="replace")
         sid = transcripts.add_text_source(eid, title or file.filename, text, "transcript" if name.endswith((".vtt", ".srt")) else "document")
         return {"source_id": sid, "chars": len(text)}
-    raise HTTPException(415, "send a text file (.txt .md .vtt .srt .csv) or audio (.mp3 .m4a .wav .webm .mp4 .ogg)")
+    from . import hic
+    if name.endswith(hic.DOC_EXT):
+        # Part 2 (owner decision 17 Nov): HiC reads PDF (scanned ones too), Word, PowerPoint, Excel and images
+        try:
+            got = hic.parse_upload(file.filename, data, file.content_type or "")
+        except hic.HicUnavailable as ex:
+            raise HTTPException(503, f"{ex}. Text, subtitle, CSV and audio files still work without it.")
+        except ValueError as ex:
+            raise HTTPException(422, f"nothing readable in {file.filename}: {str(ex)[:160]}")
+        sid = transcripts.add_text_source(eid, title or file.filename, got["text"], "document")
+        return {"source_id": sid, "chars": len(got["text"]), "read_by": "HiC", "method": got["method"]}
+    raise HTTPException(415, "send a document (.pdf .docx .pptx .xlsx), an image, a text file (.txt .md .vtt .srt .csv) "
+                             "or audio (.mp3 .m4a .wav .webm .mp4 .ogg)")
 
 
 @app.get("/api/tasks/{tid}/download")

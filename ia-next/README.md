@@ -6,8 +6,9 @@ one agent the person talks to, with a studio of specialists behind it.
 
 ## A separate system
 
-IA Next runs beside the existing Intelligence Augmentation suite and shares nothing with it except the
-provider keys in the workbench's root `.env`.
+IA Next runs beside the existing Intelligence Augmentation suite. It shares the provider keys in the workbench's
+root `.env`, and (owner decision, 17 Nov) it can call HiC's research proxy through the host, with the token HiC
+publishes, for capabilities HiC already has; it keeps working on its own when the suite is off.
 
 | | Existing suite | IA Next |
 |---|---|---|
@@ -16,7 +17,7 @@ provider keys in the workbench's root `.env`.
 | Network | `nxt-humans-network` | `ia-next-net` |
 | Ports | 3000, 5001 to 5015, 5050, 6080, 8000, 8080, 8081, 8201, 8500 to 8508 | 9400, on 127.0.0.1 only |
 | Data | the suite's volumes and `hic-workspace/` | the `ia-next-data` volume |
-| Calls into the other system | none | none |
+| Calls into the other system | none | HiC's proxy through the host (`ia_next/hic.py`), optional |
 
 ```bash
 docker compose -f ia-next/ia-next.compose.yml up -d --build   # start: http://127.0.0.1:9400

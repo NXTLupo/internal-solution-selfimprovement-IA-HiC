@@ -26,15 +26,16 @@ Augmentation suite, so you can run both on the same computer at the same time.
 4. [Start IA Next, step by step](#start-ia-next-step-by-step)
 5. [Ports and addresses](#ports-and-addresses)
 6. [Running IA Next and the original suite side by side](#running-ia-next-and-the-original-suite-side-by-side)
-7. [Using IA Next](#using-ia-next)
-8. [Brands: NXT Humans and Northeastern](#brands-nxt-humans-and-northeastern)
-9. [Approvals and cost](#approvals-and-cost)
-10. [Everyday operations](#everyday-operations)
-11. [Troubleshooting](#troubleshooting)
-12. [How it works](#how-it-works)
-13. [Where the code lives](#where-the-code-lives)
-14. [Security](#security)
-15. [Further reading](#further-reading)
+7. [Using HiC's engine](#using-hics-engine)
+8. [Using IA Next](#using-ia-next)
+9. [Brands: NXT Humans and Northeastern](#brands-nxt-humans-and-northeastern)
+10. [Approvals and cost](#approvals-and-cost)
+11. [Everyday operations](#everyday-operations)
+12. [Troubleshooting](#troubleshooting)
+13. [How it works](#how-it-works)
+14. [Where the code lives](#where-the-code-lives)
+15. [Security](#security)
+16. [Further reading](#further-reading)
 
 ---
 
@@ -175,7 +176,8 @@ IA Next uses **exactly one port**.
 | API | http://127.0.0.1:9400/api/... | The page's own API (tasks, engagements, approvals, spend, digest) |
 
 Inside Docker the container also listens on 9400, on its own private network `ia-next-net`. It is not on the
-suite's network and cannot reach the suite's containers.
+suite's network. It reaches HiC only through the host (`host.docker.internal:5012`, HiC's proxy), for the
+capabilities described in [Using HiC's engine](#using-hics-engine).
 
 **Changing the port.** If something else on your computer already uses 9400, start IA Next on another host port:
 
@@ -190,8 +192,9 @@ the suite's list below.
 
 ## Running IA Next and the original suite side by side
 
-The two systems share nothing except the API keys in the root `.env`. You can start, stop and rebuild either
-one without touching the other.
+The two systems share the API keys in the root `.env`, and IA Next can call HiC's proxy through the host (see
+[Using HiC's engine](#using-hics-engine)). You can start, stop and rebuild either one without touching the other;
+IA Next works on its own when the suite is off.
 
 | | Original suite | IA Next |
 |---|---|---|
@@ -200,7 +203,7 @@ one without touching the other.
 | Docker network | `nxt-humans-network` | `ia-next-net` |
 | Data | the suite's volumes and `humans-in-control-research/hic-workspace/` | the `ia-next-data` volume |
 | Host ports | 3000, 5001, 5002, 5004, 5010, 5011, 5012, 5013, 5014, 5015, 5050, 6080, 8000, 8080, 8081, 8201, 8500, 8501, 8502, 8503, 8504, 8507, 8508 | **9400** only |
-| Calls into the other system | none | none |
+| Calls into the other system | none | HiC's proxy through the host, optional (reads documents and images today) |
 
 **Port check, 17 November 2026.** With all 24 suite containers and IA Next running together, every published
 port was listed with `docker ps`: no port is used twice, and IA Next's 9400 is outside the suite's range. (On the
@@ -227,6 +230,21 @@ The only shared thing is brand design: IA Next keeps a **read-only copy** of HiC
 ever calling the suite. See [Brands](#brands-nxt-humans-and-northeastern).
 
 ---
+
+## Using HiC's engine
+
+IA Next can use capabilities HiC already has, by calling HiC's research proxy through the host. This was the
+owner's choice on 17 November 2026: the two systems keep separate networks, data and ports, and IA Next sends the
+token HiC publishes in `humans-in-control-research/hic-workspace/.runtime/config.json`, which is mounted read-only
+into the IA Next container. The token is re-read on every call, because HiC makes a new one each time its proxy
+starts, and it is never logged or shown.
+
+| Capability | What it does in IA Next | Needs the suite running? |
+|---|---|---|
+| Reading documents and images | PDF (scanned ones too), Word, PowerPoint, Excel, JSON, XML and images dropped into the chat are read by HiC and become sources | Yes; without it the upload says so, and text, subtitle, CSV and audio files still work |
+
+When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own. More
+of HiC's engine (data packs, the second brain, its artifact generators) is being connected in the same way.
 
 ## Using IA Next
 
@@ -383,7 +401,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 171 tests, all passing.
+On 17 November 2026: 178 tests, all passing.
 
 ### Back up and restore your data
 
