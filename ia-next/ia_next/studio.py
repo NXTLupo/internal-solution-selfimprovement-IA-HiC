@@ -64,6 +64,9 @@ def _page_text(url, limit=14000):
         return "", url
 
 
+MAX_PACK_SOURCES = 6        # pack items kept per research run, before the open-web sources
+
+
 def research_lead(eid, brief, ledger, tid=None):
     model = config.SEATS["search"]["primary"]
     prompt = (f"Research this for a consulting team.\nGoal: {brief['goal']}\nScope: {brief['scope']}\nAudience: {brief['audience']}\n"
@@ -96,6 +99,31 @@ def research_lead(eid, brief, ledger, tid=None):
         raise
     except Exception as e:                       # the library is a bonus; the web search still runs
         store.event("library_seed_skipped", {"error": str(e)[:200]}, eid)
+    # Part 2: HiC's data packs the person chose (healthcare, fundraising, ...) are searched before the open web, and
+    # their best items join as named, dated sources. Without the suite the run says so and the web search carries on.
+    pack_note = ""
+    if brief.get("packs"):
+        from . import hic
+        try:
+            got = 0
+            for it in hic.pack_items(brief["packs"], f"{brief['goal']} {brief['scope']}"):
+                if it["url"] in seen or got >= MAX_PACK_SOURCES:
+                    continue
+                body, final_url = (it["content"], it["url"]) if len(it["content"]) >= 1500 else _page_text(it["url"])
+                if len(body) < 400:
+                    continue
+                seen.add(it["url"])
+                sid = f"S{start + len(sources) + 1}"
+                title = f"{it['publisher']}: {it['title']}" if it["title"] and it["publisher"] not in it["title"] else (it["title"] or it["publisher"])
+                sources.append({"id": sid, "url": final_url or it["url"], "title": title, "text": body[:14000], "untrusted": True,
+                                "pack": it["pack"], "publisher": it["publisher"], "date": it["date"]})
+                store.add_evidence(eid, sid, final_url or it["url"], title, body[:14000])
+                got += 1
+            pack_note = f"; {got} from HiC data packs ({', '.join(brief['packs'])})"
+        except hic.HicUnavailable as e:
+            pack_note = f"; data packs skipped: {e}"
+            store.event("packs_skipped", {"error": str(e)[:200]}, eid)
+    web_start = len(sources)
     for ch in chunks:
         web = ch.get("web") or {}
         uri, title = web.get("uri"), web.get("title") or ""
@@ -108,12 +136,13 @@ def research_lead(eid, brief, ledger, tid=None):
         sid = f"S{start + len(sources) + 1}"
         sources.append({"id": sid, "url": final_url, "title": title, "text": body, "untrusted": True})
         store.add_evidence(eid, sid, final_url, title, body)
-        if len(sources) >= 8:
+        if len(sources) - web_start >= 8:
             break
     if not sources:
         raise providers.ProviderError("search returned no readable sources")
     path = _write(eid, _task_rel(tid, "sources.json"), {"summary": text, "sources": existing + sources, "queries": gm.get("webSearchQueries")})
-    return path, f"{len(sources)} sources collected and read" + (f" ({len(existing)} earlier sources kept)" if existing else ""), existing + sources
+    return path, (f"{len(sources)} sources collected and read{pack_note}"
+                  + (f" ({len(existing)} earlier sources kept)" if existing else "")), existing + sources
 
 
 # ---- Analyst ----------------------------------------------------------------------------------

@@ -36,21 +36,25 @@ What you know about the person and past work (a snapshot taken when this convers
 
 STR = {"type": "string"}
 TOOLS = [
-    {"name": "start_research_report", "strict": True,
+    {"name": "start_research_report", "strict": False,      # fields checked in code; keeps the strict grammar under the API limit
      "description": ("Start a background task in which the studio researches the web, extracts verbatim-quoted findings, writes "
                      "a cited report and has it verified by another vendor's model. This is paid work (new web searches). When "
                      "the engagement already has findings, build decks, maps and other outputs from those instead, unless the "
                      "person asks for new research. Returns a task id, a pending approval, or a request to confirm with the "
-                     "person first."),
+                     "person first. packs are HiC data packs to search first, by id: fundraising, agriculture, energy, "
+                     "executive_search, financial_services, government, healthcare, higher_ed, insurance, retail, social_clubs, "
+                     "travel_tourism, workforce, ai_trends, academic, creative_ai, social_listening. Use them when the person "
+                     "names a pack, an industry or its publications; otherwise pass an empty list."),
      "input_schema": {"type": "object", "additionalProperties": False,
                       "required": ["engagement_title", "engagement_id", "audience", "goal", "scope", "structure", "constraints", "success",
-                                   "budget_usd", "new_research_confirmed"],
+                                   "budget_usd", "new_research_confirmed", "packs"],
                       "properties": {"engagement_title": STR, "engagement_id": {"type": "string", "description": "Existing engagement id, or empty to create one"},
                                      "audience": STR, "goal": STR, "scope": STR, "structure": STR, "constraints": STR,
                                      "success": {"type": "array", "items": STR}, "budget_usd": {"type": "number"},
                                      "new_research_confirmed": {"type": "boolean", "description": (
                                          "true only when the person explicitly asked for new research, or said yes after you told "
-                                         "them the engagement already has findings; otherwise false")}}}},
+                                         "them the engagement already has findings; otherwise false")},
+                                     "packs": {"type": "array", "items": STR}}}},
     {"name": "start_journey_map", "strict": False,      # fields checked in code; keeps the strict grammar under the API limit
      "description": ("Start a background task in which the Journey Cartographer maps one persona's journey (stages, actions, "
                      "touchpoints, quoted pains, opportunities) from an engagement's finished research. Needs an engagement "
@@ -163,7 +167,8 @@ def resume_note(cid, limit=8000):
 def _start_research(args):
     if args["budget_usd"] <= 0:
         args = dict(args, budget_usd=config.TASK_SPEND_APPROVAL_USD)
-    brief = {k: args[k] for k in ("audience", "goal", "scope", "structure", "constraints", "success")}
+    brief = {k: args.get(k) for k in ("audience", "goal", "scope", "structure", "constraints", "success")}
+    brief["success"] = brief["success"] or []
     missing = studio.validate_brief(brief)
     if missing:
         return {"error": f"brief is missing {missing}; ask the person or infer them"}
@@ -199,8 +204,12 @@ def launch_research(args):
     eid = args["engagement_id"] or ""
     if not eid or not store.get_engagement(eid):
         eid = store.create_engagement(args["engagement_title"] or args["goal"][:80], args["goal"])
-    brief = {k: args[k] for k in ("audience", "goal", "scope", "structure", "constraints", "success")}
-    idem = hashlib.sha256(json.dumps({"eid": eid, "brief": brief}, sort_keys=True).encode()).hexdigest()
+    from . import hic
+    brief = {k: args.get(k) or ([] if k == "success" else "") for k in ("audience", "goal", "scope", "structure", "constraints", "success")}
+    packs = [p for p in (args.get("packs") or []) if p in hic.PACKS]
+    if packs:
+        brief["packs"] = packs
+    idem = hashlib.sha256(json.dumps({"eid": eid, "brief": brief, "retry_of": args.get("retry_of", "")}, sort_keys=True).encode()).hexdigest()
     tid, created = studio.start_research_task(eid, brief, args["budget_usd"], idem)
     return {"task_id": tid, "engagement_id": eid, "started": created,
             "message": "started" if created else "an identical task already exists; reporting that one"}

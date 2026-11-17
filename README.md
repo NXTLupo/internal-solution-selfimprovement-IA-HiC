@@ -242,9 +242,10 @@ starts, and it is never logged or shown.
 | Capability | What it does in IA Next | Needs the suite running? |
 |---|---|---|
 | Reading documents and images | PDF (scanned ones too), Word, PowerPoint, Excel, JSON, XML and images dropped into the chat are read by HiC and become sources | Yes; without it the upload says so, and text, subtitle, CSV and audio files still work |
+| Data packs | Name a pack or an industry ("using the healthcare data pack"): research searches that pack's publications in HiC (17 packs, from Advancement & Fundraising to Insurance) before the open web, and adds up to six of the most relevant, dated items as named sources | Yes; without it the run notes that the packs were skipped and searches the web |
 
 When the suite is not running, IA Next says so in plain words and carries on with what it can do on its own. More
-of HiC's engine (data packs, the second brain, its artifact generators) is being connected in the same way.
+of HiC's engine (the second brain, its artifact generators) is being connected in the same way.
 
 ## Using IA Next
 
@@ -401,7 +402,7 @@ cd ia-next && MSYS_NO_PATHCONV=1 docker run --rm \
   -v "$(cygpath -w "$PWD/web"):/app/web:ro" -u root ia-next:0.1 python -m pytest -q -p no:cacheprovider tests
 ```
 
-On 17 November 2026: 178 tests, all passing.
+On 17 November 2026: 182 tests, all passing.
 
 ### Back up and restore your data
 
