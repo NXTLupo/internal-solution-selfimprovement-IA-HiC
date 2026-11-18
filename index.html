@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>NXT Intelligence Augmentation</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: an engineer's sheet. A dark NXT rail band states what the platform does; each section below is one drawn mechanism with a caption. */
+:root {
+  --rail: #0D0D0D;
+  --paper: #FFFFFF;
+  --ink: #15171A;
+  --muted: #5B6168;
+  --line: #CDD1C6;
+  --panel: #F4F5EF;
+  --accent: #B8B800;
+  --accent-soft: #EEEEB8;
+  --accent-ink: #6B6B00;
+  --cool-ink: #0B6F78;
+  --band-fg: #F3F4EE;
+  --band-muted: #A9AEA4;
+  --display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #111312; --ink: #ECEEE6; --muted: #A3A99F; --line: #343933; --panel: #181B19;
+  --accent-soft: #3A3A12; --accent-ink: #D6D63A; --cool-ink: #4FD3DC; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #111312; --ink: #ECEEE6; --muted: #A3A99F; --line: #343933; --panel: #181B19;
+  --accent-soft: #3A3A12; --accent-ink: #D6D63A; --cool-ink: #4FD3DC; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 64px; border-top: 1px solid var(--line); }
+h1, h2 { font-family: var(--display); font-weight: 600; letter-spacing: .005em; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.05; max-width: 24ch; }
+p { margin: 0; }
+.kicker { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--cool-ink); }
+.intro { display: grid; gap: 12px; }
+.intro p { color: var(--muted); max-width: 66ch; }
+code { font-family: var(--mono); font-size: .88em; }
+
+/* Band */
+.band { background: var(--rail); color: var(--band-fg); }
+.band .wrap { padding-block: 56px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.mark { display: flex; align-items: center; gap: 10px; font: 600 14px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--band-muted); }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+.band h1 { font-size: clamp(46px, 6.4vw, 84px); line-height: .95; margin-top: 18px; }
+.band .lead { color: #D3D7CD; font-size: 18px; margin-top: 18px; max-width: 54ch; }
+.pair { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.prod { border-top: 2px solid var(--accent); padding-top: 12px; display: grid; gap: 6px; }
+.prod b { font: 600 24px/1 var(--display); color: #FFFFFF; }
+.prod .port { font: 500 12px/1 var(--mono); color: var(--accent); }
+.prod p { font-size: 14px; color: var(--band-muted); }
+.hero-fig svg { width: 100%; height: auto; display: block; }
+.hero-fig figcaption { color: var(--band-muted); font-size: 13px; margin-top: 10px; }
+@media (max-width: 900px) { .band .wrap { grid-template-columns: 1fr; } .pair { grid-template-columns: 1fr; } }
+
+/* Hero illustration (dark ground) */
+.h .card { fill: #181B19; stroke: #3A3F38; }
+.h .bar { fill: #3A3F38; }
+.h .hl { fill: #4A4A14; }
+.h .slide { fill: #F4F5EF; stroke: #F4F5EF; }
+.h .sbar { fill: #C9CDC3; }
+.h .stitle { fill: #0D0D0D; }
+.h .squote { fill: #B8B800; }
+.h .k { font: 500 11px var(--mono); fill: #A9AEA4; letter-spacing: .06em; }
+.h .lab { font: 500 12px var(--mono); fill: #E2E5DC; }
+.h .tick { fill: #B8B800; }
+.h .link { stroke: #B8B800; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+
+/* Drawn diagrams (paper ground, themed through tokens) */
+figure.diagram { margin: 32px 0 0; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); padding: 20px; }
+.scroll svg { display: block; width: 100%; min-width: 980px; height: auto; }
+figure.diagram figcaption { color: var(--muted); font-size: 14px; margin-top: 12px; max-width: 80ch; }
+.d text { font-family: var(--body); font-size: 13px; fill: var(--ink); }
+.d .t { font-family: var(--display); font-size: 18px; font-weight: 600; }
+.d .k { font-family: var(--mono); font-size: 11px; fill: var(--cool-ink); letter-spacing: .06em; }
+.d .m { fill: var(--muted); font-size: 12.5px; }
+.d .lab { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.d .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; }
+.d .hot { fill: var(--paper); stroke: var(--accent); stroke-width: 2.4; }
+.d .zone { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 6 5; }
+.d .soft { fill: var(--paper); stroke: var(--line); }
+.d .edge { stroke: var(--ink); stroke-width: 1.4; fill: none; }
+.d .dash { stroke-dasharray: 5 4; }
+.d .ah { fill: var(--ink); }
+.d .node { fill: var(--accent); }
+.d .gl { stroke: var(--muted); stroke-width: 1.2; }
+.d .tag { fill: var(--accent-soft); }
+
+/* Notes beside diagrams */
+.notes { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.note { display: grid; gap: 6px; align-content: start; }
+.note b { font: 600 19px/1.15 var(--display); }
+.note p { font-size: 15px; color: var(--muted); }
+@media (max-width: 860px) { .notes { grid-template-columns: 1fr; } }
+
+/* Table */
+.tablewrap { margin-top: 28px; overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 11px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--panel); }
+td.port { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--cool-ink); }
+tr:last-child td { border-bottom: 0; }
+
+/* Start */
+.starts { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.start { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.start header { padding: 12px 16px; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; border-bottom: 1px solid var(--line); }
+.start header b { font: 600 20px/1 var(--display); }
+.start header span { font: 500 12px/1 var(--mono); color: var(--cool-ink); }
+pre { margin: 0; padding: 16px; background: var(--rail); color: #E2E5DC; font: 400 13px/1.65 var(--mono); overflow-x: auto; }
+pre .c { color: #8B9186; }
+footer { padding-block: 28px 44px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+</style>
+
+<header class="band" id="hero">
+  <div class="wrap">
+    <div>
+      <div class="mark"><span class="dot" aria-hidden="true"></span>NXT Humans</div>
+      <h1>Intelligence Augmentation</h1>
+      <p class="lead">NXT Humans consultants use this platform to answer a client's question with evidence. Agents collect articles, public data and the client's own files, keep them in a wiki the whole team can search, and draft the decks, personas, journey maps and prototypes that go back to the client. Each quote in the finished work links to the passage it came from.</p>
+      <div class="pair">
+        <div class="prod"><span class="port">localhost:8000</span><b>IA Suite</b><p>The original platform: a hub page with a chat agent that calls a dozen specialist services, HiC among them.</p></div>
+        <div class="prod"><span class="port">127.0.0.1:9400</span><b>IA Next</b><p>The newer workspace. You talk to one agent, it hands the work to specialists, and it asks before spending money.</p></div>
+      </div>
+    </div>
+    <figure class="hero-fig">
+      <svg class="h" viewBox="0 0 560 330" role="img" aria-label="A quoted sentence on a slide is linked to the highlighted passage in its source page, where it was matched word for word.">
+        <rect class="card" x="8" y="20" width="250" height="250" rx="4"/>
+        <text class="k" x="24" y="44">SOURCE PAGE · WIKI CHUNK</text>
+        <rect class="bar" x="24" y="62" width="210" height="7" rx="2"/>
+        <rect class="bar" x="24" y="80" width="190" height="7" rx="2"/>
+        <rect class="bar" x="24" y="98" width="200" height="7" rx="2"/>
+        <rect class="hl" x="18" y="112" width="226" height="40" rx="3"/>
+        <rect class="bar" x="24" y="120" width="208" height="7" rx="2" style="fill:#B8B800"/>
+        <rect class="bar" x="24" y="137" width="150" height="7" rx="2" style="fill:#B8B800"/>
+        <rect class="bar" x="24" y="166" width="196" height="7" rx="2"/>
+        <rect class="bar" x="24" y="184" width="180" height="7" rx="2"/>
+        <rect class="bar" x="24" y="202" width="206" height="7" rx="2"/>
+        <rect class="bar" x="24" y="220" width="120" height="7" rx="2"/>
+        <text class="k" x="24" y="254">chars 1180–1342</text>
+
+        <rect class="slide" x="300" y="70" width="250" height="141" rx="3"/>
+        <rect class="stitle" x="300" y="70" width="250" height="30" rx="3"/>
+        <rect x="314" y="82" width="150" height="7" rx="2" style="fill:#F4F5EF"/>
+        <rect class="squote" x="314" y="114" width="4" height="40"/>
+        <rect class="sbar" x="326" y="118" width="196" height="7" rx="2"/>
+        <rect class="sbar" x="326" y="134" width="140" height="7" rx="2"/>
+        <rect class="sbar" x="314" y="168" width="210" height="6" rx="2"/>
+        <rect class="sbar" x="314" y="182" width="170" height="6" rx="2"/>
+        <rect x="314" y="196" width="90" height="5" rx="2" style="fill:#0B6F78"/>
+
+        <path class="link" d="M244,132 C276,132 282,130 318,130"/>
+        <circle class="tick" cx="244" cy="132" r="4"/>
+        <circle class="tick" cx="318" cy="130" r="4"/>
+        <text class="lab" x="300" y="240">matched word for word</text>
+        <text class="lab" x="300" y="258">before the deck is saved</text>
+        <text class="k" x="300" y="56">SLIDE · EDITABLE POWERPOINT TEXT</text>
+      </svg>
+      <figcaption>Every quote on a slide is checked against the stored passage it cites. A quote that does not match is removed before anyone sees the deck.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+<section id="suite">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">IA Suite</span>
+      <h2>How a chat message reaches a service</h2>
+      <p>The agent talks to every service through a small MCP wrapper. It reads each wrapper's tool list once when it starts, then calls tools by name while Claude works through the request.</p>
+    </div>
+    <figure class="diagram">
+      <div class="scroll">
+        <svg class="d" viewBox="0 0 1200 380" role="img" aria-label="The browser connects to Launchpad over WebSocket; Launchpad forwards chat frames to the AI Agent; the agent sends messages and tool schemas to Claude, receives tool calls, and runs them through MCP wrappers, which call the services over HTTP.">
+          <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+          <path class="edge dash" d="M885,120 C885,64 615,64 615,116" marker-end="url(#a1)"/>
+          <text class="lab" x="750" y="58" text-anchor="middle">tool lists, read once at startup</text>
+
+          <rect class="box" x="10" y="120" width="150" height="96" rx="3"/>
+          <text class="k" x="24" y="144">YOU</text><text class="t" x="24" y="168">Browser</text><text class="m" x="24" y="190">hub page and chat</text>
+
+          <rect class="box" x="250" y="120" width="180" height="96" rx="3"/>
+          <text class="k" x="264" y="144">:8000</text><text class="t" x="264" y="168">Launchpad</text><text class="m" x="264" y="190">Flask hub page</text><text class="m" x="264" y="206">WebSocket proxy</text>
+
+          <rect class="hot" x="520" y="120" width="190" height="96" rx="3"/>
+          <text class="k" x="534" y="144">:8500</text><text class="t" x="534" y="168">AI Agent</text><text class="m" x="534" y="190">FastAPI, Anthropic SDK</text><text class="m" x="534" y="206">holds the conversation</text>
+
+          <rect class="box" x="800" y="120" width="170" height="96" rx="3"/>
+          <text class="k" x="814" y="144">:8501–8507</text><text class="t" x="814" y="168">MCP wrappers</text><text class="m" x="814" y="190">one per service</text><text class="m" x="814" y="206">JSON-RPC 2.0</text>
+
+          <line class="edge" x1="160" y1="184" x2="246" y2="184" marker-end="url(#a1)"/>
+          <text class="lab" x="203" y="164" text-anchor="middle">HTTP +</text><text class="lab" x="203" y="176" text-anchor="middle">WebSocket</text>
+          <line class="edge" x1="430" y1="184" x2="516" y2="184" marker-end="url(#a1)"/>
+          <text class="lab" x="473" y="164" text-anchor="middle">chat frames</text><text class="lab" x="473" y="176" text-anchor="middle">ping 20s</text>
+          <line class="edge" x1="710" y1="184" x2="796" y2="184" marker-end="url(#a1)"/>
+          <text class="lab" x="753" y="164" text-anchor="middle">tools/call</text><text class="lab" x="753" y="176" text-anchor="middle">by name</text>
+          <line class="edge" x1="970" y1="184" x2="1012" y2="184" marker-end="url(#a1)"/>
+          <text class="lab" x="991" y="174" text-anchor="middle">HTTP</text>
+          <line class="gl" x1="1018" y1="34" x2="1018" y2="340"/>
+
+          <line class="edge" x1="585" y1="216" x2="585" y2="286" marker-end="url(#a1)"/>
+          <text class="lab" x="577" y="246" text-anchor="end">messages +</text><text class="lab" x="577" y="258" text-anchor="end">tool schemas</text>
+          <line class="edge" x1="645" y1="290" x2="645" y2="220" marker-end="url(#a1)"/>
+          <text class="lab" x="653" y="246">tool calls</text><text class="lab" x="653" y="258">and text</text>
+          <rect class="box" x="520" y="290" width="190" height="64" rx="3"/>
+          <text class="k" x="534" y="312">ANTHROPIC API</text><text class="t" x="534" y="338">Claude</text>
+
+          <g>
+            <rect class="soft" x="1028" y="20" width="165" height="28" rx="2"/><text x="1038" y="39">Social Research</text><text class="lab" x="1185" y="39" text-anchor="end">8081</text>
+            <rect class="soft" x="1028" y="54" width="165" height="28" rx="2"/><text x="1038" y="73">Reddit Collector</text><text class="lab" x="1185" y="73" text-anchor="end">5001</text>
+            <rect class="soft" x="1028" y="88" width="165" height="28" rx="2"/><text x="1038" y="107">Video Analyzer</text><text class="lab" x="1185" y="107" text-anchor="end">5002</text>
+            <rect class="soft" x="1028" y="122" width="165" height="28" rx="2"/><text x="1038" y="141">Miro Generator</text><text class="lab" x="1185" y="141" text-anchor="end">5004</text>
+            <rect class="soft" x="1028" y="156" width="165" height="28" rx="2"/><text x="1038" y="175">Character Gen.</text><text class="lab" x="1185" y="175" text-anchor="end">5010</text>
+            <rect class="soft" x="1028" y="190" width="165" height="28" rx="2" style="stroke:var(--accent);stroke-width:2"/><text x="1038" y="209">HiC research</text><text class="lab" x="1185" y="209" text-anchor="end">5012</text>
+            <rect class="soft" x="1028" y="224" width="165" height="28" rx="2"/><text x="1038" y="243">Copilot Recipes</text><text class="lab" x="1185" y="243" text-anchor="end">5013</text>
+            <rect class="soft" x="1028" y="258" width="165" height="28" rx="2"/><text x="1038" y="277">Presentations</text><text class="lab" x="1185" y="277" text-anchor="end">5014</text>
+            <rect class="soft" x="1028" y="292" width="165" height="28" rx="2"/><text x="1038" y="311">Journey Mapper</text><text class="lab" x="1185" y="311" text-anchor="end">8080</text>
+            <rect class="soft" x="1028" y="326" width="165" height="28" rx="2"/><text x="1038" y="345">NXT Agency</text><text class="lab" x="1185" y="345" text-anchor="end">8201</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Adding a service means adding a wrapper and restarting the agent; the dashed arrow is the startup read that makes the new tools visible. The agent keeps conversation state in memory.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="hic">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">Humans in Control (HiC)</span>
+      <h2>How HiC turns sources into a cited deck</h2>
+      <p>HiC writes every source into a wiki before it writes anything for the client. The deck is drafted from pointers into that wiki, so each claim can be traced back to a stored passage.</p>
+    </div>
+    <figure class="diagram">
+      <div class="scroll">
+        <svg class="d" viewBox="0 0 1240 400" role="img" aria-label="Sources are fetched and chunked with provenance into the wiki and its manifest. A question seeds manifest-first retrieval, which passes evidence to the model router, then to the post-processor that cleans the text and names sources, then to the PowerPoint exporter.">
+          <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+          <rect class="box" x="10" y="30" width="210" height="100" rx="3"/>
+          <text class="k" x="24" y="54">COLLECT</text><text class="t" x="24" y="78">Data packs, uploads</text><text class="m" x="24" y="100">REST, RSS, CKAN, arXiv</text><text class="m" x="24" y="116">PDF, DOCX, PPTX, text</text>
+
+          <rect class="box" x="310" y="30" width="210" height="100" rx="3"/>
+          <text class="k" x="324" y="54">WIKI_CHUNKER</text><text class="t" x="324" y="78">Chunk with provenance</text><text class="m" x="324" y="100">source, type, char span</text><text class="m" x="324" y="116">stored on every chunk</text>
+
+          <rect class="hot" x="610" y="30" width="330" height="100" rx="3"/>
+          <text class="k" x="624" y="54">HIC-WORKSPACE/WIKI</text><text class="t" x="624" y="78">Wiki and manifest</text><text class="m" x="624" y="100">pages, chunks, links</text><text class="m" x="624" y="116">reused by later runs</text>
+          <line class="gl" x1="830" y1="62" x2="870" y2="92"/><line class="gl" x1="870" y1="92" x2="905" y2="58"/><line class="gl" x1="870" y1="92" x2="858" y2="118"/><line class="gl" x1="870" y1="92" x2="915" y2="110"/><line class="gl" x1="905" y1="58" x2="915" y2="110"/>
+          <circle class="node" cx="830" cy="62" r="6"/><circle class="node" cx="870" cy="92" r="7"/><circle class="node" cx="905" cy="58" r="6"/><circle class="node" cx="858" cy="118" r="5"/><circle class="node" cx="915" cy="110" r="5"/>
+
+          <line class="edge" x1="220" y1="80" x2="306" y2="80" marker-end="url(#a2)"/>
+          <text class="lab" x="263" y="62" text-anchor="middle">fetch,</text><text class="lab" x="263" y="74" text-anchor="middle">extract</text>
+          <line class="edge" x1="520" y1="80" x2="606" y2="80" marker-end="url(#a2)"/>
+          <text class="lab" x="563" y="62" text-anchor="middle">write page,</text><text class="lab" x="563" y="74" text-anchor="middle">index</text>
+
+          <rect class="box" x="10" y="260" width="170" height="100" rx="3"/>
+          <text class="k" x="24" y="284">YOU</text><text class="t" x="24" y="308">The question</text><text class="m" x="24" y="330">what the client</text><text class="m" x="24" y="346">needs answered</text>
+
+          <rect class="box" x="260" y="260" width="210" height="100" rx="3"/>
+          <text class="k" x="274" y="284">MANIFEST FIRST</text><text class="t" x="274" y="308">Gather evidence</text><text class="m" x="274" y="330">seed from the question,</text><text class="m" x="274" y="346">follow links, rerank</text>
+
+          <rect class="box" x="550" y="260" width="200" height="100" rx="3"/>
+          <text class="k" x="564" y="284">AIROUTER</text><text class="t" x="564" y="308">Pick the model</text><text class="m" x="564" y="330">Opus 5.5 for reasoning</text><text class="m" x="564" y="346">Gemini 3.5 Flash for tables</text>
+
+          <rect class="box" x="830" y="260" width="190" height="100" rx="3"/>
+          <text class="k" x="844" y="284">SLIDEPOSTPROCESSOR</text><text class="t" x="844" y="308">Clean and cite</text><text class="m" x="844" y="330">strips banned phrases</text><text class="m" x="844" y="346">names every source</text>
+
+          <rect class="hot" x="1090" y="260" width="140" height="100" rx="3"/>
+          <text class="k" x="1104" y="284">GOLD_PPTX_EXPORT</text><text class="t" x="1104" y="308">PowerPoint</text><text class="m" x="1104" y="330">measured in</text><text class="m" x="1104" y="346">Chromium</text>
+
+          <line class="edge" x1="180" y1="310" x2="256" y2="310" marker-end="url(#a2)"/><text class="lab" x="218" y="300" text-anchor="middle">query</text>
+          <line class="edge" x1="470" y1="310" x2="546" y2="310" marker-end="url(#a2)"/><text class="lab" x="508" y="300" text-anchor="middle">evidence</text>
+          <line class="edge" x1="750" y1="310" x2="826" y2="310" marker-end="url(#a2)"/><text class="lab" x="788" y="300" text-anchor="middle">draft</text>
+          <line class="edge" x1="1020" y1="310" x2="1086" y2="310" marker-end="url(#a2)"/><text class="lab" x="1053" y="290" text-anchor="middle">slide</text><text class="lab" x="1053" y="302" text-anchor="middle">HTML</text>
+
+          <polyline class="edge" points="660,130 660,196 365,196 365,256" marker-end="url(#a2)"/>
+          <text class="lab" x="512" y="188" text-anchor="middle">chunk pointers</text>
+          <line class="edge dash" x1="900" y1="130" x2="900" y2="256" marker-end="url(#a2)"/>
+          <text class="lab" x="908" y="190">source names,</text><text class="lab" x="908" y="202">read at cite time</text>
+        </svg>
+      </div>
+      <figcaption>The solid path is the draft; the dashed arrow is the post-processor going back to the wiki to turn chunk ids into source names. Schema and table deliverables go to Gemini 3.5 Flash; decks, personas, strategy and reports go to Claude Opus 5.5.</figcaption>
+    </figure>
+    <div class="notes">
+      <div class="note"><b>The wiki remembers</b><p>Each chunk keeps its source, its type and its character span. A later run on a related question starts from those chunks before it fetches anything new.</p></div>
+      <div class="note"><b>Retrieval follows the question</b><p>HiC seeds evidence from the user's objective and the manifest's links, then reranks. A well-written article on the wrong question ranks low.</p></div>
+      <div class="note"><b>The deck stays editable</b><p>The exporter opens each finished slide in Chromium, measures every element, and writes it to PowerPoint as a real text box or shape.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ianext">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">IA Next</span>
+      <h2>What IA Next does after you ask for something</h2>
+      <p>The agent turns your request into a task with steps and a budget. Anything that costs money waits for your approval, and every quote is checked before the result reaches the conversation.</p>
+    </div>
+    <figure class="diagram">
+      <div class="scroll">
+        <svg class="d" viewBox="0 0 1240 440" role="img" aria-label="Your message goes to the personal agent. If the work costs money, an approval card appears on your page first. The task graph runs steps through the specialists; the renderer container screenshots prototypes; HiC can be called through the host. A verifier checks quotes before the result card appears.">
+          <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+          <rect class="zone" x="160" y="40" width="940" height="260" rx="6"/>
+          <text class="k" x="176" y="64">IA-NEXT CONTAINER · 127.0.0.1:9400</text>
+
+          <rect class="box" x="10" y="130" width="120" height="100" rx="3"/>
+          <text class="t" x="24" y="164">You</text><text class="m" x="24" y="188">message and</text><text class="m" x="24" y="204">attached files</text>
+
+          <rect class="hot" x="190" y="130" width="170" height="100" rx="3"/>
+          <text class="k" x="204" y="154">AGENT</text><text class="t" x="204" y="178">Personal agent</text><text class="m" x="204" y="200">plans the work,</text><text class="m" x="204" y="216">one question at most</text>
+
+          <polygon class="box" points="430,138 472,180 430,222 388,180"/>
+          <text class="lab" x="430" y="177" text-anchor="middle">costs</text><text class="lab" x="430" y="190" text-anchor="middle">money?</text>
+
+          <rect class="box" x="530" y="130" width="160" height="100" rx="3"/>
+          <text class="k" x="544" y="154">SQLITE</text><text class="t" x="544" y="178">Task graph</text><text class="m" x="544" y="200">steps, and a budget</text><text class="m" x="544" y="216">for each task</text>
+
+          <rect class="box" x="740" y="130" width="160" height="100" rx="3"/>
+          <text class="k" x="754" y="154">STUDIO</text><text class="t" x="754" y="178">Specialists</text><text class="m" x="754" y="200">research, decks,</text><text class="m" x="754" y="216">maps, prototypes</text>
+
+          <rect class="hot" x="930" y="130" width="150" height="100" rx="3"/>
+          <text class="k" x="944" y="154">VERIFIER</text><text class="t" x="944" y="178">Check quotes</text><text class="m" x="944" y="200">word for word, then</text><text class="m" x="944" y="216">a second-vendor judge</text>
+
+          <rect class="box" x="1120" y="130" width="110" height="100" rx="3"/>
+          <text class="t" x="1134" y="164">Result</text><text class="m" x="1134" y="188">a card in</text><text class="m" x="1134" y="204">the chat</text>
+
+          <line class="edge" x1="130" y1="180" x2="186" y2="180" marker-end="url(#a3)"/><text class="lab" x="135" y="170">ask</text>
+          <line class="edge" x1="360" y1="180" x2="386" y2="180" marker-end="url(#a3)"/>
+          <line class="edge" x1="472" y1="180" x2="526" y2="180" marker-end="url(#a3)"/><text class="lab" x="499" y="170" text-anchor="middle">no</text>
+          <line class="edge" x1="690" y1="180" x2="736" y2="180" marker-end="url(#a3)"/><text class="lab" x="713" y="170" text-anchor="middle">run</text>
+          <line class="edge" x1="900" y1="180" x2="926" y2="180" marker-end="url(#a3)"/>
+          <line class="edge" x1="1080" y1="180" x2="1116" y2="180" marker-end="url(#a3)"/>
+
+          <line class="edge" x1="430" y1="222" x2="430" y2="326" marker-end="url(#a3)"/><text class="lab" x="438" y="262">yes</text>
+          <rect class="box" x="365" y="330" width="140" height="70" rx="3"/>
+          <text class="t" x="379" y="358">Approval</text><text class="m" x="379" y="380">card on your page</text>
+          <polyline class="edge" points="505,365 610,365 610,234" marker-end="url(#a3)"/>
+          <text class="lab" x="558" y="356" text-anchor="middle">approved</text>
+
+          <line class="edge" x1="780" y1="230" x2="780" y2="336" marker-end="url(#a3)"/>
+          <text class="lab" x="788" y="262">screenshot</text><text class="lab" x="788" y="274">each screen</text>
+          <rect class="zone" x="720" y="340" width="200" height="80" rx="4"/>
+          <text class="k" x="734" y="362">IA-NEXT-RENDER</text><text class="t" x="734" y="386">Chromium</text><text class="m" x="734" y="406">internal network, no port</text>
+
+          <polyline class="edge dash" points="885,230 885,318 1060,318 1060,336" marker-end="url(#a3)"/>
+          <text class="lab" x="965" y="312" text-anchor="middle">themes, artifacts</text>
+          <rect class="zone" x="960" y="340" width="250" height="80" rx="4"/>
+          <text class="k" x="974" y="362">OPTIONAL · THROUGH THE HOST</text><text class="t" x="974" y="386">HiC proxy :5012</text><text class="m" x="974" y="406">documents, themes, artifact studio</text>
+        </svg>
+      </div>
+      <figcaption>Dashed outlines are container boundaries. The renderer has no host port and sits on an internal network, so a prototype under review cannot reach the internet. HiC is optional: without the suite running, IA Next keeps working and reads its own local chunks.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="together">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">One computer</span>
+      <h2>Running both systems on one machine</h2>
+      <p>The suite and IA Next are separate compose projects with their own networks and data, and no port appears in both. IA Next reaches HiC only through the host, and only when you ask for HiC's work.</p>
+    </div>
+    <figure class="diagram">
+      <div class="scroll">
+        <svg class="d" viewBox="0 0 1240 300" role="img" aria-label="Left: the suite's compose project with its services and ports. Right: the IA Next compose project with the ia-next container on 127.0.0.1:9400, the renderer with no host port, and the ia-next-data volume. A dashed arrow shows IA Next calling the HiC proxy on port 5012 through the host.">
+          <defs><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+          <rect class="zone" x="10" y="20" width="770" height="262" rx="6"/>
+          <text class="k" x="26" y="44">DOCKER-COMPOSE-ALL.YML · NETWORK NXT-HUMANS-NETWORK</text>
+          <g>
+            <rect class="soft" x="30" y="64" width="230" height="30" rx="2"/><text x="42" y="84">Launchpad</text><text class="lab" x="250" y="84" text-anchor="end">8000</text>
+            <rect class="soft" x="30" y="104" width="230" height="30" rx="2"/><text x="42" y="124">AI Agent</text><text class="lab" x="250" y="124" text-anchor="end">8500</text>
+            <rect class="soft" x="30" y="144" width="230" height="30" rx="2"/><text x="42" y="164">MCP wrappers</text><text class="lab" x="250" y="164" text-anchor="end">8501–8507</text>
+            <rect class="soft" x="30" y="184" width="230" height="30" rx="2"/><text x="42" y="204">Social Research</text><text class="lab" x="250" y="204" text-anchor="end">3000 · 8081</text>
+            <rect class="soft" x="30" y="224" width="230" height="30" rx="2"/><text x="42" y="244">Reddit Collector</text><text class="lab" x="250" y="244" text-anchor="end">5001</text>
+            <rect class="soft" x="280" y="64" width="230" height="30" rx="2"/><text x="292" y="84">Video Analyzer</text><text class="lab" x="500" y="84" text-anchor="end">5002</text>
+            <rect class="soft" x="280" y="104" width="230" height="30" rx="2"/><text x="292" y="124">Miro Generator</text><text class="lab" x="500" y="124" text-anchor="end">5004</text>
+            <rect class="soft" x="280" y="144" width="230" height="30" rx="2"/><text x="292" y="164">Character Generator</text><text class="lab" x="500" y="164" text-anchor="end">5010</text>
+            <rect class="soft" x="280" y="184" width="230" height="30" rx="2"/><text x="292" y="204">HiC app</text><text class="lab" x="500" y="204" text-anchor="end">5011</text>
+            <rect class="soft" x="280" y="224" width="230" height="30" rx="2"/><text x="292" y="244">Copilot Recipes</text><text class="lab" x="500" y="244" text-anchor="end">5013</text>
+            <rect class="soft" x="530" y="64" width="230" height="30" rx="2" style="stroke:var(--accent);stroke-width:2"/><text x="542" y="84">HiC research proxy</text><text class="lab" x="750" y="84" text-anchor="end">5012</text>
+            <rect class="soft" x="530" y="104" width="230" height="30" rx="2"/><text x="542" y="124">Presentation Renderer</text><text class="lab" x="750" y="124" text-anchor="end">5014</text>
+            <rect class="soft" x="530" y="144" width="230" height="30" rx="2"/><text x="542" y="164">Journey Mapper</text><text class="lab" x="750" y="164" text-anchor="end">8080</text>
+            <rect class="soft" x="530" y="184" width="230" height="30" rx="2"/><text x="542" y="204">NXT Agency</text><text class="lab" x="750" y="204" text-anchor="end">5050 · 8201</text>
+            <rect class="soft" x="530" y="224" width="230" height="30" rx="2"/><text x="542" y="244">Agency live view</text><text class="lab" x="750" y="244" text-anchor="end">6080</text>
+          </g>
+
+          <rect class="zone" x="860" y="20" width="370" height="262" rx="6"/>
+          <text class="k" x="876" y="44">IA-NEXT.COMPOSE.YML</text>
+          <text class="k" x="876" y="60">OWN NETWORKS AND VOLUME</text>
+          <rect class="hot" x="880" y="80" width="170" height="64" rx="3"/>
+          <text class="k" x="894" y="102">127.0.0.1:9400</text><text class="t" x="894" y="128">ia-next</text>
+          <rect class="box" x="880" y="196" width="170" height="64" rx="3"/>
+          <text class="k" x="894" y="218">NO HOST PORT</text><text class="t" x="894" y="244">ia-next-render</text>
+          <line class="edge" x1="965" y1="144" x2="965" y2="192" marker-end="url(#a4)"/>
+          <text class="lab" x="973" y="172">screenshots</text>
+          <path class="box" d="M1090,96 v44 a60,10 0 0 0 120,0 v-44"/>
+          <ellipse class="box" cx="1150" cy="96" rx="60" ry="10"/>
+          <text class="lab" x="1150" y="128" text-anchor="middle">ia-next-data</text>
+          <line class="edge" x1="1050" y1="112" x2="1086" y2="112" marker-end="url(#a4)"/>
+
+          <polyline class="edge dash" points="876,112 806,112 806,79 764,79" marker-end="url(#a4)"/>
+          <text class="lab" x="822" y="134" text-anchor="middle">via host</text><text class="lab" x="822" y="146" text-anchor="middle">(optional)</text>
+        </svg>
+      </div>
+      <figcaption>IA Next listens on 127.0.0.1 only, so other computers on your network cannot reach it. Its data lives in the <code>ia-next-data</code> volume and survives restarts.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">Run it locally</span>
+      <h2>Start the suite, IA Next, or both</h2>
+      <p>Both read API keys from the repository's root <code>.env</code>. Anthropic is required; OpenAI and Gemini keys turn on more of the specialists. Copy <code>.env.example</code> to start.</p>
+    </div>
+    <div class="starts">
+      <div class="start"><header><b>IA Suite</b><span>then open localhost:8000</span></header>
+<pre><span class="c"># from the repository root</span>
+cp .env.example .env
+docker compose -f docker-compose-all.yml up -d
+docker compose -f docker-compose-all.yml ps</pre></div>
+      <div class="start"><header><b>IA Next</b><span>then open 127.0.0.1:9400</span></header>
+<pre><span class="c"># same .env; it can run beside the suite</span>
+docker compose -f ia-next/ia-next.compose.yml up -d --build
+curl http://127.0.0.1:9400/health</pre></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">NXT Humans · IA Suite and IA Next · github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC</div>
+</footer>
+
+</html>
