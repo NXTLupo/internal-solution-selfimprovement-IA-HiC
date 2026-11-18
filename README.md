@@ -1,7 +1,7 @@
 # NXT Intelligence Augmentation
 
 <p align="center">
-  <a href="https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA"><img src="docs/readme/overview-hero.png" alt="Intelligence Augmentation. A quoted sentence on a slide is linked to the highlighted passage in its source page, where it was matched word for word." width="100%"></a>
+  <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><img src="docs/readme/overview-hero.png" alt="Intelligence Augmentation. A quoted sentence on a slide is linked to the highlighted passage in its source page, where it was matched word for word." width="100%"></a>
 </p>
 
 NXT Humans consultants use this platform to answer a client's question with evidence. Agents collect articles, public data and the client's own files, store them in a wiki the team can search, and draft the decks, personas, journey maps and prototypes that go back to the client. Each quote in the finished work links to the passage it came from.
@@ -13,7 +13,7 @@ This repository holds two systems, and both can run on the same computer at once
 | **IA Suite** | http://localhost:8000 | The original platform. A hub page and a chat agent that calls a dozen specialist services through MCP, including HiC (Humans in Control), the research and deliverable engine. Guide: [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) |
 | **IA Next** | http://127.0.0.1:9400 | The newer workspace. You talk to one agent; it hands the work to specialists, asks before anything costs money, and checks quotes against their sources. Guide: [`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17) |
 
-**[Open the interactive overview](https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA)** (a Claude artifact with the same diagrams).
+**[Open the illustrated overview](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/)** (also available as a [Claude artifact](https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA)).
 
 ## How the parts work
 
