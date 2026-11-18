@@ -182,3 +182,6 @@ ssl-certs/*.key
 ssl-certs/*.pem
 ssl-certs/*.crt
 settings.local.json
+
+# README images are part of the front page
+!docs/readme/*.png
