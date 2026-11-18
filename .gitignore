@@ -161,3 +161,9 @@ ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+
+# Local certificates (launch.sh generates them) and local tool settings
+ssl-certs/*.key
+ssl-certs/*.pem
+ssl-certs/*.crt
+settings.local.json
