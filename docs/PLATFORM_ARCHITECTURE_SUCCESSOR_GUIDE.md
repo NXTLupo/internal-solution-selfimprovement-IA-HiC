@@ -150,7 +150,7 @@ follows from this: read the artifact end to end, because counts are not reading.
 ### 1.1 The one compose file
 
 `docker-compose-all.yml` (702 lines) is the only compose file that matters. `docker-compose.yml`,
-`docker-compose-agent.yml`, `docker-compose-https.yml`, `nxt-compose.yml` and `restored2.yml` exist
+`docker-compose-agent.yml` and `docker-compose-https.yml` exist
 and are stale. **Always** pass `-f docker-compose-all.yml`.
 
 It declares **24 services**, one bridge network (`nxt-humans-network`) and six named volumes

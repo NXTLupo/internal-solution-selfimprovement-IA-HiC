@@ -176,3 +176,9 @@ snap-*.yml/
 snap-*.yml
 .tmp-rea-analysis/
 .playwright-mcp/
+
+# Local certificates (launch.sh generates them) and local tool settings
+ssl-certs/*.key
+ssl-certs/*.pem
+ssl-certs/*.crt
+settings.local.json

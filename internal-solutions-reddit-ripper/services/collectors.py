@@ -1,4 +1,5 @@
 """Unified data collection interface for multiple sources"""
+import os
 from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional
 import praw
@@ -59,9 +60,9 @@ class RedditCollector(DataCollector):
     def __init__(self):
         """Initialize Reddit collector with PRAW instance"""
         self.reddit = praw.Reddit(
-            client_id="REDACTED",
-            client_secret="REDACTED",
-            user_agent="web:social_research_posts:v0.0.1 (by u/mike_nxt_humans)",
+            client_id=os.environ.get("REDDIT_CLIENT_ID", ""),
+            client_secret=os.environ.get("REDDIT_CLIENT_SECRET", ""),
+            user_agent=os.environ.get("REDDIT_USER_AGENT", "script:nxt-humans:1.0"),
             check_for_async=False,
             ratelimit_seconds=10
         )
