@@ -1,24 +1,51 @@
+# NXT Intelligence Augmentation
+
+<p align="center">
+  <a href="https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA"><img src="docs/readme/overview-hero.png" alt="Intelligence Augmentation. A quoted sentence on a slide is linked to the highlighted passage in its source page, where it was matched word for word." width="100%"></a>
+</p>
+
+NXT Humans consultants use this platform to answer a client's question with evidence. Agents collect articles, public data and the client's own files, store them in a wiki the team can search, and draft the decks, personas, journey maps and prototypes that go back to the client. Each quote in the finished work links to the passage it came from.
+
+This repository holds two systems, and both can run on the same computer at once:
+
+| | Open | What it is |
+|---|---|---|
+| **IA Suite** | http://localhost:8000 | The original platform. A hub page and a chat agent that calls a dozen specialist services through MCP, including HiC (Humans in Control), the research and deliverable engine. Guide: [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) |
+| **IA Next** | http://127.0.0.1:9400 | The newer workspace. You talk to one agent; it hands the work to specialists, asks before anything costs money, and checks quotes against their sources. Guide: [`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17) |
+
+**[Open the interactive overview](https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA)** (a Claude artifact with the same diagrams).
+
+## How the parts work
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-suite-dark.png">
+  <img alt="How a chat message reaches a service: browser, Launchpad on port 8000, the AI Agent on 8500 with Claude, MCP wrappers on 8501 to 8507, then the services over HTTP." src="docs/readme/overview-suite-light.png" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-hic-dark.png">
+  <img alt="How HiC turns sources into a cited deck: sources are chunked with provenance into the wiki and manifest; a question seeds manifest-first retrieval, the model router, the post-processor that names sources, and the native PowerPoint exporter." src="docs/readme/overview-hic-light.png" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-ianext-dark.png">
+  <img alt="What IA Next does after you ask: the agent, an approval check for anything that costs money, the task graph, the specialists, the quote verifier and the result card; a renderer container screenshots prototypes and HiC is reachable through the host." src="docs/readme/overview-ianext-light.png" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-together-dark.png">
+  <img alt="Running both systems on one machine: the suite's compose project and ports on the left, IA Next's own project on 127.0.0.1:9400 with its renderer and data volume on the right." src="docs/readme/overview-together-light.png" width="100%">
+</picture>
+
+---
+
 # IA Next
 
-**One agent you talk to, with a studio of specialists behind it.**
+IA Next is the newer of the two systems. You open one page and describe what you need in plain words. The agent plans the work and hands it to specialists for research, analysis, writing, decks, journey maps, prototypes, social listening, images and video. It checks every quote against its source, asks for your approval before anything costly, and brings the finished work back into the same conversation.
 
-IA Next is the next-generation Intelligence Augmentation system from NXT Humans. You open one page, describe
-what you need in plain words, and a personal agent plans the work, hands it to specialists (research, analysis,
-writing, decks, journey maps, prototypes, social listening, images and video), checks every quote against its
-source, asks for your approval before anything costly, and brings the finished work back into the same
-conversation.
+It runs as **two containers on one port (9400)**: the workspace, and a renderer with no port of its own that screenshots prototypes for their design review. It has its own compose project, networks and data, separate from the original suite. When the suite is running, IA Next can also use HiC's engine through the host (documents, data packs, the second brain, themes and HiC's artifact studio); without it, IA Next still works on its own.
 
-It runs as **two containers on one port (9400)**: the workspace, and a renderer with no port of its own that
-screenshots prototypes for their design review. It is separate from the original Intelligence Augmentation suite
-(its own compose project, networks and data), so you can run both on the same computer at the same time. When the
-suite is running, IA Next can also use HiC's engine through the host (documents, data packs, the second brain,
-themes and HiC's artifact studio); without it, IA Next still works on its own.
-
-> **You are on the `ia-next-2026-11-17` branch.** This branch is for IA Next. The original suite (Launchpad, HiC,
-> Social Research, Journey Mapper and the rest) has its own branch and guide:
-> [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17).
-> The suite's code is also present in this branch, with the same HiC fixes as the suite branch (17 November: HiC's
-> wiki writes, slide previews and long chats), so nothing here stops you running it.
+> **You are on the `ia-next-2026-11-17` branch.** The original suite (Launchpad, HiC, Social Research, Journey > Mapper and the rest) has its own guide on the [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) branch. > The suite's code is also in this branch, with the same HiC fixes, so you can run it from here too.
 
 ---
 
