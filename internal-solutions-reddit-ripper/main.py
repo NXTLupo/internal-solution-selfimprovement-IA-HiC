@@ -1,3 +1,4 @@
+import os
 try:
     import praw
 except:
@@ -30,10 +31,10 @@ def seconds_to_datetime(seconds):
     return datetime.fromtimestamp(int(seconds)).strftime('%Y-%m-%d %H:%M:%S')
 
 # Initialize the Reddit instance with praw
-user_agent_string = "web:social_research_posts:v0.0.1 (by u/mike_nxt_humans)"
+user_agent_string = os.environ.get("REDDIT_USER_AGENT", "script:nxt-humans:1.0")
 reddit = praw.Reddit(
-    client_id="REDACTED",
-    client_secret="REDACTED",
+    client_id=os.environ.get("REDDIT_CLIENT_ID", ""),
+    client_secret=os.environ.get("REDDIT_CLIENT_SECRET", ""),
     user_agent=user_agent_string,
     check_for_async=False,
     ratelimit_seconds=10
