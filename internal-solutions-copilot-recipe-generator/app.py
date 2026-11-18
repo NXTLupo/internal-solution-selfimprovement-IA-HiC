@@ -584,7 +584,7 @@ RULE_37 = """
     - `nxth_MiroAccessToken` -- Miro REST API v2 access token
     - `nxth_RedditClientId` -- Reddit OAuth2 App client ID
     - `nxth_RedditClientSecret` -- Reddit OAuth2 App client secret
-    - `nxth_RedditUserAgent` -- Reddit User-Agent string (e.g. `REDACTED`)
+    - `nxth_RedditUserAgent` -- Reddit User-Agent string (e.g. `script:MarketResearch:1.0 (by /u/your_reddit_username)`)
     - `nxth_ElevenLabsApiKey` -- ElevenLabs TTS API key
     - `nxth_ReplicateApiToken` -- Replicate inference API token
 
