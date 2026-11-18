@@ -94,13 +94,15 @@ def inline_brand_assets(doc, brand):
 
 def quoted_passages(doc):
     """What the page presents as quotations: text inside <blockquote> or <q>, and quotation marks within ONE run of
-    text between tags (17 Nov full pass: pairing marks across table cells produced false quotes)."""
+    text between tags (17 Nov full pass: pairing marks across table cells produced false quotes). Styles, scripts and
+    templates are not text (17 Nov: CSS attribute selectors such as [data-x="..."] were counted as quotes)."""
     found = []
-    for m in _QUOTE_TAG.finditer(doc or ""):
+    doc = re.sub(r"(?is)<(script|style|noscript|template)\b[^>]*>.*?</\1\s*>", " ", doc or "")
+    for m in _QUOTE_TAG.finditer(doc):
         t = re.sub(r"\s+", " ", _html.unescape(re.sub(r"(?s)<[^>]+>", " ", m.group(2)))).strip(" \"\u201c\u201d")
         if len(t) >= 24:
             found.append(t)
-    for seg in re.split(r"(?s)<[^>]+>", doc or ""):
+    for seg in re.split(r"(?s)<[^>]+>", doc):
         for m in _QUOTE.finditer(_html.unescape(seg)):
             found.append(m.group(1).strip())
     return list(dict.fromkeys(found))

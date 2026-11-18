@@ -225,3 +225,10 @@ def test_approving_a_document_on_its_card_returns_the_task_to_follow(monkeypatch
     r = TestClient(app_module.app).post(f"/api/approvals/{pending['approval_id']}", json={"approve": True}).json()
     assert r["approval"]["status"] == "approved" and r["started"]["task_id"].startswith("task_")
     assert store.get_task(r["started"]["task_id"])["kind"] == "artifact" and started
+
+
+def test_css_and_scripts_are_not_counted_as_quotes():
+    """17 Nov PRD: CSS attribute selectors inside <style> were reported as three quoted passages not in the sources."""
+    doc = ("<style>[data-role=\"title\"] { font-family: 'Lato', sans-serif !important; color: #16233C !important; }</style>"
+           "<script>var s = \"a long string inside a script that is not a quotation at all\";</script><p>Plain text.</p>")
+    assert artifacts.quoted_passages(doc) == []
