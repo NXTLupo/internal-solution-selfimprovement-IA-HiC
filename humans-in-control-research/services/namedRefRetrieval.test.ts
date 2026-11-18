@@ -41,7 +41,7 @@ describe('uploadSyntheticUrl - content-stable (no engagement slug)', () => {
         const a = uploadSyntheticUrl('Riley Quinn - Interview.txt');
         const b = uploadSyntheticUrl('Riley Quinn - Interview.txt');
         expect(a).toBe(b);
-        expect(a).toBe('upload://Liz%20Quinn%20-%20Interview.txt');
+        expect(a).toBe('upload://Riley%20Quinn%20-%20Interview.txt');
         expect(a).not.toMatch(/engagement|objective|identify-/i);
     });
 });

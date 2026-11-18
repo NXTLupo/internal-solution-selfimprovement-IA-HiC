@@ -190,6 +190,9 @@ services:
       - "${REDDIT_RIPPER_PORT:-5001}:5000"
     environment:
       - PORT=5000
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID:-}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET:-}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT:-script:nxt-humans:1.0}
     volumes:
       - ./internal-solutions-reddit-ripper:/app
     working_dir: /app
