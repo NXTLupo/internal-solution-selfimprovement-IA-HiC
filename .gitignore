@@ -136,3 +136,9 @@ archive/
 **/journey_maps/journey_map_*.html
 **/sessions/_journey-html/*.html
 **/sessions/_journey-rollouts/*.json
+
+# Local certificates (launch.sh generates them) and local tool settings
+ssl-certs/*.key
+ssl-certs/*.pem
+ssl-certs/*.crt
+settings.local.json
