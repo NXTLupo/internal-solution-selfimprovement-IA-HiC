@@ -1881,6 +1881,29 @@ function showThinking() {
   }, 1000);
 }
 
+// streaming chat answers (26 Nov): the reply shows as the model writes it; the checked reply replaces it on arrival
+let liveSeen = '';
+async function showLiveText() {
+  if (!S.conv || !S.busy) return;
+  let d;
+  try { d = await api(`/api/conversations/${encodeURIComponent(S.conv)}/live`); } catch { return; }
+  const text = (d && d.text) || '';
+  const box = $('#thinking');
+  if (!box || !text || text === liveSeen) return;
+  const sc = $('#scroll');
+  const near = sc.scrollHeight - sc.scrollTop - sc.clientHeight < 160;
+  liveSeen = text;
+  let el = box.querySelector('.live__text');
+  if (!el) {
+    el = h('div', { class: 'msg__text live__text' });
+    const body = box.querySelector('.msg__body');
+    if (body.firstElementChild) body.firstElementChild.hidden = true;     // the scene gives way to the words
+    body.append(el);
+  }
+  el.innerHTML = renderMarkdown(text);                                    // escaped by the renderer
+  if (near) scrollToEnd();
+}
+
 function hideThinking() {
   clearInterval(thinkTimer);
   S.liveBox = null;
@@ -1912,6 +1935,8 @@ async function send(text, opts = {}) {
   pushItem({ type: 'user', text });
   showThinking();
   const fast = setInterval(pollEvents, 700);
+  liveSeen = '';
+  const liveTimer = setInterval(showLiveText, 700);
   try {
     await ensureConv();
     const body = { text };
@@ -1939,6 +1964,7 @@ async function send(text, opts = {}) {
     pushItem({ type: 'error', ask: text, status: e.status ?? 0, detail: e.message });
   } finally {
     clearInterval(fast);
+    clearInterval(liveTimer);
     S.busy = false;
     updateSendState();
     updatePresence();

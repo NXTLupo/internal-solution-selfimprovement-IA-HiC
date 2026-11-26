@@ -1444,6 +1444,10 @@ button.livefeed__subject:hover, button.livefeed__subject:focus-visible { border-
 }
 @media (max-width: 640px) { .topbar { min-height: 60px; } }
 
+/* streaming chat answers (26 Nov): the words as they are written, under the thinking line */
+.live__text { margin-top: 6px; color: var(--ink); }
+.live__text > :first-child { margin-top: 0; }
+
 /* ---- one flyout system (owner, 26 Nov: "whatever visual changes you make to the library panel should be applied to
    every right panel flyout"). The Library's treatment, in the sheet every panel shares. ----------------------------- */
 .sheet__panel { width: min(520px, 100vw); border-left: 1px solid var(--line); box-shadow: -18px 0 48px rgba(13, 13, 13, .10); outline: 0; }

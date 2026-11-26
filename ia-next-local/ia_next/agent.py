@@ -776,6 +776,7 @@ def turn(cid, text, call=None, attachments=None, selection=None, focus="", packs
             with att.scope(files, sel, focus):
                 return _turn(cid, conv, "\n".join(heads + [text]), call)
         finally:
+            LIVE.pop(cid, None)                  # the finished reply replaces what streamed
             store.TURN.reset(said)
             _CONV.reset(token)
 
@@ -853,7 +854,212 @@ _STOP_WORDS = re.compile(r"(?i)\b(stop|cancel|halt|abort)\b")
 
 def _ago(seconds):
     s = max(0, int(seconds))
-    return f"{s} seconds" if s < 90 else f"{round(s / 60)} minutes"
+    if s < 90:
+        return f"{s} seconds"
+    if s < 90 * 60:
+        return f"{round(s / 60)} minutes"
+    if s < 36 * 3600:
+        return f"about {round(s / 3600)} hours"
+    return f"about {round(s / 86400)} days"
+
+
+# ---- E14 for every kind of work (owner's goal, 26 Nov) ---------------------------------------------------------------
+# "Is my deck done?", "why did the journey map fail?", "where is my report?" are answered from the task records, at once,
+# in plain words. A failure is said in words a person can act on.
+_KIND_ASK = (
+    (r"\b(deck|slides?|presentation)\b", ("deck",)),
+    (r"\b(research report|report)\b", ("research_report", "artifact")),
+    (r"\bjourney( map)?\b", ("journey_map",)),
+    (r"\b(mind ?map|infographic|diagram|picture|poster|illustration)\b", ("diagram",)),
+    (r"\bprototype\b", ("prototype",)),
+    (r"\bthemes?\b", ("themes",)),
+    (r"\bdata ?table\b", ("datatable",)),
+    (r"\b(audio overview|audio|podcast)\b", ("audio_overview",)),
+    (r"\b(reddit|social listening)\b", ("social",)),
+    (r"\b(document|brief|prd|faq|study guide|quiz|flashcards?|timeline|roadmap|personas?)\b", ("artifact",)),
+    (r"\b(transcripts?|transcription)\b", ("video_transcript",)),
+)
+_WORK_NOUN = re.compile(r"(?i)\b(?:my|the|that|this)\s+(?:work|request|task|job|thing)\b|\b(?:is|was|has)\s+it\b|\bit\s+(?:done|ready|finished)\b")
+_STATUS_ASK = re.compile(
+    r"(?i)\b(?:is|are|has|have|did|does|was|were)\b[^.?!]{0,60}?\b(?:done|ready|finished|finish|complete|completed|working|running|"
+    r"stuck|failed|fail|broken|started|going|still)\b"
+    r"|\bhow(?:'s|\s+is|\s+are)\b[^.?!]{0,40}\b(?:going|coming|doing)\b|\bwhat(?:'s|\s+is)\s+happening\b|\bwhat\s+happened\b"
+    r"|\b(?:status|progress)\b|\bwhere(?:'s|\s+is|\s+are)\b|\bwhy\s+did\b[^.?!]{0,60}\bfail|\bwhy\s+(?:has|is)\b[^.?!]{0,40}\b(?:taking|slow|stuck)\b")
+_ORDER = re.compile(r"(?i)^\s*(?:\([^)]*\)\s*)?(?:please\s+)?(?:make|create|write|build|draft|design|generate|turn|summari[sz]e|analy[sz]e|"
+                    r"give me|show me a|start|run|do)\b")
+
+
+def kinds_named(said):
+    """The kinds of work a message names, in order, or () when it names none."""
+    out = []
+    for rx, kinds in _KIND_ASK:
+        if re.search(rx, said or "", flags=re.I):
+            out += [k for k in kinds if k not in out]
+    return tuple(out)
+
+
+def asks_about_work(said):
+    """True when the message asks where a piece of work stands, and orders nothing."""
+    s = str(said or "")
+    if not s or _ORDER.search(s) or not _STATUS_ASK.search(s):
+        return False
+    return bool(kinds_named(s) or _WORK_NOUN.search(s))
+
+
+def plain_task_failure(error):
+    """Why a piece of work failed, in words a person can act on."""
+    e = str(error or "").strip()
+    low = e.lower()
+    if not e:
+        return "it stopped without a reason recorded; starting it again usually works"
+    if "invalid data found" in low or "incomplete" in low or "no speech" in low:
+        return plain_failure(e)
+    if "interrupted by a restart" in low:
+        return "the app restarted while it was being made; start it again"
+    if re.search(r"expecting .{0,20}delimiter|jsondecodeerror|unterminated string|expecting value", low):
+        return "the writing model's answer came back cut short, so nothing was saved; starting it again usually works"
+    if "unreachable on the local model server" in low or re.search(r"readtimeout|connecterror|connection refused", low):
+        return ("the local model server stopped answering partway through, most often while it was loading another model; "
+                "starting it again usually works")
+    if "tokens of context" in low and "limit" in low:
+        return "the material was too large for the model to read at once; ask again with fewer or shorter sources, or a shorter period"
+    if low.startswith("the prototype's script fails in the browser"):
+        return ("the prototype's code did not run in the browser and the automatic repairs did not fix it, so it was not shipped; "
+                "starting it again usually works")
+    if "external url appears" in low:
+        return "the prototype linked to an outside web address, which prototypes may not do, so it was not shipped; starting it again usually works"
+    out = re.sub(r"\s*\([^)]*\b[a-z]+_[a-z_]+\b[^)]*\)", "", e)              # a tool's name in brackets
+    out = re.sub(r"\b[A-Z][A-Za-z]+(?:Error|Exception):\s*", "", out)          # an exception's class
+    out = re.sub(r",?\s*or raise IA_NEXT_[A-Z_]+", "", out)
+    out = re.sub(r"\bIA_NEXT_[A-Z_]+\b", "a setting", out)
+    return out.rstrip(". ")[:240]
+
+
+def _work_subject(task):
+    """(preposition, subject) a piece of work is about: "Make a deck for [the provost's office]" -> ("for", "the provost's
+    office"); ("", "") when the request names no subject."""
+    b = task.get("brief") or {}
+    s = next((str(b.get(k)) for k in ("title", "experience", "goal", "persona", "request") if b.get(k)), "") or str(task.get("summary") or "")
+    s = re.sub(r"^\([^)]*\)\s*", "", s.strip().splitlines()[-1] if s.strip() else "")
+    s = re.sub(r"\s*#\w+", "", s).replace("[", "").replace("]", "").strip()
+    prep = "on"
+    m = re.match(r"(?i)^(?:please\s+)?(?:make|create|write|build|draft|design|generate|map|find|give me|turn)\b[^.]*?\b(on|about|of|for)\s+", s)
+    if m:                                        # "Make a deck on clinic staffing" names its subject after "on"
+        prep = "for" if m.group(1).lower() == "for" else "on"
+        s = s[m.end():]
+    if not s or _ORDER.search(s) or re.match(r"(?i)^(?:map|find)\b", s):
+        return "", ""                            # an order with no subject to name
+    return prep, ((s[:60].rsplit(" ", 1)[0] + "...") if len(s) > 62 else s)
+
+
+def _named(task):
+    """'the deck for "the provost's office"', or 'the deck' when the request names no subject."""
+    prep, subj = _work_subject(task)
+    return _the(task["kind"]) + (f' {prep} "{subj}"' if subj else "")
+
+
+_PLURAL = {"deck": "decks", "research_report": "reports", "artifact": "documents", "diagram": "pictures", "journey_map": "journey maps",
+           "themes": "sets of themes", "prototype": "prototypes", "audio_overview": "audio overviews", "video_transcript": "transcripts",
+           "datatable": "data tables", "social": "Reddit listening runs", "transcript": "analyses of your files"}
+_COUNT = {2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
+
+
+def _the(kind):
+    w = KIND_WORDS.get(kind, "the work")
+    return re.sub(r"^(a|an)\s+", "the ", w) if re.match(r"^(a|an)\s", w) else ("the " + w)
+
+
+def work_status_reply(cid, said, focus=""):
+    """Where the work a message asks about stands, from the task records, or "" when the message is not such a question."""
+    if not asks_about_work(said):
+        return ""
+    kinds = kinds_named(said)
+    now = time.time()
+    ids = list(store.conversation_task_ids(cid, 30))
+    if focus and store.get_engagement(focus):
+        ids += [t["id"] for t in store.list_tasks(engagement_id=focus, limit=30)]
+    try:                                         # running work anywhere on this machine is part of the answer
+        ids += [r["id"] for r in store.conn().execute("SELECT id FROM tasks WHERE status IN ('queued', 'running') ORDER BY created DESC LIMIT 10")]
+    except Exception:
+        pass
+    seen, tasks = set(), []
+    for i in ids:
+        if i in seen:
+            continue
+        seen.add(i)
+        t = store.get_task(i)
+        if not t or (kinds and t["kind"] not in kinds):
+            continue
+        if t["status"] in ("queued", "running") or now - float(t.get("updated") or t["created"]) < 24 * 3600:
+            tasks.append(t)
+    tasks.sort(key=lambda t: (t["status"] not in ("queued", "running"), -float(t["created"])))
+    if not tasks:
+        what = " or ".join(dict.fromkeys(re.sub(r"^(a|an)\s+", "", KIND_WORDS.get(k, "work")) for k in kinds)) if kinds else "work"
+        return (f"I find no {what} from the last day in this conversation or engagement. Older work is under the "
+                "engagement's Work tab; ask for new work and I will plan it.")
+    lines, failed, running = [], False, False
+    cap = lambda s: s[0].upper() + s[1:]
+    done = [t for t in tasks if t["status"] == "done"]
+    for t in [t for t in tasks if t["status"] != "done"][:4]:
+        name = _named(t)
+        if t["status"] in ("queued", "running"):
+            running = True
+            node = next((n for n in reversed(t.get("nodes") or []) if n["state"] == "running"), None)
+            step = (f"{node['specialist'].split(' (')[0]} has been working for {_ago(now - node['started'])}" if node
+                    else "it is between steps" if t["status"] == "running" else "it starts when the work ahead of it finishes")
+            prep, subj = _work_subject(t)
+            lines.append(f"The studio is still working on {KIND_WORDS.get(t['kind'], 'a piece of work')}" + (f' {prep} "{subj}"' if subj else "")
+                         + f": {step} (started {_ago(now - t['created'])} ago).")
+        elif t["status"] == "failed":
+            failed = True
+            lines.append(f"{name[0].upper() + name[1:]} did not finish: {plain_task_failure(t.get('error'))}.")
+        else:
+            lines.append(f"{name[0].upper() + name[1:]} was stopped; what it had written is kept.")
+    by_kind = {}
+    for t in done:                               # finished work of one kind is one sentence, newest first
+        by_kind.setdefault(t["kind"], []).append(t)
+    for kind, group in list(by_kind.items())[:3]:
+        newest = _ago(now - max(float(t.get("updated") or t["created"]) for t in group))
+        if len(group) == 1:
+            lines.append(f"{cap(_named(group[0]))} is ready (finished {newest} ago); its card has it, and so does the engagement's Work tab.")
+            continue
+        subs = [f'{p} "{s}"' for p, s in (_work_subject(t) for t in group) if s]
+        listed = ", ".join(subs[:4]) + (f" and {len(subs) - 4} more" if len(subs) > 4 else "")
+        lines.append(f"{_COUNT.get(len(group), str(len(group)))} {_PLURAL.get(kind, 'pieces of work')} are ready"
+                     + (f": {listed}" if listed else "") + f" (the newest finished {newest} ago). Their cards have them, "
+                     "and so does the engagement's Work tab.")
+    tail = []
+    if running:
+        tail.append("Its card shows each step as it finishes. Say stop if you want it stopped.")
+    if failed:
+        tail.append("The card of the work that did not finish has a Try again button.")
+    return " ".join(lines + tail)
+
+
+# ---- streaming chat answers (owner, 26 Nov) ------------------------------------------------------------------------
+LIVE = {}                                        # conversation id -> {"text", "ts"}: the reply as it is being written
+_ANSWER_FIELD = re.compile(r'"answer"\s*:\s*"((?:[^"\\]|\\.)*)')
+
+
+def live_writer(cid, json_answer=False):
+    """The callback that keeps a conversation's reply-so-far. `json_answer`: the model writes JSON whose "answer" field
+    opens the reply; only that field is shown while it streams (the quoted points are checked first)."""
+    def write(text):
+        s = str(text or "")
+        if json_answer:
+            m = _ANSWER_FIELD.search(s)
+            if not m:
+                return
+            raw = m.group(1)
+            try:
+                s = json.loads('"' + raw.rstrip("\\") + '"')
+            except ValueError:
+                s = raw.replace("\\n", "\n").replace('\\"', '"')
+        s = s.strip()
+        if not s or s.startswith(("{", "[")):    # structured output that is not meant for reading
+            return
+        LIVE[cid] = {"text": s[:6000], "ts": time.time()}
+    return write
 
 
 def studio_busy(model):
@@ -881,6 +1087,14 @@ def desk_reply(running, said):
                 pass
         if done:
             return f"Stopping {' and '.join(done)} after the step in flight. What it has written so far is kept."
+    asked = kinds_named(said) if _ORDER.search(said or "") else ()
+    same = [t for t in running if t["kind"] in asked]
+    if same:
+        t = same[0]
+        node = next((n for n in reversed(t.get("nodes") or []) if n["state"] == "running"), None)
+        step = f"{node['specialist'].split(' (')[0]} has been working for {_ago(time.time() - node['started'])}" if node else "it is between steps"
+        return (f"{_named(t)[0].upper() + _named(t)[1:]} is already being made: {step}. "
+                "Its card in this conversation shows each step and will hold it when it is ready. Say stop if you want it stopped.")
     parts = []
     for task in running:
         node = next((n for n in reversed(task.get("nodes") or []) if n["state"] == "running"), None)
@@ -890,8 +1104,8 @@ def desk_reply(running, said):
         step = f"{node['specialist'].split(' (')[0]} has been working for {_ago(time.time() - node['started'])}" if node else "it is between steps"
         parts.append(f"{what}, started {_ago(time.time() - task['created'])} ago: {step}")
     return ("The studio is still working on " + "; and on ".join(parts) + ". Its card shows each step as it finishes. "
-            "I can plan new work as soon as it is done, since both use this machine's one graphics card. Say stop if you "
-            "want it stopped.")
+            "This machine has one graphics card, so new work is planned once it finishes: ask again when its card shows it "
+            "is ready, or say stop to stop it now.")
 
 
 # ---- uplift plan WS-5 step 2: a long conversation keeps its context ---------------------------------------------------
@@ -1022,6 +1236,10 @@ def _turn(cid, conv, text, call):
         about_recordings = recordings_reply(cid, said)
         if about_recordings:
             return _say(cid, conv, about_recordings, [{"tool": "recordings", "input": {"question": said[:300]}, "output": {"answered_from": "task records"}}], ledger)
+        about_work = work_status_reply(cid, said, turn_ctx.get("focus") or "")
+        if about_work:                           # E14: a question about the person's own work, from its records (26 Nov)
+            store.event("agent_step", {"conversation": cid, "step": 0, "model": "", "desk": True, "loaded": True})
+            return _say(cid, conv, about_work, [])
         running = studio_busy(model)
         from . import webanswer
         if webanswer.wants(said):
@@ -1073,7 +1291,11 @@ def _turn(cid, conv, text, call):
             store.event("agent_step", {"conversation": cid, "step": 0, "model": model, "desk": False, "loaded": providers.is_loaded(model)})
             store.event("agent_tool", {"conversation": cid, "tool": "answer_from_sources", "state": "start", "call": "answer"})
             try:
-                got = answers.answer(focus, re.sub(r"^\([^)]*\)\s*", "", said), ledger, source_ids=file_ids(focus, said), quick=True)
+                stok = providers.STREAM_TEXT.set(live_writer(cid, json_answer=True))
+                try:
+                    got = answers.answer(focus, re.sub(r"^\([^)]*\)\s*", "", said), ledger, source_ids=file_ids(focus, said), quick=True)
+                finally:
+                    providers.STREAM_TEXT.reset(stok)
             except (providers.ProviderError, ValueError) as e:
                 got = None
                 store.event("agent_error", {"conversation": cid, "error": f"answer_from_sources: {str(e)[:300]}"})
@@ -1179,8 +1401,13 @@ def _steps(cid, conv, call, model, tools, system, max_out, desk, trace, ledger):
         if call is providers.claude:            # the live view of this turn (not under test fakes)
             store.event("agent_step", {"conversation": cid, "step": step, "model": model, "desk": desk,
                                        "loaded": True if desk else providers.is_loaded(model)})
-        reply, usage, resp = call(model, system, conv.messages, ledger, max_tokens=max_out, effort="medium", tools=tools,
-                                  cache_messages=True)
+        stok = providers.STREAM_TEXT.set(live_writer(cid)) if call is providers.claude else None
+        try:
+            reply, usage, resp = call(model, system, conv.messages, ledger, max_tokens=max_out, effort="medium", tools=tools,
+                                      cache_messages=True)
+        finally:
+            if stok is not None:
+                providers.STREAM_TEXT.reset(stok)
         conv.messages.append({"role": "assistant", "content": [b.model_dump(exclude_none=True) if hasattr(b, "model_dump") else b for b in resp.content]})
         uses = [b for b in resp.content if getattr(b, "type", None) == "tool_use"]
         if (resp.stop_reason != "tool_use" or not uses) and unbacked_claim(reply, trace):

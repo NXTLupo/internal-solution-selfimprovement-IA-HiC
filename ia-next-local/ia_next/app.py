@@ -185,6 +185,13 @@ def post_message(cid: str, m: NewMessage):
         raise HTTPException(502, f"the agent could not answer: {str(e)[:300]}")
 
 
+@app.get("/api/conversations/{cid}/live")
+def live_reply(cid: str):
+    """The reply as the model writes it (streaming chat, 26 Nov); empty when nothing is being written."""
+    got = agent.LIVE.get(cid) or {}
+    return {"text": got.get("text", ""), "ts": got.get("ts", 0)}
+
+
 @app.get("/api/events")
 def events(after: int = 0, engagement_id: str = None):
     return {"events": store.events_after(after, engagement_id)}

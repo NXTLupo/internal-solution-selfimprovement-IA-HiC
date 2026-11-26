@@ -27,11 +27,12 @@ engagement named under "Reported from" are examples, never the scope.
 | E11 | The period research collects from is the user's choice: a period that is selected or named (for example 90 days) is the period the run uses | Research period | Open |
 | E12 | An approved video is always made or says why it was not; it shows its progress and survives a restart of the app | Media | Open |
 | E13 | A recording that cannot be transcribed is refused at upload with the reason, in words a person can act on | Transcription | Open |
-| E14 | When a person asks about, or asks for, work that is already running or has already failed, the assistant answers about that work in plain words: it never presents the person's own running work as something in their way, and never passes on a decoder's error as the reason | Assistant replies about work | Built for recordings and checked through the page; other kinds of work still open |
+| E14 | When a person asks about, or asks for, work that is already running or has already failed, the assistant answers about that work in plain words: it never presents the person's own running work as something in their way, and never passes on a decoder's error as the reason | Assistant replies about work | Built for every kind of work and checked through the page (26 Nov) |
 | E15 | Work started by attaching a file shows its card in the conversation at once, and its result arrives in that conversation when it is done | Cards for attached files | Built and checked through the page with three recordings |
 | E16 | Files are the person's, not an engagement's: any uploaded file can be used for an analysis or an artifact in any engagement, alone if the person wants; each engagement keeps in context the files uploaded in it | Files | Built, tested, checked through the page (plan card and file picker); full deck run recorded in the Log |
 | E17 | The models the build brief recommended are installed and compared on this machine; none is replaced by a model that happened to be on disk, and none is swapped in if it slows the system or lowers quality | Models | Image seat swapped (owner's decision); speech, scanned pages, embeddings and screenshot judge measured side by side, see E17 |
 | E18 | The app looks like professional enterprise software: a dark navigation set off from the white workspace, the NXT Humans logo in white, a taller header, a Library that is easy to navigate, and every right-hand panel in the Library's visual language | Interface and branding | Built and checked through the page: all 19 panels opened and photographed |
+| E19 | The chat feels responsive: an answer shows in the conversation as it is written, and the checked reply replaces it | Responsiveness | Built and checked through the page (26 Nov) |
 
 ## The pervasive theme (owner, 25 Nov 2026)
 
@@ -1150,3 +1151,28 @@ Checked through the page after each rebuild: 19 flyouts opened by script (pw/aud
 every header 76 px, none scrolls sideways, no stray "null". Found and fixed on the way: icons not drawn (wrong icon
 names), "null" printed by the DOM's replaceChildren, the engagement tag chips unstyled after the old Library CSS was
 removed, the search icon reaching text fields and a select. Suite: 624 passed, 24 skipped.
+
+
+## E14, the rest, and E19: replies about work in plain words, and answers that stream (26 Nov)
+
+The owner's goal kept both open: E14 was built for recordings only, and chat answers arrived all at once after 26 to 31
+seconds.
+
+E14 for every kind of work (`agent.work_status_reply`, `plain_task_failure`; tests `test_work_status_in_plain_words.py`):
+"is my deck done?", "why did the journey map fail?", "where is my report?", "how is the prototype going?" are answered
+from the task records with no model call: running work names its step and how long it has been working; finished work of
+one kind is one sentence with each piece's subject ("Three decks are ready: for ..."); failed work says why in words a
+person can act on and points to the card's Try again button. The failure reasons the app has recorded were read first: a
+parser's message, a server timeout, a context limit naming a setting, browser script errors, a tool's name and a decoder's
+error each become a plain sentence; reasons already written in plain words are kept. A request for work of a kind that is
+already being made says it is already being made. Checked through the page: "is my deck done?" with the gate-run
+engagement in focus answered in 3 seconds, "10 decks are ready: for ... (the newest finished about 12 hours ago)".
+
+E19, streaming (`providers.STREAM_TEXT`, `agent.live_writer`, `/api/conversations/{cid}/live`, `showLiveText` in the
+page; tests `test_streaming_chat.py`): the model's stream is read as it arrives and the text so far is kept in memory for
+the conversation (never in the event log); the page reads it every 700 ms while it waits. A question about the person's
+files streams only its opening summary: its quoted points are checked against their passages before they are shown, so
+they arrive with the finished reply, which replaces the streamed text. Checked through the page, gate-run engagement,
+"what are the key themes in the interviews?": first words at 9 seconds, finished reply at 29 seconds (the same total as
+before; the first words used to wait for the whole reply). The first answer after a rebuild took 54 seconds while the
+model warmed up. Suite: 634 passed, 24 skipped.

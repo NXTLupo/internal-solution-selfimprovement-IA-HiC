@@ -436,6 +436,9 @@ ON_PROCESSOR = contextvars.ContextVar("ia_next_on_processor", default=False)
 # tokens have been written so far, so a long write shows progress instead of only elapsed time.
 PROGRESS = contextvars.ContextVar("ia_next_progress", default=None)
 PROGRESS_EVERY = 3.0              # seconds between progress reports
+# streaming chat answers (26 Nov): a callback that hears the reply's text so far while the model writes it
+STREAM_TEXT = contextvars.ContextVar("ia_next_stream_text", default=None)
+STREAM_TEXT_EVERY = 0.5
 
 THINK_ALLOWANCE = 4000            # tokens of reasoning allowed on top of the answer when a model thinks
 MAX_PREDICT = 32000
@@ -503,7 +506,7 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
         try:
             if not on_processor:
                 _room()
-            if progress is not None:
+            if progress is not None or STREAM_TEXT.get() is not None:
                 return _post_streaming()
             r = httpx.post(config.OLLAMA_URL + "/api/chat", json=body, timeout=httpx.Timeout(3600.0, connect=15.0))
         except httpx.TimeoutException as e:
@@ -524,6 +527,7 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
         carries the counts. The callback hears the running token count every few seconds."""
         sbody = dict(body, stream=True)
         content, thinking, calls, final, written, last = [], [], [], {}, 0, time.time()
+        text_cb, last_text = STREAM_TEXT.get(), 0.0
         with httpx.stream("POST", config.OLLAMA_URL + "/api/chat", json=sbody, timeout=httpx.Timeout(3600.0, connect=15.0)) as r:
             if r.status_code != 200:
                 said = r.read().decode("utf-8", "replace")
@@ -541,6 +545,12 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
                 if m.get("content"):
                     content.append(m["content"])
                     written += 1
+                    if text_cb is not None and time.time() - last_text >= STREAM_TEXT_EVERY:
+                        last_text = time.time()
+                        try:
+                            text_cb("".join(content))
+                        except Exception:
+                            pass
                 if m.get("thinking"):
                     thinking.append(m["thinking"])
                     written += 1
@@ -549,7 +559,7 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
                 if part.get("done"):
                     final = part
                     break
-                if time.time() - last >= PROGRESS_EVERY:
+                if progress is not None and time.time() - last >= PROGRESS_EVERY:
                     last = time.time()
                     try:
                         progress(written)
