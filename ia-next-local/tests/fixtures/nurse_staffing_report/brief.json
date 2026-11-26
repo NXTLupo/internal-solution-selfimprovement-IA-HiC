@@ -1,0 +1,17 @@
+{
+ "audience": "Hospital COO",
+ "goal": "Provide evidence on how nurse staffing levels affect patient outcomes to inform staffing policy decisions",
+ "scope": "Peer-reviewed and trade sources from the last two years on nurse staffing levels and patient outcomes in US hospitals",
+ "structure": "Executive summary, key findings, implications for staffing policy, data tables, recommendations",
+ "constraints": "Must use healthcare data pack; sources must be peer-reviewed or trade; limit to last two years; citations must be verbatim-quoted and verified",
+ "success": [
+  "Report delivers actionable insights on staffing-outcome relationships",
+  "All citations are verbatim-quoted and verified against sources",
+  "Report is tailored for a COO's policy decision context",
+  "Within standard budget (3.00 USD)"
+ ],
+ "packs": [
+  "healthcare"
+ ],
+ "request": "Research how nurse staffing levels affect patient outcomes in US hospitals, for a hospital COO deciding on staffing policy. Scope: peer-reviewed and trade sources from the last two years. Use the healthcare data pack. Start the report now."
+}

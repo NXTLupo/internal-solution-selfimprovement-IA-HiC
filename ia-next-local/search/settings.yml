@@ -1,0 +1,11 @@
+# SearXNG for IA Next Local: JSON answers for the search adapter (ia_next/localsearch.py). Internal network only.
+use_default_settings: true
+server:
+  secret_key: "ia-next-local-internal-only"   # not a credential: the service has no published port and no accounts
+  limiter: false
+  image_proxy: false
+search:
+  safe_search: 1
+  formats:
+    - html
+    - json

@@ -1,0 +1,136 @@
+{
+ "findings": [
+  {
+   "claim": "Implementing a 4:1 nurse-to-patient ratio in New York hospitals would have prevented 4,370 deaths and saved $720 million over two years.",
+   "quote": "In New York, if hospitals followed the 4:1 patient-to-nurse ratio, they would have saved 4,370 lives and $720 million in just two years.",
+   "source_id": "S35",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/mnnurses-org/6cd55cb87e.md#c1"
+  },
+  {
+   "claim": "Adopting a 4:1 nurse-to-patient ratio in Illinois hospitals could have prevented 1,595 deaths and saved $117 million in one year.",
+   "quote": "In Illinois, staffing ratios could have prevented 1,595 deaths, and hospitals could have saved $117 million in just one year.",
+   "source_id": "S35",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/mnnurses-org/6cd55cb87e.md#c1"
+  },
+  {
+   "claim": "Each additional patient assigned to a nurse's workload is associated with a 7 percent increase in the risk of hospital mortality and failure to rescue.",
+   "quote": "research conducted by my colleagues and me established that each one patient added to a nurse’s workload is associated with a 7 percent increase in the risk of hospital mortality and failure to rescue patients.",
+   "source_id": "S36",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/aft-org/614d39206b.md#c1"
+  },
+  {
+   "claim": "Replacing registered nurses with lower-qualified personnel results in poor patient outcomes and does not save money due to increased complications and turnover.",
+   "quote": "Many rigorous studies have documented that replacing RNs with lower-qualified personnel results in poor patient outcomes and poor RN retention, and it does not save money.",
+   "source_id": "S36",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/aft-org/614d39206b.md#c9"
+  },
+  {
+   "claim": "A 2021 observational study of hospital medical-surgical units in Illinois found that for each additional patient added to a nurse's average workload, the likelihood of the patient dying within 30 days of admission increased by 16 percent.",
+   "quote": "A 2021 study found that in hospital medical surgical units in Illinois, for each patient added to a nurse’s average workload, the likelihood of the patient dying within 30 days of admission increased by 16 percent, and the likelihood that the patient stayed in the hospital for a day longer increased by five percent.",
+   "source_id": "S37",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/dpeaflcio-org/c89184fae0.md#c2"
+  },
+  {
+   "claim": "A 2023 study involving nurses and physicians at 60 Magnet hospitals across the U.S. found that hospitals characterized as having too few nurses and unfavorable work environments had higher rates of clinician burnout, turnover, and unfavorable patient safety ratings.",
+   "quote": "A 2023 study involving both nurses and physicians at 60 Magnet hospitals across the U.S. found that nurse staffing was the primary issue that subjects identified as wanting management to improve. Additionally, the study revealed that “hospitals characterized as having too few nurses and unfavorable work environments had higher rates of clinician burnout, turnover, and unfavorable patient safety ratings.”",
+   "source_id": "S37",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/dpeaflcio-org/c89184fae0.md#c4"
+  },
+  {
+   "claim": "A 2021 study of hospital medical-surgical units in Illinois estimated that if the hospitals were staffed at four patients to one nurse during the study period, more than 1,595 deaths would have been avoided.",
+   "quote": "The same study estimated that if the hospitals were staffed at four patients to one nurse during the study period, “more than 1595 deaths would have been avoided.”",
+   "source_id": "S37",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/dpeaflcio-org/c89184fae0.md#c2"
+  },
+  {
+   "claim": "A 2021 study of hospital medical-surgical units in Illinois found that a staffing ratio of four patients to one nurse would have saved a total of $117 million per year across the hospitals in the study due to reduced lengths of stay.",
+   "quote": "The 2021 study of hospital medical surgical units in Illinois found that a staffing ratio of four patients to one nurse would have saved a total of $117 million per year across the hospitals in the study due to reduced lengths of stay.",
+   "source_id": "S37",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/dpeaflcio-org/c89184fae0.md#c7"
+  },
+  {
+   "claim": "A 2024 study by the U.S. Government Accountability Office found that among the hospitals studied, the increase in the number of supplemental nurses from 2019 to 2022 ranged from two to 28 percent.",
+   "quote": "A 2024 study by the U.S. Government Accountability Office found that among the hospitals studied, the increase in the number of supplemental nurses from 2019 to 2022 ranged from two to 28 percent.",
+   "source_id": "S37",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/dpeaflcio-org/c89184fae0.md#c6"
+  },
+  {
+   "claim": "The American Nurses Association asserts that evidence demonstrates appropriate nurse staffing contributes to improved patient outcomes and greater satisfaction for both patients and nurses.",
+   "quote": "Evidence shows appropriate  nurse staffing   contributes to improved patient outcomes and greater satisfaction for both patients and nurses.",
+   "source_id": "S38",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/nursingworld-org/bef8aa3674.md#c1"
+  },
+  {
+   "claim": "Numerous studies reveal an association between higher levels of experienced registered nurse (RN) staffing and lower rates of adverse patient outcomes.",
+   "quote": "Numerous studies reveal an association between higher levels of experienced RN staffing and lower rates of adverse patient outcomes.",
+   "source_id": "S38",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/nursingworld-org/bef8aa3674.md#c2"
+  },
+  {
+   "claim": "Healthgrades medical advisor Alana Biggers states that hospitals must invest in workforce development and support, including ensuring appropriate staffing levels for physicians, nurses, and other healthcare professionals, to provide high-quality care.",
+   "quote": "I believe hospitals must also invest in workforce development and support. This means ensuring physicians, nurses, and other healthcare professionals have appropriate staffing levels, adequate clinical and administrative support, and opportunities for continued professional development",
+   "source_id": "S41",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/healthline-news/a8aaa2b0e3.md#c3"
+  },
+  {
+   "claim": "Healthgrades medical advisor Alana Biggers notes that when healthcare teams are adequately supported, they are better positioned to communicate effectively with patients, coordinate care, and address patients' needs.",
+   "quote": "When healthcare teams are adequately supported, they are better positioned to communicate effectively with patients, coordinate care, and address patients’ needs.",
+   "source_id": "S41",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/healthline-news/a8aaa2b0e3.md#c2"
+  },
+  {
+   "claim": "The American Nurses Association supports enforceable minimum nurse-to-patient ratios as an essential approach to achieving appropriate nurse staffing.",
+   "quote": "The American Nurses Association (ANA) supports enforceable ratios as an essential approach to achieving appropriate nurse staffing .",
+   "source_id": "S38",
+   "claim_type": "SUPPORTED_FACT",
+   "pointer": "articles/nursingworld-org/bef8aa3674.md#c1"
+  }
+ ],
+ "dropped_quote_not_in_source": [
+  {
+   "claim": "Mandated hospital nurse staffing committees alone do not improve nurse staffing, nurse well-being, or patient outcomes.",
+   "quote": "research suggests that nurse staffing committees alone do not improve nurse staffing. And there is no evidence that nurse staffing committees significantly improve nurse well-being and retention or patient outcomes.",
+   "source_id": "S36",
+   "claim_type": "SUPPORTED_FACT"
+  }
+ ],
+ "evidence": {
+  "sources": 16,
+  "chunks_available": 112,
+  "chars_available": 216368,
+  "via": {
+   "S35": "manifest",
+   "S36": "manifest",
+   "S37": "manifest",
+   "S38": "manifest",
+   "S39": "manifest",
+   "S40": "manifest",
+   "S41": "manifest",
+   "S42": "manifest",
+   "S43": "manifest",
+   "S44": "manifest",
+   "S45": "manifest",
+   "S46": "manifest",
+   "S47": "manifest",
+   "S48": "manifest",
+   "S49": "manifest",
+   "S50": "manifest"
+  },
+  "chunks_used": 66,
+  "full_coverage": false,
+  "windows": 4
+ }
+}

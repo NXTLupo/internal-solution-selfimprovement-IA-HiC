@@ -1,0 +1,79 @@
+{
+ "runs": 3,
+ "seats": {
+  "deep_reasoning": {
+   "claude-fable-5-2": {
+    "judge_score": 0.334,
+    "seconds": 19.467,
+    "usd": 0.316
+   },
+   "claude-opus-5-5": {
+    "judge_score": 0.476,
+    "seconds": 11.533,
+    "usd": 0.173
+   },
+   "gpt-6-astra": {
+    "judge_score": 0.571,
+    "seconds": 13.567,
+    "usd": 0.176
+   }
+  },
+  "search": {
+   "gemini-4-argon": {
+    "readable_sources": 5,
+    "distinct_domains": 3.667,
+    "seconds": 61.2,
+    "usd": 0.057
+   },
+   "gemini-3.5-flash": {
+    "readable_sources": 6,
+    "distinct_domains": 6,
+    "seconds": 27.733,
+    "usd": 0.083
+   }
+  },
+  "fast": {
+   "gpt-6-luna": {
+    "accuracy": 0.861,
+    "mean_seconds": 1.65,
+    "usd": 0.012
+   },
+   "claude-haiku-5-5": {
+    "accuracy": 0.833,
+    "mean_seconds": 0.807,
+    "usd": 0.0
+   },
+   "gemini-3.5-flash": {
+    "accuracy": 0.833,
+    "mean_seconds": 2.577,
+    "usd": 0.057
+   }
+  },
+  "analysis": {
+   "claude-sonnet-5-5": {
+    "verbatim_ok": 13,
+    "survival": 0.976,
+    "seconds": 13.433,
+    "usd": 0.066
+   },
+   "gpt-6.1-terra": {
+    "verbatim_ok": 12.667,
+    "survival": 1.0,
+    "seconds": 22.267,
+    "usd": 0.101
+   },
+   "gemini-3.5-flash": {
+    "verbatim_ok": 9.667,
+    "survival": 1.0,
+    "seconds": 20.467,
+    "usd": 0.156
+   },
+   "gemini-4-carbon": {
+    "verbatim_ok": 14,
+    "survival": 1.0,
+    "seconds": 73.9,
+    "usd": 0.228
+   }
+  }
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "_source": "humans-in-control-research/proxy/fonts/static (SIL Open Font License); Latin subsets made by ia-next/scripts/make_brand_fonts.py",
+ "faces": [
+  {
+   "family": "Saira Condensed",
+   "weight": 600,
+   "file": "SairaCondensed-600.woff2",
+   "bytes": 15004
+  },
+  {
+   "family": "Saira Condensed",
+   "weight": 700,
+   "file": "SairaCondensed-700.woff2",
+   "bytes": 15020
+  },
+  {
+   "family": "Archivo",
+   "weight": 400,
+   "file": "Archivo-400.woff2",
+   "bytes": 11832
+  },
+  {
+   "family": "Archivo",
+   "weight": 700,
+   "file": "Archivo-700.woff2",
+   "bytes": 11704
+  },
+  {
+   "family": "Lato",
+   "weight": 400,
+   "file": "Lato-400.woff2",
+   "bytes": 29548
+  },
+  {
+   "family": "Poppins",
+   "weight": 400,
+   "file": "Poppins-400.woff2",
+   "bytes": 8084
+  },
+  {
+   "family": "Poppins",
+   "weight": 700,
+   "file": "Poppins-700.woff2",
+   "bytes": 7940
+  },
+  {
+   "family": "Josefin Sans",
+   "weight": 400,
+   "file": "JosefinSans-400.woff2",
+   "bytes": 10952
+  },
+  {
+   "family": "Josefin Sans",
+   "weight": 700,
+   "file": "JosefinSans-700.woff2",
+   "bytes": 10504
+  }
+ ]
+}

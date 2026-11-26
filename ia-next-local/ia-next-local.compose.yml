@@ -1,0 +1,104 @@
+# IA Next Local: IA Next with every model call answered on this machine. No paid API, no token cost.
+#
+# A separate system from IA Next (ia-next) and from the suite (docker-compose-all.yml):
+#   - its own compose project name (ia-next-local), containers, networks and data volume (ia-next-local-data);
+#   - its own port, 9460, bound to 127.0.0.1 only (IA Next keeps 9400);
+#   - NO env_file and NO provider key: the container cannot authenticate to a paid model API, and providers.py
+#     refuses any request to one. Only the free Reddit application credentials are passed, by name.
+# Models are served by Ollama on the host (model store on D:, OLLAMA_MODELS). Search is a self-hosted SearXNG.
+# It calls HiC's research proxy only on routes that use no paid model (hic.py allow-list): source collectors, the
+# shared wiki, passage retrieval, the native diagram renderer and the PowerPoint exporter.
+#
+#   docker compose -f ia-next-local.compose.yml --env-file D:/NXT-HUMANS_AI_CX_WORKBENCH/.env up -d --build   # start
+#   docker compose -f ia-next-local.compose.yml down                                                          # stop
+# (--env-file only fills the two REDDIT_ names below; nothing else from that file reaches a container.)
+name: ia-next-local
+
+services:
+  ia-next-local:
+    build: .
+    image: ia-next-local:0.1
+    container_name: ia-next-local
+    environment:
+      - IA_NEXT_PORT=9460
+      - IA_NEXT_DATA=/data
+      - IA_NEXT_HIC_URL=http://host.docker.internal:5012
+      - IA_NEXT_OLLAMA_URL=http://host.docker.internal:11434
+      - IA_NEXT_SEARCH_URL=http://ia-next-local-search:8080
+      - IA_NEXT_RENDER_URL=http://ia-next-local-render:9500
+      - IA_NEXT_COMFY_URL=http://host.docker.internal:8189
+      - IA_NEXT_SPEECH_DIR=/models/speech
+      - IA_NEXT_WHISPER_DIR=/models/whisper
+      - IA_NEXT_WHISPER_MODEL=large-v3
+      - HF_HOME=/models/hf
+      - HF_HUB_OFFLINE=1
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID:-}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET:-}
+    ports:
+      - "127.0.0.1:9460:9460"
+    volumes:
+      - ia-next-local-data:/data
+      # HiC publishes its proxy token here; read-only, and only config.json is read.
+      - D:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+      # Speech models already on this machine, read-only: Piper voices and the Whisper weights in the HF cache.
+      - D:/nxt-ai-capabilities/local/models/piper:/models/speech/piper:ro
+      - D:/ia-next-local-models/piper:/models/speech/piper-extra:ro
+      - D:/ia-next-local-models/kokoro:/models/speech/kokoro:ro
+      - ${IA_NEXT_HF_CACHE:-${USERPROFILE}/.cache/huggingface}:/models/hf:ro
+      # Whisper large-v3 for video transcription (videotranscript.py), the open-weight equivalent of the standalone
+      # Video Analyzer's whisper-1: Systran/faster-whisper-large-v3 (MIT), downloaded once to D: (LOCAL.md)
+      - D:/ia-next-local-models/whisper:/models/whisper:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - ia-next-local-net
+      - ia-next-local-render
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9460/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+    restart: unless-stopped
+
+  # Untrusted, model-written pages run here: no keys, no volume, no published port, no route to the internet.
+  ia-next-local-render:
+    build: ./render
+    image: ia-next-local-render:0.1
+    container_name: ia-next-local-render
+    networks:
+      - ia-next-local-render
+    shm_size: "512m"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /home/render
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9500/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+    restart: unless-stopped
+
+  # The search seat's page finder: SearXNG, free software that queries public search engines. No key, no account,
+  # no published port; only IA Next Local reaches it.
+  ia-next-local-search:
+    image: searxng/searxng:latest
+    container_name: ia-next-local-search
+    environment:
+      - SEARXNG_BASE_URL=http://ia-next-local-search:8080/
+    volumes:
+      - ./search/settings.yml:/etc/searxng/settings.yml:ro
+    networks:
+      - ia-next-local-net
+    restart: unless-stopped
+
+networks:
+  ia-next-local-net:
+    name: ia-next-local-net
+  ia-next-local-render:
+    name: ia-next-local-render
+    internal: true
+
+volumes:
+  ia-next-local-data:
+    name: ia-next-local-data

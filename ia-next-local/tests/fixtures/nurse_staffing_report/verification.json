@@ -1,0 +1,106 @@
+{
+ "score": -0.156,
+ "deterministic_findings": [
+  {
+   "rule": "em-dash",
+   "detail": "2 em-dash characters"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "each one patient added to a nurse's workload is associated with a 7 percent increase in the risk of hospital mortality a"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "for each patient added to a nurse's average workload, the likelihood of the patient dying within 30 days of admission in"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "if the hospitals were staffed at four patients to one nurse during the study period, 'more than 1595 deaths would have b"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "supports enforceable ratios as an essential approach to achieving appropriate nurse staffing."
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "hospitals must also invest in workforce development and support. This means ensuring physicians, nurses, and other healt"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "When healthcare teams are adequately supported, they are better positioned to communicate effectively with patients, coo"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "each one patient added to a nurse's workload is associated with a 7 percent increase in the risk of hospital mortality a"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "for each patient added to a nurse's average workload, the likelihood of the patient dying within 30 days of admission in"
+  },
+  {
+   "rule": "quote-not-in-source",
+   "detail": "if the hospitals were staffed at four patients to one nurse during the study period, 'more than 1595 deaths would have b"
+  },
+  {
+   "rule": "naked-number",
+   "detail": "Higher nurse staffing levels are associated with lower patient mortality, fewer complications, and reduced hospital cost"
+  },
+  {
+   "rule": "naked-number",
+   "detail": "| Each additional patient increases 30-day mortality and length of stay |   | [S37] |"
+  }
+ ],
+ "judge": {
+  "judge_model": "hf.co/ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF:Q4_0",
+  "items": [
+   {
+    "criterion": "Answers the stated goal directly in the opening paragraph",
+    "pass": false,
+    "reason": "The opening paragraph states 'Higher nurse staffing levels are associated with lower patient mortality, fewer complications, and reduced hospital costs' but does not explicitly frame this as evidence to 'inform staffing policy decisions' for a COO audience."
+   },
+   {
+    "criterion": "Every factual claim is supported by a cited source passage, and the wording does not go beyond what the passage says",
+    "pass": false,
+    "reason": "The 'Key Findings' section contains phrasing like 'Researchers established that...' and 'The Minnesota Nurses Association reports...' which introduces actors not present in the verbatim source passages. Several claims paraphrase or reword source text beyond what the passages state."
+   },
+   {
+    "criterion": "Names who acts in each claim (a team, a system, an organization), not abstract nouns",
+    "pass": false,
+    "reason": "The document uses abstract nouns and passive constructions ('Researchers established', 'The Minnesota Nurses Association reports') without consistently naming the specific teams, systems, or organizations authoring the original data in every claim."
+   },
+   {
+    "criterion": "States what remains uncertain by narrowing claims, never with QA notes such as 'evidence gap' or 'TBD'",
+    "pass": true,
+    "reason": "The document does not use 'evidence gap' or 'TBD' notation; claims are stated definitively within the scope of the cited sources."
+   },
+   {
+    "criterion": "Plain, literal business language with no metaphors or slogans",
+    "pass": false,
+    "reason": "The document contains phrases like 'cost center', 'net savings mechanism', and 'workforce investment' which, while business-like, include terminology that stretches literal interpretation of the source data (e.g., framing cost savings as offsetting investment based on selective readings)."
+   },
+   {
+    "criterion": "Report delivers actionable insights on staffing-outcome relationships",
+    "pass": true,
+    "reason": "The 'Recommendations' section provides specific, actionable directives for a COO (adopt ratios, prioritize RN staffing, invest in development, monitor metrics, address supplemental dependency)."
+   },
+   {
+    "criterion": "All citations are verbatim-quoted and verified against sources",
+    "pass": false,
+    "reason": "The Data Tables cite verbatim passages, but the 'Key Findings' and 'Implications for Staffing Policy' sections frequently paraphrase or rephrase the source text, meaning not all factual claims use verbatim-quoted citations."
+   },
+   {
+    "criterion": "Report is tailored for a COO's policy decision context",
+    "pass": true,
+    "reason": "The document is structured with a COO audience in mind, using financial impact language, ROI framing, and specific policy levers (ratios, budget allocations, monitoring systems) relevant to a COO's decision-making role."
+   },
+   {
+    "criterion": "Within standard budget (3.00 USD)",
+    "pass": true,
+    "reason": "The document does not reference any cost beyond its own production; the $3.00 budget constraint is satisfied as no monetary claims about the document's creation appear."
+   }
+  ],
+  "score": 0.444
+ },
+ "repair_rounds": 0,
+ "kept": "first draft"
+}

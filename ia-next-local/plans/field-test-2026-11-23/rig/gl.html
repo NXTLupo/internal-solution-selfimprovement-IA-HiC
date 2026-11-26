@@ -1,0 +1,8 @@
+<!doctype html><title>starting</title><canvas id="c" width="2048" height="2048"></canvas>
+<script>
+const g=document.getElementById("c").getContext("webgl2",{powerPreference:"high-performance"});
+const d=g.getExtension("WEBGL_debug_renderer_info");
+document.title=String(g.getParameter(d.UNMASKED_RENDERER_WEBGL)).slice(0,70);
+const t=[];for(let i=0;i<24;i++){const x=g.createTexture();g.bindTexture(g.TEXTURE_2D,x);g.texStorage2D(g.TEXTURE_2D,1,g.RGBA8,4096,4096);g.texSubImage2D(g.TEXTURE_2D,0,0,0,4096,4096,g.RGBA,g.UNSIGNED_BYTE,new Uint8Array(4096*4096*4));t.push(x)}
+function f(){g.clearColor(Math.random(),0,0,1);g.clear(g.COLOR_BUFFER_BIT);requestAnimationFrame(f)}f()
+</script>

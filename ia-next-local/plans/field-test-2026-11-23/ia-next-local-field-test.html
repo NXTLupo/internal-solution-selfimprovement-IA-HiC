@@ -1,0 +1,781 @@
+<title>IA Next Local Field Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: one reading column on white, a sticky section index on wide screens, tables scroll inside their own box. */
+:root{
+  --bg:#FFFFFF; --panel:#F6F6F1; --ink:#141414; --muted:#5C5F5A; --line:#DEDED6;
+  --teal:#115054; --tealwash:#EAF5F5; --accent:#B8B800; --accentwash:#F7F7D9;
+  --crit:#B3261E; --critwash:#FBEBE9; --high:#B25A12; --highwash:#FBF0E2; --med:#6B6B12; --medwash:#F4F4DC; --ok:#1F6B3A; --okwash:#E6F3EA;
+  --display:"Saira Condensed","Arial Narrow",Arial,sans-serif; --body:Archivo,"Segoe UI",Arial,sans-serif; --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121412; --panel:#1B1E1B; --ink:#ECEDE6; --muted:#A3A79E; --line:#30342F;
+  --teal:#6FC9CE; --tealwash:#14282A; --accent:#D2D23A; --accentwash:#2A2A12;
+  --crit:#FF8A80; --critwash:#3A1B18; --high:#F2B36B; --highwash:#3A2A14; --med:#D6D67A; --medwash:#2C2C14; --ok:#7ED49A; --okwash:#16301F; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#121412; --panel:#1B1E1B; --ink:#ECEDE6; --muted:#A3A79E; --line:#30342F;
+  --teal:#6FC9CE; --tealwash:#14282A; --accent:#D2D23A; --accentwash:#2A2A12;
+  --crit:#FF8A80; --critwash:#3A1B18; --high:#F2B36B; --highwash:#3A2A14; --med:#D6D67A; --medwash:#2C2C14; --ok:#7ED49A; --okwash:#16301F; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1040px){ .wrap{grid-template-columns:200px minmax(0,1fr)} .toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start} }
+.toc{font-size:13px;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--muted);text-decoration:none;padding:3px 0;border-bottom:1px solid transparent}
+.toc a:hover,.toc a:focus-visible{color:var(--teal);border-bottom-color:var(--teal);outline:none}
+.toc .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+main{display:flex;flex-direction:column;gap:56px;min-width:0}
+section{display:flex;flex-direction:column;gap:18px;min-width:0}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.02;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.08;margin:0;text-wrap:balance}
+h3{font-family:var(--body);font-weight:600;font-size:17px;margin:0}
+p{margin:0;max-width:72ch}
+.lead{font-size:19px;line-height:1.5;max-width:66ch}
+.muted{color:var(--muted)}
+a{color:var(--teal)}
+code,.mono{font-family:var(--mono);font-size:.86em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:3px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:680px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+tr:last-child td{border-bottom:0}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.crit{background:var(--critwash);color:var(--crit)} .high{background:var(--highwash);color:var(--high)} .med{background:var(--medwash);color:var(--med)} .ok{background:var(--okwash);color:var(--ok)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.case{border:1px solid var(--line);border-radius:3px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.case .t{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.case ul,.issue ul,ol,ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{font-size:13px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;text-decoration:none;background:var(--panel)}
+.links a:hover,.links a:focus-visible{border-color:var(--teal);outline:none}
+.note{background:var(--tealwash);border-radius:3px;padding:14px 16px;font-size:15px}
+.warn{background:var(--accentwash);border-radius:3px;padding:14px 16px;font-size:15px}
+details.issue{border:1px solid var(--line);border-radius:3px;min-width:0}
+details.issue>summary{cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;list-style:none}
+details.issue>summary::-webkit-details-marker{display:none}
+details.issue>summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+details.issue .id{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:34px}
+details.issue .ttl{font-weight:600;flex:1 1 300px;min-width:0}
+details.issue .body{padding:0 14px 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;font-size:14.5px}
+details.issue .body h4{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px;font-weight:500}
+.stack{display:flex;flex-direction:column;gap:8px}
+figure{margin:0;display:flex;flex-direction:column;gap:6px}
+figure img{border:1px solid var(--line);border-radius:3px;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.flow div{border:1px solid var(--line);border-radius:3px;padding:10px 12px;font-size:13.5px;background:var(--panel)}
+.flow b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;font-weight:500}
+.ws{border-left:3px solid var(--accent);padding:4px 0 4px 16px;display:flex;flex-direction:column;gap:8px}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Sections">
+  <span class="k">Field test</span>
+  <a href="#verdict">Verdict</a>
+  <a href="#execution">Execution, 24 Nov</a>
+  <a href="#cases">The four cases and their outputs</a>
+  <a href="#currency">Data currency</a>
+  <a href="#speed">Where the time went</a>
+  <a href="#machine">Local multitasking on this machine</a>
+  <a href="#issues">Issue catalogue</a>
+  <a href="#gaps">The three known gaps</a>
+  <a href="#plan">Uplift plan</a>
+  <a href="#budgets">Speed and quality budgets</a>
+  <a href="#accept">Acceptance tests</a>
+  <a href="#successor">Notes for the successor</a>
+</nav>
+
+<main>
+<section id="verdict">
+  <span class="kick">IA Next Local · field test and uplift plan · 23 Nov 2026</span>
+  <h1>Four researcher tasks, run through the page, and what they exposed</h1>
+  <p class="lead">I used IA Next Local the way a consultant would: one browser, the composer, the plan cards. All four cases failed. Judged as a consulting partner would judge them, no output here could go to a client: the evidence is stale, thin and often off the subject, citations lack dates, and nothing arrived in a usable time. Some machinery underneath is sound (quotes are checked against their sources, the journey map and prototype builders complete), but sound machinery fed with the wrong evidence does not produce credible work.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>What a researcher expects</th><th>What happened</th><th>Time</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b> Today's top AI news</td><td>A web search answered in the chat with links, in seconds. No pack, no artifact.</td><td>A plan card for a research report. The AI Trends pack was attached by the agent. A second attempt as a plain question got "I don't have a live web search tool in this chat".</td><td class="n">48 s to a plan<br>35 min to a report</td><td><span class="pill crit">Fail</span></td></tr>
+      <tr><td><b>2</b> AI Trends pack, exhaustive themes, under 10 minutes</td><td>Many themes from the pack's sources, shown as they form.</td><td>8 themes from 11 sources. One source came from the selected pack. Several themes rest on 2023 and 2024 pages. Nothing appeared until the end.</td><td class="n">30 min</td><td><span class="pill crit">Fail</span></td></tr>
+      <tr><td><b>3</b> Higher Ed + AI packs: themes, audio, report, deck, journey map</td><td>Five deliverables from one evidence base.</td><td>Neither pack contributed a source. Themes, audio, report and journey map were made. The deck failed after an hour and took 55 minutes on a retry. The agent claimed four plan cards that did not exist.</td><td class="n">about 3 h 20 min</td><td><span class="pill crit">Fail</span></td></tr>
+      <tr id="c4row"><td><b>4</b> Prior engagement + Healthcare pack, then a prototype</td><td>Fresh pack evidence added to the engagement, then a clickable prototype of solutions.</td><td>Fresh evidence was added and both outputs finished. Most Healthcare pack items kept were unrelated to nursing; two were cited. The prototype works but shows no trace to the evidence.</td><td class="n">6.5 min to a plan<br>21 min report<br>4 min 40 s prototype</td><td><span class="pill crit">Fail</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Graded on the owner's five criteria</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>Currency</th><th>Breadth and depth</th><th>Citations</th><th>Latency</th><th>Machine management</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b></td><td><span class="pill crit">Fail</span> 1 of 14 sources from the day asked</td><td><span class="pill crit">Fail</span> one aggregator blog carries the report</td><td><span class="pill crit">Fail</span> no dates on web sources; citations are not links</td><td><span class="pill crit">Fail</span> 35 min for a headline request</td><td><span class="pill crit">Fail</span> 5 model loads, two large models swapping</td></tr>
+      <tr><td><b>2</b></td><td><span class="pill crit">Fail</span> 1 of 11 sources inside the month</td><td><span class="pill crit">Fail</span> 8 themes from 11 sources; 1 pack source of 109</td><td><span class="pill crit">Fail</span> most sources undated; single-source themes</td><td><span class="pill crit">Fail</span> 30 min against a 10 min target</td><td><span class="pill crit">Fail</span> naming step at 1 token per second, unnoticed</td></tr>
+      <tr><td><b>3</b></td><td><span class="pill crit">Fail</span> 2 of 21 sources carry a date</td><td><span class="pill crit">Fail</span> neither pack used; 21 percent of passages read; no social listening</td><td><span class="pill crit">Fail</span> a source titled "1"; pointers shown to readers</td><td><span class="pill crit">Fail</span> 3 h 20 min, plus a 55 min deck retry</td><td><span class="pill crit">Fail</span> hour-long call lost to a timeout</td></tr>
+      <tr><td><b>4</b></td><td><span class="pill crit">Fail</span> the pages that carry the report are undated; queries name 2024 and 2025</td><td><span class="pill crit">Fail</span> pack items off the subject; 66 of 175 passages read</td><td><span class="pill crit">Fail</span> prototype shows no evidence at all</td><td><span class="pill crit">Fail</span> 33 min, 6.5 of them waiting for a plan</td><td><span class="pill high">Weak</span> ran at full speed only because memory happened to be free</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">Every time in this page is wall time I measured on the owner's machine on 23 Nov 2026, from the task store, the Ollama server log or the page.</p>
+</section>
+
+<section id="execution">
+  <span class="kick">Execution · 24 Nov 2026 · fourth pass</span>
+  <h2>The plan is being executed. The cases now finish in minutes, and none is at a partner's bar yet</h2>
+  <p class="lead">The owner asked me to execute this plan myself. This section is the running record: what changed, what each case does now, measured the same way as the field test, and what still fails. Nothing is committed; every change sits in the worktree, with a step-by-step log in <code>plans/field-test-2026-11-23/PROGRESS.md</code>. The offline suite went from 463 to 495 passing tests. All four cases have now been run through the page itself on the new build.</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>Field test, 23 Nov</th><th>Now, 24 Nov</th><th>Time now</th><th>Still short of the bar</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b> Today's top AI news</td><td>A refusal, or a 35 minute report with a pack attached, citing 2025 pages as today's</td><td>Answered in the chat through the page: eight stories, each with its outlet, a link and a published date equal to the day asked. No engagement, no pack, no plan card, no artifact.</td><td class="n">9 to 14 s<br>(was 35 min)</td><td>One run missed a news feed and said nothing carried the day's date. An empty feed is now asked again (deployed). The answer is written from headlines and summaries, not from the full articles.</td></tr>
+      <tr><td><b>2</b> AI Trends pack, exhaustive themes</td><td>8 flat themes from 11 sources, 1 from the pack, sources from 2023 and 2024, nothing on screen for 30 minutes</td><td>Through the page, twice: 25 themes in 6 or 7 groups from 28 or 29 sources. In the first run 27 of 29 sources were dated inside the last 30 days and 13 came from the AI Trends pack; 4 themes rest on one source and say so. The plan card said "about 7 min" and the work took 7.0.</td><td class="n">7.0 min on the final build<br>(10.6 min before the last fix; was 30 min)</td><td>Pack share is about 45 percent against a 70 percent bar. No theme is on screen in the first 90 seconds, only sources (the first source shows at 42 seconds).</td></tr>
+      <tr><td><b>3</b> Higher Ed + AI packs: themes, audio, report, deck, journey map</td><td>No source from either pack, a deck that failed after an hour, a false claim of four plan cards, about 3 h 20 min</td><td>Through the page: 19 themes in 5 groups from 18 sources, then one request for four outputs makes four plan cards with no model call; research runs once and all four share it. Report 6.2 min, themes deck 9.3 min, journey map 5.8 min (6 phases, 25 quotes found word for word). The audio script failed its evidence check on the first try and passed after a repair pass was added (2.6 min); pressing "Make the audio" then put a player with the full 9 minute recording on the card in 4.3 minutes, with no reload.</td><td class="n">35 min in all through the page<br>(24.8 min over the app's routes; was 3 h 20 min)</td><td>18 sources is still thin for a request that said exhaustive: older and undated pages are left out and pack sources time out. The report had 2 open findings and no source tiering (a personal blog counts like a publisher). The audio needed a second request in this run. I have not yet read this run's report, deck and journey map end to end.</td></tr>
+      <tr id="x4"><td><b>4</b> Prior engagement + Healthcare pack, then a prototype</td><td>Fresh evidence mostly off the subject, a prototype with no trace to it</td><td>Through the page, in the existing nurse staffing engagement with the Healthcare pack selected: 11 new sources added beside the 23 it held, 10 of them dated inside the last 30 days and 5 from the pack, 15 findings with exact quotes, a report, then a prototype of five connected screens with 15 working blocks built from those findings, every screen opened in a browser check.</td><td class="n">10.4 min research and report<br>4.5 min prototype</td><td>The prototype still does not show which finding each solution answers, and its card names one model while another wrote most steps. 25 pack sources timed out. I have not yet read this prototype screen by screen.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid2">
+  <figure><img src="img/x1-web-answer.png" alt="The chat answering today's top AI news with eight dated, linked stories"><figcaption>Case 1 through the page: the answer in the chat, each story with its outlet, date and link.</figcaption></figure>
+  <figure><img src="img/x2-themes.png" alt="The themes page with a group heading, a theme, its share bar, its sources and a dated quote"><figcaption>Case 2: themes in two levels, each with its passages, sources, newest date and a quote that links to its dated source.</figcaption></figure>
+  <figure><img src="img/x2-live.png" alt="A plan card in progress with its research step naming what it is doing"><figcaption>A running plan in the page: the research step says what it is doing, and sources list on the card as they are read.</figcaption></figure>
+  <figure><img src="img/x3-library.png" alt="The Library panel with filters, results and a source"><figcaption>The Library: everything collected on this machine, searched in 29 milliseconds, with filters and the source on the right.</figcaption></figure>
+
+  </div>
+
+  <h3>Second pass, 24 Nov: engagements as projects, and what a partner's read rejected</h3>
+  <p>The owner pointed out that managing engagements like projects, with names and editable settings, was part of the original instructions and had not been built. It was moved to the front and is now in the page. The same pass read the Case 3 report, deck and journey map end to end as a partner would, rejected them, fixed the causes in code and ran the case again.</p>
+  <div class="ws"><h3>Engagements are managed as projects</h3><ul>
+    <li><b>Manage</b>, beside the Engagements heading, opens one list of every engagement: search by name, client or tag; filter by tag; create; select several to archive, restore, pin, tag or merge.</li>
+    <li><b>Settings</b> on any engagement: its name, client, description and tags, and the defaults its new work starts from (data packs, the period its evidence must come from, depth, brand, who it is written for). A period or depth named in a request still wins. A pack choice made in the message box is saved as that engagement's default.</li>
+    <li><b>Merge</b> folds the others' work and chats under the engagement that remains and copies their sources into it. Nothing is moved or deleted, and each merged engagement can be separated again from the settings panel. Archive hides an engagement and deletes nothing.</li>
+    <li>Checked through the page with a driver that creates two engagements, edits one's settings, tags and pins both, merges them, separates them and archives them: every step showed what it should and the page logged no error.</li>
+  </ul></div>
+  <figure><img src="img/x5-engagements.png" alt="The Engagements panel with a search box, tag filters and two engagements carrying tags"><figcaption>The Engagements panel: search, tag filters, a checkbox on each row for changes to several at once, and Settings.</figcaption></figure>
+  <figure><img src="img/x6-engagement-settings.png" alt="One engagement's settings: name, client, description, tags, evidence period, depth, brand, audience and data packs"><figcaption>One engagement's settings, with the defaults its new work starts from.</figcaption></figure>
+  <div class="tbl"><table>
+    <thead><tr><th>What the read rejected in the first Case 3 outputs</th><th>Cause</th><th>Fix in code</th><th>Seen in the next run</th></tr></thead>
+    <tbody>
+      <tr><td>K-12 teachers, parents and Chinese school pupils written up in a report on college students</td><td>Nothing asked who a finding was about</td><td>Each finding names its group; one short call places the group inside, beside or outside the population asked about; outside findings leave</td><td>11 findings left out by name (teachers, parents, teenagers, a regulator); 3 about faculty kept and named</td></tr>
+      <tr><td>A personal page on note.com carried a section</td><td>No source ranked above another</td><td>Four tiers from a source's address and pack; the lowest joins only a short collection and carries at most two findings; the report's source list labels it</td><td>4 self-published pages left out; 11 of 15 sources are publishers or primary</td></tr>
+      <tr><td>A deck slide titled "Interface elements obscure substantive educational insights", plus slides on job pipelines and visas</td><td>Menus, sign-up forms, a form's list of states and one page of reversed words were clustered as passages; off-subject passages too</td><td>A passage must read as sentences and score against the goal before it is grouped; a page that is mostly furniture is not a source</td><td>10 themes, all on the subject; no furniture theme</td></tr>
+      <tr><td>Advice at the end of every paragraph, addressed to offices no source named</td><td>My own prompt listed example actors</td><td>Blocks state evidence; one "What to do" line per section names an actor the evidence names</td><td>One recommendation per section</td></tr>
+      <tr><td>An eight-sentence quote and one cut inside a bracket</td><td>Quotes were shown as extracted</td><td>Quotes are cut to whole sentences that carry the claim, still word for word</td><td>Longest quote is one long sentence</td></tr>
+      <tr><td>The journey persona was a real first-year student an article had quoted</td><td>The model took a name from the evidence</td><td>A persona named after a person in a source takes the name asked for; verbatim quotes keep the real name</td><td>Persona is a composite called Jordan; five phases in order through a semester</td></tr>
+      <tr><td>Speaker notes written as stage directions ("Highlight the tension")</td><td>No rule on notes</td><td>Directions and "this slide" sentences are removed; the prompt asks for what the presenter says</td><td>Notes are plain statements with the source's organization</td></tr>
+    </tbody>
+  </table></div>
+  <p>Case 3 on this build, through the page: themes in 4.7 minutes (15 sources, every one dated in the last 30 days), then one request for the report, the themes deck, the journey map and the audio script in 21.7 minutes (findings 3.4, report 2.0, audio script 1.4, deck 9.2, journey map 5.3). 26 minutes in all, against 35 on the first pass and about 3 hours 20 minutes in the field test. A new gate script checks every output of a run against the bars (time, sources, currency, source quality, population, quotes) and this run passes it.</p>
+  <p>Still wrong in this run, and fixed after it: a themes card on K-12 teacher training (themes now get the same population check), a slide labelled "In their words" whose quote had failed verification (it is relabelled), the phrase "research shows" on one slide and the word "ecosystem" in the report (both repaired in code), and two articles on one survey presented as corroboration (the writer is told which entries share a publisher).</p>
+
+  <h3>Fourth pass, 24 Nov: the last open items</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Was open</th><th>What was done</th><th>Measured</th></tr></thead>
+    <tbody>
+      <tr><td>Pack feeds that did not answer</td><td>Asked one at a time, 115 of 117 "failed" feeds answered at once; two hang and are set aside for a week. The failures came from batches timing out inside HiC. The live search now has a 75 second budget, asks the feeds that returned items most recently first, and reads the rest from the local index, which an idle pass refreshes three feeds at a time</td><td>Three packs (426 feeds): about 80 s, against 140 to 170 s</td></tr>
+      <tr><td>Audio read as two people taking turns</td><td>A long factual turn is split at a sentence end and the other speaker comes in with a short reaction or question written for that moment. Facts, quotes and pointers stay where the writer put them; a reaction carries none</td><td>Last script: 49 turns, 11 inserted exchanges, 21 questions, 12 turns of fourteen words or fewer</td></tr>
+      <tr><td>Packs picked for the person, shown as a choice</td><td>The plan card carries a "Data packs" choice whenever the person and the engagement chose none: the packs picked (by the agent, else in code from the request's own words), each one alone, or no data pack</td><td>Seen in the page: "Higher Ed + AI Trends", "Higher Ed only", "AI Trends only", "No data pack"</td></tr>
+      <tr><td>Two pieces of work at once on one card</td><td>The card now stays with the piece that is writing and passes to the other only when the first stops asking (it is making a picture, building a file, checking quotes). The model's prompt cache is no longer thrown away call by call</td><td>Deck and journey map together: 12.1 min. With plain turn-taking: 17.2 min. One after the other: 12 to 14.5 min</td></tr>
+      <tr><td>Found when the owner stopped two outputs by accident</td><td>Asking again for stopped or failed work handed back the stopped card. The same request now makes the work again; finished work is still returned as it is</td><td>Deck and journey map remade through the page</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>Re-runs after the fourth pass, through the page.</b> Case 1: 13.6 seconds, dated stories in the chat. Case 2: 6.9 minutes, 30 sources, 21 themes in 6 groups, gate passed. A new audio script: 24 turns, 5 minutes, 3 inserted exchanges, no doubled question. Case 4 asked for "what changed this week" and exposed three more faults, each fixed and run again: the report was written from evidence already held instead of new research; the goal text was garbled when the request was split into a report and a prototype; and a seven-day report cited three older sources the engagement held, which the currency check caught. On the last run the report researched the week afresh (13 new sources, 24 of the 30 it cites are from the last 7 days, check passed) in 11.3 minutes, and the prototype built in 5.1 minutes.</p>
+  <p><b>The one-week question, fixed and run again.</b> A request for a short report now pulls about fourteen findings and writes three or four sections; the search puts publishers and primary sources ahead of unranked sites before its cap; the packs shown as picked on the card are searched when the choice is left alone (they were not); sources the engagement already holds from the period count toward the minimum; and the audio check no longer leaves one speaker with two turns in a row. Through the page, in a new engagement with no pack selected: "what changed this week in AI use by universities and their students, and write a short report" finished in 5.4 minutes with 12 sources, 11 of them from the last 7 days and all 12 from publishers or primary sources, the Higher Ed pack picked for it, and every check passed.</p>
+  <h3>Live Gemini Notebook, same subject, read on 24 Nov</h3>
+  <p>After the owner closed the other browser session, the signed-in Notebook opened. The account already held a notebook on this subject ("Students and Artificial Intelligence in Education", 17 sources, made 20 Nov) with a briefing document, a 20 minute audio overview, a slide deck, an infographic, a quiz, flashcards and a mind map. Nothing was created or changed in the account. The briefing document was opened and measured with the same instruments as the final Case 3 report.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Instrument</th><th>Gemini Notebook briefing, live</th><th>IA Next Local report, final Case 3 run</th></tr></thead>
+    <tbody>
+      <tr><td>Length</td><td>About 3,100 words, 125 sentences</td><td>About 3,300 words, 71 sentences of the writer's own plus 23 quotes</td></tr>
+      <tr><td>Citations a reader can follow</td><td>No links and no citation marks in the document; 5 attributions in brackets by organization and year</td><td>65 marks to 14 sources, each listed with its address</td></tr>
+      <tr><td>Figures stated in the writer's own voice</td><td>51 of 125 sentences</td><td>0 of 71; every figure sits inside a quote found in its source</td></tr>
+      <tr><td>Quotes checked against a source</td><td>11 quoted fragments, none checkable from the document</td><td>23 of 23 found word for word</td></tr>
+      <tr><td>How current the evidence is</td><td>Sources from 2023 to 2026, most of them 2024 and 2025</td><td>Every source dated in the last 30 days</td></tr>
+      <tr><td>Population</td><td>Secondary and college students together (teens and K-12 named nine times)</td><td>College and university students; other groups left out by name</td></tr>
+      <tr><td>Sentences about the document itself</td><td>0</td><td>0</td></tr>
+      <tr><td>Slide deck, opened live</td><td>14 slides, each one picture with no text in the page, so nothing can be edited; strong graphic design with large figures; the cover's subtitle is garbled ("What AI Fee Expectation Gap")</td><td>12 slides of editable text with the sources in every slide's notes; plainer design</td></tr>
+      <tr><td>Audio overview</td><td>20 minutes 36 seconds; no transcript tied to passages</td><td>5 to 12 minutes; the other speaker now comes in during long turns; turns tied to passages</td></tr>
+    </tbody>
+  </table></div>
+  <p>Where Notebook is ahead on this read: it names more studies and gives their figures directly, which makes its briefing denser and quicker to use, and its audio overview runs 20 minutes against our 5 to 12. Where IA Next Local is ahead: every claim can be traced to a dated source, no figure is asserted without its quote, and the evidence is this month's and about the population asked for.</p>
+
+
+  <h3>Third pass, 24 Nov: the remaining open items, built and run</h3>
+  <p>Every item the second pass left open was taken in turn. All four cases were then run again through the page on the final build.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Case, final build, through the page</th><th>Result</th><th>Time</th><th>Field test</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b> Today's top AI news</td><td>Seven stories in the chat, each with its outlet and the day's date; no engagement, pack or artifact</td><td class="n">34 s on a model just loaded<br>(9 to 14 s warm)</td><td>A refusal, or 35 min</td></tr>
+      <tr><td><b>2</b> AI Trends pack, exhaustive themes</td><td>28 themes in 7 groups from 39 sources, every theme with a quote found in its passage</td><td class="n">8.8 min</td><td>30 min, 8 flat themes, 11 sources</td></tr>
+      <tr><td><b>3</b> Higher Ed and AI Trends packs: themes, then report, deck, journey map, audio</td><td>Themes: 28 sources, all dated in the last 30 days, 17 from publishers or primary sources, 13 to 16 themes. Four outputs made one at a time, shortest first: audio script 1.6, report 2.5, journey map 4.9, deck 7.3 minutes</td><td class="n">7.8 min for themes<br>19.6 min for the four outputs</td><td>About 3 h 20 min, deck failed</td></tr>
+      <tr><td><b>4</b> Prior engagement and Healthcare pack, then a prototype</td><td>Report on fresh evidence (36 sources), then a five-screen prototype whose cards name the source of each finding and whose charts are titled from what they compute</td><td class="n">4.5 min report<br>3.8 min prototype</td><td>Off-subject evidence, no trace to it</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ws"><h3>What the third pass built</h3><ul>
+    <li><b>Local pack index.</b> Every item a pack search returns is kept in a local index, an idle pass reads more of each feed every six hours, and research searches the index by the question's own words beside the live feeds. Before it, the AI Trends pack gave nothing on students; with it, 3 of its items were kept.</li>
+    <li><b>Lanes.</b> Studio, card and network lanes replace the single lock. Measured on this laptop: a deck and a journey map made side by side took 17.2 and 14.0 minutes, against 7.3 and 4.9 one after the other, because the model server keeps one prompt cache. So the studio makes one piece at a time and admits the shortest waiting work first; pictures and writing calls never share the card; page reads run twelve at a time.</li>
+    <li><b>Library.</b> All 1,210 stored sources were checked: 316 gained a date from their address or opening text, and every one has a vector. A search now joins word matches with the sources closest in meaning (a sentence with no matching keyword returned 21 sources in 0.1 seconds).</li>
+    <li><b>Population check.</b> Each group is judged per source, with the source's opening lines and the quote, so a label such as "students" on a source about schoolchildren no longer passes. The final Case 3 report holds no K-12 evidence.</li>
+    <li><b>Source quality held.</b> When wider collection brought in unranked sites, the least relevant of them leave until publishers and primary sources are 60 percent of the collection.</li>
+    <li><b>Release gate.</b> The gate script failed the first final-build run on source quality and on the two slow side-by-side outputs. Both causes were fixed and the last run passes.</li>
+    <li><b>Found by running Case 4:</b> my own change to cite sources on prototype cards put web addresses into the page, which the prototype's safety check refuses, so the prototype failed. Cards now name the source and its site with no address, and the prototype builds.</li>
+  </ul></div>
+  <h3>Side by side with Gemini Notebook</h3>
+  <p>A live Notebook run on the same subject needs the owner's signed-in session, which was not available (the same block the 9 Nov audit recorded). That audit measured the owner's real Notebook artifacts with fixed instruments; the same instruments were run on the final Case 3 outputs.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Instrument</th><th>Gemini Notebook, measured 9 Nov on real artifacts</th><th>IA Next Local, final Case 3 run</th></tr></thead>
+    <tbody>
+      <tr><td>Report: citations a reader can follow</td><td>0 in 24 sentences</td><td>65 marks to 14 sources in 71 sentences</td></tr>
+      <tr><td>Report: figures stated in the writer's own voice</td><td>2 to 6 per document</td><td>0 in 71 sentences</td></tr>
+      <tr><td>Report: quotes checked against a source</td><td>0 of 16 quoted fragments</td><td>23 quotes, every one found in its source</td></tr>
+      <tr><td>Report: openers about the document itself</td><td>4 of 24 sentences</td><td>0 of 71</td></tr>
+      <tr><td>Report: sources dated</td><td>None shown</td><td>14 of 14</td></tr>
+      <tr><td>Deck: slides with editable text</td><td>0 of 15 (15 full-slide pictures)</td><td>12 of 12, sources in the notes of every slide</td></tr>
+      <tr><td>Audio: transcript lines tied to a passage</td><td>None</td><td>9 of 16 turns, from 5 sources</td></tr>
+      <tr><td>Themes and journey map</td><td>No such outputs (a mind map only)</td><td>15 of 16 themes with a checked quote and a dated source; 21 journey quotes found word for word</td></tr>
+    </tbody>
+  </table></div>
+  <p>Where Notebook is ahead, from the same audit: its audio sounds like a real two-host conversation, and it makes a deck in a couple of minutes on Google's servers against about seven here on one laptop card.</p>
+
+  <h3>What changed, by the owner's five criteria</h3>
+  <div class="ws"><h3>Currency</h3><ul>
+    <li>The period a request implies is decided in code: "today" is the calendar date in the owner's time zone, research with no stated period is the last 30 days (<code>currency.py</code>). The search planner is told the date and the period; the engines and news feeds are asked for that range.</li>
+    <li>Every page gets a published date from its metadata, its address or its byline. Older pages are left out; undated pages are capped so a run meets its own bar. Under four current sources, a run stops and says so.</li>
+    <li>Dates now ride on theme quotes, deck source lines and the report's source list. A hard check, <code>sources_current</code>, marks work built on stale sources as needing review.</li>
+  </ul></div>
+  <div class="ws"><h3>Speed and the graphics card</h3><ul>
+    <li>Every call's token rate is recorded. Under 10 tokens a second the writer moves to the smaller model file for 15 minutes and the page says why. Figma is set to the Intel card on this laptop (measured).</li>
+    <li>The deck is planned in one short call and written three slides at a time, saved after each batch so a retry resumes: 7 to 9 minutes with pictures, against 55. The report is outlined, then written a section at a time: about 2.5 minutes, against 17.</li>
+    <li>One resident model plans searches, analyses and writes. A second model reviews only at deep depth. Plans queue for the card instead of fighting for it.</li>
+    <li>Plans on one engagement share one evidence run. A report on evidence already held does not collect again.</li>
+  </ul></div>
+  <div class="ws"><h3>Breadth, depth and citations</h3><ul>
+    <li>Selected packs get a keyword query, their items stay unless plainly off the subject, and the summary counts what was kept after filtering. If every selected pack is empty the run stops with the reason; if one is, it is named.</li>
+    <li>Themes are clustered in two levels with every passage placed, each source's own centre removed so themes cross sources, a scope check that drops a theme far from the goal, and the house word list repaired in code.</li>
+    <li>A themes deck is laid out from the themes: one slide per group, a quote slide for the best-evidenced theme, then decisions.</li>
+  </ul></div>
+  <div class="ws"><h3>The page and the three gaps</h3><ul>
+    <li>Gap 1: a Library panel over the local index, with filters and "add to this engagement".</li>
+    <li>Gap 2: a live feed on running research and themes cards (sources as read, findings as checked, themes as named); every step says what it is doing.</li>
+    <li>Gap 3: engagements are managed as projects (see the second pass above): settings, tags, pin, archive, several at once, merge and separate. Counts come from the table; a new conversation starts with no engagement and packs on Auto.</li>
+    <li>The false "Report ready, all 0 checks passed" card is gone: evidence has its own card, and zero checks reads "Not checked". Internal pointers left the audio transcript.</li>
+    <li>The audio panel defect the owner reported is fixed and checked in the page: the card's own button starts the voices at once (they cost nothing here, so no approval is raised elsewhere) and the card shows the player when they exist.</li>
+    <li>Every evidence-backed plan card now shows two choices before Start: the period its sources must come from, and the depth.</li>
+  </ul></div>
+
+  <h3>Outputs from these runs (open on this laptop while IA Next Local is running)</h3>
+  <ul>
+    <li>Case 2, through the page: <a href="http://127.0.0.1:9460/api/tasks/task_14ea2bb56f85/view">themes, 25 in 6 groups</a> and <a href="http://127.0.0.1:9460/api/tasks/task_a528f18124a3/view">the 7 minute run, 25 in 7 groups</a></li>
+    <li>Case 3, through the page: <a href="http://127.0.0.1:9460/api/tasks/task_f5a036f289f3/view">themes</a>, <a href="http://127.0.0.1:9460/?task=task_49e24e6cd019">report</a>, <a href="http://127.0.0.1:9460/api/tasks/task_f27c31678b73/view">themes deck</a>, <a href="http://127.0.0.1:9460/api/tasks/task_046c8c222092/view">journey map</a>, <a href="http://127.0.0.1:9460/api/tasks/task_386363087641/view">audio overview with its recording</a></li>
+    <li>Case 3 run B, over the app's routes: <a href="http://127.0.0.1:9460/api/tasks/task_680ec21c782b/view">themes</a>, <a href="http://127.0.0.1:9460/api/tasks/task_98897b55df08/view">audio script</a>, <a href="http://127.0.0.1:9460/?task=task_44720db24f77">report</a>, <a href="http://127.0.0.1:9460/api/tasks/task_fac0307856e0/view">themes deck</a>, <a href="http://127.0.0.1:9460/api/tasks/task_2a111eaf6410/view">journey map</a></li>
+    <li>Case 3 on the second-pass build (run 4): <a href="http://127.0.0.1:9460/api/tasks/task_78ebb9ad984d/view">themes</a>, <a href="http://127.0.0.1:9460/?task=task_618a580bbb71">report</a>, <a href="http://127.0.0.1:9460/api/tasks/task_dc5973048209/view">themes deck</a>, <a href="http://127.0.0.1:9460/api/tasks/task_db09cfb59273/view">journey map</a>, <a href="http://127.0.0.1:9460/api/tasks/task_daab61dd010c/view">audio script</a></li>
+    <li>Final build: <a href="http://127.0.0.1:9460/api/tasks/task_dd021281b27a/view">Case 2 themes, 28 in 7 groups</a>; Case 3 <a href="http://127.0.0.1:9460/api/tasks/task_f6d918ca13b1/view">themes</a>, <a href="http://127.0.0.1:9460/?task=task_569f6b774606">report</a>, <a href="http://127.0.0.1:9460/api/tasks/task_aeddd76f04b0/view">deck</a>, <a href="http://127.0.0.1:9460/api/tasks/task_6d8526d93886/view">journey map</a>, <a href="http://127.0.0.1:9460/api/tasks/task_96b40ee29adc/view">audio script</a>; Case 4 <a href="http://127.0.0.1:9460/?task=task_3aac376008da">report</a> and <a href="http://127.0.0.1:9460/api/tasks/task_f95895b31b78/view">prototype with cited cards</a></li>
+    <li>Case 4, through the page: <a href="http://127.0.0.1:9460/?task=task_6c14a4594fea">report on fresh evidence</a>, <a href="http://127.0.0.1:9460/api/tasks/task_3db2a188b31e/view">prototype</a></li>
+  </ul>
+
+  <h3>Where we trailed Notebook, and what was done (24 Nov, sixth pass)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trailing</th><th>Done</th><th>Measured through the page</th></tr></thead>
+    <tbody>
+      <tr><td>"A short report for a provost" took 10.8 minutes in the document builder</td><td>A request that asks for a report, and names no other kind of document, now goes to the report writer by rule</td><td>Plan in 3 seconds, report in 1.8 minutes, every check passed</td></tr>
+      <tr><td>Notebook's briefing states more figures per page</td><td>Each quote is introduced by who reported it and when, and a report opens with "The figures at a glance": up to six verified quotes that carry a figure, one per source first</td><td>Seen at the top of the provost report</td></tr>
+      <tr><td>Notebook's picture slides are more striking</td><td>Every deck gains one slide, "Sources report these figures in their own words": two or three cards headed by publication and month, each a verbatim quote that carries a figure</td><td>Deck in 7.2 to 8.3 minutes, the slide present on two decks, no failed check. Each figure is set large inside its quote, in the page and as editable text in the PowerPoint</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What is still open</h3>
+  <ul>
+    <li><b>Other documents, now written in steps.</b> White papers, briefs and similar documents were one long generation of about 10 minutes. A lower reasoning setting cut one to 3.4 minutes and the reviewer failed it, so that was dropped. They are now planned once and written a section at a time: a white paper through the page took 6.7 minutes and the reviewer passed it at 1.00. A second run went the other way: an explainer on a 28-source engagement took 13.7 minutes (reviewer 1.00). The stepped writer helps on small engagements only, because every section call still reads all the material. The next fix is to give each section only the sources its plan names; it is designed and not built, so that no job runs during the owner's review.</li>
+    <li><b>Deck design.</b> Notebook's slides lead with large bare figures drawn as dials. The owner's rule is that a figure appears only inside its quote, so ours stay quoted and plainer by design.</li>
+    <li><b>Commits.</b> Five commits are on <code>ia-next-local-2026-11-19</code>, not pushed. The large-figure change to the deck slide (548 tests pass, deployed) waits for the owner's approval.</li>
+    <li><b>Human review.</b> Every job was stopped on 25 Nov so the owner can review all artifacts by hand. Nothing in this page replaces that review: the checks here are code and one model reviewer.</li>
+  </ul>
+</section>
+
+<section id="cases">
+  <span class="kick">Outputs</span>
+  <h2>Each case, with links to what it produced</h2>
+  <p>Each case has two sets of links. "Copy" links open a copy of the output stored with this page, so they work from anywhere (PowerPoint files cannot be stored here; use the live PowerPoint links below, or the PDF of the same slides). "Live" links open the same output inside IA Next Local on the machine that runs it (<code>127.0.0.1:9460</code>).</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>Output</th><th>Copies stored with this page</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>AI news report</td><td><a href="out/case1-ai-news-report.pdf">PDF</a> · <a href="out/case1-ai-news-report.txt">text</a></td></tr>
+      <tr><td>2</td><td>AI Trends themes</td><td><a href="out/case2-themes.pdf">PDF</a> · <a href="out/c2-themes-1.png">slide 1</a> · <a href="out/c2-themes-2.png">slide 2</a></td></tr>
+      <tr><td>3</td><td>Themes</td><td><a href="out/case3-themes.pdf">PDF</a> · <a href="out/c3-themes-2.png">slide 2</a></td></tr>
+      <tr><td>3</td><td>Audio overview</td><td><a href="out/case3-audio-overview.mp3">MP3</a> · <a href="out/case3-audio-transcript.pdf">transcript PDF</a> · player below</td></tr>
+      <tr><td>3</td><td>Research report</td><td><a href="out/case3-report.pdf">PDF</a> · <a href="out/case3-report.txt">text</a></td></tr>
+      <tr><td>3</td><td>Themes deck</td><td>First run failed after 61 minutes (issue S2). A retry took 55 minutes: <a href="out/case3-deck.pdf">PDF</a> · <a href="out/c3-deck-1.png">slide 1</a> · <a href="out/c3-deck-3.png">slide 3</a> · <a href="out/c3-deck-5.png">slide 5</a></td></tr>
+      <tr><td>3</td><td>Student journey map</td><td><a href="out/case3-journey-map.pdf">PDF</a> · <a href="out/c3-journey-2.png">slide 2</a> · <a href="out/c3-journey-3.png">slide 3</a></td></tr>
+      <tr><td>4</td><td>Research report</td><td><a href="out/case4-report.pdf">PDF</a> · <a href="out/case4-report.txt">text</a></td></tr>
+      <tr><td>4</td><td>Prototype "Shift Guard"</td><td><a href="out/case4-prototype.html">working prototype</a> · <a href="out/case4-prototype.pdf">PDF</a> · <a href="out/c4-proto-1.png">screen 1</a> · <a href="out/c4-proto-2.png">screen 2</a></td></tr>
+    </tbody>
+  </table></div>
+  <figure><audio controls preload="none" src="out/case3-audio-overview.mp3" style="width:100%;max-width:560px"></audio><figcaption>Case 3 audio overview, about six minutes, two voices made on the machine.</figcaption></figure>
+  <div class="grid2">
+    <figure><img src="out/c2-themes-2.png" alt="Case 2 themes export, second slide"><figcaption>Case 2 themes, from its export.</figcaption></figure>
+    <figure><img src="out/c3-journey-2.png" alt="Case 3 journey map export"><figcaption>Case 3 journey map, from its export.</figcaption></figure>
+    <figure><img src="out/c4-proto-1.png" alt="Case 4 prototype, first screen"><figcaption>Case 4 prototype, first screen.</figcaption></figure>
+    <figure><img src="out/c3-themes-2.png" alt="Case 3 themes export"><figcaption>Case 3 themes, from its export.</figcaption></figure>
+    <figure><img src="out/c3-deck-3.png" alt="Case 3 deck, slide 3"><figcaption>Case 3 deck, second run, slide 3: an absolute claim in the title, a source line that reads "Sources: 1", cards half empty.</figcaption></figure>
+  </div>
+  <h3>Live links and what each run did</h3>
+  <div class="grid2">
+    <div class="case"><span class="t">Case 1 · engagement "Today's Top AI News"</span>
+      <p>Asked: "Search the internet for today's top AI news and tell me the main stories."</p>
+      <ul>
+        <li>14 sources: 4 reused from the second brain, 2 kept from the pack, 8 web pages. Dates on the kept pack items: Apr 2025, Jun 2025, Oct 2026, 23 Nov 2026.</li>
+        <li>Most of the report's news comes from one aggregator blog (source S18). Items dated 12, 16, 17 and 20 Nov are presented as today's.</li>
+        <li>Dropped as off the subject: VentureBeat AI, Import AI, OpenAI Blog. Kept: a Reddit r/biotech post from February.</li>
+      </ul>
+      <div class="links">
+        <a href="http://127.0.0.1:9460/api/tasks/task_ec0ab9d770f3/report">Report text</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_ec0ab9d770f3/export/pdf">PDF</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_ec0ab9d770f3/export/pptx">PowerPoint</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_ec0ab9d770f3/verification">Verifier result</a>
+      </div></div>
+    <div class="case"><span class="t">Case 2 · engagement "AI Trends themes (test case 2)"</span>
+      <p>Asked for an exhaustive set of themes from the AI Trends pack, with <code>#themes</code>.</p>
+      <ul>
+        <li>Plan card in 2.8 s (rules router). Estimate 21 min; target was 10.</li>
+        <li>121 pack sources searched, 49 returned items, 6 kept, 5 of those then dropped. Final corpus: 3 reused pages, 1 pack page, 7 web pages.</li>
+        <li>The search planner wrote queries such as "AI Trends data pack 2024 themes emerging technology".</li>
+        <li>The naming step: one call, 1,322 s for 994 tokens.</li>
+      </ul>
+      <div class="links">
+        <a href="http://127.0.0.1:9460/api/tasks/task_d5d293118f55/view">Themes page</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_d5d293118f55/export/pdf">PDF</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_d5d293118f55/export/pptx">PowerPoint</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_38ca0736bfaf/report">The "report" that is raw findings</a>
+      </div></div>
+    <div class="case"><span class="t">Case 3 · engagement "Higher ed students and AI (test case 3)"</span>
+      <ul>
+        <li><b>Themes</b>, 23 min: 8 themes; one theme holds 82 passages from a single source; two are about teens and Americans in general.</li>
+        <li><b>Audio overview</b>, 33 min for the script, then voices: the MP3 plays on its page; the panel in the app shows an empty video player.</li>
+        <li><b>Research report</b>, 22 min: 4,556 words, 27 quotes that match their sources, on a corpus where 2 of 21 sources carry a date. Research was collected a second time for it.</li>
+        <li><b>Deck</b>: failed at 61 min, "model unreachable (ReadTimeout)". A retry through the page finished in 55 min: 10 slides, one verified quote, source lines that read "Sources: 1", watercolour illustrations in place of photographs.</li>
+        <li><b>Journey map</b>, 33 min: 6 phases, 25 checked quotes, exports work. The scorecard marked it "Needs review" for a cut sentence.</li>
+      </ul>
+      <div class="links">
+        <a href="http://127.0.0.1:9460/api/tasks/task_e21f94297581/view">Themes page</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_d55289193c94/view">Audio overview and transcript</a>
+        <a href="http://127.0.0.1:9460/api/engagements/eng_5ed63c88dec1/files/results/tasks/task_d55289193c94/audio.mp3">MP3</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_68973593c527/report">Report text</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_68973593c527/export/pdf">Report PDF</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_af36ed43a08f/view">Journey map</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_af36ed43a08f/export/pptx">Journey PowerPoint</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_c7696610f16d">Failed deck task (JSON)</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_e4459764a8ae/view">Deck, second run</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_e4459764a8ae/export/pptx">Deck PowerPoint</a>
+      </div></div>
+    <div class="case" id="c4card"><span class="t">Case 4 · engagement "Nurse staffing levels and patient outcomes in US hospitals"</span>
+      <ul>
+        <li>The engagement already held 16 sources and 112 passages, though the list said "No work yet".</li>
+        <li>187 of 212 pack sources searched, 82 returned items, 25 timed out. Pack items kept include a MassMutual AI article, new HIPAA rules, a 2020 WHO note on iron deficiency, and pages titled "HIMSS News" and "SAMHSA News". Two pack sources were cited (Hospitalogy, Healthline).</li>
+        <li>A Reddit page from another engagement was reused at 0.59 similarity. Four of five search queries name 2024 or 2025.</li>
+        <li><b>Report</b>: 4,469 words, 33 checked findings, earlier sources kept and new ones numbered after them.</li>
+        <li><b>Prototype</b> "Shift Guard": 4 screens, 12 working blocks, no script error, built at the normal 26 tokens per second.</li>
+      </ul>
+      <div class="links">
+        <a href="http://127.0.0.1:9460/api/tasks/task_42e03f18aa04/view">Prototype</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_28dde18a55a6/report">Report text</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_28dde18a55a6/export/pdf">Report PDF</a>
+        <a href="http://127.0.0.1:9460/api/tasks/task_28dde18a55a6/export/pptx">Report PowerPoint</a>
+      </div>
+    </div>
+  </div>
+  <div class="grid2">
+    <figure><img src="img/four-plans.png" alt="Chat reply saying all four plans are ready on their cards, with no card on the page"><figcaption>Case 3. The reply says four plan cards are ready. The page holds none; no tool was called.</figcaption></figure>
+    <figure><img src="img/deck-failed.png" alt="Deck card reading Did not finish after one hour"><figcaption>Case 3. The deck after 61 minutes of one silent generation.</figcaption></figure>
+    <figure><img src="img/themes.png" alt="Themes page with eight flat cards"><figcaption>Case 2. The themes as they appear in the chat: flat cards with no hierarchy, prevalence or trend direction.</figcaption></figure>
+    <figure><img src="img/journey.png" alt="Journey map page"><figcaption>Case 3. The journey map: complete and footnoted, built on evidence that fails the currency test.</figcaption></figure>
+    <figure><img src="img/prototype.png" alt="Shift Guard prototype, first screen"><figcaption>Case 4. The prototype: it runs, and nothing on it traces to evidence.</figcaption></figure>
+  </div>
+</section>
+
+<section id="currency">
+  <span class="kick">Data currency · owner priority</span>
+  <h2>No case delivered current data, and the system cannot tell</h2>
+  <p>The owner's rule: a request for today's headlines means today, and research means evidence current to today's date, within the month at least. Measured against that rule, every case failed, and the app has no way to notice.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>Window the request implies</th><th>What the sources were</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Published on 23 Nov 2026</td><td>Of 14 sources, 1 was dated 23 Nov. Others: Apr 2025, Jun 2025, a February Reddit post, an October blog. The 8 web pages carry no date. News dated 12, 16, 17 and 20 Nov is written up as today's.</td></tr>
+      <tr><td>2</td><td>Last 30 days ("right now")</td><td>Of 11 sources, 1 is dated inside the month. The search queries name 2024. Themes rest on a 2024 emerging-technology list and a history of events in March 2023.</td></tr>
+      <tr><td>3</td><td>Last 30 days</td><td>Of 21 sources, 2 carry any date. Titles show 2023, 2024 and 2025 surveys.</td></tr>
+      <tr><td>4</td><td>Last 30 days ("new, fresh")</td><td>Pack items are recent but off the subject. The web pages that carry the report are undated; four of five queries name 2024 or 2025. One kept pack item is from 2020.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Why it happens</h3>
+  <ul>
+    <li>No prompt contains today's date, so the local model writes queries from its training years (<code>localsearch.QUERY_SYSTEM</code>).</li>
+    <li>The SearXNG call has no time range (<code>localsearch.search</code>).</li>
+    <li>Web pages are stored without a published date (<code>studio._fetch</code>); wiki pages are archived with <code>date: ""</code> even when the feed gave one.</li>
+    <li>Second-brain reuse and the relevance filter rank by similarity alone; age is never a factor.</li>
+    <li>The scorecard has no date check, and the writer is free to call any item "today's".</li>
+  </ul>
+  <h3>The currency contract (workstream 0, before everything else)</h3>
+  <ol>
+    <li><b>Every request gets a window, decided in code.</b> "Today" means the calendar date. "Latest", "current", "right now", "new", "fresh", and any research request with no stated period mean the last 30 days. The window shows on the plan card as a chip the user can widen; it is never widened silently.</li>
+    <li><b>The date goes into every prompt</b> that plans a search or writes prose.</li>
+    <li><b>Collection filters by date at the source.</b> Web search uses the engine's day, week or month range and its news category. Pack items older than the window are not fetched into the run. Reuse from the second brain applies the same window.</li>
+    <li><b>Every source must carry a published date.</b> Read it from page metadata (<code>article:published_time</code>, JSON-LD <code>datePublished</code>, a <code>time</code> element, the URL, then the HTTP <code>Last-Modified</code> header). A page with no date is labelled undated, cannot support a "today" answer, and is capped at a small share of a research corpus.</li>
+    <li><b>Older material is allowed only as labelled background</b> (a definition, a baseline survey), in its own tier with a share cap, and the text states its year.</li>
+    <li><b>Dates are visible.</b> Each citation shows its date. The run's ledger and the card show the spread, for example "14 sources: 11 inside 30 days, 2 background, 1 undated".</li>
+    <li><b>A hard gate.</b> The scorecard check <code>sources_current</code> fails the work when the share inside the window is below the bar (100 percent for a "today" answer, 80 percent for research), and when the text calls an item today's that is not. Failed work is marked "Needs review (stale sources)".</li>
+    <li><b>Short runs say so.</b> When the window yields too little, the app reports what it found and asks before widening.</li>
+    <li><b>The store keeps dates.</b> Published date becomes a required field on every archived page, with a backfill for pages already written. The Library view filters and sorts by it.</li>
+  </ol>
+</section>
+
+<section id="speed">
+  <span class="kick">Speed</span>
+  <h2>Estimates were off by up to thirty times, and the machine was throttled the whole afternoon</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Step</th><th>Card estimate</th><th>Measured</th><th>What it was doing</th></tr></thead>
+    <tbody>
+      <tr><td>Agent reply, simple request (Case 1)</td><td class="n">none shown</td><td class="n">48 s</td><td>One model step that wrote a brief</td></tr>
+      <tr><td>Agent reply, "make four things"</td><td class="n">none</td><td class="n">226 s</td><td>One model step, no tool call, a false claim</td></tr>
+      <tr><td>Plan for <code>#report</code>, <code>#journey</code>, <code>#research</code></td><td class="n">none</td><td class="n">232 to 394 s</td><td>The model fills audience, scope and structure before any card shows</td></tr>
+      <tr><td>Plan for <code>#themes</code>, <code>#audio</code>, <code>#slides</code></td><td class="n">none</td><td class="n">2.8 s</td><td>Rules router, no model</td></tr>
+      <tr><td>Research Lead (packs + web)</td><td class="n">3 min</td><td class="n">169 to 332 s</td><td>Pack search over 121 to 226 sources; card reads "writing: 1 tokens so far"</td></tr>
+      <tr><td>Analyst</td><td class="n">3 min</td><td class="n">182 to 284 s</td><td>Read 67 of 322 passages in Case 3</td></tr>
+      <tr><td>Report writer and verifier (Case 1)</td><td class="n">10 min</td><td class="n">about 29 min</td><td>9 Qwen calls, 26,978 tokens; 5 model loads cost 104 s</td></tr>
+      <tr><td>Theme naming</td><td class="n">1 min</td><td class="n">12 to 23 min</td><td>One call at 0.95 to 1.84 tokens per second</td></tr>
+      <tr><td>Audio script</td><td class="n">1 min</td><td class="n">33 min</td><td>One call at 1.2 tokens per second</td></tr>
+      <tr><td>Deck</td><td class="n">12 min</td><td class="n">61 min, then failed; retry 55 min</td><td>One call capped at 32,000 tokens with reasoning set to high, not streamed</td></tr>
+      <tr><td>Journey map</td><td class="n">1 min</td><td class="n">33 min</td><td>Six phases at about three minutes each, visible on the card</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn"><b>The largest single cause, measured.</b> Normal generation on this machine is about 27 tokens per second (Ollama log, dozens of calls). During the slow steps it fell to between 1 and 5. At that moment Figma's desktop app held 7.3 GB of graphics memory, Ollama had 14.8 GB of the 17.7 GB the Qwen model needs, 5.9 GB sat in shared system memory, and the card reported 86 °C with its thermal slowdown flag set. In Case 4 the model fitted in dedicated memory again and ran at 26 tokens per second, which is why its report and prototype were fast. <code>/health/deep</code> answered "ok" for every service throughout. The app never checks free graphics memory, temperature or its own token rate.</div>
+</section>
+
+<section id="machine">
+  <span class="kick">Research · local multitasking on the owner's laptop</span>
+  <h2>One graphics card cannot multitask by itself; the app has to schedule it</h2>
+  <p>The machine: RTX 5090 Laptop GPU with 24 GB, Intel Core Ultra 9 275HX with 24 cores, 95 GB of memory, Intel integrated graphics, Windows 11, Ollama 0.40.16. Ollama's settings today, read from its log: <code>OLLAMA_NUM_PARALLEL=1</code>, <code>OLLAMA_MAX_LOADED_MODELS=0</code> (automatic), <code>OLLAMA_KV_CACHE_TYPE=q8_0</code>, flash attention on, <code>OLLAMA_GPU_OVERHEAD=0</code>, context 32,768.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>What the sources say</th><th>What it means here</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>Since driver 536.40 NVIDIA lets CUDA spill into system memory instead of failing. Guides describe the result as no error and a five to ten times slowdown, and give the fix: NVIDIA Control Panel, Manage 3D Settings, "CUDA - Sysmem Fallback Policy", "Prefer No Sysmem Fallback", set per program. The setting is read when the program starts. One guide reports cases where Ollama's runner ignored it. <a href="https://runaihome.com/blog/shared-gpu-memory-slow-local-ai-sysmem-fallback-fix-2026/">runaihome</a>, <a href="https://llmconfigurator.com/en/guides/troubleshooting/windows-shared-gpu-memory-slow">llmconfigurator</a>, <a href="https://docs.cognex.com/deep-learning_400/web/EN/deep-learning/Content/Topics/optimization/gpu-disable-shared.htm">Cognex</a></td><td>This is what I measured: 5.9 GB in shared memory and 1 to 5 tokens per second.</td><td>Set the policy for Ollama's <code>llama-server.exe</code> and ComfyUI's <code>python.exe</code>, restart both, then confirm in Task Manager that shared usage stays near zero. With the policy on, a model that does not fit fails loudly, so the app must pick a smaller quantization first.</td></tr>
+      <tr><td>Windows 11 assigns a graphics card per app: Settings, System, Display, Graphics; "Power saving" maps to the integrated card; the app must be restarted. <a href="https://pureinfotech.com/set-default-gpu-apps-windows-11/">Pureinfotech</a>, <a href="https://learn.microsoft.com/en-us/answers/a/7567273">Microsoft Q&amp;A</a></td><td>Figma held about 7 GB of the 5090's memory all afternoon. The laptop has Intel graphics that can draw the desktop apps.</td><td>Set Figma, the browser, VS Code and Teams to "Power saving". A stand-in test on this laptop (below) showed the setting moves a Chromium app's graphics memory entirely to the Intel card. The same setting is now applied to Figma on this laptop and measured (below): none of Figma's memory is on the 5090.</td></tr>
+      <tr><td>In Ollama each parallel slot needs its own cache, so more slots without more memory turns slow replies into failed loads; requests beyond the slots wait in a queue. <a href="https://www.ssdnodes.com/learn/ollama-num-parallel-and-max-queue">SSD Nodes</a>, <a href="https://www.glukhov.org/llm-performance/ollama/how-ollama-handles-parallel-requests/">Glukhov</a></td><td>A 17.7 GB model at 32K context leaves no room for a second slot on 24 GB.</td><td>Keep one slot for the large model. Do not raise <code>OLLAMA_NUM_PARALLEL</code> for it. Set <code>OLLAMA_MAX_LOADED_MODELS=1</code> for the graphics card so a second large model can never co-load.</td></tr>
+      <tr><td>llama.cpp's server shares one context across its slots (the docs' example: 16,384 with four slots gives 4,096 each) and batches requests continuously. Its router mode and llama-swap count models, not memory; guides advise a cap of one resident model on 24 GB, or two only when they fit, with smaller contexts for small models. <a href="https://www.mintlify.com/ggml-org/llama.cpp/api/tools/llama-server">llama-server docs</a>, <a href="https://runaihome.com/blog/llama-server-router-mode-multi-model-setup-2026/">runaihome on router mode</a>, <a href="https://www.bigiron.cc/guides/llama-swap-and-llama-server-router-mode-many-models-behind-one-endpoint">Big Iron</a></td><td>Parallel slots pay off for many short calls (one per source, per cluster, per slide), not for one long write.</td><td>Bake-off: a mid-size model with four slots of 8K for the fan-out steps against the large model run in series. Adopt the faster one per step, judged on the same quote checks.</td></tr>
+      <tr><td>Batching engines scale with concurrency: one October 2026 benchmark on a 5090 reports vLLM going from about 82 tokens per second for one request to about 936 across 32, with llama.cpp near 369. vLLM needs Linux, is memory hungry and treats GGUF as experimental; ExLlamaV3 with TabbyAPI also batches. The sources disagree on single-request speed. <a href="https://computingforgeeks.com/ollama-vs-vllm-vs-llama-cpp/">ComputingForGeeks</a>, <a href="https://www.eesel.ai/blog/llama-cpp-alternatives">eesel</a>, <a href="https://bestllmfor.com/guides/exllama-vs-vllm-vs-llama-cpp">bestllmfor</a>, <a href="https://vdf.ai/blog/rtx-5090-local-llm/">vdf.ai</a></td><td>The total throughput gain is real for fan-out work, and the blogs' numbers are not from this laptop.</td><td>Second bake-off, after the scheduler exists: vLLM under WSL 2 or TabbyAPI for the fan-out steps only. Keep Ollama for the long writer until a measured run on this machine says otherwise.</td></tr>
+      <tr><td>Priority queues built for one shared card exist as small open tools. gpu-queue puts Ollama, ComfyUI and command-line jobs behind one queue with three levels (interactive, normal, background), never starts lower work ahead of waiting higher work, and promotes a background job after 20 minutes so it is not starved. llm-queue does the same for one Ollama model; a priority request jumps the backlog but never interrupts the running one. Research systems (QLM, Preble, HEXGEN-FLOW) add eviction of batch work and urgency that rises with waiting time. <a href="https://github.com/amih/gpu-queue">gpu-queue</a>, <a href="https://github.com/asmyshlyaev177/llm-queue">llm-queue</a>, <a href="https://arxiv.org/pdf/2407.00047">QLM</a>, <a href="https://arxiv.org/pdf/2407.00023">Preble</a>, <a href="https://arxiv.org/pdf/2505.05286">HEXGEN-FLOW</a></td><td>This is the graphics lane described below, already proven as a pattern, including the picture engine sharing the card.</td><td>Build the queue inside <code>providers.py</code> (every model call already passes through it) with the same three levels and the promotion rule. Read gpu-queue's source before writing it.</td></tr>
+      <tr><td>Ollama evicts a resident model when a new one will not fit or the model cap is reached; a negative keep-alive removes the idle timeout but does not protect a model from eviction. Its fit check can refuse two models that appear to fit. A November 2026 change reports fixes to memory accounting that reduce needless evictions. <a href="https://www.ssdnodes.com/learn/ollama-keep-model-loaded">SSD Nodes</a>, <a href="https://deepwiki.com/ollama/ollama/5.4-memory-management-and-gpu-allocation">DeepWiki</a>, <a href="https://github.com/ollama/ollama/issues/19631">ollama issue 19631</a></td><td>The app cannot rely on Ollama to keep the writer loaded while helpers run.</td><td>Helpers run as processor-only models (see the measurements below) so they never compete for the card. Verify after each Ollama update that a processor-only load leaves the writer resident.</td></tr>
+      <tr><td>A quantized context cache saves memory and can cost speed: one benchmark reports q8_0 within 0.1 percent of full precision on quality but decoding at about 56 percent of its speed at 64K depth on one card. Speculative decoding with a small same-family draft model is documented in llama.cpp; the common claim of 20 to 50 percent faster has no measured benchmark behind it in the guide that makes it. <a href="https://bmdpat.com/blog/kv-cache-q4-vs-q8-in-llama-cpp-explained-2026">bmdpat</a>, <a href="https://github.com/ggml-org/llama.cpp/blob/master/docs/speculative.md">llama.cpp speculative decoding</a>, <a href="https://insiderllm.com/guides/speculative-decoding-explained/">insiderllm</a></td><td>This machine runs <code>OLLAMA_KV_CACHE_TYPE=q8_0</code>. That may be costing decode speed at long contexts, and it is what lets 32K fit at all.</td><td>Measure both cache types at 16K, 32K and 64K with the writer model. Test a draft model only after the memory budget is in place, since the draft also needs memory.</td></tr>
+      <tr><td>Sustained inference saturates a laptop's shared cooling; guides advise raising the chassis and report generation collapsing on battery. Published throttling figures are for desktop cards (about 10 to 17 percent lost when hot) and laptop power limits vary by model. <a href="https://aiagentskit.com/blog/local-llms-gaming-laptop/">aiagentskit</a>, <a href="https://gigagpu.com/gpu-thermal-throttling-ai-performance/">GIGAGPU</a>, <a href="https://llmconfigurator.com/en/gpu/rtx-5090-laptop">llmconfigurator</a></td><td>The card sat at 86 °C with its slowdown flag set through every run, including the fast ones, so heat costs something but is not the tenfold problem.</td><td>Log temperature and the throttle flag with each call. Refuse long jobs on battery. Keep the heat item below the memory items in priority.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Measured on this laptop for the processor lane</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Model, zero graphics layers, 8K context</th><th>Writes</th><th>Reads</th><th>Load</th><th>Use it for</th></tr></thead>
+    <tbody>
+      <tr><td>MiniCPM5 2B</td><td class="n">29 tokens/s</td><td class="n">162 tokens/s</td><td class="n">2.7 s</td><td>Search queries, cluster names, routing, source guides</td></tr>
+      <tr><td>Qwen3 4B</td><td class="n">18.6 tokens/s</td><td class="n">101 tokens/s</td><td class="n">4.5 s</td><td>Short extraction with a schema</td></tr>
+      <tr><td>Qwen3.5 9B</td><td class="n">9.6 tokens/s</td><td class="n">49 tokens/s</td><td class="n">9.1 s</td><td>Too slow at reading for evidence work; keep off the processor</td></tr>
+      <tr><td>qwen3-embedding 0.6B</td><td class="n">n/a</td><td class="n">32 passages in 12 s</td><td class="n">2 s</td><td>Too slow for bulk; give embeddings a small fixed share of the card (about 1.3 GB) or batch them in the background</td></tr>
+    </tbody>
+  </table></div>
+  <p>Both processor-only models reported zero graphics memory while loaded together. The 2B model on the processor is as fast as the 27B model on the card, so every short helper call can leave the card to the writer.</p>
+  <h3>Lane test, run on this laptop on the evening of 23 Nov with Figma holding 7.6 GB of the card</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>Result</th><th>What it settles</th></tr></thead>
+    <tbody>
+      <tr><td>Writer alone, the current file (Qwen 27B Q4_K_M, 17.7 GB, 32K context)</td><td class="n">5.8 tokens/s</td><td>The spill is present whenever Figma is open, not only in the afternoon runs.</td></tr>
+      <tr><td>Same writer, smaller quantization already installed (IQ4_XS, 14.9 GB, 32K context)</td><td class="n">33.8 tokens/s</td><td>It fits beside Figma and is about six times faster in the same conditions, and faster than the larger file at its best (27). This is the quickest speed fix available.</td></tr>
+      <tr><td>2B helper on the processor while the writer is loaded</td><td class="n">31.3 tokens/s; writer still listed with 17.7 GB on the card</td><td>The writer stays resident. Helpers do not evict it.</td></tr>
+      <tr><td>Writer generating while three helper calls run beside it</td><td class="n">writer 5.6 (5.8 alone); helpers 28.7 to 28.9</td><td>The two lanes do not slow each other.</td></tr>
+      <tr><td>Three helper calls sent at the same moment</td><td class="n">about 30 tokens/s each, 14.8 s in all</td><td>One slot serves them in turn. A helper server with several slots would cut this wall time; that is the first use for the parallel-slot bake-off.</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>What to do with this.</b> Make the smaller quantization the writer whenever the larger file will not fit in free dedicated memory, and compare the two files on the quote and reviewer checks before deciding which is the default. Move search queries, cluster names, routing and source guides to the 2B model on the processor now; the test shows it costs the writer nothing.</p>
+  <h3>Graphics preference test on a stand-in for Figma</h3>
+  <p>Figma's desktop app is built on Chromium. I ran a private Chromium with the flag that requests the fast card and a page that allocates graphics memory, first with no Windows preference and then with the per-app preference set to "Power saving" (the registry value <code>GpuPreference=1</code> under <code>HKCU\Software\Microsoft\DirectX\UserGpuPreferences</code>). The value was removed afterwards.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Setting</th><th>Card the page reported</th><th>Memory on the NVIDIA card</th><th>Memory on the Intel card</th></tr></thead>
+    <tbody>
+      <tr><td>No Windows preference; app asks for the fast card</td><td>NVIDIA RTX 5090 Laptop GPU</td><td class="n">1,807 MB dedicated</td><td class="n">31 MB shared</td></tr>
+      <tr><td>Windows preference "Power saving"; app still asks for the fast card</td><td>Intel Graphics</td><td class="n">none</td><td class="n">1,856 MB shared (system memory)</td></tr>
+    </tbody>
+  </table></div>
+  <p>The Windows setting overrides the app's own request and moves all of its graphics memory off the 5090.</p>
+  <h3>The same test on Figma itself, run late on 23 Nov with the owner's go-ahead</h3>
+  <p>I set <code>GpuPreference=1</code> for every Figma.exe under <code>%LOCALAPPDATA%\Figma</code> (the launcher and each versioned folder, because Windows stores the preference by file path and Figma's folder name changes on update), then restarted Figma. Figma did not close within 30 seconds of the close request and was stopped; it came back on version 126.11.11 with its tabs restored.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>State</th><th>Figma memory on the NVIDIA card</th><th>Figma memory on the Intel card</th><th>Writer (Qwen 27B Q4_K_M, 32K context)</th></tr></thead>
+    <tbody>
+      <tr><td>Before, no preference, few files open</td><td class="n">927 MB dedicated</td><td class="n">78 MB shared</td><td class="n">30.4 and 30.7 tokens/s</td></tr>
+      <tr><td>After, "Power saving", tabs restored</td><td class="n">none</td><td class="n">3,840 MB shared (system memory)</td><td class="n">29.8 and 30.8 tokens/s</td></tr>
+      <tr><td>Earlier the same evening, no preference, Figma holding 7.6 GB of the card</td><td class="n">7.6 GB</td><td class="n">not recorded</td><td class="n">5.8 tokens/s</td></tr>
+    </tbody>
+  </table></div>
+  <p>Figma obeys the setting: all of its graphics memory now sits in system memory through the Intel card, and the writer keeps the whole 5090. One limit on this result: Figma was light when the test began, so the before and after rows show the same writer speed. The slow row comes from the earlier measurement, not from a same-minute comparison. The successor should confirm with a heavy Figma file open, and watch whether Figma's canvas stays responsive on the Intel card. To undo, remove the three Figma values under <code>HKCU\Software\Microsoft\DirectX\UserGpuPreferences</code> or choose "Let Windows decide" in Settings, System, Display, Graphics, then restart Figma. A future Figma update creates a new folder and needs the value added again; the scheduler's preflight should set it.</p>
+  <h3>The design that follows: three lanes and a scheduler</h3>
+  <div class="flow">
+    <div><b>Graphics lane · one at a time</b>One resident writer model with a fixed context and a long keep-alive. A priority queue: chat first, then the step the user is watching, then background work. Work yields between steps, never mid-call.</div>
+    <div><b>Processor lane · in parallel</b>24 cores and 95 GB: the 2B and 4B models (29 and 18.6 tokens per second measured), reranking, clustering, speech, transcription. Zero graphics layers, so they never touch the 24 GB. Embeddings get a small fixed share of the card.</div>
+    <div><b>Network lane · in parallel</b>Feed pulls, page fetches, date extraction, archiving. No model needed; today these run one after another inside the research step.</div>
+    <div><b>Picture engine · booked windows</b>Images and video get an exclusive window at the end of a task. The scheduler unloads the writer or waits; the two never share memory by accident.</div>
+  </div>
+  <ul>
+    <li><b>Memory budget in code.</b> Context size is part of the budget: the same model is 17.7 GB at 32K and 19 GB at 65K. Before a load: model size plus context cache plus a 1.5 GB margin must be under free dedicated memory. If not, use the smaller quantization in the seat chain, or wait, and say which on the card.</li>
+    <li><b>One writer, stable prefix.</b> Same context size on every call so the model never reloads; evidence first in the prompt so the cache is reused across steps (prefix reuse measured today: 0.7 percent).</li>
+    <li><b>Two tasks at once.</b> Today two tasks both start threads and fight for the card. With lanes, a second task collects and embeds while the first writes, then takes the graphics lane.</li>
+    <li><b>Chat stays responsive.</b> A chat turn jumps the queue at the next step boundary; steps are kept short (under about 60 s) so the wait is bounded.</li>
+    <li><b>Watch the machine.</b> Record tokens per second, dedicated and shared memory, and temperature per call. Under 10 tokens per second raises a banner with the cause. Use the Windows performance power mode on mains power.</li>
+  </ul>
+  <p class="muted">Most of these sources are practitioner guides, not vendor documentation, and their benchmark figures conflict. Treat each action as a test to run on this laptop, with the token rate before and after recorded in <code>LOCAL.md</code>.</p>
+</section>
+
+<section id="issues">
+  <span class="kick">Issue catalogue</span>
+  <h2>Every defect found, with evidence, cause and fix</h2>
+  <p>Open a row for the evidence and the proposed change. File names refer to <code>ia-next-local/ia_next/</code> unless they start with <code>web/</code>.</p>
+
+  <h3>Speed</h3>
+  <details class="issue"><summary><span class="id">S1</span><span class="ttl">The model runs ten to twenty times slower when another app holds graphics memory, and nothing warns</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Ollama log: tasks 4380, 6127 and 7192 at 0.95, 1.84 and 1.24 tokens per second; all other calls near 27. In the slow state Ollama held 14.8 GB of dedicated memory with 5.9 GB spilled to shared memory while Figma held 7.3 GB. Later the same evening Ollama held 17.15 GB and ran at 26 tokens per second with the thermal flag still set, so the spill is the cause and the heat is secondary.</p></div>
+    <div><h4>Cause</h4><p><code>providers._room</code> only asks the picture engine to release memory. <code>health.py</code> does not read the graphics card.</p></div>
+    <div><h4>Fix</h4><p>Before each call read free memory and temperature (<code>nvidia-smi</code> through a small host helper, or Ollama <code>/api/ps</code> size against size_vram). When the model will not fit, use the smaller quantization already in the seat chain and say so on the card (measured: 33.8 tokens per second for IQ4_XS against 5.8 for Q4_K_M with Figma open). Add a banner that names the app holding memory. Record tokens per second per call and raise an attention item under 10. Set NVIDIA's "Prefer No Sysmem Fallback" for the model server and move desktop apps to the integrated card (see the machine section).</p></div></div></details>
+  <details class="issue"><summary><span class="id">S2</span><span class="ttl">The deck is one unstreamed generation of up to 32,000 tokens; an hour of work is thrown away on timeout</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Task <code>task_c7696610f16d</code>: 3,622 s, error "qwen3.8:27b-q4_K_M unreachable on the local model server (ReadTimeout)". The card showed no progress text for the whole hour.</p></div>
+    <div><h4>Cause</h4><p>A retry that evening showed more: the deck prompt needs a 65,536-token context, which grows the loaded model from 17.7 to 19 GB and pushed it back into shared memory at 5 tokens per second while every 32K call ran at 26. <code>deckstudio.py:1100</code> (<code>max_tokens=32000, effort="high"</code>); <code>providers.py:397</code> sets a 3,600 s read timeout on the non-streamed path and reports any timeout as "unreachable".</p></div>
+    <div><h4>Fix</h4><p>Compose the deck in steps on <code>builder.run</code>: storyline, then slides in batches of three, each saved. Stream every step. Retry resumes from the last saved step. Turn reasoning down for slide copy. Reword the error to what happened.</p></div></div></details>
+  <details class="issue"><summary><span class="id">S3</span><span class="ttl">Every deliverable collects research again, even when asked to work "from these findings"</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 3: the report re-ran the Research Lead and Analyst (8 min) and ended with 31 findings from 21 sources; the themes an hour earlier used 28 findings from 11.</p></div>
+    <div><h4>Cause</h4><p>A <code>#report</code> plan always carries the research steps; only artifact plans check what the engagement holds.</p></div>
+    <div><h4>Fix</h4><p>One evidence base per engagement. When findings exist and match the goal, the plan defaults to "use what is here" with a visible "Refresh evidence" switch. Deliverables record which evidence version they used.</p></div></div></details>
+  <details class="issue"><summary><span class="id">S4</span><span class="ttl">Time estimates on plan cards are wrong by two to thirty times</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>See the table above: 1 min shown for a 33 min audio script and a 33 min journey map.</p></div>
+    <div><h4>Cause</h4><p>Estimates come from medians of earlier runs and ignore the current token rate and the size of the evidence.</p></div>
+    <div><h4>Fix</h4><p>Estimate = expected tokens for the step divided by the token rate measured in the last five minutes. Show a range. Correct it on the card while the step runs.</p></div></div></details>
+  <details class="issue"><summary><span class="id">S5</span><span class="ttl">Three hashtags and every multi-part request wait four to six minutes for a plan</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p><code>#report</code> 300 s, <code>#journey</code> 232 s, <code>#research</code> 394 s; <code>#themes</code>, <code>#audio</code>, <code>#slides</code> 2.8 s.</p></div>
+    <div><h4>Cause</h4><p>The model writes audience, scope and structure before the card is created.</p></div>
+    <div><h4>Fix</h4><p>Show the card at once with defaults taken from the request and the engagement objective. Fill the brief fields in the background and let the user edit them. Start is enabled from the first second.</p></div></div></details>
+  <details class="issue"><summary><span class="id">S6</span><span class="ttl">Two large models still swap inside every research run</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 1 telemetry: 5 model loads, 104 s of loading; Nemotron spent 455 s on 3 calls that produced 1,677 tokens. Prefix reuse 0.7 percent.</p></div>
+    <div><h4>Cause</h4><p>The 23 Nov decision moved only the conversation seat to Qwen. <code>config.SEATS["search"]</code> and <code>["verifier"]</code> still name Nemotron.</p></div>
+    <div><h4>Fix</h4><p>Search queries on the resident model or the 2B model. Keep a second-publisher reviewer only in deep mode, and run it once at the end.</p></div></div></details>
+  <details class="issue"><summary><span class="id">S7</span><span class="ttl">Pack search pulls hundreds of live feeds on every run and loses a batch to timeouts</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 3: "201 of 226 sources searched, 94 returned items, 25 skipped after a timeout", 332 s.</p></div>
+    <div><h4>Cause</h4><p><code>hic.pack_items</code> calls <code>/api/multi-search</code> for every source every time. Nothing is cached.</p></div>
+    <div><h4>Fix</h4><p>Ingest pack feeds on a schedule into the second brain. A run queries that local index first (seconds) and tops up from live feeds in the background.</p></div></div></details>
+
+  <h3>Evidence and collection</h3>
+  <details class="issue"><summary><span class="id">E1</span><span class="ttl">There is no web search answer in chat</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 1. Second attempt, 34 s: "I don't have a live web search tool in this chat ... this is the only way I can browse."</p></div>
+    <div><h4>Cause</h4><p>SearXNG is reachable only inside <code>studio.research_lead</code>. The agent has no search tool and <code>router.py</code> has no rule for news or lookup requests.</p></div>
+    <div><h4>Fix</h4><p>A <code>web_answer</code> tool routed by rule ("search", "news", "latest", "today", "look up"): SearXNG with a time range, fetch the top five pages, one call, answer in chat with dated links. No engagement, no pack, no artifact. Target under 20 s.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E2</span><span class="ttl">A pack is attached to a plain web question</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 1 brief: <code>"packs": ["ai_trends"]</code>, "chosen by the agent"; 121 sources searched for "today's top AI news".</p></div>
+    <div><h4>Cause</h4><p>"Data packs: Auto" lets the agent or the 2B model add a pack to any research run.</p></div>
+    <div><h4>Fix</h4><p>Auto never adds a pack to a quick answer. On a plan card the auto-picked pack is shown as a chip the user can remove before Start.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E3</span><span class="ttl">Selected packs contribute little or nothing, and the summary says they did</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 3 summary: "8 from HiC data packs (Higher Ed, AI Trends, chosen by you)". Sources kept from either pack: 0. Case 2: 1 of 11. HiC proxy log shows the query sent to GDELT and OpenML: "Summarize the main AI news stories from today, with the key facts and why each matters AI news published today (...". GDELT returned an error.</p></div>
+    <div><h4>Cause</h4><p><code>studio.research_lead</code> passes goal plus scope (a prose sentence) as the keyword query to <code>hic.pack_items</code>. Feeds answer with their latest items, not matches. The count in the summary is taken before the relevance filter.</p></div>
+    <div><h4>Fix</h4><p>Build three to six keyword queries from the request. Count pack sources after filtering. When a selected pack yields nothing, stop and say so with the reason. User-selected packs keep a minimum share of the corpus.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E4</span><span class="ttl">Items the packs returned are thrown away instead of entering the second brain</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>40, 49 and 94 sources returned items; at most 10 are kept per run (<code>studio.MAX_PACK_SOURCES = 10</code>) and only kept ones are archived.</p></div>
+    <div><h4>Fix</h4><p>Archive every fetched item with pack, publisher, tier and date. Synthesis in any later engagement can then find it, and the knowledge browser can show it.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E5</span><span class="ttl">Nothing enforces data currency; the planner does not know today's date (see the currency contract)</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>"Today's news" cited pages from Apr and Jun 2025. Case 2 queries all contain "2024". Web sources carry no date at all.</p></div>
+    <div><h4>Cause</h4><p>No date in the query planner's prompt (<code>localsearch.QUERY_SYSTEM</code>); no <code>time_range</code> on the SearXNG call; <code>studio._fetch</code> does not read a page's published date.</p></div>
+    <div><h4>Fix</h4><p>Put the date in the prompt. Map "today", "this week", "right now" to a search time range. Read the published date from page metadata. Add a scorecard check: requested window against source dates.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E6</span><span class="ttl">Pages from other engagements enter a new one on weak similarity</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 1 reused "Malaysia ponders regulating management of IP addresses", "Recruiting Brainfood - Issue 504" (from the executive search work) and a Reddit r/biotech post, each "matches the goal at 0.56". The Reddit post stayed in the corpus.</p></div>
+    <div><h4>Cause</h4><p><code>secondbrain.REUSE_MIN_SCORE = 0.45</code> on embedding similarity alone.</p></div>
+    <div><h4>Fix</h4><p>Require term overlap plus a rerank, and respect the time window. List reused pages on the plan card with their origin, each removable.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E7</span><span class="ttl">The relevance filter removes real pack news and keeps weaker web pages</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Dropped in Cases 1 and 2: VentureBeat AI, Import AI 479, OpenAI Blog, TechCrunch AI, Hugging Face Blog, The Gradient. Kept: a World Bank overview page and a 2023 history blog.</p></div>
+    <div><h4>Cause</h4><p><code>localrank.on_topic</code> scores each page against the whole goal sentence.</p></div>
+    <div><h4>Fix</h4><p>Score against a short topic statement and its expansions. Items from a pack the user selected are protected, as requested sources already are.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E8</span><span class="ttl">Archived pages lose their date, author, tier and pack</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p><code>wiki/articles/ai-alignment-forum/988b862244.md</code>: <code>date: ""</code>, <code>author: ""</code>, <code>tier:</code> empty, <code>engagement: "eng_103646c4f62a"</code>. The pack item carried 2026-11-08. Chunking and manifest entries are correct (chunk ids, key terms, sources).</p></div>
+    <div><h4>Fix</h4><p>Send date, author, tier, pack id and the engagement's title to <code>/api/wiki/write-article</code>. Backfill the pages written since 17 Nov.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E9</span><span class="ttl">"Exhaustive" requests get a thin corpus and single-source themes</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>11 sources in Cases 2 and 3. Theme "Students adopt AI rapidly across disciplines": 82 passages, one source. Themes about teens and about Americans in general in a higher-ed study. No social listening was offered for a sentiment question. The Analyst read 67 of 322 passages.</p></div>
+    <div><h4>Fix</h4><p>Depth setting on the plan card (fast, standard, exhaustive) that sets source and passage budgets. A theme needs two independent sources or is labelled single-source. Scope check on each theme against the stated population. Offer Reddit listening when the request asks how people feel.</p></div></div></details>
+  <details class="issue"><summary><span class="id">E10</span><span class="ttl">Source labels are broken in places</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>A source titled "1" (a calstate.edu PDF); "Generative AI in Higher Education:" with no publisher; a date shown as "Fri, 06 No".</p></div>
+    <div><h4>Fix</h4><p>Title fallback from the PDF's first heading or the URL; normalise dates to ISO on write.</p></div></div></details>
+
+  <h3>Agent behaviour</h3>
+  <details class="issue"><summary><span class="id">A1</span><span class="ttl">The agent says plans are on their cards when it made none</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 3, after 226 s: "All four are planned and ready for you to review on their cards". Events show one model step and no tool call.</p></div>
+    <div><h4>Cause</h4><p><code>agent.unbacked_claim</code> did not match this wording, and the tool-never-called nudge only fires for a single hashtag or named output.</p></div>
+    <div><h4>Fix</h4><p>Split a multi-deliverable request in <code>router.py</code> into one plan card per named output, with no model call. Any reply that mentions a plan, a card or started work must carry a plan or task id from this turn, or it is replaced.</p></div></div></details>
+  <details class="issue"><summary><span class="id">A2</span><span class="ttl">The user's whole sentence becomes the artifact's goal and search query</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Audio overview goal: "I don't see any plan cards. Start with the audio overview of these findings". Case 2 web query: "AI Trends data pack 2024 themes emerging technology".</p></div>
+    <div><h4>Fix</h4><p>Strip conversational text, hashtags and pack names; fall back to the engagement objective when the request has no subject.</p></div></div></details>
+  <details class="issue"><summary><span class="id">A3</span><span class="ttl">"New conversation" keeps the last engagement and the last pack selection</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>After Case 2, a new conversation opened on "AI Trends themes (test case 2)" with AI Trends still selected.</p></div>
+    <div><h4>Fix</h4><p>A new conversation starts with no engagement and packs on Auto, or asks which engagement to use.</p></div></div></details>
+  <details class="issue"><summary><span class="id">A4</span><span class="ttl">Nothing carries over between engagements, and the memory is empty</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Asked the same news question two minutes after the report finished; the agent did not mention it. <code>/api/memory</code> returns empty strings; <code>episodes.jsonl</code> has 10 lines for more than 75 tasks.</p></div>
+    <div><h4>Fix</h4><p>Write an episode for every finished or failed task and backfill. Recall episodes across engagements for a question with no focus.</p></div></div></details>
+
+  <h3>Page and artifacts</h3>
+  <details class="issue"><summary><span class="id">U1</span><span class="ttl">An evidence-only research step is presented as a finished report that passed its checks</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Owner's screenshot and Cases 2 and 3: "Report ready", "All 0 checks passed", body starting <code>{ "findings": [ {</code>, a "Read the full report" button, and "{" as the summary under Recent work. The Writer step never ran.</p></div>
+    <div><h4>Cause</h4><p><code>web/app.js:1020</code> prints "All N checks passed" when N is zero; the card renders <code>findings.json</code> as report text.</p></div>
+    <div><h4>Fix</h4><p>A separate "Evidence" card: counts, sources, findings as rows with their quotes. No report buttons. Zero checks reads "Not checked".</p></div></div></details>
+  <details class="issue"><summary><span class="id">U2</span><span class="ttl">The audio overview panel shows an empty video player; the chat card never updates</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Owner's screenshot. <code>/api/tasks/task_d55289193c94/video</code> returns 409 while <code>audio.mp3</code> (4.2 MB) exists. After approval the card still read "Script ready ... Make the audio". The approval itself sat behind a chip at the top of the page. Re-opened from the engagement sheet after a page reload, the panel shows a working audio player and the transcript, so the defect is the stale state of an open page.</p></div>
+    <div><h4>Fix</h4><p>Render an audio player when only audio exists. Refresh the card on the <code>task_done</code> event. Put Approve next to the button that asked.</p></div></div></details>
+  <details class="issue"><summary><span class="id">U3</span><span class="ttl">Themes are eight flat cards, well short of HiC's themes view</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>No grouping into larger themes, no share of the corpus, no trend direction or sentiment, no way to open a theme's passages. Banned words ship: "unprecedented", "leveraging", "cutting-edge". A quote often repeats the insight sentence.</p></div>
+    <div><h4>Fix</h4><p>Two levels (meta-theme, theme), prevalence bars, source mix, a sentiment split where posts exist, click through to passages, and the house prose scrub on every string.</p></div></div></details>
+  <details class="issue"><summary><span class="id">U4</span><span class="ttl">Readers see internal pointers and model identifiers</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Audio transcript lines end with "articles/insidehighered-com/2828f8387b.md#c4". The failure card names "qwen3.8:27b-q4_K_M". The spend panel lists "Hf.co/ggml Org/NVIDIA Nemotron 3.5 Lightning 30B A3B GGUF:Q4_0" and talks about published prices.</p></div>
+    <div><h4>Fix</h4><p>Pointers go in links and data attributes. One display name per model. Local wording in the spend panel.</p></div></div></details>
+  <details class="issue"><summary><span class="id">U5</span><span class="ttl">Work counts in the engagement list fall as new work is added elsewhere</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>"College Student AI Use": 46, then 45, 43, 38 pieces of work during the day.</p></div>
+    <div><h4>Cause</h4><p><code>store.list_tasks(limit=50)</code>; the page counts from that capped list.</p></div>
+    <div><h4>Fix</h4><p>Counts from a grouped query; page the task list.</p></div></div></details>
+  <details class="issue"><summary><span class="id">U6</span><span class="ttl">Work items cannot be told apart, citations are not links, and progress text misleads</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Every item in an engagement carries the engagement's title. The Chats tab says "No chats in this engagement yet" for an engagement with a live chat. Citations in chat ("S18") are plain text. "writing: 1 tokens so far" stayed up for three minutes of feed fetching. "Create" with an empty name does nothing and says nothing.</p></div>
+    <div><h4>Fix</h4><p>Title each item by kind and subject. Link every citation to its passage. Step text names the real activity ("searching 121 pack sources, 40 answered").</p></div></div></details>
+  <details class="issue"><summary><span class="id">U7</span><span class="ttl">Prose defects pass the reviewer</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Case 1 title: "capability, regulation, and capital shift simultaneously". The deterministic check found "transformative" and the report still shipped with a score of 0.95. The journey map prints "cutting-edge".</p></div>
+    <div><h4>Fix</h4><p>Apply the house scrub (the lists in <code>slidePostProcessor.ts</code>) to titles and bodies before scoring; a found phrase is repaired, not reported.</p></div></div></details>
+
+  <details class="issue"><summary><span class="id">D1</span><span class="ttl">The deck that did arrive would not pass a partner review</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>Second run, 55 min. Ten slides carry one verified quote. Source lines read "Sources: 1", the broken title of a PDF source. The title "Every student uses AI" states more than any source does. Cards fill a third of their height. Pictures are watercolour illustrations; the house rule is real photography. The request was a themes deck; the eight themes do not structure it. The scorecard ran four form checks and passed all of them.</p></div>
+    <div><h4>Cause</h4><p>One generation writes every slide from findings, with no step that binds a claim to a dated source and no check of claim strength, evidence per slide or fill.</p></div>
+    <div><h4>Fix</h4><p>Build the deck from the themes artifact, one section per theme. Each slide needs a quote or a cited source with its date. Add checks for absolute wording against the source, for evidence per slide and for empty area. Use the photograph prompt formula.</p></div></div></details>
+  <h3>Self-improvement</h3>
+  <details class="issue"><summary><span class="id">L1</span><span class="ttl">The improvement loop has nothing to learn from, so it does nothing</span><span class="pill crit">Critical</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>All 11 governed skills at version 1 with 0 proposals. <code>POST /api/improve/run</code> returned empty lists. Today's scorecards: "passed" for the stale-news report, the pack-free themes and the raw-JSON evidence card. One true catch: the journey map's cut sentence.</p></div>
+    <div><h4>Cause</h4><p><code>scorecard.py</code> checks form (quotes found, footnotes, slide fit, text size). It has no check for what the user asked: time window, pack use, source spread, intent, duration. Failed and timed-out tasks are not inputs to <code>improve.groups</code>.</p></div>
+    <div><h4>Fix</h4><p>Add outcome checks (listed under workstream H). Feed failures, overruns and "Needs work" verdicts into the loop. Turn the four cases in this page into scripted regression runs that gate every skill or code change.</p></div></div></details>
+  <h3>Prototype (Case 4)</h3>
+  <details class="issue"><summary><span class="id">P1</span><span class="ttl">The prototype does not show which evidence each solution answers, and some labels do not match their content</span><span class="pill high">High</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>"Shift Guard" has no problem statement, quote or source anywhere. The first tile is "Shift records in view: 400 of 400". The text promises "unsafe assignments, nurses at risk, and projected churn cost" and the tiles show four other measures. "Unsafe assignments by unit" charts all records by unit.</p></div>
+    <div><h4>Cause</h4><p>The kit builds from a product specification; findings shape the brief and then drop out. The browser check tests that blocks work, not that labels are true.</p></div>
+    <div><h4>Fix</h4><p>Each screen carries a "why this exists" strip with the finding and its quoted source. A code check compares every tile and chart title with the field it computes. A reviewer from another publisher reads the screenshots, as the hand-written path already intends.</p></div></div></details>
+  <details class="issue"><summary><span class="id">P2</span><span class="ttl">The card names the wrong model for the prototype</span><span class="pill med">Medium</span></summary><div class="body">
+    <div><h4>Evidence</h4><p>The Prototyper node is labelled Ornith 1.5; both model steps ran on Qwen. This is the "wrong model for the task" case the owner asked about, and it is already listed in the README's known limits.</p></div>
+    <div><h4>Fix</h4><p>Label a node with the model that answered, taken from the call record.</p></div></div></details>
+</section>
+
+<section id="gaps">
+  <span class="kick">Known gaps</span>
+  <h2>The three gaps the owner named, confirmed, with a design for each</h2>
+  <div class="ws"><h3>Gap 1. The second brain cannot be browsed</h3>
+    <p><b>Confirmed.</b> The API has no route that lists wiki pages, chunks, themes or engagements' evidence. The only window is the Files tab of one engagement (a flat source list with on and off switches). HiC's manifest held 25,707 pages and 124,076 chunks today.</p>
+    <p><b>Design: a Library view.</b> Three panes: facets on the left (pack, publisher, date, kind, engagement, theme), results in the middle, the passage with its citation on the right. Search answers from a local index (SQLite FTS5 plus the embedding index mirrored from the manifest), so a keystroke returns in under 200 ms; HiC's 25 s search is never on the typing path. Every row has "Add to engagement" and "Start from this" actions, and multi-select feeds a run directly. Saved themes from earlier runs are first-class rows with their passages.</p></div>
+  <div class="ws"><h3>Gap 2. Research shows nothing until it ends</h3>
+    <p><b>Confirmed.</b> Across about five hours of runs the card showed step names, a timer and at best a token count. No source, finding or theme appeared before a task finished.</p>
+    <p><b>Design: a live research stream.</b> The Research Lead emits an event per source as it is fetched; the page lists them with publisher and date. The Analyst works per source and emits each finding with its quote as it is verified. Every 20 new findings, an incremental clustering pass (embeddings already computed, clustering on the processor in a few seconds) updates a theme board: cards appear, grow and merge with a short animation, each showing its count and newest quote. Naming runs on the 2B model per cluster and is refined at the end. The board is the loading state, and it stays as the result.</p></div>
+  <div class="ws"><h3>Gap 3. Engagements cannot be combined, renamed or managed</h3>
+    <p><b>Confirmed.</b> The API offers create and hide. A name can be typed at creation only. A run takes exactly one engagement.</p>
+    <p><b>Design: a workspace.</b> Rename, archive, delete with an approval, duplicate, merge, tags, client and status fields, sort and search. Check boxes in the engagement list set a multi-engagement scope shown as chips in the composer; evidence keeps its engagement of origin in every citation. Runs across engagements read through the Library index, so no data is copied.</p></div>
+</section>
+
+<section id="plan">
+  <span class="kick">Uplift plan</span>
+  <h2>Nine workstreams, in the order that pays back fastest</h2>
+  <div class="flow">
+    <div><b>1 · Request</b>Rules decide: quick answer, one plan, or several plans. No model call.</div>
+    <div><b>2 · Quick answer</b>Web search or second-brain recall, in chat, with dated links.</div>
+    <div><b>3 · Plan card</b>Instant, editable, shows packs, reused pages, depth and a live estimate.</div>
+    <div><b>4 · Collection</b>Local index first, live feeds second. A ledger records every source and why it stayed or left.</div>
+    <div><b>5 · Live stream</b>Sources, findings and themes appear as they form.</div>
+    <div><b>6 · Build</b>Stepped, streamed, checkpointed, resumable.</div>
+    <div><b>7 · Checks</b>Form checks plus outcome checks. Hard gates stay.</div>
+    <div><b>8 · Learn</b>Failures and verdicts become gated skill and code changes.</div>
+  </div>
+
+  <div class="ws"><h3>0. Data currency contract (first)</h3>
+    <ul>
+      <li>Window resolved in code and shown on the card; today's date in every prompt; date filters on web search, packs and reuse.</li>
+      <li>Published-date extraction for every page; undated pages labelled and capped; background tier with its own cap.</li>
+      <li>Dates on every citation; date spread in the ledger; the <code>sources_current</code> hard gate; required date field in the wiki with a backfill.</li>
+    </ul></div>
+  <div class="ws"><h3>A. Speed floor and the scheduler (about one week)</h3>
+    <ul>
+      <li>Graphics memory and thermal preflight, smaller quantization fallback, banner, token-rate alarm (S1).</li>
+      <li>Stream every model call; per-step checkpoints; retry resumes; honest timeout text (S2).</li>
+      <li>One resident model for search, analysis and writing; second-publisher review only in deep mode (S6).</li>
+      <li>Estimates from live token rate (S4). Instant plan cards with background brief fill (S5).</li>
+      <li>Three lanes and a scheduler (graphics, processor, network) with a memory budget checked before every load; the picture engine gets booked windows.</li>
+      <li>Machine setup, verified by measurement: the smaller writer file when memory is short (six times faster in the lane test), helpers on the processor, no-fallback policy for the model server, desktop apps on the integrated card, one resident model.</li>
+      <li>Two bake-offs on this laptop for fan-out steps: llama.cpp parallel slots on a mid-size model, then a batching engine under WSL 2.</li>
+    </ul></div>
+  <div class="ws"><h3>B. Quick answers and honest routing</h3>
+    <ul>
+      <li><code>web_answer</code> tool and its routing rule (E1); no pack on quick answers (E2).</li>
+      <li>Multi-deliverable split in code; a reply cannot mention a plan it does not hold (A1). Clean goal extraction (A2).</li>
+      <li>Direct answers from the second brain when the question is about material already held.</li>
+    </ul></div>
+  <div class="ws"><h3>C. Collection integrity</h3>
+    <ul>
+      <li>Keyword queries for packs; counts after filtering; a selected pack that yields nothing stops the run with a reason (E3).</li>
+      <li>Archive everything fetched, with full attribution; backfill (E4, E8, E10).</li>
+      <li>Date awareness end to end (E5). Stricter, visible reuse (E6). Topic-based relevance with protection for selected packs (E7).</li>
+      <li>Scheduled pack ingestion into the local index (S7). A collection ledger per run, shown on the card: searched, answered, kept, dropped and why.</li>
+      <li>One evidence base per engagement with versions (S3). Depth settings (E9).</li>
+    </ul></div>
+  <div class="ws"><h3>D. Library view (Gap 1)</h3>
+    <ul><li>Local FTS and vector index mirrored from the manifest journal; facets; passage pane; add-to-engagement; saved themes. Target: results under 200 ms, first paint under one second.</li></ul></div>
+  <div class="ws"><h3>E. Live research stream (Gap 2)</h3>
+    <ul><li>Per-source and per-finding events; incremental clustering; animated theme board; the same board becomes the themes artifact.</li></ul></div>
+  <div class="ws"><h3>F. Workspace (Gap 3)</h3>
+    <ul><li>Rename, archive, delete, merge, tags, multi-select scope, correct counts (U5), per-item titles (U6), clean new-conversation state (A3).</li></ul></div>
+  <div class="ws"><h3>G. Artifact quality</h3>
+    <ul>
+      <li>Evidence card in place of the false report (U1). Audio player and card refresh (U2). Pointers hidden (U4). Prose scrub before scoring (U7).</li>
+      <li>Themes at HiC parity or better (U3). Deck in steps with a slide appearing on the card as each is written.</li>
+      <li>Side-by-side comparison with Gemini Notebook and captured best-of-breed output for each artifact kind before it is called done, per the owner's standing rules.</li>
+    </ul></div>
+  <div class="ws"><h3>H. Self-improvement that engages</h3>
+    <ul>
+      <li>Outcome checks added to the scorecard: requested time window met; each selected pack represented; no single source above a set share of quotes; themes inside the stated population; duration within twice the estimate; no raw JSON or internal pointer in any visible field; the reply matches the request type (answer, plan, artifact).</li>
+      <li>Failed tasks, timeouts and overruns enter <code>improve.groups</code>. Code-only causes become attention items with the evidence attached.</li>
+      <li>The four cases here become scripted runs in <code>regression/</code>, driven through the page with Playwright, each with the pass criteria below. No skill version is promoted and no release is called done until they pass.</li>
+    </ul></div>
+</section>
+
+<section id="budgets">
+  <span class="kick">Balance</span>
+  <h2>Speed targets, and the quality rules that do not bend to meet them</h2>
+  <p>Speed comes from removing waste: repeated collection, model swaps, memory spill, single long generations, idle waiting. It does not come from skipping checks. The plan card offers two depths so the user chooses the trade.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Work</th><th>First useful thing on screen</th><th>Fast depth, complete</th><th>Deep depth, complete</th><th>Quality gate that always applies</th></tr></thead>
+    <tbody>
+      <tr><td>Web answer in chat</td><td class="n">5 s (sources found)</td><td class="n">20 s</td><td class="n">n/a</td><td>Every item published on the day asked for, each with a dated link</td></tr>
+      <tr><td>Plan card</td><td class="n">1 s</td><td class="n">3 s</td><td class="n">3 s</td><td>Shows packs, reuse and depth before Start</td></tr>
+      <tr><td>Research (evidence)</td><td class="n">15 s (first source)</td><td class="n">4 min</td><td class="n">12 min</td><td>Quotes found word for word; every source dated; 80 percent inside the window</td></tr>
+      <tr><td>Themes</td><td class="n">90 s (first theme)</td><td class="n">6 min</td><td class="n">15 min</td><td>Two independent sources per theme or a label</td></tr>
+      <tr><td>Report</td><td class="n">60 s (first section)</td><td class="n">8 min</td><td class="n">20 min</td><td>Second-publisher review in deep; prose scrub in both</td></tr>
+      <tr><td>Deck, journey map</td><td class="n">60 s (first slide or phase)</td><td class="n">8 min</td><td class="n">15 min</td><td>Slides fit, text legible, editable PowerPoint re-opens</td></tr>
+      <tr><td>Audio script</td><td class="n">30 s</td><td class="n">3 min</td><td class="n">6 min</td><td>Each factual turn cited</td></tr>
+      <tr><td>Prototype</td><td class="n">60 s (direction)</td><td class="n">10 min</td><td class="n">20 min</td><td>Opened in a browser; every screen reached</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">Targets assume the model fits in graphics memory at its normal rate of about 27 tokens per second. When it does not, the card says so and scales the estimate.</p>
+</section>
+
+<section id="accept">
+  <span class="kick">Done means</span>
+  <h2>Pass criteria for the four cases</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Case</th><th>Passes when</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>The answer appears in chat within 20 s, names at least five stories each with a link and a published date equal to the day of the request, creates no engagement, uses no pack and makes no artifact.</td></tr>
+      <tr><td>2</td><td>First theme on screen within 90 s; complete within 10 min; at least 15 themes in two levels; at least 70 percent of sources from the AI Trends pack; every source dated, at least 80 percent published in the last 30 days, older ones labelled background; every theme opens to its passages.</td></tr>
+      <tr><td>3</td><td>Both packs represented in the corpus and named in the ledger; at least 80 percent of sources published in the last 30 days; one evidence version shared by all five outputs; all five finish; total under 45 min at fast depth; a multi-part request yields one plan card per output; the audio plays in the app.</td></tr>
+      <tr><td>4</td><td>New pack sources, on the subject and published in the last 30 days, are added to the existing engagement with dates, without replacing earlier evidence; the prototype's problems and solutions trace to those sources; every screen is reached in the browser check; total under 20 min.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="successor">
+  <span class="kick">Handoff</span>
+  <h2>Notes for whoever picks this up</h2>
+  <ul>
+    <li><b>Where.</b> Branch <code>ia-next-local-2026-11-19</code>, worktree <code>D:\NXT-HUMANS_AI_CX_WORKBENCH-ia-next-local</code>, folder <code>ia-next-local/</code>. Read its <code>README.md</code>, <code>LOCAL.md</code> and <code>plans/modernization-uplift-plan-2026-11-23.md</code> first. That README still says the folder is uncommitted and names Nemotron for the conversation seat; both are out of date.</li>
+    <li><b>What to keep while rebuilding the rest.</b> Quote verification in code, the stepped builder engine, the rules router for single hashtags, the journey map's visible phases, native PowerPoint export, the scorecard's form checks. None of these made an output pass; they are the parts worth building on.</li>
+    <li><b>First day.</b> Start the currency contract, switch the writer to the smaller quantization when memory is short, and fix S1 and S2. Until the model's token rate is watched, every other measurement on this laptop is unreliable.</li>
+    <li><b>Test rig.</b> The shared Playwright browser was held by another session, so I drove a private Chromium over the debugging port with <code>playwright-core</code>. This page, its screenshots and the driver scripts are saved, uncommitted, in <code>ia-next-local/plans/field-test-2026-11-23/</code> (scripts under <code>rig/</code>). Turn the rig into the scripted regression runs of workstream H.</li>
+    <li><b>Standing rules.</b> No paid API in this build. No commit without the owner's approval. Never rebuild while a task runs. Read the artifact, not its metrics: every false "passed" in this page had a green check.</li>
+    <li><b>Left in the app by this test.</b> Three new engagements (the two named "test case" and "Today's Top AI News") and new work in the nurse staffing engagement. Hide them from the engagement sheet if they are not wanted. Pages collected during the runs were archived in HiC's wiki as normal.</li>
+  </ul>
+</section>
+</main>
+</div>

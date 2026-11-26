@@ -1,0 +1,21 @@
+fastapi==0.115.12
+uvicorn==0.34.2
+httpx>=0.27
+pydantic>=2.7
+pytest>=8.0
+python-pptx==1.0.2
+python-multipart>=0.0.9
+PyJWT[crypto]>=2.8
+# IA Next Local: speech and theme clustering on this machine (no paid API anywhere in this build)
+faster-whisper>=1.1
+piper-tts>=1.2
+kokoro-onnx>=0.4.9
+numpy>=1.26
+scikit-learn>=1.5
+umap-learn>=0.5
+pymupdf>=1.24
+lameenc>=1.7
+# video transcription (videotranscript.py): yt-dlp fetches a video's sound; youtube-transcript-api reads published
+# captions when the sound cannot be fetched. Whisper itself is faster-whisper above, with large-v3 weights on D:.
+yt-dlp>=2025.10.22
+youtube-transcript-api>=1.2
