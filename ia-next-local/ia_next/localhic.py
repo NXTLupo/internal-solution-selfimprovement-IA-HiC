@@ -171,7 +171,9 @@ def _embed(texts):
     model = "qwen3-embedding:0.6b"
     out = []
     for i in range(0, len(texts), 32):
-        r = httpx.post(config.OLLAMA_URL + "/api/embed", json={"model": model, "input": [t[:6000] for t in texts[i:i + 32]]},
+        from . import localrank                  # the same context size as every other embedding call (no reloads)
+        r = httpx.post(config.OLLAMA_URL + "/api/embed", json={"model": model, "input": [t[:6000] for t in texts[i:i + 32]],
+                                                                "options": localrank.EMBED_OPTIONS, "keep_alive": localrank.EMBED_KEEP},
                        timeout=600)
         if r.status_code != 200:
             raise providers.ProviderError(f"the local embedding model returned {r.status_code}: {r.text[:200]}")

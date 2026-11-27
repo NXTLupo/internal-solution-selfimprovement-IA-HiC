@@ -23,7 +23,9 @@ def test_every_creator_has_a_governed_skill():
     names = [s["skill"] for s in d["skills"]]
     assert names == sorted(["writer", "deck_composer", "prototyper", "creative_director", "journey_cartographer",
                             "social_analyst", "transcript_analyst", "theme_namer", "information_designer",
-                            "table_analyst", "audio_producer"])
+                            "table_analyst", "audio_producer",
+                            # (harness WS-H10) IA Next Local's own writer and journey map, which the local build reads
+                            "local_writer", "local_journey"])
     assert all(s["active_version"] == 1 for s in d["skills"])
 
 

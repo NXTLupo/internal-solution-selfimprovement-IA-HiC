@@ -125,14 +125,23 @@ def test_research_numbers_after_every_id_in_the_engagement_and_reads_the_asked_f
                                                 (eid, "%insidehighered%"))] == ["S4"]
 
 
-def test_research_asked_for_reddit_without_a_listening_stops_before_any_paid_search(monkeypatch):
-    calls = []
+def test_research_asked_for_reddit_without_a_listening_reads_the_named_subreddit_itself(monkeypatch):
+    # (owner, 26 Nov) asking for Reddit never stops a research run: with no listening, the run searches the subreddit
+    calls, asked = [], {}
     _research_fakes(monkeypatch, calls)
+    from ia_next import packsocial
+
+    def named(subs, query, window=None, limit=6, objective="", known=(), token=None, scores=None, get=None):
+        asked.update(subs=list(subs), limit=limit)
+        return [{"url": "https://www.reddit.com/r/NEU/comments/x1/ai_policy/", "title": "Profs disagree on AI policy", "subreddit": "NEU",
+                 "date": "2026-10-20", "text": "Profs disagree on AI policy\n\nTop comments:\n\n" + "Every class has a different rule. " * 12}], {"kept": 1}
+    monkeypatch.setattr(packsocial, "search_names", named)
     eid = _engagement(research=False, social=False)
-    with pytest.raises(material.MissingEvidence) as e:
-        studio.research_lead(eid, {"goal": "themes on r/NEU about AI", "scope": "fall 2026", "audience": "leadership"},
-                             providers.Ledger(limit_usd=1.0))
-    assert "start_social_analysis" in str(e.value) and calls == []
+    _, summary, sources = studio.research_lead(eid, {"goal": "themes on r/NEU about AI", "scope": "fall 2026", "audience": "leadership"},
+                                               providers.Ledger(limit_usd=1.0))
+    post = next(s for s in sources if "reddit.com/r/NEU" in s["url"])
+    assert asked["subs"] == ["neu"] and post["requested"] == "Reddit" and post["kind"] == "social" and not post.get("pack")
+    assert "1 from r/neu as asked" in summary
 
 
 def _slide(title, cites, quote="", source_id=""):

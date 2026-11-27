@@ -119,7 +119,12 @@ def spec(persona, level="standard"):
     from . import depthlevel
     words, most = depthlevel.JOURNEY_PHASES.get(level, depthlevel.JOURNEY_PHASES["standard"])
     qwords, qmost = depthlevel.JOURNEY_QUOTES.get(level, depthlevel.JOURNEY_QUOTES["standard"])
-    system = SYSTEM.replace("- Phases: four to six,", f"- Phases: {words},").replace("- Quotes: one or two more verbatim quotes per phase", f"- Quotes: {qwords} per phase")
+    try:                                         # (harness WS-H10) a promoted version of the governed skill takes effect
+        from . import skills
+        base = skills.active_text("local_journey", SYSTEM)
+    except Exception:
+        base = SYSTEM
+    system = base.replace("- Phases: four to six,", f"- Phases: {words},").replace("- Quotes: one or two more verbatim quotes per phase", f"- Quotes: {qwords} per phase")
     frame, phase = copy.deepcopy(FRAME), copy.deepcopy(PHASE)
     frame["properties"]["phases"]["maxItems"] = most
     phase["properties"]["quotes"]["maxItems"] = qmost

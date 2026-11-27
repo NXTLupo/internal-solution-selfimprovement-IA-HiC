@@ -283,10 +283,21 @@ _FOR_TO = re.compile(
     r"get up to speed on|be briefed on|act on|plan for)\b\s*")
 # "a deck for operations leaders": the people named straight after an output are who it is for (25 Nov: the goal read
 # "... grocery retail and a for operations leaders"). "strategies for nursing staff" names no output and keeps its words.
+# (26 Nov) the basis may sit between the output and its audience, and the audience may carry a parenthetical: "a 50
+# slide deck from this research for retail leadership team (C-suite and senior retail executives)" made the audience
+# the plan card's subject.
 _FOR_AFTER_OUTPUT = re.compile(
     r"(?i)\b(deck|slides?|slide deck|presentation|powerpoint|report|infographic|journey map|brief|briefing|overview|"
-    r"one[- ]pager|summary|document|memo|poster|diagram|mind ?map|podcast|table|prototype|analysis)\s+for\s+"
-    r"((?:the |a |an |our |my )?[\w' -]{2,50}?)(?=\s*(?:$|[,.;]|\b(?:on|about|covering|that|which|and|then|in|using|with)\b))")
+    r"one[- ]pager|summary|document|memo|poster|diagram|mind ?map|podcast|table|prototype|analysis)"
+    r"((?:\s+(?:from|using|based on|built on|drawing on)\s+(?:this|the|these|that|my|our)\s+(?:research|findings|engagement|"
+    r"evidence|material|sources|report|work|analysis))?)\s+for\s+"
+    r"((?:the |a |an |our |my )?[\w' -]{2,50}?(?:\s*\([^()]{2,90}\))?)"
+    r"(?=\s*(?:$|[,.;]|\b(?:on|about|covering|that|which|and|then|in|using|with)\b))")
+
+
+# (26 Nov) "Deep research: how shoppers ... in the last 90 days, for a retail leadership team. Use the Retail data pack":
+# a "for" clause set off by a comma at the end of a sentence names who the work is for, never what it is about.
+_FOR_CLAUSE_END = re.compile(r"(?i),\s*for\s+((?:a |an |the |our |my )?[\w' -]{2,60}?(?:\s*\([^()]{2,90}\))?)\s*(?=[.!?](?:\s|$)|$)")
 
 
 # The person's own files as the basis of the work (owner, 25 Nov, E16): "based on the uploaded files", "from my
@@ -347,8 +358,13 @@ def presentation_free(text):
     if not audience:                             # after the brand is gone: "an infographic in the X brand for store leaders on ..."
         m = _FOR_AFTER_OUTPUT.search(t)
         if m:
-            audience = " ".join(m.group(2).split()).strip(" []")
-            t = t[:m.start()] + m.group(1) + " " + t[m.end():]
+            audience = " ".join(m.group(3).split()).strip(" []")
+            t = t[:m.start()] + m.group(1) + m.group(2) + " " + t[m.end():]
+    if not audience:
+        m = _FOR_CLAUSE_END.search(t)
+        if m:
+            audience = " ".join(m.group(1).split()).strip(" []")
+            t = t[:m.start()] + t[m.end():]
     t = re.sub(r"[\[\]]", " ", t)
     t = re.sub(r"\(\s*\)", " ", t)
     return re.sub(r"\s+", " ", t).strip(), audience
@@ -372,6 +388,31 @@ def stated(text):
     return out
 
 
+# Which sources to read is a choice of the work, never its subject (26 Nov: "Use the Retail data pack, YouTube and
+# Reddit" left "for a retail leadership team., YouTube and Reddit" on the plan card).
+_SOURCE_NAME = (r"(?:the\s+|my\s+|our\s+)?(?:[\w&-]+\s+){0,3}?(?:data\s+packs?|packs?|youtube(?:\s+videos)?|reddit(?:\s+posts)?|"
+                r"sub-?reddits?|news|the\s+web|web\s+search|podcasts?|rss(?:\s+feeds)?|feeds?)")
+# an instruction, not content: "Use ..."/"Draw on ..." opening a sentence, or "using ..."/"drawing on ..." anywhere but
+# after a form of "be" ("How teams use Reddit" and "how teams are using Reddit" are subjects and stay whole)
+_SOURCES_CLAUSE = re.compile(r"(?i)(?:(?:^|(?<=[,;.:?!]))\s*(?:please\s+)?(?:use|draw\s+on)"
+                             r"|(?<=\s)(?<!\bare\s)(?<!\bis\s)(?<!\bwas\s)(?<!\bwere\s)(?<!\bbe\s)(?<!\bbeen\s)(?:using|drawing\s+on))\s+" + _SOURCE_NAME
+                             + r"(?:\s*(?:,\s*(?:and\s+)?|\band\b|&)\s*" + _SOURCE_NAME + r")*\s*(?:as\s+(?:the\s+)?(?:evidence|sources?))?\s*(?=[,;.]|$)")
+# (26 Nov) "Run new deep research: ..." kept its order as the plan card's subject; the label may carry a verb and "new"
+_MODE_LABEL = re.compile(r"(?i)^\s*(?:(?:please\s+)?(?:run|do|start|begin)\s+(?:a\s+)?)?(?:(?:new|fresh|more)\s+)?"
+                         r"(?:deep|fast|quick|full)\s+research\s*:\s*")
+
+
+def sources_free(text):
+    """The request without its sources clause ("Use the Retail data pack, YouTube and Reddit") and its mode label
+    ("Deep research:"), with the punctuation they leave behind tidied."""
+    t = _SOURCES_CLAUSE.sub(" ", _MODE_LABEL.sub("", str(text or "")))
+    # a stated length is a choice of the output, not its subject ("a comprehensive, 50 slide deck" left "50", 26 Nov)
+    t = re.sub(r"(?i)\b\d{1,3}[\s-]*(?:slides?|pages?|minutes?|words?)\b", " ", t)
+    t = re.sub(r"\.\s*,", ",", t)
+    t = re.sub(r"\s+([,;.])", r"\1", re.sub(r"\s+", " ", t))
+    return re.sub(r"([,;.])\1+", r"\1", t).strip()
+
+
 def subject_of(text, focus="", outputs=False):
     """What the work is about: the request without hashtags, links, the names of the outputs, the making verbs and
     the conversational text around them. When too little is left to be a subject, the engagement's objective.
@@ -380,6 +421,7 @@ def subject_of(text, focus="", outputs=False):
     t = VIDEO_LINK.sub(" ", _clean(text))
     t = re.sub(r"#[a-z][\w-]*", " ", t, flags=re.I)
     t, _ = presentation_free(t)                    # brand, audience and setting words are never the subject (E9)
+    t = sources_free(t)
     if outputs:
         # A request that states its subject in one clause and orders the outputs in others ("Research what changed
         # this week in nurse staffing, write a short report, then build a prototype of a planner"): the subject is
@@ -495,7 +537,14 @@ NAMED_OUTPUTS = [(r"\bprototypes?\b", "start_prototype", "a prototype"), (r"\b(d
                  (r"\b(mind ?maps?|infographics?|diagrams?)\b", "start_diagram", "a diagram"),
                  (r"\bjourney ?maps?\b", "start_journey_map", "a journey map"),
                  (r"\b(podcast|audio overview)\b", "start_audio_overview", "an audio overview"),
-                 (r"\b(quiz|flashcards?|study guide|faq)\b", "start_artifact", "a study page")]
+                 (r"\b(quiz|flashcards?|study guide|faq)\b", "start_artifact", "a study page"),
+                 # 26 Nov routing comparison: these named outputs reached the model's own choice, which misrouted them
+                 (r"\bdata ?tables?\b|\bcomparison tables?\b", "start_datatable", "a data table"),
+                 (r"\b(one[- ]pager|one[- ]page (brief|memo|summary)|brief(ing)? (note|memo)|memo|prd|case stud(y|ies)|gap analysis|"
+                  r"roadmap|personas?)\b", "start_artifact", "a document")]
+_REDDIT_LISTEN = re.compile(r"(?i)\b(listen(ing)? to|social listening)\b[^.?!]{0,60}\breddit\b|\breddit listening\b|"
+                            r"\bwhat (people|users|shoppers|students|customers) (on reddit )?(say|are saying|think)\b[^.?!]{0,40}\breddit\b|"
+                            r"\bwhat (people|users|shoppers|students|customers) on reddit (say|are saying|think)\b")
 _ASKS_REPORT = re.compile(r"(?i)\b(reports?|research|briefing|white ?paper)\b")
 
 
@@ -522,13 +571,15 @@ def brand_asked(brand, said):
     return brand
 
 
-_MAKE_NUDGE = re.compile(r"(?i)^\W*(please\s+)?(build|make|create|draft|generate|design|produce|prepare|put together)\b")
+_MAKE_NUDGE = re.compile(r"(?i)^\W*(please\s+)?(build|make|create|draft|write|generate|design|produce|prepare|put together)\b")
 
 
 def named_tool(said):
     """(words, tool) when the person's message opens with a making verb and names an output in plain words ("Build a
     clickable prototype of ..."). 20 Nov: such a request was answered by reading old tasks, with no plan made."""
     from . import plan
+    if said and _REDDIT_LISTEN.search(said):        # "listen to what people on Reddit say about ..." is Reddit listening
+        return "Reddit listening", "start_social_analysis"
     if not said or not _MAKE_NUDGE.search(said) or plan.is_question(said):
         return None
     for rx, tool, words in NAMED_OUTPUTS:

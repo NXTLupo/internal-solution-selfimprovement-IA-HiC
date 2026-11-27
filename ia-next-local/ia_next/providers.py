@@ -111,7 +111,7 @@ def _spend_table(c):
     have = {r[1] for r in c.execute("PRAGMA table_info(spend)")}
     for col, kind in (("cache_write_tokens", "INTEGER DEFAULT 0"), ("label", "TEXT DEFAULT ''"),
                       ("sent_tokens", "INTEGER DEFAULT 0"), ("load_seconds", "REAL DEFAULT 0"),
-                      ("prompt_seconds", "REAL DEFAULT 0"), ("num_ctx", "INTEGER DEFAULT 0")):
+                      ("prompt_seconds", "REAL DEFAULT 0"), ("num_ctx", "INTEGER DEFAULT 0"), ("trace", "TEXT DEFAULT ''")):
         if col not in have:
             c.execute(f"ALTER TABLE spend ADD COLUMN {col} {kind}")
 
@@ -131,10 +131,10 @@ def record_spend(u: Usage, label: str = ""):
         c = store.conn()
         _spend_table(c)
         c.execute("INSERT INTO spend (ts, model, input_tokens, output_tokens, cache_read_tokens, usd, seconds, "
-                  "cache_write_tokens, label, sent_tokens, load_seconds, prompt_seconds, num_ctx) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                  "cache_write_tokens, label, sent_tokens, load_seconds, prompt_seconds, num_ctx, trace) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                   (time.time(), u.model, u.input_tokens, u.output_tokens, u.cache_read_tokens, u.usd, u.seconds,
                    u.cache_write_tokens, label or "", getattr(u, "sent_tokens", 0), getattr(u, "load_seconds", 0.0),
-                   getattr(u, "prompt_seconds", 0.0), getattr(u, "num_ctx", 0)))
+                   getattr(u, "prompt_seconds", 0.0), getattr(u, "num_ctx", 0), store.TRACE.get()))
     except Exception:
         pass
 
@@ -428,6 +428,28 @@ def context_for(chars, max_tokens, model=None, json_chars=0):
                         "use fewer or shorter sources, or raise IA_NEXT_MAX_CTX")
 
 
+# (harness WS-H5, 26 Nov) The resident window. A chat call reserved its whole reply allowance (16,000 tokens, counted
+# as 12,512) on top of the prompt, so any conversation prompt over about 20,250 tokens asked for a 64K window: Ollama
+# reloaded the pinned Qwen at 65,536 (measured 18 s, predicted 29.2 GiB on a 23.9 GiB card, so part of it ran from
+# system memory) and the prompt cache was lost (17.5 s to read 20,372 tokens again). A call now keeps the model's
+# resident window when the prompt and a working reply of RESIDENT_MIN_REPLY tokens fit; the reply's limit becomes the
+# room left. Only a reply that really runs out of room is asked again at the larger window, and that is an event.
+RESIDENT_MIN_REPLY = 4000
+
+
+def fit_resident(chars, predict, model, json_chars=0):
+    """(num_ctx, num_predict, kept): the model's resident window (config.CTX_FLOOR) with the reply's limit cut to the room
+    left, when the prompt and RESIDENT_MIN_REPLY tokens fit in it; otherwise the window the call needs (context_for)."""
+    want = context_for(chars, predict, model, json_chars)
+    resident = config.CTX_FLOOR.get(model)
+    if not resident or want <= resident:
+        return want, predict, False
+    room = resident - prompt_tokens(chars, model, json_chars) - 512
+    if room >= min(int(predict), RESIDENT_MIN_REPLY):
+        return resident, min(int(predict), room), True
+    return want, predict, False
+
+
 # True while a call must not touch the graphics card: the conversation's small model answers from system memory
 # while a studio task holds the card (agent._turn).
 ON_PROCESSOR = contextvars.ContextVar("ia_next_on_processor", default=False)
@@ -442,6 +464,25 @@ STREAM_TEXT_EVERY = 0.5
 
 THINK_ALLOWANCE = 4000            # tokens of reasoning allowed on top of the answer when a model thinks
 MAX_PREDICT = 32000
+
+
+# Every local call samples with seed 7 so a run can be reproduced. A measurement of run-to-run variation (the noise band
+# of an evaluation or a skill re-check) must change it for its repeat run: with one seed, two runs are identical by
+# construction and the band reads 0 (27 Nov: eight re-check baselines all showed 0.00).
+SEED = contextvars.ContextVar("ia_next_seed", default=7)
+
+
+class seed_as:
+    """Sample with another seed for the length of a `with` block (this thread)."""
+    def __init__(self, seed):
+        self.seed = int(seed)
+
+    def __enter__(self):
+        self.tok = SEED.set(self.seed)
+        return self.seed
+
+    def __exit__(self, *exc):
+        SEED.reset(self.tok)
 
 
 def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json_schema=None, effort="medium",
@@ -467,9 +508,12 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
     # A model that thinks spends its reasoning out of the same allowance as its answer, so the answer gets its full
     # allowance on top (19 Nov: a report's JSON was cut at 7,000 tokens and the whole run died in the parser).
     predict = int(max_tokens) + (THINK_ALLOWANCE if think else 0)
-    body = {"model": used, "messages": msgs, "stream": False, "keep_alive": keep_alive(used),
-            "options": {"num_ctx": context_for(chars, predict, used, json_chars), "num_predict": predict,
-                        "temperature": 0.2, "seed": 7}}
+    ctx, fit_predict, kept_resident = fit_resident(chars, predict, used, json_chars)
+    # truncate False (26 Nov): Ollama 0.40.18 (auto-updated after a restart) cuts a prompt longer than the window and
+    # answers 200, where 0.40.16 refused with a 400; measured, a 3,011-token prompt became 514 tokens. With the flag the
+    # 400 "request (N tokens) exceeds the available context size" returns, and the window is grown instead (_TooLong).
+    body = {"model": used, "messages": msgs, "stream": False, "keep_alive": keep_alive(used), "truncate": False,
+            "options": {"num_ctx": ctx, "num_predict": fit_predict, "temperature": 0.2, "seed": SEED.get()}}
     if "thinking" in capabilities(used):
         body["think"] = think
     on_processor = ON_PROCESSOR.get()
@@ -503,9 +547,13 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
             return _post_card()
 
     def _post_card():
+        done = threading.Event()
         try:
             if not on_processor:
                 _room()
+                if is_loaded(used) is False:          # the model server's own idle models make way first (see make_room_for)
+                    make_room_for(used)
+                    _note_load_wait(used, done)
             if progress is not None or STREAM_TEXT.get() is not None:
                 return _post_streaming()
             r = httpx.post(config.OLLAMA_URL + "/api/chat", json=body, timeout=httpx.Timeout(3600.0, connect=15.0))
@@ -516,6 +564,8 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
                                 "This usually means another program is holding graphics memory; close it and try again") from e
         except httpx.HTTPError as e:
             raise ProviderError(f"the local model server (Ollama) could not be reached ({type(e).__name__})") from e
+        finally:
+            done.set()
         if r.status_code == 400 and _TOO_LONG.search(r.text or ""):
             raise _TooLong(int(_TOO_LONG.search(r.text).group(1)))
         if r.status_code != 200:
@@ -583,12 +633,39 @@ def chat(model, system, messages, ledger=None, max_tokens=8000, tools=None, json
             d = _post()
         except _TooLong as e2:
             raise ProviderError(f"{used} refused a {e2.tokens:,}-token prompt at a {bigger:,}-token context") from None
+    if kept_resident and d.get("done_reason") == "length" and not (d.get("message") or {}).get("tool_calls"):
+        # the reply needed more than the room left in the resident window: asked once more at the window it needs
+        grown = context_for(chars, predict, used, json_chars)
+        try:
+            from . import store
+            store.event("model_window_grown", {"conversation": (store.TURN.get() or {}).get("conversation"),
+                                               "model": used, "from": body["options"]["num_ctx"], "to": grown,
+                                               "why": "the reply needed more room than the resident window had left"})
+        except Exception:
+            pass
+        body["options"]["num_ctx"], body["options"]["num_predict"] = grown, predict
+        d = _post()
     if json_schema and d.get("done_reason") == "length":
         # structured output that ran out of room is not valid JSON: ask once more with twice the room, never truncate
         body["options"]["num_predict"] = min(predict * 2, MAX_PREDICT)
         body["options"]["num_ctx"] = max(body["options"]["num_ctx"], context_for(chars, body["options"]["num_predict"], used, json_chars))
         if body["options"]["num_predict"] > predict:
             d = _post()
+    if d.get("done_reason") == "length" and (d.get("message") or {}).get("tool_calls"):
+        # a tool call whose reply was cut off at the length limit may parse while incomplete (Harness Engineering p.15,
+        # Pi's truncation guard): ask once more with twice the room; if it is cut off again, its calls are not run
+        if body["options"].get("num_predict", predict) < MAX_PREDICT:
+            body["options"]["num_predict"] = min(int(body["options"].get("num_predict", predict)) * 2, MAX_PREDICT)
+            body["options"]["num_ctx"] = max(body["options"]["num_ctx"], context_for(chars, body["options"]["num_predict"], used, json_chars))
+            d = _post()
+        if d.get("done_reason") == "length" and (d.get("message") or {}).get("tool_calls"):
+            d = dict(d, message=dict(d["message"], tool_calls=[],
+                                     content=(d["message"].get("content") or "") + "\n(The reply was cut off before its tool call was complete, so the call was not made.)"))
+            try:
+                from . import store
+                store.event("tool_call_truncated", {"model": used})
+            except Exception:
+                pass
     msg = d.get("message") or {}
     blocks = []
     if msg.get("content"):
@@ -660,6 +737,82 @@ def openai_image(model, prompt, ledger: Ledger = None, size="1536x1024"):
     if ledger is not None:
         ledger.add(u)
     return png, u
+
+
+# Root cause of the 26 Nov stall (13:01): a research run called MiniCPM, which was not loaded, while the conversation
+# model (pinned in memory, keep_alive -1) and the embedding model (kept busy by the Library's background embedding) were
+# resident. The model server judged that MiniCPM would not fit beside them (its free-memory reading on this machine goes
+# stale: "GPU discovery watchdog timed out ... using old values"), queued the load until a resident model was
+# released, and neither ever was: the call waited 23 minutes with no error, and two test calls hung the same way.
+# Unloading the idle embedding model let MiniCPM load in 11 seconds (and at a 32K context, beside the conversation
+# model, in 14). So before a model that is not loaded is called, every idle model other than the pinned conversation
+# model is released (the embedding model reloads in about a second and a half); background embedding pauses while a
+# language-model call waits (lanes.model_call_active), so the embedding model is idle and can go.
+EMBED_MODELS = ("qwen3-embedding:0.6b",)
+LOAD_WAIT_NOTE = 90               # seconds a load may wait before the event log says what is resident
+
+
+def make_room_for(model):
+    """Release the model server's idle models other than `model` and the pinned conversation model when `model` is not
+    loaded. Returns the names released. Never raises."""
+    try:
+        from . import lanes, store
+        ps = httpx.get(config.OLLAMA_URL + "/api/ps", timeout=5).json().get("models") or []
+        names = [m.get("name") for m in ps]
+        if model in names:
+            return []
+        pinned = {resolve(config.SEATS["orchestration"]["primary"], ())}
+        others = sorted((m for m in ps if m.get("name") not in pinned and m.get("name") != model),
+                        key=lambda m: (m.get("name") not in EMBED_MODELS, m.get("size_vram") or 0))
+        gone = []
+        for m in others:
+            name = m.get("name")
+            if name in EMBED_MODELS:                 # wait for the background embedding batch in flight to finish
+                t0 = time.time()
+                while lanes.embeds_running() and time.time() - t0 < 30:
+                    time.sleep(0.25)
+                httpx.post(config.OLLAMA_URL + "/api/embed", json={"model": name, "input": "", "keep_alive": 0}, timeout=30)
+            else:
+                httpx.post(config.OLLAMA_URL + "/api/generate", json={"model": name, "keep_alive": 0}, timeout=30)
+            gone.append(name)
+        if gone:
+            turn = store.TURN.get() or {}
+            store.event("models_released_for_load", {"loading": model, "released": gone, "kept": sorted(pinned & set(names)),
+                                                     "conversation": turn.get("conversation", "")})
+            store.say(f"making room on the graphics card for {model.rsplit('/', 1)[-1]}: released {', '.join(g.rsplit('/', 1)[-1] for g in gone)}")
+        return gone
+    except Exception:
+        return []
+
+
+def _note_load_wait(model, done):
+    """If a load is still waiting after LOAD_WAIT_NOTE seconds, the event log says which models are resident."""
+    try:
+        from . import store as _store
+        turn = _store.TURN.get() or {}
+    except Exception:
+        turn = {}
+
+    def watch():
+        if done.wait(LOAD_WAIT_NOTE):
+            return
+        try:
+            from . import store
+            ps = httpx.get(config.OLLAMA_URL + "/api/ps", timeout=5).json().get("models") or []
+            if model not in [m.get("name") for m in ps]:
+                try:
+                    from . import papercuts
+                    papercuts.file("model server", f"load {model}", "the model loads within a minute and a half",
+                                   f"the load was still waiting after {LOAD_WAIT_NOTE} seconds",
+                                   "check what is resident on the graphics card (event model_load_waiting)")
+                except Exception:
+                    pass
+                store.event("model_load_waiting", {"model": model, "seconds": LOAD_WAIT_NOTE, "conversation": turn.get("conversation", ""),
+                                                   "resident": [{"name": m.get("name"), "gb": round((m.get("size_vram") or 0) / 2**30, 1)}
+                                                                for m in ps]})
+        except Exception:
+            pass
+    threading.Thread(target=watch, daemon=True, name="load-wait-note").start()
 
 
 def _room():

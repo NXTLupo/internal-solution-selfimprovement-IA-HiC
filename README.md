@@ -1,41 +1,72 @@
 # NXT Intelligence Augmentation
 
 <p align="center">
-  <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><img src="docs/readme/overview-hero.png" alt="Intelligence Augmentation. A quoted sentence on a slide is linked to the highlighted passage in its source page, where it was matched word for word." width="100%"></a>
+  <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><img src="docs/readme/hero.svg" alt="Client research where every quote opens its source. A quoted sentence on a slide is linked to the highlighted passage in its source page, where code found it word for word. Three systems: IA Suite on port 8000, IA Next on 9400 and IA Next Local on 9460." width="100%"></a>
 </p>
 
-NXT Humans consultants use this platform to answer a client's question with evidence. Agents collect articles, public data and the client's own files, store them in a wiki the team can search, and draft the decks, personas, journey maps and prototypes that go back to the client. Each quote in the finished work links to the passage it came from.
+<p align="center">
+  <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><b>Illustrated overview</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V"><b>Every kind of work, with examples</b></a>
+  &nbsp;·&nbsp;
+  <a href="#ia-next">IA Next guide</a>
+  &nbsp;·&nbsp;
+  <a href="ia-next-local/README.md">IA Next Local guide</a>
+</p>
 
-This repository holds two systems, and both can run on the same computer at once:
+NXT Humans consultants use this platform to answer a client's question with evidence. Agents collect articles, public data and the client's own files, store them in a wiki the team can search, and draft the decks, personas, journey maps and prototypes that go back to the client. Code checks each quote in the finished work against the passage it came from.
+
+This repository holds three systems, and all three can run on the same computer at once:
 
 | | Open | What it is |
 |---|---|---|
 | **IA Suite** | http://localhost:8000 | The original platform. A hub page and a chat agent that calls a dozen specialist services through MCP, including HiC (Humans in Control), the research and deliverable engine. Guide: [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) |
-| **IA Next** | http://127.0.0.1:9400 | The newer workspace. You talk to one agent; it hands the work to specialists, asks before anything costs money, and checks quotes against their sources. Guide: [`ia-next-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17) |
+| **IA Next** | http://127.0.0.1:9400 | The newer workspace. You talk to one agent; it hands the work to specialists, asks before anything costs money, and checks quotes against their sources. Guide: [below](#ia-next) |
+| **IA Next Local** &nbsp;`new` | http://127.0.0.1:9460 | The same agent on open-weight models on your own graphics card. No paid API is called and nothing is billed. Guide: [`ia-next-local/README.md`](ia-next-local/README.md) |
 
-**[Open the illustrated overview](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/)** (also available as a [Claude artifact](https://claude.ai/artifact/8AwEYEAiaUBnDvzKgBSpmd?sk=J8929BM-meO7ZBlz5J-byA)).
+## New: IA Next Local
+
+IA Next Local is IA Next with every model call answered on your own machine. You talk to one agent in plain words, a studio of specialist steps does the work on open-weight models in Ollama, and code checks the result before you see it.
+
+### Everything runs on this computer, and paid model APIs are refused
+
+<p align="center"><img src="docs/readme/one-computer.svg" alt="Inside a dashed outline marked this computer: a 24 GB graphics card with Qwen 3.8 27B always loaded; specialist models that load when their job comes up (Nemotron reviewer, Ornith prototypes, MOSS-Image pictures, Kandinsky clips, Whisper transcripts, Kokoro voices, Qwen3 Embedding); the IA Next Local app on port 9460; a SearXNG search container; and HiC on port 5012 as an optional link. Outside: the open web, reached through SearXNG, and paid model APIs, whose arrow is blocked." width="100%"></p>
+
+One model stays loaded on the graphics card for the chat, the planning and the writing, because swapping a large model in costs 14 to 36 seconds. A reviewer from a different maker, the prototyper, and the picture, video, transcript and voice models load when their job comes up and hand the card back. Web search runs through its own SearXNG container with no key, and a guard on the app's HTTP client refuses any metered model host.
+
+### A request becomes checked work
+
+<p align="center"><img src="docs/readme/request-flow.svg" alt="Six steps: your request; rules before any model; a plan card you start; research, then build; code checks the result; a card you can open. A dashed loop from the checks runs one repair pass on a hard failure and sends the repaired draft back to be checked again." width="100%"></p>
+
+Rules read a request before any model does, so a hashtag, a named output or a recording is placed at once, and the brand, audience, depth and period in your sentence become settings instead of the subject. The plan card shows how the request was understood and what each step will take; nothing runs until you press Start. When the work is done, code checks it: quotes found in their sources, sources dated inside the period, whole sentences, slides that fit. A hard failure gets one repair pass, kept only if it scores better.
+
+### When nobody is using it, it checks its own work again
+
+<p align="center"><img src="docs/readme/idle-loop.svg" alt="An idle pass starts when no task, chat or picture is in progress and pauses the moment you type. It scores old work again, reviews conversations, re-tests each skill on today's model, probes an Ollama update, expires short-term memory and moves HiC's second brain into the Library. Proposals, real score drops and failed probes become approval cards, and you approve or deny each one." width="100%"></p>
+
+Each job in the idle pass appears on the page as a task you can open. Agent skills are packages (steps, a spec and test cases) that the agent loads by name, and each one is measured with and without it: the research skill passed 11 of 11 cases with it and 10 of 11 without. Memory is kept in tiers (you, an engagement, one conversation), and conversation notes expire after seven days unless you keep them. Nothing in the loop changes a skill or your memory by itself.
+
+### The same requests now finish in minutes
+
+<p align="center"><img src="docs/readme/measured.svg" alt="Before and after, same machine: a deep research run from 58.1 to 29.7 minutes; a slide deck from 55 to 7.3 minutes; themes from a data pack from 30 to 6.9 minutes; archiving 74 sources in HiC from 9.1 minutes to 162 seconds; a question about today from 35 minutes to 13.6 seconds; a chat reply from 11.9 to 3.4 seconds." width="100%"></p>
+
+Each pair is the same request on the same machine: its first measured run in the field tests, and its run after the fixes of 23 to 27 November 2026. The largest single step in a deep run is now the Analyst, which reads every kept source for exact quotes.
+
+### Every kind of work, in the form it needs
+
+<p align="center"><a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#work"><img src="docs/readme/work-gallery.jpg" alt="Six pieces of work as IA Next Local made them: a journey map, an architecture map, an illustrated infographic, personas, a mind map and a competitive gap analysis." width="100%"></a></p>
+
+A journey map comes back as a map, an architecture as a diagram and an infographic as an illustrated poster. It also writes research reports, decks, personas, audio overviews, prototypes, study guides and quizzes, and each one downloads as PDF and as editable PowerPoint. **[Open the examples](https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V)**, or read six of them page by page on the [overview](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#work).
 
 ## How the parts work
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-suite-dark.png">
-  <img alt="How a chat message reaches a service: browser, Launchpad on port 8000, the AI Agent on 8500 with Claude, MCP wrappers on 8501 to 8507, then the services over HTTP." src="docs/readme/overview-suite-light.png" width="100%">
-</picture>
+<p align="center"><img src="docs/readme/parts-suite.svg" alt="How a chat message reaches a service: browser, Launchpad on port 8000, the AI Agent on 8500 with Claude, MCP wrappers on 8501 to 8507, then the services over HTTP." width="100%"></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-hic-dark.png">
-  <img alt="How HiC turns sources into a cited deck: sources are chunked with provenance into the wiki and manifest; a question seeds manifest-first retrieval, the model router, the post-processor that names sources, and the native PowerPoint exporter." src="docs/readme/overview-hic-light.png" width="100%">
-</picture>
+<p align="center"><img src="docs/readme/parts-hic.svg" alt="How HiC turns sources into a cited deck: sources are chunked with provenance into the wiki and manifest; a question seeds manifest-first retrieval, the model router, the post-processor that names sources, and the native PowerPoint exporter." width="100%"></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-ianext-dark.png">
-  <img alt="What IA Next does after you ask: the agent, an approval check for anything that costs money, the task graph, the specialists, the quote verifier and the result card; a renderer container screenshots prototypes and HiC is reachable through the host." src="docs/readme/overview-ianext-light.png" width="100%">
-</picture>
+<p align="center"><img src="docs/readme/parts-ianext.svg" alt="What IA Next does after you ask: the agent, an approval check for anything that costs money, the task graph, the specialists, the quote verifier and the result card; a renderer container screenshots prototypes and HiC is reachable through the host." width="100%"></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/overview-together-dark.png">
-  <img alt="Running both systems on one machine: the suite's compose project and ports on the left, IA Next's own project on 127.0.0.1:9400 with its renderer and data volume on the right." src="docs/readme/overview-together-light.png" width="100%">
-</picture>
+<p align="center"><img src="docs/readme/parts-together.svg" alt="Running both systems on one machine: the suite's compose project and ports on the left, IA Next's own project on 127.0.0.1:9400 with its renderer and data volume on the right." width="100%"></p>
 
 ---
 

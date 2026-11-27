@@ -179,7 +179,9 @@ def parse_date(raw):
     m = _ISO.search(s)
     if m:
         y, mo, d, hh, mm, ss, zone = m.groups()
-        if hh and zone:
+        if hh and zone and not (int(hh) == 0 and int(mm or 0) == 0 and int(ss or 0) == 0):
+            # (26 Nov) 00:00:00 with a zone is how feeds write a date with no time: its calendar day is kept, not moved
+            # to the owner's previous evening
             try:
                 z = "+00:00" if zone == "Z" else (zone if ":" in zone else zone[:3] + ":" + zone[3:])
                 got = _dt.datetime.fromisoformat(f"{y}-{mo}-{d}T{hh}:{mm}:{ss or '00'}{z}").astimezone(tz()).date()
@@ -191,7 +193,8 @@ def parse_date(raw):
     if re.search(r"(?i)\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*,\s", s) or re.search(r"\d{1,2}:\d{2}", s):
         try:
             dt = parsedate_to_datetime(s)
-            got = (dt.astimezone(tz()) if dt.tzinfo else dt).date()
+            midnight = (dt.hour, dt.minute, dt.second) == (0, 0, 0)
+            got = (dt.astimezone(tz()) if dt.tzinfo and not midnight else dt).date()
             return got.isoformat() if _valid(got.year, got.month, got.day) else ""
         except (TypeError, ValueError, IndexError):
             pass
@@ -200,6 +203,14 @@ def parse_date(raw):
         d, mon, y = (m.group(1), m.group(2), m.group(3)) if m.group(1) else (m.group(5), m.group(4), m.group(6))
         mo = _MONTHS.get(mon[:3].lower())
         got = _valid(y, mo, d) if mo else None
+        return got.isoformat() if got else ""
+    m = re.search(r"\b(\d{4})/(\d{1,2})/(\d{1,2})\b", s)      # 2026/10/05
+    if m:
+        got = _valid(*m.groups())
+        return got.isoformat() if got else ""
+    m = re.search(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b", s)      # 06/02/2026 (month first, as US sites write it)
+    if m:
+        got = _valid(m.group(3), m.group(1), m.group(2))
         return got.isoformat() if got else ""
     return ""
 

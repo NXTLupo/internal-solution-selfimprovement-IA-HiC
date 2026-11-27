@@ -2,6 +2,10 @@
 // terms in the main view; those stay behind a "Details" disclosure. Every function here returns text only.
 
 export const KINDS = {
+  dreaming: {
+    label: 'Dreaming', noun: 'This review', ready: 'Review done', icon: 'spark',
+    steps: ['Gathering', 'Reviewing', 'Finding patterns', 'Proposals'],
+  },
   research_report: {
     label: 'Report', noun: 'This report', ready: 'Report ready', icon: 'report',
     steps: ['Brief Lead', 'Research Lead', 'Analyst', 'Writer and Verifier'],
@@ -506,6 +510,13 @@ const TOOL_NAMES = {
 export function approvalText(a, threshold) {
   let args = {};
   try { args = JSON.parse(a.args_json || '{}'); } catch { args = {}; }
+  if (a.tool === 'apply_dream') {                // a change dreaming proposes to the assistant's memory (26 Nov)
+    const seen = `Seen ${args.occurrences} times across ${args.turns} turns.`;
+    if (args.type === 'retire') return { title: 'Retire a memory note', what: clean(args.note), cost: `${seen} Recent turns show it no longer holds; accepting removes it (the change can be undone in Memory, History).` };
+    return args.type === 'papercut'
+      ? { title: 'Triage a recurring problem', what: clean(args.note), cost: `${seen} Accepting marks it for fixing.` }
+      : { title: 'Add a standing note to memory', what: clean(args.note), cost: `${seen} ${clean(a.reason || '').replace(/^Seen[^:]*:\s*/, '')}` };
+  }
   const limit = `Your limit for one piece of work without approval is ${Number(threshold || 3).toFixed(2)} USD.`;
   switch (a.tool) {
     case 'start_research_report':

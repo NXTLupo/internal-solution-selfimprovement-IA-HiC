@@ -11,7 +11,7 @@ import time
 
 from . import store
 
-CLASSES = {"spend", "send", "delete"}
+CLASSES = {"spend", "send", "delete", "learn"}     # learn: a change the system proposes to its own memory (dreaming)
 
 
 def call_hash(tool, args):

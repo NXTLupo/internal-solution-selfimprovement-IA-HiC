@@ -17,6 +17,11 @@ import zipfile
 
 from . import config, store
 
+# Raised whenever a check changes, so finished work is scored again by the idle pass (rescore_stale): on 26 Nov six
+# cards still said "Needs review" for defects the code had stopped making, because nothing scored them again.
+VERSION = 2
+RESCORE_PER_PASS = 6
+
 SLIDE_MIN_PX = 20            # 10 pt in PowerPoint (1 px on the 1920 stage is half a point)
 PPTX_MIN_PT = 10.0
 CUE_MAX_SECONDS = 8.0
@@ -227,7 +232,9 @@ def score(t):
             d = json.loads(_read(meta)) if os.path.isfile(meta) else {}
         except ValueError:
             d = {}
-        titles = [str(s.get("title") or "").strip().lower() for s in d.get("slides") or []]
+        # the appended "Sources" / "Sources, continued" tables share a title by design (26 Nov: a false failure)
+        titles = [str(s.get("title") or "").strip().lower() for s in d.get("slides") or []
+                  if not str(s.get("title") or "").strip().lower().startswith("sources")]
         rep = sorted({x for x in titles if x and titles.count(x) > 1})
         checks.append(_check("no_repeated_slides", not rep, f"repeated slide titles: {rep[:3]}" if rep else f"{len(titles)} different slides"))
         pptx = os.path.join(folder, "deck.pptx")
@@ -272,7 +279,7 @@ def score(t):
         except (ValueError, KeyError, TypeError):
             pass
     return {"checks": checks, "judge": judge, "hard_failed": [c["name"] for c in checks if c["hard"] and not c["passed"]],
-            "checked_at": time.time()}
+            "checked_at": time.time(), "version": VERSION}
 
 
 def run(tid):
@@ -283,6 +290,9 @@ def run(tid):
         if not t or t["status"] != "done":
             return None
         sc = score(t)
+        if sc["hard_failed"]:                     # one rework when code can repair the failure (harness WS-H7)
+            from . import rework
+            sc = rework.run(t, sc, score)
         rp = t.get("result_path") or ""
         if rp:
             with open(os.path.join(os.path.dirname(rp), "scorecard.json"), "w", encoding="utf-8", newline="\n") as fh:
@@ -292,12 +302,21 @@ def run(tid):
                                   "passed": sum(1 for c in sc["checks"] if c["passed"]),
                                   "checks": len(sc["checks"]), "judge": sc["judge"]}, t["engagement_id"], tid)
         summary = str(t.get("summary") or "")
+        fixed = (sc.get("rework") or {}).get("fixed") or []
+        if fixed and "Repaired after the checks" not in summary:
+            summary = f"{summary} Repaired after the checks: {', '.join(fixed)}."
+            store.update_task(tid, summary=summary[:2000])
         if sc["hard_failed"] and not summary.startswith("Needs review"):
             store.update_task(tid, summary=f"Needs review ({', '.join(sc['hard_failed'])}). {summary}"[:2000])
         elif not sc["hard_failed"] and summary.startswith("Needs review ("):
             # scored again after a fix and every hard check passes: the mark goes (23 Nov: an architecture kept
             # "Needs review (no_cut_sentences)" after its slides were fixed and re-scored clean)
             store.update_task(tid, summary=re.sub(r"^Needs review \([^)]*\)\.\s*", "", summary)[:2000])
+        elif sc["hard_failed"] and summary.startswith("Needs review (") and \
+                not summary.startswith(f"Needs review ({', '.join(sc['hard_failed'])})."):
+            # the list follows today's checks (26 Nov: a card kept "no_cut_sentences" after only sources_current was left)
+            store.update_task(tid, summary=re.sub(r"^Needs review \([^)]*\)\.", f"Needs review ({', '.join(sc['hard_failed'])}).",
+                                                  summary, count=1)[:2000])
         try:                                      # WS-5 step 3: the task's one line in episodic memory
             from . import memory
             memory.episode(store.get_task(tid) or t, scorecard=sc)
@@ -308,6 +327,25 @@ def run(tid):
         return sc
     except Exception:
         return None
+
+
+def rescore_stale(limit=RESCORE_PER_PASS):
+    """(Idle pass) score again the finished tasks whose saved scorecard failed a hard check under an older VERSION, at
+    most `limit` per pass, newest first. Returns the ids scored."""
+    done = []
+    for r in store.conn().execute("SELECT id FROM tasks WHERE status = 'done' AND result_path IS NOT NULL "
+                                  "ORDER BY created DESC LIMIT 400").fetchall():
+        if len(done) >= limit:
+            break
+        t = store.get_task(r["id"])
+        sc = read(t)
+        if not sc or not sc.get("hard_failed") or sc.get("version") == VERSION:
+            continue
+        run(r["id"])
+        done.append(r["id"])
+    if done:
+        store.event("scorecards_refreshed", {"tasks": done, "version": VERSION})
+    return done
 
 
 def read(t):

@@ -16,8 +16,14 @@ The result is the same Markdown report the rest of IA Next reads, checks, judges
 """
 import json
 import re
+import threading
 
 from . import config
+
+# (harness WS-H7, 26 Nov) The last stepped report written on this thread: its plan, each section's evidence and its
+# written text, so a repair rewrites only the sections a reviewer's point names. A deep run rewrote all seven sections
+# (5.5 minutes, with two model reloads) to fix two or three sentences.
+_LAST = threading.local()
 
 SYSTEM = (
     "You are the Writer on a consulting research team. Write a finished report for the stated audience from the "
@@ -283,8 +289,35 @@ def assign(sections, led):
     return [s for s in out if s["evidence_ids"]]
 
 
-def write_in_steps(model, system, brief, led, by_id, feedback, ledger_meter):
-    """The report document ({"title", "summary", "sections": [...]}) and the usage of the last call."""
+def locate(feedback, led):
+    """The indexes of the sections of the last stepped report that the reviewer's points name, or None when any point
+    names none of them (a point about the whole report, the summary or text written by code): then the whole report
+    is written again, as before."""
+    prev = getattr(_LAST, "state", None)
+    if not prev or not feedback or prev["led"] != set(led):
+        return None
+    norm = lambda t: " ".join(re.sub(r"[^\w%$]+", " ", str(t or "").lower()).split())
+    texts = [norm(" ".join([d.get("heading") or "", d.get("implication") or ""] + [b.get("text") or "" for b in d.get("blocks") or []]))
+             for d in prev["done"]]
+    hit = set()
+    for item in [x[2:].strip() for x in str(feedback).splitlines() if x.strip().startswith("- ")]:
+        body = item.split(":", 1)[1] if ":" in item else item
+        frags = [a or b for a, b in re.findall(r'"([^"]{20,})"|\u201c([^\u201d]{20,})\u201d', body)] or [body]
+        found = set()
+        for f in frags:
+            words = norm(f).split()
+            probes = ([" ".join(words[i:i + 6]) for i in range(0, len(words) - 5, 2)] if len(words) >= 6
+                      else ([" ".join(words)] if len(words) >= 3 else []))
+            found |= {j for j, t in enumerate(texts) if any(p in t for p in probes)}
+        if not found:
+            return None
+        hit |= found
+    return hit or None
+
+
+def write_in_steps(model, system, brief, led, by_id, feedback, ledger_meter, redo=None):
+    """The report document ({"title", "summary", "sections": [...]}) and the usage of the last call. With `redo` (section
+    indexes from locate), the last report's plan and other sections are kept and only those sections are written again."""
     from . import providers, store
 
     # The Independence Rule: two pages from one publisher (often two write-ups of one survey) are one source. Read of
@@ -307,14 +340,42 @@ def write_in_steps(model, system, brief, led, by_id, feedback, ledger_meter):
     fb = f"\n\nA reviewer found these problems in the last version. Do not repeat them:\n{feedback}" if feedback else ""
     short = False
     try:
-        store.say("planning the report's sections")
-    except Exception:
-        pass
-    try:
         from . import studio as _studio
         short = _studio.wants_short(brief)             # "a short report" is three or four sections
     except Exception:
         short = False
+    prev = getattr(_LAST, "state", None) if redo else None
+    u = None
+    if prev:
+        plan, sections = prev["plan"], prev["sections"]
+        try:
+            store.say(f"repairing {len(redo)} of {len(sections)} sections the checks named; the others are kept")
+        except Exception:
+            pass
+    else:
+        try:
+            store.say("planning the report's sections")
+        except Exception:
+            pass
+        plan, sections = _plan_report(model, system, head, led, line, short, fb, ledger_meter, providers)
+    done, done_idx = [], []
+    for i, sec in enumerate(sections, 1):
+        if prev and (i - 1) not in redo and (i - 1) in prev["by_idx"]:
+            done.append(prev["by_idx"][i - 1])
+            done_idx.append(i - 1)
+            continue
+        got, u = _write_section(model, system, head, plan, sections, i, sec, line, fb, ledger_meter, providers, store)
+        if not got and prev:                     # a repair that fails keeps the section as it was, never drops it
+            got = prev["by_idx"].get(i - 1)
+        if got:
+            done.append(got)
+            done_idx.append(i - 1)
+    if not done:
+        raise providers.ProviderError("the writer returned no section of the report")
+    return _finish(plan, done, done_idx, sections, led, u)
+
+
+def _plan_report(model, system, head, led, line, short, fb, ledger_meter, providers):
     text, u, _ = providers.claude(model, system, [{"role": "user", "content": (
         f"{head}\n\n<ledger>\n" + "\n".join(line(k) for k in led) + "\n</ledger>\n\nPLAN THE REPORT, do not write its paragraphs "
         f"yet. Return the title, the summary, and {'three or four' if short else 'five to eight'} sections: for each its heading and evidence_ids, the ledger "
@@ -322,63 +383,66 @@ def write_in_steps(model, system, brief, led, by_id, feedback, ledger_meter):
         "entries from different sources that bear on the same point together." + fb)}],
         ledger_meter, max_tokens=2500, effort="medium", json_schema=_outline_schema(list(led), short))
     plan = providers.parse_json(text)
-    sections = assign(plan.get("sections") or [], led)
-    done = []
-    for i, sec in enumerate(sections, 1):
+    return plan, assign(plan.get("sections") or [], led)
+
+
+def _write_section(model, system, head, plan, sections, i, sec, line, fb, ledger_meter, providers, store):
+    """One section written from its own ledger entries: ({"heading", "implication", "blocks"} or None, usage)."""
+    u = None
+    try:
+        store.say(f"writing section {i} of {len(sections)}: {sec['heading'][:80]}")
+    except Exception:
+        pass
+    others = "; ".join(s["heading"] for s in sections if s is not sec)
+    msg = (f"{head}\n\nThe report: {plan.get('title')}\nIts summary: {plan.get('summary')}\nIts other sections: {others}\n\n"
+           f"<ledger>\n" + "\n".join(line(k) for k in sec["evidence_ids"]) + "\n</ledger>\n\n"
+           f"WRITE section {i} of {len(sections)} now, under the heading \"{sec['heading']}\" (you may sharpen it): "
+           f"{min(5, max(2, (len(sec['evidence_ids']) + 1) // 2))} blocks and the implication, using every entry of this "
+           "ledger at least once. Do not repeat what the other sections cover. Never write the words \"the audience\". "
+           "The blocks state what the entries establish and never give advice; the implication alone says who should "
+           "do what, in one sentence, naming a kind of organization or role the entries themselves name (never an "
+           "office or committee the entries do not mention). A claim is only as strong and as wide as its entry: a "
+           "finding about one group, one country or one survey stays about them, and two things reported together are "
+           "not cause and effect."
+           + (" This is the last section: say what the audience should do, and under what condition the alternative "
+              "would be right." if i == len(sections) else "") + fb)
+    got = None
+    for attempt in (1, 2):
         try:
-            store.say(f"writing section {i} of {len(sections)}: {sec['heading'][:80]}")
-        except Exception:
-            pass
-        others = "; ".join(s["heading"] for s in sections if s is not sec)
-        msg = (f"{head}\n\nThe report: {plan.get('title')}\nIts summary: {plan.get('summary')}\nIts other sections: {others}\n\n"
-               f"<ledger>\n" + "\n".join(line(k) for k in sec["evidence_ids"]) + "\n</ledger>\n\n"
-               f"WRITE section {i} of {len(sections)} now, under the heading \"{sec['heading']}\" (you may sharpen it): "
-               f"{min(5, max(2, (len(sec['evidence_ids']) + 1) // 2))} blocks and the implication, using every entry of this "
-               "ledger at least once. Do not repeat what the other sections cover. Never write the words \"the audience\". "
-               "The blocks state what the entries establish and never give advice; the implication alone says who should "
-               "do what, in one sentence, naming a kind of organization or role the entries themselves name (never an "
-               "office or committee the entries do not mention). A claim is only as strong and as wide as its entry: a "
-               "finding about one group, one country or one survey stays about them, and two things reported together are "
-               "not cause and effect."
-               + (" This is the last section: say what the audience should do, and under what condition the alternative "
-                  "would be right." if i == len(sections) else "") + fb)
-        got = None
-        for attempt in (1, 2):
-            try:
-                raw, u, _ = providers.claude(model, system, [{"role": "user", "content": msg}], ledger_meter, max_tokens=3000,
-                                             effort="medium", json_schema=_section_schema(sec["evidence_ids"]))
-                got = providers.parse_json(raw)
-                if got.get("blocks"):
-                    break
-            except ValueError:
-                got = None
-        if got and got.get("blocks"):
-            done.append({"heading": got.get("heading") or sec["heading"], "implication": got.get("implication") or "",
-                         "blocks": got["blocks"]})
-    if not done:
-        raise providers.ProviderError("the writer returned no section of the report")
+            raw, u, _ = providers.claude(model, system, [{"role": "user", "content": msg}], ledger_meter, max_tokens=3000,
+                                         effort="medium", json_schema=_section_schema(sec["evidence_ids"]))
+            got = providers.parse_json(raw)
+            if got.get("blocks"):
+                break
+        except ValueError:
+            got = None
+    if got and got.get("blocks"):
+        return {"heading": _own(got.get("heading") or sec["heading"]), "implication": _own(got.get("implication") or ""),
+                "blocks": [dict(b, text=_own(b.get("text"))) for b in got["blocks"]]}, u
+    return None, u
+
+
+def _finish(plan, done, done_idx, sections, led, u):
+    """The document, and this thread's record of it for a later repair."""
+    _LAST.state = {"plan": plan, "sections": sections, "done": done, "by_idx": dict(zip(done_idx, done)), "led": set(led)}
+    return {"title": _own(plan.get("title")), "summary": _own(plan.get("summary")), "sections": done}, u
+
+
+def _own(text):
+    """The writer's own sentence, with the house word list repaired and "the audience" replaced by who acts
+    (24 Nov, first stepped report: "The audience should recognize that...", "holistic opposition")."""
     from . import prose
-
-    def own(text):
-        """The writer's own sentence, with the house word list repaired and "the audience" replaced by who acts
-        (24 Nov, first stepped report: "The audience should recognize that...", "holistic opposition")."""
-        s = prose.scrub(text)
-        s = re.sub(r"(?i)\bfor the audience, this means (that )?", "", s)
-        s = re.sub(r"(?i)\bthe audience should (recognize|understand|note|view|see) (that |this as |these findings as )?", "", s)
-        s = re.sub(r"\b[Tt]he audience\b", lambda m: "Decision makers" if m.group(0)[0] == "T" else "decision makers", s)
-        s = re.sub(r"(?i)\bthe mechanism is (straightforward|simple|clear):\s*", "", s)
-        # the writer's working words never reach the reader (24 Nov: "The professor described in the ledger")
-        s = re.sub(r"(?i)\s*\b(described|noted|cited|listed|quoted|recorded|mentioned|named) in the (evidence )?ledger\b", "", s)
-        s = re.sub(r"(?i)\bthe (evidence )?ledger (shows|indicates|records|says|states|notes) (that )?", "", s)
-        s = re.sub(r"(?i)\b(the|this|these) (ledger )?(entry|entries)\b", lambda m: "the evidence", s)
-        s = re.sub(r"(?i)\bthe (evidence )?ledger\b", "the evidence", s)
-        return re.sub(r"(^|[.!?]\s+)([a-z])", lambda m: m.group(1) + m.group(2).upper(), s).strip()
-
-    for sec in done:
-        sec["heading"], sec["implication"] = own(sec.get("heading")), own(sec.get("implication"))
-        for b in sec.get("blocks") or []:
-            b["text"] = own(b.get("text"))
-    return {"title": own(plan.get("title")), "summary": own(plan.get("summary")), "sections": done}, u
+    s = prose.scrub(text)
+    s = re.sub(r"(?i)\bfor the audience, this means (that )?", "", s)
+    s = re.sub(r"(?i)\bthe audience should (recognize|understand|note|view|see) (that |this as |these findings as )?", "", s)
+    s = re.sub(r"\b[Tt]he audience\b", lambda m: "Decision makers" if m.group(0)[0] == "T" else "decision makers", s)
+    s = re.sub(r"(?i)\bthe mechanism is (straightforward|simple|clear):\s*", "", s)
+    # the writer's working words never reach the reader (24 Nov: "The professor described in the ledger")
+    s = re.sub(r"(?i)\s*\b(described|noted|cited|listed|quoted|recorded|mentioned|named) in the (evidence )?ledger\b", "", s)
+    s = re.sub(r"(?i)\bthe (evidence )?ledger (shows|indicates|records|says|states|notes) (that )?", "", s)
+    s = re.sub(r"(?i)\b(the|this|these) (ledger )?(entry|entries)\b", lambda m: "the evidence", s)
+    s = re.sub(r"(?i)\bthe (evidence )?ledger\b", "the evidence", s)
+    return re.sub(r"(^|[.!?]\s+)([a-z])", lambda m: m.group(1) + m.group(2).upper(), s).strip()
 
 
 def write(brief, findings, sources, ledger_meter, feedback=None, system=None, model=None):
@@ -399,7 +463,8 @@ def write(brief, findings, sources, ledger_meter, feedback=None, system=None, mo
         msg += f"\n\nA reviewer found these problems in the last version. Fix them:\n{feedback}"
     stepped = bool(getattr(config, "REPORT_STEPS", True)) and len(led) >= 6
     if stepped:
-        doc, u = write_in_steps(model, system or SYSTEM, brief, led, by_id, feedback, ledger_meter)
+        redo = locate(feedback, led) if feedback else None
+        doc, u = write_in_steps(model, system or SYSTEM, brief, led, by_id, feedback, ledger_meter, redo=redo)
     else:
         text, u, _ = providers.claude(model, system or SYSTEM, [{"role": "user", "content": msg}], ledger_meter, max_tokens=WRITE_TOKENS,
                                       effort="high", json_schema=schema(list(led)))

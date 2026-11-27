@@ -183,23 +183,32 @@ def page_title(raw_html):
 
 
 def _page_text(url, limit=PAGE_CHARS):
-    """(text, final url, page title, published date). The title comes from the page itself: a search engine's
-    grounding title is often only the site's domain. The date is read from the page's own metadata (currency.py); a
-    Last-Modified header alone says when a file changed, not when it was published, so it does not count."""
+    """(text, address of the document read, title, published date). Read through pagetext (26 Nov, deep reading): the
+    page's main text with its paragraphs rather than its menus and footers, a PDF read whole, and a landing page
+    followed to the report, paper or article it introduces. The title comes from the document itself: a search
+    engine's grounding title is often only the site's domain. The date is read from the page's own metadata
+    (currency.py); a Last-Modified header alone says when a file changed, not when it was published, so it does not
+    count."""
     try:
-        from . import lanes
+        from . import currency, lanes, pagetext
         with lanes.network():                    # page reads run side by side and never wait for the card
-            r = httpx.get(url, timeout=20, follow_redirects=True, headers={"User-Agent": "ia-next-research/0.1"})
-        if r.status_code != 200 or "html" not in r.headers.get("content-type", "") and "text" not in r.headers.get("content-type", ""):
-            return "", str(r.url), "", ""
-        if _is_redirect(str(r.url)):
-            return "", str(r.url), "", ""
-        from . import currency
-        when, basis = currency.page_date(r.text, str(r.url), r.headers)
-        t = re.sub(r"(?is)<(script|style|noscript|svg|nav|footer|header)[^>]*>.*?</\1>", " ", r.text)
-        t = re.sub(r"(?s)<[^>]+>", " ", t)
-        t = html.unescape(re.sub(r"\s+", " ", t)).strip()
-        return t[:limit], str(r.url), page_title(r.text), ("" if basis == "last modified" else when)
+            got = pagetext.read(url, deep=True)
+        final = got.get("url") or url
+        if not got.get("ok") or _is_redirect(final) or _is_redirect(got.get("landing") or url):
+            if not got.get("ok") and got.get("reason"):
+                try:                             # (WS-H13) a page research could not read is friction worth counting
+                    from . import papercuts
+                    papercuts.file("page reader", f"read {url}", "the page's text", got.get("reason"),
+                                   "a different source for the same claim, or the site's feed")
+                except Exception:
+                    pass
+            return "", final, "", ""
+        when, basis = currency.page_date(got["raw"], got.get("landing") or url, got.get("headers") or {}) if got.get("raw") else ("", "")
+        when = "" if basis == "last modified" else when
+        if not when and got.get("date"):
+            when = currency.parse_date(got["date"]) or ""
+        title = got.get("title") or (page_title(got["raw"]) if got.get("raw") else "")
+        return got["text"][:limit], final, title, when
     except Exception:
         return "", url, "", ""
 
@@ -275,6 +284,8 @@ def _collect_named(eid, brief, add, seen):
 
 
 MAX_SOCIAL_SOURCES = 24        # Reddit posts a research run reads when the person asked for that discussion
+MAX_YOUTUBE, MAX_YOUTUBE_DEEP, MAX_YOUTUBE_ASKED = 2, 4, 8   # videos a run keeps from the subject at large: always, deep, asked for
+MAX_YOUTUBE_PER_PACK, MAX_YOUTUBE_PER_PACK_DEEP = 2, 4        # ...and from each selected pack's industry
 
 
 def research_lead(eid, brief, ledger, tid=None):
@@ -283,15 +294,14 @@ def research_lead(eid, brief, ledger, tid=None):
     # the proper data pack and social analytics" on r/NEU returned eight campus-news pages and no Reddit at all).
     want = material.requested(brief.get("request", ""), brief["goal"], brief["scope"], declared=brief.get("required_sources"))
     social_posts = []
+    reddit_direct = None          # (26 Nov) Reddit was asked for and the engagement holds no listening: read it in this run
     if "reddit" in want:
         subs = want["reddit"]
         social_posts = [p for p in material.social(eid)[1] if not subs or (p.get("subreddit") or "").lower() in subs]
         if not social_posts:
-            where = " and ".join("r/" + s for s in sorted(subs)) if subs else "Reddit"
-            raise material.MissingEvidence(
-                f"the person asked for {material.describe(want)} and this engagement has no {where} posts yet. Start social "
-                f"listening on {where} first (start_social_analysis), then start the research report again; it reads those "
-                "posts as sources.")
+            # owner, 26 Nov (and the standing rule that a requested output is never blocked): the run reads Reddit itself
+            # (the named subreddits, else the selected packs' subreddits, else all of Reddit) instead of stopping
+            reddit_direct = sorted(subs)
     model = config.SEATS["search"]["primary"]
     # The currency contract (field test 23 Nov, workstream 0): the period the request implies is decided in code,
     # told to the search planner, asked of the engines and the feeds, and checked on every source that comes back.
@@ -349,6 +359,16 @@ def research_lead(eid, brief, ledger, tid=None):
             lib["id"] = next_id()
             sources.append(lib)
             store.add_evidence(eid, lib["id"], lib["url"], lib["title"], lib["text"])
+            try:                                 # (26 Nov) with its passages from the Library: never archived twice
+                from . import librarysearch, secondbrain as _sb     # (the later "from . import secondbrain" made the
+                row = store.conn().execute("SELECT id FROM evidence WHERE source_id = ? ORDER BY added LIMIT 1", (lib.get("library"),)).fetchone()
+                # (its own name: "chunks" above is the web search's grounding, read again when the pages are fetched;
+                # reusing the name broke every research run whose subject the Library already held, 26 Nov)
+                lib_chunks = librarysearch.page_chunks(row["id"]) if row else []
+                if lib_chunks:                   # name local here, so this call failed silently until 26 Nov)
+                    _sb.adopt(eid, lib, lib_chunks[0][0].split("#")[0], lib_chunks)
+            except Exception:
+                pass
     except providers.BudgetExceeded:
         raise
     except Exception as e:                       # the library is a bonus; the web search still runs
@@ -410,11 +430,27 @@ def research_lead(eid, brief, ledger, tid=None):
         from . import packindex
         deep_queries = [q for q in dict.fromkeys([pack_query] + [keywords([q], objective) for q in (gm.get("webSearchQueries") or [])[:4]]) if q]
         store.say("reading every source of " + ", ".join(hic.PACKS.get(p, p) for p in chosen))
+        # (26 Nov) beside it, the pack's other kinds of source: its sites searched and its landing pages crawled
+        # (packsources.py), so a pack's newsrooms, blogs and report indexes give their articles, not their front page
+        other_kinds = {}
+
+        def _other():
+            try:
+                from . import packsources
+                other_kinds.update(packsources.read_other_kinds(chosen, hic._call, deep_queries, w,
+                                                                budget_seconds=config.DEEP_PACK_SECONDS * 0.75, say=store.say))
+            except Exception as e:
+                store.event("pack_other_kinds_failed", {"error": f"{type(e).__name__}: {str(e)[:200]}"}, eid, tid)
+        import threading as _th
+        other_t = _th.Thread(target=_other, daemon=True, name="pack-other-kinds")
+        other_t.start()
         try:
             whole = packindex.read_whole(chosen, hic._call, deep_queries, budget_seconds=config.DEEP_PACK_SECONDS, say=store.say,
                                          per_source=per_source_for(w))
         except Exception as e:
             store.event("pack_read_whole_failed", {"error": f"{type(e).__name__}: {str(e)[:200]}"}, eid, tid)
+        other_t.join(timeout=config.DEEP_PACK_SECONDS)
+        coverage["other_kinds"] = other_kinds
     try:
         got, per_pub, undated = 0, {}, 0
         cands = list(hic.pack_items(chosen, pack_query, keep=max(40, pack_cap * 4), report=coverage, extra_ids=hic.general_source_ids(),
@@ -478,6 +514,75 @@ def research_lead(eid, brief, ledger, tid=None):
         pack_note = f"; data packs skipped: {e}"
         store.event("packs_skipped", {"error": str(e)[:200]}, eid)
     pack_record = {"chosen": chosen, "chosen_by": chosen_by, "coverage": coverage, "query": pack_query}
+    yt_note = ""
+    # YouTube (owner, 26 Nov): videos about the subject, inside the period, read as their transcripts (published
+    # captions; a short video with none is transcribed on this machine when the person asked for YouTube). A video in a
+    # pack or the web search is read the same way by pagetext. Every outcome is recorded with the packs'.
+    try:
+        from . import youtube
+        asked_yt = "youtube" in want
+        n_yt = MAX_YOUTUBE_ASKED if asked_yt else (MAX_YOUTUBE_DEEP if deep else MAX_YOUTUBE)
+        # (owner, 26 Nov) every selected data pack crawls YouTube as part of the pack: one search in each pack's industry
+        per_pack = MAX_YOUTUBE_PER_PACK_DEEP if deep else MAX_YOUTUBE_PER_PACK
+        vids, yt_reports = youtube.search_packs(chosen, pack_query or objective, w, per_pack=per_pack, general=n_yt, objective=objective,
+                                                known=seen, say=store.say, whisper_limit=youtube.QUICK_WHISPER if asked_yt else 0,
+                                                names=hic.PACKS)
+        for v in vids:
+            who = f"YouTube: {v['channel']}" if v["channel"] else "YouTube"
+            src = {"url": v["url"], "title": f"{who}: {v['title']}", "text": v["text"][:PAGE_CHARS], "untrusted": True,
+                   "publisher": who, "date": v["date"], "video": {"duration": v["duration"], "method": v["method"]}}
+            if v.get("pack") and v["pack"] != "general":
+                src["pack"] = v["pack"]                  # counted with its pack's sources
+            add(src)
+        yt_report = {"kept": len(vids), "by_pack": {p: r.get("kept", 0) for p, r in yt_reports.items()},
+                     "older": sum(r.get("older", 0) for r in yt_reports.values()), "searches": yt_reports}
+        pack_record["youtube"] = dict(yt_report, asked=asked_yt)
+        if vids:
+            yt_note = f"; {len(vids)} YouTube video{'s' if len(vids) != 1 else ''} read as transcripts"
+        elif asked_yt:
+            yt_note = ("; YouTube was asked for and no video about this subject inside the period had a transcript"
+                       + (f" ({yt_report['older']} were older)" if yt_report.get("older") else ""))
+    except Exception as e:                       # videos are a source among many: the run carries on without them
+        store.event("youtube_skipped", {"error": f"{type(e).__name__}: {str(e)[:200]}"}, eid, tid)
+    # Reddit as part of every selected pack (owner, 26 Nov): each pack's 25 to 50 subreddits (named once by HiC's "Suggest
+    # from goal" and checked with Reddit, packsocial.py) are searched with the run's keywords inside the period; the
+    # posts most about the goal join with their top comments, counted with their pack. No listening task is needed first.
+    reddit_note = ""
+    if chosen or reddit_direct is not None:
+        try:
+            from . import packsocial
+            n_posts = packsocial.POSTS_PER_PACK_DEEP if deep else packsocial.POSTS_PER_PACK
+            posts, rd_reports = (packsocial.search_packs(chosen, pack_query or objective, w, limit=n_posts, objective=objective,
+                                                         known=seen, say=store.say) if chosen else ([], {}))
+            if reddit_direct is not None and (reddit_direct or not posts):
+                # the subreddits the person named, or (no pack gave posts) all of Reddit, searched with the run's keywords
+                store.say("searching " + (", ".join("r/" + x for x in reddit_direct) if reddit_direct else "Reddit") + " for this subject")
+                named, rep_named = packsocial.search_names(reddit_direct, pack_query or objective, w, limit=MAX_SOCIAL_SOURCES,
+                                                           objective=objective, known=seen | {p["url"] for p in posts})
+                posts += [dict(p, pack="") for p in named]
+                rd_reports["asked"] = dict(rep_named, subreddits_named=reddit_direct)
+            for p in posts:
+                src = {"url": p["url"], "title": f"Reddit r/{p['subreddit']}: {p['title']}", "text": p["text"][:PAGE_CHARS],
+                       "untrusted": True, "publisher": f"Reddit r/{p['subreddit']}", "date": p["date"], "kind": "social",
+                       "subreddit": p["subreddit"]}
+                if p.get("pack"):
+                    src.update(pack=p["pack"], pack_social=True)      # found for the pack: scored for relevance like any pack item
+                else:
+                    src["requested"] = "Reddit"                     # asked for by the person: kept
+                add(src)
+            pack_record["reddit"] = {"kept": len(posts), "by_pack": {k: v.get("kept", 0) for k, v in rd_reports.items()},
+                                     "searches": rd_reports}
+            if posts:
+                packs_part = [f"{hic.PACKS.get(k, k)} {v.get('kept', 0)} of {v.get('subreddits', 0)} subreddits searched"
+                              for k, v in rd_reports.items() if k != "asked"]
+                asked_part = rd_reports.get("asked")
+                reddit_note = (f"; {len(posts)} Reddit posts" + (f" from the packs' subreddits ({', '.join(packs_part)})" if packs_part else "")
+                               + ((f"; {asked_part['kept']} from " + (", ".join("r/" + x for x in asked_part["subreddits_named"]) or "all of Reddit")
+                                   + " as asked") if asked_part else ""))
+            elif reddit_direct is not None:
+                reddit_note = "; Reddit was asked for and no post on this subject inside the period was found"
+        except Exception as e:                   # Reddit is a source among many: the run carries on without it
+            store.event("pack_reddit_skipped", {"error": f"{type(e).__name__}: {str(e)[:200]}"}, eid, tid)
     web_got = web_undated = 0
     from . import evidencequality
     held_back = []                      # self-published pages and press releases: used only when the collection is short
@@ -543,7 +648,7 @@ def research_lead(eid, brief, ledger, tid=None):
     if getattr(config, "LOCAL", False):
         picked_packs = set(brief.get("selected_packs") or [])
         kept_src, off_topic = localrank.on_topic(f"{brief['goal']} {brief['scope']}", sources,
-                                                 protect=lambda s: s.get("kind") == "social" or bool(s.get("requested")))
+                                                 protect=lambda s: (s.get("kind") == "social" and not s.get("pack_social")) or bool(s.get("requested")))
         # an item from a pack the person selected stays unless it is plainly off the subject (E7)
         back = [s for s in off_topic if s.get("pack") in picked_packs and (s.get("relevance") or 0) >= SELECTED_PACK_FLOOR]
         if back:
@@ -648,7 +753,7 @@ def research_lead(eid, brief, ledger, tid=None):
     quality = evidencequality.mix(sources)
     period += f"; {quality['text']}" + (f" ({left_out['weak']} self-published pages left out)" if left_out.get("weak") else "") + (
         f" ({left_out['unranked']} less relevant unranked sites left out)" if left_out.get("unranked") else "")
-    return path, (f"{len(sources)} sources collected and read{period}{pack_note}{req_note}"
+    return path, (f"{len(sources)} sources collected and read{period}{pack_note}{yt_note}{reddit_note}{req_note}"
                   + (f"; {len(off_topic)} collected items left out as off the subject" if off_topic else "")
                   + (f"; {len(reused)} reused from the second brain" if reused else "")
                   + (f"; {n_arch} of {len(fresh)} new sources archived in the second brain" if fresh else "")
@@ -760,6 +865,7 @@ def analyst(eid, brief, sources, ledger, tid=None):
     want = material.requested(brief.get("request", ""), brief["goal"], brief["scope"], declared=brief.get("required_sources"))
     asked = {s["id"] for s in sources if material.is_reddit(s)} if "reddit" in want else set()
     wide_read = depth_of(brief) == "deep" and getattr(config, "DEEP_WHOLE_PACK", True) and len(sources) > 30
+    store.say(f"reading back the passages of {len(sources)} sources from the second brain")
     chunks, evidence = secondbrain.material(eid, sources, f"{brief['goal']} {brief['scope']}",
                                             budget=int(ANALYST_BUDGET_CHARS * (1.75 if wide_read else 1)),
                                             **({"prefer": asked} if asked else {}))
@@ -807,9 +913,12 @@ def analyst(eid, brief, sources, ledger, tid=None):
     target = 14 if short else (max(26, min(90, int(1.5 * n_src))) if depth_of(brief) == "deep" and getattr(config, "DEEP_WHOLE_PACK", True) else 26)
     per = max(3, min(14, -(-target // max(1, len(windows))) + 1))
     data = {"findings": []}
-    for w in windows:
+    for wi, w in enumerate(windows, 1):
         if tid:
             store.check_stop(tid, ledger.spent_usd)
+        # each window is a line of the step's timeline (26 Nov: 13 minutes of the Analyst showed as "getting ready")
+        store.say(f"pulling findings from passages, window {wi} of {len(windows)} "
+                  f"({len({c['source_id'] for c in w})} sources); {len(data['findings'])} findings so far")
         part = secondbrain.as_prompt(w, esc=html.escape)
         ask = (("Return 8 to 12 findings." if short else "Return 10 to 20 findings.") if len(windows) == 1
                else f"Return the {per} strongest findings these sources support, fewer when they support fewer.")
@@ -902,6 +1011,7 @@ def writer(eid, brief, findings, sources, ledger, feedback=None, previous=None, 
         # IA Next Local: the model writes claims and names its evidence; code inserts the verified quotes and the
         # citations (localwriter). `system` still overrides for the skills evaluation.
         from . import localwriter
+        system = system or skills.active_text("local_writer", localwriter.SYSTEM)     # a promoted version takes effect
         text, model, stats = localwriter.write(brief, findings, sources, ledger, feedback=feedback, system=system)
         store.event("local_writer", stats, eid)
         return text, model
@@ -944,20 +1054,110 @@ def _held_evidence(eid):
 
 
 # ---- the task runner ---------------------------------------------------------------------------
+# (harness WS-H8, Harness Engineering item 54) Research reflection: on a deep run, each success criterion of the brief is
+# checked for a finding that speaks to it; for each one with none (at most two), one more search runs at fast depth
+# with the criterion's words, and the Analyst reads only the new sources. One round, shown on the live card.
+REFLECTION = True
+_STOP_WORDS = set("""about after again against also among and any are because been before being between both but can
+could does doing during each from further have having into its itself more most must not off once only other over own
+same should some such than that the their them then there these they this those through under until very what when where
+which while who whom why will with within would your""".split())
+
+
+def _content_words(text):
+    return {w[:6] for w in re.findall(r"[a-z][a-z'-]{3,}", str(text or "").lower()) if w not in _STOP_WORDS}
+
+
+def uncovered(criteria, findings):
+    """The success criteria no finding speaks to: none shares at least two (and at least a third) of the criterion's
+    content words in its claim or quote."""
+    texts = [_content_words(f"{f.get('claim', '')} {f.get('quote', '')}") for f in findings or []]
+    out = []
+    for c in criteria or []:
+        words = _content_words(c)
+        if not words:
+            continue
+        need = max(2, -(-len(words) // 3))
+        if not any(len(words & t) >= need for t in texts):
+            out.append(str(c))
+    return out
+
+
+def reflect(eid, brief, sources, findings, ledger, tid, node):
+    """One more round for uncovered criteria. Returns (sources, findings), unchanged when nothing is uncovered or the
+    second search finds nothing new."""
+    gaps = uncovered(brief.get("success") or [], findings)[:2]
+    if not gaps:
+        return sources, findings
+    store.event("research_reflection", {"uncovered": gaps}, eid, tid)
+    _publish(eid, tid, ("sources.json",))            # the second search numbers its sources after these
+    narrowed = dict(brief, depth="fast", goal=f"{brief['goal']} Specifically: {'; '.join(gaps)}",
+                    scope=f"{brief.get('scope', '')} Find evidence on: {'; '.join(gaps)}")
+
+    def again():
+        store.say("searching again for: " + "; ".join(g[:80] for g in gaps))
+        return research_lead(eid, narrowed, ledger, tid)
+    more = node("Research Lead (again)", config.SEATS["search"]["primary"], again)
+    known = {s["id"] for s in sources}
+    fresh = [s for s in more if s.get("id") not in known]
+    if not fresh:
+        return more or sources, findings
+    extra = node("Analyst (again)", config.SEATS["analysis"]["primary"], lambda: analyst(eid, narrowed, fresh, ledger, tid))
+    merged = list(findings) + [f for f in extra or [] if f not in findings]
+    p = store.safe_path(eid, _task_rel(tid, "findings.json"))
+    try:
+        with open(p, encoding="utf-8") as fh:
+            rec = json.load(fh)
+    except (OSError, ValueError):
+        rec = {}
+    rec["findings"] = merged
+    rec["reflection"] = {"uncovered": gaps, "new_sources": len(fresh), "new_findings": len(merged) - len(findings)}
+    _write(eid, _task_rel(tid, "findings.json"), rec)
+    return more, merged
+
+
+# (harness WS-H16, 26 Nov) A research task interrupted by a restart resumes from its first step without a checkpoint:
+# the Research Lead's sources.json and the Analyst's findings.json are read back instead of being collected again. A
+# restart used to fail every running task ("interrupted by a restart; start it again"), so a deploy had to wait for a
+# 45-minute run to end.
+CHECKPOINTS = {"Research Lead": "sources", "Analyst": "findings"}
+
+
+def _checkpoints(t):
+    """{specialist: (result path, summary)} for the steps of a task that finished and left a readable result file."""
+    out = {}
+    for n in t.get("nodes") or []:
+        rp = n.get("result_path") or ""
+        if n.get("state") == "available" and n.get("specialist") in CHECKPOINTS and rp and os.path.isfile(rp):
+            out[n["specialist"]] = (rp, n.get("summary") or "")
+    return out
+
+
 @store.stoppable
-def run_research_task(tid):
-    """Background thread body. Every node ends available or failed; the task ends done or failed."""
+def run_research_task(tid, resume=False):
+    """Background thread body. Every node ends available or failed; the task ends done or failed. With resume, steps
+    that finished before a restart are read back from their result files."""
     t = store.get_task(tid)
     eid, brief = t["engagement_id"], t["brief"]
     ledger = providers.Ledger(limit_usd=t["budget_usd"] or config.TASK_SPEND_APPROVAL_USD, task_id=tid)
     store.update_task(tid, status="running")
     store.event("task_running", {}, eid, tid)
     seq = 0
+    kept = _checkpoints(t) if resume else {}
 
     def node(specialist, model, fn):
         nonlocal seq
         seq += 1
         store.check_stop(tid, ledger.spent_usd)   # a Stop between steps ends the run before the next step
+        if specialist in kept:
+            path, summ = kept[specialist]
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    payload = json.load(fh)[CHECKPOINTS[specialist]]
+                store.event("node_resumed", {"specialist": specialist, "summary": summ, "from": os.path.basename(path)}, eid, tid)
+                return payload
+            except (OSError, ValueError, KeyError):
+                pass                              # an unreadable checkpoint: the step runs again
         nid = store.start_node(tid, specialist, model, seq)
         try:
             path, summary, payload = fn()
@@ -967,6 +1167,12 @@ def run_research_task(tid):
         except Exception as e:
             store.finish_node(nid, None, None, error=str(e)[:500])
             store.update_task(tid, spent_usd=ledger.spent_usd)
+            # (26 Nov) where it failed, kept for diagnosis: a failure message alone ("'tuple' object has no attribute
+            # 'get'") cost a rerun to locate; the last frames in IA Next's own code name the file, function and line
+            import traceback
+            frames = [f for f in traceback.extract_tb(e.__traceback__) if "/ia_next/" in f.filename.replace("\\", "/")][-4:]
+            store.event("stage_failed", {"specialist": specialist, "error": f"{type(e).__name__}: {str(e)[:300]}",
+                                         "where": [f"{f.filename.rsplit('/', 1)[-1]}:{f.name}:{f.lineno}" for f in frames]}, eid, tid)
             raise
 
     try:
@@ -1014,6 +1220,8 @@ def run_research_task(tid):
                 store.event("task_done", {"summary": summary, "spent_usd": ledger.spent_usd}, eid, tid)
                 return
             findings = node("Analyst", config.SEATS["analysis"]["primary"], lambda: analyst(eid, brief, sources, ledger, tid))
+            if REFLECTION and depth_of(brief) == "deep" and not brief.get("evidence_only"):
+                sources, findings = reflect(eid, brief, sources, findings, ledger, tid, node)
 
         if brief.get("collect_only"):
             pass                                      # handled before the Analyst (below is never reached for it)
@@ -1054,7 +1262,11 @@ def run_research_task(tid):
                     best = (verify.score(f2, v2), draft2, f2, v2, 1)
             sc, text, fnd, ver, rounds = best
             _write(eid, _task_rel(tid, "verification.json"), {"score": sc, "deterministic_findings": fnd, "judge": ver, "repair_rounds": rounds,
-                                                      "kept": "repaired" if rounds else "first draft"})
+                                                      "kept": "repaired" if rounds else "first draft",
+                                                      # what set off the repair, kept for evaluation (26 Nov: only the
+                                                      # kept round's findings were recorded, so a repair could not be judged)
+                                                      "first_draft": {"score": verify.score(f1, v1), "deterministic_findings": f1,
+                                                                      "judge_failing": failing}})
             path = _write(eid, _task_rel(tid, "report.md"), text)
             open_items = len(fnd) + sum(1 for i in ver["items"] if not i.get("pass"))
             how = (f"verified by {ver['judge_model']}" if ver.get("judge_model") else

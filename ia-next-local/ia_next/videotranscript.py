@@ -135,8 +135,13 @@ def fetch(url, folder):
     return path, meta
 
 
+CAPTIONS_ERROR = {"name": ""}              # why the last captions read found none ("IpBlocked": YouTube refuses this machine)
+
+
 def captions(video_id):
-    """A YouTube video's published captions as segments, or [] (youtube-transcript-api, no key)."""
+    """A YouTube video's published captions as segments, or [] (youtube-transcript-api, no key). When there are none,
+    CAPTIONS_ERROR["name"] says why (the library's exception name, e.g. TranscriptsDisabled or IpBlocked)."""
+    CAPTIONS_ERROR["name"] = ""
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
     except ImportError:
@@ -147,11 +152,15 @@ def captions(video_id):
             rows = [{"start": s.start, "duration": s.duration, "text": s.text} for s in YouTubeTranscriptApi().fetch(video_id, languages=langs)]
         else:
             rows = YouTubeTranscriptApi.get_transcript(video_id, languages=langs)
-    except Exception:
+    except Exception as first:
+        if type(first).__name__ in ("IpBlocked", "RequestBlocked", "TooManyRequests"):
+            CAPTIONS_ERROR["name"] = type(first).__name__
+            return []
         try:
             api = YouTubeTranscriptApi()
             rows = [{"start": s.start, "duration": s.duration, "text": s.text} for s in api.fetch(video_id)]
-        except Exception:
+        except Exception as e:
+            CAPTIONS_ERROR["name"] = type(e).__name__
             return []
     return [{"start": round(float(r["start"]), 2), "end": round(float(r["start"]) + float(r.get("duration") or 0), 2),
              "text": re.sub(r"\s+", " ", str(r["text"])).strip()} for r in rows if str(r.get("text") or "").strip()]

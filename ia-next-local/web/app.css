@@ -1444,6 +1444,20 @@ button.livefeed__subject:hover, button.livefeed__subject:focus-visible { border-
 }
 @media (max-width: 640px) { .topbar { min-height: 60px; } }
 
+/* the migrated HiC library in the Library (26 Nov): a kind on every row, notes on where a page came from */
+.lib__tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.lib__tags:empty { display: none; }
+.lib__tags--doc { margin-top: -4px; }
+.lib__kind { padding: 2px 8px; border-radius: 3px; font: 600 11px/1.5 var(--font-body); background: var(--panel-2); color: var(--ink-2); }
+.lib__kind--analysis { background: #F3E9DE; color: #7A4A1F; }
+.lib__kind--document, .lib__kind--transcript { background: #E3EEF0; color: var(--cool-ink); }
+.lib__kind--restored { background: var(--accent-tint); color: var(--accent-ink); }
+.lib__note { margin: 0; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: var(--r); background: var(--panel);
+  font-size: 13px; color: var(--ink-2); }
+.lib__note .ic { width: 16px; height: 16px; color: var(--accent-ink); flex: none; }
+.lib__note--analysis { background: #F8F1E9; color: #6A4421; }
+.lib__dochead { margin: 1.4em 0 .5em; font: 600 18px/1.3 var(--font-body); color: var(--ink); }
+
 /* streaming chat answers (26 Nov): the words as they are written, under the thinking line */
 .live__text { margin-top: 6px; color: var(--ink); }
 .live__text > :first-child { margin-top: 0; }
@@ -1513,3 +1527,47 @@ textarea.packpanel__filter { min-height: 72px; }
   .sheet__title { font-size: 22px; }
   .sheet__actions .btn { padding: 6px 10px; }
 }
+/* a video transcript's time mark opens the video at that moment (26 Nov) */
+.lib__time { font-family: var(--font-mono, ui-monospace, monospace); font-size: 12px; font-weight: 600; color: var(--cool-ink); text-decoration: none; margin-right: 4px; }
+.lib__time:hover { text-decoration: underline; }
+
+/* ---- loop engineering steps, live and inspectable (owner, 26 Nov) ------------------------------------
+   A step the harness takes is amber ("fixed"): it stepped in to repair, skip, stop or make room. Every branch opens
+   to its details; the finished reply keeps the scene still under "Steps". Motion stops under reduced motion. */
+.orc [data-state="fixed"] > .orc__dot { background: var(--warn-tint); box-shadow: inset 0 0 0 1.5px var(--warn); }
+.orc [data-state="fixed"] > .orc__dot .orc__ring { display: none; }
+.orc [data-state="fixed"] > .orc__dot .orc__core { background: var(--warn); }
+.orc [data-state="fixed"] > .orc__meta { color: var(--warn-ink); }
+.orc [data-state="fixed"] > .orc__link { background: var(--warn); opacity: .55; }
+.orc [data-state="fixed"][data-new] > .orc__dot { animation: orc-pop .45s var(--ease) both, orc-nudge .9s var(--ease) .45s 1; }
+@keyframes orc-nudge { 0%, 100% { box-shadow: inset 0 0 0 1.5px var(--warn); } 50% { box-shadow: inset 0 0 0 1.5px var(--warn), 0 0 0 5px var(--warn-tint); } }
+.orc__branch[role="button"] { cursor: pointer; border-radius: var(--r-sm); outline-offset: 2px; }
+.orc__branch[role="button"]:hover > .orc__name { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.orc__branch[aria-expanded="true"] > .orc__name { color: var(--cool-ink); }
+.orc__branch[role="button"]:focus-visible { outline: 2px solid var(--cyan); }
+.orc__more { padding: 2px 0 8px 30px; animation: rise .25s var(--ease) both; }
+.orc__facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 3px 12px; margin: 0; padding: 10px 12px; background: var(--panel); border-radius: var(--r); font-size: 12px; max-width: 640px; }
+.orc__facts dt { color: var(--muted); font-weight: 600; }
+.orc__facts dd { margin: 0; font-family: var(--font-mono); color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 200px; overflow: auto; }
+.orc--still { padding: 6px 0 2px; }
+.orc--still .orc__branches::before { display: none; }
+.turnsteps { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.turnsteps > summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 2px 0; }
+.turnsteps > summary::-webkit-details-marker { display: none; }
+.turnsteps > summary::before { content: ""; width: 0; height: 0; border-left: 5px solid currentColor; border-top: 4px solid transparent; border-bottom: 4px solid transparent; transition: transform .15s; }
+.turnsteps[open] > summary::before { transform: rotate(90deg); }
+
+/* Harness WS-H18 (26 Nov): where a finished task's time went */
+.task__time { margin: 6px 0 2px; font-size: 13px; }
+.task__time > summary { cursor: pointer; font-weight: 600; }
+.task__timeline ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.task__timeline li { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr) minmax(3rem, 6rem) 4.5rem; gap: 8px;
+  align-items: center; animation: rise .35s ease both; animation-delay: calc(var(--i, 0) * 30ms); }
+.task__tstep { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.task__tdoing { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.task__tbar { height: 6px; background: var(--line); border-radius: var(--r-sm); overflow: hidden; }
+.task__tbar > i { display: block; height: 100%; background: var(--accent); border-radius: var(--r-sm); }
+.task__tsec { text-align: right; color: var(--muted); }
+.task__tnone { color: var(--muted); margin: 6px 0 0; }
+@media (max-width: 560px) { .task__timeline li { grid-template-columns: minmax(0, 1fr) 4.5rem; } .task__tstep, .task__tbar { display: none; } }
+@media (prefers-reduced-motion: reduce) { .task__timeline li { animation: none; } }

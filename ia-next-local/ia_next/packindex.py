@@ -165,11 +165,17 @@ def read_whole(pack_ids, call, queries, budget_seconds=240, per_source=PER_SOURC
         except Exception:
             continue
     aside = set(set_aside())
+    try:                                          # (26 Nov) the kinds multi-search cannot answer are read by packsources.py
+        from . import packsources
+        ids = packsources.multi_only(ids)
+    except Exception:
+        pass
     live_ids = [s for s in ids if s not in aside]
     fresh = dict(_get("whole", {}) or {})
     out = {"sources": len(ids), "asked": 0, "answered": 0, "items": 0, "complete": False, "fresh": 0, "set_aside": len(ids) - len(live_ids)}
     answered_ids, failed = set(), []
-    for qi, q in enumerate([x for x in dict.fromkeys(" ".join(str(q or "").split())[:200] for q in queries or []) if x][:3]):
+    qs = [x for x in dict.fromkeys(" ".join(str(q or "").split())[:200] for q in queries or []) if x][:3]
+    for qi, q in enumerate(qs):
         left = budget_seconds - (time.time() - t0)
         if left <= 5:
             break
@@ -194,11 +200,12 @@ def read_whole(pack_ids, call, queries, budget_seconds=240, per_source=PER_SOURC
 
         pool = ThreadPoolExecutor(max_workers=workers)
         futs = [pool.submit(run, p) for p in parts]
-        done_parts = 0
+        done_parts, asked_q = 0, 0
         try:
             for f in as_completed(futs, timeout=left):
                 part, got = f.result()
                 done_parts += 1
+                asked_q += len(part)
                 out["asked"] += len(part)
                 if got is None:
                     failed.extend(part)
@@ -214,7 +221,9 @@ def read_whole(pack_ids, call, queries, budget_seconds=240, per_source=PER_SOURC
                 out["items"] += remember(items)
                 if say and done_parts % 10 == 0:
                     try:
-                        say(f"reading every source of the chosen packs: {out['asked']} of {len(todo)} asked, {len(answered_ids)} answered")
+                        # 26 Nov: the count of every question's asks was shown against one question's total ("199 of 63")
+                        say(f"reading every source of the chosen packs" + (f", question {qi + 1} of {len(qs)}" if len(qs) > 1 else "")
+                            + f": {asked_q} of {len(todo)} asked, {len(answered_ids)} answered")
                     except Exception:
                         pass
         except _Late:

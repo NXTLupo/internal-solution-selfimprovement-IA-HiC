@@ -25,6 +25,9 @@ WINDOW_DAYS = 21
 SKILL_FOR_KIND = {"deck": "deck_composer", "journey_map": "journey_cartographer", "diagram": "information_designer",
                   "datatable": "table_analyst", "audio_overview": "audio_producer", "social": "social_analyst",
                   "themes": "theme_namer", "research_report": "writer", "transcript": "transcript_analyst"}
+if getattr(config, "LOCAL", False):              # (WS-H10) the local build writes reports with the local writer
+    SKILL_FOR_KIND["research_report"] = "local_writer"
+    SKILL_FOR_KIND["journey_map"] = "local_journey"
 # checks a change to a skill's instructions can fix; every other failed check needs code
 PROMPT_FIXABLE = {"quotes_in_sources", "no_repeated_slides", "owner_rejected"}
 _LOCK = threading.Lock()
@@ -146,7 +149,7 @@ def run(call=None, now=None):
                 details = g["details"] or _details(kind, check, g["tasks"])
                 if check in PROMPT_FIXABLE and skill:
                     text = draft(skill, [f"{check}: {d}" for d in details] or [check], call)
-                    got = skills.propose(skill, text, f"from {len(g['tasks'])} {kind} tasks failing {check}")
+                    got = skills.propose(skill, text, f"from {len(g['tasks'])} {kind} tasks failing {check}; tasks: {', '.join(g['tasks'][:20])}")
                     if got.get("accepted"):
                         a = control.request("spend", "evaluate_skill", {"evaluate_skill": got["id"]},
                                             f"Evaluate {skill} v{got['version']} on held-out work: drafted from {len(g['tasks'])} "

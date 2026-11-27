@@ -17,6 +17,11 @@ import httpx
 from . import config
 
 MODEL = "qwen3-embedding:0.6b"
+# One context size for every call to the embedding model (26 Nov): Ollama reloads a model whenever a request asks for a
+# different num_ctx, so the Library's embedder (2048) and an embedder asking for the default kept reloading it in turn,
+# and a research run's relevance scoring timed out after 300 s while the Library was embedding.
+EMBED_OPTIONS = {"num_ctx": 2048}
+EMBED_KEEP = "10m"
 KEEP, NEAR, MIN_KEPT = 0.45, 0.62, 6
 INSTRUCT = "Instruct: Given a research goal, retrieve passages that help answer it\nQuery: "
 
@@ -24,7 +29,8 @@ INSTRUCT = "Instruct: Given a research goal, retrieve passages that help answer 
 def embed(texts):
     from . import lanes
     with lanes.card("embed"):                    # small enough to run beside a call when the card has room
-        r = httpx.post(config.OLLAMA_URL + "/api/embed", json={"model": MODEL, "input": texts}, timeout=300)
+        r = httpx.post(config.OLLAMA_URL + "/api/embed", json={"model": MODEL, "input": texts, "options": EMBED_OPTIONS,
+                                                                "keep_alive": EMBED_KEEP}, timeout=300)
     r.raise_for_status()
     return r.json()["embeddings"]
 

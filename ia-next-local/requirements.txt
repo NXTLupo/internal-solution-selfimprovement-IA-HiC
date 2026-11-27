@@ -14,6 +14,8 @@ numpy>=1.26
 scikit-learn>=1.5
 umap-learn>=0.5
 pymupdf>=1.24
+# deep reading (26 Nov): a page's main text with its paragraphs, and the document behind a landing page (pagetext.py)
+trafilatura==2.0.0
 lameenc>=1.7
 # video transcription (videotranscript.py): yt-dlp fetches a video's sound; youtube-transcript-api reads published
 # captions when the sound cannot be fetched. Whisper itself is faster-whisper above, with large-v3 weights on D:.

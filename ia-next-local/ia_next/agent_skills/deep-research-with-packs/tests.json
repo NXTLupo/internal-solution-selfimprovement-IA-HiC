@@ -1,0 +1,154 @@
+[
+ {
+  "prompt": "Deep research on AI shopping assistants from the retail pack, last 90 days",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [
+   "start_social_analysis"
+  ],
+  "outcome": "one plan card; packs is [\"retail\"]; scope says the last 90 days",
+  "expect_args": {
+   "start_research_report": {
+    "packs": [
+     "retail"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "Research what r/NEU says about co-op placements, plus the higher ed pack",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [
+   "start_social_analysis"
+  ],
+  "outcome": "one plan card whose first step collects r/NEU; required_sources lists reddit:r/NEU and packs is [\"higher_ed\"]",
+  "expect_args": {
+   "start_research_report": {
+    "packs": [
+     "higher_ed"
+    ],
+    "required_sources": [
+     "reddit:r/NEU"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "Research executive search trends this month from Hunt Scanlon and RecruitingDaily",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [
+   "start_social_analysis"
+  ],
+  "outcome": "publications lists Hunt Scanlon and RecruitingDaily as written; packs is [\"executive_search\"]",
+  "expect_args": {
+   "start_research_report": {
+    "publications": [
+     "Hunt Scanlon",
+     "RecruitingDaily"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "What did the last report find about pricing?",
+  "expected_tools": [
+   "read_report"
+  ],
+  "forbidden_tools": [
+   "start_research_report"
+  ],
+  "outcome": "an answer from the finished report; no new research"
+ },
+ {
+  "prompt": "Do a deep dive on nurse staffing ratios in US hospitals over the last 90 days, and include YouTube videos as evidence",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [],
+  "outcome": "required_sources lists youtube; packs is [\"healthcare\"]",
+  "expect_args": {
+   "start_research_report": {
+    "required_sources": [
+     "youtube"
+    ],
+    "packs": [
+     "healthcare"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "Research how banks are rolling out AI copilots, using articles from americanbanker.com",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [],
+  "outcome": "publications lists americanbanker.com as written; packs is [\"financial_services\"]",
+  "expect_args": {
+   "start_research_report": {
+    "publications": [
+     "americanbanker.com"
+    ],
+    "packs": [
+     "financial_services"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "(Data packs the person selected for research: Retail & Commerce [retail]. Any research report uses exactly these packs.)\nResearch how grocers are using AI to set prices",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [],
+  "outcome": "packs is exactly the composer's selection, [\"retail\"]",
+  "expect_args": {
+   "start_research_report": {
+    "packs": [
+     "retail"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "Research executive search compensation trends, and what people on r/recruiting say about them",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [
+   "start_social_analysis"
+  ],
+  "outcome": "required_sources lists reddit:r/recruiting; packs is [\"executive_search\"]; no separate Reddit call",
+  "expect_args": {
+   "start_research_report": {
+    "required_sources": [
+     "reddit:r/recruiting"
+    ],
+    "packs": [
+     "executive_search"
+    ]
+   }
+  }
+ },
+ {
+  "prompt": "Research agentic commerce in healthcare and retail; use both the healthcare pack and the retail pack",
+  "expected_tools": [
+   "start_research_report"
+  ],
+  "forbidden_tools": [],
+  "outcome": "packs is [\"healthcare\", \"retail\"]",
+  "expect_args": {
+   "start_research_report": {
+    "packs": [
+     "healthcare",
+     "retail"
+    ]
+   }
+  }
+ }
+]

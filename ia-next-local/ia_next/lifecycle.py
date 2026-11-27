@@ -11,6 +11,7 @@ threshold needs a fresh approval for this exact retry, because one approval cove
 import hashlib
 import json
 import threading
+import time
 
 from . import config, control, store
 
@@ -86,3 +87,34 @@ def retry(tid, approved=False, attempt=None):
         store.event("task_retried", {"new_task_id": new, "attempt": n, "budget_usd": budget}, t["engagement_id"], tid)
         threading.Thread(target=runner, args=(new,), daemon=True, name=f"task-{new}").start()
     return {"task_id": new, "started": created, "budget_usd": budget, "retry_of": tid}
+
+
+def resume_interrupted(start=True):
+    """At startup (harness WS-H16): a research task left running or queued by the previous process resumes from its
+    first step without a checkpoint; its interrupted step is closed as failed with that reason. Other kinds of work are
+    marked failed as before (they have no checkpoints yet). Returns {"resumed": [...], "failed": [...]}."""
+    from . import studio
+    out = {"resumed": [], "failed": []}
+    for t in store.list_tasks(limit=500):
+        if t["status"] == "stopping":
+            store.finish_stopped(t["id"])
+            continue
+        if t["status"] not in ("queued", "running"):
+            continue
+        if t["kind"] == "research_report":
+            with store._LOCK:
+                store.conn().execute("UPDATE nodes SET state = 'failed', finished = ?, error = ? WHERE task_id = ? AND state = 'running'",
+                                     (time.time(), "interrupted by a restart; the task resumed from its last finished step", t["id"]))
+            store.event("task_resumed", {"after": "a restart"}, t["engagement_id"], t["id"])
+            out["resumed"].append(t["id"])
+            if start:
+                threading.Thread(target=studio.run_research_task, args=(t["id"],), kwargs={"resume": True}, daemon=True,
+                                 name=f"task-{t['id']}").start()
+        else:
+            with store._LOCK:                    # its open step says so too (26 Nov: a deck's step stayed "running")
+                store.conn().execute("UPDATE nodes SET state = 'failed', finished = ?, error = ? WHERE task_id = ? AND state = 'running'",
+                                     (time.time(), "interrupted by a restart; start it again", t["id"]))
+            store.update_task(t["id"], status="failed", error="interrupted by a restart; start it again")
+            store.event("task_failed", {"error": "interrupted by a restart"}, t["engagement_id"], t["id"])
+            out["failed"].append(t["id"])
+    return out

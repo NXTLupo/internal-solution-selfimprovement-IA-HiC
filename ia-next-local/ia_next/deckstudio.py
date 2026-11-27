@@ -21,6 +21,7 @@ import json
 import math
 import os
 import re
+import threading
 import time
 
 from . import builder, config, evidencequality, providers, store, verify
@@ -36,7 +37,15 @@ if D.HAVE_PPTX:
 LAYOUTS = ["cover", "statement", "cards", "layers", "table", "flow", "architecture", "quote", "bullets", "closing"]
 PHOTO_LAYOUTS = ("cover", "statement")                        # documentary photography
 ILLUSTRATION_LAYOUTS = ("cards", "layers", "quote", "bullets")  # the deck's line-illustration system, beside the content
-MAX_IMAGES = 5
+MAX_IMAGES = 5                     # hosted pictures were paid per image
+LOCAL_MAX_IMAGES = 80              # (26 Nov, owner: "it only says that it is making 5 pictures") the local engine is free:
+                                   # every slide whose layout takes a picture gets one; each costs about 49 s
+
+
+def image_cap(slides):
+    """How many pictures this deck makes: every slide that asked for one in the local build, else MAX_IMAGES."""
+    wanted = sum(1 for s in slides if s.get("image_prompt"))
+    return min(wanted, LOCAL_MAX_IMAGES) if getattr(config, "LOCAL", False) else min(wanted, MAX_IMAGES)
 TOP, BOTTOM = 2.4, 5.95                                       # the content zone under the title and subtitle
 ILLUSTRATION_STYLE = (
     "Style: a clean technical line illustration on a plain off-white ground, drawn with even dark teal (#115054) "
@@ -162,6 +171,9 @@ def label(src):
     return t[:64].rsplit(" ", 1)[0].rstrip(" ,;:-") + tail
 
 
+_DEDUP = threading.local()               # how many repeated slides the last normalize() left out on this thread
+
+
 def normalize(raw, sources):
     ids = {s["id"] for s in sources}
     out = []
@@ -207,6 +219,7 @@ def normalize(raw, sources):
             s["layout"] = "bullets"
         if s["layout"] == "cards" and len(s["cards"]) > 3:
             s["image_prompt"] = ""          # four cards fill the width; no room for an illustration
+    _DEDUP.n = 0
     seen, kept, words = set(), [], []   # a slide whose title repeats an earlier one is the same slide again (22 Nov: a
     for s in out:                       # local model reached the asked length by writing its closing slide three times)
         key = " ".join(re.findall(r"[a-z0-9]+", s["title"].lower()))
@@ -220,6 +233,7 @@ def normalize(raw, sources):
         seen.add(key)
         words.append(mine)
         kept.append(s)
+    _DEDUP.n = len(out) - len(kept)
     return kept
 
 
@@ -561,9 +575,9 @@ def visible_text(slides):
 # ---- imagery ----------------------------------------------------------------------------------------------
 def make_images(slides, outdir, ledger):
     """Photography for the cover and statements, the line-illustration system elsewhere; never text in an image."""
-    made = 0
+    made, cap = 0, image_cap(slides)
     for i, s in enumerate(slides):
-        if not s["image_prompt"] or made >= MAX_IMAGES:
+        if not s["image_prompt"] or made >= cap:
             continue
         photo = s["layout"] in PHOTO_LAYOUTS
         prompt = media.image_prompt(s["image_prompt"]) if photo else f"{s['image_prompt'].strip()}\n\n{ILLUSTRATION_STYLE}"
@@ -584,9 +598,44 @@ def make_images(slides, outdir, ledger):
 
 
 # ---- the native PowerPoint ---------------------------------------------------------------------------
+MIN_PT = 10       # the scorecard's floor (pptx_text_size): no reading text is set smaller (harness WS-H7, 26 Nov)
+
+
 def _fit(text, base, cap):
     n = max(1, len(text))
-    return max(base - 6, min(base, int(base * (cap / n) ** 0.5))) if n > cap else base
+    return max(MIN_PT, base - 6, min(base, int(base * (cap / n) ** 0.5))) if n > cap else base
+
+
+def _room(base, cap):
+    """The characters _fit can set at MIN_PT or larger for this base size and budget."""
+    return int(cap * (base / MIN_PT) ** 2)
+
+
+def _sentences_within(text, n):
+    """The leading whole sentences of text within n characters; the first sentence alone when even it is longer (a
+    sentence is never cut). Used where text would otherwise need a size under MIN_PT."""
+    text = " ".join(str(text or "").split())
+    if len(text) <= n:
+        return text
+    kept = ""
+    for part in re.split(r"(?<=[a-z0-9)\]'’”\"][.!?])\s+(?=[A-Z“\"])", text):
+        if kept and len(kept) + len(part) + 1 > n:
+            break
+        kept = (kept + " " + part).strip()
+        if len(kept) > n:
+            break
+    return kept
+
+
+def _points_within(points, n):
+    """The leading points whose joined text fits n characters (at least the first)."""
+    out, used = [], 0
+    for p in points:
+        if out and used + len(p) + 1 > n:
+            break
+        out.append(p)
+        used += len(p) + 1
+    return out
 
 
 def _wrap_lines(text, per_line):
@@ -605,15 +654,33 @@ def _wrap_lines(text, per_line):
     return max(1, lines)
 
 
+def _fits(text, w, h, size, spacing=1.2):
+    per_line = max(6, int((w - 0.2) / (D.BODY_WIDTH * size)))
+    return _wrap_lines(text, per_line) * size * spacing / 72 <= h - 0.1
+
+
 def _fit_box(text, w, h, base, floor=None, spacing=1.2):
-    """The largest size from base down to floor at which text, word-wrapped at the brand's body-face width, fits a
-    w by h inch text box (0.1 inch side insets, 0.05 top and bottom)."""
-    floor = floor or base - 5
+    """The largest size from base down to floor (never under MIN_PT) at which text, word-wrapped at the brand's
+    body-face width, fits a w by h inch text box (0.1 inch side insets, 0.05 top and bottom)."""
+    floor = max(MIN_PT, floor or base - 5)
     for size in range(base, floor - 1, -1):
-        per_line = max(6, int((w - 0.2) / (D.BODY_WIDTH * size)))
-        if _wrap_lines(text, per_line) * size * spacing / 72 <= h - 0.1:
+        if _fits(text, w, h, size, spacing):
             return size
     return floor
+
+
+def _fit_text(text, w, h, base):
+    """(text, size): the text at the largest size that fits the box; when it does not fit even at MIN_PT, its leading
+    whole sentences that do (a card body of 200 characters in a narrow card was set at 8 pt before 26 Nov)."""
+    size = _fit_box(text, w, h, base)
+    if _fits(text, w, h, size):
+        return text, size
+    parts = re.split(r"(?<=[a-z0-9)\]'’”\"][.!?])\s+(?=[A-Z“\"])", " ".join(str(text or "").split()))
+    for k in range(len(parts) - 1, 0, -1):
+        cut = " ".join(parts[:k])
+        if _fits(cut, w, h, MIN_PT):
+            return cut, MIN_PT
+    return parts[0], MIN_PT
 
 
 def _txt(slide, x, y, w, h, name, lines, size, color, bold=False, italic=False, face=None, anchor=None, align=None, space=4):
@@ -920,7 +987,7 @@ def _statement(slide, s):
         _txt(slide, x0, y, w, h, "Statement", [text], size, D.TEAL, bold=True, face=D.DISPLAY_FONT)
         y += h + 0.25
     if s["points"]:
-        pts = s["points"][:3]
+        pts = _points_within(s["points"][:3], _room(15, 260))
         _txt(slide, x0, y, w, max(0.6, 5.95 - y), "Support", pts, _fit(" ".join(pts), 15, 260), D.INK, space=5)
 
 
@@ -939,8 +1006,8 @@ def _cards(slide, s):
             _txt_figures(slide, cx + 0.25, TOP + 1.8, w - 0.5, BOTTOM - TOP - 1.9, f"Card {i + 1} body", c["body"],
                          min(20, _fit_box(c["body"], w - 0.5, BOTTOM - TOP - 1.9, 20) ), D.INK, D.TEAL)
             continue
-        _txt(slide, cx + 0.25, TOP + 1.8, w - 0.5, BOTTOM - TOP - 1.9, f"Card {i + 1} body", [c["body"]],
-             _fit_box(c["body"], w - 0.5, BOTTOM - TOP - 1.9, 14 if w > 3 else 13), D.INK)
+        body, size = _fit_text(c["body"], w - 0.5, BOTTOM - TOP - 1.9, 14 if w > 3 else 13)
+        _txt(slide, cx + 0.25, TOP + 1.8, w - 0.5, BOTTOM - TOP - 1.9, f"Card {i + 1} body", [body], size, D.INK)
 
 
 def _layers(slide, s):
@@ -966,8 +1033,9 @@ def _layers(slide, s):
             q = tf.add_paragraph()
             q.alignment = PP_ALIGN.CENTER
             rr = q.add_run()
-            rr.text = ly["body"]
-            D._font(rr, D.BODY_FONT, _fit(ly["body"], 13 if n <= 4 else 11, 90), D.LIGHT, panose=D.PANOSE_ARIAL)
+            base = 13 if n <= 4 else 11
+            rr.text = _sentences_within(ly["body"], _room(base, 90))
+            D._font(rr, D.BODY_FONT, _fit(rr.text, base, 90), D.LIGHT, panose=D.PANOSE_ARIAL)
 
 
 def _table(slide, s):
@@ -1012,8 +1080,8 @@ def _flow(slide, s):
         px, pw = x + (0.0 if i == 0 else 0.25), w - (0.25 if i == 0 else 0.5)
         _shape(slide, MSO_SHAPE.RECTANGLE, px, TOP + 1.1, pw, BOTTOM - TOP - 1.1, D.BAND, f"Step {i + 1} panel")
         _txt(slide, px + 0.22, TOP + 1.22, pw - 0.44, 0.75, f"Step {i + 1} number", [f"{i + 1:02d}"], 28, D.TEAL, bold=True, face=D.DISPLAY_FONT, space=0)
-        _txt(slide, px + 0.22, TOP + 1.9, pw - 0.44, BOTTOM - TOP - 2.0, f"Step {i + 1} detail", [st["body"]],
-             _fit_box(st["body"], pw - 0.44, BOTTOM - TOP - 2.0, 15 if n <= 4 else 13), D.INK)
+        body, size = _fit_text(st["body"], pw - 0.44, BOTTOM - TOP - 2.0, 15 if n <= 4 else 13)
+        _txt(slide, px + 0.22, TOP + 1.9, pw - 0.44, BOTTOM - TOP - 2.0, f"Step {i + 1} detail", [body], size, D.INK)
 
 
 def _architecture(slide, s):
@@ -1071,7 +1139,8 @@ def _quote(slide, s, attribution):
         D._font(rr, D.BODY_FONT, 12, D.LIGHT, bold=True, panose=D.PANOSE_ARIAL)
     if s["points"]:
         x = 0.9 + pw + 0.3
-        _txt(slide, x, TOP, 0.9 + width - x, BOTTOM - TOP, "Points", s["points"], _fit(" ".join(s["points"]), 15, 200), D.INK, space=10)
+        pts = _points_within(s["points"], _room(15, 200))
+        _txt(slide, x, TOP, 0.9 + width - x, BOTTOM - TOP, "Points", pts, _fit(" ".join(pts), 15, 200), D.INK, space=10)
 
 
 def _bullets(slide, s):
@@ -1403,6 +1472,70 @@ def _themes_block(themes, wanted):
     return head + "\n" + "\n".join(lines)
 
 
+# (26 Nov, owner: "quality on decks has dropped significantly... the 3 column slide table is being used on so many
+# slides") The 25 Nov instruction "give at least 3 slides the kicker CASE" let a corpus full of named organizations fill
+# 14 of 20 storyline slides with CASE slides, 13 of them as cards, and the decisions dropped out; the six decks made
+# before it carried no CASE slide. The storyline is now checked in code before any slide is written.
+MAX_RUN = 2                         # the same layout at most twice in a row
+MAX_SHARE = 0.4                     # no layout on more than 40% of the slides
+ROTATION = ("cards", "bullets", "statement", "flow", "quote", "layers")
+
+
+def story_problems(plan, cases_max):
+    """What is wrong with a storyline's shape: too many CASE slides, a layout repeated in a run or over-used, and no
+    closing slide. [] when it is sound."""
+    out = []
+    lays = [str(p.get("layout") or "") for p in plan]
+    n_case = sum(1 for p in plan if "CASE" in str(p.get("kicker") or "").upper())
+    if n_case > max(cases_max, 0):
+        out.append(f"{n_case} slides have the kicker CASE; use at most {cases_max}, and give the rest of the deck to findings, "
+                   "what they mean, and the decisions")
+    run, worst = 1, (1, "")
+    for a, b in zip(lays, lays[1:]):
+        run = run + 1 if a and a == b else 1
+        if run > worst[0]:
+            worst = (run, b)
+    if worst[0] > MAX_RUN:
+        out.append(f"the layout '{worst[1]}' is used {worst[0]} times in a row; never more than {MAX_RUN} in a row")
+    body = [l for l in lays[1:] if l]
+    for lay in set(body):
+        if body and body.count(lay) / len(body) > MAX_SHARE and len(body) >= 6:
+            out.append(f"the layout '{lay}' is used on {body.count(lay)} of {len(body)} slides; no layout on more than "
+                       f"{int(MAX_SHARE * 100)}% of them; choose each slide's layout from its content")
+    if "closing" not in lays:
+        out.append("there is no closing slide with the decisions; the last slide is the closing slide")
+    # (26 Nov) a 50-slide storyline from 85 findings repeated itself: 23 written slides were dropped as repeats
+    sigs, dupes = [], []
+    for i, p in enumerate(plan, 1):
+        mine = {w[:6] for w in re.findall(r"[a-z]{4,}", f"{p.get('title') or ''} {p.get('purpose') or ''}".lower())}
+        j = next((k for k, w in sigs if len(mine) >= 4 and len(mine & w) / len(mine | w) >= 0.5), None)
+        if j:
+            dupes.append(f"{j} and {i}")
+        sigs.append((i, mine))
+    if dupes:
+        out.append(f"slides {', '.join(dupes[:6])} make the same point; give every slide its own finding, evidence or decision")
+    return out
+
+
+def repair_story(plan, cases_max):
+    """The shape enforced in code when a re-plan still fails: CASE slides past the limit lose the kicker, runs of one layout
+    are broken by rotating to the next layout that differs from both neighbours, and the last slide is the closing slide."""
+    seen = 0
+    for p in plan:
+        if "CASE" in str(p.get("kicker") or "").upper():
+            seen += 1
+            if seen > cases_max:
+                p["kicker"] = "FINDING"
+    for i in range(1, len(plan)):
+        a = plan[i - 2].get("layout") if i >= 2 else None
+        if plan[i].get("layout") and plan[i]["layout"] == plan[i - 1].get("layout") == a:
+            nxt = plan[i + 1].get("layout") if i + 1 < len(plan) else None
+            plan[i]["layout"] = next(l for l in ROTATION if l not in (plan[i - 1].get("layout"), nxt))
+    if plan and plan[-1].get("layout") != "closing":
+        plan[-1]["layout"] = "closing"
+    return plan
+
+
 def compose_in_steps(eid, tid, system, head, outline, chunks, sources, ask_small, themes=None, themes_wanted=False):
     """The deck as the single call returned it: {"deck_title", "answer", "slides": [...]}. `head` is the message's
     stable part (audience, goal, findings); `ask_small(system, message, schema, max_tokens)` makes one bounded call."""
@@ -1435,6 +1568,11 @@ def compose_in_steps(eid, tid, system, head, outline, chunks, sources, ask_small
             from . import depthlevel
             level = depthlevel.for_task(tid)
             lo, hi = depthlevel.DECK_SLIDES[level]
+            asked = depthlevel.stated_slides(depthlevel.task_request(tid))
+            if asked:                                  # the person's stated count is the count (26 Nov)
+                lo, hi = asked, asked
+                store.event("deck_count_stated", {"slides": asked, "level_range": list(depthlevel.DECK_SLIDES[level])},
+                            task_id=tid)
             cases = depthlevel.DECK_CASES[level]
             schema = json.loads(json.dumps(STORY_SCHEMA))
             schema["properties"]["slides"].update(minItems=lo, maxItems=hi)
@@ -1457,9 +1595,13 @@ def compose_in_steps(eid, tid, system, head, outline, chunks, sources, ask_small
                              "purpose line names the sentence's source id. Use sentences from different recordings.\n"
                              + "\n".join(f"[{sid}] {sent}" for sid, sent in picks))
             if cases:
-                task += (f" Where the sources name organizations that acted on this subject, give {'at least ' + str(cases) if cases > 1 else 'one'} "
-                         f"slide{'s' if cases > 1 else ''} the kicker CASE, each about one named organization: what it did and what "
-                         "the source says came of it. Use only organizations the sources name; never invent one.")
+                task += (f" Where the sources name organizations that acted on this subject, give {'two or three' if cases > 1 else 'one'} "
+                         f"slide{'s' if cases > 1 else ''} (never more) the kicker CASE, each about one named organization: what it did "
+                         "and what the source says came of it, in the layout that fits it (a flow for what it did and what came of "
+                         "it, a statement or a quote for one strong result). Use only organizations the sources name; never invent one.")
+            task += (f" Choose each slide's layout from its content and vary them: never the same layout more than {MAX_RUN} "
+                     f"times in a row, no layout on more than {int(MAX_SHARE * 100)}% of the slides, and the last slide is the "
+                     "closing slide with the decisions.")
             store.say(f"planning the storyline ({level}: {lo} to {hi} slides)")
             tb = _themes_block(themes, themes_wanted)
             story = ask_small(system, f"{head}\n\n" + (tb + "\n\n" if tb else "") + f"SOURCES AVAILABLE:\n{listing}\n\n{task}",
@@ -1469,6 +1611,20 @@ def compose_in_steps(eid, tid, system, head, outline, chunks, sources, ask_small
                 return story                 # the model wrote the whole deck in its first reply: it is the deck
             if not isinstance(story.get("slides"), list) or len(story["slides"]) < 4:
                 raise providers.ProviderError("the composer returned no storyline")
+            issues = story_problems(story["slides"], cases)
+            if issues:                         # once: the plan goes back with its problems named
+                store.event("deck_story_revised", {"problems": issues}, task_id=tid)
+                store.say("revising the storyline: " + "; ".join(i.split(";")[0] for i in issues)[:200])
+                try:
+                    again = ask_small(system, f"{head}\n\n" + (tb + "\n\n" if tb else "") + f"SOURCES AVAILABLE:\n{listing}\n\n{task}"
+                                      + "\n\nYOUR LAST STORYLINE HAD THESE PROBLEMS; plan it again without them:\n- " + "\n- ".join(issues),
+                                      schema, 3000 if hi <= 13 else 5000)
+                    if isinstance(again.get("slides"), list) and len(again["slides"]) >= 4:
+                        story = again
+                except Exception:
+                    pass
+                if story_problems(story["slides"], cases):
+                    story["slides"] = repair_story(story["slides"], cases)
         state.update(story=story, slides=[])
         save()
     story = state["story"]
@@ -1690,7 +1846,8 @@ def build(eid, brief, tid, ledger):
         s_["title"] = re.sub(r"\.\s*$", "", s_["title"])
     outdir = store.safe_path(eid, f"results/decks/{tid}")
     os.makedirs(outdir, exist_ok=True)
-    store.say(f"all {len(slides)} slides written; making up to {MAX_IMAGES} pictures on the picture engine")
+    store.say(f"all {len(slides)} slides written; making {image_cap(slides)} pictures on the picture engine "
+              "(one for each slide that takes a picture)")
     images = make_images(slides, outdir, ledger)
     store.say("laying out the slides and writing the PowerPoint")
     deck_title = clean(data.get("deck_title")) or eng.get("title") or "Deck"
@@ -1724,6 +1881,9 @@ def build(eid, brief, tid, ledger):
                    "slides": [{k: v for k, v in s.items() if k != "photo"} | {"image": os.path.basename(s["photo"]) if s.get("photo") else ""}
                               for s in slides],
                    "dropped_quotes_not_in_source": dropped, "titles_rewritten": rewritten, "images": images, "checks": checks,
+                   # (26 Nov) slides the model wrote, repeats included: the plan card's time per slide is measured on these
+                   "slides_written": len([s_ for s_ in slides if not str(s_.get("title") or "").lower().startswith("sources")])
+                   + (getattr(_DEDUP, "n", 0) or 0),
                    "source_ids": scope,
                    "requested_sources": {"asked": material.describe(info["want"]), "slides_citing": hit, "slides": body},
                    "shared_themes": {"expected": [t["name"] for t in info.get("themes") or []], "missing": lost},
@@ -1734,6 +1894,9 @@ def build(eid, brief, tid, ledger):
              if info["required_ids"] else "")
     summary = (f"{len(slides)} slides ({layouts}), {images} images, {sum(1 for s in slides if s['quote'])} verified quotes "
                f"({dropped} dropped), {len(checks)} open checks{asked}")
+    repeats = getattr(_DEDUP, "n", 0) or 0
+    if repeats:                              # (26 Nov) said plainly, never a silently shorter deck
+        summary += f"; {repeats} repeated slide{'s' if repeats != 1 else ''} left out"
     return pptx_path, html_path, summary
 
 

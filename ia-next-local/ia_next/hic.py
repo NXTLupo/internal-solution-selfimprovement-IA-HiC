@@ -309,6 +309,14 @@ def pack_items(pack_ids, query, keep=12, report=None, extra_ids=None, loose=(), 
             owner[sid] = "general"
             ids.append(sid)
     ids = ids[:MAX_PACK_SOURCES]
+    # (26 Nov) only the sources HiC's multi-search answers well are sent to it: a pack's site searches and landing pages
+    # are read by packsources.py, its Reddit feeds through Reddit's API (packsocial.py), and dead connectors not at all
+    try:
+        from . import packsources
+        other = packsources.counts(ids)
+        ids = packsources.multi_only(ids)
+    except Exception:
+        other = {}
     # feeds that hung when asked alone are left out of the live search (packindex.probe); the index still serves them
     try:
         from . import packindex as _pi
@@ -337,7 +345,8 @@ def pack_items(pack_ids, query, keep=12, report=None, extra_ids=None, loose=(), 
             return batch, None, str(e)[:160]
 
     rep = report if isinstance(report, dict) else {}
-    rep.update(sources=len(ids), searched=0, answered=0, skipped=0, skipped_batches=0, local=0, set_aside=len(ids) - len(asked_ids))
+    rep.update(sources=len(ids), searched=0, answered=0, skipped=0, skipped_batches=0, local=0, set_aside=len(ids) - len(asked_ids),
+               by_route=other)
     from concurrent.futures import as_completed, TimeoutError as _Late
     pool = ThreadPoolExecutor(max_workers=PACK_WORKERS)
     futs = [pool.submit(run, b) for b in batches]

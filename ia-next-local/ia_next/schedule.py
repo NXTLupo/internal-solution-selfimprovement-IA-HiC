@@ -122,6 +122,18 @@ def start_background(execute):
                             packindex.probe(hic._call, owner=hic.pack_owner())
                         packindex.maybe_ingest(hic._call, idle=lambda: not store.conn().execute(
                             "SELECT COUNT(*) AS n FROM tasks WHERE status IN ('running', 'queued')").fetchone()["n"])
+                        from . import dreaming             # the day's turns reviewed out of band (harness WS-H12)
+                        dreaming.maybe_run()
+                        from . import skills as _skills    # canaries kept or retired on their results (harness WS-H9)
+                        _skills.review_canaries()
+                        from . import scorecard            # verdicts follow the code: stale failures scored again (WS-H7)
+                        scorecard.rescore_stale()
+                        from . import memory as _memory    # conversation notes past their week (WS-H11 tiers)
+                        _memory.purge_scratch()
+                        from . import hicmigrate            # skills re-checked on today's model (WS-H9, Uber)
+                        _skills.recheck_pass(lambda: not hicmigrate.foreground_busy())
+                        from . import modelserver          # the model server's contract after it changes (WS-H19)
+                        modelserver.check(idle=lambda: not hicmigrate.foreground_busy())
                 except Exception as e:
                     store.event("scheduler_error", {"error": f"idle work: {str(e)[:280]}"})
             time.sleep(TICK_SECONDS)

@@ -13,13 +13,27 @@ from ia_next import config, hic  # noqa: E402
 def _no_progress_callback():
     """Each test starts with no streaming-progress callback: a step a previous test opened and never finished would
     otherwise make this test's model calls stream (store.start_node sets one; finish_node clears it)."""
-    from ia_next import providers
+    from ia_next import providers, store
     tok = providers.PROGRESS.set(None)
+    tr = store.TRACE.set("")                     # nor a trace a previous test's stage took on (WS-H3)
     yield
     try:
         providers.PROGRESS.reset(tok)
+        store.TRACE.reset(tr)
     except ValueError:
         pass
+
+
+@pytest.fixture(autouse=True)
+def _person_idle(request, monkeypatch):
+    """Background work's "is the person's work running?" check reads as idle: tasks other tests leave running in the
+    shared store are not the person's (26 Nov). tests/test_migration_yields.py checks the real thing."""
+    from ia_next import health, hicmigrate
+    health._EMBEDDER.update(at=0.0, value=None)            # the embedder check's five-minute result is per test
+    hicmigrate.STATE.pop("paused_since", None)
+    hicmigrate._BUSY.update(at=0.0, busy=False)
+    if "test_migration_yields" not in request.node.nodeid:
+        monkeypatch.setattr(hicmigrate, "foreground_busy", lambda ttl=2.0: False)
 
 
 @pytest.fixture(autouse=True)
@@ -35,6 +49,21 @@ def _no_live_hic(monkeypatch, tmp_path):
     monkeypatch.setattr(config, "SEARCH_URL", "http://127.0.0.1:9")
     monkeypatch.setattr(config, "COMFY_URL", "http://127.0.0.1:9")
     monkeypatch.setenv("IA_NEXT_KEEP_READY", "0")                          # no test loads a model in the background
+    from ia_next import pagetext                                           # nor the open web, through the deep reader
+    monkeypatch.setattr(pagetext, "_get", lambda url: (None, b""))
+    monkeypatch.setattr(pagetext, "_browse", lambda url: None)                # nor the browser reader
+    monkeypatch.setattr(pagetext, "READER_URL", "")
+    from ia_next import videotranscript, youtube                           # nor YouTube
+    monkeypatch.setattr(videotranscript, "probe", lambda url: {})
+    monkeypatch.setattr(videotranscript, "captions", lambda vid: [])
+    monkeypatch.setattr(youtube, "_search_entries", lambda q, n: [])
+    from ia_next import packsocial                                         # nor Reddit through the packs' subreddits
+    monkeypatch.setattr(packsocial, "search_packs", lambda *a, **k: ([], {}))
+    monkeypatch.setattr(packsocial, "search_names", lambda *a, **k: ([], {"kept": 0}))
+    from ia_next import packsources                                        # and an empty pack registry: every source goes to
+    monkeypatch.setattr(packsources, "_CACHE", {"reg": {}})                 # HiC's multi-search unless a test says otherwise
+    youtube._PROBED.clear()
+    youtube._COOL.update(until=0, blocked_until=0)
     from ia_next import localmedia
     monkeypatch.setattr(localmedia, "ENGINE_WAIT", 0)                      # and no test waits for an engine to restart
     from ia_next import store

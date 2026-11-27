@@ -35,6 +35,10 @@ def _check_ollama():
     missing = sorted(m for m in wanted if m not in names)
     if missing:
         return False, f"models missing from Ollama: {', '.join(missing)}", "the seats those models fill"
+    from . import modelserver                     # (WS-H19) the contract checked after the model server last changed
+    ok, why = modelserver.health_note()
+    if not ok:
+        return False, why, "long prompts may be cut without notice"
     return True, f"{len(names)} models available", ""
 
 
@@ -66,9 +70,25 @@ def _check_hic():
     return True, "answering", ""
 
 
+# 26 Nov: this check ran with every deep health read (every 20 s while the page is open). Each run made HiC count its
+# chunk store on its event loop and embed a test sentence; during a deep research run HiC logged 99 loop stalls in 40
+# minutes and the run's archive step waited on HiC. The result now holds for five minutes (one minute while it fails).
+EMBEDDER_OK_SECONDS, EMBEDDER_DOWN_SECONDS = 300, 60
+_EMBEDDER = {"at": 0.0, "value": None}
+
+
 def _check_embedder():
     """HiC embeds wiki chunks with its local embedder; when that is down, new pages get no embeddings and second-brain
     search returns nothing (it still answers HTTP 200, which is why this needs its own check)."""
+    v = _EMBEDDER["value"]
+    if v is not None and time.time() - _EMBEDDER["at"] < (EMBEDDER_OK_SECONDS if v[0] else EMBEDDER_DOWN_SECONDS):
+        return v
+    v = _embedder_now()
+    _EMBEDDER.update(at=time.time(), value=v)
+    return v
+
+
+def _embedder_now():
     from . import hic
     try:
         st = hic._forward("GET", "/api/wiki/embed-status", 20)

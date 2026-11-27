@@ -37,13 +37,11 @@ def _startup():
     plan.recover()                           # a plan that was mid-sequence says so on its card
     config.ensure_dirs()
     store.conn()
-    # A task left "running" by a previous process cannot still be running: say so instead of pretending.
-    for t in store.list_tasks(limit=500):
-        if t["status"] == "stopping":                  # the person asked it to stop; the restart finished the job
-            store.finish_stopped(t["id"])
-        elif t["status"] in ("queued", "running"):
-            store.update_task(t["id"], status="failed", error="interrupted by a restart; start it again")
-            store.event("task_failed", {"error": "interrupted by a restart"}, t["engagement_id"], t["id"])
+    # A task left "running" by a previous process cannot still be running: a research task resumes from its last
+    # finished step (harness WS-H16); other work says it was interrupted. Not under test (a late thread would run on a
+    # database being reset).
+    from . import lifecycle
+    lifecycle.resume_interrupted(start=os.environ.get("IA_NEXT_KEEP_READY", "1") != "0")
     try:                                     # the conversation model is in memory before the first message (E8)
         from . import providers as _prov
         _prov.ready_soon("the app started", delay=8.0)
@@ -222,10 +220,116 @@ class LibraryAdd(BaseModel):
 
 
 @app.get("/api/library/search")
-def library_search(q: str = "", engagement: str = "", pack: str = "", publisher: str = "", period: str = "", limit: int = 60):
-    """The Library (Gap 1): every source this machine has collected, from the local full-text index."""
+def library_search(q: str = "", engagement: str = "", pack: str = "", publisher: str = "", period: str = "", limit: int = 60,
+                   kind: str = "", collection: str = "", project: str = ""):
+    """The Library (Gap 1): every source this machine has collected, from the local full-text index; the migrated HiC
+    library included (26 Nov), filterable by kind, collection and project."""
     from . import libraryview
-    return libraryview.search(q[:200], engagement[:40], pack[:40], publisher[:120], period[:12], max(1, min(int(limit), 200)))
+    return libraryview.search(q[:200], engagement[:40], pack[:40], publisher[:120], period[:12], max(1, min(int(limit), 200)),
+                              kind[:20], collection[:40], project[:120])
+
+
+@app.post("/api/dreaming/run")
+def dreaming_run():
+    """Review the recent turns now (harness WS-H12); the run is a task with visible stages, and its proposals wait as
+    approval cards."""
+    from . import dreaming
+    t = threading.Thread(target=lambda: dreaming._quiet(dreaming.run), daemon=True, name="dreaming")
+    t.start()
+    return {"started": True}
+
+
+@app.get("/api/tasks/{tid}/timeline")
+def task_timeline(tid: str):
+    """Where a task's time went: each step's lines with their seconds (harness WS-H18)."""
+    if not store.get_task(tid):
+        raise HTTPException(404, "no such task")
+    rows = store.timeline(tid)
+    by = {}
+    for r in rows:
+        by[r["specialist"]] = round(by.get(r["specialist"], 0) + r["seconds"], 1)
+    return {"task_id": tid, "lines": rows, "seconds_by_step": by}
+
+
+@app.get("/api/hooks")
+def hooks_in_force():
+    """The rules every tool call passes (harness WS-H2): the floor that cannot be turned off, the owner's deny rules
+    from data/hooks.json, and the handlers in order."""
+    from . import hooks
+    return hooks.describe()
+
+
+@app.get("/api/harness")
+def harness_report(days: float = 7):
+    """What the harness has been doing over a period (harness WS-H18): how turns ended, what the loop stepped in for,
+    model loads, learning proposals, skill quality and where recent task time went."""
+    from . import harnessreport
+    return harnessreport.report(max(0.1, min(float(days), 90)))
+
+
+class Autonomy(BaseModel):
+    mode: str
+
+
+@app.get("/api/autonomy")
+def autonomy_get():
+    """The autonomy mode (harness WS-H17): ask, auto-research or auto. The approval floor applies in every mode."""
+    from . import plan
+    return {"mode": plan.autonomy(), "modes": list(plan.MODES)}
+
+
+@app.post("/api/autonomy")
+def autonomy_set(a: Autonomy):
+    from . import plan
+    try:
+        return plan.set_autonomy(a.mode)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/papercuts")
+def papercut_list(state: str = ""):
+    """Friction reported by the agent and by IA Next's specialists, grouped and counted (harness WS-H13)."""
+    from . import papercuts
+    return {"papercuts": papercuts.grouped(state or None)}
+
+
+class PapercutState(BaseModel):
+    state: str
+
+
+@app.post("/api/papercuts/{pid}")
+def papercut_state(pid: int, body: PapercutState):
+    from . import papercuts
+    try:
+        return papercuts.set_state(pid, body.state)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/traces/{trace}")
+def trace_view(trace: str):
+    """One conversation turn end to end (harness WS-H3): its transcript, events, model calls and the tasks it started."""
+    if not re.fullmatch(r"tr_[0-9a-f]{12}", trace or ""):
+        raise HTTPException(400, "not a trace id")
+    return store.trace_view(trace)
+
+
+@app.post("/api/library/migrate")
+def library_migrate(phases: str = "import,embed,restore,embed"):
+    """Start the migration of the old research system's second brain into the Library (hicmigrate.py), in the
+    background. Safe to start again: unchanged pages are not rewritten and restored addresses are not fetched twice."""
+    from . import hicmigrate
+    want = tuple(p for p in phases.split(",") if p in ("import", "embed", "restore", "retry", "videos", "videos-whisper", "tidy"))
+    if not os.path.isdir(hicmigrate.WIKI_DIR):
+        raise HTTPException(409, f"the old wiki is not mounted at {hicmigrate.WIKI_DIR}")
+    return hicmigrate.start(want or ("import", "embed", "restore", "embed"))
+
+
+@app.get("/api/library/migration")
+def library_migration():
+    from . import hicmigrate
+    return hicmigrate.status()
 
 
 @app.post("/api/library/backfill")
@@ -524,23 +628,84 @@ def task_verification(tid: str):
 
 
 @app.get("/api/memory")
-def get_memory():
+def get_memory(engagement: str = "", conversation: str = ""):
     snap = memory.snapshot()
-    return {"user": snap["user"], "memory": snap["memory"]}
+    return {"user": snap["user"], "memory": snap["memory"],
+            # (WS-H11 tiers) the notes for the engagement in focus and for this conversation
+            "engagement_notes": memory.scoped_notes("engagement", engagement.strip()) if engagement.strip() else [],
+            "conversation_notes": memory.scoped_notes("conversation", conversation.strip()) if conversation.strip() else [],
+            "scratch_days": memory.SCRATCH_DAYS}
 
 
 class Remember(BaseModel):
     text: str
     kind: str = "memory"
+    engagement_id: str = ""
+    conversation_id: str = ""
 
 
 @app.post("/api/memory/remember")
 def remember(r: Remember):
-    return memory.remember_now(r.text, "workspace", "user" if r.kind == "user" else "memory")
+    if r.kind == "engagement":
+        got = memory.remember_scoped("engagement", r.engagement_id, r.text, "workspace")
+    elif r.kind == "conversation":
+        got = memory.remember_scoped("conversation", r.conversation_id, r.text, "workspace")
+    else:
+        return memory.remember_now(r.text, "workspace", "user" if r.kind == "user" else "memory")
+    if got.get("error"):
+        raise HTTPException(400, got["error"])
+    return got
+
+
+@app.post("/api/memory/notes/{note_id}/keep")
+def memory_keep_note(note_id: int):
+    """A conversation note moved into the notes for all work (WS-H11 tiers)."""
+    got = memory.keep_note(note_id)
+    if got.get("error"):
+        raise HTTPException(404, got["error"])
+    return got
+
+
+@app.delete("/api/memory/notes/{note_id}")
+def memory_drop_note(note_id: int):
+    got = memory.drop_note(note_id)
+    if got.get("error"):
+        raise HTTPException(404, got["error"])
+    return got
 
 
 class Forget(BaseModel):
     match: str
+
+
+@app.get("/api/memory/versions")
+def memory_versions(name: str = "MEMORY.md", limit: int = 20):
+    """Every change to a memory file with who made it, why and the turn it came from (harness WS-H11)."""
+    if name not in ("USER.md", "MEMORY.md"):
+        raise HTTPException(400, "name is USER.md or MEMORY.md")
+    return {"name": name, "hash": memory.current_hash(name), "versions": memory.versions(name, max(1, min(200, limit)))}
+
+
+class Rollback(BaseModel):
+    version: int
+
+
+@app.post("/api/memory/rollback")
+def memory_rollback(r: Rollback):
+    got = memory.rollback(r.version)
+    if got.get("error"):
+        raise HTTPException(404, got["error"])
+    return got
+
+
+@app.get("/api/memory/export")
+def memory_export():
+    return memory.export_memory()
+
+
+@app.post("/api/memory/import")
+def memory_import(data: dict):
+    return memory.import_memory(data)
 
 
 @app.post("/api/memory/forget")
@@ -694,6 +859,9 @@ def decide(aid: str, d: Decision):
         elif row["tool"] in agent.MODULE_FOR_TOOL:
             threading.Thread(target=agent.execute_tool, args=(row["tool"], args), daemon=True).start()
             started = {"running": row["tool"]}
+        elif row["tool"] == "apply_dream":       # an accepted dreaming proposal (harness WS-H12)
+            from . import dreaming
+            started = dreaming.apply(args)
         elif row["tool"] == "evaluate_skill":
             from . import skills, studio
             threading.Thread(target=skills.evaluate, args=(args["evaluate_skill"],
@@ -1346,8 +1514,67 @@ def skills_list():
         active = next((v for v in reversed(vs) if v["status"] == "active"), None)
         out.append({"skill": name, "active_version": active["version"] if active else None,
                     "candidates": sum(1 for v in vs if v["status"] == "candidate"), "versions": len(vs),
-                    "held_out_cases": len(skills.prompt_cases(name)) if name != "writer" else len(skills.held_out_cases())})
+                    "held_out_cases": len(skills.prompt_cases(name)) if name != "writer" else len(skills.held_out_cases()),
+                    "quality": skills.quality(name)})
     return {"skills": out}
+
+
+@app.get("/api/skills/metrics")
+def skills_metrics(days: int = 30):
+    """(WS-H9) usage, who chose each skill, versions, reach, failures, model time and co-use, for every skill."""
+    from . import agentskills
+    return agentskills.metrics(max(1, min(365, days)))
+
+
+@app.get("/api/skills/agent")
+def skills_agent():
+    """(WS-H9) the agent-facing skill packages: what the agent's instructions list, and each one's lint."""
+    from . import agentskills
+    return {"skills": [dict(r, lint=agentskills.lint(r["name"]), graduation=agentskills.graduation(r["name"]),
+                            references=agentskills.package(r["name"])["references"]) for r in agentskills.catalog()]}
+
+
+@app.get("/api/model-server")
+def model_server():
+    """(WS-H19) the model server's version and the contract last checked on it."""
+    from . import modelserver
+    return {"version": modelserver.version(), "contract": modelserver.saved()}
+
+
+@app.post("/api/model-server/check")
+def model_server_check():
+    """(WS-H19) check the model server's contract now, as a visible task."""
+    from . import hicmigrate, modelserver
+    if hicmigrate.foreground_busy():
+        raise HTTPException(409, "work is running; the check waits for the machine to be idle")
+    return {"contract": modelserver.check(force=True)}
+
+
+@app.post("/api/skills/recheck/pause")
+def skill_recheck_pause(minutes: float = 60):
+    """(WS-H9) hold the idle re-checks for a while (0 resumes them); one in flight stops before its next case."""
+    from . import skills
+    return skills.pause_rechecks(max(0.0, min(24 * 60, minutes)))
+
+
+@app.post("/api/skills/{skill}/recheck")
+def skill_recheck(skill: str):
+    """(WS-H9) score the active version on today's model now, in the background, as the idle pass would."""
+    from . import hicmigrate, skills
+    if skill not in skills.REGISTRY:
+        raise HTTPException(404, "no such skill")
+    if not skills._RECHECK_LOCK.acquire(blocking=False):
+        return {"started": False, "message": "a re-check is already running"}
+    skills._RECHECK_LOCK.release()
+    import threading as _th
+
+    def go():
+        with skills._RECHECK_LOCK:
+            from . import studio
+            skills.run_recheck(skill, idle=lambda: not hicmigrate.foreground_busy(),
+                           writer_fn=lambda eid, brief, f, s_, led, system: studio.writer(eid, brief, f, s_, led, system=system))
+    _th.Thread(target=go, daemon=True, name=f"skill-recheck-{skill}").start()
+    return {"started": True, "skill": skill}
 
 
 @app.get("/api/skills/{skill}")
@@ -1371,9 +1598,9 @@ def skill_evaluate(vid: str):
 
 
 @app.post("/api/skills/versions/{vid}/promote")
-def skill_promote(vid: str):
+def skill_promote(vid: str, canary: int = 0):
     from . import skills
-    return skills.promote(vid)
+    return skills.promote(vid, canary=bool(canary))
 
 
 # ---- channels: one signed webhook for every non-web surface ------------------------------------

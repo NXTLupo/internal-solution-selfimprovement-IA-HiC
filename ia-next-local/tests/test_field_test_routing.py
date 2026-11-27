@@ -65,7 +65,8 @@ def test_the_deck_is_planned_then_written_three_slides_at_a_time_and_resumes(mon
     sources = [{"id": f"S{i}", "title": f"Source {i}", "date": "2026-11-20"} for i in range(1, 4)]
     chunks = [{"source_id": f"S{i}", "title": f"Source {i}", "text": f"Passage {i} " * 40, "pointer": f"a/{i}.md#c0"} for i in range(1, 4)]
     plan = [{"layout": "cover", "kicker": "", "title": "Answer", "purpose": "the answer", "cites": ["S1"]}] + \
-           [{"layout": "cards", "kicker": f"K{i}", "title": f"Title {i}", "purpose": f"claim {i}", "cites": [f"S{1 + i % 3}"]} for i in range(1, 7)]
+           [{"layout": lay, "kicker": f"K{i}", "title": f"Title {i}", "purpose": f"claim {i}", "cites": [f"S{1 + i % 3}"]}
+            for i, lay in enumerate(("cards", "bullets", "statement", "flow", "quote", "closing"), 1)]     # a sound shape (26 Nov check)
     fail = {"on": True}
 
     def ask_small(system, message, schema, max_tokens):

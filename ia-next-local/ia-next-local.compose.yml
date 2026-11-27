@@ -26,6 +26,7 @@ services:
       - IA_NEXT_OLLAMA_URL=http://host.docker.internal:11434
       - IA_NEXT_SEARCH_URL=http://ia-next-local-search:8080
       - IA_NEXT_RENDER_URL=http://ia-next-local-render:9500
+      - IA_NEXT_READER_URL=http://ia-next-local-reader:9510
       - IA_NEXT_COMFY_URL=http://host.docker.internal:8189
       - IA_NEXT_SPEECH_DIR=/models/speech
       - IA_NEXT_WHISPER_DIR=/models/whisper
@@ -40,6 +41,8 @@ services:
       - ia-next-local-data:/data
       # HiC publishes its proxy token here; read-only, and only config.json is read.
       - D:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/hic-workspace/.runtime:/hic-workspace/.runtime:ro
+      # The earlier research system's wiki, read-only: the Library migrates its pages from here (hicmigrate.py, 26 Nov)
+      - D:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/hic-workspace/wiki:/hic-wiki:ro
       # Speech models already on this machine, read-only: Piper voices and the Whisper weights in the HF cache.
       - D:/nxt-ai-capabilities/local/models/piper:/models/speech/piper:ro
       - D:/ia-next-local-models/piper:/models/speech/piper-extra:ro
@@ -53,6 +56,7 @@ services:
     networks:
       - ia-next-local-net
       - ia-next-local-render
+      - ia-next-local-reader
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9460/health', timeout=4)"]
       interval: 30s
@@ -79,6 +83,27 @@ services:
       retries: 3
     restart: unless-stopped
 
+  # The deep reader's browser (owner's crawling guide, 26 Nov): Chromium opens public pages a plain fetch cannot read
+  # (JavaScript-built pages, cookie, age and disclaimer gates) and returns the rendered page. It reaches the internet
+  # but refuses every private address, holds no keys and no volume, publishes no port, and gets past no bot check.
+  ia-next-local-reader:
+    build: ./reader
+    image: ia-next-local-reader:0.1
+    container_name: ia-next-local-reader
+    networks:
+      - ia-next-local-reader
+    shm_size: "1g"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /home/reader
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9510/health', timeout=4)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+    restart: unless-stopped
+
   # The search seat's page finder: SearXNG, free software that queries public search engines. No key, no account,
   # no published port; only IA Next Local reaches it.
   ia-next-local-search:
@@ -98,6 +123,8 @@ networks:
   ia-next-local-render:
     name: ia-next-local-render
     internal: true
+  ia-next-local-reader:
+    name: ia-next-local-reader
 
 volumes:
   ia-next-local-data:

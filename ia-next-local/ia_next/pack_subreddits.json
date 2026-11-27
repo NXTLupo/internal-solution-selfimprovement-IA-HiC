@@ -1,0 +1,4793 @@
+{
+ "made": "2026-11-26",
+ "method": "HiC Suggest from goal (gemini-3.5-flash, once) on each pack's market-research questions, plus the pack's own Reddit feeds; every name checked with Reddit's API",
+ "packs": {
+  "fundraising": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Crowdfunding campaign managers discussing AI copy generation, backer analytics, and automated reward fulfillment.",
+    "name": "kickstarter",
+    "subscribers": 107308
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Nonprofit professionals sharing tech adoption, donor communications, and operational software experiences.",
+    "name": "nonprofit",
+    "subscribers": 97401
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Donors and fundraisers debating grantmaking transparency, donor trust, and AI ethics.",
+    "name": "EffectiveAltruism",
+    "subscribers": 38183
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Grant writers and managers sharing experiences with AI proposal drafting and funder guidelines",
+    "name": "grants",
+    "subscribers": 12040
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "University staff and administrators discussing higher ed operations, campus technology, and alumni engagement",
+    "name": "studentaffairs",
+    "subscribers": 9931
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Peer-to-peer and reward crowdfunding creators comparing AI marketing tools and campaign analytics performance.",
+    "name": "Indiegogo",
+    "subscribers": 7355
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "CRM administrators implementing Salesforce Nonprofit Cloud AI tools, data hygiene, and donor tracking",
+    "name": "salesforceadmin",
+    "subscribers": 6125
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Faith-based leaders discussing congregational tithing platforms, digital stewardship, and AI-assisted fundraising communications.",
+    "name": "pastors",
+    "subscribers": 5482
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Grant writers discussing AI proposal drafting, funder reactions, and efficiency tools.",
+    "name": "grantwriting",
+    "subscribers": 2070
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "personalfinance",
+    "subscribers": 21906189
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "sustainability",
+    "subscribers": 914725
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "ethicalfashion",
+    "subscribers": 121445
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "wayfair",
+    "subscribers": 13052
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data analysts discussing predictive modeling for churn, donor lapse, and machine learning pipelines.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Copywriters and growth marketers discussing AI outreach performance, email retention, and personalized messaging.",
+    "name": "marketing",
+    "subscribers": 1985640
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Frontline sales reps and major gift equivalents sharing AI meeting prep workflows and CRM tools.",
+    "name": "sales",
+    "subscribers": 615846
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Nonprofit marketers sharing campaign performance, AI copy generation, and audience segmentation.",
+    "name": "DigitalMarketing",
+    "subscribers": 480785
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Writers discussing AI-generated fundraising appeals, stewardship reports, and authenticity in storytelling.",
+    "name": "copywriting",
+    "subscribers": 265371
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Individual and organizational fundraisers discussing direct donor communications, trust, and campaign outcomes",
+    "name": "gofundme",
+    "subscribers": 239337
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Prospect researchers and data analysts discussing predictive modeling and donor wealth screening.",
+    "name": "dataanalysis",
+    "subscribers": 235629
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Nonprofit accountants discussing grant reporting compliance, data hygiene in CRMs, and donor tax documentation.",
+    "name": "CPA",
+    "subscribers": 134748
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Media perspectives on charity transparency, AI-generated appeals, and donor trust issues.",
+    "name": "Journalism",
+    "subscribers": 130142
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Fundraisers and copywriters sharing AI personalization strategies and annual fund response rates.",
+    "name": "Emailmarketing",
+    "subscribers": 126452
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "CRM administrators building AI workflows for Salesforce Nonprofit Success Pack (NPSP).",
+    "name": "salesforce",
+    "subscribers": 118952
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Donors and volunteers sharing perspectives on transparency and non-profit communications.",
+    "name": "Charity",
+    "subscribers": 106629
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Database managers comparing CRM platforms, data hygiene, and AI feature rollouts.",
+    "name": "CRM",
+    "subscribers": 62627
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Healthcare IT professionals discussing data privacy and grateful patient software integrations.",
+    "name": "healthIT",
+    "subscribers": 60723
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Higher education personnel discussing institutional technology investments, university strategy, and donor relations",
+    "name": "University",
+    "subscribers": 56839
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Recurring gift managers and creators sharing tactics on automated subscriber retention and messaging",
+    "name": "patreon",
+    "subscribers": 48987
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Foundation staff and major donors sharing views on giving trends and AI proposals.",
+    "name": "Philanthropy",
+    "subscribers": 13979
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Small nonprofit operations teams adopting budget-friendly CRM automation and AI features",
+    "name": "Zoho",
+    "subscribers": 13904
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Discussions on donor record privacy, data security, and ethical concerns regarding AI scraping.",
+    "name": "privacy",
+    "subscribers": 1688254
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Practitioners discussing draft quality and errors in AI-generated grant proposals and appeals.",
+    "name": "generativeAI",
+    "subscribers": 186740
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Discussions around the ethics of AI communications and data privacy in public sectors.",
+    "name": "Ethics",
+    "subscribers": 54718
+   }
+  ],
+  "agriculture": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Smallholders and small-scale farmers discuss accessible agricultural automation tools, robotics, and affordable tech options.",
+    "name": "homestead",
+    "subscribers": 3555910
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Active community of working farmers sharing firsthand experiences with machinery, software, and everyday farm management.",
+    "name": "farming",
+    "subscribers": 220732
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Farmers and industry professionals discuss agricultural technology, policy, market dynamics, and operational practices.",
+    "name": "Agriculture",
+    "subscribers": 73700
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Machinery enthusiasts and farmers evaluate tractor technology, auto-steer, and automated features.",
+    "name": "tractors",
+    "subscribers": 72651
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Livestock producers share real-world feedback on herd tracking, automated monitoring, and smart livestock equipment.",
+    "name": "Ranching",
+    "subscribers": 42423
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Livestock producers share experiences with herd monitoring, health tracking, and farm tech.",
+    "name": "Cattle",
+    "subscribers": 20918
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Farmers discussing digital lockouts, telemetry access, and software rights on modern equipment.",
+    "name": "righttorepair",
+    "subscribers": 12266
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Dairy operators discuss robotic milking systems, automated health collars, and sensor-driven herd tracking.",
+    "name": "dairyfarming",
+    "subscribers": 6051
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Dedicated to variable-rate tech, telemetry, guidance systems, computer vision, and farm data management systems.",
+    "name": "PrecisionAg",
+    "subscribers": 1950
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "vegetablegardening",
+    "subscribers": 851235
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Permaculture",
+    "subscribers": 378471
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Beekeeping",
+    "subscribers": 249219
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Hydroponics",
+    "subscribers": 196864
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Engineers discuss computer vision, autonomous tractors, mechanical weeders, and agricultural robotics hardware.",
+    "name": "robotics",
+    "subscribers": 347603
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Drone pilots and operators discuss multispectral sensors, field mapping software, and aerial spraying regulations.",
+    "name": "drones",
+    "subscribers": 296463
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Engineers and developers discussing agricultural weed spraying and crop monitoring vision models.",
+    "name": "computervision",
+    "subscribers": 169186
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "GIS professionals analyze remote sensing data, satellite imagery, and spatial analysis used in precision agriculture.",
+    "name": "gis",
+    "subscribers": 154340
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Agricultural and structural pest managers discuss outbreak tracking and application tools.",
+    "name": "pestcontrol",
+    "subscribers": 109661
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Controlled-environment growers sharing experience with automated irrigation, lighting, and monitoring tools.",
+    "name": "microgreens",
+    "subscribers": 103459
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Greenhouse and specialty crop growers discuss environmental controls and automated monitoring systems.",
+    "name": "Horticulture",
+    "subscribers": 86780
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Irrigation specialists debate smart water management, automated sensors, and scheduling software.",
+    "name": "Irrigation",
+    "subscribers": 63618
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Equipment operators and technicians discuss smart machinery, telemetry, and right-to-repair data practices.",
+    "name": "heavyequipment",
+    "subscribers": 45676
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Controlled environment growers discuss climate automation, sensor integration, and crop tracking.",
+    "name": "greenhouse",
+    "subscribers": 28184
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Indoor farm operators evaluate automated HVAC, climate control AI, and sensor integration in controlled environment agriculture.",
+    "name": "verticalfarming",
+    "subscribers": 20387
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Vineyard managers detail specialty crop technology, computer vision, and automated harvesting tools.",
+    "name": "viticulture",
+    "subscribers": 10545
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Small-scale specialty growers debate automation, pest identification apps, and soil testing.",
+    "name": "gardening",
+    "subscribers": 9045618
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Discussions on edge computing devices and sensor systems deployed in rugged agricultural environments.",
+    "name": "hardware",
+    "subscribers": 4376531
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Logistics professionals explore food traceability, grain transportation, and agricultural supply chain AI.",
+    "name": "supplychain",
+    "subscribers": 119625
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Traders and producers discuss grain markets, price forecasting models, and algorithmic hedging strategies.",
+    "name": "Commodities",
+    "subscribers": 43229
+   }
+  ],
+  "energy": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Tech-savvy homeowners discussing smart thermostats, home energy management, and demand response programs.",
+    "name": "homeautomation",
+    "subscribers": 4600778
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Field trade professionals discussing practical equipment deployment, smart tech, and grid connections.",
+    "name": "electricians",
+    "subscribers": 586416
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "EV owners discussing managed charging schemes, smart rates, and utility load management.",
+    "name": "electricvehicles",
+    "subscribers": 454190
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Broad industry hub with discussions on grid modernization, load growth, and AI data centers.",
+    "name": "energy",
+    "subscribers": 301414
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Solar installers and system operators discussing grid interconnection, inverter data, and generation models.",
+    "name": "solar",
+    "subscribers": 205360
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Solar, wind, and storage developers sharing experiences with generation forecasting and dispatch AI.",
+    "name": "RenewableEnergy",
+    "subscribers": 164703
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Nuclear industry workers discussing plant monitoring, predictive maintenance, and digital twin safety.",
+    "name": "nuclear",
+    "subscribers": 101745
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Lineworkers sharing ground-level perspectives on automated inspections, drone usage, and storm response.",
+    "name": "Lineman",
+    "subscribers": 70185
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Homeowners discussing automated home energy management systems and grid demand response integration.",
+    "name": "heatpumps",
+    "subscribers": 66044
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Field workers and engineers sharing practical perspectives on upstream AI, automation, and software adoption.",
+    "name": "oilandgasworkers",
+    "subscribers": 59962
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Data center operators discussing massive power demand, utility interconnect delays, and power sourcing.",
+    "name": "datacenter",
+    "subscribers": 48355
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "EV infrastructure operators and drivers discussing grid strain, smart charging algorithms, and pricing.",
+    "name": "evcharging",
+    "subscribers": 40448
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Battery storage developers and engineers discuss AI dispatch, trading algorithms, and grid integration.",
+    "name": "EnergyStorage",
+    "subscribers": 17824
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Upstream/midstream practitioners discussing drilling optimization, subsurface AI models, and emissions tracking.",
+    "name": "oilandgas",
+    "subscribers": 15680
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Industrial automation engineers discussing grid control, real-time data, and utility automation systems.",
+    "name": "SCADA",
+    "subscribers": 11756
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "AskElectricians",
+    "subscribers": 306073
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "OffGrid",
+    "subscribers": 259251
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "SolarDIY",
+    "subscribers": 161429
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "NuclearPower",
+    "subscribers": 66392
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "geothermal",
+    "subscribers": 9698
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Tech professionals discussing massive AI data center power draw and utility infrastructure constraints.",
+    "name": "hardware",
+    "subscribers": 4376531
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Security professionals discussing critical infrastructure vulnerabilities and AI-driven grid threats.",
+    "name": "cybersecurity",
+    "subscribers": 1575330
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Professional engineers sharing real-world adoption of AI design copilots and simulation tools.",
+    "name": "engineering",
+    "subscribers": 751671
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Tech-savvy homeowners integrating smart meter data, battery storage, and dynamic tariff optimization.",
+    "name": "homeassistant",
+    "subscribers": 624416
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data engineers discussing enterprise smart meter ingestion pipelines and energy sector AI infrastructure.",
+    "name": "dataengineering",
+    "subscribers": 487539
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Geoscientists sharing hands-on experience with seismic AI tools for subsurface exploration.",
+    "name": "geology",
+    "subscribers": 301991
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Commercial drone pilots sharing experiences with line inspections, thermography, and vegetation mapping.",
+    "name": "drones",
+    "subscribers": 296463
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "GIS professionals managing utility asset mapping, vegetation management, and spatial AI modeling.",
+    "name": "gis",
+    "subscribers": 154340
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Industrial automation control engineers discussing SCADA, edge AI, and OT cybersecurity in critical infrastructure.",
+    "name": "PLC",
+    "subscribers": 145294
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Engineers discussing process control AI in refineries, hydrogen production, and carbon capture.",
+    "name": "ChemicalEngineering",
+    "subscribers": 143199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Smart home consumers discussing automated HVAC energy savings and utility data sharing.",
+    "name": "Nest",
+    "subscribers": 91608
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "End-users detailing experiences with automated thermostat algorithms and utility demand-response events.",
+    "name": "ecobee",
+    "subscribers": 54400
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Drone operators discussing automated utility line inspection, thermal imaging, and computer vision models.",
+    "name": "UAVmapping",
+    "subscribers": 26935
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Analysts showing grid load models, electricity price shifts, and data center energy visualization.",
+    "name": "dataisbeautiful",
+    "subscribers": 21858713
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Practitioners discussing specialized AI models for time-series forecasting, grid optimization, and physical systems.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Community members discussing local opposition to data centers, grid expansion, and power plants.",
+    "name": "environment",
+    "subscribers": 1559628
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Management and IT consultants discussing energy client AI deployments and vendor selections.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Subsurface geoscientists discussing AI seismic interpretation tools and industry skill shifts.",
+    "name": "geologycareers",
+    "subscribers": 56997
+   }
+  ],
+  "executive_search": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Candidates share authentic complaints about AI screening, automated rejection, and interview tools.",
+    "name": "recruitinghell",
+    "subscribers": 1551785
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Senior technical leaders discuss executive hiring, technical leadership roles, and AI evaluation.",
+    "name": "ExperiencedDevs",
+    "subscribers": 427719
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "In-house HR leaders discussing search firm usage, executive hiring, and AI tool adoption.",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Agency and third-party recruiters discussing search tools, candidate sourcing, and industry shifts.",
+    "name": "recruiting",
+    "subscribers": 223393
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Senior executives and management advisors discussing AI transformation, governance, and executive hiring",
+    "name": "Leadership",
+    "subscribers": 151681
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "UK-based HR leaders and executive recruiters discussing talent acquisition, AI tooling, and governance",
+    "name": "HumanResourcesUK",
+    "subscribers": 45577
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Agency and executive search consultants discussing recruitment tech, AI sourcing tools, and client expectations",
+    "name": "Recruitment",
+    "subscribers": 28345
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Leadership advisors and coaches share insights on AI integration and executive assessment.",
+    "name": "executivecoaching",
+    "subscribers": 5781
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "AskHR",
+    "subscribers": 1853814
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Mid-to-senior professionals seeking advice on executive job transitions and AI-driven hiring processes.",
+    "name": "careerguidance",
+    "subscribers": 5069234
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Candidates sharing first-person experiences with AI screening, ATS systems, and automated interviews.",
+    "name": "jobs",
+    "subscribers": 2877197
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Staff/Principal engineers discuss navigating AI resumes, executive search processes, and market conditions.",
+    "name": "cscareerquestions",
+    "subscribers": 2408089
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Senior finance leaders and recruiters discuss executive search, PE portfolio leadership, and compensation.",
+    "name": "FinancialCareers",
+    "subscribers": 1785791
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Job seekers discussing AI resume tailoring, optimization for ATS, and cover letter generation.",
+    "name": "resumes",
+    "subscribers": 1329064
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Management consultants and advisors discussing organizational leadership, executive advisory, and AI transformation.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Candidates discussing AI interview prep, executive interview formats, and AI screening experiences",
+    "name": "interviews",
+    "subscribers": 329816
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Mid-to-senior managers discuss adopting AI recruiting tools, interviewing candidates, and talent assessment.",
+    "name": "managers",
+    "subscribers": 298319
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Recruiters and candidates discussing LinkedIn Recruiter AI features, outreach automation, and platform changes.",
+    "name": "linkedin",
+    "subscribers": 171895
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Senior job seekers documenting modern executive job search tactics, AI tools, and headhunter outreach",
+    "name": "jobsearch",
+    "subscribers": 147935
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Senior candidates discussing resume optimization for AI screening tools and applicant tracking software",
+    "name": "Resume",
+    "subscribers": 131101
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Experienced professionals sharing candidate-side perspectives on executive job searches and recruiter AI interactions",
+    "name": "Careers",
+    "subscribers": 71920
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "CEOs and top leaders discuss executive hiring decisions, board expectations, and AI leadership.",
+    "name": "ceo",
+    "subscribers": 20167
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Advisors discuss corporate AI transformation, leadership advisory services, and org design.",
+    "name": "managementconsulting",
+    "subscribers": 17799
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Leadership advisors discussing executive coaching, psychometric assessments, and succession planning tools.",
+    "name": "LeadershipDevelopment",
+    "subscribers": 4497
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Senior leaders share experiences being recruited, AI screening reactions, and executive job searching.",
+    "name": "Executives",
+    "subscribers": 1126
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Practitioners occasionally debate fairness, bias, and technical viability of AI assessment tools.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Founders and CEOs discuss hiring fractional executives, executive search, and leadership assessment.",
+    "name": "startup",
+    "subscribers": 327864
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Candidates share experiences with automated screening, resume tailors, and AI application tools.",
+    "name": "work",
+    "subscribers": 312389
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Investors discuss portfolio company executive hiring, talent management, and board seat placement.",
+    "name": "venturecapital",
+    "subscribers": 87999
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Legal practitioners discuss compliance issues like NYC Local Law 144 in automated hiring.",
+    "name": "EmploymentLaw",
+    "subscribers": 20031
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Discussions on AI workforce transformation, leadership skill shifts, and governance trends.",
+    "name": "FutureOfWork",
+    "subscribers": 8718
+   }
+  ],
+  "financial_services": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Everyday banking customers reviewing AI chatbots, automated budgeting apps, and credit decision experiences.",
+    "name": "personalfinance",
+    "subscribers": 21906189
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Quantitative traders and developers sharing machine learning models, trading algorithms, and market data techniques.",
+    "name": "algotrading",
+    "subscribers": 1902248
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Consumers reporting real-world deepfake voice impersonation, banking fraud, and AI-driven phishing experiences.",
+    "name": "Scams",
+    "subscribers": 1447720
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "CPAs and auditors discussing AI tools for financial reporting, audit automation, and tax prep.",
+    "name": "Accounting",
+    "subscribers": 1301427
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Financial planners and advisors discussing robo-advisors, client trust, and AI wealth management tools.",
+    "name": "FinancialPlanning",
+    "subscribers": 991885
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Insurance professionals discussing automated claims processing, AI underwriting, and fraud detection technology.",
+    "name": "Insurance",
+    "subscribers": 242014
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Quants and financial engineers discuss machine learning models, trading algorithms, and institutional market risk.",
+    "name": "quant",
+    "subscribers": 211819
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Retail and commercial banking staff discussing operations, vendor software, and internal AI tools.",
+    "name": "Banking",
+    "subscribers": 186072
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Fintech product managers and founders discussing AI features, personal finance apps, and tech stack choices.",
+    "name": "fintech",
+    "subscribers": 100178
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Compliance officers discussing AML, KYC, model risk management, and AI regulatory enforcement.",
+    "name": "Compliance",
+    "subscribers": 10213
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Developers build payments, credit scoring, and banking APIs using AI and machine learning.",
+    "name": "fintechdev",
+    "subscribers": 5792
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Financial advisors discuss client management tools, robo-advisors, and AI adoption in portfolio management.",
+    "name": "wealthmanagement",
+    "subscribers": 2915
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Knowledge workers across industries share practical prompts and enterprise policies around Copilot usage.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Traders and users discuss automated trading bots, DeFi risk scoring, and AI-driven crypto analysis.",
+    "name": "CryptoCurrency",
+    "subscribers": 10176457
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Active stock traders sharing experiences with AI screening tools, sentiment analysis, and trade execution.",
+    "name": "stocks",
+    "subscribers": 9427652
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Retail investors discussing AI stock research tools, earnings summary bots, and automated portfolio management.",
+    "name": "investing",
+    "subscribers": 3496162
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "ML engineers post technical case studies on fraud detection, risk scoring, and NLP applications.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data scientists and ML engineers building predictive models for credit risk, fraud, and customer service.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Small business owners sharing experiences with AI loan applications, automated credit lines, and banking tools.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Investors discuss AI-driven mortgage underwriting, property valuation algorithms, and automated lending.",
+    "name": "realestateinvesting",
+    "subscribers": 1978584
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Banking and finance employees discussing how workplace AI adoption affects hiring, skill needs, and job security.",
+    "name": "FinancialCareers",
+    "subscribers": 1785791
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Bank security analysts discussing deepfake prevention, payment network security, and AI threat defense.",
+    "name": "cybersecurity",
+    "subscribers": 1575330
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Consumers evaluating automated card approvals, AI fraud alerts, and personalized offer algorithms.",
+    "name": "CreditCards",
+    "subscribers": 1566093
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Tech-savvy retail investors share experiences with robo-advisors, automated budgeting, and AI tax tools.",
+    "name": "Fire",
+    "subscribers": 1035832
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Long-term investors discussing automated portfolio management, robo-advisors, and algorithmic financial tools.",
+    "name": "Bogleheads",
+    "subscribers": 923033
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "High-net-worth individuals sharing experiences with wealth managers, robo-advisors, and AI research tools.",
+    "name": "fatFIRE",
+    "subscribers": 502343
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Tax professionals and taxpayers discussing AI tax software, automated filing, and IRS AI audits.",
+    "name": "tax",
+    "subscribers": 481077
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Financial services consultants sharing enterprise AI implementation, vendor selection, and governance challenges.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Proptech and mortgage specialists discussing AI in mortgage processing, appraisals, and title work.",
+    "name": "RealEstateTechnology",
+    "subscribers": 58649
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Bank call center agents discussing customer reactions to voice bots, copilot tools, and job automation.",
+    "name": "callcentres",
+    "subscribers": 51885
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Enterprise software reps share intelligence on selling AI solutions into financial institutions.",
+    "name": "b2b_sales",
+    "subscribers": 37777
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Operational and model risk managers discussing AI governance frameworks, fair lending bias, and validation.",
+    "name": "Risk",
+    "subscribers": 18138
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Credit union leaders and staff sharing insights on community bank AI vendor selection and budget constraints.",
+    "name": "creditunions",
+    "subscribers": 8621
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Mortgage brokers and borrowers discussing automated loan approval times, document extraction, and denials.",
+    "name": "Mortgage",
+    "subscribers": 3165
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data privacy and governance officers handling bank data policies around LLM and Copilot deployment.",
+    "name": "datagovernance",
+    "subscribers": 2008
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data engineers and architects discussing enterprise data integration, governance, and banking data pipelines.",
+    "name": "Talend",
+    "subscribers": 1025
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Consumers and practitioners raising questions about AI loan discrimination, dispute resolution, and regulatory issues.",
+    "name": "legaladvice",
+    "subscribers": 3637309
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Consumers dealing with automated debt collection, credit scoring denials, and algorithm bias impact.",
+    "name": "poverty",
+    "subscribers": 40939
+   }
+  ],
+  "government": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Legal practitioners analyze government AI regulations, court rules, and algorithmic bias litigation.",
+    "name": "law",
+    "subscribers": 2261862
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "US federal civil servants sharing day-to-day workplace policies, IT mandates, and internal AI rules.",
+    "name": "fednews",
+    "subscribers": 618059
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Federal applicants and civil servants discuss agency tech mandates, hiring drives, and AI roles.",
+    "name": "usajobs",
+    "subscribers": 207199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Public sector managers and academics discussing agency efficiency, administrative burden, and new tools.",
+    "name": "PublicAdministration",
+    "subscribers": 9540
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Tech professionals and open-data advocates building and evaluating government technology and AI tools.",
+    "name": "civictech",
+    "subscribers": 3892
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "City and county administrators share practical experiences with municipal software, vendors, and AI tools.",
+    "name": "localgovernment",
+    "subscribers": 2318
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Civic hackers and analysts working with government open data portals and automated reporting tools.",
+    "name": "dataisbeautiful",
+    "subscribers": 21858713
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Broad user and tech worker reactions to state/federal AI executive orders and policy news.",
+    "name": "technology",
+    "subscribers": 20651921
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Researchers debate technical audit standards, explainability methods, and fairness in public sector algorithms.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Government data scientists discuss predictive models for public health, tax audits, and fraud detection.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Public school educators discussing district AI policies, automated grading, and union stances.",
+    "name": "Teachers",
+    "subscribers": 2449888
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Civil liberties advocates discussing government surveillance, facial recognition, and resident data rights.",
+    "name": "privacy",
+    "subscribers": 1688254
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Security professionals analyzing government network defense, compliance standards, and AI vulnerability management.",
+    "name": "cybersecurity",
+    "subscribers": 1575330
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Public sector IT staff discussing legacy system integrations, procurement headaches, and AI deployments.",
+    "name": "sysadmin",
+    "subscribers": 1356218
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Engineers maintaining infrastructure for public utilities, smart cities, and modern agency backends.",
+    "name": "devops",
+    "subscribers": 523461
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Public sector management consultants sharing insights on government digital transformation and vendor RFPs.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "City planners discussing Smart City initiatives, automated traffic management, and municipal permitting software.",
+    "name": "urbanplanning",
+    "subscribers": 237923
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Postal workers discussing logistics, automation, route tech, and frontline public service operations.",
+    "name": "USPS",
+    "subscribers": 194186
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Veterans describing interactions with VA portals, automated disability claim processing, and digital services.",
+    "name": "Veterans",
+    "subscribers": 182350
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Geospatial professionals in government mapping, public safety, urban planning, and emergency management tech.",
+    "name": "gis",
+    "subscribers": 154340
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Public transit workers discussing automated scheduling, predictive maintenance, and passenger routing technology.",
+    "name": "transit",
+    "subscribers": 146169
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Social workers discussing algorithmic eligibility, child welfare software, and automated benefits systems.",
+    "name": "socialwork",
+    "subscribers": 134803
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Law enforcement officers sharing experiences with surveillance tools, facial recognition, and dispatch AI.",
+    "name": "police",
+    "subscribers": 99079
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Legal professionals discussing AI adoption in courts, legal aid, and regulatory compliance.",
+    "name": "legaltech",
+    "subscribers": 36645
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Disaster response personnel discussing situational awareness tools and predictive analytics in emergencies.",
+    "name": "EmergencyManagement",
+    "subscribers": 23335
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Claimants share experiences navigating automated state benefit eligibility portals and fraud detection errors.",
+    "name": "Unemployment",
+    "subscribers": 1007563
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Tax professionals and IRS staff discuss automated processing, audit selection, and tax software AI.",
+    "name": "tax",
+    "subscribers": 481077
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Micromobility and smart city transit users reacting to automated traffic enforcement and sensors.",
+    "name": "ebikes",
+    "subscribers": 286942
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Public and private HR specialists discussing automated hiring tools, résumé screeners, and civil service exams.",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Nonprofit staff discussing civic tech implementation, benefits advocacy, and legal aid technology.",
+    "name": "nonprofit",
+    "subscribers": 97401
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Ethicists and citizens discussing automated decision-making risks in welfare and policing.",
+    "name": "Ethics",
+    "subscribers": 54718
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Voters and political observers discussing federal AI executive orders and state legislation.",
+    "name": "uspolitics",
+    "subscribers": 44649
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Purchasing agents discussing vendor bidding, RFP processes, and software acquisition pain points.",
+    "name": "procurement",
+    "subscribers": 33594
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Advocates discussing algorithmic bias, facial recognition bans, and civil liberties concerns.",
+    "name": "humanrights",
+    "subscribers": 16329
+   }
+  ],
+  "healthcare": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Nurses sharing real-world experiences with charting, AI monitoring, staffing tools, and clinical burnout.",
+    "name": "nursing",
+    "subscribers": 1151927
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Patients sharing self-diagnoses via ChatGPT alongside verified physician reactions to AI queries.",
+    "name": "AskDocs",
+    "subscribers": 843255
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Medical students discussing AI study tools, medical education, and future career impacts.",
+    "name": "medicalschool",
+    "subscribers": 818649
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Physicians and healthcare professionals discussing clinical workflows, AI ambient scribes, and administrative burden.",
+    "name": "medicine",
+    "subscribers": 574534
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Resident physicians discussing medical learning with AI, administrative workload, and burnout.",
+    "name": "Residency",
+    "subscribers": 298493
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Industry professionals discussing AI in drug discovery, clinical trials, and biotech innovation.",
+    "name": "biotech",
+    "subscribers": 261223
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Radiologists discussing AI image analysis tools, triage algorithms, and diagnostic accuracy in practice.",
+    "name": "Radiology",
+    "subscribers": 240503
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Pharmacists sharing perspective on automated dispensing, AI tools, and pharmacy operations.",
+    "name": "pharmacy",
+    "subscribers": 207437
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Researchers discuss machine learning models for genomic analysis, drug discovery, and target identification.",
+    "name": "bioinformatics",
+    "subscribers": 168507
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "ER clinicians evaluating sepsis prediction alerts, triage tools, and clinical risk algorithms.",
+    "name": "emergencymedicine",
+    "subscribers": 145997
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Patients and professionals discussing prior authorization, claims processing, and AI denials.",
+    "name": "HealthInsurance",
+    "subscribers": 126740
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "PT practitioners review ambient EMR scribes, billing automation, and patient progress tracking tools.",
+    "name": "physicaltherapy",
+    "subscribers": 103353
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Pharmacy staff discuss automated dispensing systems, AI order verification, and staffing impacts.",
+    "name": "PharmacyTechnician",
+    "subscribers": 80190
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Advanced practice nurses discuss AI charting assistants, workload relief, and clinical decision support accuracy.",
+    "name": "nursepractitioner",
+    "subscribers": 75668
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Clinical research coordinators discussing AI-driven trial recruitment and regulatory compliance.",
+    "name": "clinicalresearch",
+    "subscribers": 68042
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Enterprise healthcare IT workers managing HIPAA compliance, AI vendor integrations, and security.",
+    "name": "healthIT",
+    "subscribers": 60723
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Medical coders discussing AI-assisted billing, revenue cycle management, and job impact.",
+    "name": "MedicalCoding",
+    "subscribers": 36873
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Pathologists discussing digital pathology, AI image classification, and diagnostic accuracy.",
+    "name": "pathology",
+    "subscribers": 28888
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Regulatory specialists and engineers discuss FDA compliance and AI software as medical device (SaMD).",
+    "name": "MedicalDevices",
+    "subscribers": 28209
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Attending physicians share authentic experiences with AI ambient scribes, diagnostics, and EHR burnout.",
+    "name": "InternalMedicine",
+    "subscribers": 20364
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "science",
+    "subscribers": 34592369
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "labrats",
+    "subscribers": 733237
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "publichealth",
+    "subscribers": 159489
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "healthcare",
+    "subscribers": 112943
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "physicianassistant",
+    "subscribers": 111526
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "CodingandBilling",
+    "subscribers": 36509
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "epidemiology",
+    "subscribers": 29191
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "HealthEconomics",
+    "subscribers": 4847
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Mental health clinicians discuss AI therapy chatbots, automated session notes, and patient safety risks.",
+    "name": "therapists",
+    "subscribers": 231701
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Mental health professionals discussing AI therapy chatbots, diagnostic tools, and patient safety.",
+    "name": "Psychiatry",
+    "subscribers": 185889
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Dental practitioners discussing AI X-ray diagnostic tools and practice management software.",
+    "name": "Dentistry",
+    "subscribers": 167811
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Veterinarians detail the adoption of AI imaging, triage tools, and practice management software.",
+    "name": "Veterinary",
+    "subscribers": 86794
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Dermatologists debate computer vision lesion analysis, patient portal self-triage, and diagnostic accuracy.",
+    "name": "Dermatology",
+    "subscribers": 82829
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Researchers discussing AI-driven drug target discovery and pharmacovigilance.",
+    "name": "pharmacology",
+    "subscribers": 36847
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "EHR analysts and clinicians post feedback on Epic's integrated generative AI and ambient tools.",
+    "name": "epicsystems",
+    "subscribers": 23534
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Oncologists discuss clinical trial matching algorithms and AI pathology slide analysis.",
+    "name": "Oncology",
+    "subscribers": 12839
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Medical device engineers discussing FDA regulatory pathways for AI/ML software as medical devices.",
+    "name": "MedTech",
+    "subscribers": 8265
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Patients discussing using ChatGPT for interpreting lab results, symptom checking, and medical advice.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Consumers share first-person experiences using generative AI chatbots for self-guided emotional support.",
+    "name": "mentalhealth",
+    "subscribers": 724228
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Paramedics and EMTs share perspective on pre-hospital automated protocol guidance and remote triage.",
+    "name": "ems",
+    "subscribers": 203469
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Patients share experiences using LLMs to research symptoms, decipher lab results, and navigate insurance.",
+    "name": "ChronicIllness",
+    "subscribers": 117554
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Patients detail interactions with automated insurance prior authorization denials and accessibility tech.",
+    "name": "disability",
+    "subscribers": 114441
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Patients and families discuss using AI tools to understand complex pathology reports and treatment options.",
+    "name": "cancer",
+    "subscribers": 96126
+   }
+  ],
+  "higher_ed": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Students and academics sharing specific prompts, workflows, and cheating detector bypasses.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Students and job seekers posting resume drafts generated by AI for critique and advice.",
+    "name": "careerguidance",
+    "subscribers": 5069234
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "General student experiences with AI coursework, policy reactions, and campus life.",
+    "name": "college",
+    "subscribers": 2938485
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Educators debating AI detection tools, essay grading, and academic integrity policies.",
+    "name": "Teachers",
+    "subscribers": 2449888
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "CS students discussing how AI coding tools impact entry-level hiring and curriculum relevance.",
+    "name": "cscareerquestions",
+    "subscribers": 2408089
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Prospective students discussing AI use in admissions essays and application processes.",
+    "name": "ApplyingToCollege",
+    "subscribers": 1357654
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Students using AI resume builders and career preparation tools for post-grad jobs.",
+    "name": "resumes",
+    "subscribers": 1329064
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Engineering students discussing AI tools for coursework, problem sets, and technical careers.",
+    "name": "EngineeringStudents",
+    "subscribers": 1030325
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Graduate students discussing AI research assistance, writing tools, and academic integrity.",
+    "name": "GradSchool",
+    "subscribers": 949532
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Computer science students discussing AI coding tools, curriculum changes, and job prospects.",
+    "name": "csMajors",
+    "subscribers": 470193
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Faculty sharing real-world AI course policy enforcement, cheating incidents, and grading struggles.",
+    "name": "Professors",
+    "subscribers": 204002
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Students venting about false AI detector accusations, Turnitin disputes, and course policies.",
+    "name": "CollegeRant",
+    "subscribers": 114846
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Instructional designers detailing AI course integration, assessment redesign, and faculty training.",
+    "name": "instructionaldesign",
+    "subscribers": 63377
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "FinancialCareers",
+    "subscribers": 1785791
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "LawSchool",
+    "subscribers": 953707
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "premed",
+    "subscribers": 935040
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "forhire",
+    "subscribers": 707724
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UKJobs",
+    "subscribers": 419479
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "MBA",
+    "subscribers": 340320
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "EngineeringResumes",
+    "subscribers": 170526
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "internships",
+    "subscribers": 151804
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Students and faculty discussing practical use cases of ChatGPT Edu and custom GPTs.",
+    "name": "OpenAI",
+    "subscribers": 2912010
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Recent graduates reflecting on AI's impact on entry-level job markets and hiring.",
+    "name": "jobs",
+    "subscribers": 2877197
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Students and academics comparing Claude for long-form paper writing and complex reasoning tasks.",
+    "name": "ClaudeAI",
+    "subscribers": 1315570
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Higher ed IT professionals and staff discussing campus software licensing and security policies.",
+    "name": "ITCareerQuestions",
+    "subscribers": 577997
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "PhD candidates debating AI in peer review, literature reviews, and dissertation writing.",
+    "name": "PhD",
+    "subscribers": 297873
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Higher ed data analysts detail early alert systems, retention modeling, and administrative AI deployments.",
+    "name": "analytics",
+    "subscribers": 287882
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Broader educational policy discussions including campus AI adoption, ethics, and workforce readiness.",
+    "name": "education",
+    "subscribers": 248408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Campus HR and university hiring teams evaluating AI tools for administrative workflows.",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Academic researchers and TAs sharing experiences with AI writing tools and review.",
+    "name": "AcademicPsychology",
+    "subscribers": 191172
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Academic librarians discussing AI research tools, information literacy, and database licensing.",
+    "name": "Libraries",
+    "subscribers": 160466
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Students with disabilities sharing how AI speech, text, and assistance tools aid learning.",
+    "name": "disability",
+    "subscribers": 114441
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Higher ed IT security professionals discuss campus data privacy, AI governance, and shadow AI risks.",
+    "name": "cissp",
+    "subscribers": 98172
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "EdTech professionals discussing AI tutor adoption, enterprise tools, and campus software.",
+    "name": "edtech",
+    "subscribers": 43030
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Disabled students and accessibility specialists using AI for assistive learning technologies.",
+    "name": "accessibility",
+    "subscribers": 22495
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Online instructors and students experiencing AI tutors, automated grading, and MOOCs.",
+    "name": "OnlineEducation",
+    "subscribers": 21586
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "IT admins and students sharing experiences with campus-wide Microsoft Copilot deployments.",
+    "name": "Copilot",
+    "subscribers": 10735
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Recruiters evaluating recent college graduates' AI skills and AI-driven hiring tools.",
+    "name": "recruiting",
+    "subscribers": 223393
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "International students using AI for language translation and academic writing support.",
+    "name": "InternationalStudents",
+    "subscribers": 56406
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Students and administrators navigating financial aid processes and automated support systems.",
+    "name": "financialaid",
+    "subscribers": 27743
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Adjunct professors discussing workload impact, uncompensated AI policy creation, and online grading.",
+    "name": "Adjuncts",
+    "subscribers": 13251
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Distance learners reporting experiences with AI proctored exams and automated teaching assistants.",
+    "name": "OnlineLearning",
+    "subscribers": 11933
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Community college faculty and students adopting AI in workforce and vocational programs.",
+    "name": "communitycollege",
+    "subscribers": 10789
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "IT leaders discussing enterprise higher ed data privacy, student data protection, and AI risk.",
+    "name": "datagovernance",
+    "subscribers": 2008
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Teaching professionals analyzing structural changes to assignment design in response to AI.",
+    "name": "pedagogy",
+    "subscribers": 1965
+   }
+  ],
+  "insurance": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Policyholders sharing experiences with auto telematics, automated quotes, AI claims processing, and price increases.",
+    "name": "personalfinance",
+    "subscribers": 21906189
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Business owners post complaints and experiences with commercial insurance online quotes and AI underwriting.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Insurance professionals and consumers discussing industry operations, technology, claims, and policies.",
+    "name": "Insurance",
+    "subscribers": 242014
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Consumers and workers discussing health claim denials, prior authorization tools, and automated reviews.",
+    "name": "HealthInsurance",
+    "subscribers": 126740
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Actuaries discussing predictive modeling, machine learning techniques, regulatory requirements, and technical workflows.",
+    "name": "actuary",
+    "subscribers": 77599
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Independent agents discuss daily adoption of AI quote generators, marketing, and client servicing tools.",
+    "name": "InsuranceAgent",
+    "subscribers": 50927
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Claims adjusters sharing direct experiences with AI claims processing, software changes, and workload.",
+    "name": "adjusters",
+    "subscribers": 17529
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Claims adjusters and policyholders discussing real-world claims processes, disputes, and automated decisions.",
+    "name": "InsuranceClaims",
+    "subscribers": 9731
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Underwriters discussing AI risk assessment tools, automated guidelines, aerial imagery, and pricing models.",
+    "name": "Underwriting",
+    "subscribers": 2884
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Founders and tech professionals discussing AI innovation, startup tools, automated underwriting, and telematics.",
+    "name": "InsurTech",
+    "subscribers": 2084
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "LifeInsurance",
+    "subscribers": 42318
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "CodingandBilling",
+    "subscribers": 36509
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "medicare",
+    "subscribers": 27674
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "WorkersComp",
+    "subscribers": 20835
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Policyholders seeking advice after AI-driven claim denials, automated liability decisions, or bad faith practices.",
+    "name": "legaladvice",
+    "subscribers": 3637309
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data scientists detail technical architecture for actuarial models, computer vision, and fraud detection systems.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data scientists building insurance ML models, discussing telematics, risk selection, and algorithmic fairness.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Nurses discussing prior authorization headaches and automated insurance denial algorithms.",
+    "name": "nursing",
+    "subscribers": 1151927
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Financial advisors discuss client reactions to automated life insurance underwriting and algorithmic pricing.",
+    "name": "FinancialPlanning",
+    "subscribers": 991885
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Commercial brokers discuss adopting generative AI for automated submission reviews and client outreach.",
+    "name": "sales",
+    "subscribers": 615846
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Healthcare providers discussing AI-driven health insurance prior authorization hurdles and claim denial algorithms.",
+    "name": "medicine",
+    "subscribers": 574534
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Management consultants discuss enterprise AI transformation, carrier claims cycle time, and strategy.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data analysts in insurance sharing machine learning workflows and predictive risk models.",
+    "name": "analytics",
+    "subscribers": 287882
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "UX researchers share insights on designing customer-facing AI quote flows and insurance chatbots.",
+    "name": "userexperience",
+    "subscribers": 149728
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Insurtech startups and developers discussing AI disruption in insurance underwriting and distribution.",
+    "name": "fintech",
+    "subscribers": 100178
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Frontline insurance representatives share unfiltered feedback on AI call assist and automation tools.",
+    "name": "CustomerService",
+    "subscribers": 61908
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Agile practitioners discuss corporate AI integration projects within traditional insurance enterprise systems.",
+    "name": "scrum",
+    "subscribers": 46769
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Legal professionals discussing generative AI policy contract review and insurance compliance automation.",
+    "name": "legaltech",
+    "subscribers": 36645
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Insurtech founders and healthcare innovators building AI for prior authorization and billing.",
+    "name": "HealthTech",
+    "subscribers": 16579
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Drivers discussing telematics tracking, usage-based insurance apps, and AI claims friction.",
+    "name": "AutoInsurance",
+    "subscribers": 1449
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Brokers and underwriters discussing commercial risk, underwriting automation, and enterprise policies.",
+    "name": "commercialinsurance",
+    "subscribers": 1074
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Drivers share real-world experiences and privacy concerns regarding telematics and usage-based auto insurance.",
+    "name": "cars",
+    "subscribers": 7445704
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Property owners discuss non-renewals driven by aerial imagery AI and wildfire risk algorithms.",
+    "name": "RealEstate",
+    "subscribers": 2526323
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Security professionals discuss underwriting AI business risks and purchasing specialized AI liability policies.",
+    "name": "cybersecurity",
+    "subscribers": 1575330
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Insurance call center and operations staff sharing experiences with mandatory AI tools.",
+    "name": "remotework",
+    "subscribers": 648108
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "GIS professionals using aerial imagery and geospatial AI for wildfire risk and property insurance mapping.",
+    "name": "gis",
+    "subscribers": 154340
+   }
+  ],
+  "retail": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Deal-seeking shoppers discussing AI price trackers, coupon finders, and algorithmic discount tools.",
+    "name": "Frugal",
+    "subscribers": 6899148
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Consumers discussing digital sizing guides, automated apparel recommendations, and virtual outfit matching.",
+    "name": "malefashionadvice",
+    "subscribers": 6550512
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Shoppers giving feedback on AI sizing recommendations, virtual fittings, and algorithmic style recommendations.",
+    "name": "femalefashionadvice",
+    "subscribers": 5837259
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Founders sharing ROI and efficiency gains from implementing AI across e-commerce operations.",
+    "name": "Entrepreneur",
+    "subscribers": 5314664
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Skincare enthusiasts testing and discussing AI routine generators and virtual skin diagnostics.",
+    "name": "SkincareAddiction",
+    "subscribers": 5050944
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Small retail owners discussing adoption hurdles and budget tools for AI inventory and customer service.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Store owners discussing software integrations, AI customer support bots, and personalized recommendation engines.",
+    "name": "ecommerce",
+    "subscribers": 691623
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "SEO specialists analyzing how AI search tools like Perplexity and SGE impact product discovery.",
+    "name": "SEO",
+    "subscribers": 523691
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Marketers discussing AI email personalization, retail media networks, and automated content generation.",
+    "name": "DigitalMarketing",
+    "subscribers": 480785
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Shopify merchants sharing experiences with AI apps, automated customer service, and storefront personalization.",
+    "name": "shopify",
+    "subscribers": 387463
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Walmart associates and customers sharing feedback on store tech, automated inventory scanners, and app features.",
+    "name": "walmart",
+    "subscribers": 379284
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "DTC store builders sharing practical usage of AI tools for product creative, copy, and customer ads.",
+    "name": "dropship",
+    "subscribers": 363653
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Paid search marketers discussing AI-driven bid management and automated retail media ad campaigns.",
+    "name": "PPC",
+    "subscribers": 292177
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Target store employees and shoppers discussing self-checkout AI, in-store tech, and app personalization.",
+    "name": "Target",
+    "subscribers": 235345
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Amazon FBA sellers discussing AI listing generation, automated PPC management, and inventory tools.",
+    "name": "FulfillmentByAmazon",
+    "subscribers": 147272
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Supply chain professionals discussing AI demand forecasting, warehouse automation, and inventory planning.",
+    "name": "supplychain",
+    "subscribers": 119625
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Amazon merchants sharing experiences with AI listing generators, PPC automation, and platform policies.",
+    "name": "AmazonSeller",
+    "subscribers": 100495
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Logistics managers sharing operational insights on warehouse robotics, routing algorithms, and fulfillment automation.",
+    "name": "logistics",
+    "subscribers": 77289
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Loss prevention officers discussing AI camera surveillance, shrink detection, and store security tech.",
+    "name": "lossprevention",
+    "subscribers": 68148
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "E-commerce operators discussing AI tools for product listings, ad copy, and conversion rate optimization.",
+    "name": "ecommercemarketing",
+    "subscribers": 49401
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Retail industry professionals discussing store operations, shrink loss tech, and loss prevention AI.",
+    "name": "retail",
+    "subscribers": 35230
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "MakeupAddiction",
+    "subscribers": 7634352
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "HomeImprovement",
+    "subscribers": 4856428
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "ThriftStoreHauls",
+    "subscribers": 4163815
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "BuyItForLife",
+    "subscribers": 4068227
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "povertyfinance",
+    "subscribers": 2965705
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "minimalism",
+    "subscribers": 2619054
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "socialmedia",
+    "subscribers": 2125769
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "marketing",
+    "subscribers": 1985640
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Costco",
+    "subscribers": 1660253
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "InteriorDesign",
+    "subscribers": 1156750
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Sephora",
+    "subscribers": 1100794
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "declutter",
+    "subscribers": 760794
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Flipping",
+    "subscribers": 516112
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "digital_marketing",
+    "subscribers": 384139
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "SocialMediaMarketing",
+    "subscribers": 322863
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "FacebookAds",
+    "subscribers": 279515
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "copywriting",
+    "subscribers": 265371
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "EtsySellers",
+    "subscribers": 262774
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "advertising",
+    "subscribers": 262178
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "IKEA",
+    "subscribers": 254672
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Ulta",
+    "subscribers": 169971
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "bigseo",
+    "subscribers": 144492
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "HomeDepot",
+    "subscribers": 133580
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Lowes",
+    "subscribers": 86316
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "TechSEO",
+    "subscribers": 63152
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "woocommerce",
+    "subscribers": 52828
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Patagonia",
+    "subscribers": 36633
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "AskRetail",
+    "subscribers": 16683
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Homegoods",
+    "subscribers": 14891
+   }
+  ],
+  "social_clubs": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Golf club members express opinions on tee time booking tech and club amenities.",
+    "name": "golf",
+    "subscribers": 1819275
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Yacht club members and officers share perspectives on club management software and membership tech.",
+    "name": "sailing",
+    "subscribers": 840949
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Nonprofit and association leaders share experiences adopting tech and AI for member retention.",
+    "name": "nonprofit",
+    "subscribers": 97401
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Local club officers sharing experiences with member tracking and digital speech feedback tools.",
+    "name": "Toastmasters",
+    "subscribers": 24162
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Club managers sharing operational challenges, vendor software updates, and AI implementation in private clubs.",
+    "name": "CMA",
+    "subscribers": 7311
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Church tech operators discuss AI tools for community management, engagement, and administration.",
+    "name": "churchtech",
+    "subscribers": 6971
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Service club members discussing volunteer retention, meeting logistics, and tech tools.",
+    "name": "Rotary",
+    "subscribers": 3122
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "tennis",
+    "subscribers": 2151343
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "KitchenConfidential",
+    "subscribers": 1903195
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Pickleball",
+    "subscribers": 153551
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Rowing",
+    "subscribers": 138907
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "10s",
+    "subscribers": 135429
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "freemasonry",
+    "subscribers": 107898
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "squash",
+    "subscribers": 41306
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Membership marketers sharing AI copy generation, churn prediction, and newsletter workflows.",
+    "name": "marketing",
+    "subscribers": 1985640
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Association CRM admins discussing Einstein AI, member churn scoring, and automation.",
+    "name": "salesforce",
+    "subscribers": 118952
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Fraternal organization members discuss alumni engagement, technology adoption, and chapter administration.",
+    "name": "Frat",
+    "subscribers": 86254
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Food and beverage directors in clubs discuss POS, AI scheduling, and service automation.",
+    "name": "restaurantowners",
+    "subscribers": 64866
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Member-owned co-op board members discussing tech adoption and governance.",
+    "name": "cooperatives",
+    "subscribers": 28194
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Membership organization marketers discussing automated onboarding emails and AI chatbots.",
+    "name": "hubspot",
+    "subscribers": 25066
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Club facility and turf managers evaluate AI-driven course maintenance and technology.",
+    "name": "Turfmanagement",
+    "subscribers": 15837
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Coworking space operators share insights on community apps, automation, and member retention.",
+    "name": "CoWorking",
+    "subscribers": 4252
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Country club members discussing dues increases, assessment costs, and club value.",
+    "name": "personalfinance",
+    "subscribers": 21906189
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Hobby club organizers discuss community administration, event scheduling, and member communication tools.",
+    "name": "boardgames",
+    "subscribers": 5465228
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Boutique facility owners discuss CRM, auto-responders, and membership management automation tools.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Members of social climbing clubs voice feedback on member apps and automated check-ins.",
+    "name": "climbing",
+    "subscribers": 1641996
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Software vendors discuss building AI features for niche membership management and CRM platforms.",
+    "name": "SaaS",
+    "subscribers": 853254
+   }
+  ],
+  "travel_tourism": [
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Travelers sharing real experiences with AI trip planning, itineraries, and booking tools.",
+    "name": "travel",
+    "subscribers": 14518696
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Users frequently sharing custom prompts and threads for automated travel itinerary generation.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Travelers discussing tech tricks, AI hacks, and automated tools for trip optimization.",
+    "name": "TravelHacks",
+    "subscribers": 5784726
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Solo travelers actively using AI tools for safety, routing, and travel itineraries.",
+    "name": "solotravel",
+    "subscribers": 4597800
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Destinations-specific travelers heavily relying on automated translation apps and AI routing engines.",
+    "name": "JapanTravel",
+    "subscribers": 3536216
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Aviation professionals discussing airline operational software, dispatch automation, and baggage routing.",
+    "name": "aviation",
+    "subscribers": 2856190
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Remote workers discussing AI travel tools, translation apps, and long-term stay logistics.",
+    "name": "digitalnomad",
+    "subscribers": 2436259
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Frequent flyers sharing feedback on airline AI chatbots, app features, and biometric boarding.",
+    "name": "delta",
+    "subscribers": 447300
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Guests and hosts share experiences with automated messaging, AI dynamic pricing, and guest screening.",
+    "name": "AirBnB",
+    "subscribers": 398670
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Passengers discussing automated customer service, rebooking algorithms, and digital tools.",
+    "name": "unitedairlines",
+    "subscribers": 281939
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Theme park operators and enthusiasts discussing virtual queue algorithms and attraction management tech.",
+    "name": "rollercoasters",
+    "subscribers": 154736
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Airline crew discussing customer service automation, airport gate tech, and disruption impacts.",
+    "name": "flightattendants",
+    "subscribers": 70348
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Hotel staff and managers discuss operational tech, revenue management tools, and AI guest software.",
+    "name": "hotels",
+    "subscribers": 55053
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Museum staff discussing AI for collections, digital curation, archiving, and visitor engagement.",
+    "name": "MuseumPros",
+    "subscribers": 54237
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Professional travel agents discussing AI competition, automated planning tools, and workflow integration.",
+    "name": "travelagents",
+    "subscribers": 29239
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Short-term rental hosts using AI for automated guest communication, pricing, and messaging.",
+    "name": "AirBnBHosts",
+    "subscribers": 28563
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Museum professionals and visitors discussing exhibit tech, AI interpretation, and digital art.",
+    "name": "Museums",
+    "subscribers": 5690
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Vacation rental hosts sharing experiences with automated pricing tools and guest AI interactions.",
+    "name": "vrbohosts",
+    "subscribers": 4965
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "backpacking",
+    "subscribers": 5534213
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Shoestring",
+    "subscribers": 5205023
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Cruise",
+    "subscribers": 1552404
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Disneyland",
+    "subscribers": 1550548
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "onebag",
+    "subscribers": 965697
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "WaltDisneyWorld",
+    "subscribers": 796639
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "awardtravel",
+    "subscribers": 615914
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "royalcaribbean",
+    "subscribers": 177013
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Flights",
+    "subscribers": 176483
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UniversalOrlando",
+    "subscribers": 142197
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Discussions on facial recognition at airports, TSA biometrics, and passenger tracking data.",
+    "name": "privacy",
+    "subscribers": 1688254
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Hotel front desk staff discussing automated check-in kiosks, AI chatbots, and guest reactions.",
+    "name": "TalesFromTheFrontDesk",
+    "subscribers": 1057310
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Restaurant and hospitality staff discuss automated booking systems, AI POS tech, and operational changes.",
+    "name": "TalesFromYourServer",
+    "subscribers": 641437
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Travel and hospitality industry consultants share enterprise AI implementation trends and enterprise strategy.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Park visitors and rangers discussing automated reservation systems and crowd management technology.",
+    "name": "nationalparks",
+    "subscribers": 264606
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Archivists and librarians discussing AI metadata tagging, cataloging, and document digitization.",
+    "name": "Libraries",
+    "subscribers": 160466
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Flyers giving feedback on airline app features, customer support bots, and pricing.",
+    "name": "americanairlines",
+    "subscribers": 159054
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Hotel guests discussing mobile check-in, keyless entry, dynamic pricing, and digital concierges.",
+    "name": "marriott",
+    "subscribers": 154567
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Hilton guests discussing digital key features, automated room selection, and customer service bots.",
+    "name": "Hilton",
+    "subscribers": 91503
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Restaurateurs discussing AI reservation management, automated phone answering, and yield pricing.",
+    "name": "restaurantowners",
+    "subscribers": 64866
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Cruise passengers discussing automated booking systems, facial recognition embarkation, and AI concierges.",
+    "name": "Cruises",
+    "subscribers": 26610
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Disney parkgoers discussing virtual queues, Genie+ algorithms, and app-based itinerary optimization.",
+    "name": "disneyvacationclub",
+    "subscribers": 7559
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "End users and travelers report software bugs and AI booking chatbot failures.",
+    "name": "techsupport",
+    "subscribers": 3470614
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Art historians debating AI image attribution, digital restoration, and archival authenticity.",
+    "name": "ArtHistory",
+    "subscribers": 386216
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Product managers at travel companies share insights on building AI trip planners and booking engines.",
+    "name": "ProductManagement",
+    "subscribers": 287316
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Federal park rangers and cultural resource workers discuss technology implementation in national parks.",
+    "name": "usajobs",
+    "subscribers": 207199
+   }
+  ],
+  "workforce": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Knowledge workers sharing unsanctioned and official workplace use cases for generative AI.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Career coaches and seekers discussing AI resume builders, upskilling, and changing job market expectations.",
+    "name": "careerguidance",
+    "subscribers": 5069234
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Workers and tech enthusiasts debate AI job displacement, automation, and workforce implications.",
+    "name": "singularity",
+    "subscribers": 4030667
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Job seekers sharing firsthand experiences with AI screening, automated rejections, and modern hiring tools.",
+    "name": "jobs",
+    "subscribers": 2877197
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Software engineers and entry-level devs discussing AI-driven hiring market shifts and job automation.",
+    "name": "cscareerquestions",
+    "subscribers": 2408089
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Finance professionals discussing automated modeling, entry-level analyst role changes, and AI productivity.",
+    "name": "FinancialCareers",
+    "subscribers": 1785791
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Job seekers sharing firsthand experiences with AI resume screening, automated rejections, and video interviews.",
+    "name": "recruitinghell",
+    "subscribers": 1551785
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Applicants actively troubleshooting AI resume screeners (ATS) and using AI writing assistants.",
+    "name": "resumes",
+    "subscribers": 1329064
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Professionals detail how they deploy Claude for coding, writing, and workplace automation.",
+    "name": "ClaudeAI",
+    "subscribers": 1315570
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Accountants evaluate AI audit tools, automated bookkeeping, and entry-level task automation.",
+    "name": "Accounting",
+    "subscribers": 1301427
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Freelancers debating how generative AI impacts client demand, pricing, and project scope.",
+    "name": "freelance",
+    "subscribers": 708671
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Multiple-job holders leveraging LLMs and automation to multiply daily work output.",
+    "name": "overemployed",
+    "subscribers": 684768
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Remote workers discussing productivity tracking, AI surveillance, and shifting output expectations.",
+    "name": "remotework",
+    "subscribers": 648108
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Knowledge workers share practical workflows and ChatGPT prompts used for daily work productivity.",
+    "name": "PromptEngineering",
+    "subscribers": 431798
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Senior engineers discussing practical AI copilot usage at work and corporate AI acceptable-use policies.",
+    "name": "ExperiencedDevs",
+    "subscribers": 427719
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Management consultants deploying AI tools internally and advising enterprise clients on AI workforce changes.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "HR professionals detailing AI policy creation, performance management tools, and workplace compliance.",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Recruiters discussing AI candidate sourcing, automated screening algorithms, and talent acquisition technology.",
+    "name": "recruiting",
+    "subscribers": 223393
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Impacted workers sharing post-layoff job hunt struggles in an AI-heavy hiring environment.",
+    "name": "Layoffs",
+    "subscribers": 199605
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Enterprise workers discuss Microsoft Copilot integration, productivity expectations, and corporate rollout.",
+    "name": "Copilot",
+    "subscribers": 10735
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "antiwork",
+    "subscribers": 3025403
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "financialindependence",
+    "subscribers": 2466425
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "digitalnomad",
+    "subscribers": 2436259
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "AskHR",
+    "subscribers": 1853814
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "sysadmin",
+    "subscribers": 1356218
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "LinkedInLunatics",
+    "subscribers": 1110448
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "EngineeringStudents",
+    "subscribers": 1030325
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "LawSchool",
+    "subscribers": 953707
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "premed",
+    "subscribers": 935040
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "careeradvice",
+    "subscribers": 892467
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "WorkReform",
+    "subscribers": 827564
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "WorkOnline",
+    "subscribers": 779820
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "forhire",
+    "subscribers": 707724
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "sales",
+    "subscribers": 615846
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "ITCareerQuestions",
+    "subscribers": 577997
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "jobsearchhacks",
+    "subscribers": 572206
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Salary",
+    "subscribers": 534488
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "csMajors",
+    "subscribers": 470193
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UKJobs",
+    "subscribers": 419479
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "MBA",
+    "subscribers": 340320
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "projectmanagement",
+    "subscribers": 244413
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "EngineeringResumes",
+    "subscribers": 170526
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Big4",
+    "subscribers": 155196
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "internships",
+    "subscribers": 151804
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "workfromhome",
+    "subscribers": 144148
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "negotiation",
+    "subscribers": 26594
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Designers sharing how generative image tools alter entry-level work and creative career paths.",
+    "name": "graphic_design",
+    "subscribers": 2943232
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "General employees post about office policies, workload expectations, burnout, and management tactics.",
+    "name": "work",
+    "subscribers": 312389
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "People managers discuss employee performance tracking, productivity measurement, and AI adoption policies.",
+    "name": "managers",
+    "subscribers": 298319
+   }
+  ],
+  "ai_trends": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "End-user and prosumer experiences, prompt techniques, reliability feedback, and feature releases.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "ML researchers and engineers discussing model benchmarks, paper implementations, and fundamental progress.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Enterprise data scientists discussing ROI, model evaluation, production pipelines, and career shifts.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Security professionals analyzing AI prompt injection, data leakage, shadow AI, and governance compliance.",
+    "name": "cybersecurity",
+    "subscribers": 1575330
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Practitioners and industry observers discussing technical breakthroughs, product launches, and societal impact.",
+    "name": "artificial",
+    "subscribers": 1365584
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "IT admins managing enterprise AI copilot rollouts, endpoint security, and software licensing.",
+    "name": "sysadmin",
+    "subscribers": 1356218
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Users and developers discussing Claude models, API performance, artifacts, and coding capabilities.",
+    "name": "ClaudeAI",
+    "subscribers": 1315570
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Open-weight model deployments, fine-tuning, local hardware specs, and self-hosted AI architecture.",
+    "name": "LocalLLaMA",
+    "subscribers": 885569
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "SEO specialists tracking AI search overviews, organic web traffic declines, and AI-generated content.",
+    "name": "SEO",
+    "subscribers": 523691
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Infrastructure engineers handling AI model deployment, GPU clusters, latency, and cloud infrastructure.",
+    "name": "devops",
+    "subscribers": 523461
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Practitioners optimizing system prompts, context windows, and techniques to minimize model hallucinations.",
+    "name": "PromptEngineering",
+    "subscribers": 431798
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Cloud architects deploying Bedrock, managed AI services, GPU instances, and cloud cost management.",
+    "name": "aws",
+    "subscribers": 400425
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "PMs discussing integration of AI features, measuring user demand, and product strategy ROI.",
+    "name": "ProductManagement",
+    "subscribers": 287316
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Enterprise cloud engineers implementing Azure OpenAI services, security perimeters, and corporate compliance.",
+    "name": "AZURE",
+    "subscribers": 218557
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Senior engineers evaluating AI coding assistants like Copilot/Cursor and code quality impacts.",
+    "name": "SoftwareEngineering",
+    "subscribers": 176483
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Developers and power users running local models sharing hardware benchmarks, deployment tips, and performance.",
+    "name": "ollama",
+    "subscribers": 145512
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Developers building agentic workflows, RAG pipelines, and LLM application architectures in production.",
+    "name": "LangChain",
+    "subscribers": 111637
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Hardware enthusiasts discussing GPU supply chains, AI accelerator chips, and data center hardware.",
+    "name": "hardware",
+    "subscribers": 4376531
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Speculative discussions on AGI timelines, societal impacts, and cutting-edge frontier model capabilities.",
+    "name": "singularity",
+    "subscribers": 4030667
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Designers debating generative image tools, client expectations, and ethical issues around AI art.",
+    "name": "graphic_design",
+    "subscribers": 2943232
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Small business owners sharing practical adoption of low-cost AI tools for operations.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Software developers sharing how AI automation impacts job security, hiring, and daily workflows.",
+    "name": "cscareerquestions",
+    "subscribers": 2408089
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Founders evaluating AI vendor costs, building AI-first MVPs, and raising seed capital.",
+    "name": "startups",
+    "subscribers": 2155991
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Creative professionals and artists sharing experiences, workflows, and quality of generative image models.",
+    "name": "midjourney",
+    "subscribers": 1789226
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Security professionals analyzing prompt injection, LLM vulnerabilities, and enterprise data leakage risks.",
+    "name": "netsec",
+    "subscribers": 579292
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Data engineers discussing vector databases, ETL pipelines, and infrastructure supporting enterprise LLM applications.",
+    "name": "dataengineering",
+    "subscribers": 487539
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Enterprise consultants sharing insights on client AI transformation budgets and pilot failures.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Energy industry watchers discussing AI data center electricity demand, grid constraints, and sustainability.",
+    "name": "energy",
+    "subscribers": 301414
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Marketing writers sharing real-world impact of AI tools on freelance rates and workflow efficiency.",
+    "name": "copywriting",
+    "subscribers": 265371
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "HR leaders managing employee AI usage policies, training programs, and internal AI guidelines.",
+    "name": "humanresources",
+    "subscribers": 245404
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Advanced image generation creators building customized local workflows, LoRAs, and control nets.",
+    "name": "comfyui",
+    "subscribers": 221817
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Enterprise CRM admins and developers evaluating integrated enterprise AI agents and copilot tools.",
+    "name": "salesforce",
+    "subscribers": 118952
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Engineers deploying Gemini APIs, Vertex AI, and Google Cloud infrastructure for machine learning.",
+    "name": "googlecloud",
+    "subscribers": 101440
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Financial tech professionals discussing AI fraud detection, credit scoring, and regulatory compliance.",
+    "name": "fintech",
+    "subscribers": 100178
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Infrastructure specialists discussing AI cluster power requirements, cooling tech, and compute hardware constraints.",
+    "name": "datacenter",
+    "subscribers": 48355
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Legal professionals discussing AI governance, regulation compliance, and enterprise risk management.",
+    "name": "legaltech",
+    "subscribers": 36645
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "General public discussions around major AI product announcements, EU AI Act, and societal debates.",
+    "name": "technology",
+    "subscribers": 20651921
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Retail investors discussing public AI chip companies, hyperscaler capex spend, and stock performance.",
+    "name": "stocks",
+    "subscribers": 9427652
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Quantitative traders using AI models for financial forecasting and trading execution.",
+    "name": "algotrading",
+    "subscribers": 1902248
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Tech enthusiasts sharing practical experiences deploying open-weight models on private home or office infrastructure.",
+    "name": "selfhosted",
+    "subscribers": 875745
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Enterprise IT leaders discussing AI governance, vendor evaluations, compliance, and enterprise software budgets.",
+    "name": "CIO",
+    "subscribers": 19732
+   }
+  ],
+  "academic": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Economists discussing studies on AI labor market impacts, productivity, and macroeconomic modeling.",
+    "name": "Economics",
+    "subscribers": 5786851
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "ML practitioners and researchers discussing state-of-the-art methodology, safety, and model reliability research.",
+    "name": "MachineLearning",
+    "subscribers": 3084408
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Data scientists and statisticians critiquing AI claims, enterprise ROI, and methodology rigor.",
+    "name": "datascience",
+    "subscribers": 2775884
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Graduate students discussing AI tool adoption, writing assistance, and academic integrity policies.",
+    "name": "GradSchool",
+    "subscribers": 949532
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Open-source AI researchers and practitioners testing model reliability, hardware costs, and benchmarking performance.",
+    "name": "LocalLLaMA",
+    "subscribers": 885569
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Quantitative analysts and financial economists evaluating AI model accuracy, forecasting, and ROI.",
+    "name": "quant",
+    "subscribers": 211819
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Faculty sharing experiences with AI in pedagogy, peer review, and research workflows.",
+    "name": "Professors",
+    "subscribers": 204002
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Academic psychologists discussing AI bias, cognitive effects, mental health impacts, and human research methodology.",
+    "name": "AcademicPsychology",
+    "subscribers": 191172
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Practitioners and researchers discussing new paper releases, safety findings, and technical replication debates.",
+    "name": "machinelearningnews",
+    "subscribers": 159039
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Academic research librarians discussing AI tool licensing, information literacy, and database integrations.",
+    "name": "librarians",
+    "subscribers": 52619
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Academic economists analyzing empirical labor market studies, productivity data, and macro AI impact.",
+    "name": "academiceconomics",
+    "subscribers": 48239
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Educators and academic researchers reporting empirical AI outcomes and classroom tool adoption.",
+    "name": "edtech",
+    "subscribers": 43030
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Legal analysts and practitioners examining AI adoption, enterprise software ROI, and regulatory policy.",
+    "name": "legaltech",
+    "subscribers": 36645
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Healthcare researchers and clinical analysts evaluating AI reliability, data privacy, and medical outcomes.",
+    "name": "HealthInformatics",
+    "subscribers": 15766
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Researchers and policy analysts debating AI alignment risks, governance frameworks, and safety metrics.",
+    "name": "AIsafety",
+    "subscribers": 4718
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Enthusiasts and tech analysts discussing consumer adoption trends, public trust, and socio-economic predictions.",
+    "name": "singularity",
+    "subscribers": 4030667
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "End users and enterprise adopters reporting everyday model reliability, hallucination issues, and workflow uses.",
+    "name": "OpenAI",
+    "subscribers": 2912010
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Small business owners detailing real-world adoption, ROI, and customer service quality changes using AI.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Economists providing expert analysis on AI productivity effects, labor market impacts, and automation research.",
+    "name": "AskEconomics",
+    "subscribers": 1461054
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Broad AI community discussing societal impacts, public trust, and policy regulation research.",
+    "name": "artificial",
+    "subscribers": 1365584
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Researchers and knowledge workers documenting specific workflow integrations and qualitative tool comparisons.",
+    "name": "ClaudeAI",
+    "subscribers": 1315570
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Statisticians evaluating model accuracy, replication issues, and empirical AI research methodology.",
+    "name": "statistics",
+    "subscribers": 636634
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Management consultants and market analysts sharing client data on enterprise AI spending and ROI.",
+    "name": "consulting",
+    "subscribers": 389587
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Doctoral candidates sharing first-person experiences with AI writing tools, peer review, and academic integrity.",
+    "name": "PhD",
+    "subscribers": 297873
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Social scientists evaluating AI's effects on inequality, social structures, and labor dynamics.",
+    "name": "sociology",
+    "subscribers": 201754
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Life sciences researchers adopting AI for scientific discovery, healthcare outcomes, and drug design.",
+    "name": "bioinformatics",
+    "subscribers": 168507
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Statisticians critiquing machine learning methodologies, empirical study replication, and research tools.",
+    "name": "rstats",
+    "subscribers": 103115
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Environmental researchers discussing data center water usage, carbon footprints, and AI energy costs.",
+    "name": "environmental_science",
+    "subscribers": 91328
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Library professionals discussing information retrieval, AI licensing, and database integration in academic libraries.",
+    "name": "LibraryScience",
+    "subscribers": 84166
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Cross-disciplinary researchers sharing methodologies, tools, AI workflows, and academic publishing challenges.",
+    "name": "research",
+    "subscribers": 71607
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Researchers analyzing AI impact on human cognition, creativity, and mental health interactions.",
+    "name": "cognitivescience",
+    "subscribers": 64698
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Postdoctoral researchers debating AI adoption in scientific discovery and academic career effects.",
+    "name": "postdoc",
+    "subscribers": 31273
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Labor economists and researchers discussing workforce disruption, job displacement, and automation inequality.",
+    "name": "Labour",
+    "subscribers": 27312
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Humanities scholars analyzing generative AI applications, cultural heritage, and bias in datasets.",
+    "name": "DigitalHumanities",
+    "subscribers": 5806
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Public health researchers assessing population-level outcomes, misinformation spread, and digital health tools.",
+    "name": "publichealth",
+    "subscribers": 159489
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Philosophers and policy scholars debating broad ethical frameworks around artificial general intelligence.",
+    "name": "Ethics",
+    "subscribers": 54718
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "low",
+    "rationale": "Humanities scholars debating AI impacts on human creativity, literature production, and historical analysis.",
+    "name": "Humanities",
+    "subscribers": 1084
+   }
+  ],
+  "creative_ai": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Professional photographers debating AI image generation, editing tools, and stock market shifts.",
+    "name": "photography",
+    "subscribers": 5676659
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Broad community of professional designers sharing sentiment and experiences regarding AI tools.",
+    "name": "Design",
+    "subscribers": 4470005
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Professional graphic designers discussing AI adoption, agency pricing, and changing client expectations.",
+    "name": "graphic_design",
+    "subscribers": 2943232
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Game developers discussing integration of generative AI in art assets, narrative, and coding.",
+    "name": "gamedev",
+    "subscribers": 2087525
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Active community of creators sharing workflows, prompts, and critiques of AI image generation.",
+    "name": "midjourney",
+    "subscribers": 1789226
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "3D animators and modelers discussing AI add-ons and generative tools inside Blender.",
+    "name": "blender",
+    "subscribers": 1469102
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Broader tech community sharing news on copyright lawsuits, rulings, and AI regulations.",
+    "name": "artificial",
+    "subscribers": 1365584
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Digital artists and editors discussing Adobe Generative Fill and Firefly features.",
+    "name": "photoshop",
+    "subscribers": 1212695
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Technical and artistic discussions on local AI image models, workflows, and control techniques.",
+    "name": "StableDiffusion",
+    "subscribers": 1045673
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Digital artists debating AI ethics, training data concerns, and anti-AI portfolio protection.",
+    "name": "DigitalArt",
+    "subscribers": 864644
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Freelancers across disciplines discussing competition with AI on platforms like Upwork and Fiverr.",
+    "name": "freelance",
+    "subscribers": 708671
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Prompt engineers and AI artists sharing techniques, workflow best practices, and new model releases.",
+    "name": "aiArt",
+    "subscribers": 693921
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Audio engineers and producers discussing AI mixing tools, generative music, and copyright.",
+    "name": "musicproduction",
+    "subscribers": 620659
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "low",
+    "rationale": "Logo designers sharing client experiences when competing against automated AI generators.",
+    "name": "logodesign",
+    "subscribers": 489562
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Video editors and producers evaluating AI video generation tools and automated editing workflows.",
+    "name": "videography",
+    "subscribers": 463272
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Traditional and digital artists discussing the psychological and financial impact of AI tools.",
+    "name": "ArtistLounge",
+    "subscribers": 422479
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Professional copywriters discussing AI writing tool integration, resistance, and content production scale.",
+    "name": "copywriting",
+    "subscribers": 265371
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Ad agency professionals sharing how generative AI is used in campaigns and client pitching.",
+    "name": "advertising",
+    "subscribers": 262178
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Film and video post-production professionals discussing AI tools, speed improvements, and union concerns.",
+    "name": "editors",
+    "subscribers": 200359
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Voice actors discussing synthetic voice cloning, contract clauses, and SAG-AFTRA AI protections.",
+    "name": "VoiceActing",
+    "subscribers": 157177
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "VFX artists discussing generative AI, neural rendering, 3D modeling, and industry displacement.",
+    "name": "vfx",
+    "subscribers": 146315
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Musicians and creators experimenting with generative AI music composition and audio generation.",
+    "name": "SunoAI",
+    "subscribers": 111368
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Pro-AI creative enthusiasts discussing legal developments, ethical arguments, and copyright cases.",
+    "name": "DefendingAIArt",
+    "subscribers": 78102
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "singularity",
+    "subscribers": 4030667
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "web_design",
+    "subscribers": 983717
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "LocalLLaMA",
+    "subscribers": 885569
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "aivideo",
+    "subscribers": 418025
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UXDesign",
+    "subscribers": 255346
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "comfyui",
+    "subscribers": 221817
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "FigmaDesign",
+    "subscribers": 160519
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "userexperience",
+    "subscribers": 149728
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "MotionDesign",
+    "subscribers": 132314
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "canva",
+    "subscribers": 103222
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "generative",
+    "subscribers": 101925
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "branding",
+    "subscribers": 98928
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Adobe",
+    "subscribers": 42977
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Animators discussing AI in frame interpolation, inbetweening, and style transfer pipelines.",
+    "name": "animation",
+    "subscribers": 2013707
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Brand marketers discussing AI content generation at scale and audience reactions to AI ads.",
+    "name": "marketing",
+    "subscribers": 1985640
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Writers discussing AI script breakdown tools, WGA AI rules, and generative story ideas.",
+    "name": "Screenwriting",
+    "subscribers": 1781876
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Interior designers evaluating AI rendering tools for fast client mockups and spatial planning.",
+    "name": "InteriorDesign",
+    "subscribers": 1156750
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Songwriters debating AI lyrics, melody generation, and music copyright developments.",
+    "name": "Songwriting",
+    "subscribers": 1011858
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Professional illustrators sharing personal stories about client demands for AI speeds.",
+    "name": "Illustration",
+    "subscribers": 961565
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Creators discussing short-form video generation, automated captions, and social media AI tools.",
+    "name": "SocialMediaMarketing",
+    "subscribers": 322863
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Gig economy creatives discussing client rates, AI competition, and changing job briefs.",
+    "name": "Upwork",
+    "subscribers": 203531
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Concept artists discussing how studio pipelines are adopting generative AI for pre-visualization.",
+    "name": "conceptart",
+    "subscribers": 169452
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Creative entrepreneurs discussing pricing strategies, anti-scraping methods, and protecting work.",
+    "name": "artbusiness",
+    "subscribers": 149875
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Web designers discussing AI page generation, Canva/Adobe features, and client handoffs.",
+    "name": "webdesign",
+    "subscribers": 92532
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Freelancers discussing how AI service offerings affect pricing and order volume.",
+    "name": "Fiverr",
+    "subscribers": 81593
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Digital ad operations specialists discussing creative asset generation at scale using AI.",
+    "name": "adops",
+    "subscribers": 57128
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "medium",
+    "rationale": "Indie filmmakers and crew discussing AI tools for pre-vis, scriptwriting, and post-production.",
+    "name": "filmmaking",
+    "subscribers": 56901
+   }
+  ],
+  "social_listening": [
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Mainstream consumer reactions to tech brand AI features, privacy concerns, and public controversies.",
+    "name": "technology",
+    "subscribers": 20651921
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Everyday consumers and power users sharing daily experiences, prompts, complaints, and product feedback.",
+    "name": "ChatGPT",
+    "subscribers": 11763199
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Founders evaluating AI marketing tools, automated customer service, and business efficiency.",
+    "name": "Entrepreneur",
+    "subscribers": 5314664
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Enthusiasts tracking rapid AI advancements, future trends, and cultural shifts around automation.",
+    "name": "singularity",
+    "subscribers": 4030667
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "medium",
+    "rationale": "Professional designers debating AI features in Adobe tools, client demands, and job impact.",
+    "name": "graphic_design",
+    "subscribers": 2943232
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Tech enthusiasts and users discussing model releases, corporate controversies, safety, and performance.",
+    "name": "OpenAI",
+    "subscribers": 2912010
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Workers sharing anxieties, job losses, and workplace mandates around adopting AI software.",
+    "name": "jobs",
+    "subscribers": 2877197
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Consumers discussing intimate, emotional, and recreational experiences with conversational AI companions.",
+    "name": "CharacterAI",
+    "subscribers": 2644506
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Small business owners discussing practical AI usage for marketing, support, and daily operations.",
+    "name": "smallbusiness",
+    "subscribers": 2572290
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Educators discussing student AI use, academic integrity, and AI detection tool failures.",
+    "name": "Teachers",
+    "subscribers": 2449888
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Social media managers discussing AI content generation, platform algorithms, and audience reactions.",
+    "name": "socialmedia",
+    "subscribers": 2125769
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Marketing professionals sharing real experiences integrating AI tools into social listening and campaigns.",
+    "name": "marketing",
+    "subscribers": 1985640
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Generative image creators sharing prompts, model quality feedback, and creative applications.",
+    "name": "midjourney",
+    "subscribers": 1789226
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Technical users and privacy advocates running open-source AI models locally on consumer hardware.",
+    "name": "LocalLLaMA",
+    "subscribers": 885569
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Practitioners discussing AI social management, automation tools, SEO, and social listening workflows.",
+    "name": "DigitalMarketing",
+    "subscribers": 480785
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Human artists sharing raw sentiments, pushback, and worries about AI-generated art and copyright.",
+    "name": "ArtistLounge",
+    "subscribers": 422479
+   },
+   {
+    "from": "HiC Suggest from goal and pack feed",
+    "signal": "high",
+    "rationale": "Higher-ed faculty discussing AI policy, student paper cheating, and teaching with AI.",
+    "name": "Professors",
+    "subscribers": 204002
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Communities intensely debating AI art controversies, copyright, ethics, and human vs. AI creation.",
+    "name": "aiwars",
+    "subscribers": 178931
+   },
+   {
+    "from": "HiC Suggest from goal",
+    "signal": "high",
+    "rationale": "Pro-AI creatives and users advocating for AI art, tools, and generative media adoption.",
+    "name": "DefendingAIArt",
+    "subscribers": 78102
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Design",
+    "subscribers": 4470005
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "investing",
+    "subscribers": 3496162
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "AskAcademia",
+    "subscribers": 2134786
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "blender",
+    "subscribers": 1469102
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "artificial",
+    "subscribers": 1365584
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "photoshop",
+    "subscribers": 1212695
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "StableDiffusion",
+    "subscribers": 1045673
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "web_design",
+    "subscribers": 983717
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "GradSchool",
+    "subscribers": 949532
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "Bogleheads",
+    "subscribers": 923033
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "StudentLoans",
+    "subscribers": 719483
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "aiArt",
+    "subscribers": 693921
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "logodesign",
+    "subscribers": 489562
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "aivideo",
+    "subscribers": 418025
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "gradadmissions",
+    "subscribers": 368450
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "PhD",
+    "subscribers": 297873
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UXDesign",
+    "subscribers": 255346
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "comfyui",
+    "subscribers": 221817
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "berkeley",
+    "subscribers": 186243
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "FigmaDesign",
+    "subscribers": 160519
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "ChubbyFIRE",
+    "subscribers": 156277
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "userexperience",
+    "subscribers": 149728
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "whitecoatinvestor",
+    "subscribers": 137202
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "MotionDesign",
+    "subscribers": 132314
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UIUC",
+    "subscribers": 132108
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "UTAustin",
+    "subscribers": 118774
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "academia",
+    "subscribers": 112437
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "scholarships",
+    "subscribers": 110713
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "canva",
+    "subscribers": 103222
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "generative",
+    "subscribers": 101925
+   },
+   {
+    "from": "pack feed",
+    "signal": "feed",
+    "rationale": "followed by the pack as a feed in HiC",
+    "name": "branding",
+    "subscribers": 98928
+   }
+  ]
+ }
+}

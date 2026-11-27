@@ -98,6 +98,7 @@ def subject(request, args=None):
     s = re.sub(r"#\w+", " ", s)
     from . import router as _router
     s, _ = _router.presentation_free(s)             # brand, audience and setting words are never the subject (E9)
+    s = _router.sources_free(s)
     s = re.sub(r"[\[\]]", "", s)
     s = re.sub(r"\b(from|in|for|using|with) (this|the|my) engagement\b", " ", s, flags=re.I)
     s = re.sub(r"^\s*(please\s+)?(draw|make|create|build|map|write|give me|show me|produce|generate)\s+(me\s+)?", "", s, flags=re.I)
@@ -153,12 +154,20 @@ def coverage(eid, request):
 
 
 # ---- expected time ---------------------------------------------------------------------------------------------------
-def expected(specialist, fallback):
+def expected(specialist, fallback, depth=None):
     """(seconds or None, how many finished runs it is the median of). Measured on this machine, never invented. The
     last three runs only (field test 23 Nov, S4: the median of nine carried week-old timings, so a card said 1 minute
-    for 33 minutes of work, and after the speed fixes said 20 minutes for 2)."""
-    rows = _db().execute("SELECT started, finished FROM nodes WHERE specialist = ? AND state IN ('available', 'published', "
-                         "'acknowledged') AND finished IS NOT NULL ORDER BY finished DESC LIMIT 3", (specialist,)).fetchall()
+    for 33 minutes of work, and after the speed fixes said 20 minutes for 2). With a depth, only runs of that depth
+    (26 Nov: a deep run's card said "about 15 min" from fast runs' timings; the deep run took 58)."""
+    rows = []
+    if depth in ("fast", "deep"):
+        rows = _db().execute(
+            "SELECT n.started, n.finished FROM nodes n JOIN tasks t ON t.id = n.task_id WHERE n.specialist = ? AND n.state IN "
+            "('available', 'published', 'acknowledged') AND n.finished IS NOT NULL AND "
+            "COALESCE(json_extract(t.brief, '$.depth'), 'fast') = ? ORDER BY n.finished DESC LIMIT 3", (specialist, depth)).fetchall()
+    if not rows:
+        rows = _db().execute("SELECT started, finished FROM nodes WHERE specialist = ? AND state IN ('available', 'published', "
+                             "'acknowledged') AND finished IS NOT NULL ORDER BY finished DESC LIMIT 3", (specialist,)).fetchall()
     took = [r["finished"] - r["started"] for r in rows if r["finished"] and r["started"] and r["finished"] > r["started"]]
     try:
         from . import providers
@@ -168,6 +177,32 @@ def expected(specialist, fallback):
     if took:
         return int(statistics.median(took) * slow), len(took)
     return (int(fallback * slow) if fallback else None), 0
+
+
+def deck_seconds_per_slide():
+    """(seconds per slide, decks it is the median of) from the last three finished decks on this machine, or (None, 0).
+    26 Nov: a 50-slide request's card showed the time of a 20-slide deck, the median of the last decks whatever their
+    length."""
+    from . import depthlevel as _dl
+    rows = _db().execute("SELECT n.task_id, n.started, n.finished, t.result_path FROM nodes n JOIN tasks t ON t.id = n.task_id WHERE "
+                         "n.specialist LIKE 'Deck Composer%' AND t.kind = 'deck' AND n.state IN ('available', 'published', "
+                         "'acknowledged') AND n.finished IS NOT NULL ORDER BY n.finished DESC LIMIT 6").fetchall()
+    per = []
+    for r in rows:
+        try:
+            with open(os.path.join(os.path.dirname(r["result_path"] or ""), "deck.json"), encoding="utf-8") as fh:
+                meta = json.load(fh)
+        except (OSError, ValueError, TypeError):
+            continue
+        shipped = [x for x in meta.get("slides") or [] if not str(x.get("title") or "").strip().lower().startswith("sources")]
+        # the slides written, not the slides kept: repeats left out still took their time (the 50-slide deck kept 26).
+        # Recorded since 26 Nov; before that, the count the request stated.
+        written = max(len(shipped), int(meta.get("slides_written") or 0) or _dl.stated_slides(_dl.task_request(r["task_id"])) or 0)
+        if shipped and r["finished"] > r["started"]:
+            per.append((r["finished"] - r["started"]) / written)
+        if len(per) >= 3:
+            break
+    return (statistics.median(per), len(per)) if per else (None, 0)
 
 
 def _step(key, name, does, required, seconds=None, runs=0, on=True, note=""):
@@ -182,6 +217,44 @@ def competitive(tool, args):
     return tool == "start_artifact" and str((args or {}).get("kind") or "").strip().lower() in ("gap", "competitive")
 
 
+# ---- a subreddit the work needs, collected as a step of the same card (26 Nov, the WS-H9 skill trials) ----------------
+# "Research what r/NEU says about co-op placements" planned a Reddit listening card and stopped there (one card per turn),
+# or skipped Reddit and planned a report that then refused to start. The card that makes the work now carries the
+# listening as its first step whenever the request names a subreddit the engagement holds no posts from.
+_QUERY_STOP = {"what", "says", "say", "said", "people", "posts", "post", "reddit", "discussion", "discussions", "think",
+               "thinks", "feel", "feels", "about", "the", "and", "for", "from", "with", "this", "that", "plus", "pack",
+               "data", "research", "report", "deck", "make", "write", "build", "on", "of", "in", "a", "an", "to", "how",
+               "their", "they", "them", "our", "my", "is", "are", "do", "does", "higher", "last", "days", "month", "week"}
+
+
+def reddit_to_collect(eid, request, args):
+    """The subreddits the request (or the agent's required_sources) names that the engagement holds no posts from."""
+    from . import material, transcripts as _tr
+    want = material.requested(request, declared=(args or {}).get("required_sources"))
+    subs = sorted(want.get("reddit") or [])
+    if not subs:
+        return []
+    held = set()
+    if eid:
+        try:
+            srcs = list(_tr._load(eid, "results/sources.json", {}).get("sources") or []) + list(material.social(eid)[1])
+            held = {str(x.get("subreddit") or material._subreddit_of(x.get("url")) or "").lower() for x in srcs if material.is_reddit(x)}
+        except Exception:
+            held = set()
+    return [x for x in subs if x not in held]
+
+
+def reddit_query(request, args=None):
+    """Reddit search words for the subject: the phrase after "about" / "on" when there is one, else the subject, without
+    the subreddit, the outputs and filler; at most three words."""
+    from . import router
+    t = re.sub(r"(?i)\br/[A-Za-z0-9_]+", " ", str(request or ""))
+    m = re.search(r"(?i)\b(?:about|regarding|around|on)\s+(.+?)(?=$|[,.;]|\s+(?:plus|and then|then|with|using|from)\b)", t)
+    phrase = m.group(1) if m else router.subject_of(t, (args or {}).get("engagement_id") or "", outputs=True)
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z0-9'-]*", phrase) if w.lower() not in _QUERY_STOP and len(w) > 1]
+    return " ".join(words[:3])
+
+
 def build_steps(tool, args, turn):
     """The ordered steps for one request. Returns (steps, note)."""
     label, specialists = KINDS[tool]
@@ -190,6 +263,8 @@ def build_steps(tool, args, turn):
     request = str(request).strip().splitlines()[-1] if str(request).strip() else ""
     cov = coverage(eid, request)
     steps = []
+    from . import studio as _studio
+    depth = args.get("depth") if args.get("depth") in ("fast", "deep") else _studio.depth_of({"request": request})
     packs = [p for p in ((turn or {}).get("packs") or args.get("packs") or [])]
     from . import hic
     pack_names = [hic.PACKS[p] for p in packs if p in hic.PACKS]
@@ -236,7 +311,7 @@ def build_steps(tool, args, turn):
         elsewhere = not cov["covered"] and not cov["empty"]          # another topic lives here: do not mix the two
         # the research step of an artifact collects and analyses; it writes no report, so the writer's time is not in
         # its estimate (24 Nov: the card said "about 19 min" for a step that takes about 7)
-        total = [expected(s, d) for s, _, d in RESEARCH_STEPS[:3]]
+        total = [expected(s, d, depth) for s, _, d in RESEARCH_STEPS[:3]]
         secs = sum(t[0] for t in total if t[0]) or None
         runs = min((t[1] for t in total), default=0)
         steps.append(_step("research", "Research the topic",
@@ -258,9 +333,32 @@ def build_steps(tool, args, turn):
                              note="Always part of a competitive gap analysis: the comparison needs named organizations, "
                                   "what each has done, and case studies."
                                   + (f" It opens a new engagement, \"{subject(request, args)}\"." if elsewhere else ""))
+    subs = reddit_to_collect(eid, request, args) if (tool in NEEDS_EVIDENCE or tool == "start_research_report") else []
+    if subs:
+        q = reddit_query(request, args)
+        times = [expected(sp, d) for sp, _, d in KINDS["start_social_analysis"][1]]
+        where = ", ".join("r/" + x for x in subs)
+        steps.insert(1 if steps and steps[0]["key"] == "material" else 0, dict(_step(
+            "reddit", "Collect the Reddit posts",
+            f"Reads {where} in the period for posts about \"{q}\": verified quotes and sentiment per theme. The work then "
+            "cites those posts as its main evidence.", True, sum(t[0] for t in times if t[0]) or None, min((t[1] for t in times), default=0),
+            True, note=f"Required: the request names {where}, and this engagement holds no posts from it yet."),
+            subreddits=subs, query=q))
     held = tool == "start_research_report" and reuse_evidence(eid, request)
+    from . import depthlevel as _dl
+    asked_slides = _dl.stated_slides(request) if tool == "start_deck" else None
     for i, (specialist, does, default) in enumerate(specialists):
-        secs, runs = expected(specialist, default)
+        secs, runs = expected(specialist, default, depth if specialist in {r[0] for r in RESEARCH_STEPS} else None)
+        if asked_slides and specialist == "Deck Composer":        # (26 Nov) the stated count sets the deck's time
+            per, n = deck_seconds_per_slide()
+            if per:
+                try:
+                    from . import providers
+                    slow = providers.slow_factor()
+                except Exception:
+                    slow = 1.0
+                secs, runs = int(per * asked_slides * slow), n
+                does = f"{does}; {asked_slides} slides as asked"
         if held and specialist in ("Research Lead", "Analyst"):
             does, secs = (f"Uses the {cov['sources']} sources already collected for this engagement" if specialist == "Research Lead"
                           else f"Uses the {cov['findings']} findings already checked against their sources"), 0
@@ -308,6 +406,17 @@ def _pack_option(args, request):
     return [{"key": "pack_choice", "label": "Data packs", "value": value, "choices": choices}]
 
 
+def engagement_period(eid):
+    """The plan-card period of the engagement's own research (its sources' window), or "" when it has none. 26 Nov: a deck
+    asked of an engagement researched over 90 days offered "Last 30 days", the default for a request that names none."""
+    try:
+        from . import currency, transcripts as _tr
+        w = (_tr._load(eid, "results/sources.json", {}) or {}).get("window") or {} if eid else {}
+        return currency.choice_of(w) if w.get("days") else ""
+    except Exception:
+        return ""
+
+
 def _evidence_options(tool, args, request=""):
     """The two choices every evidence-backed plan carries (field test 23 Nov, currency contract and depths): the period
     its sources must come from, and how deep the work goes. Both are decided in code from the request and shown here,
@@ -321,7 +430,8 @@ def _evidence_options(tool, args, request=""):
     w = currency.window(said)
     named = "no period" not in str(w.get("why") or "")
     period = (str(args.get("period")) if str(args.get("period") or "") in currency.PERIOD_CHOICES
-              else own["period"] if own.get("period") in currency.PERIOD_CHOICES and not named else currency.choice_of(w))
+              else own["period"] if own.get("period") in currency.PERIOD_CHOICES and not named
+              else (not named and engagement_period(args.get("engagement_id") or "")) or currency.choice_of(w))
     depth = (args.get("depth") if args.get("depth") in ("fast", "deep")
              else own["depth"] if own.get("depth") in ("fast", "deep") and not studio._DEEP.search(said) else studio.depth_of({"request": said}))
     return _pack_option(args, said) + [{"key": "period", "label": "Evidence from", "value": period,
@@ -616,6 +726,11 @@ def get(pid):
             s["state"] = "done"
         elif not s["on"]:
             s["state"] = "skipped"
+        elif s["key"] == "reddit":                # (26 Nov) the listening this card runs first
+            rt = store.get_task(s["task_id"]) if s.get("task_id") else None
+            st = (rt or {}).get("status")
+            s["state"] = ("done" if st == "done" else "failed" if st in ("failed", "stopped") else "working" if rt
+                          else "failed" if p["status"] == "failed" else "waiting")
         elif s["key"] == "research":
             st = (research or {}).get("status")
             s["state"] = "done" if st == "done" else "failed" if st in ("failed", "stopped") else "working" if research else "waiting"
@@ -694,8 +809,9 @@ def _wait(tid, check=5.0, limit=4 * 3600):
     return store.get_task(tid)
 
 
+# (26 Nov) a depth word may sit between: "Run new deep research" was written from the evidence already held
 _FRESH = re.compile(r"(?i)\b(new|fresh|more|additional|further|updated?|refresh|re-?run|again|latest|today|this week) "
-                    r"(research|data|evidence|sources|search|findings)\b|\bresearch (it |this )?again\b|\bfresh\b|"
+                    r"(?:(?:deep|fast|quick|full|web|desk)\s+)?(research|data|evidence|sources|search|findings)\b|\bresearch (it |this )?again\b|\bfresh\b|"
                     # an order to research, or a period only new collection can meet (24 Nov, Case 4 re-run: "Research
                     # what changed this week ..." was written from evidence collected days earlier)
                     r"^\s*(please\s+)?(research|investigate|find out|look up)\b|"
@@ -759,6 +875,8 @@ def _run(pid, wait=_wait):
     turn = dict(turn or {})
     turn["level"] = depthlevel.of(args, turn.get("request"))          # every task this plan starts carries it (E3)
     tok_plan, tok_turn = FROM_PLAN.set(True), store.TURN.set(turn or None)
+    if turn.get("trace"):                        # the plan's thread carries the trace of the turn that proposed it (WS-H3)
+        store.TRACE.set(turn["trace"])
     try:
         # Field test 23 Nov (S3): every deliverable collected its own evidence (Case 3: a report re-ran research eight
         # minutes after the themes had). Plans on one engagement share one evidence base: a research run already
@@ -774,6 +892,32 @@ def _run(pid, wait=_wait):
             and not _FRESH.search(str(request[0] or "")) and not args.get("publications")
         if report_shares:
             on = on | {"research"}
+        red = next((x for x in steps if x["key"] == "reddit" and x["on"] and x.get("subreddits")), None)
+        if red:                                   # (26 Nov) the subreddit the work needs, collected first, on this card
+            from . import currency
+            w = currency.for_choice(args.get("period")) if args.get("period") else currency.window(request[0])
+            out = agent.execute_tool("start_social_analysis", {
+                "engagement_id": eid0, "engagement_title": "" if eid0 else subject(request[0], args),
+                "query": red.get("query") or subject(request[0], args), "subreddits": red["subreddits"],
+                "objective": subject(request[0], args), "limit": 25, "budget_usd": 0,
+                "brand": args.get("brand") if args.get("brand") in ("nxt", "nu", "deciem") else "nxt",
+                "start_date": str(w.get("since") or "")[:10], "end_date": str(w.get("until") or "")[:10]})
+            stid = (out or {}).get("task_id")
+            if not stid:
+                return _set(pid, status="failed", note=("Reddit listening did not start: " + str((out or {}).get("error") or
+                                                                                               (out or {}).get("message") or ""))[:300])
+            store.link_task(r["conversation"], stid)
+            red["task_id"] = stid
+            _set(pid, note="Collecting the Reddit posts first.", steps_json=json.dumps(steps, ensure_ascii=False))
+            store.event("plan_step", {"plan": pid, "step": "reddit", "task_id": stid}, eid0 or None)
+            if not eid0 and out.get("engagement_id"):
+                eid0 = out["engagement_id"]
+                args = dict(args, engagement_id=eid0)
+                _set(pid, engagement_id=eid0, args_json=json.dumps(args, ensure_ascii=False))
+            done = wait(stid)
+            _set(pid, note="")
+            if not done or done["status"] != "done":
+                return _set(pid, status="failed", note="Reddit listening did not finish, so the work was not started.")
         _RESEARCH_GATE.acquire()
         gate_held = True
         if "research" in on and (not is_report or report_shares) and not new_title and not competitive(r["tool"], args) and eid0:
@@ -868,6 +1012,50 @@ def _run(pid, wait=_wait):
             _RESEARCH_GATE.release()
         store.TURN.reset(tok_turn)
         FROM_PLAN.reset(tok_plan)
+
+
+# ---- (harness WS-H17, Harness Engineering R9) autonomy modes ----------------------------------------------------------
+# ask: every artifact waits on its card for Start (the default, as before). auto-research: research and Reddit listening
+# start at once. auto: every artifact starts at once. No mode touches the approval floor: sending, deleting, spending,
+# dreaming's memory proposals and the person's curated memory always ask (control.py), because those are approval cards,
+# not plan cards.
+AUTONOMY_FILE = os.path.join(config.DATA_DIR, "autonomy.json")
+MODES = ("ask", "auto-research", "auto")
+AUTO_RESEARCH_TOOLS = ("start_research_report", "start_social_analysis")
+
+
+def autonomy():
+    try:
+        with open(AUTONOMY_FILE, encoding="utf-8") as fh:
+            m = str((json.load(fh) or {}).get("mode") or "ask")
+    except (OSError, ValueError):
+        m = "ask"
+    return m if m in MODES else "ask"
+
+
+def set_autonomy(mode):
+    if mode not in MODES:
+        raise ValueError(f"mode is one of {', '.join(MODES)}")
+    os.makedirs(os.path.dirname(AUTONOMY_FILE), exist_ok=True)
+    with open(AUTONOMY_FILE, "w", encoding="utf-8") as fh:
+        json.dump({"mode": mode}, fh)
+    store.event("autonomy_set", {"mode": mode})
+    return {"mode": mode}
+
+
+def autostart(tool, proposed):
+    """A proposed plan starts at once when the autonomy mode allows it; the card still shows every step as it runs."""
+    if not isinstance(proposed, dict) or proposed.get("plan") != "proposed" or not proposed.get("plan_id"):
+        return proposed
+    mode = autonomy()
+    if mode == "ask" or (mode == "auto-research" and tool not in AUTO_RESEARCH_TOOLS):
+        return proposed
+    start(proposed["plan_id"])
+    store.event("plan_autostarted", {"plan": proposed["plan_id"], "tool": tool, "mode": mode,
+                                     "conversation": (store.TURN.get() or {}).get("conversation")})
+    return dict(proposed, plan="started", started=True,
+                message=(f"Started without waiting for the card (autonomy mode: {mode}); the card shows each step as it runs. "
+                         "Tell the person in one short sentence that the work has started."))
 
 
 def start(pid, skip=(), background=True, wait=_wait, options=None):

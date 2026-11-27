@@ -44,6 +44,9 @@ class MissingEvidence(ValueError):
     """The person asked for a kind of source the engagement does not have yet; the message says how to collect it."""
 
 
+_YOUTUBE_WORD = re.compile(r"(?i)\byoutube\b|\byoutu\.be\b")
+
+
 def requested(*texts, declared=None):
     """{"reddit": {"neu", ...}} for the sources the person named; an empty set means Reddit in general. Read from the
     person's own words (texts) and from the agent's declared required_sources ("reddit:r/NEU", "r/NEU", "reddit")."""
@@ -53,9 +56,14 @@ def requested(*texts, declared=None):
         subs = {m.group(1).lower() for m in _SUBREDDIT.finditer(t)}
         if subs or _REDDIT_WORD.search(t):
             want.setdefault("reddit", set()).update(subs)
+        if _YOUTUBE_WORD.search(t):              # (26 Nov) videos are read as transcripts
+            want.setdefault("youtube", set())
     for d in declared or []:
         d = str(d or "").strip()
         if not d:
+            continue
+        if d.lower() in ("youtube", "videos", "youtube videos"):
+            want.setdefault("youtube", set())
             continue
         if d.lower() in ("reddit", "social", "social listening"):
             want.setdefault("reddit", set())
@@ -67,9 +75,12 @@ def requested(*texts, declared=None):
 
 
 def describe(want):
-    """"Reddit (r/NEU)" for messages."""
+    """"Reddit (r/NEU)" (and "YouTube") for messages."""
     subs = sorted(want.get("reddit") or [])
-    return "Reddit" + (f" ({', '.join('r/' + s for s in subs)})" if subs else "") if "reddit" in want else ""
+    parts = ["Reddit" + (f" ({', '.join('r/' + s for s in subs)})" if subs else "")] if "reddit" in want else []
+    if "youtube" in want:
+        parts.append("YouTube")
+    return " and ".join(parts)
 
 
 def _subreddit_of(url):

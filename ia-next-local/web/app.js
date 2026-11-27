@@ -14,7 +14,7 @@ import { initStudio, refreshStudio, showSources, selection as sourceSelection } 
 import { initPacks, openPacks, packsLabel, refreshPacks, selectedPacks } from './packs.js';
 import { initEngagements, openManager, openSettings } from './engagements.js';
 import { initMake, openMake } from './make.js';
-import { initOrchestra, taskFlow, turnScene } from './orchestra.js';
+import { initOrchestra, taskFlow, turnScene, turnSteps } from './orchestra.js';
 import { initPlan, planCard } from './plan.js';
 import { initMindTree, mindTree } from './mindtree.js';
 import { ASK_EXAMPLES, ASK_PARTS, CAPS, DOCS, OPTIONS, coach, docAsk } from './catalog.js';
@@ -1012,6 +1012,39 @@ function getFindings(tid) {
 }
 
 // ---- task card -----------------------------------------------------------------------------------
+// Harness WS-H18 (26 Nov): where a finished task's time went, each step's lines with their seconds, loaded on open. A
+// deep research run took 58 minutes and nothing on the card said where 24 of them went.
+function timeEl(t) {
+  const box = h('div', { class: 'task__timeline' });
+  const d = h('details', { class: 'task__time' }, h('summary', { text: 'Where the time went' }), box);
+  d.addEventListener('toggle', async () => {
+    if (!d.open || box.dataset.loaded) return;
+    box.dataset.loaded = '1';
+    try {
+      const r = await api(`/api/tasks/${encodeURIComponent(t.id)}/timeline`);
+      // consecutive progress lines of one activity ("reading every source of the chosen packs: 20 of 179 asked") are one row
+      const lines = [];
+      for (const x of r.lines || []) {
+        const key = `${x.specialist}|${String(x.doing).split(':')[0]}`;
+        const last = lines[lines.length - 1];
+        if (last && last.key === key && String(x.doing).includes(':')) { last.seconds += x.seconds; last.doing = String(x.doing).split(':')[0]; last.parts += 1; }
+        else lines.push({ ...x, key, parts: 1 });
+      }
+      if (!lines.length) { box.replaceChildren(h('p', { class: 'task__tnone', text: 'No timings were recorded for this work.' })); return; }
+      const most = Math.max(...lines.map((x) => x.seconds));
+      box.replaceChildren(h('ol', null, lines.map((x, i) => h('li', { style: `--i:${i}` },
+        h('span', { class: 'task__tstep', text: x.specialist }),
+        h('span', { class: 'task__tdoing', text: x.doing, title: x.doing }),
+        h('span', { class: 'task__tbar', 'aria-hidden': 'true' }, h('i', { style: `width:${Math.max(2, Math.round(100 * x.seconds / most))}%` })),
+        h('span', { class: 'task__tsec mono', text: P.duration(x.seconds) })))));
+    } catch {
+      delete box.dataset.loaded;
+      box.replaceChildren(h('p', { class: 'task__tnone', text: 'Could not load the timings.' }));
+    }
+  });
+  return d;
+}
+
 function taskCard(tid, opts = {}) {
   const el = h('div', { class: `task${opts.full ? ' task--full' : ''}`, 'data-task': tid },
     h('p', { class: 'task__outcome', text: 'Loading this work.' }));
@@ -1149,6 +1182,7 @@ function paintTask(el, t, opts) {
     } }, icon('retry', 'ic--sm'), 'Try again');
     kids.push(h('div', { class: 'task__fail' }, h('p', { text: P.failure(t) }), retryBtn));
   }
+  if (P.isTerminal(t.status)) kids.push(timeEl(t));
   const det = detailsEl('Details', rawTask(t));
   kids.push(det);
   el.replaceChildren(...kids);
@@ -1735,6 +1769,9 @@ function agentEl(item) {
   }
   for (const tid of rec.tasks) body.append(taskCard(tid, { ask: item.ask }));
   if (rec.work.length) body.append(h('div', { class: 'workgrid workgrid--inline' }, rec.work.map((id) => workCard({ type: 'task', key: id }))));
+  if (item.steps && item.steps.branches && item.steps.branches.length) {     // every step of the turn, still and inspectable
+    body.append(h('details', { class: 'turnsteps' }, h('summary', { text: 'Steps' }), turnSteps(item.steps)));
+  }
   if (rec.raw && rec.raw !== '[]') body.append(detailsEl('Details', rec.raw));
   return h('div', { class: 'msg msg--agent' }, h('div', { class: 'msg__avatar' }, presenceEl({ still: true })), body);
 }
@@ -1897,8 +1934,7 @@ async function showLiveText() {
   if (!el) {
     el = h('div', { class: 'msg__text live__text' });
     const body = box.querySelector('.msg__body');
-    if (body.firstElementChild) body.firstElementChild.hidden = true;     // the scene gives way to the words
-    body.append(el);
+    body.append(el);                                                       // the steps stay above the words (26 Nov)
   }
   el.innerHTML = renderMarkdown(text);                                    // escaped by the renderer
   if (near) scrollToEnd();
@@ -1955,8 +1991,10 @@ async function send(text, opts = {}) {
     syncAttachments();
     const rec = normalizeTurn(r);
     rec.changed.forEach(refreshTask);      // cards already on the page show the re-rendered deck, not the cached one
+    try { await pollEvents(); } catch { /* the last steps may arrive after the reply */ }
+    const steps = S.scene && S.scene.snapshot ? S.scene.snapshot() : null;
     hideThinking();
-    pushItem({ type: 'agent', rec, ask: text, usd: Number(r.usd) || 0 });
+    pushItem({ type: 'agent', rec, ask: text, usd: Number(r.usd) || 0, steps });
     setDockSuggest(P.nextAfterReply(rec, text));
     if (rec.media.length) loadMedia(S.engs.slice(0, 12).map((e) => e.id));
   } catch (e) {
@@ -2496,7 +2534,8 @@ const libDate = (d) => {
 };
 const libPack = (v) => (v === 'none' ? 'No pack' : String(v || '').replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase()));
 const libEsc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const LIB_KIND = { web: 'globe', upload: 'report', document: 'report', transcript: 'transcript', social: 'social', video: 'video' };
+const LIB_KIND = { web: 'globe', upload: 'report', document: 'report', transcript: 'transcript', social: 'social', video: 'video',
+  article: 'globe', reddit: 'social', analysis: 'spark', reference: 'book', collected: 'globe' };
 
 function libTitle(it) {
   // "PYMNTS: Convenience Beats Price" reads "Convenience Beats Price" beside its publisher; a short " | Site" tail goes
@@ -2599,7 +2638,8 @@ function libMenu(root, { label, rows, value, fmt, onPick }) {
 }
 
 function openLibrary() {
-  const st = { q: '', engagement: '', pack: '', publisher: '', period: '', picked: new Set(), seq: 0, limit: 60, open: '', items: new Map() };
+  const st = { q: '', engagement: '', pack: '', publisher: '', period: '', kind: '', collection: '', project: '', picked: new Set(), seq: 0,
+    limit: 60, open: '', items: new Map() };
   const root = h('div', { class: 'lib' });
   const input = h('input', { class: 'lib__q', type: 'search', placeholder: 'Search everything collected: words, a publisher, a subject',
     'aria-label': 'Search the library', autocomplete: 'off', spellcheck: 'false' });
@@ -2670,14 +2710,35 @@ function openLibrary() {
     const kick = [d.publisher, libDate(d.date) || 'Undated', d.pack && d.pack !== 'general' ? `${libPack(d.pack)} pack` : ''].filter(Boolean).join(' · ');
     const w = words();
     const paras = String(d.text || '').split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).slice(0, 600);
+    const vidm = /(?:youtube\.com\/(?:watch\?(?:[^ ]*&)?v=|shorts\/|live\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/.exec(d.url || d.document_url || '');
+    const vid = vidm ? vidm[1] : '';
     reader.replaceChildren(h('article', { class: 'lib__doc' },
       h('button', { class: 'lib__back', type: 'button', onclick: () => { root.classList.remove('lib--reading'); if (row && row.isConnected) row.focus(); } },
         icon('back'), 'Results'),
-      h('p', { class: 'lib__kicker' }, icon(LIB_KIND[it.kind] || 'report'), h('span', { text: kick })),
+      h('p', { class: 'lib__kicker' }, icon(LIB_KIND[d.kind] || LIB_KIND[it.kind] || 'report'), h('span', { text: [d.kind_label && d.kind !== 'collected' ? d.kind_label : '', kick].filter(Boolean).join(' · ') })),
       h('h2', { class: 'lib__doctitle', text: libTitle(d) }),
-      h('div', { class: 'lib__acts' }, d.url ? h('a', { class: 'lib__act', href: d.url, target: '_blank', rel: 'noopener noreferrer' }, icon('external'), 'Open the original') : null, one),
-      d.engagement ? h('p', { class: 'lib__docmeta', text: `Collected in ${d.engagement}` }) : h('hr', { class: 'lib__rule' }),
-      h('div', { class: 'lib__doctext' }, ...paras.map((p) => h('p', {}, ...libMarks(p, w))))));
+      d.kind === 'analysis' ? h('p', { class: 'lib__note lib__note--analysis', text: "Written by the earlier research system's models from the research, not a source. Kept for reading; never cited as evidence." }) : null,
+      d.restored && d.restored.status === 'restored' && d.restored.via === 'video transcript' ? h('p', { class: 'lib__note' }, icon('check'), h('span', {
+        text: /whisper/i.test(d.restored.method || '') ? 'Transcribed on this machine by Whisper large-v3 from the video\'s sound. Each time opens the video at that moment.'
+          : 'Transcript from the video\'s published captions. Each time opens the video at that moment.' })) : null,
+      d.restored && d.restored.status === 'restored' && d.restored.via !== 'video transcript' ? h('p', { class: 'lib__note' }, icon('check'), h('span', { text: (d.restored.via === 'linked PDF'
+        ? 'Full text restored from the PDF this page links to' : d.restored.via === 'linked article' ? 'Full text restored from the article this page links to'
+          : 'Full text restored from the original address') + (d.restored.rendered ? (d.restored.gate ? ', read in a browser after accepting its notice.' : ', read in a browser.') : '.') })) : null,
+      d.kind === 'video' && /not transcribed yet/.test(JSON.stringify(d.flags || '')) ? h('p', { class: 'lib__note', text: 'Only the video\'s title and description so far; its transcript is being made.' }) : null,
+      h('div', { class: 'lib__acts' }, d.url ? h('a', { class: 'lib__act', href: d.url, target: '_blank', rel: 'noopener noreferrer' }, icon('external'), d.kind === 'video' ? 'Watch the video' : 'Open the original') : null,
+        d.document_url && d.document_url !== d.url ? h('a', { class: 'lib__act', href: d.document_url, target: '_blank', rel: 'noopener noreferrer' }, icon('report'), 'Open the document read') : null,
+        d.is_evidence === false ? null : one),
+      h('p', { class: 'lib__docmeta', text: [d.collection === 'HiC library' ? 'From the earlier research library' : (d.engagement ? `Collected in ${d.engagement}` : ''),
+        d.projects && d.projects.length ? `collected for ${d.projects.slice(0, 2).join('; ')}` : '', d.copies ? `${d.copies + 1} copies merged` : ''].filter(Boolean).join(' · ') }),
+      d.tags && d.tags.length ? h('div', { class: 'lib__tags lib__tags--doc' }, ...d.tags.slice(0, 10).map((t) => h('span', { class: 'lib__tag', text: t }))) : null,
+      h('div', { class: 'lib__doctext' }, ...paras.map((p) => {
+        if (/^#{1,6}\s/.test(p)) return h('h3', { class: 'lib__dochead' }, ...libMarks(p.replace(/^#{1,6}\s+/, ''), w));   // a markdown heading, drawn as one
+        const at = vid ? /^\[(?:(\d+):)?(\d{1,2}):(\d{2})\]\s*/.exec(p) : null;          // a video's time mark opens the video there
+        if (!at) return h('p', {}, ...libMarks(p, w));
+        const secs = (+(at[1] || 0)) * 3600 + (+at[2]) * 60 + (+at[3]);
+        return h('p', {}, h('a', { class: 'lib__time', href: `https://www.youtube.com/watch?v=${vid}&t=${secs}s`, target: '_blank', rel: 'noopener noreferrer',
+          text: at[0].trim().replace(/[[\]]/g, '') }), ' ', ...libMarks(p.slice(at[0].length), w));
+      }))));
     reader.scrollTop = 0;
   };
 
@@ -2691,7 +2752,11 @@ function openLibrary() {
         h('p', { class: 'lib__rowmeta' }, icon(LIB_KIND[it.kind] || 'report'), h('span', { text: [it.publisher, libDate(it.date) || 'Undated'].filter(Boolean).join(' · ') })),
         h('p', { class: 'lib__rowtitle', text: libTitle(it) }),
         snip.length ? h('p', { class: 'lib__snip' }, ...snip) : null,
-        it.engagement && it.engagement_id !== st.engagement ? h('span', { class: 'lib__tag', text: it.engagement }) : null));
+        h('div', { class: 'lib__tags' },
+          it.kind && it.kind !== 'collected' ? h('span', { class: `lib__kind lib__kind--${it.kind}`, text: it.kind_label }) : null,
+          it.restored ? h('span', { class: 'lib__kind lib__kind--restored', text: 'Full text restored' }) : null,
+          it.collection === 'HiC library' ? (it.projects && it.projects[0] ? h('span', { class: 'lib__tag', text: it.projects[0] }) : null)
+            : (it.engagement && it.engagement_id !== st.engagement ? h('span', { class: 'lib__tag', text: it.engagement }) : null))));
     row.addEventListener('click', () => show(it, row));
     row.addEventListener('keydown', (ev) => {
       if (ev.target !== row) return;
@@ -2704,7 +2769,8 @@ function openLibrary() {
     return row;
   };
 
-  const KEYS = [['period', 'Period', (r) => r.label || r.value], ['pack', 'Data pack', (r) => libPack(r.value)],
+  const KEYS = [['kind', 'Kind', (r) => r.label || r.value], ['collection', 'Collection', (r) => r.value],
+    ['period', 'Period', (r) => r.label || r.value], ['pack', 'Data pack', (r) => libPack(r.value)], ['project', 'Project', (r) => r.value],
     ['engagement', 'Engagement', (r) => r.label || r.value], ['publisher', 'Publisher', (r) => (r.value === 'unknown' ? 'Unknown publisher' : r.value)]];
   const anyFilter = () => KEYS.some(([k]) => st[k]);
   const clearFilters = () => { KEYS.forEach(([k]) => { st[k] = ''; }); st.limit = 60; run(); };
@@ -2717,7 +2783,8 @@ function openLibrary() {
 
   const run = async () => {
     const mine = ++st.seq;
-    const p = new URLSearchParams({ q: st.q, engagement: st.engagement, pack: st.pack, publisher: st.publisher, period: st.period, limit: String(st.limit) });
+    const p = new URLSearchParams({ q: st.q, engagement: st.engagement, pack: st.pack, publisher: st.publisher, period: st.period,
+      kind: st.kind, collection: st.collection, project: st.project, limit: String(st.limit) });
     let d;
     try { d = await api(`/api/library/search?${p}`); } catch {
       if (mine === st.seq) list.replaceChildren(h('div', { class: 'lib__none' }, h('p', { text: 'The library could not be searched just now.' })));
@@ -2783,8 +2850,31 @@ function memoryEntries(text) {
 }
 
 async function paintMemory(body) {
-  const m = await api('/api/memory');
+  const q = new URLSearchParams({ engagement: S.focus || '', conversation: S.conv || '' });
+  const m = await api(`/api/memory?${q}`);
   const groups = [['About you', memoryEntries(m.user), 'user'], ['Notes about your work', memoryEntries(m.memory), 'memory']];
+  // (WS-H11 tiers) notes for the engagement in focus and for this conversation, each removable; a conversation note can be kept
+  const focusTitle = S.focus && S.engById.has(S.focus) ? S.engById.get(S.focus).title : '';
+  const tierRow = (n, keep) => {
+    const row = h('div', { class: 'mem' }, h('p', { class: 'mem__text', text: n.text }),
+      h('p', { class: 'mem__meta', text: P.ago ? P.ago(n.ts) : new Date(n.ts * 1000).toLocaleDateString() }));
+    if (keep) row.append(h('button', { class: 'btn', type: 'button', onclick: async () => {
+      try { await api(`/api/memory/notes/${n.id}/keep`, { method: 'POST' }); toast('Kept for all your work.'); await paintMemory(body); }
+      catch { toast('Could not keep that. Try again.'); }
+    } }, 'Keep'));
+    row.append(h('button', { class: 'btn', type: 'button', onclick: async () => {
+      try { await api(`/api/memory/notes/${n.id}`, { method: 'DELETE' }); row.remove(); toast('Forgotten.'); }
+      catch { toast('Could not forget that. Try again.'); }
+    } }, 'Forget'));
+    return row;
+  };
+  const tiers = [];
+  if ((m.engagement_notes || []).length) tiers.push(h('div', { class: 'panel__group' },
+    h('h3', { class: 'panel__h', text: focusTitle ? `For ${focusTitle}` : 'For this engagement' }),
+    m.engagement_notes.map((n) => tierRow(n, false))));
+  if ((m.conversation_notes || []).length) tiers.push(h('div', { class: 'panel__group' },
+    h('h3', { class: 'panel__h', text: `For this conversation, kept ${m.scratch_days || 7} days` }),
+    m.conversation_notes.map((n) => tierRow(n, true))));
   const forget = async (raw, row) => {
     try {
       const r = await api('/api/memory/forget', { method: 'POST', json: { match: raw } });
@@ -2792,32 +2882,65 @@ async function paintMemory(body) {
       toast(r.removed && r.removed.length > 1 ? `Forgot ${r.removed.length} entries.` : 'Forgotten.');
     } catch { toast('Could not forget that. Try again.'); }
   };
-  const kindSel = h('select', { 'aria-label': 'Where to save it' }, h('option', { value: 'user', text: 'About me' }), h('option', { value: 'memory', text: 'About my work' }));
+  const kindSel = h('select', { 'aria-label': 'Where to save it' }, h('option', { value: 'user', text: 'About me' }), h('option', { value: 'memory', text: 'About my work' }),
+    ...(S.focus ? [h('option', { value: 'engagement', text: 'For this engagement' })] : []),
+    ...(S.conv ? [h('option', { value: 'conversation', text: 'For this conversation' })] : []));
   const input = h('input', { type: 'text', placeholder: 'Something to remember', 'aria-label': 'Something to remember', maxlength: '400' });
   const add = async () => {
     const text = input.value.trim();
     if (text.length < 3) { input.focus(); return; }
     try {
-      await api('/api/memory/remember', { method: 'POST', json: { text, kind: kindSel.value } });
-      toast('Saved. New conversations will know this.');
+      await api('/api/memory/remember', { method: 'POST', json: { text, kind: kindSel.value, engagement_id: S.focus || '', conversation_id: S.conv || '' } });
+      toast(kindSel.value === 'engagement' ? 'Saved for this engagement.' : kindSel.value === 'conversation' ? 'Saved for this conversation.' : 'Saved. New conversations will know this.');
       await paintMemory(body);
     } catch { toast('Could not save that. Try again.'); }
   };
   input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
-  const total = groups.reduce((n, g) => n + g[1].length, 0);
+  const total = groups.reduce((n, g) => n + g[1].length, 0) + tiers.length;
   body.replaceChildren(
-    ...(total ? groups.filter((g) => g[1].length).map(([title, entries]) => h('div', { class: 'panel__group' },
+    ...(total ? tiers.concat(groups.filter((g) => g[1].length).map(([title, entries]) => h('div', { class: 'panel__group' },
       h('h3', { class: 'panel__h', text: title }),
       entries.map((raw) => {
         const e = P.memoryEntry(raw);
         const row = h('div', { class: 'mem' }, h('p', { class: 'mem__text', text: e.text }), h('p', { class: 'mem__meta', text: e.meta }));
         row.append(h('button', { class: 'btn', type: 'button', onclick: () => forget(raw, row) }, 'Forget'));
         return row;
-      })))
+      }))))
       : [h('div', { class: 'empty' }, h('p', { text: 'Nothing saved yet. Tell me in the conversation, or add it here.' }),
         h('button', { class: 'prompt', type: 'button', onclick: () => { closeSheet(); fillComposer('Remember that I lead the higher education practice'); } }, 'Remember that I lead the higher education practice'))]),
     h('div', { class: 'panel__group' }, h('h3', { class: 'panel__h', text: 'Add something' }), h('div', { class: 'field' }, input, kindSel),
-      h('div', null, h('button', { class: 'btn btn--teal', type: 'button', onclick: add }, 'Remember this'))));
+      h('div', null, h('button', { class: 'btn btn--teal', type: 'button', onclick: add }, 'Remember this'))),
+    memoryHistory(body));
+}
+
+// Every change to memory, with who made it and why; any one can be restored (harness WS-H11, 26 Nov)
+function memoryHistory(body) {
+  const list = h('div', { class: 'memhist' });
+  const box = h('details', { class: 'details panel__group' }, h('summary', { text: 'History' }), list);
+  box.addEventListener('toggle', async () => {
+    if (!box.open || list.dataset.loaded) return;
+    list.dataset.loaded = '1';
+    let rows = [];
+    try {
+      const [u, m] = await Promise.all([api('/api/memory/versions?name=USER.md&limit=10'), api('/api/memory/versions?name=MEMORY.md&limit=10')]);
+      rows = [...(u.versions || []).map((v) => ({ ...v, file: 'About you' })), ...(m.versions || []).map((v) => ({ ...v, file: 'Notes about your work' }))]
+        .sort((a, b) => b.ts - a.ts).slice(0, 12);
+    } catch { /* shown as empty */ }
+    list.replaceChildren(...(rows.length ? rows.map((v) => {
+      const row = h('div', { class: 'mem' },
+        h('p', { class: 'mem__text', text: `${v.file}: ${v.reason}` }),
+        h('p', { class: 'mem__meta', text: [v.author, P.ago ? P.ago(v.ts) : new Date(v.ts * 1000).toLocaleString()].filter(Boolean).join(' · ') }));
+      row.append(h('button', { class: 'btn', type: 'button', onclick: async () => {
+        try {
+          await api('/api/memory/rollback', { method: 'POST', json: { version: v.id } });
+          toast('Restored. New conversations will use it.');
+          await paintMemory(body);
+        } catch { toast('Could not restore that version.'); }
+      } }, 'Restore'));
+      return row;
+    }) : [h('p', { class: 'mem__meta', text: 'No changes yet.' })]));
+  });
+  return box;
 }
 
 async function paintSchedules(body) {
@@ -2889,7 +3012,9 @@ async function refreshHealth() {
     const down = (d.services || []).filter((s) => !s.ok);
     if (!down.length) { bar.hidden = true; bar.replaceChildren(); return; }
     bar.replaceChildren(...down.map((s) => h('p', { class: 'healthbar__row' },
-      h('b', { text: s.detail }), s.disables ? ` Affects: ${s.disables}.` : '')));
+      h('b', { text: s.detail }), s.disables ? ` Affects: ${s.disables}.` : '')),
+      // harness WS-H18: what the loop has been doing, one click away when something is wrong
+      h('p', { class: 'healthbar__row' }, h('a', { href: '/api/harness', target: '_blank', rel: 'noopener', text: 'Harness report' })));
     bar.hidden = false;
   } catch { /* the page keeps working; the next poll tries again */ }
 }
@@ -2948,10 +3073,9 @@ async function pollEvents() {
     let taskChange = false;
     for (const e of ev) {
       S.lastEvent = Math.max(S.lastEvent, e.id);
-      if (S.scene) S.scene.onEvent(e, S.conv);
-      if (S.liveBox) {
-        const text = P.eventChip(e);
-        if (text) S.liveBox.append(h('span', { class: `chip${e.kind === 'approval_requested' ? ' chip--ask' : ''}`, text }));
+      if (S.scene) S.scene.onEvent(e, S.conv);       // every step of this turn, live (the scene); other work's events
+      if (S.liveBox && e.kind === 'approval_requested' && (!e.data || !e.data.conversation || e.data.conversation === S.conv)) {
+        S.liveBox.append(h('span', { class: 'chip chip--ask', text: P.eventChip(e) }));     // no longer appear as chips here
       }
       if ((e.kind === 'image_generated' || e.kind === 'video_generated') && e.engagement_id) {
         mediaEngs.add(e.engagement_id);

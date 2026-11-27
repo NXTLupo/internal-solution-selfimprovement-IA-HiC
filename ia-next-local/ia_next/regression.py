@@ -48,7 +48,11 @@ def check_research(t):
     for f in _load(eid, "results/findings.json")["findings"]:
         if not _quote_ok(f["quote"], src.get(f["source_id"])):
             fails.append(f"finding quote not in {f['source_id']}")
-    if verify.config.vendor_of(ver["judge"]["judge_model"]) == "anthropic":
+    # (harness WS-H19) the judge must come from another publisher than the author; the check compared it with
+    # "anthropic", which never matches on this machine, so it could not fail
+    author = ver.get("judge", {}).get("author_model") or verify.config.SEATS["artifact"]["primary"]
+    judge = ver.get("judge", {}).get("judge_model") or ""
+    if judge and verify.config.vendor_of(judge) == verify.config.vendor_of(author):
         fails.append("judge was the author's vendor")
     return fails
 

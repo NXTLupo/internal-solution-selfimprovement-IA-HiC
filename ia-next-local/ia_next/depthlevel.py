@@ -7,6 +7,7 @@ shape, and by the plan for how much evidence that shape needs. Nothing here is a
 """
 import contextvars
 import json
+import re
 
 LEVELS = ("concise", "standard", "detailed")
 CURRENT = contextvars.ContextVar("ia_next_depth_level", default="standard")
@@ -50,6 +51,35 @@ def of(brief, request=None):
     if dens == "concise" or said.get("density") == "concise":
         return "concise"
     return "standard"
+
+
+# (26 Nov, owner: "I asked for a 50 slide deck, but the system says it is only making a 20 slide deck") A count the
+# person states is the count: the level's range is only the default. Bounded so a typo cannot ask for a thousand.
+_COUNT = re.compile(r"(?i)\b(\d{1,3})[\s-]*(?:-?\s*)(slides?|pages?)\b")
+MAX_STATED_SLIDES = 80
+
+
+def stated_slides(text):
+    """The number of slides the person asked for in their own words ("a 50 slide deck", "40-slide", "30 slides"), or
+    None. Bounded to 3..MAX_STATED_SLIDES."""
+    m = _COUNT.search(str(text or ""))
+    if not m:
+        return None
+    n = int(m.group(1))
+    return max(3, min(MAX_STATED_SLIDES, n)) if n >= 3 else None
+
+
+def task_request(tid):
+    """The person's own words for a task (brief request, else goal), or ""."""
+    try:
+        from . import store
+        t = store.get_task(tid) if tid else None
+        brief = (t or {}).get("brief") or {}
+        if isinstance(brief, str):
+            brief = json.loads(brief)
+        return str(brief.get("request") or brief.get("goal") or "")
+    except Exception:
+        return ""
 
 
 def for_task(tid):

@@ -23,7 +23,9 @@ import time
 # and 5.3 one after the other. The model server keeps one prompt cache, so two writers taking turns each lose their
 # cached prefix on every call. One piece of work at a time is faster on one card; the gain that remains is the order
 # (shortest first) and the card and network lanes. Set IA_NEXT_STUDIO_SLOTS=2 on a machine with two cards.
-STUDIO_SLOTS = int(os.environ.get("IA_NEXT_STUDIO_SLOTS", "2"))
+# (27 Nov, harness WS-H19) the default followed the measurement above at last: it had stayed "2" against its own
+# comment, so two writers shared the card and lost their cached prefixes.
+STUDIO_SLOTS = int(os.environ.get("IA_NEXT_STUDIO_SLOTS", "1"))
 NETWORK_SLOTS = int(os.environ.get("IA_NEXT_NETWORK_SLOTS", "12"))
 CARD_GB = float(os.environ.get("IA_NEXT_CARD_GB", "24"))
 # what each kind of work holds on the card while it runs (measured with nvidia-smi on this laptop, rounded up)
@@ -124,6 +126,7 @@ def _fits(kind):
 HOLD_SECONDS = float(os.environ.get("IA_NEXT_CARD_HOLD_SECONDS", "2.0"))
 _last = {"holder": None, "ended": 0.0}
 _holders = {}                     # ticket -> holder
+_kinds = {}                       # ticket -> kind of call waiting for the card
 # A person reading a source while research runs asks about it (QA 25 Nov, E1). Their one short call takes the card
 # next, ahead of the line and of the holder's claim: the work waits for one answer and then carries on.
 URGENT = contextvars.ContextVar("ia_next_lane_urgent", default=False)
@@ -155,12 +158,14 @@ def card(kind="writer", holder=None):
     with _cond:
         _queue.append(ticket)
         _holders[ticket] = holder
+        _kinds[ticket] = kind
         if URGENT.get():
             _urgent.add(ticket)
         while not _my_turn(ticket, kind) and not (kind == "embed" and _fits(kind)):
             _cond.wait(timeout=0.25)
         _queue.remove(ticket)
         _holders.pop(ticket, None)
+        _kinds.pop(ticket, None)
         _urgent.discard(ticket)
         entry = (kind, COST_GB.get(kind, 18.5))
         _card.append(entry)
@@ -185,6 +190,18 @@ def network():
         yield
     finally:
         _net.release()
+
+
+def model_call_active():
+    """True while a language-model call holds the card or waits for it. Background embedding pauses for it, so the
+    model server can release the embedding model when the call needs a model that is not loaded (26 Nov)."""
+    with _cond:
+        return any(k != "embed" for k, _ in _card) or any(_kinds.get(t, "embed") != "embed" for t in _queue)
+
+
+def embeds_running():
+    with _cond:
+        return sum(1 for k, _ in _card if k == "embed")
 
 
 def snapshot():

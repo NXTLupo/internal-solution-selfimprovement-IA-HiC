@@ -316,6 +316,15 @@ def recall(query, engagement="", k=5, call=None):
     q = (query or "").strip()
     if not q:
         return []
+    # (26 Nov) The Library holds the old second brain and every source collected here, cut into passages and searched by
+    # words and meaning on this machine in well under a second; HiC is asked only when the Library has nothing.
+    try:
+        from . import librarysearch
+        lib = librarysearch.recall(q, k, call=call)
+        if lib:
+            return lib
+    except Exception:
+        pass
     try:
         ids, pages = _hic_recall(q, engagement, max(k * 4, 20))
         # each search costs HiC about 25 s (measured 23 Nov over 123,842 chunks), so other phrasings are searched only
@@ -360,6 +369,9 @@ def embed_pending(limit=20):
     todo = pending_embeds()
     if not todo:
         return {"pending": 0, "embedded": 0}
+    from . import hicmigrate                      # background work: never alongside the person's own (26 Nov)
+    if hicmigrate.foreground_busy():
+        return {"pending": len(todo), "embedded": 0, "why": "your work is running"}
     from . import health
     if any(s["name"] == "embedder" and not s["ok"] for s in health.deep(force=True)["services"]):
         return {"pending": len(todo), "embedded": 0, "why": "the embedder is still down"}
@@ -443,6 +455,15 @@ def reuse(eid, goal, known_urls=(), max_pages=REUSE_MAX_PAGES, min_score=REUSE_M
     q = (goal or "").strip()
     if not q:
         return []
+    try:                                         # (26 Nov) the Library first: the old second brain lives here now
+        from . import librarysearch
+        local = librarysearch.reuse_pages(q, known_urls=known_urls, max_pages=max_pages, window=window)
+        if local:
+            for pg in local:
+                store.event("second_brain_reused", {"url": pg["url"], "score": pg["score"], "via": "library"}, eid or None)
+            return local
+    except Exception:
+        pass
     try:
         got = hic._call("GET", "/api/manifest/chunks-by-goal", 60,
                         params={"goal": q[:500], "engagement": eid or "", "limit": 60, "types": REUSE_TYPES})
@@ -663,6 +684,12 @@ def passage(eid, pointer="", source_id=""):
                             "url": s.get("url") or "", "publisher": s.get("publisher") or "", "date": s.get("date") or ""}
         page = pointer.split("#")[0]
         sid = next((k for k, v in m.items() if v.get("wiki_path") == page), "")
+        if pointer.startswith("lib/"):           # a passage of the Library (recall cites these): read it here
+            from . import librarysearch
+            got = librarysearch.passage(pointer)
+            if got:
+                s = srcs.get(sid) or {}
+                return dict(got, source_id=sid, title=s.get("title") or got["title"])
         if not sid:
             raise ValueError("that passage does not belong to this engagement's sources")
         got = hic._call("GET", "/api/wiki/read-article/" + urllib.parse.quote(pointer, safe="/."), 30)

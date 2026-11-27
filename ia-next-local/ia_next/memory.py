@@ -84,16 +84,268 @@ def _write(name, text):
         fh.write(text)
 
 
+# ---- versions, provenance, tiers and hash-checked writes (harness WS-H11, 26 Nov; the Anthropic Applied AI talk) -----
+# Every change to USER.md or MEMORY.md is a version: who made it (the person, the promotion gate, retirement, dreaming,
+# a rollback, an import), why, the turn or task it came from (the trace id) and the text before and after, so any
+# change can be read back and undone. USER.md is the person's curated tier: only the person's own remember or forget,
+# a rollback or an import may change it; everything the system infers waits as a candidate or a proposal. A writer
+# that drafted against an older text (dreaming, a rollback) is refused when the file changed underneath it.
+CURATED = "USER.md"
+CURATED_REASONS = ("remember", "forget", "rollback", "import")
+
+
+class Conflict(Exception):
+    """The memory file changed after the writer read it."""
+
+
+def text_hash(text):
+    return hashlib.sha256(str(text or "").encode("utf-8")).hexdigest()[:16]
+
+
+def current_hash(name):
+    return text_hash(_read(name))
+
+
+def _versions_table(c):
+    c.execute("CREATE TABLE IF NOT EXISTS memory_versions (id INTEGER PRIMARY KEY AUTOINCREMENT, person TEXT, name TEXT, ts REAL, "
+              "author TEXT, reason TEXT, trace TEXT, before_hash TEXT, after_hash TEXT, before_text TEXT, after_text TEXT)")
+
+
+def _versioned_write(name, text, reason, author="system", expected_hash=None):
+    """Write USER.md or MEMORY.md as a new version. Raises PermissionError for a write to the curated tier that is not
+    the person's own, and Conflict when `expected_hash` no longer matches the file."""
+    if name == CURATED and reason not in CURATED_REASONS:
+        raise PermissionError("USER.md is the person's own memory; the system may only propose changes to it")
+    with _LOCK:
+        old = _read(name)
+        if expected_hash is not None and text_hash(old) != expected_hash:
+            raise Conflict(f"{name} changed after it was read")
+        if old == text:
+            return None
+        try:
+            from . import store
+            c = store.conn()
+            with store._LOCK:
+                _versions_table(c)
+                cur = c.execute("INSERT INTO memory_versions (person, name, ts, author, reason, trace, before_hash, after_hash, before_text, after_text) "
+                                "VALUES (?,?,?,?,?,?,?,?,?,?)", (current_person(), name, time.time(), author, reason, store.TRACE.get(),
+                                                                text_hash(old), text_hash(text), old, text))
+                vid = cur.lastrowid
+        except Exception:
+            vid = None
+        _write(name, text)
+        return vid
+
+
+def _who():
+    """The author of a person's explicit memory change: the person in the page, or the agent acting on their request."""
+    try:
+        from . import store
+        return "the agent, at the person's request" if store.TURN.get() else "person"
+    except Exception:
+        return "person"
+
+
+def versions(name="MEMORY.md", limit=20):
+    """The changes to one memory file, newest first: [{id, ts, author, reason, trace, before_hash, after_hash}]."""
+    try:
+        from . import store
+        c = store.conn()
+        _versions_table(c)
+        return [dict(r) for r in c.execute("SELECT id, ts, author, reason, trace, before_hash, after_hash FROM memory_versions "
+                                           "WHERE person = ? AND name = ? ORDER BY id DESC LIMIT ?", (current_person(), name, int(limit)))]
+    except Exception:
+        return []
+
+
+def rollback(version_id, author="person"):
+    """The file back to the text it had just after version `version_id`; itself a new version. Refused when the file
+    changed while this was decided is not possible here: the restore reads and writes under one lock."""
+    from . import store
+    c = store.conn()
+    _versions_table(c)
+    r = c.execute("SELECT * FROM memory_versions WHERE id = ? AND person = ?", (int(version_id), current_person())).fetchone()
+    if not r:
+        return {"error": "no such version"}
+    vid = _versioned_write(r["name"], r["after_text"], "rollback", author)
+    _audit("rollback", {"name": r["name"], "to_version": int(version_id)})
+    return {"ok": True, "name": r["name"], "restored_version": int(version_id), "new_version": vid}
+
+
+def export_memory():
+    """This person's memory, portable: the files, candidates, forgotten phrases and the version history (metadata)."""
+    return {"person": current_person(), "files": {n: _read(n) for n in ("USER.md", "MEMORY.md")}, "candidates": _notes(),
+            "forgotten": _forgotten(), "versions": {n: versions(n, 200) for n in ("USER.md", "MEMORY.md")}}
+
+
+def import_memory(data, author="person"):
+    """Files from an export, each written as a version (the earlier text stays restorable)."""
+    out = {}
+    for n in ("USER.md", "MEMORY.md"):
+        text = ((data or {}).get("files") or {}).get(n)
+        if isinstance(text, str):
+            cap = USER_CAP if n == "USER.md" else MEMORY_CAP
+            out[n] = _versioned_write(n, text[:cap], "import", author)
+    _audit("import", {"files": [n for n, v in out.items() if v]})
+    return {"ok": True, "versions": out}
+
+
+# ---- the engagement and conversation tiers (harness WS-H11, 26 Nov; the Anthropic Applied AI talk) -------------------
+# Three tiers: the person's curated USER.md and MEMORY.md (above, everywhere), notes for one ENGAGEMENT (shared by
+# everyone working on it: "this client says learners, not students"), and notes for one CONVERSATION (scratch: kept for
+# SCRATCH_DAYS, then dropped unless the person keeps them, which moves them into MEMORY.md). Each note is one row; each
+# add or removal is a version in memory_versions under the name "engagement:<id>" or "conversation:<id>".
+TIERS = ("engagement", "conversation")
+SCRATCH_DAYS = 7
+TIER_NOTE_CAP = 400
+
+
+def _tier_table(c):
+    c.execute("CREATE TABLE IF NOT EXISTS memory_notes (id INTEGER PRIMARY KEY AUTOINCREMENT, tier TEXT, scope TEXT, "
+              "person TEXT, text TEXT, source TEXT, ts REAL)")
+
+
+def _tier_version(tier, scope, before, after, reason):
+    try:
+        from . import store
+        c = store.conn()
+        with store._LOCK:
+            _versions_table(c)
+            c.execute("INSERT INTO memory_versions (person, name, ts, author, reason, trace, before_hash, after_hash, before_text, after_text) "
+                      "VALUES (?,?,?,?,?,?,?,?,?,?)", (current_person(), f"{tier}:{scope}", time.time(), _who(), reason,
+                                                      store.TRACE.get(), text_hash(before), text_hash(after), before, after))
+    except Exception:
+        pass
+
+
+def remember_scoped(tier, scope, text, source):
+    """A note for one engagement or one conversation. Returns {"ok", "tier", "id"} or {"error"}."""
+    if tier not in TIERS:
+        return {"error": f"the tiers are {', '.join(TIERS)}"}
+    text = " ".join(str(text or "").split())[:TIER_NOTE_CAP]
+    scope = str(scope or "").strip()
+    if not scope:
+        return {"error": ("no engagement is in focus; say which engagement this is for, or save it for everywhere"
+                          if tier == "engagement" else "no conversation to keep this in")}
+    if len(text) < 3:
+        return {"error": "say a little more (at least three characters)"}
+    from . import store
+    c = store.conn()
+    with _LOCK, store._LOCK:
+        _tier_table(c)
+        if any(text.lower() in (r["text"] or "").lower() for r in c.execute(
+                "SELECT text FROM memory_notes WHERE tier = ? AND scope = ?", (tier, scope))):
+            return {"ok": True, "tier": tier, "duplicate": True}
+        cur = c.execute("INSERT INTO memory_notes (tier, scope, person, text, source, ts) VALUES (?,?,?,?,?,?)",
+                        (tier, scope, current_person(), text, str(source or "")[:80], time.time()))
+        nid = cur.lastrowid
+    _tier_version(tier, scope, "", text, "remember")
+    _audit("remember", {"kind": tier, "scope": scope, "text": text, "source": source})
+    return {"ok": True, "tier": tier, "id": nid}
+
+
+def scoped_notes(tier, scope, limit=20):
+    """The notes for one engagement (anyone's) or one conversation (this person's), oldest first."""
+    if tier not in TIERS or not scope:
+        return []
+    from . import store
+    c = store.conn()
+    _tier_table(c)
+    q = "SELECT id, text, source, ts FROM memory_notes WHERE tier = ? AND scope = ?"
+    args = [tier, str(scope)]
+    if tier == "conversation":
+        q += " AND person = ?"
+        args.append(current_person())
+    return [dict(r) for r in c.execute(q + " ORDER BY id DESC LIMIT ?", (*args, int(limit)))][::-1]
+
+
+def _note(note_id):
+    from . import store
+    c = store.conn()
+    _tier_table(c)
+    return c.execute("SELECT * FROM memory_notes WHERE id = ?", (int(note_id),)).fetchone()
+
+
+def drop_note(note_id, reason="forget"):
+    from . import store
+    r = _note(note_id)
+    if not r:
+        return {"error": "no such note"}
+    with store._LOCK:
+        store.conn().execute("DELETE FROM memory_notes WHERE id = ?", (int(note_id),))
+    _tier_version(r["tier"], r["scope"], r["text"], "", reason)
+    return {"ok": True, "removed": [r["text"]]}
+
+
+def keep_note(note_id):
+    """A conversation note kept: it moves into MEMORY.md (the person's explicit choice) and leaves the scratch tier."""
+    r = _note(note_id)
+    if not r:
+        return {"error": "no such note"}
+    got = remember_now(r["text"], "kept from a conversation", "memory")
+    drop_note(note_id, reason="kept")
+    return dict(got, kept=r["text"])
+
+
+def purge_scratch(days=SCRATCH_DAYS, now=None):
+    """(Idle pass) conversation notes older than `days` are dropped. Returns how many."""
+    from . import store
+    c = store.conn()
+    _tier_table(c)
+    cutoff = (now or time.time()) - days * 86400
+    old = c.execute("SELECT id, scope, text FROM memory_notes WHERE tier = 'conversation' AND ts < ?", (cutoff,)).fetchall()
+    for r in old:
+        drop_note(r["id"], reason="expired")
+    if old:
+        store.event("memory_scratch_expired", {"notes": len(old), "days": days})
+    return len(old)
+
+
 def entries(name="MEMORY.md"):
     return [e.strip() for e in _read(name).split("\n- ") if e.strip() and not e.strip().startswith("#")]
 
 
 def _render(title, items, cap):
     body = "# " + title + "\n" + "".join(SEP + i for i in items) + "\n"
-    while len(body) > cap and items:     # over the cap: the oldest entry goes first
+    dropped = []
+    while len(body) > cap and items:     # over the cap: the oldest entry leaves the file...
+        dropped.append(items[0])
         items = items[1:]
         body = "# " + title + "\n" + "".join(SEP + i for i in items) + "\n"
+    if dropped:                          # ...for the archive, where recall still finds it (harness WS-H11, 26 Nov:
+        _archive(dropped, f"moved out of {title.lower()} when it passed its size")   # it used to be lost)
     return body, items
+
+
+def _archive(items, why):
+    """Append entries to MEMORY.archive.md with the date and the reason. Never raises."""
+    try:
+        day = time.strftime("%Y-%m-%d")
+        with io.open(_p(ARCHIVE), "a", encoding="utf-8", newline="\n") as fh:
+            for e in items:
+                fh.write(f"- {e} ({why}, {day})\n")
+    except Exception:
+        pass
+
+
+def archived(limit=0):
+    """The archive's entries, newest last."""
+    try:
+        with io.open(_p(ARCHIVE), encoding="utf-8") as fh:
+            rows = [ln[2:].strip() for ln in fh if ln.startswith("- ")]
+    except OSError:
+        rows = []
+    gone = [f.lower() for f in _forgotten()]             # what the person asked to forget never comes back from here
+    rows = [r for r in rows if not any(f and f in r.lower() for f in gone)]
+    return rows[-limit:] if limit else rows
+
+
+def relevant_archived(query, k=2):
+    """(The talk: let memory grow large, and search it.) The archived entries that share the most words with the
+    request, for the turn's context; [] when none share at least two."""
+    words = _WORDS(query)
+    scored = sorted(((len(words & _WORDS(e)), e) for e in archived()), key=lambda x: -x[0])
+    return [e for sc, e in scored[:k] if sc >= 2]
 
 
 def snapshot():
@@ -110,7 +362,7 @@ def remember_now(text, source, kind="memory"):
         if any(text.strip().lower() in i.lower() for i in items):
             return {"ok": True, "duplicate": True}
         body, kept = _render(title, items + [line], cap)
-        _write(name, body)
+        _versioned_write(name, body, "remember", _who())
     _audit("remember", {"kind": kind, "text": text, "source": source})
     return {"ok": True, "entries": len(kept)}
 
@@ -129,7 +381,17 @@ def forget(match):
             keep = [i for i in items if m not in i.lower()]
             removed += [i for i in items if m in i.lower()]
             if len(keep) != len(items):
-                _write(name, _render(title, keep, cap)[0])
+                _versioned_write(name, _render(title, keep, cap)[0], "forget", _who())
+        try:                                  # the engagement and conversation notes forget too
+            from . import store
+            c = store.conn()
+            _tier_table(c)
+            for r in c.execute("SELECT id, text FROM memory_notes").fetchall():
+                if m in (r["text"] or "").lower():
+                    drop_note(r["id"])
+                    removed.append(r["text"])
+        except Exception:
+            pass
         notes = _notes()
         dropped = [n["text"] for n in notes if m in n["text"].lower()]
         if dropped:
@@ -224,7 +486,7 @@ def consolidate():
         lost = len([b for b in before if b not in kept])
         if before and lost / len(before) > MAX_LOSS:
             return {"promoted": [], "held": held, "refused": f"would remove {lost} of {len(before)} existing entries"}
-        _write("MEMORY.md", body)
+        _versioned_write("MEMORY.md", body, "promotion gate", "consolidate")
         _save_notes(remaining)
     _audit("consolidate", {"promoted": promoted})
     retire()                                       # WS-5 step 3: idle learned entries move to the archive file
@@ -243,6 +505,10 @@ def recall(query, limit=6):
             score = len(words & set("".join(c.lower() if c.isalnum() else " " for c in e).split()))
             if score:
                 hits.append({"from": name, "text": e, "score": score})
+    for e in archived():                 # (WS-H11) the archive is searched too: memory may grow past the files' caps
+        score = len(words & set("".join(c.lower() if c.isalnum() else " " for c in e).split()))
+        if score:
+            hits.append({"from": "archive", "text": e, "score": score - 0.5})      # a held entry wins a tie
     for n in _notes():
         score = len(words & set("".join(c.lower() if c.isalnum() else " " for c in n["text"]).split()))
         if score:
@@ -366,7 +632,7 @@ def retire(now=None):
             with io.open(_p(ARCHIVE), "a", encoding="utf-8", newline="\n") as fh:
                 for e in gone:
                     fh.write(f"- {e} (retired {day}: not recalled in {RETIRE_DAYS} days)\n")
-            _write("MEMORY.md", _render("What the agent has learned", keep, MEMORY_CAP)[0])
+            _versioned_write("MEMORY.md", _render("What the agent has learned", keep, MEMORY_CAP)[0], "retired idle entries", "retire")
     if gone:
         _audit("retire", {"retired": gone})
     return {"retired": gone, "kept": len(keep)}

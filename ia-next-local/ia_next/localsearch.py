@@ -31,6 +31,11 @@ PER_HOST = 2
 SKIP_HOSTS = ("youtube.com", "facebook.com", "instagram.com", "tiktok.com", "pinterest.com", "x.com", "twitter.com")
 
 
+def _video(url):
+    from . import videotranscript
+    return bool(videotranscript.youtube_id(url))
+
+
 def search(query, limit=10, time_range=""):
     """Results for one query from SearXNG: [{"url", "title", "snippet", "date"}]. time_range (day, week, month, year)
     asks the engines for pages published in that period. Raises ProviderError when it is down."""
@@ -102,8 +107,8 @@ def grounded(model, prompt, ledger=None, system=None, max_output_tokens=4096, wi
             if window.get("since") and r.get("date") and not currency.inside(r["date"], window):
                 continue                                  # the feed or engine dated it outside the period
             host = (urlparse(r["url"]).hostname or "").lower().removeprefix("www.")
-            if r["url"] in seen or any(host == h or host.endswith("." + h) for h in SKIP_HOSTS):
-                continue
+            if r["url"] in seen or (any(host == h or host.endswith("." + h) for h in SKIP_HOSTS) and not _video(r["url"])):
+                continue                                  # (26 Nov) a YouTube video is kept: it is read as its transcript
             if per_host.get(host, 0) >= PER_HOST:
                 continue
             seen.add(r["url"])

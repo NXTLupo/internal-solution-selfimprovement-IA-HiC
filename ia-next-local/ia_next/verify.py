@@ -103,6 +103,12 @@ def deterministic(text, sources):
         title = " ".join(str(s.get("title") or "").split())
         if len(title) >= 8 and re.search(r"\d", title):
             stripped = re.sub(re.escape(title), " ", stripped, flags=re.I)
+    # ... and so is a publisher's name ("Digital Commerce 360", "Retail TouchPoints 2.0"): 26 Nov, the attribution line
+    # "> Digital Commerce 360, November 2026: [S8]" was flagged, set off a full rewrite of the report, and stayed open
+    pubs = {" ".join(str(s.get("publisher") or "").split()) for s in sources}
+    pubs |= {" ".join(str(s.get("title") or "").split(":", 1)[0].split()) for s in sources if ":" in str(s.get("title") or "")}
+    for pub in sorted((p for p in pubs if len(p) >= 4 and re.search(r"\d", p)), key=len, reverse=True):
+        stripped = re.sub(r"(?<!\w)" + re.escape(pub) + r"(?!\w)", " ", stripped, flags=re.I)
     for line in stripped.split("\n"):
         if line.lstrip().startswith("#"):
             continue

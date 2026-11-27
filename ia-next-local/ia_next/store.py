@@ -93,7 +93,70 @@ def new_id(prefix):
     return f"{prefix}_{uuid.uuid4().hex[:12]}"
 
 
+# ---- the trace spine (harness WS-H3, 26 Nov) -------------------------------------------------------------------------
+# One id per conversation turn ties together the turn's events, its model calls (spend rows), the plans and tasks it
+# starts and its transcript, so one turn can be read end to end (GET /api/traces/{id}); dreaming and the evaluation
+# harness read the transcripts. A task's stages take on the trace of the turn that started it (start_node).
+TRACE = contextvars.ContextVar("ia_next_trace", default="")
+
+
+def new_trace():
+    return "tr_" + uuid.uuid4().hex[:12]
+
+
+def _transcripts(c):
+    c.execute("CREATE TABLE IF NOT EXISTS transcripts (trace TEXT PRIMARY KEY, ts REAL, conversation TEXT, person TEXT, said TEXT, "
+              "steps TEXT, reply TEXT, exit TEXT, seconds REAL, models TEXT, engagement TEXT)")
+
+
+def save_transcript(trace, conversation, person, said, steps, reply, exit_why, seconds, engagement=""):
+    """One finished turn, kept for reading back, dreaming and evaluation. Never raises."""
+    try:
+        c = conn()
+        with _LOCK:
+            _transcripts(c)
+            models = [r[0] for r in c.execute("SELECT DISTINCT model FROM spend WHERE trace = ?", (trace,))] if _has_col(c, "spend", "trace") else []
+            c.execute("INSERT OR REPLACE INTO transcripts (trace, ts, conversation, person, said, steps, reply, exit, seconds, models, engagement) "
+                      "VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                      (trace, _now(), conversation, person or "", str(said or "")[:8000], json.dumps(steps, ensure_ascii=False, default=str)[:200_000],
+                       str(reply or "")[:20_000], exit_why or "", round(float(seconds or 0), 1), json.dumps(models), engagement or ""))
+    except Exception:
+        pass
+
+
+def _has_col(c, table, col):
+    try:
+        return col in {r[1] for r in c.execute(f"PRAGMA table_info({table})")}
+    except Exception:
+        return False
+
+
+def trace_view(trace):
+    """One turn end to end: its transcript, events, model calls and the tasks it started."""
+    c = conn()
+    _transcripts(c)
+    row = c.execute("SELECT * FROM transcripts WHERE trace = ?", (trace,)).fetchone()
+    out = {"trace": trace, "transcript": None, "events": [], "model_calls": [], "tasks": []}
+    if row:
+        t = dict(row)
+        t["steps"] = json.loads(t["steps"] or "[]")
+        t["models"] = json.loads(t["models"] or "[]")
+        out["transcript"] = t
+    like = f'%"trace": "{trace}"%'
+    out["events"] = [dict(r) | {"data": json.loads(r["data"])} for r in
+                     c.execute("SELECT * FROM events WHERE data LIKE ? ORDER BY id LIMIT 500", (like,))]
+    if _has_col(c, "spend", "trace"):
+        out["model_calls"] = [dict(r) for r in c.execute("SELECT ts, model, input_tokens, output_tokens, seconds, load_seconds, prompt_seconds, "
+                                                          "num_ctx, label FROM spend WHERE trace = ? ORDER BY ts", (trace,))]
+    out["tasks"] = [{"id": r["id"], "kind": r["kind"], "status": r["status"]} for r in
+                    c.execute("SELECT id, kind, status FROM tasks WHERE brief LIKE ? ORDER BY created", (f'%"trace_id": "{trace}"%',))]
+    return out
+
+
 def event(kind, data, engagement_id=None, task_id=None):
+    tr = TRACE.get()
+    if tr and isinstance(data, dict) and "trace" not in data:
+        data = dict(data, trace=tr)
     with _LOCK:
         conn().execute("INSERT INTO events (ts, engagement_id, task_id, kind, data) VALUES (?,?,?,?,?)",
                        (_now(), engagement_id, task_id, kind, json.dumps(data, ensure_ascii=False)))
@@ -198,6 +261,40 @@ def list_conversations(limit=50):
         out.append({"id": r["id"], "created": r["created"], "updated": r["updated"], "title": r["title"] or "",
                     "items": len(items), "engagements": _conversation_engagements(items)})
     return out
+
+
+# (harness WS-H4, 26 Nov) A conversation's working state: the messages the model sees (tool calls and one-line result
+# pointers), the compaction notes and the result files. A restart used to bring back only the last 8,000 characters of
+# what the person saw, so the model lost its own tool history and the notes of earlier turns.
+def _conv_state(c):
+    c.execute("CREATE TABLE IF NOT EXISTS conversation_state (id TEXT PRIMARY KEY, person TEXT, summary TEXT, messages TEXT, "
+              "tool_files TEXT, updated REAL)")
+
+
+def save_conversation_state(cid, person, summary, messages, tool_files):
+    c = conn()
+    _conv_state(c)
+    try:
+        payload = (json.dumps(messages, ensure_ascii=False, default=str), json.dumps(tool_files, ensure_ascii=False, default=str))
+    except (TypeError, ValueError):
+        return False
+    with _LOCK:
+        c.execute("INSERT OR REPLACE INTO conversation_state VALUES (?,?,?,?,?,?)",
+                  (cid, person, summary or "", payload[0], payload[1], time.time()))
+    return True
+
+
+def load_conversation_state(cid):
+    c = conn()
+    _conv_state(c)
+    r = c.execute("SELECT * FROM conversation_state WHERE id = ?", (cid,)).fetchone()
+    if not r:
+        return None
+    try:
+        return {"person": r["person"], "summary": r["summary"] or "", "messages": json.loads(r["messages"] or "[]"),
+                "tool_files": {k: tuple(v) for k, v in json.loads(r["tool_files"] or "{}").items()}}
+    except ValueError:
+        return None
 
 
 def load_conversation(cid):
@@ -422,6 +519,9 @@ def safe_path(eid, rel):
 TURN = contextvars.ContextVar("ia_next_turn", default=None)
 
 
+IDEM_DONE_SECONDS = 600
+
+
 def create_task(engagement_id, kind, brief, budget_usd, idem_key=None):
     """Idempotent by key: the same key returns the existing task instead of starting a second one."""
     turn = TURN.get()
@@ -435,6 +535,8 @@ def create_task(engagement_id, kind, brief, budget_usd, idem_key=None):
             brief["selected_packs"] = list(turn["packs"])[:8]
         if turn.get("level") and not brief.get("level"):          # the detail asked for, for every builder (depthlevel.py)
             brief["level"] = turn["level"]
+    if isinstance(brief, dict) and TRACE.get() and not brief.get("trace_id"):
+        brief = dict(brief, trace_id=TRACE.get())                  # the turn that started it (WS-H3)
     if isinstance(brief, dict):
         # the engagement's own defaults fill what the request and the plan card left open (Gap 3)
         s = (get_engagement(engagement_id) or {}).get("settings") or {}
@@ -457,8 +559,12 @@ def create_task(engagement_id, kind, brief, budget_usd, idem_key=None):
                 brief["brand"] = s["brand"]
     with _LOCK:
         if idem_key:
-            r = conn().execute("SELECT id, status FROM tasks WHERE idem_key = ?", (idem_key,)).fetchone()
-            if r and r["status"] in ("stopped", "failed"):
+            r = conn().execute("SELECT id, status, updated FROM tasks WHERE idem_key = ?", (idem_key,)).fetchone()
+            # 26 Nov: the owner asked again for a deck after a fix and was handed the finished deck from an hour
+            # before, because the request's words were the same. Finished work blocks the same request only for
+            # IDEM_DONE_SECONDS (a double click, a repeat while the card is still in view); after that it is new work.
+            stale_done = bool(r) and r["status"] == "done" and _now() - float(r["updated"] or 0) > IDEM_DONE_SECONDS
+            if r and (r["status"] in ("stopped", "failed") or stale_done):
                 # Work that was stopped or that failed can be asked for again (24 Nov: the owner stopped a deck and a
                 # journey map by accident, asked again, and was handed the stopped cards). The old task keeps its
                 # record under a retired key; the same request now makes a new one.
@@ -640,13 +746,57 @@ def _node_progress(nid):
     return report
 
 
+# (harness WS-H18, 26 Nov) A step's timeline: each line it says closes the line before with its seconds, so a run can
+# be profiled from its own record. A deep research run took 58 minutes and nothing said where 24 of them went.
+_SAID_AT = {}                                    # node id -> (what it was doing, since when)
+_ENDED = set()                                   # nodes already finished: a later line on them is not timed
+TIMED_MIN_SECONDS = 1.0
+
+
+def _mark_said(nid, line):
+    """A new line on a running node: the one before is closed with its seconds."""
+    if not nid or nid in _ENDED:
+        return
+    now = time.time()
+    _close_said(nid, now)
+    _SAID_AT[nid] = (line, now)
+
+
+def _close_said(nid, now=None, final=False):
+    """Record how long the node's current line lasted (lines under TIMED_MIN_SECONDS are not recorded)."""
+    was = _SAID_AT.pop(nid, None) if final else _SAID_AT.get(nid)
+    if not was:
+        return
+    doing, since = was
+    secs = (now or time.time()) - since
+    if secs < TIMED_MIN_SECONDS:
+        return
+    try:
+        r = conn().execute("SELECT n.task_id, n.specialist, t.engagement_id FROM nodes n JOIN tasks t ON t.id = n.task_id "
+                           "WHERE n.id = ?", (nid,)).fetchone()
+        if r:
+            event("step_timed", {"specialist": r["specialist"], "doing": doing, "seconds": round(secs, 1)},
+                  r["engagement_id"], r["task_id"])
+    except Exception:
+        pass                                     # the record is a courtesy: it never stops the work
+
+
+def timeline(tid):
+    """[{specialist, doing, seconds}] for a task, in order: where its time went."""
+    rows = conn().execute("SELECT data FROM events WHERE task_id = ? AND kind = 'step_timed' ORDER BY id", (tid,)).fetchall()
+    return [json.loads(r["data"]) for r in rows]
+
+
 def say(text):
     """What the step this thread is running is doing right now, in plain words, shown on its running line (field test
     23 Nov, U6: "writing: 1 tokens so far" stayed up for three minutes of feed fetching). No-op outside a step."""
     nid = getattr(_WORK, "node", None)
     if not nid:
         return
-    _WORK.said = str(text or "")[:240]
+    line = str(text or "")[:240]
+    if line and line != getattr(_WORK, "said", ""):
+        _mark_said(nid, line)
+    _WORK.said = line
     try:
         with _LOCK:
             conn().execute("UPDATE nodes SET summary = ? WHERE id = ? AND state = 'running'", (_WORK.said, nid))
@@ -676,6 +826,10 @@ def start_node(tid, specialist, model, seq, progress=True):
     t = get_task(tid)
     _WORK.task = (tid, t["engagement_id"])
     _WORK.node, _WORK.said = nid, ""
+    _SAID_AT[nid] = ("getting ready", time.time())
+    tr = ((t.get("brief") or {}) if isinstance(t.get("brief"), dict) else {}).get("trace_id")
+    if tr and TRACE.get() != tr:
+        TRACE.set(tr)                            # this task's thread carries the trace of the turn that started it
     event("node_running", {"specialist": specialist, "model": model}, t["engagement_id"], tid)
     if progress:                                 # a stage (store.stage) sets its own callback, with its line
         try:
@@ -701,7 +855,10 @@ class _Stage:
     def say(self, text):
         """What has come of the step so far, shown on the running step as it changes (22 Nov: a ten-minute
         transcription showed nothing but elapsed time until it ended)."""
-        self.said = str(text or "")[:300]
+        line = str(text or "")[:300]
+        if self.nid and line and line != self.said:
+            _mark_said(self.nid, line)
+        self.said = line
         if self.nid:
             try:
                 with _LOCK:
@@ -789,6 +946,10 @@ def finish_node(nid, result_path=None, summary=None, error=None):
             providers.PROGRESS.reset(tok)
         except (ValueError, RuntimeError):
             pass                                 # finished from another thread: that thread's value is its own
+    _close_said(nid, final=True)
+    if len(_ENDED) > 5000:
+        _ENDED.clear()
+    _ENDED.add(nid)
     ok = (error is None and result_path and os.path.isfile(result_path) and os.path.getsize(result_path) > 0)
     state = "available" if ok else "failed"
     if not ok and error is None:
