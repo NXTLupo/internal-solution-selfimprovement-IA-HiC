@@ -6,7 +6,7 @@
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>NXT Intelligence Augmentation</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="AI research and deliverables for consulting teams, with every quote verified against its source: the IA Suite, IA Next and IA Next Local, which runs on open-weight models with no paid API calls.">
+<meta name="description" content="IA Next Local: AI research and client deliverables built only on local models, with every quote traced to its source. The repository also holds the original IA Suite and the cloud IA Next.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect x=%272%27 y=%272%27 width=%2712%27 height=%2712%27 fill=%27%23B8B800%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Saira+Condensed:wght@600;700&display=swap">
@@ -34,6 +34,7 @@ a{color:inherit}
 @media (max-width:860px){.nav{display:none}.gh{margin-left:auto}}
 section{padding-block:88px;border-top:1px solid var(--line)}
 .kicker{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;font:500 12px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.cloud{display:block;width:max-content;max-width:100%;margin-top:10px;font:600 11px/1.4 var(--mono);letter-spacing:.08em;color:var(--rust);border:1px solid var(--rust);padding:5px 8px}
 .kicker.new::before{content:"NEW";background:var(--accent);color:var(--ink);padding:4px 7px;letter-spacing:.1em}
 h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
 h2{font-size:clamp(32px,4vw,48px);line-height:1.02;max-width:30ch;margin-top:14px}
@@ -128,7 +129,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .f:not(.on) *{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.stag>*{opacity:1;transform:none;animation:none}.tile img{transition:none}}
-.f .bg{fill:#FFFFFF}.f .frame{fill:none;stroke:#E4E5DF}.f .box{fill:#FFFFFF;stroke:#0D0D0D;stroke-width:1.2}.f .hot{fill:#FFFFFF;stroke:#B8B800;stroke-width:2.6;animation:hot 4s ease-in-out infinite}.f .optional,.f .gate{stroke-dasharray:6 5}.f .refused{stroke:#B4442A}.f .zone{fill:none;stroke:#8A8E86;stroke-width:1.2;stroke-dasharray:6 5}.f .soft{fill:#F3F3EE}.f .rule{fill:none;stroke:#E4E5DF;stroke-width:1}.f .edge{fill:none;stroke:#0D0D0D;stroke-width:1.4}.f .dash{stroke-dasharray:5 4}.f .red{stroke:#B4442A}.f .ah{fill:#0D0D0D}.f .ahr{fill:#B4442A}.f .t,.f .tL,.f .tXL,.f .num,.f .b,.f .bS,.f .bL,.f .tag,.f .val{fill:#0D0D0D}.f .k,.f .kL{fill:#115054}.f .m,.f .mS,.f .mL{fill:#3F433D}.f .lab{fill:#62665F}.f .acc{fill:#B8B800}.f .accs{fill:#EFEFBE}.f .hlbar{fill:#B9B96A}.f .bar{fill:#E4E5DF}.f .bar2{fill:#CFD1C9}.f .ink{fill:#0D0D0D}.f .link{fill:none;stroke:#8C8C00;stroke-width:2;stroke-dasharray:5 4;animation:flow 1.2s linear infinite}.f .dot{fill:#B8B800;stroke:#0D0D0D;stroke-width:1.2}.f .hl{animation:hl 4s ease-in-out infinite}.f .tick{animation:tick 4s ease-out infinite both}.f .lit{animation:lit 12s ease-in-out infinite both}.f .comet{fill:none;stroke:#B8B800;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:9 130;stroke-dashoffset:9;opacity:0;animation:comet 12s linear infinite both}.f .flow{animation:flow 1.2s linear infinite}.f .resident{animation:breathe 4s ease-in-out infinite}.f .shrink{transform-box:fill-box;transform-origin:0 50%}.f .ico{fill:none;stroke:#0D0D0D;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}.f .icoa{fill:none;stroke:#8C8C00;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}.f circle.node,.f .legacy .node{fill:#B8B800}.f .gl{stroke:#62665F;stroke-width:1.2}.f rect.tag{fill:#EFEFBE}@keyframes lit{0%,3%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}6%,13%{stroke:#B8B800;stroke-width:2.6;fill:#FBFBEC}17%,100%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}}@keyframes comet{0%{stroke-dashoffset:9;opacity:1}7%{stroke-dashoffset:-100;opacity:1}7.5%,100%{stroke-dashoffset:-100;opacity:0}}@keyframes flow{to{stroke-dashoffset:-18}}@keyframes hl{0%,30%{opacity:.45}40%,88%{opacity:1}100%{opacity:.45}}@keyframes tick{0%,36%{opacity:0;transform:translateY(5px)}46%,90%{opacity:1;transform:none}100%{opacity:0}}@keyframes breathe{0%,100%{opacity:1}50%{opacity:.8}}@keyframes hot{0%,100%{stroke-width:2.6}50%{stroke-width:3.6}}@media (prefers-reduced-motion:reduce){.f *{animation:none!important}.f .comet,.f .dot{display:none}}.f text{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif}.f .t{font:600 22px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tL{font:600 34px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tXL{font:600 58px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .num{font:600 26px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .k{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.0px}.f .kL{font:400 13px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.9px}.f .lab{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.2px}.f .val{font:400 14px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}.f .tag{font:600 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.9px}.f .m{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mS{font:400 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mL{font:400 18px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .b{font:700 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bS{font:700 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bL{font:700 17px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy text{font:400 13px "Archivo","Helvetica Neue",Arial,sans-serif}.f.legacy .t{font:600 18px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f.legacy .k{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.66px}.f.legacy .m{font:400 12.5px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy .lab{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}
+.f .bg{fill:#FFFFFF}.f .frame{fill:none;stroke:#E4E5DF}.f .box{fill:#FFFFFF;stroke:#0D0D0D;stroke-width:1.2}.f .hot{fill:#FFFFFF;stroke:#B8B800;stroke-width:2.6;animation:hot 4s ease-in-out infinite}.f .optional,.f .gate{stroke-dasharray:6 5}.f .refused{stroke:#B4442A}.f .zone{fill:none;stroke:#8A8E86;stroke-width:1.2;stroke-dasharray:6 5}.f .soft{fill:#F3F3EE}.f .rule{fill:none;stroke:#E4E5DF;stroke-width:1}.f .edge{fill:none;stroke:#0D0D0D;stroke-width:1.4}.f .dash{stroke-dasharray:5 4}.f .red{stroke:#B4442A}.f .ah{fill:#0D0D0D}.f .ahr{fill:#B4442A}.f .t,.f .tL,.f .tXL,.f .num,.f .b,.f .bS,.f .bL,.f .tag,.f .val{fill:#0D0D0D}.f .k,.f .kL{fill:#115054}.f .m,.f .mS,.f .mL{fill:#3F433D}.f .lab{fill:#62665F}.f .acc{fill:#B8B800}.f .accs{fill:#EFEFBE}.f .hlbar{fill:#B9B96A}.f .bar{fill:#E4E5DF}.f .bar2{fill:#CFD1C9}.f .ink{fill:#0D0D0D}.f .link{fill:none;stroke:#8C8C00;stroke-width:2;stroke-dasharray:5 4;animation:flow 1.2s linear infinite}.f .dot{fill:#B8B800;stroke:#0D0D0D;stroke-width:1.2}.f .hl{animation:hl 4s ease-in-out infinite}.f .tick{animation:tick 4s ease-out infinite both}.f .lit{animation:lit 12s ease-in-out infinite both}.f .comet{fill:none;stroke:#B8B800;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:9 130;stroke-dashoffset:9;opacity:0;animation:comet 12s linear infinite both}.f .flow{animation:flow 1.2s linear infinite}.f .resident{animation:breathe 4s ease-in-out infinite}.f .shrink{transform-box:fill-box;transform-origin:0 50%}.f .ico{fill:none;stroke:#0D0D0D;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}.f .icoa{fill:none;stroke:#8C8C00;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}.f circle.node,.f .legacy .node{fill:#B8B800}.f .cloudtag{fill:#B4442A}.f .cloudline{stroke:#B4442A;stroke-width:2}.f .gl{stroke:#62665F;stroke-width:1.2}.f rect.tag{fill:#EFEFBE}@keyframes lit{0%,3%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}6%,13%{stroke:#B8B800;stroke-width:2.6;fill:#FBFBEC}17%,100%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}}@keyframes comet{0%{stroke-dashoffset:9;opacity:1}7%{stroke-dashoffset:-100;opacity:1}7.5%,100%{stroke-dashoffset:-100;opacity:0}}@keyframes flow{to{stroke-dashoffset:-18}}@keyframes hl{0%,30%{opacity:.45}40%,88%{opacity:1}100%{opacity:.45}}@keyframes tick{0%,36%{opacity:0;transform:translateY(5px)}46%,90%{opacity:1;transform:none}100%{opacity:0}}@keyframes breathe{0%,100%{opacity:1}50%{opacity:.8}}@keyframes hot{0%,100%{stroke-width:2.6}50%{stroke-width:3.6}}@media (prefers-reduced-motion:reduce){.f *{animation:none!important}.f .comet,.f .dot{display:none}}.f text{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif}.f .t{font:600 22px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tL{font:600 34px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tXL{font:600 58px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .num{font:600 26px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .k{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.0px}.f .kL{font:400 13px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.9px}.f .lab{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.2px}.f .val{font:400 14px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}.f .tag{font:600 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.9px}.f .m{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mS{font:400 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mL{font:400 18px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .b{font:700 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bS{font:700 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bL{font:700 17px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy text{font:400 13px "Archivo","Helvetica Neue",Arial,sans-serif}.f.legacy .t{font:600 18px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f.legacy .k{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.66px}.f.legacy .m{font:400 12.5px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy .lab{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}.f.legacy .cloudtag{font:600 13px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.0px}
 .netwrap{overflow-x:auto;border-top:1px solid var(--ink);padding-top:8px;margin-top:40px}
 #net{width:100%;min-width:760px;height:auto;display:block}
 #net .edge{fill:none;stroke:var(--ink);stroke-width:1;opacity:.12;transition:opacity .3s,stroke .3s,stroke-width .3s}
@@ -186,20 +187,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <main id="top">
 <section class="hero"><div class="wrap top">
   <div class="stag">
-    <span class="kicker">NXT Humans · Intelligence Augmentation</span>
+    <span class="kicker">NXT Humans · IA Next Local</span>
     <h1><span>AI drafts the research.</span> <span>Every quote is traced to its source.</span></h1>
-    <p class="lead">NXT Humans consultants ask a client question and get back a deck, journey map, persona set or prototype built from articles, public data and the client's own files. Before anything reaches the client, every quote is checked against the source it came from.</p>
+    <p class="lead">IA Next Local turns a client question into a deck, journey map, persona set or prototype, built from articles, public data and the client's own files. It runs only on AI models installed on the consultant's computer, and every quote is checked against its source before anything reaches the client.</p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC#readme">Read the setup guide <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-      <a class="btn" href="#work">See example deliverables <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a class="btn primary" href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V">Open the IA Next Local artifact <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a class="btn" href="https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-next-2026-11-17/ia-next-local#readme">Set up IA Next Local <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
   </div>
   <figure class="heroart"><svg class="f fig-herofig" viewBox="0 0 580 400" role="img" aria-label="A quote in a client deck is traced to the highlighted passage in its source article, where it was confirmed word for word."><defs><marker id="ah-herofig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker><marker id="ah-herofigr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahr"/></marker></defs><text class="lab" x="24" y="22">SOURCE ARTICLE</text><rect class="box" x="24" y="36" width="250" height="352" rx="3"/><text class="k" x="42" y="66">INDUSTRY REPORT</text><path class="rule" d="M42,80 H256"/><rect class="bar" x="42" y="100" width="196" height="7" rx="2"/><rect class="bar" x="42" y="117" width="210" height="7" rx="2"/><rect class="bar" x="42" y="134" width="168" height="7" rx="2"/><rect class="bar" x="42" y="151" width="204" height="7" rx="2"/><rect class="bar" x="42" y="168" width="120" height="7" rx="2"/><rect class="accs hl" x="34" y="181" width="232" height="62" rx="2"/><rect class="hlbar" x="42" y="191" width="204" height="7" rx="2"/><rect class="hlbar" x="42" y="208" width="214" height="7" rx="2"/><rect class="hlbar" x="42" y="225" width="150" height="7" rx="2"/><rect class="bar" x="42" y="253" width="200" height="7" rx="2"/><rect class="bar" x="42" y="270" width="186" height="7" rx="2"/><rect class="bar" x="42" y="287" width="210" height="7" rx="2"/><rect class="bar" x="42" y="304" width="150" height="7" rx="2"/><rect class="bar" x="42" y="321" width="198" height="7" rx="2"/><rect class="bar" x="42" y="338" width="172" height="7" rx="2"/><rect class="bar" x="42" y="355" width="96" height="7" rx="2"/><text class="lab" x="324" y="82">CLIENT DECK</text><rect class="box" x="324" y="96" width="236" height="262" rx="3"/><rect class="ink" x="342" y="120" width="188" height="11" rx="2"/><rect class="ink" x="342" y="138" width="132" height="11" rx="2"/><rect class="acc" x="342" y="176" width="4" height="72"/><rect class="bar2" x="358" y="182" width="176" height="7" rx="2"/><rect class="bar2" x="358" y="199" width="184" height="7" rx="2"/><rect class="bar2" x="358" y="216" width="150" height="7" rx="2"/><rect class="bar2" x="358" y="233" width="120" height="7" rx="2"/><text class="k" x="358" y="272">SOURCE · PAGE 3</text><g class="tick"><rect class="acc" x="342" y="300" width="152" height="28" rx="2"/><text class="tag" x="354" y="318">QUOTE CONFIRMED</text></g><path class="link" d="M324,212 C300,212 300,206 276,206"/><circle class="dot" r="5" cx="0" cy="0"><animateMotion dur="4s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.35;1" calcMode="linear" path="M324,212 C300,212 300,206 276,206"/></circle></svg><figcaption>Each quote in a deck is matched against the article it came from. A quote that does not match word for word is removed before the deck is delivered.</figcaption></figure>
 </div>
 <div class="wrap"><div class="products stag">
-  <div class="prod"><b>IA Suite</b><p>The original platform. A home page and a chat assistant that work with a dozen tools, including HiC, the research and deliverable engine.</p></div>
-  <div class="prod"><b>IA Next</b><p>One assistant that hands work to specialists, asks before spending money on AI services, and checks quotes against their sources.</p></div>
-  <div class="prod"><b>IA Next Local <span class="new">NEW</span></b><p>IA Next running entirely on the consultant's own computer. Client files stay on the machine, and there are no per-use AI fees.</p></div>
+  <div class="prod"><b>IA Next Local <span class="new">NEW</span></b><p>The lead system in this repository. IA Next running only on local models on the consultant's own computer: no paid AI service, client files stay on the machine and there are no per-use fees.</p></div>
+  <div class="prod"><b>IA Suite</b><p>Also in this repository: the original platform, built on paid cloud models such as Claude, with HiC, the research and deliverable engine.</p></div>
+  <div class="prod"><b>IA Next, cloud version</b><p>Also in this repository: one assistant that hands work to specialists running on paid cloud models (Claude, GPT and Gemini).</p></div>
 </div></div>
 </section>
 
@@ -285,14 +286,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <section class="reveal" id="parts"><div class="wrap">
   <div class="intro">
     <span class="kicker">For engineers</span>
-    <h2>System architecture</h2>
-    <p>The four diagrams below show how the original suite and IA Next are built: services, ports and the data passed between them.</p>
+    <h2>How the original IA Suite and the cloud IA Next are built</h2>
+    <p>These four diagrams cover the repository's two older systems. Both call paid cloud models such as Claude, Gemini and GPT, which is why none of them appears in the IA Next Local sections. IA Next Local uses only the local models shown in the AI model stack above.</p>
   </div>
 </div></section>
 <section class="reveal" id="suite">
   <div class="wrap">
     <div class="intro">
-      <span class="kicker">IA Suite</span>
+      <span class="kicker">IA Suite</span><span class="cloud">ORIGINAL IA SUITE · USES PAID CLOUD MODELS (CLAUDE)</span>
       <h2>How a chat message reaches a service</h2>
       <p>The agent talks to every service through a small MCP wrapper. It reads each wrapper's tool list once when it starts, then calls tools by name while Claude works through the request.</p>
     </div>
@@ -353,7 +354,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <section class="reveal" id="hic">
   <div class="wrap">
     <div class="intro">
-      <span class="kicker">Humans in Control (HiC)</span>
+      <span class="kicker">Humans in Control (HiC)</span><span class="cloud">ORIGINAL IA SUITE · HIC · USES PAID CLOUD MODELS</span>
       <h2>How HiC turns sources into a cited deck</h2>
       <p>HiC writes every source into a wiki before it writes anything for the client. The deck is drafted from pointers into that wiki, so each claim can be traced back to a stored passage.</p>
     </div>
@@ -415,7 +416,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <section class="reveal" id="ianext">
   <div class="wrap">
     <div class="intro">
-      <span class="kicker">IA Next</span>
+      <span class="kicker">IA Next</span><span class="cloud">IA NEXT, CLOUD VERSION · USES PAID CLOUD MODELS</span>
       <h2>What IA Next does after you ask for something</h2>
       <p>The agent turns your request into a task with steps and a budget. Anything that costs money waits for your approval, and every quote is checked before the result reaches the conversation.</p>
     </div>
@@ -478,7 +479,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <section class="reveal" id="together">
   <div class="wrap">
     <div class="intro">
-      <span class="kicker">One computer</span>
+      <span class="kicker">One computer</span><span class="cloud">IA SUITE AND CLOUD IA NEXT ON ONE MACHINE · NOT IA NEXT LOCAL</span>
       <h2>Running both systems on one machine</h2>
       <p>The suite and IA Next are separate compose projects with their own networks and data, and no port appears in both. IA Next reaches HiC only through the host, and only when you ask for HiC's work.</p>
     </div>
@@ -532,10 +533,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 <section class="reveal" id="start"><div class="wrap">
   <div class="intro">
     <span class="kicker">Setup</span>
-    <h2>Running the systems locally</h2>
-    <p>The suite and IA Next read API keys from the repository's root <code>.env</code> file. IA Next Local needs no API keys; it needs Ollama on the host with the models listed in its guide.</p>
+    <h2>Setting up IA Next Local</h2>
+    <p>IA Next Local needs Docker Desktop, Ollama with the models listed in its guide, and a 24 GB graphics card. It needs no API keys. The two older systems read their API keys from the repository's root <code>.env</code> file.</p>
   </div>
   <div class="starts">
+    <div class="start"><header><b>IA Next Local</b><span>then open<br>127.0.0.1:9460</span></header>
+<pre><span class="c"># once: pull the models into Ollama</span>
+cd ia-next-local
+powershell -File scripts\pull_models.ps1
+<span class="c"># start Ollama, the picture engine, the app</span>
+powershell -ExecutionPolicy Bypass -File scripts\start_all.ps1</pre><button type="button" class="copy">Copy</button></div>
     <div class="start"><header><b>IA Suite</b><span>then open<br>localhost:8000</span></header>
 <pre><span class="c"># from the repository root</span>
 cp .env.example .env
@@ -545,11 +552,7 @@ docker compose -f docker-compose-all.yml ps</pre><button type="button" class="co
 <pre><span class="c"># same .env; runs alongside the suite</span>
 docker compose -f ia-next/ia-next.compose.yml up -d --build
 curl http://127.0.0.1:9400/health</pre><button type="button" class="copy">Copy</button></div>
-    <div class="start"><header><b>IA Next Local</b><span>then open<br>127.0.0.1:9460</span></header>
-<pre><span class="c"># requires Ollama with the models pulled</span>
-cd ia-next-local
-docker compose -f ia-next-local.compose.yml \
-  --env-file ../.env up -d --build</pre><button type="button" class="copy">Copy</button></div>
+
   </div>
 </div></section>
 </main>
