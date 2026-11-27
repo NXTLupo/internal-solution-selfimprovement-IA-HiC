@@ -1,40 +1,34 @@
-# NXT Intelligence Augmentation
+# IA Next Local
 
 <p align="center">
-  <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><img src="docs/readme/hero.svg" alt="AI drafts the research, and every quote is traced to its source. A quote in a client deck is linked to the highlighted passage in the source article, where it was confirmed word for word." width="100%"></a>
+  <a href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V"><img src="docs/readme/hero.svg" alt="IA Next Local: AI drafts the research, and every quote is traced to its source. Local models only, no paid AI services, every quote checked." width="100%"></a>
 </p>
 
 <p align="center">
+  <a href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V"><b>Open the IA Next Local artifact</b></a>
+  &nbsp;·&nbsp;
   <a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/"><b>Illustrated overview</b></a>
   &nbsp;·&nbsp;
-  <a href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V"><b>Example deliverables</b></a>
+  <a href="ia-next-local/README.md">Setup guide</a>
   &nbsp;·&nbsp;
-  <a href="#ia-next">IA Next guide</a>
-  &nbsp;·&nbsp;
-  <a href="ia-next-local/README.md">IA Next Local guide</a>
+  <a href="#other-systems-in-this-repository">Other systems in this repository</a>
 </p>
 
-NXT Humans consultants use this platform to answer client questions with evidence. A consultant asks a question in plain language and gets back a deck, journey map, persona set or prototype built from industry news, public research and the client's own files. Before anything reaches the client, every quote is checked against the source it came from, and every source is listed so any claim can be traced.
+IA Next Local is the research and deliverables assistant NXT Humans consultants run on their own computers. A consultant asks a client question in plain language and gets back a deck, journey map, persona set or prototype built from industry news, public research and the client's own files. Every AI model it uses is installed on the machine, so client files never go to an outside AI provider and there are no per-use fees. Before anything reaches the client, every quote is checked against the source it came from.
 
-The repository holds three versions of the platform:
-
-| | Open | What it is |
-|---|---|---|
-| **IA Suite** | http://localhost:8000 | The original platform. A home page and a chat assistant that work with a dozen tools, including HiC, the research and deliverable engine. Guide: [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) |
-| **IA Next** | http://127.0.0.1:9400 | One assistant that hands work to specialists, asks before spending money on AI services, and checks quotes against their sources. Guide: [below](#ia-next) |
-| **IA Next Local** &nbsp;`new` | http://127.0.0.1:9460 | IA Next running entirely on the consultant's own computer. Client files stay on the machine, and there are no per-use AI fees. Guide: [`ia-next-local/README.md`](ia-next-local/README.md) |
+It runs at **http://127.0.0.1:9460**, on the consultant's machine only. Setup is [below](#get-started) and in full in the [IA Next Local guide](ia-next-local/README.md).
 
 ## How it works
 
 <p align="center"><img src="docs/readme/request-flow.svg" alt="Six steps: a consultant asks; the plan is approved; sources are gathered; the deliverable is drafted; every claim is checked, with a loop that fixes and rechecks anything that fails; and the work is ready for the client." width="100%"></p>
 
-The consultant stays in charge at the two points that matter. Before any research starts, they see a short plan (which sources will be read, what will be delivered, in which brand, and how long each step should take) and approve it. At the end, they review the finished work and download it as editable PowerPoint or PDF. In between, the system gathers the sources, drafts the deliverable and checks every quote word for word against its source; anything it cannot confirm is fixed or flagged.
+The consultant stays in charge at the two points that matter. Before any research starts, they see a short plan (which sources will be read, what will be delivered, in which brand, and how long each step should take) and approve it. At the end, they review the finished work and download it as editable PowerPoint or PDF. In between, IA Next Local gathers the sources, drafts the deliverable and checks every quote word for word against its source; anything it cannot confirm is fixed or flagged.
 
-## New: IA Next Local keeps client work on your own computer
+## Client work stays on your own computer
 
 <p align="center"><img src="docs/readme/one-computer.svg" alt="Inside a dashed outline marked your computer: client files, the AI models and the IA Next Local research desk. Articles come in from the public web. The connection to paid AI services is blocked, so nothing is sent outside." width="100%"></p>
 
-Every AI model IA Next Local uses is installed on the consultant's computer. Interview recordings, briefs and other client files are read there and never sent to an outside AI provider, and there is no charge per request, so a long research job costs the same as a short one. Drafts are also reviewed by a second AI model from a different company than the one that wrote them.
+Interview recordings, briefs and other client files are read on the consultant's computer and never sent to an outside AI provider. There is no charge per request, so a long research job costs the same as a short one. Drafts are also reviewed by a second AI model from a different company than the one that wrote them.
 
 ## The AI model stack
 
@@ -54,7 +48,7 @@ Qwen 3.8 27B stays loaded on the 24 GB graphics card for chat, search planning, 
 | Pictures and illustrations | MOSS-Image (OpenMOSS) | Stable Diffusion 3.5 Large | Apache 2.0 |
 | Short video clips | Kandinsky 6.0 Lite | | MIT |
 
-The [overview site](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#models) has the interactive version: select a model to see its role, the tasks it handles and the deliverables it produces.
+The [overview site](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#models) and the [IA Next Local artifact](https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V) have the interactive version: select a model to see its role, the tasks it handles and the deliverables it produces.
 
 ## Quality checks run while no one is working
 
@@ -70,25 +64,51 @@ Each pair is the same request on the same computer: first during the November 20
 
 ## Example deliverables
 
-<p align="center"><a href="https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#work"><img src="docs/readme/work-gallery.jpg" alt="Six deliverables produced by IA Next Local: a journey map, an architecture map, an illustrated infographic, personas, a mind map and a competitive gap analysis." width="100%"></a></p>
+<p align="center"><a href="https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V"><img src="docs/readme/work-gallery.jpg" alt="Six deliverables produced by IA Next Local: a journey map, an architecture map, an illustrated infographic, personas, a mind map and a competitive gap analysis." width="100%"></a></p>
 
-Each type of deliverable has its own format: journey maps are maps, architectures are diagrams and infographics are illustrated posters. The platform also produces research reports, slide decks, executive briefs, audio overviews, prototypes, study guides and quizzes. **[Open all examples](https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V)**, or page through six of them on the [overview site](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#work).
+Each type of deliverable has its own format: journey maps are maps, architectures are diagrams and infographics are illustrated posters. IA Next Local also produces research reports, slide decks, executive briefs, audio overviews, prototypes, study guides and quizzes. **[Open the IA Next Local artifact](https://claude.ai/artifact/PPxmfEKTDSxeE7ruxB9C7V)** for all 23 examples and the audio overview, or page through six of them on the [overview site](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#work).
 
-## For engineers: system architecture
+## Get started
 
-<p align="center"><img src="docs/readme/parts-suite.svg" alt="How a chat message reaches a service: browser, Launchpad on port 8000, the AI Agent on 8500 with Claude, MCP wrappers on 8501 to 8507, then the services over HTTP." width="100%"></p>
+IA Next Local needs Windows with Docker Desktop, [Ollama](https://ollama.com) and a 24 GB graphics card. It needs no API keys. Pictures and video also need the ComfyUI picture engine described in the guide.
 
-<p align="center"><img src="docs/readme/parts-hic.svg" alt="How HiC turns sources into a cited deck: sources are chunked with provenance into the wiki and manifest; a question seeds manifest-first retrieval, the model router, the post-processor that names sources, and the native PowerPoint exporter." width="100%"></p>
+```powershell
+cd ia-next-local
+# once: pull the models each job uses into Ollama
+powershell -File scripts\pull_models.ps1
+# start Ollama, the picture engine and the app, in order
+powershell -ExecutionPolicy Bypass -File scripts\start_all.ps1
+# then open http://127.0.0.1:9460
+```
 
-<p align="center"><img src="docs/readme/parts-ianext.svg" alt="What IA Next does with a request: the agent, an approval check for paid work, the task graph, the specialists, the quote verifier and the result card; a renderer container screenshots prototypes and HiC is reachable through the host." width="100%"></p>
+The [IA Next Local guide](ia-next-local/README.md) covers rebuilding, tests, the model seats and how each request is handled.
 
-<p align="center"><img src="docs/readme/parts-together.svg" alt="Running both systems on one machine: the suite's compose project and ports on the left, IA Next's own project on 127.0.0.1:9400 with its renderer and data volume on the right." width="100%"></p>
+## Other systems in this repository
+
+The repository also holds two older systems. Both use **paid cloud models** such as Claude, Gemini and GPT; IA Next Local does not.
+
+| | Open | What it is |
+|---|---|---|
+| **IA Suite** | http://localhost:8000 | The original platform: a home page and a chat assistant that work with a dozen tools, including HiC, the research and deliverable engine. Guide: [`ia-suite-2026-11-17`](https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC/tree/ia-suite-2026-11-17) |
+| **IA Next, cloud version** | http://127.0.0.1:9400 | One assistant that hands work to specialists on paid cloud models and asks before spending money. Guide: [below](#ia-next-cloud-version) |
+
+### For engineers: how the IA Suite and the cloud IA Next are built
+
+None of these four diagrams describes IA Next Local; its stack is the one shown in [The AI model stack](#the-ai-model-stack).
+
+<p align="center"><img src="docs/readme/parts-suite.svg" alt="Original IA Suite, uses paid cloud models: how a chat message reaches a service. Browser, Launchpad on port 8000, the AI Agent on 8500 with Claude, MCP wrappers on 8501 to 8507, then the services over HTTP." width="100%"></p>
+
+<p align="center"><img src="docs/readme/parts-hic.svg" alt="Original IA Suite, HiC, uses paid cloud models: how HiC turns sources into a cited deck through the wiki and manifest, manifest-first retrieval, the model router, the post-processor and the native PowerPoint exporter." width="100%"></p>
+
+<p align="center"><img src="docs/readme/parts-ianext.svg" alt="IA Next, cloud version, uses paid cloud models: the agent, an approval check for paid work, the task graph, the specialists, the quote verifier and the result card." width="100%"></p>
+
+<p align="center"><img src="docs/readme/parts-together.svg" alt="The IA Suite and the cloud IA Next on one machine: the suite's compose project and ports on the left, the cloud IA Next on 127.0.0.1:9400 with its renderer and data volume on the right." width="100%"></p>
 
 ---
 
-# IA Next
+# IA Next (cloud version)
 
-IA Next is the newer of the two systems. You open one page and describe what you need in plain words. The agent plans the work and hands it to specialists for research, analysis, writing, decks, journey maps, prototypes, social listening, images and video. It checks every quote against its source, asks for your approval before anything costly, and brings the finished work back into the same conversation.
+This is the cloud version of IA Next, which uses paid cloud models. For the local version, see [IA Next Local](#ia-next-local) above. You open one page and describe what you need in plain words. The agent plans the work and hands it to specialists for research, analysis, writing, decks, journey maps, prototypes, social listening, images and video. It checks every quote against its source, asks for your approval before anything costly, and brings the finished work back into the same conversation.
 
 It runs as **two containers on one port (9400)**: the workspace, and a renderer with no port of its own that screenshots prototypes for their design review. It has its own compose project, networks and data, separate from the original suite. When the suite is running, IA Next can also use HiC's engine through the host (documents, data packs, the second brain, themes and HiC's artifact studio); without it, IA Next still works on its own.
 
