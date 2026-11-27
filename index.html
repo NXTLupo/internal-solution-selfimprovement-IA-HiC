@@ -128,13 +128,57 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .f:not(.on) *{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.stag>*{opacity:1;transform:none;animation:none}.tile img{transition:none}}
-.f .bg{fill:#FFFFFF}.f .frame{fill:none;stroke:#E4E5DF}.f .box{fill:#FFFFFF;stroke:#0D0D0D;stroke-width:1.2}.f .hot{fill:#FFFFFF;stroke:#B8B800;stroke-width:2.6;animation:hot 4s ease-in-out infinite}.f .optional,.f .gate{stroke-dasharray:6 5}.f .refused{stroke:#B4442A}.f .zone{fill:none;stroke:#8A8E86;stroke-width:1.2;stroke-dasharray:6 5}.f .soft{fill:#F3F3EE}.f .rule{fill:none;stroke:#E4E5DF;stroke-width:1}.f .edge{fill:none;stroke:#0D0D0D;stroke-width:1.4}.f .dash{stroke-dasharray:5 4}.f .red{stroke:#B4442A}.f .ah{fill:#0D0D0D}.f .ahr{fill:#B4442A}.f .t,.f .tL,.f .tXL,.f .num,.f .b,.f .bS,.f .bL,.f .tag,.f .val{fill:#0D0D0D}.f .k,.f .kL{fill:#115054}.f .m,.f .mS,.f .mL{fill:#3F433D}.f .lab{fill:#62665F}.f .acc{fill:#B8B800}.f .accs{fill:#EFEFBE}.f .hlbar{fill:#B9B96A}.f .bar{fill:#E4E5DF}.f .bar2{fill:#CFD1C9}.f .ink{fill:#0D0D0D}.f .link{fill:none;stroke:#8C8C00;stroke-width:2;stroke-dasharray:5 4;animation:flow 1.2s linear infinite}.f .dot{fill:#B8B800;stroke:#0D0D0D;stroke-width:1.2}.f .hl{animation:hl 4s ease-in-out infinite}.f .tick{animation:tick 4s ease-out infinite both}.f .lit{animation:lit 12s ease-in-out infinite both}.f .comet{fill:none;stroke:#B8B800;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:9 130;stroke-dashoffset:9;opacity:0;animation:comet 12s linear infinite both}.f .flow{animation:flow 1.2s linear infinite}.f .resident{animation:breathe 4s ease-in-out infinite}.f .shrink{transform-box:fill-box;transform-origin:0 50%}.f .ico{fill:none;stroke:#0D0D0D;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}.f .icoa{fill:none;stroke:#8C8C00;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}.f circle.node,.f .legacy .node{fill:#B8B800}.f .gl{stroke:#62665F;stroke-width:1.2}.f rect.tag{fill:#EFEFBE}@keyframes lit{0%,3%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}6%,13%{stroke:#B8B800;stroke-width:2.6;fill:#FBFBEC}17%,100%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}}@keyframes comet{0%{stroke-dashoffset:9;opacity:1}7%{stroke-dashoffset:-100;opacity:1}7.5%,100%{stroke-dashoffset:-100;opacity:0}}@keyframes flow{to{stroke-dashoffset:-18}}@keyframes hl{0%,30%{opacity:.45}40%,88%{opacity:1}100%{opacity:.45}}@keyframes tick{0%,36%{opacity:0;transform:translateY(5px)}46%,90%{opacity:1;transform:none}100%{opacity:0}}@keyframes breathe{0%,100%{opacity:1}50%{opacity:.8}}@keyframes hot{0%,100%{stroke-width:2.6}50%{stroke-width:3.6}}@media (prefers-reduced-motion:reduce){.f *{animation:none!important}.f .comet,.f .dot{display:none}}.f text{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif}.f .t{font:600 22px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tL{font:600 34px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tXL{font:600 58px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .num{font:600 26px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .k{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.0px}.f .kL{font:400 13px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.9px}.f .lab{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.2px}.f .val{font:400 14px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}.f .tag{font:600 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.9px}.f .m{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mS{font:400 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mL{font:400 18px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .b{font:700 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bS{font:700 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bL{font:700 17px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy text{font:400 13px "Archivo","Helvetica Neue",Arial,sans-serif}.f.legacy .t{font:600 18px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f.legacy .k{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.66px}.f.legacy .m{font:400 12.5px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy .lab{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}</style>
+.f .bg{fill:#FFFFFF}.f .frame{fill:none;stroke:#E4E5DF}.f .box{fill:#FFFFFF;stroke:#0D0D0D;stroke-width:1.2}.f .hot{fill:#FFFFFF;stroke:#B8B800;stroke-width:2.6;animation:hot 4s ease-in-out infinite}.f .optional,.f .gate{stroke-dasharray:6 5}.f .refused{stroke:#B4442A}.f .zone{fill:none;stroke:#8A8E86;stroke-width:1.2;stroke-dasharray:6 5}.f .soft{fill:#F3F3EE}.f .rule{fill:none;stroke:#E4E5DF;stroke-width:1}.f .edge{fill:none;stroke:#0D0D0D;stroke-width:1.4}.f .dash{stroke-dasharray:5 4}.f .red{stroke:#B4442A}.f .ah{fill:#0D0D0D}.f .ahr{fill:#B4442A}.f .t,.f .tL,.f .tXL,.f .num,.f .b,.f .bS,.f .bL,.f .tag,.f .val{fill:#0D0D0D}.f .k,.f .kL{fill:#115054}.f .m,.f .mS,.f .mL{fill:#3F433D}.f .lab{fill:#62665F}.f .acc{fill:#B8B800}.f .accs{fill:#EFEFBE}.f .hlbar{fill:#B9B96A}.f .bar{fill:#E4E5DF}.f .bar2{fill:#CFD1C9}.f .ink{fill:#0D0D0D}.f .link{fill:none;stroke:#8C8C00;stroke-width:2;stroke-dasharray:5 4;animation:flow 1.2s linear infinite}.f .dot{fill:#B8B800;stroke:#0D0D0D;stroke-width:1.2}.f .hl{animation:hl 4s ease-in-out infinite}.f .tick{animation:tick 4s ease-out infinite both}.f .lit{animation:lit 12s ease-in-out infinite both}.f .comet{fill:none;stroke:#B8B800;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:9 130;stroke-dashoffset:9;opacity:0;animation:comet 12s linear infinite both}.f .flow{animation:flow 1.2s linear infinite}.f .resident{animation:breathe 4s ease-in-out infinite}.f .shrink{transform-box:fill-box;transform-origin:0 50%}.f .ico{fill:none;stroke:#0D0D0D;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}.f .icoa{fill:none;stroke:#8C8C00;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}.f circle.node,.f .legacy .node{fill:#B8B800}.f .gl{stroke:#62665F;stroke-width:1.2}.f rect.tag{fill:#EFEFBE}@keyframes lit{0%,3%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}6%,13%{stroke:#B8B800;stroke-width:2.6;fill:#FBFBEC}17%,100%{stroke:#0D0D0D;stroke-width:1.2;fill:#FFFFFF}}@keyframes comet{0%{stroke-dashoffset:9;opacity:1}7%{stroke-dashoffset:-100;opacity:1}7.5%,100%{stroke-dashoffset:-100;opacity:0}}@keyframes flow{to{stroke-dashoffset:-18}}@keyframes hl{0%,30%{opacity:.45}40%,88%{opacity:1}100%{opacity:.45}}@keyframes tick{0%,36%{opacity:0;transform:translateY(5px)}46%,90%{opacity:1;transform:none}100%{opacity:0}}@keyframes breathe{0%,100%{opacity:1}50%{opacity:.8}}@keyframes hot{0%,100%{stroke-width:2.6}50%{stroke-width:3.6}}@media (prefers-reduced-motion:reduce){.f *{animation:none!important}.f .comet,.f .dot{display:none}}.f text{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif}.f .t{font:600 22px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tL{font:600 34px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .tXL{font:600 58px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .num{font:600 26px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f .k{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.0px}.f .kL{font:400 13px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:1.9px}.f .lab{font:400 12.5px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.2px}.f .val{font:400 14px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}.f .tag{font:600 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.9px}.f .m{font:400 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mS{font:400 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .mL{font:400 18px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .b{font:700 15px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bS{font:700 14px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f .bL{font:700 17px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy text{font:400 13px "Archivo","Helvetica Neue",Arial,sans-serif}.f.legacy .t{font:600 18px "Saira Condensed","Arial Narrow",sans-serif;letter-spacing:0px}.f.legacy .k{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0.66px}.f.legacy .m{font:400 12.5px "Archivo","Helvetica Neue",Arial,sans-serif;letter-spacing:0px}.f.legacy .lab{font:400 11px "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:0px}
+.netwrap{overflow-x:auto;border-top:1px solid var(--ink);padding-top:8px;margin-top:40px}
+#net{width:100%;min-width:760px;height:auto;display:block}
+#net .edge{fill:none;stroke:var(--ink);stroke-width:1;opacity:.12;transition:opacity .3s,stroke .3s,stroke-width .3s}
+#net .edge.f{stroke-dasharray:5 5}
+#net .edge.on{opacity:1;stroke-width:2.4}
+#net .edge.on.p{stroke:var(--accent);stroke-width:4;stroke-dasharray:600;stroke-dashoffset:600;animation:draw .9s ease-out forwards}
+#net .edge.on.f{stroke:var(--ink)}
+@keyframes draw{to{stroke-dashoffset:0}}
+#net .mnode rect{fill:var(--paper);stroke:var(--ink);stroke-width:1.2;transition:fill .2s}
+#net .mnode text{font:600 14px var(--body);fill:var(--ink)}
+#net .mnode .sub{font:500 10px var(--mono);fill:var(--muted)}
+#net .mnode{cursor:pointer}
+#net .mnode:hover rect,#net .mnode:focus rect{fill:var(--soft)}
+#net .mnode.on rect{fill:var(--accent)}
+#net .mnode:focus{outline:none}
+#net .mnode:focus-visible rect{stroke:var(--teal);stroke-width:3}
+.astable{margin-top:14px}
+.astable summary{cursor:pointer;font:500 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.mmapwrap{overflow-x:auto;border-top:1px solid var(--ink)}
+.mmap{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
+.mmap th{font:500 10px/1.25 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 4px;text-align:center;vertical-align:bottom}
+.mmap th:first-child{text-align:left}
+.mmap td{border-bottom:1px solid var(--line);padding:0;text-align:center}
+.mmap tr.sel td{background:var(--soft)}
+.mrow{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;border:0;background:none;padding:10px 8px;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.mrow b{font:600 17px/1.1 var(--display)}
+.mrow span{font:500 10px/1.3 var(--mono);color:var(--muted);letter-spacing:.04em}
+.sq{display:inline-block;width:14px;height:14px;vertical-align:middle}
+.sq.p{background:var(--accent);outline:1px solid var(--ink)}
+.sq.f{border:1.5px solid var(--ink)}
+.mdetail{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;border-left:3px solid var(--accent);padding:6px 0 6px 18px;animation:rise .35s ease-out}
+.mdetail h3{font:600 26px/1.1 var(--display);margin:0 0 6px}
+.mdetail .facts2{font:500 12px/1.7 var(--mono);color:var(--teal)}
+.mdetail p{margin:8px 0 0;color:var(--ink-2)}
+.mdetail .hint{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.toolchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.toolchips span{font:500 12px/1.3 var(--mono);border:1px solid var(--ink);padding:5px 8px}
+.makes{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.makes button,.makes span{font:600 13px/1 var(--body);color:var(--ink);background:var(--accent);padding:7px 9px;border:0}
+.makes button{cursor:pointer}
+.makes button:hover{background:var(--ink);color:#FFFFFF}
+.makes span{background:var(--soft)}
+@media (max-width:720px){.mdetail{grid-template-columns:minmax(0,1fr);gap:12px}}
+</style>
 </head>
 <body>
 <header class="mast"><div class="wrap">
   <a class="brand" href="#top"><i></i>NXT Humans</a>
   <nav class="nav" aria-label="Sections">
-    <a href="#request">How it works</a><a href="#local">IA Next Local</a><a href="#away">Quality</a><a href="#speed">Turnaround</a><a href="#work">Examples</a><a href="#parts">For engineers</a><a href="#start">Setup</a>
+    <a href="#request">How it works</a><a href="#local">IA Next Local</a><a href="#models">Models</a><a href="#away">Quality</a><a href="#speed">Turnaround</a><a href="#work">Examples</a><a href="#parts">For engineers</a><a href="#start">Setup</a>
   </nav>
   <a class="gh" href="https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC">GitHub</a>
 </div></header>
@@ -186,6 +230,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 </div></section>
 
 
+
+<section class="reveal" id="models"><div class="wrap">
+  <div class="intro">
+    <span class="kicker">The AI model stack</span>
+    <h2>Every model IA Next Local uses, and the job each one does</h2>
+    <p>All of these models are installed on the consultant's computer. Select a model to see its role, the tasks it handles and the deliverables it produces. A filled square means the model does that job; an open square means it steps in when the first choice is unavailable.</p>
+  </div>
+  <figure class="diagram"><div class="scroll"><svg class="f fig-stack" viewBox="0 0 1200 600" role="img" aria-label="The AI model stack on one machine: Qwen 3.8 27B kept loaded on a 24 GB graphics card; specialist models loaded on demand (Nemotron review, Ornith prototypes, MOSS-Image illustrations, Kandinsky video, Whisper transcription, Kokoro voices, Qwen3 Embedding relevance ranking); the IA Next Local app; self-hosted web search through SearXNG; HiC as an optional link; and paid model APIs, which are blocked."><defs><marker id="ah-stack" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker><marker id="ah-stackr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahr"/></marker></defs><rect class="zone" x="20" y="40" width="836" height="548" rx="6"/><text class="lab" x="36" y="30">ONE MACHINE</text><rect class="box" x="50" y="70" width="400" height="236" rx="3"/><text class="k" x="68" y="98">ONE GRAPHICS CARD · 24 GB</text><text class="t" x="68" y="126">Main model, always loaded</text><rect class="soft" x="68" y="146" width="364" height="34" rx="2"/><rect class="acc resident" x="68" y="146" width="268" height="34" rx="2"/><text class="tag" x="80" y="168">QWEN 3.8 27B</text><text class="lab" x="345" y="168">window</text><text class="m" x="68" y="210">Handles chat, search planning, quote extraction and all</text><text class="m" x="68" y="230">writing. Keeping it in memory keeps chat responses</text><text class="m" x="68" y="250">fast.</text><rect class="box" x="50" y="354" width="400" height="206" rx="3"/><text class="k" x="68" y="382">SPECIALIST MODELS, LOADED ON DEMAND</text><text class="bS" x="68" y="408">Nemotron 3.5 30B</text><text class="mS" x="210" y="408">second-opinion review</text><text class="bS" x="68" y="429">Ornith 1.5 35B</text><text class="mS" x="210" y="429">clickable prototypes</text><text class="bS" x="68" y="450">MOSS-Image</text><text class="mS" x="210" y="450">illustrations in brand colors</text><text class="bS" x="68" y="471">Kandinsky 6.0</text><text class="mS" x="210" y="471">short video, after approval</text><text class="bS" x="68" y="492">Whisper large-v3</text><text class="mS" x="210" y="492">transcription</text><text class="bS" x="68" y="513">Kokoro</text><text class="mS" x="210" y="513">voices for audio overviews</text><text class="bS" x="68" y="534">Qwen3 Embedding</text><text class="mS" x="210" y="534">source relevance ranking</text><path class="edge" d="M250.0,354 V310" marker-end="url(#ah-stack)"/><path class="comet" pathLength="100" d="M250.0,354 V310" style="animation-delay:1s"/><text class="lab" x="262" y="335">loads on demand</text><rect class="box optional" x="590" y="70" width="230" height="114" rx="3"/><text class="k" x="608" y="97">:5012 · OPTIONAL</text><text class="t" x="608" y="124">HiC</text><text class="m" x="608" y="150">Data packs and the second</text><text class="m" x="608" y="170">brain, with the suite running.</text><rect class="hot" x="590" y="262" width="230" height="124" rx="3"/><text class="k" x="608" y="289">:9460</text><text class="t" x="608" y="316">IA Next Local</text><text class="m" x="608" y="342">Agent, plan cards and</text><text class="m" x="608" y="362">automated checks.</text><path class="edge" d="M590,290 H454" marker-end="url(#ah-stack)"/><path class="comet" pathLength="100" d="M590,290 H454" style="animation-delay:2.4s"/><text class="lab" x="520" y="280" text-anchor="middle">model calls</text><path class="edge dash flow" d="M705.0,262 V188" marker-end="url(#ah-stack)"/><text class="lab" x="693" y="228" text-anchor="end">packs, second brain</text><rect class="box" x="590" y="456" width="230" height="112" rx="3"/><text class="k" x="608" y="483">SEARXNG</text><text class="t" x="608" y="510">Self-hosted web search</text><text class="m" x="608" y="536">Separate container, no API</text><text class="m" x="608" y="556">key.</text><path class="edge" d="M705.0,386 V452" marker-end="url(#ah-stack)"/><path class="comet" pathLength="100" d="M705.0,386 V452" style="animation-delay:3.6s"/><text class="lab" x="717" y="426">searches</text><rect class="box" x="930" y="456" width="250" height="112" rx="3"/><text class="k" x="948" y="483">PUBLIC WEB</text><text class="t" x="948" y="510">Articles and posts</text><text class="m" x="948" y="536">Stored with their dates as</text><text class="m" x="948" y="556">sources.</text><path class="edge" d="M820,512 H926" marker-end="url(#ah-stack)"/><path class="comet" pathLength="100" d="M820,512 H926" style="animation-delay:4.6s"/><text class="lab" x="893" y="502" text-anchor="middle">pages</text><rect class="box refused" x="930" y="262" width="250" height="124" rx="3"/><text class="k" x="948" y="289">PAID MODEL APIS</text><text class="t" x="948" y="316">Blocked</text><text class="m" x="948" y="342">The app's HTTP client rejects</text><text class="m" x="948" y="362">metered model hosts.</text><path class="edge red" d="M820,324 H926" marker-end="url(#ah-stackr)"/><text class="lab" x="893" y="308" text-anchor="middle">blocked</text><path class="edge red" d="M886,317 l14,14 M900,317 l-14,14"/></svg></div>
+    <figcaption>One model stays loaded on the 24 GB graphics card; the specialists load when their job comes up and hand the card back. Web search runs through a self-hosted SearXNG container, and paid model APIs are blocked.</figcaption></figure>
+  <div class="netwrap"><svg id="net" viewBox="0 0 1000 585" role="group" aria-label="Models on the left, jobs on the right; lines show which model does which job"></svg></div>
+  <details class="astable"><summary>Show as a table</summary>
+    <div class="mmapwrap"><table class="mmap" id="mmap" aria-label="Which model does which job"></table></div>
+  </details>
+  <div class="mdetail" id="mDetail" aria-live="polite"></div>
+</div></section>
 
 <section class="reveal" id="away"><div class="wrap">
   <div class="intro">
@@ -555,6 +614,79 @@ docker compose -f ia-next-local.compose.yml \
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => { getSelection().selectAllChildren(pre); });
     else getSelection().selectAllChildren(pre);
   }));
+})();
+
+(() => {
+  const jobs = [["chat", "Chat"], ["search", "Search planning"], ["analysis", "Analysis"], ["writing", "Writing"], ["review", "Review"], ["proto", "Prototypes"], ["quick", "Quick jobs"], ["rel", "Source ranking"], ["trans", "Transcripts"], ["voice", "Voices"], ["media", "Pictures and video"]], models = [{"name": "Qwen 3.8 27B", "meta": "Alibaba · 17.7 GB · Apache 2.0", "jobs": {"chat": "p", "search": "p", "analysis": "p", "writing": "p", "review": "f", "proto": "f"}, "role": "The main model, always loaded. It holds the conversation, plans the web searches, pulls findings with exact quotes and writes every document, deck and map. It also reads pictures and scanned PDFs.", "tools": ["Chat and plan cards", "Memory search", "Research reports", "Slide decks", "Documents and briefs", "Journey maps", "Themes", "Diagrams", "Data tables", "Audio scripts", "Reading uploaded files"], "makes": ["report", "deck", "deckdeep", "arch", "gap", "personas", "journey", "audit", "recs", "brief", "infographic", "table", "studyguide", "faq", "chronology", "flashcards", "quiz"]}, {"name": "Nemotron 3.5 Lightning 30B", "meta": "NVIDIA · 18.9 GB · open weights", "jobs": {"review": "p", "chat": "f"}, "role": "The second opinion. It reviews documents and deep research, because a reviewer from a different company than the writer catches mistakes the writer misses.", "tools": ["Reviewing every document"], "makes": ["report", "gap", "arch", "brief"]}, {"name": "Ornith 1.5 35B", "meta": "Ornith · 22.6 GB · open weights", "jobs": {"proto": "p"}, "role": "Builds the clickable prototypes.", "tools": ["Clickable prototypes"], "makes": ["proto"]}, {"name": "MiniCPM5 2B", "meta": "OpenBMB · 1.6 GB · open weights", "jobs": {"quick": "p"}, "role": "Handles small, frequent jobs, so the large models stay free for the main work.", "tools": ["Source summaries", "Choosing data sources", "Filtering the library", "Reviewing memory notes", "Ranking search results"], "makes": []}, {"name": "Qwen 3.8 27B, compact", "meta": "Alibaba · 14.3 GB · same weights, smaller", "jobs": {"chat": "f", "search": "f", "analysis": "f", "writing": "f", "proto": "f"}, "role": "The same model in a smaller file. It steps in when the graphics card is short of memory.", "tools": ["Everything Qwen 3.8 27B does"], "makes": []}, {"name": "Qwen 3.5 9B", "meta": "Alibaba · 6.6 GB · Apache 2.0", "jobs": {"chat": "f", "search": "f", "analysis": "f", "writing": "f", "quick": "f"}, "role": "The last fallback for most jobs, so work still finishes if a larger model is missing.", "tools": ["Backup for most jobs"], "makes": []}, {"name": "Qwen3 4B", "meta": "Alibaba · 2.5 GB · Apache 2.0", "jobs": {"quick": "f"}, "role": "Steps in for the quick-jobs model.", "tools": ["Backup for quick jobs"], "makes": []}, {"name": "Qwen3 Embedding 0.6B", "meta": "Alibaba · 0.6 GB · open weights", "jobs": {"rel": "p"}, "role": "Scores how well each collected source fits the question, and groups passages into themes.", "tools": ["Sorting sources by relevance", "Grouping passages into themes"], "makes": ["themes", "report"]}, {"name": "Whisper large-v3", "meta": "OpenAI · 3.1 GB · MIT", "jobs": {"trans": "p"}, "role": "Transcribes YouTube links and attached recordings, one after another. Each transcript is timestamped and stored as a source the chat can quote.", "tools": ["Video and recording transcripts", "YouTube links", "Attached recordings"], "makes": ["video"]}, {"name": "Whisper small", "meta": "OpenAI · MIT", "jobs": {"trans": "f"}, "role": "Transcribes short audio uploads.", "tools": ["Short audio uploads"], "makes": []}, {"name": "Kokoro", "meta": "voices · open weights", "jobs": {"voice": "p"}, "role": "Gives the audio overviews their two voices.", "tools": ["Audio overview voices"], "makes": ["audio"]}, {"name": "Piper", "meta": "Rhasspy voices · MIT", "jobs": {"voice": "f"}, "role": "Backup voices if Kokoro is missing.", "tools": ["Backup voices"], "makes": []}, {"name": "MOSS-Image", "meta": "OpenMOSS · Apache 2.0", "jobs": {"media": "p"}, "role": "Draws the photographs and illustrations: deck pictures, persona and journey photos, and one illustration for each finding on an infographic, in the brand's colours.", "tools": ["Pictures on request", "Deck pictures", "Persona photographs", "Infographic illustrations"], "makes": ["deck", "personas", "infographic"]}, {"name": "Stable Diffusion 3.5 Large", "meta": "Stability AI · open weights · community licence", "jobs": {"media": "f"}, "role": "Backup picture model if MOSS-Image is unavailable.", "tools": ["Backup pictures"], "makes": []}, {"name": "Kandinsky 6.0 Lite", "meta": "Kandinsky Lab · MIT", "jobs": {"media": "p"}, "role": "Makes five-second video clips with sound, each one after it is approved.", "tools": ["Short video clips"], "makes": []}], names = {"report": "Research report", "deck": "Slide deck", "deckdeep": "Detailed deck", "arch": "Architecture map", "gap": "Competitive gap analysis", "personas": "Personas", "journey": "Journey map", "audit": "Technology audit", "recs": "Recommendations", "brief": "Executive brief", "mindmap": "Mind map", "infographic": "Infographic", "table": "Data table", "themes": "Themes", "reddit": "Reddit listening", "audio": "Audio overview", "proto": "Prototype", "video": "Video transcript", "studyguide": "Study guide", "faq": "FAQ", "chronology": "Timeline", "flashcards": "Flashcards", "quiz": "Quiz"};
+  const $ = s => document.querySelector(s);
+  const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) { if (k === 'text') n.textContent = v; else n.setAttribute(k, v); }
+    kids.forEach(c => n.append(c)); return n; };
+  const tileFor = k => document.querySelector('.tile[data-k="' + k + '"]');
+  // the table view
+  const head = el('tr', {}, el('th', { scope: 'col', text: 'Model' }), ...jobs.map(([, n]) => el('th', { scope: 'col', text: n })));
+  const mrows = models.map((m, i) => {
+    const btn = el('button', { class: 'mrow', type: 'button', 'aria-pressed': 'false' }, el('b', { text: m.name }), el('span', { text: m.meta }));
+    const tr = el('tr', {}, el('td', { style: 'text-align:left' }, btn),
+      ...jobs.map(([k, n]) => el('td', {}, m.jobs[k] ? el('span', { class: 'sq ' + m.jobs[k], role: 'img', 'aria-label': n + (m.jobs[k] === 'p' ? ': does this job' : ': steps in') }) : '')));
+    btn.addEventListener('click', () => showModel(i));
+    return { tr, btn };
+  });
+  $('#mmap').append(el('thead', {}, head), el('tbody', {}, ...mrows.map(r => r.tr)));
+  // the network: models left, jobs right, a line for every job a model does
+  const NS = 'http://www.w3.org/2000/svg';
+  const sv = (tag, attrs = {}) => { const n = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); return n; };
+  const net = $('#net');
+  const my = i => 22 + i * 37, jy = j => 22 + j * (37 * (models.length - 1) / (jobs.length - 1));
+  const edges = [];
+  models.forEach((m, i) => Object.entries(m.jobs).forEach(([k, kind]) => {
+    const j = jobs.findIndex(x => x[0] === k), y1 = my(i) + 15, y2 = jy(j) + 15;
+    const p = sv('path', { class: 'edge ' + kind, d: `M300 ${y1} C 500 ${y1}, 500 ${y2}, 700 ${y2}` });
+    edges.push({ p, i, j }); net.append(p);
+  }));
+  const mnodes = models.map((m, i) => {
+    const g = sv('g', { class: 'mnode', tabindex: '0', role: 'button', 'aria-label': m.name });
+    g.append(sv('rect', { x: 10, y: my(i), width: 290, height: 30 }));
+    const t = sv('text', { x: 22, y: my(i) + 20 }); t.textContent = m.name; g.append(t);
+    const s = sv('text', { class: 'sub', x: 290, y: my(i) + 19, 'text-anchor': 'end' }); s.textContent = m.meta.split(' · ')[1] || ''; g.append(s);
+    g.addEventListener('click', () => showModel(i));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showModel(i); } });
+    net.append(g); return g;
+  });
+  const jnodes = jobs.map(([k, name], j) => {
+    const g = sv('g', { class: 'mnode', tabindex: '0', role: 'button', 'aria-label': name + ': which models do it' });
+    g.append(sv('rect', { x: 700, y: jy(j), width: 290, height: 30 }));
+    const t = sv('text', { x: 714, y: jy(j) + 20 }); t.textContent = name; g.append(t);
+    const n = models.filter(m => m.jobs[k]).length;
+    const s = sv('text', { class: 'sub', x: 980, y: jy(j) + 19, 'text-anchor': 'end' }); s.textContent = n + (n === 1 ? ' model' : ' models'); g.append(s);
+    const pick = () => { mnodes.forEach(x => x.classList.remove('on')); jnodes.forEach((x, jj) => x.classList.toggle('on', jj === j));
+      edges.forEach(e => { e.p.classList.remove('on'); if (e.j === j) e.p.classList.add('on'); }); };
+    g.addEventListener('click', pick);
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+    net.append(g); return g;
+  });
+  function lightModel(i) {
+    jnodes.forEach(x => x.classList.remove('on'));
+    mnodes.forEach((x, ii) => x.classList.toggle('on', ii === i));
+    edges.forEach(e => e.p.classList.remove('on'));
+    requestAnimationFrame(() => edges.forEach(e => { if (e.i === i) e.p.classList.add('on'); }));
+    const lit = new Set(edges.filter(e => e.i === i).map(e => e.j));
+    jnodes.forEach((x, j) => x.classList.toggle('on', lit.has(j)));
+  }
+  function showModel(i) {
+    const m = models[i];
+    lightModel(i);
+    mrows.forEach((r, j) => { r.tr.classList.toggle('sel', i === j); r.btn.setAttribute('aria-pressed', String(i === j)); });
+    const left = el('div', {}, el('h3', { text: m.name }), el('div', { class: 'facts2', text: m.meta }), el('p', { text: m.role }));
+    const right = el('div', {}, el('span', { class: 'hint', text: 'Tasks it handles' }),
+      el('div', { class: 'toolchips' }, ...m.tools.map(t => el('span', { text: t }))),
+      ...(m.makes.length ? [el('span', { class: 'hint', style: 'margin-top:14px', text: 'Deliverables it produces' }),
+        el('div', { class: 'makes' }, ...m.makes.map(k => { const tile = tileFor(k);
+          if (!tile) return el('span', { text: names[k] || k });
+          const b = el('button', { type: 'button', text: names[k] || k }); b.addEventListener('click', () => tile.click()); return b; }))] : []));
+    $('#mDetail').replaceChildren(left, right);
+  }
+  showModel(0);
 })();
 </script>
 
