@@ -36,6 +36,26 @@ The consultant stays in charge at the two points that matter. Before any researc
 
 Every AI model IA Next Local uses is installed on the consultant's computer. Interview recordings, briefs and other client files are read there and never sent to an outside AI provider, and there is no charge per request, so a long research job costs the same as a short one. Drafts are also reviewed by a second AI model from a different company than the one that wrote them.
 
+## The AI model stack
+
+<p align="center"><img src="docs/readme/model-stack.svg" alt="The AI model stack on one machine: Qwen 3.8 27B kept loaded on a 24 GB graphics card; specialist models loaded on demand (Nemotron review, Ornith prototypes, MOSS-Image illustrations, Kandinsky video, Whisper transcription, Kokoro voices, Qwen3 Embedding relevance ranking); the IA Next Local app on port 9460; self-hosted web search through SearXNG; HiC on port 5012 as an optional link; and paid model APIs, which are blocked." width="100%"></p>
+
+Qwen 3.8 27B stays loaded on the 24 GB graphics card for chat, search planning, quote extraction and writing, because loading a large model takes 14 to 36 seconds. The specialist models load when their job comes up and hand the card back.
+
+| Job | Model | Steps in when it is unavailable | Licence |
+|---|---|---|---|
+| Chat, search planning, analysis and writing | Qwen 3.8 27B (Alibaba) | Qwen 3.8 27B compact, then Qwen 3.5 9B | Apache 2.0 |
+| Second-opinion review | Nemotron 3.5 Lightning 30B (NVIDIA) | Qwen 3.8 27B | open weights |
+| Clickable prototypes | Ornith 1.5 35B | Qwen 3.8 27B | open weights |
+| Quick jobs: summaries, filtering, ranking | MiniCPM5 2B (OpenBMB) | Qwen3 4B, then Qwen 3.5 9B | open weights |
+| Source relevance and themes | Qwen3 Embedding 0.6B (Alibaba) | | open weights |
+| Transcription | Whisper large-v3 (OpenAI) | Whisper small | MIT |
+| Audio overview voices | Kokoro | Piper | open weights |
+| Pictures and illustrations | MOSS-Image (OpenMOSS) | Stable Diffusion 3.5 Large | Apache 2.0 |
+| Short video clips | Kandinsky 6.0 Lite | | MIT |
+
+The [overview site](https://nxtlupo.github.io/internal-solution-selfimprovement-IA-HiC/#models) has the interactive version: select a model to see its role, the tasks it handles and the deliverables it produces.
+
 ## Quality checks run while no one is working
 
 <p align="center"><img src="docs/readme/idle-loop.svg" alt="When the computer is idle, IA Next Local re-checks past deliverables, reads recent conversations for notes worth keeping, tests every skill again, tests each AI software update and clears short-term notes. Flagged work, suggested notes and quality drops wait for a person to approve or reject them." width="100%"></p>
